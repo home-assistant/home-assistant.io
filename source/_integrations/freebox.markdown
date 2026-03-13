@@ -69,7 +69,7 @@ To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme
 
 Only the routers with Freebox OS are supported:
 
-- Freebox V8 also known as Freebox Pop (France) and Iliadbox (Italy)
+- Freebox V8 (Freebox Pop in France, Iliadbox in Italy)
 - Freebox V7 also known as Freebox Delta
 - Freebox V6 also known as Freebox Revolution
 - Freebox mini 4k
@@ -130,10 +130,20 @@ This platform offers you a switch to toggle the Wi-Fi on or off. This will toggl
 
 ## Fix for Italian version (Iliadbox)
 
-After updating the Freebox/Iliadbox to firmware 4.8.17.2 the integration will stop working due to SSL certificate issues. This can be fixed by using the [Additional CA](https://github.com/Athozs/hass-additional-ca) custom integration to load the following new CA certificates (refer to the integration's documentation for instructions), that are taken from the API manual (HTTPS access page) accessed from the Iliadbox's web interface:
+After you update your Freebox/Iliadbox to firmware 4.8.17.2, the integration might stop working because of SSL certificate issues.
+You can work around this by loading new CA certificates into Home Assistant.
+
+To do this, follow these steps:
+
+1. Install the [Additional CA](https://github.com/Athozs/hass-additional-ca) custom integration.
+2. In your Iliadbox web interface, open the API manual and go to the HTTPS access page.
+3. Copy the **ECC Root CA** certificate shown below.
+4. Copy the **RSA Root CA** certificate shown below.
+5. In the Additional CA integration, add both certificates as new certificate authorities, following the integration's documentation.
+6. Restart Home Assistant, then reload the Freebox integration.
 
 ECC Root CA
-```
+```text
 -----BEGIN CERTIFICATE-----
 MIICOjCCAcCgAwIBAgIUI0Tu7zsrBJACQIZgLMJobtbdNn4wCgYIKoZIzj0EAwIw
 TDELMAkGA1UEBhMCSVQxDjAMBgNVBAgMBUl0YWx5MQ4wDAYDVQQKDAVJbGlhZDEd
@@ -151,7 +161,7 @@ LCiBKV2j7QQGy7N1aBmdur17ZepYzR1YV0eI+Kd978aZggsmhjXENQYVTmm/XA==
 ```
 
 RSA Root CA
-```
+```text
 -----BEGIN CERTIFICATE-----
 MIIFiTCCA3GgAwIBAgIUTXoJE/kJnSKpxk5FjcmqmGah9zcwDQYJKoZIhvcNAQEL
 BQAwTDELMAkGA1UEBhMCSVQxDjAMBgNVBAgMBUl0YWx5MQ4wDAYDVQQKDAVJbGlh
@@ -186,4 +196,4 @@ Yu11tlZsB2Iw/TT1EyPVb5z6tK4wUgWLNFAvjXU=
 -----END CERTIFICATE-----
 ```
 
-After load the certificates the Iliadbox can be manually added in 'Devices > Add integration > Freebox > New instance' and using 'myiliadbox.iliad.it' as the IP address and 443 as the port.
+After you load the certificates, you can manually add the Iliadbox under **Settings** > **Devices & services** by selecting **Add integration**, then **Freebox**, and creating a new instance. Use `myiliadbox.iliad.it` as the host and `443` as the port.
