@@ -84,8 +84,6 @@ To install and use the File Editor in Home Assistant, follow these steps:
 2. If you want to be able to access directories outside the `/config` directory, you need to disable an option in the app configuration.
    - Go to the app under {% my supervisor_addon title="**Settings** > **Apps** > **File editor**" addon="core_configurator" %}.
    - Open the **Configuration** tab.
-
-     ![Configuration tab of the File Editor app](/images/docs/configuration/file-editor-config-tab.png)
    - In the configuration settings, disable the **Enforce basepath** option.
    - Note: The **Enforce basepath** option is intended to protect you from inadvertently making changes to settings files.
 3. For information on other configuration settings, open the **Documentation** tab.
