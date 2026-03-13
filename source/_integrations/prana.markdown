@@ -39,17 +39,16 @@ The integration exposes the following entities.
 
 #### Fans
 
-The integration provides fan entities to control the recuperator's speed and airflow. Note: The availability of specific fan entities depends dynamically on the state of the Bound switch.
+The integration provides fan entities to control the recuperator's speed and airflow.
 
-- Bounded
-  - Controls both supply and extract fans simultaneously with a single speed setting.
-  - _Availability:_ Available only when the Bound switch is ON.
 - Supply
   - Controls the fresh air intake speed independently.
   - _Availability:_ Available only when the Bound switch is OFF.
 - Extract
   - Controls the exhaust air speed independently.
   - _Availability:_ Available only when the Bound switch is OFF.
+  
+Note: When Bound Mode is active, the Supply and Extract fans operate in sync. Adjusting the speed of one fan will automatically update the other to the same value, ensuring balanced airflow
 
 All fan entities support speed control (0-100%) and the following presets:
 - Night: Sets the device to silent, minimum speed operation.
