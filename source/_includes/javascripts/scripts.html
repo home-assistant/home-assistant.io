@@ -139,12 +139,15 @@
 
         tocCurrent.textContent = getHeadingText(headings[0]);
 
-        const getScrollOffset = () => {
-          const siteHeader = document.querySelector(".site-header");
-          const tocBar = document.getElementById("toc-bar");
+        const siteHeader = document.querySelector(".site-header");
+        const tocBar = document.getElementById("toc-bar");
+        const scrollOffsetModifier = 20;
 
-          if (siteHeader && tocBar) {
-            return siteHeader.offsetHeight + tocBar.offsetHeight + 20;
+        const getScrollOffset = () => {
+          if (siteHeader && (window.innerWidth > 1280)) {
+            return siteHeader.offsetHeight + scrollOffsetModifier;
+          } else if (siteHeader && tocBar) {
+            return siteHeader.offsetHeight + tocBar.offsetHeight + scrollOffsetModifier;
           }
 
           return 140;
@@ -164,7 +167,7 @@
 
           tocCurrent.textContent = getHeadingText(current);
 
-          const tocList = document.getElementById("toc");
+          const tocList = document.querySelector("#toc-bar #toc");
           if (tocList) {
             const titleLink = current.querySelector("a.title-link");
             const slug = titleLink && titleLink.getAttribute("name");
