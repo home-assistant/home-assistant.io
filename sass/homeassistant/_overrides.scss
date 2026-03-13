@@ -198,13 +198,27 @@ h1.title.indent {
   padding-left: 32px;
 
   label {
+    cursor: default;
+
     .title {
       font-weight: 800;
+      margin: 1em 0 .5em;
+      padding-bottom: 5px;
+      font-family: $heading-font;
+      display: inline-block;
     }
 
     input[type="checkbox"] {
-      display: none;
-      pointer-events: none;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     span.toc-current {
@@ -249,6 +263,13 @@ h1.title.indent {
         align-items: center;
         gap: 0.5rem;
         white-space: nowrap;
+        cursor: pointer;
+
+        &:has(input[type="checkbox"]:focus) {
+          .title {
+            border-color: $blue;
+          }
+        }
 
         &:has(input[type="checkbox"]:checked) {
           + ul#toc {
