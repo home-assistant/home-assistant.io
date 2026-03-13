@@ -27,7 +27,7 @@ Follow these steps to create a new area from the **Areas** view.
 1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and select **Create area**.
 2. In the dialog, enter the area details:
    - Give the area a **Name** (required).
-   - Add an icon (use [Material icons](https://pictogrammers.com/library/mdi/)).
+   - Add an icon (use [Material Design Icons (MDI)](https://pictogrammers.com/library/mdi/)).
    - Assign the area to a floor.
      - If you have not created floors yet, you can [create a new floor](/docs/organizing/floors/#creating-a-floor).
      - The number can be negative. For example, for underground floors.
