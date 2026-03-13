@@ -50,8 +50,6 @@ trigger:
     entity_id: !input litter_robot_entity
     to: cleaning
 
-condition: []
-
 action:
   - service: vacuum.clean_area
     target:
