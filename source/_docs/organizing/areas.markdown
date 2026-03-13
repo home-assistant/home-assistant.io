@@ -37,7 +37,7 @@ Follow these steps to create a new area from the **Areas** view.
      - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to an area, entity, or floor.
 
     ![Create area dialog](/images/organizing/create_area_01.png)
-3. Select **Add**.
+3. Select **Create**.
 
    **Result**: A new area is created.
 
