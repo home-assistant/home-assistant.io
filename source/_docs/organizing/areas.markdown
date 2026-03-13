@@ -62,6 +62,16 @@ You can assign an area to multiple items at once in the {% term automation %}, {
 
 3. In the top right corner, select **Move to area** and select the target area from the list.
 
+## Assigning an area to a device from the devices dashboard
+
+The **Overview** (built-in) dashboard has a dedicated **Devices** area that shows all devices that are not assigned to an area.
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Overview** (built-in) dashboard.
+2. Scroll down to the **Devices** area and select the **Devices** card.
+3. For your device, select **Assign area** and choose the target area from the list.
+
+   ![Assign area](/images/organizing/devices-dashboard-assign-area.png)
+
 ## Editing an area
 
 Follow these steps to edit an area.
