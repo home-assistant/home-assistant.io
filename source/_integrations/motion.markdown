@@ -2,7 +2,7 @@
 title: Motion
 description: This integration provides motion automation triggers.
 ha_category:
-  - Other
+  - Automation
 ha_release: 2026.4
 ha_quality_scale: internal
 ha_codeowners:
