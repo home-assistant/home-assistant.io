@@ -226,6 +226,17 @@ h1.title.indent {
     }
   }
 
+  ul#toc {
+    a {
+      color: #1c1e21;
+
+      &:hover,
+      &[aria-current] {
+        color: $blueDark;
+      }
+    }
+  }
+
   @media only screen and (max-width: $desk-wide-start) {
     width: 100%;
     max-height: 80%;

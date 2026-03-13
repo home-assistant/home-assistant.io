@@ -145,7 +145,7 @@
 
         const getScrollOffset = () => {
           if (siteHeader && (window.innerWidth > 1280)) {
-            return siteHeader.offsetHeight + scrollOffsetModifier;
+            return siteHeader.offsetHeight;
           } else if (siteHeader && tocBar) {
             return siteHeader.offsetHeight + tocBar.offsetHeight + scrollOffsetModifier;
           }
