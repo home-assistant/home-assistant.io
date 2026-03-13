@@ -139,8 +139,21 @@
 
         tocCurrent.textContent = getHeadingText(headings[0]);
 
+        const getScrollOffset = () => {
+          const siteHeader = document.querySelector(".site-header");
+          const tocBar = document.getElementById("toc-bar");
+
+          if (siteHeader && tocBar) {
+            return siteHeader.offsetHeight + tocBar.offsetHeight + 20;
+          }
+
+          return 140;
+        };
+
+        console.log(getScrollOffset());
+
         const updateTocCurrent = () => {
-          const scrollY = window.scrollY + 140;
+          const scrollY = window.scrollY + getScrollOffset();
           let current = headings[0];
 
           for (const heading of headings) {
