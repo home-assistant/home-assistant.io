@@ -26,7 +26,9 @@ There are a few tools to group your assets: [Areas](#area), [floors](#floor), [l
 | Category          | {% icon "openmoji:cross-mark" %} | {% icon "openmoji:cross-mark" %} |
 | Group integration | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
 
-This means a light entity for example can only be in one area and one floor, but it can have multiple labels and be in multiple groups. If a device is assigned to an area, its entities inherit that area. However, you can also assign an entity to an area directly, which overrides the area for that specific entity. For example, you could have a smart plug device in the living room area (with the sensor entities), but assign one of its entities (the on/off switch for example) to the kitchen area.
+For example, a smart plug with energy monitoring is a single device, but it has multiple entities of different types: a switch entity and a sensor entity. Each of those entities can only belong to one area and one floor, but they can each have multiple labels and be a member of multiple groups.
+
+When you assign a device to an area, all its entities inherit that area. You can override this for individual entities. For example, you could keep the sensor entities of the smart plug in the living room, but assign the switch entity to the kitchen.
 
 ## Area
 
