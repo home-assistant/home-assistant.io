@@ -7,7 +7,6 @@ ha_category:
   - Climate
   - Sensor
   - Binary sensor
-  - Sensor
   - Switch
 ha_domain: heatit
 ha_integration_type: brand
@@ -17,7 +16,6 @@ ha_platforms:
   - climate
   - sensor
   - binary_sensor
-  - sensor
   - switch
 ha_iot_standard: zwave
 ha_brand: true
