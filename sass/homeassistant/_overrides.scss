@@ -206,6 +206,10 @@ h1.title.indent {
       display: none;
       pointer-events: none;
     }
+
+    span.toc-current {
+      display: none;
+    }
   }
 
   @media only screen and (max-width: $desk-wide-start) {
@@ -286,11 +290,12 @@ h1.title.indent {
           }
         }
 
-        span {
+        span.toc-current {
           font-size: 0.875rem;
           overflow: hidden;
           text-overflow: ellipsis;
           color: $gray;
+          display: block;
         }
       }
 
