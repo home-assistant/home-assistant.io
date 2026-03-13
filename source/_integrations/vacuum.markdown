@@ -128,7 +128,7 @@ Before you can send your vacuum to clean specific areas, you need to map the are
 3. Select **Map vacuum to areas**.
    - Result: In the dialog, you should see the vacuum areas listed on the left and the Home Assistant areas on the right.
    - If you do not see the **Map vacuum to areas** option, your vacuum does not support area cleaning. You cannot use the `vacuum.clean_area` action with this vacuum.
-   - Troubleshooting: If there are no areas listed on the left hand side, make sure the areas are properly set up in the vacuum's app. You might need to save or confirm them again in the app.
+   - Troubleshooting: If there are no areas listed on the left, make sure the areas are properly set up in the vacuum's app. You might need to save or confirm them again in the app.
 4. In the **Map vacuum to areas** dialog, map the Home Assistant areas to the listed areas of your vacuum.
 5. Select **Save**.
 
