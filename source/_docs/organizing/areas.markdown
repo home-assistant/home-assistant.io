@@ -88,6 +88,14 @@ Follow these steps to edit an area.
    - Add an **Alias**.
      - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to an area, entity, or floor.
 
+## Editing an area from the area dashboard
+
+You can also edit the area details when you're on the area dashboard.
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Overview** (built-in) dashboard.
+2. In the top-right corner, select the edit {% icon "mdi:edit" %} button.
+3. In the **Update area** dialog, [edit the area details](#editing-an-area).
+
 ## Reordering areas on built-in dashboards
 
 {% include organizing/reorder-areas.md %}
