@@ -17,7 +17,7 @@ related:
 
 An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world of your home. Areas allow you to target an entire group of devices with an action.
 
-For example, the "Living room" area groups devices and entities in your living room. This allows you to turn off all the lights in the living room with one switch.
+For example, the "Living room" area groups devices and entities in your living room. This allows you to turn off all the lights in the living room with a single action.
 Areas can be assigned to {% term floors %}. Areas can also be used to automatically generate cards, such as the [Area card](/dashboards/area/).
 
 ## Creating an area
