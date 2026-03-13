@@ -24,7 +24,9 @@ There are a few tools to group your assets: [Areas](#area), [floors](#floor), [l
 | Floor             | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
 | Label             | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
 | Category          | {% icon "openmoji:cross-mark" %} | {% icon "openmoji:cross-mark" %} |
-| Group Integration | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Group integration | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
+
+This means a light entity for example can only be in one area and one floor, but it can have multiple labels and be in multiple groups. If a device is assigned to an area, its entities inherit that area. However, you can also assign an entity to an area directly, which overrides the area for that specific entity. For example, you could have a smart plug device in the living room area (with the sensor entities), but assign one of its entities (the on/off switch for example) to the kitchen area.
 
 ## Area
 
@@ -60,7 +62,9 @@ There are a few tools to group your assets: [Areas](#area), [floors](#floor), [l
 <img class="no-shadow" src='/images/organizing/categories.png' alt='Screenshots the new categories. Automations are grouped into their categories, making it easier to get an overview or to filter them.'>
 
 ## Group Integration
-  - Designed to combine multiple entities into one entity representing the group.
-  - The combined entity can also have an area and labels.
-  - Can be used in automations and scripts as a target for actions.
-  - Does not assist with organizing entities in the UI like the other methods above. For example, you cannot use group integration to sort or filter other entities.
+
+- Designed to combine multiple entities into one entity representing the group.
+- The combined entity can also have an area and labels.
+- An entity can be a member of multiple groups.
+- Can be used in automations and scripts as a target for actions.
+- Does not assist with organizing entities in the UI like the other methods above. For example, you cannot use group integration to sort or filter other entities.
