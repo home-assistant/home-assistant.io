@@ -35,7 +35,7 @@ Some UPnP/IGD devices have a broken UPnP implementation and will provide invalid
 
 ## 32-bit counter rollover
 
-Under some circumstances, the KiB/s and packets/s rates might be unavailable whenever the underlying 32-bit counter rolls over to zero. If the history graphs for bytes (and packets) have a sawtooth shape and the counters reset often from 4GiB to zero, then you shouldenable the corresponding configuration option to get uninterrupted rate data.
+Under some circumstances, the KiB/s and packets/s rates might be unavailable whenever the underlying 32-bit counter rolls over to zero. If the history graphs for bytes (and packets) have a sawtooth shape and the counters reset often from 4GiB to zero, then you should enable the corresponding configuration option to get uninterrupted rate data.
 
 ## Debugging integration
 
