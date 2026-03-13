@@ -93,8 +93,9 @@ Follow these steps to edit an area.
 You can also edit the area details when you're on the area dashboard.
 
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Overview** (built-in) dashboard.
-2. In the top-right corner, select the edit {% icon "mdi:edit" %} button.
-3. In the **Update area** dialog, [edit the area details](#editing-an-area).
+2. Select the area.
+3. In the top-right corner, select the edit {% icon "mdi:edit" %} button.
+4. In the **Update area** dialog, [edit the area details](#editing-an-area).```
 
 ## Reordering areas on built-in dashboards
 
