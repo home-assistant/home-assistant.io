@@ -7,8 +7,8 @@ ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@klaasnicolaas'
-  - '@frenck'
+  - "@klaasnicolaas"
+  - "@frenck"
 ha_domain: forecast_solar
 ha_platforms:
   - diagnostics
@@ -34,7 +34,7 @@ As an example automation idea, you could determine if:
 
 ## Prerequisites
 
-Forecast.Solar relies on data provided by the [EU Photovoltaic geographical information system](https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html) and your solar panels must be in a location that is covered by this tool. Data is available for almost the entire world. 
+Forecast.Solar relies on data provided by the [EU Photovoltaic geographical information system](https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html) and your solar panels must be in a location that is covered by this tool. Data is available for almost the entire world.
 
 To use the Forecast.Solar integration, it will need some information about your
 solar panel system: **latitude**, **longitude**, **declination**, **azimuth**
@@ -50,7 +50,7 @@ of `90` means your panels are standing up vertically.
 
 The **azimuth** (in degrees on a 360° scale);
 Is the direction in which the front surface of your solar panels are facing
-towards. As a full circle is 360°, a value of  `0` is facing North, `90` East,
+towards. As a full circle is 360°, a value of `0` is facing North, `90` East,
 `180` South and `270` is facing West (or any value in between).
 
 The **total modules power** (in Watt peak);
@@ -62,7 +62,7 @@ value.
 
 {% include integrations/config_flow.md %}
 
-If you have more than one plane of solar modules with different properties (e.g. several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use [template sensors](/integrations/template/) to combine the data, e.g. adding up production on different planes into one value to base your planning on.
+If you have more than one plane of solar modules with different properties (for example, several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use [template sensors](/integrations/template/) to combine the data, for example by adding up production on different planes into one value to base your planning on.
 
 ## Sensors
 
@@ -99,7 +99,7 @@ If you like the Forecast.Solar service, or are interested in more frequent data
 updates (based on a higher data resolution), you could [sign up for one
 of their plans](https://doc.forecast.solar/doku.php?id=account_models#compare_plans).
 
-To enable the use of the API key with this integration, go to {% my integrations %}. 
+To enable the use of the API key with this integration, go to {% my integrations %}.
 Select the Forecast.Solar integration, then select **Configure**. Enter the
 API key for your account.
 
@@ -107,7 +107,7 @@ API key for your account.
 
 The estimation can be tweaked and tuned to match your solar setup better.
 There are many factors that can cause the estimations to be slightly off
-(but don't forget, it will always remain a forecast based on, e.g., weather
+(but don't forget, it will always remain a forecast based on, for example, weather
 and historical data - not actual power produced).
 
 Luckily, there are controls to make them more accurate for your situation,
