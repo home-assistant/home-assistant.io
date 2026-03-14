@@ -2,27 +2,15 @@
 title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
-  - Binary sensor
-  - Button
   - Sensor
-  - Number
-  - Time
-  - Select
-  - Switch
-ha_release: '2025.12'
+ha_release: '2026.4'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@tomer-w'
 ha_domain: victron_gx_mqtt
 ha_platforms:
-  - binary_sensor
-  - button
-  - number
-  - time
   - sensor
-  - switch
-  - select
 ha_integration_type: integration
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -135,8 +123,6 @@ Simple naming:
   description: "Enable simplified entity naming without device prefixes."
 Root topic prefix:
   description: "Custom MQTT topic prefix if your Victron device uses a non-standard topic structure."
-Update frequency:
-  description: "Frequency in seconds for polling updates from the MQTT broker (default is 30 seconds)."
 Excluded devices:
   description: "Select device types to exclude from the integration to reduce the number of entities."
 Elevated tracing:
