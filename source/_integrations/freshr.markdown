@@ -103,7 +103,7 @@ The **Fresh-r** integration {% term polling polls %} sensor readings from the Fr
 
 ### Authentication failed
 
-If the integration shows an authentication error, make sure the username (email address) and password you entered match the credentials you use to sign in to [fresh-r.me](https://www.fresh-r.me/). If you recently changed your password, remove the integration and add it again with your updated credentials.
+If the integration shows an authentication error, make sure the username (email address) and password match what you use to sign in to [fresh-r.me](https://www.fresh-r.me/). If you recently changed your password, Home Assistant will prompt you to reauthenticate. Select the notification to re-enter your updated credentials without having to remove and re-add the integration.
 
 ### Cannot connect to Fresh-r
 
