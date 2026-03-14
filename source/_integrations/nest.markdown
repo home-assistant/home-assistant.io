@@ -151,7 +151,7 @@ The steps below use _Web Application Auth_ with _My Home Assistant_ to handle Go
 
 4. Pick a name for your credential.
 
-5. Add **Authorized redirect URIs** end enter `https://my.home-assistant.io/redirect/oauth`
+5. Add **Authorized redirect URIs** and enter `https://my.home-assistant.io/redirect/oauth`
 
 6. Click _Create_ to create the credential.
    ![Screenshot of creating OAuth credentials](/images/integrations/nest/oauth_redirect_uri.png)
@@ -297,7 +297,6 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 12. If all went well, you are ready to go!
 
-
     ![Screenshot of success](/images/integrations/nest/finished.png)
 
 {% enddetails %}
@@ -424,7 +423,7 @@ This feature is enabled by the following permissions:
 - _Allow Home Assistant to know when there's a camera event_
 - _Allow Home Assistant to know when there's a doorbell event_
 - _Other permissions and notification settings in the Nest or Google Home apps_.
-  {% endnote %}
+{% endnote %}
 
 ## Google Home App Notification Settings
 
@@ -807,19 +806,19 @@ Changes for things like sensors or thermostat temperature set points should be i
   5. If the Pub/Sub topic starts with `projects/sdm-prod/topics` then you are using a topic created by the Device Access console. This is the old way, but works completely fine. You should skip the next section.
 
 - **(Optional) Verify topic message publishing.** Skip this section if using a topic name starting with `projects/sdm-prod/topics`
-  1. Visit the Pub/Sub Topics [Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list)
-  2. Click the Home Assistant Topic ID matching the Device Access Console configuration.
-  3. View the _Subscriptions_ tab and confirm there is a Subscription ID. This will be verified in the next section.
-  4. Click the _Metrics_ tab and set the zoom to _6 hours_ or _1 day_.
-  5. View the _Published message count_. This counts messages published by the device to the topic. If the number of messages is not what you expect then it indicates:
-     - A problem with the device connecting to Google: Verify the device works in the Google Home App.
-     - An issue with the SDM API: This requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
+  1.  Visit the Pub/Sub Topics [Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list)
+  2.  Select the Home Assistant Topic ID matching the Device Access Console configuration.
+  3.  View the _Subscriptions_ tab and confirm there is a Subscription ID. This will be verified in the next section.
+  4.  Click the _Metrics_ tab and set the zoom to _6 hours_ or _1 day_.
+  5.  View the _Published message count_. This counts messages published by the device to the topic. If the number of messages is not what you expect then it indicates:
+      - A problem with the device connecting to Google: Verify the device works in the Google Home App.
+      - An issue with the SDM API: This requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
 
 - **Verify Pub/Sub subscription message routing**
-  1. Visit the Pub/Sub Subscriptions [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list)
-  2. Click the Home Assistant Subscription ID
-  3. Confirm the _Topic name_ is the same as in the Nest Device Access Console above.
-  4. View the _Metrics_ tab in the bottom panel, which includes:
+  1.  Visit the Pub/Sub Subscriptions [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list)
+  2.  Select the Home Assistant Subscription ID
+  3.  Confirm the _Topic name_ is the same as in the Nest Device Access Console above.
+  4.  View the _Metrics_ tab in the bottom panel, which includes:
   - _Delivery metrics_: The _Publish message count_ shows messages are published on the topic that are routed to the subscription. You may need to scroll down to see this.
   - _Oldest unacked message age_ shows messages not being fully received by the Home Assistant nest integration. See the next section for diagnosing this.
   5. Click the _Messages_ tab
@@ -846,8 +845,8 @@ Changes for things like sensors or thermostat temperature set points should be i
   ```
 
   {% endraw %}
-  {% enddetails %}
-  4. Subscription pull requests are long running, and reconnect every few minutes. This is normal and you will see debug messages like `API error in streaming pull` and then `Event stream connection established`. The [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow) describes how this works in more detail. The following debug logs indicate the Subscription connection is working properly.
+   {% enddetails %}
+   4. Subscription pull requests are long running, and reconnect every few minutes. This is normal and you will see debug messages like `API error in streaming pull` and then `Event stream connection established`. The [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow) describes how this works in more detail. The following debug logs indicate the Subscription connection is working properly.
 
   {% details "Example debug log: Event stream connection established" %}
   {% raw %}
@@ -864,8 +863,8 @@ Changes for things like sensors or thermostat temperature set points should be i
   ```
 
   {% endraw %}
-  {% enddetails %}
-  5. Confirm the Subscription ID from the `Sending streaming pull request` message in the debug logs match the Subscription ID verified above in the cloud console. If they do not match, then follow the integration configuration instructions to resolve this.
+   {% enddetails %}
+   5. Confirm the Subscription ID from the `Sending streaming pull request` message in the debug logs match the Subscription ID verified above in the cloud console. If they do not match, then follow the integration configuration instructions to resolve this.
 
 - When reporting issues for the Nest integration please include details such as messages published by the device and details from the debug log.
 

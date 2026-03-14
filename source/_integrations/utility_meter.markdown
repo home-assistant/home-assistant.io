@@ -105,7 +105,6 @@ description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 
 required: false
 default: 0
 type: time
-type: integer
 cron:
 description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru) but extended to support more advanced scheduling. See the [croniter](https://github.com/kiorky/croniter) library.
 required: true
