@@ -57,6 +57,7 @@ Additionally, the integration sets up the following entities:
   - `Amplitude`: Displays the current measured amplitude of the oscillation.
   - `Period`: Displays the current measured period of the oscillation.
   - `Activity`: Displays the current measured activity level.
+  - `Spring status`: Displays the current status of the installed spring set on the cradle.
   - `Swing count`: Displays the total number of swings.
   - `Total swing time`: Displays the total swing time in seconds.
 - **Buttons**

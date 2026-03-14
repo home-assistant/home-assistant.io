@@ -24,12 +24,12 @@ Use case: If you have a Prana recuperator and want to automate ventilation, moni
 
 ## Supported devices
 
-- Devices with Wi‑Fi control and firmware version 47 or newer
+- Devices with Wi‑Fi control and firmware version 49 or newer
 
 ## Unsupported devices
 
 - Models without a local network interface
-- Devices with firmware version 46 or below
+- Devices with firmware version 48 or below
 
 ## Prerequisites
 
@@ -43,18 +43,36 @@ Use case: If you have a Prana recuperator and want to automate ventilation, moni
 
 The integration exposes the following entities.
 
+#### Fans
+
+The integration provides fan entities to control the recuperator's speed and airflow.
+
+- **Supply**
+  - **Description**: Controls the fresh air intake speed independently.
+- **Extract**
+  - **Description**: Controls the exhaust air speed independently.
+  
+{% note %}
+When **Bound mode** is active, the Supply and Extract fans operate in sync. Adjusting the speed of one fan will automatically update the other to the same value, ensuring balanced airflow.
+{% endnote %}
+
+All fan entities support speed control (0-100%) and the following presets:
+
+  - **Night**: Sets the device to silent, minimum speed operation.
+  - **Boost**: Sets the device to maximum speed.
+
 #### Switches
 
 - **Auto**
-  - Description: Enable automatic control
+  - **Description**: Enable automatic control based on sensor readings.
 - **Auto+**
-  - Description: Enhanced automatic mode with quieter operation
+  - **Description**: Enhanced automatic mode with quieter operation limits.
 - **Winter**
-  - Description: Winter mode for defrosting behavior
+  - **Description**: Winter mode to prevent icing and manage defrosting.
 - **Heater**
-  - Description: Turn on heater (if available)
+  - **Description**: Turn on the mini-heating element (if equipped).
 - **Bound**
-  - Description: Bind or synchronize both fans and related parameters
+  - **Description**: Synchronizes supply and extract fans. When enabled, you control the Bound fan. When disabled, you control Supply and Extract fans separately.
 
 ## Data updates
 
@@ -78,10 +96,11 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 - Check the device network connection.
 - Ensure the device is powered on and reachable; entities become available automatically when communication is restored.
+- For fans, remember that supply and extract fans become unavailable when Bound mode is active (and vice versa). This is expected behavior.
 
 ## Community notes
 
-- If you have a model that does not work as expected, add a note in the repository or community and include the model and firmware version
+- If you have a model that does not work as expected, add a note in the repository or community and include the model and firmware version.
 
 ## Removing the integration
 
