@@ -82,7 +82,7 @@ collections:
 
 #Search
 algolia:
-  api_key: "ba6f7e6d97b3d3d2f778978c742a47c6"
+  api_key: "fcd41bf156f5ee0e390f8b860e3a2489"
 
 # Twitter
 twitter_user: balloob

@@ -80,54 +80,50 @@ Follow the steps in [Creating a new dashboard](/dashboards/dashboards/#creating-
 
 ## Editing cards in a new dashboard
 
-1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
-2. By editing the dashboard, you are taking over control of this dashboard.
-     - This means that it is no longer automatically updated when new dashboard elements become available.
-     - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
-     - Read and accept this before continuing.
-     - You can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
-3. Your dashboard might not have much on it yet.
+This section describes how to edit cards in a recently created dashboard, namely how to:
+
+- Change the details of a weather forecast card.
+- Add a new weather forecast card.
+- Change the position of cards.
+
+1. Open your new dashboard. It might not have much on it yet.
    - If you have smart home devices in your home, some may have been connected automatically.
-   - In this example, some Bluetooth temperature sensors and an AV receiver connected automatically.
-   - Some cards are there by default, such as the weather, a card for the person who set up the system, and the text-to-speech service.
+   - Some cards are there by default, such as the weather forecast card, and a card for the person who set up the system.
 
-    ![Dashboard after onboarding a new device](/images/getting-started/onboarding_dashboard_01.png)
-4. Next, we want to edit the weather card.
-   - Select the weather card.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-
-   ![Weather details](/images/getting-started/weather_card_details_01.png)
-
-5. Change any of the units, if you like.
+2. To edit the weather forecast card, for example, select it and then select the cogwheel {% icon "mdi:cog-outline" %}.
+3. Change any of the units or other details, such as name and icon, if you like.
    - Do not change the **Entity ID**.
    - Once you are done, select **Update**.
-   ![Weather details](/images/getting-started/onboarding_card_settings_01.png)
 
-6. Next, we want to add a new card for this weather {% term service %}.
-   - Select the weather card again, select the three dots {% icon "mdi:dots-vertical" %}, then **Device info**.
-   - Under **Sensors**, select **Add to dashboard**, then **Pick different card**.
-   ![Dashboard - change the card type](/images/getting-started/onboarding_pick_different_card_01.png)
+4. For the next activities, you need to edit your dashboard. In the top right of the screen, select the {% icon "mdi:pencil" %} button.
+5. In the **Edit dashboard** dialog, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Take control**.
+   - Note that, by editing the dashboard, you are taking control over it. The dashboard will no longer update automatically when new {% term entities %} or dashboard components are available. You can't revert this. However, you can create a new default dashboard.
+   - Read the text in the dialog and if you agree, select **Take control**.
 
-7. From the list, select **Show current weather and forecast**.
-8. Select the details to be shown on the card.
-    ![Dashboard - change the card details](/images/getting-started/onboarding_card_settings_02.png)
-    - Select **Save**.
-    - You now see the forecast card on the dashboard.
+6. Now you can add a new card for this weather {% term service %}.
+   - Select the weather forecast card again, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Service info**.
+   - Under **Sensors**, select **Add to dashboard**.
+   - In the **Choose a view** dialog, select your dashboard from the dropdown list, and then select **Next**.
+   - In the suggestion dialog, select **Pick different card**.
 
-9.  Now let's delete the other weather card.
-    - In the top right corner, select the pencil.
-    ![Dashboard - edit the dashboard](/images/getting-started/onboarding_edit_dashboard_01.png)
-    - On the card, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-    ![Dashboard - delete card](/images/getting-started/onboarding_dashboard_delete_card.png)
-10. Finally, we want to move the weather card to the top left corner.
+7. On the **By card** tab of the dialog, select the **Weather forecast** card.
+8. In the **Weather forecast card configuration** dialog:
+   - Select the details to be shown on the card, and then select **Save**.
+   - Go back to the edit window, and select **Done**.
+   - Result: You see the new weather forecast card on the dashboard.
+
+9. If you want to delete the other weather forecast card from the dashboard:
+   - In the top right corner, select the {% icon "mdi:pencil" %} button to go back to the edit mode.
+   - On the card, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Delete**.
+
+10. Finally, to move the weather forecast card to the top left corner:
     - On the bottom of the card, select the number or use the minus button to enter `1`.
-    - Repeat this on other cards, if you want to move them around.
+    - Change the number on the other cards, if you want to move them around.
     - When you are done, in the top right corner, select **Done**.
-11. If you want to change any of the other cards, select the **Edit** button on the card.
-12. Congratulations! You have completed your first dashboard customization.
-13. While your dashboard is still small, this is a good moment to [migrate it into sections view](/dashboards/views/#migrating-a-view-into-a-sections-view).
-    - The sections view offers features such as drag and drop, customizing number and width of columns, and more heading options.
-    - To learn more, head over to the documentation on [section view](/dashboards/sections/).
+
+11. If you want to change the configuration of another card, select the {% icon "mdi:pencil" %} button again, and then select **Edit** on the card.
+
+Congratulations! You have completed your first dashboard customization.
 
 ## Learning more about dashboards
 
