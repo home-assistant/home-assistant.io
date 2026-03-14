@@ -13,6 +13,7 @@ ha_codeowners:
   - "@RaHehl"
 ha_platforms:
   - lock
+  - switch
 ha_integration_type: hub
 ---
 
@@ -60,7 +61,7 @@ This integration supports any door managed by a UniFi Access controller, includi
 
 ## Data updates
 
-The integration uses a local push architecture via WebSocket. When a door's lock or position status changes, the UniFi Access controller pushes updates to Home Assistant in real time. No {% term polling %} is performed.
+The integration uses a local push architecture via WebSocket. When a door's lock or position status changes, or when the emergency mode (evacuation or lockdown) is updated, the UniFi Access controller pushes updates to Home Assistant in real time. No {% term polling %} is performed.
 
 ## Supported functionality
 
@@ -74,6 +75,15 @@ Each door registered in your UniFi Access controller is represented as a **lock*
 
 - **Unlock**: Triggers the configured door lock relay to open the door for its configured duration.
 - **Open**: Opens the door (same as unlock).
+
+#### Switches
+
+The integration provides two switch entities for controlling the emergency modes of your UniFi Access controller.
+
+- **Evacuation**
+  - **Description**: Activates or deactivates the evacuation mode on your UniFi Access controller. When turned on, all doors managed by the controller are unlocked to allow evacuation.
+- **Lockdown**
+  - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, all doors managed by the controller are locked to restrict access.
 
 ## Known limitations
 
