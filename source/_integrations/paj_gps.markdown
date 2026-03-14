@@ -8,7 +8,7 @@ ha_iot_class: Hub
 ha_config_flow: true
 ha_codeowners:
   - '@skipperro'
-ha_domain: pajgps
+ha_domain: paj_gps
 ha_zeroconf: true
 ha_platforms:
   - device_tracker
