@@ -28,19 +28,19 @@ related:
 ha_quality_scale: platinum
 ---
 
-The **Bring!** integration allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
+The **Bring!** {% term integration %} allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
 
 ## About Bring!  
 
 **Bring!** is a grocery shopping list app that allows users to create shared lists and organize grocery shopping with family, partners, or roommates.  
 
-Available as a mobile app on [Google Play for Android](https://play.google.com/store/apps/details?id=ch.publisheria.bring) and the [App Store for iOS](https://itunes.apple.com/app/apple-store/id580669177). **Bring!** also offers a web version at [web.getbring.com](https://web.getbring.com).  
+Available as a mobile app on [Google Play for Android](https://play.google.com/store/apps/details?id=ch.publisheria.bring) and the [App Store for iOS](https://apps.apple.com/app/id580669177). **Bring!** also offers a web version at [web.getbring.com](https://web.getbring.com).  
 
 ## How you can use this integration
 
 - **Automated notifications**: Receive alerts on your phone when essential items are added to your list or when the quantity of items reaches a set value.
 - **List updates based on events**: Automatically add items to your shopping list when appliances are low on supplies, like dishwasher salt, or need routine maintenance, such as tub cleaner for the washer.
-- **Voice control**: Use voice assistants connected to Home Assistant to add items to your **Bring!** list.
+- **Voice control**: Add items to your **Bring!** shopping list using [Assist](/voice_control/), Home Assistant’s voice assistant.
 - **Geofencing**: Receive reminders when you are near a specific store and need to pick up items, based on your location.
 
 ## Prerequisites

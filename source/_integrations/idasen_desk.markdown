@@ -18,7 +18,7 @@ ha_codeowners:
 ha_quality_scale: bronze
 ---
 
-The IKEA IDÅSEN {% term integration %} allows you to connect your [IKEA Idåsen](https://www.ikea.com/us/en/cat/idasen-system-47424/) motorized desk to Home Assistant, making it possible to control the desk height and also monitor height changes from the physical controller.
+The **IKEA IDÅSEN** {% term integration %} allows you to connect your [IKEA Idåsen](https://www.ikea.com/us/en/cat/idasen-system-47424/) motorized desk to Home Assistant, making it possible to control the desk height and also monitor height changes from the physical controller.
 
 {% tip %}
 

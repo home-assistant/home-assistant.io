@@ -14,7 +14,7 @@ ha_codeowners:
   - '@disforw'
 ---
 
-The QNAP integration allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
+The **QNAP** {% term integration %} allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
 
 {% include integrations/config_flow.md %}
 

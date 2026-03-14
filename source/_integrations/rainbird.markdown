@@ -20,10 +20,10 @@ ha_platforms:
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This Rain Bird integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
+The **Rain Bird** {% term integration %} allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -48,7 +48,7 @@ irrigations schedules on a calendar.
 
 {% configuration_basic %}
 Host:
-  description: "The IP address of your Rain Bird device. You can find the IP address under the device in the Rain Bird app under **Controller Settings** -> **Network Info**."
+  description: "The IP address of your Rain Bird device. You can find the IP address under the device in the Rain Bird app under **Controller Settings** > **Network Info**."
 Password:
   description: "The password used to authenticate the Rain Bird device."
 {% endconfiguration_basic %}
@@ -83,7 +83,7 @@ The Rain Bird integration provides the following entities.
 #### Calendar
 
 - **Controller irrigation schedule**
-  - **Description**: The irrigation schedule [Calendar](https://www.home-assistant.io/integrations/calendar/) 
+  - **Description**: The irrigation schedule {% term calendar %}
     entity is created for each schedule configured in the Rain Bird app. You can view the program schedule
     in the Home Assistant calendar UI, or trigger other automations based on the irrigation start or end time.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.

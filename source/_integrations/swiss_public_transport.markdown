@@ -12,10 +12,10 @@ ha_codeowners:
 ha_domain: swiss_public_transport
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Swiss public transport integration will give you the next three departure times from a given location to another one in Switzerland.
+The **Swiss public transport** {% term integration %} will give you the next three departure times from a given location to another one in Switzerland.
 
 The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours. The default polling rate is set to `90s`, which is just enough for one connection polling continuously. If more entries are needed, consider [defining a custom polling interval](#defining-a-custom-polling-interval) to reduce the amount of requests.
 
@@ -90,9 +90,9 @@ The Swiss public transport integration has the following action:
 
 - `swiss_public_transport.fetch_connections`
 
-### Action `swiss_public_transport.fetch_connections`
+### Action: Fetch connections
 
-Fetch the connections for a specific instance.
+The `swiss_public_transport.fetch_connections` action fetches the connections for a specific instance.
 
 | Data attribute | Optional | Description                                              |
 |------------------------|----------|----------------------------------------------------------|

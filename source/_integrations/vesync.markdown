@@ -1,11 +1,12 @@
 ---
 title: VeSync
-description: Instructions on how to set up VeSync switches, outlets, and fans within Home Assistant.
+description: Instructions on how to set up VeSync devices with Home Assistant.
 ha_category:
   - Fan
   - Light
   - Number
   - Switch
+  - Update
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -28,10 +29,12 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
-The **VeSync** {% term integration %} enables you to control smart switches and outlets connected to the VeSync App.
+The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets, humidifers and select air fryers.
 
 The devices must be added to the VeSync App before this {% term integration %} can discover them.
 
@@ -48,7 +51,7 @@ The following platforms are supported:
 
 ## Supported devices
 
-This {% term integration %} supports devices controllable by the VeSync App.  The following devices are supported by this {% term integration %}:
+This {% term integration %} supports devices controllable by the VeSync App. The following devices are supported by this {% term integration %}. This list may not be exhaustive as devices have multiple model numbers within this.
 
 ### Bulbs
 - Etekcity WiFi Dimmable LED Bulb (ESL100)
@@ -86,6 +89,10 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
+### Air Fryers
+
+- Cosori 3.7 and 5.8 Quart Air Fryer
+
 ## Prerequisite
 
 Before you can use this {% term integration %}, all devices must be registered with the
@@ -93,6 +100,12 @@ VeSync App. Once registration is complete, continue with the steps described in
 the configuration section below.
 
 {% include integrations/config_flow.md %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Actions
 
@@ -165,6 +178,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| 'auto_off_config'       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
 
 
 ## Binary Sensors
@@ -173,6 +187,20 @@ Sensors and settings exposed by VeSync humidifiers.
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
 | `water_tank_lifted`     | Water tank is lifted                                                               | false     |
+
+## Air Fryers
+
+Sensors and settings exposed by VeSync Air Fryers.
+
+| Sensor                  | Description                                                                            | Example   |
+| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
+| `cook_status`           | Current status of the fryer                                                            | cooking   |
+| `current_temp`          | Current internal temperature of the fryer,  Unknown when off.                          | 150C      |
+| `cook_set_temp`         | The target cooking temperature                                                         | 165C      |
+| `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
+| `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
+| `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
 
 ## Extracting attribute data
 

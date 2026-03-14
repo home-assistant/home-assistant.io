@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The Channels platform allows you to control [Channels](https://getchannels.com/) from Home Assistant. Play, pause, seek, or skip commercials on an instance of Channels that is running on your network.
+The **Channels** {% term integration %} allows you to control [Channels](https://getchannels.com/) from Home Assistant. Play, pause, seek, or skip commercials on an instance of Channels that is running on your network.
 
 Your favorite channels will appear as sources in the Source List in Home Assistant.
 

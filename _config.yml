@@ -69,7 +69,7 @@ collections:
     output: true
   docs:
     output: true
-  addons:
+  apps:
     output: true
   faq:
     output: true
@@ -106,10 +106,10 @@ social:
     account: "https://fosstodon.org/@homeassistant"
 
 # Home Assistant release details
-current_major_version: 2025
-current_minor_version: 11
-current_patch_version: 3
-date_released: 2025-11-21
+current_major_version: 2026
+current_minor_version: 3
+current_patch_version: 0
+date_released: 2026-03-04
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
