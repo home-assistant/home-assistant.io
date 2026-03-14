@@ -33,11 +33,9 @@ API key:
 
 ## Supported functionality
 
-### Entities
-
 The **TRMNL** integration provides the following entities for each TRMNL device on your account.
 
-#### Sensors
+### Sensors
 
 - **Battery**: The current battery level of the device, in percent.
 - **Signal strength**: The Wi-Fi signal strength of the device, in dBm. This entity is disabled by default.
