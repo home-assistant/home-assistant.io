@@ -30,9 +30,9 @@ The following devices are known to work with this integration:
 
 {% configuration_basic %}
 Username:
-    description: "Your My Leviton app email address."
+  description: "Your My Leviton app email address."
 Password:
-    description: "Your My Leviton app password."
+  description: "Your My Leviton app password."
 {% endconfiguration_basic %}
 
 ## Removing the integration
