@@ -117,5 +117,5 @@ If you no longer use the device or want to pass it on to someone else, you can r
    - Plug the USB-C cable into the ATOM Echo and connect it to your computer.
    - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
 3. In the dialog, select **Erase user data**.
-   - **Result**: Your Wi-Fi credentials are deleted from the device.
+   - Result: Your Wi-Fi credentials are deleted from the device.
    - The firmware stays on the device.
