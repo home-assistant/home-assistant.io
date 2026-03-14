@@ -88,7 +88,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## Send your vacuum to clean specific areas
 
-Got a robot vacuum? You can now tell it exactly which areas to clean! This release introduces the [clean area](/integrations/vacuum#action-clean-area) action, which lets you send your vacuum to clean one or more specific areas on demand, right from Home Assistant. In this release, it's supported by [Matter], [Ecovacs], and [Roborock].
+Got a robot vacuum? You can now tell it exactly which areas to clean! This release introduces the [clean area](/integrations/vacuum#action-clean-area) action, which lets you [send your vacuum to clean one or more specific areas on demand](/integrations/vacuum#sending-your-vacuum-to-clean-specific-areas), right from Home Assistant. In this release, it's supported by [Matter], [Ecovacs], and [Roborock].
 
 The best part? The action uses your existing Home Assistant areas, not some obscure vendor-specific identifiers. You simply map the segments your vacuum knows about to the areas you've already set up in Home Assistant, and that's all there is to it.
 
