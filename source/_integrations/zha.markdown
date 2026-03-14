@@ -321,7 +321,7 @@ zha:
       type: "switch"              # corrected device type
 ```
 
-`{ieee}` is the device hardware address which can be read from the Home Assistant UI when looking at _Device info_. From device info, you can find the `{endpoint_id}` by viewing the _Zigbee device signature_.
+`{ieee}` is the **`lowercase`** device hardware address which can be read from the Home Assistant UI when looking at _Device info_.  From device info, you can find the `{endpoint_id}` by viewing the _Zigbee device signature_.
 
 ### OTA updates of Zigbee device firmware
 
