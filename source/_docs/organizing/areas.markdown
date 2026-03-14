@@ -101,6 +101,10 @@ You can also edit the area details when you're on the area dashboard.
 
 {% include organizing/reorder-areas.md %}
 
+## Sending a vacuum to a dedicated area
+
+If you have a vacuum that supports area cleaning, you can [set up an automation to send the vacuum to a specific area](/integrations/vacuum/#creating-an-automation-to-send-the-vacuum-to-clean-specific-areas).
+
 ## Deleting an area
 
 Follow these steps to delete an area. It will be removed from all the floors it was assigned to. All the devices that were assigned to this area will become unassigned.

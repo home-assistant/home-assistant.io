@@ -98,7 +98,7 @@ This method is useful if you are on the **Device** page and want to create a car
 You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
 
 1. On the **Visibility** tab, select **Add condition**./dashboards/conditional/#conditions-options
-   - **Troubleshooting**: Don't see a **Visibility** tab?
+   - Troubleshooting: Don't see a **Visibility** tab?
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
 2. Select the type of condition, and enter the parameters.
    - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
@@ -112,7 +112,7 @@ In [sections view](/dashboards/sections/), you can resize cards. Follow these st
 
 1. On the **Layout** tab, move the sliders to adjust the card size.
   ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
-    - **Troubleshooting**: Don't see a **Layout** tab?
+    - Troubleshooting: Don't see a **Layout** tab?
       - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
       - It is not available on the picture elements card.
 2. **Precise mode** gives you a finer grid to size your card. The last row was done using precise mode.
