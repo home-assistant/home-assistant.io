@@ -58,7 +58,7 @@ Enabling a wake word consists of 2 steps:
 5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
 6. To define the wake word engine, in the top-right corner of the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Add streaming wake word**.
    - **Troubleshooting**: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & services**" %} and make sure the **openWakeWord** component of the **Wyoming** integration is added.
-   - Result: on the bottom of the page, you now see a new section **Streaming wake word engine**.
+   - Result: On the bottom of the page, you now see a new section **Streaming wake word engine**.
    - Select **openwakeword**, then select **ok nabu**.
    - If you created a new assistant, select **Create**.
    - If you edited an existing assistant, select **Update**.
