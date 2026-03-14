@@ -13,8 +13,7 @@ ha_codeowners:
   - "@RaHehl"
 ha_platforms:
   - binary_sensor
-  - button
-  - event
+  - lock
 ha_integration_type: hub
 ---
 
@@ -76,18 +75,12 @@ Each door registered in your UniFi Access controller is represented by a **binar
 
 - **Door**: Turns on when the door is open and off when the door is closed.
 
-#### Buttons
+#### Locks
 
-Each door also provides an **unlock** button in Home Assistant.
+Each door registered in your UniFi Access controller is represented as a **lock** entity in Home Assistant.
 
 - **Unlock**: Triggers the configured door lock relay to open the door for its configured duration.
-
-#### Events
-
-Each door provides **event** entities for UniFi Access activity exposed by the controller.
-
-- **Access**: Fires when an access attempt is granted or denied.
-- **Doorbell**: Fires when the doorbell is rung on supported hardware.
+- **Open**: Opens the door (same as unlock).
 
 ## Known limitations
 
