@@ -3,6 +3,7 @@ title: TRMNL
 description: Instructions on how to integrate TRMNL with Home Assistant.
 ha_category:
   - Sensor
+  - Time
 ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: trmnl
 ha_platforms:
   - sensor
+  - time
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -39,6 +41,11 @@ The **TRMNL** integration provides the following entities for each TRMNL device 
 
 - **Battery**: The current battery level of the device, in percent.
 - **Signal strength**: The Wi-Fi signal strength of the device, in dBm. This entity is disabled by default.
+
+### Time
+
+- **Sleep start time**: The time at which the device enters sleep mode.
+- **Sleep end time**: The time at which the device wakes up from sleep mode.
 
 ## Data updates
 
