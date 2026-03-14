@@ -12,7 +12,9 @@ ha_codeowners:
   - "@imhotep"
   - "@RaHehl"
 ha_platforms:
-  - lock
+  - binary_sensor
+  - button
+  - event
 ha_integration_type: hub
 ---
 
@@ -68,12 +70,24 @@ The integration uses a local push architecture via WebSocket. When a door's lock
 
 The **UniFi Access** integration provides the following entities.
 
-#### Locks
+#### Binary sensors
 
-Each door registered in your UniFi Access controller is represented as a **lock** entity in Home Assistant.
+Each door registered in your UniFi Access controller is represented by a **binary sensor** entity that reports the door position.
+
+- **Door**: Turns on when the door is open and off when the door is closed.
+
+#### Buttons
+
+Each door also provides an **unlock** button in Home Assistant.
 
 - **Unlock**: Triggers the configured door lock relay to open the door for its configured duration.
-- **Open**: Opens the door (same as unlock).
+
+#### Events
+
+Each door provides **event** entities for UniFi Access activity exposed by the controller.
+
+- **Access**: Fires when an access attempt is granted or denied.
+- **Doorbell**: Fires when the doorbell is rung on supported hardware.
 
 ## Known limitations
 
