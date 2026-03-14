@@ -125,6 +125,8 @@ alias: "Access granted notification"
 triggers:
   - trigger: state
     entity_id: event.front_door_access
+    attribute: event_type
+    to: "access_granted"
 actions:
   - action: notify.mobile_app_my_phone
     data:
@@ -146,6 +148,8 @@ alias: "Access denied alert"
 triggers:
   - trigger: state
     entity_id: event.front_door_access
+    attribute: event_type
+    to: "access_denied"
 actions:
   - action: notify.mobile_app_my_phone
     data:
