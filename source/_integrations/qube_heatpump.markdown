@@ -1,7 +1,7 @@
 ---
 title: Qube Heat Pump
 description: Instructions on how to integrate Qube Heat Pump within Home Assistant.
-ha_release: 2026.2
+ha_release: 2026.4
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
