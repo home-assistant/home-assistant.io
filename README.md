@@ -23,9 +23,9 @@ Setting up to contribute to documentation and the process for submitting pull re
 
 ## Site preview
 
-In order to make the preview available on `http://127.0.0.1:4000`, use the following [bundler](
+To make the preview available on `http://127.0.0.1:4000`, follow these steps using [Bundler](
 https://bundler.io/
-) command:
+):
 
 ## How to build the project
 
@@ -33,6 +33,9 @@ https://bundler.io/
 
 ```bash
 bundle install
+```
+
+2. Start the local preview server:
 
 ```bash
 bundle exec rake preview
