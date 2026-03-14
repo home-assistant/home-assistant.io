@@ -114,7 +114,7 @@ This section describes how to edit cards in a recently created dashboard, namely
 
 9. If you want to delete the other weather forecast card from the dashboard:
    - In the top right corner, select the {% icon "mdi:pencil" %} button to go back to the edit mode.
-   - Do not select the card. Go to the three dots {% icon "mdi:dots-vertical" %} menu on the lower right corner of the card, and then select **Delete**.
+   - Do not select the card. Go to the three dots {% icon "mdi:dots-vertical" %} menu in the lower right corner of the card, and then select **Delete**.
 
 10. Finally, to move the weather forecast card to the top left corner:
     - On the bottom of the card, select the number or use the minus button to enter `1`.
