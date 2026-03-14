@@ -27,6 +27,13 @@ In order to make the preview available on `http://127.0.0.1:4000`, use the follo
 https://bundler.io/
 ) command:
 
+## How to build the project
+
+1. Install Ruby gems:
+
+```bash
+bundle install
+
 ```bash
 bundle exec rake preview
 ```
