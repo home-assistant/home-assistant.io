@@ -3,7 +3,7 @@ title: UniFi Access
 description: Instructions on how to integrate UniFi Access with Home Assistant.
 ha_category:
   - Lock
-ha_release: "2026.4"
+ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
 ha_quality_scale: bronze
