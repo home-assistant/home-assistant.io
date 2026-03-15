@@ -550,6 +550,14 @@ entity:
         For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
       type: list
       required: false
+exclude_devices:
+  description: List of device IDs to exclude from the selectable list.
+  type: list
+  required: false
+include_devices:
+  description: List of device IDs to limit the selectable list to.
+  type: list
+  required: false
 filter:
   description: >
     When filter options are provided, the list of devices is filtered by devices
