@@ -95,12 +95,4 @@ data:
 
 ## Use the actions
 
-Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions. Enter something like the sample below into the **data** field and select **Perform action**.
-
-```json
-{"entity_id":"lock.front_door"}
-```
-
-| Data attribute | Optional | Description                                                    |
-| -------------- | -------- | -------------------------------------------------------------- |
-| `entity_id`    | yes      | Only act on specific lock. Use `entity_id: all` to target all. |
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions.
