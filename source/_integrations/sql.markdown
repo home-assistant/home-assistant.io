@@ -31,7 +31,7 @@ This can be used to present statistics about Home Assistant sensors if used with
 To configure this sensor, define the sensor connection variables and a list of queries to your {% term "`configuration.yaml`" %} file. A sensor will be created for each query.
 
 To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+After changing the {% term "`configuration.yaml`" %} file, [restart Home Assistant](/docs/configuration/#reloading-the-configuration-to-apply-changes) to apply the changes. The entities are listed on the {% my entities title="**Entities**" %} tab.
 
 {% raw %}
 ```yaml
