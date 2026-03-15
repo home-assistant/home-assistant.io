@@ -16,12 +16,16 @@ GEM
     eventmachine (1.2.7)
     ffi (1.17.3-aarch64-linux-gnu)
     ffi (1.17.3-arm64-darwin)
+    ffi (1.17.3-x64-mingw-ucrt)
     ffi (1.17.3-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
     google-protobuf (4.34.0-aarch64-linux-gnu)
       bigdecimal
       rake (~> 13.3)
     google-protobuf (4.34.0-arm64-darwin)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.34.0-x64-mingw-ucrt)
       bigdecimal
       rake (~> 13.3)
     google-protobuf (4.34.0-x86_64-linux-gnu)
@@ -86,6 +90,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.1-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.19.1-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.19.1-x86_64-linux-gnu)
       racc (~> 1.4)
     ostruct (0.6.3)
@@ -145,6 +151,8 @@ GEM
       google-protobuf (~> 4.31)
     sass-embedded (1.98.0-arm64-darwin)
       google-protobuf (~> 4.31)
+    sass-embedded (1.98.0-x64-mingw-ucrt)
+      google-protobuf (~> 4.31)
     sass-embedded (1.98.0-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
     sinatra (4.2.1)
@@ -164,12 +172,14 @@ GEM
     tzinfo-data (1.2026.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.6.0)
+    wdm (0.2.0)
     webrick (1.9.2)
 
 PLATFORMS
   aarch64-linux
   arm64-darwin-23
   arm64-darwin-25
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
@@ -189,6 +199,7 @@ DEPENDENCIES
   stringex (= 2.8.6)
   tzinfo (~> 2.0)
   tzinfo-data
+  wdm (~> 0.2.0)
 
 RUBY VERSION
    ruby 2.6.2p47
