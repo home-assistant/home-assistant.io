@@ -59,15 +59,15 @@ The climate entity lets you control the thermostat by setting a target temperatu
 
 As shortcuts, the climate platform supports the following presets:
 
-- **Eco**: temperature is set to low schedule temperature
-- **Comfort**: temperature set to high schedule temperature
-- **None**: cannot be selected manually, automatically selected if temperature is other than the above
+- **Eco**: Temperature is set to the low schedule temperature.
+- **Comfort**: Temperature is set to the high schedule temperature.
+- **None**: Cannot be selected manually and is automatically selected if the temperature is other than the above.
 
 Additionally, the following modes are available:
 
-- **Off**: Valve is fully closed
-- **Heat**: Valve is fully open
-- **Auto**: The thermostat controls the temperature automatically, based on target temperature
+- **Off**: Valve is fully closed.
+- **Heat**: Valve is fully open.
+- **Auto**: The thermostat controls the temperature automatically, based on the target temperature.
 
 ## Data updates
 
@@ -75,8 +75,8 @@ The integration {% term polling polls %} data from the thermostat every 5 minute
 
 ## Known limitations
 
-- Target high and low temperatures can only be set on the device itself
-- The devices only supports temperature steps of 0.5°C and time steps of 15 minutes.
+- Target high and low temperatures can only be set on the device itself.
+- The devices only support temperature steps of 0.5°C and time steps of 15 minutes.
 - If you manually change the target temperature or use presets, the thermostat returns to its programmed schedule at the next schedule change.
 - If the thermostat is in holiday mode, you cannot reset it from Home Assistant. To reset it, press the `MENU` button on the thermostat until it resets.
 
