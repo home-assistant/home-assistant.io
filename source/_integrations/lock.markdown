@@ -43,31 +43,35 @@ The `lock.lock` action locks your door.
 | Data attribute | Optional | Description                  |
 | -------------- | -------- | ---------------------------- |
 | `entity_id`    | no       | Entity of the relevant lock. |
+| `code`         | yes      | Code used to lock the lock.  |
 
 #### Example
 
 ```yaml
-actions:
-  action: lock.lock
-  target:
-    entity_id: lock.my_place
+action: lock.lock
+target:
+  entity_id: lock.my_place
+data:
+  code: "1234"
 ```
 
 ### Action: Unlock
 
 The `lock.unlock` action unlocks your door.
 
-| Data attribute | Optional | Description                  |
-| -------------- | -------- | ---------------------------- |
-| `entity_id`    | no       | Entity of the relevant lock. |
+| Data attribute | Optional | Description                   |
+| -------------- | -------- | ----------------------------- |
+| `entity_id`    | no       | Entity of the relevant lock.  |
+| `code`         | yes      | Code used to unlock the lock. |
 
 #### Example
 
 ```yaml
-actions:
-  action: lock.unlock
-  target:
-    entity_id: lock.my_place
+action: lock.unlock
+target:
+  entity_id: lock.my_place
+data:
+  code: "1234"
 ```
 
 ## Use the actions
