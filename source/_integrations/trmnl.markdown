@@ -4,6 +4,7 @@ description: Instructions on how to integrate TRMNL with Home Assistant.
 ha_category:
   - Sensor
   - Switch
+  - Time
 ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_domain: trmnl
 ha_platforms:
   - sensor
   - switch
+  - time
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -45,6 +47,11 @@ The **TRMNL** integration provides the following entities for each TRMNL device 
 ### Switches
 
 - **Sleep mode**: Enables or disables sleep mode on the device.
+
+### Time
+
+- **Sleep start time**: The time at which the device enters sleep mode.
+- **Sleep end time**: The time at which the device wakes up from sleep mode.
 
 ## Data updates
 
