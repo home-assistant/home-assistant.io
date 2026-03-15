@@ -51,9 +51,7 @@ The **TRMNL** integration provides the following entities for each TRMNL device 
 ### Sensors
 
 - **Battery**: The current battery level of the device, in percent.
-- **Battery voltage**: The current battery voltage of the device, in volts. This entity is disabled by default.
 - **Signal strength**: The Wi-Fi signal strength of the device, in dBm. This entity is disabled by default.
-- **Wi-Fi strength**: The Wi-Fi signal quality of the device, in percent. This entity is disabled by default.
 
 ### Switches
 
