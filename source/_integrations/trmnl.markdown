@@ -95,6 +95,7 @@ The integration {% term polling polls %} the TRMNL API every hour to update the 
 ## Known limitations
 
 - A developer license is required to use the API. Without it, you cannot generate an API key to set up the integration.
+- The integration does not support sending custom content to the display. It only allows you to monitor the device status and control the sleep schedule.
 
 ## Troubleshooting
 
