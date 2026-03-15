@@ -71,6 +71,7 @@ Parallel reads for read-only values are avoided and write operations are seriali
 The following devices are known to be supported by the integration:
 
 - SEKO PoolDose Double
+- SEKO PoolDose Double Spa
 - SEKO PoolDose pH+ORP CF Group Wi-Fi
 - SEKO PoolDose pH
 - VÁGNER POOL VA DOS BASIC
