@@ -89,8 +89,8 @@ This integration provides the following entities.
 - **Flow rate alarm**: Water flow issues.
 - **pH overfeed alarm**: Excessive pH dosing detected.
 - **pH overfeed alarm 2**: Alternative pH overfeed alarm.
-- **pH too low**: pH concentration too low.
-- **pH too high**: pH concentration too high.
+- **pH too low**: pH level too low.
+- **pH too high**: pH level too high.
 - **ORP overfeed alarm**: Excessive ORP dosing detected.
 - **ORP overfeed alarm 2**: Alternative ORP overfeed alarm.
 - **Chlorine overfeed alarm**: Excessive chlorine dosing detected.
@@ -147,16 +147,16 @@ This integration provides the following entities.
   - **Unit**: mV
 - **Totalizer**: Total water volume accumulated.
   - **Unit**: L, m³
-- **Circulation pump**: Circulation pump.
-  - **Values**: Disabled, Enabled
-- **Device configuration**: Device mode.
-  - **Values**: pH+ORP, pH+ORP+Chlorine
+- **Circulation pump**: Whether the controller monitors the pool circulation pump.
+  - **Values**: Disabled (the controller will not monitor the circulation pump, continuous dosing), Enabled (the controller monitors the circulation pump and pause dosing if pump is not running)
+- **Device configuration**: Overall water treatment configuration that defines which measurements and dosing channels are active.
+  - **Values**: pH+ORP (control pH and ORP only), pH+ORP+Chlorine (control pH, ORP, and an additional chlorine dosing channel)
 - **Temperature unit**: Temperature measurement unit.
   - **Values**: Celsius, Fahrenheit
-- **Power-on delay**: Power-on delay.
-  - **Values**: Disabled, Enabled
-- **Flow delay**: Flow delay.
-  - **Values**: Disabled, Enabled
+- **Power-on delay**: Whether to apply a safety delay after the device powers on before enabling pumps and dosing control.
+  - **Values**: Disabled (pumps and dosing can start immediately after power on), Enabled (pumps and dosing start only after the configured delay time)
+- **Flow delay**: Whether to apply a delay after water flow is detected before starting dosing, to let circulation stabilize.
+  - **Values**: Disabled (start dosing as soon as flow is detected), Enabled (start dosing only after the configured flow delay time)
 
 ### Numbers
 
