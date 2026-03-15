@@ -88,13 +88,13 @@ This integration provides the following entities.
 - **Chlorine tank level alarm**: Low chlorine dosing solution level.
 - **Flow rate alarm**: Water flow issues.
 - **pH overfeed alarm**: Excessive pH dosing detected.
-- **pH overfeed alarm 2**: Alternative pH overfeed alarm.
+- **pH overfeed alarm alternative**: Alternative pH overfeed alarm.
 - **pH too low**: pH level too low.
 - **pH too high**: pH level too high.
 - **ORP overfeed alarm**: Excessive ORP dosing detected.
-- **ORP overfeed alarm 2**: Alternative ORP overfeed alarm.
+- **ORP overfeed alarm alternative**: Alternative ORP overfeed alarm.
 - **Chlorine overfeed alarm**: Excessive chlorine dosing detected.
-- **Chlorine overfeed alarm 2**: Alternative chlorine overfeed alarm.
+- **Chlorine overfeed alarm alternative**: Alternative chlorine overfeed alarm.
 - **Chlorine too low (ORP)**: Chlorine concentration too low based on ORP readings.
 - **Chlorine too high (ORP)**: Chlorine concentration too high based on ORP readings.
 - **Chlorine too high**: Chlorine concentration too high.
@@ -105,6 +105,9 @@ This integration provides the following entities.
 - **Water too cold**: Water temperature too cold.
 - **Water too hot**: Water temperature too hot.
 - **System standby**: System in standby mode.
+- **Circulation pump monitoring**: Whether the controller monitors the pool circulation pump while dosing.
+- **Power-on delay**: Whether to apply a safety delay after the device powers on before enabling pumps and dosing control.
+- **Flow delay**: Whether to apply a delay after water flow is detected before starting dosing, to let circulation stabilize.
 
 ### Sensors
 
@@ -147,16 +150,10 @@ This integration provides the following entities.
   - **Unit**: mV
 - **Totalizer**: Total water volume accumulated.
   - **Unit**: L, m³
-- **Circulation pump**: Whether the controller monitors the pool circulation pump.
-  - **Values**: Disabled (the controller will not monitor the circulation pump, continuous dosing), Enabled (the controller monitors the circulation pump and pause dosing if pump is not running)
 - **Device configuration**: Overall water treatment configuration that defines which measurements and dosing channels are active.
   - **Values**: pH+ORP (control pH and ORP only), pH+ORP+Chlorine (control pH, ORP, and an additional chlorine dosing channel)
 - **Temperature unit**: Temperature measurement unit.
   - **Values**: Celsius, Fahrenheit
-- **Power-on delay**: Whether to apply a safety delay after the device powers on before enabling pumps and dosing control.
-  - **Values**: Disabled (pumps and dosing can start immediately after power on), Enabled (pumps and dosing start only after the configured delay time)
-- **Flow delay**: Whether to apply a delay after water flow is detected before starting dosing, to let circulation stabilize.
-  - **Values**: Disabled (start dosing as soon as flow is detected), Enabled (start dosing only after the configured flow delay time)
 
 ### Numbers
 
