@@ -33,13 +33,13 @@ You need to create an API key in your Emby instance in order to configure this i
 
 {% configuration_basic %}
 Host:
-description: "The host name or IP address of the device that is running Emby. The default is localhost."
+  description: "The host name or IP address of the device that is running Emby. The default is localhost."
 API key:
-description: "The API key to use to authenticate with your Emby server."
+  description: "The API key to use to authenticate with your Emby server."
 SSL:
-description: "Whether to connect with HTTPS/WSS. Your SSL certificate must be valid."
+  description: "Whether to connect with HTTPS/WSS. Your SSL certificate must be valid."
 Port:
-description: "The port number of the device that is running Emby. The default is 8096 without SSL or 8920 with SSL."
+  description: "The port number of the device that is running Emby. The default is 8096 without SSL or 8920 with SSL."
 {% endconfiguration_basic %}
 
 ## Supported functionality
