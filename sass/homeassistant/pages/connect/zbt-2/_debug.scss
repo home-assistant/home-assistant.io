@@ -1,0 +1,11 @@
+.ha-connectp{
+    section{
+        &:before{
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1000;
+            border: 2px dashed yellow;
+        }
+    }
+}

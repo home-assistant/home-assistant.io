@@ -8,11 +8,11 @@ ha_iot_class: Local Polling
 ha_domain: ffmpeg
 ---
 
-The `ffmpeg` platform allows you to use any video feed as a camera in Home Assistant via [FFmpeg](https://www.ffmpeg.org/). This video source must support multiple simultaneous reads, because for every concurrent Home Assistant user, a connection will be made to the source every 10 seconds. Normally this should not be a problem.
+The **FFmpeg Camera** {% term integration %} allows you to use any video feed as a camera in Home Assistant via [FFmpeg](https://www.ffmpeg.org/). This video source must support multiple simultaneous reads, because for every concurrent Home Assistant user, a connection will be made to the source every 10 seconds. Normally this should not be a problem.
 
 ## Configuration
 
-To enable your FFmpeg feed in your installation you must first configure the [FFmpeg integration](/integrations/ffmpeg/), then add the following to your `configuration.yaml` file:
+To enable your FFmpeg feed in your installation you must first configure the [FFmpeg integration](/integrations/ffmpeg/), then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

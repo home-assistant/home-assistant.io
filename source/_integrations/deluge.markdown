@@ -14,7 +14,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -22,7 +22,12 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-To be able to use this integration, you have to enable the following option in deluge settings: Daemon > Allow Remote Connections
+## Prerequisites
+
+To be able to use this integration, you need to do the following:
+
+1. Enable the following option in deluge settings: Daemon > Allow Remote Connections
+2. When set up, the daemon has an account called localclient. Refer [here](https://dev.deluge-torrent.org/wiki/UserGuide/Authentication) to get the password for the local client or add a line in the auth file with your own username and password. Use one of those credentials from there to authenticate the integration with the daemon.
 
 {% include integrations/config_flow.md %}
 

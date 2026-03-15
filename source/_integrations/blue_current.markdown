@@ -1,0 +1,104 @@
+---
+title: Blue Current
+description: Instructions on how to integrate Blue Current charge points within Home Assistant.
+ha_category:
+  - Car
+  - Sensor
+  - Switch
+ha_release: 2024.1
+ha_iot_class: Cloud Push
+ha_config_flow: true
+ha_codeowners:
+  - '@gleeuwen'
+  - '@NickKoepr'
+  - '@jtodorova23'
+ha_domain: blue_current
+ha_platforms:
+  - button
+  - sensor
+  - switch
+ha_integration_type: hub
+---
+
+[Blue Current](https://www.bluecurrent.nl/) is an Dutch company that makes electric car chargers.
+
+The Blue Current integration allows you to connect to your blue current account to Home Assistant and monitor your charge point(s).
+
+## Prerequisites
+
+1. Log in to [my.bluecurrent.nl](https://my.bluecurrent.nl/).
+2. Click on your username and go to settings.
+3. Enable advanced options.
+4. Click on your username again and go to advanced.
+5. Generate an API token.
+
+{% include integrations/config_flow.md %}
+
+## Sensor
+
+The Blue Current integration provides the following sensors:
+
+### Charge point sensors
+
+- Activity
+- Average current
+- Average voltage
+- Energy usage in kWh
+- Max usage in Amps
+  - The max amps the charge point can use.
+- Offline since
+- Started on
+- Stopped on
+- Total cost in EUR
+- Total power (estimate)
+- Vehicle status
+
+The following sensors are created as well, but disabled by default:
+
+- Current phase 1-3
+- offline max usage
+- remaining current
+- smart charging max usage
+- Voltage phase 1-3
+
+### Grid sensors
+
+- Grid average current
+- Grid max current
+
+The following sensors are created as well, but disabled by default:
+
+- Grid current phase 1-3
+
+## Button
+
+The Blue Current integration provides the following buttons:
+
+### Charge point buttons
+
+- Reset
+- Reboot
+- Stop charge session
+
+## Actions
+The following actions are provided by the Blue Current integration:
+
+### Action: Start charge session
+
+The `blue_current.start_charge_session` action allows you to start a new charge session. When no charging card ID is provided, no charging card will be used.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `device_id` | no | Charge point device ID |
+| `charging_card_id` | yes | Charging card ID that will be used to start a charge session. |
+
+## Switch
+
+The Blue Current integration provides the following switches:
+
+- Toggle **Plug & Charge**
+  - Allows you to start a session without having to scan a card.
+- Toggle linked charging cards only
+  - When enabled, visitors can't make use of the charge point. Only linked charging cards are allowed.
+- Toggle charge point block
+  - Enables or disables a charge point.

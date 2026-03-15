@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 19th edition"
-description: "Schedule your vacuum cleaning robot with a blueprint, show the robot status with a card and get started with open source Text To Speech systems"
+description: "Schedule your vacuum cleaning robot with a blueprint, show the robot status with a card and get started with open source text-to-speech systems"
 date: 2021-04-30 00:00:00
 date_formatted: "April 30, 2021"
 author: Klaas Schoute
@@ -91,7 +91,7 @@ well-known models that are now available on the market.
 
 Maybe the name still sounds fairly unknown to you, but [OpenTTS](https://github.com/synesthesiam/hassio-addons)
 is an add-on, which gives you the possibility to use multiple open source
-Text to Speech systems. So that you can eventually have text spoken on: for
+text-to-speech systems. So that you can eventually have text spoken on: for
 example, a Google Home speaker. [synesthesiam](https://github.com/synesthesiam)
 recently released a new version of OpenTTS and you can install it as an
 add-on in Home Assistant.

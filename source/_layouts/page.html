@@ -5,9 +5,26 @@ layout: default
 <article class="page">
   {% if page.title and page.show_title != false and page.layout != "landingpage"  %}
   <header>
+    {% assign crumbs = page.url | split: '/' %}
+    {% if crumbs.size > 2 %}
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        {% for crumb in crumbs offset: 1 %}
+          {% if forloop.last %}
+            ▸ 
+          {% else %}
+            {% assign crumb_limit = forloop.index | plus: 1 %}
+            ▸ <a href="{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'docs','documentation' | replace:'-',' ' | replace:'_',' ' | capitalize }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
     <h1 class="title indent">
-      {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title
-      }}{% endif %}
+      {% if page.title contains "Category:" %}
+        {{ page.title | replace: "-", " " | replace: "Category: ", "" }}
+      {% else %}
+        {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
+      {% endif %}
     </h1>
   </header>
   {% if page.collection == "integrations" %}
@@ -20,14 +37,20 @@ layout: default
       {% endfor %}
     {% endfor %}
     {% if active_alert != "" %}
-      <div class="integration-alert">
-        <a href="{{active_alert}}" target="_blank">⚠️ There is an active alert for this integration!</a>
+      <div class="integration-alert-container">
+        <a class="integration-alert" href="{{active_alert}}" target="_blank">
+          <svg preserveAspectRatio="xMidYMid meet" focusable="false" role="img" aria-hidden="true" viewBox="0 0 24 24" color="currentColor">
+            <g><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path></g>
+          </svg>
+          <div class="content">There is an active alert for this integration!</div>
+          <div class="learn-more">LEARN MORE</div>
+        </a>
       </div>
     {% endif %}
   {% endif %}
-  <hr class="divider" />
   {% endif %}
   {{ content }}
 
+  {% include related.html %}
   {% include feedback.html %}
 </article>

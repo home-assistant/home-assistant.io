@@ -55,7 +55,7 @@ Enjoy the release!
 - [Release 2021.2.2 - February 9](#release-202122---february-9)
 - [Release 2021.2.3 - February 11](#release-202123---february-11)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -256,13 +256,13 @@ Screenshot of the text selectors.
 Screenshot of the object selector, giving a YAML input field.
 </p>
 
-## Cloud Text to Speech settings
+## Cloud text-to-speech settings
 
-Nabu Casa has been offering an amazing text to speech service for a while now,
+Nabu Casa has been offering an amazing text-to-speech service for a while now,
 yet it was hard to find, and even harder to setup and use.
 
 To fix this, a new settings UI has been added where you can select the default
-language and gender to use for the text to speech service, so you no longer have
+language and gender to use for the text-to-speech service, so you no longer have
 to attach that to every service call. You can find it in the Home Assistant Cloud
 panel.
 
@@ -505,7 +505,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

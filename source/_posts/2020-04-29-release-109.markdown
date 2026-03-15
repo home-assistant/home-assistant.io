@@ -189,7 +189,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Flu Near You** - This integration is now available to be added from the UI.
   The `monitored_conditions` setting has been removed. You will need to

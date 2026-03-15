@@ -9,15 +9,16 @@ ha_domain: foobot
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The `foobot` sensor platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).
+The **Foobot** {% term integration %} will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).
 
 This sensor requires an API token. Please obtain one at [Foobot API site](https://api.foobot.io/apidoc/index.html).
 
 ## Configuring the Platform
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:
@@ -37,13 +38,13 @@ sensor:
     type: string
 {% endconfiguration %}
 
-## Available Metrics
+## Available metrics
 
 Every ten minutes, it'll fetch the last ten minutes average of the following measurements:
 
-  * Temperature
-  * Humidity
-  * Co2
-  * VOC
-  * PM2.5
-  * [Index](https://help.foobot.io/hc/en-us/articles/204814371-What-does-central-number-mean-)
+  - Temperature
+  - Humidity
+  - Co2
+  - VOC
+  - PM2.5
+  - [Index](https://help.foobot.io/hc/en-us/articles/204814371-What-does-central-number-mean-)

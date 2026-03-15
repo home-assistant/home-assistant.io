@@ -87,12 +87,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - The new customize editor is using the file `customize.yaml` in your config folder. If you are using this file today for other config, make sure to rename it before using the new customize UI editor. ([@andrey-git] - [#9134]) ([config docs]) (breaking change) (new-platform)
 - The frontend component now supports loading custom html files when Home Assistant front end starts  ([@andrey-git] - [#9150]) (breaking change). It could be Javascript, CSS or custom Web Components. Along there was a breaking change in the way Custom UI is used:
-  * `custom_ui_state_card` now specifies the exact element name and not a suffix after `state-card`. So if you had `state_card_custom_ui: custom-ui` in your config, you should change it to `state_card_custom_ui: state-card-custom-ui`
-  * `custom_ui_state_card` no longer makes the html fetch, you should make it separately:
+  - `custom_ui_state_card` now specifies the exact element name and not a suffix after `state-card`. So if you had `state_card_custom_ui: custom-ui` in your config, you should change it to `state_card_custom_ui: state-card-custom-ui`
+  - `custom_ui_state_card` no longer makes the html fetch, you should make it separately:
 
 ```yaml
 frontend:

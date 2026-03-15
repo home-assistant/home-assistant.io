@@ -12,8 +12,8 @@ categories:
 
 Ever since the launch of Home Assistant you have been able to track the state of your house. But the view has always been limited to what the current state is. Not what it was. Today we are going to change that by introducing two brand new components:
 
-* Recorder component that will record every event to a SQLite database
-* History component that will query and aggregate the recorded events
+- Recorder component that will record every event to a SQLite database
+- History component that will query and aggregate the recorded events
 
 By adding this view into the past, we are adding an extra dimension into the state of your house. This brings great new possibilities for future features. The focus of today's release is on getting the recording component to you to start recording and getting some data. To show what is being recorded a view has been added that shows the last 24 hours of your house. Expect more extensive tools to explore your history in the future.
 
@@ -27,9 +27,9 @@ The history component will be enabled for new users by default. For current user
   </a>
 </p>
 
-<div class='note'>
+{% note %}
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
-</div>
+{% endnote %}
 
 <!--more-->
 

@@ -1,5 +1,5 @@
 ---
-title: "MQTT Button"
+title: "MQTT button"
 description: "Instructions on how to integrate MQTT buttons into Home Assistant."
 ha_category:
   - Button
@@ -8,35 +8,21 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` button platform lets you send an MQTT message when the button is pressed in the frontend or the button press service is called. This can be used to expose some service of a remote device, for example reboot.
+The **MQTT button** {% term integration %} lets you send an MQTT message when the button is pressed in the frontend or the button press action is called. This can be used to expose some service of a remote device, for example reboot.
+
+To use an MQTT button in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ## Configuration
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  button:
-    - command_topic: "home/bedroom/switch1/reboot"
+  - button:
+      command_topic: "home/bedroom/switch1/reboot"
 ```
 
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `button` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-button:
-  - platform: mqtt
-    command_topic: "home/bedroom/switch1/reboot"
-```
-
-{% enddetails %}
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -59,7 +45,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -68,7 +54,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -76,26 +62,34 @@ availability_topic:
   required: false
   type: string
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `command_topic`.
   required: false
   type: template
 command_topic:
   description: The MQTT topic to publish commands to trigger the button.
+  required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `button.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
-  description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -108,8 +102,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -125,10 +127,9 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend.
+  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend. The `device_class` can be `null`.
   required: false
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -143,13 +144,16 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -157,14 +161,10 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name to use when displaying this button.
+  description: The name to use when displaying this button. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Button
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -180,8 +180,12 @@ payload_press:
   required: false
   type: string
   default: "PRESS"
+platform:
+  description: Must be `button`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -191,16 +195,14 @@ retain:
   type: boolean
   default: false
 unique_id:
-  description: An ID that uniquely identifies this button entity. If two buttons have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this button entity. If two buttons have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 
@@ -213,8 +215,8 @@ The example below shows a full configuration for a button.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  button:
-    - unique_id: bedroom_switch_reboot_btn
+  - button:
+      unique_id: bedroom_switch_reboot_btn
       name: "Restart Bedroom Switch"
       command_topic: "home/bedroom/switch1/commands"
       payload_press: "restart"

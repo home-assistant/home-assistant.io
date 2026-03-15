@@ -11,15 +11,16 @@ ha_domain: intesishome
 ha_platforms:
   - climate
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The `IntesisHome` climate platform lets you control [IntesisHome](https://www.intesishome.com), [Airconwithme](https://airconwithme.com) and [anywAIR](https://www.fujitsugeneral.com.au/anywair) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
+The **IntesisHome** {% term integration %} lets you control [IntesisHome](https://www.intesishome.com), [Airconwithme](https://airconwithme.com) and [anywAIR](https://www.fujitsugeneral.com.au/anywair) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
 
 Note: IntesisHome products are a separate product line to IntesisBox. This platform does not support IntesisBox devices (which can be controlled locally using the WMP protocol).
 
 ## Configuration
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 climate:
@@ -44,13 +45,13 @@ device:
   type: string
 {% endconfiguration %}
 
-This component opens a TCP connection with the IntesisHome API to receive temperature and status updates, and to issue commands.
-By default, the component will be named using the friendly device name from the IntesisHome website or application.
+This integration opens a TCP connection with the IntesisHome API to receive temperature and status updates, and to issue commands.
+By default, the integration will be named using the friendly device name from the IntesisHome website or application.
 If internet connectivity is lost, the device will be marked as unavailable after 5 minutes.
 
-### Supported services
+### Supported actions
 
-Available services:
+Available actions:
 
 - `climate.set_temperature`
 - `climate.set_fan_mode`

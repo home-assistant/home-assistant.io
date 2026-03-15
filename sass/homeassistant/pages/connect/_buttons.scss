@@ -1,0 +1,18 @@
+.button {
+    align-items: center;
+    background-color: var(--connect-line-blue);
+    border-radius: 20px;
+    display: inline-flex;
+    height: 40px;
+    padding: 8px 30px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    
+
+    &:hover{
+    
+    }
+}

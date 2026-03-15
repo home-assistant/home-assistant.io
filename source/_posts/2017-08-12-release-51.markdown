@@ -13,9 +13,9 @@ og_image: /images/blog/2017-08-0.51/components.png
 
 <a href='/integrations/#version/0.51'><img src='/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
 
-<div class='note warning'>
+{% important %}
 This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.
-</div>
+{% endimportant %}
 
 Release 0.51 is around the corner and it contains some really great updates.
 
@@ -80,7 +80,7 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Efergy sensors: change units from KW to W ([@emlt] - [#8761]) ([sensor.efergy docs]) (breaking change)
 - Xiaomi vacuum is now a platform of new `vacuum` component derived from ToggleEntity, and services ([@azogue] - [#8623]) (breaking change) (new-platform)

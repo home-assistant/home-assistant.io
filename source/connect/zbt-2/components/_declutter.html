@@ -1,0 +1,107 @@
+<section id="declutter">
+    <div class="section-inner">
+        <div class="section-inner-content">
+            <div class="container">
+                <div class="cols">
+                    <div class="col">
+                        <div class="connect-badge connect-line-blue"><span>Take back your smart home</span></div>
+                        <h2>Cut the clutter</h2>
+                        <p class="body-large">Directly connect the Zigbee, Matter or Thread devices you already have
+                            (including Hue, IKEA Trådfri, and more!) to Home Assistant.</p>
+                    </div>
+                    <div class="col">
+                        <video src="/connect/zbt-2/video/declutter.mp4" muted playsinline autoplay></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    (function () {
+        const videoWrapper = document.querySelector('#declutter');
+        const videoCol = document.querySelector('#declutter .cols .col:nth-child(2)');
+        const video = videoWrapper.querySelector('video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.currentTime = 1.2;
+                    video.play();
+
+                } else {
+                    video.pause();
+                }
+            });
+        });
+        observer.observe(videoWrapper);
+
+        let list = [];
+        const desiredList = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        let stage = 0;
+        window.addEventListener('keydown', (e) => {
+
+            list.push(e.keyCode);
+            if (list.length > desiredList.length) {
+                list.shift();
+            }
+            if (list.toString() === desiredList.toString()) {
+                wiiclutter();
+            }
+        });
+
+        let count = 0;
+        video.addEventListener('touchend', () => {
+            count++;
+            if (count >= 10) {
+                wiiclutter();
+            }
+        });
+
+        function wiiclutter() {
+            if(stage > 0) return;
+            stage = 1;
+            video.pause();
+            video.autoplay = false;
+            video.src = '/connect/zbt-2/video/declutter-alt.mp4';
+
+            let audio = document.createElement('audio');
+            audio.src = '/connect/zbt-2/audio/start.mp3';
+            audio.loop = false;
+            audio.volume = 0.5;
+            audio.play();
+
+            const button = document.createElement('div');
+            button.textContent = 'Loading...';
+            button.disabled = true;
+            button.classList.add('button', 'hide');
+            videoCol.appendChild(button);
+
+            setTimeout(() => {
+                button.classList.remove('hide');
+            }, 500);
+
+            video.addEventListener('loadeddata', () => {
+                button.disabled = false;
+                button.textContent = 'Declutter 🎳';
+            });
+
+            observer.unobserve(videoWrapper);
+
+            console.log(atob("V2VsbCB3ZWxsIHdlbGwsIHdoYXQgZG8gd2UgaGF2ZSBoZXJlLi4u"));
+            
+            button.addEventListener('click', () => {
+                if(stage > 1) return;
+                stage = 2;
+                console.log(atob("R29vZCBqb2IgZmluZGluZyB0aGUgZWFzdGVyIGVnZyAtIERhcnJlbg=="));
+
+                audio.pause();
+                button.classList.add('hide');
+
+                video.muted = false;
+                video.currentTime = 0;
+                video.volume = 0.75;
+                video.play();
+            });
+        }
+    })();
+</script>

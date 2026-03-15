@@ -1,0 +1,35 @@
+.docsearch {
+  .DocSearch-Button {
+    @media only screen and (max-width: $lap-end) {
+      padding: 0px;
+      margin: 8px 24px;
+    }
+
+    @media only screen and (min-width: $desk-start) {
+      padding: 0px;
+      margin-top: 16px;
+      margin-left: 8px;
+      margin-right: 0px;
+    }
+
+    background: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  .DocSearch-Button-Placeholder {
+    display: none;
+  }
+  .DocSearch-Button-Keys {
+    display: none;
+  }
+  .DocSearch-Search-Icon {
+    margin-right: 8px;
+    color: $link-color;
+  }
+}
+
+.DocSearch-Container {
+  z-index: 1000;
+}

@@ -9,13 +9,13 @@ categories: Internet-of-Things
 og_image: /images/blog/2016-02-classifying-internet-of-things/social.png
 ---
 
-The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the light.
+The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the lights.
 
 Each smart device consists of the ‘normal’ device and the piece that makes it ‘smart’: the connectivity. The connectivity part of a device can consists of either control, state or both.
 
 State describes what a device is up to right now. For example, a light can be on with a red color and a medium brightness.
 
-Control is about controlling the smart device by sending commands via an API. These commands can vary from configuring how a device works till mimicking how a user would interact with a device. A media player can allow skipping to the next track and a sensor could allow to configure its sensitivity or polling interval.
+Control is about controlling the smart device by sending commands via an API. These commands can vary from configuring how a device works to mimicking how a user would interact with a device. A media player can allow skipping to the next track and a sensor could allow to configure its sensitivity or polling interval.
 
 The Home Assistant APIs are setup to be as convenient as possible. However, a network is always as weak as it’s weakest link. In our case these are the integrations. Take for example controlling a light that does not report state. The only state Home Assistant can report on after sending a command is the assumed state: what do we expect the state of the light to be if the command worked.
 
@@ -28,7 +28,7 @@ We want our users to get the best home automation experience out there and this 
     <th>Description</th>
   </tr>
   <tr>
-    <td><i class="icon-adjust"></i></td>
+    <td><iconify-icon icon="mdi:circle-half-full"></iconify-icon></td>
     <td style='white-space: nowrap;'>Assumed State</td>
     <td>
       We are unable to get the state of the device. Best we can do is to assume the state based on our last command.
@@ -36,7 +36,7 @@ We want our users to get the best home automation experience out there and this 
   </tr>
 
   <tr>
-    <td><i class="icon-cloud-upload"></i></td>
+    <td><iconify-icon icon="mdi:cloud-upload"></iconify-icon></td>
     <td>Cloud Polling</td>
     <td>
       Integration of this device happens via the cloud and requires an active internet connection. Polling the state means that an update might be noticed later.
@@ -44,7 +44,7 @@ We want our users to get the best home automation experience out there and this 
   </tr>
 
   <tr>
-    <td><i class="icon-cloud-download"></i></td>
+    <td><iconify-icon icon="mdi:cloud-download"></iconify-icon></td>
     <td>Cloud Push</td>
     <td>
       Integration of this device happens via the cloud and requires an active internet connection. Home Assistant will be notified as soon as a new state is available.
@@ -52,7 +52,7 @@ We want our users to get the best home automation experience out there and this 
   </tr>
 
   <tr>
-    <td><i class="icon-download-alt"></i></td>
+    <td><iconify-icon icon="mdi:download-network-outline"></iconify-icon></td>
     <td>Local Polling</td>
     <td>
       Offers direct communication with device. Polling the state means that an update might be noticed later.
@@ -60,7 +60,7 @@ We want our users to get the best home automation experience out there and this 
   </tr>
 
   <tr>
-    <td><i class="icon-upload-alt"></i></td>
+    <td><iconify-icon icon="mdi:upload-network-outline"></iconify-icon></td>
     <td>Local Push</td>
     <td>
       Offers direct communication with device. Home Assistant will be notified as soon as a new state is available.
@@ -113,7 +113,7 @@ These devices will offer an API that is locally accessible. The home automation 
 
 Advantages:
 
- - Does not depend on the internet
+ - Does not depend on the internet.
 
 Disadvantages:
 
@@ -130,7 +130,7 @@ Advantages:
 Disadvantages:
 
  - If it does not also support polling, home automation will not be made aware of the state after booting up until it changes.
- - If using deep sleep and wifi, will suffer a delay when waking up because connecting to WiFi and receiving an IP takes time.
+ - If using deep sleep and Wi-Fi, it will suffer a delay when waking up because connecting to WiFi and receiving an IP takes time.
 
 
 ## Control

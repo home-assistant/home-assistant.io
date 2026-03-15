@@ -1,18 +1,31 @@
 ---
 type: card
-title: "Picture Elements Card"
-sidebar_label: Picture Elements
-description: "The Picture Elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
+title: "Picture elements card"
+sidebar_label: Picture elements
+description: "The picture elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even buttons! On an image based on coordinates."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The Picture Elements card is one of the most versatile types of cards.
-
-The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/dashboards/picture-glance/) with no restrictions!
+The picture elements card is one of the most versatile types of cards.
 
 <p class='img'>
   <img src='/images/dashboards/picture_elements.gif' alt='A functional floorplan powered by picture elements'>
   A functional floorplan powered by picture elements.
 </p>
+
+The cards allow you to position icons or text and even buttons on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/dashboards/picture-glance/) with no restrictions!
+
+{% include dashboard/edit_dashboard.md %}
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -21,7 +34,11 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
+  type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
   type: string
 camera_image:
   required: false
@@ -50,7 +67,7 @@ theme:
   type: string
 dark_mode_image:
   required: false
-  description: "This image is used when the dark mode is activated and no state image is set."
+  description: This image is used when the dark mode is activated and no state image is set.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 dark_mode_filter:
   required: false
@@ -64,16 +81,16 @@ Elements are the active components (icons, badges, buttons, text, etc.) that ove
 
 There are several different element types that can be added to a Picture Elements card:
 
-- [State Badge](#state-badge)
+- [State badge](#state-badge)
 - [State Icon](#state-icon)
 - [State Label](#state-label)
-- [Service Call Button](#service-call-button)
+- [Perform action button](#perform-action-button)
 - [Icon](#icon-element)
 - [Image](#image-element)
 - [Conditional](#conditional-element)
 - [Custom](#custom-elements)
 
-### State Badge
+### State badge
 
 This element creates a badge representing the state of an entity.
 
@@ -91,9 +108,13 @@ style:
   description: '[Position and style the element](#how-to-use-the-style-object) using CSS.'
   type: map
   default: "position: absolute, transform: translate(-50%, -50%)"
+name:
+  required: false
+  description: An optional alternative name displayed below the state badge. Defaults to the entity name if not provided. Set to null to hide.
+  type: string
 title:
   required: false
-  description: State badge tooltip. Set to null to hide.
+  description: State badge tooltip. Defaults to the entity name if not provided. Set to null to hide.
   type: string
 tap_action:
   required: false
@@ -109,7 +130,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### State Icon
+### State icon
 
 This element represents an entity state using an icon.
 
@@ -154,7 +175,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### State Label
+### State label
 
 This element represents an entity's state via text.
 
@@ -202,26 +223,30 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Service Call Button
+### Perform action button
 
-This entity creates a button (with arbitrary text) that can be used to call a service.
+This entity creates a button (with arbitrary text) that can be used to perform an action.
 
 {% configuration %}
 type:
   required: true
-  description: "`service-button`"
+  description: "`action-button`"
   type: string
 title:
   required: true
   description: Button label.
   type: string
-service:
+action:
   required: true
   description: "`light.turn_on`"
   type: string
-service_data:
+target:
   required: false
-  description: The service data to use.
+  description: The target to use for the action.
+  type: map
+data:
+  required: false
+  description: The data to use for the action.
   type: map
 style:
   required: true
@@ -230,7 +255,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Icon Element
+### Icon element
 
 This element creates a static icon that is not linked to the state of an entity.
 
@@ -270,7 +295,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Image Element
+### Image element
 
 This creates an image element that overlays the background image.
 
@@ -301,7 +326,7 @@ double_tap_action:
   type: map
 image:
   required: false
-  description: The image to display.
+  description: The image to display.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 camera_image:
   required: false
@@ -336,7 +361,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Conditional Element
+### Conditional element
 
 Much like the Conditional card, this element will let you show its sub-elements based on entity states.
 
@@ -364,11 +389,11 @@ conditions:
       type: string
 elements:
   required: true
-  description: One or more elements of any type to show when conditions are met. See below for an example.
+  description: One or more elements of any of the [listed types](#elements) to show when conditions are met. See below for an example.
   type: list
 {% endconfiguration %}
 
-### Custom Elements
+### Custom elements
 
 The process for creating and referencing custom elements is the same as for custom cards.
 Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card)
@@ -386,16 +411,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-## Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
-{% endconfiguration %}
-
-## Notes on Element Attributes
+## Notes on element attributes
 
 ### How to use the style object
 
@@ -407,18 +423,17 @@ style:
   # Positioning of the element
   left: 50%
   top: 50%
-  # Overwrite color for icons
-  "--paper-item-icon-color": pink
 ```
 
 ### How to use state_image
 
-Specify a different image to display based on the state of the entity.
+Specify a different image to display based on the state of the entity (supports local, web, or `media-source://` URLs):
 
 ```yaml
 state_image:
-  "on": /local/living_room_on.jpg
-  "off": /local/living_room_off.jpg
+  "on": /local/bed_light_on.png
+  "off": https://demo.home-assistant.io/stub_config/bedroom.png
+  "unavailable": media-source://image_upload/123456789
 ```
 
 ### How to use state_filter
@@ -439,8 +454,8 @@ If the option `hold_action` is specified, that action will be performed when the
 tap_action:
   action: toggle
 hold_action:
-  action: call-service
-  service: light.turn_on
+  action: perform-action
+  perform_action: light.turn_on
   data:
     entity_id: light.bed_light
     brightness_pct: 100
@@ -480,13 +495,13 @@ elements:
     style:
       top: 33%
       left: 15%
-  - type: service-button
+  - type: action-button
     title: Turn lights off
     style:
       top: 95%
       left: 60%
-    service: homeassistant.turn_off
-    service_data:
+    action: homeassistant.turn_off
+    target:
       entity_id: group.all_lights
   - type: icon
     icon: mdi:home
@@ -498,7 +513,7 @@ elements:
       left: 10%
 ```
 
-### Images Example
+### Images example
 
 ```yaml
 type: picture-elements
@@ -529,13 +544,13 @@ elements:
       width: 10%
       border: 2px solid red
       border-radius: 10%
-  # Single image, state_filter - call-service on click
+  # Single image, state_filter - perform action on click
   - type: image
     entity: media_player.living_room
     tap_action:
-      action: call-service
-      service: media_player.media_play_pause
-      data:
+      action: perform-action
+      perform_action: media_player.media_play_pause
+      target:
         entity_id: media_player.living_room
     image: /local/television.jpg
     filter: brightness(5%)
@@ -547,7 +562,7 @@ elements:
       width: 5%
 ```
 
-### Conditional Example
+### Conditional example
 
 ```yaml
 type: picture-elements

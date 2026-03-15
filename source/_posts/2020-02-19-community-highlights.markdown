@@ -66,7 +66,7 @@ mysql -D homeassistant -e "SELECT entity_id, state, last_updated FROM states LIM
 
 ## Beta time!
 
-Today we are releasing the first beta of Home Assistant Core 0.106. It is packed with awesome features. For a sneak peek of what is coming, check the [beta release notes](https://rc.home-assistant.io/latest-release-notes/).
+Today we are releasing the first beta of Home Assistant Core 0.106. It is packed with awesome features. For a sneak peek of what is coming, check the [beta release notes](/blog/2020/02/26/release-106/).
 
 I'm personally most excited about the extended safe mode. It will guarantee that the frontend will always load, no matter how broken your configuration is.
 

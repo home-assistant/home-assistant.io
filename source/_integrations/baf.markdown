@@ -2,6 +2,7 @@
 title: Big Ass Fans
 description: Instructions on how to integrate BAF devices into Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Fan
   - Light
@@ -17,13 +18,14 @@ ha_codeowners:
 ha_domain: baf
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - climate
   - fan
   - light
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assistant.
@@ -36,11 +38,19 @@ Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assista
 
 ## Platforms
 
+### Binary sensor
+
+For devices that support Auto Comfort and are running firmware 3.1 or later, an occupancy sensor {% term entity %} is available. The sensor has a hold time of about 5 minutes and pushes state updates.
+
 ### Climate
 
-For devices that support Auto Comfort, a climate entity allows adjusting the target temperature.
+For devices that support Auto Comfort, a climate {% term entity %} allows adjusting the target temperature.
 
-## Number
+{% note %}
+**Climate and Climate Sensors Become Unavailable:** Climate and some sensors like temperature are provided by the remote, not the fan itself on certain models. When the fan loses connection to the remote, these entities may become unavailable while the fan remains available. Consult vendor documentation on how to re-establish connectivity between the fan and remote and reload the integration to restore entities availability.
+{% endnote %}
+
+### Number
 
 Adjusting the minimum and maximum speed for devices that support Auto Comfort is available.
 

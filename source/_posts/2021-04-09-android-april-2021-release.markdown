@@ -50,19 +50,19 @@ Screenshot of Shortcuts
 
 Here is a list of the other changes you may notice:
 
-*  [Battery Temperature Sensor](https://companion.home-assistant.io/docs/core/sensors#battery-sensors)
-*  Notification command to [turn on the screen](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on)
-*  [BLE Transmitter](https://companion.home-assistant.io/docs/core/sensors#bluetooth-sensors) has a new setting to enable/disable the transmitter so the sensor can remain enabled. This new setting will correspond to the existing notification command.
-*  High Accuracy mode has a new zone-based automation feature allowing you to trigger this mode faster. See the [documentation](https://companion.home-assistant.io/docs/core/location#high-accuracy-mode) for more details.
+-  [Battery Temperature Sensor](https://companion.home-assistant.io/docs/core/sensors#battery-sensors)
+-  Notification command to [turn on the screen](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on)
+-  [BLE Transmitter](https://companion.home-assistant.io/docs/core/sensors#bluetooth-sensors) has a new setting to enable/disable the transmitter so the sensor can remain enabled. This new setting will correspond to the existing notification command.
+-  High Accuracy mode has a new zone-based automation feature allowing you to trigger this mode faster. See the [documentation](https://companion.home-assistant.io/docs/core/location#high-accuracy-mode) for more details.
 
 <p class='img'>
 <img src='/images/blog/2021-04-09-android-april-2021/high_accuracy_zone.png' alt='Screenshot of High Accuracy Zoning'></a>
 Screenshot of High Accuracy Zoning.
 </p>
 
-*  Long-pressing an entity in Android's Power Menu will now take you directly to the entity instead of the home page.
-*  Covers that support setting the position are also supported in Android's Power Menu.
-*  Lots of fixes and improvements in all other areas of the app.
+-  Long-pressing an entity in Android's Power Menu will now take you directly to the entity instead of the home page.
+-  Covers that support setting the position are also supported in Android's Power Menu.
+-  Lots of fixes and improvements in all other areas of the app.
 
 Big thank you to everyone involved. Please keep those bug reports and feature requests coming!
 

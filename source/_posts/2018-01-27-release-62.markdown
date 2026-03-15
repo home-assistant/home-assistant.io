@@ -49,7 +49,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Tahoma platform will get new entity IDs ([@glpatcern] - [#11547]) ([tahoma docs]) ([cover.tahoma docs]) (breaking change)
 - Mold indicator: attribute names no longer include spaces or periods ([@olskar] - [#11694]) ([sensor.mold_indicator docs]) (breaking change)

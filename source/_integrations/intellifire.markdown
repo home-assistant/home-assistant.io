@@ -2,8 +2,11 @@
 title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
+  - Fan
+  - Light
+  - Number
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -15,18 +18,37 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - climate
+  - fan
+  - light
+  - number
   - sensor
   - switch
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to various fireplaces. The modules do expose an unencrypted HTTP endpoint on the network that provides status information. This integration will read that URL and create a set of sensors displaying the current fireplace state.
 
 {% include integrations/config_flow.md %}
 
+## Configuration options
 
-## API Credentials
+After the integration is set up, you can configure how it communicates with your fireplace. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **IntelliFire** integration, and select **Configure**.
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Read data from:
+    description: "Select whether to read fireplace status data from the local network or from the cloud. Local reads directly from the fireplace on your network, while Cloud reads from IntelliFire's servers."
+Send commands to:
+    description: "Select whether to send control commands through the local network or through the cloud. Local sends commands directly to the fireplace on your network, while Cloud routes commands through IntelliFire's servers."
+{% endconfiguration_basic %}
+
+{% tip %}
+Some people find that their fireplace hardware prioritizes cloud communication and may experience timeouts with local control. If you encounter connectivity issues, try switching to Cloud for the affected endpoint.
+{% endtip %}
+
+## API credentials
 
 To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with the mobile app.
 
@@ -39,16 +61,34 @@ The following controllable entities are available:
 - **Flame** - Turn fireplace on/off.
 - **Pilot Light** - Turn pilot light on/off.
 
+### Fan
+
+If your unit is equipped with a fan - this entry will be present. There are 5 possible fan control values:
+
+- `0%` - Off
+- `25%` - Quiet
+- `50%` - Low
+- `75%` - Medium
+- `100%` - High
+
 ### Climate
 
 - **Thermostat** - This entity will be present if your unit has thermostatic control.
 
+
+### Light
+
+The integration provides a light entity if the unit is equipped with lights.
+
+### Number
+
+The integration uses a Number entity to control flame height. Valid flame height vales are `1-5`.
+
 ### Sensor Types
 
+The following sensors are available as a **binary sensor** when dealing with on/off.
 
-The following sensors are available as either a **Binary Sensor** when dealing with on/off.
-
-### Binary Sensors
+### Binary sensors
 
 - **Flame Sensor**: Whether the fire is on.
 - **Pilot Light Sensor**: Whether the pilot light is turned on.
@@ -57,7 +97,7 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 
 ### Sensor
 
-- **Flame Height**: Numerical indicator of flame height, where `0` is the lowest setting.
+- **Flame Height**: Numerical indicator of flame height, where `1` is the lowest setting and `5` is the highest setting.
 - **Temperature**: Current ambient temperature as read by the fireplace remote.
 - **Target Temperature**: If the thermostat is engaged this is the target temperature the fireplace will try to reach, as measured by the remote.
 - **Fan Speed**: Numerical indicator of fan speed.
@@ -94,6 +134,18 @@ The following is a description of the various diagnostic error sensors and what 
 ### Troubleshooting
 
 The IFT module can suffer a variety of issues that will render it inoperable. Some of these have been confirmed by the manufacturer and some appear to be random. There are two paths to try when attempting to reset the module:
+
+#### Enabling Debugging
+
+To turn on debug logging modify your {% term "`configuration.yaml`" %} file in the `/config` directory and add the following:
+
+
+```yaml
+logger:
+  logs:
+   homeassistant.components.intellifire: debug
+   intellifire4py: debug
+```
 
 #### Issue a Soft Reset
 

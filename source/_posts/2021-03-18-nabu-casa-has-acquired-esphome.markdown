@@ -18,7 +18,7 @@ Today I'm happy to announce that [ESPHome](https://esphome.io) is from now on un
 
 Otto started ESPHome three years ago to make programming ESP devices as easy as possible. With ESPHome, users write simple YAML files in which you describe what components are attached to what pins of the ESP device. ESPHome will then make this available in Home Assistant. No extra work necessary. Super simple.
 
-{% details Example ESPHome configuration %}
+{% details "Example ESPHome configuration" %}
 
 The following ESPHome YAML example will program your ESP device. When you plug it in, it will make the light on pin 16 available in Home Assistant.
 

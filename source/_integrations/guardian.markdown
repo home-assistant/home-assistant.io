@@ -1,12 +1,14 @@
 ---
 title: Elexa Guardian
-description: Instructions on how to integrate SimpliSafe into Home Assistant.
+description: Instructions on how to integrate Guardian into Home Assistant.
 ha_iot_class: Local Polling
 ha_release: '0.111'
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Button
   - Sensor
   - Switch
+  - Valve
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
@@ -14,71 +16,61 @@ ha_domain: guardian
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - sensor
   - switch
+  - valve
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `guardian` integration integrates
+The **Elexa Guardian** {% term integration %} integrates
 [Elexa Guardian water valve controllers](https://getguardian.com) into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor**: reports the status of the onboard leak detector and access point
+- **Binary sensor**: reports the status of the onboard leak detector and access point
+- **Button**: add various configuration controls
 - **Sensor**: reports on the device's detected temperature and uptime
-- **Switch**: allows the user to open and close the valve
+- **Switch**: allows you to enable and disable the onboard access point
+- **Valve**: allows you to open and close the valve
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-### `guardian.disable_ap`
+### Action: Pair sensor
 
-Disable the device's onboard access point.
+The `guardian.pair_sensor` action adds a new paired sensor to the valve controller.
 
-### `guardian.enable_ap`
-
-Enable the device's onboard access point.
-
-### `guardian.pair_sensor`
-
-Add a new paired sensor to the valve controller.
-
-| Service Data Attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
 
-### `guardian.reboot`
+### Action: Unpair sensor
 
-Reboot the device.
+The `guardian.unpair_sensor` action removes a paired sensor from the valve controller.
 
-### `guardian.reset_valve_diagnostics`
-
-Fully (and irrecoverably) reset all valve diagnostics.
-
-### `guardian.unpair_sensor`
-
-Remove a paired sensor from the valve controller.
-
-| Service Data Attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
 
-### `guardian.upgrade_firmware`
+### Action: Upgrade firmware
 
-Upgrade the device firmware.
+The `guardian.upgrade_firmware` action upgrades the device firmware.
 
-| Service Data Attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `url`                    | yes      | The URL of the server hosting the firmware file. |
 | `port`                   | yes      | The port on which the firmware file is served.   |
 | `filename`               | yes      | The firmware filename.                           |
 
-*Note:* not all service calls are available on all Guardian valve controller firmwares.
+{% note %} 
+Not all actions are available on all Guardian valve controller firmwares.
 Please ensure you upgrade your valve controller to the latest firmware before opening
-bugs related to non-working service calls.
+bugs related to non-working actions.
+{% endnote %}
 
 ## Paired Sensor Notes
 
