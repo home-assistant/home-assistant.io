@@ -14,7 +14,7 @@ ha_integration_type: hub
 
 The [TIS Control](https://tiscontrol.com) integration allows you to integrate and control your TIS Control smart home devices within Home Assistant.
 
-This integration automatically discovers TIS Control devices (RCUs and Relays) on your local network using a UDP broadcast.
+Configuration is handled entirely through the Home Assistant UI. Users can initiate the setup by providing the port used by the TIS gateway.
 
 ## Prerequisites
 
