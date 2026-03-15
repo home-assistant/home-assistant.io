@@ -39,7 +39,7 @@ Before you set up the integration, make sure you have created a Proxmox VE user 
 
 {% configuration_basic %}
 Host:
-  description: "Address of your Proxmox instance. Example: `https://proxmox.example.com`."
+  description: ""The hostname or IP address of your Proxmox VE server. Example: `pve.mydomain.local` or `10.20.30.40`."
 Port:
   description: "Port to connect to Proxmox. Default is `8006`."
 Realm:
