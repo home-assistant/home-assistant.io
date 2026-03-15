@@ -48,7 +48,7 @@ The **TRMNL** integration provides the following entities for each TRMNL device 
 
 ## Data updates
 
-The integration {% term polling polls %} the TRMNL API every hour to update sensor data.
+The integration {% term polling polls %} the TRMNL API every hour to update the device and entity states, including sensor readings and the **Sleep mode** switch.
 
 ## Removing the integration
 
