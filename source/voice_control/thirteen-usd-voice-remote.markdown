@@ -51,7 +51,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
    - In the pop-up window, view the available ports.
    - Plug the USB-C cable into the ATOM Echo and connect it to your computer.
    - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
-   - **Troubleshooting**: If no new port shows, your system may be missing a driver. Close the pop-up window.
+   - Troubleshooting: If no new port shows, your system may be missing a driver. Close the pop-up window.
      - In the dialog, select the CH342 driver, install it, then **Try again**.
    ![Open My link](/images/assist/esp32-atom-flash-no-port.png)
 3. Select **Install Voice Assistant**, then **Install**.
