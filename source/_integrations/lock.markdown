@@ -74,6 +74,25 @@ data:
   code: "1234"
 ```
 
+### Action: Oepn
+
+The `lock.open` action opens (unlatches) a lock.
+
+| Data attribute | Optional | Description                   |
+| -------------- | -------- | ----------------------------- |
+| `entity_id`    | no       | Entity of the relevant lock.  |
+| `code`         | yes      | Code used to open the lock. |
+
+#### Example
+
+```yaml
+action: lock.open
+target:
+  entity_id: lock.my_place
+data:
+  code: "1234"
+```
+
 ## Use the actions
 
 Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions. Enter something like the sample below into the **data** field and select **Perform action**.
