@@ -21,37 +21,26 @@ ha_quality_scale: bronze
 
 The **Emby** {% term integration %} allows you to control a [Emby](https://emby.media/) multimedia system from Home Assistant.
 
-# Prerequisites
+## Prerequisites
 
 You need to create an API key in your Emby instance in order to configure this integration:
 
 1. Navigate to your Emby admin interface.
-2. Select *API Keys* from *Advanced* in the menu.
-3. Create and API key and copy the value.
+2. Select **API Keys** from **Advanced** in the menu.
+3. Create an API key, copy it's value.
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
-host:
-  description: The host name or IP address of the device that is running Emby.
-  required: false
-  default: localhost
-  type: string
-api_key:
-  description: The API key to use to authenticate.
-  required: true
-  type: string
-ssl:
-  description: Connect with HTTPS/WSS. Your SSL certificate must be valid.
-  required: false
-  default: false
-  type: boolean
-port:
-  description: The port number of the device that is running Emby.
-  required: false
-  default: 8096 (No SSL),  8920 (SSL)
-  type: integer
-{% endconfiguration %}
+ {% configuration_basic %}
+ Host:
+   description: "The host name or IP address of the device that is running Emby. The default is localhost."
+ API key:
+   description: "The API key to use to authenticate with your Emby server."
+ SSL:
+   description: "Whether to connect with HTTPS/WSS. Your SSL certificate must be valid."
+ Port:
+   description: "The port number of the device that is running Emby. The default is 8096 without SSL or 8920 with SSL."
+ {% endconfiguration_basic %}
 
 ## Supported functionality
 
