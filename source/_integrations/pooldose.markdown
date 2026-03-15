@@ -71,6 +71,8 @@ Parallel reads for read-only values are avoided and write operations are seriali
 The following devices are known to be supported by the integration:
 
 - SEKO PoolDose Double
+- SEKO POOLDOSE pH+ORP CF Group Wi-Fi
+- SEKO PoolDose pH
 - VÁGNER POOL VA DOS BASIC
 - VÁGNER POOL VA DOS EXACT
 
@@ -86,11 +88,23 @@ This integration provides the following entities.
 - **Chlorine tank level alarm**: Low chlorine dosing solution level.
 - **Flow rate alarm**: Water flow issues.
 - **pH overfeed alarm**: Excessive pH dosing detected.
+- **pH overfeed alarm 2**: Alternative pH overfeed alarm.
+- **pH too low**: pH concentration too low.
+- **pH too high**: pH concentration too high.
 - **ORP overfeed alarm**: Excessive ORP dosing detected.
+- **ORP overfeed alarm 2**: Alternative ORP overfeed alarm.
+- **Chlorine overfeed alarm**: Excessive chlorine dosing detected.
+- **Chlorine overfeed alarm 2**: Alternative chlorine overfeed alarm.
+- **Chlorine too low (ORP)**: Chlorine concentration too low based on ORP readings.
+- **Chlorine too high (ORP)**: Chlorine concentration too high based on ORP readings.
+- **Chlorine too high**: Chlorine concentration too high.
 - **Alarm relay**: Main alarm relay state.
 - **Auxiliary relay 1**: Auxiliary relay 1 output state.
 - **Auxiliary relay 2**: Auxiliary relay 2 output state.
 - **Auxiliary relay 3**: Auxiliary relay 3 output state.
+- **Water too cold**: Water temperature too cold.
+- **Water too hot**: Water temperature too hot.
+- **System standby**: System in standby mode.
 
 ### Sensors
 
@@ -116,7 +130,7 @@ This integration provides the following entities.
 - **Chlorine type dosing**: Type of chlorine dosing being used.
   - **Values**: Low, High
 - **Peristaltic chlorine dosing**: Chlorine peristaltic dosing mode.
-  - **Values**: Off, Proportional, On/Off, Timed
+  - **Values**: Off, Proportional, On/Off, Timed, Cycle
 - **Overfeed alert ORP time**: Time threshold for ORP overfeed alerts.
   - **Unit**: min
 - **pH calibration type**: Type of pH calibration being used.
@@ -133,6 +147,16 @@ This integration provides the following entities.
   - **Unit**: mV
 - **Totalizer**: Total water volume accumulated.
   - **Unit**: L, m³
+- **Circulation pump**: Circulation pump.
+  - **Values**: Disabled, Enabled
+- **Device configuration**: Device mode.
+  - **Values**: pH+ORP, pH+ORP+Chlorine
+- **Temperature unit**: Temperature measurement unit.
+  - **Values**: Celsius, Fahrenheit
+- **Power-on delay**: Power-on delay.
+  - **Values**: Disabled, Enabled
+- **Flow delay**: Flow delay.
+  - **Values**: Disabled, Enabled
 
 ### Numbers
 
@@ -151,6 +175,16 @@ This integration provides the following entities.
   - **Unit**: ppm
 - **Chlorine overfeed alarm upper limit**: Upper threshold for chlorine overfeed detection.
   - **Unit**: ppm
+- **pH dosing off-time**: Pause duration between pH dosing cycles.
+  - **Unit**: s
+- **ORP dosing off-time**: Pause duration between ORP dosing cycles.
+  - **Unit**: s
+- **Chlorine dosing off-time**: Pause duration between chlorine dosing cycles.
+  - **Unit**: s
+- **Power-on delay timer**: Delay after power-on before dosing starts.
+  - **Unit**: s
+- **Flow delay timer**: Delay after flow detection before dosing starts.
+  - **Unit**: s
 
 ### Switches
 
