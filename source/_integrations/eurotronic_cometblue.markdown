@@ -34,7 +34,7 @@ Before you set up this integration, make sure the following requirements are met
 
 ## Configuration
 
-The Eurotronic Comet Blue {% term integration %} integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+The Eurotronic Comet Blue {% term integration %} will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
 The devices require active scans to be discovered.
 
