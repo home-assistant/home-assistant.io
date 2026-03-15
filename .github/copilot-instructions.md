@@ -52,7 +52,8 @@ The writing needs to be inclusive, objective, and not gender biased, polarizing,
 or discriminatory. We want to be welcoming to all users.
 
 Write towards the reader directly, and not a group of users. 
-Write from a second-person perspective, using "you" and "your" instead of "the user" or "users".
+Write from a second-person perspective, using "you" and "your" instead of "the 
+user" or "users".
 
 Make the text feel personal and friendly, as if you are talking to a friend who
 really enjoys technology and enjoys this hobby of home automation. Write in
@@ -77,7 +78,9 @@ Some other rules:
 - Do not use "e.g.", "i.e.", "etc.", or "etcetera". Use "like", "for example",
   or "such as" instead.
 - Avoid the verb "click". It is specific to using a mouse. Instead, use verbs that work with multiple devices, such as "select". Use "click" when you need to describe mouse actions specifically, for example, when describing right-clicking or double-clicking with a mouse.
-- [Do not use "master/slave"](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/m/master-slave). Instead, use alternatives such as "client/server", "leader/follower", "main/replica", or "controller/device".
+- [Do not use "master/slave"](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/m/master-slave).
+Instead, use alternatives such as "client/server", "leader/follower", 
+"main/replica", or "controller/device".
 - Lists:
     - Lists should be surrounded by blank lines.
     - Use a numbered list for sequential steps, procedures, or prioritized items.
@@ -164,7 +167,9 @@ related:
     title: Debug logs and diagnostics
 ---
 
-The **My integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
+The **My integration** {% term integration %} is used to integrate with the 
+devices of [MyCompany](https://www.mycompany.com). MyCompany creates various 
+smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.
 
 ## Supported devices
@@ -192,7 +197,8 @@ The following devices are not supported by the integration:
 
 {% include integrations/config_flow.md %}
 
-<!--- The next section is about documenting configuration variables. For details, refer to the [documentation standard on configuration variables](/docs/documenting/standards#configuration-variables). -->
+<!--- The next section is about documenting configuration variables. For 
+details, refer to the [documentation standard on configuration variables](/docs/documenting/standards#configuration-variables). -->
 
 <!--- In case your integration is used via a config flow: -->
 
@@ -300,13 +306,16 @@ link to the blueprint on the [blueprints
 
 ## Data updates
 
-The **My integration** integration {% term polling polls %} data from the device every 5 minutes by default.
+The **My integration** integration {% term polling polls %} data from the 
+device every 5 minutes by default.
 Newer devices (the ones running MyOS) have the possibility to push data.
-In this case, pushing data is enabled when the integration is started. If enabling data push fails, the integration uses data {% term polling %}.
+In this case, pushing data is enabled when the integration is started. If 
+enabling data push fails, the integration uses data {% term polling %}.
 
 ## Known limitations
 
-The integration does not provide the ability to reboot, which can instead be done via the manufacturer's app.
+The integration does not provide the ability to reboot, which can instead be 
+done via the manufacturer's app.
 
 ## Troubleshooting
 
@@ -314,11 +323,13 @@ The integration does not provide the ability to reboot, which can instead be don
 
 #### Symptom: “This device can’t be reached”
 
-When trying to set up the integration, the form shows the message “This device can’t be reached”.
+When trying to set up the integration, the form shows the message “This device
+can’t be reached”.
 
 ##### Description
 
-This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
+This means the settings on the device are incorrect, since the device needs to
+be enabled for local communication.
 
 ##### Resolution
 
@@ -932,8 +943,8 @@ Well known examples are: `condition`, `action`, `sequence`.
 In case a property accepts a single mapping or a list of mappings, a list of
 mappings must be used, even when a single mapping is passed in.
 
-This makes it easier to understand that one can add more items to it and also easier to
-copy and paste a single item into your own code.
+This makes it easier to understand that one can add more items to it and also
+easier to copy and paste a single item into your own code.
 
 ```yaml
 # Good
@@ -1080,4 +1091,7 @@ to avoid errors and error messages when the entity isn’t ready yet
 
 ### Blog posts
 
-When adding a new blog post to the `source/_posts` folder, the author specified in the `author` field of the front matter must exist as a top-level key in the `source/_data/people.yml` file. If the author is not present in the `people.yml` file, they must be added before the blog post can be published.
+When adding a new blog post to the `source/_posts` folder, the author specified
+in the `author` field of the front matter must exist as a top-level key in the
+`source/_data/people.yml` file. If the author is not present in the `people.yml`
+file, they must be added before the blog post can be published.
