@@ -188,6 +188,8 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
   - **Controls**:
     - Active program: HVAC modes + preset modes
     - Fan speed mode: fan speed
+ 
+{% enddetails %}
 ### Fan
 
 {% details "List of fan entities" %}
