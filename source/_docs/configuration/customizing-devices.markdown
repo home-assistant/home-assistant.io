@@ -26,7 +26,7 @@ To change entity attributes, follow these steps:
        - **Note**: You can only reset the ID to the default ID for entities with a unique ID.
          - IDs of entities that are disabled or for which the integration is not set up cannot be reverted.
      - To revert all the entity IDs for a device, on the device page, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Recreate entity IDs**.
-     - **Result**: This resets the entity ID and applies the current default naming convention.
+     - Result: This resets the entity ID and applies the current default naming convention.
        - The terms used to generate the entity ID depends on a few factors. Prioritization is as follows:
          1. If you changed the friendly name of the entity, the friendly name will be used.
          2. The entity ID suggested by the integration (just a few integrations do this).

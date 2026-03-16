@@ -25,7 +25,7 @@ Follow these steps to create a new category.
 3. Select **Category**, then **Add category**.
 4. Enter a name, select an icon and select **Add**.
 
-   **Result**: A new category is created.
+   Result: A new category is created.
 
 ## Assigning a category
 
