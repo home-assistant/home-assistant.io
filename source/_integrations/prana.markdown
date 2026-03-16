@@ -84,10 +84,10 @@ The integration provides sensors to monitor air quality and temperatures.
     - **Unit**: ppm (parts per million).
   - **VOC**
     - **Description**: Volatile Organic Compounds level (indoor air pollution).
-    - **Unit**: Unit: ppm (parts per million).
+    - **Unit**: ppm (parts per million).
   - **Humidity**
-    - **Description**: Relative humidity level inside the room Unit: %.
-    - **Unit**: ppb (parts per billion).
+    - **Description**: Relative humidity level inside the room.
+    - **Unit**: % (percent).
   - **Air pressure**
     - **Description**: Current atmospheric pressure.
     - **Unit**: mmHg (millimeters of mercury).
