@@ -2,6 +2,7 @@
 title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Light
   - Number
@@ -17,6 +18,7 @@ ha_codeowners:
 ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - light
@@ -150,6 +152,11 @@ Currently, the following devices and entities are supported:
 
 ### [EHEIM reeflexUV+e](https://eheim.com/en_GB/aquatics/eheim-digital/uv-sterilizer/)
 
+#### Binary sensor
+
+- **Light**: Displays whether the UVC lamp is currently burning
+- **UVC lamp connected**: Displays whether a UVC lamp is connected
+
 #### Number
 
 - **Daily burn duration**: Setting the daily burn duration of the UV lamp
@@ -159,8 +166,8 @@ Currently, the following devices and entities are supported:
 #### Select
 
 - **Operation mode**: Setting the operation mode
-  - **Constant mode**: The UV lamp is burning constantly
-  - **Daycycle mode**: The UV lamp is burning on a day cycle
+  - **Constant mode**: The UVC lamp is burning constantly
+  - **Daycycle mode**: The UVC lamp is burning on a day cycle
 
 #### Sensor
 
