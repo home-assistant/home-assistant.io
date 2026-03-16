@@ -1,19 +1,22 @@
 ---
-title: Nintendo Switch Parental Controls
+title: Nintendo Switch parental controls
 description: The Nintendo Switch Parental Controls integration allows you to monitor and control screentime for children via the Nintendo Switch Parental Controls service.
 ha_release: 2025.11
-ha_iot_class: cloud_polling
+ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pantherale0'
-ha_domain: nintendo_parental
-ha_integration_type: integration
+ha_domain: nintendo_parental_controls
+ha_integration_type: service
 ha_platforms:
-  - sensor
-  - time
-  - switch
   - number
+  - select
+  - sensor
+  - switch
+  - time
+ha_category: []
+ha_quality_scale: bronze
+ha_config_flow: true
 ---
-
 
 The **Nintendo Switch Parental Controls** {% term integration %} integrates with the Nintendo Switch Parental Controls service, allowing parents to monitor and control screentime for their children.
 
@@ -61,6 +64,15 @@ You will need:
 
 The **Nintendo Switch Parental Controls** integration provides the following entities.
 
+#### Number
+
+- **Max screentime today**
+  - **Description**: Maximum amount of screentime to allow today, for unlimited screentime, set to `-1`. By setting this to `0` and turning the **Suspend software** switch on, you can 'lock' your Nintendo Switch.
+
+#### Select
+- **Restriction mode**
+  - **Description**: Controls whether the same screen time limits are applied every day or if each day of the week has its own separate limit.
+
 #### Sensors
 
 - **Used screen time**
@@ -72,19 +84,16 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
   - **Unit of measurement**: `minutes`
   - **Device class**: `duration`
 
-#### Time
-
-- **Bedtime alarm**
-  - **Description**: A set bedtime for a given device, at this time, the Switch can either "lock" or show an alert in the top left corner.
-
 #### Switch
 - **Suspend software**
   - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits. 
 
-#### Number
+#### Time
 
-- **Max screentime today**
-  - **Description**: Maximum amount of screentime to allow today, for unlimited screentime, set to `-1`. By setting this to `0` and turning the **Suspend software** switch on, you can 'lock' your Nintendo Switch.
+- **Bedtime alarm**
+  - **Description**: A set bedtime for a given device, at this time, the Switch can either "lock" or show an alert in the top left corner.
+- **Bedtime end time**
+  - **Description**: The time that bedtime should end. Set to 00:00 to disable. Accepts values between 05:00 and 09:00 for the bedtime end time.
 
 ## Actions
 

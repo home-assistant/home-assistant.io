@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `hddtemp` sensor {% term integration %} is using the data provided by [HDDTemp](https://savannah.nongnu.org/projects/hddtemp).
+The **hddtemp** {% term integration %} is using the data provided by [HDDTemp](https://savannah.nongnu.org/projects/hddtemp).
 
 ## Setup
 

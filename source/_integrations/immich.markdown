@@ -16,11 +16,11 @@ ha_platforms:
   - update
 ha_codeowners:
   - '@mib1185'
-ha_integration_type: integration
-ha_quality_scale: silver
+ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
-This integration allows adding an [Immich](https://immich.app/) user account to Home Assistant.
+This {% term integration %} allows adding an [Immich](https://immich.app/) user account to Home Assistant.
 
 ## Prerequisites
 
@@ -134,6 +134,10 @@ sequence:
 ## Troubleshooting
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics/) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+## Known limitations
+
+There are no known limitations.
 
 ## Remove the integration
 

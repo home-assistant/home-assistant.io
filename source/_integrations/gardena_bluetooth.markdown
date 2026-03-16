@@ -19,10 +19,10 @@ ha_platforms:
   - sensor
   - switch
   - valve
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Gardena Bluetooth integration allows users to integrate their Gardena Bluetooth devices into Home Assistant.
+The **Gardena Bluetooth** {% term integration %} allows users to integrate their Gardena Bluetooth devices into Home Assistant.
 
 See device section for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps)
 

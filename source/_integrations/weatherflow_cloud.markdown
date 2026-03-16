@@ -14,10 +14,10 @@ ha_config_flow: true
 ha_codeowners:
   - '@jeeftor'
 ha_domain: weatherflow_cloud
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The **WeatherFlow Cloud** integration provides access to cloud provided Weather Forecast of a user's Tempest Weather Stations. In order to access the station, you will need to configure the integration with an [Api Key](https://weatherflow.github.io/Tempest/api/).
+The **WeatherFlow Cloud** {% term integration %} provides access to cloud provided Weather Forecast of a user's Tempest Weather Stations. In order to access the station, you will need to configure the integration with an [Api Key](https://weatherflow.github.io/Tempest/api/).
 
 ### Which integration(s) should I use
 

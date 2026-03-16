@@ -8,11 +8,11 @@ ha_iot_class: Local Polling
 ha_domain: mqtt
 ---
 
-The `mqtt` water heater platform lets you control your MQTT enabled water heater devices.
+The **MQTT water heater** {% term integration %} lets you control your MQTT enabled water heater devices.
 
 ## Configuration
 
-To use an MQTT water heater in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT water heater in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -145,6 +145,10 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member water heater entities. Set this if the water heater entity represents a water heater group.
+  required: false
+  type: list
 initial:
   description: Set the initial target temperature. The default value depends on the temperature unit, and will be 43.3°C or 110°F.
   required: false

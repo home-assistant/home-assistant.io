@@ -15,7 +15,7 @@ ha_platforms:
   - calendar
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 
@@ -77,6 +77,18 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 The {% term integration %} automatically detects if you can use webhooks. This enables the {% term integration %} only to update when there is new data.
 The binary sensor for sleep will only work if the {% term integration %} can establish webhooks with Withings.
 
+### Webhook requirements
+
+For webhooks to work, your Home Assistant instance must be reachable by the Withings cloud service. The following requirements must be met:
+
+- **Publicly accessible** - Your Home Assistant instance must be reachable from the internet
+- **HTTPS on port 443** - Withings requires HTTPS specifically on port 443. Using HTTPS on a non-standard port (such as 8443) will not work
+- **Valid SSL certificate** - The certificate must be signed by a globally recognized Certificate Authority (for example, Let's Encrypt). Self-signed certificates will not work
+
+{% important %}
+If webhooks cannot be established, some sensors will not be available. In particular, the sleep binary sensor has no polling fallback and requires working webhooks to function.
+{% endimportant %}
+
 ## Available data
 
 The {% term integration %} provides several entities, some of which are dynamically enabled if data is available.
@@ -85,7 +97,7 @@ For example, measurement sensors like weight only work when data has been regist
 
 Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
-Workout calendar and the workout and activity sensors show if the latest available data point is no older than 14 days.
+Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
 
 ## Removing the integration
 

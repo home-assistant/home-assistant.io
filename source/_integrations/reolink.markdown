@@ -24,7 +24,7 @@ ha_platforms:
   - siren
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ha_quality_scale: platinum
 related:
@@ -36,7 +36,7 @@ works_with:
   - local
 ---
 
-The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras. Reolink cameras are known for their local storage, without the need for a cloud subscription or account. Reolink cameras can operate fully locally on your network, putting privacy first. When blocking internet access for the Reolink devices, the Home Assistant integration, as well as the Reolink app/client, will continue to work as usual. Reolink cameras provide excellent day- and nighttime video clarity at an affordable price. An SD card in the camera offers local recording, while an optional Reolink NVR/Hub can offer a large recording capacity indoors. As evident by the list of entities in this documentation, Reolink cameras are highly configurable and tightly integrated into Home Assistant.
+The **Reolink** {% term integration %} allows you to control [Reolink](https://reolink.com/) NVRs or cameras. Reolink cameras are known for their local storage, without the need for a cloud subscription or account. Reolink cameras can operate fully locally on your network, putting privacy first. When blocking internet access for the Reolink devices, the Home Assistant integration, as well as the Reolink app/client, will continue to work as usual. Reolink cameras provide excellent day- and nighttime video clarity at an affordable price. An SD card in the camera offers local recording, while an optional Reolink NVR/Hub can offer a large recording capacity indoors. As evident by the list of entities in this documentation, Reolink cameras are highly configurable and tightly integrated into Home Assistant.
 
 This integration is officially authorized by Reolink, with @StarkillerOG as the main developer, and it is built with the support of Reolink's official resources.
 
@@ -51,7 +51,7 @@ A brand new Reolink camera needs to be connected to the network and initialized.
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
+  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** > **Device** (top icon) > **Networkinformation** > **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
 Username:
   description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
 Password:
@@ -72,7 +72,7 @@ If an entity listed below has an asterisk (*) next to its name, it means it is d
 ## Data updates: plus (+) next to entities listed in this documentation
 
 If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
-For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
+For redundancy, the state of all entities is also polled. For cameras connected to a NVR/Hub, the polling interval is 10 seconds per camera, with a minimum of 60 seconds total. For directly connected cameras, the polling interval is 60 seconds. For entities without a plus (+), polling is the only update method. Therefore, a device's state change can take some time to be reflected in Home Assistant.
 An exception is the firmware update entity, which is polled every 24 hours.
 Another exception are battery cameras, most {% term entities %} are still {% term polling polls %} every 60 seconds. However, the entities that would cause the camera to wake from sleep will only be polled during the following events:
 
@@ -137,8 +137,8 @@ For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), number entities are added for:
 
-- Optical zoom control
-- Focus control
+- Optical zoom control+
+- Focus control+
 - Floodlight turn on brightness*+
 - Floodlight event brightness*+
 - Infrared light brightness
@@ -217,14 +217,20 @@ Depending on the supported features of the camera ([see specifications of the ca
 - PTZ right
 - PTZ up
 - PTZ down
+- PTZ left up*
+- PTZ left down*
+- PTZ right up*
+- PTZ right down*
 - PTZ calibrate
 - PTZ zoom in*
 - PTZ zoom out*
+- PTZ continuous rotation*
 - Guard go to
 - Guard set current position
 - Restart*
 
-**PTZ left**, **right**, **up**, **down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
+**PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
+**PTZ continuous rotation** will keep rotating the camera until **PTZ stop** is called or **PTZ continuous rotation** is called again.
 
 **Guard set current position** will set the current position as the new guard position.
 
@@ -258,6 +264,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Fluent bit rate*
 - Chime motion ringtone
 - Chime person ringtone
+- Chime pet ringtone
 - Chime vehicle ringtone
 - Chime visitor ringtone
 - Hub alarm ringtone
@@ -355,8 +362,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Person type+ (man, woman)
 - Animal type+ (dog, cat)
 - Vehicle type+ (sedan, SUV, pickup truck, motorcycle)
-- PTZ pan position
-- PTZ tilt position
+- PTZ pan position+
+- PTZ tilt position+
 - Day night state+ (color, black and white, color with floodlight)
 - Wi-Fi signal*
 - CPU usage*
@@ -389,11 +396,13 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
-- [E1 Pro](https://reolink.com/product/e1-pro/) (5MP models - hardware version IPC_NT1NA45MP - or newer†)
+- [E1](https://reolink.com/product/e1/)
+- [E1 Pro](https://reolink.com/product/e1-pro/)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
+- [E331](https://reolink.com/product/e331/)
 - [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/) (needs mains power, cannot be integrated when powered through USB)
 - [FE-P](https://reolink.com/product/fe-p/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [FE-W](https://reolink.com/product/fe-w/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
@@ -421,6 +430,7 @@ The following models have been tested and confirmed to work with a direct link t
 - **[RLC-823S2](https://reolink.com/product/rlc-823s2/)**
 - [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-840A](https://reolink.com/product/rlc-840a/)
 - [RLC-843A](https://reolink.com/product/rlc-843a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - **[RLC-1224A](https://reolink.com/product/rlc-1224a/)**
@@ -441,14 +451,13 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
+- [Reolink Lumus](https://reolink.com/product/reolink-lumus/)
 - **[Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)**
 - [Reolink TrackMix Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/)
 - Reolink Video Doorbell ([PoE Black](https://reolink.com/product/reolink-video-doorbell/), [PoE White](https://reolink.com/product/reolink-video-doorbell/))
 - **Reolink Video Doorbell ([Wi-Fi Black](https://reolink.com/product/reolink-video-doorbell-wifi/), [Wi-Fi White](https://reolink.com/product/reolink-video-doorbell-wifi/))**
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
-
-†Requires a [camera hardware version](https://support.reolink.com/hc/en-us/articles/900000638583-Introduction-to-the-Hardware-Version-of-Reolink-Cameras/) that supports remote access.  All 5MP or newer E1 Pro models (where the hardware version includes "5MP") meet this requirement.  Most sellers (including ReoLink) do not explicitly state the hardware version, so verify the resolution is 5MP or greater to ensure compatibility.
 
 ### Tested battery-powered models
 
@@ -483,9 +492,6 @@ Reolink provides [this larger list of battery camera models](https://support.reo
 The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
 However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
-- E1 Pro (The IPC_NT1NA45MP hardware version also works with a direct connection)
-- E1
-- Reolink Lumus
 - B400*
 - B500*
 - B500W*
@@ -837,7 +843,7 @@ Prerequisites:
 
 ### Battery drains fast
 
-The Reolink Home Assistant integration is supposed to only wake battery cameras once per hour for about 10 seconds, which should not have a big impact on battery life. You can check this using the **Sleep status** entity. However, there are several factors that can have significant impact on battery life:
+The Reolink Home Assistant integration is supposed to wake battery cameras only once every 6 hours for a few seconds, or to perform a data update when the battery camera wakes up on its own (at most once per hour). This should not have a significant impact on battery life. You can check the correct operation using the **Sleep status** entity. However, several factors can have a significant impact on battery life:
 
 - Make sure the **Preload camera stream** option is turned off for all battery camera entities under {% my integrations title="**Settings** > **Devices & services**" %} > Reolink integration card > **x devices** > select the battery camera > select the camera stream (do this for all enabled streams) > Gear icon {% icon "mdi:cog-outline" %}. The Preload camera stream will keep a active stream open, keeping the camera awake. This will drain the battery.
 - Make sure the **Manual Record** switch is turned off. While this switch is on, the camera will be awake and recording. Excessive use of this entity will drain the battery.

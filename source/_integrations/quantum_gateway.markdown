@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `quantum_gateway` device tracker platform offers presence detection by looking at devices connected to a Verizon Fios gateway.
+The **Quantum Gateway** {% term integration %} offers presence detection by looking at devices connected to a Verizon Fios gateway.
 
 It was tested with a Verizon Fios-G1100 and G3100 Quantum Gateway.
 

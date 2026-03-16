@@ -12,6 +12,10 @@ ha_supporting_domain: esphome
 ha_supporting_integration: ESPHome
 works_with:
   - local
+ha_codeowners:
+  - '@jesserockz'
+  - '@kbx81'
+  - '@bdraco'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -37,6 +41,7 @@ ha_platforms:
   - time
   - update
   - valve
+  - water_heater
 ha_iot_class: Local Push
 ha_dhcp: true
 ha_zeroconf: true

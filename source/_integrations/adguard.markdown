@@ -5,6 +5,7 @@ ha_category:
   - Network
   - Sensor
   - Switch
+  - Update
 ha_release: 0.95
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_domain: adguard
 ha_platforms:
   - sensor
   - switch
+  - update
 ha_integration_type: service
 ---
 
@@ -78,6 +80,14 @@ The **AdGuard protection** switch acts as a master control. When turned off, it 
 Turning off **Query log** stops all sensor updates. AdGuard requires query logging to provide statistics.
 {% endimportant %}
 
+### Update
+
+The integration provides an {% term update %} entity to check for and install AdGuard Home software updates.
+
+{% note %}
+For Docker-based installations of AdGuard Home, no update entity is available for the AdGuard Home software. If you have installed the [AdGuard Home app for Home Assistant](https://github.com/hassio-addons/addon-adguard-home) (formerly known as AdGuard Home add-on) on {% term "Home Assistant Operating System" %}, Home Assistant provides an update entity for the AdGuard Home app for Home Assistant.
+{% endnote %}
+
 ## Actions
 
 The integration provides {% term actions %} to manage filter subscriptions in AdGuard Home. Use these actions in automations to dynamically control content filtering based on time, presence, or other conditions.
@@ -88,42 +98,42 @@ For example, you could create automations that:
 - Enable strict filtering when guests connect to your network
 - Temporarily disable filtering for specific downloads
 
-### Action `adguard.add_url`
+### Action: Add URL
 
-Adds a new filter subscription to AdGuard Home.
+The `adguard.add_url` action is used to add a new filter subscription to AdGuard Home.
 
 | Data attribute | Optional | Description                                   |
 | -------------- | -------- | --------------------------------------------- |
 | `name`         | No       | The name of the filter subscription           |
 | `url`          | No       | The filter list URL containing blocking rules |
 
-### Action `adguard.remove_url`
+### Action: Remove URL
 
-Removes a filter subscription from AdGuard Home.
+The `adguard.remove_url` action is used to remove a filter subscription from AdGuard Home.
 
 | Data attribute | Optional | Description                           |
 | -------------- | -------- | ------------------------------------- |
 | `url`          | No       | The filter subscription URL to remove |
 
-### Action `adguard.enable_url`
+### Action: Enable URL
 
-Enables a previously disabled filter subscription.
+The `adguard.enable_url` action is used to enable a previously disabled filter subscription.
 
 | Data attribute | Optional | Description                           |
 | -------------- | -------- | ------------------------------------- |
 | `url`          | No       | The filter subscription URL to enable |
 
-### Action `adguard.disable_url`
+### Action: Disable URL
 
-Temporarily disables a filter subscription without removing it.
+The `adguard.disable_url` action is used to temporarily disable a filter subscription without removing it.
 
 | Data attribute | Optional | Description                            |
 | -------------- | -------- | -------------------------------------- |
 | `url`          | No       | The filter subscription URL to disable |
 
-### Action `adguard.refresh`
+### Action: Refresh
 
-Refreshes all filter subscriptions to get the latest blocking rules.
+The `adguard.refresh` action is used to refresh all filter subscriptions to get the latest blocking rules.
 
 | Data attribute | Optional | Description                                     |
 | -------------- | -------- | ----------------------------------------------- |

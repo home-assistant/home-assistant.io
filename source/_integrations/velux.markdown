@@ -15,23 +15,31 @@ ha_codeowners:
 ha_domain: velux
 ha_platforms:
   - binary_sensor
+  - button
   - cover
+  - diagnostics
   - light
+  - number
   - scene
-ha_integration_type: integration
+  - switch
+ha_integration_type: hub
 ha_dhcp: true
+ha_quality_scale: silver
 ---
 
-[Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
+The [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface so you can control [io-homecontrol](http://www.io-homecontrol.com) devices, such as windows, blinds, lights, and switches. The integration lets you start scenes configured on the KLF 200.
 
 At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmware images may be obtained from the [vendor's website](https://www.velux.com/klf200) and may be imported via the web interface of your KLF 200.
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor (reports rain detection for windows that support it)
+- Button (Reboot button on the gateway device to reboot the KLF 200 gateway)
 - Cover
 - Light
+- Number (controls the power level of exterior heating devices connected to the gateway, from 0% to 100%)
 - Scene
+- Switch
 
 Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
 
@@ -57,14 +65,6 @@ Password:
 {% endconfiguration_basic %}
 
 Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
-
-## Actions
-
-### Action `velux.reboot_gateway`
-
-Reboots the configured KLF 200 gateway.
-
-In Home Assistant versions up to 2024.12.x, it was recommended to create an automation to reboot the KLF 200 gateway before shutting down or restarting Home Assistant. This automated reboot is now built into the integration, so you no longer need to create a separate automation.
 
 ## Removing the integration
 

@@ -329,8 +329,12 @@ To use your Command binary sensor in your installation, add the following to you
 command_line:
   - binary_sensor:
       command: "cat /proc/sys/net/ipv4/ip_forward"
+      payload_on: "1"
+      payload_off: "0"
   - binary_sensor:
       command: "echo 1"
+      payload_on: "1"
+      payload_off: "0"
 ```
 {% endraw%}
 
@@ -733,7 +737,7 @@ command_line:
 ### Control your VLC player
 
 This switch will control a local VLC media player
-([Source](https://community.home-assistant.io/t/vlc-player/106)).
+([Source](https://community.home-assistant.io/t/106)).
 
 {% raw %}
 ```yaml
@@ -773,8 +777,8 @@ command_line:
 
 Available actions: `reload`.
 
-### Action `command_line.reload`
+### Action: Reload
 
-Reload all `command_line` entities.
+The `command_line.reload` action allows you to reload all `command_line` entities.
 
 This action takes no data attributes.

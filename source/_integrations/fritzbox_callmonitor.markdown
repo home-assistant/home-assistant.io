@@ -10,11 +10,9 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: device
-ha_codeowners:
-  - '@cdce8p'
 ---
 
-The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [FRITZ!Box](https://en.fritz.com/products/fritzbox/) routers (by FRITZ!, formerly AVM) on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
+The **FRITZ!Box Call Monitor** {% term integration %} monitors the call monitor exposed by [FRITZ!Box](https://en.fritz.com/products/fritzbox/) routers (by FRITZ!, formerly AVM) on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
 It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.
 
 ## Prerequisites
@@ -23,7 +21,7 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `Vo
 
 1.  Open the web user interface via `fritz.box` or the IP address of your FRITZ!Box (e.g. `192.168.1.1`).
 2.  Log in with your admin user credentials. The default admin user credentials can be found at the bottom of your FRITZ!Box.
-3.  Navigate to **System** -> **FRITZ!Box User**.
+3.  Navigate to **System** > **FRITZ!Box User**.
 4.  Click the `Add User` button.
 5.  Enable the option `User account enabled`.
 6.  Enter a username and password.

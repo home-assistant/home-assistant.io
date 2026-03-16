@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `microsoft_face_identify` image processing {% term integration %} lets you use
+The **Microsoft Face Identify** {% term integration %} lets you use
 [Microsoft Face identify](https://azure.microsoft.com/products/cognitive-services/)
 API through Home Assistant. This platform allow you do identify persons on
 camera and fire an event with attributes.

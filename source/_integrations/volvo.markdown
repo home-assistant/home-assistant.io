@@ -16,12 +16,14 @@ ha_category:
 ha_platforms:
   - binary_sensor
   - button
+  - device_tracker
+  - diagnostics
   - lock
   - sensor
 ha_quality_scale: platinum
 related:
   - url: https://developer.volvocars.com/
-    title: Volvo developers portal
+    title: Volvo developer portal
 ---
 
 The **Volvo** {% term integration %} is used to integrate your [Volvo](https://www.volvocars.com/) vehicle.
@@ -61,19 +63,29 @@ Features available depend on model, year and location.
 It's recommended to add an API application per vehicle you want to add. There is a maximum on the number of requests that can be made per API key per day.
 
 {% note %}
-Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo, this service is provided for free and does not require a Nabu Casa subscription.
+Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
 
-If you want to use your own `client id` and `client secret`, or you have the [cloud integration](/integrations/cloud) disabled, proceed to "**Using custom application credentials**".
+Read the "**Using custom application credentials**"-section if you have the [cloud integration](/integrations/cloud) disabled.
 {% endnote %}
 
 {% details "Using custom application credentials" icon="mdi:account-key" %}
+
+{% important %}
+Custom Volvo application credentials have a limited grant period, which means you'll need to re-authenticate with Volvo after each period.
+The exact timing is mentioned on the developer portal in the [Refresh the access token](https://developer.volvocars.com/apis/docs/authorisation/) section.
+Data updates will stop working once the grant expires until you re-authenticate.
+
+For a better user experience, it's recommended to use the default Nabu Casa account linking instead.
+{% endimportant %}
 
 1. On Volvo's API application page, click the **Publish** button underneath your API application.
 2. Fill in all required fields in the screen that follows. Pay attention to:
    - **Scopes**: Make sure to select them all (you need to expand the sections).
    - **Redirect URI(s)**: Add `https://my.home-assistant.io/redirect/oauth`.
 3. Click **View summary** and **confirm**.
-4. Grab the `client id` and `client secret` from the confirmation page and add them to your [application credentials](/integrations/application_credentials).
+4. Grab the `client id` and `client secret` from the confirmation page and **add them** to your [application credentials](/integrations/application_credentials).
+
+For this to work, you'll need to configure [My Home Assistant](https://my.home-assistant.io/) to let it point to your local Home Assistant instance. Check the [FAQ](https://my.home-assistant.io/faq/) for more information about this feature.
 
 {% enddetails %}
 
@@ -147,6 +159,7 @@ The **Volvo** integration provides the following entities.
 - **Flash**: Activates the vehicle's lights to flash briefly.
 - **Honk**: Activates the vehicle's horn for a short duration.
 - **Flash & honk**: Combines flashing lights and horn activation.
+- **Lock reduced guard**: Locks the vehicle with reduced guard.
 
 {% important %}
 Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12&nbsp;V battery.
@@ -215,6 +228,20 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter.
 - **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
 
+## Actions
+
+### Get image URL
+
+The action `get_image_url` retrieves the URL of your vehicle-specific images.
+Get all URLs at once, or select one or more angles.
+
+{% configuration_basic %}
+Entry:
+  description: "The entry ID to retrieve the vehicle images for."
+Images:
+  description: "The image angles to retrieve. Leave empty to get all images."
+{% endconfiguration_basic %}
+
 ## Examples
 
 ### Notify if doors are left open
@@ -276,9 +303,9 @@ Set the **Device class** to **Timestamp** and optionally choose your vehicle for
 
 The **Volvo** integration fetches data from the API at different intervals:
 
-- **Every 60 minutes**: diagnostics, odometer, and statistics.
-- **Every 15 minutes**: car connectivity, fuel status, and location.
-- **Every 2 minutes**: energy data (for battery cars).
+- **Every 30 minutes**: car connectivity, diagnostics, tyres, and warnings.
+- **Every 15 minutes**: brakes, engine warnings, location, and odometer.
+- **Every 2 minutes**: energy data, engine status, fuel status, and statistics.
 - **Every minute**: doors, lock, and windows status.
 
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
@@ -312,4 +339,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
+After deleting the integration, go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications) on Volvo's developer portal and delete the app you use for the Home Assistant integration.
