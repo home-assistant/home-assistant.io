@@ -84,7 +84,7 @@ The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
 
 ### Action: Clean area
 
-The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assistant areas. To use this action, the vacuum's segments must first be mapped to areas.
+The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assistant areas. To use this action, the vacuum's [segments must first be mapped to areas](#mapping-your-vacuum-areas-to-home-assistant-areas).
 
 | Data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
