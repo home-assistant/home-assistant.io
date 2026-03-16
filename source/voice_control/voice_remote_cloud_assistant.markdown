@@ -18,7 +18,7 @@ Before being able to use Assist, you need to configure it.
 The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in Home Assistant Cloud.
 This page will detail how to do just that.
 
-If you are interested in setting up a fully local voice assistant, follow [this procedure](https://www.home-assistant.io/voice_control/voice_remote_local_assistant/) instead.
+If you are interested in setting up a fully local voice assistant, follow the [guide to creating a local voice assistant](/voice_control/voice_remote_local_assistant/) instead.
 
 
 ## Setting up a cloud Assist pipeline
