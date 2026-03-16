@@ -22,7 +22,7 @@
               <aside id="toc-bar" class="grid__item desk-wide-one-sixth">
                 <section class="aside-module grid__item one-whole">
                   <div class='section'>
-                    <h1 class="title epsilon">{% icon "mdi:toc" %} On this page</h1>
+                    <label for="toc-toggle"><span class="title epsilon">{% icon "mdi:toc" %} On this page</span> <input type="checkbox" id="toc-toggle"/> <span class="toc-current"></span></label>
                     {{ content | toc_only }}
                   </div>
                 </section>
