@@ -33,6 +33,10 @@ Please note that UPnP or NAT-PMP needs to be enabled on your router for this {% 
 
 Some UPnP/IGD devices have a broken UPnP implementation and will provide invalid data or no data at all. A configuration option is provided to fall back to polling of all data for the sensors. Please try this when you feel not all sensors which should be working are working.
 
+## 32-bit counter rollover
+
+Under some circumstances, the KiB/s and packets/s rates might be unavailable whenever the underlying 32-bit counter rolls over to zero. If the history graphs for bytes (and packets) have a sawtooth shape and the counters reset often from 4GiB to zero, then you should enable the corresponding configuration option to get uninterrupted rate data.
+
 ## Debugging integration
 
 If you have problems with this {% term integration %} you can add debug prints to the log.
