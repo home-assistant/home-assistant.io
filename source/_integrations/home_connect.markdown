@@ -4,6 +4,7 @@ description: Instructions on how to set up the Home Connect integration within H
 ha_category:
   - Binary sensor
   - Button
+  - Climate
   - Fan
   - Hub
   - Light
@@ -23,6 +24,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - diagnostics
   - fan
   - light
@@ -176,6 +178,18 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 
 {% enddetails %}
 
+### Climate
+
+{% details "List of climate entities" %}
+
+- **Air conditioner**:
+  - **Description**: Controls the air conditioner appliance.
+  - **Availability**: Air conditioner
+  - **Controls**:
+    - Active program: HVAC modes + preset modes
+    - Fan speed mode: fan speed
+ 
+{% enddetails %}
 ### Fan
 
 {% details "List of fan entities" %}
