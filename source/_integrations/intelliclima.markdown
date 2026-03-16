@@ -19,7 +19,7 @@ ha_platforms:
   - select
 ---
 
-The **IntelliClima** {% term integration %} is used to integrate with [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. The Ecocomfort 2.0 is a mechanical ventilation with heat recovery (MVHR) system that monitors indoor air quality and automates ventilation to maintain healthy indoor environments. With this integration, you can control fan modes and speeds, and automate ventilation based on schedules.
+The **IntelliClima** {% term integration %} is used to integrate with [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. The Ecocomfort 2.0 is a mechanical ventilation with heat recovery (MVHR) system that monitors indoor air quality and automates ventilation to maintain healthy indoor environments. With this integration, you can control fan modes and speeds, and automate ventilation based on air quality and schedules.
 
 ## Supported devices
 
@@ -77,6 +77,27 @@ The **IntelliClima** integration provides the following entities for each discov
     - **sensor**: Sensor-based mode that uses sensor thresholds configured in the app, with a fixed speed when the thresholds are exceeded. Corresponds to the Manual sensor mode in the app.
   - **Available for devices**: Ecocomfort 2.0
 
+### Sensors
+
+- **Temperature**
+  - **Description**: Current indoor ambient temperature detected by the device.
+  - **Unit**: °C
+  - **Measurement type**: Temperature
+  - **Available for devices**: Ecocomfort 2.0
+
+- **Humidity**
+  - **Description**: Current indoor relative humidity detected by the device.
+  - **Unit**: %
+  - **Measurement type**: Humidity
+  - **Available for devices**: Ecocomfort 2.0
+
+- **VOC (Volatile Organic Compounds)**
+  - **Description**: Air quality indicator based on detected volatile organic compounds.
+  - **Unit**: ppm (parts per million)
+  - **Measurement type**: Air quality/VOC level
+  - **Remarks**: Higher values indicate lower air quality and may trigger automatic ventilation adjustments.
+  - **Available for devices**: Ecocomfort 2.0
+
 ## Data updates
 
 The **IntelliClima** integration uses **cloud polling** to fetch device status. The integration {% term polling polls %} the IntelliClima cloud API every 1 minute by default to retrieve current device state, sensor readings, and configuration.
@@ -87,6 +108,41 @@ This means:
 - Data updates are limited by cloud API availability and latency.
 
 ## Examples
+
+### Automatic ventilation based on air quality
+
+The following automation adjusts the fan speed based on VOC sensor readings. Replace `sensor.ecocomfort_2_voc` and `fan.ecocomfort_2` with your own entity IDs.
+
+```yaml
+automation:
+  - alias: "Adjust ventilation by air quality"
+    description: "Increase ventilation when VOC levels are high"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.ecocomfort_2_voc
+        above: 300        
+        for:
+          minutes: 2
+    actions:
+      - action: fan.set_percentage
+        target:
+          entity_id: fan.ecocomfort_2
+        data:
+          percentage: 75
+
+  - alias: "Reduce ventilation when air quality improves"
+    description: "Lower ventilation speed when VOC levels normalize"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.ecocomfort_2_voc
+        below: 150
+    actions:
+      - action: fan.set_percentage
+        target:
+          entity_id: fan.ecocomfort_2
+        data:
+          percentage: 25
+```
 
 ### Time-based ventilation schedule
 
