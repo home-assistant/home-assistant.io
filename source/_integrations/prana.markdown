@@ -96,12 +96,19 @@ Air quality sensors:
   - **Unit**: mmHg (millimeters of mercury)
 
 - **Temperature**
-  - **Inside Temperature and Inside Temperature 2**
-    - **Description**: Indoor air temperature measured by the device.
+  - **Inside temperature**
+    - **Description**: Temperature of the air extracted from the room.
     - **Unit**: °C
-  - **Outside Temperature and Outside Temperature 2**
-    - **Description**: Temperatures of the air coming from or going to the outside.
+  - **Inside temperature 2** 
+    - **Description**: Temperature of the incoming air after it has been warmed by the heat exchanger.
     - **Unit**: °C
+  - **Outside temperature**
+    - **Description**: Fresh outdoor air temperature before entering the unit.
+    - **Unit**: °C
+  - **Outside temperature 2**
+    - **Description**: Temperature of the exhaust air after it has passed through the heat exchanger
+    - **Unit**: °C
+
 {% note %}
 Some sensors may not appear in Home Assistant if your specific Prana model does not have the corresponding sensors.
 {% endnote %}
