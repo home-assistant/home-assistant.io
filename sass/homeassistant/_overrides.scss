@@ -1972,6 +1972,13 @@ h6 {
   scroll-margin-top: 140px;
 }
 
+@media only screen and (max-width: $menu-collapse) {
+  :target,
+  .title-link {
+    scroll-margin-top: 170px;
+  }
+}
+
 .site-header {
   position: fixed;
   width: 100%;
