@@ -194,7 +194,7 @@ data:
 
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `send_message_draft`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
 
 Chat targets can be specified in any of the following ways:
 
@@ -446,6 +446,20 @@ Send a chat action. Use it to notify the user with the relevant "typing" action 
 | `chat_id`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
 | `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
+
+### Action `telegram_bot.send_message_draft`
+
+Send a temporary message to the chat. The message will disappear after few seconds. You can use it to send partial messages while the full message is being generated, or as an indication of an ungoing process.
+
+| Data data attribute | Optional | Description                                                      |
+| ------------------- | -------- | ---------------------------------------------------------------- |
+| `entity_id`         | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the message. |
+| `config_entry_id`   | yes      | The config entry representing the Telegram bot to set the message reaction. Required if you have multiple Telegram bots. |
+| `chat_id`           | yes      | Id of the chat containing the message.                           |
+| `message`           | no       | Text for the notification.                                       |
+| `parse_mode`        | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`. |
+| `draft_id`          | no       | Unique identifier of the message draft; must be a positive integer. Changes of drafts with the same identifier are animated. |
+| `message_thread_id` | yes      | Send the message to a specific topic or thread.                  |
 
 ### Action `telegram_bot.edit_message`
 
@@ -1170,6 +1184,50 @@ actions:
             message_id: "{{ repeat.item.message_id }}"
             chat_id: "{{ repeat.item.chat_id }}"
       for_each: "{{ response.chats }}"
+```
+
+{% endraw %}
+
+## Example: Multi-step automation that reports prograss using draft messages
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: text
+    state: "Start morning routine"
+actions:
+  - action: telegram_bot.send_message_draft
+    data:
+      draft_id: 1
+      message: '_Opening shades..._'
+      chat_id: {{ trigger.to_state.attributes.chat_id }}
+      message_thread_id: {{ trigger.to_state.attributes.message_thread_id }}
+  - action: cover.open_cover
+    target:
+      entity_id: cover.bedroom
+  - action: telegram_bot.send_message_draft
+    data:
+      draft_id: 1
+      message: '_Adjusting thermostat..._'
+      chat_id: {{ trigger.to_state.attributes.chat_id }}
+      message_thread_id: {{ trigger.to_state.attributes.message_thread_id }}
+  - action: climate.set_temperature
+    target:
+      entity_id: climate.bedroom
+    data:
+      temperature: 24
+  - action: telegram_bot.send_message
+    data:
+      message: 'Done!'
+      chat_id: {{ trigger.to_state.attributes.chat_id }}
+      message_thread_id: {{ trigger.to_state.attributes.message_thread_id }}
 ```
 
 {% endraw %}
