@@ -87,14 +87,14 @@ The integration provides sensors to monitor air quality and temperatures.
     - **Unit**: ppm (parts per million).
   - **Humidity**
     - **Description**: Relative humidity level inside the room.
-    - **Unit**: % (percent).
+    - **Unit**: % (relative humidity).
   - **Air pressure**
     - **Description**: Current atmospheric pressure.
     - **Unit**: mmHg (millimeters of mercury).
 
 - **Temperature**
-  - **Inside Temperature & Inside Temperature 2** 
-    - **Description**: Temperatures of the air inside the room unit.
+  - **Inside Temperature & Inside Temperature 2**
+    - **Description**: Indoor air temperature measured by the device.
     - **Unit**: °C.
   - **Outside Temperature & Outside Temperature 2**
     - **Description**: Temperatures of the air coming from or going to the outside.
