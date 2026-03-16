@@ -10,7 +10,7 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_config_flow: true
-ha_quality_scale: legacy
+ha_quality_scale: bronze
 ha_codeowners:
   - '@sdague'
   - '@masterkoppa'
