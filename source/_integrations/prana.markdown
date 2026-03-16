@@ -73,6 +73,36 @@ All fan entities support speed control (0-100%) and the following presets:
   - **Description**: Turn on the mini-heating element (if equipped).
 - **Bound**
   - **Description**: Synchronizes supply and extract fans. When enabled, you control the Bound fan. When disabled, you control Supply and Extract fans separately.
+  
+#### Sensors
+
+The integration provides sensors to monitor air quality and temperatures.
+
+- **Air quality**
+  - **CO2**
+    - **Description**: Carbon dioxide concentration in the room.
+    - **Unit**: ppm (parts per million).
+  - **VOC**
+    - **Description**: Volatile Organic Compounds level (indoor air pollution).
+    - **Unit**: Unit: ppm (parts per million).
+  - **Humidity**
+    - **Description**: Relative humidity level inside the room Unit: %.
+    - **Unit**: ppb (parts per billion).
+  - **Air pressure**
+    - **Description**: Current atmospheric pressure.
+    - **Unit**: mmHg (millimeters of mercury).
+
+- **Temperature**
+  - **Inside Temperature & Inside Temperature 2** 
+    - **Description**: Temperatures of the air inside the room unit.
+    - **Unit**: °C.
+  - **Outside Temperature & Outside Temperature 2**
+    - **Description**: Temperatures of the air coming from or going to the outside.
+    - **Unit**: °C.
+  
+{% note %}
+Some sensors may not appear in Home Assistant if your specific Prana model does not have the corresponding sensors.
+{% endnote %}
 
 ## Data updates
 
