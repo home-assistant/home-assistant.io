@@ -74,7 +74,7 @@ data:
   code: "1234"
 ```
 
-### Action: Oepn
+### Action: Open
 
 The `lock.open` action opens (unlatches) a lock.
 
