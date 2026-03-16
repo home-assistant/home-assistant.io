@@ -1196,10 +1196,10 @@ actions:
 triggers:
   - trigger: state
     entity_id:
-      - event.bot_update_event # Replace with your telegram bot event entity
+      - event.bot_update_event # Replace with your Telegram bot event entity
 conditions:
   - condition: state
-    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    entity_id: event.bot_update_event # Replace with your Telegram bot event entity
     attribute: text
     state: "Start morning routine"
 actions:
