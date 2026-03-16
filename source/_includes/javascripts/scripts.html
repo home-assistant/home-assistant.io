@@ -127,8 +127,9 @@
 <script type="text/javascript">
   {
     const tocCurrent = document.querySelector(".toc-current");
+    const blogTocList = document.querySelector("#toc-module #toc");
 
-    if (tocCurrent) {
+    if (tocCurrent || blogTocList) {
       const headings = Array.from(
         document.querySelectorAll("article h2, article h3")
       );
@@ -137,7 +138,9 @@
         const getHeadingText = (heading) =>
           heading.childNodes[0].textContent.trim();
 
-        tocCurrent.textContent = getHeadingText(headings[0]);
+        if (tocCurrent) {
+          tocCurrent.textContent = getHeadingText(headings[0]);
+        }
 
         const siteHeader = document.querySelector(".site-header");
         const tocBar = document.getElementById("toc-bar");
@@ -164,12 +167,19 @@
             }
           }
 
-          tocCurrent.textContent = getHeadingText(current);
+          if (tocCurrent) {
+            tocCurrent.textContent = getHeadingText(current);
+          }
 
-          const tocList = document.querySelector("#toc-bar #toc");
-          if (tocList) {
-            const titleLink = current.querySelector("a.title-link");
-            const slug = titleLink && titleLink.getAttribute("name");
+          const titleLink = current.querySelector("a.title-link");
+          const slug = titleLink && titleLink.getAttribute("name");
+
+          const tocLists = [
+            document.querySelector("#toc-bar #toc"),
+            blogTocList,
+          ].filter(Boolean);
+
+          for (const tocList of tocLists) {
             tocList.querySelectorAll("a[aria-current]").forEach((a) => {
               a.removeAttribute("aria-current");
             });
