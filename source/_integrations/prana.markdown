@@ -95,19 +95,18 @@ Air quality sensors:
   - **Description**: Current atmospheric pressure.
   - **Unit**: mmHg (millimeters of mercury)
 
-- **Temperature**
-  - **Inside temperature**
-    - **Description**: Temperature of the air extracted from the room.
-    - **Unit**: °C
-  - **Inside temperature 2** 
-    - **Description**: Temperature of the incoming air after it has been warmed by the heat exchanger.
-    - **Unit**: °C
-  - **Outside temperature**
-    - **Description**: Fresh outdoor air temperature before entering the unit.
-    - **Unit**: °C
-  - **Outside temperature 2**
-    - **Description**: Temperature of the exhaust air after it has passed through the heat exchanger.
-    - **Unit**: °C
+- **Inside temperature**
+  - **Description**: Temperature of the air extracted from the room.
+  - **Unit**: °C
+- **Inside temperature 2**
+  - **Description**: Temperature of the incoming air after it has been warmed by the heat exchanger.
+  - **Unit**: °C
+- **Outside temperature**
+  - **Description**: Fresh outdoor air temperature before entering the unit.
+  - **Unit**: °C
+- **Outside temperature 2**
+  - **Description**: Temperature of the exhaust air after it has passed through the heat exchanger.
+  - **Unit**: °C
 
 {% note %}
 Some sensors may not appear in Home Assistant if your specific Prana model does not have the corresponding sensors.
