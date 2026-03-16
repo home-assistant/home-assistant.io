@@ -14,7 +14,7 @@ related:
     title: Introduction to dashboards
 ---
 
-Each dashboard is made up of cards. Cards display information and let you control your devices. You can arrange them freely across views, resize them in the sections layout, and configure actions, features, and conditional visibility.
+Each dashboard is made up of cards. Cards display information and let you control your devices. You can arrange them freely across views, resize them in the [Sections view](/dashboards/sections/) layout, and configure actions, features, and conditional visibility.
 
 <p class='img'>
 <img src='/images/getting-started/lovelace.png' alt='Screenshot of the masonry view with different types of cards'>
@@ -103,7 +103,7 @@ You can choose to show or hide certain cards or [badges](/dashboards/badges/) ba
 2. Select the type of condition, and enter the parameters.
    - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
    - If you define multiple conditions, the card or badge is only shown when all conditions are met.
-   - If you did not define any conditions, the card or badge is always shown, to all users.
+   - If you did not define any conditions, the card or badge is always shown to all users.
 3. Select **Save**.
 
 ## Resizing a card
@@ -111,13 +111,13 @@ You can choose to show or hide certain cards or [badges](/dashboards/badges/) ba
 In [sections view](/dashboards/sections/), you can resize cards. Follow these steps:
 
 1. On the **Layout** tab, use the grid size picker to adjust the number of columns and rows the card occupies.
-  ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
+   ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
    - Troubleshooting: Don't see a **Layout** tab?
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
      - It is not available on the picture elements card.
 2. To make the card span the full width of the section, regardless of section size, enable **Full width card**.
 3. If you want a finer grid to size your card, enable **Precise mode**. The last row was done using precise mode.
-  ![Screenshot of a section using precise mode for some cards](/images/dashboards/precise-mode-example.png)
+   ![Screenshot of a section using precise mode for some cards](/images/dashboards/precise-mode-example.png)
 4. Select **Save**.
 
 ## Revert resizing of a card
@@ -125,7 +125,7 @@ In [sections view](/dashboards/sections/), you can resize cards. Follow these st
 If you previously [resized](#resizing-a-card) a card in the [sections view](/dashboards/sections/), and you don't like the new size, you can revert back to the card's default size. Follow these steps:
 
 1. On the **Layout** tab, select the {% icon "mdi:restore" %} icon.
-   ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
+    ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
 
 2. Select **Save**.
 
