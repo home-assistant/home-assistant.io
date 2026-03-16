@@ -215,10 +215,6 @@ The Jellyfin API supports shuffling of a directory (series/tvshow or season) whe
   - Optional: No.
   - Description: Unique identifier of the content you want to play.
   - Example: `895dc4e1066da92847d48f9be28eb77c`
-- Data attribute: `media_content_type`
-  - Optional: No.
-  - Description: The type of content you are playing, one of "episode", "season", "tvshow", "movie", or "music".
-  - Example: `tvshow`
 
 #### Examples:
 
@@ -228,10 +224,9 @@ Shuffle play a full season of a TV show on a Jellyfin client.
 action: jellyfin.play_media_shuffled
 target:
   entity_id:
-    - media_player.jellyfin
+    - media_player.chrome
 data:
   media_content_id: 34361f3855c9c0ac39b0f7503fe86be0
-  media_content_type: season
 ```
 
 ## Notes
