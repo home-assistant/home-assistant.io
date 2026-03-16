@@ -80,19 +80,20 @@ All fan entities support speed control (0-100%) and the following presets:
 
 The integration provides sensors to monitor air quality and temperatures.
 
-- **Air quality**
-  - **CO2**
-    - **Description**: Carbon dioxide concentration in the room.
-    - **Unit**: ppm (parts per million)
-  - **VOC**
-    - **Description**: Volatile Organic Compounds level (indoor air pollution).
-    - **Unit**: ppm (parts per million)
-  - **Humidity**
-    - **Description**: Relative humidity level inside the room.
-    - **Unit**: % (relative humidity)
-  - **Air pressure**
-    - **Description**: Current atmospheric pressure.
-    - **Unit**: mmHg (millimeters of mercury)
+Air quality sensors:
+
+- **CO2**
+  - **Description**: Carbon dioxide concentration in the room.
+  - **Unit**: ppm (parts per million)
+- **VOC**
+  - **Description**: Volatile Organic Compounds level (indoor air pollution).
+  - **Unit**: ppm (parts per million)
+- **Humidity**
+  - **Description**: Relative humidity level inside the room.
+  - **Unit**: % (relative humidity)
+- **Air pressure**
+  - **Description**: Current atmospheric pressure.
+  - **Unit**: mmHg (millimeters of mercury)
 
 - **Temperature**
   - **Inside Temperature and Inside Temperature 2**
@@ -101,7 +102,6 @@ The integration provides sensors to monitor air quality and temperatures.
   - **Outside Temperature and Outside Temperature 2**
     - **Description**: Temperatures of the air coming from or going to the outside.
     - **Unit**: °C
-
 {% note %}
 Some sensors may not appear in Home Assistant if your specific Prana model does not have the corresponding sensors.
 {% endnote %}
