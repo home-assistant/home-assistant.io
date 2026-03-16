@@ -78,9 +78,9 @@ All fan entities support speed control (0-100%) and the following presets:
 
 #### Sensors
 
-The integration provides sensors to monitor air quality and temperatures.
+The integration provides sensors to monitor air quality and environmental conditions.
 
-Air quality sensors:
+Air quality and environmental sensors:
 
 - **CO2**
   - **Description**: Carbon dioxide concentration in the room.
