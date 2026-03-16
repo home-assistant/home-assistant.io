@@ -2,6 +2,7 @@
 title: UniFi Access
 description: Instructions on how to integrate UniFi Access with Home Assistant.
 ha_category:
+  - Doorbell
   - Lock
 ha_release: 2026.4
 ha_domain: unifi_access
@@ -13,7 +14,10 @@ ha_codeowners:
   - "@RaHehl"
 ha_platforms:
   - binary_sensor
+  - button
+  - event
   - lock
+  - switch
 ha_integration_type: hub
 ---
 
@@ -22,6 +26,14 @@ The **UniFi Access** {% term integration %} allows you to control and monitor [U
 UniFi Access is a modern, IP-based door access control system by [Ubiquiti](https://ui.com). It supports a range of access readers, door locks, and hubs that can be managed through a local UniFi Access controller (such as a UniFi Dream Machine Pro or a dedicated UniFi Access application host).
 
 This integration communicates with the UniFi Access controller over the local network using its REST API and WebSocket interface, providing real-time door status updates without polling.
+
+## Supported devices
+
+This integration supports any door managed by a UniFi Access controller, including doors equipped with:
+
+- UniFi Access Reader (UA Reader, UA Reader Pro, UA Reader Lite)
+- UniFi Access Lock (UA Lock)
+- UniFi Access Hub (UA Hub, UA Hub Ultra)
 
 ## Prerequisites
 
@@ -51,23 +63,21 @@ Verify SSL:
   description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate."
 {% endconfiguration_basic %}
 
-## Supported devices
-
-This integration supports any door managed by a UniFi Access controller, including doors equipped with:
-
-- UniFi Access Reader (UA Reader, UA Reader Pro, UA Reader Lite)
-- UniFi Access Lock (UA Lock)
-- UniFi Access Hub (UA Hub, UA Hub Ultra)
-
-## Data updates
-
-The integration uses a local push architecture via WebSocket. When a door's lock or position status changes, the UniFi Access controller pushes updates to Home Assistant in real time. No {% term polling %} is performed.
-
 ## Supported functionality
 
 ### Entities
 
 The **UniFi Access** integration provides the following entities.
+
+#### Buttons
+
+Each door registered in your UniFi Access controller is represented as an **unlock button** entity in Home Assistant.
+
+- **Unlock**: Triggers the configured door lock relay to open the door for its configured duration.
+
+#### Events
+
+Each door provides two **event** entities:
 
 #### Binary sensors
 
@@ -76,15 +86,108 @@ Each door registered in your UniFi Access controller is represented by a **binar
 - **Door**: Turns on when the door is open and off when the door is closed.
 
 #### Locks
+- **Doorbell**: Fires a `ring` event when someone presses the doorbell at the door.
 
-Each door registered in your UniFi Access controller is represented as a **lock** entity in Home Assistant.
+  {% note %}
+  Doorbell entities are created for all doors because the UniFi Access API does not expose per-door doorbell capability information. Not every hardware combination supports doorbell ring events, and there is currently no official list of supported combinations. If you do not receive ring events, your device may not support this feature.
+  {% endnote %}
 
-- **Unlock**: Triggers the configured door lock relay to open the door for its configured duration.
-- **Open**: Opens the door (same as unlock).
+- **Access**: Fires an event when someone attempts to unlock a door:
+  - `access_granted`: The door was successfully unlocked (API result: `ACCESS`).
+  - `access_denied`: The access attempt was denied (API result: `BLOCKED` or any other non-`ACCESS` value).
+
+  The event includes the following additional attributes when available:
+
+  - `actor`: The name of the person who attempted access.
+  - `authentication`: The authentication method used (for example, NFC, PIN code, Face).
+  - `result`: The raw result from the UniFi Access controller (for example, `ACCESS`, `BLOCKED`).
+
+#### Switches
+
+The integration provides two switch entities for controlling the emergency modes of your UniFi Access controller.
+
+{% important %}
+These switches affect *all* doors managed by the controller at once and have direct physical security and safety implications. Make sure to restrict access to these switches in your dashboards and avoid triggering them accidentally in automations.
+{% endimportant %}
+
+- **Evacuation**
+  - **Description**: Activates or deactivates the evacuation mode on your UniFi Access controller. When turned on, all doors managed by the controller are unlocked to allow evacuation.
+- **Lockdown**
+  - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
+
+## Data updates
+
+The integration uses a local push architecture via WebSocket. When a door's lock or position status changes, or when the emergency mode (evacuation or lockdown) is updated, the UniFi Access controller pushes updates to Home Assistant in real time. No {% term polling %} is performed.
+
+## Examples
+
+### Send a notification when the doorbell rings
+
+{% raw %}
+
+```yaml
+alias: "Doorbell notification"
+triggers:
+  - trigger: state
+    entity_id: event.front_door_doorbell
+actions:
+  - action: notify.mobile_app_my_phone
+    data:
+      title: "Doorbell"
+      message: "Someone is at the front door!"
+```
+
+{% endraw %}
+
+### Log who unlocked a door
+
+{% raw %}
+
+```yaml
+alias: "Access granted notification"
+triggers:
+  - trigger: state
+    entity_id: event.front_door_access
+    attribute: event_type
+    to: "access_granted"
+actions:
+  - action: notify.mobile_app_my_phone
+    data:
+      title: "Door unlocked"
+      message: >
+        {{ trigger.to_state.attributes.actor }}
+        unlocked the front door
+        via {{ trigger.to_state.attributes.authentication }}.
+```
+
+{% endraw %}
+
+### Alert on denied access attempts
+
+{% raw %}
+
+```yaml
+alias: "Access denied alert"
+triggers:
+  - trigger: state
+    entity_id: event.front_door_access
+    attribute: event_type
+    to: "access_denied"
+actions:
+  - action: notify.mobile_app_my_phone
+    data:
+      title: "Access denied!"
+      message: >
+        Access denied at front door
+        for {{ trigger.to_state.attributes.actor }}
+        ({{ trigger.to_state.attributes.authentication }}).
+```
+
+{% endraw %}
 
 ## Known limitations
 
-- **No remote lock command**: The UniFi Access API only supports unlocking doors.
+- **No per-door lock command**: The UniFi Access API only supports unlocking individual door entities. The controller-wide lockdown emergency mode is a separate feature and can lock all doors simultaneously.
 - **Single controller**: Each configuration entry connects to one UniFi Access controller. If you have multiple controllers, add a separate integration entry for each.
 
 ## Troubleshooting
