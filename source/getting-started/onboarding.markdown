@@ -1,6 +1,7 @@
 ---
 title: "Onboarding Home Assistant"
 description: "Instructions to get Home Assistant configured."
+toc: false
 ---
 
 After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to complete setting up Home Assistant.

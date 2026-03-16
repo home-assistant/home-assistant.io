@@ -21,6 +21,16 @@ body, html {
   }
 }
 
+@media only screen and (max-width: $desk-wide-start) {
+  body.documentation-page:has(#toc-bar),
+  body.integration-page:has(#toc-bar),
+  body.blog-post:not(.blog-index) {
+    .page-content {
+      padding-top: 140px;
+    }
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font;
   font-weight: 650;
