@@ -28,12 +28,7 @@ The integration supports any vehicle enrolled in a Spireon/LoJack account, inclu
 - Vehicles with dealer-installed LoJack devices
 - Vehicles tracked through the Spireon fleet management platform (consumer accounts)
 
-Each vehicle registered to your account is represented as a separate device in Home Assistant. The device displays:
-
-- **Name**: Year, make, and model of the vehicle (for example, "2021 Toyota Camry")
-- **Manufacturer**: Spireon LoJack
-- **Model**: Make and model string
-- **Serial number**: The vehicle's VIN
+Each vehicle registered to your account is represented as a separate device in Home Assistant, named after its year, make, and model (for example, "2021 Toyota Camry"). The manufacturer is listed as Spireon LoJack, and the vehicle's VIN is used as the serial number.
 
 ## Prerequisites
 
@@ -86,17 +81,7 @@ The **LoJack** integration provides the following entities for each vehicle.
 
 #### Device tracker
 
-Each vehicle gets a device tracker entity. This is the primary entity, and its name follows the device name directly.
-
-- **Source type**: GPS
-- **State**: Reports `home`, `not_home`, or a zone name based on the vehicle's GPS coordinates
-
-Extra state attributes:
-
-- `last_polled` — Timestamp of the most recent location report from the vehicle
-- `address` — Human-readable street address of the vehicle's location
-- `heading` — Compass heading in degrees (0–360)
-- `gps_accuracy` — GPS accuracy value from the hardware
+Each vehicle gets a device tracker entity named after the vehicle. It uses GPS as its source type and reports `home`, `not_home`, or a zone name based on the vehicle's GPS coordinates.
 
 ## Data updates
 
