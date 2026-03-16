@@ -15,6 +15,8 @@ ha_codeowners:
 ha_platforms:
   - button
   - event
+  - lock
+  - switch
 ha_integration_type: hub
 ---
 
@@ -92,9 +94,22 @@ Each door provides two **event** entities:
   - `authentication`: The authentication method used (for example, NFC, PIN code, Face).
   - `result`: The raw result from the UniFi Access controller (for example, `ACCESS`, `BLOCKED`).
 
+#### Switches
+
+The integration provides two switch entities for controlling the emergency modes of your UniFi Access controller.
+
+{% important %}
+These switches affect *all* doors managed by the controller at once and have direct physical security and safety implications. Make sure to restrict access to these switches in your dashboards and avoid triggering them accidentally in automations.
+{% endimportant %}
+
+- **Evacuation**
+  - **Description**: Activates or deactivates the evacuation mode on your UniFi Access controller. When turned on, all doors managed by the controller are unlocked to allow evacuation.
+- **Lockdown**
+  - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
+
 ## Data updates
 
-The integration uses a local push architecture via WebSocket. When a door's lock or position status changes, the UniFi Access controller pushes updates to Home Assistant in real time. No {% term polling %} is performed.
+The integration uses a local push architecture via WebSocket. When a door's lock or position status changes, or when the emergency mode (evacuation or lockdown) is updated, the UniFi Access controller pushes updates to Home Assistant in real time. No {% term polling %} is performed.
 
 ## Examples
 
@@ -164,7 +179,7 @@ actions:
 
 ## Known limitations
 
-- **Unlock only**: The UniFi Access API only supports unlocking doors. There is no lock command available.
+- **No per-door lock command**: The UniFi Access API only supports unlocking individual door entities. The controller-wide lockdown emergency mode is a separate feature and can lock all doors simultaneously.
 - **Single controller**: Each configuration entry connects to one UniFi Access controller. If you have multiple controllers, add a separate integration entry for each.
 
 ## Troubleshooting
