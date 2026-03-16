@@ -26,11 +26,12 @@ ha_platforms:
   - scene
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
+
 The **Elk-M1 Control** {% term integration %} lets you connect your Elk-M1 Gold and EZ8 alarm panels to Home Assistant. These advanced home security and automation controllers offer robust alarm control panel capabilities, along with a wide range of automation features to help you manage and protect your home.
 
 The Elk-M1 controller is manufactured by [Elk Products](https://www.elkproducts.com).

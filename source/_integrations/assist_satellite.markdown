@@ -22,9 +22,9 @@ This is an {% term integration %} for remote satellites that use [Assist](/voice
 An Assist satellite entity exposes additional actions to remotely control the satellite in automations or scripts. These actions can be created via the UI, but are
 also available in YAML (examples below).
 
-### Action `assist_satellite.announce`
+### Action: Announce
 
-The {% my developer_call_service service="assist_satellite.announce" %} action announces a message or media id on the satellite. If a message is to be announced, it will first be converted to a media id using the [text-to-speech](/integrations/tts) system of the satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/).
+The `assist_satellite.announce` action allows you to announce a message or media id on the satellite. If a message is to be announced, it will first be converted to a media id using the [text-to-speech](/integrations/tts) system of the satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/).
 
 
 {% my developer_call_service badge service="assist_satellite.announce" %}
@@ -65,9 +65,9 @@ target:
   preannounce: false  # chime disabled
 ```
 
-### Action `assist_satellite.start_conversation`
+### Action: Start conversation
 
-The {% my developer_call_service service="assist_satellite.start_conversation" %} action first announces a message or media id on the satellite and then listens for one or more voice commands. The satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/) must use a supported [conversation agent](/integrations/conversation), such as [OpenAI](/integrations/openai_conversation) or [Google Generative AI](/integrations/google_generative_ai_conversation). The builtin Assist conversation agent does not support conversations yet.
+The `assist_satellite.start_conversation` action allows you to announce a message or media id on the satellite and then listen for one or more voice commands. The satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/) must use a supported [conversation agent](/integrations/conversation), such as [OpenAI](/integrations/openai_conversation) or [Google Generative AI](/integrations/google_generative_ai_conversation). The builtin Assist conversation agent does not support conversations yet.
 
 If a message is to be announced, it will first be converted to a media id using the [text-to-speech](/integrations/tts) system of the satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/).
 
@@ -114,9 +114,9 @@ target:
   preannounce: false  # chime disabled
 ```
 
-### Action `assist_satellite.ask_question`
+### Action: Ask question
 
-The {% my developer_call_service service="assist_satellite.ask_question" %} action asks a question on the satellite, listens for a response, and matches it against a predefined list of possible answers. Information about the matched answer is stored in a `response_variable` so the appropriate next steps can be taken in your automation or script.
+The `assist_satellite.ask_question` action allows you to ask a question on the satellite, listen for a response, and match it against a predefined list of possible answers. Information about the matched answer is stored in a `response_variable` so the appropriate next steps can be taken in your automation or script.
 
 The question may be provided as text or a media id. If text is used, it will first be converted to a media id using the [text-to-speech](/integrations/tts) system of the satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/).
 

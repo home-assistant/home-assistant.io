@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: nextbus
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **NextBus** {% term integration %} will give you the next departure time and associated data from your public transit station/stop. The data comes from [NextBus](https://www.nextbus.com), which provides real time transit data for a number of transit authorities.

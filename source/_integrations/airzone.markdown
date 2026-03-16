@@ -22,7 +22,7 @@ ha_platforms:
   - water_heater
 ha_codeowners:
   - '@Noltari'
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 

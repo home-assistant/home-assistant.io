@@ -13,7 +13,7 @@ ha_domain: songpal
 ha_ssdp: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Sony Songpal** {% term integration %} allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.
@@ -37,9 +37,9 @@ See [python-songpal's documentation](https://github.com/rytilahti/python-songpal
 
 In addition to the general [media player actions](/integrations/media_player/#actions), the following actions are provided:
 
-### Action `songpal/set_sound_setting`
+### Action: Set sound setting
 
-For a list of available settings and their values use [`songpal sound`](https://github.com/rytilahti/python-songpal#sound-settings) command.
+The `songpal.set_sound_setting` action sets a sound setting. For a list of available settings and their values use the [`songpal sound`](https://github.com/rytilahti/python-songpal#sound-settings) command.
 
 | Data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|

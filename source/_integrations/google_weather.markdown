@@ -55,4 +55,3 @@ The `weather.get_forecasts` action uses the cached forecast data and will not is
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
-

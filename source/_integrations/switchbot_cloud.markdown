@@ -30,6 +30,7 @@ ha_platforms:
   - cover
   - fan
   - humidifier
+  - image
   - light
   - lock
   - sensor
@@ -141,6 +142,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Water heater
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Image
+
+- [AI Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
 ## Supported functionality
 
@@ -483,6 +488,16 @@ Features:
 - get temperature
 - set mode
 - get battery
+
+
+### Image
+
+#### AI Art Frame
+
+Features:
+- get battery
+- switch picture
+- display current picture
 
 ## Important considerations
 

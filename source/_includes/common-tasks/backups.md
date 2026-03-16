@@ -135,7 +135,7 @@ There are two ways to download the backup from Home Assistant Cloud:
 
 - **Option 2**: From your Home Assistant Cloud account
   1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-  2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+  2. Under **Stored files**, you can see the latest available backup file. Select the **Download** button.
 
 ### Deleting obsolete backups
 

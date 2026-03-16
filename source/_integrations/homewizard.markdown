@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: platinum
 works_with:
   - local
@@ -169,7 +169,7 @@ This feature is not available for the Plug-In Battery. Cloud communication is re
 
 If you know the energy characteristics of your washing machine, you can create an automation that sends a notification when the energy usage drops below a certain threshold. This can notify you when your washing machine is done. You can use the following blueprint for this:
 
-- [Appliance Power Monitor Blueprint With Elapsed Time and Energy Used Variables](https://community.home-assistant.io/t/appliance-power-monitor-blueprint-with-elapsed-time-and-energy-used-variables/549073), created by [@Jhonattan-Souza](https://community.home-assistant.io/u/jhonattan-souza)
+- [Appliance Power Monitor Blueprint With Elapsed Time and Energy Used Variables](https://community.home-assistant.io/t/549073), created by [@Jhonattan-Souza](https://community.home-assistant.io/u/jhonattan-souza)
 
 ### Add your Energy data to the Energy dashboard
 

@@ -1,6 +1,6 @@
 ---
 title: VeSync
-description: Instructions on how to set up VeSync devices with Home Assistant. 
+description: Instructions on how to set up VeSync devices with Home Assistant.
 ha_category:
   - Fan
   - Light
@@ -29,7 +29,9 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets, humidifers and select air fryers.

@@ -1,6 +1,6 @@
 ## Configuring access to files
 
-Your Home Assistant Operating server includes two repositories by default: The official core app repository, and the community app repository. All of the apps mentioned here can be installed by navigating to the app store using {% my supervisor_store title="Settings > Apps > App store" %} in the UI.
+Your Home Assistant Operating server includes two repositories by default: The official core app repository, and the community app repository. All of the apps mentioned here can be installed by navigating to the app store using {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %} in the UI.
 
 One of the first things to take care of after installing Home Assistant OS is to provide yourself access to files. There are several apps commonly used for this, and most users employ a mix of various apps. Default directories on the host are mapped to the apps so that they can be accessed by the services any particular app might provide. On the host system these directories exist on the `/data` partition at `/mnt/data/supervisor/`.
 

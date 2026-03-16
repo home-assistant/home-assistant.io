@@ -41,4 +41,4 @@ To create your own dashboard, follow the steps on [creating a new dashboard](/da
 ## Discuss dashboard
 
 - Suggestions are welcome in the [frontend repository](https://github.com/home-assistant/frontend/)
-- For help with dashboards, join the `#frontend` channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
+- For help with dashboards, join the `#frontend` channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/34)
