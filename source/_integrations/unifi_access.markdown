@@ -13,6 +13,7 @@ ha_codeowners:
   - "@imhotep"
   - "@RaHehl"
 ha_platforms:
+  - binary_sensor
   - button
   - event
   - lock
@@ -78,6 +79,13 @@ Each door registered in your UniFi Access controller is represented as an **unlo
 
 Each door provides two **event** entities:
 
+#### Binary sensors
+
+Each door registered in your UniFi Access controller is represented by a **binary sensor** entity that reports the door position.
+
+- **Door**: Turns on when the door is open and off when the door is closed.
+
+#### Locks
 - **Doorbell**: Fires a `ring` event when someone presses the doorbell at the door.
 
   {% note %}
