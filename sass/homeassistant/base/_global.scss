@@ -22,10 +22,8 @@ body, html {
 }
 
 @media only screen and (max-width: $desk-wide-start) {
-  body.blog-post {
-    .page-content {
-      padding-top: 140px;
-    }
+  .page-content {
+    padding-top: 140px;
   }
 }
 
