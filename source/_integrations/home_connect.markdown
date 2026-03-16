@@ -1123,6 +1123,16 @@ The `home_connect.set_program_and_options` action starts or selects a program. I
 | `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
 | `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
 
+### Action: Start selected program
+
+The `home_connect.start_selected_program` action starts the program that is already selected using the specified options. You can specify start-only options to set them when starting the program. You can also use it to update the start-only options for a program that is already active but delayed (so that the operation state is "delayed start").
+
+| Data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | ID of the device. |
+| `b_s_h_common_option_finish_in_relative` | yes | Defines when the program should end, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
+| `b_s_h_common_option_start_in_relative` | yes | Defines when the program should start, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
+
 ### Action: Change setting
 
 The `home_connect.change_setting` action changes a setting.
