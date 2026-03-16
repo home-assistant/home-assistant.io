@@ -48,11 +48,12 @@ The `lock.lock` action locks your door.
 #### Example
 
 ```yaml
-action: lock.lock
-target:
-  entity_id: lock.my_place
-data:
-  code: "1234"
+actions:
+  action: lock.lock
+  target:
+    entity_id: lock.my_place
+  data:
+    code: "1234"
 ```
 
 ### Action: Unlock
@@ -67,11 +68,12 @@ The `lock.unlock` action unlocks your door.
 #### Example
 
 ```yaml
-action: lock.unlock
-target:
-  entity_id: lock.my_place
-data:
-  code: "1234"
+actions:
+  action: lock.unlock
+  target:
+    entity_id: lock.my_place
+  data:
+    code: "1234"
 ```
 
 ### Action: Open
@@ -86,11 +88,12 @@ The `lock.open` action opens (unlatches) a lock.
 #### Example
 
 ```yaml
-action: lock.open
-target:
-  entity_id: lock.my_place
-data:
-  code: "1234"
+actions:
+  action: lock.open
+  target:
+    entity_id: lock.my_place
+  data:
+    code: "1234"
 ```
 
 ## Use the actions
