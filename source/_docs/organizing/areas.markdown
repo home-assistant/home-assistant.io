@@ -39,7 +39,7 @@ Follow these steps to create a new area from the **Areas** view.
     ![Create area dialog](/images/organizing/create_area_01.png)
 3. Select **Create**.
 
-   **Result**: A new area is created.
+   Result: A new area is created.
 
 ## Assigning areas to floors and adding labels
 
@@ -100,6 +100,10 @@ You can also edit the area details when you're on the area dashboard.
 ## Reordering areas on built-in dashboards
 
 {% include organizing/reorder-areas.md %}
+
+## Sending a vacuum to a dedicated area
+
+If you have a vacuum that supports area cleaning, you can [set up an automation to send the vacuum to a specific area](/integrations/vacuum/#creating-an-automation-to-send-the-vacuum-to-clean-specific-areas).
 
 ## Deleting an area
 

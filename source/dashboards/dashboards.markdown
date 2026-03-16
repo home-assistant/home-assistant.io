@@ -160,12 +160,12 @@ This will leave the default dashboard intact.
    - Define if this dashboard should be visible only to the admin user.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
-   - **Result**: The dashboard is added.
+   - Result: The dashboard is added.
 
 ## Editing a new dashboard
 
 1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
-   - **Result**: The **Edit dashboard** dialog appears.
+   - Result: The **Edit dashboard** dialog appears.
 2. Select the areas you want to show on this new dashboard and select **Save**.
 3. If you want to have more detailed control over the dashboard, you need to take control:
      - This means that this dashboard is no longer automatically updated when new dashboard elements become available.

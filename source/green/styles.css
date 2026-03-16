@@ -8,7 +8,7 @@ html {
 
 @media only screen and (max-width: 480px) {
   #landingpage .site-header {
-    background-color: #ffffff;
+    background-color: transparent;
   }
 }
 

@@ -15,7 +15,7 @@ related:
     title: Voice Preview Edition
 ---
 
-This section will help you set up Assist, which is Home Assistant voice assistant.
+This section will help you set up Assist, which is Home Assistant's voice assistant.
 
 Assist allows you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
 
