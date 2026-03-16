@@ -22,8 +22,12 @@ body, html {
 }
 
 @media only screen and (max-width: $desk-wide-start) {
-  .page-content {
-    padding-top: 140px;
+  body.documentation-page:has(#toc-bar),
+  body.integration-page:has(#toc-bar),
+  body.blog-post:not(.blog-index) {
+    .page-content {
+      padding-top: 140px;
+    }
   }
 }
 
