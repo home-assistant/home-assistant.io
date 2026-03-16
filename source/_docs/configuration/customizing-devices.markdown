@@ -34,8 +34,6 @@ To change entity attributes, follow these steps:
             - If the something other than Latin script is used, the entity ID is based on the English default name.
             - This is because entity IDs must use lowercase alphanumeric characters in the range of [a-z,1-9].
 
-        ![revert all entity IDs for a device from the device page](/images/docs/configuration/device-page-revert-entity-id.png)
-
    - Enter or edit the friendly name.
      - In this example, this would change "Opening".
    - If needed, from the **Shown as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
