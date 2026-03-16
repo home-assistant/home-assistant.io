@@ -106,7 +106,7 @@ Air quality sensors:
     - **Description**: Fresh outdoor air temperature before entering the unit.
     - **Unit**: °C
   - **Outside temperature 2**
-    - **Description**: Temperature of the exhaust air after it has passed through the heat exchanger
+    - **Description**: Temperature of the exhaust air after it has passed through the heat exchanger.
     - **Unit**: °C
 
 {% note %}
