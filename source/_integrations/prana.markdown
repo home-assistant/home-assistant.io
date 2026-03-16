@@ -13,6 +13,8 @@ related:
 ha_category: []
 ha_quality_scale: bronze
 ha_platforms:
+  - fan
+  - sensor
   - switch
 ha_config_flow: true
 ha_zeroconf: true
@@ -73,6 +75,42 @@ All fan entities support speed control (0-100%) and the following presets:
   - **Description**: Turn on the mini-heating element (if equipped).
 - **Bound**
   - **Description**: Synchronizes supply and extract fans. When enabled, you control the Bound fan. When disabled, you control Supply and Extract fans separately.
+
+#### Sensors
+
+The integration provides sensors to monitor air quality and environmental conditions.
+
+Air quality and environmental sensors:
+
+- **CO2**
+  - **Description**: Carbon dioxide concentration in the room.
+  - **Unit**: ppm (parts per million)
+- **VOC**
+  - **Description**: Volatile Organic Compounds level (indoor air pollution).
+  - **Unit**: ppm (parts per million)
+- **Humidity**
+  - **Description**: Relative humidity level inside the room.
+  - **Unit**: % (relative humidity)
+- **Air pressure**
+  - **Description**: Current atmospheric pressure.
+  - **Unit**: mmHg (millimeters of mercury)
+
+- **Inside temperature**
+  - **Description**: Temperature of the air extracted from the room.
+  - **Unit**: °C
+- **Inside temperature 2**
+  - **Description**: Temperature of the incoming air after it has been warmed by the heat exchanger.
+  - **Unit**: °C
+- **Outside temperature**
+  - **Description**: Fresh outdoor air temperature before entering the unit.
+  - **Unit**: °C
+- **Outside temperature 2**
+  - **Description**: Temperature of the exhaust air after it has passed through the heat exchanger.
+  - **Unit**: °C
+
+{% note %}
+Some sensors may not appear in Home Assistant if your specific Prana model does not have the corresponding sensors.
+{% endnote %}
 
 ## Data updates
 
