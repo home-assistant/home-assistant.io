@@ -3,7 +3,7 @@ title: "Badges"
 description: "Badges display entity states at the top of a dashboard view. Learn how to add, configure, and filter badges in Home Assistant."
 ---
 
-Badges are small widgets that sit at the top of a dashboard view, above all the cards. They give you an at-a-glance overview of entity states. This isperfect for things like temperatures, open windows, or who is home.
+Badges are small widgets that sit at the top of a dashboard view, above all the cards. They give you an at-a-glance overview of entity states. This is perfect for things like temperatures, open windows, or who is home.
 
 <p class="img">
   <img src="/images/dashboards/badges.png" alt="Badges">
@@ -159,7 +159,7 @@ name:
   type: [string, map, list]
 icon:
   required: false
-  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
+  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons (MDI)](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, for example `mdi:home`.
   type: string
 image:
   required: false
