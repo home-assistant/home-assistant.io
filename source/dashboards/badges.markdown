@@ -1,6 +1,17 @@
 ---
 title: "Badges"
 description: "Badges display entity states at the top of a dashboard view. Learn how to add, configure, and filter badges in Home Assistant."
+related:
+  - docs: /dashboards/
+    title: Introduction to dashboards
+  - docs: /dashboards/views/
+    title: Dashboard views
+  - docs: /dashboards/actions/
+    title: Badge actions
+  - docs: /dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally
+    title: Showing or hiding a badge conditionally
+  - docs: /dashboards/heading/#heading-badges
+    title: Heading card badges
 ---
 
 Badges are small widgets that sit at the top of a dashboard view, above all the cards. They give you an at-a-glance overview of entity states. This is perfect for things like temperatures, open windows, or who is home.
