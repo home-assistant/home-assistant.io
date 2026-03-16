@@ -13,6 +13,11 @@ h1.title.indent {
   color: $gray;
 }
 
+.title.h1 {
+  font-weight: 800;
+  font-family: $heading-font;
+}
+
 .title.indent {
   &::before {
     content: "";
@@ -680,6 +685,7 @@ header .breadcrumbs {
   border: 1px solid rgba(0, 0, 0, .12);
   transition: box-shadow .5s;
 
+  .h1,
   h1 {
     font-family: $heading-font;
     -webkit-font-smoothing: antialiased;
@@ -699,6 +705,7 @@ header .breadcrumbs {
     padding: 24px;
     font-size: 1rem;
 
+    .h1,
     h1 {
       padding: 0px 0px 12px;
     }
