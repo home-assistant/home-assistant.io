@@ -29,7 +29,7 @@ The integration supports the following Victron device types:
 - **DC Energy Meter**
 - **Inverter/Charger** (MultiPlus, Quattro, Inverter RS via VE.Bus)
 - **Smart Battery Protect**
-- **Smart Lithium** (Lithium Battery Smart, LiFePO4 Battery Smart)
+- **Smart Lithium** 
 - **Solar Charger** (SmartSolar, BlueSolar MPPT)
 
 ### Unsupported devices
