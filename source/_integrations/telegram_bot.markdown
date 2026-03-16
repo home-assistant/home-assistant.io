@@ -449,13 +449,13 @@ Send a chat action. Use it to notify the user with the relevant "typing" action 
 
 ### Action `telegram_bot.send_message_draft`
 
-Send a temporary message to the chat. The message will disappear after few seconds. You can use it to send partial messages while the full message is being generated, or as an indication of an ungoing process.
+Send a temporary message to the chat. The message will disappear after a few seconds. You can use it to send partial messages while the full message is being generated or as an indication of an ongoing process.
 
-| Data data attribute | Optional | Description                                                      |
+| Data attribute | Optional | Description                                                      |
 | ------------------- | -------- | ---------------------------------------------------------------- |
 | `entity_id`         | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the message. |
-| `config_entry_id`   | yes      | The config entry representing the Telegram bot to set the message reaction. Required if you have multiple Telegram bots. |
-| `chat_id`           | yes      | Id of the chat containing the message.                           |
+| `config_entry_id`   | yes      | The configuration entry representing the Telegram bot to send the draft message. Required if you have multiple Telegram bots. |
+| `chat_id`           | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `message`           | no       | Text for the notification.                                       |
 | `parse_mode`        | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`. |
 | `draft_id`          | no       | Unique identifier of the message draft; must be a positive integer. Changes of drafts with the same identifier are animated. |
@@ -1188,7 +1188,7 @@ actions:
 
 {% endraw %}
 
-## Example: Multi-step automation that reports prograss using draft messages
+## Example: Multi-step automation that reports progress using draft messages
 
 {% raw %}
 
@@ -1207,8 +1207,8 @@ actions:
     data:
       draft_id: 1
       message: '_Opening shades..._'
-      chat_id: {{ trigger.to_state.attributes.chat_id }}
-      message_thread_id: {{ trigger.to_state.attributes.message_thread_id }}
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
   - action: cover.open_cover
     target:
       entity_id: cover.bedroom
@@ -1216,8 +1216,8 @@ actions:
     data:
       draft_id: 1
       message: '_Adjusting thermostat..._'
-      chat_id: {{ trigger.to_state.attributes.chat_id }}
-      message_thread_id: {{ trigger.to_state.attributes.message_thread_id }}
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
   - action: climate.set_temperature
     target:
       entity_id: climate.bedroom
@@ -1226,8 +1226,8 @@ actions:
   - action: telegram_bot.send_message
     data:
       message: 'Done!'
-      chat_id: {{ trigger.to_state.attributes.chat_id }}
-      message_thread_id: {{ trigger.to_state.attributes.message_thread_id }}
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
 ```
 
 {% endraw %}
