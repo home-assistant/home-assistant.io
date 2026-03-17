@@ -2,12 +2,14 @@
 title: Lutron
 description: Instructions on how to use Lutron devices with Home Assistant.
 ha_category:
+  - Binary sensor
   - Cover
   - Event
   - Fan
   - Hub
   - Light
   - Scene
+  - Select
   - Switch
 ha_release: 0.37
 ha_iot_class: Local Polling
@@ -22,6 +24,7 @@ ha_platforms:
   - fan
   - light
   - scene
+  - select
   - switch
 ha_integration_type: hub
 ha_config_flow: true
@@ -53,11 +56,19 @@ Keypad buttons actions are provided in event entities.
 
 ## Keypad LEDs
 
-Each full-width button on a Lutron SeeTouch, Hybrid SeeTouch, and Tabletop SeeTouch Keypad has an LED that can be controlled by Home Assistant. Performing an action of `switch.turn_off` or `switch.turn_on` against the appropriate LED entity will control the keypad LED.
+Each full-width button on a Lutron SeeTouch, Hybrid SeeTouch, and Tabletop SeeTouch Keypad has an LED that can be controlled by Home Assistant.
+
+Keypad LEDs are exposed as `select` entities, which allow you to choose from the following states:
+- **Off**: The LED is extinguished.
+- **On**: The LED is illuminated.
+- **Slow Flash**: The LED flashes once per second (1 Hz).
+- **Fast Flash**: The LED flashes ten times per second (10 Hz).
+
+Legacy `switch` entities are also provided for backward compatibility but are deprecated and will be removed in a future release. For `switch` entities, performing an action of `switch.turn_off` or `switch.turn_on` will control the keypad LED.
 
 Keep in mind that the Lutron system will also control the LED state independent of Home Assistant, according to the programming of the RadioRA2 system. This also means you can query LED states to determine if a certain scene is active, since the LED will have been illuminated by the RadioRA2 repeaters. This includes the "phantom" LEDs of Main Repeater Keypad buttons; even though there is no physical button or LED, the RadioRA2 system tracks the scenes and will "light" the LED that can be queried.
 
-If a button is not programmed to control any lights or other devices in the RadioRA2 system but is given a name in the programming software, it will be available to fire events in Home Assistant. However, since there is no way to have a scene "active" on a button with no devices associated, the Main Repeater will automatically extinguish the keypad LED a few seconds after the button press. If you wish to have Home Assistant light the keypad LED after a button press, you will need to delay your action to light the LED for several seconds, so it arrives after the Main Repeater has sent the command to turn it off.
+If a button is not programmed to control any lights or other devices in the RadioRA2 system but is given a name in the programming software, it will be available to fire events in Home Assistant. However, since there is no way to have a scene "active" on a button with no devices associated, the Main Repeater will automatically extinguish the keypad LED a few seconds after the button press. If you wish to have Home Assistant light the LED after a button press, you will need to delay your action to light the LED for several seconds, so it arrives after the Main Repeater has sent the command to turn it off.
 
 ## Scene
 
@@ -68,20 +79,4 @@ After setup, scenes will appear in Home Assistant using the area, keypad and but
 
 ## Occupancy sensors
 
-Any configured Powr Savr occupancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
-
-## Example automations
-
-``` yaml
-- alias: "keypad button pressed notification"
-  triggers:
-    - trigger: event
-      event_type: lutron_event
-      event_data:
-        id: office_pico_on
-        action: single
-  actions:
-    - action: notify.telegram
-      data:
-        message: "pico just turned on!"
-```
+Any configured Powr Savr occupancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for occupancy groups, which are usually one per room.
