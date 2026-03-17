@@ -26,7 +26,7 @@ The **WiiM** {% term integration %} allows you to control different [WiiM](https
 
 The media player entity gives you complete control over your WiiM device from Home Assistant. In addition to standard playback functionality, it offers:
 
-- **Playback Controls**: Control playback state, skip tracks, adjust volume, seek, select sound modes, and set repeat or shuffle modes directly from the Home Assistant UI or automations.
+- Playback controls: Control playback state, skip tracks, adjust volume, seek, select sound modes, and set repeat or shuffle modes directly from the Home Assistant UI or automations.
 
 - **Multiroom Audio**: Seamlessly group multiple WiiM devices to create synchronized multiroom playback. Use the standard Home Assistant services: `media_player.join` and `media_player.unjoin`.
 
