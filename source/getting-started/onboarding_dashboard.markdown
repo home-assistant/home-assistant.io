@@ -30,7 +30,7 @@ The screenshot below shows an **Overview** dashboard with many cards that repres
   - the status of some lights
   - a media player
   - some temperature values
-- control elements, that allow you to:
+- control elements that allow you to:
   - change the ventilation.
   - change the color of the lights.
   - turn on a smart TV and start YouTube.
