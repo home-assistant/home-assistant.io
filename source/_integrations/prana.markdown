@@ -14,6 +14,7 @@ ha_category: []
 ha_quality_scale: bronze
 ha_platforms:
   - fan
+  - number
   - sensor
   - switch
 ha_config_flow: true
