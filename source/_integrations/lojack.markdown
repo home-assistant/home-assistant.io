@@ -4,7 +4,7 @@ description: Instructions on how to integrate your LoJack by Spireon vehicle tra
 ha_category:
   - Car
   - Presence detection
-ha_release: '2026.4'
+ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_quality_scale: bronze
