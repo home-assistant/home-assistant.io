@@ -1013,6 +1013,29 @@ type:
   type: string
 {% endconfiguration %}
 
+## Valve favorite positions
+
+Widget that displays a dropdown with favorite positions for a [valve](/integrations/valve).
+
+You can customize favorites in a valve's more-info dialog. To edit them, press and hold a favorite. By default, the feature uses 0, 25, 75, and 100%.
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position_favorite.png' alt='Screenshot of the tile card with the valve favorite positions feature'>
+  Screenshot of the tile card with the valve favorite positions feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position-favorite`"
+  type: string
+{% endconfiguration %}
+
 ## Water heater operation modes
 
 Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
