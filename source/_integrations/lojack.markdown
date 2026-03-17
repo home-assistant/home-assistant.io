@@ -7,7 +7,7 @@ ha_category:
 ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_codeowners:
   - '@devinslick'
 ha_domain: lojack
