@@ -1800,6 +1800,14 @@ mode:
   required: false
   type: string
   default: auto
+device_class:
+  description: Overrides the DPT's default [device class](/integrations/number#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  required: false
+  type: string
 {% endconfiguration %}
 
 {% enddetails %}
@@ -2004,7 +2012,11 @@ state_class:
   required: false
   type: string
 device_class:
-  description: Overrides the DPT's default [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Overrides the DPT's default [device class](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
   required: false
   type: string
 {% endconfiguration %}

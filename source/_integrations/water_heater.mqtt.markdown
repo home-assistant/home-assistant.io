@@ -145,6 +145,10 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member water heater entities. Set this if the water heater entity represents a water heater group.
+  required: false
+  type: list
 initial:
   description: Set the initial target temperature. The default value depends on the temperature unit, and will be 43.3°C or 110°F.
   required: false
