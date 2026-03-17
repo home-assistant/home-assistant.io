@@ -5,8 +5,8 @@ ha_category:
   - Media player
 ha_domain: wiim
 ha_zeroconf: true
-ha_integration_type: integration
-ha_release: 2025.5
+ha_integration_type: hub
+ha_release: 2026.2
 ha_codeowners:
   - '@Linkplay'
 ha_config_flow: true
