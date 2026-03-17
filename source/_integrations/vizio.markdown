@@ -3,6 +3,7 @@ title: VIZIO SmartCast
 description: Instructions on how to integrate VIZIO SmartCast TVs and sound bars into Home Assistant.
 ha_category:
   - Media player
+  - Remote
 ha_release: 0.49
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_domain: vizio
 ha_zeroconf: true
 ha_platforms:
   - media_player
+  - remote
 ha_integration_type: device
 ---
 
@@ -221,6 +223,97 @@ This action allows you to update a setting on a given VIZIO device. You will nee
 | `setting_type` | no | The type of setting. | `audio`
 | `setting_name` | no | The name of the setting. | `eq`
 | `new_value` | no | The new value to set the setting to. | `Music`
+
+## Remote
+
+The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action.
+
+Commands are case-insensitive. You can use either the native key name (e.g., `VOL_UP`) or a human-friendly alias (e.g., `volume_up`).
+
+### Available commands
+
+#### TV commands
+
+| Command | Aliases |
+| :------ | :------ |
+| `BACK` | |
+| `CC_TOGGLE` | `closed_captions`, `cc` |
+| `CH_DOWN` | `channel_down` |
+| `CH_PREV` | `previous_channel` |
+| `CH_UP` | `channel_up` |
+| `DOWN` | |
+| `EXIT` | |
+| `HOME` | |
+| `INFO` | |
+| `INPUT_NEXT` | `next_input` |
+| `LEFT` | |
+| `LEFT2` | |
+| `MENU` | |
+| `MUTE_OFF` | |
+| `MUTE_ON` | |
+| `MUTE_TOGGLE` | `mute` |
+| `OK` | `enter`, `select` |
+| `PAUSE` | |
+| `PIC_MODE` | `picture_mode` |
+| `PIC_SIZE` | `picture_size` |
+| `PLAY` | |
+| `POW_OFF` | `off`, `power_off` |
+| `POW_ON` | `on`, `power_on` |
+| `POW_TOGGLE` | `power_toggle` |
+| `RIGHT` | |
+| `SEEK_BACK` | `reverse`, `rewind` |
+| `SEEK_FWD` | `forward`, `fast_forward`, `ff` |
+| `SMARTCAST` | |
+| `UP` | |
+| `VOL_DOWN` | `volume_down` |
+| `VOL_UP` | `volume_up` |
+
+#### Speaker commands
+
+Speakers support a subset of the commands above:
+
+`MUTE_OFF`, `MUTE_ON`, `MUTE_TOGGLE`, `PAUSE`, `PLAY`, `POW_OFF`, `POW_ON`, `POW_TOGGLE`, `VOL_DOWN`, `VOL_UP`
+
+Aliases that map to these commands (e.g., `mute`, `volume_up`, `on`, `off`) also work on speakers.
+
+### Examples
+
+Send a single command:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - enter
+```
+
+Send multiple commands:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - down
+    - down
+    - enter
+```
+
+Repeat a command with a delay between each repeat:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - volume_up
+  num_repeats: 5
+  delay_secs: 0.4
+```
 
 ## Notes and limitations
 
