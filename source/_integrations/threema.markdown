@@ -67,17 +67,16 @@ data:
 #### Send a message from an automation
 
 ```yaml
-automations:
-  - alias: "Notify on door open"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.front_door
-        to: "on"
-    actions:
-      - action: threema.send_message
-        data:
-          recipient: "YOUR_THREEMA_ID"
-          message: "Front door opened!"
+alias: "Notify on door open"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.front_door
+    to: "on"
+actions:
+  - action: threema.send_message
+    data:
+      recipient: "YOUR_THREEMA_ID"
+      message: "Front door opened!"
 ```
 
 #### Send a message with a template
