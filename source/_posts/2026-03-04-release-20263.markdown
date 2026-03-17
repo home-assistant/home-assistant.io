@@ -72,6 +72,7 @@ Enjoy the release!
   - [Running on Python 3.14 🚀](#running-on-python-314-)
 - [Patch releases](#patch-releases)
   - [2026.3.1 - March 6](#202631---march-6)
+  - [2026.3.2 - March 16](#202632---march-16)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -88,7 +89,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## Send your vacuum to clean specific areas
 
-Got a robot vacuum? You can now tell it exactly which areas to clean! This release introduces the [clean area](/integrations/vacuum#action-clean-area) action, which lets you send your vacuum to clean one or more specific areas on demand, right from Home Assistant. In this release, it's supported by [Matter], [Ecovacs], and [Roborock].
+Got a robot vacuum? You can now tell it exactly which areas to clean! This release introduces the [clean area](/integrations/vacuum#action-clean-area) action, which lets you [send your vacuum to clean one or more specific areas on demand](/integrations/vacuum#sending-your-vacuum-to-clean-specific-areas), right from Home Assistant. In this release, it's supported by [Matter], [Ecovacs], and [Roborock].
 
 The best part? The action uses your existing Home Assistant areas, not some obscure vendor-specific identifiers. You simply map the segments your vacuum knows about to the areas you've already set up in Home Assistant, and that's all there is to it.
 
@@ -626,6 +627,97 @@ release once a week, aiming for Friday.
 [@thecode]: https://github.com/thecode
 [@tl-sl]: https://github.com/tl-sl
 [@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+
+### 2026.3.2 - March 16
+
+- Fix wifi switch status and add 100% coverage for Fritz ([@chemelli74] - [#164696])
+- Fix dnd switch status for Alexa Devices ([@chemelli74] - [#164953])
+- Fix cover state updates for legacy Multilevel Switch based Z-Wave covers ([@AlCalzone] - [#165003])
+- Bump yalexs-ble to 3.2.8 ([@bdraco] - [#165018])
+- Update pychromecast to 14.0.10 ([@elupus] - [#165069])
+- Fix forced VERIFY_SSL in Portainer ([@erwindouna] - [#165079])
+- Bump pyportainer 1.0.32 ([@erwindouna] - [#164803])
+- Bump pyportainer to 1.0.33 ([@erwindouna] - [#165080])
+- Make restore state resilient to extra_restore_state_data errors ([@arturpragacz] - [#165086])
+- Bump pyanglianwater to 3.1.1 ([@pantherale0] - [#165097])
+- Bump jvc_projector dependency to 2.0.2 ([@SteveEasley] - [#165099])
+- Add missing code for Miele dryer ([@astrandb] - [#165122])
+- Add reorder support to area selector ([@bramkragten] - [#165211])
+- Bump onedrive-personal-sdk to 0.1.6 ([@zweckj] - [#165219])
+- Fix switch set for Vodafone Station ([@chemelli74] - [#165273])
+- Bump python-otbr-api to 2.9.0 ([@TheJulianJES] - [#165298])
+- Bump ohme to 1.7.0 ([@dan-r] - [#165318])
+- Bump pyjvcprojector to 2.0.3 ([@SteveEasley] - [#165327])
+- August oauth2 exception migration ([@zachfeldman] - [#165397])
+- Bump onedrive-personal-sdk to 0.1.7 ([@zweckj] - [#165401])
+- Remove stateclass from timestamp entity in Intellifire ([@joostlek] - [#165403])
+- Update govee local api to 2.4.0 ([@Galorhallen] - [#165418])
+- Update frontend to 20260312.0 ([@bramkragten] - [#165420])
+- Bump ZHA to 1.0.2 ([@TheJulianJES] - [#165423])
+- Handle OAuth token request exceptions in Yale setup ([@bdraco] - [#165430])
+- Bump orjson to 3.11.7 ([@edenhaus] - [#165443])
+- Bump pySmartThings to 3.7.0 ([@joostlek] - [#165468])
+- Bump aioamazondevices to 13.0.1 ([@chemelli74] - [#165476])
+- Fix victron_ble warning sensor using duplicate alarm translation key ([@rajlaud] - [#165502])
+- Fix MQTT device tracker overrides via JSON state attributes without reset ([@jbouwh] - [#165529])
+- Upgrade ical dependency to 13.2.2. ([@allenporter] - [#165642])
+- Bump aiocomelit to 2.0.1 ([@chemelli74] - [#165663])
+
+[#164696]: https://github.com/home-assistant/core/pull/164696
+[#164757]: https://github.com/home-assistant/core/pull/164757
+[#164803]: https://github.com/home-assistant/core/pull/164803
+[#164953]: https://github.com/home-assistant/core/pull/164953
+[#165001]: https://github.com/home-assistant/core/pull/165001
+[#165003]: https://github.com/home-assistant/core/pull/165003
+[#165018]: https://github.com/home-assistant/core/pull/165018
+[#165069]: https://github.com/home-assistant/core/pull/165069
+[#165079]: https://github.com/home-assistant/core/pull/165079
+[#165080]: https://github.com/home-assistant/core/pull/165080
+[#165086]: https://github.com/home-assistant/core/pull/165086
+[#165097]: https://github.com/home-assistant/core/pull/165097
+[#165099]: https://github.com/home-assistant/core/pull/165099
+[#165122]: https://github.com/home-assistant/core/pull/165122
+[#165211]: https://github.com/home-assistant/core/pull/165211
+[#165219]: https://github.com/home-assistant/core/pull/165219
+[#165273]: https://github.com/home-assistant/core/pull/165273
+[#165298]: https://github.com/home-assistant/core/pull/165298
+[#165318]: https://github.com/home-assistant/core/pull/165318
+[#165327]: https://github.com/home-assistant/core/pull/165327
+[#165397]: https://github.com/home-assistant/core/pull/165397
+[#165401]: https://github.com/home-assistant/core/pull/165401
+[#165403]: https://github.com/home-assistant/core/pull/165403
+[#165418]: https://github.com/home-assistant/core/pull/165418
+[#165420]: https://github.com/home-assistant/core/pull/165420
+[#165423]: https://github.com/home-assistant/core/pull/165423
+[#165430]: https://github.com/home-assistant/core/pull/165430
+[#165443]: https://github.com/home-assistant/core/pull/165443
+[#165468]: https://github.com/home-assistant/core/pull/165468
+[#165476]: https://github.com/home-assistant/core/pull/165476
+[#165502]: https://github.com/home-assistant/core/pull/165502
+[#165529]: https://github.com/home-assistant/core/pull/165529
+[#165642]: https://github.com/home-assistant/core/pull/165642
+[#165663]: https://github.com/home-assistant/core/pull/165663
+[@AlCalzone]: https://github.com/AlCalzone
+[@Galorhallen]: https://github.com/Galorhallen
+[@SteveEasley]: https://github.com/SteveEasley
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@allenporter]: https://github.com/allenporter
+[@arturpragacz]: https://github.com/arturpragacz
+[@astrandb]: https://github.com/astrandb
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@dan-r]: https://github.com/dan-r
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@pantherale0]: https://github.com/pantherale0
+[@rajlaud]: https://github.com/rajlaud
+[@zachfeldman]: https://github.com/zachfeldman
 [@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community
