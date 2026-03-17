@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `pioneer` {% term integration %} allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.
+The **Pioneer** {% term integration %} allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.
 
 To add a Pioneer receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

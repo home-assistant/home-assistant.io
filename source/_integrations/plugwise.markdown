@@ -34,9 +34,9 @@ ha_quality_scale: platinum
 
 This integration supports one or multiple Plugwise Gateways connected to your network. You can connect to these gateways using your browser, the Plugwise App, or Home Assistant. There are 4 [supported](#supported-devices) types of gateways:
 
-- Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#adam) such as zone thermostats, smart valves and smart-plugs.
-- A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
-- For power and gas-usage monitoring there is a device simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
+- Full zonecontrol using the [Adam](https://www.plugwise.com/zone-control/) using [additional devices](#adam) such as zone thermostats, smart valves and smart-plugs.
+- A stand-alone smart thermostat called [Anna](https://www.plugwise.com/product/anna/).
+- For power and gas-usage monitoring there is a device simply called the [P1](https://www.plugwise.com/smile-p1).
 - Although no longer sold, there also is support for Stretch, a gateway to create network connectivity for their older power products.
 
 ## Pre-requisites
@@ -47,7 +47,7 @@ Plugwise gateways on your network are automatically discovered and displayed on 
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your gateway. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network**. In the Plugwise App, to locate a specific device, select **Gateways** on the main screen, choose your desired gateway, and then follow the previous instructions. Normally, the gateway(s) are automatically discovered, and you don't have to provide the hostname or IP address."
+  description: "The hostname or IP address of your gateway. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) > **System** > **Network**. In the Plugwise App, to locate a specific device, select **Gateways** on the main screen, choose your desired gateway, and then follow the previous instructions. Normally, the gateway(s) are automatically discovered, and you don't have to provide the hostname or IP address."
 Username:
   description: "Username to log in to the gateway. This should be 'smile' for most devices, or 'stretch' for a Stretch."
 Password:
@@ -160,14 +160,6 @@ The interval at which the integration fetches data from the gateway depends on t
 | Energy and gas entities |10 seconds|
 | Stretch entities |60 seconds|
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
-
-{% include integrations/remove_device_service.md %}
-
-This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
-
 ## Actions
 
 ### Climate control actions
@@ -194,7 +186,7 @@ The available schedules depend on the [schedules](#schedule-management) you have
 
 The following HVAC modes are available:
 
-- `auto`: Active schedule – The thermostat changes presets/setpoints according to the schedule.
+- `auto`: Thermostat schedule active – The thermostat changes presets/setpoints according to the user-created schedule.
 - `cool or heat`: No active schedule – The system is manually set to cooling or heating mode, activating based on room temperature relative to the thermostat setpoint.
 
 For Adam:
@@ -231,13 +223,13 @@ For best results, ensure your schedules and presets are appropriately configured
 
 ### Energy-Based Automations
 
-A great example of automating charging your car from the energy data the P1 provides can be found in the [Energy Management System for Car Charging](https://community.home-assistant.io/t/energy-management-system-for-car-charging-surplus-trip-calendar/744069) blueprint.
+A great example of automating charging your car from the energy data the P1 provides can be found in the [Energy Management System for Car Charging](https://community.home-assistant.io/t/744069) blueprint.
 
 ### Climate-Based Automations
 
 When using smart zone controls or thermostats, relying heavily on additional automations may interfere with their ability to accurately predict warm-up or cool-down times. Instead, leverage their preset modes to optimize energy efficiency and reduce environmental impact, as well as your energy bills. Below are some examples to help you get started.
 
-For advanced customization and full manual control, consider using a blueprint like [Advanced Heating Control](https://community.home-assistant.io/t/advanced-heating-control/469873/1). If you choose this route, we recommend disabling your Plugwise schedules to ensure the blueprint takes full control.
+For advanced customization and full manual control, consider using a blueprint like [Advanced Heating Control](https://community.home-assistant.io/t/469873). If you choose this route, we recommend disabling your Plugwise schedules to ensure the blueprint takes full control.
 
 #### Presence-based preset mode
 
@@ -313,14 +305,13 @@ automation:
 
 ### Adam
 
-A complete zone control system also known as [Adam HA](https://www.plugwise.com/en_US/zonecontrol), supporting:
+A complete zone control system also known as [Adam HA](https://www.plugwise.com/zone-control), supporting:
 
 - On/Off, OpenTherm heating and cooling support.
 - Running firmwares v3.x or v2.3.
 - Additional devices:
-  - Zone thermostats such as Lisa or Anna (see warning below on Anna),
-  - A temperature sensor, Jip,
-  - Valve controllers called Floor or Tom,
+  - Zone thermostats such as Anna, Emma, Lisa or Jip (see warning below on Anna connected to Adam),
+  - Valve controllers called Floor or Tom, can also function as a zone thermostat
   - An under-floor heating controller Koen (note: a Koen always comes with a Plug, which is the active part),
   - Smart switches, either Plug or Aqara Smart Plug.
 
@@ -330,24 +321,24 @@ You can also use the Adam SA (Stand-alone, no Zigbee stick present) to make your
 
 ### Anna
 
-A [smart thermostat](https://www.plugwise.com/en_US/products/anna), supporting:
+A [smart thermostat](https://www.plugwise.com/product/anna/), supporting:
 
 - On/Off, OpenTherm heating and cooling support.
 - Running firmware v4.x, v3.x or v1.x.
 
 ### P1 (DSMR)
 
-A [P1](https://www.plugwise.com/en_US/products/smile-p1) smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
+A [P1](https://www.plugwise.com/smile-p1) smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
+
+#### Anna P1
+
+A smart thermostat [combined](https://www.plugwise.com/product/anna-p1/) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
 
 ### Stretch (end-of-sale)
 
 For controlling and monitoring legacy power switches, such as the Circles or Stealths, with v3.x or v2.x Stretch firmware.
 
 ### Unsupported devices
-
-#### Anna P1
-
-A smart thermostat [combined](https://www.plugwise.com/en_US/products/anna-p1) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
 
 #### Stick
 
@@ -426,3 +417,11 @@ Also, there's a pause-mode that disables the active schedule and sets the away-p
 ### Idling climate actions
 
 You can only stop climate actions on an Adam, see [turn on / turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
+
+{% include integrations/remove_device_service.md %}
+
+This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.

@@ -183,13 +183,13 @@ actions:
 
 To interact with schedules from {% term scripts %} and {% term automations %}, the schedule integration provides the following {% term actions %}.
 
-### Action `schedule.reload`
+### Action: Reload
 
-`schedule.reload` reloads the schedule's configuration from YAML without the need of restarting Home Assistant itself.
+The `schedule.reload` action reloads the schedule's configuration from YAML without the need to restart Home Assistant itself.
 
-### Action `schedule.get_schedule`
+### Action: Get schedule
 
-`schedule.get_schedule` populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the configured time ranges of a schedule.
+The `schedule.get_schedule` action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the configured time ranges of a schedule.
 It can return multiple schedules.
 
 ```yaml

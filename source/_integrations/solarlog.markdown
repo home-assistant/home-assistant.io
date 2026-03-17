@@ -14,11 +14,11 @@ ha_domain: solarlog
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
-The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
+The **Solar-Log** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
 
 ## Supported devices
 
@@ -100,7 +100,12 @@ The following additional sensor becomes available:
 
 | Name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
+| charge_level          | %      | Current charge level of battery.*          |
+| charging_power        | W      | Current power charging battery.*           |
+| discharging_power     | W      | Current power discharging battery.*        |
 | self_consumption_year | kWh    | Annual self-consumed solar power.          |
+
+*Only available, if battery connected to solarlog.
 
 In addition, information from devices connected to the Solar-Log device becomes available. The following additional sensors become available (all values are per inverter/device):
 

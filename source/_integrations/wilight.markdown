@@ -19,7 +19,7 @@ ha_platforms:
   - fan
   - light
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **WiLight** {% term integration %} is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.

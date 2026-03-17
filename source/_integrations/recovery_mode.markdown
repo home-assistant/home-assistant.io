@@ -25,7 +25,7 @@ from the last time Home Assistant did start.
 
 When this happens, Home Assistant will start in **Recovery mode** using this
 integration. In this mode, no user configured integrations are loaded, but it does give you access to
-the Home Assistant frontend, settings and add-ons.
+the Home Assistant frontend, settings, and apps.
 
 This gives you the possibility to correct the issue and restart Home Assistant
 to re-try.

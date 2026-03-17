@@ -6,7 +6,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: my_integration
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - url: https://developers.home-assistant.io/docs/documenting/standards
     title: Documentation standard
@@ -14,7 +14,7 @@ related:
     title: Integration Quality Scale - Rules
   - docs: /docs/glossary/
     title: Glossary
-  - docs: /docs/tools/quick-bar/#my-links
+  - docs: /docs/tools/quick-search/#my-links
     title: My link
 ---
 
@@ -87,24 +87,22 @@ Timeframe:
 
 ## Supported functionality
 
-### Entities
-
 The **My integration** integration provides the following entities.
 
-#### Buttons
+### Buttons
 
 - **Start backflush**
   - **Description**: Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation.
   - **Available for machines**: all
 
-#### Numbers
+### Numbers
 
 - **Dose**
   - **Description**: Dosage (in ticks) for each key
   - **Available for machines**: GS3 AV, Linea Mini.
   - **Remarks**: GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default.
 
-#### Sensors
+### Sensors
 
 - **Current coffee temperature**
   - **Description**: Current temperature of the coffee boiler.
@@ -116,7 +114,7 @@ The **My integration** integration provides the following entities.
   - **Available for machines**: Linea Micra, GS3 AV, GS3 MP.
   - **Remarks**: -
 
-#### Selects
+### Selects
 
 - **Prebrew/-infusion mode**
   - **Description**: Whether to use prebrew, preinfusion, or neither.
@@ -128,7 +126,7 @@ The **My integration** integration provides the following entities.
   - **Options**: 1, 2, 3
   - **Available for machines**: Linea Micra
 
-#### Updates
+### Updates
 
 - **Gateway firmware**
   - **Description**: Firmware status of the gateway.
@@ -140,7 +138,7 @@ The integration provides the following actions.
 
 ### Action: Get schedule
 
-The `my_integration.get_schedule` action is used to fetch a schedule from the integration.
+The `my_integration.get_schedule` action allows you to fetch a schedule from the integration.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the config entry to get the schedule from.
@@ -154,7 +152,7 @@ The status LEDs on the device can be quite bright.
 To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
 
 link to the blueprint on the [blueprints
-    exchange](https://community.home-assistant.io/c/blueprints-exchange/53)
+    exchange](https://community.home-assistant.io/c/53)
 
 ## Data updates
 
@@ -174,11 +172,11 @@ The integration does not provide the ability to reboot, which can instead be don
 
 When trying to set up the integration, the form shows the message “This device can’t be reached”.
 
-##### Description
+#### Description
 
 This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
 
-##### Resolution
+#### Resolution
 
 To resolve this issue, try the following steps:
 

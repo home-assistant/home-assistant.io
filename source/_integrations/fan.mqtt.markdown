@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` fan platform lets you control your MQTT enabled fans.
+The **MQTT Fan** {% term integration %} lets you control your MQTT enabled fans.
 
 ## Configuration
 
@@ -18,7 +18,7 @@ When a `state_topic` is not available, the fan will work in optimistic mode. In 
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect fan operation.
 
-To enable MQTT fans in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT fan in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -27,6 +27,8 @@ mqtt:
   - fan:
       command_topic: "bedroom_fan/on/set"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -72,6 +74,10 @@ command_template:
 command_topic:
   description: The MQTT topic to publish commands to change the fan state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `fan.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
@@ -144,6 +150,10 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member fan entities. Set this if the fan entity represents a fan group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -161,10 +171,6 @@ name:
   required: false
   type: string
   default: MQTT Fan
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if fan works in optimistic mode
   required: false
@@ -247,11 +253,11 @@ percentage_command_template:
   required: false
   type: template
 percentage_command_topic:
-  description: The MQTT topic to publish commands to change the fan speed state based on a percentage.
+  description: The MQTT topic to publish commands to change the fan speed state based on a percentage setting. The value shall be in the range from `speed_range_min` to `speed_range_max`.
   required: false
   type: string
 percentage_state_topic:
-  description: The MQTT topic subscribed to receive fan speed based on percentage.
+  description: The MQTT topic subscribed to receive fan speed state. This is a value in the range from `speed_range_min` to `speed_range_max`.
   required: false
   type: string
 percentage_value_template:

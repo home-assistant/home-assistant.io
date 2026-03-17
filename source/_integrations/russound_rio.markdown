@@ -14,12 +14,12 @@ ha_platforms:
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_zeroconf: true
 ---
 
-The Russound RIO {% term integration %} allows you to control Russound devices that make use of the RIO protocol.
+The **Russound RIO** {% term integration %} allows you to control Russound devices that make use of the RIO protocol.
 
 The platform automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information is supported if the selected source reports it. The integration allows you to navigate presets, control volume of all zones, and play radio stations all from your Home Assistant dashboard.
 
@@ -27,6 +27,8 @@ The platform automatically discovers all enabled zones and sources. Each zone is
 
 This integration allows you to connect the following controllers:
 
+- Russound SMZ8
+- Russound SMZ16-PRE
 - Russound MBX-PRE
 - Russound MBX-AMP
 - Russound ACA-E5
@@ -106,6 +108,10 @@ data:
   media_content_type: "preset"
   media_content_id: "1,8"
 ```
+
+## Browsing media
+
+The Russound RIO integration allows you to browse saved presets from your dashboard. 
 
 ## Troubleshooting
 

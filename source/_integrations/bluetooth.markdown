@@ -53,21 +53,49 @@ For Bluetooth to function on Linux systems:
 
 ### Additional requirements by install method
 
-- Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later.
-- Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
+- Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later. All Bluetooth requirements are automatically configured.
+- Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container. Additional configuration is required (see below).
 
 ### Additional details for Container
 
-{% details "Making the DBus socket available in the Docker container" %}
+{% details "Container configuration for Bluetooth" %}
 
-For most systems, the Dbus socket is in `/run/dbus`. The socket must be available in the container for Home Assistant to be able to connect to Dbus and access the Bluetooth adapter. When starting with `docker run`, this can be accomplished by adding `-v /run/dbus:/run/dbus:ro` to the command. If the Dbus socket is in `/var/run/dbus` on the host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
+{% note %}
+You only need these configuration steps for Home Assistant Container installations. Home Assistant Operating System automatically handles all Bluetooth configuration.
+{% endnote %}
 
-If you are using Docker Compose, add something like the following (adjust as necessary) to your `volumes` section:
+Home Assistant Container requires specific configuration to access Bluetooth adapters.
 
-```dockerfile
+**Required capabilities:**
+
+Add the following Linux capabilities to your container configuration to enable full Bluetooth management:
+
+**Docker Compose:**
+```yaml
+cap_add:
+  - NET_ADMIN
+  - NET_RAW
 volumes:
   - /run/dbus:/run/dbus:ro
 ```
+
+**Docker run:**
+```bash
+docker run --cap-add=NET_ADMIN --cap-add=NET_RAW -v /run/dbus:/run/dbus:ro ...
+```
+
+**D-Bus socket:**
+
+For most systems, the D-Bus socket is in `/run/dbus`. You need to make the socket available in the container for Home Assistant to connect to D-Bus and access the Bluetooth adapter. If the D-Bus socket is in `/var/run/dbus` on your host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
+
+**What happens without these capabilities:**
+
+If `NET_ADMIN` and `NET_RAW` capabilities are missing:
+- Your Bluetooth will operate in a degraded mode with limited functionality
+- Automatic adapter recovery is unavailable - your adapters cannot be reset when they stop responding
+- Connection parameters and management API commands will fail
+- Raw advertising data will be missing, causing unreliable updates for your devices
+- An error will appear in your logs: "Missing required permissions for Bluetooth management"
 
 {% enddetails %}
 
@@ -264,7 +292,12 @@ Passive Scanning on Linux can be enabled in the options flow per adapter if the 
 
 Many integrations require active scanning and may not function when scanning is passive.
 
-{% include integrations/option_flow.md %}
+## Options
+
+1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+2. Select **Adapters**.
+3. On the adapter of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select your options.
+   - Not all adapters have options. If you don't see a cogwheel icon, your adapter does not support options.
 
 ## Remote adapters (Bluetooth proxies)
 
@@ -272,7 +305,7 @@ The Bluetooth integration supports receiving advertisement data from external ad
 
 When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
-For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/index.html).
+For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/).
 
 {% tip %}
 - The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
@@ -315,12 +348,12 @@ When switching to an adapter with better performance, disable the old, less perf
 
 The below adapters are listed from best-performing to worst-performing:
 
-- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
-- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
-- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
-- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
 - [Onboard high performance adapter](#cypress-based-adapters) with active scanning
 - [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
@@ -373,3 +406,52 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
     - While Bluetooth is designed to coexist with Wi-Fi, its stronger signal can interfere.
       - To play it safe, try to place your Bluetooth adapter away from Wi-Fi access points.
     - Place Bluetooth adapters far away from electrical/power wires/cables, power supplies, and household appliances.
+
+## Discovered integrations
+
+The following integrations are automatically discovered by the Bluetooth integration:
+
+ - [Acaia](/integrations/acaia/)
+ - [Airthings BLE](/integrations/airthings_ble/)
+ - [Aranet](/integrations/aranet/)
+ - [BlueMaestro](/integrations/bluemaestro/)
+ - [BTHome](/integrations/bthome/)
+ - [Dormakaba dKey](/integrations/dormakaba_dkey/)
+ - [eQ-3 Bluetooth Smart Thermostats](/integrations/eq3btsmart/)
+ - [EufyLife](/integrations/eufylife_ble/)
+ - [Fjäråskupan](/integrations/fjaraskupan/)
+ - [Gardena Bluetooth](/integrations/gardena_bluetooth/)
+ - [Govee Bluetooth](/integrations/govee_ble/)
+ - [HomeKit Device](/integrations/homekit_controller/)
+ - [Husqvarna Automower BLE](/integrations/husqvarna_automower_ble/)
+ - [iBeacon Tracker](/integrations/ibeacon/)
+ - [IKEA Idasen Desk](/integrations/idasen_desk/)
+ - [Improv via BLE](/integrations/improv_ble/)
+ - [INKBIRD](/integrations/inkbird/)
+ - [IronOS](/integrations/iron_os/)
+ - [Kegtron](/integrations/kegtron/)
+ - [Keymitt MicroBot Push](/integrations/keymitt_ble/)
+ - [Kuler Sky](/integrations/kulersky/)
+ - [La Marzocco](/integrations/lamarzocco/)
+ - [LD2410 BLE](/integrations/ld2410_ble/)
+ - [LED BLE](/integrations/led_ble/)
+ - [Medcom Bluetooth](/integrations/medcom_ble/)
+ - [Melnor Bluetooth](/integrations/melnor/)
+ - [Moat](/integrations/moat/)
+ - [Mopeka](/integrations/mopeka/)
+ - [Motionblinds Bluetooth](/integrations/motionblinds_ble/)
+ - [Oral-B](/integrations/oralb/)
+ - [Probe Plus](/integrations/probe_plus/)
+ - [Qingping](/integrations/qingping/)
+ - [RAPT Bluetooth](/integrations/rapt_ble/)
+ - [Ruuvi BLE](/integrations/ruuvitag_ble/)
+ - [Sensirion BLE](/integrations/sensirion_ble/)
+ - [SensorPro](/integrations/sensorpro/)
+ - [SensorPush](/integrations/sensorpush/)
+ - [Snooz](/integrations/snooz/)
+ - [SwitchBot Bluetooth](/integrations/switchbot/)
+ - [ThermoBeacon](/integrations/thermobeacon/)
+ - [ThermoPro](/integrations/thermopro/)
+ - [Tilt Hydrometer BLE](/integrations/tilt_ble/)
+ - [Xiaomi BLE](/integrations/xiaomi_ble/)
+ - [Yale Access Bluetooth](/integrations/yalexs_ble/)

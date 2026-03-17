@@ -49,12 +49,17 @@ service_name:
       description: A string/template to send with request.
       required: false
       type: template
+    authentication:
+      description: Type of HTTP authentication. Either `basic` or `digest`.
+      required: false
+      type: string
+      default: basic
     username:
-      description: The username for basic HTTP authentication (digest is not supported).
+      description: The username for HTTP authentication.
       required: false
       type: string
     password:
-      description: The password for basic HTTP authentication (digest is not supported).
+      description: The password for HTTP authentication.
       required: false
       type: string
     timeout:
@@ -73,6 +78,11 @@ service_name:
       default: true
     insecure_cipher:
       description: Allow insecure ciphers for the request. This is useful for older servers/devices that do not support modern ciphers.
+      required: false
+      type: boolean
+      default: false
+    skip_url_encoding:
+      description: Skip internal URL canonicalization, which would have encoded the _host_ part by [IDNA](https://docs.aiohttp.org/en/stable/glossary.html#term-IDNA) codec and applied [requoting](https://docs.aiohttp.org/en/stable/glossary.html#term-requoting) to the _path_ and _query_ parts.
       required: false
       type: boolean
       default: false
@@ -96,6 +106,22 @@ rest_command:
     method: put
     content_type: "application/x-www-form-urlencoded"
     payload: "mode=off"
+```
+
+### Using digest authentication
+
+This example shows how to use digest authentication with a REST command:
+
+```yaml
+rest_command:
+  secured_command:
+    url: "http://example.com/api/secure-endpoint"
+    method: post
+    authentication: digest
+    username: "your_username"
+    password: "your_password"
+    payload: '{"data": "example"}'
+    content_type: "application/json"
 ```
 
 ### Using REST command Response in automations

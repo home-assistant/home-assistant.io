@@ -8,11 +8,12 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` Text platform allows you to integrate devices that show text that can be set remotely. Optionally the text state can be monitored too using MQTT.
+The **MQTT Text** {% term integration %} allows you to integrate devices that show text that can be set remotely. Optionally the text state can be monitored too using MQTT.
 
 ## Configuration
 
-To enable MQTT text platform in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT text entity in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,6 +21,8 @@ mqtt:
   - text:
       command_topic: command-topic
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -65,6 +68,10 @@ command_template:
 command_topic:
   description: The MQTT topic to publish the text value that is set.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `text.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: "Information about the device this of text capability is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
@@ -165,10 +172,6 @@ name:
   required: false
   type: string
   default: "MQTT Text"
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 pattern:
   description: A valid regular expression the text being set or received must match with.
   required: false
