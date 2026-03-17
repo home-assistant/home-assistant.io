@@ -7,7 +7,7 @@ Dashboards are customizable pages that display information about your smart home
 
 ## Types of dashboards
 
-In the sidebar, on the left of the User Interface, you see the names of different dashboards. Home Assistant comes with [different dashboard types](/dashboards/dashboards/) out of the box, such as:
+In the left sidebar, you see the names of different dashboards. Home Assistant comes with [different dashboard types](/dashboards/dashboards/) out of the box, such as:
 
 - Overview
 - Energy
@@ -20,9 +20,9 @@ In the sidebar, on the left of the User Interface, you see the names of differen
 
 The main elements of a dashboard are cards and views.
 
-A card is an element of the User Interface that shows information about a smart {% term device %}, a {% term service %}, or an {% term entity %} and even allows you to control them, depending on the [category of the card](/dashboards/cards/#card-categories). For more information on cards and how to edit them, refer to the [Cards](/dashboards/cards) page.
+A card is an element of the User Interface that shows information about a smart {% term device %}, a {% term service %}, or an {% term entity %} and even allows you to control them, depending on the [category of the card](/dashboards/cards/#card-categories). For more information on cards and how to edit them, refer to the [Cards](/dashboards/cards/) page.
 
-A view is a tab inside a dashboard that displays cards in a specific layout. The layout is determined by the view type. A dashboard can have one or many views and, for each view, you can choose the cards that you want to display, and in which view type. For more information on views and how to edit them, refer to the [Views](/dashboards/views) page.
+A view is a tab inside a dashboard that displays cards in a specific layout. The layout is determined by the view type. A dashboard can have one or many views and, for each view, you can choose the cards that you want to display, and in which view type. For more information on views and how to edit them, refer to the [Views](/dashboards/views/) page.
 
 The screenshot below shows an **Overview** dashboard with many cards that represent:
 
