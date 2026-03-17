@@ -46,7 +46,7 @@ The following screenshot shows a fully populated dashboard in a [sections view](
 
 <p class='img'>
     <img src="/images/dashboards/section_view.png" alt="A fully populated dashboard in Sections view layout"/>
-    A fully populated dashboard in sections view layout
+    A fully populated dashboard in the sections view layout
 </p>
 
 ## First contact with the Overview dashboard
