@@ -238,6 +238,12 @@ You can provide a full payload or only the fields you want to change. Omitted fi
 
 The `growatt_server.write_ac_discharge_times` action writes AC discharge settings and up to three configurable discharge periods on supported SPH devices.
 
+Supported on SPH inverters.
+
+{% important %}
+This action modifies inverter discharge behavior. Incorrect settings can affect battery lifespan and energy costs. Make changes only if you understand your battery and tariff setup.
+{% endimportant %}
+
 **Data attributes:**
 
 - **device_id** *(string, required)*: The device ID of the Growatt SPH inverter
@@ -253,9 +259,15 @@ The `growatt_server.write_ac_discharge_times` action writes AC discharge setting
 - **period_3_end** *(time, optional)*: End time for period 3 (`HH:MM` or `HH:MM:SS`)
 - **period_3_enabled** *(boolean, optional)*: Enable period 3
 
+{% note %}
+You can provide a full payload or only the fields you want to change. Omitted fields keep their current values from the inverter settings.
+{% endnote %}
+
 ### Action: Read AC charge times
 
 The `growatt_server.read_ac_charge_times` action reads AC charge periods from a supported SPH device.
+
+Supported on SPH inverters.
 
 **Data attributes:**
 
@@ -264,6 +276,8 @@ The `growatt_server.read_ac_charge_times` action reads AC charge periods from a 
 ### Action: Read AC discharge times
 
 The `growatt_server.read_ac_discharge_times` action reads AC discharge periods from a supported SPH device.
+
+Supported on SPH inverters.
 
 **Data attributes:**
 
@@ -278,12 +292,12 @@ Charge the battery during cheap electricity hours (e.g., midnight to 6 AM):
 ```yaml
 action: growatt_server.update_time_segment
 data:
+  device_id: "YOUR_MIN_DEVICE_ID"
   segment_id: 1
   batt_mode: "battery_first"
   start_time: "00:00"
   end_time: "06:00"
   enabled: true
-  # For multiple devices, add device_id: "MIN12345"
 ```
 
 {% note %}
@@ -297,6 +311,7 @@ Export battery power to grid during expensive electricity hours (e.g., 4 PM to 8
 ```yaml
 action: growatt_server.update_time_segment
 data:
+  device_id: "YOUR_MIN_DEVICE_ID"
   segment_id: 2
   batt_mode: "grid_first"
   start_time: "16:00"
@@ -315,6 +330,7 @@ Prioritize home consumption during typical usage hours (e.g., 6 AM to 10 PM):
 ```yaml
 action: growatt_server.update_time_segment
 data:
+  device_id: "YOUR_MIN_DEVICE_ID"
   segment_id: 3
   batt_mode: "load_first"
   start_time: "06:00"
@@ -328,6 +344,8 @@ Check your current time segment settings:
 
 ```yaml
 action: growatt_server.read_time_segments
+data:
+  device_id: "YOUR_MIN_DEVICE_ID"
 ```
 
 ### Writing SPH AC charge times
