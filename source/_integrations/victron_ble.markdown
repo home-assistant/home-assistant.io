@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **Victron BLE** {% term integration %} integrates [Victron Energy](https://www.victronenergy.com/) devices that support Bluetooth Low Energy (BLE) instant readout into Home Assistant.
+The **Victron BLE** {% term integration %} integrates [Victron Energy](https://www.victronenergy.com/) devices that support **Instant Readout via Bluetooth** (Bluetooth Low Energy, or BLE) into Home Assistant.
 
 ## Supported devices
 
@@ -29,10 +29,10 @@ The integration supports the following Victron device types:
 - **DC Energy Meter**
 - **Inverter/Charger** (MultiPlus, Quattro, Inverter RS via VE.Bus)
 - **Smart Battery Protect**
-- **Smart Lithium** 
+- **Smart Lithium**
 - **Solar Charger** (SmartSolar, BlueSolar MPPT)
 
-### Unsupported devices
+## Unsupported devices
 
 The following device types are not yet supported:
 
@@ -41,7 +41,7 @@ The following device types are not yet supported:
 - **Multi RS**
 - **Orion XS**
 
-If your device advertises via BLE with Victron manufacturer data but is not in the supported list above, it may appear in Home Assistant with only a **signal strength** sensor. This is because the integration can detect any Victron BLE device, but can only read sensor data from supported device types. Full sensor data will become available when support for that device type is added.
+If your device advertises via BLE with Victron manufacturer data but is not in the supported list above, it may appear in Home Assistant with only a **Signal strength** sensor. This is because the integration can detect any Victron BLE device, but can only read sensor data from supported device types. Full sensor data will become available when support for that device type is added.
 
 {% include integrations/config_flow.md %}
 
@@ -72,9 +72,9 @@ If your device appears in Home Assistant but only shows a signal strength sensor
 
 ### Device is not discovered
 
-- Make sure **Instant Readout via Bluetooth** is enabled in the VictronConnect app for the device (see [Adding a device](#adding-a-device) above).
-- Make sure no other device (such as a phone running VictronConnect) is actively connected to the device via Bluetooth, as this can prevent BLE advertisements from being sent.
-- Make sure the [Bluetooth](/integrations/bluetooth) integration is set up and working.
+1. Make sure **Instant Readout via Bluetooth** is enabled in the VictronConnect app for the device (see [Adding a device](#adding-a-device) above).
+2. Make sure no other device (such as a phone running VictronConnect) is actively connected to the device via Bluetooth, as this can prevent BLE advertisements from being sent.
+3. Make sure the [Bluetooth](/integrations/bluetooth) integration is set up and working.
 
 ## Data updates
 
