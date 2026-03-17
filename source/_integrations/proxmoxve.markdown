@@ -2,114 +2,58 @@
 title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Button
+  - Sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@jhollowe'
   - '@Corbeno'
+  - '@erwindouna'
 ha_domain: proxmoxve
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+  - button
+  - diagnostics
+  - sensor
+ha_integration_type: service
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
 
-After configuring this integration, the binary sensors automatically appear.
+After configuring this {% term integration %}, the binary sensors automatically appear.
 
 ## Configuration
 
-<div class='note'>
-You should have at least one VM or container entry configured, else this integration won't do anything.
-</div>
+{% important %}
+You should have at least one VM or container entry configured within Home Assistant, else this integration won't do anything.
+You should have the [Proxmox permissions](#proxmox-permissions) ready before creating the integration.
+{% endimportant %}
 
-To use the `proxmoxve` integration, add the following configuration to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-proxmoxve:
-  - host: IP_ADDRESS
-    username: USERNAME
-    password: PASSWORD
-    nodes:
-      - node: NODE_NAME
-        vms:
-          - VM_ID
-        containers:
-          - CONTAINER_ID
-```
+{% configuration_basic %}
+Host:
+  description: "Address of your Proxmox instance. Example: `https://proxmox.example.com`."
+Port:
+  description: "Port to connect to Proxmox. Default is `8006`."
+Realm:
+  description: "Authentication source of Proxmox. Default is `pam`."
+Username:
+  description: "Configured user to authenticate."
+Password:
+  description: "Password associated with the username."
+Verify SSL certificate:
+  description: "Enable SSL certificate verification for secure connections."
+{% endconfiguration_basic %}
 
-{% configuration %}
-host:
-  description: IP address of the Proxmox VE instance. Can include port by appending ":\<port\>".
-  required: true
-  type: string
-port:
-  description: The port number on which Proxmox VE is running.
-  required: false
-  default: 8006
-  type: integer
-verify_ssl:
-  description: Whether to do strict validation on SSL certificates. If you use a self signed SSL certificate you need to set this to false.
-  required: false
-  default: true
-  type: boolean
-username:
-  description: The username used to authenticate. Can include the realm by appending "@\<realm\>".
-  required: true
-  type: string
-password:
-  description: The password used to authenticate.
-  required: true
-  type: string
-realm:
-  description: The authentication realm of the user.
-  required: false
-  default: pam
-  type: string
-nodes:
-  description: List of the Proxmox VE nodes to monitor.
-  required: true
-  type: map
-  keys:
-    node:
-      description: Name of the node
-      required: true
-      type: string
-    vms:
-      description: List of the QEMU VMs to monitor.
-      required: false
-      type: list
-    containers:
-      description: List of the LXC containers to monitor.
-      required: false
-      type: list
-{% endconfiguration %}
-
-Example with multiple VMs, no containers, self-signed certificate and pve realm for the user setup described below:
-
-```yaml
-proxmoxve:
-  - host: IP_ADDRESS
-    username: USERNAME
-    password: PASSWORD
-    verify_ssl: false
-    realm: pve
-    nodes:
-      - node: NODE_NAME
-        vms:
-          - VM_ID_1
-          - VM_ID_2
-```
-
-## Binary Sensor
-
-The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
-
-The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
-
-## Proxmox Permissions
+## Proxmox permissions
 
 To be able to retrieve the status of VMs and containers, the user used to connect must minimally have the `VM.Audit` privilege. Below is a guide to how to configure a new user with the minimum required permissions.
 
@@ -118,36 +62,79 @@ To be able to retrieve the status of VMs and containers, the user used to connec
 Before creating the user, we need to create a group for the user.
 Privileges can be either applied to Groups or Roles.
 
-1. Click `Datacenter`
-2. Open `Permissions` and click `Groups`
-3. Click the `Create` button above all the existing groups
+1. Select `Datacenter`
+2. Open `Permissions` and select `Groups`
+3. Use the `Create` button above all the existing groups
 4. Name the new group (e.g., `HomeAssistant`)
-5. Click `Create`
+5. Confirm `Create`
 
 ### Add Group Permissions to all Assets
 
-For the group to access the VMs we need to grant it the auditor role
+For the group to access the VMs read-only, we need to grant it the auditor role
 
-1. Click `Datacenter`
-2. Click `Permissions`
-3. Open `Add` and click `Group Permission`
-4. Select "/" for the path
-5. Select your Home Assistant group (`HomeAssistant`)
-6. Select the Auditor role (`PVEAuditor`)
+1. Select `Datacenter`
+2. Select `Permissions`
+3. Open `Add` and select `Group Permission`
+4. Choose "/" for the path
+5. Select your Home Assistant group (`HomeAssistant`) from the list
+6. Select the Auditor role (`PVEAuditor`) from the list
 7. Make sure `Propagate` is checked
+8. Confirm `Add`
+
+{% note %}
+Select `PVEUser` instead of `PVEAuditor` if you wish to grant Home Assistant controlling privileges on your environment.
+Or create a new custom role to at grant 'VM.Audit' and 'VM.PowerMgmt' privileges.
+{% endnote %}
+
 
 ### Create Home Assistant User
 
-Creating a dedicated user for Home Assistant, limited to only to the access just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, just be sure to add `realm: pve` to your configuration.
+Creating a dedicated user for Home Assistant, limited to only to the privileges just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for local or SSH connections. If you use the `pve` realm, change the default `realm` to `pve`.
 
-1. Click `Datacenter`
+{% important %}
+When using `pam`, the Home Assistant user you create must already exist on the Linux system.  For `pve`, the user only has to exist in Proxmox.
+{% endimportant %}
+
+1. Select `Datacenter`
 2. Open `Permissions` and click `Users`
-3. Click `Add`
-4. Enter a username (e.g.,` hass`)
+3. Select `Add`
+4. Enter a username (e.g.,`hass`)
 5. Set the realm to "Proxmox VE authentication server"
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
 8. Ensure `Enabled` is checked and `Expire` is set to "never"
-9. Click `Add`
+9. Confirm `Add`
 
 In your Home Assistant configuration, use `hass@pve` for the username and your chosen password for the password.
+
+## Sensor
+
+- **CPU**: Percentage of CPU usage.
+- **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
+- **Disk**: Disk usage of the node/VM/LXC.
+- **Max disk**: Maximum amount of available disk space.
+- **Memory**: Amount of memory usage.
+- **Max memory**: Maximum amount of memory on the node/VM/LXC.
+- **Status**: Current status of the node/VM/LXC.
+
+## Binary sensor
+
+The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM state is running or off if the VM state is different.
+
+The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
+
+## Button
+
+- **Start**: Starts a node/VM/LXC.
+- **Start all**: Starts all VMs and LXCs known on a node.
+- **Stop**: Stops a node/VM/LXC.
+- **Stop all**: Stops all VMs and LXCs known on a node.
+- **Restart**: Restarts a VM/LXC.
+- **Reboot**: Reboots a node.
+- **Shutdown**: Shuts a node down.
+- **Hibernate**: Puts a VM in hiberanation; only available to VMs.
+- **Reset**: Resets a VM; only available to VMs.
+
+{% important %}
+To use these buttons to control state / power management of your node, VM or LXC, the user should have 'VM.PowerMgmt' privileges. Make sure the Proxmox role assigned to the Home Assistant user includes this privilege.
+{% endimportant %}

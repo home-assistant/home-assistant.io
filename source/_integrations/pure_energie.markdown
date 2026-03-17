@@ -12,23 +12,22 @@ ha_domain: pure_energie
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Pure Energie integration integrates the [Pure Energie Monitor](https://pure-energie.nl/kennisbank/pure-energie-meter/)
+The **Pure Energie** {% term integration %} integrates the [Pure Energie Monitor](https://pure-energie.nl/kennisbank/pure-energie-meter/)
 device with Home Assistant.
 
 The Pure Energie meter is a product that allows you to read the data
 from your smart meter via the serial port (P1), such as your energy
 consumption and power flow.
 
-<div class='note'>
+{% note %}
 The product of Pure Energie is a white label product of Net2Grid,
 other white label products may be found by zeroconf and work with
 this integration.
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 

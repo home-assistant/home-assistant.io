@@ -2,7 +2,7 @@
 title: Apple TV
 description: Instructions on how to integrate Apple TV devices into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Multimedia
   - Remote
 ha_iot_class: Local Push
@@ -13,21 +13,23 @@ ha_codeowners:
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - media_player
   - remote
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Apple TV integration allows you to control an Apple TV (any generation).
+The **Apple TV** {% term integration %} allows you to control an Apple TV (any generation).
 
 There is currently support for the following entities within the Apple TV device:
 
 - [Media Player](#media-player)
 - [Remote](#remote)
+- [Keyboard focused](#keyboard-focused) `binary_sensor`
 
 {% include integrations/config_flow.md %}
 
-## Media Player
+## Media player
 
 The Apple TV media player platform will create a Media Player entity for each
 Apple TV discovered on your network.
@@ -35,10 +37,10 @@ This entity will display the active app and playback controls.
 
 ### Launching apps
 
-You can launch apps using the `media_player.select_source` service, or using the
+You can launch apps using the `media_player.select_source` action, or using the
 “Apps” folder in the media browser.
 
-Using the `media_player.play_media` service, you can also use `Deep Links` to
+Using the `media_player.play_media` action, you can also use `Deep Links` to
 launch specific content in applications.
 
 Examples of some `Deep Links` for popular applications:
@@ -62,7 +64,7 @@ Examples:
 
 ```yaml
 # Open the Netflix app at a specific title
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: url
   media_content_id: https://www.netflix.com/title/80234304
@@ -72,7 +74,7 @@ target:
 
 ```yaml
 # Open a specific YouTube video:
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: url
   media_content_id: youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
@@ -91,7 +93,6 @@ The following commands are currently available:
 - `wakeup`
 - `suspend`
 - `home`
-- `home_hold`
 - `top_menu`
 - `menu`
 - `select`
@@ -110,14 +111,15 @@ The following commands are currently available:
 
 **NOTE:** Not all commands are supported by all Apple TV versions.
 
-### Service `send_command`
+### Action `send_command`
 
-| Service data<br>attribute | Optional | Description                                                                                    |
-| ------------------------- | -------- | ---------------------------------------------------------------------------------------------- |
-| `entity_id`               | no       | `entity_id` of the Apple TV                                                                    |
-| `command`                 | no       | Command, or list of commands to be sent                                                        |
-| `num_repeats`             | yes      | Number of times to repeat the commands                                                         |
-| `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc. |
+| Service data<br>attribute | Optional | Description                                                                                                                   |
+| ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`               | no       | `entity_id` of the Apple TV                                                                                                   |
+| `command`                 | no       | Command, or list of commands to be sent                                                                                       |
+| `num_repeats`             | yes      | Number of times to repeat the commands                                                                                        |
+| `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc.                                |
+| `hold_secs`               | yes      | Number of seconds to hold the button. <br> This is a `float` value but please use 0 for not hold and 1 for holding the button |
 
 ### Examples
 
@@ -128,7 +130,7 @@ being in a fixed place on the home screen:
 lounge_appletv_netflix:
   alias: "Select Netflix"
   sequence:
-    - service: remote.send_command
+    - action: remote.send_command
       target:
         entity_id: remote.lounge_appletv
       data:
@@ -140,22 +142,20 @@ lounge_appletv_netflix:
           - select
 ```
 
-Script using the `home_hold` command to send your Apple TV to sleep and turn off
+Script using the quick action menu to send your Apple TV to sleep and turn off
 the Media Player:
 
 ```yaml
 apple_tv_sleep:
   alias: "Make the Apple TV sleep"
   sequence:
-    - service: remote.send_command
+    - action: remote.send_command
       target:
         entity_id: remote.lounge_appletv
       data:
-        delay_secs: 1
         command:
-          - home_hold
-          - select
-    - service: media_player.turn_off
+          - suspend
+    - action: media_player.turn_off
       target:
         entity_id: media_player.lounge_appletv
 ```
@@ -163,7 +163,7 @@ apple_tv_sleep:
 Send 3 `left` commands with delay between each:
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.apple_tv
 data:
@@ -173,12 +173,38 @@ data:
     - left
 ```
 
+## Keyboard focused
+
+The Apple TV remote platform will automatically create a Binary sensor entity
+for each Apple TV configured on your Home Assistant instance to determine if the
+on-screen keyboard is active.
+
+### Example
+
+Create an automation that clears the search text whenever the on-screen keyboard
+is activated:
+
+```yaml
+description: "Always start with clear Apple TV search text"
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.my_apple_tv_keyboard_focused
+    from: "off"
+    to: "on"
+actions:
+  - action: apple_tv.clear_search_text
+    target:
+      entity_id: remote.my_apple_tv_remote
+```
+
 ## FAQ
 
 ### My Apple TV does not turn on/off when I press on/off in the frontend
 
 That is correct; it only toggles the power state in Home Assistant. See the
-example above to use the `home_hold` command. This can be used on Apple TVs
+example above to use the quick action menu. This can be used on Apple TVs
 running tvOS 14.0 or later.
 
 ### Is it possible to see if a device is on without interacting with it
@@ -202,9 +228,9 @@ and include logs (see Debugging below).
 
 ### Setting volume doesn't work on my Apple TV
 
-Volume control functionality depends on how the Apple TV is set up. 
-All volume controls should work if the Apple TV is connected to a 
-HomePod or HomePod stereo pair. If the Apple TV is connected to 
+Volume control functionality depends on how the Apple TV is set up.
+All volume controls should work if the Apple TV is connected to a
+HomePod or HomePod stereo pair. If the Apple TV is connected to
 TV speakers and with volume control
 over HDMI CEC (Settings -> Remotes and Devices -> Volume Control) only volume
 up/down controls will work. If volume control is over IR then volume cannot be

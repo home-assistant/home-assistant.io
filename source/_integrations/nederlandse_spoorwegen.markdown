@@ -7,84 +7,72 @@ ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_codeowners:
   - '@YarmoM'
+  - '@heindrichpaul'
 ha_domain: nederlandse_spoorwegen
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
+ha_config_flow: true
 ---
 
-This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
+The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time information about Dutch train schedules using the [NS API](https://apiportal.ns.nl/). This integration allows you to monitor departure times, delays, and travel information for your regular routes.
 
-To obtain an API key, create an account on the [NS API-Portaal](https://apiportal.ns.nl/) and obtain an API key for the `Reisinformatie` API which is part of the `Ns-App` product.
+## Prerequisites
 
-The `nederlandse_spoorwegen` integration can be configured using `configuration.yaml` as shown below:
+To use this integration, you need an API key from the NS API Portal.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-- platform: nederlandse_spoorwegen
-  api_key: NS_API_KEY
-  routes:
-    - name: Rotterdam-Amsterdam
-      from: Rtd
-      to: Asd
-    - name: Groningen-Zwolle-Maastricht
-      from: Gn
-      to: Mt
-      via: Zl
-    - name: "AlmereBuiten-Duivendrecht-the-08h06m-train"
-      from: Almb
-      to: Dvd
-      time: "08:06:00"
-```
+### Obtaining an API Key
 
-{% configuration %}
-api_key:
-  description: The API key provided by the Nederlandse Spoorwegen.
-  required: true
-  type: string
-routes:
-  description: List of travel routes.
-  required: false
-  type: list
-  keys:
-    name:
-      description: Name of the route.
-      required: true
-      type: string
-    from:
-      description: The departure station.
-      required: true
-      type: string
-    to:
-      description: The arrival station.
-      required: true
-      type: string
-    via:
-      description: A station the route needs to pass through.
-      required: false
-      type: string
-    time:
-      description: Optional time to search for a specific train.
-      required: false
-      type: time
-{% endconfiguration %}
+1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
+2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
 
-### Station codes
+{% include integrations/config_flow.md %}
 
-Station codes must be used and can be looked up [here](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
+### Managing routes
 
-### Searching a specific train vs. the next train
+After adding the integration, you can manage your travel routes:
 
-The default behavior (without configuration variable `time`) gives you the information about the *next* train that fits the criteria (`from`, `to`, `via`).
-When using the configuration variable `time`, you can search for a specific train.
-This is convenient when searching for the next train doesn't give you enough time to base an automation on.
-E.g., when you normally take the 08h06m train and want to get information about this train, but there is another train
-that's departing just minutes before your train, your time window to warn you on a delay might be too small.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Nederlandse Spoorwegen** integration.
+3. Click **Configure**.
+4. Add or remove routes as needed.
 
-Using `time` only updates the route sensor during a time window around the chosen time.
-Outside this window, the route sensor's state is `unknown`.
-The window is from half an hour before the chosen time until half an hour after the chosen time.
-In this way, you can have multiple routes with specific trains before hitting the FUP threshold for using NS API.
+The integration provides a station selector in the UI, so you don't need to manually look up station codes. Simply search for and select your departure and arrival stations from the dropdown menus during route configuration.
 
-The data are coming from [Nederlandse Spoorwegen](https://www.ns.nl/).
+## Searching for a specific train vs. the next train
+
+The default behavior (without specifying a time) gives you information about the next available train that fits your route criteria (from, to, via stations).
+
+When you specify a departure time during route configuration, the integration filters trips to show only those departing at or after your specified time. This time-based filter compares only the time component (for example, 17:00), ignoring the date, so it works continuously throughout the day.
+
+This is useful when you want to focus on specific parts of your daily schedule. For example:
+
+- Set time to "08:00" for morning commute trains
+- Set time to "17:00" to only see evening trains home
+- Avoid seeing very early morning trains when you're interested in your regular departure
+
+The sensor automatically handles day transitions. If the current time is past your configured time, it will show tomorrow's first trip at or after that time. This ensures you always see relevant upcoming trips matching your schedule, without the sensor becoming unavailable.
+
+## Data source
+
+The data is provided by Nederlandse Spoorwegen through their official API, ensuring high-quality and up-to-date information about train schedules, delays, and service disruptions.
+
+## Troubleshooting
+
+### Authentication errors
+
+If you encounter authentication errors:
+
+- Verify your API key is correct.
+- Ensure your NS API subscription is active.
+- Check that you're using the correct API (Reisinformatie API).
+
+### Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+All entities and data associated with the integration will be removed.

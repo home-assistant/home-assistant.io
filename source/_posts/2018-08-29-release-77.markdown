@@ -103,7 +103,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Enable auth by default 🙈. It is no longer possible to access Home Assistant without authentication ([@balloob] - [#16107]) (breaking change)
 - It's no longer possible to use a trusted network to connect to the websocket API. You need to get a token and use that to connect.  ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change)

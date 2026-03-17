@@ -1,17 +1,25 @@
 ---
 type: card
-title: "Vertical Stack Card"
-sidebar_label: Vertical Stack
-description: "The Vertical Stack card allows you to group multiple cards so they always sit in the same column."
+title: "Vertical stack card"
+sidebar_label: Vertical stack
+description: "The vertical stack card allows you to group multiple cards so they always sit in the same column."
+related:
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The Vertical Stack card allows you to group multiple cards so they always sit in the same column.
+The vertical stack card allows you to group multiple cards so they always sit in the same column.
 
-To add the Vertical Stack card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+<p class='img'>
+<img src='/images/dashboards/edit-dashboard.webp' alt='Screencast showing how to edit a dashboard customize a vertical stack card'>
+Screencast showing how to edit a dashboard and customize a vertical stack card.
+</p>
 
-## YAML Configuration
+{% include dashboard/edit_dashboard.md %}
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -71,3 +79,4 @@ cards:
   <img src="/images/dashboards/vertical-horizontal-stack.png" alt="Create a grid layout using vertical and horizontal stack">
   Create a grid layout using vertical and horizontal stack.
 </p>
+

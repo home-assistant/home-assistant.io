@@ -2,20 +2,26 @@
 title: History Stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.39
 ha_quality_scale: internal
 ha_domain: history_stats
+ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
+The **History stats** {% term integration %} provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
 
-It can track how long the integration has been in a specific state, in a custom time period.
+It can track how long an {% term entity %} has been in a specific state, in a custom time period.
 
 Examples of what you can track:
 
@@ -23,9 +29,35 @@ Examples of what you can track:
 - How long the lights were ON yesterday
 - How long you watched TV today
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable the history statistics sensor, add the following lines to your `configuration.yaml`:
+Further information and examples about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input.
+State:
+  description: Which states of the input entity is counted in the statistics.
+Type:
+  description: Any of `time`, `ratio` or `count`.
+Start:
+  description: When to start the measure (timestamp or datetime). Can be a template.
+End:
+  description: When to stop the measure (timestamp or datetime). Can be a template.
+Duration:
+  description: Duration of the measure.
+State class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+Minimum duration of measurement:
+  description: Minimum duration of the measurement to be considered for calculations (defaults to 0, all measurements will be included). Useful to exclude short state changes from the statistics.
+{% endconfiguration_basic %}
+
+## YAML Configuration
+
+To enable the history statistics sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% raw %}
 
@@ -37,7 +69,7 @@ sensor:
     entity_id: light.my_lamp
     state: "on"
     type: time
-    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    start: "{{ today_at() }}"
     end: "{{ now() }}"
 ```
 
@@ -78,15 +110,25 @@ duration:
   description: Duration of the measure.
   required: false
   type: time
+state_class:
+  description: "[state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. May be `null`, `measurement`, or `total_increasing` (not allowed for `ratio` type)."
+  required: false
+  default: measurement
+  type: string
+min_state_duration:
+  description: Minimum duration of the measurement to be considered for calculations. Used as a filter to remove short state changes from statistics.
+  required: false
+  default: 0
+  type: time
 {% endconfiguration %}
 
-<div class='note'>
+{% note %}
 
   You have to provide **exactly 2** of `start`, `end` and `duration`.
 <br/>
   You can use [template extensions](/docs/configuration/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
 
-</div>
+{% endnote %}
 
 ## Sensor type
 
@@ -94,7 +136,11 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 
 - **time**: The default value, which is the tracked time, in hours
 - **ratio**: The tracked time divided by the length of your period, as a percentage
-- **count**: How many times the tracked entity matched the configured state during the time period
+- **count**: How many times the tracked entity matched the configured state during the time period. This will count states (for example, how many times a light was in the `on` state during the time period), as opposed to counting state transitions (for example, how many times a light was *turned* `on`). The difference is if the entity was already in the desired state at the start of the time period, that scenario will be counted with this sensor type. If a list of states is provided to the state option, transitions between defined states are considered all part of a single event and do not increment the count.
+
+{% note %}
+For a **time** or **count** sensor that uses a time period that does not slide (such as one that resets upon each hour, as opposed to one which considers the trailing 60 minutes), set the `state_class` to `total_increasing` to generate statistics that track the `sum`. This is useful when emulating the behavior of a `utility_meter` helper that has a defined reset cycle.
+{% endnote %}
 
 ## Time periods
 
@@ -127,28 +173,40 @@ duration:
   minutes: 30
 ```
 
-<div class='note'>
+{% note %}
+If the duration exceeds the number of days of history stored by the `recorder` integration (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
+{% endnote %}
 
-  If the duration exceeds the number of days of history stored by the `recorder` integration (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
+{% note %}
+The history stats sensor will be updated when the source entity changes or once per minute if there is no source change. Keep this in mind when using fixed durations that aren't evenly divisible by one minute.
+{% endnote %}
 
-</div>
+## Minimum state duration
 
-### Video Tutorial
+The minimum state duration variable is used to exclude short state changes from the statistics. In this example state changes shorter than 2 minutes will be excluded from statistics. It can be useful for instance to exclude short disconnections of a device. 
+
+```yaml
+# 2 minutes
+min_state_duration: "00:02:00"
+```
+
+## Video tutorial
 This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
 
 <lite-youtube videoid="BMlU4SynQBY" videotitle="How To Master Graphs to Monitor Occupancy and Device Usage in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
-### Examples
+## Examples
 
-Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
+Here are some examples of periods you could work with, and what to write in your {% term "`configuration.yaml`" %}:
 
 **Today**: starts at 00:00 of the current day and ends right now.
 
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    start: "{{ today_at('00:00') }}"
     end: "{{ now() }}"
+    state_class: total_increasing
 ```
 
 {% endraw %}
@@ -158,7 +216,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ today_at('00:00') }}"
     duration:
       hours: 24
 ```
@@ -170,7 +228,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(hour=6, minute=0, second=0, microsecond=0) }}"
+    start: "{{ today_at('06:00') }}"
     duration:
       hours: 5
 ```
@@ -179,12 +237,12 @@ Here are some examples of periods you could work with, and what to write in your
 
 **Current week**: starts last Monday at 00:00, ends right now.
 
-Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekday (86400 is the number of seconds in one day, the weekday is 0 on Monday, 6 on Sunday).
+Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0 on Monday, 6 on Sunday).
 
 {% raw %}
 
 ```yaml
-    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0, microsecond=0) ) - now().weekday() * 86400 }}"
+    start: "{{ today_at('00:00') - timedelta(days=now().weekday()) }}"
     end: "{{ now() }}"
 ```
 
@@ -195,7 +253,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    start: "{{ today_at('00:00').replace(day=1) }}"
     end: "{{ now() }}"
 ```
 
@@ -206,8 +264,8 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
-    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+    start: "{{ (today_at('00:00').replace(day=1) - timedelta(days=1)).replace(day=1) }}"
+    end: "{{ today_at('00:00').replace(day=1) }}"
 ```
 
 {% endraw %}
@@ -217,7 +275,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: "{{ (now().replace(minute=0, second=0, microsecond=0) + timedelta(hours=8)).replace(hour=16) }}"
+    end: "{{ (now() + timedelta(hours=8)).replace(hour=16, minute=0, second=0, microsecond=0) }}"
     duration:
         hours: 24
 ```
@@ -229,7 +287,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ today_at('00:00') }}"
     duration:
       days: 30
 ```
@@ -247,8 +305,6 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 
 {% endraw %}
 
-<div class='note'>
-
-  The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
-
-</div>
+{% tip %}
+The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
+{% endtip %}

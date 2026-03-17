@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-This integration handles redirects from the [My Home Assistant](https://my.home-assistant.io) service.
+This {% term integration %} handles redirects from the [My Home Assistant](https://my.home-assistant.io) service.
 
 My Home Assistant allows the documentation to link you to specific pages in your Home Assistant instance. See the [My Home Assistant FAQ](https://my.home-assistant.io/faq/) for more information.
 
@@ -19,7 +19,7 @@ My Home Assistant allows the documentation to link you to specific pages in your
 
 This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
-Add the following section to your `configuration.yaml` file:
+Add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

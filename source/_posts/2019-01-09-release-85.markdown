@@ -13,11 +13,9 @@ og_image: /images/blog/2019-01-release-85/components.png
 
 <a href='/integrations/#version/0.85'><img src='/images/blog/2019-01-release-85/components.png' style='border: 0;box-shadow: none;'></a>
 
-<div class='note warning'>
-
+{% warning %}
 Slugify changed, which can impact entity ID creation if the entities had names with either a `-` or characters outside of A-Z and the integration has no unique IDs. We now better handle the characters and substitute it with an alternative instead of removing that character.
-
-</div>
+{% endwarning %}
 
 Read this breaking change warning? 👆 Good. Let's get started. This is the first release of 2019 and it covers a whopping 4 weeks, as we skipped the last release of the year to focus on friends and family. This is going to be a great year and we're planning a lot of cool stuff. If you haven't seen it yet, check the [State of the Union](/blog/2018/11/16/state-of-the-union/) to see what we have planned.
 
@@ -78,7 +76,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Targeting all entities in a domain by not sending an entity_id to a service is now deprecated. Instead, send `entity_id: all` if you want to target all. The old method will work for a couple of releases more, but will print a warning. Please migrate. ([@balloob] - [#19006]) (breaking change)
 - The default interval of the weather component was aligned with the sensor component and is now 30 seconds instead of 15 seconds. ([@fabaff] - [#19186]) ([weather docs]) (breaking change)

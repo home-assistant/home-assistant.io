@@ -1,6 +1,6 @@
 ---
-title: Litter-Robot
-description: Instructions on how to integrate a Litter-Robot Wi-Fi-enabled, automatic, self-cleaning litter box to Home Assistant.
+title: Whisker
+description: Instructions on how to integrate Whisker's lineup of Wi-Fi-enabled, automatic, self-cleaning litter boxes and pet feeders to Home Assistant.
 ha_category:
   - Button
   - Select
@@ -26,60 +26,76 @@ ha_platforms:
   - update
   - vacuum
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
-The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders.
+The **Whisker** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
 
-You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or Feeder-Robot unit that has already been associated with your account.
+## Prerequisites
+
+Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabled Litter-Robot or Feeder-Robot linked to it. You can do this via the Whisker app.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+    description: "The email address of your Whisker account."
+Password:
+    description: "The password of your Whisker account."
+{% endconfiguration_basic %}
 
 ## Entities
 
 ### Litter-Robot
 
-| Entity                        | Domain   | Description                                                                      |
-| ----------------------------- | -------- | -------------------------------------------------------------------------------- |
-| Litter box                    | `vacuum` | Main entity that represents a Litter-Robot unit.                                 |
-| Night light mode              | `switch` | When turned on, automatically turns on the night light in darker settings.       |
-| Panel lockout                 | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
-| Last seen                     | `sensor` | Displays the time the unit was last seen / reported an update.                   |
-| Litter level                  | `sensor` | Displays the litter level, only for Litter-Robot 4.                              |
-| Pet weight                    | `sensor` | Displays the last measured pet weight, only for Litter-Robot 4.                  |
-| Sleep Mode Start Time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
-| Sleep Mode End Time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |
-| Status Code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc).     |
-| Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                         |
-| Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                       |
-| Panel brightness              | `select` | View and select the panel brightness, only for Litter-Robot 4.                   |
-| Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.           |
-| Firmware                      | `update` | View and update to the latest firmware, only for Litter-Robot 4.                 |
+| Entity                        | Domain          | Description                                                                                                 |
+| ----------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
+| Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
+| Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
+| Last seen                     | `sensor`        | Displays the time the unit was last seen / reported an update.                                              |
+| Litter level                  | `sensor`        | Displays the litter level, only for Litter-Robot 4.                                                         |
+| Pet weight                    | `sensor`        | Displays the last measured pet weight, only for Litter-Robot 4.                                             |
+| Sleep mode start time         | `sensor`        | When sleep mode is enabled, displays the current or next sleep mode start time.                             |
+| Sleep mode end time           | `sensor`        | When sleep mode is enabled, displays the current or last sleep mode end time.                               |
+| Status code                   | `sensor`        | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc.).                               |
+| Total cycles                  | `sensor`        | Displays the total cycles.                                                                                  |
+| Waste drawer                  | `sensor`        | Displays the current waste drawer level.                                                                    |
+| Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |
+| Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
+| Sleeping                      | `binary_sensor` | Indicates whether sleep mode is currently active.                                                           |
+| Clean cycle wait time minutes | `select`        | View and select the clean cycle wait time.                                                                  |
+| Globe brightness              | `select`        | View and select the brightness level for the globe light, only for Litter-Robot 4.                          |
+| Globe light                   | `select`        | View and select the globe light setting, only for Litter-Robot 4.                                           |
+| Panel brightness              | `select`        | View and select the panel brightness, only for Litter-Robot 4.                                              |
+| Reset                         | `button`        | Button to reset the robot, clearing any errors and potentially triggering a cycle, only for Litter-Robot 4. |
+| Reset waste drawer            | `button`        | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.                                      |
+| Firmware                      | `update`        | View and update to the latest firmware, only for Litter-Robot 4.                                            |
 
 ### Feeder-Robot
 
-| Entity           | Domain   | Description                                                                      |
-| ---------------- | -------- | -------------------------------------------------------------------------------- |
-| Give snack       | `button` | Button to dispense a single snack portion.                                       |
-| Meal insert size | `select` | View and select the meal insert size.                                            |
-| Food level       | `sensor` | Displays the approximate food level remaining in the hopper.                     |
-| Night light mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
-| Panel lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+| Entity               | Domain   | Description                                                                                |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------ |
+| Give snack           | `button` | Button to dispense a single snack portion.                                                 |
+| Meal insert size     | `select` | View and select the meal insert size.                                                      |
+| Food dispensed today | `sensor` | Displays the amount of food, in cups, by the feeder.                                       |
+| Food level           | `sensor` | Displays the approximate food level remaining in the hopper.                               |
+| Last feeding         | `sensor` | Displays the timestamp of the last dispensed meal or snack.                                |
+| Next feeding         | `sensor` | Displays the timestamp of the next scheduled meal.                                         |
+| Gravity mode         | `switch` | When turned on, the unit will keep the bowl full by checking the food level every 6 hours. |
+| Night light mode     | `switch` | When turned on, automatically turns on the night light in darker settings.                 |
+| Panel lockout        | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings.           |
 
-## Additional Attributes
+### Pet
 
-Some entities have attributes in addition to the default ones that are available for that platform. They are listed below.
+| Entity       | Domain   | Description                                       |
+| ------------ | -------- | ------------------------------------------------- |
+| Visits today | `sensor` | Pet's daily visits to the Litter-Robot. |
+| Weight       | `sensor` | Pet's weight.                                     |
 
-### Litter Box `vacuum` entity
+## Actions
 
-| Attribute          | Type    | Description                                                                                                                                                        |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| is_sleeping        | boolean | Whether or not the unit is currently in sleep mode.                                                                                                                |
-| sleep_mode_enabled | boolean | Whether or not sleep mode is enabled.                                                                                                                              |
-| power_status       | string  | Current power status of the unit. `AC` indicates normal power, `DC` indicates battery backup and `NC` indicates that the unit is not connected and/or powered off. |
-
-## Services
-
-Services are utilized for additional functionality that is available in the Whisker (previously Litter-Robot) companion app. The following are currently available:
+Actions are utilized for additional functionality that is available in the Whisker (previously Litter-Robot) companion app. The following are currently available:
 
 ### set_sleep_mode
 
@@ -93,7 +109,7 @@ Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot
 Example of setting the sleep mode to begin at 10:30 PM.
 
 ```yaml
-service: litterrobot.set_sleep_mode
+action: litterrobot.set_sleep_mode
 target:
   entity_id: vacuum.litter_robot_litter_box
 data:
@@ -101,3 +117,9 @@ data:
   start_time: "22:30:00"
 
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

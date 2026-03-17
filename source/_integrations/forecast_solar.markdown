@@ -13,7 +13,6 @@ ha_domain: forecast_solar
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_integration_type: service
 ---
 
@@ -118,7 +117,8 @@ the results a bit.
 
 The **damping** factor allows you to adjust and "damp" the results of your solar
 predictions in the morning and evening a bit and is a great method to make
-results less optimistic and more tuned to your reality.
+results less optimistic and more tuned to your reality. More details on damping can
+be found [here](https://doc.forecast.solar/damping).
 
 The **inverter** size can be used in a situation where the maximum power of your
 inverter is lower than the total power of all your solar panels (as entered under
@@ -132,6 +132,6 @@ To adjust the configuration settings for your Forecast.Solar integration
 instance:
 
 1. Browse to your Home Assistant instance.
-2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
 3. If multiple instances of {{ name }} are configured, choose the instance you want to configure.
 4. Select **Configure**.

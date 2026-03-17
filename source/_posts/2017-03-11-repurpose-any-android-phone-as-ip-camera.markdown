@@ -50,7 +50,7 @@ Screenshot of all the different functionality the IP webcam integration offers.
  - Blink Home Security Camera support added ([@fronzbot])
  - AppleTV has been converted to push data to Home Assistant instead of us having to poll ([@postlund])
 
-## Breaking changes
+## Backward-incompatible changes
 
 - Vera entity ids have changed. This is a one time change to migrate to a model that will prevent future conflicts.
 - The Twilio notify platforms now have to be configured via the twilio component.

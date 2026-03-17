@@ -12,7 +12,7 @@ ha_domain: bluemaestro
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [BlueMaestro](https://www.sigmawit.com/) devices into Home Assistant.
@@ -22,6 +22,6 @@ Integrates [BlueMaestro](https://www.sigmawit.com/) devices into Home Assistant.
 - Tempo Disc THD
 - Tempo Disc THPD
 
-The BlueMaestro integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+The **BlueMaestro** {% term integration %}  will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
 {% include integrations/config_flow.md %}
