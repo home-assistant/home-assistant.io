@@ -172,7 +172,17 @@ If a vehicle on your account does not appear in Home Assistant:
 
 ### Enabling debug logging
 
-{% include integrations/enable_debug_logging.md %}
+For more information about how to enable and use debug logs, refer to the [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) documentation.
+
+To enable debug logging for the LoJack integration, add the following to your {% term "`configuration.yaml`" %}:
+
+```yaml
+logger:
+  default: info
+  logs:
+    homeassistant.components.lojack: debug
+    lojack_api: debug
+```
 
 ## Removing the integration
 
