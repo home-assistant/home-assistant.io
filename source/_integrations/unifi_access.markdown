@@ -105,7 +105,8 @@ Each door registered in your UniFi Access controller is represented by a **binar
 
 #### Images
 
-Each door provides a **door thumbnail** image entity that shows the most recent snapshot captured by the door's camera. The image is updated automatically whenever the UniFi Access controller sends a new thumbnail via WebSocket (for example, after an access event).
+- **Door thumbnail**
+  - **Description**: Shows the most recent snapshot captured by the door's camera. The image is updated automatically whenever the UniFi Access controller sends a new thumbnail via WebSocket, for example after an access event.
 
 #### Switches
 
