@@ -4,7 +4,7 @@ description: Instructions on how to integrate your LoJack by Spireon vehicle tra
 ha_category:
   - Car
   - Presence detection
-ha_release: '2026.3'
+ha_release: '2026.4'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_quality_scale: bronze
@@ -172,7 +172,10 @@ If a vehicle on your account does not appear in Home Assistant:
 
 ### Enabling debug logging
 
+For more information about how to enable and use debug logs, refer to the [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) documentation.
+
 To enable debug logging for the LoJack integration, add the following to your {% term "`configuration.yaml`" %}:
+
 ```yaml
 logger:
   default: info
