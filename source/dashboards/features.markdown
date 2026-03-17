@@ -324,7 +324,7 @@ type:
 
 Widget that displays a dropdown with favorite positions for a [cover](/integrations/cover).
 
-You can customize favorites in a cover's more-info dialog. To edit them, press and hold a favorite.
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
 
 <p class='img'>
   <img src='/images/dashboards/features/cover_position_favorite.png' alt='Screenshot of the tile card with the cover favorite positions feature'>
@@ -368,7 +368,7 @@ type:
 
 Widget that displays a dropdown with favorite tilt positions for a [cover](/integrations/cover).
 
-You can customize favorites in a cover's more-info dialog. To edit them, press and hold a favorite.
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
 
 <p class='img'>
   <img src='/images/dashboards/features/cover_tilt_favorite.png' alt='Screenshot of the tile card with the cover favorite tilt positions feature'>
@@ -1017,7 +1017,7 @@ type:
 
 Widget that displays a dropdown with favorite positions for a [valve](/integrations/valve).
 
-You can customize favorites in a valve's more-info dialog. To edit them, press and hold a favorite.
+You can customize favorites in a valve's **More info** dialog. To edit them, press and hold a favorite.
 
 <p class='img'>
   <img src='/images/dashboards/features/valve_position_favorite.png' alt='Screenshot of the tile card with the valve favorite positions feature'>
