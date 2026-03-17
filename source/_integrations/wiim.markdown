@@ -20,7 +20,7 @@ The **WiiM** {% term integration %} allows you to control different [WiiM](https
 
 {% include integrations/config_flow.md %}
 
-## Features
+## Supported functionality
 
 ### Media Player 
 
