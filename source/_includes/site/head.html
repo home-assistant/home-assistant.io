@@ -19,13 +19,13 @@
     <meta property="og:url" content="{{ page.url | canonical_url }}">
     <meta property="og:type" content="{% if page.categories %}article{% else %}website{% endif %}">
     <meta property="og:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
-    {% assign og_default = page.url | canonical_url | url_encode | prepend: "https://ohf-assets.netlify.app/og?url=" | append: "&size=og&ignoreOg=1" %}
+    {% if page.ha_domain %}{% assign og_default = page.url | canonical_url | url_encode | prepend: "https://assets.openhomefoundation.org/opengraph?url=" %}{% capture domain %}{{ page.ha_supporting_domain | default: page.ha_domain }}{% endcapture %}{% assign active_installations = site.data.analytics_data.integrations[domain] | default: 0 %}{% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
     <meta property="og:image" content="{{ page.og_image | default: og_default }}">
-    {% if page.ha_domain %}{% capture domain %}{{ page.ha_supporting_domain | default: page.ha_domain }}{% endcapture %}{% assign active_installations = site.data.analytics_data.integrations[domain] | default: 0 %}{% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
     <meta property="og:image:installs" content="{% if percentage < 1 %}{{ active_installations }}{% else %}{{ percentage | remove: '.0' }}%{% endif %}">
     <meta property="og:image:release" content="{{ page.ha_release }}">
     <meta property="og:image:codeowners" content="{{ page.ha_codeowners | join: ', ' }}">
-
+    {% else %}
+    <meta property="og:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
     {% endif %}
     {% comment %}{% if page.og_image %}summary_large_image{% else %}summary{% endif %}{% endcomment %}
     <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,11 @@
     {% if page.author_twitter %}<meta name="twitter:creator" content="@{{ page.author_twitter }}">{% endif %}
     <meta name="twitter:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
+    {% if page.ha_domain %}
     <meta name="twitter:image" content="{{ page.og_image | default: og_default }}">
+    {% else %}
+    <meta name="twitter:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
+    {% endif %}
     {% if layout.is_post %}{% assign words = page.content | strip_html | number_of_words %}{% assign reading_time = words | divided_by: 200 %}{% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
     <meta name="twitter:label1" value="Reading time">
     <meta name="twitter:data1" value="~{{ reading_time }} minute{% if reading_time > 1 %}s{% endif %}">
