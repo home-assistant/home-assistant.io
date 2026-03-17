@@ -16,7 +16,7 @@ ha_platforms:
 ha_iot_class: Local Push
 ---
 
-The `wiim` integration for Home Assistant allows you to control different WiiM devices. The integration supports auto-discovery on your local network through [Zeroconf](/integrations/zeroconf), allowing you to seamlessly control your [WiiM](https://www.wiimhome.com) wireless speakers from Home Assistant.
+The **WiiM** {% term integration %} allows you to control different [WiiM](https://www.wiimhome.com) devices from Home Assistant.
 
 {% include integrations/config_flow.md %}
 
