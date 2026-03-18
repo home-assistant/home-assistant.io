@@ -14,9 +14,10 @@ ha_domain: watts
 ha_config_flow: true
 ha_platforms:
   - climate
+  - diagnostics
   - switch
-ha_integration_type: integration
-ha_quality_scale: bronze
+ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
 The **Watts Vision +** {% term integration %} enables seamless control of your heating zones directly from Home Assistant.

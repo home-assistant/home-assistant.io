@@ -11,6 +11,8 @@ ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
   - conversation
+  - stt
+  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -20,6 +22,7 @@ related:
     title: OpenAI API key
   - url: https://www.openai.com
     title: OpenAI
+ha_quality_scale: bronze
 ---
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
@@ -53,6 +56,7 @@ The integration provides the following types of subentries:
 
 - [Conversation](/integrations/conversation/)
 - [AI Task](/integrations/ai_task/)
+- [Speech-to-text (STT)](/integrations/stt/)
 - [Text-to-speech (TTS)](/integrations/tts/)
 
 The Conversation and AI Task subentries have the following configuration options (some of them may be unavailable due to subentry type or model choice):
@@ -77,12 +81,23 @@ Temperature:
   description: A value that determines the level of creativity and risk-taking the model should use when generating text. A higher temperature means the model is more likely to generate unexpected results, while a lower temperature results in more deterministic results. See the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction) for more information.
 Top P:
   description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
+Service tier:
+  description: The available service tiers are Auto, Standard, Flex, and Priority. Flex tier offers lower costs in exchange for slower response times, which can be useful for background automations. [Priority processing](https://openai.com/api-priority-processing/) delivers significantly lower and more consistent latency than the Standard tier at a higher price. Auto is the default value, which uses the [project settings](https://platform.openai.com/settings/organization/projects). See the [Pricing](https://developers.openai.com/api/docs/pricing) for details on the supported models. When the selected tier is unavailable due to capacity or ramp rate limits, the request is processed at the Standard tier, and you are charged the Standard tier price.
 Enable web search:
   description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and newer models.
 Search context size:
   description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
 Include home location:
   description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
+{% endconfiguration_basic %}
+
+The Speech-to-text (STT) subentries have the following configuration options:
+
+{% configuration_basic %}
+Instructions:
+  description: Instructions that can be used to improve the quality of the transcripts by giving the model additional context similarly to how you would prompt other LLMs. The model will try to match the style, language, and context of the prompt. You can also use it to pass a dictionary of the correct spellings of common misunderstood words. Check the [OpenAI guide on prompting STT models](https://developers.openai.com/api/docs/guides/speech-to-text#prompting) for additional hints. Templates are not supported here.
+Model:
+  description: The Speech-to-text model for audio transcription.
 {% endconfiguration_basic %}
 
 The Text-to-speech (TTS) subentries have the following configuration options:

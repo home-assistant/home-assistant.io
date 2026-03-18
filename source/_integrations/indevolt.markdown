@@ -7,11 +7,16 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@xirt'
+  - '@xirtnl'
 ha_platforms:
+  - number
+  - select
   - sensor
+  - switch
 ha_domain: indevolt
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: bronze
+ha_config_flow: true
 ---
 
 The Indevolt {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
@@ -99,6 +104,7 @@ All Generation 1 sensors, plus:
 
 In addition to the read-only sensors listed above, the Indevolt integration also exposes the following configurable entities for supported Generation 2 devices. You can change these settings from Home Assistant, and they are applied directly to your device.
 
+- Energy mode: Configure battery and energy management strategy (select)
 - Discharge limit: Set the minimum battery level (emergency power/SOC, %)
 - Max AC output power: Configure maximum discharge power (W)
 - Inverter input limit: Set maximum PV input power (W)
@@ -165,6 +171,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 
 ## Known limitations
 
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
 

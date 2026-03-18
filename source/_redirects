@@ -402,7 +402,7 @@ layout: null
 /hassio/hassos_faq /faq
 /hassio/index /installation
 /hassio/installation /installation
-/hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
+/hassio/installing_third_party_addons /common-tasks/os#installing-a-third-party-app-repository
 /integrations/faadelays /integrations/faa_delays
 /cookbook/notify.mqtt /examples#notifications
 /cookbook/#example-configurationyaml /examples/#example-configurationyaml
@@ -534,6 +534,7 @@ layout: null
 /integrations/bme280 /more-info/removed-integration 301
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
+/integrations/bmw_connected_drive /more-info/removed-integration 301
 /integrations/bom /more-info/removed-integration 301
 /integrations/circuit /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
@@ -607,6 +608,7 @@ layout: null
 /integrations/mhz19 /more-info/removed-integration 301
 /integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
 /integrations/miflora /integrations/xiaomi_ble
+/integrations/mini_connected /more-info/removed-integration 301
 /integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301
 /integrations/mpchc /more-info/removed-integration 301
@@ -661,6 +663,7 @@ layout: null
 /integrations/tensorflow /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
 /integrations/tesla /more-info/removed-integration 301
+/integrations/tfiac /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
@@ -692,3 +695,8 @@ layout: null
 
 # Unsupported reasons that are also unhealthy
 /more-info/unsupported/privileged /more-info/unhealthy/privileged
+
+# Music Assistant blog redirects
+/blog/2025/12/17/music-assistant-2-7/ https://www.music-assistant.io/blog/2025/12/17/music-assistant-2-7/ 301!
+/blog/2025/03/05/music-assistants-next-big-hit/ https://www.music-assistant.io/blog/2025/03/05/music-assistants-next-big-hit/ 301!
+/blog/2024/05/09/music-assistant-2/ https://www.music-assistant.io/blog/2024/05/09/music-assistant-2/ 301!

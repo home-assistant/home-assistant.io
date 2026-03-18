@@ -16,7 +16,7 @@ ha_codeowners:
   - '@garbled1'
   - '@jhollowe'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Venstar** {% term integration %} allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.

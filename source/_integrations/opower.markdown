@@ -34,6 +34,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Orange & Rockland Utilities (ORU)
 - Duquesne Light Company (DQE)
 - Evergy
+- Eversource
 - Exelon subsidiaries
   - Atlantic City Electric
   - Baltimore Gas and Electric (BGE)
