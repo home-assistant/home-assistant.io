@@ -144,9 +144,9 @@ offset:
 Example, show all tasks due less than 10 days from now.
 
 ```yaml
-type: statistic
-entity: sensor.energy_consumption
-period:
+type: todo-list
+entity: todo.todo_list
+due_date_period:
   rolling_window:
     offset:
       days: 10
