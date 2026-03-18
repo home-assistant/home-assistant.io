@@ -28,9 +28,6 @@
     {% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
     <meta property="og:image:installs" content="{% if percentage < 1 %}{{ active_installations }}{% else %}{{ percentage | remove: '.0' }}%{% endif %}">
     {% endif %}
-    {% if page.ha_release %}
-    <meta property="og:image:release" content="{{ page.ha_release }}">
-    {% endif %}
     {% if page.ha_codeowners %}
     <meta property="og:image:codeowners" content="{{ page.ha_codeowners | join: ', ' }}">
     {% endif %}
