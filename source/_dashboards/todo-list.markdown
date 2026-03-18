@@ -89,7 +89,7 @@ item_tap_action:
 due_date_period:
   required: false
   description: Filters tasks based on their due date. [See below](#options-for-due-date-period).
-  type: map  
+  type: map
 {% endconfiguration %}
 
 ## Options for due date period
@@ -141,7 +141,7 @@ offset:
   type: map
 {% endconfiguration %}
 
-Example, show all tasks due less than 10 days from now.
+Example, show all tasks due less than 10 days from now:
 
 ```yaml
 type: todo-list
