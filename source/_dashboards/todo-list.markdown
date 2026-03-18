@@ -87,7 +87,7 @@ item_tap_action:
   type: string
   default: "edit"
 due_date_period:
-  required: true
+  required: false
   description: Filters tasks based on their due date. [See below](#options-for-due-date-period).
   type: map  
 {% endconfiguration %}
