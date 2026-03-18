@@ -29,10 +29,13 @@ This {% term integration %} interacts with your [Tedee](https://tedee.com) locks
 - You need to have the **local API** and **encrypted token** enabled.
 - The bridge firmware needs to be at least version `2.2.18086` for push updates to work without errors.
 
+{% tip %}
 If you do not own the bridge, you can still add your locks to Home Assistant through other ways, depending on your lock model, with a limited feature set:
 
 * Lock PRO: [HomeKit device integration](/integrations/homekit_controller/). Communication will happen over Bluetooth in that case
 * Lock GO & GO 2: [Matter integration](/integrations/matter/). In which case communication will happen over Thread
+
+{% endtip %}
   
 {% note %}
 The integration will try to configure webhooks to receive near-real-time push updates from your bridge about your lock state changes. For this to work properly, the bridge must be able to reach your Home Assistant instance. It will prefer the configured `internal_url`, so ensure this address is reachable from your bridge on your network. If communication through the webhooks is not possible, the integration will query for an update every 30 seconds.
