@@ -22,10 +22,12 @@
     {% if page.ha_domain %}
     {% assign og_default = page.url | canonical_url | url_encode | prepend: "https://assets.openhomefoundation.org/opengraph?url=" %}
     {% capture domain %}{{ page.ha_supporting_domain | default: page.ha_domain }}{% endcapture %}
-    {% assign active_installations = site.data.analytics_data.integrations[domain] | default: 0 %}
-    {% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
+    {% assign active_installations = site.data.analytics_data.integrations[domain] %}
     <meta property="og:image" content="{{ page.og_image | default: og_default }}">
+    {% if active_installations %}
+    {% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
     <meta property="og:image:installs" content="{% if percentage < 1 %}{{ active_installations }}{% else %}{{ percentage | remove: '.0' }}%{% endif %}">
+    {% endif %}
     <meta property="og:image:release" content="{{ page.ha_release }}">
     <meta property="og:image:codeowners" content="{{ page.ha_codeowners | join: ', ' }}">
     {% else %}
