@@ -25,7 +25,7 @@ By default, this integration will use the Home Assistant Cloud Account Linking s
 
 1. Go to the [Dropbox App Console](https://www.dropbox.com/developers/apps) and create an app.
 2. Choose **Scoped access** for the API and **App folder** for the access type.
-3. Give the app a name, like "Home Assistant".
+3. Give the app a unique name.
 4. Take note of the **App key** and **App secret**. These are the application credentials for your newly created app.
 5. In the **OAuth 2** section, under **Redirect URIs**, enter the following URL: `https://my.home-assistant.io/redirect/oauth` and select **Add**.
 6. On the **Permissions** tab, enable `files.content.write` and `files.content.read`.
