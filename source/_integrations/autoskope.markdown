@@ -51,14 +51,14 @@ The following attributes are provided:
 - **source_type**: Source of the location data (for example, `gps`).
 - **latitude**: Latitude coordinate of the vehicle.
 - **longitude**: Longitude coordinate of the vehicle.
-- **location_accuracy**: Estimated accuracy of the GPS signal in meters.
+- **gps_accuracy**: Estimated accuracy of the GPS signal in meters.
 
 ## Examples
 
 ### Notify when the vehicle arrives home
 
 ```yaml
-alias: "Notify when car arrives home"
+alias: "Notify when vehicle arrives home"
 triggers:
   - trigger: state
     entity_id: device_tracker.my_vehicle
@@ -66,7 +66,7 @@ triggers:
 actions:
   - action: notify.mobile_app_your_phone
     data:
-      message: "The car has arrived home."
+      message: "The vehicle has arrived home."
 ```
 
 ## Data updates
