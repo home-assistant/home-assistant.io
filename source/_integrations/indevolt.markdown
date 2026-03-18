@@ -7,8 +7,9 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@xirtnl'
+  - '@xirt'
 ha_platforms:
+  - button
   - number
   - select
   - sensor
@@ -51,6 +52,12 @@ The Indevolt integration communicates with your device over its standard TCP por
 ## Supported functionality
 
 The Indevolt integration provides sensors for monitoring your device (read only).
+
+### Buttons
+
+The following button entity allows triggering device actions directly from Home Assistant.
+
+- **Enable standby mode**: Puts the battery in standby mode which pauses battery charging and discharging. Change the energy mode to resume normal battery activity.
 
 ### Sensors
 
