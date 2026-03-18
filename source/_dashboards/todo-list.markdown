@@ -85,10 +85,75 @@ item_tap_action:
   required: false
   description: "Defines the behavior when an item's body is clicked. Options are: `edit` (opens the edit dialog), `toggle` (marks or unmarks the item as completed, hiding the edit dialog)."
   type: string
-  default: "edit"  
+  default: "edit"
+due_date_period:
+  required: true
+  description: Filters tasks based on their due date. [See below](#options-for-due-date-period).
+  type: map  
 {% endconfiguration %}
 
-### Examples
+## Options for due date period
+
+Due date filtering can be configured in 2 different ways:
+
+### Calendar
+
+Use a fixed period with an offset from the current period.
+
+{% configuration %}
+period:
+  required: true
+  description: The period to use. `day`, `week`, `month`, `year`
+  type: string
+offset:
+  required: false
+  description: The offset of the current period, so 0 means the current period, 1 is the next period.
+  type: integer
+{% endconfiguration %}
+
+Example, show all tasks due before the end of the current month:
+
+```yaml
+type: todo-list
+entity: todo.todo_list
+due_date_period:
+  calendar:
+    period: month
+```
+
+Example, show all tasks due before the end of next week:
+
+```yaml
+type: todo-list
+entity: todo.todo_list
+due_date_period:
+  calendar:
+    period: week
+    offset: 1
+```
+
+### Rolling window
+
+{% configuration %}
+offset:
+  required: true
+  description: A duration dictionary defining the time period to show due tasks. 
+  type: map
+{% endconfiguration %}
+
+Example, show all tasks due less than 10 days from now.
+
+```yaml
+type: statistic
+entity: sensor.energy_consumption
+period:
+  rolling_window:
+    offset:
+      days: 10
+```
+
+
+## Examples
 
 Title example:
 
