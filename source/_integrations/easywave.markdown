@@ -47,20 +47,16 @@ If you prefer to set up the integration manually, go to {% my integrations title
 
 ## Sensors
 
-The integration provides a **Gateway Status** diagnostic sensor that reports the current connection state of the RX11 USB transceiver.
+The integration provides a **Connection Status** diagnostic sensor that reports the current connection state of the RX11 USB transceiver.
 
-### Gateway status
+### Connection status
 
-The gateway status sensor is a diagnostic entity and supports the following states:
+The connection status sensor is a diagnostic entity and supports the following states:
 
-| State            | Description                                               |
-| ---------------- | --------------------------------------------------------- |
-| `Connected`      | The transceiver is connected and operational              |
-| `Disconnected`   | The transceiver is not found or offline                   |
-| `Connecting`     | The transceiver is attempting to establish a connection    |
-| `Error`          | A communication error occurred                            |
-| `Hardware error` | A hardware fault was detected on the transceiver          |
-| `Not configured` | The transceiver has not been configured yet               |
+| State          | Description                                    |
+| -------------- | ---------------------------------------------- |
+| `Connected`    | The transceiver is connected and operational   |
+| `Not Connected`| The transceiver is not found or offline        |
 
 The sensor also exposes the following diagnostic attributes:
 
@@ -74,7 +70,7 @@ The sensor also exposes the following diagnostic attributes:
 
 ### Automatic reconnection
 
-The integration monitors the USB connection and automatically detects when the transceiver is disconnected or reconnected. When the device goes offline, the sensor state changes to `Disconnected`. The integration will periodically attempt to reconnect and restore normal operation without user intervention.
+The integration monitors the USB connection and automatically detects when the transceiver is disconnected or reconnected. When the device goes offline, the sensor state changes to `Not Connected`. The integration will periodically attempt to reconnect and restore normal operation without user intervention.
 
 ## Regulatory compliance
 
@@ -103,7 +99,7 @@ To verify or change your country setting, go to {% my general title="**Settings*
 - For container-based installations, verify that the USB device is mapped into the container.
 - Try a different USB port or cable.
 
-### The sensor shows "Disconnected" after setup
+### The sensor shows "Not Connected" after setup
 
 - The transceiver may have been physically disconnected. Reconnect it and wait for the automatic reconnection (up to 30 seconds).
 - Check your system logs for USB-related errors.
