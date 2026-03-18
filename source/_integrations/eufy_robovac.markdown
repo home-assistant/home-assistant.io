@@ -43,6 +43,7 @@ Not currently supported:
 
 ## Prerequisites
 
+- The vacuum must already be added to your Eufy account in the Eufy app.
 - Your Home Assistant instance must be able to reach the vacuum over your local network.
 - For reliability, assign a Dynamic Host Configuration Protocol (DHCP) reservation or static IP address to your RoboVac.
 
@@ -75,3 +76,18 @@ The vacuum entity supports common controls, including:
 ### Sensor
 
 A battery sensor entity is created for supported RoboVac models.
+
+## Known limitations
+
+- Some models may not return their local IP address during account discovery. If that happens, enter the host manually during setup.
+- Some models require a different Tuya protocol version. Start with `3.3`, then try `3.4` or `3.5` if the device does not respond.
+
+## Remove the integration
+
+To remove the **Eufy RoboVac** integration from Home Assistant:
+
+1. Go to **Settings** > **Devices & services**.
+2. Select the **Eufy RoboVac** integration.
+3. Select the three-dot menu, then select **Delete**.
+
+Removing the integration from Home Assistant does not remove the vacuum from your Eufy account and does not factory-reset the device.
