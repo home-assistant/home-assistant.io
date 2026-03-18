@@ -14,28 +14,28 @@
 {% assign social_image = page.og_image | default: "/images/default-social.png" | prepend: site.url %}
 {% endif %}
 
-<meta property="fb:app_id" content="{{ site.social.facebook.app_id }}">
-<meta property="og:title" content="{{ social_title }}">
-<meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:url" content="{{ page.url | canonical_url }}">
+<meta property="fb:app_id" content="{{ site.social.facebook.app_id | escape_once }}">
+<meta property="og:title" content="{{ social_title | escape_once }}">
+<meta property="og:site_name" content="{{ site.title | escape_once }}">
+<meta property="og:url" content="{{ page.url | canonical_url | escape_once }}">
 <meta property="og:type" content="{% if page.categories %}article{% else %}website{% endif %}">
-<meta property="og:description" content="{{ social_description }}">
-<meta property="og:image" content="{{ social_image }}">
+<meta property="og:description" content="{{ social_description | escape_once }}">
+<meta property="og:image" content="{{ social_image | escape_once }}">
 
 {% if active_installations %}
 {% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
 <meta property="og:image:installs" content="{% if percentage < 1 %}{{ active_installations }}{% else %}{{ percentage | remove: '.0' }}%{% endif %}">
 {% endif %}
 {% if page.ha_codeowners %}
-<meta property="og:image:codeowners" content="{{ page.ha_codeowners | join: ', ' }}">
+<meta property="og:image:codeowners" content="{{ page.ha_codeowners | join: ', ' | escape_once }}">
 {% endif %}
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@{{ site.social.twitter.account }}">
-{% if page.author_twitter %}<meta name="twitter:creator" content="@{{ page.author_twitter }}">{% endif %}
-<meta name="twitter:title" content="{{ social_title }}">
-<meta name="twitter:description" content="{{ social_description }}">
-<meta name="twitter:image" content="{{ social_image }}">
+<meta name="twitter:site" content="@{{ site.social.twitter.account | escape_once }}">
+{% if page.author_twitter %}<meta name="twitter:creator" content="@{{ page.author_twitter | escape_once }}">{% endif %}
+<meta name="twitter:title" content="{{ social_title | escape_once }}">
+<meta name="twitter:description" content="{{ social_description | escape_once }}">
+<meta name="twitter:image" content="{{ social_image | escape_once }}">
 
 {% if layout.is_post %}
 {% assign words = page.content | strip_html | number_of_words %}
@@ -44,7 +44,7 @@
 <meta name="twitter:label1" value="Reading time">
 <meta name="twitter:data1" value="~{{ reading_time }} minute{% if reading_time > 1 %}s{% endif %}">
 <meta name="twitter:label2" value="Written by">
-<meta name="twitter:data2" value="{{ page.author | default: site.author }}">
+<meta name="twitter:data2" value="{{ page.author | default: site.author | escape_once }}">
 {% endif %}
 
-{% if site.social.mastodon.account %}<link rel="me" href="{{ site.social.mastodon.account }}">{% endif %}
+{% if site.social.mastodon.account %}<link rel="me" href="{{ site.social.mastodon.account | escape_once }}">{% endif %}
