@@ -25,9 +25,7 @@ Support for directly pairing and controlling Easywave devices (such as shutters,
 
 The following USB transceivers are supported:
 
-| Device | USB VID | USB PID | Frequency |
-| ------ | ------- | ------- | --------- |
-| RX11 USB Transceiver | `155A` | `1014` | 868.30 MHz |
+- RX11 USB Transceiver: USB VID `155A`, USB PID `1014`, operating at 868.30 MHz
 
 ## Prerequisites
 
@@ -45,7 +43,7 @@ The integration automatically scans for connected RX11 USB devices during setup.
 
 The RX11 USB transceiver is automatically discovered when plugged in. Home Assistant will display a notification offering to set up the Easywave integration. Accepting the notification will guide you through the setup process.
 
-If you prefer to set up the integration manually, go to **{% my integrations title="Settings > Devices & services" %}** and add the **Easywave** integration.
+If you prefer to set up the integration manually, go to {% my integrations title="**Settings** > **Devices & services**" %} and add the **Easywave** integration.
 
 ## Sensors
 
@@ -89,11 +87,11 @@ Easywave operates on the **868 MHz ISM band**, which is permitted in the followi
 
 If your configured Home Assistant country is outside the permitted region for the 868 MHz band, the integration will not start and a **repair issue** will be created in your Home Assistant dashboard explaining the restriction.
 
-To verify or change your country setting, go to **{% my general title="Settings > System > General" %}** and check the **Country** field.
+To verify or change your country setting, go to {% my general title="**Settings** > **System** > **General**" %} and check the **Country** field.
 
 ## Known limitations
 
-- The integration currently supports monitoring the gateway connection status. Direct pairing and control of Easywave devices (shutters, switches, dimmers, etc.) will be added in a future update.
+- The integration currently supports monitoring the gateway connection status. Direct pairing and control of Easywave devices, such as shutters, switches, and dimmers, will be added in a future update.
 - Only one RX11 USB transceiver can be configured at a time.
 
 ## Troubleshooting
@@ -113,7 +111,7 @@ To verify or change your country setting, go to **{% my general title="Settings 
 ### Repair issue: frequency not permitted
 
 - This occurs when your Home Assistant country setting does not match a region where 868 MHz operation is allowed.
-- Go to **{% my general title="Settings > System > General" %}** and verify that the correct country is selected.
+- Go to {% my general title="**Settings** > **System** > **General**" %} and verify that the correct country is selected.
 
 ## Removing the integration
 
