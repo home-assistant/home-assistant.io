@@ -217,8 +217,8 @@ This action modifies inverter charging behavior. Incorrect settings can affect b
 **Data attributes:**
 
 - **device_id** *(string, required)*: The device ID of the Growatt SPH inverter
-- **charge_power** *(integer, optional)*: Charge power limit (0-100)
-- **charge_stop_soc** *(integer, optional)*: Stop charging state of charge (0-100)
+- **charge_power** *(integer, optional)*: Charge power limit percentage (0-100%)
+- **charge_stop_soc** *(integer, optional)*: Stop charging state of charge percentage (0-100%)
 - **mains_enabled** *(boolean, optional)*: Enable AC (mains) charging
 - **period_1_start** *(time, optional)*: Start time for period 1 (`HH:MM` or `HH:MM:SS`)
 - **period_1_end** *(time, optional)*: End time for period 1 (`HH:MM` or `HH:MM:SS`)
