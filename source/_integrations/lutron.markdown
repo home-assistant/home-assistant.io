@@ -58,13 +58,14 @@ Keypad buttons actions are provided in event entities.
 
 Each full-width button on a Lutron SeeTouch, Hybrid SeeTouch, and Tabletop SeeTouch Keypad has an LED that can be controlled by Home Assistant.
 
-Keypad LEDs are exposed as `select` entities, which allow you to choose from the following states:
+Keypad LEDs are exposed as `select` entities, which allow you to choose from the following options:
+
 - **Off**: The LED is extinguished.
 - **On**: The LED is illuminated.
 - **Slow Flash**: The LED flashes once per second (1 Hz).
 - **Fast Flash**: The LED flashes ten times per second (10 Hz).
 
-Legacy `switch` entities are also provided for backward compatibility but are deprecated and will be removed in a future release. For `switch` entities, performing an action of `switch.turn_off` or `switch.turn_on` will control the keypad LED.
+Legacy `switch` entities are also provided for backward compatibility. Performing an action of `switch.turn_off` or `switch.turn_on` will control the keypad LED. Note that these entities are deprecated and will be removed in a future release.
 
 Keep in mind that the Lutron system will also control the LED state independent of Home Assistant, according to the programming of the RadioRA2 system. This also means you can query LED states to determine if a certain scene is active, since the LED will have been illuminated by the RadioRA2 repeaters. This includes the "phantom" LEDs of Main Repeater Keypad buttons; even though there is no physical button or LED, the RadioRA2 system tracks the scenes and will "light" the LED that can be queried.
 
