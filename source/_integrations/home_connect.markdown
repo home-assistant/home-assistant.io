@@ -403,6 +403,10 @@ Both entities can use these options, but the availability of these will depend o
 - **Automatic**: `cooking_common_program_hood_automatic`
 - **Venting**: `cooking_common_program_hood_venting`
 - **Delayed shut off**: `cooking_common_program_hood_delayed_shut_off`
+- **3D heating**: `cooking_oven_program_heating_mode_3_d_heating`
+- **Air fry**: `cooking_oven_program_heating_mode_air_fry`
+- **Grill (large area)**: `cooking_oven_program_heating_mode_grill_large_area`
+- **Grill (small area)**: `cooking_oven_program_heating_mode_grill_small_area`
 - **Pre-heating**: `cooking_oven_program_heating_mode_pre_heating`
 - **Hot air**: `cooking_oven_program_heating_mode_hot_air`
 - **Hot air eco**: `cooking_oven_program_heating_mode_hot_air_eco`
