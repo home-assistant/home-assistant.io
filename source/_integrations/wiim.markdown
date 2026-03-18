@@ -1,7 +1,7 @@
 ---
 title: WiiM
 description: Instructions on how to integrate WiiM devices into Home Assistant.
-ha_category:  
+ha_category:
   - Media player
 ha_domain: wiim
 ha_zeroconf: true
@@ -22,7 +22,7 @@ The **WiiM** {% term integration %} allows you to control different [WiiM](https
 
 ## Supported functionality
 
-### Media Player 
+### Media Player
 
 The media player entity gives you complete control over your WiiM device from Home Assistant. In addition to standard playback functionality, it offers:
 
@@ -36,7 +36,7 @@ The media player entity gives you complete control over your WiiM device from Ho
 
 The button entities provide some additional WiiM features available on the device:
 
-- **Time Sync**: Synchronizes the device’s internal clock with the current time on your Home Assistant server, ensuring features like scheduled playback or time-based automations remain accurate. 
+- **Time Sync**: Synchronizes the device’s internal clock with the current time on your Home Assistant server, ensuring features like scheduled playback or time-based automations remain accurate.
 - **Restart Device**: Reboots the device remotely, providing a quick way to recover from connectivity issues or apply configuration changes without physical interaction.
 
 ## Actions
