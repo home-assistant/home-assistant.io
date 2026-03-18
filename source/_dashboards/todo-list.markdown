@@ -137,7 +137,7 @@ due_date_period:
 {% configuration %}
 offset:
   required: true
-  description: A duration dictionary defining the time period to show due tasks. 
+  description: A dictionary that defines how far into the future to show due tasks. Set the time period by adding duration keys under `offset`, like `days` or `hours`.
   type: map
 {% endconfiguration %}
 
