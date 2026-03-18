@@ -92,6 +92,22 @@ data:
 
 {% endraw %}
 
+## Troubleshooting
+
+### "Invalid authentication" during setup
+
+Double-check that your Gateway ID starts with `*` and is exactly 8 characters. Verify the API secret matches what is shown on the [Threema Gateway dashboard](https://gateway.threema.ch).
+
+### Messages not arriving
+
+- Make sure you have sufficient credits on your Threema Gateway account.
+- Verify the recipient's Threema ID is correct (8 alphanumeric characters).
+- Check **Settings** > **System** > **Logs** for error details from the `threema` integration.
+
+### "Config entry not loaded" when sending a message
+
+The integration failed to initialize. Go to **Settings** > **Devices & services** > **Threema** and check if a reauthentication is required.
+
 ## Known limitations
 
 - **Text messages only** — images, files, and other media are not supported.
