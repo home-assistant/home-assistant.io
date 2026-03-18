@@ -117,6 +117,10 @@ absence. They will always be present at build time:
 - `site.data.language_scores` — from `https://ohf-voice.github.io/intents/language_scores.json`
 - `site.data.codeowners` — generated from the `CODEOWNERS` file in the repository
 
+If a pull request modifies code that references these variables, you can fetch
+the source URLs listed above to verify that the expected keys and structure
+exist in the JSON response.
+
 We do use some HTML in the content, but we try to keep it to a minimum
 and prefer using Markdown where possible.
 
