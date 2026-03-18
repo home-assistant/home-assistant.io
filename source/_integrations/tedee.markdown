@@ -33,7 +33,7 @@ This {% term integration %} interacts with your [Tedee](https://tedee.com) locks
 If you do not own the bridge, you can still add your locks to Home Assistant through other ways, depending on your lock model, with a limited feature set:
 
 * Lock PRO: [HomeKit device integration](/integrations/homekit_controller/). Communication will happen over Bluetooth in that case
-* Lock GO & GO 2: [Matter integration](/integrations/matter/). In which case communication will happen over Thread
+* Lock GO and GO 2: [Matter integration](/integrations/matter/). In which case communication will happen over Thread
 
 {% endtip %}
   
