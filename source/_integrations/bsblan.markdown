@@ -33,9 +33,11 @@ It can interface with the heating system over Boiler-System-Bus, Local Process B
 
 For authentication, HTTP authentication using a username and password or using a passkey is supported. Use either one.
 
+If your heating system exposes more than one heating circuit, Home Assistant discovers the available circuits automatically. Each circuit is added as its own climate entity and as a separate sub-device under the main BSB-LAN device, so you can control each zone independently.
+
 ## Supported functionality
 
-Depending on your system, the following entities are available:
+Depending on your system and the available heating circuits, the following entities are available:
 
 - Button
 - Climate
@@ -47,7 +49,13 @@ Depending on your system, the following entities are available:
 
 - **Sync time**: Synchronizes the BSB-Lan device time with the current Home Assistant time. Use it when your device's time drifts or doesn't match Home Assistant's time.
 
-The **Sync time** button appears under the **Configuration** section of the device page, not on your dashboards by default. You can also trigger the same synchronization programmatically using the `bsblan.sync_time` action, for example, in a daily automation.
+The **Sync time** button appears under the **Configuration** section of the device page, not on your dashboards by default. You can also trigger the same synchronization programmatically using the `bsblan.sync_time` action, such as in a daily automation.
+
+### Climate
+
+- Home Assistant creates one climate entity for each detected heating circuit.
+- These appear in Home Assistant as **Heating circuit 1**, **Heating circuit 2**, and **Heating circuit 3**, depending on what your system exposes.
+- Each heating circuit is grouped under its own sub-device on the BSB-Lan device page.
 
 ### Sensors
 
