@@ -377,6 +377,10 @@ data:
   device_id: "YOUR_SPH_DEVICE_ID"
 ```
 
+## Data updates
+
+The **Growatt** integration {% term polling polls %} data from the Growatt cloud every 5 minutes for all supported device types (inverter, storage, mix, SPH, MIN, and TLX). There is no push mechanism — data is always fetched on this fixed interval, regardless of your device type or authentication method.
+
 ## Troubleshooting
 
 ### API token authentication shows "No plant found" error
