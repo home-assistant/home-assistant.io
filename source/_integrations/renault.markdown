@@ -63,7 +63,7 @@ For electric vehicles that support battery State of Charge (SoC) control, the in
 These controls allow you to optimize battery health and charging costs by limiting how much the battery charges. For example, setting a target of 80% can help preserve long-term battery health, while setting a higher minimum level ensures you always have enough charge for daily use.
 
 {% note %}
-Battery charge limit controls are only available for electric vehicles that support the SoC levels endpoint. This feature may require an active subscription to services such as *Pack EV Remote Control*.
+Battery charge limit controls are only available for electric vehicles that support setting battery charge limits remotely through the MyRenault service. This feature may require an active subscription to services such as *Pack EV Remote Control*.
 {% endnote %}
 
 ## Data updates
