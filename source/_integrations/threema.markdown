@@ -8,7 +8,7 @@ ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: threema
 ha_platforms:
-  - image
+  - notify
 ha_integration_type: service
 ha_codeowners:
   - '@LukasQ'
@@ -33,35 +33,51 @@ The **Threema** {% term integration %} allows you to send end-to-end encrypted t
 During setup, you can choose between two options:
 
 - **Create a new Gateway ID**: The integration generates an encryption key pair for you. Save the displayed keys — they cannot be recovered later. Then enter the Gateway ID and API secret from the Threema Gateway dashboard.
-- **Use an existing Gateway ID**: Enter your Gateway ID, API secret, and optionally your private and public keys for end-to-end encryption.
+- **Use an existing Gateway ID**: Enter your Gateway ID, API secret, and your private and public keys for end-to-end encryption.
 
 {% include integrations/config_flow.md %}
 
-## QR code entity
+## Recipients
 
-When a public key is configured, the integration creates an **image entity** displaying a QR code. This QR code can be scanned by Threema users to verify the gateway identity. The QR code encodes the Gateway ID and public key in the format used by the Threema app.
+After setting up the gateway, add recipients as **subentries**. Go to **Settings** > **Devices & services** > **Threema**, select your gateway, and use **Add recipient**. Enter the 8-character Threema ID of the person you want to message and optionally a friendly display name (e.g., "Dad"). Each recipient creates a dedicated **notify entity**.
+
+## Entities
+
+### Notify
+
+Each recipient subentry creates a notify entity (e.g., `notify.threema_ab1cd2ef`).
 
 ## Actions
 
-### Action `threema.send_message`
+### Action `notify.threema`
 
-Send a text message to a Threema user.
+Send a text message to a Threema recipient.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
-| `config_entry_id` | yes | The config entry to use. Auto-selected if only one is configured. |
-| `recipient` | no | The 8-character Threema ID of the recipient. |
-| `message` | no | The text message to send (max 3,500 characters). |
+| `message` | no | The text message to send. |
+| `title` | yes | An optional title, shown in bold before the message. |
+| `target` | yes | The 8-character Threema ID of the recipient. |
 
 ### Examples
 
 #### Send a simple text message
 
 ```yaml
-action: threema.send_message
+action: notify.threema
 data:
-  recipient: "YOUR_THREEMA_ID"
   message: "The front door was just opened!"
+  target: "YOUR_THREEMA_ID"
+```
+
+#### Send a message with a title
+
+```yaml
+action: notify.threema
+data:
+  title: "Security Alert"
+  message: "Motion detected in the backyard."
+  target: "YOUR_THREEMA_ID"
 ```
 
 #### Send a message from an automation
@@ -73,10 +89,10 @@ triggers:
     entity_id: binary_sensor.front_door
     to: "on"
 actions:
-  - action: threema.send_message
+  - action: notify.threema
     data:
-      recipient: "YOUR_THREEMA_ID"
       message: "Front door opened!"
+      target: "YOUR_THREEMA_ID"
 ```
 
 #### Send a message with a template
@@ -84,10 +100,10 @@ actions:
 {% raw %}
 
 ```yaml
-action: threema.send_message
+action: notify.threema
 data:
-  recipient: "YOUR_THREEMA_ID"
   message: "Temperature is {{ states('sensor.temperature') }}°C"
+  target: "YOUR_THREEMA_ID"
 ```
 
 {% endraw %}
