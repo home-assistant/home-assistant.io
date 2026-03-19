@@ -4,7 +4,7 @@ description: Integrate the NRGkick Gen2 mobile EV charger using the local REST J
 ha_category:
   - Energy
 ha_iot_class: Local Polling
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_release: 2026.2
 ha_codeowners:
   - '@andijakl'
@@ -13,7 +13,10 @@ ha_integration_type: device
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
+  - number
   - sensor
+  - switch
 related:
   - url: https://www.nrgkick.com/
     title: NRGkick Website
@@ -66,7 +69,7 @@ Password:
 
 ## Supported functionality
 
-The integration provides entities to monitor charging. Charging control will be added in a later release.
+The integration provides entities to monitor charging and control charging settings.
 
 ### Sensors
 
@@ -162,7 +165,16 @@ These sensors are only available on NRGkick SIM models and are disabled by defau
 
 ### Controls
 
-Support for getting more details about the charging status as well as charging control will be added in a later release.
+The integration creates the following controls.
+
+#### Switches
+
+- **Charging enabled**: Turn on to enable charging. Turn off to pause charging.
+
+#### Numbers
+- **Charging current** (A): Set the charging current (6 A to the maximum supported by your device and the connected attachment).
+- **Phase count**: Set the number of phases (1 to 3, depending on the connected attachment).
+- **Energy limit** (Wh): Set an energy limit for the current charging session (0 = no limit).
 
 ### Key entities
 
@@ -171,6 +183,10 @@ Entity IDs depend on your device name in Home Assistant. The examples below assu
 - `sensor.nrgkick_charging_current`: Charging current.
 - `sensor.nrgkick_charged_energy`: Charged energy.
 - `sensor.nrgkick_status`: Charging status.
+- `number.nrgkick_charging_current`: Set the charging current.
+- `number.nrgkick_energy_limit`: Set an energy limit for the current charging session (0 = no limit).
+- `number.nrgkick_phase_count`: Set the number of phases.
+- `switch.nrgkick_charging_enabled`: Turn on to enable charging. Turn off to pause charging.
 
 ## Data updates
 
@@ -181,7 +197,7 @@ The integration {% term polling polls %} the device for updates.
 
 ## Known limitations
 
-- Charging control is not yet supported and will be added in a later release.
+- The maximum charging current and phase count depend on the connected attachment.
 - Per-phase values for L2 and L3 are only available when the power source and session are using multiple phases.
 - Some temperature sensors depend on the connected attachment and may not be available.
 - Cellular and GPS sensors are only available on SIM models.
@@ -199,7 +215,7 @@ If setup fails with a connection error:
 ### Entities show unavailable
 
 - Verify the device is powered on and connected.
-- Under {% my integrations title="**Settings** > **Devices & services**" %}*, select **NRGkick**, then reload the integration.
+- Under {% my integrations title="**Settings** > **Devices & services**" %}, select **NRGkick**, then reload the integration.
 - If your network is unstable, verify Wi-Fi coverage.
 
 ### Some phase sensors are missing or show as unknown

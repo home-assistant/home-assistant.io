@@ -137,8 +137,8 @@ For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), number entities are added for:
 
-- Optical zoom control
-- Focus control
+- Optical zoom control+
+- Focus control+
 - Floodlight turn on brightness*+
 - Floodlight event brightness*+
 - Infrared light brightness
@@ -217,14 +217,20 @@ Depending on the supported features of the camera ([see specifications of the ca
 - PTZ right
 - PTZ up
 - PTZ down
+- PTZ left up*
+- PTZ left down*
+- PTZ right up*
+- PTZ right down*
 - PTZ calibrate
 - PTZ zoom in*
 - PTZ zoom out*
+- PTZ continuous rotation*
 - Guard go to
 - Guard set current position
 - Restart*
 
-**PTZ left**, **right**, **up**, **down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
+**PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
+**PTZ continuous rotation** will keep rotating the camera until **PTZ stop** is called or **PTZ continuous rotation** is called again.
 
 **Guard set current position** will set the current position as the new guard position.
 
@@ -356,8 +362,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Person type+ (man, woman)
 - Animal type+ (dog, cat)
 - Vehicle type+ (sedan, SUV, pickup truck, motorcycle)
-- PTZ pan position
-- PTZ tilt position
+- PTZ pan position+
+- PTZ tilt position+
 - Day night state+ (color, black and white, color with floodlight)
 - Wi-Fi signal*
 - CPU usage*

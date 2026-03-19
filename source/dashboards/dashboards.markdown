@@ -33,13 +33,13 @@ Screenshot of the Dashboard list.
 
 ### Dashboards shown in the sidebar by default
 
-Built-in dashboards that are available in the sidebar by default:
+Predefined dashboards that are available in the sidebar by default:
 
 - [Home dashboard](#home-dashboard). Category: built-in. It is shown in the sidebar only while it is set as your default dashboard. If you set another dashboard as default, that dashboard appears in the sidebar instead.
 - [Activity dashboard](#activity-dashboard). Category: built-in.
 - Energy dashboard. Category: built-in.
 - [History dashboard](#history-dashboard). Category: built-in.
-- [Map dashboard](#map-dashboard). Category: user-created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as **User-created** dashboard.
+- [Map dashboard](#map-dashboard). Category: User created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as a **User created** dashboard.
 - [To-do lists dashboard](#to-do-lists-dashboard). Category: built-in.
 
 <p class='img'>
@@ -153,20 +153,19 @@ This will leave the default dashboard intact.
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. Select **Add dashboard**.
 3. In the dialog, choose one of the options:
-   - If you want to start with a pre-populated dashboard, choose **Overview** or one of the suggested ones, such as the **Map** dashboard.
+   - If you want to start with a pre-populated dashboard, choose **Overview (Legacy)** or one of the suggested ones, such as the **Map** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
-   ![Screenshot of the Add Dashboard dialog showing dashboard options like Overview, Map, and Areas](/images/dashboards/dashboards-add-dashboard-selector.png)
 
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
-   - **Result**: The dashboard is added.
+   - Result: The dashboard is added.
 
 ## Editing a new dashboard
 
 1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
-   - **Result**: The **Edit dashboard** dialog appears.
+   - Result: The **Edit dashboard** dialog appears.
 2. Select the areas you want to show on this new dashboard and select **Save**.
 3. If you want to have more detailed control over the dashboard, you need to take control:
      - This means that this dashboard is no longer automatically updated when new dashboard elements become available.

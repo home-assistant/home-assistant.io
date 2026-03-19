@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Light
   - Number
+  - Sensor
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -18,6 +19,7 @@ ha_platforms:
   - climate
   - light
   - number
+  - sensor
 ha_integration_type: device
 ---
 
@@ -41,6 +43,10 @@ sauna by mistake.
 ### Binary sensors
 
 - **Door**: Sauna door state (open or closed).
+
+### Sensors
+
+- **Temperature**: Current sauna temperature in degrees Celsius.
 
 ### Climate
 

@@ -1,0 +1,78 @@
+#back-to-top-button {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  z-index: 100;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  transform-origin: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 767px) {
+    display: flex;
+  }
+
+  &:focus {
+    outline: 2px dotted $blueDark;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  &:hover {
+    .back-to-top-btn-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.back-to-top-btn-tooltip {
+  position: absolute;
+  right: -25px;
+  top: -40px;
+  background-color: $grayDarker;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.3s;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $grayDarker;
+  }
+}

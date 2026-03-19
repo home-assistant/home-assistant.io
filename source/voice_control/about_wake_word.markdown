@@ -25,6 +25,10 @@ To avoid being limited to specific hardware, the wake word detection is done ins
 
 This means any device that streams audio can be turned into a voice satellite, even if it isn't powerful enough to run wake word detection locally. It also allows our developer community to experiment with wake word models without having to shrink the model to run on a low-powered voice satellite device.
 
+{% note %}
+**Exception for mobile devices**: Mobile devices like Android phones use microWakeWord for on-device wake word detection through the [Home Assistant Companion App](https://companion.home-assistant.io/). This preserves battery life and ensures wake word detection works even when network connectivity is unreliable or unavailable. Only after the wake word is detected does the device send audio to Home Assistant. Learn more about [Assist on Android](/voice_control/android/#using-wake-word-detection-on-android).
+{% endnote %}
+
 <p class='img'>
 <img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/wake-word-architecture.png'>
 Overview of the wake word architecture
@@ -86,14 +90,14 @@ As an example, we’re also making the **Porcupine (v1)** wake word engine avail
 
 ## About on-device wake word processing (microWakeWord)
 
-The [microWakeWord](https://github.com/kahrendt/microWakeWord) created by [Kevin Ahrendt](https://www.kevinahrendt.com/) enables ESPHome to detect wake words on devices like the ESP32-S3-BOX-3.
+The [microWakeWord](https://github.com/kahrendt/microWakeWord) created by [Kevin Ahrendt](https://www.kevinahrendt.com/) enables on-device wake word detection on devices like the ESP32-S3-BOX-3 and Android phones.
 
 Because openWakeWord is too large to run on low-power devices like the S3-BOX-3, openWakeWord runs wake word detection on the Home Assistant server.
 
 Doing wake word detection on Home Assistant allows low-power devices like the [M5 ATOM Echo Development Kit](/voice_control/thirteen-usd-voice-remote/) to simply stream audio and let all of the processing happen elsewhere.
 The downside is that adding more voice assistants requires more CPU usage in Home Assistant as well as more network traffic.
 
-Enter *microWakeWord*; a more light-weight model based on [Google's Inception neural network](https://towardsdatascience.com/a-simple-guide-to-the-versions-of-the-inception-network-7fc52b863202). Because his new model is not as large, it can be run on low-power devices with an ESP32 chip, such as the ESP32-S3 chip inside the S3-BOX-3! _(It also works on the, now discontinued, S3-BOX and S3-BOX-Lite)_.
+Enter *microWakeWord*; a more light-weight model based on [Google's Inception neural network](https://towardsdatascience.com/a-simple-guide-to-the-versions-of-the-inception-network-7fc52b863202). Because this new model is not as large, it can be run on low-power devices with an ESP32 chip, such as the ESP32-S3 chip inside the S3-BOX-3, as well as on Android phones. *(For ESPHome devices, it also works on the now discontinued S3-BOX and S3-BOX-Lite)*.
 
 Currently, there are [three models](https://github.com/esphome/micro-wake-word-models/tree/main/models) trained for microWakeWord:
 
@@ -103,9 +107,11 @@ Currently, there are [three models](https://github.com/esphome/micro-wake-word-m
 
 ## Try it!
 
-Right now, there are two easy options to get started with wake words:
+There are several easy options to get started with wake words:
+
 - Follow the guide to the [$13 voice assistant][13-tutorial]. This tutorial is using the tiny ATOM Echo, detecting wake words with openWakeWord.
 - Follow the guide to set up an [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/). This tutorial is using the bigger S3-BOX-3 device which features a display. It can detect wake words using openWakeWord. But it can also do on-device wake word detection using microWakeWord.
+- The [Home Assistant Companion App for Android](/voice_control/android/) supports on-device wake word detection using microWakeWord. Wake words like "Hey Nabu", "Hey Jarvis", and "Hey Mycroft" work even when your phone is locked or the app is in the background.
 
 [13-tutorial]: /voice_control/thirteen-usd-voice-remote/
 [openWakeWord]: https://github.com/dscripka/openWakeWord

@@ -151,7 +151,7 @@ Reload automations and your new automation should pop up. Because we configured 
 
 ## Improving the inputs
 
-Blueprints are easier to use if it's easy to see what each field is used for. 
+Blueprints are easier to use if it's easy to see what each field is used for.
 
 ### Add a user friendly names to the inputs
 

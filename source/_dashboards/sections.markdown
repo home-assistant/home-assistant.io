@@ -108,6 +108,15 @@ You can choose to show or hide certain sections based on different conditions. T
 
 To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
 
+## Editing the footer
+
+The footer lets you choose one card to show at the bottom of the view. This card stays on top of other cards while you scroll and only moves out of the way when you reach the bottom of the view.
+
+1. To add a footer, select the **Add footer** button.
+2. Select a card type to be used as the footer.
+3. To change the maximum width of the footer, select the edit {% icon "mdi:edit" %} button to access footer settings.
+
+
 ## Check out the demo
 
 Check out the demo from the March live stream on dashboards.
@@ -144,4 +153,14 @@ card:
   required: true
   description: Card to be used as title. If you are configuring the view using the visual editor, the configuration of the [Markdown card](/dashboards/markdown) is used.
   type: map
+{% endconfiguration %}
+
+## Footer YAML configuration
+
+{% configuration %}
+max_width:
+  required: false
+  description: Maximum width of the footer.
+  type: integer
+  default: 600
 {% endconfiguration %}

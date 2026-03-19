@@ -123,8 +123,7 @@ modbus:
 `type: rtuovertcp` is required. Used for devices providing a TCP/IP interface directly.
 
 This is typically used, when communicating with a modbus-forwarder, a device that
-has a TCP/IP connection upwards, and one or more serial connections downwards. lets also
-write more here, to see if the error moves.
+has a TCP/IP connection upwards, and one or more serial connections downwards.
 
 {% configuration %}
 host:
