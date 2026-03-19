@@ -1,33 +1,13 @@
 ---
-title: "Edit the dashboard"
-description: "Instructions on editing the dashboard for the first time"
+title: "Introduction to dashboards"
+description: "Dashboards overview and instructions on editing the dashboard for the first time"
 ---
 
-Dashboards are customizable pages to display information about your smart home devices.
+Dashboards are customizable pages that display information about your smart home devices.
 
-## Dashboards, cards, and views
+## Types of dashboards
 
-The screenshot shows an **Overview** dashboard with many [cards](/dashboards/cards/) to represent sensor values. For example, the status of some lights, a media player, and some temperature values. It also shows control elements. For example, you can change the ventilation, the color of the lights, or turn on a smart TV and start YouTube.
-
-### Views
-
-The following screenshot shows a fully populated dashboard in [masonry view](/dashboards/masonry/) layout. The icons in the blue menu bar on top each represent a different tab. Each tab contains a [view](/dashboards/views/).
-
-<p class='img'>
-<img src='/images/getting-started/lovelace.png' alt='Screenshot of a populated Overview dashboard in masonry view'>
-Screenshot of a populated Overview dashboard in masonry view layout.
-</p>
-
-The following screenshot shows a fully populated dashboard in [sections view](/dashboards/sections/) layout.
-
-<p class='img'>
-    <img src="/images/dashboards/section_view.png" alt="A fully populated dashboard in Sections view layout"/>
-    A fully populated dashboard in Sections view layout
-</p>
-
-### Different dashboard types
-
-In the sidebar on the left, you see the names of different dashboards. Home Assistant comes with [different dashboard types](/dashboards/dashboards/) out of the box.
+In the left sidebar, you see the names of different dashboards. Home Assistant comes with [different dashboard types](/dashboards/dashboards/) out of the box, such as:
 
 - Overview
 - Energy
@@ -36,11 +16,44 @@ In the sidebar on the left, you see the names of different dashboards. Home Assi
 - History
 - To-do lists
 
+## Elements of a dashboard
+
+The main elements of a dashboard are cards and views.
+
+A card is an element of the User Interface that shows information about a smart {% term device %}, a {% term service %}, or an {% term entity %} and even allows you to control them, depending on the [category of the card](/dashboards/cards/#card-categories). For more information on cards and how to edit them, refer to the [Cards](/dashboards/cards/) page.
+
+A view is a tab inside a dashboard that displays cards in a specific layout. The layout is determined by the view type. A dashboard can have one or many views and, for each view, you can choose the cards that you want to display, and in which view type. For more information on views and how to edit them, refer to the [Views](/dashboards/views/) page.
+
+The screenshot below shows an **Overview** dashboard with many cards that represent:
+
+- {% term sensor %} values, such as:
+  - the status of some lights
+  - a media player
+  - some temperature values
+- control elements that allow you to:
+  - change the ventilation.
+  - change the color of the lights.
+  - turn on a smart TV and start YouTube.
+
+The cards in the screenshot are displayed in a [masonry view](/dashboards/masonry/). In the upper blue menu bar, each icon represents a different tab, that is, a view.
+
+<p class='img'>
+<img src='/images/getting-started/lovelace.png' alt='Screenshot of a populated Overview dashboard in masonry view'>
+Screenshot of a populated Overview dashboard in masonry view layout.
+</p>
+
+The following screenshot shows a fully populated dashboard in a [sections view](/dashboards/sections/).
+
+<p class='img'>
+    <img src="/images/dashboards/section_view.png" alt="A fully populated dashboard in Sections view layout"/>
+    A fully populated dashboard in the sections view layout
+</p>
+
 ## First contact with the Overview dashboard
 
 The **Overview** [dashboard](/dashboards/) is the first page you see after the [onboarding process](/getting-started/onboarding).
 
-If you just onboarded, your dashboard will be nearly empty. It is using the [masonry view](/dashboards/masonry/) layout and shows cards for devices that were detected automatically. Your dashboard may look quite different, depending on the devices that you have at home.
+If you just onboarded, your dashboard will be nearly empty. It has the [masonry view](/dashboards/masonry/) layout and shows cards for devices that were detected automatically. Your dashboard may look quite different, depending on the smart devices that you have at home.
 
 <p class='img'>
 <img src='/images/getting-started/onboarding_dashboard_raspi_bluetooth.png' alt='Screenshot of the Overview dashboard with Bluetooth devices'>
@@ -50,8 +63,8 @@ Screenshot of a new Overview dashboard with Bluetooth devices.
 Let's take a look at the devices that were detected and which cards are used to represent them on the dashboard.
 
 - 1 Sonos speaker: [media control](/dashboards/media-control/) card
-- 1 Person (away): [entities](/dashboards/entities/) card
-- 1 Weather forecast: [weather forecast](/dashboards/weather-forecast/) card
+- 1 person (away): [entities](/dashboards/entities/) card
+- 1 weather forecast: [weather forecast](/dashboards/weather-forecast/) card
 - 2 temperature sensors: [entities](/dashboards/entities/) card
 
 ### Sonos speaker
@@ -68,7 +81,7 @@ The weather forecast card is shown automatically if you provided a location duri
 
 ### Temperature sensors
 
-The temperature sensors are shown because the Home Assistant device used here (Raspberry Pi) has a built-in Bluetooth module. In Giulia's home, there were 2 Bluetooth temperature sensors present. If your Home Assistant does not have a Bluetooth module (yet), Bluetooth devices in your home won't be shown automatically.
+The temperature sensors are shown because the Home Assistant device used here (Raspberry Pi) has a built-in Bluetooth module. In Giulia's home, there were 2 Bluetooth temperature sensors. If your Home Assistant does not have a Bluetooth module (yet), Bluetooth devices in your home won't be shown automatically.
 
 If your Home Assistant has other controllers, such as a [Zigbee](/integrations/zha/) or a [Z-Wave](/integrations/zwave_js/) controller, and you have Zigbee or Z-Wave devices, these could be detected and shown here. However, these devices usually need to be paired first.
 
@@ -114,7 +127,7 @@ This section describes how to edit cards in a recently created dashboard, namely
 
 9. If you want to delete the other weather forecast card from the dashboard:
    - In the top right corner, select the {% icon "mdi:pencil" %} button to go back to the edit mode.
-   - On the card, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Delete**.
+   - Do not select the card. Go to the three dots {% icon "mdi:dots-vertical" %} menu in the lower right corner of the card, and then select **Delete**.
 
 10. Finally, to move the weather forecast card to the top left corner:
     - On the bottom of the card, select the number or use the minus button to enter `1`.

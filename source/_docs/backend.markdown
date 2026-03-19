@@ -1,6 +1,7 @@
 ---
 title: "Backend of Home Assistant"
 description: "Backend of Home Assistant."
+toc: false
 ---
 
 The backend of Home Assistant is running with [Python 3](https://www.python.org/).
