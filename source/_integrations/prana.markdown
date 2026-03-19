@@ -14,6 +14,7 @@ ha_category: []
 ha_quality_scale: bronze
 ha_platforms:
   - fan
+  - number
   - sensor
   - switch
 ha_config_flow: true
@@ -75,6 +76,13 @@ All fan entities support speed control (0-100%) and the following presets:
   - **Description**: Turn on the mini-heating element (if equipped).
 - **Bound**
   - **Description**: Synchronizes supply and extract fans. When enabled, you control the Bound fan. When disabled, you control Supply and Extract fans separately.
+
+#### Numbers
+
+The integration provides number entities to configure device settings.
+
+- **Display brightness**
+  - **Description**: Adjusts the brightness of the device's display panel. The value can be set on a scale from 0 to 6, where 0 turns the display off and 6 is the maximum brightness.
 
 #### Sensors
 
@@ -142,7 +150,7 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 ## Removing the integration
 
-This integration follows standard integration removal in Home Assistant. 
+This integration follows standard integration removal in Home Assistant.
 
 {% include integrations/remove_device_service.md %}
 
