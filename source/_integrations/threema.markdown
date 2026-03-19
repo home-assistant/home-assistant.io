@@ -49,35 +49,36 @@ Each recipient subentry creates a notify entity (e.g., `notify.threema_ab1cd2ef`
 
 ## Actions
 
-### Action `notify.threema`
+### Action `notify.send_message`
 
-Send a text message to a Threema recipient.
+Send a text message to a Threema recipient via its notify entity.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
 | `message` | no | The text message to send. |
 | `title` | yes | An optional title, shown in bold before the message. |
-| `target` | yes | The 8-character Threema ID of the recipient. |
 
 ### Examples
 
 #### Send a simple text message
 
 ```yaml
-action: notify.threema
+action: notify.send_message
+target:
+  entity_id: notify.threema_YOUR_THREEMA_ID
 data:
   message: "The front door was just opened!"
-  target: "YOUR_THREEMA_ID"
 ```
 
 #### Send a message with a title
 
 ```yaml
-action: notify.threema
+action: notify.send_message
+target:
+  entity_id: notify.threema_YOUR_THREEMA_ID
 data:
   title: "Security Alert"
   message: "Motion detected in the backyard."
-  target: "YOUR_THREEMA_ID"
 ```
 
 #### Send a message from an automation
@@ -89,10 +90,11 @@ triggers:
     entity_id: binary_sensor.front_door
     to: "on"
 actions:
-  - action: notify.threema
+  - action: notify.send_message
+    target:
+      entity_id: notify.threema_YOUR_THREEMA_ID
     data:
       message: "Front door opened!"
-      target: "YOUR_THREEMA_ID"
 ```
 
 #### Send a message with a template
@@ -100,10 +102,11 @@ actions:
 {% raw %}
 
 ```yaml
-action: notify.threema
+action: notify.send_message
+target:
+  entity_id: notify.threema_YOUR_THREEMA_ID
 data:
   message: "Temperature is {{ states('sensor.temperature') }}°C"
-  target: "YOUR_THREEMA_ID"
 ```
 
 {% endraw %}
