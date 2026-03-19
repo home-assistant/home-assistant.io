@@ -69,7 +69,7 @@ Battery charge limit controls are only available for electric vehicles that supp
 ## Data updates
 
 Due to rate limitations from the Renault servers, the integration limits {% term polling %} to 60 data requests/hour.
-For a single vehicle with all available endpoints (typically 7-9 depending on the vehicle and features), the integration fetches data from the device every 7-9 minutes.
+For a single vehicle with X available endpoints (typically 7-9 depending on the vehicle and features), the integration fetches data from the device every X minutes.
 
 ## Actions
 
