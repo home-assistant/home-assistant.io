@@ -19,7 +19,7 @@ The **Easywave** {% term integration %} allows you to use Easywave 868 MHz USB t
 
 Easywave is a wireless protocol operating on the European 868 MHz ISM band, commonly used for home automation purposes such as controlling shutters, lights, dimmers, and switches. This integration supports the **RX11 USB Transceiver** and provides real-time monitoring of the gateway connection status, including automatic detection of USB disconnects and reconnects.
 
-Support for directly pairing and controlling Easywave devices (such as shutters, switches, and dimmers) through Home Assistant is added in a future release.
+Support for directly pairing and controlling Easywave devices (such as shutters, switches, and dimmers) through Home Assistant will be added in a future release.
 
 ## Supported devices
 
@@ -53,20 +53,20 @@ The integration provides a **Connection Status** diagnostic sensor that reports 
 
 The connection status sensor is a diagnostic entity and supports the following states:
 
-| State          | Description                                    |
-| -------------- | ---------------------------------------------- |
-| `Connected`    | The transceiver is connected and operational   |
-| `Not Connected`| The transceiver is not found or offline        |
+| State           | Description                                  |
+| --------------- | -------------------------------------------- |
+| `Connected`     | The transceiver is connected and operational |
+| `Not Connected` | The transceiver is not found or offline      |
 
 The sensor also exposes the following diagnostic attributes:
 
-| Attribute          | Description                                    |
-| ------------------ | ---------------------------------------------- |
-| `device_path`      | The system path of the USB device              |
-| `connected`        | Whether the transceiver is currently connected |
-| `usb_serial_number`| The USB serial number of the device            |
-| `hardware_version` | The hardware version reported by the device    |
-| `firmware_version` | The firmware version reported by the device    |
+| Attribute           | Description                                    |
+| ------------------- | ---------------------------------------------- |
+| `device_path`       | The system path of the USB device              |
+| `connected`         | Whether the transceiver is currently connected |
+| `usb_serial_number` | The USB serial number of the device            |
+| `hardware_version`  | The hardware version reported by the device    |
+| `firmware_version`  | The firmware version reported by the device    |
 
 ### Automatic reconnection
 
@@ -95,7 +95,7 @@ To verify or change your country setting, go to {% my general title="**Settings*
 ### The integration does not find my device
 
 - Ensure the RX11 USB transceiver is firmly connected to a USB port.
-- Check that the device appears as a serial port on your system (e.g., `/dev/ttyACM0`).
+- Check that the device appears as a serial port on your system (for example, `/dev/ttyACM0`).
 - For container-based installations, verify that the USB device is mapped into the container.
 - Try a different USB port or cable.
 
