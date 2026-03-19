@@ -231,6 +231,10 @@ Check your current time segment settings:
 action: growatt_server.read_time_segments
 ```
 
+## Data updates
+
+The **Growatt** integration {% term polling polls %} data from the Growatt cloud every 5 minutes for all supported device types (inverter, storage, mix, SPH, MIN, and TLX). There is no push mechanism — data is always fetched on this fixed interval, regardless of your device type or authentication method.
+
 ## Troubleshooting
 
 ### Account locked or authentication failing
