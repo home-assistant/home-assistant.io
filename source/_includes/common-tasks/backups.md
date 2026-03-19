@@ -72,7 +72,7 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and under **Automatic backups**, select **Configure automatic backups**.
 2. Under **Locations**, use the toggle to enable all the backup locations you want to use.
-   - When you choose "This system", if you decide to store your backup locally, besides the download option on the UI under "My Backups", you may also find the actual backup files under the /backup folder in the root filesystem.
+   - When you choose "This system", if you decide to store your backup locally, besides the download option on the UI under "My Backups", you may also find the resulting backup file under the "/backup" folder in the root filesystem.
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you want to back up to your NAS (such as [Synology](/integrations/synology_dsm/#backup-location)) or a cloud provider (such as [Google Drive](/integrations/google_drive/) or [Microsoft OneDrive](/integrations/onedrive/)), check their integration documentation for specific instructions on setting up a Home Assistant backup.
    - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
