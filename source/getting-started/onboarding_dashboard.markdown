@@ -50,14 +50,14 @@ Your dashboard may look quite different, depending on the smart devices that you
 - Bluetooth temperature sensors and a Bluetooth module in Home Assistant.
   - Result: [entities](/dashboards/entities/) cards will be shown on your **Overview** dashboard.
   - Note that, if your Home Assistant does not have a Bluetooth module yet, the Bluetooth devices that you have in your home won't be shown automatically.
-- Light sensors
+- Light sensors.
   - Result: [entities](/dashboards/entities/) cards will be shown on your **Overview** dashboard with the status of some lights.
 
 If your Home Assistant has other controllers, such as a [Zigbee](/integrations/zha/) or a [Z-Wave](/integrations/zwave_js/) controller, and you have Zigbee or Z-Wave devices, these could be detected and shown on the **Overview** dashboard. There you will have cards representing control elements that allow you, for example, to:
 
-- change the ventilation.
-- change the color of the lights.
-- turn on a smart TV and start YouTube.
+- Change the ventilation.
+- Change the color of the lights.
+- Turn on a smart TV and start YouTube.
 
 However, these devices usually need to be paired first.
 
