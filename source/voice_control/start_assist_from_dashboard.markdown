@@ -26,7 +26,7 @@ If you are using Home Assistant in kiosk mode, for example if you have a tablet 
 2. If it is the first time that you are editing your dashboard, in the **Edit dashboard** dialog, go to the three dots {% icon "mdi:dots-vertical" %} menu and select **Take control**.
 3. Do one of the following, depending on the type of the view you are editing:
      - In a sections view, select the {% icon "mdi:plus" %} button below **New Section**.
-     - In a masonry, panel or sidebar layout, select **Add card** in the lower right side of the view.
+     - In a masonry, panel, or sidebar layout, select **Add card** in the lower right corner of the view.
 4. On the **By card** tab of the dialog, select the **Button** card.
 5. Clear the **Entity** field.
 6. In **Name**, select **+ Add** and enter a name for the card, such as *Assist - listen*.
