@@ -39,18 +39,18 @@ If you just onboarded, your dashboard will be nearly empty. It has the [sections
 
 The following cards appear automatically on your **Overview** dashboard:
 
-- an [entities](/dashboards/entities/) card of the person defined as the Home Assistant owner. It presents the name and the {% term state %} of the person.
+- An [entities](/dashboards/entities/) card of the person defined as the Home Assistant owner. It presents the name and the {% term state %} of the person.
   - You can track whether a person is present or not and create automations based on that. For example, turn down the heating when everyone has left home. For more information on automations based on presence, start with [presence detection](/getting-started/presence-detection/).
-- a [weather forecast](/dashboards/weather-forecast/) card of the weather for your location, if you provided it during onboarding.
+- A [weather forecast](/dashboards/weather-forecast/) card of the weather for your location, if you provided it during onboarding.
 
 Your dashboard may look quite different, depending on the smart devices that you have at home. For example, if you have the following devices, they will be detected:
 
-- a smart speaker connected to Wi-Fi, such as a Sonos speaker.
+- A smart speaker connected to Wi-Fi, such as a Sonos speaker.
   - Result: a [media control](/dashboards/media-control/) card will be displayed on your **Overview** dashboard.
 - Bluetooth temperature sensors and a Bluetooth module in Home Assistant.
   - Result: [entities](/dashboards/entities/) cards will be shown on your **Overview** dashboard.
   - Note that, if your Home Assistant does not have a Bluetooth module yet, the Bluetooth devices that you have in your home won't be shown automatically.
-- light sensors
+- Light sensors
   - Result: [entities](/dashboards/entities/) cards will be shown on your **Overview** dashboard with the status of some lights.
 
 If your Home Assistant has other controllers, such as a [Zigbee](/integrations/zha/) or a [Z-Wave](/integrations/zwave_js/) controller, and you have Zigbee or Z-Wave devices, these could be detected and shown on the **Overview** dashboard. There you will have cards representing control elements that allow you, for example, to:
