@@ -34,7 +34,7 @@ This integration provides the following platforms:
 - Device tracker - to track location of your car.
 - Numbers - to set battery charge limits (minimum and target charge levels for electric vehicles).
 - Selectors - to change the charge mode.
-- Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
+- Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tire pressure.
 
 {% include integrations/config_flow.md %}
 
