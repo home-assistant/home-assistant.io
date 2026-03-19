@@ -34,7 +34,7 @@ Follow these steps to create a new floor.
     ![Create floor dialog](/images/organizing/create_floor_01.png)
 3. Select **Add**.
 
-   **Result**: A new floor is created.
+   Result: A new floor is created.
 
     ![Create floor dialog](/images/organizing/create_floor_02.png)
 4. You can now [assign areas to that floor](/docs/organizing/areas/#assigning-areas-to-floors-and-add-labels).

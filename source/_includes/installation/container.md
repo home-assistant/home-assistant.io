@@ -12,7 +12,7 @@ This installation type **does not have access to apps**. If you want to use apps
 <b>Prerequisites</b>
 This guide assumes that you already have an operating system setup and a container runtime installed (like Docker).
 
-If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer. Docker _Desktop_ will not work, you must use Docker _Engine_.
+If you are using Docker, you need Docker Engine 23.0.0 or later. Docker _Desktop_ will not work; you must use Docker _Engine_.
 
 {% endimportant %}
 

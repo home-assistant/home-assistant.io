@@ -1,6 +1,7 @@
 ---
 title: "Automation conditions"
 description: "Automations can test conditions when invoked."
+toc: false
 ---
 
 Conditions are an optional part of an automation rule. They can be used to prevent the automation's actions from being run. After a {% term trigger %} occurred, all conditions will be checked. The automation will be executed if all conditions return `true`. If any of the conditions returns `false`, the automation won't start.
