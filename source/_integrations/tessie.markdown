@@ -44,6 +44,12 @@ You must have an active [Tessie](https://my.tessie.com/) subscription, generate 
 
 {% include integrations/config_flow.md %}
 
+## Data updates
+
+The {% term integration %} {% term polling polls %} vehicle data every 10 seconds using cached responses from Tessie.
+
+For energy sites, live and site information is refreshed every 30 seconds, and energy history is refreshed every 60 seconds.
+
 ## Troubleshooting
 
 If a vehicle action returns an error in Home Assistant, you should first try to perform the same action in the Tessie app. The app will guide you through the steps to fix common issues like command signing or scopes.
