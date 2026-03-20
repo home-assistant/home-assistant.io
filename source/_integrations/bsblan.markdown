@@ -23,7 +23,7 @@ ha_zeroconf: true
 ha_quality_scale: silver
 ---
 
-The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
+The **BSB-LAN** {% term integration %} integrates [BSB-LAN](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
 BSBLan is a device that is made by `Frederik Holst` and with the help of many other contributors. The board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling of heating systems such as `Elco Thision`, `Brötje` and similar systems. Also available is an ESP32 version of the board.
 
@@ -47,7 +47,7 @@ Depending on your system and the available heating circuits, the following entit
 
 ### Buttons
 
-- **Sync time**: Synchronizes the BSB-Lan device time with the current Home Assistant time. Use it when your device's time drifts or doesn't match Home Assistant's time.
+- **Sync time**: Synchronizes the BSB-LAN device time with the current Home Assistant time. Use it when your device's time drifts or doesn't match Home Assistant's time.
 
 The **Sync time** button appears under the **Configuration** section of the device page, not on your dashboards by default. You can also trigger the same synchronization programmatically using the `bsblan.sync_time` action, such as in a daily automation.
 
@@ -55,7 +55,7 @@ The **Sync time** button appears under the **Configuration** section of the devi
 
 - Home Assistant creates one climate entity for each detected heating circuit.
 - These appear in Home Assistant as **Heating circuit 1**, **Heating circuit 2**, and **Heating circuit 3**, depending on what your system exposes.
-- Each heating circuit is grouped under its own sub-device on the BSB-Lan device page.
+- Each heating circuit is grouped under its own sub-device on the BSB-LAN device page.
 
 ### Sensors
 
@@ -78,10 +78,10 @@ The integration provides the following actions.
 
 ### Action: Set hot water schedule
 
-The `bsblan.set_hot_water_schedule` action allows you to set the hot water heating schedule for your BSB-Lan device. Each day of the week can have one or more time slots when hot water heating should be active.
+The `bsblan.set_hot_water_schedule` action allows you to set the hot water heating schedule for your BSB-LAN device. Each day of the week can have one or more time slots when hot water heating should be active.
 
 - **Target**: `device_id`
-  - **Description**: The BSB-Lan device to configure.
+  - **Description**: The BSB-LAN device to configure.
   - **Required**: Yes
 - **Data attributes**:
   - **`monday_slots`**: List of time slots for Monday. Each slot contains `start_time` and `end_time`.
@@ -105,7 +105,7 @@ Time slots are defined using time pickers for easy configuration without manual 
 
 ### Action `bsblan.sync_time`
 
-Synchronize Home Assistant time to the BSB-Lan device. Only updates if device time differs from Home Assistant time.
+Synchronize Home Assistant time to the BSB-LAN device. Only updates if device time differs from Home Assistant time.
 
 - **Target**: `device_id`
   - **Description**: The BSB-LAN device to sync time for.
@@ -113,7 +113,7 @@ Synchronize Home Assistant time to the BSB-Lan device. Only updates if device ti
 
 #### Examples
 
-Sync time for all BSB-Lan devices:
+Sync time for all BSB-LAN devices:
 
 ```yaml
 action: bsblan.sync_time
@@ -131,7 +131,7 @@ Use in an automation to sync time daily:
 
 ```yaml
 automation:
-  - alias: "Sync BSB-Lan time daily"
+  - alias: "Sync BSB-LAN time daily"
     triggers:
       - trigger: time
         at: "03:00:00"
@@ -141,7 +141,7 @@ automation:
 
 ## Examples
 
-The following examples show how to use the BSB-Lan integration actions in Home Assistant automations.
+The following examples show how to use the BSB-LAN integration actions in Home Assistant automations.
 
 ### Setting a weekday and weekend schedule
 
@@ -286,4 +286,5 @@ To see a more detailed listing of the reported systems which are successfully us
 
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
-The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0).
+The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/bsb-lan/releases/tag/v5.0).
+
