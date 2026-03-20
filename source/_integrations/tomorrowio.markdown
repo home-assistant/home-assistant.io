@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Tomorrow.io {% term integration %} allows you to obtain weather, air quality, pollen, and fire information from the [Tomorrow.io API](https://www.tomorrow.io/weather-api/).
+The **Tomorrow.io** {% term integration %} allows you to obtain weather, air quality, pollen, and fire information from the [Tomorrow.io API](https://www.tomorrow.io/weather-api/).
 
 ## Obtain an API key
 

@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: dexcom
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Dexcom** {% term integration %} allows you to view your CGM data from [Dexcom](https://www.dexcom.com/) in Home Assistant.
@@ -20,21 +20,22 @@ The **Dexcom** {% term integration %} allows you to view your CGM data from [Dex
 
 You will need to set up the Dexcom Share feature in your Dexcom [G6](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) or [G7](https://www.dexcom.com/faqs/how-do-i-share-my-dexcom-g7-glucose-data-with-followers) app to use this integration. Enabling the Dexcom Share service requires setup of at least one follower. The integration will use the Dexcom user's credentials, not the follower's credentials.
 
-Your Dexcom account must have an email address—not a phone number—as its primary user ID. If you normally log into your Dexcom account using a phone number, then this integration will not work. It is unfortunately not possible to change from a phone to email user ID after an account is created, so you will need to create a new Dexcom account in this case.
-
 {% include integrations/config_flow.md %}
 
-{% note %}
-Some people have had problems with connecting when their Dexcom passwords are entirely numeric. If you have connection issues in that case, try changing your password to something with a mix of numbers and letters.
-{% endnote %}
+{% configuration_basic %}
+Username:
+    description: "Username, email address, or phone number. Format phone numbers with a `+`, your country code, then your phone number."
+Region:
+    description: "The Dexcom Share API endpoint, one of US, Outside of US, Japan."
+{% endconfiguration_basic %}
 
-### Server
+## Troubleshooting
 
-There are two Dexcom Share servers, `US` for United States customers, and `OUS` for all customers outside of the United States.
+Validate your Dexcom account credentials by logging on to the Dexcom Account Management website for your region:
 
-### Unit of measurement
-
-The integrations allow both `mg/dL` and `mmol/l` units of measurement for blood glucose values. To change your preferred unit of measurement, go to **Settings** -> **Devices & services** in the UI, and click `OPTIONS`.
+For users in the United States: [uam1.dexcom.com](uam1.dexcom.com).
+For users outside of the United States: [uam2.dexcom.com](uam2.dexcom.com).
+For users in Japan: [uam.dexcom.jp](uam.dexcom.jp).
 
 ## Sensor
 

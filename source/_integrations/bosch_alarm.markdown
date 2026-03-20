@@ -127,11 +127,12 @@ The `bosch_alarm.set_date_time` action is used to update the date and time on th
 
 ```yaml
 # Example: Update the panel’s date and time
-service: bosch_alarm.set_date_time
+action: bosch_alarm.set_date_time
 data:
   config_entry_id: "YOUR_CONFIG_ENTRY_ID"
   datetime: "2025-05-01T12:00:00"
 ```
+
 {% endraw %}
 
 ## Authentication

@@ -5,7 +5,7 @@ description: "More information about System Health."
 
 System health is information about your Home Assistant instance. Information including data on your system architecture, operating system and version, Home Assistant installation type and version, Python version, frontend version, the number of [Dashboards](/dashboards/dashboards/) and [Views](/dashboards/views/) you have, and more.
 
-System Health integration data can be viewed at **Settings** -> **System** -> **Repairs** -> **System Information** in the overflow menu (top right). Or by using the My link below:
+System Health integration data can be viewed under {% my repairs title="**Settings** > **System** > **Repairs**" %} > **System information** in the three dots menu (top right). Or by using the My link below:
 
 {% my system_health badge %}
 

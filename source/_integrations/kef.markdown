@@ -102,17 +102,17 @@ Just like in the KEF Control app, we can change the digital signal processing (D
 The speaker's current DSP settings are updated automatically each hour and after each action.
 To update the settings manually, use `kef.update_dsp`.
 
-### Action `kef.update_dsp`
+### Action: Update DSP
 
-Update all DSP settings.
+The `kef.update_dsp` action updates all DSP settings.
 
 | Data attribute | Optional | Description                       |
 | ---------------------- | -------- | --------------------------------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
 
-### Action `kef.set_mode`
+### Action: Set mode
 
-Set the mode of the speaker. When optional attributes are left out, the setting will be unchanged.
+The `kef.set_mode` action sets the mode of the speaker. When optional attributes are left out, the setting will be unchanged.
 
 | Data attribute | Optional | Description                                                |
 | ---------------------- | -------- | ---------------------------------------------------------- |
@@ -124,54 +124,54 @@ Set the mode of the speaker. When optional attributes are left out, the setting 
 | sub_polarity           | Yes      | "Sub polarity" (`-` or `+`)                                |
 | bass_extension         | Yes      | "Bass extension" selector (`Less`, `Standard`, or `Extra`) |
 
-### Action `kef.set_desk_db`
+### Action: Set desk dB
 
-Set the "Desk mode" slider of the speaker in dB.
-
-| Data attribute | Optional | Description                                     |
-| ---------------------- | -------- | ----------------------------------------------- |
-| entity_id              | No       | The entity_id of the KEF speaker.               |
-| db_value               | No       | Value of the slider (-6 to 0 with steps of 0.5) |
-
-### Action `kef.set_wall_db`
-
-Set the "Wall mode" slider of the speaker in dB.
+The `kef.set_desk_db` action sets the "Desk mode" slider of the speaker in dB.
 
 | Data attribute | Optional | Description                                     |
 | ---------------------- | -------- | ----------------------------------------------- |
 | entity_id              | No       | The entity_id of the KEF speaker.               |
 | db_value               | No       | Value of the slider (-6 to 0 with steps of 0.5) |
 
-### Action `kef.set_treble_db`
+### Action: Set wall dB
 
-Set desk the "Treble trim" slider of the speaker in dB.
+The `kef.set_wall_db` action sets the "Wall mode" slider of the speaker in dB.
+
+| Data attribute | Optional | Description                                     |
+| ---------------------- | -------- | ----------------------------------------------- |
+| entity_id              | No       | The entity_id of the KEF speaker.               |
+| db_value               | No       | Value of the slider (-6 to 0 with steps of 0.5) |
+
+### Action: Set treble dB
+
+The `kef.set_treble_db` action sets the "Treble trim" slider of the speaker in dB.
 
 | Data attribute | Optional | Description                                     |
 | ---------------------- | -------- | ----------------------------------------------- |
 | entity_id              | No       | The entity_id of the KEF speaker.               |
 | db_value               | No       | Value of the slider (-2 to 2 with steps of 0.5) |
 
-### Action `kef.set_high_hz`
+### Action: Set high Hz
 
-Set the "High-pass mode" slider of the speaker in Hz.
+The `kef.set_high_hz` action sets the "High-pass mode" slider of the speaker in Hz.
 
 | Data attribute | Optional | Description                                     |
 | ---------------------- | -------- | ----------------------------------------------- |
 | entity_id              | No       | The entity_id of the KEF speaker.               |
 | hz_value               | No       | Value of the slider (50 to 120 with steps of 5) |
 
-### Action `kef.set_low_hz`
+### Action: Set low Hz
 
-Set the "Sub out low-pass frequency" slider of the speaker in Hz.
+The `kef.set_low_hz` action sets the "Sub out low-pass frequency" slider of the speaker in Hz.
 
 | Data attribute | Optional | Description                                     |
 | ---------------------- | -------- | ----------------------------------------------- |
 | entity_id              | No       | The entity_id of the KEF speaker.               |
 | hz_value               | No       | Value of the slider (40 to 250 with steps of 5) |
 
-### Action `kef.set_sub_db`
+### Action: Set sub dB
 
-Set the "Sub gain" slider of the speaker in dB.
+The `kef.set_sub_db` action sets the "Sub gain" slider of the speaker in dB.
 
 | Data attribute | Optional | Description                                     |
 | ---------------------- | -------- | ----------------------------------------------- |

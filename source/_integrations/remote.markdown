@@ -29,7 +29,7 @@ In addition, the entity can have the following states:
 
 ## Use the actions
 
-Go to the **Developer Tools** and open the **Actions** tab. From the **Actions** dropdown, choose `remote.turn_on`, `remote.turn_off`, or `remote.toggle`. Under target, select the target device. If you are in YAML mode, enter something like the sample below into the **Data** field. Once you are done, select **Perform action**.
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. From the **Actions** dropdown, choose `remote.turn_on`, `remote.turn_off`, or `remote.toggle`. Under target, select the target device. If you are in YAML mode, enter something like the sample below into the **Data** field. Once you are done, select **Perform action**.
 
 ```json
 {"entity_id":"remote.family_room"}

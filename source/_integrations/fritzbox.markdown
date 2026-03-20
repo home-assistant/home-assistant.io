@@ -105,6 +105,10 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 - Total Energy
 - Voltage
 
+### Routines
+
+Self-defined [routines](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3707_Creating-a-routine-for-smart-home-devices) within the FRITZ!The box smart home configuration menu will be integrated as {% term switch %} entities. Those entities can be activated or deactivated from Home Assistant.
+
 ### Shutter drivers
 
 Shutter drivers like the [Homepilot RolloTron DECT 1213][rademacher_rollotron_dect_1213] will be integrated as {% term cover %} entities.

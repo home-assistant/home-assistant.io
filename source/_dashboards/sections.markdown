@@ -52,7 +52,7 @@ You can group cards without using horizontal or vertical stack cards.
 </p>
 
 1. To add a title, select the **Add title** button. The title supports [Markdown](https://commonmark.org/help/) and [templating](/docs/configuration/templating/).
-2. To add badges, elect the **Add badge** button. Follow [steps on adding badges](/dashboards/badges) to see the different possible options.
+2. To add badges, select the **Add badge** button. Follow [steps on adding badges](/dashboards/badges) to see the different possible options.
 3. To change the title and badges disposition, select the edit {% icon "mdi:edit" %} button to access header settings.
 
 ![Edit view heading section button](/images/dashboards/sections_view_header_editor.png)
@@ -106,7 +106,16 @@ In the sections view, you can rearrange sections and cards by dragging them to a
 
 You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the conditional card.
 
-To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then click on the visibility tab.
+To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
+
+## Editing the footer
+
+The footer lets you choose one card to show at the bottom of the view. This card stays on top of other cards while you scroll and only moves out of the way when you reach the bottom of the view.
+
+1. To add a footer, select the **Add footer** button.
+2. Select a card type to be used as the footer.
+3. To change the maximum width of the footer, select the edit {% icon "mdi:edit" %} button to access footer settings.
+
 
 ## Check out the demo
 
@@ -144,4 +153,14 @@ card:
   required: true
   description: Card to be used as title. If you are configuring the view using the visual editor, the configuration of the [Markdown card](/dashboards/markdown) is used.
   type: map
+{% endconfiguration %}
+
+## Footer YAML configuration
+
+{% configuration %}
+max_width:
+  required: false
+  description: Maximum width of the footer.
+  type: integer
+  default: 600
 {% endconfiguration %}

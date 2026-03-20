@@ -7,10 +7,11 @@ ha_release: 0.84
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@hfurubotten'
+  - '@SanderBlom'
 ha_domain: entur_public_transport
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: legacy
 ---
 

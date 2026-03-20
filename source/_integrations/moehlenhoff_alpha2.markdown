@@ -14,7 +14,7 @@ ha_platforms:
   - button
   - climate
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Möhlenhoff Alpha 2** {% term integration %} allows you to control a [Möhlenhoff Alpha 2](https://dev.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system)

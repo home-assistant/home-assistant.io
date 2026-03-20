@@ -12,7 +12,7 @@ ha_domain: ccm15
 ha_platforms:
   - climate
   - diagnostics
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **CCM15** {% term integration %} allows you to integrate [Midea CCM15](https://mbt.midea.com/hvac-goods/midea-products-category/vrfs/vrf-controller/central-controller-ccm-15) devices in Home Assistant.
