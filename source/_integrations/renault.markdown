@@ -4,6 +4,7 @@ description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
   - Binary sensor
   - Car
+  - Number
   - Presence detection
   - Select
   - Sensor
@@ -34,7 +35,7 @@ This integration provides the following platforms:
 - Device tracker - to track location of your car.
 - Numbers - to set battery charge limits (minimum and target charge levels for electric vehicles).
 - Selectors - to change the charge mode.
-- Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tire pressure.
+- Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
 
 {% include integrations/config_flow.md %}
 
@@ -55,10 +56,10 @@ In some situations, some of the features may require a subscription such as the 
 
 ## Battery charge limits
 
-For electric vehicles that support battery State of Charge (SoC) control, the integration provides two number entities to configure charging limits:
+For electric vehicles that support battery state of charge (<abbr title="State of charge">SoC</abbr>) control, the integration provides two number entities to configure charging limits:
 
-- **Minimum charge level**: Sets the minimum battery charge level (range: 15-45%, step: 5%). This ensures the battery maintains at least this charge level.
-- **Target charge level**: Sets the target battery charge level (range: 55-100%, step: 5%). Charging will stop when the battery reaches this level.
+- **Minimum charge level**: Sets the minimum battery charge level (range: 15% to 45% in 5% increments). This ensures the battery maintains at least this charge level.
+- **Target charge level**: Sets the target battery charge level (range: 55% to 100% in 5% increments). Charging will stop when the battery reaches this level.
 
 These controls allow you to optimize battery health and charging costs by limiting how much the battery charges. For example, setting a target of 80% can help preserve long-term battery health, while setting a higher minimum level ensures you always have enough charge for daily use.
 
@@ -69,7 +70,7 @@ Battery charge limit controls are only available for electric vehicles that supp
 ## Data updates
 
 Due to rate limitations from the Renault servers, the integration limits {% term polling %} to 60 data requests/hour.
-For a single vehicle with a typical set of 7 endpoints, this means each endpoint is updated roughly every 7 to 9 minutes. If you have more vehicles or more enabled endpoints, the update interval for each endpoint increases proportionally to stay within the 60 requests/hour limit.
+For a single vehicle with all 7 endpoints available, the integration fetches data from the device every 7 minutes.
 
 ## Actions
 
