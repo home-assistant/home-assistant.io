@@ -61,7 +61,9 @@ As shortcuts, the climate platform supports the following presets:
 
 - **Eco**: Temperature is set to the low schedule temperature.
 - **Comfort**: Temperature is set to the high schedule temperature.
-- **None**: Cannot be selected manually and is automatically selected if the temperature is other than the above.
+- **Boost**: Valve is fully open.
+- **Away**: Holiday mode is currently active. Display only.
+- **None**: Temperature is other than the above. Display only.
 
 Additionally, the following modes are available:
 
@@ -76,6 +78,7 @@ The integration {% term polling polls %} data from the thermostat every 5 minute
 ## Known limitations
 
 - Target high and low temperatures can only be set on the device itself.
+- Holiday mode/away preset can only be set on the device itself.
 - The devices only support temperature steps of 0.5°C and time steps of 15 minutes.
 - If you manually change the target temperature or use presets, the thermostat returns to its programmed schedule at the next schedule change.
 - If the thermostat is in holiday mode, you cannot reset it from Home Assistant. To reset it, press the `MENU` button on the thermostat until it resets.
