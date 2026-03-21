@@ -94,9 +94,9 @@ The following sensors will be created:
 The following buttons will be created:
 
 - **Core restart** - Restart core ESP32
-- **Zigbee restart** - Restart Zigbee CCCC2652 or EFR32 chip
+- **Zigbee restart** - Restart Zigbee CC2652 or EFR32 chip
 - **Zigbee flash mode** - Trigger the Zigbee chip into bootloader flash mode so it can be flashed. It is possible to flash Zigbee firmware over a network socket once this is activated.
-- **Reconnect Zigbee router** - Place the router into pairing mode to join a new Zigbee network. This is only created if the SLZB device is in Zibgee router mode.
+- **Reconnect Zigbee router** - Place the router into pairing mode to join a new Zigbee network. This is only created if the SLZB device is in Zigbee router mode.
 
 ### Switches
 
