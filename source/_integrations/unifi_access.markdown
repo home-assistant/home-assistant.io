@@ -4,6 +4,7 @@ description: Instructions on how to integrate UniFi Access with Home Assistant.
 ha_category:
   - Doorbell
   - Lock
+  - Sensor
 ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
@@ -17,6 +18,7 @@ ha_platforms:
   - button
   - event
   - lock
+  - sensor
   - switch
 ha_integration_type: hub
 ---
@@ -184,6 +186,13 @@ actions:
 ```
 
 {% endraw %}
+
+#### Sensors
+
+For controllers that support temporary lock rules, each door also exposes the following **diagnostic** sensor entities:
+
+- **Door Lock Rule**: Reports the currently active temporary lock rule for the door. Possible states are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
+- **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
 
 ## Known limitations
 
