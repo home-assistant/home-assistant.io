@@ -49,11 +49,11 @@ The `lock.lock` action locks your door.
 
 ```yaml
 actions:
-  action: lock.lock
-  target:
-    entity_id: lock.my_place
-  data:
-    code: "1234"
+  - action: lock.lock
+    target:
+      entity_id: lock.my_place
+    data:
+      code: "1234"
 ```
 
 ### Action: Unlock
@@ -69,11 +69,11 @@ The `lock.unlock` action unlocks your door.
 
 ```yaml
 actions:
-  action: lock.unlock
-  target:
-    entity_id: lock.my_place
-  data:
-    code: "1234"
+  - action: lock.unlock
+    target:
+      entity_id: lock.my_place
+    data:
+      code: "1234"
 ```
 
 ### Action: Open
@@ -89,13 +89,13 @@ The `lock.open` action opens (unlatches) a lock.
 
 ```yaml
 actions:
-  action: lock.open
-  target:
-    entity_id: lock.my_place
-  data:
-    code: "1234"
+  - action: lock.open
+    target:
+      entity_id: lock.my_place
+    data:
+      code: "1234"
 ```
 
 ## Use the actions
 
-Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions.
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock`, or `lock.open` from the list of available actions. Fill in the required data and select **Perform action**.
