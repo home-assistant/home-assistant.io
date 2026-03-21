@@ -1,6 +1,6 @@
 # Exposing scripts to LLM conversation agents
 
-When using an LLM-based conversation agent (such as OpenAI, Google Generative AI, or a local model), Home Assistant scripts are not exposed as entities — they are converted into **tools** that the LLM can call directly. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the LLM will simply not know the script exists or when to use it.
+When using an LLM-based conversation agent (such as OpenAI, Google Generative AI, or a local model), Home Assistant scripts are not exposed as entities — they are converted into tools that the LLM can call directly. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the LLM will simply not know the script exists or when to use it.
 
 This page explains how to expose a script to an LLM, and how to write descriptions that make it reliable.
 
