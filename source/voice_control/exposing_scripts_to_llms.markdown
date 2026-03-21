@@ -20,7 +20,9 @@ Scripts do not appear in the static entity list that the LLM sees — they appea
 
 Repeat this for each script you want the LLM to use.
 
-> **Limit:** Do not expose more than 128 scripts/tools in total. Exceeding this limit will cause the conversation engine to fail with a hard limit error inherited from the underlying LLM API.
+{% note %}
+**Limit:** Do not expose more than 128 scripts/tools in total. Exceeding this limit will cause the conversation engine to fail with a hard limit error inherited from the underlying LLM API.
+{% endnote %}
 
 ## Adding a description to your script
 
@@ -52,7 +54,9 @@ Write a dense, clear explanation of what the script does and **when the LLM shou
 
 If your script accepts input fields (parameters), each field should also have its own description. The LLM uses these to understand what value to pass.
 
-> **Limit:** Each field description must not exceed **128 characters**. Exceeding this will cause errors.
+{% note %}
+Each field description must not exceed **128 characters**. Exceeding this will cause errors.
+{% endnote %}
 
 Keep field descriptions precise: state what the field represents, its expected format, and any constraints.
 
