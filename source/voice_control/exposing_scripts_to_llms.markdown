@@ -65,7 +65,7 @@ This prevents the LLM from making up a response or treating a silent return as a
 
 ## Verifying your setup
 
-Unlike exposed entities, scripts do not appear in the static context shown in the Assist debug panel. This is expected — they are registered as tools, not entities. To verify a script is being offered to the LLM, use the [LLM conversation debug tools](/voice_control/troubleshooting/) and check that the script is called when you issue a matching voice command.
+Unlike exposed entities, scripts do not appear in the static context shown in the Assist **Debug** view. This is expected, because they are registered as tools, not entities. To verify that a script is available to the LLM, start a test Assist conversation, open the Assist **Debug** dialog (see [Troubleshooting Assist](/voice_control/troubleshooting/)), and check in the actions or tool calls that your script is invoked when you issue a matching voice command.
 
 ## Related topics
 
