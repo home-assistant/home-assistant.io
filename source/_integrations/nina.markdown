@@ -92,9 +92,12 @@ This integration provides the following entities for each warning slot.
 - **Affected areas**:
   - **Description**: Areas affected by the warning.
   - **Remarks**: Shortened to 250 chars. To get all areas please use the `nina.get_affected_areas` action.
-- **Headline**: Headline of the warning.
-- **More information URL**: URL with further information about the warning.
-- **Sender**: Sender of the warning.
+- **Headline**:
+  - **Description**: Headline of the warning.
+- **More information URL**:
+  - **Description**: URL with further information about the warning.
+- **Sender**:
+  - **Description**: Sender of the warning.
 - **Severity**:
   - **Description**: Severity of the warning.
   - **Options**: Extreme, Severe, Moderate, Minor, Unknown
