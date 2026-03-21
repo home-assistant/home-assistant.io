@@ -91,7 +91,7 @@ This integration provides the following entities for each warning slot.
 
 - **Affected areas**:
   - **Description**: Areas affected by the warning.
-  - **Remarks**: Shorted to 250 chars. To get all areas please use the `nina.get_affected_areas` action.
+  - **Remarks**: Shortened to 250 chars. To get all areas please use the `nina.get_affected_areas` action.
 - **Headline**: Headline of the warning.
 - **More information URL**: URL with further information about the warning.
 - **Sender**: Sender of the warning.
@@ -102,7 +102,7 @@ This integration provides the following entities for each warning slot.
 #### Binary sensors
 
 - **Warning**:
-  - **Description**: Presents of a warning.
+  - **Description**: Presence of a warning.
   - **Attributes**: Available attributes are listed below.
 
 ### Attributes
