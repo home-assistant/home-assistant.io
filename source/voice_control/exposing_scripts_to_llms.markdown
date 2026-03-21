@@ -32,7 +32,9 @@ To add or edit the description:
 2. Select the three-dot menu (⋮) and choose **Rename**.
 3. Add a description in the description field.
 
-> **Limit:** The script description must not exceed **1024 characters**. Exceeding this limit can cause errors.
+{% note %}
+Keep your script description concise. Some LLM APIs enforce a maximum description length, often around **1024 characters**, and may reject or truncate longer descriptions. The exact limit depends on the conversation integration you use, so check that integration’s documentation if you need very long descriptions.
+{% endnote %}
 
 ### What to write in the description
 
