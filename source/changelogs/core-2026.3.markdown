@@ -1405,6 +1405,84 @@ For a summary in a more readable format
 [@zachfeldman]: https://github.com/zachfeldman
 [@zweckj]: https://github.com/zweckj
 
+## Release 2026.3.3 - March 20
+
+- Fix Tibber update token ([@Danielhiversen] - [#164295])
+- Add correct speed fan mapping for Z-Wave GE/Jasco Enbrighten ZWA4013 ([@martinecker] - [#164500])
+- Improve ProxmoxVE permissions validation ([@CoMPaTech] - [#164770])
+- Start orphaned entries in normal mode only ([@erwindouna] - [#164815])
+- Skip unmapped and watchdog event types in Hikvision NVR event injection ([@ptarjan] - [#165009])
+- Snapcast: Fix incorrect identifier extraction in `async_join_players` ([@mill1000] - [#165020])
+- Hive: Fix bug in config flow for authentication and device registration ([@KJonline] - [#165061])
+- LG Soundbar: Fix incorrect state and outdated track information ([@alexmerkel] - [#165148])
+- Fix optional static values in bsblan ([@liudger] - [#165488])
+- Fix SmartLithium 8-cell support in victron_ble ([@rajlaud] - [#165496])
+- Fix Matter firmware update detection when version strings are identical ([@lboue] - [#165509])
+- Bump pyOpenSSL to 26.0.0 ([@edenhaus] - [#165770])
+- Bump pySmartThings to 3.7.2 ([@joostlek] - [#165810])
+- Bump axis to v67 ([@Kane610] - [#165840])
+- Fix Abort exception caught by wrong handler in backup encrypt/decrypt ([@agners] - [#165852])
+- Proxmox fix restart/reboot action ([@erwindouna] - [#165901])
+- Do not use moving states for Multilevel Switch CC v1-3 Z-Wave covers ([@AlCalzone] - [#165909])
+- Fix unit when plant power is above 1000W in Hypontech ([@jcisio] - [#165959])
+- Bump hyponcloud from 0.3.0 to 0.9.0 ([@jcisio] - [#166005])
+- Don't create fridge setpoint if no range in SmartThings ([@joostlek] - [#166018])
+- Fix enable/disable device tracking feature during setup of FRITZ!Box Tools ([@mib1185] - [#166027])
+- Bump opower to 0.17.1 ([@tronikos] - [#166044])
+- Properly handle buttons of SMLIGHT SLZB-MRxU devices ([@tl-sl] - [#166058])
+- Bump Pysmlight to 0.3.0 ([@tl-sl] - [#165658])
+- Bump Pysmlight 0.3.1 ([@tl-sl] - [#166060])
+
+[#164295]: https://github.com/home-assistant/core/pull/164295
+[#164500]: https://github.com/home-assistant/core/pull/164500
+[#164757]: https://github.com/home-assistant/core/pull/164757
+[#164770]: https://github.com/home-assistant/core/pull/164770
+[#164815]: https://github.com/home-assistant/core/pull/164815
+[#165001]: https://github.com/home-assistant/core/pull/165001
+[#165009]: https://github.com/home-assistant/core/pull/165009
+[#165020]: https://github.com/home-assistant/core/pull/165020
+[#165061]: https://github.com/home-assistant/core/pull/165061
+[#165148]: https://github.com/home-assistant/core/pull/165148
+[#165488]: https://github.com/home-assistant/core/pull/165488
+[#165496]: https://github.com/home-assistant/core/pull/165496
+[#165509]: https://github.com/home-assistant/core/pull/165509
+[#165658]: https://github.com/home-assistant/core/pull/165658
+[#165675]: https://github.com/home-assistant/core/pull/165675
+[#165770]: https://github.com/home-assistant/core/pull/165770
+[#165810]: https://github.com/home-assistant/core/pull/165810
+[#165840]: https://github.com/home-assistant/core/pull/165840
+[#165852]: https://github.com/home-assistant/core/pull/165852
+[#165901]: https://github.com/home-assistant/core/pull/165901
+[#165909]: https://github.com/home-assistant/core/pull/165909
+[#165959]: https://github.com/home-assistant/core/pull/165959
+[#166005]: https://github.com/home-assistant/core/pull/166005
+[#166018]: https://github.com/home-assistant/core/pull/166018
+[#166027]: https://github.com/home-assistant/core/pull/166027
+[#166044]: https://github.com/home-assistant/core/pull/166044
+[#166058]: https://github.com/home-assistant/core/pull/166058
+[#166060]: https://github.com/home-assistant/core/pull/166060
+[@AlCalzone]: https://github.com/AlCalzone
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@KJonline]: https://github.com/KJonline
+[@Kane610]: https://github.com/Kane610
+[@agners]: https://github.com/agners
+[@alexmerkel]: https://github.com/alexmerkel
+[@edenhaus]: https://github.com/edenhaus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@jcisio]: https://github.com/jcisio
+[@joostlek]: https://github.com/joostlek
+[@lboue]: https://github.com/lboue
+[@liudger]: https://github.com/liudger
+[@martinecker]: https://github.com/martinecker
+[@mib1185]: https://github.com/mib1185
+[@mill1000]: https://github.com/mill1000
+[@ptarjan]: https://github.com/ptarjan
+[@rajlaud]: https://github.com/rajlaud
+[@tl-sl]: https://github.com/tl-sl
+[@tronikos]: https://github.com/tronikos
+
 [#101267]: https://github.com/home-assistant/core/pull/101267
 [#134463]: https://github.com/home-assistant/core/pull/134463
 [#136947]: https://github.com/home-assistant/core/pull/136947
