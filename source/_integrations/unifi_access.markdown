@@ -4,6 +4,7 @@ description: Instructions on how to integrate UniFi Access with Home Assistant.
 ha_category:
   - Doorbell
   - Lock
+  - Select
   - Sensor
 ha_release: 2026.4
 ha_domain: unifi_access
@@ -18,6 +19,7 @@ ha_platforms:
   - button
   - event
   - lock
+  - select
   - sensor
   - switch
 ha_integration_type: hub
@@ -186,6 +188,18 @@ actions:
 ```
 
 {% endraw %}
+
+#### Selects
+
+For controllers that support temporary lock rules, each door also exposes a **select** entity:
+
+- **Door Lock Rule**: Lets you apply a temporary lock rule to the door. Available options are:
+  - **No rule** (`""`): No temporary rule is active. Selecting this option is a no-op.
+  - **Keep it locked** (`keep_lock`): Forces the door to stay locked.
+  - **Keep it unlocked** (`keep_unlock`): Forces the door to stay unlocked.
+  - **Custom (set interval)** (`custom`): Applies a custom rule using the duration configured in the companion Rule Interval number entity.
+  - **Reset rule** (`reset`): Clears the active temporary rule and returns to the normal schedule.
+  - **Lock early** (`lock_early`): Locks the door earlier than scheduled (only available when a schedule rule is currently active).
 
 #### Sensors
 
