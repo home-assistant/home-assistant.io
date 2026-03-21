@@ -32,21 +32,25 @@ The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage you
 
 ## Prerequisites
 
-You need a supported SLZB-06 adapter.
+You need a supported SLZB adapter.
 
- This integration has been tested with the following devices:
+This integration has been tested with the following devices. Newer "U" variants of these models are also supported.
 
 - [SLZB-06](https://smlight.tech/product/slzb-06)
 - [SLZB-06M](https://smlight.tech/product/slzb-06m)
 - [SLZB-06Mg24](https://smlight.tech/product/slzb-06mg24)
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
+- [SLZB-06Mg26](https://smlight.tech/global/slzb06mg26)
 
 Multi radio devices - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, router reconnect button, and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
 
 - [SLZB-MR1](https://smlight.tech/product/slzb-mr1/)
 - [SLZB-MR2](https://smlight.tech/product/slzb-mr2/)
 - [SLZB-MR3](https://smlight.tech/product/slzb-mr3/)
+- [SLZB-MR4](https://smlight.tech/product/slzb-mr4/)
+- [SLZB-MR5](https://smlight.tech/product/slzb-mr5/)
+- [SLZB-Ultima3](https://smlight.tech/global/slzb-ultima)
 
 Core firmware on your SLZB device must be `v2.3.6` or newer. If you have an older `v2.x.x` version, you can update from within Home Assistant. If you have `v0.9.9`, update using the [SMLIGHT web flasher](https://smlight.tech/flasher/#SLZB-06) before installing this integration.
 
