@@ -14,7 +14,7 @@ This page explains how to expose a script to an LLM, and how to write descriptio
 Scripts do not appear in the static entity list that the LLM sees — they appear as callable tools. To expose a script:
 
 1. Open the script in the **Scripts** panel.
-2. Select the three-dot menu (⋮) and choose **Settings**.
+2. Select the three-dot menu ({% icon "mdi:dots-vertical" %}) and choose **Settings**.
 3. Under the **Voice assistants** section, toggle the script on for Assist.
 4. **Save** your changes.
 
@@ -31,7 +31,7 @@ This is the most important step. Without a description, the LLM cannot determine
 To add or edit the description:
 
 1. Open the script in the **Scripts** panel.
-2. Select the three-dot menu (⋮) and choose **Rename**.
+2. Select the three-dot menu ({% icon "mdi:dots-vertical" %}) and choose **Rename**.
 3. Add a description in the description field.
 
 {% note %}
