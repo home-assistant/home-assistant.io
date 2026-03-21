@@ -62,10 +62,10 @@ Keep field descriptions precise: state what the field represents, its expected f
 
 ## Returning a result from your script
 
-When the LLM calls a script, it expects a result it can relay to the user. Make your script return:
+When the LLM calls a script, it expects a result it can relay to the user. You can do that by adding a **Stop** action at the end of the sequence. This action has two values you can set:
 
-- A **success message** describing what was done.
-- In case of failure, an **error message** explaining what went wrong and how to recover.
+- The reason for stopping, with either a **success message** describing what was done or, in case of failure, an **error message** explaining what went wrong and how to recover.
+- Optionally, the name of a variable (used within the script) to use as a response, to be further evaluated by the LLM.
 
 This prevents the LLM from making up a response or treating a silent return as a failure.
 
