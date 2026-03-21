@@ -96,11 +96,11 @@ When configuring an Envoy, a form appears that prompts you for the [required man
 </figure>
 {% enddetails %}
 
-For firmware before 7.0, the username *installer* without a password can be used to configure the Envoy. Enter these in the form and apply the setting by using the **Submit** button.
+For firmware before 7.0, the username *installer* without a password can be used to configure the Envoy. Enter these in the form and select **Submit**.
 
-For firmware version 7.0 and later, you need to enter your Enphase cloud username and password. Home Assistant stores these credentials in the configuration and uses them to retrieve an access token from the Enphase token portal. Token retrieval happens initially during the configuration process and again 30 days before the 1-year token expires. The Enphase token portal must be reachable during configuration. If it is not, the configuration fails, and you need to retry it later. If the Enphase token portal is unreachable during a token refresh attempt 30 days before expiry, Home Assistant retries the refresh on subsequent days until it succeeds.
+For firmware version 7.0 and later, you need to enter your Enphase cloud username and password. Home Assistant stores these credentials in the configuration and uses them to retrieve an access token from the Enphase token portal. Token retrieval happens initially during the configuration process and again 30 days before the one-year token expires. The Enphase token portal must be reachable during configuration. If it is not, the configuration fails, and you need to retry it later. If the Enphase token portal is unreachable during a token refresh attempt 30 days before expiry, Home Assistant retries the refresh on subsequent days until it succeeds.
 
-If you have multi-factor authentication enabled on your Enphase cloud account, automatic token retrieval will not work. You will have to obtain a token manually and enter it in the configuration. If this is the case, you have to switch the configuration method to manual token entry. Do this by selecting the option `I want to enter the Enphase token manually` and select **Submit**. This will change the form to only prompt for host and token. Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description below the form field includes the link to the portal for easy access and shows the current token days to expiry.
+If you have multi-factor authentication enabled on your Enphase cloud account, automatic token retrieval will not work. You will have to obtain a token manually and enter it in the form. If this is the case, you have to switch the configuration method to manual token entry. Do this by selecting the option `I want to enter the Enphase token manually` and select **Submit**. This will change the form to only prompt for host and token. Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description below the form field includes the link to the portal for easy access and shows the current token days to expiry.
 
 {% details "Configuration form in manual token entry mode" %}
 <figure>
@@ -111,7 +111,7 @@ If you have multi-factor authentication enabled on your Enphase cloud account, a
 
 If you prefer not to have your Enphase cloud username and password stored by Home Assistant for this integration, you can use the manual token entry mode as well. In this mode, only the token is stored by Home Assistant for the integration.
 
-To switch back from manual token entry to automatic token retrieval use the reverse process. De-select the option `I want to enter the Enphase token manually` and select **Submit** to switch to the username/password entry mode.
+To switch back from manual token entry to automatic token retrieval use the reverse process. Deselect the option `I want to enter the Enphase token manually` and select **Submit** to switch to the username/password entry mode.
 
 ### Token lifetime alerting
 
@@ -506,7 +506,7 @@ These entities represent the state of the Enphase Envoy coordinator.
 
 ## Data polling interval
 
-All data is collected in one coordinated collection cycle and sourced from a limited set of endpoints on the Envoy. For example, three different values sourced from the same endpoint are not pulled in three different requests but provided from the same single request. This method minimizes the number of requests to the Envoy. The local REST API of the Envoy is used. The Enphase cloud is only used when configuring an Envoy and when the 1-year valid token is to expire. 1 month before the expiry date, a new token is requested from the Enphase website.
+All data is collected in one coordinated collection cycle and sourced from a limited set of endpoints on the Envoy. For example, three different values sourced from the same endpoint are not pulled in three different requests but provided from the same single request. This method minimizes the number of requests to the Envoy. The local REST API of the Envoy is used. The Enphase cloud is only used when configuring an Envoy and when the one-year valid token is to expire. 1 month before the expiry date, a new token is requested from the Enphase website.
 
 The integration collects data for all entities by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
