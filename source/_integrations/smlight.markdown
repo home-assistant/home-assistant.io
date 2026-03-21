@@ -75,7 +75,8 @@ The following sensors will be created:
 - **Zigbee temperature** - Temperature of Zigbee CC2652 or EFR32 chip
 - **Core uptime** - Uptime of Core device
 - **Zigbee uptime** - Uptime of Zigbee connection to ZHA/Z2M
-- **RAM usage** - Monitor RAM Usage
+- **RAM usage** - Monitor RAM usage
+- **PSRAM usage** - Monitor PSRAM usage (U-devices only)
 - **FS usage** - Monitor filesystem usage
 - **Connection mode** -  Connection mode - Ethernet, Wi-Fi, or USB
 - **Ethernet** - Ethernet connection status
