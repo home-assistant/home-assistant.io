@@ -88,7 +88,7 @@ Assign the role you chose to the group at the root path (**/**) so it applies to
 2. Select **Permissions**.
 3. Open **Add** and select **Group Permission**.
 4. For **Path**, select **/**.
-5. For **Group**,  select your Home Assistant group (`HomeAssistant`).
+5. For **Group**, select your Home Assistant group (`HomeAssistant`).
 6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
 7. Make sure **Propagate** is checked.
 8. Confirm **Create**.
@@ -145,7 +145,7 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
 ### Buttons not working
 
-If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example, `VM.PowerMgmt` on the relevant path).  If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
+If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example, `VM.PowerMgmt` on the relevant path). If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
 
 ### Diagnostic data
 
