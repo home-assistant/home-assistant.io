@@ -454,11 +454,16 @@ The same thing can also be expressed as a test:
 
 ### Entities
 
+- `entity_name(entity_id)` returns the name of an entity for a given entity ID. Can also be used as a filter.
 - `is_hidden_entity(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
 
-### Entities examples
+#### Entities examples
 
 {% raw %}
+
+```text
+{{ entity_name('light.main_light') }}  # Main light
+```
 
 ```text
 {{ area_entities('kitchen') | reject('is_hidden_entity') }} # Gets a list of visible entities in the kitchen area
