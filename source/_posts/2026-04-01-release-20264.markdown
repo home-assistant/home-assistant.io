@@ -80,6 +80,7 @@ Enjoy the (beta) release!
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
   - [Integration quality scale achievements](#integration-quality-scale-achievements)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Lorem ipsum](#lorem-ipsum-1)
 - [Need help? Join the community](#need-help-join-the-community)
@@ -205,6 +206,14 @@ The following integrations are now available via the Home Assistant UI:
 
 [@frenck]: https://github.com/frenck
 [lorem]: /integrations/lorem_ipsum
+
+### Farewell to the following
+
+The following {% term integrations %} are also no longer available as of this release:
+
+- **BMW Connected Drive / Mini Connected** has been removed. On September 29, 2025, BMW added additional security measures that block third parties from accessing BMW servers. For EU-registered cars, BMW now provides the CarData API, for which a [custom integration](https://github.com/kvanbiesen/bmw-cardata-ha) has been developed.
+- **Duke Energy** has been removed. Duke Energy changed authentication providers back in November 2025, and the integration has not worked since.
+- **Tfiac** has been removed because a valid wheel cannot be created for its dependencies. It has been disabled since Home Assistant 2024.10.
 
 ## Other noteworthy changes
 
