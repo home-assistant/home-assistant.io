@@ -8,23 +8,18 @@ ha_iot_class: Local Polling
 ha_domain: touchline
 ha_platforms:
   - climate
-ha_integration_type: integration
-ha_quality_scale: legacy
+ha_integration_type: hub
+ha_config_flow: true
 ---
 
 The **Roth Touchline** {% term integration %} lets you control [ROTH Touchline](https://www.roth-uk.com/en/roth-touchline.htm) floor heating thermostats from Roth.
 
-To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
+{% include integrations/config_flow.md %}
 
-```yaml
-climate:
-  - platform: touchline
-    host: YOUR_IPADDRESS
-```
+## Entities
 
-{% configuration %}
-host:
-  description: The IP address of your controller, e.g., `http://192.168.1.1`.
-  required: false
-  type: string
-{% endconfiguration %}
+The integration will present each Roth Touchline SL zone as a climate entity, which can:
+
+- Display the current temperature
+- Set a target temperature
+- Assign to a configured "Global Schedule" using Home Assistant climate entity presets.
