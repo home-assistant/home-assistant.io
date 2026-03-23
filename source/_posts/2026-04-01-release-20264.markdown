@@ -344,7 +344,7 @@ The Z-Wave Installer panel has been removed. This panel was hidden and required 
 
 If you are a custom integration developer and want to learn about changes and new features available for your integration: Be sure to follow our [developer blog][devblog]. The following changes are the most notable for this release:
 
-- [Lorem](https://developers.home-assistant.io/blog/2026/02/16/labs-async-listen-deprecation)
+- [Backup agents can now report upload progress](https://developers.home-assistant.io/blog/2026/03/11/backup-upload-progress/)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
