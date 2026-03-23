@@ -44,9 +44,10 @@ homeassistant:
 
 Note that each line after `homeassistant:` is indented two (2) spaces. Since the configuration files in Home Assistant are based on the YAML language, indentation and spacing are important. Also note that seemingly strange entry under `customize:`.
 
-`!include customize.yaml` is the statement that tells Home Assistant to insert the parsed contents of `customize.yaml` at that point. The contents of the included file must be yaml data that is valid at the location it is included. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
+`!include customize.yaml` is the statement that tells Home Assistant to insert the parsed contents of `customize.yaml` at that point. The contents of the included file must be YAML data that is valid at the location it is included. This is how we are going to break a monolithic and hard-to-read file (when it gets big) into more manageable chunks.
 
 For example, `customize.yaml` could contain the following:
+
 ```yaml
 light.living_room:
   friendly_name: "Living Room"
