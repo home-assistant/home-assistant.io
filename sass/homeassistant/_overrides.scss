@@ -553,12 +553,17 @@ dd {
 header .breadcrumbs {
   color: $grayLight;
   font-size: .9rem;
-  padding-bottom: 24px;
+  padding-bottom: 12px;
 
   a {
     color: $grayLight;
     text-decoration: none !important;
     font-weight: 600;
+    transition: 0.3s color ease-in-out;
+
+    &:hover {
+      color: $blueDark;
+    }
   }
 }
 
