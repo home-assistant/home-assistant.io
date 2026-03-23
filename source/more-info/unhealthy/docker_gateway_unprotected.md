@@ -15,6 +15,6 @@ This can happen when:
 
 ## The solution
 
-Try reboot the system by going to {% my hardware title="**Settings** > **System** > **Hardware**" %}, opening the menu in the top right corner, and selecting "Reboot system".
+Try rebooting your system by going to {% my hardware title="**Settings** > **System** > **Hardware**" %}, opening the menu in the top right corner, and selecting **Reboot system**.
 
 If the issue persists after a reboot, please [open an issue](https://github.com/home-assistant/supervisor/issues) and include the full Supervisor logs. You can download them from {% my logs title="**Settings** > **System** > **Logs**" %} by selecting **Supervisor** from the log source dropdown.
