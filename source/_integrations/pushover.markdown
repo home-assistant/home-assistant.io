@@ -22,6 +22,8 @@ In order to get an API key, you need to [register an application](https://pushov
 
 {% include integrations/config_flow.md %}
 
+## Sending messages
+
 Example automation:
 
 ```yaml
@@ -40,7 +42,11 @@ Integration-specific values in the nested `data` section are optional.
 
 Image attachments can be added using the `attachment` parameter, which must be a local file reference (ex: `/tmp/image.png`).
 
-To use a specific Pushover device, set it using `target`. If one of the entered devices doesn't exist or is disabled in your Pushover account it will send a message to all you devices. To send to all devices, just skip the target attribute.
+When sending a notification, optional parameters can also be set as per the Pushover [API documentation](https://pushover.net/api).
+
+## Targeting specific devices
+
+To use a specific Pushover device, set it using `target`. If one of the entered devices doesn't exist or is disabled in your Pushover account it will send a message to all your devices. To send to all devices, just skip the target attribute.
 
 ```yaml
 - action: notify.entity_id
@@ -54,19 +60,24 @@ To use a specific Pushover device, set it using `target`. If one of the entered 
       sound: pianobar
       priority: 0
 ```
+
+## Time-to-live (TTL)
+
 Using the `ttl` parameter, messages may be set to delete automatically after a certain period of time. This is useful for messages that, at some point, outlive their usefulness. The `ttl` parameter specifies a time-to-live in seconds. In the following example, the message will self-delete from the targeted device(s) after 6 hours.
 
 ```yaml
-  - action: notify.pushover
+- action: notify.pushover
+  data:
+    message: "This is the message"
+    title: "Title of message"
+    target:
+      - pixel9
+      - johnsmith
     data:
-      message: "This is the message"
-      title: "Title of message"
-      target:
-        - pixel9
-        - johnsmith
-      data:
-        ttl: 21600 
+      ttl: 21600
 ```
+
+## Emergency notifications
 
 To use the highest priority, which repeats the notification every x seconds (`retry`) for the duration of y seconds (`expire`), you MUST specify these parameters. The minimal time for the `retry` parameter is 30 seconds. The `expire` parameter has a maximum of 10800 seconds (3 hours). If you target more than one device, make sure to enable the advanced option "Notification dismissal sync" in the app to be able to dismiss the alert on all devices simultaneously.
 
@@ -84,9 +95,63 @@ To use the highest priority, which repeats the notification every x seconds (`re
       retry: 30
 ```
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+### Canceling emergency notifications
 
-When sending a notification, optional parameters can also be set as per the Pushover [API documentation](https://pushover.net/api).
+To cancel an emergency notification before it is acknowledged or expires, assign one or more tags to the message using the `tags` field in the `data` section:
+
+```yaml
+- action: notify.pushover
+  data:
+    message: "Motion detected in garage"
+    title: "Alert"
+    data:
+      priority: 2
+      retry: 30
+      expire: 3600
+      tags: garage_alarm
+```
+
+Multiple tags can be assigned as a list:
+
+```yaml
+- action: notify.pushover
+  data:
+    message: "Motion detected in garage"
+    title: "Alert"
+    data:
+      priority: 2
+      retry: 30
+      expire: 3600
+      tags:
+        - garage_alarm
+        - building_a
+```
+
+To cancel all emergency notifications that were sent with a specific tag, use the `pushover.cancel` action:
+
+```yaml
+- action: pushover.cancel
+  data:
+    tag: garage_alarm
+```
+
+Omitting the `tag` field cancels all currently tracked emergency notifications across all configured Pushover accounts:
+
+```yaml
+- action: pushover.cancel
+```
+
+Tags are matched independently per message - if a message was sent with multiple tags, it is canceled as soon as any one of its tags matches the tag provided to `pushover.cancel`.
+
+If multiple Pushover accounts are configured, `pushover.cancel` checks all accounts and cancels matching receipts from each of them.
+
+{% note %}
+Receipt tracking is kept in memory. Receipts are lost when Home Assistant restarts. In that case, emergency notifications that were sent before the restart must expire naturally or be canceled manually via the Pushover app.
+{% endnote %}
+
+## Examples
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 Example notification triggered from the Alexa integration for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
