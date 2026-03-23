@@ -102,19 +102,65 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 
 We welcome the following new integrations in this release:
 
-- **[Lorem]**, added by [@frenck]  
-  Integrate your Lorem devices with Home Assistant. Control and monitor your Lorem smart home products locally or through the cloud, including lights, switches, sensors, and more.
+- **[Autoskope]**, added by [@mcisk]  
+  Integrate your [Autoskope](https://autoskope.de) vehicle tracking devices with Home Assistant. Track the GPS location of your vehicles and other assets through Autoskope's cloud services.
 
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/lorem_ipsum
+- **[Casper Glow]**, added by [@mikeodr]  
+  Control your [Casper Glow](https://casper.com/products/glow) portable sleep light from Home Assistant over Bluetooth. Adjust brightness levels and incorporate this gentle-dimming sleep aid into your bedtime automations.
 
-This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
+- **[Chess.com]**, added by [@joostlek]  
+  Monitor your [Chess.com](https://chess.com/) chess statistics in Home Assistant, including your ratings and game data.
 
-- **[Lorem]**, provided by [Ipsum], added by [@frenck]
+- **[Dropbox]**, added by [@bdr99]  
+  Use your [Dropbox](https://dropbox.com) account as a backup location for your Home Assistant backups.
 
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/lorem
-[Ipsum]: /integrations/ipsum
+- **[Fresh-r]**, added by [@SierraNL]  
+  Monitor your [Fresh-r](https://www.fresh-r.me/) ventilation devices in Home Assistant. Track indoor air quality, CO2 levels, and ventilation performance through the Fresh-r cloud dashboard.
+
+- **[Infrared]**, added by [@abmantis]  
+  A new entity platform that provides an abstraction layer for infrared transmitter devices, allowing integrations to send IR commands to control TVs, air conditioners, and other IR-controlled appliances.
+
+- **[Lichess]**, added by [@aryanhasgithub]  
+  Monitor your [Lichess](https://lichess.org) chess statistics in Home Assistant.
+
+- **[LoJack]**, added by [@devinslick] - launching at 🥈 silver quality  
+  Connect your [LoJack by Spireon](https://www.spireon.com/lojack/) vehicle tracking account to track the GPS location of your enrolled vehicles on the Home Assistant map.
+
+- **[OpenDisplay]**, added by [@g4bri3lDev]  
+  Control your [OpenDisplay](https://opendisplay.io/) BLE e-paper displays from Home Assistant. Devices are automatically discovered via Bluetooth, and you can send images to the display.
+
+- **[TRMNL]**, added by [@joostlek]  
+  Monitor your [TRMNL](https://usetrmnl.com/) e-paper (e-ink) displays in Home Assistant. Track battery levels and manage the display sleep schedule of your low-power e-ink devices.
+
+- **[UniFi Access]**, added by [@RaHehl]  
+  Control and monitor [Ubiquiti UniFi Access](https://ui.com/door-access) door access control devices locally from Home Assistant. Manage locks, doors, and access readers with real-time status updates over the local network.
+
+- **[WiiM]**, added by [@Linkplay2020]  
+  Integrate your [WiiM](https://www.wiimhome.com/) streamer devices with Home Assistant. Control playback, volume, and input sources on devices like the WiiM Pro and WiiM Amp, with automatic discovery via Zeroconf.
+
+[@abmantis]: https://github.com/abmantis
+[@aryanhasgithub]: https://github.com/aryanhasgithub
+[@bdr99]: https://github.com/bdr99
+[@devinslick]: https://github.com/devinslick
+[@g4bri3lDev]: https://github.com/g4bri3lDev
+[@joostlek]: https://github.com/joostlek
+[@Linkplay2020]: https://github.com/Linkplay2020
+[@mcisk]: https://github.com/mcisk
+[@mikeodr]: https://github.com/mikeodr
+[@RaHehl]: https://github.com/RaHehl
+[@SierraNL]: https://github.com/SierraNL
+[Autoskope]: /integrations/autoskope
+[Casper Glow]: /integrations/casper_glow
+[Chess.com]: /integrations/chess_com
+[Dropbox]: /integrations/dropbox
+[Fresh-r]: /integrations/freshr
+[Infrared]: /integrations/infrared
+[Lichess]: /integrations/lichess
+[LoJack]: /integrations/lojack
+[OpenDisplay]: /integrations/opendisplay
+[TRMNL]: /integrations/trmnl
+[UniFi Access]: /integrations/unifi_access
+[WiiM]: /integrations/wiim
 
 ### Noteworthy improvements to existing integrations
 
