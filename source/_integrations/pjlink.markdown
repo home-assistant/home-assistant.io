@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The **PJLink** {% term integration %} allows you to control from Home Assistant, projectors with support for the [PJLink protocol](https://pjlink.jbmia.or.jp/english/index.html).
+The **PJLink** {% term integration %} allows you to control PJLink-compatible projectors from Home Assistant using the [PJLink protocol](https://pjlink.jbmia.or.jp/english/index.html).
 
 {% include integrations/config_flow.md %}
 
