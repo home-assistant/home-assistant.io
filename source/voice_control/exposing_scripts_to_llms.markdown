@@ -3,6 +3,8 @@ title: "Exposing scripts to LLM conversation agents"
 related:
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
+  - docs: /voice_controll/voice_remote_expose_devices/
+    title: Exposing entities to Assist
 ---
 
 When using an LLM-based conversation agent (such as OpenAI, Google Generative AI, or a local model), Home Assistant scripts are not exposed as entities — they are converted into tools that the LLM can call directly. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the LLM will simply not know the script exists or when to use it.
@@ -78,9 +80,3 @@ This prevents the LLM from making up a response or treating a silent return as a
 
 Unlike exposed entities, scripts do not appear in the static context shown in the Assist **Debug** view. This is expected, because they are registered as tools, not entities. To verify that a script is available to the LLM, start a test Assist conversation, open the Assist **Debug** dialog (see [Troubleshooting Assist](/voice_control/troubleshooting/)), and check in the actions or tool calls that your script is invoked when you issue a matching voice command.
 
-## Related topics
-
-- [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/)
-- [Creating a personality with AI](/voice_control/assist_create_open_ai_personality/)
-- [Custom sentences](/voice_control/custom_sentences/)
-- [Troubleshooting Assist](/voice_control/troubleshooting/)
