@@ -57,7 +57,7 @@ Token ID:
 Token Secret:
   description: "When using API tokens: The secret generated for the API token."
 Realm:
-  description: "When using the **other** Authentication Provider: The specific realm defined in Proxmox."
+  description: "Only required when you choose the Other option for the **Authentication Provider** field: Enter the realm name as defined in Proxmox."
 {% endconfiguration_basic %}
 
 
@@ -65,11 +65,11 @@ Realm:
 
 To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication Provider** during setup, choose the matching realm.
 
-You can use any realm as long as you have a valid username and password:
+You can use any realm as long as you have valid credentials, like a username and password or an API token:
 
 - **PAM**: Reuse an existing Linux user on the Proxmox node.
 - **PVE**: Create a Proxmox-only user (recommended).
-- **Other**: LDAP, AD, OpenID Connect, or a custom realm. If you choose **Other**, you must enter the realm name manually during setup. See the __Authentication Realms__ section in the [Proxmox User Management](https://pve.proxmox.com/wiki/User_Management) documentation for details.
+- **Other**: LDAP, AD, OpenID Connect, or a custom realm. If you choose **Other**, you must enter the realm name manually during setup. See the Authentication Realms section in the [Proxmox User Management](https://pve.proxmox.com/wiki/User_Management) documentation for details.
 
 When using password authentication, Home Assistant will use the format username@realm. In the UI, you typically enter only the username portion.
 
@@ -130,18 +130,19 @@ If you plan to use the `PVE` realm, make sure you select it during user creation
 
 ### API tokens
 
-Optional: You can authenticate using an API token instead of a password. This is recommended as it allows you to grant Home Assistant only the permissions it needs.
+Optional: You can authenticate using an API token instead of a password. This is recommended because it gives you a separate, revocable credential for Home Assistant, and avoids storing your Proxmox password in Home Assistant. To limit the token to only the permissions Home Assistant needs, make sure you enable privilege separation and assign token-specific permissions.
 
 To create a token:
 
-1. Select **DataCenter**.
+1. Select **Datacenter**.
 2. Open **Permissions** and select **API tokens**.
 3. Select **Add**.
 4. Select the **User** the token will belong to.
 5. Enter a **Token ID** (for example `hass`). This is the value you will enter as **Token ID** during configuration.
-6. Choose whether to enable **Privilege Separation**
-  - Checked: you can assign specific permissions to the token.
-  - Unchecked: the token inherits all permissions of the user.
+6. Choose whether to enable **Privilege Separation**.
+
+   - Checked: you can assign specific permissions to the token.
+   - Unchecked: the token inherits all permissions of the user.
 7. (Optional) Set an **Expire** date. When the token expires, you will need to re-authenticate.
 8. Select **Add**.
 9. Copy the **Secret** shown in the dialog. It will be displayed only once, so either use it while configuring or store it safely.
@@ -178,8 +179,8 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 - **Reset**: Resets a VM; only available to VMs.
 
 {% note %}
-**Reboot** and **Shutdown** will attempt to perform a graceful action (if you have the guest agent installed). On a node this will attempt the graceful shutdown of every VM/LCX.
-**Restart** and **Stop**/**Stop all** will stop a running system immediately, i.e. pulling the power plug of a running computer.
+**Reboot** and **Shutdown** will attempt to perform a graceful action (if you have the guest agent installed). On a node this will attempt the graceful shutdown of every VM/LXC.
+**Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
 {% endnote %}
 
 ## Troubleshooting
