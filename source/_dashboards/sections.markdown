@@ -85,8 +85,8 @@ You can add a colored background to individual sections. This is a great way to 
 2. Select the edit {% icon "mdi:edit" %} button on the section you want to customize.
 3. Enable the **Background** toggle.
 4. To change the background color and opacity, expand **Background options**.
-   - Pick a color from the predefined list, or enter a custom hex color code. Select **Default** to use your theme's default background color.
-   - Use the **Opacity** slider to adjust the transparency of the background, from fully transparent (0%) to fully opaque (100%).
+   - Pick a color from the predefined list, or enter a custom hex color code.
+   - Use the **Opacity** slider to adjust the transparency of the background.
 
 ## Deleting a section
 
