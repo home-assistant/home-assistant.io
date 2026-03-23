@@ -124,7 +124,7 @@ When a network mask is provided, you must use the network address (for example, 
 {% endimportant %}
 
 {% note %}
-The `use_x_forwarded_for` and `trusted_proxies` settings only apply to traditional reverse proxies, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, these settings do not affect cloud connections. Home Assistant Cloud uses a secure tunnel that bypasses the reverse proxy header processing. As a result, connections through Home Assistant Cloud always appear as `127.0.0.1`.
+The `use_x_forwarded_for` and `trusted_proxies` settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests come in through a secure tunnel and do not include the original client IP address in `X-Forwarded-*` headers. For cloud connections, these settings do not change the detected client IP address, and all requests are shown as coming from `127.0.0.1`.
 {% endnote %}
 
 ## APIs
