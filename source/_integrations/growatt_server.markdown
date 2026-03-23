@@ -246,6 +246,10 @@ Check your current time segment settings:
 action: growatt_server.read_time_segments
 ```
 
+## Data updates
+
+The **Growatt** integration {% term polling polls %} data from the Growatt cloud every 5 minutes.
+
 ## Troubleshooting
 
 ### API token authentication shows "No plant found" error
