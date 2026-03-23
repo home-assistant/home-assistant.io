@@ -64,6 +64,7 @@ With uHoo, you can confidently make better decisions about your indoor air and s
 
 - Virus index
 - Mold index
+- Influenza index
 
 ### Data frequency
 

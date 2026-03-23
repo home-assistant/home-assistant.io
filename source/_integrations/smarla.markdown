@@ -11,7 +11,7 @@ ha_iot_class: Cloud Push
 ha_release: 2025.6
 ha_codeowners:
   - '@explicatis'
-  - '@rlint-explicatis'
+  - '@johannes-exp'
 ha_domain: smarla
 ha_integration_type: device
 ha_config_flow: true

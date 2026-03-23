@@ -1,6 +1,7 @@
 ---
 title: "Automation actions"
 description: "Automations result in action."
+toc: false
 ---
 
 The action of an automation is what is being executed when an automation fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.

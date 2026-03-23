@@ -377,6 +377,10 @@ data:
   device_id: "YOUR_SPH_DEVICE_ID"
 ```
 
+## Data updates
+
+The **Growatt** integration {% term polling polls %} data from the Growatt cloud every 5 minutes.
+
 ## Troubleshooting
 
 ### API token authentication shows "No plant found" error

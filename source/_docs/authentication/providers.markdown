@@ -22,7 +22,7 @@ If you decide to use `trusted_networks` as your `auth_provider` there won't be a
 
 {% endwarning %}
 
-Authentication providers are configured in your {% term "`configuration.yaml`" %} file under the `homeassistant:` block. 
+Authentication providers are configured in your {% term "`configuration.yaml`" %} file under the `homeassistant:` block.
 If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
 
 
@@ -138,7 +138,7 @@ Specially, you can use `group: GROUP_ID` to assign all users in certain `user gr
 
 #### Skip login page examples
 
-This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form. 
+This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form.
 
 If you allow bypass login then your cookie will not be stored and every time you refresh the page in Home Assistant a new login will be created. This is because bypassing the login does not give you the option to save the login.
 
