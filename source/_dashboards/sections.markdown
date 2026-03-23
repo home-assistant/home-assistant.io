@@ -144,11 +144,6 @@ type:
   required: false
   description: "`sections`"
   type: string
-background:
-  required: false
-  description: "Adds a colored background behind the section. Use `true` for the default color and opacity, or provide a map with `color` and `opacity` options. See [background YAML configuration](#background-yaml-configuration)."
-  type: [boolean, map]
-  default: false
 {% endconfiguration %}
 
 ## Header YAML configuration
@@ -170,28 +165,24 @@ card:
   type: map
 {% endconfiguration %}
 
-## Footer YAML configuration
+## Section YAML configuration
 
 {% configuration %}
-max_width:
+background:
   required: false
-  description: Maximum width of the footer.
-  type: integer
-  default: 600
-{% endconfiguration %}
-
-## Background YAML configuration
-
-{% configuration %}
-color:
-  required: false
-  description: "The background color. Accepts a predefined color name or a hex color code."
-  type: string
-opacity:
-  required: false
-  description: "The opacity of the background, from fully transparent to fully opaque."
-  type: integer
-  default: 50
+  description: "Adds a colored background behind the section. Use `true` for the default color and opacity, or provide a map with `color` and `opacity` options."
+  type: [boolean, map]
+  default: false
+  keys:
+    color:
+      required: false
+      description: "The background color. Accepts a predefined color name or a hex color code."
+      type: string
+    opacity:
+      required: false
+      description: "The opacity of the background, from fully transparent to fully opaque."
+      type: integer
+      default: 50
 {% endconfiguration %}
 
 ### Example
@@ -205,3 +196,13 @@ opacity:
     color: "red"
     opacity: 80
 ```
+
+## Footer YAML configuration
+
+{% configuration %}
+max_width:
+  required: false
+  description: Maximum width of the footer.
+  type: integer
+  default: 600
+{% endconfiguration %}
