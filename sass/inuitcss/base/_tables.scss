@@ -61,7 +61,7 @@ table{
 }
 th,
 td{
-    padding:$base-spacing-unit / 4;
+    padding: calc($base-spacing-unit / 4);
     @media screen and (min-width:480px){
         padding:$half-spacing-unit;
     }

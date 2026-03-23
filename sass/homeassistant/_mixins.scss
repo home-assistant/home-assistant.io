@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @mixin content-columns($columnCount, $columnGap: $gridGutterWidth) {
   -webkit-column-count: $columnCount;
      -moz-column-count: $columnCount;
@@ -34,7 +36,7 @@
           box-shadow: $shadow;
 }
 
-@mixin gradient-horizontal($startColor: $button-color, $endColor: darken($button-color, 5%)) {
+@mixin gradient-horizontal($startColor: $button-color, $endColor: color.adjust($button-color, $lightness: -5%)) {
   background-color: $endColor;
   background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
   background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
@@ -45,8 +47,8 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}', GradientType=1); // IE9 and down
 }
 
-@mixin gradient-vertical($startColor: $button-color, $endColor: darken($button-color, 5%)) {
-  background-color: mix($startColor, $endColor, 60%);
+@mixin gradient-vertical($startColor: $button-color, $endColor: color.adjust($button-color, $lightness: -5%)) {
+  background-color: color.mix($startColor, $endColor, 60%);
   background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+

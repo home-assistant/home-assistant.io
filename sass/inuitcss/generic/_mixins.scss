@@ -1,4 +1,5 @@
-@charset "UTF-8";
+@use "sass:math";
+
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
@@ -13,9 +14,9 @@
  */
 @mixin font-size($font-size, $line-height:true){
     font-size:$font-size;
-    font-size:($font-size / $base-font-size)*1rem;
+    font-size:calc(($font-size / $base-font-size)*1rem);
     @if $line-height == true{
-        line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+        line-height: math.ceil(calc($font-size / $base-line-height)) * calc(($base-line-height / $font-size));
     }
 }
 
