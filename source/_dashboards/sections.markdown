@@ -185,16 +185,18 @@ background:
       default: 50
 {% endconfiguration %}
 
-### Example
+### Examples
 
 ```yaml
 # Section with default background
-- background: true
+background: true
+```
 
+```yaml
 # Section with custom background color and opacity
-- background:
-    color: "red"
-    opacity: 80
+background:
+  color: "red"
+  opacity: 80
 ```
 
 ## Footer YAML configuration
