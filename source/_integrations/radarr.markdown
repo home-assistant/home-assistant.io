@@ -21,13 +21,19 @@ Your API key can be found in Settings > General in the Radarr Web UI.
 
 {% include integrations/config_flow.md %}
 
+## Options
+
+To change the options for Radarr, go to **Settings** > **Devices & services**. Select the **Radarr** integration, then select **Options**.
+
+- **Upcoming days**: Sets how many days ahead the calendar entity checks for upcoming movie releases. The default is `45` days. You can set this value between `1` and `365` days.
+
 ## Integration entities
 
 Each added configuration entry will create the following binary sensor:
 
 - **Health**: Shows if the Radarr instance is healthy. This is determined to have a problem if Radarr cannot communicate with any enabled download clients or no indexers are available for RSS feeds or searches.
 
-A calendar entity will also be created indicating the day of release and the type of release, such as Cinemas, Digital, or Physical.
+A calendar entity will also be created indicating the day of release and the type of release, such as Cinemas, Digital, or Physical. The calendar uses the configured **Upcoming days** value when looking ahead for the next release.
 
 Each added configuration entry will create the following sensors:
 
