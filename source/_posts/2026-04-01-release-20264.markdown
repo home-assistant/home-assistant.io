@@ -234,15 +234,111 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
-{% details "Lorem ipsum" %}
+{% details "Entity naming" %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The entity `friendly_name` attribute is now always prefixed with the device name, even when the entity has been manually renamed by you. This makes the behavior consistent: previously, only integration-assigned names included the device name prefix, while user-given names did not.
 
-([@frenck] - [#12345]) ([Lorem Ipsum documentation])
+A storage migration handles existing entities: names that already include the device name as a prefix are stripped to avoid duplication, while names that don't match the device name are preserved as an explicit alias for backward compatibility with voice assistants.
 
-[@frenck]: https://github.com/frenck
-[#12345]: https://github.com/home-assistant/core/pull/12345
-[Lorem Ipsum documentation]: /integrations/lorem_ipsum/
+([@arturpragacz] - [#162763])
+
+[@arturpragacz]: https://github.com/arturpragacz
+[#162763]: https://github.com/home-assistant/core/pull/162763
+
+{% enddetails %}
+
+{% details "JVC Projector" %}
+
+The **Picture Mode** and **HDR Processing** entities have been migrated from the sensor domain to the select domain, because they represent selectable settings rather than read-only values.
+
+New entities:
+
+- `select.jvc_projector_picture_mode`
+- `select.jvc_projector_hdr_processing`
+
+The legacy sensor entities are now deprecated. If a deprecated sensor is disabled and not referenced by automations or scripts, Home Assistant will remove it from the entity registry. If usage is detected, Home Assistant keeps it and shows a repair issue to help you migrate. Update your automations, scripts, dashboards, and templates to use the new select entities.
+
+([@SteveEasley] - [#165194]) ([JVC Projector documentation])
+
+[@SteveEasley]: https://github.com/SteveEasley
+[#165194]: https://github.com/home-assistant/core/pull/165194
+[JVC Projector documentation]: /integrations/jvc_projector/
+
+{% enddetails %}
+
+{% details "Litter-Robot" %}
+
+The deprecated night light mode switch entity for Litter-Robot 4 devices has been removed. This switch was replaced by a select entity in Home Assistant 2025.10. If you still use the old switch entity in your automations or scripts, update them to use the select entity instead.
+
+([@natekspencer] - [#165636]) ([Litter-Robot documentation])
+
+[@natekspencer]: https://github.com/natekspencer
+[#165636]: https://github.com/home-assistant/core/pull/165636
+[Litter-Robot documentation]: /integrations/litterrobot/
+
+{% enddetails %}
+
+{% details "Motion Blinds" %}
+
+On devices that support tilt but do not report a tilt position, the tilt open and tilt close operations now send jog up and jog down commands instead of setting the tilt angle to 0° or 180°. Setting an absolute tilt position usually didn't work on these devices anyway, and jog commands provide a meaningful small step in the intended direction.
+
+If you have automations that rely on the previous tilt behavior for these devices, you may need to adjust them.
+
+([@tobiaswaldvogel] - [#164694]) ([Motion Blinds documentation])
+
+[@tobiaswaldvogel]: https://github.com/tobiaswaldvogel
+[#164694]: https://github.com/home-assistant/core/pull/164694
+[Motion Blinds documentation]: /integrations/motion_blinds/
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+Support for the `object_id` option has been removed after 6 months of deprecation. This option was used to suggest the entity ID for an MQTT entity and has been replaced by the `default_entity_id` configuration option.
+
+If you used `object_id` in your MQTT YAML configuration, you were previously asked via a repair flow to update your configuration. If `object_id` is still part of a discovery message, the option will simply be ignored and will not break discovery.
+
+([@jbouwh] - [#164460]) ([MQTT documentation])
+
+[@jbouwh]: https://github.com/jbouwh
+[#164460]: https://github.com/home-assistant/core/pull/164460
+[MQTT documentation]: /integrations/mqtt/
+
+{% enddetails %}
+
+{% details "pyLoad" %}
+
+pyLoad 0.4.x is now [deprecated](https://github.com/pyload/pyload/releases/tag/v0.4.x) and users are advised to switch to pyLoad-ng 0.5.0. pyLoad-ng introduced a new API, and support for the old API has been dropped.
+
+([@tr4nt0r] - [#164495]) ([pyLoad documentation])
+
+[@tr4nt0r]: https://github.com/tr4nt0r
+[#164495]: https://github.com/home-assistant/core/pull/164495
+[pyLoad documentation]: /integrations/pyload/
+
+{% enddetails %}
+
+{% details "Tuya" %}
+
+Previously deprecated switch entities used to control valves have been removed. Use the valve entities instead. If you have automations or scripts that reference these switch entities, update them to use the corresponding valve entities.
+
+([@epenet] - [#164657]) ([Tuya documentation])
+
+[@epenet]: https://github.com/epenet
+[#164657]: https://github.com/home-assistant/core/pull/164657
+[Tuya documentation]: /integrations/tuya/
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+The Z-Wave Installer panel has been removed. This panel was hidden and required an undocumented YAML configuration to enable. The same functionality is now natively available through Z-Wave JS UI in the Z-Wave add-on.
+
+([@AlCalzone] - [#165388]) ([Z-Wave documentation])
+
+[@AlCalzone]: https://github.com/AlCalzone
+[#165388]: https://github.com/home-assistant/core/pull/165388
+[Z-Wave documentation]: /integrations/zwave_js/
 
 {% enddetails %}
 
