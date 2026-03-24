@@ -223,4 +223,4 @@ $use-greybox:       false!default;
  */
 $base-spacing-unit: $base-line-height!default;
 $half-spacing-unit: math.div($base-spacing-unit, 2)!default;
-$line-height-ratio: calc($base-line-height / $base-font-size);
+$line-height-ratio: math.div($base-line-height, $base-font-size);

@@ -1,9 +1,10 @@
 @use '../defaults' as *;
+@use "sass:math";
 /*------------------------------------*\
     $MAIN
 \*------------------------------------*/
 html{
-    font:#{calc(($base-font-size/16px)*1em)}/#{$line-height-ratio} $base-font-family;
+    font:#{math.div($base-font-size, 16px) * 1em}/#{$line-height-ratio} $base-font-family;
     overflow-y:scroll;
     min-height:100%;
 }
