@@ -45,6 +45,36 @@ Make sure to monitor the cost. If you make too many requests, you will be charge
 
 {% include integrations/config_flow.md %}
 
+
+### Configuration parameters
+
+{% configuration_basic %}
+API key:
+  description: "The API key, which is described in the prerequisites."
+HTTP Referrer:
+  description: "Optional: Specify this only if the API key has a website application restriction."
+Name:
+  description: "A name for your location, e.g. Work, Home, etc."
+Latitude:
+  description: "Latitude of your location."
+Longitude:
+  description: "Longitude of your location."
+{% endconfiguration_basic %}
+
+#### Custom local air quality index
+
+If you want to set a custom local air quality index during the setup of the integration you can do this in this optional section.
+{% configuration_basic %}
+Enable custom local AQI:
+  description: "If the custom local air quality index should be enabled."
+Country:
+  description: "The country of your location."
+Name:
+  description: "A name for your location, e.g. Work, Home, etc."
+Custom local AQI:
+  description: "The custom local air quality index."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 ### Sensor
