@@ -98,6 +98,7 @@ Enjoy the (beta) release!
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Favorite light colors on your dashboard](#favorite-light-colors-on-your-dashboard)
+  - [Gauge card redesign](#gauge-card-redesign)
   - [Auto height for cards](#auto-height-for-cards)
   - [What is an AI-powered assist thinking?](#what-is-an-ai-powered-assist-thinking)
 - [Need help? Join the community](#need-help-join-the-community)
@@ -337,6 +338,16 @@ The feature automatically shows as many of your saved favorites as can fit in th
 ![Screenshot of the light more-information dialog showing a menu with options to edit favorite colors, reset favorite colors, and copy favorites to other lights.](/images/blog/2026-04/temp-light-copy-favorite-colors.png)
 
 [@karwosts]: https://github.com/karwosts
+
+### Gauge card redesign
+
+The gauge card got a fresh new look! [@silamon] gave it a visual overhaul, bringing a more modern and polished design that fits right in with the rest of your dashboard.
+
+**TODO: Add screenshot of the redesigned gauge card**
+
+The new design keeps all the functionality you're used to, including needle mode and severity segments, while giving the card a cleaner, more refined appearance. A well-deserved refresh!
+
+[@silamon]: https://github.com/silamon
 
 ### Auto height for cards
 
