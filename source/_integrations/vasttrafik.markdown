@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `vasttrafik` {% term integration %} will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
+The **Västtrafik** {% term integration %} will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
 
 You must create an application [here](https://developer.vasttrafik.se/applications) to obtain a `key` and a `secret`. Make sure to also subscribe to the API by clicking on `Prenumerera på nytt API`, and selecting the API `Planera Resa v4`.
 

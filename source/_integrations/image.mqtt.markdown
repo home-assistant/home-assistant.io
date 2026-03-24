@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` image platform allows you to integrate the content of an image file sent through MQTT into Home Assistant as an image.
+The **MQTT Image** {% term integration %} allows you to integrate the content of an image file sent through MQTT into Home Assistant as an image.
 The `image` platform is a simplified version of the `camera` platform that only accepts images.
 Every time a message under the `image_topic` in the configuration is received, the image displayed in Home Assistant will also be updated. Messages received on `image_topic` should contain the full contents of an image file, for example, a JPEG image, without any additional encoding or metadata.
 

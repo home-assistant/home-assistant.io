@@ -16,7 +16,7 @@ ha_platforms:
   - camera
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@engrbm87'
 ---

@@ -12,7 +12,7 @@ ha_domain: sensirion_ble
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates sensors talking [Sensirion](https://sensirion.com/)'s BLE protocol into Home Assistant.

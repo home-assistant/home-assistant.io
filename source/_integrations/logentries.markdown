@@ -13,11 +13,11 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `logentries` {% term integration %} makes it possible to log all state changes to [Logentries](https://logentries.com) using Logentries Webhook endpoint.
+The **Logentries** {% term integration %} makes it possible to log all state changes to [Logentries](https://logentries.com) using Logentries Webhook endpoint.
 
 Open the **Add a Log** page and choose **Manual**. Enter a name for your log in **Log Name**, add a group in **Select Log Set**, set **Token TCP - logs are identified by a token.** and press **Create Log Token**. The generated token is required for the Home Assistant configuration.
 
-To use the `logentries` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use the **Logentries** {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

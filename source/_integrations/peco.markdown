@@ -12,7 +12,7 @@ ha_domain: peco
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 PECO is a public utility company that provides electricity to the Philadelphia metro.

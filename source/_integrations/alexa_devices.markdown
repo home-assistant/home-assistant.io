@@ -19,7 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.
@@ -37,12 +37,14 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
-
+- **Amazon Air Quality Monitor**
 - **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
 
 This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+
+You must ensure the authenticator app is setup as your preferred method for 2FA.
 
 {% endwarning %}
 
@@ -57,22 +59,15 @@ This integration requires multifactor authentication using an authentication app
     description: One-time password via Authenticator App.
 {% endconfiguration_basic %}
 
-{% note %}
-
-When trying to set up the integration, the form may show the message "Cannot connect".
-This means that the specified country may need a special setting.
-Open a issue with all details to investigate
-{% endnote %}
-
 ## Actions
 
 ### Available Actions
 
-Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`
+Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`, `alexa_devices.send_info_skill`
 
-#### Action `notify.send_message`
+### Action: Send message
 
-Devices with appropriate functionality will have speak and announce notify entities created. These can be used as the target for the `notify.send_message` action.
+The `notify.send_message` action allows you to send messages to devices with appropriate functionality that have speak and announce notify entities created.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
@@ -92,23 +87,64 @@ Amazon provide a set of [sounds you can use](https://developer.amazon.com/en-US/
 
 {% enddetails %}
 
-#### Action `alexa_devices.send_text_command`
+### Action: Send text command
 
-This action essentially allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
+The `alexa_devices.send_text_command` action allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to run action |
 | `text_command` | no | Command to send |
 
-#### Action `alexa_devices.send_sound`
+### Action: Send sound
 
-This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
+The `alexa_devices.send_sound` action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
+
+{%tip%}
+Additional sounds are available through advanced markup using the `notify.send_message` [action](#action-notifysend_message)
+{%endtip%}
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to play sound |
 | `sound` | no | The name of the sound to play |
+
+### Action: Send Info Skill
+
+The `alexa_devices.send_info_skill` action allows you to run some of the inbuilt Alexa actions that output things like the date, a weather forecast, or tell you a joke.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------------------------------------- |
+| `device_id` | no | Device on which you want to run action |
+| `info_skill` | no | The info skill you want to run |
+
+## Sensors
+
+The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
+
+### Alarm, timer, and reminder sensors
+
+All Alexa-enabled devices have timestamp sensors that show the next scheduled alarm, timer, and reminder along with their labels.
+
+### Environmental and device sensors
+
+- **Temperature**
+- **Illuminance**
+- **Wi-Fi and Bluetooth connectivity**
+
+#### Air Quality Monitor sensors
+
+- **Particulate Matter** - 10 μm & 2.5 μm
+- **Carbon Monoxide**
+- **Volatile Organic Compounds Index**
+- **Air Quality Index**
+
+## Supported functionality
+
+In addition to sensors, you can use the following entities:
+
+- **Notify** - Speak and Announce notifications
+- **Switch** - Do not disturb
 
 ## Examples
 
@@ -137,6 +173,28 @@ action: alexa_devices.send_text_command
 data:
   device_id: 037d79c1af96c67ba57ebcae560fb18e
   text_command: whats the time
+```
+
+### Set volume
+
+{% note %}
+Once media player functionality is supported you will be able to achieve this through standard media player actions.
+{% endnote %}
+
+```yaml
+action: alexa_devices.send_text_command
+data:
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  text_command: volume 7
+```
+
+### Control devices in Alexa
+
+```yaml
+action: alexa_devices.send_text_command
+data:
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  text_command: turn study lights off
 ```
 
 ### Play BBC Radio 6
@@ -188,34 +246,47 @@ target:
 
 ## Data updates
 
-This integration {% term polling polls %} data from the device every 30 seconds by default.
-
-## Supported functionality
-
-The **Alexa Devices** {% term integration %} provides the following entities:
-
-- Binary sensor - main and Bluetooth connectivity
-- Notify - Speak and Announce notifications
-- Sensor - temperature and illuminance sensors
-- Switch - Do not disturb
+This integration {% term polling polls %} data from the device every five minutes by default.
 
 ## Known limitations
 
-This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+- This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+- Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
+- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
 
 ## Troubleshooting
 
-### Can’t set up the integration
+### Unable to setup
 
-#### Symptom: "Not found"
-
-When trying to set up the integration, the form shows the message "Not found".
+#### Symptom: "CannotAuthenticate"
 
 ##### Description
 
-This appears to indicate that your Alexa devices aren't owned by you, but are connected through Amazon Family.
-This setup isn't supported by the Alexa Mobile app, so it's not supported by this integration.
-Move the devices to your primary account.
+You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration.   This is because the authentication details are incorrect.
+
+You need to ensure you are:
+
+- using the right credentials (The ones you would use to log in to the Alexa app and Amazon shopping site)
+- set up to use app based 2FA
+- not set up to receive SMS 2FA codes
+
+To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you are able to log in successfully.
+
+### Sensors unavailable
+
+#### Symptom: "Too many requests"
+
+You see something similar to
+
+- `Error retrieving devices state: Too many requests for path ['listEndpoints']`
+- `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
+- `Failed to obtain notification data.  Timers and alarms have not been updated`
+
+In logs.
+
+##### Description
+
+This happens because of rate limits applied by Amazon. We are working to reduce these errors. If these errors are causing you issues, you can disable polling for the integration. Disabling polling will stop these errors, but it will also stop DND, sensors, and connectivity from being updated. However, speech, announcements, and text commands will continue to work.
 
 ## Removing the integration
 

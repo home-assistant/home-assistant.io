@@ -34,7 +34,7 @@ If possible, provide the latest release of which you know that the integration o
 
 ## Operating environment
 
-There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System, Home Assistant Supervised, Home Assistant Core in Docker, or a manual installation of the Home Assistant Core. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
+There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System or Home Assistant Container in Docker. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
 
 ## Integration
 

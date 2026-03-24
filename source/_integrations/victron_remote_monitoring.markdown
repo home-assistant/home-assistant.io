@@ -22,7 +22,7 @@ related:
 ha_quality_scale: bronze
 ---
 
-The Victron Remote Monitoring (VRM) {% term integration %} pulls site statistics, solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
+The **Victron Remote Monitoring** (VRM) {% term integration %} pulls site statistics, solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
 
 ## Prerequisites
 
@@ -78,6 +78,24 @@ The <abbr title="Victron Remote Monitoring">VRM</abbr> integration fetches fresh
 - Peak consumption time — Yesterday
 - Peak consumption time — Today
 - Peak consumption time — Tomorrow
+
+## Adding Victron Remote Monitoring to the Energy dashboard
+
+Solar production forecasts can be added to the built-in [Energy dashboard](/docs/energy/) to visualize expected solar production alongside your actual energy data.
+
+### Prerequisites 
+
+- You must first add your solar panels to the Energy dashboard. 
+   - If you have not already done so, follow the instructions in the [Energy dashboard documentation](/docs/energy/) to add your solar panels.
+
+### To add Victron Remote Monitoring to the Energy dashboard
+
+1. Go to {% my energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. In the **Solar panels** section, edit your solar panels and enable the **Forecast production** option.
+3. Select the desired Victron Remote Monitoring installation from the list of available forecast providers.
+4. Select **Save**. 
+   - No additional parameters are required. The integration retrieves the forecast from your VRM data.
+   - **Result**: The forecast will now appear in your Energy dashboard's solar production graph.
 
 ## Troubleshooting
 

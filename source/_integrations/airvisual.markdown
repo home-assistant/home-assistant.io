@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude or city/state/country.
+The **AirVisual Cloud** integration queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude or city/state/country.
 
 ## Using the AirVisual Cloud API
 

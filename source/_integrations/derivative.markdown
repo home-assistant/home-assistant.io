@@ -21,7 +21,7 @@ ha_integration_type: helper
 ha_quality_scale: internal
 ---
 
-The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) integration creates a sensor that estimates the derivative of the
+The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) {% term integration %} creates a sensor that estimates the derivative of the
 values provided by another sensor (the **source sensor**). Derivative sensors are updated upon changes of the **source sensor**.
 
 For sensors that reset to zero after a power interruption and need a "non-negative derivative", such as bandwidth counters in routers, or rain gauges, you can now use this integration directly. Ensure that the input sensor has a `total_increasing` state class, as this is necessary for the integration to handle resets correctly without registering significant changes in the derivative sensor.
@@ -67,6 +67,10 @@ name:
   required: false
   default: source entity ID derivative
   type: string
+unique_id:
+  description: An ID that uniquely identifies the derivative sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string  
 round:
   description: Round the calculated derivative value to at most N decimal places.
   required: false

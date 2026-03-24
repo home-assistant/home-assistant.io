@@ -42,7 +42,7 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
@@ -54,6 +54,13 @@ Host:
     description: "The Hostname or IP address of your Shelly device. You can find it in your router."
 Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Bluetooth scanner mode:
+  description: "The scanner mode to use for Bluetooth scanning. Bluetooth scanning can be active or passive. With active, the Shelly requests data from nearby devices. With passive, the Shelly receives unsolicited data from nearby devices."
 {% endconfiguration_basic %}
 
 ## Shelly device generations
@@ -121,8 +128,6 @@ Shelly devices do **not** support proxying active (GATT) connections.
 
 For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
-{% include integrations/option_flow.md %}
-
 ## Range Extender Support
 
 Shelly generation 2+ devices that are not battery-powered can act as a Range Extender.
@@ -180,7 +185,7 @@ The integration creates a sub-device for every relay (channel) and uses the foll
 - If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
 - If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
 - If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
-- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this ddefault channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this default channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
 
 Examples:
 
@@ -253,7 +258,7 @@ Also, some devices do not add an entity for the button/switch. For example, the 
 
 ### Listening for events
 
-You can subscribe to the `shelly.click` event type in [Developer Tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
+You can subscribe to the `shelly.click` event type in [Developer tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
 
 ```json
 Event 0 fired 9:53 AM:
@@ -381,6 +386,58 @@ Trigger reboot of device.
 - Reboot
   - triggers the reboot
 
+## Actions
+
+The integration provides the following actions for non-sleeping Gen2+ devices:
+
+### Action: Get KVS value
+
+The `shelly.get_kvs_value` action is used to get a value from the device's Key-Value Storage. The retrieved value can be text, a number, a boolean, a null value, a dictionary, or a list.
+
+- **Data attribute**: `device_id`
+  - **Description**: The ID of the Shelly device to get the KVS value from.
+  - **Optional**: No
+- **Data attribute**: `key`
+  - **Description**: The name of the key for which the KVS value will be retrieved.
+  - **Optional**: No
+
+### Action: Set KVS value
+
+The `shelly.set_kvs_value` action is used to set a value in the device's Key-Value Storage.
+
+- **Data attribute**: `device_id`
+  - **Description**: The ID of the Shelly device to set the KVS value.
+  - **Optional**: No
+- **Data attribute**: `key`
+  - **Description**: The name of the key under which the KVS value will be stored.
+  - **Optional**: No
+- **Data attribute**: `value`
+  - **Description**: Value to set. The value can be text, a number, a boolean, a null value, a dictionary, or a list.
+  - **Optional**: No
+
+### Example: Creating a sensor for the KVS value
+
+The following example creates a temperature sensor that will retrieve a temperature value from the KVS for the key `my_temperature_value` every 10 minutes.
+
+```yaml
+# Example configuration.yaml entry
+template:
+  - trigger:
+      - platform: time_pattern
+        minutes: /10
+    action:
+      - action: shelly.get_kvs_value
+        data:
+          device_id: e4c0e031f68a8fbe08c50eda5e189a70
+          key: my_temperature_value
+        response_variable: temperature_variable
+    sensor:
+      - name: My temperature
+        state: "{{ temperature_variable.value }}"
+        unit_of_measurement: °C
+        device_class: temperature
+```
+
 ## Shelly Thermostatic Radiator Valve (TRV)
 
 Shelly TRV generates 2 entities that can be used to control the device behavior: `climate` and `number`.
@@ -431,6 +488,12 @@ For each device script, the integration creates a `switch` entity that allows yo
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
 Please check from the device Web UI that the configured server is reachable.
+
+## Troubleshooting
+
+1. [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#enabling-debug-logging).
+2. Take necessary steps/actions to replicate the issue.
+3. [Disable debug logging and download logs](https://www.home-assistant.io/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
 
 ## Known issues and limitations
 

@@ -15,11 +15,12 @@ ha_codeowners:
 ha_domain: snoo
 ha_platforms:
   - binary_sensor
+  - button
   - event
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

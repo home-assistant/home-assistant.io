@@ -4,15 +4,17 @@ description: Instructions on how to integrate Lunatone REST API devices with Hom
 ha_category:
   - Hub
   - Light
-ha_release: 2025.10
+ha_release: 2025.11
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@MoonDevLT'
 ha_domain: lunatone
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - light
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API.

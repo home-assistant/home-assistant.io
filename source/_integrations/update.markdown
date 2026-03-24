@@ -63,10 +63,9 @@ The following device classes are supported for update entities:
 The update {% term entity %} exposes two actions that can be used to install or skip
 an offered software update.
 
-### Action {% my developer_call_service service="update.install" %}
+### Action: Install
 
-The {% my developer_call_service service="update.install" %} action can be used
-to install an offered update to the device or service.
+The `update.install` action can be used to install an offered update to the device or service.
 
 This action is only available for an update {% term entity %} if an {% term integration %} provides
 this capability. Additionally, if allowed by the {% term integration %}, the action
@@ -93,10 +92,9 @@ target:
     - update.my_light_bulb
 ```
 
-### Action {% my developer_call_service service="update.skip" %}
+### Action: Skip
 
-The {% my developer_call_service service="update.skip" %} action can be used
-to skip an offered update to the device or service.
+The `update.skip` action can be used to skip an offered update to the device or service.
 
 After skipping an offered update, the {% term entity %} will return to the `off` state,
 which means there is no update available.
@@ -112,11 +110,9 @@ Even if an update is skipped and shows as `off` (meaning no update), if there
 is a newer version available, calling the `update.install` action on the entity
 will still install the latest version.
 
-### Action {% my developer_call_service service="update.clear_skipped" %}
+### Action: Clear skipped
 
-The {% my developer_call_service service="update.clear_skipped" %} action can
-be used to remove skipped version marker of a previously skipped an offered
-update to the device or service.
+The `update.clear_skipped` action can be used to remove the skipped version marker of a previously skipped offered update to the device or service.
 
 After skipping an offered update, the {% term entity %} will return to the `off` state,
 but will not return to it until a newer version becomes available again.

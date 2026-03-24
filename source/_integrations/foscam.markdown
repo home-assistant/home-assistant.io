@@ -13,10 +13,10 @@ ha_platforms:
   - camera
   - number
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
+The **Foscam** {% term integration %} allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -224,4 +224,4 @@ elements:
 
 ### Extra CGI Commands
 
-Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.foscam.es/descarga/Foscam-IPCamera-CGI-User-Guide-AllPlatforms-2015.11.06.pdf)).
+Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://community.jeedom.com/uploads/short-url/2A5aSBcCyoVZOdpiFC8HRDAOxqG.pdf)).
