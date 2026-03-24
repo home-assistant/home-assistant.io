@@ -94,7 +94,7 @@ due_date_period:
 
 ## Options for due date period
 
-Due date filtering can be configured in 2 different ways:
+Due date filtering can be configured with a calendar object:
 
 ### Calendar
 
@@ -132,26 +132,16 @@ due_date_period:
     offset: 1
 ```
 
-### Rolling window
-
-{% configuration %}
-offset:
-  required: true
-  description: A dictionary that defines how far into the future to show due tasks. Set the time period by adding duration keys under `offset`, like `days` or `hours`.
-  type: map
-{% endconfiguration %}
-
-Example, show all tasks due less than 10 days from now:
+Example, show all tasks due in the next 7 days:
 
 ```yaml
 type: todo-list
 entity: todo.todo_list
 due_date_period:
-  rolling_window:
-    offset:
-      days: 10
+  calendar:
+    period: day
+    offset: 7
 ```
-
 
 ## Examples
 
