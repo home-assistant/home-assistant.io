@@ -124,7 +124,9 @@ When a network mask is provided, you must use the network address (for example, 
 {% endimportant %}
 
 {% note %}
-The `use_x_forwarded_for` and `trusted_proxies` settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests come in through a secure tunnel and do not include the original client IP address in `X-Forwarded-*` headers. For cloud connections, these settings do not change the detected client IP address, and all requests are shown as coming from `127.0.0.1`.
+
+The `use_x_forwarded_for` and `trusted_proxies` settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel without `X-Forwarded-*` headers containing the original client IP address. For cloud connections, these settings have no effect, and all requests appear as coming from `127.0.0.1`.
+
 {% endnote %}
 
 ## APIs
@@ -146,7 +148,9 @@ All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistates
 If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
 
 {% note %}
-If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Be cautious when using IP banning together with Home Assistant Cloud, as banning `127.0.0.1` would block all cloud connections.
+
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Banning `127.0.0.1` would block _all_ cloud connections.
+
 {% endnote %}
 
 ```yaml
