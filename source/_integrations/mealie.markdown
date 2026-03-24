@@ -57,7 +57,7 @@ Verify SSL certificate:
 
 ## Available calendars
 
-The integration will create a calendar for every type of meal plan, which are updated once an hour:
+The integration will create a {% term calendar %} for every type of meal plan, which are updated once an hour:
 
 - Breakfast
 - Lunch

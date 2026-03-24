@@ -29,7 +29,7 @@ ha_platforms:
   - siren
   - switch
   - valve
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.

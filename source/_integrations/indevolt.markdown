@@ -7,11 +7,16 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@xirt'
+  - '@xirtnl'
 ha_platforms:
+  - number
+  - select
   - sensor
+  - switch
 ha_domain: indevolt
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: bronze
+ha_config_flow: true
 ---
 
 The Indevolt {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
@@ -29,9 +34,11 @@ The integration supports the following devices:
 
 ## Prerequisites
 
+<!-- textlint-disable capitalize -->
 1. Connect your Indevolt device and Home Assistant to the same local network.
 2. Ensure the Indevolt device is powered on and has acquired a network IP address. You can get the IP from the app or from your router.
-3. Enable the device's API through the app.
+3. In the Indevolt app, enable the **Local API** and set the protocol to `http`.
+<!-- textlint-disable capitalize -->
 
 {% include integrations/config_flow.md %}
 
@@ -40,6 +47,7 @@ Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
 
 {% endconfiguration_basic %}
+
 
 The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
 
@@ -99,6 +107,7 @@ All Generation 1 sensors, plus:
 
 In addition to the read-only sensors listed above, the Indevolt integration also exposes the following configurable entities for supported Generation 2 devices. You can change these settings from Home Assistant, and they are applied directly to your device.
 
+- Energy mode: Configure battery and energy management strategy (select)
 - Discharge limit: Set the minimum battery level (emergency power/SOC, %)
 - Max AC output power: Configure maximum discharge power (W)
 - Inverter input limit: Set maximum PV input power (W)
@@ -113,6 +122,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 
 ## Known limitations
 
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
 

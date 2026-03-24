@@ -112,7 +112,7 @@ There are multiple ways to download your local backup from your Home Assistant i
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
-   - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
+   - Result: The selected backup is stored in the **Downloads** folder of your computer.
 4. If a backup is stored on multiple locations, you can select where you download it from:
    - Select the backup, and under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 

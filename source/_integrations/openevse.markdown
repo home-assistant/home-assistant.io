@@ -17,7 +17,7 @@ ha_platforms:
   - number
   - sensor
 ha_integration_type: device
-ha_quality_scale: legacy
+ha_quality_scale: bronze
 ---
 
 The **OpenEVSE** {% term integration %} allows you to monitor your [OpenEVSE](https://openevse.com/) electric vehicle charging station equipped with ESP8266/ESP32-based Wi-Fi connectivity.

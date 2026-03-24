@@ -997,6 +997,33 @@ section#hero .bg-gradient {
   height: calc(100% + var(--sticky-header-height));
 }
 
+section#hero .wrapper.tall {
+  position: static;
+}
+
+section#hero .logos {
+  min-width: 320px;
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(20px);
+}
+
+section#hero .logos img {
+  border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  section#hero .logos {
+    bottom: 34px;
+  }
+}
+
 .vpe-main .bg-gradient .grid:before {
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.075) 1px, transparent 1px),
@@ -2846,6 +2873,7 @@ section#hero .bg-gradient {
 .vpe-main #pricing .wrapper.outer {
   max-width: 2160px;
   overflow: hidden;
+  border-radius: 0;
 }
 
 .vpe-main #pricing .image-overlay {
@@ -2897,6 +2925,131 @@ section#hero .bg-gradient {
 .vpe-main #pricing .image-overlay .wrapper .button {
   --grid-width: 4;
   margin: 0;
+}
+
+section#collaboration {
+  max-width: 2160px;
+  transition: border-radius 0.5s;
+  border-radius: 0 0 var(--wrapper-radius) var(--wrapper-radius);
+  margin: 0 auto;
+  background-color: #00DAF5;
+  padding-top: 0;
+  margin-top: calc(var(--grid-m) * -1);
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  section#collaboration {
+    padding-bottom: calc(var(--grid-m) * 2);
+  }
+}
+
+section#collaboration .container {
+  position: relative;
+  z-index: 1;
+}
+
+section#collaboration .collaboration-card {
+  width: calc((var(--columns) * (var(--grid-m) * 2)));
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #000;
+  background-image: url('/images/voice-pe/collaboration/collaboration-bg--mobile.webp');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 40px 20px 0;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card {
+    max-width: 1120px;
+    background-image: url('/images/voice-pe/collaboration/collaboration-bg--desktop.webp');
+    background-position: 30% center;
+    background-size: cover;
+    justify-content: center;
+    min-height: 440px;
+    padding: 38px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  section#collaboration .collaboration-card {
+    min-height: 360px;
+    background-position: left center;
+  }
+}
+
+section#collaboration .collaboration-card h3 {
+  text-transform: none;
+  text-wrap: balance;
+  font-size: 24px;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card h3 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+}
+
+section#collaboration .collaboration-card .partner {
+  font-weight: 300;
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card .partner {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+}
+
+section#collaboration .collaboration-card .partner img {
+  height: 25px;
+  border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card .partner img {
+    height: 30px;
+  }
+}
+
+section#collaboration .collaboration-card .collaboration-card-inner {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card .collaboration-card-inner {
+    gap: 18px;
+    width: calc(7 / 12 * 100%);
+  }
+}
+
+@media (min-width: 1200px) {
+  section#collaboration .collaboration-card .collaboration-card-inner {
+    width: calc(6 / 12 * 100%);
+  }
+}
+
+section#collaboration .collaboration-card .collaboration-card-inner p {
+  font-size: 16px;
 }
 
 .vpe-main #controls {
@@ -5777,5 +5930,29 @@ section#hero .bg-gradient {
 
   80% {
     height: 5px;
+  }
+}
+
+.nc-collaboration {
+    /* position: absolute; */
+}
+
+.nc-collaboration.mobile {
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .nc-collaboration.mobile {
+    display: none;
+  }
+}
+
+.nc-collaboration.desktop {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .nc-collaboration.desktop {
+    display: block;
   }
 }
