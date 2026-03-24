@@ -1,17 +1,19 @@
 ---
 title: Solarman
 description: Instructions on how to integrate your Solarman device with Home Assistant.
-ha_release: 2025.8
+ha_release: 2026.4
 ha_category:
   - Energy
+  - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@solarmanpv'
 ha_platforms:
   - sensor
-  - switch
 ha_domain: solarman
-ha_integration_type: integration
+ha_integration_type: device
+ha_zeroconf: true
+ha_quality_scale: bronze
 ---
 
 The Solarman {% term integration %} enables direct local communication between Home Assistant and your [Solarman](https://www.solarmanpv.com/) devices. This solution provides real-time monitoring of energy production and consumption while enabling device control, all through secure local communication.
@@ -42,9 +44,6 @@ Currently, the integration supports the following devices:
 Host:
   description: "The IP address of your device. You can find it in your router or in the app."
 Port:
-  description: "The TCP port of the device, 8080 by default."
-Scan Interval:
-  description: "The polling interval in seconds."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -104,7 +103,7 @@ The MR1-D5-W/MR1-D5-WR provides the following sensors:
 
 ## Data updates
 
-The **Solarman integration** integration {% term polling polls %} data from the device every 30 seconds by default. You can define it by changing Scan Interval during integration setup.
+The **Solarman integration** integration {% term polling polls %} data from the device every 30 seconds.
 
 ## Known limitations
 
