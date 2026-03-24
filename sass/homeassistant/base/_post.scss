@@ -56,10 +56,9 @@ article {
     list-style-type: none;
     margin: 0;
     display: inline;
-    > li {
-      display: inline;
-    }
+
     li {
+      display: inline;
       margin-right: 2px;
       &::after {
         content: ",";
