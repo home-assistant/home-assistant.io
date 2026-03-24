@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Heatit joins Works with Home Assistant"
-description: "Heatit joins the Works with Home Assistant program! Explore their Z-Wave heating and safety solutions designed to keep your home warm and locally controlled."
+description: "Explore their Z-Wave heating and safety solutions designed to keep your home warm and locally controlled."
 date: 2026-03-24 00:00:01
 date_formatted: "March 24, 2026"
 author: Miranda Bishop
