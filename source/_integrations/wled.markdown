@@ -196,7 +196,7 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - There is no segment master control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
 
-- Only the primary color of a segment can be set through the integration. The secondary and tertiary colors that many WLED effects use cannot be controlled from Home Assistant. To change them, use the WLED web interface or the WLED API directly.
+- Only the primary color of a segment can be set through the integration. The secondary and tertiary colors that many WLED effects use cannot be controlled directly from Home Assistant. The workaround is to configure those colors in the WLED app or web interface, save the configuration as a preset, and then activate that preset from Home Assistant — the preset restores all colors, including secondary and tertiary.
 
 ## Supported devices
 
