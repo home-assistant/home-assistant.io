@@ -15,7 +15,7 @@ ha_bluetooth: true
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.
@@ -54,3 +54,7 @@ Sensor entities added to Home Assistant, depending on the device model:
 - VOC
 - Co2
 - Battery
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}

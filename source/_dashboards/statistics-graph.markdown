@@ -8,13 +8,15 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The statistics graph card allows you to display a graph of statistics data for each of the entities listed.
 
 <p class='img'>
 <img src='/images/dashboards/statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
-Screenshot of the statistics graph card with none metered entities and `chart_type` `line`.
+Screenshot of the statistics graph card with no metered entities and `chart_type` `line`.
 </p>
 
 <p class='img'>
@@ -62,7 +64,7 @@ title:
   type: string
 period:
   required: false
-  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week` or `month`. If `energy_date_selection` is true, and `period` is not defined, the chart period will auto-select between month/day/hour based on the selected date range.
+  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week`, `month` or `year`. If `energy_date_selection` is true, and `period` is not defined, the chart period will auto-select between month/day/hour based on the selected date range.
   type: string  
 hide_legend:
   required: false
@@ -114,8 +116,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 {% endconfiguration %}
 
 ### Example

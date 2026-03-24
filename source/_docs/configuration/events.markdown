@@ -27,7 +27,7 @@ All events share these basic fields.
 | Field        | Description                                                                                                                                  |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `event_type` | Type of the event. Example: `call_service`.                                                                                                  |
-| `origin`     | Origin of the event. `REMOTE` (coming in from the API, e.g. a webhook) or `LOCAL` (everything else).                                         |
+| `origin`     | Origin of the event. `REMOTE` (coming in from the API, such as a webhook) or `LOCAL` (everything else).                                         |
 | `time_fired` | When the event was fired. Example: `2022-01-28T12:19:53.736380+00:00`.                                                                       |
 | `context`    | Dictionary with the [context](https://data.home-assistant.io/docs/context/). Example: `{ 'id': '123', "parent_id": null, 'user_id': 'abc'}`. |
 
@@ -37,7 +37,7 @@ In addition, all events contain a `data` dictionary with event-specific informat
 
 ### `call_service`
 
-This event is fired when an service action is performed
+This event is fired when a service action is performed
 
 | Field             | Description                                                            |
 | ----------------- | ---------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ This event is fired when an service action is performed
 
 This event is fired when a new integration has been loaded and initialized.
 
-Please note that while this event is fired for each loaded integration during Home Assistant startup, the automation engine of Home Assistant is started last. Thus this event can not be used to run automations during startup as it would have missed these events.
+Please note that while this event is fired for each loaded integration during Home Assistant startup, the automation engine of Home Assistant is started last. Thus, this event can not be used to run automations during startup as it would have missed these events.
 
 | Field       | Description                                                                 |
 | ----------- | --------------------------------------------------------------------------- |

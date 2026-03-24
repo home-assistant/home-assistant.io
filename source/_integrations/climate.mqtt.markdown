@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: mqtt
 ---
 
-The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
+The **MQTT climate** {% term integration %} lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
@@ -184,6 +184,10 @@ fan_modes:
   required: false
   default: ['auto', 'low', 'medium', 'high']
   type: list
+group:
+  description: A list of unique IDs of the member climate entities. Set this if the climate entity represents a climate group.
+  required: false
+  type: list
 initial:
   description: Set the initial target temperature. The default value depends on the temperature unit and will be 21° or 69.8°F.
   required: false
@@ -201,7 +205,7 @@ json_attributes_topic:
   required: false
   type: string
 max_humidity:
-  description: The minimum target humidity percentage that can be set.
+  description: The maximum target humidity percentage that can be set.
   required: false
   type: float
   default: 99
@@ -210,7 +214,7 @@ max_temp:
   type: float
   required: false
 min_humidity:
-  description: The maximum target humidity percentage that can be set.
+  description: The minimum target humidity percentage that can be set.
   required: false
   type: float
   default: 30

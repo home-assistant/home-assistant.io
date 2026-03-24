@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The statistic card allows you to display a statistical value for an entity.
@@ -32,7 +34,7 @@ type:
   type: string
 entity:
   required: true
-  description: "A entity ID of a sensor with statistics, or an external statistic id"
+  description: "An entity ID of a sensor with statistics, or an external statistic id"
   type: string
 stat_type:
   required: true
@@ -40,8 +42,8 @@ stat_type:
   type: string
 name:
   required: false
-  description: Name of entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name.
 icon:
   required: false

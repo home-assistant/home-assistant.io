@@ -36,7 +36,7 @@ An {% term automation %} can be triggered by an {% term event %}, a certain {% t
 
 ## Trigger ID
 
-All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
+All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (such as several triggers of different types that should all turn some entity on).
 
 ### Video tutorial
 
@@ -215,7 +215,7 @@ Fires when the numeric value of an entity's state (or attribute's value if using
 
 {% note %}
 Crossing the threshold means that the trigger only fires if the state wasn't previously within the threshold.
-If the current state of your entity is `50` and you set the threshold to `below: 75`, the trigger would not fire if the state changed to e.g. `49` or `72` because the threshold was never crossed. The state would first have to change to e.g. `76` and then to e.g. `74` for the trigger to fire.
+If the current state of your entity is `50` and you set the threshold to `below: 75`, the trigger would not fire if the state changed to `49` or `72` because the threshold was never crossed. The state would first have to change to `76` and then to `74` for the trigger to fire.
 {% endnote %}
 
 {% raw %}
@@ -369,7 +369,7 @@ In general, the state trigger fires when the state of any of given entities **ch
   - If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
 
 {% tip %}
-The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Developer Tools** > **States**" %}.
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
 {% endtip %}
 
 ### Examples
@@ -417,7 +417,7 @@ automation:
       to:
 ```
 
-If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
+If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counterparts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
 
 ```yaml
 automation:
@@ -483,7 +483,7 @@ don't cancel the hold time.
 You can also fire the trigger when the state value changed from a specific
 state, but hasn't returned to that state value for the specified time.
 
-This can be useful, e.g., checking if a media player hasn't turned "off" for
+This can be useful for checking if a media player hasn't turned "off" for
 the time specified, but doesn't care about "playing" or "paused".
 
 ```yaml
@@ -544,9 +544,9 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser from 
 
 ### Sunset / Sunrise trigger
 
-Fires when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
+Fires when the sun is setting or rising—that is, when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
+An optional time offset can be given to have it fire a set time before or after the sun event (for example, 45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
 
 {% tip %}
 Since the duration of twilight is different throughout the year, it is recommended to use [sun elevation triggers][sun_elevation_trigger] instead of `sunset` or `sunrise` with a time offset to trigger automations during dusk or dawn.
@@ -602,7 +602,7 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ## Tag trigger
 
-Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+Fires when a [tag](/integrations/tag) is scanned. For example, an NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
 ```yaml
@@ -922,7 +922,7 @@ automation:
 
 ## Time pattern trigger
 
-With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
+With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value.
 
 ```yaml
 automation:
@@ -970,7 +970,7 @@ See the [Persistent Notification](/integrations/persistent_notification/) integr
 Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/configuration/templating/#limited-templates).
 
 {% note %}
-The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incomming webhook triggers.
+The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
 {% endnote %}
 
 ```yaml
@@ -996,9 +996,9 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
+Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
 
-By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
+By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
 
 Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
@@ -1008,7 +1008,7 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are also available in the template as `trigger.query`.
 
-Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, e.g.:
+Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, for example:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
@@ -1071,7 +1071,7 @@ Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts o
 for much more flexible automations than using the Calendar entity state which only supports a single
 event start at a time.
 
-An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).
+An optional time offset can be given to have it fire a set time before or after the calendar event (such as 5 minutes before event start).
 
 ```yaml
 automation:

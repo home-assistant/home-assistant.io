@@ -13,10 +13,10 @@ ha_domain: picnic
 ha_platforms:
   - sensor
   - todo
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Picnic integration allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
+The **Picnic** {% term integration %} allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
 
 {% include integrations/config_flow.md %}
 
@@ -46,7 +46,7 @@ This integration provides the following sensors. Some sensors are disabled by de
 
  ## Shopping cart
 
-This integration provides a list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance. 
+This integration provides a list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance.
 
 You can add products to your shopping cart by entering a name in the **Add item** field. Just like with the [`picnic.add_product`](#action-picnicadd_product) action, a search will be done and the first item found will be added.
 
@@ -56,7 +56,7 @@ You can add products to your shopping cart by entering a name in the **Add item*
 
 Add a product to your cart using the `picnic.add_product` action, either using a product ID or a product name.
 A search will be done and the first result will be added to the cart when one adds a product using a product name.
-The action will fail when no product can be found, or when no `product_id` or `product_name` is specified. 
+The action will fail when no product can be found, or when no `product_id` or `product_name` is specified.
 
 | Data attribute | Optional | Description                                                                      |
 |------------------------|----------|----------------------------------------------------------------------------------|

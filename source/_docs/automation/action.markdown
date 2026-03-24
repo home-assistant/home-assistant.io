@@ -1,6 +1,7 @@
 ---
 title: "Automation actions"
 description: "Automations result in action."
+toc: false
 ---
 
 The action of an automation is what is being executed when an automation fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.
@@ -50,6 +51,8 @@ automation 2:
 
 Conditions can also be part of an action. You can combine multiple actions and conditions in a single action, and they will be processed in the order you put them in. If the result of a condition is false, the action will stop there so any action after that condition will not be executed.
 
+{% raw %}
+
 ```yaml
 automation:
 - alias: "Office at evening"
@@ -73,4 +76,11 @@ automation:
     - action: scene.turn_on
       target:
         entity_id: scene.office_at_evening
+    - action: light.turn_on
+      target: "{{ {'entity_id': ['light.office', 'light.office_2']} }}"
+    - action: switch.turn_on
+      target:
+        label_id: "{{ ['office_evening', 'office_after_15'] }}"
 ```
+
+{% endraw %}

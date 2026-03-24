@@ -6,7 +6,7 @@ installation_name: "Operating System"
 related:
   - docs: /docs/configuration/
 ---
-This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific add-ons or topics listed here.
+This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific apps (formerly known as add-ons) or topics listed here.
 
 {% include common-tasks/file_access.md %}
 
@@ -31,7 +31,7 @@ If you have the {% term "Home Assistant Operating System" %} installed, you rece
 - {% term "Home Assistant Operating System" %}
 - {% term "Home Assistant Supervisor" %}
 - {% term "Home Assistant Core" %}
-- {% term "Add-ons" %}, if you have any installed
+- {% term "Apps" %}, if you have any installed
 
 Each of these components needs to be updated separately.
 
@@ -55,7 +55,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
     1. Open the **Settings** panel.
     2. On the top you will be presented with an update notification.
-       - **Troubleshooting**: If you do not see that notification:
+       - Troubleshooting: If you do not see that notification:
          - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
          - Go to {% my updates title="**System** > **Updates**" %}.
            - Select the update notification.
@@ -116,14 +116,40 @@ Alternatively, if the Operating Systems runs on a platform that uses the GRUB bo
 
 To see which version your system is running, go to {% my info title="**Settings** > **About**" %}.
 
-{% include common-tasks/specific_version.md %}
+### Feature preview
+
+If you want to preview upcoming features, you can enable preview under {% my labs title="**Settings** > **System** > **Labs**" %}.
+
+**Labs** allows you to preview selected features that are stable but are still being fine-tuned. Preview is different from installing a beta or development version, which are used for development and testing.
+
+For more information, refer to the [Labs documentation](/integrations/labs).
+
 {% include common-tasks/beta_version.md %}
 {% include common-tasks/development_version.md %}
+{% include common-tasks/specific_version.md %}
 
 {% include common-tasks/data_disk.md %}
 
 <!-- Accessing Home Assistant from the commandline-->
 {% include common-tasks/commandline.md %}
+
+## Enable duplicate log file
+
+By default, Home Assistant Core logs are sent to the Systemd Journal, which can be read using the [`ha core logs` command](/common-tasks/os/#home-assistant-via-the-command-line). If you need logs to also be written to a file (`/config/home-assistant.log`), you can enable the duplicated log file option using the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
+
+```bash
+ha core options --duplicate-log-file=true
+ha core rebuild
+ha core restart
+```
+
+To disable it:
+
+```bash
+ha core options --duplicate-log-file=false
+ha core rebuild
+ha core restart
+```
 
 <!-- Enabling i2c-->
 {% include common-tasks/enable_i2c.md %}

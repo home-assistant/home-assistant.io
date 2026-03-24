@@ -10,7 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: sleep_as_android
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
   - event
@@ -209,7 +209,7 @@ Thanks to the **Home Assistant Companion App for Android**, which supports [broa
 
 To make this even easier, you can import the following blueprint. It supports nearly all Sleep as Android actions, so you can automate your sleep routine without writing any custom scripts:
 
-{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/sleep-as-android-trigger-app-actions/920845" %}
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/sleep_as_android_trigger_app_actions.yaml" %}
 
 ## Data updates
 

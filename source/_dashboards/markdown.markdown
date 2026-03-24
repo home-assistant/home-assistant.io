@@ -60,9 +60,21 @@ show_empty:
   type: boolean
 text_only:
   required: false
-  description: Display the card without border, background, padding and title. 
+  description: Display the card without border, background, padding and title.
   default: false
   type: boolean
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
 ### Example
@@ -136,7 +148,7 @@ content: |
 
 ## ha-alert
 
-You can also use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
+You can also use our [`ha-alert`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
 
 Example:
 
@@ -183,4 +195,35 @@ content: >-
 
   <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
   center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
+```
+
+## Presentation Tables
+
+HTML tables with `role="presentation"` receive special styling optimized for layout purposes rather than data display. These tables are useful for creating structured layouts with icons, status information, and formatted content.
+
+### Default Styling
+
+Tables marked with `role="presentation"` have:
+- No borders by default
+- No padding by default
+- Middle vertical alignment for cells
+
+Example: Status Card
+Here's an example creating a status notification with an icon and multi-line text:
+
+```html
+  <table role="presentation">
+    <tr>
+      <td rowspan="3" width="70">
+        <img src="/local/icons/alert.png" width="48" height="48"/>
+      </td>
+      <td><strong>System Status Alert</strong></td>
+    </tr>
+    <tr>
+      <td>Priority: High - Requires attention</td>
+    </tr>
+    <tr>
+      <td>Active since: 2024-01-22 14:30</td>
+    </tr>
+  </table>
 ```

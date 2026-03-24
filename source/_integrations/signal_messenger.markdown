@@ -17,18 +17,16 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `signal_messenger` {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
+The **Signal Messenger** {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
 
 ## Setup
- 
+
 The requirements are:
 
-- You need to set up the Signal Messenger REST API. 
-- You need a spare phone number to register with the Signal Messenger service. 
+- You need to set up the Signal Messenger REST API.
+- You need a spare phone number to register with the Signal Messenger service.
 
-
-Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API. 
-
+Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API.
 
 ## Configuration
 
@@ -60,7 +58,7 @@ name:
   type: string
   default: notify
 url:
-  description: The URL where the Signal Messenger REST API listens for incoming requests. 
+  description: The URL where the Signal Messenger REST API listens for incoming requests.
   required: true
   type: string
 number:
@@ -188,7 +186,7 @@ actions:
       message: "Message received!"
 ```
 
-**NOTE** If the parameter `mode` is set to `json-rpc`, then you can use [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) to receive from Signal as follows:
+**NOTE** If the addon's `mode` parameter is set to `json-rpc`, then you can use [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) in the configuration of Home Assistant to receive from Signal as follows:
 
 ```yaml
 - resource: "http://127.0.0.1:8105/receive/pop"

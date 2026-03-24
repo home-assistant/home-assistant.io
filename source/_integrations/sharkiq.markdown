@@ -9,13 +9,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@JeffResc'
   - '@funkybunch'
+  - '@TheOneOgre'
 ha_domain: sharkiq
 ha_platforms:
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `sharkiq` integration allows you to control your [Shark IQ](https://www.sharkclean.com/vacuums/robot-vacuums/) vacuum.
+The **Shark IQ** {% term integration %} allows you to control your [Shark IQ](https://www.sharkclean.com/vacuums/robot-vacuums/) vacuum.
 
 {% include integrations/config_flow.md %}
 
@@ -48,7 +49,7 @@ target:
 look for the `Rooms` attribute of your Shark Robot Vacuum in Home Assistant.  This will be populated with the rooms that the robot has configured, as they will be
 understood by the action.
 
-If you want to use the area selector in the action's UI, you need to format the area names exactly as they appear in the vacuum's `Rooms` attribute.  You may also check the attribute using Home Assistant's [Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/).
+If you want to use the area selector in the action's UI, you need to format the area names exactly as they appear in the vacuum's `Rooms` attribute.  You may also check the attribute using Home Assistant's [Developer tools](https://www.home-assistant.io/docs/tools/dev-tools/).
 <p class='img'>
 <img src='/images/integrations/sharkiq/sharkiq-room-service-attributes.png' />
 </p>
