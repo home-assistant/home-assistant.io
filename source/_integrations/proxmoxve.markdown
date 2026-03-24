@@ -38,7 +38,7 @@ Before you set up the integration, make sure you have created a Proxmox VE user 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Authentication Provider:
+Authentication Method:
   description: "Authentication source of Proxmox. Default is `PAM`. For a dedicated Home Assistant account, we recommend using the built-in Proxmox VE realm and selecting `PVE` (see [Proxmox permissions](#proxmox-permissions))."
 Host:
   description: "The hostname or IP address of your Proxmox VE server. Example: `pve.mydomain.local` or `10.20.30.40`."
@@ -57,13 +57,13 @@ Token ID:
 Token Secret:
   description: "When using API tokens: The secret generated for the API token."
 Realm:
-  description: "Only required when you choose the Other option for the **Authentication Provider** field: Enter the realm name as defined in Proxmox."
+  description: "Only required when you choose the Other option for the **Authentication Method** field: Enter the realm name as defined in Proxmox."
 {% endconfiguration_basic %}
 
 
 ## Proxmox permissions
 
-To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication Provider** during setup, choose the matching realm.
+To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication PMethod** during setup, choose the matching realm.
 
 You can use any realm as long as you have valid credentials, like a username and password or an API token:
 
