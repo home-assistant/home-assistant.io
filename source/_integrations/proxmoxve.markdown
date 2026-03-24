@@ -123,7 +123,7 @@ If you plan to use the `pve` realm, make sure you select it during user creation
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
 - **Network input/output**: Amount of network traffic since starting the VM/LXC.
 - **Status**: Current status of the node/VM/LXC.
-- **Uptime**: Time running since starting the node/VM/LXC.
+- **Uptime**: Time since the node/VM/LXC started.
 
 ### Binary sensor
 
