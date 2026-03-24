@@ -12,8 +12,8 @@
   $h5-size:     16px,
   $h6-size:     14px,
   $brand-round: 16px,
-  $brand-face:  ("Figtree", "Helvetica Neue", Arial, sans-serif),
-  $brand-color: #1abcf2,
+  $brand-face:  $heading-font,
+  $brand-color: $primary-color,
 );
 
 @use '../inuitcss/_inuit' as *;
