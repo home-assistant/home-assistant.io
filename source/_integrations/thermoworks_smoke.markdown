@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
+The **ThermoWorks Smoke** {% term integration %} pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
 This requires a [Smoke WiFi Gateway](https://www.thermoworks.com/Smoke-Gateway) with an internet connection.
 
 You will need to have previously registered your smoke to your account via the mobile app and provide

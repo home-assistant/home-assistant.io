@@ -16,10 +16,14 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The season integration will provide the current astronomical or meteorological season (Spring, Summer, Autumn, Winter)
+The **Season** {% term integration %} will provide the current astronomical or meteorological season (Spring, Summer, Autumn, Winter)
 as a sensor.
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+Type of season definition:
+    description: "Choose how seasons are set: by astronomical dates or by meteorological months."
+{% endconfiguration_basic %}
 
 For information on the difference between astronomical and meteorological seasons please see the link below:
 

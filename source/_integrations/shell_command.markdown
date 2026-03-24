@@ -12,7 +12,7 @@ ha_domain: shell_command
 ha_integration_type: integration
 ---
 
-This integration can expose regular shell commands as actions. Actions can be called from a [script] or in [automation].
+This {% term integration %} can expose regular shell commands as actions. Actions can be called from a [script] or in [automation].
 Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
 Note that the shell command process will be terminated after 60 seconds, full stop. There is no option to alter this behavior, this is by design because Home Assistant is not intended to manage long-running external processes.
@@ -60,7 +60,7 @@ Key characteristics:
 - **Available tools:** Limited to what's inside the container image (such as `ssh`, `curl`, `sh`)
 - **Timeout:** Commands longer than 60 seconds are stopped.
 
-Testing commands in a separate [Home Assistant Container](/installation/linux#install-home-assistant-container) installation can help identify what tools and binaries are available. However, keep in mind that the real execution context for Home Assistant OS users is always the managed `homeassistant` container. 
+Testing commands in a separate [Home Assistant Container](/installation/linux#install-home-assistant-container) installation can help identify what tools and binaries are available. However, keep in mind that the real execution context for Home Assistant OS users is always the managed `homeassistant` container.
 
 ## Response
 
@@ -143,6 +143,8 @@ automation:
 shell_command:
   get_file_contents: "cat {{ filename }}"
 ```
+
+{% endraw %}
 
 ### Using SSH with shell_command
 

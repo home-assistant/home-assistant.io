@@ -13,17 +13,19 @@ ha_codeowners:
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - media_player
   - remote
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Apple TV integration allows you to control an Apple TV (any generation).
+The **Apple TV** {% term integration %} allows you to control an Apple TV (any generation).
 
 There is currently support for the following entities within the Apple TV device:
 
 - [Media Player](#media-player)
 - [Remote](#remote)
+- [Keyboard focused](#keyboard-focused) `binary_sensor`
 
 {% include integrations/config_flow.md %}
 
@@ -171,6 +173,32 @@ data:
     - left
 ```
 
+## Keyboard focused
+
+The Apple TV remote platform will automatically create a Binary sensor entity
+for each Apple TV configured on your Home Assistant instance to determine if the
+on-screen keyboard is active.
+
+### Example
+
+Create an automation that clears the search text whenever the on-screen keyboard
+is activated:
+
+```yaml
+description: "Always start with clear Apple TV search text"
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.my_apple_tv_keyboard_focused
+    from: "off"
+    to: "on"
+actions:
+  - action: apple_tv.clear_search_text
+    target:
+      entity_id: remote.my_apple_tv_remote
+```
+
 ## FAQ
 
 ### My Apple TV does not turn on/off when I press on/off in the frontend
@@ -200,9 +228,9 @@ and include logs (see Debugging below).
 
 ### Setting volume doesn't work on my Apple TV
 
-Volume control functionality depends on how the Apple TV is set up. 
-All volume controls should work if the Apple TV is connected to a 
-HomePod or HomePod stereo pair. If the Apple TV is connected to 
+Volume control functionality depends on how the Apple TV is set up.
+All volume controls should work if the Apple TV is connected to a
+HomePod or HomePod stereo pair. If the Apple TV is connected to
 TV speakers and with volume control
 over HDMI CEC (Settings -> Remotes and Devices -> Volume Control) only volume
 up/down controls will work. If volume control is over IR then volume cannot be

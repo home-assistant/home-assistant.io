@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - device_tracker
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 ha_codeowners:
   - '@jpbede'
@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Polling interval
 
-By default, the integration will ping the device every 30 seconds. 
+By default, the integration will ping the device every 30 seconds.
 If you wish to do a ping at a different interval, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired frequency.
 
 For more detailed steps on how to define a custom interval, follow the procedure below.
@@ -63,10 +63,6 @@ The integration exposes the different round trip times milliseconds as entities:
 - `Packet loss` - the percentage of missed ICMP replies
 
 **These entities are disabled by default and can be enabled in the UI if needed.**
-
-{% note %}
-When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
-{% endnote %}
 
 ## Presence detection
 

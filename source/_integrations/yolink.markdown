@@ -29,7 +29,7 @@ ha_platforms:
   - siren
   - switch
   - valve
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
@@ -105,6 +105,7 @@ The integration is tested and verified for the following devices from YoLink:
 - YS8023-UC (Hygrometer Thermometer)
 - YS4102-UC (Sprinkler)
 - YS4103-UC (Sprinkler Timer)
+- YS7914-UC (Leak Sensor)
 
 ## Actions
 

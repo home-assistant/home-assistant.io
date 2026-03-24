@@ -19,7 +19,7 @@ Home Assistant also has integrations build into the platform that connect with e
 
 ## Home Assistant integrations
 
-Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own. 
+Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own.
 
 Some hardware with water meters may also provide additional practical functions or sensors, such as [valve](/integrations/valve), for example, for controlling water shutoff, or temperature and pressure (to enable freeze alarms).
 
@@ -31,6 +31,7 @@ We have the following integrations available for existing products that can prov
 - [HomeWizard Energy](/integrations/homewizard)
 - [StreamLabs](/integrations/streamlabswater)
 - [Suez Water](/integrations/suez_water)
+- [Watergate](/integrations/watergate)
 
 There are also products for water usage monitoring that are based on existing common IoT protocol standards:
 
@@ -71,9 +72,13 @@ Maybe you like to build one yourself?
 - [watermeter](https://github.com/nohn/watermeter) running classic OCR and statistical pattern recognition on any system supporting Docker
 - [Muino water meter reader 3-phase](https://muino.nl/product/3-phase-muino-light-sensor-encoder/) Using the 3-phase sensor technique, a battery-powered version can be possible with this sensor.
 - [Read water meter with magnetometer](https://github.com/tronikos/esphome-magnetometer-water-gas-meter) using [QMC5883L](https://esphome.io/components/sensor/qmc5883l/) or [HMC5883L](https://esphome.io/components/sensor/hmc5883l/), common and inexpensive magnetometers. This should be compatible with all the water meters the Flume water sensor is compatible with, which is [compatible](https://help.flumewater.com/articles/1618594) with about 95% of water meters in the United States.
-- Some watermeters use [Wireless M-Bus](https://en.wikipedia.org/wiki/Meter-Bus) for remote metering. [wmbusmeters project](https://github.com/wmbusmeters/wmbusmeters/) can automatically capture, decode, decrypt and convert M-Bus packets to MQTT. It supports several M-Bus receivers, including RTL-SDR using [rtl-wmbus library](https://github.com/xaelsouth/rtl-wmbus). You can also build a WMBus [ESPHome-based receiver](https://github.com/SzczepanLeon/esphome-components). An [add-on](https://github.com/wmbusmeters/wmbusmeters-ha-addon) for Home Assistant exists for easy installation and configuration. See the [community page](https://community.home-assistant.io/t/add-on-request-wmbusmeter/228988) for more.
+- Some watermeters use [Wireless M-Bus](https://en.wikipedia.org/wiki/Meter-Bus) for remote metering. [wmbusmeters project](https://github.com/wmbusmeters/wmbusmeters/) can automatically capture, decode, decrypt and convert M-Bus packets to MQTT. It supports several M-Bus receivers, including RTL-SDR using [rtl-wmbus library](https://github.com/xaelsouth/rtl-wmbus). You can also build a WMBus [ESPHome-based receiver](https://github.com/SzczepanLeon/esphome-components). An [app](https://github.com/wmbusmeters/wmbusmeters-ha-addon) for Home Assistant exists for easy installation and configuration. See the [community page](https://community.home-assistant.io/t/add-on-request-wmbusmeter/228988) for more.
 - Read water (or gas) usage data from the Itron EverBlu Cyble Enhanced RF meters using the RADIAN protocol over 433 MHz [everblu-meters-esp8266/esp32](https://github.com/genestealer/everblu-meters-esp8266-improved), via an ESP32/ESP8266 and a CC1101 transceiver. Used across the UK and Europe. Fully integrates with Home Assistant using MQTT AutoDiscovery. According to available documentation, this method may also work with AnyQuest Cyble Enhanced, EverBlu Cyble, and AnyQuest Cyble Basic, but these remain untested.
 
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [RESTful](/integrations/rest) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
 
 For any of the above-listed options, make sure it actually works with the type of water meter you have before getting one.
+
+### Reading the meter wirelessly via RTL-SDR
+
+{% include energy/rtl_sdr.md %}

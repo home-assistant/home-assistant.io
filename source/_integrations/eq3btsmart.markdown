@@ -19,7 +19,7 @@ ha_platforms:
   - switch
 ---
 
-The `eq3btsmart` climate platform allows you to integrate eQ-3 Bluetooth Smart Thermostats.
+The **eQ-3 Bluetooth Smart Thermostats** {% term integration %} allows you to integrate eQ-3 Bluetooth Smart Thermostats.
 
 The current functionality allows setting the temperature as well as controlling the supported modes with help of the [eq3btsmart](https://github.com/eulemitkeule/eq3btsmart) library.
 As the device doesn't contain a temperature sensor ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)), we report target temperature also as current one.

@@ -26,7 +26,7 @@ ha_dhcp: true
 ha_quality_scale: silver
 ---
 
-The [SMLIGHT](https://smlight.tech) SLZB-06x ethernet Zigbee coordinators provide a reliable and convenient way to integrate Zigbee devices into your smart home setup. By placing the Zigbee gateway closer to your devices, you can improve connectivity and reduce interference, avoiding the limitations of gateways hidden in cupboards or distant locations.
+The [SMLIGHT](https://smlight.tech) SLZB-06x Ethernet Zigbee coordinators provide a reliable and convenient way to integrate Zigbee devices into your smart home setup. By placing the Zigbee gateway closer to your devices, you can improve connectivity and reduce interference, avoiding the limitations of gateways hidden in cupboards or distant locations.
 
 The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your SLZB devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device. These features can also be incorporated into your automations for central control.
 
@@ -75,7 +75,8 @@ The following sensors will be created:
 - **Zigbee temperature** - Temperature of Zigbee CC2652 or EFR32 chip
 - **Core uptime** - Uptime of Core device
 - **Zigbee uptime** - Uptime of Zigbee connection to ZHA/Z2M
-- **RAM usage** - Monitor RAM Usage
+- **RAM usage** - Monitor RAM usage
+- **PSRAM usage** - Monitor PSRAM usage (U-devices only)
 - **FS usage** - Monitor filesystem usage
 - **Connection mode** -  Connection mode - Ethernet, Wi-Fi, or USB
 - **Ethernet** - Ethernet connection status

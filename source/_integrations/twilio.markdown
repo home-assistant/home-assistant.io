@@ -7,10 +7,10 @@ ha_release: '0.40'
 ha_config_flow: true
 ha_domain: twilio
 ha_iot_class: Cloud Push
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `twilio` integration enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
+The **Twilio** {% term integration %} enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
 
 A free trial account is available at [Twilio](https://twilio.com) website providing free calls to verified phone numbers.
 Calls are limited to 10 minutes and will play a short trial message before your message runs. Upgraded accounts have no limitation.

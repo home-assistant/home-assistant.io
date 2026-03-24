@@ -34,7 +34,7 @@ ha_domain: husqvarna_automower
 ha_quality_scale: silver
 ---
 
-The Husqvarna Automower integration provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
+The **Husqvarna Automower** {% term integration %} provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
 
 In order to use this integration you must properly configure OAuth2 credentials using your Husqvarna account.  Refer to [this guide](https://developer.husqvarnagroup.cloud/docs/get-started) for general overview of the process.
 Your Husqvarna account username/password used for the *Automower® Connect*  phone app is required.  Most users probably created a Husqvarna account during initial mower setup.
@@ -115,7 +115,7 @@ The integration will create the following buttons:
 
 ### Calendar
 
-The integration will create a calendar entity for all mowers. The calendar shows all current and upcoming schedules.
+The integration will create a {% term calendar %} entity for all mowers. The calendar shows all current and upcoming schedules.
 
 ### Device tracker (if available)
 
@@ -216,7 +216,7 @@ The integration offers the following actions:
 
 ### Override schedule
 
-With this action, you can let your mower mow or park for a given time. You can select the override mode with the `override_mode´ attribute. This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
+With this action, you can let your mower mow or park for a given time. You can select the override mode with the `override_mode` attribute. This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days.
 
 ```yaml
 # Replace <name> with the name of your mower.
@@ -235,11 +235,11 @@ data:
 
 With this action, you can let your mower mow for a given time in a certain work area. You can enter the work area with the `work_area_id` attribute. You can get the `work_area_id` from the `Work area` sensor.
 ![Work area sensor](/images/integrations/husqvarna_automower/work_area_sensor.png)
-This will override all your schedules during this time. The duration can be given in days, hours, and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
+This will override all your schedules during this time. The duration can be given in days, hours, and/or minutes. The values for the duration have to be between 1 minute and 42 days.
 
 ```yaml
 # Replace <name> with the name of your mower.
-service: husqvarna_automower.override_schedule_work_area
+action: husqvarna_automower.override_schedule_work_area
 target:
   entity_id: lawn_mower.<name>
 data:

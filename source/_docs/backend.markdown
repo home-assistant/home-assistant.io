@@ -1,9 +1,10 @@
 ---
 title: "Backend of Home Assistant"
 description: "Backend of Home Assistant."
+toc: false
 ---
 
-The backend of Home Assistant is running with [Python 3](https://www.python.org/). 
+The backend of Home Assistant is running with [Python 3](https://www.python.org/).
 
 The [Architecture page](/developers/architecture/) show the details about the elements running in the background of Home Assistant.
 

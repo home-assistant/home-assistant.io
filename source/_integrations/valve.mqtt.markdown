@@ -8,7 +8,7 @@ ha_release: 2024.1
 ha_domain: mqtt
 ---
 
-The `mqtt` valve platform allows you to control an MQTT valve (such a gas or water valve).
+The **MQTT Valve** {% term integration %} allows you to control an MQTT valve (such a gas or water valve).
 
 ## Configuration
 
@@ -183,6 +183,10 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member value entities. Set this if the value entity represents a valve group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false

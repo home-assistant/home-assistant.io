@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
+The **ClickSend TTS** {% term integration %} uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
 
 After creating your account, you should now be able to obtain your `username` and `api_key` [here](https://dashboard.clicksend.com/account/subaccounts).
 
