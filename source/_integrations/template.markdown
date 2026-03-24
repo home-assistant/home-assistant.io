@@ -1233,6 +1233,56 @@ template:
 
 {% endraw %}
 
+### Wrapping WLED presets as light effects
+
+This example creates a template light that wraps an RGBW WLED device and exposes its saved presets — predefined combinations of effects, colors, and brightness stored on the device — as selectable effects directly in the light entity. This is useful if you prefer to pick presets from the effects list in a light card on your dashboard, without having to use a separate select entity.
+
+The template light mirrors the state, brightness, and RGBW color of the underlying WLED light entity. Selecting an effect sends the matching preset name to the WLED preset select entity.
+
+{% raw %}
+
+```yaml
+template:
+  - light:
+      - name: "WLED bedroom with presets"
+        unique_id: wled_preset_light
+        state: "{{ states('light.wled_bedroom') }}"
+        level: "{{ state_attr('light.wled_bedroom', 'brightness') | default(0, true) | int }}"
+        rgbw: "{{ state_attr('light.wled_bedroom', 'rgbw_color') }}"
+        effect_list: "{{ state_attr('select.wled_bedroom_preset', 'options') }}"
+        effect: "{{ states('select.wled_bedroom_preset') }}"
+        availability: "{{ not is_state('light.wled_bedroom', 'unavailable') }}"
+        turn_on:
+          action: light.turn_on
+          target:
+            entity_id: light.wled_bedroom
+        turn_off:
+          action: light.turn_off
+          target:
+            entity_id: light.wled_bedroom
+        set_level:
+          action: light.turn_on
+          target:
+            entity_id: light.wled_bedroom
+          data:
+            brightness: "{{ brightness }}"
+        set_rgbw:
+          action: light.turn_on
+          target:
+            entity_id: light.wled_bedroom
+          data:
+            rgbw_color: "{{ rgbw }}"
+            effect: "Solid"
+        set_effect:
+          action: select.select_option
+          target:
+            entity_id: select.wled_bedroom_preset
+          data:
+            option: "{{ effect }}"
+```
+
+{% endraw %}
+
 {% configuration light %}
 light:
   description: List of your lights.
