@@ -60,9 +60,21 @@ show_empty:
   type: boolean
 text_only:
   required: false
-  description: Display the card without border, background, padding and title. 
+  description: Display the card without border, background, padding and title.
   default: false
   type: boolean
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
 ### Example

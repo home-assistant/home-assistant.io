@@ -19,7 +19,14 @@ ha_config_flow: true
 ha_quality_scale: silver
 ---
 
-The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
+The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates, get account statistics, and mute accounts.
+
+## Use cases
+
+- Posting your local weather station details to your Mastodon account.
+- Displaying a count of your followers on your Home Assistant dashboard.
+- Receiving a notification when an account you follow publishes a new status.
+- Muting accounts when you are busy or away to reduce your timeline.
 
 ## Setup
 
@@ -302,6 +309,8 @@ For more on how to use notifications in your automations, please see the [gettin
 ## Known limitations
 
 The integration does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+
+Mastodon account details only show the date of the last status you posted, not the time. If you use the `mastodon.get_account` action to monitor new posts, you should instead watch the `statuses_count` field in the action response for changes.
 
 ## Troubleshooting
 

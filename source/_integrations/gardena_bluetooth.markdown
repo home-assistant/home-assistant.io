@@ -65,12 +65,8 @@ Gardena Bluetooth lawn mowers are currently not supported due to custom protocol
 
 ## Gard Pumps
 
-- Garden Pump ([9058-61](https://www.gardena.com/de/produkte/bewasserung/pumpen/gartenpumpe-6300-silentcomfort/970645401/))
-- Garden Pump ([9059-61](https://www.gardena.com/de/produkte/bewasserung/pumpen/gartenpumpe-6500-silentcomfort/970645601/))
-
-### Limitations
-
-Irrigation valves are currently untested, but expected to work.
+- Garden Pump ([9058-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6300-silentcomfort/970645301.html))
+- Garden Pump ([9059-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6500-silentcomfort/970645501.html))
 
 ## Aqua Contours
 

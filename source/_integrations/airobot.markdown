@@ -15,7 +15,8 @@ related:
     title: Airobot
   - url: https://airobothome.com/heat-control-products/
     title: Airobot Heat Control Products
-ha_category: []
+ha_category:
+  - Climate
 ha_platforms:
   - button
   - climate
@@ -26,6 +27,8 @@ ha_platforms:
 ---
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in carbon dioxide and humidity sensors monitor indoor air quality for a healthier living environment.
+
+Use case: Create presence-based heating automations, use BOOST to quickly warm rooms before arrival, monitor air quality to trigger ventilation alerts, and track heating runtime patterns for energy optimization.
 
 ## Supported devices
 
@@ -166,11 +169,7 @@ The integration provides switch entities for controlling thermostat features:
 - **Child lock**: Enable or disable the child lock feature on the thermostat. When enabled, the physical buttons on the thermostat are locked to prevent accidental or unauthorized changes to settings.
 - **Actuator exercise disabled**: Enable or disable the actuator exercise function. To prevent valve sticking, the actuator exercise periodically switches off the valve for 8 minutes at least every 96 hours. This entity is disabled by default.
 
-## Use cases
-
-The **Airobot** integration enables intelligent floor heating control with practical automation opportunities. You can create presence-based heating automations that switch between HOME and AWAY presets based on occupancy, use BOOST to quickly warm rooms before arrival, monitor air quality to trigger ventilation alerts (with the optional carbon dioxide sensor), and track heating runtime patterns for energy optimization.
-
-## Automations
+## Examples
 
 Examples of automations you can create using the Airobot integration.
 
@@ -179,7 +178,7 @@ Examples of automations you can create using the Airobot integration.
 Send a notification when the air quality exceeds a specified threshold.
 
 <!-- markdownlint-disable MD034 -->
-{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/9711306e401c027edbdca4c287c2f65f" %}
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/air-quality-alert-notification-airobot/994072" %}
 <!-- markdownlint-enable MD034 -->
 
 {% details "Example YAML configuration" %}
@@ -187,61 +186,31 @@ Send a notification when the air quality exceeds a specified threshold.
 {% raw %}
 
 ```yaml
-blueprint:
-  name: Airobot Air Quality Alert
-  description: Send notification when air quality exceeds threshold
-  domain: automation
-  input:
-    air_quality_sensor:
-      name: Air Quality Sensor
-      selector:
-        entity:
-          filter:
-            - domain: sensor
-    threshold:
-      name: Threshold
-      description: Alert when value goes above this number
-      default: 1000
-      selector:
-        number:
-          min: 0
-          max: 2000
-    notify_device:
-      name: Mobile Device
-      description: Device to send notification to
-      selector:
-        device:
-          filter:
-            - integration: mobile_app
-    notification_title:
-      name: Notification Title
-      description: Title of the notification
-      default: "Poor Air Quality"
-      selector:
-        text:
-    notification_message:
-      name: Notification Message
-      description: Message body (use {{ trigger.to_state.state }} for current value and {{ trigger.above }} for threshold)
-      default: "Air quality in {{ area_name(trigger.entity_id) }} is {{ trigger.to_state.state }} (threshold: {{ trigger.above | int }})"
-      selector:
-        text:
-          multiline: true
+alias: "Airobot Air Quality Alert"
+description: >-
+  Sends a notification when the Airobot air quality sensor exceeds
+  a threshold.
 
-trigger:
-  - platform: numeric_state
-    entity_id: !input air_quality_sensor
-    above: !input threshold
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.airobot_air_quality
+    above: 1000
 
-condition:
-  - condition: template
-    value_template: "{{ trigger.from_state.state | float(0) < trigger.to_state.state | float(0) }}"
+conditions:
+  - >-
+    {{
+      trigger.from_state.state | float(0)
+      < trigger.to_state.state | float(0)
+    }}
 
-action:
-  - device_id: !input notify_device
-    domain: mobile_app
-    type: notify
-    title: !input notification_title
-    message: !input notification_message
+actions:
+  - action: notify.mobile_app_your_phone
+    data:
+      title: "Poor Air Quality"
+      message: >-
+        Air quality in {{ area_name(trigger.entity_id) }} is
+        {{ trigger.to_state.state }} (threshold: {{ trigger.above | int }})
+
 ```
 
 {% endraw %}

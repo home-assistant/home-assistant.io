@@ -34,21 +34,6 @@ Although the 17track.net website states that account passwords cannot be longer 
 - Delivered
 - Returned
 
-## Package-level attributes
-
-Each package entry (for example, within a status sensor) contains the following attributes.
-
-- package.friendly_name
-- package.status
-- package.destination_country
-- package.info_text
-- package.timestamp
-- package.location
-- package.origin_country
-- package.package_type
-- package.tracking_info_language
-- package.tracking_number
-
 ## Examples
 
 ### Dashboard summary card

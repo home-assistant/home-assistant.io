@@ -8,7 +8,7 @@ html {
 
 @media only screen and (max-width: 480px) {
   #landingpage .site-header {
-    background-color: #ffffff;
+    background-color: transparent;
   }
 }
 
@@ -596,8 +596,8 @@ button,
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 24px;
+  padding-right: 24px;
   position: relative;
 }
 
@@ -2005,6 +2005,10 @@ section#collaboration .card .card-inner p {
   align-items: flex-start;
   padding: 48px;
   display: flex;
+}
+
+article.page .card-flex h2 {
+  margin-top: 0;
 }
 
 .paragraph-small {
