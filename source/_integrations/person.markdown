@@ -34,7 +34,7 @@ You can manage persons {% my people title="via the UI from the person page insid
 
 ## Adding a person to Home Assistant
 
-If you have administrator rights, you can add other people to Home Assistant and create user accounts for them. Depending on the rights you give them, they can then use Home Assistant on their own devices, can have their own dashboards, and be used in automations.
+If you have administrator rights, you can add other persons to Home Assistant and create user accounts for them. Depending on the rights you give them, they can then use Home Assistant on their own devices, can have their own dashboards, and be used in automations.
 
 1. Go to {% my people title="**Settings** > **People**" %} and select **Add person**.
 2. Enter their **Name**.
