@@ -44,7 +44,7 @@ Available actions:
 
 Before calling one of these actions, make sure your vacuum platform supports it.
 
-### Start
+### Start vacuum
 
 The `vacuum.start` action starts or resumes a cleaning task.
 
@@ -52,7 +52,7 @@ The `vacuum.start` action starts or resumes a cleaning task.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Pause
+### Pause vacuum
 
 The `vacuum.pause` action pauses a cleaning task.
 
@@ -60,7 +60,7 @@ The `vacuum.pause` action pauses a cleaning task.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Stop
+### Stop vacuum
 
 The `vacuum.stop` action stops the current activity of the vacuum.
 
@@ -68,7 +68,7 @@ The `vacuum.stop` action stops the current activity of the vacuum.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Return to base
+### Return vacuum to base
 
 The `vacuum.return_to_base` action tells the vacuum to return home.
 
@@ -76,7 +76,7 @@ The `vacuum.return_to_base` action tells the vacuum to return home.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Locate
+### Locate vacuum
 
 The `vacuum.locate` action locates the vacuum cleaner robot.
 
@@ -101,7 +101,7 @@ The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assist
 | `entity_id`        | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 | `cleaning_area_id` | no       | List of areas for the vacuum to clean. |
 
-### Set fan speed
+### Set vacuum fan speed
 
 The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
 
@@ -110,7 +110,7 @@ The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspee
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 | `fan_speed`    | no       | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
 
-### Send command
+### Send command to vacuum
 
 The `vacuum.send_command` action sends a platform-specific command to the vacuum cleaner.
 
