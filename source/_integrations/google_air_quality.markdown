@@ -54,7 +54,7 @@ API key:
 HTTP Referrer:
   description: "Optional: Specify this only if the API key has a website application restriction."
 Name:
-  description: "A name for your location, e.g. Work, Home, etc."
+  description: "A display name for this location, such as Home or Work."
 Latitude:
   description: "Latitude of your location."
 Longitude:
@@ -65,8 +65,8 @@ Longitude:
 
 If you want to set a custom local air quality index during the setup of the integration you can do this in this optional section.
 {% configuration_basic %}
-Enable custom local AQI:
-  description: "If the custom local air quality index should be enabled."
+Enable custom local air quality index (AQI):
+  description: "Turn on to use a custom local air quality index (AQI) for this location."
 Country:
   description: "The country of your location."
 Name:
