@@ -114,10 +114,6 @@ template:
 
 {% endraw %}
 
-## Data updates
-
-The **Green Planet Energy** integration {% term polling polls %} data from the Green Planet Energy API every 10 minutes. New prices for the following day are typically published in the early afternoon.
-
 ## Known limitations
 
 - Prices are bare market prices and do not include energy taxes, grid fees, or other surcharges charged by your energy provider.
