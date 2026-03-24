@@ -11,4 +11,4 @@ ha_domain: battery
 ha_integration_type: system
 ---
 
-The **Battery** {% term integration %} provides automation triggers and conditions for battery-related entities. There are no configuration options for this integration.
+This {% term integration %} provides automation triggers and conditions for binary sensors with device class battery and battery charging, and sensors and number entities with device class battery. There are no configuration options for this integration.
