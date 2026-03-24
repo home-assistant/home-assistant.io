@@ -11,4 +11,4 @@ ha_domain: illuminance
 ha_integration_type: system
 ---
 
-This {% term integration %} provides automation triggers and conditions for binary sensors with device class light, and sensors and number entities with device class illuminance. There are no configuration options for this integration.
+This {% term integration %} provides automation triggers and conditions for binary sensors with device class light and for sensor and number entities with device class illuminance. There are no configuration options for this integration.
