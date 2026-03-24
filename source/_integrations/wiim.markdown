@@ -6,7 +6,7 @@ ha_category:
 ha_domain: wiim
 ha_zeroconf: true
 ha_integration_type: hub
-ha_release: 2026.2
+ha_release: 2026.4
 ha_codeowners:
   - '@Linkplay'
 ha_config_flow: true
