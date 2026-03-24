@@ -88,8 +88,7 @@ The action returns the following data:
 
 You can use the `get_prices` action together with a [template sensor](/integrations/template/) to create a sensor that holds the upcoming price data as an attribute. This makes it easy to display a price chart on your dashboard.
 
-Add the following to your {% term "`configuration.yaml`" %} file:
-{% include integrations/restart_ha_after_config_inclusion.md %}
+Add the following to your {% term "`configuration.yaml`" %} file. After you save your changes, restart Home Assistant or reload your template configuration to apply them.
 
 {% raw %}
 
