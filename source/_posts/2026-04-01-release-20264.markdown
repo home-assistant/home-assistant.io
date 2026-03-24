@@ -117,11 +117,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 Your dashboard sections can now have a background color! This is a great way to visually group related cards together, make certain sections stand out, or simply add a personal touch to your dashboard 🤩
 
-![Screenshot showing four dashboard sections: one with no background, one with the default background, one with a grey background at 100% opacity, and one with a red background at 25% opacity.](/images/blog/2026-04/dashboard-sections-background-colors.png)
+<img src='/images/blog/2026-04/dashboard-sections-background-colors.png' alt='Screenshot showing four dashboard sections: one with no background, one with the default background, one with a grey background at 100% opacity, and one with a red background at 25% opacity.' class='no-shadow' />
 
 To add a background color to a section, open the section settings and turn on the **Background** toggle. From there, you can pick a color from a list of predefined options, or enter a custom hex color code. You can also adjust the opacity to get just the right look.
 
-![Screenshot of the section background settings, showing the background toggle enabled, with a color picker set to red and an opacity slider set to 20%.](/images/blog/2026-04/dashboard-sections-background-color-options.png)
+<img src='/images/blog/2026-04/dashboard-sections-background-color-options.png' alt='Screenshot of the section background settings, showing the background toggle enabled, with a color picker set to red and an opacity slider set to 20%.' class='no-shadow' />
 
 If you have sections side by side on the same row, sections without a background will automatically align with those that have one, keeping everything looking clean and tidy.
 
@@ -179,11 +179,11 @@ It won't be completely painless for everyone, but we believe it's the right step
 
 If you have a Matter-compatible smart lock, you can now manage your lock users and PIN codes directly from Home Assistant! 🔐
 
-![Screenshot of the Matter lock management dialog showing a list of configured lock users and their credentials.](/images/blog/2026-04/matter-manage-lock-credentials.png)
+<img src='/images/blog/2026-04/matter-manage-lock-credentials.png' alt='Screenshot of the Matter lock management dialog showing a list of configured lock users and their credentials.' class='no-shadow' />
 
 On the device page of your Matter lock, you'll find a new **Manage lock** option. It opens a dialog where you can see all configured users, add new ones, edit existing ones, or remove them. When adding a new user, you give them a name, set a PIN code, and choose an access type: full access (can lock and unlock anytime) or one-time access (the code works once and is then automatically deleted by the lock).
 
-![Screenshot of the add user dialog with fields for name, PIN code, and access type.](/images/blog/2026-04/matter-manage-lock-add-user.png)
+<img src='/images/blog/2026-04/matter-manage-lock-add-user.png' alt='Screenshot of the add user dialog with fields for name, PIN code, and access type.' class='no-shadow' />
 
 Under the hood, this is powered by a new set of Matter lock actions that are also available for use in your automations and scripts. You can, for example, create a one-time PIN code for a guest and send it in a notification, all from an automation! The available actions include creating and removing users, setting and clearing credentials (like PIN codes and RFID tags), and querying the lock's capabilities.
 
@@ -329,13 +329,13 @@ Jolted down during working on the rest of the notes:
 
 [@karwosts] is well known for contributing quality-of-life improvements, and this release is no exception. Your favorite light colors can now be added as a card feature, bringing those one-tap color buttons directly onto your tile or light cards on your dashboard. 🌈
 
-![Screenshot of tile cards showing favorite light color buttons. Each card displays a row of color swatches next to the light name and brightness.](/images/blog/2026-card-feature-light-favorite-colors.png)
+<img src='/images/blog/2026-card-feature-light-favorite-colors.png' alt='Screenshot of tile cards showing favorite light color buttons. Each card displays a row of color swatches next to the light name and brightness.' class='no-shadow' />
 
 The feature automatically shows as many of your saved favorites as can fit in the available space, giving you quick access to your preferred colors and color temperatures without opening the light's more-information dialog.
 
 [@karwosts] also made it possible to copy your favorite colors from one light to other lights that support the same color modes, so you don't have to set them up from scratch for every light. Nice!
 
-![Screenshot of the light more-information dialog showing a menu with options to edit favorite colors, reset favorite colors, and copy favorites to other lights.](/images/blog/2026-04/light-copy-favorite-colors.png)
+<img src='/images/blog/2026-04/light-copy-favorite-colors.png' alt='Screenshot of the light more-information dialog showing a menu with options to edit favorite colors, reset favorite colors, and copy favorites to other lights.' class='no-shadow' />
 
 [@karwosts]: https://github.com/karwosts
 
@@ -343,7 +343,7 @@ The feature automatically shows as many of your saved favorites as can fit in th
 
 The gauge card got a fresh new look! [@silamon] gave it a visual overhaul, bringing a more modern and polished design that fits right in with the rest of your dashboard.
 
-![Screenshot of the redesigned gauge card showing a modern, clean design with circular gauge indicators for temperature and carbon monoxide levels.](/images/blog/2026-04/card-gauge-redesign.png)
+<img src='/images/blog/2026-04/card-gauge-redesign.png' alt='Screenshot of the redesigned gauge card showing a modern, clean design with circular gauge indicators for temperature and carbon monoxide levels.' class='no-shadow' />
 
 The new design keeps all the functionality you're used to, including needle mode and severity segments, while giving the card a cleaner, more refined appearance. A well-deserved refresh!
 
@@ -353,7 +353,7 @@ The new design keeps all the functionality you're used to, including needle mode
 
 Cards can automatically adjust their height based on their content, instead of occupying a fixed number of grid rows. While this was previously only available through manual YAML configuration, the card layout editor now has an **Auto height** option, making it accessible for everyone.
 
-![Screenshot of the card layout editor showing the Auto height option enabled, along with Full width and Precise mode options.](/images/blog/2026-04/auto-height-card-layout.png)
+<img src='/images/blog/2026-04/auto-height-card-layout.png' alt='Screenshot of the card layout editor showing the Auto height option enabled, along with Full width and Precise mode options.' class='no-shadow' />
 
 Some cards, like the entities card and vertical stack card, already default to auto height. For other cards, you can now enable it yourself in the card's layout settings. This is especially handy for cards with variable content, so they no longer leave empty space or cut off content.
 
@@ -361,7 +361,7 @@ Some cards, like the entities card and vertical stack card, already default to a
 
 If you use an <abbr title="Large Language Model">LLM</abbr>-powered conversation agent with Assist, you may have wondered what's going on behind the scenes when it's processing your request. Now you can find out! The Assist dialog now shows you the thinking steps and tool calls your AI agent makes while working on your request.
 
-![Screenshot of the Assist dialog showing an expanded Show details section with the AI agent's thinking steps and tool calls.](/images/blog/2026-04/temp-ai-conversation-thinking.png)
+<img src='/images/blog/2026-04/temp-ai-conversation-thinking.png' alt='Screenshot of the Assist dialog showing an expanded Show details section with the AI agent thinking steps and tool calls.' class='no-shadow' />
 
 Each response from the AI agent now has a collapsible **Show details** section. Expand it to see the agent's reasoning process, which tools it called, what arguments it passed, and what results it got back. This is great for understanding how your AI agent arrives at its answers, and super helpful when debugging automations or tweaking your agent's behavior.
 
