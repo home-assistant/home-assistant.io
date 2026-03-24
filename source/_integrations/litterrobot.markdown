@@ -31,6 +31,10 @@ ha_quality_scale: bronze
 
 The **Whisker** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
 
+## Supported devices
+
+Any Wi-Fi connected Whisker device that can be onboarded via the Whisker app should work with this integration.
+
 ## Prerequisites
 
 Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabled Litter-Robot or Feeder-Robot linked to it. You can do this via the Whisker app.
@@ -117,6 +121,33 @@ data:
   start_time: "22:30:00"
 
 ```
+
+## Data updates
+
+This integration subscribes to updates from Feeder-Robot and Litter-Robot devices to receive new data as soon as it is available.
+
+Additionally, this integration {% term polling polls %} for updated device and pet data every 5 minutes.
+
+## Examples
+
+### Clean area(s) when a Litter-Robot cycles
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/litterrobot_clean_area_on_cycle.yaml" %}
+
+## Known limitations
+
+The following features are not currently supported by the integration:
+
+- Access to cameras on Litter-Robot 5 Pro models.
+- Configuring sleep schedules on Litter-Robot 4 and newer models.
+- Certain device settings, including renaming devices, filter replacement resets, and cycle count resets.
+- Reassigning pet visits.
+
+## Troubleshooting
+
+### Device becomes unavailable or unresponsive
+
+The device shows as unavailable when it cannot reach the Whisker cloud service. Check your internet connection first, then open the Whisker app and see if you can still control the device from there. If the app also cannot connect, the Whisker service may be down or your device may be offline.
 
 ## Removing the integration
 

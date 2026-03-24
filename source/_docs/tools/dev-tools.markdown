@@ -155,7 +155,7 @@ icon. Use date & time to search for the incorrect data point and adjust the valu
 
 The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
 
-If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*.
 
 - Assist found a matching intent: *HassGetState*.
 - It found entities matching the domain: *lights*.

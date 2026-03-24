@@ -161,7 +161,7 @@ actions:
 
 {% endraw %}
 
-Another automation can be added to turn the lights off once the schedule is inactive: 
+Another automation can be added to turn the lights off once the schedule is inactive:
 
 {% raw %}
 

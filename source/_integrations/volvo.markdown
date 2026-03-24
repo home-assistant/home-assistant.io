@@ -60,7 +60,7 @@ Features available depend on model, year and location.
 3. Go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications).
 4. Create an **API application** and give it a meaningful name.
 
-It's recommended to add an API application per vehicle you want to add. There is a maximum on the number of requests that can be made per API key per day.
+To avoid hitting request limits, **create one API application per vehicle** you want to add. Each API application has a maximum number of requests per day. The primary and secondary API keys shown in Volvo's developer portal both belong to the same API application, and both count toward the same daily limit.
 
 {% note %}
 Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
