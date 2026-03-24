@@ -40,11 +40,11 @@ Host:
 
 ### Sensors
 
-- **Temperatures**: supply, return, source in/out, room, outside, and DHW temperatures (°C)
+- **Temperatures**: supply, return, source in/out, room, outside, and domestic hot water (DHW) temperatures (°C)
 - **Power**: thermal and electric power (W)
 - **Energy**: total electric consumption and total thermal yield (kWh)
-- **Flow**: measured PVT flow rate (L/min)
-- **Performance**: calculated COP
+- **Flow**: measured photovoltaic-thermal (PVT) flow rate (L/min)
+- **Performance**: calculated coefficient of performance (COP)
 - **Operation**: compressor speed (rpm), heat pump status, and room setpoints (°C)
 
 ## Data updates
