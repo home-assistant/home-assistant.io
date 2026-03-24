@@ -115,7 +115,7 @@ For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switch
 
 ## Actions
 
-For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
+For Switcher power control devices (Switcher Touch, Switcher V2/V4, Switcher Mini, Switcher Heater) the integration provides the following actions:
 
 ### Action: Set auto off
 
@@ -134,10 +134,95 @@ The `switcher_kis.turn_on_with_timer` action turns on the switcher device with a
 
 Meaning the device will turn itself off when timer ends.
 Note: This does not affect the auto off timer.
-| Data attribute | Mandatory | Description                                                                            | Example                    |
-| ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
-| `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
-| `timer_minutes`    | Yes       | Integer containing timer minutes (valid range 1 to 150)                                      | 90                    |
+
+| Data attribute  | Mandatory | Description                                             | Example                    |
+| --------------- | --------- | ------------------------------------------------------- | -------------------------- |
+| `entity_id`     | Yes       | Name of the entity id associated with the integration   | switch.switcher_kis_boiler |
+| `timer_minutes` | Yes       | Integer containing timer minutes (valid range 1 to 150) | 90                         |
+
+### Action: Get schedules
+
+The `switcher_kis.get_schedules` action retrieves all schedules configured on the device.
+
+This action returns response data — use `response_variable` to capture the result.
+
+Each schedule in the returned list contains:
+
+| Field         | Description                                         | Example            |
+| ------------- | --------------------------------------------------- | ------------------ |
+| `schedule_id` | Schedule slot ID (0–7)                              | "0"                |
+| `recurring`   | Whether the schedule repeats on selected days       | true               |
+| `days`        | List of weekday names the schedule runs on          | ["monday","friday"]|
+| `start_time`  | Schedule start time in HH:MM format                 | "07:00"            |
+| `end_time`    | Schedule end time in HH:MM format                   | "07:30"            |
+| `duration`    | Human-readable duration string                      | "0:30:00"          |
+
+Example — retrieve schedules and send a notification:
+
+```yaml
+sequence:
+  - action: switcher_kis.get_schedules
+    target:
+      entity_id: switch.switcher_boiler
+    response_variable: result
+  - action: notify.mobile_app_my_phone
+    data:
+      message: >
+        {% if result[0].schedules %}
+          Next schedule: {{ result[0].schedules[0].start_time }}
+        {% else %}
+          No schedules configured.
+        {% endif %}
+```
+
+### Action: Create schedule
+
+The `switcher_kis.create_schedule` action creates a new schedule on the device. The device supports up to 8 schedule slots (IDs 0–7).
+
+Omit `days` to create a one-time schedule that runs once on the next matching time. Include one or more weekday names to create a recurring schedule.
+
+| Data attribute | Mandatory | Description                                                                  | Example                     |
+| -------------- | --------- | ---------------------------------------------------------------------------- | --------------------------- |
+| `entity_id`    | Yes       | Name of the entity id associated with the integration                        | switch.switcher_kis_boiler  |
+| `start_time`   | Yes       | Schedule start time in HH:MM format                                          | "07:00"                     |
+| `end_time`     | Yes       | Schedule end time in HH:MM format (must be after start_time)                 | "07:30"                     |
+| `days`         | No        | List of weekday names (monday–sunday). Leave empty for a one-time schedule.  | ["monday", "friday"]        |
+
+Example — create a recurring weekday morning schedule:
+
+```yaml
+action: switcher_kis.create_schedule
+target:
+  entity_id: switch.switcher_boiler
+data:
+  start_time: "07:00"
+  end_time: "07:30"
+  days:
+    - monday
+    - tuesday
+    - wednesday
+    - thursday
+    - friday
+```
+
+### Action: Delete schedule
+
+The `switcher_kis.delete_schedule` action deletes a schedule from the device by its slot ID. Use the `get_schedules` action to find the ID of the schedule you want to remove.
+
+| Data attribute | Mandatory | Description                                           | Example                    |
+| -------------- | --------- | ----------------------------------------------------- | -------------------------- |
+| `entity_id`    | Yes       | Name of the entity id associated with the integration | switch.switcher_kis_boiler |
+| `schedule_id`  | Yes       | ID of the schedule slot to delete (0–7)               | "0"                        |
+
+Example:
+
+```yaml
+action: switcher_kis.delete_schedule
+target:
+  entity_id: switch.switcher_boiler
+data:
+  schedule_id: "0"
+```
 
 ## Notes
 
