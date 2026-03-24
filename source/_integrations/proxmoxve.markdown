@@ -91,15 +91,21 @@ If you are not sure which privileges you need for control in your Proxmox VE set
 Before creating the user, you need to create a group for the user.
 Privileges can be either applied to Groups or Roles.
 
+{% details "Group instructions" %}
+
 1. Select **Datacenter**.
 2. Open **Permissions** and select **Groups**.
 3. Select the **Create** button above all the existing groups.
 4. Name the new group (for example, `HomeAssistant`).
 5. Confirm **Create**.
 
+{% enddetails %}
+
 ### Add Group Permissions to all Assets
 
 Assign the role you chose to the group at the root path (**/**) so it applies to all nodes, VMs, and containers.
+
+{% details "Permissions instructions" %}
 
 1. Select **Datacenter**.
 2. Select **Permissions**.
@@ -110,6 +116,8 @@ Assign the role you chose to the group at the root path (**/**) so it applies to
 7. Make sure **Propagate** is checked.
 8. Confirm **Create**.
 
+{% enddetails %}
+
 ### Create a user for Home Assistant
 
 Using the `PVE` realm helps limit the account to API access, instead of Linux system authentication and remote (SSH) command line access.
@@ -117,6 +125,8 @@ Using the `PVE` realm helps limit the account to API access, instead of Linux sy
 {% important %}
 If you plan to use the `PVE` realm, make sure you select it during user creation.
 {% endimportant %}
+
+{% details "User instructions" %}
 
 1. Select **Datacenter**.
 2. Open **Permissions** and select **Users**.
@@ -128,9 +138,13 @@ If you plan to use the `PVE` realm, make sure you select it during user creation
 8. Ensure **Enabled** is checked and **Expire** is set to "never" (for example, leave it blank).
 9. Confirm **Add**.
 
+{% enddetails %}
+
 ### API tokens
 
 Optional: You can authenticate using an API token instead of a password. This is recommended because it gives you a separate, revocable credential for Home Assistant, and avoids storing your Proxmox password in Home Assistant. To limit the token to only the permissions Home Assistant needs, make sure you enable privilege separation and assign token-specific permissions.
+
+{% details "API token instructions" %}
 
 To create a token:
 
@@ -147,6 +161,8 @@ To create a token:
 8. Select **Add**.
 9. Copy the **Secret** shown in the dialog. It will be displayed only once, so either use it while configuring or store it safely.
 10. Close the dialog when ready.
+
+{% enddetails %}
 
 ## Entities
 
