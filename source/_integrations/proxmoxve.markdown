@@ -121,7 +121,8 @@ If you plan to use the `pve` realm, make sure you select it during user creation
 - **Max disk**: Maximum amount of available disk space.
 - **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
-- **Network input/output**: Amount of network traffic since starting the VM/LXC.
+- **Network input**: Amount of incoming network traffic since starting the node/VM/LXC.
+- **Network output**: Amount of outgoing network traffic since starting the node/VM/LXC.
 - **Status**: Current status of the node/VM/LXC.
 - **Uptime**: Time since the node/VM/LXC started.
 
