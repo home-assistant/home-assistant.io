@@ -144,35 +144,56 @@ Note: This does not affect the auto off timer.
 
 The `switcher_kis.get_schedules` action retrieves all schedules configured on the device.
 
-This action returns response data — use `response_variable` to capture the result.
+This action returns response data. Use `response_variable` to capture the result.
 
-Each schedule in the returned list contains:
+| Data attribute | Mandatory | Description                                                                            | Example                    |
+| -------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
+| `entity_id`    | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 
-| Field         | Description                                         | Example            |
-| ------------- | --------------------------------------------------- | ------------------ |
-| `schedule_id` | Schedule slot ID (0–7)                              | "0"                |
-| `recurring`   | Whether the schedule repeats on selected days       | true               |
-| `days`        | List of weekday names the schedule runs on          | ["monday","friday"]|
-| `start_time`  | Schedule start time in HH:MM format                 | "07:00"            |
-| `end_time`    | Schedule end time in HH:MM format                   | "07:30"            |
-| `duration`    | Human-readable duration string                      | "0:30:00"          |
+The response is a mapping keyed by entity ID. Each schedule in the returned list contains:
 
-Example — retrieve schedules and send a notification:
+| Field         | Description                                   | Example              |
+| ------------- | --------------------------------------------- | -------------------- |
+| `schedule_id` | Schedule slot ID (0–7)                        | "1"                  |
+| `recurring`   | Whether the schedule repeats on selected days | true                 |
+| `days`        | List of weekday names the schedule runs on    | ["monday", "friday"] |
+| `start_time`  | Schedule start time in HH:MM format           | "07:00"              |
+| `end_time`    | Schedule end time in HH:MM format             | "07:30"              |
+| `duration`    | Duration string                               | "0:30:00"            |
+
+Example:
 
 ```yaml
-sequence:
-  - action: switcher_kis.get_schedules
-    target:
-      entity_id: switch.switcher_boiler
-    response_variable: result
-  - action: notify.mobile_app_my_phone
-    data:
-      message: >
-        {% if result[0].schedules %}
-          Next schedule: {{ result[0].schedules[0].start_time }}
-        {% else %}
-          No schedules configured.
-        {% endif %}
+action: switcher_kis.get_schedules
+target:
+  entity_id: switch.switcher_kis_boiler
+response_variable: result
+```
+
+Example response:
+
+```yaml
+switch.switcher_kis_boiler:
+  schedules:
+    - schedule_id: "0"
+      recurring: true
+      days:
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+      start_time: "05:30"
+      end_time: "06:00"
+      duration: "0:30:00"
+    - schedule_id: "1"
+      recurring: true
+      days:
+        - tuesday
+        - friday
+      start_time: "10:00"
+      end_time: "11:00"
+      duration: "1:00:00"
 ```
 
 ### Action: Create schedule
@@ -186,24 +207,7 @@ Omit `days` to create a one-time schedule that runs once on the next matching ti
 | `entity_id`    | Yes       | Name of the entity id associated with the integration                        | switch.switcher_kis_boiler  |
 | `start_time`   | Yes       | Schedule start time in HH:MM format                                          | "07:00"                     |
 | `end_time`     | Yes       | Schedule end time in HH:MM format (must be after start_time)                 | "07:30"                     |
-| `days`         | No        | List of weekday names (monday–sunday). Leave empty for a one-time schedule.  | ["monday", "friday"]        |
-
-Example — create a recurring weekday morning schedule:
-
-```yaml
-action: switcher_kis.create_schedule
-target:
-  entity_id: switch.switcher_boiler
-data:
-  start_time: "07:00"
-  end_time: "07:30"
-  days:
-    - monday
-    - tuesday
-    - wednesday
-    - thursday
-    - friday
-```
+| `days`         | No        | List of weekday names (monday–sunday). Omit this field for a one-time schedule. | ["monday", "friday"]        |
 
 ### Action: Delete schedule
 
@@ -219,7 +223,7 @@ Example:
 ```yaml
 action: switcher_kis.delete_schedule
 target:
-  entity_id: switch.switcher_boiler
+  entity_id: switch.switcher_kis_boiler
 data:
   schedule_id: "0"
 ```
