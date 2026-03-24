@@ -142,16 +142,17 @@ Removing the entry removes its devices and entities from the registries accordin
 
 ## Example
 
-Monitor total panel power for a notification (replace the entity ID with yours):
+Send a notification when panel power is high (replace the entity ID with yours):
 
 ```yaml
-template:
-  - trigger:
-      - platform: numeric_state
+automation:
+  - alias: "Notify when SPAN panel load is high"
+    triggers:
+      - trigger: numeric_state
         entity_id: sensor.span_panel_current_power
         above: 15000
-    action:
-      - service: notify.persistent_notification
+    actions:
+      - action: notify.persistent_notification
         data:
           title: "High panel load"
           message: "Panel power is above 15 kW."
