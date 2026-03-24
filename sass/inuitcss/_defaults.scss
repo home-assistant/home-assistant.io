@@ -1,3 +1,4 @@
+@use "sass:math";
 /*------------------------------------*\
     $DEFAULTS
 \*------------------------------------*/
@@ -221,5 +222,5 @@ $use-greybox:       false!default;
  * Assign our `$base-line-height` to a new spacing var for more transparency.
  */
 $base-spacing-unit: $base-line-height!default;
-$half-spacing-unit: calc($base-spacing-unit / 2)!default;
+$half-spacing-unit: math.div($base-spacing-unit, 2)!default;
 $line-height-ratio: calc($base-line-height / $base-font-size);
