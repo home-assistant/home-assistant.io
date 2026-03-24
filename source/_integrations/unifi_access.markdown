@@ -7,7 +7,7 @@ ha_category:
 ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - "@imhotep"
@@ -24,6 +24,8 @@ ha_integration_type: hub
 The **UniFi Access** {% term integration %} allows you to control and monitor [Ubiquiti UniFi Access](https://ui.com/door-access) devices from Home Assistant.
 
 UniFi Access is a modern, IP-based door access control system by [Ubiquiti](https://ui.com). It supports a range of access readers, door locks, and hubs that can be managed through a local UniFi Access controller (such as a UniFi Dream Machine Pro or a dedicated UniFi Access application host).
+
+With this integration, you can unlock doors, see whether doors are open or closed, receive doorbell notifications, and track access events directly from your Home Assistant dashboards and automations.
 
 This integration communicates with the UniFi Access controller over the local network using its REST API and WebSocket interface, providing real-time door status updates without polling.
 
@@ -50,17 +52,13 @@ Before setting up this integration, make sure you have the following:
 
 {% include integrations/config_flow.md %}
 
-## Configuration options
-
-The integration provides the following configuration options:
-
 {% configuration_basic %}
 Host:
   description: "The hostname or IP address of the UniFi Access controller."
 API Token:
-  description: "The API token generated in the UniFi Access controller settings."
+  description: "The API token generated in the UniFi Access controller settings. See [Prerequisites](#prerequisites) for how to create one."
 Verify SSL:
-  description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate."
+  description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate. Disabled by default."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -79,13 +77,6 @@ Each door registered in your UniFi Access controller is represented as an **unlo
 
 Each door provides two **event** entities:
 
-#### Binary sensors
-
-Each door registered in your UniFi Access controller is represented by a **binary sensor** entity that reports the door position.
-
-- **Door**: Turns on when the door is open and off when the door is closed.
-
-#### Locks
 - **Doorbell**: Fires a `ring` event when someone presses the doorbell at the door.
 
   {% note %}
@@ -101,6 +92,12 @@ Each door registered in your UniFi Access controller is represented by a **binar
   - `actor`: The name of the person who attempted access.
   - `authentication`: The authentication method used (for example, NFC, PIN code, Face).
   - `result`: The raw result from the UniFi Access controller (for example, `ACCESS`, `BLOCKED`).
+
+#### Binary sensors
+
+Each door registered in your UniFi Access controller is represented by a **binary sensor** entity that reports the door position.
+
+- **Door**: Turns on when the door is open and off when the door is closed.
 
 #### Switches
 
@@ -148,8 +145,11 @@ alias: "Access granted notification"
 triggers:
   - trigger: state
     entity_id: event.front_door_access
+conditions:
+  - condition: state
+    entity_id: event.front_door_access
     attribute: event_type
-    to: "access_granted"
+    state: "access_granted"
 actions:
   - action: notify.mobile_app_my_phone
     data:
@@ -171,8 +171,11 @@ alias: "Access denied alert"
 triggers:
   - trigger: state
     entity_id: event.front_door_access
+conditions:
+  - condition: state
+    entity_id: event.front_door_access
     attribute: event_type
-    to: "access_denied"
+    state: "access_denied"
 actions:
   - action: notify.mobile_app_my_phone
     data:
