@@ -1271,11 +1271,7 @@ template:
           target:
             entity_id: light.wled_bedroom
           data:
-            rgbw_color:
-              - "{{ r }}"
-              - "{{ g }}"
-              - "{{ b }}"
-              - "{{ w }}"
+            rgbw_color: "{{ rgbw }}"
             effect: "Solid"
         set_effect:
           action: select.select_option
