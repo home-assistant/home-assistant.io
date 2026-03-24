@@ -126,7 +126,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.docked` trigger fires when the vacuum cleaner docks.
+The **Vacuum returned to dock** trigger fires when the vacuum cleaner docks.
+In YAML, refer to it with `vacuum.docked`.
 
 For example, to trigger the automation after both of your vacuums dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -159,7 +160,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.errored` trigger fires when the vacuum cleaner encounters an error.
+The **Vacuum encountered an error** trigger fires when the vacuum cleaner reports an error.
+In YAML, refer to it with `vacuum.errored`.
 
 For example, to trigger the automation as soon as one of the vacuums reports an error, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -192,7 +194,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.paused_cleaning` trigger fires when the vacuum cleaner pauses its cleaning run.
+The **Vacuum cleaner paused cleaning** trigger fires when the vacuum cleaner pauses its cleaning run.
+In YAML, refer to it with `vacuum.paused_cleaning`.
 
 For example, to trigger the automation as soon as one of the vacuums pauses cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -225,7 +228,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.started_cleaning` trigger fires when the vacuum cleaner begins a cleaning run.
+The **Vacuum cleaner started cleaning** trigger fires when the vacuum cleaner begins a cleaning run.
+In YAML, refer to it with `vacuum.started_cleaning`.
 
 For example, to trigger the automation as soon as one of the vacuums starts cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -258,7 +262,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.started_returning` trigger fires when the vacuum cleaner starts heading back to its dock.
+The **Vacuum cleaner started returning to dock** trigger fires when the vacuum cleaner starts heading back to its dock.
+In YAML, refer to it with `vacuum.started_returning`.
 
 For example, to trigger the automation as soon as one of the vacuums starts returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -301,7 +306,8 @@ To learn more about these conditions, see [Entity conditions](/docs/automation/c
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_cleaning` condition passes when the vacuum cleaner is cleaning.
+The **Vacuum cleaner is cleaning** condition passes when the vacuum cleaner is cleaning.
+In YAML, refer to it with `vacuum.is_cleaning`.
 
 For example, to let the automation continue only when both vacuums are cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -334,7 +340,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_docked` condition passes when the vacuum cleaner is docked.
+The **Vacuum cleaner is docked** condition passes when the vacuum cleaner is docked.
+In YAML, refer to it with `vacuum.is_docked`.
 
 For example, to let the automation continue only when both vacuums are docked, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -367,7 +374,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_encountering_an_error` condition passes when the vacuum cleaner is in an error state.
+The **Vacuum cleaner is encountering an error** condition passes when the vacuum cleaner is in an error state.
+In YAML, refer to it with `vacuum.is_encountering_an_error`.
 
 For example, to let the automation continue only when both vacuums are in an error state, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -400,7 +408,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_paused` condition passes when the vacuum cleaner is paused.
+The **Vacuum cleaner is paused** condition passes when the vacuum cleaner is paused.
+In YAML, refer to it with `vacuum.is_paused`.
 
 For example, to let the automation continue only when both vacuums are paused, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -433,7 +442,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_returning` condition passes when the vacuum cleaner is returning to the dock.
+The **Vacuum cleaner is returning** condition passes when the vacuum cleaner is returning to the dock.
+In YAML, refer to it with `vacuum.is_returning`.
 
 For example, to let the automation continue only when both vacuums are returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -483,7 +493,8 @@ Before calling one of these actions, make sure your vacuum platform supports it.
 
 ### Start vacuum
 
-The `vacuum.start` action starts or resumes a cleaning task.
+The **Start** action starts or resumes a cleaning task.
+In YAML, refer to it with `vacuum.start`.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
@@ -491,7 +502,8 @@ The `vacuum.start` action starts or resumes a cleaning task.
 
 ### Pause vacuum
 
-The `vacuum.pause` action pauses a cleaning task.
+The **Pause** action pauses a cleaning task.
+In YAML, refer to it with `vacuum.pause`.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
@@ -499,7 +511,8 @@ The `vacuum.pause` action pauses a cleaning task.
 
 ### Stop vacuum
 
-The `vacuum.stop` action stops the current activity of the vacuum.
+The **Stop** action stops the current activity of the vacuum.
+In YAML, refer to it with `vacuum.stop`.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
@@ -507,7 +520,8 @@ The `vacuum.stop` action stops the current activity of the vacuum.
 
 ### Return vacuum to base
 
-The `vacuum.return_to_base` action tells the vacuum to return home.
+The **Return to base** action tells the vacuum to return home.
+In YAML, refer to it with `vacuum.return_to_base`.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
@@ -515,7 +529,8 @@ The `vacuum.return_to_base` action tells the vacuum to return home.
 
 ### Locate vacuum
 
-The `vacuum.locate` action locates the vacuum cleaner robot.
+The **Locate** action locates the vacuum cleaner robot.
+In YAML, refer to it with `vacuum.locate`.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
@@ -523,7 +538,8 @@ The `vacuum.locate` action locates the vacuum cleaner robot.
 
 ### Clean spot
 
-The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
+The **Clean spot** action tells the vacuum cleaner to do a spot clean-up.
+In YAML, refer to it with `vacuum.clean_spot`.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
@@ -531,7 +547,9 @@ The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
 
 ### Clean area
 
-The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assistant areas. To use this action, the vacuum's [segments must first be mapped to areas](#mapping-your-vacuum-areas-to-home-assistant-areas).
+The **Clean area** action tells the vacuum to clean one or more Home Assistant areas.
+In YAML, refer to it with `vacuum.clean_area`.
+To use this action, the vacuum's [segments must first be mapped to areas](#mapping-your-vacuum-areas-to-home-assistant-areas).
 
 | Data attribute     | Optional | Description |
 | ------------------ | -------- | ----------- |
@@ -540,7 +558,9 @@ The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assist
 
 ### Set vacuum fan speed
 
-The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
+The **Set fan speed** action sets the fan speed of the vacuum.
+In YAML, refer to it with `vacuum.set_fan_speed`.
+The fan speed can be a label, such as `balanced` or `turbo`, or a number; it depends on the `vacuum` platform.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
@@ -549,7 +569,8 @@ The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspee
 
 ### Send command to vacuum
 
-The `vacuum.send_command` action sends a platform-specific command to the vacuum cleaner.
+The **Send command** action sends a platform-specific command to the vacuum cleaner.
+In YAML, refer to it with `vacuum.send_command`.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
