@@ -1,3 +1,5 @@
+@use '../variables' as *;
+@use '../mixins' as *;
 @use "sass:color";
 
 .pull-left {
@@ -8,16 +10,7 @@
 }
 
 .clearfix {
-  *zoom: 1;
-  &::before,
-  &::after {
-    display: table;
-    content: "";
-    line-height: 0;
-  }
-  &::after {
-    clear: both;
-  }
+  @include clearfix;
 }
 
 ul,

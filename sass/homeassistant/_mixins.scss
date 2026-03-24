@@ -1,4 +1,25 @@
+@use 'variables' as *;
 @use "sass:color";
+
+@mixin clearfix {
+  *zoom: 1;
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin divider {
+  border: none;
+  border-bottom: 2px solid $primary-color;
+  clear: both;
+  margin: 2em 0;
+}
 
 @mixin content-columns($columnCount, $columnGap: $gridGutterWidth) {
   -webkit-column-count: $columnCount;

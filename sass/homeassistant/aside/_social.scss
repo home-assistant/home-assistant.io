@@ -1,3 +1,7 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 @use "sass:color";
 @use "sass:list";
 
