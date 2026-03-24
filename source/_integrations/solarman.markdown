@@ -44,7 +44,6 @@ Currently, the integration supports the following devices:
 {% configuration_basic %}
 Host:
   description: "The IP address of your device. You can find it in your router or in the app."
-Port:
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -104,7 +103,7 @@ The MR1-D5-W/MR1-D5-WR provides the following sensors:
 
 ## Data updates
 
-The **Solarman integration** integration {% term polling polls %} data from the device every 30 seconds.
+The **Solarman integration** {% term polling polls %} data from the device every 30 seconds.
 
 ## Known limitations
 
