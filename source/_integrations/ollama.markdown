@@ -28,7 +28,7 @@ Controlling Home Assistant is an experimental feature that provides the AI acces
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
-This integration requires an external Ollama server, which is available for macOS, Linux, and Windows. Follow the [download instructions](https://ollama.com/download) to install the server. Once installed, configure Ollama to be [accessible over the network](https://github.com/ollama/ollama/blob/main/docs/faq.md#how-can-i-expose-ollama-on-my-network).
+This integration requires an external Ollama server, which is available for macOS, Linux, and Windows. Follow the [download instructions](https://ollama.com/download) to install the server. Once installed, configure Ollama to be [accessible over the network](https://github.com/ollama/ollama/blob/main/docs/faq.mdx#how-can-i-expose-ollama-on-my-network).
 
 {% include integrations/config_flow.md %}
 
@@ -37,6 +37,8 @@ This integration requires an external Ollama server, which is available for macO
 {% configuration_basic %}
 URL:
   description: The URL of the external Ollama server, such as `http://localhost:11434`.
+API Key:
+  description: The API key to use when connecting to the Ollama server. This is optional if your Ollama server does not require authentication.
 Model:
   description: Name of the [Ollama model](https://ollama.com/library) to use, such as `mistral` or `llama2:13b`. Models will be automatically downloaded during setup.
 Instructions:

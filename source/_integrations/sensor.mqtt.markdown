@@ -152,6 +152,10 @@ force_update:
   required: false
   type: boolean
   default: false
+group:
+  description: A list of unique IDs of the member sensor entities. Set this if the sensor entity represents a sensor group.
+  required: false
+  type: list 
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -344,7 +348,7 @@ Topic: `tele/sonoff/sensor`
         "Time": <time>
     }
 }
-``` 
+```
 To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.

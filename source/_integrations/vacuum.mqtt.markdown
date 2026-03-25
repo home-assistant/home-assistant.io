@@ -62,6 +62,14 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+clean_segments_command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `clean_segments_command_topic`. The `value` variable contains a list of segment ID strings. 
+  required: false
+  type: template
+clean_segments_command_topic:
+  description: The MQTT topic to publish a JSON list of segment ID strings for the segments that should be cleaned. Use the `clean_segments_command_template` option if another payload format is needed. The `clean_segments_command_topic` option needs to be configured together with the `segments` and the `unique_id` option.
+  required: false
+  type: string
 command_topic:
   description: The MQTT topic to publish commands to control the vacuum.
   required: false
@@ -199,6 +207,10 @@ retain:
   required: false
   type: boolean
   default: false
+segments:
+  description: 'A list of segment areas the vacuum supports. The list can be with or without IDs. With IDs the `.` char is used as a separator, for example `["1.Living room",: "2.Kitchen"]`. Without IDs the names and IDs will be identical, for example `["Living room", "Kitchen"]`. The `segments` option needs to be configured together with the `clean_segments_command_topic` and the `unique_id` option.'
+  required: false
+  type: list
 send_command_topic:
   description: The MQTT topic to publish custom commands to the vacuum.
   required: false
@@ -217,9 +229,9 @@ supported_features:
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `clean_spot`"
 unique_id:
-   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
-   required: false
-   type: string
+  description: "An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery or when segment cleaning is configured."
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Configuration example
@@ -240,6 +252,10 @@ mqtt:
         - fan_speed
         - send_command
       command_topic: "vacuum/command"
+      clean_segments_command_topic: "vacuum/clean_segments"
+      segments:
+        - "1.Living room"
+        - "2.Kitchen"
       set_fan_speed_topic: "vacuum/set_fan_speed"
       fan_speed_list:
         - min
@@ -247,6 +263,7 @@ mqtt:
         - high
         - max
       send_command_topic: "vacuum/send_command"
+      unique_id: "mqtt_vc_031928332"
 ```
 
 ## MQTT Protocol

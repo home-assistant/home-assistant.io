@@ -418,7 +418,7 @@ The UniFi Protect integration provides support for various event types triggered
 
 - **Event Name**: Doorbell
 - **Event Attributes**:
-  - **event_type**: `doorbell`
+  - **event_type**: `ring`
   - **event_id**: A unique ID that identifies the doorbell event.
 - **Description**: This event is triggered when someone rings the doorbell. It provides an `event_id`, which can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
 
@@ -434,8 +434,14 @@ triggers:
     trigger: event
 conditions:
   - condition: template
-    value_template: |
-      {% raw %}{{ 'ring' in trigger.event.data.new_state.attributes.event_types }}{% endraw %}
+    value_template: >
+      {% raw %}{{
+        trigger.event.data.old_state is not none and
+        not trigger.event.data.old_state.state == 'unavailable' and
+        trigger.event.data.new_state is not none and
+        not trigger.event.data.new_state.state == 'unavailable' and
+        trigger.event.data.new_state.attributes.event_type == 'ring'
+      }}{% endraw %}
 actions:
   - data:
       message: Someone is at the door!
@@ -443,7 +449,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-The condition is required to prevent the notification from being triggered by events of type 'unknown', for example, during a restart.
+The condition ensures the notification is only sent for actual doorbell rings and not during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
 
 ### NFC Card Scanned Event
 
