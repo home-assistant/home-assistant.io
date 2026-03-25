@@ -179,12 +179,13 @@ The following new triggers and conditions now work across entity types. For each
 
 On top of the cross-domain additions, a _lot_ of existing {% term domains %} also gained new triggers and conditions:
 
+- **Counter** gained triggers for when the counter is incremented, decremented, reset, or reaches its maximum or minimum value
 - **Cover** now has triggers and conditions for all cover types (blinds, shutters, shades, curtains, and awnings)
 - **Event entities** now have a generic trigger that fires when any event is received
 - **Humidifier** now has a condition to check if the target humidity is above or below a threshold
 - **Input boolean** now works with switch triggers (and vice versa), because they behave identically
 - **Input text** now works with text triggers, just like text entities
-- **Moisture** now has conditions to check if moisture is detected or if a moisture value is above or below a threshold
+- **Moisture** now has triggers and conditions for when moisture is detected or cleared, when moisture values change, or when they cross a threshold
 - **Remote** gained turned on and turned off triggers
 - **Schedule** now has conditions to check if a schedule is active
 - **Select** gained triggers for when a selection changes
