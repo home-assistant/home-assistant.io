@@ -249,10 +249,10 @@ We welcome the following new integrations in this release:
 - **[OpenDisplay]**, added by [@g4bri3lDev]  
   Control your [OpenDisplay](https://opendisplay.io/) BLE e-paper displays from Home Assistant. Devices are automatically discovered via Bluetooth, and you can send images to the display.
 
-- **[TRMNL]**, added by [@joostlek]  
+- **[TRMNL]**, added by [@joostlek] - launching at 🏆 platinum quality  
   Monitor your [TRMNL](https://usetrmnl.com/) e-paper (e-ink) displays in Home Assistant. Track battery levels and manage the display sleep schedule of your low-power e-ink devices.
 
-- **[UniFi Access]**, added by [@RaHehl]  
+- **[UniFi Access]**, added by [@RaHehl] - launching at 🥈 silver quality  
   Control and monitor [Ubiquiti UniFi Access](https://ui.com/door-access) door access control devices locally from Home Assistant. Manage locks, doors, and access readers with real-time status updates over the local network.
 
 - **[WiiM]**, added by [@Linkplay2020]  
@@ -297,14 +297,25 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **1 integration reached platinum** 🏆
-  - [Lorem], thanks to [@frenck]
+- **5 integrations reached platinum** 🏆
+  - [Opower], thanks to [@tronikos]
+  - [Portainer], thanks to [@erwindouna]
+  - [Teslemetry], thanks to [@Bre77]
+  - [TRMNL], thanks to [@joostlek]
+  - [Whisker (Litter-Robot)][Litter-Robot], thanks to [@natekspencer]
 
-- **1 integration reached silver** 🥈
-  - [Lorem], thanks to [@frenck]
+- **4 integrations reached gold** 🥇
+  - [Ghost], thanks to [@JohnONolan]
+  - [Liebherr], thanks to [@mettolen]
+  - [Mastodon], thanks to [@andrew-codechimp]
+  - [Telegram bot], thanks to [@hanwg]
 
-- **6 integrations reached bronze** 🥉
-  - [Lorem], thanks to [@frenck]
+- **5 integrations reached silver** 🥈
+  - [Growatt Server], thanks to [@johanzander]
+  - [Smarla], thanks to [@rlint-explicatis]
+  - [Tessie], thanks to [@Bre77]
+  - [uhoo], thanks to [@joshsmonta]
+  - [UniFi Access], thanks to [@RaHehl]
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
 
@@ -312,8 +323,33 @@ A big thank you to all the contributors involved! 👏
 
 [integration quality scale]: /docs/quality_scale/
 
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/lorem_ipsum
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@Bre77]: https://github.com/Bre77
+[@erwindouna]: https://github.com/erwindouna
+[@hanwg]: https://github.com/hanwg
+[@johanzander]: https://github.com/johanzander
+[@JohnONolan]: https://github.com/JohnONolan
+[@joshsmonta]: https://github.com/joshsmonta
+[@joostlek]: https://github.com/joostlek
+[@mettolen]: https://github.com/mettolen
+[@natekspencer]: https://github.com/natekspencer
+[@RaHehl]: https://github.com/RaHehl
+[@rlint-explicatis]: https://github.com/rlint-explicatis
+[@tronikos]: https://github.com/tronikos
+[Ghost]: /integrations/ghost
+[Growatt Server]: /integrations/growatt_server
+[Liebherr]: /integrations/liebherr
+[Litter-Robot]: /integrations/litterrobot
+[Mastodon]: /integrations/mastodon
+[Opower]: /integrations/opower
+[Portainer]: /integrations/portainer
+[Smarla]: /integrations/smarla
+[Telegram bot]: /integrations/telegram_bot
+[Teslemetry]: /integrations/teslemetry
+[Tessie]: /integrations/tessie
+[TRMNL]: /integrations/trmnl
+[uhoo]: /integrations/uhoo
+[UniFi Access]: /integrations/unifi_access
 
 ### Now available to set up from the UI
 
