@@ -57,7 +57,6 @@ The **Transmission** integration provides the following sensors and switches.
 ### Binary sensors
 
 A binary sensor indicating whether the incoming peer port is open and reachable from the internet (port forwarding status).
-  
 ### Sensors
 
 - The status of your Transmission daemon.
