@@ -13,7 +13,12 @@ ENV \
 
 # Install tools
 RUN \
-  apt update \
+    for source_list in /etc/apt/sources.list /etc/apt/sources.list.d/*.list; do \
+        [ -f "$source_list" ] || continue; \
+        sed -i '/dl\.yarnpkg\.com\/debian/d' "$source_list"; \
+    done \
+    && \
+  apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       ack \
   && echo "en_US UTF-8" > /etc/locale.gen \
