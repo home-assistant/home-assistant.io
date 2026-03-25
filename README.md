@@ -17,6 +17,13 @@ You can access the site at the following URLs, depending on the target branch:
 
 Additionally, Netlify provides a preview deployment for every pull request, linked in the first PR comment.
 
+## Prerequisites
+
+- Ruby (see `.ruby-version` for required version)
+- Bundler: `gem install bundler`
+- Node.js (see `.nvmrc` for required version)
+- npm: comes with Node.js
+
 ## Setup
 
 Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting/).
@@ -37,7 +44,13 @@ To make the preview available on `http://127.0.0.1:4000`, follow these steps usi
 bundle install
 ```
 
-2. Start the local preview server:
+2. Install Node.js dependencies:
+
+```bash
+npm install
+```
+
+3. Start the local preview server:
 
 ```bash
 bundle exec rake preview
