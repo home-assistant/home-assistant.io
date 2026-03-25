@@ -72,7 +72,7 @@ Our [purpose-specific automation triggers and conditions](#purpose-specific-auto
 
 I'll be honest: when I first heard the pitch for [infrared support](#infrared-becoming-a-first-class-citizen-of-home-assistant) in Home Assistant, I wasn't exactly jumping out of my chair. Infrared? That's old tech! But that's _exactly_ the point. Think about how many TVs, air conditioners, and other appliances sitting in your home _right now_ have an infrared receiver but no smart features whatsoever. With this release, all of those devices can get a smart future, showing up as actual, controllable devices in Home Assistant. Turns out, old tech can learn some very new tricks. 📡
 
-There's also plenty of fun stuff: [background colors for dashboard sections](#background-color-for-your-dashboard-sections), [favorite light colors as a card feature](#favorite-light-colors-on-your-dashboard), full [Matter lock management](#matter-lock-manager) with PIN codes, and you can now see [what your AI-powered Assist is thinking](#what-is-an-ai-powered-assist-thinking) while it processes your requests. Plus 15 new integrations! 🚀
+There's also plenty of fun stuff: [background colors for dashboard sections](#background-color-for-your-dashboard-sections), [favorites on your dashboard cards](#favorites-on-your-dashboard), full [Matter lock management](#matter-lock-manager) with PIN codes, and you can now see [what your AI-powered Assist is thinking](#what-is-an-ai-powered-assist-thinking) while it processes your requests. Plus 15 new integrations! 🚀
 
 I'm oddly excited about this one. Back in [July 2022](https://developers.home-assistant.io/blog/2022/07/10/entity_naming/), we set out to fix one of the longest-standing pain points in Home Assistant: [entity naming](#entity-naming-consistent-names-everywhere). How entity names are composed, how they behave when you rename them, and how they're used across the UI, voice assistants, and external tools. It's been a _massive_ effort, touching nearly every single integration, and this release finally brings the backend in line with the frontend work that's been shipping over the past year. It's not the flashiest feature, but it's the kind of foundational work that makes everything else better. 🧱
 
@@ -106,7 +106,7 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
-  - [Favorite light colors on your dashboard](#favorite-light-colors-on-your-dashboard)
+  - [Favorites on your dashboard](#favorites-on-your-dashboard)
   - [Gauge card redesign](#gauge-card-redesign)
   - [Auto height for cards](#auto-height-for-cards)
   - [What is an AI-powered assist thinking?](#what-is-an-ai-powered-assist-thinking)
@@ -457,19 +457,22 @@ Jolted down during working on the rest of the notes:
 - Map card editor: add more options: https://github.com/home-assistant/frontend/pull/29759
 - Add state_attr_translated template filter and function ([@piitaya] - [#165317]) (noteworthy)
 
-### Favorite light colors on your dashboard
+### Favorites on your dashboard
 
-[@karwosts] is well known for contributing quality-of-life improvements, and this release is no exception. Your favorite light colors can now be added as a card feature, bringing those one-tap color buttons directly onto your tile or light cards on your dashboard. 🌈
+[@karwosts] is well known for contributing quality-of-life improvements, and this release is no exception. You could already save your favorite colors for lights in the more-information dialog, and now those favorites can be added as a card feature on your tile and light cards, bringing those one-tap color buttons directly onto your dashboard. 🌈
 
-<img src='/images/blog/2026-04/card-feature-light-favorite-colors.png' alt='Screenshot of tile cards showing favorite light color buttons. Each card displays a row of color swatches next to the light name and brightness.' class='no-shadow' />
+The card feature automatically shows as many of your saved favorites as can fit in the available space, giving you quick access to your preferred colors and color temperatures without opening the light's more-information dialog.
 
-The feature automatically shows as many of your saved favorites as can fit in the available space, giving you quick access to your preferred colors and color temperatures without opening the light's more-information dialog.
+[@timmo001] extended the favorites concept to covers and valves! You can now save your favorite positions, like fully open, half open, or closed, from the more-information dialog and add them as a card feature too, just like with light colors.
 
-[@karwosts] also made it possible to copy your favorite colors from one light to other lights that support the same color modes, so you don't have to set them up from scratch for every light. Nice!
+<img src='/images/blog/2026-04/card-feature-light-favorite-colors.png' alt='Screenshot of tile cards showing favorite light color buttons and cover favorite position buttons. Each light card displays a row of color swatches, while the cover card shows position buttons like 0%, 50%, and 100%.' class='no-shadow' />
+
+[@karwosts] also made it possible to copy your favorites from one entity to others that support the same modes, so you don't have to set them up from scratch for every light or cover. Nice!
 
 <img src='/images/blog/2026-04/light-copy-favorite-colors.png' alt='Screenshot of the light more-information dialog showing a menu with options to edit favorite colors, reset favorite colors, and copy favorites to other lights.' class='no-shadow' />
 
 [@karwosts]: https://github.com/karwosts
+[@timmo001]: https://github.com/timmo001
 
 ### Gauge card redesign
 
