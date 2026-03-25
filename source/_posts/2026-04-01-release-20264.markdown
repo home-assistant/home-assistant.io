@@ -487,11 +487,14 @@ A big thank you to all the contributors involved! 👏
 
 While most {% term integrations %} can be set up directly from the Home Assistant user interface, some were only available using YAML configuration. We keep moving more integrations to the UI, making them more accessible for everyone to set up and use.
 
-The following integration is now available via the Home Assistant UI:
+The following integrations are now available via the Home Assistant UI:
 
+- **[Leviton Decora Wi-Fi]**, done by [@joostlek]
 - **[Orvibo]**, done by [@peteS-UK]
 
+[@joostlek]: https://github.com/joostlek
 [@peteS-UK]: https://github.com/peteS-UK
+[Leviton Decora Wi-Fi]: /integrations/decora_wifi
 [Orvibo]: /integrations/orvibo
 
 ### Farewell to the following
