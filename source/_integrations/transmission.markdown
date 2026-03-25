@@ -52,7 +52,7 @@ Verify SSL certificate:
 
 ## Supported functionality
 
-The **Transmission integration** provides the following sensors and switches.
+The **Transmission** integration provides the following sensors and switches.
 
 ### Binary sensors
 
