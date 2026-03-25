@@ -15,7 +15,7 @@ ha_codeowners:
   - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
-  - binary sensor
+  - binary_sensor
   - sensor
   - switch
 ha_integration_type: service
