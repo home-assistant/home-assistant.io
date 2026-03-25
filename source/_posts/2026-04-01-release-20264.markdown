@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2026.4 Beta: The name of the game"
-description: "Beta release notes: Purpose-specific triggers and conditions almost feature complete, consistent entity naming everywhere, background colors for dashboard sections, Matter lock management with PIN codes, favorite light colors on your cards, see what your AI-powered Assist is thinking, and 15 new integrations!"
+title: "2026.4 Beta: Infrared never left the chat"
+description: "Beta release notes: Infrared support turns your old remotes into smart home controllers, purpose-specific triggers and conditions almost feature complete, consistent entity naming everywhere, Matter lock management with PIN codes, background colors for dashboard sections, and 15 new integrations!"
 date: 2026-03-25 00:00:00
 date_formatted: "April 1, 2026"
 author: Franck Nijhof
