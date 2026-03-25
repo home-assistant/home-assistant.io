@@ -21,15 +21,6 @@ Additionally, Netlify provides a preview deployment for every pull request, link
 
 Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting/).
 
-## npm dependency override note
-
-This project uses npm's `overrides` field in `package.json` to enforce `minimist` version `>=1.2.5`.
-Older `minimist` versions have a known security vulnerability, so this minimum version is required.
-The older `resolutions` field was removed because npm ignores it silently.
-
-The `overrides` field is supported in npm 8.3.0 and later.
-For more complex dependency override scenarios in the future, contributors can consider Yarn (`resolutions`) or pnpm (`pnpm.overrides`).
-
 ## Site preview
 
 To make the preview available on `http://127.0.0.1:4000`, follow these steps using [Bundler](https://bundler.io/):
