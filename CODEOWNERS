@@ -911,6 +911,7 @@ source/_integrations/songpal.markdown @rytilahti @shenxn
 source/_integrations/sonos.markdown @jjlawren @peterager
 source/_integrations/soundtouch.markdown @kroimon
 source/_integrations/spaceapi.markdown @fabaff
+source/_integrations/span_panel.markdown @cayossarian
 source/_integrations/speedtestdotnet.markdown @rohankapoorcom @engrbm87
 source/_integrations/splunk.markdown @Bre77
 source/_integrations/spotify.markdown @frenck @joostlek
