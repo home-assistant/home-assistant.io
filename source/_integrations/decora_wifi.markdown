@@ -8,11 +8,12 @@ ha_release: 0.51
 ha_domain: decora_wifi
 ha_platforms:
   - light
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 Support for [Leviton Decora Wi-Fi](https://leviton.com/products/residential/smart-home/smart-switches) dimmers/switches via the MyLeviton API.

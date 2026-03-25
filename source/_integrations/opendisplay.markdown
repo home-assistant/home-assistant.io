@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: opendisplay
 ha_config_flow: true
 ha_platforms:
-  - sensor
+  - diagnostics
 ha_integration_type: device
 ha_quality_scale: silver
 ---

@@ -4,16 +4,16 @@ description: Integration to control LG TVs using an infrared transmitter.
 ha_category:
   - Media player
 ha_release: 2026.5
-ha_iot_class: Local Push
+ha_iot_class: Assumed State
 ha_codeowners:
-  - '@abmantis'
+  - '@home-assistant/core'
 ha_domain: lg_infrared
 ha_config_flow: true
 ha_platforms:
   - button
   - media_player
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **LG Infrared** {% term integration %} lets you control an LG TV using any infrared transmitter previously configured in Home Assistant.
