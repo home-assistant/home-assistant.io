@@ -85,6 +85,10 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Purpose-specific automation triggers \& conditions](#purpose-specific-automation-triggers--conditions)
+  - [Thinking in real-world concepts, not technical domains](#thinking-in-real-world-concepts-not-technical-domains)
+  - [New cross-domain triggers and conditions](#new-cross-domain-triggers-and-conditions)
+  - [More triggers and conditions for existing domains](#more-triggers-and-conditions-for-existing-domains)
+  - [Try it out!](#try-it-out)
 - [Infrared becoming a first-class citizen of Home Assistant](#infrared-becoming-a-first-class-citizen-of-home-assistant)
 - [Background color for your dashboard sections](#background-color-for-your-dashboard-sections)
 - [Entity naming: consistent names everywhere](#entity-naming-consistent-names-everywhere)
@@ -114,7 +118,58 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## Purpose-specific automation triggers & conditions
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Since [Home Assistant 2025.12](/blog/2025/12/03/release-202512/#purpose-specific-triggers-and-conditions), we've been working on making {% term automation %} building more natural. Instead of thinking in technical terms like {% term entity %} states and numeric thresholds, you can now pick things like "When a light turns on" or "If the climate is heating". Each release since has added more, and this release brings the _biggest batch_ yet.
+
+But this release also brings something fundamentally new to the table: _cross-domain_ triggers and conditions.
+
+### Thinking in real-world concepts, not technical domains
+
+Up until now, every {% term trigger %} and {% term condition %} was tied to a specific entity type. Want to know if a door opened? That depends: is your door sensor a {% term binary sensor %}, a {% term cover %} entity, or something else? You had to know the technical difference and pick the right one.
+
+That's not how we think about our homes. You don't think about binary sensors; you think about doors, windows, motion, temperature, and humidity. These are real-world concepts that can be represented by multiple different entity types in Home Assistant.
+
+This release introduces {% term triggers %} and {% term conditions %} that work across entity types and are organized by what they _mean_, not where they live technically. A "door opened" trigger now responds to _any_ door entity, whether it's a contact sensor or a motorized cover. A "temperature changed" trigger picks up readings from temperature sensors, {% term climate %} {% term devices %}, and water heaters alike. You no longer need to know the technical details behind the scenes.
+
+<img src='/images/blog/2026-04/temp-cross-domain-triggers.png' alt='Screenshot of the Add trigger dialog in the automation editor, showing the new cross-domain trigger categories like Humidity, Illuminance, Motion, Occupancy, and Power. The Motion category is selected, revealing Motion cleared and Motion detected triggers.' class='no-shadow' />
+
+And just like the purpose-specific triggers you already know, these new cross-domain triggers and conditions fully support targeting by {% term area %}, {% term floor %}, or {% term label %}. That means you can create a trigger like "When a window on the upstairs floor is opened" without listing every single window. Add a new window sensor up there, and it's automatically included.
+
+### New cross-domain triggers and conditions
+
+The following new triggers and conditions now work across entity types. For each of these, you get both a trigger ("when" something happened) and a condition ("if" something is true), so you can use the same natural concepts throughout your automation:
+
+- **Door**, **garage door**, **gate**, and **window**: trigger when they open or close, and check if they are currently open or closed (from both binary sensors and covers)
+- **Motion**: trigger when motion is detected or cleared (across {% term binary_sensors %} and {% term "event entity" "event entities" %})
+- **Occupancy**: trigger when occupancy is detected or cleared, and check if a space is occupied
+- **Temperature**: trigger when the temperature changes or crosses a threshold (from temperature sensors, climate devices, and more)
+- **Humidity**: trigger when humidity changes or crosses a threshold (from humidity sensors, climate devices, and humidifiers)
+- **Illuminance**: trigger when the light level changes or crosses a threshold, and check if it's above or below a value
+- **Power**: trigger when power consumption changes or crosses a threshold, and check current values
+- **Battery**: trigger when the battery level is low, high, charging, or stopped charging, and check if it's above or below a threshold
+- **Air quality**: check for detected pollutants like CO, CO2, smoke, and more
+- **Climate**: check if the current or target temperature is above or below a threshold
+
+<img src='/images/blog/2026-04/temp-natrual-automation-example.png' alt='Screenshot of an automation in the visual editor using a cross-domain Motion detected trigger targeted at the Outside area, combined with a Person is not home condition, and actions for recording a camera feed and starting watering.' class='no-shadow' />
+
+### More triggers and conditions for existing domains
+
+On top of the cross-domain additions, a _lot_ of existing {% term domains %} also gained new triggers and conditions:
+
+- **Cover** now has triggers and conditions for all cover types (blinds, shutters, shades, curtains, and awnings)
+- **Event entities** now have a generic trigger that fires when any event is received
+- **Humidifier** now has a condition to check if the target humidity is above or below a threshold
+- **Input boolean** now works with switch triggers (and vice versa), because they behave identically
+- **Input text** now works with text triggers, just like text entities
+- **Moisture** now has conditions to check if moisture is detected or if a moisture value is above or below a threshold
+- **Remote** gained turned on and turned off triggers
+- **Schedule** now has conditions to check if a schedule is active
+- **Select** gained triggers for when a selection changes
+- **Text** now has conditions
+- **Water heater** gained both triggers and conditions
+
+### Try it out!
+
+Purpose-specific triggers and conditions are available as a preview feature in {% my labs title="**Home Assistant Labs**" %}. We've been building and refining this for over four releases now, and it's getting really close to being feature complete. If you haven't tried it yet, head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enable it. We'd love your feedback!
 
 ## Infrared becoming a first-class citizen of Home Assistant
 
@@ -140,7 +195,7 @@ We're excited to see where this goes. The infrared support is designed to work w
 
 ## Background color for your dashboard sections
 
-Your dashboard sections can now have a background color! This is a great way to visually group related cards together, make certain sections stand out, or simply add a personal touch to your dashboard 🤩
+Your dashboard sections can now have a background color! This is a great way to visually group related cards together, make certain sections stand out, or add a personal touch to your dashboard 🤩
 
 <img src='/images/blog/2026-04/dashboard-sections-background-colors.png' alt='Screenshot showing four dashboard sections: one with no background, one with the default background, one with a grey background at 100% opacity, and one with a red background at 25% opacity.' class='no-shadow' />
 
