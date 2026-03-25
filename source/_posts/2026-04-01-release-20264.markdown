@@ -68,9 +68,9 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 Home Assistant 2026.4! 🎉
 
-Our [purpose-specific automation triggers and conditions](#purpose-specific-automation-triggers--conditions) are back with a _whole metric ton_ of new triggers and conditions! This effort, currently available through [Home Assistant Labs](/blog/2025/12/03/release-202512/#home-assistant-labs), is now almost feature complete. If you haven't tried it yet, please give it a shot; I'm really looking forward to your feedback. 🧠
-
 I'll be honest: when I first heard the pitch for [infrared support](#infrared-becoming-a-first-class-citizen-of-home-assistant) in Home Assistant, I wasn't exactly jumping out of my chair. Infrared? That's old tech! But that's _exactly_ the point. Think about how many TVs, air conditioners, and other appliances sitting in your home _right now_ have an infrared receiver but no smart features whatsoever. With this release, all of those devices can get a smart future, showing up as actual, controllable devices in Home Assistant. Turns out, old tech can learn some very new tricks. 📡
+
+Our [purpose-specific automation triggers and conditions](#purpose-specific-automation-triggers--conditions) are back with a _whole metric ton_ of new triggers and conditions! This effort, currently available through [Home Assistant Labs](/blog/2025/12/03/release-202512/#home-assistant-labs), is now almost feature complete. If you haven't tried it yet, please give it a shot; I'm really looking forward to your feedback. 🧠
 
 There's also plenty of fun stuff: [background colors for dashboard sections](#background-color-for-your-dashboard-sections), [favorites on your dashboard cards](#favorites-on-your-dashboard), full [Matter lock management](#matter-lock-manager) with PIN codes, and you can now see [what your AI-powered Assist is thinking](#what-is-an-ai-powered-assist-thinking) while it processes your requests. Plus 15 new integrations! 🚀
 
