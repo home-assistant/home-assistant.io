@@ -292,13 +292,13 @@ We welcome the following new integrations in this release:
 - **[Dropbox]**, added by [@bdr99]  
   Use your [Dropbox](https://dropbox.com) account as a backup location for your Home Assistant backups.
 
-- **[Fresh-r]**, added by [@SierraNL]  
+- **[Fresh-r]**, added by [@SierraNL] - launching at 🥈 silver quality  
   Monitor your [Fresh-r](https://www.fresh-r.me/) ventilation devices in Home Assistant. Track indoor air quality, CO2 levels, and ventilation performance through the Fresh-r cloud dashboard.
 
 - **[Infrared]**, added by [@abmantis]  
   A new entity platform that provides an abstraction layer for infrared transmitter devices, allowing integrations to send IR commands to control TVs, air conditioners, and other IR-controlled appliances.
 
-- **[LG Infrared]**, added by [@abmantis]  
+- **[LG Infrared]**, added by [@abmantis] - launching at 🥈 silver quality  
   Control your LG TV using any [infrared proxy](#infrared-becoming-a-first-class-citizen-of-home-assistant) configured in Home Assistant. Send commands over IR to manage power, volume, input sources, and more, using assumed states.
 
 - **[Lichess]**, added by [@aryanhasgithub]  
@@ -424,9 +424,10 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **5 integrations reached platinum** 🏆
+- **6 integrations reached platinum** 🏆
   - [Opower], thanks to [@tronikos]
   - [Portainer], thanks to [@erwindouna]
+  - [System Nexa 2], thanks to [@konsulten]
   - [Teslemetry], thanks to [@Bre77]
   - [TRMNL], thanks to [@joostlek]
   - [Whisker (Litter-Robot)][Litter-Robot], thanks to [@natekspencer]
@@ -437,14 +438,20 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Mastodon], thanks to [@andrew-codechimp]
   - [Telegram bot], thanks to [@hanwg]
 
-- **5 integrations reached silver** 🥈
+- **10 integrations reached silver** 🥈
+  - [Actron Air], thanks to [@kclif9] and [@JagadishDhanamjayam]
+  - [devolo Home Control], thanks to [@2Fake] and [@Shutgun]
+  - [Fresh-r], thanks to [@SierraNL]
+  - [FRITZ!Box Tools], thanks to [@AaronDavidSchneider], [@chemelli74], and [@mib1185]
   - [Growatt Server], thanks to [@johanzander]
+  - [LG Infrared], thanks to [@abmantis]
   - [Smarla], thanks to [@rlint-explicatis]
   - [Tessie], thanks to [@Bre77]
   - [uhoo], thanks to [@joshsmonta]
   - [UniFi Access], thanks to [@RaHehl]
 
-- **1 integration reached bronze** 🥉
+- **2 integrations reached bronze** 🥉
+  - [MyNeomitis], thanks to [@l-pr]
   - [Satel Integra], thanks to [@Tommatheussen]
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
@@ -453,29 +460,47 @@ A big thank you to all the contributors involved! 👏
 
 [integration quality scale]: /docs/quality_scale/
 
+[@2Fake]: https://github.com/2Fake
+[@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
+[@abmantis]: https://github.com/abmantis
 [@andrew-codechimp]: https://github.com/andrew-codechimp
 [@Bre77]: https://github.com/Bre77
+[@chemelli74]: https://github.com/chemelli74
 [@erwindouna]: https://github.com/erwindouna
 [@hanwg]: https://github.com/hanwg
+[@JagadishDhanamjayam]: https://github.com/JagadishDhanamjayam
 [@johanzander]: https://github.com/johanzander
 [@JohnONolan]: https://github.com/JohnONolan
 [@joshsmonta]: https://github.com/joshsmonta
 [@joostlek]: https://github.com/joostlek
+[@kclif9]: https://github.com/kclif9
+[@konsulten]: https://github.com/konsulten
+[@l-pr]: https://github.com/l-pr
 [@mettolen]: https://github.com/mettolen
+[@mib1185]: https://github.com/mib1185
 [@natekspencer]: https://github.com/natekspencer
 [@RaHehl]: https://github.com/RaHehl
 [@rlint-explicatis]: https://github.com/rlint-explicatis
+[@Shutgun]: https://github.com/Shutgun
+[@SierraNL]: https://github.com/SierraNL
 [@tronikos]: https://github.com/tronikos
 [@Tommatheussen]: https://github.com/Tommatheussen
+[Actron Air]: /integrations/actron_air
+[devolo Home Control]: /integrations/devolo_home_control
+[Fresh-r]: /integrations/freshr
+[FRITZ!Box Tools]: /integrations/fritz
 [Ghost]: /integrations/ghost
 [Growatt Server]: /integrations/growatt_server
+[LG Infrared]: /integrations/lg_infrared
 [Liebherr]: /integrations/liebherr
 [Litter-Robot]: /integrations/litterrobot
 [Mastodon]: /integrations/mastodon
+[MyNeomitis]: /integrations/myneomitis
 [Opower]: /integrations/opower
 [Portainer]: /integrations/portainer
 [Satel Integra]: /integrations/satel_integra
 [Smarla]: /integrations/smarla
+[System Nexa 2]: /integrations/systemnexa2
 [Telegram bot]: /integrations/telegram_bot
 [Teslemetry]: /integrations/teslemetry
 [Tessie]: /integrations/tessie
