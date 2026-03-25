@@ -39,13 +39,13 @@ The following Samsung TV models are known to be supported by the integration:
 
 - Samsung Smart TVs with Tizen operating system (2016 and later)
 - Samsung TVs with WebSocket API support
-- Television models with both REST API and WebSocket capabilities
+- Samsung TV models with both REST API and WebSocket capabilities
 
 For specific model compatibility, check your TV's specifications to ensure it has a smart platform and network connectivity.
 
 ## Supported functionality
 
-The **SamsungTV** integration provides the following entities and functionality:
+The Samsung Smart TV integration provides the following entities and functionality:
 
 ### Media player
 
@@ -60,7 +60,7 @@ The **SamsungTV** integration provides the following entities and functionality:
 
 - **Key commands**: Send remote control commands to your TV using standard key codes
 - **Command sequences**: Execute multiple commands in sequence
-- Extended key support for navigation, menu control, and specialized functions
+- **Extended key support**: Navigation, menu control, and specialized functions
 
 ### Diagnostics
 
@@ -68,8 +68,8 @@ The **SamsungTV** integration provides the following entities and functionality:
 
 ## Data updates
 
-The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume, etc.
-For old models (based on SamsungTvBridge), the integration polls the TV every 10 seconds to retrieve the latest state information.
+The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume level, and other state information.
+For older TV models that still use the legacy bridge implementation (internally called `SamsungTvBridge`), the integration polls the TV every 10 seconds to retrieve the latest state information.
 
 ### Turn on action
 
@@ -531,7 +531,7 @@ data:
 
 ### Subnet/VLAN restrictions
 
-Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant, the integration will fail to establish a connection. It may be possible to bypass this issue by using IP masquerading or a proxy.
+Samsung Smart TVs do not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant, the integration will fail to establish a connection. It may be possible to bypass this issue by using IP masquerading or a proxy.
 
 ### H and J models
 
@@ -543,7 +543,7 @@ Some televisions from the H and J series use an encrypted protocol and require m
 
 The default setting on newer televisions is to ask for permission on every connection attempt.
 
-**Resolution:**
+#### Resolution
 
 1. On your TV, navigate to **Device connection manager** > **Access notification**.
 2. Change the setting to **First time only**.
