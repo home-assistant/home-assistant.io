@@ -599,6 +599,25 @@ pyLoad 0.4.x is now [deprecated](https://github.com/pyload/pyload/releases/tag/v
 
 {% enddetails %}
 
+{% details "Roth Touchline" %}
+
+The preset mode names for the Roth Touchline climate entities have been updated to use standard Home Assistant preset names, making them translatable. If you have automations or scripts that reference the old preset mode names, update them to use the new names:
+
+- `Normal` → `none`
+- `Night` → `sleep`
+- `Holiday` → `away`
+- `Pro 1` → `program_1`
+- `Pro 2` → `program_2`
+- `Pro 3` → `program_3`
+
+([@joostlek] - [#166390]) ([Roth Touchline documentation])
+
+[@joostlek]: https://github.com/joostlek
+[#166390]: https://github.com/home-assistant/core/pull/166390
+[Roth Touchline documentation]: /integrations/touchline/
+
+{% enddetails %}
+
 {% details "Tuya" %}
 
 Previously deprecated switch entities used to control valves have been removed. Use the valve entities instead. If you have automations or scripts that reference these switch entities, update them to use the corresponding valve entities.
