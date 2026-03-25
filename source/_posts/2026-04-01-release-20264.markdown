@@ -126,7 +126,7 @@ But this release also brings something fundamentally new to the table: _cross-do
 
 ### Thinking in real-world concepts, not technical domains
 
-Up until now, every {% term trigger %} and {% term condition %} was tied to a specific entity type. Want to know if a door opened? That depends: is your door sensor a {% term binary sensor %}, a {% term cover %} entity, or something else? You had to know the technical difference and pick the right one.
+Up until now, every {% term trigger %} and {% term condition %} was tied to a specific entity type. Want to know if a door opened? That depends: is your door sensor a {% term "binary sensor" %}, a {% term cover %} entity, or something else? You had to know the technical difference and pick the right one.
 
 That's not how we think about our homes. You don't think about binary sensors; you think about doors, windows, motion, temperature, and humidity. These are real-world concepts that can be represented by multiple different entity types in Home Assistant.
 
@@ -141,7 +141,7 @@ And just like the purpose-specific triggers you already know, these new cross-do
 The following new triggers and conditions now work across entity types. For each of these, you get both a trigger ("when" something happened) and a condition ("if" something is true), so you can use the same natural concepts throughout your automation:
 
 - **Door**, **garage door**, **gate**, and **window**: trigger when they open or close, and check if they are currently open or closed (from both binary sensors and covers)
-- **Motion**: trigger when motion is detected or cleared (across {% term binary_sensors %} and {% term "event entity" "event entities" %})
+- **Motion**: trigger when motion is detected or cleared (across {% term "binary sensor" %} and {% term "event entity" "event entities" %})
 - **Occupancy**: trigger when occupancy is detected or cleared, and check if a space is occupied
 - **Temperature**: trigger when the temperature changes or crosses a threshold (from temperature sensors, climate devices, and more)
 - **Humidity**: trigger when humidity changes or crosses a threshold (from humidity sensors, climate devices, and humidifiers)
