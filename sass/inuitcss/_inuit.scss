@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*------------------------------------*\
     INUIT.CSS
 \*------------------------------------*/
@@ -142,12 +141,12 @@
 /**
  * Generic utility styles etc.
  */
-@import "defaults";
-@import "generic/mixins";
-@import "generic/normalize";
-@import "generic/reset";
-@import "generic/clearfix";
-@import "generic/shared";
+@use 'defaults' as *;
+@use 'generic/mixins' as *;
+@use 'generic/normalize' as *;
+@use 'generic/reset' as *;
+@use 'generic/clearfix' as *;
+@use 'generic/shared' as *;
 
 
 
@@ -156,16 +155,16 @@
 /**
  * Base styles; unclassed HTML elements etc.
  */
-@import "base/main";
-@import "base/headings";
-@import "base/paragraphs";
-@import "base/smallprint";
-@import "base/quotes";
-@import "base/code";
-@import "base/images";
-@import "base/lists";
-@import "base/tables";
-@import "base/forms";
+@use 'base/main' as *;
+@use 'base/headings' as *;
+@use 'base/paragraphs' as *;
+@use 'base/smallprint' as *;
+@use 'base/quotes' as *;
+@use 'base/code' as *;
+@use 'base/images' as *;
+@use 'base/lists' as *;
+@use 'base/tables' as *;
+@use 'base/forms' as *;
 
 
 
@@ -174,30 +173,30 @@
 /**
  * Objects and abstractions
  */
-@import "objects/grids";
-@import "objects/flexbox";
-@import "objects/columns";
-@import "objects/nav";
-@import "objects/options";
-@import "objects/pagination";
-@import "objects/breadcrumb";
-@import "objects/media";
-@import "objects/marginalia";
-@import "objects/island";
-@import "objects/block-list";
-@import "objects/matrix";
-@import "objects/split";
-@import "objects/this-or-this";
-@import "objects/link-complex";
-@import "objects/flyout";
-@import "objects/arrows";
-@import "objects/sprite";
-@import "objects/icon-text";
-@import "objects/beautons";
-@import "objects/lozenges";
-@import "objects/rules";
-@import "objects/stats";
-@import "objects/greybox";
+@use 'objects/grids' as *;
+@use 'objects/flexbox' as *;
+@use 'objects/columns' as *;
+@use 'objects/nav' as *;
+@use 'objects/options' as *;
+@use 'objects/pagination' as *;
+@use 'objects/breadcrumb' as *;
+@use 'objects/media' as *;
+@use 'objects/marginalia' as *;
+@use 'objects/island' as *;
+@use 'objects/block-list' as *;
+@use 'objects/matrix' as *;
+@use 'objects/split' as *;
+@use 'objects/this-or-this' as *;
+@use 'objects/link-complex' as *;
+@use 'objects/flyout' as *;
+@use 'objects/arrows' as *;
+@use 'objects/sprite' as *;
+@use 'objects/icon-text' as *;
+@use 'objects/beautons' as *;
+@use 'objects/lozenges' as *;
+@use 'objects/rules' as *;
+@use 'objects/stats' as *;
+@use 'objects/greybox' as *;
 
 
 
@@ -206,9 +205,9 @@
 /**
  * Style trumps; helper and brand classes
  */
-@import "generic/widths";
-@import "generic/push";
-@import "generic/pull";
-@import "generic/brand";
-@import "generic/helper";
-@import "generic/debug";
+@use 'generic/widths' as *;
+@use 'generic/push' as *;
+@use 'generic/pull' as *;
+@use 'generic/brand' as *;
+@use 'generic/helper' as *;
+@use 'generic/debug' as *;

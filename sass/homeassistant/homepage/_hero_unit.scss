@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 
 // Front page hero section
 
@@ -162,6 +165,7 @@
     max-width: 400px;
     overflow: hidden;
     position: relative;
+    display: flex;
 
     >img{
       height: 100%;
