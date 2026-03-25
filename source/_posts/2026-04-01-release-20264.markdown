@@ -190,6 +190,7 @@ On top of the cross-domain additions, a _lot_ of existing {% term domains %} als
 - **Schedule** now has conditions to check if a schedule is active
 - **Select** gained triggers for when a selection changes
 - **Text** now has conditions
+- **Temperature** now has conditions to check if a temperature value is above or below a threshold
 - **To-do list** gained triggers for when an item is added, completed, or removed
 - **Water heater** gained both triggers and conditions
 
