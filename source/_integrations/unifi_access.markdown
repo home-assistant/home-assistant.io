@@ -7,7 +7,7 @@ ha_category:
 ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - "@imhotep"
@@ -16,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - button
   - event
+  - image
   - lock
   - switch
 ha_integration_type: hub
@@ -92,6 +93,11 @@ Each door provides two **event** entities:
   - `actor`: The name of the person who attempted access.
   - `authentication`: The authentication method used (for example, NFC, PIN code, Face).
   - `result`: The raw result from the UniFi Access controller (for example, `ACCESS`, `BLOCKED`).
+
+#### Images
+
+- **Door thumbnail**
+  - **Description**: Shows the most recent snapshot captured by the door's camera. The image is updated automatically whenever the UniFi Access controller sends a new thumbnail via WebSocket, for example after an access event.
 
 #### Binary sensors
 
