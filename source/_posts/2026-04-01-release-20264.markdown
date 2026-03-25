@@ -94,9 +94,9 @@ Enjoy the (beta) release!
   - [Why this matters](#why-this-matters)
 - [Background color for your dashboard sections](#background-color-for-your-dashboard-sections)
 - [Entity naming: consistent names everywhere](#entity-naming-consistent-names-everywhere)
-  - [What this means for your daily use](#what-this-means-for-your-daily-use)
-  - [The migration](#the-migration)
-  - [Unified voice name resolution](#unified-voice-name-resolution)
+  - [You should not have to think about naming conventions](#you-should-not-have-to-think-about-naming-conventions)
+  - [This is a backward-incompatible change](#this-is-a-backward-incompatible-change)
+  - [Migration and voice aliases](#migration-and-voice-aliases)
   - [Why we're doing this](#why-were-doing-this)
 - [Matter lock manager](#matter-lock-manager)
 - [Integrations](#integrations)
@@ -207,37 +207,35 @@ To add a background color to a section, open the section settings and turn on th
 
 If you have sections side by side on the same row, sections without a background will automatically align with those that have one, keeping everything looking clean and tidy.
 
-### Entity naming: consistent names everywhere
+## Entity naming: consistent names everywhere
 
-Have you ever renamed an entity to something like "Ceiling Light," only to find that voice assistants, logbook entries, and external tools suddenly lost all context about which room or device it belongs to? Or maybe you've been on the other side of this: you carefully named your device "Living Room Lamp" and its entity "Temperature," and everything worked great... until you renamed the entity, and suddenly the device context just vanished?
+When an {% term integration %} names an {% term entity %}, the full name is composed as {% term device %} name + entity name. For example, a "Motion Sensor" device with a "Temperature" entity becomes "Motion Sensor Temperature." But when _you_ renamed that entity, say to "Ambient temp," the device name was dropped. The friendly name became just "Ambient temp." Two different behaviors for the same thing, depending on who set the name.
 
-This inconsistency has been one of the longest-standing pain points in Home Assistant. When an integration names an entity, the full name is composed as device name + entity name (for example, "Living Room Lamp Temperature"). But when _you_ renamed that entity, the device name was dropped entirely, and only your given name was used. Two different behaviors for the same thing, depending on who set the name.
+This inconsistency has been one of the most common sources of confusion in Home Assistant, and one of the most frequently discussed topics in our community. Starting with this release, we've made this consistent. Entity names now always include the device name as context, whether the name was set by an integration or by you. Renaming that entity to "Ambient temp" will now produce "Motion Sensor Ambient temp," just as the system would for integration-provided names.
 
-Starting with this release, we've made this consistent. Entity names now always include the device name as context, whether the name was set by an integration or by you. If your device is called "Living Room Lamp" and you name the entity "Temperature," the full name will be "Living Room Lamp Temperature," regardless of how that name got there.
+<img src='/images/blog/2026-04/temp-rename-entity-setting.png' alt='Screenshot of the entity settings dialog on the Arc reactor device page, showing the Name field set to Temperature. The breadcrumb above shows Garage > Arc reactor, and the entity ID is sensor.arc_reactor_temperature.' class='no-shadow' />
 
-### What this means for your daily use
+### You should not have to think about naming conventions
 
-This is a **backward-incompatible change**, and we want to be upfront about that.
+One of the most common community questions has always been: "What's your naming convention?" or "How do you name your devices?" You shouldn't have to care about this. Just give your devices and entities the simplest, most natural name, and the UI will automatically adapt to display the right context so you can recognize them everywhere.
 
-If you've previously renamed entities and deliberately left out the device name, those entities will now show the device name again in places that use the full `friendly_name` attribute, like the logbook and external tools.
+In [2025.4](/blog/2025/04/02/release-20254/), we started adding more context to the entity dialogs, showing you which device and {% term area %} an entity belongs to. In [2025.5](/blog/2025/05/07/release-20255/#picking-entities), we updated the entity pickers to show device and area context, gradually eliminating the need to include location information in entity names. And in [2025.11](/blog/2025/11/05/release-202511/#flexible-entity-naming-on-dashboard-cards), we added [flexible name composition controls](/dashboards/naming/) to dashboard cards, letting you choose exactly how names appear: entity only, device, area, floor, or any combination.
 
-However, here's the important part: **most of what you see in the Home Assistant UI is not affected.** If you've been following along with recent releases, you've actually already been using the new naming system without realizing it.
+<img src='/images/blog/2026-04/temp-entity-picker-provides-context.png' alt='Screenshot of the tile card configuration dialog with the entity picker open, searching for temp. Each result shows the entity name with area and device context underneath, like Temperature with Garage > Arc reactor.' class='no-shadow' />
 
-In [2025.4](/blog/2025/04/02/release-20254/), we started adding more context to the entity dialogs, showing you which device and area an entity belongs to. In [2025.5](/blog/2025/05/07/release-20255/#picking-entities), we updated the entity pickers to show device and area context, gradually eliminating the need to include location information in entity names. And in [2025.11](/blog/2025/11/05/release-202511/#flexible-entity-naming-on-dashboard-cards), we added [flexible name composition controls](/dashboards/naming/) to dashboard cards, letting you choose exactly how names appear: entity only, device, area, floor, or any combination. Those controls already use the structured name components from the entity and device registries, not the `friendly_name` attribute.
+On a device page, for example, you already know which device you're looking at and which area it's in, so there's no need to repeat the device name on each entity listed there. In an entity picker, you see the full composed name with device and area context. On a dashboard card, you choose what level of detail makes sense. The system handles the context for you, so you don't have to bake it into the name itself.
 
-So if you're thinking, "Won't all my dashboard cards suddenly show ridiculously long names?" the answer is: no. The frontend already handles this intelligently and has been doing so for quite a while. On a device page, for example, you already know which device you're looking at and which area it's in, so there's no need to repeat the device name over and over again on each entity listed on that page. The system already takes care of that for you.
+### This is a backward-incompatible change
 
-### The migration
+We want to be upfront: this will affect some of you.
 
-To make this transition as smooth as possible, we've built a one-time automatic migration that runs when you update.
+If you previously renamed entities without including the device name, those entities will now show the device name again in places that use the friendly name (`friendly_name`) attribute, like the logbook and external tools (for example, external voice assistants such as Amazon Alexa, or monitoring tools like Prometheus). The Home Assistant UI is also affected: as the default display on dashboard cards uses the device + entity name, cards showing entities you've renamed will look different. Since [2025.11](/blog/2025/11/05/release-202511/#flexible-entity-naming-on-dashboard-cards), every dashboard card supports [name composition controls](/dashboards/naming/), so you can adjust individual cards to pick the name combination that works best for you.
 
-If your custom entity name already starts with the device name (for example, you manually set it to "Living Room Lamp Temperature"), the migration strips the duplicate prefix so you don't end up with "Living Room Lamp Living Room Lamp Temperature."
+<img src='/images/blog/2026-04/temp-tile-card-configuration-name-composing.png' alt='Screenshot of the tile card configuration dialog showing the name composition settings under Content. Entity and Area chips are selected, with Device and Floor available as additional options.' class='no-shadow' />
 
-If your custom name doesn't match the device name at all, the old full name is preserved as a voice alias. This means your voice assistant setups won't break. If you've been calling a light "Bedside Lamp" through Assist or Google Assistant, that still works because it's been carried over as an alias.
+### Migration and voice aliases
 
-### Unified voice name resolution
-
-Speaking of voice, this release also unifies how entity names are resolved across all voice platforms. Previously, Assist, LLMs, and Google Assistant each had their own logic for figuring out what to call an entity. Now they all use the entity registry as the single source of truth. This means more consistent behavior no matter how you control your home by voice.
+To make this transition as smooth as possible, a one-time automatic migration runs when you update to 2026.4 or later. If your custom entity name already starts with the device name (for example, you manually set it to "Motion Sensor Temperature"), the migration strips the duplicate prefix so you don't end up with "Motion Sensor Motion Sensor Temperature." If your custom name doesn't match the device name at all, the old full name is preserved as an Assist voice alias so your voice commands continue to work. This matters because Assist is strict about matching the exact name you use, so preserving those aliases ensures nothing breaks when you talk to your home.
 
 Additionally, you can now disable the automatically generated full entity name from being used as a voice alias. This gives you full control over your voice setup: set your own aliases, and tell the system not to use the generated name if it doesn't work for you.
 
@@ -245,15 +243,15 @@ Additionally, you can now disable the automatically generated full entity name f
 
 We know naming changes are never fun, and we know some of you have spent significant time customizing entity names to get things just right. We don't take that lightly.
 
-But the current inconsistency creates real problems that go beyond just how names look in the UI. External systems, databases, companion apps, and especially voice assistants all depend on `friendly_name` to identify entities. When a user rename drops the device context, those systems lose the ability to tell "Temperature" in the kitchen apart from "Temperature" in the bedroom.
+But the current inconsistency creates real problems that go beyond just how names look in the UI. External systems, databases, companion apps, and especially voice assistants all depend on the friendly name (`friendly_name`) to identify entities. When a user rename drops the device context, those systems lose the ability to tell "Temperature" in the kitchen apart from "Temperature" in the bedroom.
 
 This approach also doesn't scale. With systems now commonly running 1,000 or 2,000+ entities, having a per-entity toggle on naming behavior would add complexity without solving the underlying problem. The system needs to be consistent so it can do the heavy lifting for you, rather than requiring you to manage naming conventions across hundreds of entities.
 
-This change is part of a plan that has been in the works since [July 2022](https://developers.home-assistant.io/blog/2022/07/10/entity_naming/), when we introduced a new entity naming model. The goal has always been to separate device names from entity names and let the system compose the right display name based on where you're looking. On a device page, you see just the entity name. In an entity picker, you see the full composed name with device and area context. On a dashboard card, you choose what level of context makes sense.
+This change is part of a plan that has been in the works since [July 2022](https://developers.home-assistant.io/blog/2022/07/10/entity_naming/), when we introduced a new entity naming model. The goal has always been to separate device names from entity names and let the system compose the right display name based on context.
 
-Since 2022, our developer community has gradually updated and migrated nearly every single integration in Home Assistant. Every entity provided for any device, across all integrations, needed adjustments for this new model. It is now a mandatory [Bronze-tier requirement](/docs/quality_scale/) in our [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/), meaning no new integration can be added to Home Assistant without supporting it. That is a massive effort, and we want to give a huge shout-out to all the contributors who helped make this happen over the past four years.
+Since 2022, our developer community has gradually updated and migrated nearly every single integration in Home Assistant. Every entity provided for any device, across all integrations, needed adjustments for this new model. It is a mandatory [Bronze-tier requirement](/docs/quality_scale/) in our [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/), meaning no new integration can be added to Home Assistant without supporting it. That is a massive effort, and we want to give a huge shout-out to all the contributors who helped make this happen over the past four years.
 
-The frontend side of that work has been shipping across many releases. This release brings the backend in line, making it a prerequisite for future improvements like editing entity names directly (instead of the composed `friendly_name`). The companion apps for Android and iOS will also be adopting these changes, so that the same consistent naming experience extends to your phone, tablet, widgets, and watch complications.
+The frontend side of that work has been shipping across many releases. This release brings the backend in line. With this change, users can now edit the entity name directly instead of the composed old friendly name. The companion apps for Android and iOS will also be adopting these changes, so that the same consistent naming experience extends to your phone, tablet, widgets, and watch complications.
 
 It won't be completely painless for everyone, but we believe it's the right step toward making entity naming something that just works, so you can spend your time building out your actual smart home instead of managing naming conventions.
 
