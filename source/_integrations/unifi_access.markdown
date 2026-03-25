@@ -189,7 +189,7 @@ actions:
 
 #### Sensors
 
-For controllers that support temporary lock rules, each door also exposes the following **diagnostic** sensor entities:
+For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
 
 - **Door Lock Rule**: Reports the currently active temporary lock rule for the door. Possible states are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
 - **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
