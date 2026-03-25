@@ -388,6 +388,9 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [uhoo], thanks to [@joshsmonta]
   - [UniFi Access], thanks to [@RaHehl]
 
+- **1 integration reached bronze** 🥉
+  - [Satel Integra], thanks to [@Tommatheussen]
+
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
 
 A big thank you to all the contributors involved! 👏
@@ -407,6 +410,7 @@ A big thank you to all the contributors involved! 👏
 [@RaHehl]: https://github.com/RaHehl
 [@rlint-explicatis]: https://github.com/rlint-explicatis
 [@tronikos]: https://github.com/tronikos
+[@Tommatheussen]: https://github.com/Tommatheussen
 [Ghost]: /integrations/ghost
 [Growatt Server]: /integrations/growatt_server
 [Liebherr]: /integrations/liebherr
@@ -414,6 +418,7 @@ A big thank you to all the contributors involved! 👏
 [Mastodon]: /integrations/mastodon
 [Opower]: /integrations/opower
 [Portainer]: /integrations/portainer
+[Satel Integra]: /integrations/satel_integra
 [Smarla]: /integrations/smarla
 [Telegram bot]: /integrations/telegram_bot
 [Teslemetry]: /integrations/teslemetry
