@@ -1,7 +1,7 @@
 ---
 title: ADAM Audio
 description: Integrate ADAM Audio A-Series studio monitors into Home Assistant.
-ha_release: 2026.3.4
+ha_release: 2026.3
 ha_iot_class: Local Polling
 ha_domain: adam_audio
 ha_codeowners:
