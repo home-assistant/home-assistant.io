@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026.4 Beta: The name of the game"
-description: "Beta release notes: Purpose-specific triggers and conditions almost feature complete, consistent entity naming everywhere, background colors for dashboard sections, Matter lock management with PIN codes, favorite light colors on your cards, see what your AI-powered Assist is thinking, and 12 new integrations!"
+description: "Beta release notes: Purpose-specific triggers and conditions almost feature complete, consistent entity naming everywhere, background colors for dashboard sections, Matter lock management with PIN codes, favorite light colors on your cards, see what your AI-powered Assist is thinking, and 15 new integrations!"
 date: 2026-03-25 00:00:00
 date_formatted: "April 1, 2026"
 author: Franck Nijhof
@@ -70,7 +70,7 @@ Home Assistant 2026.4! 🎉
 
 Our [purpose-specific automation triggers and conditions](#purpose-specific-automation-triggers--conditions) are back with a _whole metric ton_ of new triggers and conditions! This effort, currently available through [Home Assistant Labs](/blog/2025/12/03/release-202512/#home-assistant-labs), is now almost feature complete. If you haven't tried it yet, please give it a shot; I'm really looking forward to your feedback. 🧠
 
-There's also plenty of fun stuff: [background colors for dashboard sections](#background-color-for-your-dashboard-sections), [favorite light colors as a card feature](#favorite-light-colors-on-your-dashboard), full [Matter lock management](#matter-lock-manager) with PIN codes, and you can now see [what your AI-powered Assist is thinking](#what-is-an-ai-powered-assist-thinking) while it processes your requests. Plus 12 new integrations! 🚀
+There's also plenty of fun stuff: [background colors for dashboard sections](#background-color-for-your-dashboard-sections), [favorite light colors as a card feature](#favorite-light-colors-on-your-dashboard), full [Matter lock management](#matter-lock-manager) with PIN codes, and you can now see [what your AI-powered Assist is thinking](#what-is-an-ai-powered-assist-thinking) while it processes your requests. Plus 15 new integrations! 🚀
 
 I'm mostly oddly excited about this one. Back in [July 2022](https://developers.home-assistant.io/blog/2022/07/10/entity_naming/), we set out to fix one of the longest-standing pain points in Home Assistant: [entity naming](#entity-naming-consistent-names-everywhere). How entity names are composed, how they behave when you rename them, and how they're used across the UI, voice assistants, and external tools. It's been a _massive_ effort, touching nearly every single integration, and this release finally brings the backend in line with the frontend work that's been shipping over the past year. It's not the flashiest feature, but it's the kind of foundational work that makes everything else better. 🧱
 
@@ -240,6 +240,9 @@ We welcome the following new integrations in this release:
 - **[Infrared]**, added by [@abmantis]  
   A new entity platform that provides an abstraction layer for infrared transmitter devices, allowing integrations to send IR commands to control TVs, air conditioners, and other IR-controlled appliances.
 
+- **[LG Infrared]**, added by [@abmantis]  
+  Control your LG TV using any [infrared proxy](#infrared-becoming-a-first-class-citizen-of-home-assistant) configured in Home Assistant. Send commands over IR to manage power, volume, input sources, and more, using assumed states.
+
 - **[Lichess]**, added by [@aryanhasgithub]  
   Monitor your [Lichess](https://lichess.org) chess statistics in Home Assistant.
 
@@ -248,6 +251,12 @@ We welcome the following new integrations in this release:
 
 - **[OpenDisplay]**, added by [@g4bri3lDev]  
   Control your [OpenDisplay](https://opendisplay.io/) BLE e-paper displays from Home Assistant. Devices are automatically discovered via Bluetooth, and you can send images to the display.
+
+- **[Qube Heat Pump]**, added by [@MattieGit]  
+  Monitor your [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pump in Home Assistant via Modbus TCP. Track energy performance and operational data from your heat pump on the local network.
+
+- **[Solarman]**, added by [@solarmanpv]  
+  Integrate your [Solarman](https://www.solarmanpv.com/) smart energy devices with Home Assistant over the local network. Monitor energy production, consumption, and control devices like smart plugs and meter readers in real time.
 
 - **[TRMNL]**, added by [@joostlek] - launching at 🏆 platinum quality  
   Monitor your [TRMNL](https://usetrmnl.com/) e-paper (e-ink) displays in Home Assistant. Track battery levels and manage the display sleep schedule of your low-power e-ink devices.
@@ -265,19 +274,24 @@ We welcome the following new integrations in this release:
 [@g4bri3lDev]: https://github.com/g4bri3lDev
 [@joostlek]: https://github.com/joostlek
 [@Linkplay2020]: https://github.com/Linkplay2020
+[@MattieGit]: https://github.com/MattieGit
 [@mcisk]: https://github.com/mcisk
 [@mikeodr]: https://github.com/mikeodr
 [@RaHehl]: https://github.com/RaHehl
 [@SierraNL]: https://github.com/SierraNL
+[@solarmanpv]: https://github.com/solarmanpv
 [Autoskope]: /integrations/autoskope
 [Casper Glow]: /integrations/casper_glow
 [Chess.com]: /integrations/chess_com
 [Dropbox]: /integrations/dropbox
 [Fresh-r]: /integrations/freshr
 [Infrared]: /integrations/infrared
+[LG Infrared]: /integrations/lg_infrared
 [Lichess]: /integrations/lichess
 [LoJack]: /integrations/lojack
 [OpenDisplay]: /integrations/opendisplay
+[Qube Heat Pump]: /integrations/qube_heatpump
+[Solarman]: /integrations/solarman
 [TRMNL]: /integrations/trmnl
 [UniFi Access]: /integrations/unifi_access
 [WiiM]: /integrations/wiim
