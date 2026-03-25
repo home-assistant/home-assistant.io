@@ -21,7 +21,7 @@ The **Remote calendar** {% term integration %} allows you to read a calendar in 
 
 ## Known limitations
 
-The integration does not provide the ability to connect to a resource that requires special headers or authentication methods other than HTTP Basic Authentication.
+The integration supports HTTP Basic Authentication but does not provide the ability to connect to a resource that requires other special headers.
 
 ## Installation instructions
 
