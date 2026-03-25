@@ -187,6 +187,7 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
 ### Button
 
+- **Create snapshot**: Creates a snapshot of a VM or LXC container.
 - **Start**: Starts a node/VM/LXC.
 - **Start all**: Starts all VMs and LXCs known on a node.
 - **Stop**: Stops a node/VM/LXC.
@@ -206,7 +207,7 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
 ### Buttons not working
 
-If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example, `VM.PowerMgmt` on the relevant path). If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
+If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example, `VM.PowerMgmt` on the relevant path for controlling VM or Container state, or `VM.Snapshot` to allow creating snapshots). If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
 
 ### Diagnostic data
 
