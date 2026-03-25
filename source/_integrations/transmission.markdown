@@ -15,7 +15,7 @@ ha_codeowners:
   - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
-  - Binary sensor
+  - binary sensor
   - sensor
   - switch
 ha_integration_type: service
@@ -49,6 +49,8 @@ Password:
 Verify SSL certificate:
   description: "Enable SSL certificate verification when connecting via HTTPS."
 {% endconfiguration_basic %}
+
+## Supported functionality
 
 ### Binary sensors
 
