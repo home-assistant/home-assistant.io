@@ -433,10 +433,11 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [TRMNL], thanks to [@joostlek]
   - [Whisker (Litter-Robot)][Litter-Robot], thanks to [@natekspencer]
 
-- **4 integrations reached gold** 🥇
+- **5 integrations reached gold** 🥇
   - [Ghost], thanks to [@JohnONolan]
   - [Liebherr], thanks to [@mettolen]
   - [Mastodon], thanks to [@andrew-codechimp]
+  - [Samsung Smart TV], thanks to [@chemelli74]
   - [Telegram bot], thanks to [@hanwg]
 
 - **10 integrations reached silver** 🥈
@@ -499,6 +500,7 @@ A big thank you to all the contributors involved! 👏
 [MyNeomitis]: /integrations/myneomitis
 [Opower]: /integrations/opower
 [Portainer]: /integrations/portainer
+[Samsung Smart TV]: /integrations/samsungtv
 [Satel Integra]: /integrations/satel_integra
 [Smarla]: /integrations/smarla
 [System Nexa 2]: /integrations/systemnexa2
