@@ -357,10 +357,65 @@ We welcome the following new integrations in this release:
 
 It is not just new {% term integrations %} that have been added; existing ones are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
 
-- **[Ipsum]** now supports Ipsum. Thanks, [@frenck]!
+- **[SmartThings]** received a massive wave of robot vacuum support from [@joostlek]: fan speed control, selects for driving mode, cleaning type, water spray level, and sound mode, a sound detection switch with sensitivity control, a binary sensor for a full dust bag, a HEPA filter reset button, and a time entity for Do Not Disturb schedules. Stick cleaner devices are now supported too. On top of that, [@edu-tsen] added start, pause, resume, cancel, and drain buttons for dishwashers.
+- **[Roborock]** owners with a [Q10](https://global.roborock.com/pages/roborock-q10-series) can now integrate their vacuum, thanks to [@allenporter].
+- **[OpenAI Conversation]** added GPT-5.4 and GPT-5.4-pro model support, including reasoning effort options. Thanks, [@Shulyaka]!
+- **[SwitchBot]** picked up [Keypad Vision](https://us.switch-bot.com/products/switchbot-keypad-vision) support, bringing doorbell events, tamper alarms, and charging sensors to your setup. Thanks, [@zerzhang]!
+- **[Govee BLE]** added the H5140 CO2 monitor, providing CO2 readings right in Home Assistant. Thanks, [@funkadelic]!
+- **[SwitchBot Cloud]** can now control [Standing Fan](https://eu.switch-bot.com/products/switchbot-standing-circulator-fan) devices. Thanks, [@XiaoLing-git]!
+- **[Jellyfin]** gained shuffle and enqueue support for its media player, giving you more playback control. Thanks, [@ch604]!
+- **[GitHub]** picked up a merged pull requests count sensor for your repositories. Thanks, [@abmantis]!
+- **[Proxmox VE]** expanded with uptime duration and memory usage sensors, runtime entity discovery for nodes, VMs, and containers, plus a suspend all button at the node level. Thanks, [@erwindouna]!
+- **[Renault]** exposes a charging settings mode sensor and battery charge limit controls to set your minimum and target state of charge. Thanks, [@reneboer] and [@yoda-jm]!
+- **[Schlage]** gained actions for managing door lock access codes: add, delete, and retrieve codes directly from Home Assistant. Thanks, [@tykeal]!
+- **[Kostal Plenticore]** added an active power limit control, letting you adjust your solar inverter's output power. Thanks, [@erikbadman]!
+- **[Portainer]** has new pause and resume buttons for container management. Thanks, [@erwindouna]!
+- **[Teslemetry]** introduced an energy price calendar that shows your buy and sell tariff schedules, including time-of-use pricing periods. Thanks, [@Bre77]!
+- **[Cambridge Audio]** devices gained an equalizer switch. Thanks, [@Solmath]!
+- **[Gardena Bluetooth]** expanded to cover the Aqua Contour and Precise product line devices. Thanks, [@elupus]!
+- **[HDFury]** picked up audio unmute offset controls for fine-tuning audio delay. Thanks, [@glenndehaan]!
+- **[ToGrill]** lets you set ambient temperature range limits for alarms. Thanks, [@pandanz]!
+- **[Smarla]** added a spring status sensor showing the spring constellation status. Thanks, [@rlint-explicatis]!
 
-[@frenck]: https://github.com/frenck
-[Ipsum]: /integrations/lorem_ipsum
+[@abmantis]: https://github.com/abmantis
+[@allenporter]: https://github.com/allenporter
+[@Bre77]: https://github.com/Bre77
+[@ch604]: https://github.com/ch604
+[@edu-tsen]: https://github.com/edu-tsen
+[@elupus]: https://github.com/elupus
+[@erikbadman]: https://github.com/erikbadman
+[@erwindouna]: https://github.com/erwindouna
+[@funkadelic]: https://github.com/funkadelic
+[@glenndehaan]: https://github.com/glenndehaan
+[@joostlek]: https://github.com/joostlek
+[@pandanz]: https://github.com/pandanz
+[@reneboer]: https://github.com/reneboer
+[@rlint-explicatis]: https://github.com/rlint-explicatis
+[@Shulyaka]: https://github.com/Shulyaka
+[@Solmath]: https://github.com/Solmath
+[@tykeal]: https://github.com/tykeal
+[@XiaoLing-git]: https://github.com/XiaoLing-git
+[@yoda-jm]: https://github.com/yoda-jm
+[@zerzhang]: https://github.com/zerzhang
+[Cambridge Audio]: /integrations/cambridge_audio
+[Gardena Bluetooth]: /integrations/gardena_bluetooth
+[GitHub]: /integrations/github
+[Govee BLE]: /integrations/govee_ble
+[HDFury]: /integrations/hdfury
+[Jellyfin]: /integrations/jellyfin
+[Kostal Plenticore]: /integrations/kostal_plenticore
+[OpenAI Conversation]: /integrations/openai_conversation
+[Portainer]: /integrations/portainer
+[Proxmox VE]: /integrations/proxmoxve
+[Renault]: /integrations/renault
+[Roborock]: /integrations/roborock
+[Schlage]: /integrations/schlage
+[Smarla]: /integrations/smarla
+[SmartThings]: /integrations/smartthings
+[SwitchBot]: /integrations/switchbot
+[SwitchBot Cloud]: /integrations/switchbot_cloud
+[Teslemetry]: /integrations/teslemetry
+[ToGrill]: /integrations/togrill
 
 ### Integration quality scale achievements
 
@@ -458,7 +513,7 @@ Jolted down during working on the rest of the notes:
 
 - Markdown card: add support of actions: https://github.com/home-assistant/frontend/pull/28951
 - Map card editor: add more options: https://github.com/home-assistant/frontend/pull/29759
-- Add state_attr_translated template filter and function ([@piitaya] - [#165317]) (noteworthy)
+- Add state_attr_translated template filter and function ([@piitaya] - [#165317]) (noteworthy from core repository)
 
 ### Favorites on your dashboard
 
