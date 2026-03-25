@@ -732,14 +732,14 @@ This is an encrypted device.
 Features:
 
 - turn on/off device
-- turn on/off led
+- turn on/off LED
 - turn on/off child lock
 - turn on/off wireless charging 
 - open light sensor
 - set fan mode
 - set fan speed
-- set led RGB
-- set led brightness
+- set LED RGB
+- set LED brightness
 - get air quality level
 - get PM25 value(US model only)
 
