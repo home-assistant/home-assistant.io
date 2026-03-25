@@ -140,8 +140,7 @@ entity: todo.todo_list
 due_date_period:
   calendar:
     period: day
-    offset: 7
-```
+    offset: 6
 
 ## Examples
 
