@@ -84,14 +84,14 @@ Enjoy the (beta) release!
 
 <!--more-->
 
+- [Infrared becoming a first-class citizen of Home Assistant](#infrared-becoming-a-first-class-citizen-of-home-assistant)
+  - [Get started in just a few steps](#get-started-in-just-a-few-steps)
+  - [Why this matters](#why-this-matters)
 - [Purpose-specific automation triggers \& conditions](#purpose-specific-automation-triggers--conditions)
   - [Thinking in real-world concepts, not technical domains](#thinking-in-real-world-concepts-not-technical-domains)
   - [New cross-domain triggers and conditions](#new-cross-domain-triggers-and-conditions)
   - [More triggers and conditions for existing domains](#more-triggers-and-conditions-for-existing-domains)
   - [Try it out!](#try-it-out)
-- [Infrared becoming a first-class citizen of Home Assistant](#infrared-becoming-a-first-class-citizen-of-home-assistant)
-  - [Get started in just a few steps](#get-started-in-just-a-few-steps)
-  - [Why this matters](#why-this-matters)
 - [Background color for your dashboard sections](#background-color-for-your-dashboard-sections)
 - [Entity naming: consistent names everywhere](#entity-naming-consistent-names-everywhere)
   - [You should not have to think about naming conventions](#you-should-not-have-to-think-about-naming-conventions)
@@ -117,6 +117,28 @@ Enjoy the (beta) release!
 _A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck], [@frenck], and [@frenck] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@frenck]: https://github.com/frenck
+
+## Infrared becoming a first-class citizen of Home Assistant
+
+This release introduces native infrared support in Home Assistant, opening the door to controlling a _massive_ range of devices that were previously out of reach. Think about all those TVs, air conditioners, fans, sound bars, and other appliances sitting in your home that still rely on their little infrared remote. With this update, Home Assistant can now talk to them. 📡
+
+You might already be familiar with how [Bluetooth proxies](/integrations/bluetooth/) transformed Bluetooth in Home Assistant, making it possible to reach Bluetooth devices anywhere in your home through relatively inexpensive [ESPHome](https://esphome.io) devices. We're doing the same thing for infrared. With the new [Infrared](/integrations/infrared/) integration, Home Assistant now supports infrared proxies: small ESPHome-powered devices with an [IR transmitter](https://esphome.io/components/ir_rf_proxy/) that can send infrared commands on behalf of Home Assistant. This means Home Assistant can now control any device that responds to an infrared remote, as long as there's an {% term integration %} that knows how to speak that device's protocol.
+
+<img src='/images/blog/2026-04/temp-infrared-proxy.png' alt='Screenshot of the Infrared Proxy device page in Home Assistant, showing the Seeed XIAO IR Proxy by Seeed running ESPHome, with its infrared transmitter entity and activity log.' class='no-shadow' />
+
+The first integration to take advantage of this is the [LG Infrared](/integrations/lg_infrared/) integration, which lets you control LG TVs from Home Assistant. It creates a media player entity with support for power, volume, channel control, and playback commands, plus button entities for all the common remote functions like input selection and navigation. Since infrared is one-way by nature, the integration uses assumed states for now, but it works remarkably well for day-to-day use.
+
+<img src='/images/blog/2026-04/temp-lg-tv-infrared-proxy.png' alt='Screenshot of the LG TV device page in Home Assistant, showing media player controls for power, volume, and playback, along with button entities for navigation, HDMI input selection, and other remote functions.' class='no-shadow' />
+
+### Get started in just a few steps
+
+Want to try it out? The quickest way to get started is with the [Seeed Studio XIAO IR Mate](https://www.seeedstudio.com/XIAO-Smart-IR-Mate-p-6492.html). Head over to the ESPHome [Ready-Made Projects](https://esphome.io/projects/?type=irrf) page, connect the device to your computer, and flash it right from your browser. Once it's set up and added to Home Assistant, you'll have a working infrared proxy ready to go. Point it at your LG TV, set up the [LG Infrared integration](/integrations/lg_infrared/), and you're controlling your TV from Home Assistant! 🎉
+
+### Why this matters
+
+This is more than just a fun new feature. Bringing infrared support to Home Assistant aligns with the values of the [Open Home Foundation](https://www.openhomefoundation.org/), and especially _sustainability_. 🌱 There are millions of perfectly good appliances out there that aren't "smart" but do have an infrared receiver. Instead of replacing them with newer connected versions, you can now integrate them into your smart home using a simple, relatively inexpensive IR transmitter. It's a great way to extend the life of existing devices and reduce electronic waste. ♻️
+
+We're excited to see where this goes. The infrared support is designed to work with any IR protocol, and we're looking forward to seeing integrations for more brands and device types. This is just the beginning!
 
 ## Purpose-specific automation triggers & conditions
 
@@ -172,28 +194,6 @@ On top of the cross-domain additions, a _lot_ of existing {% term domains %} als
 ### Try it out!
 
 Purpose-specific triggers and conditions are available as a preview feature in {% my labs title="**Home Assistant Labs**" %}. We've been building and refining this for over four releases now, and it's getting really close to being feature complete. If you haven't tried it yet, head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enable it. We'd love your feedback!
-
-## Infrared becoming a first-class citizen of Home Assistant
-
-This release introduces native infrared support in Home Assistant, opening the door to controlling a _massive_ range of devices that were previously out of reach. Think about all those TVs, air conditioners, fans, sound bars, and other appliances sitting in your home that still rely on their little infrared remote. With this update, Home Assistant can now talk to them. 📡
-
-You might already be familiar with how [Bluetooth proxies](/integrations/bluetooth/) transformed Bluetooth in Home Assistant, making it possible to reach Bluetooth devices anywhere in your home through relatively inexpensive [ESPHome](https://esphome.io) devices. We're doing the same thing for infrared. With the new [Infrared](/integrations/infrared/) integration, Home Assistant now supports infrared proxies: small ESPHome-powered devices with an [IR transmitter](https://esphome.io/components/ir_rf_proxy/) that can send infrared commands on behalf of Home Assistant. This means Home Assistant can now control any device that responds to an infrared remote, as long as there's an {% term integration %} that knows how to speak that device's protocol.
-
-<img src='/images/blog/2026-04/temp-infrared-proxy.png' alt='Screenshot of the Infrared Proxy device page in Home Assistant, showing the Seeed XIAO IR Proxy by Seeed running ESPHome, with its infrared transmitter entity and activity log.' class='no-shadow' />
-
-The first integration to take advantage of this is the [LG Infrared](/integrations/lg_infrared/) integration, which lets you control LG TVs from Home Assistant. It creates a media player entity with support for power, volume, channel control, and playback commands, plus button entities for all the common remote functions like input selection and navigation. Since infrared is one-way by nature, the integration uses assumed states for now, but it works remarkably well for day-to-day use.
-
-<img src='/images/blog/2026-04/temp-lg-tv-infrared-proxy.png' alt='Screenshot of the LG TV device page in Home Assistant, showing media player controls for power, volume, and playback, along with button entities for navigation, HDMI input selection, and other remote functions.' class='no-shadow' />
-
-### Get started in just a few steps
-
-Want to try it out? The quickest way to get started is with the [Seeed Studio XIAO IR Mate](https://www.seeedstudio.com/XIAO-Smart-IR-Mate-p-6492.html). Head over to the ESPHome [Ready-Made Projects](https://esphome.io/projects/?type=irrf) page, connect the device to your computer, and flash it right from your browser. Once it's set up and added to Home Assistant, you'll have a working infrared proxy ready to go. Point it at your LG TV, set up the [LG Infrared integration](/integrations/lg_infrared/), and you're controlling your TV from Home Assistant! 🎉
-
-### Why this matters
-
-This is more than just a fun new feature. Bringing infrared support to Home Assistant aligns with the values of the [Open Home Foundation](https://www.openhomefoundation.org/), and especially _sustainability_. 🌱 There are millions of perfectly good appliances out there that aren't "smart" but do have an infrared receiver. Instead of replacing them with newer connected versions, you can now integrate them into your smart home using a simple, relatively inexpensive IR transmitter. It's a great way to extend the life of existing devices and reduce electronic waste. ♻️
-
-We're excited to see where this goes. The infrared support is designed to work with any IR protocol, and we're looking forward to seeing integrations for more brands and device types. This is just the beginning!
 
 ## Background color for your dashboard sections
 
