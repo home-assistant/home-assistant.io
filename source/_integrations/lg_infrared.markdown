@@ -3,7 +3,7 @@ title: LG Infrared
 description: Integration to control LG TVs using an infrared transmitter.
 ha_category:
   - Media player
-ha_release: 2026.5
+ha_release: 2026.4
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@home-assistant/core'
