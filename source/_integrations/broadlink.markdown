@@ -701,4 +701,5 @@ Assuming that your (or similar) device is in one of these databases:
 You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.
 
 ### Managig codes with Broadlink Manager
-A docker based GUI to learn, send, and generate IR and RF codes is available through the [Broadlink Manager project](https://github.com/t0mer/broadlinkmanager-docker)
+
+A Docker based GUI to learn, send, and generate IR and RF codes is available through the [Broadlink Manager project](https://github.com/t0mer/broadlinkmanager-docker)
