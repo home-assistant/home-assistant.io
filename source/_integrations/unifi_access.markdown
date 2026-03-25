@@ -10,14 +10,13 @@ ha_iot_class: Local Push
 ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
-  - "@imhotep"
-  - "@RaHehl"
+  - '@imhotep'
+  - '@RaHehl'
 ha_platforms:
   - binary_sensor
   - button
   - event
   - image
-  - lock
   - switch
 ha_integration_type: hub
 ---

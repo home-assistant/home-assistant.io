@@ -10,6 +10,7 @@ ha_codeowners:
   - '@xirt'
 ha_platforms:
   - button
+  - diagnostics
   - number
   - select
   - sensor
