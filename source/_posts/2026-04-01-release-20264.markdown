@@ -323,8 +323,8 @@ We welcome the following new integrations in this release:
 - **[TRMNL]**, added by [@joostlek] - launching at 🏆 platinum quality  
   Monitor your [TRMNL](https://usetrmnl.com/) e-paper (e-ink) displays in Home Assistant. Track battery levels and manage the display sleep schedule of your low-power e-ink devices.
 
-- **[UniFi Access]**, added by [@RaHehl] - launching at 🥈 silver quality  
-  Control and monitor [Ubiquiti UniFi Access](https://ui.com/door-access) door access control devices locally from Home Assistant. Manage locks, doors, and access readers with real-time status updates over the local network.
+- **[UniFi Access]**, added by [@imhotep] and [@RaHehl] - launching at 🥈 silver quality  
+  Control and monitor your [Ubiquiti UniFi Access](https://ui.com/door-access) system locally from Home Assistant. Manage locks, doors, and access readers with real-time status updates over the local network.
 
 - **[WiiM]**, added by [@Linkplay2020]  
   Integrate your [WiiM](https://www.wiimhome.com/) streamer devices with Home Assistant. Control playback, volume, and input sources on devices like the WiiM Pro and WiiM Amp, with automatic discovery via Zeroconf.
@@ -334,6 +334,7 @@ We welcome the following new integrations in this release:
 [@bdr99]: https://github.com/bdr99
 [@devinslick]: https://github.com/devinslick
 [@g4bri3lDev]: https://github.com/g4bri3lDev
+[@imhotep]: https://github.com/imhotep
 [@joostlek]: https://github.com/joostlek
 [@Linkplay2020]: https://github.com/Linkplay2020
 [@MattieGit]: https://github.com/MattieGit
@@ -453,7 +454,7 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Smarla], thanks to [@rlint-explicatis]
   - [Tessie], thanks to [@Bre77]
   - [uhoo], thanks to [@joshsmonta]
-  - [UniFi Access], thanks to [@RaHehl]
+  - [UniFi Access], thanks to [@imhotep] and [@RaHehl]
 
 - **2 integrations reached bronze** 🥉
   - [MyNeomitis], thanks to [@l-pr]
