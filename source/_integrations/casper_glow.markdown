@@ -2,6 +2,7 @@
 title: Casper Glow
 description: Instructions on how to integrate Casper Glow lights into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Light
 ha_bluetooth: true
 ha_release: 2026.4
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: casper_glow
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - light
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -39,6 +41,11 @@ Bluetooth address:
 {% endconfiguration_basic %}
 
 ## Supported functionality
+
+### Binary sensors
+
+- **Dimming paused**
+  - **Description**: Indicates whether the Glow's dimming sequence is currently paused.
 
 ### Lights
 

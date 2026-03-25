@@ -1,3 +1,5 @@
+@use '../defaults' as *;
+@use "sass:math";
 @if $use-icon-text == true{
 
 /*------------------------------------*\
@@ -20,7 +22,7 @@
  *
  */
 .icon-text > .icon-text__icon{
-    margin-right:$half-spacing-unit / 2;
+    margin-right: math.div($half-spacing-unit, 2);
 }
 
 
@@ -34,7 +36,7 @@
  *
  */
 .icon-text--rev > .icon-text__icon{
-    margin-left:$half-spacing-unit / 2;
+    margin-left: math.div($half-spacing-unit, 2);
 }
 
 }//endif

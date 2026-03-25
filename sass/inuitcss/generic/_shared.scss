@@ -1,4 +1,5 @@
-@charset "UTF-8";
+@use '../defaults' as *;
+@use "sass:math";
 /*------------------------------------*\
     $SHARED
 \*------------------------------------*/
@@ -24,11 +25,11 @@ pre,
 .island,
 .islet{
     margin-bottom:$base-spacing-unit;
-    margin-bottom:($base-spacing-unit / $base-font-size)*1rem;
+    margin-bottom: math.div($base-spacing-unit, $base-font-size) * 1rem;
 
     .islet &{
-        margin-bottom:$base-spacing-unit / 2;
-        margin-bottom:(($base-spacing-unit / $base-font-size) / 2)*1rem;
+        margin-bottom: math.div($base-spacing-unit, 2);
+        margin-bottom: math.div(math.div($base-spacing-unit, $base-font-size), 2) * 1rem;
     }
 }
 
@@ -37,8 +38,8 @@ pre,
  * Doubled up `margin-bottom` helper class.
  */
 .landmark{
-    margin-bottom:2 * $base-spacing-unit;
-    margin-bottom:(2 * $base-spacing-unit / $base-font-size)*1rem;
+    margin-bottom: 2 * $base-spacing-unit;
+    margin-bottom: math.div(2 * $base-spacing-unit, $base-font-size) * 1rem;
 }
 
 
@@ -47,8 +48,8 @@ pre,
  * treatment regarding vertical rhythm.
  */
 hr{
-    margin-bottom:$base-spacing-unit - 2px;
-    margin-bottom:(($base-spacing-unit - 2px) / $base-font-size)*1rem;
+    margin-bottom: $base-spacing-unit - 2px;
+    margin-bottom: math.div($base-spacing-unit - 2px, $base-font-size) * 1rem;
 }
 
 
@@ -57,6 +58,6 @@ hr{
  * by a consistent amount. Define that amount once, here.
  */
 ul,ol,dd{
-    margin-left:2 * $base-spacing-unit;
-    margin-left:(2 * $base-spacing-unit / $base-font-size)*1rem;
+    margin-left: 2 * $base-spacing-unit;
+    margin-left: math.div(2 * $base-spacing-unit, $base-font-size) * 1rem;
 }
