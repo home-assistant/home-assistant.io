@@ -287,7 +287,7 @@ We welcome the following new integrations in this release:
 - **[Autoskope]**, added by [@mcisk]  
   Integrate your [Autoskope](https://autoskope.de) vehicle tracking devices with Home Assistant. Track the GPS location of your vehicles and other assets through Autoskope's cloud services.
 
-- **[Casper Glow]**, added by [@mikeodr]  
+- **[Casper Glow]**, added by [@mikeodr] - launching at 🥈 silver quality  
   Control your [Casper Glow](https://casper.com/products/glow) portable sleep light from Home Assistant over Bluetooth. Adjust brightness levels and incorporate this gentle-dimming sleep aid into your bedtime automations.
 
 - **[Chess.com]**, added by [@joostlek]  
@@ -429,12 +429,11 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **6 integrations reached platinum** 🏆
+- **5 integrations reached platinum** 🏆
   - [Opower], thanks to [@tronikos]
   - [Portainer], thanks to [@erwindouna]
   - [System Nexa 2], thanks to [@konsulten]
   - [Teslemetry], thanks to [@Bre77]
-  - [TRMNL], thanks to [@joostlek]
   - [Whisker (Litter-Robot)][Litter-Robot], thanks to [@natekspencer]
 
 - **5 integrations reached gold** 🥇
@@ -444,19 +443,17 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Samsung Smart TV], thanks to [@chemelli74]
   - [Telegram bot], thanks to [@hanwg]
 
-- **10 integrations reached silver** 🥈
+- **7 integrations reached silver** 🥈
   - [Actron Air], thanks to [@kclif9] and [@JagadishDhanamjayam]
   - [devolo Home Control], thanks to [@2Fake] and [@Shutgun]
-  - [Fresh-r], thanks to [@SierraNL]
   - [FRITZ!Box Tools], thanks to [@AaronDavidSchneider], [@chemelli74], and [@mib1185]
   - [Growatt Server], thanks to [@johanzander]
-  - [LG Infrared], thanks to [@abmantis]
   - [Smarla], thanks to [@rlint-explicatis]
   - [Tessie], thanks to [@Bre77]
   - [uhoo], thanks to [@joshsmonta]
-  - [UniFi Access], thanks to [@imhotep] and [@RaHehl]
 
-- **2 integrations reached bronze** 🥉
+- **3 integrations reached bronze** 🥉
+  - [WaterFurnace], thanks to [@masterkoppa]
   - [MyNeomitis], thanks to [@l-pr]
   - [Satel Integra], thanks to [@Tommatheussen]
 
@@ -482,6 +479,7 @@ A big thank you to all the contributors involved! 👏
 [@kclif9]: https://github.com/kclif9
 [@konsulten]: https://github.com/konsulten
 [@l-pr]: https://github.com/l-pr
+[@masterkoppa]: https://github.com/masterkoppa
 [@mettolen]: https://github.com/mettolen
 [@mib1185]: https://github.com/mib1185
 [@natekspencer]: https://github.com/natekspencer
@@ -493,11 +491,9 @@ A big thank you to all the contributors involved! 👏
 [@Tommatheussen]: https://github.com/Tommatheussen
 [Actron Air]: /integrations/actron_air
 [devolo Home Control]: /integrations/devolo_home_control
-[Fresh-r]: /integrations/freshr
 [FRITZ!Box Tools]: /integrations/fritz
 [Ghost]: /integrations/ghost
 [Growatt Server]: /integrations/growatt_server
-[LG Infrared]: /integrations/lg_infrared
 [Liebherr]: /integrations/liebherr
 [Litter-Robot]: /integrations/litterrobot
 [Mastodon]: /integrations/mastodon
@@ -511,9 +507,8 @@ A big thank you to all the contributors involved! 👏
 [Telegram bot]: /integrations/telegram_bot
 [Teslemetry]: /integrations/teslemetry
 [Tessie]: /integrations/tessie
-[TRMNL]: /integrations/trmnl
 [uhoo]: /integrations/uhoo
-[UniFi Access]: /integrations/unifi_access
+[WaterFurnace]: /integrations/waterfurnace
 
 ### Now available to set up from the UI
 
