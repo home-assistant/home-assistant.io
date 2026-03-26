@@ -171,7 +171,7 @@ To create a token:
 - **CPU**: Percentage of CPU usage.
 - **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
 - **Disk**: Disk usage of the node/VM/LXC.
-- **Last backup** & **Backup duration**: Time and duration of the last backup on the node. (Unknown if no backups exist).
+- **Last backup** & **Backup duration**: Time and duration of the last backup on the node. Returns `unknown` if no backups exist.
 - **Max disk**: Maximum amount of available disk space.
 - **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
@@ -182,7 +182,7 @@ To create a token:
 ### Binary sensor
 
 - **Backup status**: for the node. This will be **on** if the last backup was successful or **off** for any other state.
-- **Status**: for each VM/LXC. This will be **on** if the state is running of **off** for any other state.
+- **Status**: for each VM/LXC. This will be **on** if the state is running or **off** for any other state.
 
 ### Button
 
