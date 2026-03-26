@@ -287,7 +287,7 @@ We welcome the following new integrations in this release:
 - **[Autoskope]**, added by [@mcisk]  
   Integrate your [Autoskope](https://autoskope.de) vehicle tracking devices with Home Assistant. Track the GPS location of your vehicles and other assets through Autoskope's cloud services.
 
-- **[Casper Glow]**, added by [@mikeodr]  
+- **[Casper Glow]**, added by [@mikeodr] - launching at 🥈 silver quality  
   Control your [Casper Glow](https://casper.com/products/glow) portable sleep light from Home Assistant over Bluetooth. Adjust brightness levels and incorporate this gentle-dimming sleep aid into your bedtime automations.
 
 - **[Chess.com]**, added by [@joostlek]  
