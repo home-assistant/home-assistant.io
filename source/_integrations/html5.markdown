@@ -58,7 +58,7 @@ Assuming you have already configured the platform:
 
 ### Notifiers
 
-The **HTML5 Push Notifications**  {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
+The **HTML5 Push Notifications**  {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}.For more advanced and customizable notifications, you can use the [`html5.send_message`](#send-message) action instead. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
 
 {% details "Example YAML configuration" %}
 
@@ -90,18 +90,97 @@ Each event includes **state attributes** that provide additional context:
 - `action`: The identifier of the action, if the recipient selected an action button in the notification.
 - Any extra data that was included in the payload of the notification.
 
-### Testing
+## Actions
 
-Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
+### Send message
 
-{% my developer_services badge %}
+For more advanced and customizable notifications, use the `html5.send_message` action instead of `notify.send_message`.
 
-1. Click on the My button above.
-2. From the **Actions** dropdown, search for your HTML5 notify action (`notify.html5`) and select it.
-3. In the data text box enter: `{"message":"hello world"}`, then select the **Perform action** button.
-4. If everything worked you should see a popup notification.
+Keep in mind that support for the features described below can vary depending on the browser and platform you are using. Refer to the [MDN Notifications API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility) for a detailed overview of compatibility across environments.
 
-### Usage
+#### Parameters
+
+- `title`: Title for your notification message (Required).
+- `message`: The message body of the notification.
+- `icon`: URL or relative path of an image to display as the main icon in the notification. Maximum size is 320px by 320px.
+- `badge`: URL or relative path of a small image to replace the browser icon on mobile platforms. Maximum size is 96px by 96px
+- `image`: URL or relative path of a larger image to display in the main body of the notification. Experimental support, may not be displayed on all platforms.
+- `tag`: The identifier of the notification. Sending a new notification with the same tag will replace the existing one. If not specified, a unique tag will be generated for each notification.
+- `actions`: Adds action buttons to the notification. When the user clicks a button, an event is sent back to Home Assistant. Amount of actions supported may vary between platforms.
+  - `action`: The identifier of the action. This will be sent back to Home Assistant when the user clicks the button (Required).
+  - `title`: The label of the button displayed to the user (Required).
+  - `icon`: URL or relative path of an image displayed as the icon for this button. Maximum size is 128px by 128px.
+- `dir`: The direction of the notification's text. Adopts the browser's language setting behavior by default.
+- `renotify`: If enabled, the user will be alerted again (sound/vibration) when a notification with the same tag replaces a previous one.
+- `silent`: If enabled, the notification will not play sounds or trigger vibration, regardless of the device's notification settings.
+- `require_interaction`: If enabled, the notification will remain active until the user clicks or dismisses it, rather than automatically closing after a few seconds. This provides the same behavior on desktop as on mobile platforms.
+- `vibrate`: A vibration pattern to run with the notification. An array of integers representing alternating periods of vibration and silence in milliseconds. For example, [200, 100, 200] would vibrate for 200ms, pause for 100ms, then vibrate for another 200ms.
+- `lang`: The language of the notification's content.
+- `timestamp`: The timestamp of the notification. By default, it uses the time when the notification is sent.
+- `ttl`: Specifies how long the push service should retain the message if the user's browser or device is offline. After this period, the notification expires. A value of 0 means the notification is discarded immediately if the target is not connected. Defaults to 1 day.
+- `urgency`: Whether the push service should try to deliver the notification immediately or defer it in accordance with the user's power saving preferences.
+- `data`: Additional custom key-value pairs to include in the payload of the push message. This can be used to include extra information that can be accessed in the notification click event.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+
+action: html5.send_message
+data:
+  title: Home Assistant
+  message: Hello World
+  icon: /static/icons/favicon-192x192.png
+  badge: /static/images/notification-badge.png
+  image: /static/images/image.jpg
+  tag: message-group-1
+  actions:
+    - action: test-action
+      title: 🆗 Click here!
+      icon: /images/action-1-128x128.png
+  dir: auto
+  renotify: true
+  silent: false
+  require_interaction: true
+  vibrate:
+    - 125
+    - 75
+    - 125
+    - 275
+    - 200
+    - 275
+    - 125
+    - 75
+    - 125
+    - 275
+    - 200
+    - 600
+    - 200
+    - 600
+  lang: es-419
+  timestamp: 1970-01-01 00:00:00
+  ttl:
+    days: 28
+  urgency: normal
+  data:
+    url: https://www.home-assistant.io/integrations/html5/
+target:
+  entity_id: notify.my-desktop
+
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+{% note %}
+
+When using a relative path for an image or icon URL, the path is resolved relative to the base URL of your Home Assistant instance.
+
+{% endnote %}
+
+### Legacy notify actions
 
 The `html5` platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.
 
