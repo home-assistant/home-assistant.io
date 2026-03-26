@@ -25,7 +25,7 @@ The **HTML5 Push Notifications** {% term integration %} enables you to receive p
 HTML5 push notifications **do not** work on iOS versions below 16.4.
 {% endimportant %}
 
-### Requirements
+## Requirements
 
 The `html5` platform can only function if all of the following requirements are met:
 
@@ -56,9 +56,9 @@ Assuming you have already configured the platform:
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
-### Notifiers
+## Notifiers
 
-The **HTML5 Push Notifications**  {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}.For more advanced and customizable notifications, you can use the [`html5.send_message`](#send-message) action instead. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
+The **HTML5 Push Notifications** {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more advanced and customizable notifications, you can use the [`html5.send_message`](#send-message) action instead. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
 
 {% details "Example YAML configuration" %}
 
@@ -106,7 +106,7 @@ Keep in mind that support for the features described below can vary depending on
 - `badge`: URL or relative path of a small image to replace the browser icon on mobile platforms. Maximum size is 96px by 96px
 - `image`: URL or relative path of a larger image to display in the main body of the notification. Experimental support, may not be displayed on all platforms.
 - `tag`: The identifier of the notification. Sending a new notification with the same tag will replace the existing one. If not specified, a unique tag will be generated for each notification.
-- `actions`: Adds action buttons to the notification. When the user clicks a button, an event is sent back to Home Assistant. Amount of actions supported may vary between platforms.
+- `actions`: Adds action buttons to the notification. When the user clicks a button, an event is sent back to Home Assistant. The number of actions supported may vary between platforms.
   - `action`: The identifier of the action. This will be sent back to Home Assistant when the user clicks the button (Required).
   - `title`: The label of the button displayed to the user (Required).
   - `icon`: URL or relative path of an image displayed as the icon for this button. Maximum size is 128px by 128px.
@@ -305,7 +305,7 @@ data:
 If no target is provided, it dismisses for all.
 If no tag is provided, it dismisses all notifications.
 
-### Automating notification events
+## Automating notification events
 
 During the lifespan of a single push notification, Home Assistant will emit a few different events to the event bus which you can use to write automations against.
 
@@ -321,7 +321,7 @@ Common event payload parameters are:
 
 You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
 
-#### received event
+### received event
 
 You will receive an event named `html5_notification.received` when the
 notification is received on the device.
@@ -333,7 +333,7 @@ notification is received on the device.
       event_type: html5_notification.received
 ```
 
-#### clicked event
+### clicked event
 
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
@@ -355,7 +355,7 @@ or
         action: open_door
 ```
 
-#### closed event
+### closed event
 
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
@@ -366,7 +366,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
       event_type: html5_notification.closed
 ```
 
-### Making notifications work with NGINX proxy
+## Making notifications work with NGINX proxy
 
 If you use NGINX as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of an authentication token that cannot be passed through the proxy.
 
