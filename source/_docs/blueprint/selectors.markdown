@@ -315,7 +315,7 @@ The output of this selector is `true` when the toggle is on, `false` otherwise.
 
 ## Choose selector
 
-The choose selectors allows you to present multiple selectors to the user for a
+The choose selector allows you to present multiple selectors to the user for a
 single field, and the user can pick a desired selector and enter a value using that selection.
 
 ![Screenshot of a choose selector](/images/blueprints/selector-choose.png)
@@ -349,11 +349,13 @@ choose:
 
 Following this example, if the user entered a value in both selectors, but submitted with 'Icon' option selected, the output might be:
 
+{% raw %}
 ```yaml
 active_choice: Icon
 Icon: mdi:light
 Template: "{{ something else }}"
 ```
+{% endraw %}
 
 ## Color temperature selector
 
