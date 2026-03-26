@@ -24,7 +24,7 @@ Your backups will start using this new encryption automatically, beginning with 
 
 ## A bit of history
 
-Home Assistant backups have always been encrypted by default, and use a high entropy key, to help ensure your data is safe. When we introduced backups, early formats (v1 and v2) used the same AES-128 encryption variant, along with a simple key derivation (the code that turns your passphrase into the actual key used for encryption). Sam Gleske brought to our attention that the key-derivation step was no longer up to modern standards.
+Home Assistant backups have always been encrypted by default, and use a high entropy key, to help ensure your data is safe. When we introduced backups, early formats (v1 and v2) used the same AES-128 encryption variant, along with a simple key derivation (the code that turns your passphrase into the actual key used for encryption). <a href="https://github.com/samrocketman" target="_blank" rel="noopener">Sam Gleske</a> brought to our attention that the key-derivation step was no longer up to modern standards.
 
 It's worth stressing an important point: Home Assistant's passphrase generator already produces long, high-entropy passphrases. This means that backups created previously were difficult to break if using this feature. To demonstrate this, we calculated that a brute force passphrase attack (where attackers try many passwords rapidly) on the backups would take more time than the average lifespan of a person to be successful.
 
@@ -83,6 +83,6 @@ Security is iterative, and this latest work has helped build a stronger foundati
 If you want to read about similar past efforts, see some of our other posts:
 
 - [One of our past security audits](/blog/2023/10/19/security-audits-of-home-assistant/)
-- [The latest Home Assistant release notes](/blog/2026/03/04/release-20263/)
+- The upcoming release notes for Home Assistant 2026.4
 
 By keeping Home Assistant secure, we make the platform safer, more trusted, and more enjoyable for the whole community. Thank you.
