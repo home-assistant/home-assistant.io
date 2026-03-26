@@ -171,19 +171,18 @@ To create a token:
 - **CPU**: Percentage of CPU usage.
 - **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
 - **Disk**: Disk usage of the node/VM/LXC.
+- **Last backup** & **Backup duration**: Time and duration of the last backup on the node. (Unknown if no backups exist).
 - **Max disk**: Maximum amount of available disk space.
 - **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
 - **Network input**: Amount of incoming network traffic since starting the node/VM/LXC.
 - **Network output**: Amount of outgoing network traffic since starting the node/VM/LXC.
-- **Status**: Current status of the node/VM/LXC.
 - **Uptime**: Time since the node/VM/LXC started.
 
 ### Binary sensor
 
-The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM state is running or off if the VM state is different.
-
-The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
+- **Backup status**: for the node. This will be **on** if the last backup was successful or **off** for any other state.
+- **Status**: for each VM/LXC. This will be **on** if the state is running of **off** for any other state.
 
 ### Button
 
