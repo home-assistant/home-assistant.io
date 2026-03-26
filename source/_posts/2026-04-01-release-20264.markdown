@@ -444,9 +444,8 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Samsung Smart TV], thanks to [@chemelli74]
   - [Telegram bot], thanks to [@hanwg]
 
-- **11 integrations reached silver** 🥈
-  - [Actron Air], thanks to [@kclif9] and [@JagadishDhanamjayam]
-  - [Casper Glow], thanks to [@mikeodr]
+- **10 integrations reached silver** 🥈
+- [Actron Air], thanks to [@kclif9] and [@JagadishDhanamjayam]
   - [devolo Home Control], thanks to [@2Fake] and [@Shutgun]
   - [Fresh-r], thanks to [@SierraNL]
   - [FRITZ!Box Tools], thanks to [@AaronDavidSchneider], [@chemelli74], and [@mib1185]
