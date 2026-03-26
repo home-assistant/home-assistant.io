@@ -388,9 +388,16 @@ The output of this selector is the entry ID of the config entry, for example, `6
 
 ## Constant selector
 
-The constant selector shows a toggle that allows you to enable the selected option.
+The constant selector, when used in an optional setting, shows a toggle that allows
+you to enable the selected option.
 This is similar to the [boolean selector](#boolean-selector), the difference
 is that the constant selector has no value when it's not enabled.
+
+{% note %}
+A constant selector is only useful in a context where selectors may be designated as 
+optional, such is in an action schema or script field. It is not recommended for Blueprints,
+as they do not have optional inputs, therefore it cannot be toggled.
+{% endnode %}
 
 ![Screenshot of a constant selector](/images/blueprints/selector-constant.png)
 
