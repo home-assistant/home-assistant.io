@@ -287,7 +287,7 @@ We welcome the following new integrations in this release:
 - **[Autoskope]**, added by [@mcisk]  
   Integrate your [Autoskope](https://autoskope.de) vehicle tracking devices with Home Assistant. Track the GPS location of your vehicles and other assets through Autoskope's cloud services.
 
-- **[Casper Glow]**, added by [@mikeodr]  
+- **[Casper Glow]**, added by [@mikeodr] - launching at 🥈 silver quality  
   Control your [Casper Glow](https://casper.com/products/glow) portable sleep light from Home Assistant over Bluetooth. Adjust brightness levels and incorporate this gentle-dimming sleep aid into your bedtime automations.
 
 - **[Chess.com]**, added by [@joostlek]  
@@ -444,8 +444,9 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Samsung Smart TV], thanks to [@chemelli74]
   - [Telegram bot], thanks to [@hanwg]
 
-- **10 integrations reached silver** 🥈
+- **11 integrations reached silver** 🥈
   - [Actron Air], thanks to [@kclif9] and [@JagadishDhanamjayam]
+  - [Casper Glow], thanks to [@mikeodr]
   - [devolo Home Control], thanks to [@2Fake] and [@Shutgun]
   - [Fresh-r], thanks to [@SierraNL]
   - [FRITZ!Box Tools], thanks to [@AaronDavidSchneider], [@chemelli74], and [@mib1185]
