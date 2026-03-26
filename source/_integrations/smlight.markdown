@@ -134,6 +134,46 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 #### Infrared
 
 - **IR Emitter**: This entity can be used by other integrations as an [Infrared](/integrations/infrared/) proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity type to control your TV.
+## Actions
+
+The integration provides the following actions.
+
+### Action: Play RTTTL tone
+
+The `smlight.play_rtttl` action plays an RTTTL tone on the built-in buzzer of SMLIGHT Ultima devices.
+
+- **Data attribute**: `tone`
+  - **Description**: The RTTTL format string to play.
+  - **Optional**: No
+
+```yaml
+action: smlight.play_rtttl
+target:
+  device_id: "{{ device_id('SLZB-Ultima3') }}"
+data:
+  tone: "Doorbell:d=4,o=5,b=100:e,c"
+```
+
+## Examples
+
+### Play chime when front door opens
+
+Uses the SMLIGHT Ultima buzzer to play a ding-dong doorbell chime when the front door is opened.
+
+```yaml
+alias: "Play chime when front door opens"
+description: "Uses the SMLIGHT Ultima buzzer to play a ding-dong doorbell chime when the front door is opened."
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.front_door
+    to: "on"
+actions:
+  - action: smlight.play_rtttl
+    target:
+      device_id: 1234567890abcdef1234567890abcdef
+    data:
+      tone: "Doorbell:d=4,o=5,b=100:e,c"
+```
 
 ## Removing the integration
 
