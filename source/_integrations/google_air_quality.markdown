@@ -63,14 +63,14 @@ Longitude:
 
 #### Custom local air quality index
 
-If you want to set a custom local air quality index (AQI) during the setup of the integration you can do this in this optional section.
+If you want to set a custom local Air Quality Index (AQI) during the setup of the integration you can do this in this optional section.
 {% configuration_basic %}
-Enable custom local air quality index (AQI):
-  description: "Turn on to use a custom local air quality index (AQI) for this location."
+Enable custom local AQI:
+  description: "Turn on to use a custom local AQI for this location."
 Country:
   description: "The country of your location."
 Custom local AQI:
-  description: "The custom local air quality index."
+  description: "The custom local AQI."
 {% endconfiguration_basic %}
 
 ## Supported functionality
