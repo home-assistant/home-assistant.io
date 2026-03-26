@@ -74,6 +74,20 @@ data:
 
 {% enddetails %}
 
+### Events
+
+The **HTML5 Push Notifications** {% term integration %} creates an **event** {% term entity %} for each configured device. Home Assistant will fire events whenever a notification is:
+
+- `received`: The notification arrives on the device.
+- `clicked`: The user interacts with the notification.
+- `closed`: The notification is dismissed without interaction.
+
+Each event includes **state attributes** that provide additional context:
+
+- `tag`: Identifier of  the notification.
+- `action`: The identifier of the action if the user clicked an action button in the notification.
+- Any extra data that was included in the payload of the notification.
+
 ### Testing
 
 Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
