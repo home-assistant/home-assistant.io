@@ -325,8 +325,13 @@ choose:
 ```
 {% configuration choose %}
 choices:
-  description: A dictionary of choices for the choose option. Each key in the dictionary represents one selector choice, and the string value of the key will be displayed in the selector picker. Each entry is itself another dictionary, with one mandatory key of "selector", and the value of that key is any other valid selector definition.
-  type: object
+  description: >
+    A dictionary of choices for the choose option. Each key in the
+    dictionary represents one selector choice, and the string value of the
+    key will be displayed in the selector picker. Each entry is itself
+    another dictionary, with one mandatory key of "selector", and the value
+    of that key is any other valid selector definition.
+  type: map
   required: true
 {% endconfiguration %}
 
