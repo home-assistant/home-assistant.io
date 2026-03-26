@@ -3,7 +3,9 @@ title: "0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants"
 description: "Move to asynchronous, Support for SleepIQ, OpenALPR, and EmonCMS, and other goodies."
 date: 2016-09-29 03:04:05 +0000
 date_formatted: "September 29, 2016"
-author: Paulus Schoutsen & Fabian Affolter
+author:
+  - Paulus Schoutsen
+  - Fabian Affolter
 author_twitter: balloob
 categories:
 - Release-Notes
