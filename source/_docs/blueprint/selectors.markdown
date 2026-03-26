@@ -394,9 +394,9 @@ This is similar to the [boolean selector](#boolean-selector), the difference
 is that the constant selector has no value when it's not enabled.
 
 {% note %}
-A constant selector is only useful in a context where selectors may be designated as 
-optional, such is in an action schema or script field. It is not recommended for Blueprints,
-as they do not have optional inputs, therefore it cannot be toggled.
+A constant selector is only useful in a context where selectors may be designated as
+optional, such as in an action schema or script field. It is not recommended for blueprints
+because they do not have optional inputs, so the selector cannot be toggled.
 {% endnote %}
 
 ![Screenshot of a constant selector](/images/blueprints/selector-constant.png)
