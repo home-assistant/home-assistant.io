@@ -542,7 +542,9 @@ There are many more improvements in this release; here are some of the other not
 - **Map card editor improvements**: The [map card](/dashboards/map/) visual editor now exposes all card-level and per-entity options, including label mode, color, and attribute selection. No more switching to YAML to customize your map. Thanks, [@ildar170975]!
 - **New template function: `state_attr_translated`**: A new [template function](/docs/configuration/templating/) lets you retrieve translated attribute values for entities, like fan modes, HVAC actions, and preset modes. Works just like the existing `state_translated`, but for attributes. Thanks, [@piitaya]!
 - **New template function: `entity_name`**: A new [template function](/docs/configuration/templating/) retrieves the display name of an entity. This is especially helpful with the [entity naming changes](#entity-naming-consistent-names-everywhere) in this release, as it lets you reference the friendly, composed entity name in your templates. Thanks, [@arturpragacz]!
+- **Network visualization search**: Finding specific devices in the network visualization graph for ZHA, Z-Wave, and Bluetooth is now much simpler with the addition of a search box. Thanks, [@abmantis]!
 
+[@abmantis]: https://github.com/abmantis
 [@arturpragacz]: https://github.com/arturpragacz
 [@ildar170975]: https://github.com/ildar170975
 [@jpbede]: https://github.com/jpbede
