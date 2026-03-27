@@ -62,6 +62,13 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2026-03-27: Unauthenticated app (add-on) endpoints exposed to local network via host network mode**
+Severity: _Critical (CVSS: 9.7)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-gh5m-4m97-c95h)_  
+Assigned CVE: _[CVE-2026-34205](https://nvd.nist.gov/vuln/detail/CVE-2026-34205)_  
+Discovered by: _[arturpragacz](https://github.com/arturpragacz)_  
+Fixed in: _Home Assistant Supervisor 2026.03.2_  
+
 **2025-10-14: Stored XSS in graph tooltip from entity name**  
 Severity: _High (CVSS: 8.0)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-mq77-rv97-285m)_  
