@@ -22,7 +22,7 @@ The **Eve Online** {% term integration %} allows you to monitor [Eve Online](htt
 ## Prerequisites
 
 - An Eve Online account. You can create one at [eveonline.com](https://www.eveonline.com/).
-- An Eve Online developer application for OAuth2 authentication. Instructions for that are in the next step.
+- An Eve Online developer application for OAuth2 authentication. Instructions are in the next section.
 
 ### Create an Eve Online developer application
 
@@ -63,10 +63,10 @@ If you don't have [My Home Assistant](/integrations/my) on your installation,
 you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the callback URL
 instead.
 
-The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration and
 authentication process.
 
-Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`.
+Example callback URLs: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`.
 
 {% enddetails %}
 
