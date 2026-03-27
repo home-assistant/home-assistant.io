@@ -106,8 +106,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
 |Binary sensor|Wiper heat|No|
-|Button|Disable charge on solar (preview feature)|Yes|
-|Button|Enable charge on solar (preview feature)|Yes|
+|Button|Disable charge on solar|Yes|
+|Button|Enable charge on solar|Yes|
 |Button|Flash lights|Yes|
 |Button|HomeLink|Yes|
 |Button|Honk horn|Yes|
@@ -189,7 +189,9 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Switch|Sentry mode|Yes|
 |Update|Update|Yes|
 
-The `Disable charge on solar` and `Enable charge on solar` buttons are part of the **Charge on solar buttons** preview feature. These are action-only buttons because the Tesla Fleet API does not currently expose a reliable charge-on-solar state.
+The `Disable charge on solar` and `Enable charge on solar` buttons are available when the **Charge on solar buttons** preview feature is enabled for Teslemetry in Home Assistant Labs. Preview features are still in development and may change.
+
+These are action-only buttons because the Tesla Fleet API does not currently expose a reliable charge-on-solar state.
 
 ### Energy sites
 
