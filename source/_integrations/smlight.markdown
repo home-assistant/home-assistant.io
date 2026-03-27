@@ -147,11 +147,13 @@ The `smlight.play_rtttl` action plays an RTTTL tone on the built-in buzzer of SM
   - **Optional**: No
 
 ```yaml
+{% raw %}
 action: smlight.play_rtttl
 target:
   device_id: "{{ device_id('SLZB-Ultima3') }}"
 data:
   tone: "Doorbell:d=4,o=5,b=100:e,c"
+{% endraw %}
 ```
 
 ## Examples
