@@ -22,6 +22,7 @@ The following selectors are currently available:
 - [Assist pipeline selector](#assist-pipeline-selector)
 - [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
+- [Choose selector](#choose-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Condition selector](#condition-selector)
 - [Config entry selector](#config-entry-selector)
@@ -317,6 +318,55 @@ boolean:
 ```
 
 The output of this selector is `true` when the toggle is on, `false` otherwise.
+
+## Choose selector
+
+The choose selector allows you to present multiple selectors to the user for a
+single field, and the user can pick a desired selector and enter a value using that selection.
+
+![Screenshot of a choose selector](/images/blueprints/selector-choose.png)
+
+```yaml
+choose:
+```
+{% configuration choose %}
+choices:
+  description: >
+    A dictionary of choices for the choose option. Each key in the
+    dictionary represents one selector choice, and the string value of the
+    key will be displayed in the selector picker. Each entry is itself
+    another dictionary, with one mandatory key of "selector", and the value
+    of that key is any other valid selector definition.
+  type: map
+  required: true
+{% endconfiguration %}
+
+The output of a choose selector is an object with one key called 'active_choice' representing which selector was chosen, and one key per selector choice representing the value entered for that choice.
+
+### Example choose selector <!-- omit from toc -->
+
+An example choose selector that allows user to either select an icon from a dropdown, or enter an arbitrary template.
+
+```yaml
+choose:
+  choices:
+    Icon:
+      selector:
+        icon: {}
+    Template:
+      selector:
+        template: {}
+```
+
+Following this example, if the user entered a value in both selectors, but submitted with 'Icon' option selected, the output might be:
+
+{% raw %}
+```yaml
+active_choice: Icon
+Icon: mdi:light
+Template: "{{ something else }}"
+```
+{% endraw %}
 
 ## Color temperature selector
 
