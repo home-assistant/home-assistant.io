@@ -16,6 +16,7 @@ ha_codeowners:
 ha_domain: transmission
 ha_platforms:
   - binary_sensor
+  - event
   - sensor
   - switch
 ha_integration_type: service
@@ -78,6 +79,52 @@ A binary sensor indicating whether the incoming peer port is open and reachable 
 
 - A switch to start/stop all torrents.
 - A switch to enable turtle mode (a.k.a. alternative speed limits).
+
+## Event entity
+
+The **Transmission** {% term integration %} provides an {% term "Event entity" %} which represents the state of the last torrent (_Started, Downloaded, Removed_). It also provides several event attributes which can be used in automations.
+
+- **Data attribute**: `event_type`
+  - **Description**: The translated state of the last torrent event (_possible states: Started, Downloaded, Removed_)
+
+- **Data attribute**: `name`
+  - **Description**: The filename of the torrent
+
+- **Data attribute**: `id`
+  - **Description**: The id within **Transmission** of the torrent
+
+- **Data attribute**: `download_path`
+  - **Description**: The path of the file
+
+- **Data attribute**: `labels`
+  - **Description**: The list of labels added to the torrent
+
+### Usage examples
+
+Create a persistent notification when a torrent is downloaded.
+
+{% raw %}
+
+```yaml
+alias: Transmission torrent event
+description: "Notify when a torrent is downloaded"
+triggers:
+  - trigger: event.received
+    target:
+      entity_id: event.transmission_torrent
+    options:
+      event_type:
+        - transmission_downloaded_torrent
+actions:
+  - action: persistent_notification.create
+    metadata: {}
+    data:
+      message: >-
+        {{ state_attr(trigger.entity_id, "name") }} was downloaded
+mode: single
+```
+
+{% endraw %}
 
 ## Event automation
 
