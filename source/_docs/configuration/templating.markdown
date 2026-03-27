@@ -373,6 +373,31 @@ The `state_translated` function returns a translated state of an entity using a 
 {% endraw %}
 
 
+### State attribute translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_attr_translated` function returns a translated attribute value of an entity using the language that is currently configured in {% my general title="**Settings** > **System** > **General**" %}. This is useful for attributes like `fan_mode`, `hvac_action`, `preset_mode`, or `color_mode`, which have translations defined but are stored as untranslated values in the state.
+
+#### State attribute translated examples
+
+{% raw %}
+
+```text
+{{ state_attr("climate.living_room", "fan_mode") }} # low
+{{ state_attr_translated("climate.living_room", "fan_mode") }} # Low
+{{ "climate.living_room" | state_attr_translated("fan_mode") }} # Low
+```
+
+```text
+{{ state_attr("climate.living_room", "hvac_action") }} # heating
+{{ state_attr_translated("climate.living_room", "hvac_action") }} # Heating
+{{ "climate.living_room" | state_attr_translated("hvac_action") }} # Heating
+```
+
+{% endraw %}
+
+
 ### Working with groups
 
 Not supported in [limited templates](#limited-templates).
@@ -429,11 +454,16 @@ The same thing can also be expressed as a test:
 
 ### Entities
 
+- `entity_name(entity_id)` returns the name of an entity for a given entity ID. Can also be used as a filter.
 - `is_hidden_entity(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
 
-### Entities examples
+#### Entities examples
 
 {% raw %}
+
+```text
+{{ entity_name('light.main_light') }}  # Main light
+```
 
 ```text
 {{ area_entities('kitchen') | reject('is_hidden_entity') }} # Gets a list of visible entities in the kitchen area

@@ -23,7 +23,8 @@ The sensors provided include:
 - Thermostat Setpoint
 - Thermostat Current Temp
 - Leaving Air Temp
-- Entering Water Loop Temp
+- Entering / Leaving Water Loop Temp
+- Water Flow Rate
 - Current Humidity
 - Current Humidity Setpoint
 - Total system power (in Watts)
@@ -57,7 +58,7 @@ password:
 
 ## Limitations
 
-If your account has more than one device or location, only the first device on the first location will be used.
+If your account has more than one location, only devices in the first location will be available.
 
 The WebSocket interface used by this module requires active polling to prevent the server side shuts down the connection. By default, this polling is happening every 10 seconds. All sensors are updated during every polling cycle.
 

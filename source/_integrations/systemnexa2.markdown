@@ -200,6 +200,16 @@ To resolve this issue, try the following steps:
    - Select **Add integration** and search for **System Nexa 2**.
    - Enter the IP address you found in the **Nexa Hem** app.
 
+## Reconfiguration
+
+Once set up, the hostname or IP address used to access the **System Nexa 2** device can be changed by reconfiguring the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **System Nexa 2** integration entry that you want to update.
+3. Open the three dots {% icon "mdi:dots-vertical" %} menu next to that entry, then select **Reconfigure**.
+4. Enter a new hostname or IP address.
+5. Select **Submit** to complete the reconfiguration.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
