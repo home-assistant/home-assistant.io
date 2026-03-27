@@ -18,7 +18,7 @@ Backups are one of those quiet, powerful features: when they work, you don't not
 
 To help us get this right, we commissioned <a href="https://trailofbits.com/" target="_blank" rel="noopener">Trail of Bits</a>, a leading security engineering firm, to independently audit our work. Their review found that SecureTar v3 follows best-in-class practices for core security algorithms, such as hashing and encryption. They also identified three areas for improvement, which they confirmed were resolved in their follow-up review. This audit was paid for by the <a href="https://www.openhomefoundation.org/" target="_blank" rel="noopener">Open Home Foundation</a> so we could invest in improvements that protect users' privacy, security, and control.
 
-Your backups will start using this new encryption automatically, beginning with the release of version 2026.4 on April 1, 2026. For more technical details, please read on...
+Your backups will start using this new encryption automatically, beginning with the release of version 2026.4 on April 1, 2026. Please note old backups will still work and be readable after this change (see Recommended next steps below). For more technical details, please read on...
 
 <!--more-->
 
