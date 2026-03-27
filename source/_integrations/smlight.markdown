@@ -162,7 +162,9 @@ Uses the SMLIGHT Ultima buzzer to play a ding-dong doorbell chime when the front
 
 ```yaml
 alias: "Play chime when front door opens"
-description: "Uses the SMLIGHT Ultima buzzer to play a ding-dong doorbell chime when the front door is opened."
+description: >
+  Uses the SMLIGHT Ultima buzzer to play a
+  ding-dong doorbell chime when the front door is opened.
 triggers:
   - trigger: state
     entity_id: binary_sensor.front_door
