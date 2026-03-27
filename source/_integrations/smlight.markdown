@@ -140,7 +140,7 @@ The integration provides the following actions.
 
 ### Action: Play RTTTL tone
 
-The `smlight.play_rtttl` action plays an RTTTL tone on the built-in buzzer of SMLIGHT Ultima devices.
+The `smlight.play_rtttl` action plays a Ring Tone Text Transfer Language (<abbr title="Ring Tone Text Transfer Language">RTTTL</abbr>) tone on the built-in buzzer of SMLIGHT Ultima devices. If you want to learn more about the tone format, refer to [Ring Tone Text Transfer Language](https://en.wikipedia.org/wiki/Ring_Tone_Text_Transfer_Language).
 
 - **Data attribute**: `tone`
   - **Description**: The RTTTL format string to play.
