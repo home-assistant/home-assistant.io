@@ -10,8 +10,6 @@ ha_codeowners:
   - '@ronaldvdmeer'
 ha_domain: eveonline
 ha_platforms:
-  - binary_sensor
-  - diagnostics
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -38,16 +36,16 @@ For Home Assistant to communicate with Eve Online, you need to create an applica
 
 5. Add the following **Permissions (Scopes)**:
 
+   - `esi-characters.read_fatigue.v1`
+   - `esi-industry.read_character_jobs.v1`
    - `esi-location.read_location.v1`
-   - `esi-location.read_ship_type.v1`
    - `esi-location.read_online.v1`
-   - `esi-skills.read_skills.v1`
+   - `esi-location.read_ship_type.v1`
+   - `esi-mail.read_mail.v1`
+   - `esi-markets.read_character_orders.v1`
    - `esi-skills.read_skillqueue.v1`
-   - `esi-clones.read_clones.v1`
+   - `esi-skills.read_skills.v1`
    - `esi-wallet.read_character_wallet.v1`
-   - `esi-characters.read_standings.v1`
-   - `esi-characters.read_corporation_roles.v1`
-   - `esi-killmails.read_killmails.v1`
 
 6. Set the **Callback URL** to:
 
@@ -83,67 +81,52 @@ The integration creates two devices: one for the Tranquility server, and one for
 
 - **Server version**
   - **Description**: The current server version of Tranquility.
-
-- **Start time**
-  - **Description**: The time the server was last started.
-
-### Server binary sensors
-
-- **Server VIP mode**
-  - **Description**: Whether the Tranquility server is in VIP mode.
   - **Remarks**: This entity is disabled by default.
 
 ### Character sensors
 
+- **Location**
+  - **Description**: The solar system your character is currently in.
+
+- **Ship**
+  - **Description**: The ship type your character is currently flying.
+
 - **Wallet balance**
   - **Description**: The ISK balance of your character's wallet.
 
-- **Skill points**
+- **Total skill points**
   - **Description**: The total number of skill points your character has.
+
+- **Unallocated skill points**
+  - **Description**: The number of unallocated skill points your character has.
+  - **Remarks**: This entity is disabled by default.
 
 - **Skill queue**
   - **Description**: The number of skills currently in your character's skill queue.
 
-- **Current ship**
-  - **Description**: The name of the ship type your character is currently flying.
+- **Current training skill**
+  - **Description**: The skill currently being trained, including the target level.
 
-- **Location**
-  - **Description**: The solar system your character is currently in.
-
-- **Clone location**
-  - **Description**: The station or structure where your character's active clone is located.
-
-- **Security status**
-  - **Description**: Your character's current security status.
-
-- **Corporation**
-  - **Description**: The corporation your character is a member of.
-
-- **Alliance**
-  - **Description**: The alliance your character's corporation belongs to.
-
-- **Birthday**
-  - **Description**: The date your character was created.
-
-- **Current ship name**
-  - **Description**: The custom name of your character's current ship.
+- **Current skill finish**
+  - **Description**: The estimated completion time of the skill currently being trained.
 
 - **Unread mail**
   - **Description**: The number of unread mail messages.
-  - **Remarks**: This entity is disabled by default.
+
+- **Industry jobs**
+  - **Description**: The number of active industry jobs.
+
+- **Next industry finish**
+  - **Description**: The estimated completion time of the next industry job to finish.
+
+- **Sell orders**
+  - **Description**: The number of active sell orders on the market.
+
+- **Buy orders**
+  - **Description**: The number of active buy orders on the market.
 
 - **Jump fatigue**
   - **Description**: Your character's jump fatigue expiry time.
-  - **Remarks**: This entity is disabled by default.
-
-- **Active implants**
-  - **Description**: The number of active implants your character has.
-  - **Remarks**: This entity is disabled by default.
-
-### Character binary sensors
-
-- **Online**
-  - **Description**: Whether your character is currently online.
 
 ## Using multiple characters
 
