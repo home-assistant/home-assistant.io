@@ -82,22 +82,22 @@ A binary sensor indicating whether the incoming peer port is open and reachable 
 
 ## Event entity
 
-The **Transmission** {% term integration %} provides an {% term "Event entity" %} which represents the state of the last torrent (_Started, Downloaded, Removed_). It also provides several event attributes which can be used in automations.
+The **Transmission** {% term integration %} provides an {% term "Event entity" %} that records the last torrent event. The entity state stores the time of that event, and several event attributes provide more details that you can use in automations.
 
-- **Data attribute**: `event_type`
-  - **Description**: The translated state of the last torrent event (_possible states: Started, Downloaded, Removed_)
+- **State attribute**: `event_type`
+  - **Description**: The type of the last torrent event. Possible states are Started, Downloaded, and Removed.
 
-- **Data attribute**: `name`
-  - **Description**: The filename of the torrent
+- **State attribute**: `name`
+  - **Description**: The filename of the torrent.
 
-- **Data attribute**: `id`
-  - **Description**: The id within **Transmission** of the torrent
+- **State attribute**: `id`
+  - **Description**: The ID of the torrent within **Transmission**.
 
-- **Data attribute**: `download_path`
-  - **Description**: The path of the file
+- **State attribute**: `download_path`
+  - **Description**: The path where the torrent content is downloaded.
 
-- **Data attribute**: `labels`
-  - **Description**: The list of labels added to the torrent
+- **State attribute**: `labels`
+  - **Description**: The list of labels added to the torrent.
 
 ### Usage examples
 
@@ -109,15 +109,16 @@ Create a persistent notification when a torrent is downloaded.
 alias: Transmission torrent event
 description: "Notify when a torrent is downloaded"
 triggers:
-  - trigger: event.received
-    target:
-      entity_id: event.transmission_torrent
-    options:
-      event_type:
-        - transmission_downloaded_torrent
+ - trigger: state
+    entity_id:
+      - event.transmission_torrent
+conditions:
+  - condition: state
+    entity_id: event.transmission_torrent
+    attribute: event_type
+    state: transmission_downloaded_torrent
 actions:
   - action: persistent_notification.create
-    metadata: {}
     data:
       message: >-
         {{ state_attr(trigger.entity_id, "name") }} was downloaded
