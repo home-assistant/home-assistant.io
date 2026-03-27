@@ -700,13 +700,13 @@ template:
           - condition: state
             entity_id: sensor.garage_door
             state: "on"
-          - action: switch.turn_off
+          - action: switch.turn_on
             target:
               entity_id: switch.garage_door
         stop_cover:
-          action: switch.turn_on
-          target:
-            entity_id: switch.garage_door
+          - action: switch.turn_on
+            target:
+              entity_id: switch.garage_door
         icon: >-
           {% if states('sensor.garage_door')|float > 0 %}
             mdi:garage-open
