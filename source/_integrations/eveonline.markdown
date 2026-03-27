@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Eve Online** {% term integration %} allows you to monitor [Eve Online](https://www.eveonline.com/) server status and character data in Home Assistant. Eve Online is a massively multiplayer online game by CCP Games. This integration uses the [Eve Swagger Interface (ESI)](https://esi.evetech.net/) API to retrieve data about the Tranquility server and your characters.
@@ -156,6 +157,20 @@ The integration {% term polling polls %} data from the Eve Online ESI API every 
 
 - The integration only connects to the Tranquility server (the main live server). Singularity (test server) is not supported.
 - Some character data may be delayed due to ESI API caching.
+
+## Troubleshooting
+
+### OAuth2 callback error
+
+If you get an error during the OAuth2 login flow, make sure the **Callback URL** in your Eve Online developer application is set to exactly:
+
+`https://my.home-assistant.io/redirect/oauth`
+
+Also ensure that [My Home Assistant](/integrations/my) is correctly configured and can reach your Home Assistant instance.
+
+### Entities show as unavailable
+
+If all entities become unavailable, the ESI API may be experiencing downtime. Check the [Eve Online server status](https://login.eveonline.com/) page. If the issue persists, try reauthenticating via **Settings** > **Devices & services** > **Eve Online** > **Reconfigure**.
 
 ## Removing the integration
 
