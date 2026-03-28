@@ -114,7 +114,6 @@ triggers:
       - event.transmission_torrent
     not_from:
       - unavailable
-      - unknown
 conditions:
   - condition: state
     entity_id: event.transmission_torrent
