@@ -149,7 +149,7 @@ This may happen when the 'Maximum Tokens to Return in Response' value is too sma
 
 ### Integration fails to set up, the logs has import or attribute errors
 
-This may happen if the correct version of python anthropic client failed to set up. If you know how to log in to the Home Assistant container and manually reinstall the client, try that. Otherwise, downgrading and re-upgrading Home Assistant should help.
+This may happen if the correct version of Python anthropic client failed to set up. If you know how to log in to the Home Assistant container and manually reinstall the client, try that. Otherwise, downgrading and re-upgrading Home Assistant should help.
 
 ## Known limitations
 
