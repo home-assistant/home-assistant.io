@@ -144,9 +144,9 @@ But this release also brings something fundamentally new to the table: _cross-do
 
 ### Thinking in real-world concepts, not technical domains
 
-Up until now, every {% term trigger %} and {% term condition %} was tied to a specific entity type. Want to know if a door opened? That depends: is your door sensor a {% term "binary sensor" %}, a {% term cover %} entity, or something else? You had to know the technical difference and pick the right one.
+Up until now, every {% term trigger %} and {% term condition %} was tied to a specific entity type. Want to know if a door opened? That used to depend on whether your door was represented as a magnetic contact sensor (a {% term "binary sensor" %}), a motorized door such as a garage door (a {% term cover %} entity), or something else entirely. You had to know the technical difference and pick the right one.
 
-That's not how we think about our homes. You don't think about binary sensors; you think about doors, windows, motion, temperature, and humidity. These are real-world concepts that can be represented by multiple different entity types in Home Assistant.
+But that’s not how we think about our homes. We think in terms of doors, windows, motion, temperature, and humidity — real‑world concepts that can be represented by different entity types in Home Assistant.
 
 This release introduces {% term triggers %} and {% term conditions %} that work across entity types and are organized by what they _mean_, not where they live technically. A "door opened" trigger now responds to _any_ door entity, whether it's a contact sensor or a motorized cover. A "temperature changed" trigger picks up readings from temperature sensors, {% term climate %} {% term devices %}, and water heaters alike. You no longer need to know the technical details behind the scenes.
 
@@ -309,8 +309,8 @@ We welcome the following new integrations in this release:
 
 It is not just new {% term integrations %} that have been added; existing ones are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
 
-- **[SmartThings]** received a massive wave of robot vacuum support from [@joostlek]: fan speed control, selects for driving mode, cleaning type, water spray level, and sound mode, a sound detection switch with sensitivity control, a binary sensor for a full dust bag, a HEPA filter reset button, and a time entity for Do Not Disturb schedules. Stick cleaner devices are now supported too. On top of that, [@edu-tsen] added start, pause, resume, cancel, and drain buttons for dishwashers.
-- **[Roborock]** owners with a [Q10](https://global.roborock.com/pages/roborock-q10-series) can now integrate their vacuum, thanks to [@allenporter].
+- **[SmartThings]** received a massive wave of improvements this release. Robot vacuums gained fan speed control, driving mode and cleaning type selects, water spray and sound mode options, a sound detection switch with sensitivity control, a full dust-bag sensor, a HEPA filter reset button, and a time entity for Do Not Disturb schedules. Stick cleaner devices are now supported as well. Thanks, [@joostlek]! Dishwashers also picked up new start, pause, resume, cancel, and drain actions, thanks to [@edu-tsen]!
+- **[Roborock]** owners with a [Q10](https://global.roborock.com/pages/roborock-q10-series) can now integrate their vacuum, thanks to [@allenporter]!
 - **[OpenAI Conversation]** added GPT-5.4 and GPT-5.4-pro model support, including reasoning effort options. Thanks, [@Shulyaka]!
 - **[SwitchBot]** picked up [Keypad Vision](https://us.switch-bot.com/products/switchbot-keypad-vision) support, bringing doorbell events, tamper alarms, and charging sensors to your setup. Thanks, [@zerzhang]!
 - **[Govee BLE]** added the H5140 CO2 monitor, providing CO2 readings right in Home Assistant. Thanks, [@funkadelic]!
