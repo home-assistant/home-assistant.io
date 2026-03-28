@@ -3,12 +3,14 @@ title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
 ha_category:
   - Notifications
+  - Event
 ha_release: 0.27
 ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: html5
 ha_platforms:
   - notify
+  - event
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
