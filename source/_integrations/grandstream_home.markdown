@@ -245,18 +245,17 @@ Triggered when values exceed configurable thresholds:
 #### Notify on Door Access
 
 ```yaml
-automations:
-  - alias: "Door access notification"
-    triggers:
-      - trigger: device
-        device_id: abc123def456
-        domain: grandstream_home
-        type: door_opened_rfid
-    actions:
-      - action: notify.mobile_app
-        data:
-          title: "Door Access"
-          message: "Door opened by RFID card"
+- alias: "Door access notification"
+  triggers:
+    - trigger: device
+      device_id: abc123def456
+      domain: grandstream_home
+      type: door_opened_rfid
+  actions:
+    - action: notify.mobile_app
+      data:
+        title: "Door Access"
+        message: "Door opened by RFID card"
 ```
 
 #### Alert on Intrusion Detection
