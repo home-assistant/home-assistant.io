@@ -10,8 +10,6 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: device
-ha_codeowners:
-  - '@cdce8p'
 ---
 
 The **FRITZ!Box Call Monitor** {% term integration %} monitors the call monitor exposed by [FRITZ!Box](https://en.fritz.com/products/fritzbox/) routers (by FRITZ!, formerly AVM) on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
@@ -34,7 +32,7 @@ You also need network access from HA to your FRITZ!Box on port `tcp/1012` for th
 
 ## Setup
 
-To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it.
+To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it. When using a DECT phone, the phone must not be connected via a DECT-Repeater, it must be directly connected to your FRITZ!Box.
 
 {% include integrations/config_flow.md %}
 

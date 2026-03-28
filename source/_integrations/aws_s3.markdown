@@ -4,13 +4,15 @@ description: Instructions on how to setup AWS S3 bucket to be used as a backup l
 ha_release: 2025.5
 ha_category:
   - Backup
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: aws_s3
 ha_codeowners:
   - '@tomasbedrich'
 ha_integration_type: service
 ha_quality_scale: bronze
+ha_platforms:
+  - sensor
 ---
 
 The **AWS S3** {% term integration %} allows you to use [AWS S3](https://aws.amazon.com/s3/) bucket with Home Assistant Backups.
@@ -113,6 +115,12 @@ Endpoint URL:
    - The region endpoint (e.g., `https://s3.eu-central-1.amazonaws.com/`)
 
 The integration will test the connection and confirm access to your S3 bucket.
+
+## Sensors
+
+The integration provides the following sensor, which is updated every 6 hours:
+
+- **Total size of backups**: The combined size of all Home Assistant backups stored in the configured S3 bucket for this Home Assistant installation.
 
 ## Known limitations
 

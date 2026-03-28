@@ -144,6 +144,13 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 - **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
+#### PTZ cameras
+
+If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, the following additional entities and functionality are available:
+
+- **PTZ patrol** - A select entity that lets you start or stop patrols that are configured in UniFi Protect. The state reflects the currently active patrol. Select **Stopped** to stop the current patrol.
+- **PTZ presets** - Use the [PTZ go to preset action](#action-ptz-go-to-preset) (`unifiprotect.ptz_goto_preset`) to move your PTZ camera to a saved preset position, including the home position. Presets must be configured in the UniFi Protect app first.
+
 ### UniFi Protect floodlights
 
 Each UniFi Protect floodlight will get a device in Home Assistant with the following:
@@ -267,6 +274,24 @@ The `unifiprotect.remove_privacy_zone` action removes a privacy zone from a came
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
 | `name`                 | No       | The name of the zone to remove.                                                                         |
+
+### Action: PTZ go to preset
+
+The `unifiprotect.ptz_goto_preset` action moves a <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
+
+| Data attribute | Optional | Description                                                                                    |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `device_id`    | No       | The device ID of the PTZ camera you want to move.                                              |
+| `preset`       | No       | The name of the preset position to move to. Use `Home` for the home position.                  |
+
+#### Example usage
+
+```yaml
+action: unifiprotect.ptz_goto_preset
+data:
+  device_id: your_device_id_here
+  preset: "Home"
+```
 
 ### Action: Get user keyring info
 
@@ -393,7 +418,7 @@ The UniFi Protect integration provides support for various event types triggered
 
 - **Event Name**: Doorbell
 - **Event Attributes**:
-  - **event_type**: `doorbell`
+  - **event_type**: `ring`
   - **event_id**: A unique ID that identifies the doorbell event.
 - **Description**: This event is triggered when someone rings the doorbell. It provides an `event_id`, which can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
 
@@ -409,8 +434,14 @@ triggers:
     trigger: event
 conditions:
   - condition: template
-    value_template: |
-      {% raw %}{{ 'ring' in trigger.event.data.new_state.attributes.event_types }}{% endraw %}
+    value_template: >
+      {% raw %}{{
+        trigger.event.data.old_state is not none and
+        not trigger.event.data.old_state.state == 'unavailable' and
+        trigger.event.data.new_state is not none and
+        not trigger.event.data.new_state.state == 'unavailable' and
+        trigger.event.data.new_state.attributes.event_type == 'ring'
+      }}{% endraw %}
 actions:
   - data:
       message: Someone is at the door!
@@ -418,7 +449,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-The condition is required to prevent the notification from being triggered by events of type 'unknown', for example, during a restart.
+The condition ensures the notification is only sent for actual doorbell rings and not during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
 
 ### NFC Card Scanned Event
 

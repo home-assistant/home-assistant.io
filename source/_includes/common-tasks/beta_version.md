@@ -14,7 +14,7 @@ If you would like to test next release before anyone else, you can install the b
     3. Select **Join beta**.
     4. Go to the {% my configuration title="**Configuration**" %} panel.
     5. Install the update that is presented to you.
-       - **Troubleshooting**: If you do not see that notification:
+       - Troubleshooting: If you do not see that notification:
          - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
          - Go to {% my updates title="**System** > **Updates**" %}.
            - Select the update notification.

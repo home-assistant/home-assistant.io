@@ -11,6 +11,8 @@ ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
   - conversation
+  - stt
+  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -20,6 +22,7 @@ related:
     title: OpenAI API key
   - url: https://www.openai.com
     title: OpenAI
+ha_quality_scale: bronze
 ---
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
@@ -30,15 +33,11 @@ This integration does not integrate with [sentence triggers](/docs/automation/tr
 
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
-
-{% configuration_basic %}
-API key:
-  description: "API key from OpenAI for authentication."
-{% endconfiguration_basic %}
-
-## Generate an API Key
+{% important %}
+This integration works only with the official OpenAI API endpoint and does not support OpenAI-API-compatible third-party services, proxies, or alternative backends. If you need support for other providers, consider using the [OpenRouter integration](/integrations/open_router/) as an alternative.
+{% endimportant %}
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
 
@@ -47,7 +46,23 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 - Configure [usage limits](https://platform.openai.com/account/billing/limits).
 - Visit the [API Keys page](https://platform.openai.com/account/api-keys) to retrieve the API key you'll use to configure the integration.
 
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+API key:
+  description: "API key from OpenAI for authentication."
+{% endconfiguration_basic %}
+
 {% include integrations/option_flow.md %}
+
+The integration provides the following types of subentries:
+
+- [Conversation](/integrations/conversation/)
+- [AI Task](/integrations/ai_task/)
+- [Speech-to-text (STT)](/integrations/stt/)
+- [Text-to-speech (TTS)](/integrations/tts/)
+
+The Conversation and AI Task subentries have the following configuration options (some of them may be unavailable due to subentry type or model choice):
 
 {% configuration_basic %}
 Instructions:
@@ -77,11 +92,36 @@ Include home location:
   description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
 {% endconfiguration_basic %}
 
+The Speech-to-text (STT) subentries have the following configuration options:
+
+{% configuration_basic %}
+Instructions:
+  description: Instructions that can be used to improve the quality of the transcripts by giving the model additional context similarly to how you would prompt other LLMs. The model will try to match the style, language, and context of the prompt. You can also use it to pass a dictionary of the correct spellings of common misunderstood words. Check the [OpenAI guide on prompting STT models](https://developers.openai.com/api/docs/guides/speech-to-text#prompting) for additional hints. Templates are not supported here.
+Model:
+  description: The Speech-to-text model for audio transcription.
+{% endconfiguration_basic %}
+
+The Text-to-speech (TTS) subentries have the following configuration options:
+
+{% configuration_basic %}
+Instructions:
+  description: Instructions for the AI on how it should read your text. You can prompt the model to control aspects of speech, including accent, emotional range, intonation, impressions, speed of speech, tone, whispering, and more. Templates are not supported here.
+Speed:
+  description: Additionally adjust the speed of the generated speech. Accepts values between 0.25 and 4.0, where 1.0 is the default speed.
+
+{% endconfiguration_basic %}
+
 ## Talking to Super Mario over the phone
 
 You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
 
 ## Actions
+
+{% note %}
+
+The actions below are deprecated and will be removed in the future. Please use the corresponding [AI Task](/integrations/ai_task/) actions instead.
+
+{% endnote %}
 
 ### Action `openai_conversation.generate_image`
 

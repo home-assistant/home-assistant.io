@@ -10,6 +10,7 @@ ha_category:
   - Humidifier
   - Light
   - Lock
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -36,6 +37,7 @@ ha_platforms:
   - humidifier
   - light
   - lock
+  - select
   - sensor
   - switch
   - vacuum
@@ -209,6 +211,11 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
+### Keypad Visions
+
+- [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
+- [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
+
 ## Works with Home Assistant
 
 SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant.
@@ -333,6 +340,14 @@ Features:
 - get light level
 - get battery level
 - get calibration state
+- set curtain movement speed
+
+Curtain movement speed is configured from the device options. Curtain movement speed is primarily designed for Curtain 3 models. Older Curtain models may ignore the setting.
+
+1. To set **Curtain movement speed**, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the SwitchBot integration and select the curtain device you want to configure.
+3. Select **Configure** for that device.
+4. In the **Options** dialog, set **Curtain movement speed** to a number between 0-255. The default is 255.
 
 #### Blind Tilt
 
@@ -458,6 +473,33 @@ Features:
 - get humidity
 - get carbon dioxide
 - get battery level
+- set display time format (12h/24h)
+- sync the device date and time with Home Assistant
+
+{% details "Syncing the device date and time with Home Assistant automatically" %} 
+
+The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. Here's a simple example for `configuration.yaml`:
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Daily SwitchBot CO2 Time Sync"
+    description: "Sync date and time sync for the Meter Pro CO2 every night."
+    trigger:
+    triggers:
+      - trigger: time
+        # Ensures the time is in sync after a DST (summer/winter) time change.
+        at: "03:00:00"
+    actions:
+      - action: button.press
+        target:
+          # Replace with your actual entity ID
+          entity_id: button.<your_device_name>_sync_date_and_time
+```
+
+{% endraw %}
+{% enddetails %}
 
 #### Contact Sensor
 
@@ -509,6 +551,21 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+
+#### Keypad Vision (Pro)
+
+This is an encrypted device. For testing, you can execute the actions that this device supports individually within the development tools.
+
+Actions:
+- add_password
+
+Examples:
+```yaml
+action: switchbot.add_password
+data:
+  device_id: c2d01328efd261f586e56d914e3af07e
+  password: 123456
+```
 
 ### Lights
 
