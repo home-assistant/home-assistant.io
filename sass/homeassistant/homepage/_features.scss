@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 .feature-cards {
   display: grid;
   letter-spacing: normal;

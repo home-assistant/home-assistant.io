@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 #components-page {
   .filter-button-group {
     label {

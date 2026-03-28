@@ -1006,4 +1006,4 @@ will not be used by anything.
 [actions page]: /docs/scripts/perform-actions/
 [conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
-[script variables]: /integrations/script/#configuration-variables
+[script variables]: /integrations/script/#variables

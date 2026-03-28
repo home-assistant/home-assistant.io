@@ -124,8 +124,8 @@ sequence:
     data:
       config_entry_id: 01JVJ0RA387MWA938VE8HGXBMJ
       file:
-        media_content_id: "media-source://media_source/local/{{ file_name }}",
-        media_content_type: "image/jpeg",
+        media_content_id: "media-source://media_source/local/{{ file_name }}"
+        media_content_type: "image/jpeg"
       album_id: f2de0ede-d7d4-4db3-afe3-7288f4e65bb1
 ```
 
