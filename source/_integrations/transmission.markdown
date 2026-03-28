@@ -116,7 +116,7 @@ conditions:
   - condition: state
     entity_id: event.transmission_torrent
     attribute: event_type
-    state: transmission_downloaded_torrent
+    state: downloaded
 actions:
   - action: persistent_notification.create
     data:
