@@ -119,9 +119,23 @@ The integration provides button entities for device control:
 - **Wake** - Wake the device from sleep mode (Wake-on-LAN)
 - **Shutdown** - Safely shut down the device
 
+### Locks
+
+For compatible GDS door stations that control an electric door strike or relay
+output, the integration creates a lock entity in Home Assistant.
+
+- **Door lock**
+  - Description: Represents the door or gate controlled by the GDS device.
+  - Features: You can lock and unlock the door from Home Assistant, and use
+    the lock in your automations, scripts, and scenes.
+  - Notes: The lock state follows the information provided by the device when
+    available. When the hardware does not report its state, Home Assistant
+    assumes the state based on the last command that was sent.
+
 ### Camera
 
-For GDS/GSC devices, the integration provides RTSP camera streaming. The camera entity will be automatically created if RTSP is enabled on the device.
+For GDS/GSC devices, the integration provides RTSP camera streaming. The
+camera entity will be automatically created if RTSP is enabled on the device.
 
 **Requirements:**
 - RTSP must be enabled on the device
