@@ -27,13 +27,13 @@ The **Grandstream Home** {% term integration %} allows you to integrate Grandstr
 
 This integration supports the following Grandstream device types:
 
-### GDS/GSC Series - Door Access Control Systems
+### GDS/GSC Series - Door access control systems
 Door access control devices with built-in camera and SIP calling capabilities.
 
 - GDS372x series devices
 - GSC356X series devices
 
-### GNS Series - Network Storage
+### GNS Series - Network storage
 Network-attached storage (NAS) devices with monitoring capabilities.
 
 - GNS5004E
