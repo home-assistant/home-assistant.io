@@ -116,34 +116,30 @@ You can set the Claude AI Task entity as the default AI Task entity. To do this,
 You can use `conversation.process` and `ai_task.generate_data` actions in your scripts and automations.
 Here is a simple automation that implements a Claude Telegram chatbot using [Telegram bot integration](/integrations/telegram_bot):
 
+{% raw %}
+
 ```yaml
 triggers:
   - trigger: state
     entity_id:
-      # Replace with your Telegram bot event entity
-      - event.bot_update_event
-conditions: >-
-  {{ trigger.to_state.attributes.event_type == 'telegram_text' }}
+      - event.bot_update_event # Replace with your Telegram bot event entity
+conditions: "{{ trigger.to_state.attributes.event_type == 'telegram_text' }}"
 actions:
   - action: conversation.process
     data:
-      # Replace with your Claude conversation entity
-      agent_id: conversation.claude_conversation
-      conversation_id: >-
-        telegram_{{ trigger.to_state.attributes.chat_id }}
-      text: >-
-        {{ trigger.to_state.attributes.text }}
+      agent_id: conversation.claude_conversation # Replace with your Claude conversation entity
+      conversation_id: "telegram_{{ trigger.to_state.attributes.chat_id }}"
+      text: "{{ trigger.to_state.attributes.text }}"
     response_variable: response
   - action: telegram_bot.send_message
     data:
-      chat_id: >-
-        {{ trigger.to_state.attributes.chat_id }}
-      message: >-
-        {{ response.response.speech.plain.speech }}
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message: "{{ response.response.speech.plain.speech }}"
       parse_mode: plain_text
-      config_entry_id: >-
-        {{ trigger.to_state.attributes.bot.config_entry_id }}
+      config_entry_id: "{{ trigger.to_state.attributes.bot.config_entry_id }}"
 ```
+
+{% endraw %}
 
 ## Known limitations
 
