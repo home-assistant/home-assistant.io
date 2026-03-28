@@ -99,6 +99,44 @@ The integration provides `conversation` and `ai_task` entities powered by Anthro
 - [Conversation](/integrations/conversation/)
 - [AI Task](/integrations/ai_task/)
 
+A few examples:
+
+### Assist pipeline
+
+Set up configure Claude as a Conversation agent in [Assist Pipeline](/integrations/assist_pipeline/) as described in the [voice guide](/voice_control/assist_create_open_ai_personality/). This pipeline can be used to chat via the web interface, [Android](/voice_control/android/) or [Apple](/voice_control/apple/) devices using [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/), or via voice using [Assist Satellite](/integrations/assist_satellite/).
+
+[Expose entities](/voice_control/voice_remote_expose_devices/) and configure their aliases for the entities you wish the model to be able to control.
+
+### Home Assistant interface
+
+Claude AI Task entity can be configured as a default AI task entity. To do that, go to {% my general title="**Settings** > **System** > **General**" %} and select the Claude AI Task. This will make AI task a default for blueprints, and for the "Suggest with AI" button in various places of the interface.
+
+### Automation
+
+You can use `conversation.process` and `ai_task.generate_data` actions in your scripts and automations.
+Here is a simple automation that implements a Claude Telegram chatbot using [Telegram bot integration](/integrations/telegram_bot):
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions: "{{ trigger.to_state.attributes.event_type == 'telegram_text' }}"
+actions:
+  - action: conversation.process
+    data:
+      agent_id: conversation.claude_conversation # Replace with your Claude conversation entity
+      conversation_id: "telegram_{{ trigger.to_state.attributes.chat_id }}"
+      text: "{{ trigger.to_state.attributes.text }}"
+    response_variable: response
+  - action: telegram_bot.send_message
+    data:
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message: "{{ response.response.speech.plain.speech }}"
+      parse_mode: plain_text
+      config_entry_id: "{{ trigger.to_state.attributes.bot.config_entry_id }}"
+```
+
 ## Known limitations
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
