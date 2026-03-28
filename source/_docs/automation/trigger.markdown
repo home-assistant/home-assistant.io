@@ -417,6 +417,17 @@ automation:
       to:
 ```
 
+In combination with `for` this will trigger of the entity state has been unchanged for a certain amount of time after it has been set:
+
+```yaml
+automation:
+  triggers:
+    - trigger: state
+      entity_id: vacuum.test
+      to:
+      for: "00:01:00"
+```
+
 If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counterparts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
 
 ```yaml
