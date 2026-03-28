@@ -19,7 +19,7 @@ Home Assistant also has integrations build into the platform that connect with e
 
 ## Home Assistant integrations
 
-Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own. 
+Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own.
 
 Some hardware with water meters may also provide additional practical functions or sensors, such as [valve](/integrations/valve), for example, for controlling water shutoff, or temperature and pressure (to enable freeze alarms).
 

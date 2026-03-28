@@ -60,7 +60,7 @@ Key characteristics:
 - **Available tools:** Limited to what's inside the container image (such as `ssh`, `curl`, `sh`)
 - **Timeout:** Commands longer than 60 seconds are stopped.
 
-Testing commands in a separate [Home Assistant Container](/installation/linux#install-home-assistant-container) installation can help identify what tools and binaries are available. However, keep in mind that the real execution context for Home Assistant OS users is always the managed `homeassistant` container. 
+Testing commands in a separate [Home Assistant Container](/installation/linux#install-home-assistant-container) installation can help identify what tools and binaries are available. However, keep in mind that the real execution context for Home Assistant OS users is always the managed `homeassistant` container.
 
 ## Response
 

@@ -52,6 +52,10 @@ password:
   description: The password for your Symphony WaterFurnace account
 {% endconfiguration_basic %}
 
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
 ## Limitations
 
 If your account has more than one location, only devices in the first location will be available.
