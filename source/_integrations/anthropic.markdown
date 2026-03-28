@@ -141,6 +141,16 @@ actions:
 
 {% endraw %}
 
+## Troubleshooting
+
+### The response is truncated mid-sentence, or the model said it would do an action to control a device but didn't do it
+
+This may happen when the 'Maximum Tokens to Return in Response' value is too small. A small conservative limit is good to keep the cost lower, but it may be suboptimal in certain cases.
+
+### Integration fails to set up, the logs has import or attribute errors
+
+This may happen if the correct version of python anthropic client failed to set up. If you know how to log in to the Home Assistant container and manually reinstall the client, try that. Otherwise, downgrading and re-upgrading Home Assistant should help.
+
 ## Known limitations
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
