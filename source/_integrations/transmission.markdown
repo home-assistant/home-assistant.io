@@ -106,22 +106,25 @@ Create a persistent notification when a torrent is downloaded.
 {% raw %}
 
 ```yaml
-alias: Transmission torrent event
+alias: Transmission torrent downloaded event
 description: "Notify when a torrent is downloaded"
 triggers:
- - trigger: state
+  - trigger: state
     entity_id:
       - event.transmission_torrent
+    not_from:
+      - unavailable
+      - unknown
 conditions:
   - condition: state
     entity_id: event.transmission_torrent
     attribute: event_type
-    state: downloaded
+    state: "downloaded"
 actions:
   - action: persistent_notification.create
     data:
-      message: >-
-        {{ state_attr(trigger.entity_id, "name") }} was downloaded
+      message: >
+        {{ state_attr(trigger.entity_id, 'name') }} was downloaded
 mode: single
 ```
 
