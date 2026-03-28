@@ -4,6 +4,8 @@ description: Instructions on how to integrate UniFi Access with Home Assistant.
 ha_category:
   - Doorbell
   - Lock
+  - Number
+  - Select
   - Sensor
 ha_release: 2026.4
 ha_domain: unifi_access
@@ -19,6 +21,8 @@ ha_platforms:
   - event
   - image
   - lock
+  - number
+  - select
   - sensor
   - switch
 ha_integration_type: hub
@@ -119,6 +123,28 @@ These switches affect *all* doors managed by the controller at once and have dir
   - **Description**: Activates or deactivates the evacuation mode on your UniFi Access controller. When turned on, all doors managed by the controller are unlocked to allow evacuation.
 - **Lockdown**
   - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
+
+#### Numbers
+
+For controllers that support temporary lock rules, each door also exposes a number entity (disabled by default):
+
+- **Rule interval (min)**: Configures the duration in minutes (1–480, default: 10) used when applying a `custom` temporary lock rule via the **Door Lock Rule** select entity. The value is stored locally and persisted across Home Assistant restarts.
+
+  {% note %}
+  This entity is disabled by default. Enable it only if you use the **Custom (set interval)** option of the **Door Lock Rule** select entity.
+  {% endnote %}
+
+#### Selects
+
+For controllers that support temporary lock rules, each door also exposes a select entity:
+
+- **Door Lock Rule**: Lets you apply a temporary lock rule to the door. Available options are:
+  - **No rule** (`""`): No temporary rule is active. Selecting this option has no effect.
+  - **Keep it locked** (`keep_lock`): Forces the door to stay locked.
+  - **Keep it unlocked** (`keep_unlock`): Forces the door to stay unlocked.
+  - **Custom (set interval)** (`custom`): Applies a custom rule for the duration configured by the **Rule interval (min)** number entity.
+  - **Reset rule** (`reset`): Clears the active temporary rule and returns to the normal schedule.
+  - **Lock early** (`lock_early`): Locks the door earlier than scheduled (only available when a schedule rule is currently active).
 
 #### Sensors
 
