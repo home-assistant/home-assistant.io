@@ -119,6 +119,25 @@ These switches affect *all* doors managed by the controller at once and have dir
 - **Lockdown**
   - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
 
+#### Selects
+
+For controllers that support temporary lock rules, each door also exposes a select entity:
+
+- **Door Lock Rule**: Lets you apply a temporary lock rule to the door. Available options are:
+  - **No rule** (`""`): No temporary rule is active. Selecting this option has no effect.
+  - **Keep it locked** (`keep_lock`): Forces the door to stay locked.
+  - **Keep it unlocked** (`keep_unlock`): Forces the door to stay unlocked.
+  - **Custom (set interval)** (`custom`): Applies a custom rule for a specific duration that you configure in the UniFi Access controller.
+  - **Reset rule** (`reset`): Clears the active temporary rule and returns to the normal schedule.
+  - **Lock early** (`lock_early`): Locks the door earlier than scheduled (only available when a schedule rule is currently active).
+
+#### Sensors
+
+For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
+
+- **Door Lock Rule**: Reports the currently active temporary lock rule for the door. Possible states are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
+- **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
+
 ## Data updates
 
 The integration uses a local push architecture via WebSocket. When a door's lock or position status changes, or when the emergency mode (evacuation or lockdown) is updated, the UniFi Access controller pushes updates to Home Assistant in real time. No {% term polling %} is performed.
@@ -188,25 +207,6 @@ actions:
 ```
 
 {% endraw %}
-
-#### Selects
-
-For controllers that support temporary lock rules, each door also exposes a **select** entity:
-
-- **Door Lock Rule**: Lets you apply a temporary lock rule to the door. Available options are:
-  - **No rule** (`""`): No temporary rule is active. Selecting this option is a no-op.
-  - **Keep it locked** (`keep_lock`): Forces the door to stay locked.
-  - **Keep it unlocked** (`keep_unlock`): Forces the door to stay unlocked.
-  - **Custom (set interval)** (`custom`): Applies a custom rule using the duration configured in the companion Rule Interval number entity.
-  - **Reset rule** (`reset`): Clears the active temporary rule and returns to the normal schedule.
-  - **Lock early** (`lock_early`): Locks the door earlier than scheduled (only available when a schedule rule is currently active).
-
-#### Sensors
-
-For controllers that support temporary lock rules, each door also exposes the following **diagnostic** sensor entities:
-
-- **Door Lock Rule**: Reports the currently active temporary lock rule for the door. Possible states are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
-- **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
 
 ## Known limitations
 
