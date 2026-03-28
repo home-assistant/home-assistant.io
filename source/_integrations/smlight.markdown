@@ -4,6 +4,7 @@ description: The SMLIGHT SLZB integration allows users to monitor and manage the
 ha_category:
   - Binary sensor
   - Button
+  - Remote
   - Sensor
   - Switch
   - Update
@@ -17,6 +18,7 @@ ha_platforms:
   - button
   - diagnostics
   - light
+  - remote
   - sensor
   - switch
   - update
