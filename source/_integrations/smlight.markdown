@@ -4,6 +4,7 @@ description: The SMLIGHT SLZB integration allows users to monitor and manage the
 ha_category:
   - Binary sensor
   - Button
+  - Event
   - Sensor
   - Switch
   - Update
@@ -16,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - light
   - sensor
   - switch
@@ -127,6 +129,33 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 ### Lights
 
 - **Ambilight** - Controls the LED strip on the front of the Ultima device, including selecting built-in effects. The `color2`, `speed`, and `direction` properties used by some effects are not yet supported.
+
+### Events
+
+- **IR events** - Fires when an IR code is received by the built-in IR receiver on Ultima devices. Use this entity in automations to trigger actions when a specific remote control command is received.
+
+The following event type is supported: `ir_code_received`.
+
+Example event data:
+
+```yaml
+event_type: ir_code_received
+raw: "b62c0c"
+proto: 8
+addr: "0xb683"
+cmd: "0x000e"
+repeat: 1
+seq: 20
+```
+
+The event payload provides raw IR data and parsed metadata:
+
+- `raw` - Raw IR payload captured by the receiver.
+- `proto` - Protocol identifier for the received frame.
+- `addr` - Protocol-specific address value.
+- `cmd` - Protocol-specific command value.
+- `repeat` - Indicates whether the received frame is marked as a repeat frame. Repeat signaling is protocol-specific. For example, NEC uses repeat frames with truncated state while a button remains pressed, like volume up.
+- `seq` - Sequence number that links a repeat frame to the most recent full IR frame when applicable.
 
 ## Removing the integration
 
