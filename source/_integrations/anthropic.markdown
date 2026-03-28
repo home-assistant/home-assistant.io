@@ -103,13 +103,13 @@ A few examples:
 
 ### Assist pipeline
 
-Set up configure Claude as a Conversation agent in [Assist Pipeline](/integrations/assist_pipeline/) as described in the [voice guide](/voice_control/assist_create_open_ai_personality/). This pipeline can be used to chat via the web interface, [Android](/voice_control/android/) or [Apple](/voice_control/apple/) devices using [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/), or via voice using [Assist Satellite](/integrations/assist_satellite/).
+Set up and configure Claude as a conversation agent in an [Assist pipeline](/integrations/assist_pipeline/) as described in the [voice guide](/voice_control/assist_create_open_ai_personality/). You can then use this pipeline to chat through the Home Assistant web interface, on [Android](/voice_control/android/) or [Apple](/voice_control/apple/) devices using the [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/), or by voice using an [Assist satellite](/integrations/assist_satellite/).
 
-[Expose entities](/voice_control/voice_remote_expose_devices/) and configure their aliases for the entities you wish the model to be able to control.
+[Expose entities](/voice_control/voice_remote_expose_devices/) and configure aliases for the entities you want the model to control.
 
 ### Home Assistant interface
 
-Claude AI Task entity can be configured as a default AI task entity. To do that, go to {% my general title="**Settings** > **System** > **General**" %} and select the Claude AI Task. This will make AI task a default for blueprints, and for the "Suggest with AI" button in various places of the interface.
+You can set the Claude AI Task entity as the default AI Task entity. To do this, go to {% my general title="**Settings** > **System** > **General**" %} and select the Claude AI Task entity. This makes the Claude AI Task entity the default for blueprints, and for the **Suggest with AI** button in various places in the interface.
 
 ### Automation
 
@@ -120,21 +120,29 @@ Here is a simple automation that implements a Claude Telegram chatbot using [Tel
 triggers:
   - trigger: state
     entity_id:
-      - event.bot_update_event # Replace with your telegram bot event entity
-conditions: "{{ trigger.to_state.attributes.event_type == 'telegram_text' }}"
+      # Replace with your Telegram bot event entity
+      - event.bot_update_event
+conditions: >-
+  {{ trigger.to_state.attributes.event_type == 'telegram_text' }}
 actions:
   - action: conversation.process
     data:
-      agent_id: conversation.claude_conversation # Replace with your Claude conversation entity
-      conversation_id: "telegram_{{ trigger.to_state.attributes.chat_id }}"
-      text: "{{ trigger.to_state.attributes.text }}"
+      # Replace with your Claude conversation entity
+      agent_id: conversation.claude_conversation
+      conversation_id: >-
+        telegram_{{ trigger.to_state.attributes.chat_id }}
+      text: >-
+        {{ trigger.to_state.attributes.text }}
     response_variable: response
   - action: telegram_bot.send_message
     data:
-      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
-      message: "{{ response.response.speech.plain.speech }}"
+      chat_id: >-
+        {{ trigger.to_state.attributes.chat_id }}
+      message: >-
+        {{ response.response.speech.plain.speech }}
       parse_mode: plain_text
-      config_entry_id: "{{ trigger.to_state.attributes.bot.config_entry_id }}"
+      config_entry_id: >-
+        {{ trigger.to_state.attributes.bot.config_entry_id }}
 ```
 
 ## Known limitations
