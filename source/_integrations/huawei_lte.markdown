@@ -150,6 +150,23 @@ The `huawei_lte.mark_sms_read` action marks an SMS message as read.
 | `url`                  | yes, if only one router configured | Router URL. |
 | `index`                | no | Index of the SMS message to mark as read. |
 
+## SMS sensors
+
+### Last SMS
+
+The **Last SMS** sensor displays the content of the most recently
+received SMS message. The following attributes are available:
+
+| Attribute | Description |
+| --------- | ----------- |
+| `phone`   | Sender phone number. |
+| `date`    | Date and time the message was received. |
+| `index`   | Message index. |
+| `read`    | Whether the message has been read. |
+
+This sensor requires authenticated mode and is only available
+when the router has SMS data.
+
 ## Events
 
 ### Event: `huawei_lte_sms_received`
