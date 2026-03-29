@@ -19,14 +19,14 @@ This {% term integration %} implements a direct RS485 connection to a solar inve
 PVI-3.0/3.6/4.2-TL-OUTD ABB series, and may work on others.
 The inverter was formerly made by PowerOne who got taken over by ABB.
 
-This integration supports Serial and TCP/IP based transport connections to the inverter.
+This integration supports direct RS485 serial and TCP/IP-based transport connections to the inverter.
 
 This integration creates the inverter as a device with three sensors, reporting live power output in Watts, energy generated in kWh and device temperature.
 
 Note the PV inverter will be unresponsive to communications when in darkness, 
 so the sensors will report 'Unavailable' during the night.
 
-The direct RS485 connection can be made using a low-cost USB-RS485 converter. It works using a 2-wire interface but an interface with a separate ground reference may be more reliable. For TCP/IP-based connections, any Ethernet-RS485 gateway may work.
+The direct RS485 connection can be made using a low-cost USB-RS485 converter. It works using a 2-wire interface but an interface with a separate ground reference may be more reliable. For TCP/IP-based connections, use an Ethernet-to-RS485 gateway that provides a raw TCP socket or serial bridge and can be configured to match the inverter's serial settings.
 
 {% include integrations/config_flow.md %} 
 
