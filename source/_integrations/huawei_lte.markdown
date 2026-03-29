@@ -172,21 +172,25 @@ The following automation detects incoming SMS messages containing a verification
 
 ```yaml
 automation:
-  - alias: "Forward verification codes from SMS to Telegram"
+  - alias: "Forward SMS verification codes to Telegram"
     triggers:
       - trigger: event
         event_type: huawei_lte_sms_received
     conditions:
       - condition: template
         value_template: >
-          {{ trigger.event.data.content | regex_search('[Cc]ode\\s*[0-9]{6}') }}
+          {{ trigger.event.data.content
+            | regex_search('[Cc]ode\\s*[0-9]{6}') }}
     actions:
       - action: telegram_bot.send_message
         data:
           message: >
-            SMS from {{ trigger.event.data.phone }}:
-            Code: {{ trigger.event.data.content | regex_findall('[Cc]ode\\s*([0-9]{6})') | first }}
-            Full text: {{ trigger.event.data.content }}
+            {% set sms = trigger.event.data %}
+            SMS from {{ sms.phone }}:
+            Code: {{ sms.content
+              | regex_findall('[Cc]ode\\s*([0-9]{6})')
+              | first }}
+            Full text: {{ sms.content }}
 ```
 
 {% endraw %}
