@@ -36,7 +36,7 @@ There is currently support for the following platforms within Home Assistant:
 
 - Presence detection - device tracker for connected devices
 - Notifications - via SMS
-- Sensors - device, network, signal, SMS count, traffic, and battery information
+- Sensors - device, network, signal, SMS count and inbox, traffic, and battery information
 - Switch - mobile data on/off, Wi-Fi guest network on/off
 - Binary sensor - mobile and Wi-Fi connection status, SMS storage full/not
 - Button - clear traffic statistics, restart
@@ -119,6 +119,77 @@ The `huawei_lte.resume_integration` action resumes the suspended integration.
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `url`                  | yes, if only one router configured | Router URL. |
+
+### Action: Get SMS list
+
+The `huawei_lte.get_sms_list` action fetches SMS messages from the router inbox. This action returns response data and must be called with `response_variable` or as part of an action sequence that handles the response.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+| `page`                 | yes (default: 1) | Page number to fetch. |
+| `count`                | yes (default: 20) | Number of messages per page. |
+
+Each message in the response contains `index`, `phone`, `content`, `date`, and `read` fields.
+
+### Action: Delete SMS
+
+The `huawei_lte.delete_sms` action deletes an SMS message by its index.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+| `index`                | no | Index of the SMS message to delete. |
+
+### Action: Mark SMS as read
+
+The `huawei_lte.mark_sms_read` action marks an SMS message as read.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+| `index`                | no | Index of the SMS message to mark as read. |
+
+## Events
+
+### Event: `huawei_lte_sms_received`
+
+This event is fired when a new SMS message is detected in the router inbox. On the first poll after startup, existing messages are silently indexed and no events are fired.
+
+| Data attribute    | Description |
+| ----------------- | ----------- |
+| `serial_number`   | Router serial number. |
+| `phone`           | Sender phone number. |
+| `content`         | Message text. |
+| `date`            | Date and time the message was received. |
+| `index`           | Message index (can be used with delete/mark read actions). |
+
+#### Automation example
+
+The following automation detects incoming SMS messages containing a verification code and forwards the extracted code to Telegram:
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Forward verification codes from SMS to Telegram"
+    triggers:
+      - trigger: event
+        event_type: huawei_lte_sms_received
+    conditions:
+      - condition: template
+        value_template: >
+          {{ trigger.event.data.content | regex_search('[Cc]ode\\s*[0-9]{6}') }}
+    actions:
+      - action: telegram_bot.send_message
+        data:
+          message: >
+            SMS from {{ trigger.event.data.phone }}:
+            Code: {{ trigger.event.data.content | regex_findall('[Cc]ode\\s*([0-9]{6})') | first }}
+            Full text: {{ trigger.event.data.content }}
+```
+
+{% endraw %}
 
 ## Tested devices
 
