@@ -13,7 +13,7 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The Radio Browser integration allows you to use the directory of
+The **Radio Browser** {% term integration %} allows you to use the directory of
 radio stations collected on [Radio Browser](https://www.radio-browser.info)
 in Home Assistant.
 

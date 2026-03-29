@@ -16,7 +16,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Kaleidescape** {% term integration %} allows for the automation of [Kaleidescape](https://www.kaleidescape.com/) movie players.

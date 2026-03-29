@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The Reddit sensor integrates data from [Reddit](https://reddit.com/) to monitor your favorite subreddits.
+The **Reddit** {% term integration %} integrates data from [Reddit](https://reddit.com/) to monitor your favorite subreddits.
 
 ## Setup
 

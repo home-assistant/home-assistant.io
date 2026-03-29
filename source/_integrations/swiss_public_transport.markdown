@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: swiss_public_transport
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Swiss public transport** {% term integration %} will give you the next three departure times from a given location to another one in Switzerland.
@@ -90,9 +90,9 @@ The Swiss public transport integration has the following action:
 
 - `swiss_public_transport.fetch_connections`
 
-### Action `swiss_public_transport.fetch_connections`
+### Action: Fetch connections
 
-Fetch the connections for a specific instance.
+The `swiss_public_transport.fetch_connections` action fetches the connections for a specific instance.
 
 | Data attribute | Optional | Description                                              |
 |------------------------|----------|----------------------------------------------------------|

@@ -347,17 +347,18 @@ The resource id should be a boolean resource (On/Off). For more information abou
 
 Below are the service functions for the IHC integrations.
 
-### Action `ihc.pulse`
+### Action: Pulse
+
+The `ihc.pulse` action sends a pulse to the specified IHC resource (on and off with a 400ms delay).
 
 | Data attribute | Optional | Description                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
 | `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
 | `ihc_id`               | no       | The boolean IHC resource ID.                                                                        |
 
-This action will send a pulse to the specified IHC resource.
-On and Off with a 400ms delay.
+### Action: Set runtime value (boolean)
 
-### Action `ihc.set_runtime_value_bool`
+The `ihc.set_runtime_value_bool` action sets the specified boolean resource on the IHC controller.
 
 | Data attribute | Optional | Description                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
@@ -365,9 +366,9 @@ On and Off with a 400ms delay.
 | `ihc_id`               | no       | The boolean IHC resource ID.                                                                        |
 | `value`                | no       | The boolean value to set. (true or false)                                                           |
 
-This action will set the specified boolean resource on the IHC controller.
+### Action: Set runtime value (float)
 
-### Action `ihc.set_runtime_value_float`
+The `ihc.set_runtime_value_float` action sets the specified float resource on the IHC controller.
 
 | Data attribute | Optional | Description                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
@@ -375,14 +376,12 @@ This action will set the specified boolean resource on the IHC controller.
 | `ihc_id`               | no       | The float IHC resource ID.                                                                          |
 | `value`                | no       | The float value to set.                                                                             |
 
-This action will set the specified float resource on the IHC controller.
+### Action: Set runtime value (integer)
 
-### Action `ihc.set_runtime_value_int`
+The `ihc.set_runtime_value_int` action sets the specified integer resource on the IHC controller.
 
 | Data attribute | Optional | Description                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
 | `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
 | `ihc_id`               | no       | The integer IHC resource ID.                                                                        |
 | `value`                | no       | The integer value to set.                                                                           |
-
-This action will set the specified integer resource on the IHC controller.

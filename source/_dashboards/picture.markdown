@@ -62,7 +62,7 @@ double_tap_action:
 
 ### Examples
 
-Navigate to another view:
+Go to another view:
 
 ```yaml
 type: picture
@@ -86,7 +86,7 @@ tap_action:
     entity_id: light.ceiling_lights
 ```
 
-Show an image from a [media](/integrations/media_source/) directory: 
+Show an image from a [media](/integrations/media_source/) directory:
 
 ```yaml
 type: picture

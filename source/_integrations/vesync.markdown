@@ -1,6 +1,6 @@
 ---
 title: VeSync
-description: Instructions on how to set up VeSync devices with Home Assistant. 
+description: Instructions on how to set up VeSync devices with Home Assistant.
 ha_category:
   - Fan
   - Light
@@ -29,7 +29,9 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets, humidifers and select air fryers.
@@ -85,6 +87,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- OasisMist 1000S Smart Ultrasonic Cool Mist Tower Humidifier (LUH-M101S-WUS)
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ### Air Fryers

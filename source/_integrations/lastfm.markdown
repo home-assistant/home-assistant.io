@@ -8,7 +8,7 @@ ha_release: '0.20'
 ha_domain: lastfm
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 ha_codeowners:
   - '@joostlek'

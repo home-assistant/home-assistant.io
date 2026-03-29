@@ -16,7 +16,7 @@ The statistics graph card allows you to display a graph of statistics data for e
 
 <p class='img'>
 <img src='/images/dashboards/statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
-Screenshot of the statistics graph card with none metered entities and `chart_type` `line`.
+Screenshot of the statistics graph card with no metered entities and `chart_type` `line`.
 </p>
 
 <p class='img'>
@@ -64,7 +64,7 @@ title:
   type: string
 period:
   required: false
-  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week` or `month`. If `energy_date_selection` is true, and `period` is not defined, the chart period will auto-select between month/day/hour based on the selected date range.
+  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week`, `month` or `year`. If `energy_date_selection` is true, and `period` is not defined, the chart period will auto-select between month/day/hour based on the selected date range.
   type: string  
 hide_legend:
   required: false

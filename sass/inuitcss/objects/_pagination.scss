@@ -1,3 +1,5 @@
+@use '../defaults' as *;
+@use "sass:math";
 @if $use-pagination == true{
 
 /*------------------------------------*\
@@ -32,13 +34,13 @@
     word-spacing:-0.43em;
 }
     .pagination > li{
-        padding:$base-spacing-unit / 2;
+        padding: math.div($base-spacing-unit, 2);
         letter-spacing:normal;
         word-spacing:normal;
     }
         .pagination > li > a{
-            padding:$base-spacing-unit / 2;
-            margin:-$base-spacing-unit / 2;
+            padding: math.div($base-spacing-unit, 2);
+            margin: math.div(-$base-spacing-unit, 2);
         }
             .pagination__first a:before{
                 content:"\00AB" "\00A0";

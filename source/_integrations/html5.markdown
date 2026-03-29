@@ -3,12 +3,14 @@ title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
 ha_category:
   - Notifications
+  - Event
 ha_release: 0.27
 ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: html5
 ha_platforms:
   - notify
+  - event
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
@@ -43,12 +45,50 @@ Assuming you have already configured the platform:
 
 {% my profile badge %}
 
-1. Open Home Assistant in Chrome, Firefox or the webapp in iOS and load the profile page by clicking the My button above or by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
-2. Turn on the slider, and name the device you're using in the alert that appears.
-3. Within a few seconds you should be prompted to allow notifications from Home Assistant.
-4. Assuming you accept, that's all there is to it!
+1. Open the Home Assistant {% my profile title="**User profile**" %} page in [a supported browser](#requirements). 
+   - To open the page, select the **User Profile** link above or in Home Assistant, select your user account initials at the bottom of the sidebar.
+2. Assuming you have met all the [requirements](#requirements) above, you should see a **Receive notifications** toggle.
+   - If the toggle is greyed out, make sure you are viewing Home Assistant via its external HTTPS address. 
+   - Also, make sure you have added the {% my integrations title="**HTML5 Push Notifications**" domain="html5" %} integration to Home Assistant.
+3. Turn on the toggle and name the device.
+4. Within a few seconds, you should be prompted to allow notifications from Home Assistant.
+5. Assuming you accept, that's all there is to it!
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
+
+### Notifiers
+
+The **HTML5 Push Notifications**  {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: notify.send_message
+data:
+  title: "Reminder"
+  message: "Have you considered frogs?"
+  entity_id: notify.my-desktop
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+### Events
+
+The **HTML5 Push Notifications** {% term integration %} creates an **event** {% term entity %} for each configured device. Home Assistant will update the event state whenever a notification is:
+
+- `received`: The notification arrives on the device.
+- `clicked`: The recipient interacts with the notification.
+- `closed`: The notification is dismissed without interaction.
+
+Each event includes **state attributes** that provide additional context:
+
+- `tag`: The identifier of the notification.
+- `action`: The identifier of the action, if the recipient selected an action button in the notification.
+- Any extra data that was included in the payload of the notification.
 
 ### Testing
 

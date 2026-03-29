@@ -20,6 +20,7 @@ The **MQTT Light** {% term integration %} lets you control your MQTT enabled lig
 | Effects           | ✔                            | ✔                      | ✔                              |
 | Flashing          | ✘                            | ✔                      | ✔                              |
 | HS Color          | ✔                            | ✔                      | ✔                              |
+| Light group       | ✘                            | ✔                      | ✘                              |
 | RGB Color         | ✔                            | ✔                      | ✔                              |
 | RGBW Color        | ✔                            | ✔                      | ✘                              |
 | RGBWW Color       | ✔                            | ✔                      | ✘                              |
@@ -240,6 +241,10 @@ effect_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the effect value."
   required: false
   type: template
+group:
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
+  required: false
+  type: list
 hs_command_template:
   description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `hs_command_topic`. Available variables: `hue` and `sat`."
   required: false
@@ -695,6 +700,10 @@ flash_time_short:
   required: false
   type: integer
   default: 2
+group:
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -1106,6 +1115,10 @@ green_template:
   description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: template
+group:
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false

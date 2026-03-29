@@ -38,12 +38,12 @@ ha_dhcp: true
 ## Actions
 
 The LaMetric integration provides actions to interact with your LaMetric
-device(s). Those action can be used in, for example, automations.
+device(s). Those actions can be used, for example, in automations.
 
-### Action `lametric.chart`
+### Action: Chart
 
 The {% my developer_call_service service="lametric.chart" title="`lametric.chart`" %}
-action allows you to display a little chart to your LaMetric.
+action displays a chart on your LaMetric device.
 
 {% my developer_call_service badge service="lametric.chart" %}
 
@@ -77,11 +77,10 @@ sound:
   type: string
 {% endconfiguration %}
 
-### Action `lametric.message`
+### Action: Message
 
 The {% my developer_call_service service="lametric.message" title="`lametric.message`" %}
-action allows you to send a message to your LaMetric. These
-messages can be enrichted with icons and sounds.
+action sends a message to your LaMetric device. These messages can be enriched with icons and sounds.
 
 {% my developer_call_service badge service="lametric.message" %}
 

@@ -7,7 +7,7 @@ ha_release: 0.42
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: telegram_bot
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: silver
 ha_codeowners:
   - '@hanwg'
@@ -54,10 +54,8 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
    - BotFather will give you a link to your new bot and an HTTP **API token**.
    - Store the **API token** somewhere safe, it will be used for setting up the integration later.
 2. Get your **chat ID**:
-   - Send any message to the [GetIDs bot](https://t.me/getidsbot).
-   - Then, enter `/start`.
-   - The bot will return your **chat ID** and username.
-   - Note down your **chat ID**. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
+   - Send any message to [@id_bot](https://t.me/id_bot).
+   - Note down the value of the **ID** field in the bot's response. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
 3. Make the first contact with your new bot (bots are not allowed to initiate contact with users):
    - From the conversation with BotFather, select the link to open a chat.
    - In the chat, enter `/start`.
@@ -85,7 +83,7 @@ If you plan to use the `Webhooks` platform, you will need to allow Telegram to c
 
 #### Home Assistant Cloud
 
-If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/en-us/articles/26474279202973-Enabling-remote-access-to-Home-Assistant#to-activate-remote-control-from-outside-your-network) to your Home Assistant.
+If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/articles/26474279202973#to-activate-remote-access-from-outside-your-network) to your Home Assistant.
 
 #### Reverse proxy
 
@@ -118,11 +116,21 @@ If your Home Assistant is publicly accessible, do the following:
 
 {% include integrations/config_flow.md %}
 
+{% note %}
+When configuring the **API endpoint**, please note the following protocol requirements:
+
+- (Default) Official Telegram servers: HTTPS is required.
+- Custom API endpoints: Both HTTP and HTTPS are supported.
+
+{% endnote %}
+
 {% configuration_basic %}
 Platform:
   description: The Telegram bot type, either `Broadcast`, `Polling` or `Webhooks`.
 API key:
   description: The API token of your bot.
+API endpoint:
+  description: The endpoint of the Telegram bot API server. You should only change this value if you are using a self-hosted or third-party [Telegram bot API server](https://core.telegram.org/bots/api#using-a-local-bot-api-server). Changing this value will result in a *10-minute lockout* on the official Telegram bot API server. Defaults to the official Telegram bot API server at `https://api.telegram.org`.
 Proxy URL:
   description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
 {% endconfiguration_basic %}
@@ -130,7 +138,11 @@ Proxy URL:
 ### Webhooks configuration
 
 {% note %}
-If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field as IP address of incoming requests are not forwarded to your Home Assistant.
+If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field because the IP address of incoming requests is not forwarded to your Home Assistant.
+{% endnote %}
+
+{% note %}
+If you are using a custom **API endpoint**, you must include the IP address or IP range of the server in CIDR notation, like `192.168.0.0/16`, in the **Trusted networks** field.
 {% endnote %}
 
 If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.
@@ -142,9 +154,6 @@ Trusted networks:
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
-
-The integration can be configured to use a default parse mode for messages.
-
 {% configuration_basic %}
 Parse mode:
   description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2`, `html` or `plain_text`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
@@ -187,7 +196,13 @@ data:
 
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_media_group`, `send_location`, `send_chat_action`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+
+Chat targets can be specified in any of the following ways:
+
+- `entity_id`
+- `config_entry_id` and `chat_id`
+- If you only have 1 bot and no chat targets (`entity_id` or `chat_id`) were specified, the bot's first subentry will be used as the default chat.
 
 Actions that send contents (`send_*`) will return a list of `message_id`/`chat_id` for messages delivered (in a property called `chats`). This will populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) that you can further utilize in your automations to edit/delete the message later based on the `message_id`. See the example later on this page for usage instructions.
 
@@ -197,10 +212,11 @@ Send a notification.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the message. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
-| `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
+| `chat_id`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `title`                    | yes      | Optional title for your notification. Will be composed as '%title\n%message'.                                                                                                                                                                                                                             |
-| `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
+| `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
 | `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification`     | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
@@ -220,14 +236,15 @@ Send a photo.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the photo. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the photo. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to an image.                                                                                                                                                                                                                                                                                  |
 | `file`                 | no       | Local path to an image.                                                                                                                                                                                                                                                                                   |
 | `caption`              | yes      | The title of the image.                                                                                                                                                                                                                                                                                   |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
@@ -247,14 +264,15 @@ Send a video.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the video. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the video. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a video.                                                                                                                                                                                                                                                                                   |
 | `file`                 | no       | Local path to a video.                                                                                                                                                                                                                                                                                    |
 | `caption`              | yes      | The title of the video.                                                                                                                                                                                                                                                                                   |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
@@ -273,14 +291,15 @@ Send an animation.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the animation. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the animation. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                             |
 | `file`                 | no       | Local path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                              |
 | `caption`              | yes      | The title of the animation.                                                                                                                                                                                                                                                                               |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
@@ -300,14 +319,15 @@ Send a voice message.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the voice message. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the voice message. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a voice message.                                                                                                                                                                                                                                                                           |
 | `file`                 | no       | Local path to a voice message.                                                                                                                                                                                                                                                                            |
 | `caption`              | yes      | The title of the voice message.                                                                                                                                                                                                                                                                           |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
@@ -326,14 +346,15 @@ Send a sticker.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the sticker. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the sticker. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                   |
 | `file`                 | no       | Local path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                    |
 | `sticker_id`           | no       | ID of a sticker that exists  on telegram servers. The ID can be found by sending a sticker to your bot and querying the telegram-api method [getUpdates](https://core.telegram.org/bots/api#getting-updates) or by using the [@idstickerbot](https://t.me/idstickerbot)                                   |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
@@ -352,14 +373,15 @@ Send a document.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the document. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the document. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a document.                                                                                                                                                                                                                                                                                |
 | `file`                 | no       | Local path to a document.                                                                                                                                                                                                                                                                                 |
 | `caption`              | yes      | The title of the document.                                                                                                                                                                                                                                                                                |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
@@ -373,16 +395,36 @@ Send a document.
 
 This action returns a [send message response](#send-message-response).
 
+### Action `telegram_bot.send_media_group`
+
+Sends a group of photos, videos, documents or audios as an album.
+Documents and audio files can be only grouped in an album with messages of the same type.
+
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the media. |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the media. Required if you have multiple Telegram bots. |
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `media`                | no       | A list where each item contains the following:<br/><ul><li>`media_type`: Required. Valid media types: `animation`, `audio`, `document`, `photo`, or `video`.</li><li>`url`: Remote path to a document.</li><li>`file`: Local path to a document.</li><li>`caption`: The title of the media.</li><li>`authentication`: Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.</li><li>`username`: Username for a URL which requires HTTP `basic` or `digest` authentication.</li><li>`password`: Password (or bearer token) for a URL that requires authentication.</li><li>`verify_ssl`: True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.</li></ul> |
+| `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
+| `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
+| `protect_content`      | yes      | Protects the contents of the sent message from forwarding and saving. |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_location`
 
 Send a location.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the location. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the location. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                                                                                                                                                     |
 | `latitude`             | no       | The latitude to send.                                                                                                                                                                                                                                                                                     |
 | `longitude`            | no       | The longitude to send.                                                                                                                                                                                                                                                                                    |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                                                                                                                                                     |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
@@ -400,10 +442,11 @@ Send a poll.
 
 | Data attribute    | Optional | Description                                                                                                                                                                    |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`               | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the poll. |
 | `config_entry_id`         | yes      | The config entry representing the Telegram bot to send the poll. Required if you have multiple Telegram bots.|
+| `chat_id`                 | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                          |
 | `question`                | no       | Poll question, 1-300 characters.                                                                                                                                               |
 | `options`                 | no       | List of answer options, 2-10 strings 1-100 characters each.                                                                                                                    |
-| `target`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                          |
 | `is_anonymous`            | yes      | True/false for if the poll needs to be anonymous, defaults to True.                                                                                                            |
 | `allows_multiple_answers` | yes      | True/false for if the poll allows multiple answers, defaults to False.                                                                                                         |
 | `open_period`             | yes      | Amount of time in seconds the poll will be active after creation, 5-600.                                                                                                       |
@@ -419,8 +462,9 @@ Send a chat action. Use it to notify the user with the relevant "typing" action 
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the chat action. |
 | `config_entry_id`          | yes      | The configuration entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
-| `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
+| `chat_id`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
 | `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
@@ -430,9 +474,10 @@ Edit a previously sent message in a conversation.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for editing the message. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the message. Required if you have multiple Telegram bots.|
+| `chat_id`                  | yes      | The chat_id where to edit the message.                                                                                                                                                                                                                                                                    |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
-| `chat_id`                  | no       | The chat_id where to edit the message.                                                                                                                                                                                                                                                                    |
 | `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
 | `title`                    | yes      | Optional title for your notification. Will be composed as '%title\n%message'.                                                                                                                                                                                                                             |
 | `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
@@ -445,13 +490,15 @@ Edit a previously sent message media in a conversation.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for editing the message media. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to edit the message media. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | The ID of the chat in which you want to edit the message media.                                                                                                                                                                                                                                                                    |
 | `message_id`           | no       | ID of the message to edit. When reacting to a pressed button, the ID of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
-| `chat_id`              | no       | The ID of the chat in which you want to edit the message media.                                                                                                                                                                                                                                                                    |
 | `media_type`           | no       | The media type: `animation`, `audio`, `document`, `photo`, or `video`.  |
 | `url`                  | no       | Remote path to the media.                                                                                                                                                                                                                                                                                  |
 | `file`                 | no       | Local path to the media.                                                                                                                                                                                                                                                                                   |
 | `caption`              | yes      | The title of the media.                                                                                                                                                                                                                                                                                   |
+| `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
@@ -464,10 +511,12 @@ Edit the caption of a previously sent message.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for editing the caption. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the caption. Required if you have multiple Telegram bots.|
+| `chat_id`                  | yes      | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
-| `chat_id`                  | no       | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `caption`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
+| `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 
 ### Action `telegram_bot.edit_replymarkup`
@@ -476,9 +525,10 @@ Edit the inline keyboard of a previously sent message.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for editing the inline keyboard. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the inline keyboard. Required if you have multiple Telegram bots.|
+| `chat_id`                  | yes      | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
-| `chat_id`                  | no       | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 
 ### Action `telegram_bot.answer_callback_query`
@@ -498,18 +548,20 @@ Delete a previously sent message in a conversation.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for deleting the message. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to delete the message. Required if you have multiple Telegram bots.|
+| `chat_id`              | yes      | The chat_id where to delete the message.                                                                                                                                                                                                                   |
 | `message_id`           | no       | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
-| `chat_id`              | no       | The chat_id where to delete the message.                                                                                                                                                                                                                   |
 
 ### Action `telegram_bot.leave_chat`
 
 Remove the bot from the chat group where it was added.
 
-| Data attribute | Optional | Description                               |
+| Data attribute         | Optional | Description                               |
 | ---------------------- | -------- | ----------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for leaving the chat. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to leave the chat. Required if you have multiple Telegram bots.|
-| `chat_id`              | no       | The chat_id from where to remove the bot. |
+| `chat_id`              | yes      | The chat_id from where to remove the bot. |
 
 ### Action `telegram_bot.set_message_reaction`
 
@@ -517,9 +569,10 @@ Sets the bot's reaction for a given message.
 
 | Data data attribute | Optional | Description                                                      |
 | ------------------- | -------- | ---------------------------------------------------------------- |
+| `entity_id`         | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the message. |
 | `config_entry_id`   | yes      | The config entry representing the Telegram bot to set the message reaction. Required if you have multiple Telegram bots. |
+| `chat_id`           | yes      | Id of the chat containing the message.                           |
 | `message_id`        | no       | Id of the message to react to.                                   |
-| `chat_id`           | no       | Id of the chat containing the message.                           |
 | `reaction`          | no       | Emoji to react to the message with. |
 | `is_big`            | yes      | Whether to use a large variant of the reaction animation.        |
 
@@ -576,6 +629,7 @@ Chat object schema:
 | ---------------| -------- | ------- | --------------------------------------- |
 | `chat_id`      | no       | integer | The target chat_id of the sent message. |
 | `message_id`   | no       | integer | The id of the message.                  |
+| `entity_id`    | no       | string  | The entity id of the notify entity. |
 
 Example response:
 
@@ -583,8 +637,10 @@ Example response:
 chats:
   - chat_id: 1234567890
     message_id: 100
+    entity_id: notify.telegram_bot_chat
   - chat_id: -1234567890
     message_id: 200
+    entity_id: notify.telegram_bot_chat
 ```
 
 ## Telegram notification platform
@@ -1115,6 +1171,20 @@ actions:
     data:
       message: "Message to a topic"
       message_thread_id: 123
+```
+
+## Example: send_media_group
+
+```yaml
+actions:
+  - action: telegram_bot.send_media_group
+    data:
+      media:
+        - url: https://example/image.jpg
+          caption: My album
+          media_type: photo
+        - url: https://example/video.mp4
+          media_type: video
 ```
 
 ## Example: automation to send a message and delete after a delay

@@ -17,6 +17,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **TP-Link Omada** {% term integration %} allows you to control your [TP-Link Omada SDN Devices](https://www.tp-link.com/omada-sdn/) such as network switches, access points, and internet gateways.
@@ -40,6 +41,7 @@ A local account must be used for login. Do not turn on two-factor authentication
 TP-Link Omada Controller:
 
 - OC200
+- OC220
 - OC300
 - Software Controller
 

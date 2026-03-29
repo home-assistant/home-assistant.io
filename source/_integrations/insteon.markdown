@@ -23,7 +23,7 @@ ha_platforms:
   - light
   - lock
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 
