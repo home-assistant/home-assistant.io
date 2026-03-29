@@ -167,7 +167,7 @@ To clear an IP ban, you can either:
 
 After making changes, restart Home Assistant to apply them.
 
-You can also use the `http.unban` action to unban a banned IP address without restart.
+You can also use the `http.unban` action to unban a banned IP address without restarting Home Assistant.
 
 ## Hosting files
 
