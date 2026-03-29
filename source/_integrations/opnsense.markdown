@@ -6,13 +6,14 @@ ha_category:
   - Presence detection
 ha_release: 0.105
 ha_codeowners:
-  - '@mtreinish'
+  - '@Snuffy2'
 ha_domain: opnsense
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
-ha_quality_scale: legacy
+ha_quality_scale: bronze
+ha_config_flow: true
 ---
 
 [OPNsense](https://opnsense.org/) is an open source FreeBSD based firewall
@@ -23,53 +24,46 @@ within Home Assistant:
 
 ## Configuration
 
-To configure OPNsense integration with Home Assistant add the following section
-to your configuration.yaml:
-
-```yaml
-opnsense:
-  url: https://router/api
-  api_secret: API_SECRET
-  api_key: API_KEY
-```
-
-Where the `api_key` and `api_secret` values are acquired from your OPNsense
-router using the web interface. For more information on this procedure, refer
-to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
-
-User with API Key requires privileges for Type: 
+Before you add the integration, create an API key and secret in OPNsense.
+For the full process, refer to the OPNsense
+[API key documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
+The API user needs these privileges:
 
 - GUI Name: Diagnostics: ARP Table
 - GUI Name: Diagnostics: Network Insight
 
 {% important %}
-OPNSense versions 25.7 and later require All Pages privilege to be granted to the API user account.
+This integration version requires OPNsense firmware earlier than `25.7`.
 {% endimportant %}
 
-{% configuration %}
-url:
-  description: The URL for the OPNsense API endpoint of your router.
-  type: string
-  required: true
-api_key:
-  description: The API key used to authenticate with your OPNsense API endpoint.
-  type: string
-  required: true
-api_secret:
-  description: The API secret used to authenticate with your OPNsense API endpoint.
-  type: string
-  required: true
-verify_ssl:
-  description: Set to true to enable the validation of the OPNsense API SSL.
-  type: boolean
-  required: false
-  default: false
-tracker_interfaces:
-  description: List of the OPNsense router's interfaces to use for tracking devices.
-  type: list
-  required: false
-  default: []
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
+
+## Configuration options
+
+{% configuration_basic %}
+URL:
+  description: "The URL of your OPNsense API endpoint."
+API Key:
+  description: "The API key for your OPNsense API user."
+API Secret:
+  description: "The API secret for your OPNsense API user."
+Verify SSL:
+  description: "Enable this if you want Home Assistant to verify your OPNsense SSL certificate."
+Tracker interfaces:
+  description: "Optional list of interfaces to track. Enter values as a comma-separated list or one per line. Leave empty to track all interfaces."
+{% endconfiguration_basic %}
+
+## Migrating from YAML configuration
+
+{% warning %}
+YAML configuration for OPNsense is deprecated and will be removed in Home Assistant 2026.10.
+{% endwarning %}
+
+If you already configured OPNsense in `configuration.yaml`, Home Assistant
+imports that setup into the UI automatically. After the import:
+
+1. Remove the `opnsense:` block from your `configuration.yaml` file.
+2. Restart Home Assistant.
 
 
 ## Presence detection
