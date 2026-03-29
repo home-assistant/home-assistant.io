@@ -34,6 +34,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - vacuum
 ha_integration_type: hub
 ---
@@ -44,6 +45,7 @@ The **Xiaomi Home** {% term integration %} supports the following devices:
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
 - [Xiaomi Air Purifier, Air Humidifier and Standing Fan](#xiaomi-air-purifier-air-humidifier-and-standing-fan)
 - [Xiaomi Air Quality Monitor](#xiaomi-air-quality-monitor)
+- [Xiaomi Smart Pet Fountain 2](#xiaomi-smart-pet-fountain-2)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
 - [Xiaomi Mi Robot Vacuum](#xiaomi-mi-robot-vacuum)
 - [Xiaomi Philips Light](#xiaomi-philips-light)
@@ -1265,6 +1267,38 @@ Currently, the supported features are:
   - total_volatile_organic_compounds
   - temperature
   - humidity
+
+## Xiaomi Smart Pet Fountain 2
+
+The `xiaomi_miio` integration supports the Xiaomi Smart Pet Fountain 2 (`xiaomi.pet_waterer.70m2`).
+
+Currently, the supported features are:
+
+- Sensors
+  - Status
+  - Battery level
+  - Charging state
+  - Filter life remaining
+  - Filter time remaining
+- Binary sensors
+  - Water shortage
+  - Pump blocked
+  - Low battery
+  - USB power
+- Controls
+  - Water mode
+  - Water interval
+  - Do not disturb
+  - Do not disturb start
+  - Do not disturb end
+  - Child lock
+  - Reset filter
+
+{% note %}
+`Water interval` is most useful when `Water mode` is set to `Interval`.
+
+The diagnostic `Fault` and `Fault code` entities are disabled by default.
+{% endnote %}
 
 ## Xiaomi IR Remote
 
