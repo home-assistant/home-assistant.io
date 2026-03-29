@@ -4,6 +4,7 @@ description: Instructions on how to integrate OPNsense firewalls and routers int
 ha_category:
   - Hub
   - Presence detection
+  - Sensor
 ha_release: 2026.4
 ha_codeowners:
   - "@Snuffy2"
@@ -14,6 +15,7 @@ ha_platforms:
   - sensor
 ha_integration_type: hub
 ha_quality_scale: silver
+ha_config_flow: true
 ---
 
 [OPNsense](https://opnsense.org/) is an open source firewall and routing platform based on FreeBSD. The Home Assistant OPNsense integration connects to the OPNsense REST API and can expose basic router telemetry and device tracking.
@@ -24,7 +26,7 @@ This integration requires OPNsense firmware `26.1.1` or later. The older plugin-
 
 ## Supported functionality
 
-In this step, the integration provides:
+The integration provides the following functionality:
 
 - Sensors for basic system telemetry
 - Device tracking based on the OPNsense ARP table
@@ -98,13 +100,9 @@ If you enable **Granular Sync Options**, add the permissions needed for each cat
 | Basic telemetry data | `Lobby: Dashboard` |
 | Device trackers | `Diagnostics: ARP Table` |
 
-### Action permissions
-
-No integration actions are exposed in this step.
-
 ## Actions
 
-No Home Assistant actions are exposed in this step.
+This integration does not yet expose any Home Assistant actions.
 
 ## Migration notes
 
