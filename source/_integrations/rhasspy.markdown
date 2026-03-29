@@ -12,7 +12,7 @@ ha_domain: rhasspy
 ha_integration_type: integration
 ---
 
-The Rhasspy {% term integration %} allows you to use your [Rhasspy voice assistant](https://rhasspy.readthedocs.io) with your Home Assistant installation. Rhasspy is an open source, fully offline set of voice assistant services for many human languages.
+The **Rhasspy** {% term integration %} allows you to use your [Rhasspy voice assistant](https://rhasspy.readthedocs.io) with your Home Assistant installation. Rhasspy is an open source, fully offline set of voice assistant services for many human languages.
 
 {% include integrations/config_flow.md %}
 

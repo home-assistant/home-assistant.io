@@ -292,7 +292,12 @@ Passive Scanning on Linux can be enabled in the options flow per adapter if the 
 
 Many integrations require active scanning and may not function when scanning is passive.
 
-{% include integrations/option_flow.md %}
+## Options
+
+1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+2. Select **Adapters**.
+3. On the adapter of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select your options.
+   - Not all adapters have options. If you don't see a cogwheel icon, your adapter does not support options.
 
 ## Remote adapters (Bluetooth proxies)
 
@@ -300,7 +305,7 @@ The Bluetooth integration supports receiving advertisement data from external ad
 
 When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
-For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/index.html).
+For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/).
 
 {% tip %}
 - The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  

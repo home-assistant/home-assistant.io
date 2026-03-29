@@ -15,7 +15,7 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Kodi** {% term integration %} allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.

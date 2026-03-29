@@ -24,7 +24,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Freebox** {% term integration %} allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
@@ -120,9 +120,9 @@ This integration allows you to view and control the Freebox alarm control panel.
 
 ## Action
 
-### Action `freebox.reboot`
+### Action: Reboot
 
-This action will reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
+The `freebox.reboot` action allows you to reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
 
 ## Switch
 

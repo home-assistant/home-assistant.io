@@ -14,7 +14,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Go flipr company sells smart pool monitor and management devices. The Flipr and Flipr Hub devices publish data to the cloud via Wi-Fi and SigFox.
@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 You will need to use the standalone app for this device to register a username and password.
 
 - [Google](https://play.google.com/store/apps/details?id=com.goflipr.flipr)
-- [Apple](https://apps.apple.com/app/flipr/id1225898851)
+- [Apple](https://apps.apple.com/app/id1225898851)
 
 {% include integrations/config_flow.md %}
 

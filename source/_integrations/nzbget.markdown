@@ -12,7 +12,7 @@ ha_domain: nzbget
 ha_platforms:
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **NZBGet** {% term integration %} allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to setup automation based on the information.
@@ -73,7 +73,9 @@ Available actions:
 - `resume`: Resume the download queue.
 - `set_speed`: Set the download queue speed limit.
 
-### Action `nzbget/set_speed`
+### Action: Set speed
+
+The `nzbget.set_speed` action sets the download queue speed limit.
 
 | Data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |

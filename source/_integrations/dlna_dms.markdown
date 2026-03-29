@@ -10,7 +10,7 @@ ha_codeowners:
   - '@chishm'
 ha_domain: dlna_dms
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **DLNA Digital Media Server** {% term integration %} allows you to browse and play media from a [DLNA Digital Media Server](https://www.dlna.org/). Configured DMS devices act as a [Media Source](/integrations/media_source/) and can be browsed in the Media panel.

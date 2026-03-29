@@ -15,7 +15,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Hyperion** {% term integration %} allows you to integrate your

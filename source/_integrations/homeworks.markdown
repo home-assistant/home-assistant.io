@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - button
   - light
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ---
 
@@ -31,9 +31,9 @@ The protocol for automatically extracting device information from the controller
 
 ## Actions
 
-### Action `send_command`
+### Action: Send command
 
-Send a custom command to the Lutron Homeworks controller.
+The `homeworks.send_command` action sends a custom command to the Lutron Homeworks controller.
 
 | Data attribute | Optional | Example                 | Description                                         |
 | ---------------------- | -------- | ----------------------- | --------------------------------------------------- |

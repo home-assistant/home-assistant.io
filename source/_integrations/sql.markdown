@@ -133,9 +133,9 @@ For more detailed steps on how to define a custom interval, follow the procedure
 
 ## Actions
 
-### Action SQL query
+### Action: SQL query
 
-The `sql.query` action allows you to execute an arbitrary read-only `SELECT` query against a database and get the results back.
+The `sql.query` action executes an arbitrary read-only `SELECT` query against a database and gets the results back.
 
 - **Data attribute**: `query`
   - **Description**: The `SELECT` query to execute. Only `SELECT` statements are allowed.

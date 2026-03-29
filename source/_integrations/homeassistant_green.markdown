@@ -12,7 +12,7 @@ ha_integration_type: hardware
 
 The **Home Assistant Green** {% term integration %} provides hardware information for the hardware configuration page.
 
-For documentation on the Home Assistant Green, please visit the [documentation page](https://support.nabucasa.com/hc/en-us/categories/24638797677853-Home-Assistant-Green).
+For documentation on the Home Assistant Green, please visit the [documentation page](https://support.nabucasa.com/hc/categories/24638797677853).
 If you are looking to buy one, please visit the [product page](https://home-assistant.io/green).
 
 ## Configuration

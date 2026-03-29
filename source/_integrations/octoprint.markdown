@@ -21,7 +21,7 @@ ha_platforms:
   - camera
   - number
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 [OctoPrint](https://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.
@@ -45,7 +45,7 @@ verify ssl:
 
 ### API key
 
-For the integration to work, please check that in Octoprint, the [Discovery Plugin](https://docs.octoprint.org/en/master/bundledplugins/discovery.html) is enabled and in the **Settings** -> **Printer Notifications** menu that **Enable popups** is checked.
+For the integration to work, please check that in Octoprint, the [Discovery Plugin](https://docs.octoprint.org/en/master/bundledplugins/discovery.html) is enabled and in the **Settings** > **Printer Notifications** menu that **Enable popups** is checked.
 The Octoprint integration will attempt to register itself via the [Application Keys Plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, log in to Octoprint as the user whose credentials you just entered in Home Assistant, and select **Allow** on the prompt.
 
 NOTE: You *must* be logged into Octoprint as the user which you are adding to Home Assistant. If you log in to Octoprint as any other user, you will not see the prompt to allow access.

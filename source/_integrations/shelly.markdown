@@ -258,7 +258,7 @@ Also, some devices do not add an entity for the button/switch. For example, the 
 
 ### Listening for events
 
-You can subscribe to the `shelly.click` event type in [Developer Tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
+You can subscribe to the `shelly.click` event type in [Developer tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
 
 ```json
 Event 0 fired 9:53 AM:

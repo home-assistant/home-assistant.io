@@ -17,7 +17,7 @@ ha_platforms:
   - diagnostics
   - notify
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Tibber** {% term integration %} provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
@@ -121,15 +121,13 @@ The Tibber integration provides binary sensors.
 
 - Power: Indicates whether the smart plug or thermostat is powered on
 
-
-
 ## Actions
 
 The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
-### Action `tibber.get_prices`
+### Action: Get prices
 
-Fetches hourly energy prices.
+The `tibber.get_prices` action fetches hourly energy prices.
 
 | Data attribute | Optional | Description                                           | Example             |
 | -------------- | -------- | ----------------------------------------------------- | ------------------- |

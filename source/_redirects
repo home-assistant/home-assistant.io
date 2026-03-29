@@ -14,7 +14,7 @@ layout: null
 /newsletter https://newsletter.openhomefoundation.org/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
-/merch https://home-assistant-store.creator-spring.com
+/merch https://store.openhomefoundation.org/
 /feature-requests https://github.com/orgs/home-assistant/discussions
 /issues https://github.com/home-assistant/core/issues
 /voice /voice_control/builtin_sentences/
@@ -36,8 +36,7 @@ layout: null
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Design & User research
-/join-research https://forms.clickup.com/2533032/f/2d9n8-12931/52N1KK00E9BXEW71TN
-/join-dashboard-group https://forms.clickup.com/2533032/f/2d9n8-18091/711QWINKTF866N9HYV
+/join-chat-design https://discord.gg/7FcRFq575z
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -85,7 +84,7 @@ layout: null
 /developers/hassio/addon_communication https://developers.home-assistant.io/docs/hassio_addon_communication/
 /developers/hassio/addon_config https://developers.home-assistant.io/docs/hassio_addon_config/
 /developers/hassio/addon_development https://developers.home-assistant.io/docs/hassio_addon_index/
-/developers/hassio/addon_presentation https://developers.home-assistant.io/docs/add-ons/presentation/
+/developers/hassio/addon_presentation https://developers.home-assistant.io/docs/apps/presentation/
 /developers/hassio/addon_publishing https://developers.home-assistant.io/docs/hassio_addon_publishing/
 /developers/hassio/addon_repository https://developers.home-assistant.io/docs/hassio_addon_repository/
 /developers/hassio/addon_testing https://developers.home-assistant.io/docs/hassio_addon_testing/
@@ -295,6 +294,12 @@ layout: null
 /docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
 /docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
 /docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
+/android https://companion.home-assistant.io/
+/ios https://companion.home-assistant.io/
+/ios/nfc https://companion.home-assistant.io/
+/ios/beta https://companion.home-assistant.io/app/ios/beta
+/ios/beta-auth /docs/ecosystem/ios
+/ios/dev-auth /docs/ecosystem/ios
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -353,6 +358,7 @@ layout: null
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /integrations/imap_email_content /integrations/imap/#using-events
+/integrations/webhook /docs/automation/trigger/#webhook-trigger
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
@@ -403,7 +409,7 @@ layout: null
 /hassio/hassos_faq /faq
 /hassio/index /installation
 /hassio/installation /installation
-/hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
+/hassio/installing_third_party_addons /common-tasks/os#installing-a-third-party-app-repository
 /integrations/faadelays /integrations/faa_delays
 /cookbook/notify.mqtt /examples#notifications
 /cookbook/#example-configurationyaml /examples/#example-configurationyaml
@@ -503,6 +509,7 @@ layout: null
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
+/docs/tools/quick-bar/ /docs/tools/quick-search
 /docs/scripts/editor/ /docs/scripts
 /getting-started/devices /integrations
 /integrations/map /dashboards/map/
@@ -534,6 +541,7 @@ layout: null
 /integrations/bme280 /more-info/removed-integration 301
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
+/integrations/bmw_connected_drive /more-info/removed-integration 301
 /integrations/bom /more-info/removed-integration 301
 /integrations/circuit /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
@@ -607,6 +615,7 @@ layout: null
 /integrations/mhz19 /more-info/removed-integration 301
 /integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
 /integrations/miflora /integrations/xiaomi_ble
+/integrations/mini_connected /more-info/removed-integration 301
 /integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301
 /integrations/mpchc /more-info/removed-integration 301
@@ -661,7 +670,9 @@ layout: null
 /integrations/tensorflow /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
 /integrations/tesla /more-info/removed-integration 301
+/integrations/tfiac /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
+/integrations/tplink_lte /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
@@ -692,3 +703,11 @@ layout: null
 
 # Unsupported reasons that are also unhealthy
 /more-info/unsupported/privileged /more-info/unhealthy/privileged
+
+# Music Assistant blog redirects
+/blog/2025/12/17/music-assistant-2-7/ https://www.music-assistant.io/blog/2025/12/17/music-assistant-2-7/ 301!
+/blog/2025/03/05/music-assistants-next-big-hit/ https://www.music-assistant.io/blog/2025/03/05/music-assistants-next-big-hit/ 301!
+/blog/2024/05/09/music-assistant-2/ https://www.music-assistant.io/blog/2024/05/09/music-assistant-2/ 301!
+
+# Other blog redirects
+/blog/2017/02/22/home-assistant-tshirts-have-arrived/ /blog/2026/02/19/open-home-foundation-merch-store-announcement/ 301!

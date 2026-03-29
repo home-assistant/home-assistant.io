@@ -20,6 +20,7 @@ This {% term integration %} is a meta-component and configures a default set of 
 - [Conversation](/integrations/conversation/) (`conversation`)
 - [DHCP discovery](/integrations/dhcp/) (`dhcp`)
 - [Energy](/integrations/energy/) (`energy`)
+- [File](/integrations/file/) (`file`)
 - [Go2rtc](/integrations/go2rtc/) (`go2rtc`)
 - [History](/integrations/history/) (`history`)
 - [Home Assistant Alerts](/integrations/homeassistant_alerts) (`homeassistant_alerts`)

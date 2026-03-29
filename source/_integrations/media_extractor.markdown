@@ -26,7 +26,7 @@ Media extractor doesn't transcode streams, it just tries to find a stream that m
 
 ### Play media actions
 
-Navigate to the **Actions** tab inside **Developer Tools**. From the **Actions** dropdown menu select `media_extractor.play_media` and then press the "Fill Example Data" button at the bottom of the page. Use the "Entity ID" dropdown to select your media player and then press the **Perform action** button.
+Navigate to the **Actions** tab inside **Developer tools**. From the **Actions** dropdown menu select `media_extractor.play_media` and then press the "Fill Example Data" button at the bottom of the page. Use the "Entity ID" dropdown to select your media player and then press the **Perform action** button.
 
 This will download the file from the given URL.
 

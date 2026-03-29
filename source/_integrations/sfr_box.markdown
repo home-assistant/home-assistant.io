@@ -15,6 +15,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: device
+ha_quality_scale: silver
 ---
 
 The **SFR Box** {% term integration %} offers integration with the **SFR** broadband router.

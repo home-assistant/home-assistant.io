@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: silver
 ---
 

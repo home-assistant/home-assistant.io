@@ -2,6 +2,7 @@
 title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Light
   - Number
@@ -17,6 +18,7 @@ ha_codeowners:
 ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - light
@@ -147,6 +149,42 @@ Currently, the following devices and entities are supported:
 
 - **Day start time**: Setting the start time for the day pump speed in Bio mode
 - **Night start time**: Setting the start time for the night pump speed in Bio mode
+
+### [EHEIM reeflexUV+e](https://eheim.com/en_GB/aquatics/eheim-digital/uv-sterilizer/)
+
+#### Binary sensor
+
+- **Light**: Displays whether the UVC lamp is currently burning
+- **UVC lamp connected**: Displays whether a UVC lamp is connected
+
+#### Number
+
+- **Daily burn duration**: Setting the daily burn duration of the UV lamp
+- **Booster duration**: Setting the duration of the booster
+- **Pause duration**: Setting the pause duration
+
+#### Select
+
+- **Operation mode**: Setting the operation mode
+  - **Constant mode**: The UVC lamp is burning constantly
+  - **Daycycle mode**: The UVC lamp is burning on a day cycle
+
+#### Sensor
+
+- **Remaining booster time**: Displays the remaining booster duration
+- **Remaining pause time**: Displays the remaining pause duration
+- **Time until next service**: Displays the time until the lamp needs to be serviced
+
+#### Switch
+
+- Activating and deactivating the device
+- **Booster**: Turning on the booster for the **Booster duration**, and turning it off
+- **Pause**: Pausing the lamp for the **Pause duration**, and unpausing the lamp
+- **Expert mode**: Turning on and off expert mode
+
+#### Time
+
+- **Start time**: Setting the start time of the lamp in daycycle mode
 
 ### All supported devices
 

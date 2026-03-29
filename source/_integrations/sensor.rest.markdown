@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: rest
 ---
 
-The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+The **RESTful Sensor** {% term integration %} is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
@@ -124,12 +124,17 @@ resource_template:
   description: The resource or endpoint that contains the value with template support.
   required: true
   type: template
+scan_interval:
+  description: The frequency in seconds to call the REST endpoint.
+  required: false
+  type: integer
+  default: 30
 state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
 timeout:
-  description: Defines max time to wait data from the endpoint.
+  description: Defines the maximum time in seconds to wait for data from the endpoint before the sensor is marked as `unavailable`.
   required: false
   type: integer
   default: 10

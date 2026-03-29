@@ -106,7 +106,7 @@ actions:
   - action: switch.turn_off
     target:
       entity_id: switch.pyload_pause_resume_queue
-  - service: notify.persistent_notification
+  - action: notify.persistent_notification
     data:
       message: "Free space is low, pausing pyLoad queue."
 mode: single

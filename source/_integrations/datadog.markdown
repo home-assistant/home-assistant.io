@@ -6,11 +6,10 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.45
 ha_domain: datadog
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Powerfox
-description: Instructions on how to integrate Powerfox within Home Assistant.
+title: Powerfox Cloud
+description: Instructions on how to integrate Powerfox Cloud within Home Assistant.
 ha_category:
   - Energy
   - Sensor
@@ -13,16 +13,20 @@ ha_domain: powerfox
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_zeroconf: true
 ---
 
-The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetching the data in Home Assistant.
+The **Powerfox Cloud** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetching the data in Home Assistant.
 
 [Powerfox](https://www.powerfox.energy/) is a German company that provides smart meters (Poweropti) for reading electricity, water, gas, and heat. They have their own cloud platform where you can monitor the usage of your devices and get insights into your energy consumption.
 
 The Powerfox FLOW device delivers its measurements via a daily/hourly report endpoint, while other devices provide real-time data.
+
+{% note %}
+If you have a **PA 201901**, **PA 201902**, or **PB 202001** (poweropti+) and prefer to poll your device locally without relying on the cloud, see the [Powerfox Local](/integrations/powerfox_local) integration.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
