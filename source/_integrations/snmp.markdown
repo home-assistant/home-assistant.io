@@ -68,17 +68,17 @@ During the setup, you will be asked for:
 - **SNMP Version**: Choose between `1`, `2c`, or `3`.
 - **Base OID**: The OID prefix where wireless client registrations can be found, usually vendor specific. It's advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device. (e.g., `1.3.6.1.2.1.3.1.1.2`).
 
-#### SNMP v1 and v2c Configuration
+### SNMP v1 and v2c Configuration
 - **Community**: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient for most purposes).
 
-#### SNMP v3 Configuration
+### SNMP v3 Configuration
 If you choose version 3, you will also need to provide:
 - **Username**
 - **Authentication Key** and **Protocol** (MD5, SHA, etc.)
 - **Privacy Key** and **Protocol** (DES, AES, etc.)
 - **Context Name** (optional)
 
-#### YAML v1/v2c Configuration (deprecated)
+### YAML v1/v2c Configuration (deprecated)
 Alternatively, you can still use the deprecated YAML configuration:
 ```yaml
 # Example configuration.yaml entry for SNMP version 1 or 2c
@@ -91,7 +91,7 @@ device_tracker:
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
 
-#### YAML Migration
+### YAML Migration
 
 If you have an existing `device_tracker` configuration in your `configuration.yaml`, Home Assistant will automatically import it into a new Config Entry upon the first reboot after updating. Once the migration is complete, you can safely remove the legacy SNMP `device_tracker` section from your YAML files.
 
