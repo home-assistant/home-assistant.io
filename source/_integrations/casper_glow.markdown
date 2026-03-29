@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Light
   - Select
+  - Sensor
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Polling
@@ -18,6 +19,7 @@ ha_platforms:
   - button
   - light
   - select
+  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -55,6 +57,9 @@ The **Casper Glow** {% term integration %} provides the following entities.
 - **Dimming paused**
   - **Description**: Indicates whether the Glow's dimming sequence is currently paused.
 
+- **Charging**
+  - **Description**: Indicates whether the Glow is currently charging.
+
 #### Buttons
 
 - **Pause dimming**
@@ -67,6 +72,11 @@ The **Casper Glow** {% term integration %} provides the following entities.
 
 - **Casper Glow**
   - **Description**: Controls the on/off state and brightness of the Glow light. Brightness is mapped to five levels.
+
+#### Sensors
+
+- **Battery**
+  - **Description**: Reports the current battery level of the Glow as a percentage.
 
 #### Selects
 
