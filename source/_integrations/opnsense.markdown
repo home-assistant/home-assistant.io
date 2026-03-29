@@ -33,7 +33,12 @@ The API user needs these privileges:
 - GUI Name: Diagnostics: Network Insight
 
 {% important %}
-This integration version requires OPNsense firmware earlier than `25.7`.
+OPNsense firmware 25.7 introduced changes that the current Home Assistant OPNsense integration does not support yet. This version of the integration only works with OPNsense firmware earlier than `25.7`.
+
+If you already updated your firewall to OPNsense 25.7 or later, the integration might fail to set up or stop updating presence information. In that case, you can:
+
+- Temporarily hold or downgrade your OPNsense firmware to a version earlier than `25.7`, if this is acceptable in your environment
+- Wait for a future Home Assistant release that adds support for OPNsense 25.7 and later
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
