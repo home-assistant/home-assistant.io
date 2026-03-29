@@ -326,4 +326,4 @@ Unban a banned IP address.
 
 | Data attribute | Optional | Description                    |
 | ---------------| -------- | ------------------------------ |
-| `ip_address`   | no       | IPv4 or IPv6 address to unban. |
+| `ip_address`   | No       | IPv4 or IPv6 address to unban. |
