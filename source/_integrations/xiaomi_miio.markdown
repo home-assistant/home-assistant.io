@@ -1285,13 +1285,17 @@ Currently, the supported features are:
   - Pump blocked
   - Low battery
   - USB power
-- Controls
+- Select entities
   - Water mode
+- Number entities
   - Water interval
+- Switch entities
   - Do not disturb
+  - Child lock
+- Time entities
   - Do not disturb start
   - Do not disturb end
-  - Child lock
+- Button entities
   - Reset filter
 
 {% note %}
