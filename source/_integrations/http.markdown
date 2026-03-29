@@ -306,8 +306,8 @@ For more examples please visit the [HTTP binary sensor](#examples) page.
 
 ### Action `http.unban`
 
-Unban a banned IP address.
+Removes an IP address from the list of banned IP addresses.
 
-| Data attribute | Optional | Description                    |
-| ---------------| -------- | ------------------------------ |
-| `ip_address`   | no       | IPv4 or IPv6 address to unban. |
+| Data attribute | Optional | Description                                                |
+| ---------------| -------- | ---------------------------------------------------------- |
+| `ip_address`   | no       | IP address to remove from the list of banned IP addresses. |
