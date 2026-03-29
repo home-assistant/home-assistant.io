@@ -24,7 +24,9 @@ For every channel you add, it will create sensors for:
 
 - Views count
 - Subscriber count
-- The latest uploaded video
+- The latest upload (both short and video)
+- The latest uploaded short
+- THe latest uploaded video
 
 ## Prerequisites
 
