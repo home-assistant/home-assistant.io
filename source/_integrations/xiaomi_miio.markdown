@@ -1278,8 +1278,8 @@ Currently, the supported features are:
   - Status
   - Battery level
   - Charging state
-  - Filter life remaining
-  - Filter time remaining
+  - Filter life remaining (percentage of filter capacity left)
+  - Filter time remaining (estimated days of use left for the filter)
 - Binary sensors
   - Water shortage
   - Pump blocked
