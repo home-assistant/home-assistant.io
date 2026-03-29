@@ -1,77 +1,124 @@
 ---
 title: OPNsense
-description: Instructions on how to configure OPNsense integration
+description: Instructions on how to integrate OPNsense firewalls and routers into Home Assistant.
 ha_category:
   - Hub
   - Presence detection
-ha_release: 0.105
+ha_release: 2026.4
 ha_codeowners:
-  - '@mtreinish'
+  - "@Snuffy2"
 ha_domain: opnsense
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
-ha_quality_scale: legacy
+  - sensor
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
-[OPNsense](https://opnsense.org/) is an open source FreeBSD based firewall
-and routing platform. There is currently support for the following device types
-within Home Assistant:
+[OPNsense](https://opnsense.org/) is an open source firewall and routing platform based on FreeBSD. The Home Assistant OPNsense integration connects to the OPNsense REST API and can expose basic router telemetry and device tracking.
 
-- [Presence detection](#presence-detection)
+{% important %}
+This integration requires OPNsense firmware `26.1.1` or later. The older plugin-based and XML-RPC-based setup is no longer supported.
+{% endimportant %}
+
+## Supported functionality
+
+In this step, the integration provides:
+
+- Sensors for basic system telemetry
+- Device tracking based on the OPNsense ARP table
+
+## Before you begin
+
+- Create or choose an OPNsense user for Home Assistant
+- Generate an API key and API secret for that user in OPNsense
+- Decide whether you want to use a full administrator account or a restricted account with granular permissions
+
+{% note %}
+The simplest and recommended setup is to use an administrator account. Granular permissions are optional and are mainly useful when you want to limit the API user to only the categories you sync and the actions you call.
+{% endnote %}
 
 ## Configuration
 
-To configure OPNsense integration with Home Assistant add the following section
-to your configuration.yaml:
+The integration is configured from the Home Assistant UI.
 
-```yaml
-opnsense:
-  url: https://router/api
-  api_secret: API_SECRET
-  api_key: API_KEY
-```
+1. In Home Assistant, go to **Settings** > **Devices & services**.
+2. Select **Add Integration** and search for **OPNsense**.
+3. Enter:
+   - The full OPNsense URL, for example `https://192.168.1.1`
+   - The API key
+   - The API secret
+   - Whether to verify the SSL certificate
+   - An optional custom firewall name
+4. Optionally enable **Granular Sync Options** during setup if you want to choose which categories Home Assistant should fetch.
 
-Where the `api_key` and `api_secret` values are acquired from your OPNsense
-router using the web interface. For more information on this procedure, refer
-to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
+If you are using a self-signed certificate on OPNsense, you may need to disable SSL verification during setup.
 
-User with API Key requires privileges for Type: 
+## Integration options
 
-- GUI Name: Diagnostics: ARP Table
-- GUI Name: Diagnostics: Network Insight
+After setup, open the integration and select **Configure** to change options.
 
-{% important %}
-OPNSense versions 25.7 and later require All Pages privilege to be granted to the API user account.
-{% endimportant %}
+| Option | Default | Description |
+| --- | --- | --- |
+| Scan interval | `30` seconds | Polling interval for the main integration data |
+| Device tracker mode | Disabled | Disable device tracking, track all detected devices, or track only selected devices |
+| Device tracker scan interval | `60` seconds | Polling interval for the ARP table used by device trackers |
+| Device tracker consider home | `0` seconds | Delay before marking a missing device as away |
+| Granular Sync Options | Disabled | Lets you choose which OPNsense categories are synced |
 
-{% configuration %}
-url:
-  description: The URL for the OPNsense API endpoint of your router.
-  type: string
-  required: true
-api_key:
-  description: The API key used to authenticate with your OPNsense API endpoint.
-  type: string
-  required: true
-api_secret:
-  description: The API secret used to authenticate with your OPNsense API endpoint.
-  type: string
-  required: true
-verify_ssl:
-  description: Set to true to enable the validation of the OPNsense API SSL.
-  type: boolean
-  required: false
-  default: false
-tracker_interfaces:
-  description: List of the OPNsense router's interfaces to use for tracking devices.
-  type: list
-  required: false
-  default: []
-{% endconfiguration %}
+## Device tracker behavior
 
+The device tracker uses the current OPNsense ARP table.
 
-## Presence detection
+- **Disabled**: No device tracker entities are created
+- **Track all detected devices**: Home Assistant creates trackers for all currently detected devices and disables those entities by default
+- **Track only selected devices**: Home Assistant shows recently detected devices and also lets you add devices manually by MAC address
 
-This platform allows you to detect presence by looking at devices connected to an OPNsense router.
+Only recently seen devices appear automatically in the picker because the source is the live ARP table.
+
+## Permissions
+
+### Base permissions
+
+These permissions are required for the integration itself, even when granular sync is enabled:
+
+| OPNsense permission |
+| --- |
+| `Lobby: Dashboard` |
+| `Status: Interfaces` |
+| `System: Firmware` |
+
+### Granular sync permissions
+
+If you enable **Granular Sync Options**, add the permissions needed for each category you enable.
+
+| Category | Required OPNsense permissions |
+| --- | --- |
+| Basic telemetry data | `Lobby: Dashboard` |
+| Device trackers | `Diagnostics: ARP Table` |
+
+### Action permissions
+
+No integration actions are exposed in this step.
+
+## Actions
+
+No Home Assistant actions are exposed in this step.
+
+## Migration notes
+
+- If you previously used the older built-in OPNsense integration, remove any legacy YAML configuration from `configuration.yaml`.
+- If you previously used the `hass-opnsense` custom integration, remove the custom component before using the built-in integration.
+- If Home Assistant still shows stale entities or devices from an older setup, remove the old integration first and then add the built-in integration again.
+
+## Removing the integration
+
+1. In Home Assistant, go to **Settings** > **Devices & services**.
+2. Select **OPNsense**.
+3. Open the three-dot menu and select **Delete**.
+4. If you no longer need the dedicated API user or API credentials, remove or rotate them in OPNsense.
+
+## Known issue
+
+If you partially or fully change the OPNsense hardware, remove and reinstall the integration so Home Assistant can rebuild the device, interface, gateway, and service entities against the new hardware state.
