@@ -1,197 +1,225 @@
-# Teleinfo Integration Documentation
+---
+title: Teleinfo
+description: Read electricity consumption data from French Linky smart meters using the Télé-Information Client (TIC) protocol.
+ha_release: "2026.2"
+ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@esciara'
+ha_domain: teleinfo
+ha_platforms:
+  - sensor
+ha_integration_type: device
+ha_quality_scale: bronze
+---
 
-## High-Level Description
+The **Teleinfo** {% term integration %} reads data from the French electricity metering system known as Télé-Information Client (TIC). This protocol is used by Linky smart meters and older electronic meters deployed by [Enedis](https://www.enedis.fr/), the French electricity distribution network operator.
 
-The **Teleinfo** integration reads data from the French electricity metering system known as **Télé-Information Client (TIC)**. This protocol is used by **Linky** smart meters (and older electronic meters) deployed by **Enedis**, the French electricity distribution network operator.
+By connecting a Teleinfo USB adapter to your meter's TIC output, you can monitor real-time electricity consumption data directly in Home Assistant — including energy indexes for each tariff period, apparent power, instantaneous current, and tariff information. All data is read locally from the serial port, with no cloud dependency.
 
-The integration connects to a Teleinfo USB adapter plugged into the meter's TIC output and reads real-time electricity consumption data, including energy indexes for each tariff period, apparent power, instantaneous current, and tariff information.
-
-This is a **local polling** integration — all data is read directly from the serial port with no cloud dependency.
-
-## Installation Instructions
-
-### Prerequisites
-
-1. A **Linky meter** (or compatible electronic meter) with the TIC output enabled.
-2. A **Teleinfo USB adapter** connected to the meter's TIC terminals (I1 and I2).
-3. The USB adapter plugged into the Home Assistant host.
-
-### Setup via USB Discovery
-
-1. Plug the Teleinfo USB adapter into a USB port on your Home Assistant host.
-2. Home Assistant will automatically detect supported USB devices (FTDI FT2232 `0403:6015` or Silicon Labs CP2102 `10C4:EA60`).
-3. A discovery notification will appear — click **Configure** and confirm the setup.
-
-### Setup via Manual Configuration
-
-1. Go to **Settings > Devices & Services > Add Integration**.
-2. Search for **Teleinfo**.
-3. Enter the **serial port** path (e.g., `/dev/ttyUSB0` or a `/dev/serial/by-id/` path).
-4. The integration will attempt to read a Teleinfo frame to validate the connection.
-
-## Removal Instructions
-
-1. Go to **Settings > Devices & Services**.
-2. Find the **Teleinfo** integration entry.
-3. Click the three-dot menu and select **Delete**.
-4. The integration and all associated entities will be removed.
-
-## Configuration Parameters
-
-This integration has no configurable options after setup. The polling interval and serial settings are determined by the integration.
-
-## Installation Parameters
-
-| Parameter | Description |
-|-----------|-------------|
-| **Serial port** | The path to the serial port connected to the Teleinfo USB adapter (e.g., `/dev/ttyUSB0` or `/dev/serial/by-id/usb-...`). |
-
-## Data Update
-
-The integration polls the serial port every **10 seconds** to read a complete Teleinfo frame. Each poll:
-
-1. Opens the serial port at **1200 baud** (historique mode), 7-bit, even parity.
-2. Waits for a **STX** (0x02) byte marking the start of a frame.
-3. Reads until **ETX** (0x03) marking the end of the frame.
-4. Decodes the frame using the `pyteleinfo` library to extract label-value pairs.
-
-A **10-second overall timeout** is enforced to prevent blocking. If no data is received or the frame is incomplete, the coordinator raises `UpdateFailed` and entities become unavailable.
-
-## Examples
-
-### Energy Dashboard
-
-Add the energy index sensors to the **Energy Dashboard** for tracking electricity consumption:
-
-1. Go to **Settings > Dashboards > Energy**.
-2. Under **Electricity Grid > Consumption**, click **Add Consumption**.
-3. Select the appropriate index sensors based on your tariff:
-    - **Tempo tariff**: Add all six index sensors (blue/white/red day, peak/off-peak).
-4. The dashboard will display consumption over time by tariff period.
-
-### Automation: High Power Alert
-
-```yaml
-automation:
-  - alias: "High power consumption alert"
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.teleinfo_XXXXXXXXXXXX_apparent_power
-        above: 6000
-    action:
-      - service: notify.mobile_app
-        data:
-          title: "High Power Usage"
-          message: "Apparent power is above 6000 VA"
-```
-
-### Automation: Tomorrow's Tempo Color
-
-```yaml
-automation:
-  - alias: "Notify tomorrow's Tempo color"
-    trigger:
-      - platform: time
-        at: "18:00:00"
-    condition:
-      - condition: not
-        conditions:
-          - condition: state
-            entity_id: sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color
-            state: "unknown"
-    action:
-      - service: notify.mobile_app
-        data:
-          title: "Tempo Color Tomorrow"
-          message: "Tomorrow is a {{ states('sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color') }} day"
-```
-
-## Known Limitations
-
-- **Tempo tariff only**: The integration currently only supports the **Tempo** tariff option (BBR). Other tariff options (Base, HC/HP, EJP) are not yet supported.
-- **Historique mode only**: Only the legacy 1200 baud "historique" TIC mode is supported. The newer "standard" mode (9600 baud) available on some Linky meters is not yet implemented.
-- **Single-phase only**: The integration reads single-phase Teleinfo labels. Three-phase installations are not supported.
-- **Synchronous serial I/O**: Serial port reads are performed in an executor thread. The `pyteleinfo` library does not support async I/O natively.
-
-## Supported Devices
+## Supported devices
 
 ### Meters
 
-- **Linky smart meters** (deployed by Enedis in France) with the TIC output enabled in historique mode.
-- **Older electronic meters** with TIC output (pre-Linky) in historique mode.
+- Linky smart meters (deployed by Enedis in France) with the TIC output enabled in historique mode
+- Older electronic meters with TIC output (pre-Linky) in historique mode
 
-### USB Adapters
+### USB adapters
 
 The integration auto-discovers the following USB adapters:
 
-| Adapter Chip | USB VID:PID | Examples |
-|-------------|-------------|----------|
-| FTDI FT2232 | `0403:6015` | GCE Electronics Teleinfo USB, Cartelectronic |
-| Silicon Labs CP2102 | `10C4:EA60` | Various Teleinfo USB dongles |
+- **FTDI FT2232** (USB VID:PID `0403:6015`): GCE Electronics Teleinfo USB, Cartelectronic
+- **Silicon Labs CP2102** (USB VID:PID `10C4:EA60`): Various Teleinfo USB dongles
 
-Any serial adapter connected to the meter's TIC output can also be configured manually.
+You can also manually configure any serial adapter connected to the meter's TIC output.
 
-## Supported Functions
+## Prerequisites
 
-### Teleinfo Labels Read
+Before setting up this integration, make sure you have the following:
 
-| Teleinfo Label | Sensor | Description |
-|---------------|--------|-------------|
-| `ADCO` | — | Meter identifier (used as device unique ID) |
-| `BBRHCJB` | Index: blue day off-peak | Energy index for blue day off-peak hours (Wh) |
-| `BBRHPJB` | Index: blue day peak | Energy index for blue day peak hours (Wh) |
-| `BBRHCJW` | Index: white day off-peak | Energy index for white day off-peak hours (Wh) |
-| `BBRHPJW` | Index: white day peak | Energy index for white day peak hours (Wh) |
-| `BBRHCJR` | Index: red day off-peak | Energy index for red day off-peak hours (Wh) |
-| `BBRHPJR` | Index: red day peak | Energy index for red day peak hours (Wh) |
-| `PAPP` | Apparent power | Instantaneous apparent power (VA) |
-| `IINST` | Instantaneous current | Instantaneous current draw (A) |
-| `PTEC` | Current tariff period | Active tariff period code |
-| `DEMAIN` | Tomorrow color | Tempo color for the next day |
+1. A Linky meter (or compatible electronic meter) with the TIC output enabled.
+2. A Teleinfo USB adapter connected to the meter's TIC terminals (I1 and I2).
+3. The USB adapter plugged into your Home Assistant host.
 
-### Sensor Types
+{% include integrations/config_flow.md %}
 
-- **Energy sensors** (6): Total increasing counters for each tariff/period combination. Device class: `energy`, unit: Wh.
-- **Apparent power** (1): Instantaneous measurement. Device class: `apparent_power`, unit: VA.
-- **Current** (1): Instantaneous measurement. Device class: `current`, unit: A.
-- **Tariff period** (1): Text sensor showing the current tariff period code.
-- **Tomorrow color** (1): Text sensor showing the Tempo color for the next day.
+{% configuration_basic %}
+Serial port:
+    description: "The path to the serial port connected to the Teleinfo USB adapter (for example, `/dev/ttyUSB0` or a `/dev/serial/by-id/` path)."
+{% endconfiguration_basic %}
+
+## Supported functionality
+
+### Entities
+
+The **Teleinfo** integration provides the following {% term entity entities %}.
+
+#### Sensors
+
+The sensors created depend on your electricity contract type. The integration automatically detects your contract and creates only the relevant sensors.
+
+##### Common sensors (all contracts)
+
+- **Apparent power** (`PAPP`)
+  - **Description**: Instantaneous apparent power (VA).
+  - **Device class**: `apparent_power`
+
+- **Instantaneous current** (`IINST`)
+  - **Description**: Instantaneous current draw (A). Disabled by default.
+  - **Device class**: `current`
+
+- **Current tariff period** (`PTEC`)
+  - **Description**: The active tariff period code.
+
+##### Base contract
+
+- **Base index** (`BASE`)
+  - **Description**: Total energy index (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+##### HC (Heures Creuses) contract
+
+- **Off-peak index** (`HCHC`)
+  - **Description**: Energy index for off-peak hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **Peak index** (`HCHP`)
+  - **Description**: Energy index for peak hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+##### EJP contract
+
+- **Normal hours index** (`EJPHN`)
+  - **Description**: Energy index for normal hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **Peak mobile hours index** (`EJPHPM`)
+  - **Description**: Energy index for peak mobile hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **EJP warning** (`PEJP`)
+  - **Description**: Minutes before the next EJP peak period. Disabled by default.
+  - **Device class**: `duration`
+
+##### Tempo (BBR) contract
+
+- **Index: blue day off-peak** (`BBRHCJB`)
+  - **Description**: Energy index for blue day off-peak hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **Index: blue day peak** (`BBRHPJB`)
+  - **Description**: Energy index for blue day peak hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **Index: white day off-peak** (`BBRHCJW`)
+  - **Description**: Energy index for white day off-peak hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **Index: white day peak** (`BBRHPJW`)
+  - **Description**: Energy index for white day peak hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **Index: red day off-peak** (`BBRHCJR`)
+  - **Description**: Energy index for red day off-peak hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **Index: red day peak** (`BBRHPJR`)
+  - **Description**: Energy index for red day peak hours (Wh). Total increasing counter.
+  - **Device class**: `energy`
+
+- **Tomorrow color** (`DEMAIN`)
+  - **Description**: The Tempo color for the next day. Disabled by default.
+
+## Examples
+
+### Energy dashboard
+
+You can add the energy index sensors to the energy dashboard to track your electricity consumption over time:
+
+1. Go to {% my energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. Under **Electricity grid** > **Consumption**, select **Add consumption**.
+3. Select the appropriate index sensors based on your tariff. For the Tempo tariff, add all six index sensors (blue, white, and red day peak and off-peak).
+
+### Automation: high power alert
+
+```yaml
+- alias: "High power consumption alert"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.teleinfo_XXXXXXXXXXXX_apparent_power
+      above: 6000
+  actions:
+    - action: notify.mobile_app
+      data:
+        title: "High power usage"
+        message: "Apparent power is above 6000 VA"
+```
+
+### Automation: tomorrow's Tempo color
+
+```yaml
+- alias: "Notify tomorrow's Tempo color"
+  triggers:
+    - trigger: time
+      at: "18:00:00"
+  conditions:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: >-
+            sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color
+          state: "unknown"
+  actions:
+    - action: notify.mobile_app
+      data:
+        title: "Tempo color tomorrow"
+        message: >-
+          Tomorrow is a
+          {{ states(
+            'sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color'
+          ) }} day
+```
+
+## Data updates
+
+The **Teleinfo** integration {% term polling polls %} data from the serial port every 10 seconds. Each poll opens the serial port at 1200 baud (historique mode), reads a complete Teleinfo frame, and decodes the label-value pairs using the `pyteleinfo` library.
+
+If no data is received or the frame is incomplete within the 10-second timeout, the entities become unavailable until the next successful read.
+
+## Known limitations
+
+- **Historique mode only**: Only the legacy 1200 baud "historique" TIC mode is supported. The newer "standard" mode (9600 baud) available on some Linky meters is not yet implemented.
+- **Single-phase only**: The integration reads single-phase Teleinfo labels. Three-phase installations are not supported.
 
 ## Troubleshooting
 
-### Serial Port Not Found
+### Serial port not found
 
-- Verify the USB adapter is plugged in: `ls /dev/ttyUSB*` or `ls /dev/serial/by-id/`.
-- Check `dmesg` for USB detection messages.
-- If using Home Assistant OS, the device should be automatically passed through. For container installs, ensure the device is mapped (e.g., `--device=/dev/ttyUSB0`).
+- Make sure the USB adapter is plugged in. You can verify by checking for `/dev/ttyUSB*` or `/dev/serial/by-id/` devices.
+- If you are using Home Assistant OS, the device should be automatically passed through. For container installations, make sure the device is mapped (for example, `--device=/dev/ttyUSB0`).
 
-### Permission Denied on Serial Port
+### Permission denied on serial port
 
 - The user running Home Assistant needs read access to the serial device.
 - On Linux, add the user to the `dialout` group: `sudo usermod -aG dialout homeassistant`.
 - Restart Home Assistant after changing group membership.
 
-### Timeout Waiting for Teleinfo Data
+### Timeout waiting for Teleinfo data
 
-- Ensure the meter's TIC output is enabled (contact Enedis if needed).
-- Check wiring between the meter's I1/I2 terminals and the USB adapter.
-- Verify the adapter is set to historique mode (1200 baud) if it has a mode switch.
+- Make sure the meter's TIC output is enabled (contact Enedis if needed).
+- Check the wiring between the meter's I1/I2 terminals and the USB adapter.
+- If your adapter has a mode switch, verify it is set to historique mode (1200 baud).
 
-### "Failed to Decode Teleinfo Frame" Error
+### "Failed to decode Teleinfo frame" error
 
-- This typically indicates corrupted data on the serial line.
-- Check for electrical interference or loose connections.
-- Try a shorter cable between the meter and the adapter.
+This typically indicates corrupted data on the serial line. Check for electrical interference or loose connections, and try using a shorter cable between the meter and the adapter.
 
-### USB Device Not Auto-Detected
+### USB device not auto-detected
 
-- Only FTDI FT2232 (`0403:6015`) and Silicon Labs CP2102 (`10C4:EA60`) adapters are auto-discovered.
-- For other adapters, use the manual configuration flow and enter the serial port path directly.
+Only FTDI FT2232 (`0403:6015`) and Silicon Labs CP2102 (`10C4:EA60`) adapters are auto-discovered. For other adapters, use the manual configuration flow and enter the serial port path directly.
 
-## Use Cases
+## Removing the integration
 
-- **Energy monitoring**: Track real-time and historical electricity consumption through the Energy Dashboard.
-- **Tariff tracking**: Monitor which Tempo tariff period is active and plan consumption accordingly.
-- **Cost optimization**: Use the tomorrow color sensor to shift high-consumption tasks (laundry, heating) to blue (cheapest) days.
-- **Power alerts**: Set up automations to notify when apparent power exceeds thresholds, helping avoid breaker trips.
-- **Consumption analysis**: Use the six energy indexes to compare peak vs. off-peak usage across blue, white, and red Tempo days.
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
