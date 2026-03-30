@@ -589,6 +589,20 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
+{% details "Dashboards"}
+
+The default grid row size for the heading card changed from 1 to auto, making it shorter (half row). This is only noticeable for headings placed between other cards. Headings at the top of a section are unaffected thanks to the updated grid padding.
+
+The user can be restored the previous row gap between section by settings the `ha-view-sections-row-gap` theme variable to `8px` if more compact layout is wanted.
+
+([@piitaya] - [#30295]) ([Dashboard documentation])
+
+[@piitaya]: https://github.com/piitaya
+[#30295]: https://github.com/home-assistant/frontend/pull/30295
+[Dashboard documentation]: /dashboards/
+
+{% enddetails %}
+
 {% details "JVC Projector" %}
 
 The **Picture Mode** and **HDR Processing** entities have been migrated from the sensor domain to the select domain, because they represent selectable settings rather than read-only values.
