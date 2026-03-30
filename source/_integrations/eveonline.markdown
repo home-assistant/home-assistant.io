@@ -167,7 +167,9 @@ All entities show as unavailable.
 
 Every day, the Eve Online servers go offline for routine maintenance from 11:00 to approximately 11:15 UTC (known as "daily downtime"). During this window, all entities will show as unavailable — this is expected and they will recover automatically once the servers come back online.
 
-Outside of this daily window, unavailable entities may indicate an unplanned outage or an ESI API issue.
+On patch days, the downtime can last significantly longer than 15 minutes. CCP Games usually announces extended downtime in advance via the [Eve Online status page](https://status.eveonline.com/) and their official channels.
+
+Outside of the daily downtime window, unavailable entities may indicate an unplanned outage or an ESI API issue.
 
 #### Resolution
 
