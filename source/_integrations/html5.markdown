@@ -126,7 +126,6 @@ Keep in mind that support for the features described below can vary depending on
 {% raw %}
 
 ```yaml
-
 action: html5.send_message
 data:
   title: Home Assistant
@@ -166,8 +165,7 @@ data:
   data:
     url: https://www.home-assistant.io/integrations/html5/
 target:
-  entity_id: notify.my-desktop
-
+  entity_id: notify.my_desktop
 ```
 
 {% endraw %}
