@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - diagnostics
   - sensor
+  - update
 ha_integration_type: device
 ha_quality_scale: platinum
 ha_dhcp: true
@@ -114,7 +115,7 @@ Performance in <abbr title="decibels">dB</abbr> for the device antenna. See [Gai
 
 ## Update
 
-Firmware updates are supported for devices running firmware v8. A link to the release notes is provided, and we stronly recommend reviewing them to avoid unforeseen consequences. Starting an update from Home Assistant will download the available firmware and begin installation on the device.
+Firmware updates are supported for devices running firmware v8. A link to the release notes is provided, and we strongly recommend reviewing them to avoid unforeseen consequences. Starting an update from Home Assistant will download the available firmware and begin installation on the device.
 
 {% important %}
 Updating firmware will interrupt connectivity. Always review the release notes to confirm compatibility and follow Ubiquiti’s recommended upgrade order for local vs. remote devices.
