@@ -32,8 +32,8 @@ The **Threema** {% term integration %} allows you to send end-to-end encrypted t
 
 During setup, you can choose between two options:
 
-- **Create a new Gateway ID**: The integration generates an encryption key pair for you. Save the displayed keys — they cannot be recovered later. Then enter the Gateway ID and API secret from the Threema Gateway dashboard.
-- **Use an existing Gateway ID**: Enter your Gateway ID, API secret, and your private and public keys for end-to-end encryption.
+- **Add Gateway**: Enter your Gateway ID, API secret, and your private and public keys to configure an existing Threema Gateway.
+- **Generate keys**: The integration generates an encryption key pair for you. Save the displayed keys — they cannot be recovered later. Then register a new Gateway ID at [gateway.threema.ch](https://gateway.threema.ch) using the generated public key, and complete setup with your Gateway credentials.
 
 {% include integrations/config_flow.md %}
 
