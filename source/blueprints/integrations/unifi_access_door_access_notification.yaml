@@ -43,15 +43,14 @@ blueprint:
       selector:
         action:
 
+trigger_variables:
+  selected_event_type: !input event_type
+
 triggers:
   - trigger: state
     entity_id: !input access_entity
 
-conditions:
-  - condition: state
-    entity_id: !input access_entity
-    attribute: event_type
-    state: !input event_type
+conditions: "{{ trigger.to_state.attributes.event_type == selected_event_type }}"
 
 actions: !input actions
 
