@@ -67,7 +67,7 @@ clean_segments_command_template:
   required: false
   type: template
 clean_segments_command_topic:
-  description: The MQTT topic to publish a JSON list of segment ID strings for the segments that should be cleaned. Use the `clean_segments_command_template` option if another payload format is needed. The available segments must be provided by the vacuum in the `segments` attribute of teh JSON payload published to `state_topic` before the MQTT vacuum will support cleaning segments. Using `clean_segments_command_topic` also requires that the MQTT vacuum has a `unique_id` configured.
+  description: The MQTT topic to publish a JSON list of segment ID strings for the segments that should be cleaned. Use the `clean_segments_command_template` option if another payload format is needed. The available segments must be provided by the vacuum in the `segments` attribute of the JSON payload published to `state_topic` before the MQTT vacuum will support cleaning segments. Using `clean_segments_command_topic` also requires that the MQTT vacuum has a `unique_id` configured.
   required: false
   type: string
 command_topic:
