@@ -28,6 +28,7 @@ There is currently support for the following platforms within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Sensor](#sensor)
+- [Update](#update)
 
 This integration allows users to pull network metrics and statuses directly into their Home Assistant dashboards, enabling advanced automation, notifications, and comprehensive network oversight within their smart home ecosystem.
 
@@ -111,9 +112,18 @@ These sensors show the actual data transfer rate (receive and transmit) for this
 
 Performance in <abbr title="decibels">dB</abbr> for the device antenna. See [Gain](https://en.wikipedia.org/wiki/Gain_(antenna)) on Wikipedia.
 
+## Update
+
+Firmware updates are supported for devices running firmware v8. A link to the release notes is provided, and we stronly recommend reviewing them to avoid unforeseen consequences. Starting an update from Home Assistant will download the available firmware and begin installation on the device.
+
+{% important %}
+Updating firmware will interrupt connectivity. Always review the release notes to confirm compatibility and follow Ubiquiti’s recommended upgrade order for local vs. remote devices.
+Update the correct side first to avoid losing access to a remote device, especially when it is physically far away or difficult to troubleshoot on-site.
+{% endimportant %}
+
 ## Data updates
 
-Data is polled from devices every 60 seconds.
+Device data is polled every 60 seconds. Firmware availability is checked once per day.
 
 ## Examples
 
