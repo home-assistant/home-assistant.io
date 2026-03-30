@@ -15,7 +15,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Eve Online** {% term integration %} allows you to monitor [Eve Online](https://www.eveonline.com/) server status and character data in Home Assistant. Eve Online is a massively multiplayer online game by CCP Games. This integration uses the [Eve Swagger Interface (ESI)](https://esi.evetech.net/) API to retrieve data about the Tranquility server and your characters.
+The **Eve Online** {% term integration %} allows you to monitor [Eve Online](https://www.eveonline.com/) character data in Home Assistant. Eve Online is a massively multiplayer online game by CCP Games. This integration uses the [Eve Swagger Interface (ESI)](https://esi.evetech.net/) API to retrieve data about your characters.
 
 ## Prerequisites
 
@@ -78,16 +78,7 @@ Client Secret:
 
 ## Supported functionality
 
-The integration creates two devices: one for the Tranquility server, and one for each character you add.
-
-### Server sensors
-
-- **Players online**
-  - **Description**: The number of players currently online on Tranquility.
-
-- **Server version**
-  - **Description**: The current server version of Tranquility.
-  - **Remarks**: This entity is disabled by default.
+The integration creates one device per character you add.
 
 ### Character sensors
 
@@ -175,7 +166,7 @@ Outside of the daily downtime window, unavailable entities may indicate an unpla
 
 1. If it is between 11:00 and 11:15 UTC, wait for the daily downtime to end. Entities will recover automatically.
 2. Otherwise, check the [Eve Online server status](https://status.eveonline.com/) page to see if there is a known outage.
-3. If the status is healthy and the issue persists, try reauthenticating: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Eve Online**, and then select **Reconfigure**.
+3. If the status is healthy and the issue persists, check your application credentials at {% my application_credentials title="**Settings** > **Application credentials**" %}.
 
 ## Removing the integration
 
