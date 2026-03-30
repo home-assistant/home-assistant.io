@@ -56,8 +56,7 @@ For Home Assistant to communicate with Eve Online, you need to create an applica
 {% details "I have manually disabled My Home Assistant" %}
 
 If you don't have [My Home Assistant](/integrations/my) on your installation,
-you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
-instead.
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI instead.
 
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
@@ -166,12 +165,15 @@ All entities show as unavailable.
 
 #### Description
 
-The ESI API may be experiencing downtime.
+Every day, the Eve Online servers go offline for routine maintenance from 11:00 to approximately 11:15 UTC (known as "daily downtime"). During this window, all entities will show as unavailable — this is expected and they will recover automatically once the servers come back online.
+
+Outside of this daily window, unavailable entities may indicate an unplanned outage or an ESI API issue.
 
 #### Resolution
 
-1. Check the [Eve Online server status](https://status.eveonline.com/) page to see if there is a known outage.
-2. If the status is healthy and the issue persists, try reauthenticating: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Eve Online**, and then select **Reconfigure**.
+1. If it is between 11:00 and 11:15 UTC, wait for the daily downtime to end. Entities will recover automatically.
+2. Otherwise, check the [Eve Online server status](https://status.eveonline.com/) page to see if there is a known outage.
+3. If the status is healthy and the issue persists, try reauthenticating: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Eve Online**, and then select **Reconfigure**.
 
 ## Removing the integration
 
