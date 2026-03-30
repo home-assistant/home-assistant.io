@@ -47,7 +47,7 @@ cast_downstairs_on_kitchen:
 ```
 
 {% important %}
-Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/integrations/homeassistant/#configuration-variables).
+Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/integrations/homeassistant/#homeassistant-configuration-variables).
 {% endimportant %}
 
 ## Playing media
@@ -91,7 +91,7 @@ data:
 ```
 
 Extra media metadata (for example title, subtitle, artist or album name) can be passed into the action and that will be shown on the Chromecast display.
-For the possible metadata types and values check [Google cast documentation > MediaInformation > metadata field](https://developers.google.com/cast/docs/reference/messages#MediaInformation).
+For the possible metadata types and values check [Google cast documentation > MediaInformation > metadata field](https://developers.google.com/cast/docs/media/messages#MediaInformation).
 
 ```yaml
 # Play a movie from the internet, with extra metadata provided:
@@ -325,7 +325,7 @@ Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong
 
 ### Plex
 
-To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#action-media_playerplay_media) and prepend the `media_content_id` with `plex://`:
+To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#action-play-media) and prepend the `media_content_id` with `plex://`:
 
 ```yaml
 'cast_plex_to_chromecast':
