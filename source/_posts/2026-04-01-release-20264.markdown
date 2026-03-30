@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026.4 Beta: Infrared never left the chat"
-description: "Beta release notes: Infrared support turns your old remotes into smart home controllers, purpose-specific triggers and conditions almost feature complete, consistent entity naming everywhere, Matter lock management with PIN codes, background colors for dashboard sections, and 15 new integrations!"
+description: "Beta release notes: Infrared support turns your old remotes into smart home controllers, purpose-specific triggers and conditions almost feature complete, Matter lock management with PIN codes, background colors for dashboard sections, and 15 new integrations!"
 date: 2026-03-25 00:00:00
 date_formatted: "April 1, 2026"
 author: Franck Nijhof
@@ -74,8 +74,6 @@ Our [purpose-specific automation triggers and conditions](#purpose-specific-auto
 
 There's also plenty of fun stuff: [background colors for dashboard sections](#background-color-for-your-dashboard-sections), [favorites on your dashboard cards](#favorites-on-your-dashboard), full [Matter lock management](#matter-lock-manager) with PIN codes, and you can now see [what your AI-powered Assist is thinking](#what-is-an-ai-powered-assist-thinking) while it processes your requests. Plus 15 new integrations! 🚀
 
-I'm oddly excited about this one. Back in [July 2022](https://developers.home-assistant.io/blog/2022/07/10/entity_naming/), we set out to fix one of the longest-standing pain points in Home Assistant: [entity naming](#entity-naming-consistent-names-everywhere). How entity names are composed, how they behave when you rename them, and how they're used across the UI, voice assistants, and external tools. It's been a _massive_ effort, touching nearly every single integration, and this release finally brings the backend in line with the frontend work that's been shipping over the past year. It's not the flashiest feature, but it's the kind of foundational work that makes everything else better. 🧱
-
 Oh! And don't forget: [State of the Open Home 2026](https://sotoh.openhomefoundation.org/) is happening on April 8 in Utrecht, the Netherlands! Come celebrate everything we've built together in person. Tickets are limited, so [grab yours](https://sotoh.openhomefoundation.org/) while you can! 🎟️
 
 Enjoy the (beta) release!
@@ -93,11 +91,6 @@ Enjoy the (beta) release!
   - [More triggers and conditions for existing domains](#more-triggers-and-conditions-for-existing-domains)
   - [Try it out!](#try-it-out)
 - [Background color for your dashboard sections](#background-color-for-your-dashboard-sections)
-- [Entity naming: consistent names everywhere](#entity-naming-consistent-names-everywhere)
-  - [You should not have to think about naming conventions](#you-should-not-have-to-think-about-naming-conventions)
-  - [This is a backward-incompatible change](#this-is-a-backward-incompatible-change)
-  - [Migration and voice aliases](#migration-and-voice-aliases)
-  - [Why we're doing this](#why-were-doing-this)
 - [Matter lock manager](#matter-lock-manager)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
@@ -168,10 +161,10 @@ The following new triggers and conditions now work across entity types. For each
 - **Motion**: trigger when motion is detected or cleared (across {% term "binary sensor" %} and {% term "event entity" "event entities" %}).
 - **Occupancy**: trigger when occupancy is detected or cleared, and check if a space is occupied.
 - **Temperature**: trigger when the temperature changes or crosses a threshold (from temperature sensors, climate devices, and more).
-- **Humidity**: trigger when humidity changes or crosses a threshold (from humidity sensors, climate devices, and humidifiers).
+- **Humidity**: trigger when humidity changes or crosses a threshold, and check if it's above or below a value (from humidity sensors, climate devices, humidifiers, and weather entities).
 - **Illuminance**: trigger when the light level changes or crosses a threshold, and check if it's above or below a value.
 - **Power**: trigger when power consumption changes or crosses a threshold, and check current values.
-- **Battery**: trigger when the battery level is low, high, charging, or stopped charging, and check if it's above or below a threshold.
+- **Battery**: trigger when the battery level is low or not low, when charging starts or stops, when the level changes, or when it crosses a threshold. Check if the battery level is above or below a threshold.
 - **Air quality**: check for detected pollutants like CO, CO2, smoke, and more.
 - **Climate**: check if the current or target temperature is above or below a threshold.
 
@@ -190,7 +183,7 @@ On top of the cross-domain additions, a _lot_ of existing {% term domains %} als
 - **Moisture** now has triggers and conditions for when moisture is detected or cleared, when moisture values change, or when they cross a threshold.
 - **Remote** gained turned on and turned off triggers.
 - **Schedule** now has conditions to check if a schedule is active.
-- **Select** gained triggers for when a selection changes.
+- **Select** gained triggers for when a selection changes and conditions to check if an option is selected.
 - **Text** now has conditions.
 - **Temperature** now has conditions to check if a temperature value is above or below a threshold.
 - **To-do list** gained triggers for when an item is added, completed, or removed.
@@ -211,54 +204,6 @@ To add a background color to a section, open the section settings and turn on th
 <img src='/images/blog/2026-04/dashboard-sections-background-color-options.png' alt='Screenshot of the section background settings, showing the background toggle enabled, with a color picker set to red and an opacity slider set to 20%.' class='no-shadow' />
 
 If you have sections side by side on the same row, sections without a background will automatically align with those that have one, keeping everything looking clean and tidy.
-
-## Entity naming: consistent names everywhere
-
-When an {% term integration %} names an {% term entity %}, the full name is composed as {% term device %} name + entity name. For example, a "Motion Sensor" device with a "Temperature" entity becomes "Motion Sensor Temperature." But when _you_ renamed that entity, say to "Ambient temp," the device name was dropped. The friendly name became just "Ambient temp." Two different behaviors for the same thing, depending on who set the name.
-
-This inconsistency has been one of the most common sources of confusion in Home Assistant, and one of the most frequently discussed topics in our community. Starting with this release, we've made this consistent. Entity names now always include the device name as context, whether the name was set by an integration or by you. Renaming that entity to "Ambient temp" will now produce "Motion Sensor Ambient temp," just as the system would for integration-provided names.
-
-<img src='/images/blog/2026-04/temp-rename-entity-setting.png' alt='Screenshot of the entity settings dialog on the Arc reactor device page, showing the Name field set to Temperature. The breadcrumb above shows Garage > Arc reactor, and the entity ID is sensor.arc_reactor_temperature.' class='no-shadow' />
-
-### You should not have to think about naming conventions
-
-One of the most common community questions has always been: "What's your naming convention?" or "How do you name your devices?" You shouldn't have to care about this. Just give your devices and entities the simplest, most natural name, and the UI will automatically adapt to display the right context so you can recognize them everywhere.
-
-In [2025.4](/blog/2025/04/02/release-20254/), we started adding more context to the entity dialogs, showing you which device and {% term area %} an entity belongs to. In [2025.5](/blog/2025/05/07/release-20255/#picking-entities), we updated the entity pickers to show device and area context, gradually eliminating the need to include location information in entity names. And in [2025.11](/blog/2025/11/05/release-202511/#flexible-entity-naming-on-dashboard-cards), we added [flexible name composition controls](/dashboards/naming/) to dashboard cards, letting you choose exactly how names appear: entity only, device, area, floor, or any combination.
-
-<img src='/images/blog/2026-04/temp-entity-picker-provides-context.png' alt='Screenshot of the tile card configuration dialog with the entity picker open, searching for temp. Each result shows the entity name with area and device context underneath, like Temperature with Garage > Arc reactor.' class='no-shadow' />
-
-On a device page, for example, you already know which device you're looking at and which area it's in, so there's no need to repeat the device name on each entity listed there. In an entity picker, you see the full composed name with device and area context. On a dashboard card, you choose what level of detail makes sense. The system handles the context for you, so you don't have to bake it into the name itself.
-
-### This is a backward-incompatible change
-
-We want to be upfront: this will affect some of you.
-
-If you previously renamed entities without including the device name, those entities will now show the device name again in places that use the friendly name (`friendly_name`) attribute, like the logbook and external tools (for example, external voice assistants such as Amazon Alexa, or monitoring tools like Prometheus). The Home Assistant UI is also affected: as the default display on dashboard cards uses the device + entity name, cards showing entities you've renamed will look different. Since [2025.11](/blog/2025/11/05/release-202511/#flexible-entity-naming-on-dashboard-cards), every dashboard card supports [name composition controls](/dashboards/naming/), so you can adjust individual cards to pick the name combination that works best for you.
-
-<img src='/images/blog/2026-04/temp-tile-card-configuration-name-composing.png' alt='Screenshot of the tile card configuration dialog showing the name composition settings under Content. Entity and Area chips are selected, with Device and Floor available as additional options.' class='no-shadow' />
-
-### Migration and voice aliases
-
-To make this transition as smooth as possible, a one-time automatic migration runs when you update to 2026.4 or later. If your custom entity name already starts with the device name (for example, you manually set it to "Motion Sensor Temperature"), the migration strips the duplicate prefix so you don't end up with "Motion Sensor Motion Sensor Temperature." If your custom name doesn't match the device name at all, the old full name is preserved as an Assist voice alias so your voice commands continue to work. This matters because Assist is strict about matching the exact name you use, so preserving those aliases ensures nothing breaks when you talk to your home.
-
-Additionally, you can now disable the automatically generated full entity name from being used as a voice alias. This gives you full control over your voice setup: set your own aliases, and tell the system not to use the generated name if it doesn't work for you.
-
-### Why we're doing this
-
-We know naming changes are never fun, and we know some of you have spent significant time customizing entity names to get things just right. We don't take that lightly.
-
-But the current inconsistency creates real problems that go beyond just how names look in the UI. External systems, databases, companion apps, and especially voice assistants all depend on the friendly name (`friendly_name`) to identify entities. When a user rename drops the device context, those systems lose the ability to tell "Temperature" in the kitchen apart from "Temperature" in the bedroom.
-
-This approach also doesn't scale. With systems now commonly running 1,000 or 2,000+ entities, having a per-entity toggle on naming behavior would add complexity without solving the underlying problem. The system needs to be consistent so it can do the heavy lifting for you, rather than requiring you to manage naming conventions across hundreds of entities.
-
-This change is part of a plan that has been in the works since [July 2022](https://developers.home-assistant.io/blog/2022/07/10/entity_naming/), when we introduced a new entity naming model. The goal has always been to separate device names from entity names and let the system compose the right display name based on context.
-
-Since 2022, our developer community has gradually updated and migrated nearly every single integration in Home Assistant. Every entity provided for any device, across all integrations, needed adjustments for this new model. It is a mandatory [Bronze-tier requirement](/docs/quality_scale/) in our [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/), meaning no new integration can be added to Home Assistant without supporting it. That is a massive effort, and we want to give a huge shout-out to all the contributors who helped make this happen over the past four years.
-
-The frontend side of that work has been shipping across many releases. This release brings the backend in line. With this change, you can now edit the entity name directly instead of the composed old friendly name. The companion apps for Android and iOS will also be adopting these changes, so that the same consistent naming experience extends to your phone, tablet, widgets, and watch complications.
-
-It won't be completely painless for everyone, but we believe it's the right step toward making entity naming something that just works, so you can spend your time building out your actual smart home instead of managing naming conventions.
 
 ## Matter lock manager
 
