@@ -118,7 +118,7 @@ Performance in <abbr title="decibels">dB</abbr> for the device antenna. See [Gai
 Firmware updates are supported for devices running firmware v8. A link to the release notes is provided, and we strongly recommend reviewing them to avoid unforeseen consequences. Starting an update from Home Assistant will download the available firmware and begin installation on the device.
 
 {% important %}
-Updating firmware will interrupt connectivity. Always review the release notes to confirm compatibility and follow Ubiquiti’s recommended upgrade order for local vs. remote devices.
+Updating firmware will interrupt connectivity. Always review the release notes to confirm compatibility and follow any upgrade order taht Ubiquiti recommend for your local and remote devices.
 Update the correct side first to avoid losing access to a remote device, especially when it is physically far away or difficult to troubleshoot on-site.
 {% endimportant %}
 
