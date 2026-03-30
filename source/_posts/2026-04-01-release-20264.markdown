@@ -104,6 +104,7 @@ Enjoy the (beta) release!
   - [Auto height for cards](#auto-height-for-cards)
   - [What is an AI-powered Assist thinking?](#what-is-an-ai-powered-assist-thinking)
 - [Need help? Join the community](#need-help-join-the-community)
+- [Disclosed security advisories](#disclosed-security-advisories)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
@@ -554,6 +555,33 @@ Our very active [Discord chat server](/join-chat) is an excellent place to be, a
 Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues) to get it fixed! Or check [our help page](/help) for guidance on more places you can go.
 
 Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter) to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Disclosed security advisories
+
+This month, we published the following security advisories for vulnerabilities that have been found and fixed. We always disclose security issues with a delay, giving everyone time to update their systems first. This is why keeping your Home Assistant installation up to date is so important.
+
+For more information on our security policy and past advisories, visit our [security page](/security).
+
+**2026-03-27: Stored XSS in map card through malicious device name**
+Severity: _Moderate_
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-r584-6283-p7xc)_
+Assigned CVE: _[CVE-2026-33044](https://nvd.nist.gov/vuln/detail/CVE-2026-33044)_
+Discovered by: _[@pwnpanda](https://github.com/pwnpanda)_
+Fixed in: _Home Assistant Core 2026.1.2_
+
+**2026-03-27: Stored XSS in history graph card**
+Severity: _Moderate_
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-46j8-vpx8-6p72)_
+Assigned CVE: _[CVE-2026-33045](https://nvd.nist.gov/vuln/detail/CVE-2026-33045)_
+Discovered by: _[@pwnpanda](https://github.com/pwnpanda)_
+Fixed in: _Home Assistant Core 2026.1.2_
+
+**2026-03-27: Unauthenticated app (add-on) endpoints exposed to local network via host network mode**
+Severity: _Critical (CVSS: 9.7)_
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-gh5m-4m97-c95h)_
+Assigned CVE: _[CVE-2026-34205](https://nvd.nist.gov/vuln/detail/CVE-2026-34205)_
+Discovered by: _[@arturpragacz](https://github.com/arturpragacz)_
+Fixed in: _Home Assistant Supervisor 2026.03.2_
 
 ## Backward-incompatible changes
 
