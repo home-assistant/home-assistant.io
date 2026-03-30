@@ -219,7 +219,7 @@ You can dismiss one or more notifications using the `html5.dismiss_message` acti
 
 #### Parameters
 
-- `tag`: The tag of the notification(s) to dismiss. If not specified, all notifications to the selected devices will be dismissed.
+- `tag`: The tag of the notifications to dismiss. If not specified, all notifications to the selected devices will be dismissed.
 
 {% details "Example YAML configuration" %}
 
