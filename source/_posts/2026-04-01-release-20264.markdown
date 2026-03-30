@@ -693,7 +693,7 @@ Previously deprecated switch entities used to control valves have been removed. 
 
 {% details "Z-Wave" %}
 
-The Z-Wave Installer panel has been removed. This panel was hidden and required an undocumented YAML configuration to enable. The same functionality is now natively available through Z-Wave JS UI in the Z-Wave add-on.
+The Z-Wave Installer panel has been removed. This panel was hidden and required an undocumented YAML configuration to enable. The same functionality is now natively available through Z-Wave JS UI in the Z-Wave app.
 
 ([@AlCalzone] - [#165388]) ([Z-Wave documentation])
 
