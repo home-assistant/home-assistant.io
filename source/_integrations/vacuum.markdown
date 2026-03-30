@@ -628,7 +628,7 @@ In YAML, refer to it with `vacuum.send_command`.
   - **Description**: Parameters for the command.
   - **Optional**: Yes
 
-## Real-life automation examples
+## Example automations
 
 Use the vacuum triggers, conditions, and actions together to turn automation ideas into reliable routines that fit your household.
 Start from one small pain point, then decide which vacuum signal kicks things off, which condition keeps it safe, and which action finishes the job.
