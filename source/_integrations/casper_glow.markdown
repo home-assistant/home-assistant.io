@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Light
+  - Select
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Polling
@@ -16,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - button
   - light
+  - select
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -65,6 +67,11 @@ The **Casper Glow** {% term integration %} provides the following entities.
 
 - **Casper Glow**
   - **Description**: Controls the on/off state and brightness of the Glow light. Brightness is mapped to five levels.
+
+#### Selects
+
+- **Dimming time**
+  - **Description**: Configures how long the dimming sequence lasts before the light turns off. You can choose between 15, 30, 45, 60, or 90 minutes. The new dimming time takes effect the next time the light is turned on.
 
 ## Data updates
 
