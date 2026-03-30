@@ -142,6 +142,8 @@ Since [Home Assistant 2025.12](/blog/2025/12/03/release-202512/#purpose-specific
 
 But this release also brings something fundamentally new to the table: _cross-domain_ triggers and conditions.
 
+And yes—while this is still a **Home Assistant Labs** feature, we encourage you to give it a spin.
+
 ### Thinking in real-world concepts, not technical domains
 
 Up until now, every {% term trigger %} and {% term condition %} was tied to a specific entity type. Want to know if a door opened? That used to depend on whether your door was represented as a magnetic contact sensor (a {% term "binary sensor" %}), a motorized door such as a garage door (a {% term cover %} entity), or something else entirely. You had to know the technical difference and pick the right one.
@@ -309,7 +311,7 @@ We welcome the following new integrations in this release:
 
 It is not just new {% term integrations %} that have been added; existing ones are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
 
-- **[SmartThings]** received a massive wave of improvements this release. Robot vacuums gained fan speed control, driving mode and cleaning type selects, water spray and sound mode options, a sound detection switch with sensitivity control, a full dust-bag sensor, a HEPA filter reset button, and a time entity for Do Not Disturb schedules. Stick cleaner devices are now supported as well. Thanks, [@joostlek]! Dishwashers also picked up new start, pause, resume, cancel, and drain actions, thanks to [@edu-tsen]!
+- **[SmartThings]** received a massive wave of improvements this release. Robot vacuums gained fan speed control, driving mode and cleaning type selects, water spray and sound mode options, a sound detection switch with sensitivity control, a full dust-bag sensor, a HEPA filter reset button, and a time entity for Do Not Disturb schedules. Stick cleaner devices are now supported as well. Thanks, [@joostlek]! Dishwashers also picked up new start, pause, resume, cancel, and drain actions. Thanks, [@edu-tsen]!
 - **[Roborock]** owners with a [Q10](https://global.roborock.com/pages/roborock-q10-series) can now integrate their vacuum, thanks to [@allenporter]!
 - **[OpenAI Conversation]** added GPT-5.4 and GPT-5.4-pro model support, including reasoning effort options. Thanks, [@Shulyaka]!
 - **[SwitchBot]** picked up [Keypad Vision](https://us.switch-bot.com/products/switchbot-keypad-vision) support, bringing doorbell events, tamper alarms, and charging sensors to your setup. Thanks, [@zerzhang]!
