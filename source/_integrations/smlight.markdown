@@ -126,11 +126,11 @@ The updates offered in Home Assistant will match your currently installed firmwa
 
 SLZB-Ultima devices support additional peripherals not found on other SLZB adapters, including an Ambilight LED strip, an infrared remote controller, and a buzzer. Support for these peripherals is being added progressively. The following entities are currently available.
 
-### Lights
+#### Lights
 
 - **Ambilight** - Controls the LED strip on the front of the Ultima device, including selecting built-in effects. The `color2`, `speed`, and `direction` properties used by some effects are not yet supported.
 
-### Events
+#### Events
 
 - **IR events** - Fires when an IR code is received by the built-in IR receiver on Ultima devices. Use this entity in automations to trigger actions when a specific remote control command is received.
 
