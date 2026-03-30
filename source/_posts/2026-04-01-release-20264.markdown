@@ -589,7 +589,7 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
-{% details "Dashboards"}
+{% details "Dashboards" %}
 
 The default grid row size for the heading card changed from 1 to auto, making it shorter (half row). This is only noticeable for headings placed between other cards. Headings at the top of a section are unaffected thanks to the updated grid padding.
 
