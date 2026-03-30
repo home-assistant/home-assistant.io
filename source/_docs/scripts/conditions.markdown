@@ -563,9 +563,7 @@ The after times are inclusive while before are exclusive. In the example above, 
 A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
 {% endtip %}
 
-For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, 
-or another `sensor` entity containing a timestamp with the "timestamp" device
-class, can be used instead.
+For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, or another `sensor` entity containing a timestamp with the "timestamp" device class, can be used instead.
 
 ```yaml
 conditions:

@@ -9,7 +9,7 @@ ha_domain: liebherr
 ha_integration_type: hub
 ha_zeroconf: true
 ha_config_flow: true
-ha_quality_scale: silver
+ha_quality_scale: gold
 related:
   - url: https://home.liebherr.com/
     title: Liebherr
@@ -20,12 +20,14 @@ related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
 ha_category:
+  - Light
   - Number
   - Select
   - Sensor
   - Switch
 ha_platforms:
   - diagnostics
+  - light
   - number
   - select
   - sensor
@@ -85,7 +87,13 @@ The Liebherr appliances operate based on the temperature unit selected on the de
 
 ## Supported functionality
 
-The **Liebherr** integration provides temperature monitoring and control for refrigerator and freezer zones in your SmartDevice appliances.
+The **Liebherr** integration provides temperature monitoring, climate control, presentation lighting, and special feature management for refrigerator and freezer zones in your SmartDevice appliances.
+
+### Lights
+
+The integration creates light entities for controlling the interior lighting of your appliance.
+
+- **Presentation light**: Controls the presentation light inside the appliance with 5 brightness levels. The light can be turned on, off, or dimmed to any of the available intensity levels.
 
 ### Numbers
 

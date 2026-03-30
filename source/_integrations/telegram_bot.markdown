@@ -54,10 +54,8 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
    - BotFather will give you a link to your new bot and an HTTP **API token**.
    - Store the **API token** somewhere safe, it will be used for setting up the integration later.
 2. Get your **chat ID**:
-   - Send any message to the [GetIDs bot](https://t.me/getidsbot).
-   - Then, enter `/start`.
-   - The bot will return your **chat ID** and username.
-   - Note down your **chat ID**. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
+   - Send any message to [@id_bot](https://t.me/id_bot).
+   - Note down the value of the **ID** field in the bot's response. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
 3. Make the first contact with your new bot (bots are not allowed to initiate contact with users):
    - From the conversation with BotFather, select the link to open a chat.
    - In the chat, enter `/start`.
@@ -140,7 +138,11 @@ Proxy URL:
 ### Webhooks configuration
 
 {% note %}
-If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field as IP address of incoming requests are not forwarded to your Home Assistant.
+If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field because the IP address of incoming requests is not forwarded to your Home Assistant.
+{% endnote %}
+
+{% note %}
+If you are using a custom **API endpoint**, you must include the IP address or IP range of the server in CIDR notation, like `192.168.0.0/16`, in the **Trusted networks** field.
 {% endnote %}
 
 If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.
@@ -194,7 +196,7 @@ data:
 
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_media_group`, `send_location`, `send_chat_action`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
 
 Chat targets can be specified in any of the following ways:
 
@@ -388,6 +390,25 @@ Send a document.
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
+
+### Action `telegram_bot.send_media_group`
+
+Sends a group of photos, videos, documents or audios as an album.
+Documents and audio files can be only grouped in an album with messages of the same type.
+
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the media. |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the media. Required if you have multiple Telegram bots. |
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `media`                | no       | A list where each item contains the following:<br/><ul><li>`media_type`: Required. Valid media types: `animation`, `audio`, `document`, `photo`, or `video`.</li><li>`url`: Remote path to a document.</li><li>`file`: Local path to a document.</li><li>`caption`: The title of the media.</li><li>`authentication`: Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.</li><li>`username`: Username for a URL which requires HTTP `basic` or `digest` authentication.</li><li>`password`: Password (or bearer token) for a URL that requires authentication.</li><li>`verify_ssl`: True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.</li></ul> |
+| `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
+| `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
+| `protect_content`      | yes      | Protects the contents of the sent message from forwarding and saving. |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
@@ -616,8 +637,10 @@ Example response:
 chats:
   - chat_id: 1234567890
     message_id: 100
+    entity_id: notify.telegram_bot_chat
   - chat_id: -1234567890
     message_id: 200
+    entity_id: notify.telegram_bot_chat
 ```
 
 ## Telegram notification platform
@@ -1148,6 +1171,20 @@ actions:
     data:
       message: "Message to a topic"
       message_thread_id: 123
+```
+
+## Example: send_media_group
+
+```yaml
+actions:
+  - action: telegram_bot.send_media_group
+    data:
+      media:
+        - url: https://example/image.jpg
+          caption: My album
+          media_type: photo
+        - url: https://example/video.mp4
+          media_type: video
 ```
 
 ## Example: automation to send a message and delete after a delay

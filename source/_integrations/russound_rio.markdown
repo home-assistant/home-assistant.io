@@ -117,5 +117,5 @@ The Russound RIO integration allows you to browse saved presets from your dashbo
 
 ### There is a delay on getting the current status
 
-Some older Russound devices have a slight delay before posting a new status to Home Assistant. 
+Some older Russound devices have a slight delay before posting a new status to Home Assistant.
 This can be resolved by updating the unit to the latest firmware.

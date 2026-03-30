@@ -119,7 +119,7 @@ hold_action:
 double_tap_action:
   required: false
   description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
-  type: map      
+  type: map
 {% endconfiguration %}
 
 ### Examples

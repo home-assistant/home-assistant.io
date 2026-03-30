@@ -1,3 +1,4 @@
+@use 'mixins' as *;
 .button {
     align-items: center;
     background-color: var(--connect-line-blue);
