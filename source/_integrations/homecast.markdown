@@ -12,7 +12,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-ha_release: "2025.12"
+ha_release: 2025.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: homecast
@@ -32,7 +32,7 @@ ha_codeowners:
 ha_quality_scale: bronze
 ---
 
-[Homecast](https://homecast.cloud) bridges Apple HomeKit smart home devices to open standards, enabling remote control, API access, and AI assistant integration. The Homecast Mac or iOS app runs on your home network as a relay between HomeKit and the Homecast cloud.
+[Homecast](https://homecast.cloud) bridges Apple HomeKit smart home devices to open standards, enabling remote control, API access, and AI assistant integration. The Homecast macOS or iOS app runs on your home network as a relay between HomeKit and the Homecast cloud.
 
 This integration connects Home Assistant to the Homecast cloud API, exposing your HomeKit devices as native Home Assistant entities.
 
@@ -41,19 +41,19 @@ This integration connects Home Assistant to the Homecast cloud API, exposing you
 ## Prerequisites
 
 - A [Homecast](https://homecast.cloud) account
-- The Homecast Mac or iOS app running on your home network as a relay
+- The Homecast macOS or iOS app running on your home network as a relay
 - At least one HomeKit home with devices
 
 ## Setup
 
-1. Go to **{% my integrations title="Settings > Devices & services" %}** and click **Add integration**.
+1. Go to **{% my integrations title="Settings > Devices & services" %}** and select **Add integration**.
 2. Search for **Homecast** and select it.
 3. You will be redirected to the Homecast OAuth consent screen.
 4. Log in with your Homecast account.
 5. Select which homes to share and the permission level (view or control).
 6. Confirm — your HomeKit devices will appear in Home Assistant within seconds.
 
-No manual OAuth client registration is needed — the integration handles this automatically using PKCE.
+No manual OAuth client registration is needed — the integration handles this automatically.
 
 ## Supported devices
 
@@ -93,7 +93,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ### Devices not appearing
 
-Make sure the Homecast relay app (Mac or iOS) is running and connected. The relay must be online for the API to return device state.
+Make sure the Homecast relay app (macOS or iOS) is running and connected. The relay must be online for the API to return device state.
 
 ### Stale or delayed state
 
