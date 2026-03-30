@@ -213,18 +213,29 @@ When using a relative path for an image or icon URL, the path is resolved relati
 
 {% endnote %}
 
-### Dismiss
+### Dismiss message
 
-You can dismiss notifications by using `html5.dismiss` action like so:
+You can dismiss one or more notifications using the `html5.dismiss_message` action.
+
+#### Parameters
+
+- `tag`: The tag of the notification(s) to dismiss. If not specified, all notifications to the selected devices will be dismissed.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
 
 ```yaml
-target: ['my phone']
+action: html5.dismiss_message
 data:
-  tag: notification_tag
+  tag: message-group-1
+target:
+  entity_id: notify.my_desktop
 ```
 
-If no target is provided, it dismisses for all.
-If no tag is provided, it dismisses all notifications.
+{% endraw %}
+
+{% enddetails %}
 
 ## Automating notification events
 
