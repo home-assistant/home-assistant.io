@@ -132,11 +132,69 @@ The **My integration** integration provides the following entities.
   - **Description**: Firmware status of the gateway.
   - **Available for machines**: all
 
+## Triggers
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The **My integration** integration provides purpose-built automation triggers for common device events, such as connecting, disconnecting, or hitting an error state.
+Use them to watch one entity, every device in an area, or even multiple floors.
+
+### Device connected
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The **Device connected** trigger fires when the device reconnects to the service.
+In YAML, refer to it with `my_integration.connected`.
+Pair it with a notification or a script that resumes paused workflows.
+
+{% details "YAML example for this trigger" %}
+
+```yaml
+automation:
+  triggers:
+    - trigger: my_integration.connected
+      target:
+        entity_id: my_integration.device
+  actions:
+    - action: notify.mobile_app_phone
+      data:
+        message: "My integration device connected."
+```
+
+{% enddetails %}
+
+## Conditions
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+Use integration-specific conditions to gate automations based on device state.
+Conditions can check whether all, any, or none of the targeted devices match the expected state.
+
+### Device is active
+
+The **Device is active** condition passes when the device is currently running.
+In YAML, refer to it with `my_integration.is_active`.
+This keeps actions from firing while maintenance tasks are already underway.
+
+{% details "YAML example for this condition" %}
+
+```yaml
+automation:
+  conditions:
+    - condition: my_integration.is_active
+      target:
+        entity_id:
+          - my_integration.device_one
+          - my_integration.device_two
+```
+
+{% enddetails %}
+
 ## Actions
 
 The integration provides the following actions.
 
-### Action: Get schedule
+### Get schedule
 
 The `my_integration.get_schedule` action allows you to fetch a schedule from the integration.
 
@@ -144,15 +202,43 @@ The `my_integration.get_schedule` action allows you to fetch a schedule from the
   - **Description**: The ID of the config entry to get the schedule from.
   - **Optional**: No
 
-## Examples
+## Example automations
 
-### Turning off the LEDs during the night
+Combine the integration's triggers, conditions, and actions to solve practical problems, like reducing noise, dimming indicators, or notifying you when a job completes.
 
-The status LEDs on the device can be quite bright.
-To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
+Help us improve this page and add your favorite automation.
+Please [contribute](https://developers.home-assistant.io/docs/documenting) by selecting **Edit** at the bottom of this page.
 
-link to the blueprint on the [blueprints
-    exchange](https://community.home-assistant.io/c/53)
+### Example: Dim device lights at night
+
+When the device reports that it is idle after sunset, lower the indicator brightness and send a reminder that night mode is active.
+
+- **Trigger**: Device becomes idle or reports a low-power state.
+- **Conditions**: Confirm that the sun has set and that the device is in the living room.
+- **Actions**: Call the action that dims the LEDs, followed by a notification describing the change.
+
+{% details "YAML example for dimming at night" %}
+
+```yaml
+automation:
+  alias: "Dim device lights on quiet nights"
+  triggers:
+    - trigger: my_integration.idle
+      target:
+        entity_id: my_integration.device
+  conditions:
+    - condition: sun
+      after: sunset
+  actions:
+    - action: my_integration.dim_lights
+      target:
+        entity_id: my_integration.device
+    - action: notify.mobile_app_phone
+      data:
+        message: "Night mode enabled. Device lights dimmed for the evening."
+```
+
+{% enddetails %}
 
 ## Data updates
 
