@@ -28,13 +28,15 @@ For Home Assistant to communicate with Eve Online, you need to create an applica
 
 1. Log in to the [Eve Online Developer Portal](https://developers.eveonline.com/).
 
-2. Select **Create New Application**.
+2. Select **Manage Applications**.
 
-3. Enter a name and description for your application.
+3. Select **Create Application**.
 
-4. Under **Connection Type**, select **Authentication & API Access**.
+4. Enter a name and description for your application under **Basic information**.
 
-5. Add the following **Permissions (Scopes)**:
+5. Set the **Callback URL** to: `https://my.home-assistant.io/redirect/oauth` under **Application Settings**.
+
+6. Select the following **Enabled Scopes**:
 
    - `esi-characters.read_fatigue.v1`
    - `esi-industry.read_character_jobs.v1`
@@ -47,13 +49,9 @@ For Home Assistant to communicate with Eve Online, you need to create an applica
    - `esi-skills.read_skills.v1`
    - `esi-wallet.read_character_wallet.v1`
 
-6. Set the **Callback URL** to:
+7. Select **Save**.
 
-   `https://my.home-assistant.io/redirect/oauth`
-
-7. Select **Create Application**.
-
-8. On the application details page, note the **Client ID** and **Secret Key**. You will need these during the integration setup in Home Assistant.
+8. On the **Your applications** page, note the **Client ID** and **Client Secret**. You will need these during the integration setup in Home Assistant.
 
 {% details "I have manually disabled My Home Assistant" %}
 
