@@ -2604,7 +2604,7 @@ weather:
 
 ### Condition
 
-The `condition` *must* match one of the Home Assistant defined conditons. See [here](https://www.home-assistant.io/integrations/weather/#condition-mapping). If it does, not the state will be 'unknown' so will not be useable in a dashboard.
+The `condition` *must* match one of the Home Assistant defined conditons. See [here](/integrations/weather/#condition-mapping). If it does, not the state will be 'unknown' so will not be useable in a dashboard.
 
 ### Weather Forecast data
 
