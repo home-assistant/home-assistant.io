@@ -627,3 +627,46 @@ In YAML, refer to it with `vacuum.send_command`.
 - **Data attribute**: `params`
   - **Description**: Parameters for the command.
   - **Optional**: Yes
+
+## Real-life automation examples
+
+Use the vacuum triggers, conditions, and actions together to turn automation ideas into reliable routines that fit your household.
+Start from one small pain point, then decide which vacuum signal kicks things off, which condition keeps it safe, and which action finishes the job.
+
+Help us improve this page and add your favorite automation.
+Please [contribute](https://developers.home-assistant.io/docs/documenting) by selecting **Edit** at the bottom of this page.
+
+### Example: Pause cleaning during meetings
+
+When the vacuum starts a run during a scheduled meeting, pause it automatically so the call stays quiet, then send yourself a reminder to resume the job later.
+
+- **Trigger**: `vacuum.started_cleaning` for the office vacuum.
+- **Conditions**: A calendar or busy [sensor](/docs/core/entity/binary-sensor/) reports that a meeting is in progress, and `vacuum.is_cleaning` confirms the robot is still running.
+- **Actions**: `vacuum.pause` to stop the run, followed by a mobile notification that explains why the vacuum paused.
+
+{% details "YAML example for pausing during meetings" %}
+
+```yaml
+automation:
+  alias: "Mute vacuum during meetings"
+  triggers:
+    - trigger: vacuum.started_cleaning
+      target:
+        entity_id: vacuum.office
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.meeting_in_progress
+      state: "on"
+    - condition: vacuum.is_cleaning
+      target:
+        entity_id: vacuum.office
+  actions:
+    - action: vacuum.pause
+      target:
+        entity_id: vacuum.office
+    - action: notify.mobile_app_phone
+      data:
+        message: "The office vacuum paused because a meeting started. Resume it when the call ends."
+```
+
+{% enddetails %}
