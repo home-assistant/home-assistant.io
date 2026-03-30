@@ -1,7 +1,7 @@
 ---
 title: Eve Online
 description: Instructions on how to integrate Eve Online with Home Assistant.
-ha_release: "2026.5"
+ha_release: 2026.5
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
@@ -58,17 +58,26 @@ For Home Assistant to communicate with Eve Online, you need to create an applica
 {% details "I have manually disabled My Home Assistant" %}
 
 If you don't have [My Home Assistant](/integrations/my) on your installation,
-you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the callback URL
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
 instead.
 
-The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration and
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
-Example callback URLs: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`.
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`.
 
 {% enddetails %}
 
 {% include integrations/config_flow.md %}
+
+The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your Eve Online account.
+
+{% configuration_basic %}
+Client ID:
+  description: "The Client ID from your Eve Online developer application."
+Client Secret:
+  description: "The Secret Key from your Eve Online developer application."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
@@ -153,7 +162,18 @@ Also ensure that [My Home Assistant](/integrations/my) is correctly configured a
 
 ### Entities show as unavailable
 
-If all entities become unavailable, the ESI API may be experiencing downtime. Check the [Eve Online server status](https://login.eveonline.com/) page. If the issue persists, try reauthenticating via **Settings** > **Devices & services** > **Eve Online** > **Reconfigure**.
+#### Symptom
+
+All entities show as unavailable.
+
+#### Description
+
+The ESI API may be experiencing downtime.
+
+#### Resolution
+
+1. Check the [Eve Online server status](https://status.eveonline.com/) page to see if there is a known outage.
+2. If the status is healthy and the issue persists, try reauthenticating: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Eve Online**, and then select **Reconfigure**.
 
 ## Removing the integration
 
