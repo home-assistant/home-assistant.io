@@ -589,19 +589,6 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
-{% details "Entity naming" %}
-
-The entity `friendly_name` attribute is now always prefixed with the device name, even when the entity has been manually renamed by you. This makes the behavior consistent: previously, only integration-assigned names included the device name prefix, while user-given names did not.
-
-A storage migration handles existing entities: names that already include the device name as a prefix are stripped to avoid duplication, while names that don't match the device name are preserved as an explicit alias for backward compatibility with voice assistants.
-
-([@arturpragacz] - [#162763])
-
-[@arturpragacz]: https://github.com/arturpragacz
-[#162763]: https://github.com/home-assistant/core/pull/162763
-
-{% enddetails %}
-
 {% details "JVC Projector" %}
 
 The **Picture Mode** and **HDR Processing** entities have been migrated from the sensor domain to the select domain, because they represent selectable settings rather than read-only values.
