@@ -97,7 +97,7 @@ To create an automation that uses a vacuum trigger:
 For example, to create an automation that sends a mobile notification when both your upstairs and downstairs vacuums have finished cleaning and docked, select the following:
 
 - **Trigger**: Vacuum returned to dock
-  - **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+  - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
   - **Behavior**: Last
 - **Action**: Notifications: Send a notification via mobile app
   - **Message**: Both vacuums have finished cleaning and docked.
@@ -132,7 +132,7 @@ In YAML, refer to it with `vacuum.docked`.
 For example, to trigger the automation after both of your vacuums dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Trigger**: Vacuum returned to dock
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **Last**
 
 {% details "YAML example for this trigger" %}
@@ -171,7 +171,7 @@ In YAML, refer to it with `vacuum.errored`.
 For example, to trigger the automation as soon as one of the vacuums reports an error, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Trigger**: Vacuum encountered an error
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **First**
 
 {% details "YAML example for this trigger" %}
@@ -210,7 +210,7 @@ In YAML, refer to it with `vacuum.paused_cleaning`.
 For example, to trigger the automation as soon as one of the vacuums pauses cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Trigger**: Vacuum cleaner paused cleaning
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **First**
 
 {% details "YAML example for this trigger" %}
@@ -249,7 +249,7 @@ In YAML, refer to it with `vacuum.started_cleaning`.
 For example, to trigger the automation as soon as one of the vacuums starts cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Trigger**: Vacuum cleaner started cleaning
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **First**
 
 {% details "YAML example for this trigger" %}
@@ -288,7 +288,7 @@ In YAML, refer to it with `vacuum.started_returning`.
 For example, to trigger the automation as soon as one of the vacuums starts returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Trigger**: Vacuum cleaner started returning to dock
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **First**
 
 {% details "YAML example for this trigger" %}
@@ -337,7 +337,7 @@ In YAML, refer to it with `vacuum.is_cleaning`.
 For example, to let the automation continue only when both vacuums are cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Condition**: Vacuum cleaner is cleaning
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -375,7 +375,7 @@ In YAML, refer to it with `vacuum.is_docked`.
 For example, to let the automation continue only when both vacuums are docked, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Condition**: Vacuum cleaner is docked
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -413,7 +413,7 @@ In YAML, refer to it with `vacuum.is_encountering_an_error`.
 For example, to let the automation continue only when both vacuums are in an error state, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Condition**: Vacuum cleaner is encountering an error
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -451,7 +451,7 @@ In YAML, refer to it with `vacuum.is_paused`.
 For example, to let the automation continue only when both vacuums are paused, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Condition**: Vacuum cleaner is paused
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -489,7 +489,7 @@ In YAML, refer to it with `vacuum.is_returning`.
 For example, to let the automation continue only when both vacuums are returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
 - **Condition**: Vacuum cleaner is returning
-- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+- **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
