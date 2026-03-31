@@ -708,6 +708,10 @@ The Z-Wave Installer panel has been removed. This panel was hidden and required 
 If you are a custom integration developer and want to learn about changes and new features available for your integration: Be sure to follow our [developer blog][devblog]. The following changes are the most notable for this release:
 
 - [Backup agents can now report upload progress](https://developers.home-assistant.io/blog/2026/03/11/backup-upload-progress/)
+- [Frontend component updates 2026.4](https://developers.home-assistant.io/blog/2026/03/25/frontend-component-updates-2026.4)
+- [Frontend lazy context](https://developers.home-assistant.io/blog/2026/03/25/frontend-lazy-context/)
+- [Frontend new way of dialogs](https://developers.home-assistant.io/blog/2026/03/25/frontend-dialogs)
+- [New infrared entity platform for IR device integrations](https://developers.home-assistant.io/blog/2026/03/30/infrared-entity-platform)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
