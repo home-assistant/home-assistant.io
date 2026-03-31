@@ -127,7 +127,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum returned to dock** trigger fires when the vacuum cleaner docks.
-In YAML, refer to it with `vacuum.docked`.
 
 For example, to trigger the automation after both of your vacuums dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -135,7 +134,7 @@ For example, to trigger the automation after both of your vacuums dock, select t
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **Last**
 
-{% details "YAML example for this trigger" %}
+{% details "YAML example for the `vacuum.docked` trigger" %}
 
 ```yaml
 automation:
@@ -166,7 +165,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum encountered an error** trigger fires when the vacuum cleaner reports an error.
-In YAML, refer to it with `vacuum.errored`.
 
 For example, to trigger the automation as soon as one of the vacuums reports an error, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -174,7 +172,7 @@ For example, to trigger the automation as soon as one of the vacuums reports an 
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **First**
 
-{% details "YAML example for this trigger" %}
+{% details "YAML example for the `vacuum.errored` trigger" %}
 
 ```yaml
 automation:
@@ -205,7 +203,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum cleaner paused cleaning** trigger fires when the vacuum cleaner pauses its cleaning run.
-In YAML, refer to it with `vacuum.paused_cleaning`.
 
 For example, to trigger the automation as soon as one of the vacuums pauses cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -213,7 +210,7 @@ For example, to trigger the automation as soon as one of the vacuums pauses clea
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **First**
 
-{% details "YAML example for this trigger" %}
+{% details "YAML example for the `vacuum.paused_cleaning` trigger" %}
 
 ```yaml
 automation:
@@ -244,7 +241,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum cleaner started cleaning** trigger fires when the vacuum cleaner begins a cleaning run.
-In YAML, refer to it with `vacuum.started_cleaning`.
 
 For example, to trigger the automation as soon as one of the vacuums starts cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -252,7 +248,7 @@ For example, to trigger the automation as soon as one of the vacuums starts clea
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **First**
 
-{% details "YAML example for this trigger" %}
+{% details "YAML example for the `vacuum.started_cleaning` trigger" %}
 
 ```yaml
 automation:
@@ -283,7 +279,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum cleaner started returning to dock** trigger fires when the vacuum cleaner starts heading back to its dock.
-In YAML, refer to it with `vacuum.started_returning`.
 
 For example, to trigger the automation as soon as one of the vacuums starts returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -291,7 +286,7 @@ For example, to trigger the automation as soon as one of the vacuums starts retu
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **First**
 
-{% details "YAML example for this trigger" %}
+{% details "YAML example for the `vacuum.started_returning` trigger" %}
 
 ```yaml
 automation:
@@ -332,7 +327,6 @@ To learn more about these conditions, see [Entity conditions](/docs/automation/c
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum cleaner is cleaning** condition passes when the vacuum cleaner is cleaning.
-In YAML, refer to it with `vacuum.is_cleaning`.
 
 For example, to let the automation continue only when both vacuums are cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -340,7 +334,7 @@ For example, to let the automation continue only when both vacuums are cleaning,
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
-{% details "YAML example for this condition" %}
+{% details "YAML example for the `vacuum.is_cleaning` condition" %}
 
 ```yaml
 automation:
@@ -370,7 +364,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum cleaner is docked** condition passes when the vacuum cleaner is docked.
-In YAML, refer to it with `vacuum.is_docked`.
 
 For example, to let the automation continue only when both vacuums are docked, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -378,7 +371,7 @@ For example, to let the automation continue only when both vacuums are docked, s
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
-{% details "YAML example for this condition" %}
+{% details "YAML example for the `vacuum.is_docked` condition" %}
 
 ```yaml
 automation:
@@ -408,7 +401,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum cleaner is encountering an error** condition passes when the vacuum cleaner is in an error state.
-In YAML, refer to it with `vacuum.is_encountering_an_error`.
 
 For example, to let the automation continue only when both vacuums are in an error state, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -416,7 +408,7 @@ For example, to let the automation continue only when both vacuums are in an err
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
-{% details "YAML example for this condition" %}
+{% details "YAML example for the `vacuum.is_encountering_an_error` condition" %}
 
 ```yaml
 automation:
@@ -446,7 +438,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum cleaner is paused** condition passes when the vacuum cleaner is paused.
-In YAML, refer to it with `vacuum.is_paused`.
 
 For example, to let the automation continue only when both vacuums are paused, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -454,7 +445,7 @@ For example, to let the automation continue only when both vacuums are paused, s
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
-{% details "YAML example for this condition" %}
+{% details "YAML example for the `vacuum.is_paused` condition" %}
 
 ```yaml
 automation:
@@ -484,7 +475,6 @@ automation:
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Vacuum cleaner is returning** condition passes when the vacuum cleaner is returning to the dock.
-In YAML, refer to it with `vacuum.is_returning`.
 
 For example, to let the automation continue only when both vacuums are returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -492,7 +482,7 @@ For example, to let the automation continue only when both vacuums are returning
 - **Target**: **Upstairs vacuum** and **Downstairs vacuum**
 - **Behavior**: **All**
 
-{% details "YAML example for this condition" %}
+{% details "YAML example for the `vacuum.is_returning` condition" %}
 
 ```yaml
 automation:
