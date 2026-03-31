@@ -124,8 +124,9 @@ The integration requires FortiOS 6.4.3 or later. Upgrade your FortiGate firmware
 
 ### Devices are not showing up
 
-Make sure your FortiGate can see the devices you are expecting. Devices need to have a MAC address visible to the FortiGate. Check the **FortiView** > **Sources** page on your FortiGate to confirm the devices appear there.  
-Discovered entities in Home Assistant are disabled by default to avoid cluttering your entity list. When you want an entity to be visible in Home Assistant, you need to enable it. 
+Make sure your FortiGate can see the devices you are expecting. Devices need to have a MAC address visible to the FortiGate. Check the **FortiView** > **Sources** page on your FortiGate to confirm the devices appear there.
+
+Discovered entities in Home Assistant are disabled by default to avoid cluttering your entity list. When you want an entity to be visible in Home Assistant, you need to enable it.
 
 ## Removing the integration
 
