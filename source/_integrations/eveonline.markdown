@@ -179,11 +179,11 @@ Keep an eye on your ISK balance with this automation. It triggers when your wall
     - trigger: numeric_state
       # Replace with your character's wallet balance entity
       entity_id: sensor.my_character_wallet_balance
-      below: 1000000
+      below: 100000000
   actions:
     - action: notify.notify
       data:
-        message: "Your wallet balance dropped below 1,000,000 ISK."
+        message: "Your wallet balance dropped below 100,000,000 ISK."
 ```
 
 ## Using multiple characters
