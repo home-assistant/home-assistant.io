@@ -95,7 +95,7 @@ The **FortiOS** integration {% term polling polls %} your FortiGate every 30 sec
 
 The integration cannot reach your FortiGate.
 
-##### Resolution
+#### Resolution
 
 To resolve this issue, try the following steps:
 
@@ -107,7 +107,7 @@ To resolve this issue, try the following steps:
 
 The access token is not accepted by the FortiGate.
 
-##### Resolution
+#### Resolution
 
 To resolve this issue, try the following steps:
 
@@ -118,7 +118,7 @@ To resolve this issue, try the following steps:
 
 Your FortiGate is running a version of FortiOS that is too old.
 
-##### Resolution
+#### Resolution
 
 The integration requires FortiOS 6.4.3 or later. Upgrade your FortiGate firmware to a supported version.
 
