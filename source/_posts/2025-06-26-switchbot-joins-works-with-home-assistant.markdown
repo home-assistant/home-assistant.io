@@ -35,24 +35,7 @@ One of the terms of the 'Works with' program is that Bluetooth devices must conn
 
 If you prefer Matter, SwitchBot also has devices that are certified for use with one of their Matter hubs: either the [SwitchBot Hub 2](https://www.switch-bot.com/products/switchbot-hub-2) or the [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3). There are also some that can work via Matter-over-WiFi as standalone devices. We are currently testing even more of SwitchBot’s Matter devices for the program.
 
-**Bluetooth**
-- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
-- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
-- [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector) - also works using Matter via a hub
-- [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)  - also works using Matter via a hub 
-- [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro) - also works using Matter via a hub
-- [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor) - also works using Matter via a hub
-- [SwitchBot Indoor/Outdoor Thermo-Hygrometer](https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer) - also works using Matter via a hub
-- [SwitchBot Curtain 3](https://www.switch-bot.com/products/switchbot-curtain-3) - also works using Matter via a hub
-- [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor) - also works using Matter via a hub
-- [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade) - also works using Matter via a hub
-- [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro) - also works using Matter via a hub
-
-**Matter-Over-WiFi (standalone, without requiring a hub)**
-- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
-- [SwitchBot Multitasking Robot K20 + Pro](https://www.switch-bot.com/products/switchbot-multitasking-household-robot-k20-pro)
+{% include integrations/device_list.html brand="switchbot" %}
 
 ***Note:*** *Home Assistant Container does not support Matter, and requires Home Assistant OS.*
 

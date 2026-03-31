@@ -46,19 +46,7 @@ Reolink is a big fan of our active and engaged community and joined Works with H
 
 In case you didn't know, Works with Home Assistant differs from other certification programs as products are rigorously tested in-house to ensure they work seamlessly out of the box. Any company joining also commits to providing long-term support and firmware updates while being a positive force in the Home Assistant community. Works with Home Assistant is operated by the [Open Home Foundation](https://www.openhomefoundation.org/), and the support of [Home Assistant Cloud](/cloud/) subscribers funds this work. Reolink has certified the following devices:
 
-**Video Doorbells**
-- [Reolink Video Doorbell (WiFi)](https://reolink.com/product/reolink-video-doorbell-wifi/)
-- [Reolink Video Doorbell (Battery)](https://reolink.com/product/reolink-doorbell-battery/)
-
-**Cameras**
-- [Reolink Argus Track](https://reolink.com/product/argus-track/)
-- [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
-- [Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)
-- [Reolink RLC-823S2](https://reolink.com/product/rlc-823s2/)
-- [Reolink RLC-1224A](https://reolink.com/gb/product/rlc-1224a/)
-
-**Other**
-- [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
+{% include integrations/device_list.html brand="reolink" %}
 
 ## Closed circuit
 
