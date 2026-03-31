@@ -40,7 +40,7 @@ The following devices are known to be supported by the integration:
 To use this integration, you need to register your tank monitor with CentriConnect and create an account.
 
 1. Make note of the full "Device ID" and "Device Authentication Code" printed on the setup card.
-1. Download the the **MyPropane** app and connect by scanning the QR code on the back of your tank monitor.
+1. Download the **MyPropane** app and connect by scanning the QR code on the back of your tank monitor.
 1. Follow the steps to create an account and register the device.
 1. Select "Account" from the main menu.
 1. Copy or write down your "User ID".
