@@ -154,16 +154,14 @@ When your skill queue runs out, your character stops gaining skill points. This 
 
 ### Notify when jump fatigue expires
 
-After jumping across systems, your character may have a jump fatigue timer active. This automation notifies you the moment the timer expires so you know when you can jump again.
+After jumping across systems, your character may have a jump fatigue timer active. This automation fires at the exact time stored in the jump fatigue sensor, notifying you the moment the cooldown is over.
 
 ```yaml
 - alias: "Notify when jump fatigue expires"
   triggers:
-    - trigger: state
+    - trigger: time
       # Replace with your character's jump fatigue entity
-      entity_id: sensor.my_character_jump_fatigue
-      from: ~
-      to: "unknown"
+      at: sensor.my_character_jump_fatigue
   actions:
     - action: notify.notify
       data:
