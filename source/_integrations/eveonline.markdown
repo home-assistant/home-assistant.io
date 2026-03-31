@@ -133,6 +133,59 @@ The integration creates one device per character you add.
 - **Jump fatigue**
   - **Description**: Your character's jump fatigue expiry time.
 
+## Examples
+
+### Notify when skill queue is empty
+
+When your skill queue runs out, your character stops gaining skill points. This automation sends you a notification as soon as the queue drops to zero, giving you time to plan your next skills.
+
+```yaml
+- alias: "Notify when skill queue is empty"
+  triggers:
+    - trigger: numeric_state
+      # Replace with your character's skill queue entity
+      entity_id: sensor.my_character_skill_queue
+      below: 1
+  actions:
+    - action: notify.notify
+      data:
+        message: "Your skill queue is empty. Time to add new skills!"
+```
+
+### Notify when jump fatigue expires
+
+After jumping across systems, your character may have a jump fatigue timer active. This automation notifies you the moment the timer expires so you know when you can jump again.
+
+```yaml
+- alias: "Notify when jump fatigue expires"
+  triggers:
+    - trigger: state
+      # Replace with your character's jump fatigue entity
+      entity_id: sensor.my_character_jump_fatigue
+      to: "unknown"
+  actions:
+    - action: notify.notify
+      data:
+        message: "Your jump fatigue has expired. Ready to jump again!"
+```
+
+### Alert when wallet balance drops below a threshold
+
+Keep an eye on your ISK balance with this automation. It triggers when your wallet drops below a set amount, so you can top it up before your market orders or industry jobs are affected.
+
+```yaml
+- alias: "Alert when wallet balance is low"
+  triggers:
+    - trigger: numeric_state
+      # Replace with your character's wallet balance entity
+      entity_id: sensor.my_character_wallet_balance
+      below: 1000000
+  actions:
+    - action: notify.notify
+      data:
+        message: "Your wallet balance dropped below 1,000,000 ISK."
+```
+
 ## Using multiple characters
 
 This integration supports multiple Eve Online characters. You don't need to create another developer application. To add an additional character, add the integration again and log in with a different character.
