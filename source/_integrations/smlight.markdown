@@ -4,6 +4,7 @@ description: The SMLIGHT SLZB integration allows users to monitor and manage the
 ha_category:
   - Binary sensor
   - Button
+  - Remote
   - Sensor
   - Switch
   - Update
@@ -16,6 +17,8 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - light
+  - remote
   - sensor
   - switch
   - update
@@ -79,7 +82,8 @@ The following sensors will be created:
 - **Zigbee temperature** - Temperature of Zigbee CC2652 or EFR32 chip
 - **Core uptime** - Uptime of Core device
 - **Zigbee uptime** - Uptime of Zigbee connection to ZHA/Z2M
-- **RAM usage** - Monitor RAM Usage
+- **RAM usage** - Monitor RAM usage
+- **PSRAM usage** - Monitor PSRAM usage (U-devices only)
 - **FS usage** - Monitor filesystem usage
 - **Connection mode** -  Connection mode - Ethernet, Wi-Fi, or USB
 - **Ethernet** - Ethernet connection status
@@ -117,6 +121,29 @@ The following update entities will be created:
 - **Zigbee firmware** - Firmware updates of Zigbee chip
 
 The updates offered in Home Assistant will match your currently installed firmware. This is based on the firmware channel (dev, release) and for Zigbee also on the firmware type (coordinator, router, Thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
+
+### Peripherals
+
+SLZB-Ultima devices support additional peripherals not found on other SLZB adapters, including an Ambilight LED strip, an infrared remote controller, and a buzzer. Support for these peripherals is being added progressively. The following entities are currently available.
+
+### Lights
+
+- **Ambilight** - Controls the LED strip on the front of the Ultima device, including selecting built-in effects. The `color2`, `speed`, and `direction` properties used by some effects are not yet supported.
+
+### Remote
+
+- **IR Remote** - Sends raw infrared codes using the built-in IR transmitter on the Ultima device.
+
+To send a raw IR code, use the [`remote.send_command`](/integrations/remote/) action. Pass the raw IR code as the `command` parameter. Raw IR codes can be captured from a physical remote using the IR receiver in the SLZB-OS web UI, under **IR Learn & Replay**.
+
+```yaml
+actions:
+  - action: remote.send_command
+    target:
+      entity_id: remote.slzb_ultima_ir_remote
+    data:
+      command: "b6580d200d200d0a0c0a0d090d0a0d090d200d0a..."
+```
 
 ## Removing the integration
 

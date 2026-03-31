@@ -196,6 +196,8 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - There is no segment master control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
 
+- Only the primary color of a segment can be set through the integration. The secondary and tertiary colors that many WLED effects use cannot be controlled directly from Home Assistant. The workaround is to configure those colors in the WLED app or web interface, save the configuration as a preset, and then activate that preset from Home Assistant — the preset restores all colors, including secondary and tertiary.
+
 ## Supported devices
 
 The integration requires **WLED version 0.14.0 or newer**.
@@ -277,10 +279,12 @@ to a preset called My Preset:
     option: "My Preset"
 ```
 
-When a preset is activated and the light state is modified afterward 
-(e.g. with a `light.turn_on` action), the preset may be reset to an empty value. 
-This can affect services such as `select.select_next`, which will start again 
+When a preset is activated and the light state is modified afterward
+(for example, with a `light.turn_on` action), the preset may be reset to an empty value.
+This can affect services such as `select.select_next`, which will start again
 from the first option instead of continuing the cycle.
+
+If you want to pick presets directly from the effects list in a light card, you can use a [template light](/integrations/template/#wrapping-wled-presets-as-light-effects) to wrap the WLED device and expose its presets as effects.
 
 ### Automation using specific palette name
 
