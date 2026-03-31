@@ -92,6 +92,58 @@ Include home location:
   description: The parameter allows you to localize search results based on the Home Assistant location.
 {% endconfiguration_basic %}
 
+## Supported features
+
+### Models
+
+We generally support all Anthropic models, with one caveat: when a new model is released, it may introduce non-backward-compatible features, and it can take up to two Home Assistant releases for these features to be supported in the stable release.
+
+### Feature matrix
+
+The following table describes which [API features](https://platform.claude.com/docs/en/build-with-claude/overview) are supported and which are not. In general, we don't support beta features.
+
+#### Model capabilities
+
+| Feature | Description | Status | Notes |
+|---|---|---|---|
+| [Context windows](https://platform.claude.com/docs/en/build-with-claude/context-windows) | Up to 1M tokens for processing large documents, extensive codebases, and long conversations. | Supported | This is a basic feature, supported by default |
+| [Adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking) | Let Claude dynamically decide when and how much to think. Use the effort parameter to control thinking depth. | Supported | Use the **Thinking effort** parameter to control the effort for 4.6+ models |
+| [Batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing) | Process large volumes of requests asynchronously for cost savings. Send batches with a large number of queries per batch. Batch API calls cost 50% less than standard API calls. | Not supported | This feature does not apply to Home Assistant. There is currently no clear smart home use case for batch processing. |
+| [Citations](https://platform.claude.com/docs/en/build-with-claude/citations) | Ground Claude's responses in source documents. With Citations, Claude can provide detailed references to the exact sentences and passages it uses to generate responses, leading to more verifiable, trustworthy outputs. | Not supported | We support receiving the citations but don't currently display them in the interface |
+| [Data residency](https://platform.claude.com/docs/en/build-with-claude/data-residency) | Control where model inference runs using geographic controls. Specify `"global"` or `"us"` routing per request via the `inference_geo` parameter. | Not supported | We might add support later, but it is not clear why you would need this in Home Assistant |
+| [Effort](https://platform.claude.com/docs/en/build-with-claude/effort) | Control how many tokens Claude uses when responding with the effort parameter, trading off between response thoroughness and token efficiency. Supported on Opus 4.6 and Opus 4.5. | Supported | Use the **Thinking effort** parameter to control the effort for 4.6+ models |
+| [Extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) | Enhanced reasoning capabilities for complex tasks, providing transparency into Claude's step-by-step thought process before delivering its final answer. | Supported | Home Assistant displays the thoughts in the web interface since version 2026.4 |
+| [PDF support](https://platform.claude.com/docs/en/build-with-claude/pdf-support) | Process and analyze text and visual content from PDF documents. | Supported | Use `ai_task.generate_data` action with attachments to use this feature |
+| [Search results](https://platform.claude.com/docs/en/build-with-claude/search-results) | Enable natural citations for RAG applications by providing search results with proper source attribution. Achieve web search-quality citations for custom knowledge bases and tools. | Not supported | We receive the citations but they are not currently displayed in the interface. The response text itself usually provides sufficient information. |
+| [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs) | Guarantee schema conformance with two approaches: JSON outputs for structured data responses, and strict tool use for validated tool inputs. | Supported | Use `ai_task.generate_data` action with response schema to use this feature |
+
+#### Tools
+
+| Feature | Description | Status | Notes |
+|---|---|---|---|
+| [Code execution](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool) | Run code in a sandboxed environment for advanced data analysis, calculations, and file processing. | Supported | Use the **Code execution** parameter to enable |
+| [Web fetch](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool) | Retrieve full content from specified web pages and PDF documents for in-depth analysis. | Not supported | This is applicable but not implemented yet. |
+| [Web search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool) | Augment Claude's comprehensive knowledge with current, real-world data from across the web. | Supported | Use the **Enable web search** parameter to enable |
+| [Bash](https://platform.claude.com/docs/en/agents-and-tools/tool-use/bash-tool) | Execute bash commands and scripts to interact with the system shell and perform command-line operations. | Not supported | This is a client-side tool, the bash is implied to be on the Home Assistant side, this could compromise the security and provides no real benefit over Code execution feature that uses a sandboxed environment instead. |
+| [Computer use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) | Control computer interfaces by taking screenshots and issuing mouse and keyboard commands. | Not supported | This is probably not applicable to Home Assistant use cases |
+| [Memory](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool) | Enable Claude to store and retrieve information across conversations. Build knowledge bases over time, maintain project context, and learn from past interactions. | Not supported | This is more like an SDK feature rather than an API feature. As such, it can be implemented as a third-party LLM API. |
+| [Text editor](https://platform.claude.com/docs/en/agents-and-tools/tool-use/text-editor-tool) | Create and edit text files with a built-in text editor interface for file manipulation tasks. | Not supported | This is probably not applicable to Home Assistant use cases |
+| [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Extend Claude's capabilities with Skills. Use pre-built Skills (PowerPoint, Excel, Word, PDF) or create custom Skills with instructions and scripts. Skills use progressive disclosure to efficiently manage context. | Not supported | This feature is still in beta |
+| [MCP connector](https://platform.claude.com/docs/en/agents-and-tools/mcp-connector) | Connect to remote MCP servers directly from the Messages API without a separate MCP client. | Not supported | This feature is still in beta |
+| [Tool search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool) | Scale to thousands of tools by dynamically discovering and loading tools on-demand using regex-based search, optimizing context usage and improving tool selection accuracy. | Not supported | May be added later, but usually Home Assistant does not have so many tools |
+| [Files API](https://platform.claude.com/docs/en/build-with-claude/files) | Upload and manage files to use with Claude without re-uploading content with each request. Supports PDFs, images, and text files. | Not supported | This feature is still in beta |
+
+#### Context management
+
+| Feature | Description | Status | Notes |
+|---|---|---|---|
+| [Compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) | Server-side context summarization for long-running conversations. When context approaches the window limit, the API automatically summarizes earlier parts of the conversation. Supported on Opus 4.6 and Sonnet 4.6. | Not supported | This feature is still in beta |
+| [Context editing](https://platform.claude.com/docs/en/build-with-claude/context-editing) | Automatically manage conversation context with configurable strategies. Supports clearing tool results when approaching token limits and managing thinking blocks in extended thinking conversations. | Not supported | This feature is still in beta |
+| [Automatic prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#automatic-caching) | Simplify prompt caching to a single API parameter. The system automatically caches the last cacheable block in your request, moving the cache point forward as conversations grow. | Not supported | This feature is applicable but not implemented yet. |
+| [Prompt caching (5m)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) | Provide Claude with more background knowledge and example outputs to reduce costs and latency. | Partially supported | Caching is enabled for the system prompt and tools, but not for individual conversation messages, to keep Anthropic API costs low for typical Home Assistant smart home use cases |
+| [Prompt caching (1hr)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#1-hour-cache-duration) | Extended 1-hour cache duration for less frequently accessed but important context, complementing the standard 5-minute cache. | Not supported | This is a more expensive version of prompt caching; it is probably not worth it for a smart home, but we might add this option in the future |
+| [Token counting](https://platform.claude.com/docs/en/api/messages-count-tokens) | Token counting enables you to determine the number of tokens in a message before sending it to Claude, helping you make informed decisions about your prompts and usage. | Not supported | This is probably not applicable to Home Assistant use cases |
+
 ## Use cases
 
 The integration provides `conversation` and `ai_task` entities powered by Anthropic API. Please refer to the corresponding integrations for more details and examples:
