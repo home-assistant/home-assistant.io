@@ -593,7 +593,7 @@ We always make sure to document these changes to make the transition as easy as 
 
 The default grid row size for the heading card changed from 1 to auto, making it shorter (half a row). This is only noticeable for headings placed between other cards. Headings at the top of a section are unaffected thanks to the updated grid padding.
 
-If you’re using a custom theme, you can restore the previous spacing between sections by setting the ha-view-sections-row-gap theme variable to 8px for a more compact layout.
+If you’re using a custom theme, you can restore the previous spacing between sections by setting the `ha-view-sections-row-gap` theme variable to `8px` for a more compact layout.
 
 ([@piitaya] - [#30295]) ([Dashboard documentation])
 
