@@ -136,7 +136,7 @@ stop_netflix:
 
 ### `androidtv.adb_command`
 
-The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
+The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be returned as an action response, stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template), and logged at the INFO level.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -169,7 +169,7 @@ Available key commands include:
 
 The full list of key commands can be found in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
 
-You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
+You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be returned as an action response, stored in the media player's `'adb_response'` attribute, and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
