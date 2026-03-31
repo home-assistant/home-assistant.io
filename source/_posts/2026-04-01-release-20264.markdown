@@ -108,11 +108,16 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@arturpragacz] and [@piitaya] who helped write the release notes this release. Also, [@missyquarry], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@arturpragacz] and [@piitaya] who helped write the release notes this release. Also, [@missyquarry], [@RaHehl], [@CoMPaTech], [@mikeodr], [@silamon], and [@tronikos] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@arturpragacz]: https://github.com/arturpragacz
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@mikeodr]: https://github.com/mikeodr
 [@missyquarry]: https://github.com/missyquarry
 [@piitaya]: https://github.com/piitaya
+[@RaHehl]: https://github.com/RaHehl
+[@silamon]: https://github.com/silamon
+[@tronikos]: https://github.com/tronikos
 
 ## Infrared becoming a first-class citizen of Home Assistant
 
