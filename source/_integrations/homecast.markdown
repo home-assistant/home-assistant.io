@@ -13,7 +13,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 2025.12
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: homecast
 ha_platforms:
@@ -34,9 +34,30 @@ ha_quality_scale: bronze
 
 [Homecast](https://homecast.cloud) bridges Apple HomeKit smart home devices to open standards, enabling remote control, API access, and AI assistant integration. The Homecast macOS or iOS app runs on your home network as a relay between HomeKit and the Homecast cloud.
 
-This integration connects Home Assistant to the Homecast cloud API, exposing your HomeKit devices as native Home Assistant entities.
+This integration connects Home Assistant to the Homecast cloud API, exposing your HomeKit devices as native Home Assistant entities with real-time state updates.
 
 {% include integrations/config_flow.md %}
+
+## Installation
+
+There are two ways to install the Homecast integration:
+
+### Option 1: HACS (recommended)
+
+The [HACS](https://hacs.xyz) version includes all supported device platforms and receives updates immediately.
+
+1. Open HACS in your Home Assistant instance.
+2. Go to **Integrations** and select the three-dot menu, then **Custom repositories**.
+3. Add `https://github.com/parob/homecast-hass` as an **Integration** repository.
+4. Search for **Homecast** in HACS and install it.
+5. Restart Home Assistant.
+6. Continue with [Setup](#setup) below.
+
+### Option 2: Core integration
+
+The Homecast integration is included in Home Assistant Core starting with version 2025.12. The core version starts with the light platform, with additional platforms added in subsequent releases.
+
+No installation is needed — continue with [Setup](#setup) below.
 
 ## Prerequisites
 
@@ -53,7 +74,7 @@ This integration connects Home Assistant to the Homecast cloud API, exposing you
 5. Select which homes to share and the permission level (view or control).
 6. Confirm — your HomeKit devices will appear in Home Assistant within seconds.
 
-No manual OAuth client registration is needed — the integration handles this automatically.
+No manual OAuth client registration is needed — the integration registers credentials automatically.
 
 ## Supported devices
 
@@ -75,13 +96,13 @@ Devices with batteries automatically get battery level and low battery entities.
 
 ## How it works
 
-The integration polls the Homecast REST API (`GET /rest/state`) every 30 seconds to fetch device state. When you control a device through Home Assistant, it sends the command via `POST /rest/state` and triggers an immediate refresh.
+The integration connects to the Homecast cloud via WebSocket for real-time push updates. When a device state changes (from Apple Home, Siri, automations, or any other source), the update is pushed to Home Assistant within one to two seconds.
+
+A full state resync via REST polling runs every five minutes as a safety net to catch any missed updates.
+
+When you control a device through Home Assistant, the command is sent via the REST API and the WebSocket delivers the confirmed state change back.
 
 Devices are automatically organized into Home Assistant areas based on their HomeKit room names. If you have multiple homes, room names are prefixed with the home name (for example, "County Hall - Living Room").
-
-## Data updates
-
-The integration polls the Homecast cloud API every 30 seconds. After sending a control command, an additional refresh is triggered for faster feedback.
 
 ## Removing the integration
 
@@ -94,10 +115,6 @@ This integration follows standard integration removal. No extra steps are requir
 ### Devices not appearing
 
 Make sure the Homecast relay app (macOS or iOS) is running and connected. The relay must be online for the API to return device state.
-
-### Stale or delayed state
-
-State updates every 30 seconds via polling. WebSocket-based real-time updates are planned for a future release.
 
 ### Re-authentication
 
