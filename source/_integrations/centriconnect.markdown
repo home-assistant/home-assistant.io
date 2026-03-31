@@ -26,7 +26,7 @@ related:
     title: My link
 ---
 
-**CentriConnect/MyPropane** {% term integration %} allows you to monitor the level and status of propane tanks equiped with [centriconnect.com](https://www.centriconnect.com/) monitoring devices from within Home Assistant and setup automations based on the information.
+**CentriConnect/MyPropane** {% term integration %} allows you to monitor the level and status of propane tanks equipped with [centriconnect.com](https://www.centriconnect.com/) monitoring devices from within Home Assistant and setup automations based on the information.
 
 ## Supported devices
 
@@ -37,19 +37,19 @@ The following devices are known to be supported by the integration:
 
 ## Prerequisites
 
-To use this integration, you need to register your tank monitor with CentriConnect and create an account
+To use this integration, you need to register your tank monitor with CentriConnect and create an account.
 
-1. Make note of the full "Device ID" and "Device Authentication Code" printed on the setup card
+1. Make note of the full "Device ID" and "Device Authentication Code" printed on the setup card.
 1. Download the the **MyPropane** app and connect by scanning the QR code on the back of your tank monitor.
 1. Follow the steps to create an account and register the device.
-1. Select "Account" from the main menu
-1. Copy or write down your "User ID"
+1. Select "Account" from the main menu.
+1. Copy or write down your "User ID".
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Device ID:
-    description: "The unique identifer for your tank monitor. You can find it on the back of the device or on the setup card."
+    description: "The unique identifier for your tank monitor. You can find it on the back of the device or on the setup card."
 Device Authorization Code:
     description: "The secret authorization code for the device. It is only located on the setup card."
 User ID:
@@ -129,7 +129,7 @@ The **CentriConnect/MyPropane** integration provides the following entities:
 
 ## Examples
 
-### Display the current tank lavel as a gauge
+### Display the current tank level as a gauge
 
 The example below uses the common [gauge card](/dashboards/gauge/) in the {% term frontend %} to show the tank level with colored severity bands.
 
