@@ -161,6 +161,6 @@ Before reporting an issue, enable [debug logging](/docs/configuration/troublesho
 As soon as the issue re-occurs, stop the debug logging again (_a download of the debug log file will start automatically_).
 Additionally, download the {% term diagnostics %} data. Once you have collected the debug log and the diagnostics data, include them in the issue report.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
