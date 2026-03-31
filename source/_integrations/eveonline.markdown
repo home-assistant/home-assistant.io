@@ -80,6 +80,7 @@ Client Secret:
   description: "The Secret Key from your Eve Online developer application."
 {% endconfiguration_basic %}
 
+
 {% note %}
 Your Client ID and Client Secret are stored exclusively in your Home Assistant instance and are never shared with the integration developer or any third party. These credentials are used solely to authenticate your Home Assistant with the Eve Online API on your behalf.
 {% endnote %}
