@@ -195,6 +195,7 @@ On top of the cross-domain additions, a _lot_ of existing {% term domains %} als
 - **Text** now has conditions.
 - **Temperature** now has conditions to check if a temperature value is above or below a threshold.
 - **To-do list** gained triggers for when an item is added, completed, or removed.
+- **Valve** gained triggers for when a valve is opened, or closed.
 - **Water heater** gained both triggers and conditions, including an operation mode changed trigger.
 
 ### Try it out!
