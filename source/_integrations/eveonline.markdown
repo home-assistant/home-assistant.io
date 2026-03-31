@@ -162,6 +162,7 @@ After jumping across systems, your character may have a jump fatigue timer activ
     - trigger: state
       # Replace with your character's jump fatigue entity
       entity_id: sensor.my_character_jump_fatigue
+      from: ~
       to: "unknown"
   actions:
     - action: notify.notify
