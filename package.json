@@ -21,7 +21,7 @@
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-terminology": "^5.2.16"
   },
-  "resolutions": {
+  "overrides": {
     "minimist": ">=1.2.5"
   },
   "scripts": {

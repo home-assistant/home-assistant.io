@@ -3,6 +3,7 @@ require "bundler/setup"
 require "stringex"
 require 'net/http'
 require 'json'
+require 'fileutils'
 
 ## -- Misc Configs -- ##
 public_dir      = "public/"   # compiled site directory
@@ -74,21 +75,78 @@ task :preview, :listen do |t, args|
   listen_addr = args[:listen] || '127.0.0.1'
   listen_addr = '0.0.0.0' unless ENV['DEVCONTAINER'].nil?
   raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
-  puts "Starting to watch source with Jekyll and Sass."
-  puts "Now listening on http://localhost:#{server_port}"
+
+  # Create a temporary page so direct rackup runs never serve a missing index.
+  FileUtils.mkdir_p(public_dir)
+  File.write("#{public_dir}index.html", <<~HTML)
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="refresh" content="10">
+        <title>Building...</title>
+        <style>
+          body {
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background: #f5f5f5;
+          }
+          h1 { color: #333; }
+          p { color: #666; }
+        </style>
+      </head>
+      <body>
+        <h1>🏗️ Site is building...</h1>
+        <p>This page will refresh automatically every 10 seconds.</p>
+        <p>Please wait for Jekyll to finish the initial build.</p>
+      </body>
+    </html>
+  HTML
+
+  puts "=> Running initial Jekyll build, please wait..."
+
   # Always compile all SCSS files before starting Jekyll
-  system sass_compile
-  system "rake analytics_data"
-  system "rake version_data"
-  system "rake language_scores_data"
-  system "rake codeowners_data"
-  system "rake alerts_data"
-  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
+  success = system(sass_compile)
+  abort("Generating CSS failed") unless success
+  success = system("rake analytics_data")
+  abort("Generating analytics data failed") unless success
+  success = system("rake version_data")
+  abort("Generating version data failed") unless success
+  success = system("rake language_scores_data")
+  abort("Generating language scores data failed") unless success
+  success = system("rake codeowners_data")
+  abort("Extracting codeowners") unless success
+  success = system("rake alerts_data")
+  abort("Generating alerts data failed") unless success
+
+  success = system({"OCTOPRESS_ENV"=>"preview"}, "bundle exec jekyll build -t")
+  abort("Generating site failed") unless success
+
+  puts "=> Initial build complete. Starting server..."
+  puts "Now listening on http://#{listen_addr}:#{server_port}"
+
+  rackupPid = Process.spawn("bundle exec rackup --port #{server_port} --host #{listen_addr}")
+
+  watch_command = "bundle exec jekyll build -t --watch --incremental"
+  if `bundle exec jekyll build --help 2>&1`.include?("--skip-initial-build")
+    watch_command = "#{watch_command} --skip-initial-build"
+  else
+    puts "=> Jekyll does not support --skip-initial-build in this environment."
+  end
+
+  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, watch_command)
   sassPid = Process.spawn("#{sass_compile} --watch")
-  rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
 
   trap("INT") {
-    [jekyllPid, sassPid, rackupPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
+    puts "\n=> Shutting down..."
+    [jekyllPid, sassPid, rackupPid].each do |pid|
+      begin
+        Process.kill("TERM", pid)
+      rescue Errno::ESRCH, Errno::EINVAL
+        Process.kill("KILL", pid) rescue Errno::ESRCH
+      end
+    end
     exit 0
   }
 

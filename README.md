@@ -17,15 +17,40 @@ You can access the site at the following URLs, depending on the target branch:
 
 Additionally, Netlify provides a preview deployment for every pull request, linked in the first PR comment.
 
+## Prerequisites
+
+- Ruby (see `.ruby-version` for required version)
+- Bundler: `gem install bundler`
+- Node.js (see `.nvmrc` for required version)
+- npm: comes with Node.js
+
 ## Setup
 
 Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting/).
 
 ## Site preview
 
-In order to make the preview available on `http://127.0.0.1:4000`, use the following [bundler](
-https://bundler.io/
-) command:
+To make the preview available on `http://127.0.0.1:4000`, follow these steps using [Bundler](https://bundler.io/):
+
+> **Note:** The first time you run `bundle exec rake preview`, Jekyll will perform a full initial build before the server starts.
+> This may take up to 2 minutes.
+> Subsequent file changes will trigger fast incremental rebuilds automatically.
+
+## How to build the project
+
+1. Install Ruby gems:
+
+```bash
+bundle install
+```
+
+2. Install Node.js dependencies:
+
+```bash
+npm install
+```
+
+3. Start the local preview server:
 
 ```bash
 bundle exec rake preview
