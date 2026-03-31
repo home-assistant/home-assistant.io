@@ -51,11 +51,11 @@ For Home Assistant to communicate with Eve Online, you need to create an applica
 
 7. Select **Save**.
 
+8. On the **Your applications** page, note the **Client ID** and **Client Secret**. You will need these during the integration setup in Home Assistant.
+
 {% note %}
 The scopes listed above are the minimum required for the current version of the integration. To prepare for future updates, consider enabling additional scopes on the Eve Online developer portal now. This way, you won't need to update your developer application when a new version of the integration adds support for more character data.
 {% endnote %}
-
-8. On the **Your applications** page, note the **Client ID** and **Client Secret**. You will need these during the integration setup in Home Assistant.
 
 {% details "I have manually disabled My Home Assistant" %}
 
