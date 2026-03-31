@@ -746,7 +746,6 @@ Widget that displays a dropdown to select the sound mode for a [media player](/i
 <p class='img'>
   <img src='/images/dashboards/features/media_player_sound_mode.png' alt='Screenshot of the tile card with media player sound mode feature'>
   Screenshot of the tile card with media player sound mode feature
-
 </p>
 
 ```yaml
