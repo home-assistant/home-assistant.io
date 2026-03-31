@@ -68,7 +68,7 @@ Once you have the areas mapped, you can send your vacuum to clean specific areas
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The vacuum {% term integration %} provides purpose-specific automation triggers.
+The vacuum {% term integration %} provides automation triggers.
 
 These triggers only fire when the entity transitions from a known, valid state.
 If a device goes offline and reconnects (transitioning from `unavailable` or `unknown` back to an active state), the trigger does not execute for that recovery.
@@ -321,7 +321,7 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The vacuum {% term integration %} provides purpose-specific automation conditions.
+The vacuum {% term integration %} provides automation conditions.
 
 Entities that are `unavailable` or `unknown` are excluded from the check. With `behavior: any` (the default), the condition fails if all targeted entities are `unavailable` or `unknown`. With `behavior: all`, the condition passes if all targeted entities are `unavailable` or `unknown`.
 
