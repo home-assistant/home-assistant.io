@@ -73,8 +73,6 @@ The vacuum {% term integration %} provides automation triggers.
 These triggers only fire when the entity transitions from a known, valid state.
 If a device goes offline and reconnects (transitioning from `unavailable` or `unknown` back to an active state), the trigger does not execute for that recovery.
 
-To learn more about these triggers, see [Entity triggers](/docs/automation/trigger/#entity-triggers).
-
 ### Creating an automation with a vacuum trigger
 
 To create an automation that uses a vacuum trigger:
@@ -319,8 +317,6 @@ automation:
 The vacuum {% term integration %} provides automation conditions.
 
 Entities that are `unavailable` or `unknown` are excluded from the check. With `behavior: any` (the default), the condition fails if all targeted entities are `unavailable` or `unknown`. With `behavior: all`, the condition passes if all targeted entities are `unavailable` or `unknown`.
-
-To learn more about these conditions, see [Entity conditions](/docs/automation/condition/#entity-conditions).
 
 ### Vacuum is cleaning
 
