@@ -551,4 +551,4 @@ automation manual: !include_dir_merge_list automations/
 automation ui: !include automations.yaml
 ```
 
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
