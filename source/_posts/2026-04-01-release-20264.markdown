@@ -10,7 +10,7 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2026-04/beta-social.png
+og_image: /images/blog/2026-04/social.png
 ---
 
 <lite-youtube videoid="5B6VBQ9QyYg" videotitle="Home Assistant 2026.4 Release Party"></lite-youtube>
