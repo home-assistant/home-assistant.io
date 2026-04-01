@@ -111,7 +111,7 @@ The **Huum** integration {% term polling polls %} the Huum cloud service every 3
 **Symptom:** "Invalid authentication" error during setup
 
 1. Make sure your username (usually your email address) has no extra spaces or typos.
-2. If you're unsure of your password, reset it through the Huum app, then try setup again.
+2. If you're unsure of your password, reset it through the Huum app, then try setting it up again.
 3. Confirm you can log in to the Huum app with the same credentials.
 
 {% enddetails %}
@@ -122,7 +122,7 @@ The **Huum** integration {% term polling polls %} the Huum cloud service every 3
 
 1. Open the Huum app and verify your sauna is shown as connected, not just registered.
 2. Ensure your sauna is linked to the same Huum account you used during setup.
-3. Power cycle the UKU WiFi controller, wait for it to reconnect, then try setup again.
+3. Power cycle the UKU WiFi controller, wait for it to reconnect, then try setting it up again.
 
 {% enddetails %}
 
