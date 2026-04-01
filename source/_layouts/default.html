@@ -30,7 +30,12 @@
             {%- endunless -%}
           {% endif %} 
 
-          {% if page.is_post and page.sidebar == false %}
+          {% assign is_wwha_post = false %}
+          {% if page.is_post and page.categories contains 'Works-with-Home-Assistant' %}
+            {% assign is_wwha_post = true %}
+          {% endif %}
+
+          {% if page.is_post and page.sidebar == false and is_wwha_post == false %}
           <div class="grid__item four-fifths desk-wide-three-quarters lap-one-whole palm-one-whole">
           {% elsif page.no_toc == true %}
           <div class="grid__item one-whole desk-wide-three-quarters">  
@@ -50,7 +55,14 @@
           </div>
 
 
-          {% unless page.sidebar == false or page.layout == "landingpage" %}
+          {% assign show_sidebar = true %}
+          {% if page.sidebar == false and is_wwha_post == false %}
+            {% assign show_sidebar = false %}
+          {% endif %}
+          {% if page.layout == "landingpage" %}
+            {% assign show_sidebar = false %}
+          {% endif %}
+          {% if show_sidebar %}
             {% if root == 'integrations' %}
               <aside id="integration-sidebar" class="grid__item one-third desk-wide-one-quarter lap-one-whole palm-one-whole">
               {% else %}
@@ -58,7 +70,7 @@
             {% endif %}
             {% include site/sidebar.html %}
           </aside>
-          {% endunless %}
+          {% endif %}
         </div>
       </div>
 

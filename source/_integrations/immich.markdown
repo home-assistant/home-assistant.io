@@ -30,11 +30,11 @@ You need to [obtain the API key](https://immich.app/docs/features/command-line-i
 
 Enable the following permissions when creating your API key. Without these permissions, the integration may not work properly. The "admin-only" permissions are only available when your API key belongs to an administrative user.
 
-- `album.read`
-- `albumAsset.create`
 - `asset.download`
 - `asset.upload`
 - `asset.view`
+- `album.read`
+- `albumAsset.create`
 - `person.read`
 - `server.about`
 - `server.statistics` (_admin-only_)
