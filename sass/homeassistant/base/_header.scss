@@ -31,6 +31,12 @@ body > header {
       .menu>li>a, .docsearch .DocSearch-Search-Icon {
         color: $white;
       }
+
+      .menu-language select {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.5);
+        color: $white;
+      }
     }
 
     .ha-title {

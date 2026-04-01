@@ -25,9 +25,9 @@
           data-close="⨉"
         ></label>
         <ul class="menu pull-right">
-          <li><a {% if root == 'getting-started' or root == 'installation' %}class="active"{% endif %} href="/installation/">Getting started</a></li>
+          <li><a {% if root == 'getting-started' or root == 'installation' %}class="active"{% endif %} href="/installation/"><span data-i18n="nav.gettingStarted">Getting started</span></a></li>
           <li>
-            <a {% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'common-tasks' %}class="active"{% endif %} href="/docs/">Documentation {% icon "mdi:chevron-down" %}</a>
+            <a {% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'common-tasks' %}class="active"{% endif %} href="/docs/"><span data-i18n="nav.documentation">Documentation</span> {% icon "mdi:chevron-down" %}</a>
             <ul>
               <li><a href="/installation/">{% icon "simple-icons:homeassistant" %} Installation</a></li>
               <li><a href="/docs/automation/">{% icon "mdi:robot-happy" %} Automations</a></li>
@@ -39,7 +39,7 @@
             </ul>
           </li>
           <li>
-            <a href="#">Our hardware {% icon "mdi:chevron-down" %}</a>
+            <a href="#"><span data-i18n="nav.ourHardware">Our hardware</span> {% icon "mdi:chevron-down" %}</a>
             <ul>
               <li><a href="/green/">Home Assistant Green</a></li>
               <li><a href="/connect/zbt-2/">Connect ZBT-2</a></li>
@@ -47,9 +47,16 @@
               <li><a href="/voice-pe/">Voice Preview Edition</a></li>
             </ul>
           </li>
-          <li><a {% if root == 'integrations' %}class="active"{% endif %} href="/integrations/">Integrations</a></li>
-          <li><a {% if root == 'blog' %}class="active"{% endif %} href="/blog/">Blog</a></li>
-          <li><a {% if root == 'help' %}class="active"{% endif %} href="/help/">Need help?</a></li>
+          <li><a {% if root == 'integrations' %}class="active"{% endif %} href="/integrations/"><span data-i18n="nav.integrations">Integrations</span></a></li>
+          <li><a {% if root == 'blog' %}class="active"{% endif %} href="/blog/"><span data-i18n="nav.blog">Blog</span></a></li>
+          <li><a {% if root == 'help' %}class="active"{% endif %} href="/help/"><span data-i18n="nav.needHelp">Need help?</span></a></li>
+          <li class="menu-language">
+            <select id="language-switcher" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+            </select>
+          </li>
           <li>
             <div class="docsearch" id="docsearch"></div>
           </li>

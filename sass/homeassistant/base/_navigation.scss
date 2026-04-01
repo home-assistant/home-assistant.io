@@ -31,6 +31,23 @@ body {
   float: left;
 }
 
+.menu-language {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+
+  select {
+    min-width: 122px;
+    border: 1px solid rgba($text-color, 0.25);
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1;
+    padding: 8px 10px;
+    background: $white;
+    color: $text-color;
+  }
+}
+
 $menu-collapse: 1140px;
 
 // @media only screen and (max-width: $lap-end){
@@ -166,6 +183,15 @@ header .grid {
   .menu li a {
     margin: 0 !important;
     padding: 20px 24px !important;
+  }
+
+  .menu-language {
+    padding: 8px 24px 16px;
+
+    select {
+      width: 100%;
+      min-width: 0;
+    }
   }
 
   .menu li a:hover,

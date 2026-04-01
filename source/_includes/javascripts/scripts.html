@@ -15,6 +15,64 @@
     ev.preventDefault();
     document.location.assign("https://design.home-assistant.io/#brand/logo")
   });
+
+  // Keep navigation labels in sync with the selected language.
+  (function initializeLanguageSwitcher() {
+    const languageSelector = document.getElementById("language-switcher");
+    if (!languageSelector) {
+      return;
+    }
+
+    const supportedLanguages = {
+      en: {
+        "nav.gettingStarted": "Getting started",
+        "nav.documentation": "Documentation",
+        "nav.ourHardware": "Our hardware",
+        "nav.integrations": "Integrations",
+        "nav.blog": "Blog",
+        "nav.needHelp": "Need help?",
+      },
+      es: {
+        "nav.gettingStarted": "Primeros pasos",
+        "nav.documentation": "Documentación",
+        "nav.ourHardware": "Nuestro hardware",
+        "nav.integrations": "Integraciones",
+        "nav.blog": "Blog",
+        "nav.needHelp": "¿Necesitas ayuda?",
+      },
+      fr: {
+        "nav.gettingStarted": "Commencer",
+        "nav.documentation": "Documentation",
+        "nav.ourHardware": "Notre matériel",
+        "nav.integrations": "Intégrations",
+        "nav.blog": "Blog",
+        "nav.needHelp": "Besoin d'aide ?",
+      },
+    };
+
+    const applyLanguage = (languageCode) => {
+      const language = supportedLanguages[languageCode] ? languageCode : "en";
+      const labels = supportedLanguages[language];
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+        if (key && labels[key]) {
+          element.textContent = labels[key];
+        }
+      });
+
+      languageSelector.value = language;
+      document.documentElement.lang = language;
+      window.localStorage.setItem("ha-site-language", language);
+    };
+
+    const savedLanguage = window.localStorage.getItem("ha-site-language") || "en";
+    applyLanguage(savedLanguage);
+
+    languageSelector.addEventListener("change", (event) => {
+      applyLanguage(event.target.value);
+    });
+  })();
 </script>
 
 

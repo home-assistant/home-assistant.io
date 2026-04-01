@@ -28,6 +28,19 @@ Additionally, Netlify provides a preview deployment for every pull request, link
 
 Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting/).
 
+## README translations
+
+Translations of the README are available in `README.translations.md`.
+The file currently includes English, Spanish, and French sections.
+
+## Language selector in the site navigation
+
+The site header now includes a language dropdown with English, Spanish, and French options.
+
+- Use the dropdown in the top navigation to switch language labels.
+- Your selection is stored in local browser storage and reused on your next visit.
+- The feature currently translates top-level navigation labels.
+
 ## Site preview
 
 To make the preview available on `http://127.0.0.1:4000`, follow these steps using [Bundler](https://bundler.io/):
