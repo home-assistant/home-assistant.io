@@ -177,7 +177,7 @@ The following new triggers and conditions now work across entity types. For each
 - **Air quality**: check for detected pollutants like CO, CO2, smoke, and more.
 - **Climate**: check if the current or target temperature is above or below a threshold.
 
-<img src='/images/blog/2026-04/temp-natrual-automation-example.png' alt='Screenshot of an automation in the visual editor using a cross-domain Motion detected trigger targeted at the Outside area, combined with a Person is not home condition, and actions for recording a camera feed and starting watering.' class='no-shadow' />
+<img src='/images/blog/2026-04/natrual-automation-example.png' alt='Screenshot of an automation in the visual editor using a cross-domain Motion detected trigger targeted at the Outside area, combined with a Person is not home condition, and actions for recording a camera feed and starting watering.' class='no-shadow' />
 
 ### More triggers and conditions for existing domains
 
@@ -542,7 +542,7 @@ Some cards, like the entities card and vertical stack card, already default to a
 
 If you use an <abbr title="Large Language Model">LLM</abbr>-powered conversation agent with Assist, you may have wondered what's going on behind the scenes when it's processing your request. Now you can find out! The Assist dialog now shows you the thinking steps and tool calls your AI agent makes while working on your request.
 
-<img src='/images/blog/2026-04/temp-ai-conversation-thinking2.png' alt='Screenshot of the Assist dialog showing an expanded Show details section with the AI agent thinking steps and tool calls.' class='no-shadow' />
+<img src='/images/blog/2026-04/ai-conversation-thinking.png' alt='Screenshot of the Assist dialog showing an expanded Show details section with the AI agent thinking steps and tool calls.' class='no-shadow' />
 
 Each response from the AI agent now has a collapsible **Show details** section. Expand it to see the agent's reasoning process, which tools it called, what arguments it passed, and what results it got back. This is great for understanding how your AI agent arrives at its answers, and super helpful when debugging automations or tweaking your agent's behavior.
 
