@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2026.4 Beta: Infrared never left the chat"
-description: "Beta release notes: Infrared support turns your old remotes into smart home controllers, purpose-specific triggers and conditions almost feature complete, Matter lock management with PIN codes, background colors for dashboard sections, and 14 new integrations!"
+title: "2026.4: Infrared never left the chat"
+description: "Infrared support turns your old remotes into smart home controllers, purpose-specific triggers and conditions almost feature complete, Matter lock management with PIN codes, background colors for dashboard sections, and 14 new integrations!"
 date: 2026-04-01 00:00:00
 date_formatted: "April 1, 2026"
 author: Franck Nijhof
@@ -15,57 +15,6 @@ og_image: /images/blog/2026-04/social.png
 
 <lite-youtube videoid="5B6VBQ9QyYg" videotitle="Home Assistant 2026.4 Release Party"></lite-youtube>
 
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2026.4** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/142)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/800)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/149)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=5B6VBQ9QyYg) on April 1, 2026, at 20:00 GMT / 12:00 PT / 21:00 CET!
-
-{% endtip %}
-
 Home Assistant 2026.4! 🎉
 
 I'll be honest: when I first heard the pitch for [infrared support](#infrared-becoming-a-first-class-citizen-of-home-assistant) in Home Assistant, I wasn't exactly jumping out of my chair. Infrared? That's old tech! But that's _exactly_ the point. Think about how many TVs, air conditioners, and other appliances sitting in your home _right now_ have an infrared receiver but no smart features whatsoever. With this release, all of those devices can get a smart future, showing up as actual, controllable devices in Home Assistant. Turns out, old tech can learn some very new tricks. 📡
@@ -76,7 +25,7 @@ There's also plenty of fun stuff: [background colors for dashboard sections](#ba
 
 Oh! And don't forget: [State of the Open Home 2026](https://sotoh.openhomefoundation.org/) is happening on April 8 in Utrecht, the Netherlands! Come celebrate everything we've built together in person. Tickets are limited, so [grab yours](https://sotoh.openhomefoundation.org/) while you can! 🎟️
 
-Enjoy the (beta) release!
+Enjoy the release!
 
 ../Frenck
 
