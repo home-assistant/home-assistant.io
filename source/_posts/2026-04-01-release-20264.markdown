@@ -2,7 +2,7 @@
 layout: post
 title: "2026.4 Beta: Infrared never left the chat"
 description: "Beta release notes: Infrared support turns your old remotes into smart home controllers, purpose-specific triggers and conditions almost feature complete, Matter lock management with PIN codes, background colors for dashboard sections, and 15 new integrations!"
-date: 2026-03-25 00:00:00
+date: 2026-04-01 00:00:00
 date_formatted: "April 1, 2026"
 author: Franck Nijhof
 author_twitter: frenck
