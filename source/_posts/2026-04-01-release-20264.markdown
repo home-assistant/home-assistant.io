@@ -126,11 +126,11 @@ This release introduces native infrared support in Home Assistant, opening the d
 
 You might already be familiar with how [Bluetooth proxies](/integrations/bluetooth/) transformed Bluetooth in Home Assistant, making it possible to reach Bluetooth devices anywhere in your home through relatively inexpensive [ESPHome](https://esphome.io) devices. We're doing the same thing for infrared. With the new [Infrared](/integrations/infrared/) integration, Home Assistant now supports infrared proxies: small ESPHome-powered devices with an [IR transmitter](https://esphome.io/components/ir_rf_proxy/) that can send infrared commands on behalf of Home Assistant. This means Home Assistant can now control any device that responds to an infrared remote, as long as there's an {% term integration %} that knows how to speak that device's protocol.
 
-<img src='/images/blog/2026-04/temp-infrared-proxy.png' alt='Screenshot of the Infrared Proxy device page in Home Assistant, showing the Seeed XIAO IR Proxy by Seeed running ESPHome, with its infrared transmitter entity and activity log.' class='no-shadow' />
+<img src='/images/blog/2026-04/infrared-proxy.png' alt='Screenshot of the Infrared Proxy device page in Home Assistant, showing the Seeed XIAO IR Proxy by Seeed running ESPHome, with its infrared transmitter entity and activity log.' class='no-shadow' />
 
 The first integration to take advantage of this is the [LG Infrared](/integrations/lg_infrared/) integration, which lets you control LG TVs from Home Assistant. It creates a media player entity with support for power, volume, channel control, and playback commands, plus button entities for all the common remote functions like input selection and navigation. Since infrared is one-way by nature, the integration uses assumed states for now, but it works remarkably well for day-to-day use.
 
-<img src='/images/blog/2026-04/temp-lg-tv-infrared-proxy.png' alt='Screenshot of the LG TV device page in Home Assistant, showing media player controls for power, volume, and playback, along with button entities for navigation, HDMI input selection, and other remote functions.' class='no-shadow' />
+<img src='/images/blog/2026-04/lg-tv-infrared-proxy.png' alt='Screenshot of the LG TV device page in Home Assistant, showing media player controls for power, volume, and playback, along with button entities for navigation, HDMI input selection, and other remote functions.' class='no-shadow' />
 
 ### Get started in just a few steps
 
@@ -158,7 +158,7 @@ But that's not how we think about our homes. We think in terms of doors, windows
 
 This release introduces {% term triggers %} and {% term conditions %} that work across entity types and are organized by what they _mean_, not where they live technically. A "door opened" trigger now responds to _any_ door entity, whether it's a contact sensor or a motorized cover. A "temperature changed" trigger picks up readings from temperature sensors, {% term climate %} {% term devices %}, and water heaters alike. You no longer need to know the technical details behind the scenes.
 
-<img src='/images/blog/2026-04/temp-cross-domain-triggers.png' alt='Screenshot of the Add trigger dialog in the automation editor, showing the new cross-domain trigger categories like Humidity, Illuminance, Motion, Occupancy, and Power. The Motion category is selected, revealing Motion cleared and Motion detected triggers.' class='no-shadow' />
+<img src='/images/blog/2026-04/cross-domain-triggers.png' alt='Screenshot of the Add trigger dialog in the automation editor, showing the new cross-domain trigger categories like Humidity, Illuminance, Motion, Occupancy, and Power. The Motion category is selected, revealing Motion cleared and Motion detected triggers.' class='no-shadow' />
 
 And just like the purpose-specific triggers you already know, these new cross-domain triggers and conditions fully support targeting by {% term area %}, {% term floor %}, or {% term label %}. That means you can create a trigger like "When a window on the upstairs floor is opened" without listing every single window. Add a new window sensor up there, and it's automatically included.
 
@@ -177,7 +177,7 @@ The following new triggers and conditions now work across entity types. For each
 - **Air quality**: check for detected pollutants like CO, CO2, smoke, and more.
 - **Climate**: check if the current or target temperature is above or below a threshold.
 
-<img src='/images/blog/2026-04/natrual-automation-example.png' alt='Screenshot of an automation in the visual editor using a cross-domain Motion detected trigger targeted at the Outside area, combined with a Person is not home condition, and actions for recording a camera feed and starting watering.' class='no-shadow' />
+<img src='/images/blog/2026-04/natural-automation-example.png' alt='Screenshot of an automation in the visual editor using a cross-domain Motion detected trigger targeted at the Outside area, combined with a Person is not home condition, and actions for recording a camera feed and starting watering.' class='no-shadow' />
 
 ### More triggers and conditions for existing domains
 
