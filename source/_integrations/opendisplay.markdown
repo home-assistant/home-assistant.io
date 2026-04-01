@@ -114,7 +114,7 @@ actions:
 
 {% endraw %}
 
-Y{% enddetails %}
+{% enddetails %}
 
 ## Known limitations
 
