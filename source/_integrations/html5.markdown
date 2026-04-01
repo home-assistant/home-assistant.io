@@ -3,12 +3,14 @@ title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
 ha_category:
   - Notifications
+  - Event
 ha_release: 0.27
 ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: html5
 ha_platforms:
   - notify
+  - event
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
@@ -73,6 +75,20 @@ data:
 {% endraw %}
 
 {% enddetails %}
+
+### Events
+
+The **HTML5 Push Notifications** {% term integration %} creates an **event** {% term entity %} for each configured device. Home Assistant will update the event state whenever a notification is:
+
+- `received`: The notification arrives on the device.
+- `clicked`: The recipient interacts with the notification.
+- `closed`: The notification is dismissed without interaction.
+
+Each event includes **state attributes** that provide additional context:
+
+- `tag`: The identifier of the notification.
+- `action`: The identifier of the action, if the recipient selected an action button in the notification.
+- Any extra data that was included in the payload of the notification.
 
 ### Testing
 
