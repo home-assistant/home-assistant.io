@@ -58,7 +58,7 @@ Assuming you have already configured the platform:
 
 ## Notifiers
 
-The **HTML5 Push Notifications** {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more advanced and customizable notifications, you can use the [`html5.send_message`](#send-message) action instead. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
+The **HTML5 Push Notifications** {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [`html5.send_message`](#send-message) action instead. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
 
 {% details "Example YAML configuration" %}
 
@@ -92,34 +92,69 @@ Each event includes **state attributes** that provide additional context:
 
 ## Actions
 
-### Send message
+The integration provides the following actions.
 
-For more advanced and customizable notifications, use the `html5.send_message` action instead of `notify.send_message`.
+### Action: Send message
+
+For more customizable notifications, use the `html5.send_message` action instead of `notify.send_message`.
 
 Keep in mind that support for the features described below can vary depending on the browser and platform you are using. Refer to the [MDN Notifications API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility) for a detailed overview of compatibility across environments.
 
-#### Parameters
-
-- `title`: Title for your notification message (Required).
-- `message`: The message body of the notification.
-- `icon`: URL or relative path of an image to display as the main icon in the notification. Maximum size is 320px by 320px.
-- `badge`: URL or relative path of a small image to replace the browser icon on mobile platforms. Maximum size is 96px by 96px
-- `image`: URL or relative path of a larger image to display in the main body of the notification. Experimental support, may not be displayed on all platforms.
-- `tag`: The identifier of the notification. Sending a new notification with the same tag will replace the existing one. If not specified, a unique tag will be generated for each notification.
-- `actions`: Adds action buttons to the notification. When the user clicks a button, an event is sent back to Home Assistant. The number of actions supported may vary between platforms.
-  - `action`: The identifier of the action. This will be sent back to Home Assistant when the user clicks the button (Required).
-  - `title`: The label of the button displayed to the user (Required).
-  - `icon`: URL or relative path of an image displayed as the icon for this button. Maximum size is 128px by 128px.
-- `dir`: The direction of the notification's text. Adopts the browser's language setting behavior by default.
-- `renotify`: If enabled, the user will be alerted again (sound/vibration) when a notification with the same tag replaces a previous one.
-- `silent`: If enabled, the notification will not play sounds or trigger vibration, regardless of the device's notification settings.
-- `require_interaction`: If enabled, the notification will remain active until the user clicks or dismisses it, rather than automatically closing after a few seconds. This provides the same behavior on desktop as on mobile platforms.
-- `vibrate`: A vibration pattern to run with the notification. An array of integers representing alternating periods of vibration and silence in milliseconds. For example, [200, 100, 200] would vibrate for 200ms, pause for 100ms, then vibrate for another 200ms.
-- `lang`: The language of the notification's content.
-- `timestamp`: The timestamp of the notification. By default, it uses the time when the notification is sent.
-- `ttl`: Specifies how long the push service should retain the message if the user's browser or device is offline. After this period, the notification expires. A value of 0 means the notification is discarded immediately if the target is not connected. Defaults to 1 day.
-- `urgency`: Whether the push service should try to deliver the notification immediately or defer it in accordance with the user's power saving preferences.
-- `data`: Additional custom key-value pairs to include in the payload of the push message. This can be used to include extra information that can be accessed in the notification click event.
+- **Data attribute**: `title`
+  - **Description**: Title for your notification message.
+  - **Optional**: No
+- **Data attribute**: `message`
+  - **Description**: The message body of the notification.
+  - **Optional**: Yes
+- **Data attribute**: `icon`
+  - **Description**: URL or relative path of an image to display as the main icon in the notification. Maximum size is 320px by 320px.
+  - **Optional**: Yes
+- **Data attribute**: `badge`
+  - **Description**: URL or relative path of a small image to replace the browser icon on mobile platforms. Maximum size is 96px by 96px.
+  - **Optional**: Yes
+- **Data attribute**: `image`
+  - **Description**: URL or relative path of a larger image to display in the main body of the notification. Experimental support; may not be displayed on all platforms.
+  - **Optional**: Yes
+- **Data attribute**: `tag`
+  - **Description**: The identifier of the notification. Sending a new notification with the same tag replaces the existing one. If not specified, a unique tag is generated for each notification.
+  - **Optional**: Yes
+- **Data attribute**: `actions`
+  - **Description**: Adds action buttons to the notification. When the user clicks a button, an event is sent back to Home Assistant. The number of actions supported may vary between platforms.
+  - **Optional**: Yes
+  - **Keys**:
+    - **`action`**: The identifier of the action. This is sent back to Home Assistant when the user clicks the button. Required.
+    - **`title`**: The label of the button displayed to the user. Required.
+    - **`icon`**: URL or relative path of an image displayed as the icon for this button. Maximum size is 128px by 128px. Optional.
+- **Data attribute**: `dir`
+  - **Description**: The direction of the notification's text. Adopts the browser's language setting behavior by default.
+  - **Optional**: Yes
+- **Data attribute**: `renotify`
+  - **Description**: If enabled, the user is alerted again (sound/vibration) when a notification with the same tag replaces a previous one.
+  - **Optional**: Yes
+- **Data attribute**: `silent`
+  - **Description**: If enabled, the notification does not play sounds or trigger vibration, regardless of the device's settings.
+  - **Optional**: Yes
+- **Data attribute**: `require_interaction`
+  - **Description**: If enabled, the notification remains active until the user clicks or dismisses it, rather than automatically closing after a few seconds. This provides the same behavior on desktop as on mobile platforms.
+  - **Optional**: Yes
+- **Data attribute**: `vibrate`
+  - **Description**: A vibration pattern to run with the notification. An array of integers representing alternating periods of vibration and silence in milliseconds. For example, `[200, 100, 200]` vibrates for 200ms, pauses for 100ms, then vibrates for another 200ms.
+  - **Optional**: Yes
+- **Data attribute**: `lang`
+  - **Description**: The language of the notification's content.
+  - **Optional**: Yes
+- **Data attribute**: `timestamp`
+  - **Description**: The timestamp of the notification. By default, uses the time when the notification is sent.
+  - **Optional**: Yes
+- **Data attribute**: `ttl`
+  - **Description**: Specifies how long the push service retains the message if the user's browser or device is offline. After this period, the notification expires. A value of `0` means the notification is discarded immediately if the target is not connected. Defaults to 1 day.
+  - **Optional**: Yes
+- **Data attribute**: `urgency`
+  - **Description**: Whether the push service tries to deliver the notification immediately or defers it in accordance with the user's power-saving preferences.
+  - **Optional**: Yes
+- **Data attribute**: `data`
+  - **Description**: Additional custom key-value pairs to include in the payload of the push message. This can be used to include extra information that can be accessed in the notification click event.
+  - **Optional**: Yes
 
 {% details "Example YAML configuration" %}
 
@@ -207,7 +242,7 @@ Common event payload parameters are:
 
 You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
 
-### received event
+### Received event
 
 You will receive an event named `html5_notification.received` when the
 notification is received on the device.
@@ -219,7 +254,7 @@ notification is received on the device.
       event_type: html5_notification.received
 ```
 
-### clicked event
+### Clicked event
 
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
@@ -241,7 +276,7 @@ or
         action: open_door
 ```
 
-### closed event
+### Closed event
 
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
