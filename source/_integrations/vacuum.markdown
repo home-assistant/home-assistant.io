@@ -143,3 +143,330 @@ Once you have the areas mapped, you can send your vacuum to clean specific areas
 5. Under **Area**, select the area to clean. You can select multiple areas.
 6. Give your automation a name and select **Save**.
 7. Test your automation by selecting **Run actions**. Your vacuum should start cleaning the specified areas.
+
+## Triggers
+
+The vacuum {% term integration %} provides purpose-specific [automation triggers](/docs/automation/trigger/#entity-triggers). These are available when the **Purpose-specific triggers and conditions** feature in {% my labs title="**Settings** > **System** > **Labs**" %} is enabled.
+
+These triggers only fire when the entity transitions from a known, valid state. If a device goes offline and reconnects (transitioning from `unavailable` or `unknown` back to an active state), the trigger does not fire for that recovery.
+
+### Creating a vacuum trigger
+
+This example creates an automation that sends a notification when both your downstairs and upstairs vacuums have finished cleaning and docked.
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation**.
+2. Select **Create new automation**.
+3. Select **Add trigger**, then in the **Search trigger** field, type "vacuum returned".
+4. Select **Vacuum returned to dock** from the list.
+5. Under **Target**, select the entities you want to monitor:
+   - You can select specific entities, such as **vacuum.downstairs** and **vacuum.upstairs**.
+   - You can also select an area or a floor, and all vacuum entities in that area or floor are targeted.
+6. Under **Options**, set **Behavior**.
+   - If you select **Last**, for example, the automation only fires after both vacuums have docked.
+7. In the **Then do** section, select **Add action** and choose your preferred notification action.
+8. Select **Save** and give your automation a meaningful name.
+
+The equivalent YAML for this automation looks like this:
+
+```yaml
+automation:
+  triggers:
+    - trigger: vacuum.docked
+      target:
+        entity_id:
+          - vacuum.downstairs
+          - vacuum.upstairs
+      options:
+        behavior: last
+  actions:
+    - action: notify.mobile_app
+      data:
+        message: "Both vacuums have finished cleaning and docked."
+```
+
+### Trigger: Vacuum returned to dock
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.docked` trigger fires when the vacuum cleaner docks.
+
+The following example triggers the automation only after both targeted vacuums have docked:
+
+```yaml
+automation:
+  triggers:
+    - trigger: vacuum.docked
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: last
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum docks), `first` (fires only when the first targeted vacuum docks), `last` (fires only after the last targeted vacuum has docked).
+    - **Optional**: Yes
+
+### Trigger: Vacuum encountered an error
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.errored` trigger fires when the vacuum cleaner encounters an error.
+
+The following example triggers the automation as soon as the first of the two targeted vacuums encounters an error:
+
+```yaml
+automation:
+  triggers:
+    - trigger: vacuum.errored
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum encounters an error), `first` (fires only when the first targeted vacuum encounters an error), `last` (fires only after the last targeted vacuum has encountered an error).
+    - **Optional**: Yes
+
+### Trigger: Vacuum cleaner paused cleaning
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.paused_cleaning` trigger fires when the vacuum cleaner pauses its cleaning run.
+
+The following example triggers the automation as soon as the first of the two targeted vacuums pauses cleaning:
+
+```yaml
+automation:
+  triggers:
+    - trigger: vacuum.paused_cleaning
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum pauses cleaning), `first` (fires only when the first targeted vacuum pauses cleaning), `last` (fires only after the last targeted vacuum has paused cleaning).
+    - **Optional**: Yes
+
+### Trigger: Vacuum cleaner started cleaning
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.started_cleaning` trigger fires when the vacuum cleaner begins a cleaning run.
+
+The following example triggers the automation as soon as the first of the two targeted vacuums starts cleaning:
+
+```yaml
+automation:
+  triggers:
+    - trigger: vacuum.started_cleaning
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts cleaning), `first` (fires only when the first targeted vacuum starts cleaning), `last` (fires only after the last targeted vacuum has started cleaning).
+    - **Optional**: Yes
+
+### Trigger: Vacuum cleaner started returning to dock
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.started_returning` trigger fires when the vacuum cleaner starts heading back to its dock.
+
+The following example triggers the automation as soon as the first of the two targeted vacuums starts returning to the dock:
+
+```yaml
+automation:
+  triggers:
+    - trigger: vacuum.started_returning
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts returning to the dock), `first` (fires only when the first targeted vacuum starts returning), `last` (fires only after the last targeted vacuum has started returning).
+    - **Optional**: Yes
+
+## Conditions
+
+The vacuum {% term integration %} provides purpose-specific [automation conditions](/docs/automation/condition/#entity-conditions). These are available when the **Purpose-specific triggers and conditions** feature in {% my labs title="**Settings** > **System** > **Labs**" %} is enabled.
+
+Entities that are `unavailable` or `unknown` are excluded from the check. With `behavior: any` (the default), the condition fails if all targeted entities are `unavailable` or `unknown`. With `behavior: all`, the condition passes if all targeted entities are `unavailable` or `unknown`.
+
+### Condition: Vacuum cleaner is cleaning
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.is_cleaning` condition passes when the vacuum cleaner is cleaning.
+
+The following example passes only when both targeted vacuums are cleaning:
+
+```yaml
+automation:
+  conditions:
+    - condition: vacuum.is_cleaning
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is cleaning), `all` (passes only if all targeted vacuums are cleaning).
+    - **Optional**: Yes
+
+### Condition: Vacuum cleaner is docked
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.is_docked` condition passes when the vacuum cleaner is docked.
+
+The following example passes only when both targeted vacuums are docked:
+
+```yaml
+automation:
+  conditions:
+    - condition: vacuum.is_docked
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is docked), `all` (passes only if all targeted vacuums are docked).
+    - **Optional**: Yes
+
+### Condition: Vacuum cleaner is encountering an error
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.is_encountering_an_error` condition passes when the vacuum cleaner is in an error state.
+
+The following example passes only when both targeted vacuums are in an error state:
+
+```yaml
+automation:
+  conditions:
+    - condition: vacuum.is_encountering_an_error
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is in an error state), `all` (passes only if all targeted vacuums are in an error state).
+    - **Optional**: Yes
+
+### Condition: Vacuum cleaner is paused
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.is_paused` condition passes when the vacuum cleaner is paused.
+
+The following example passes only when both targeted vacuums are paused:
+
+```yaml
+automation:
+  conditions:
+    - condition: vacuum.is_paused
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is paused), `all` (passes only if all targeted vacuums are paused).
+    - **Optional**: Yes
+
+### Condition: Vacuum cleaner is returning
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `vacuum.is_returning` condition passes when the vacuum cleaner is returning to the dock.
+
+The following example passes only when both targeted vacuums are returning to the dock:
+
+```yaml
+automation:
+  conditions:
+    - condition: vacuum.is_returning
+      target:
+        entity_id:
+          - vacuum.my_robot
+          - vacuum.second_floor
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is returning to the dock), `all` (passes only if all targeted vacuums are returning to the dock).
+    - **Optional**: Yes
+
