@@ -1,54 +1,41 @@
-[![Discord](https://img.shields.io/discord/330944238910963714.svg)](https://www.home-assistant.io/join-chat/)
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+Home Assistant Website
 
-[![Deploys by netlify](https://www.netlify.com/img/global/badges/netlify-color-bg.svg)](https://www.netlify.com)
+This repo contains the full source code for the Home Assistant website (https://home-assistant.io).
 
-# Home Assistant website
+🔗 Access Points
 
-This is the source for the [Home-Assistant.io website](https://home-assistant.io).
+Each branch deploys to a different live environment:
 
-## Access
+Production (current): https://www.home-assistant.io
+Beta (rc): https://rc.home-assistant.io
+Development (next): https://next.home-assistant.io
 
-You can access the site at the following URLs, depending on the target branch:
+Every pull request automatically gets a Netlify preview linked in the first PR comment.
 
-- **Production** (`current` branch): https://www.home-assistant.io
-- **Beta** (`rc` branch): https://rc.home-assistant.io
-- **Development** (`next` branch): https://next.home-assistant.io
+🛠️ Contributing & Setup
 
-Additionally, Netlify provides a preview deployment for every pull request, linked in the first PR comment.
+Full contribution and documentation guidelines are here:
+https://developers.home-assistant.io/docs/documenting/
 
-## Setup
+Follow that guide to install dependencies, run the site locally, and submit PRs.
 
-Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting/).
+🚀 Local Preview
 
-## Site preview
+Start a local preview server on http://127.0.0.1:4000:
 
-In order to make the preview available on `http://127.0.0.1:4000`, use the following [bundler](
-https://bundler.io/
-) command:
-
-```bash
 bundle exec rake preview
-```
 
-If the preview is not running on your local machine, pass the IP of the target machine from where it should be served as a parameter, i.e. to access on `http://192.168.0.123:4000`:
+Serve it to another device on your network by passing your local IP:
 
-```bash
 bundle exec rake preview[192.168.0.123]
-```
+⚡ Speed Up Build Times
 
-## Speeding up site generation
+Large changelogs make builds slow — use these helper commands when editing blog posts:
 
-Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
+Isolate one specific post:
 
-```bash
 bundle exec rake isolate[filename-of-blogpost]
-```
 
-When you're done working on the site, run the following command to move the posts back again:
+Re-enable all posts after you're done:
 
-```bash
 bundle exec rake integrate
-```
-
-[![Home Assistant - A project from the Open Home Foundation](https://www.openhomefoundation.org/badges/home-assistant.png)](https://www.openhomefoundation.org/)
