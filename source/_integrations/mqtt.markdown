@@ -744,8 +744,6 @@ support_url:
     'bri_stat_t':          'brightness_state_topic',
     'bri_tpl':             'brightness_template',
     'bri_val_tpl':         'brightness_value_template',
-    'cln_segmnts_cmd_t':   'clean_segments_command_topic',
-    'cln_segmnts_cmd_tpl': 'clean_segments_command_template',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_k':           'color_temp_kelvin',

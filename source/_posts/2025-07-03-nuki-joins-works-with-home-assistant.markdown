@@ -33,9 +33,7 @@ In case you didn't know, Works with Home Assistant differs from other certificat
 
 Our team has been busy testing the Nuki locks for some time and has certified the following Matter-over-Thread enabled devices. It's important to note that to set up the lock, calibrate it, and activate Matter you will need to use the Nuki app. However, there is no hard requirement for a cloud account or account registration in order to use these locks. Once the device is active and connected via Matter, you can manage it purely through Home Assistant, and can even delete the app.
 
-- [Nuki Smart Lock Go](https://nuki.io/en-uk/products/smart-lock-go)
-- [Nuki Smart Lock Pro](https://nuki.io/en-uk/products/smart-lock-pro-5th-gen)
-- [Nuki Smart Lock Ultra](https://nuki.io/en-uk/products/smart-lock-ultra)
+{% include integrations/device_list.html brand="nuki" %}
 
 ## Insane speeds, literally
 

@@ -47,13 +47,7 @@ Heiman's commitment to openness and community is also reflected in the devices w
 
 What devices have been certified?
 
-* <a href="https://www.heimantech.com/product/?type=detail&id=127" target="_blank" rel="noopener">Heiman Smart Smoke Alarm (USA)</a>
-* <a href="https://www.heimantech.com/product/?type=detail&id=3" target="_blank" rel="noopener">Heiman Smart Smoke Alarm (EU and China)</a>
-* <a href="https://www.heimantech.com/product/?type=detail&id=122" target="_blank" rel="noopener">Heiman Smart Carbon Monoxide Alarm (USA)</a>
-* <a href="https://www.heimantech.com/product/?type=detail&id=137" target="_blank" rel="noopener">Heiman Smart Carbon Monoxide Alarm (EU and China)</a>
-* <a href="https://www.heimantech.com/product/smart-human-infrared-detector-m1-series" target="_blank" rel="noopener">Heiman Motion Sensor</a>
-* <a href="https://www.heimantech.com/product/smart-water-leakage-detector-l1-series" target="_blank" rel="noopener">Heiman Water Leak Sensor</a>
-* <a href="https://www.heimantech.com/product/smart-temperature-and-humidity-detector-h1-series" target="_blank" rel="noopener">Heiman Humidity and Temperature Sensor</a>
+{% include integrations/device_list.html brand="heiman" %}
 
 Also worth noting: Heiman's global presence allows them to deliver quality devices at prices that won't break the bank. Safety sensors and alarms shouldn't be a luxury, and Heiman's approach means they don't have to be.
 

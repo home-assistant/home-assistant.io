@@ -225,9 +225,9 @@ supported_features:
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `clean_spot`"
 unique_id:
-  description: "An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery or when segment cleaning is configured."
-  required: false
-  type: string
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
+   required: false
+   type: string
 {% endconfiguration %}
 
 ## Configuration example
@@ -256,7 +256,6 @@ mqtt:
         - high
         - max
       send_command_topic: "vacuum/send_command"
-      unique_id: "mqtt_vc_031928332"
 ```
 
 ## MQTT Protocol

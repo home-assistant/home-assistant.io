@@ -4,9 +4,9 @@ description: Instructions on how to integrate Gardena Bluetooth devices within H
 ha_category:
   - Binary sensor
   - Number
+  - Select
   - Sensor
   - Switch
-  - Select
 ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -17,10 +17,10 @@ ha_platforms:
   - binary_sensor
   - button
   - number
+  - select
   - sensor
   - switch
   - valve
-  - select
 ha_integration_type: device
 ---
 
