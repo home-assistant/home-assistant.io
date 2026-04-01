@@ -2,7 +2,7 @@
 title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
-  - Sensor
+  - DIY
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Push
@@ -114,19 +114,7 @@ actions:
 
 {% endraw %}
 
-{% enddetails %}
-
-## Sensors
-
-The following sensors are provided. All are in the diagnostic category.
-
-| Sensor          | Unit | Description                                                  | Enabled by default |
-|-----------------|------|--------------------------------------------------------------|--------------------|
-| Battery         | %    | State of charge estimated from battery voltage and chemistry | Yes                |
-| Battery voltage | mV   | Raw battery voltage from the ADC                             | No                 |
-| Temperature     | °C   | Internal microcontroller temperature                         | No                 |
-
-Battery and voltage sensors are only created for battery- or solar-powered devices. The temperature reading reflects the microcontroller's internal temperature, not ambient temperature.
+Y{% enddetails %}
 
 ## Known limitations
 
