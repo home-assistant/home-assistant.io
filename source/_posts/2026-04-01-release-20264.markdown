@@ -321,7 +321,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[SwitchBot Cloud]** can now control [Standing Fan](https://eu.switch-bot.com/products/switchbot-standing-circulator-fan) devices. Thanks, [@XiaoLing-git]!
 - **[Jellyfin]** gained shuffle and enqueue support for its media player, giving you more playback control. Thanks, [@ch604]!
 - **[GitHub]** picked up a merged pull requests count sensor for your repositories. Thanks, [@abmantis]!
-- **[Proxmox VE]** expanded with uptime duration and memory usage sensors, runtime entity discovery for nodes, VMs, and containers, plus a suspend all button at the node level. Thanks, [@erwindouna]!
+- **[Proxmox VE]** expanded with uptime duration, memory usage, storage, network, and backup sensors, runtime entity discovery for nodes, VMs, and containers, a suspend all button at the node level, a snapshot button, and token-based authentication support. Thanks, [@erwindouna]!
 - **[Renault]** exposes a charging settings mode sensor and battery charge limit controls to set your minimum and target state of charge. Thanks, [@reneboer] and [@yoda-jm]!
 - **[Schlage]** gained actions for managing door lock access codes: add, delete, and retrieve codes directly from Home Assistant. Thanks, [@tykeal]!
 - **[Kostal Plenticore]** added an active power limit control, letting you adjust your solar inverter's output power. Thanks, [@erikbadman]!
