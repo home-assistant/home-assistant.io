@@ -13,8 +13,10 @@ ha_codeowners:
 ha_domain: airq
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - number
   - sensor
+ha_zeroconf: true
 ha_integration_type: hub
 ---
 
@@ -22,8 +24,9 @@ The **air-Q** {% term integration %} allows integrating the sensors, provided by
 
 {% include integrations/config_flow.md %}
 
-During the initial configuration, the user is prompted for the IP address of the {% term device %} or the first 5 characters of the serial number, as well as the device password.
+Your air-Q device can be automatically discovered on your network. When Home Assistant discovers a new air-Q device, it appears as a notification in the UI. Select the notification and enter your device password to complete the setup.
 
+If your device is not discovered automatically, you can set it up manually. During the manual configuration, you are prompted for the IP address of the {% term device %} or the first 5 characters of the serial number, as well as the device password.
 
 For this integration to communicate with the device, both must be connected to the same Wi-Fi network.
 

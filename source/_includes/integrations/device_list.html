@@ -1,0 +1,9 @@
+{%- for company in site.data.wwha_devices -%}
+{%- if company.brand == include.brand -%}
+<ul>
+{%- for device in company.devices %}
+<li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a></li>
+{%- endfor %}
+</ul>
+{%- endif -%}
+{%- endfor -%}

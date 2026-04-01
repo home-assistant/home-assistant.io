@@ -126,6 +126,10 @@ The Envoy device reports aggregated data for all connected micro-inverters.
 
 When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
 
+{% note %}
+For Envoy non-metered, the production data is read from an endpoint described in the [API](#enphase-api-reference). For Envoy-metered the data is read from an endpoint not listed in the API. The data quality of the used endpoint was fine in older firmware versions, but reportedly varies with recent firmware versions. As an alternative consider using the [Production CT](#current-transformers) entities.
+{% endnote %}
+
 #### Individual micro-inverter production data
 
 The Envoy reports individual micro-inverter device production data. SN is the micro-inverter serial-number.
@@ -160,7 +164,7 @@ Due to a limitation in the Envoy firmware, the inverter device data is only avai
 
 ### House consumption data
 
-House consumption data requires an Envoy Metered equipped and configured with at least 1 consumption <abbr title="current transformers">[CT](#current-transformers)</abbr>.
+House consumption data requires an Envoy Metered equipped and configured with at least 1 consumption <abbr title="current transformers">[CT](#current-transformers)</abbr>, net- or total-consumption. The Envoy calculates the house consumption values in one of its endpoint reports. The used endpoint is not in the official [API](#enphase-api-reference) documentation and data quality has varied / may vary with firmware evolutions. If a total-consumption CT is installed , consider using the [total-consumption CT](#current-transformers) entities as an alternative.
 
 #### Consumption Sensor Entities
 
@@ -180,7 +184,7 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 The Envoy Metered can be equipped with up-to 6 <abbr title="current transformers">CT</abbr>. These can be assigned to production, consumption and/or storage measurements in single or multiple phase setups.
 
-The below diagram shows CT installation positions and how they are referred to.
+The below diagram shows CT installation positions and how they are referred to. When used with an IQ Combiner more CT may be installed and visible. For more detail on combiner configuration see the [IQ Combiner reference](#iq-combiner-reference).
 
 - The production CT measures the energy exchange between Solar production and the switchboard.
 - If the consumption CT is installed as **Load only** a.k.a.  **total-consumption** it measures energy exchange from the switchboard to the loads/house.
@@ -208,40 +212,40 @@ Phase entity names are the names used for the aggregated entities, with the phas
 
 #### Current transformer entities
 
-CT measure multiple properties of the energy exchange which are available as Envoy device entities. These are all disabled by default, enable them as desired.
+CT measure multiple properties of the energy exchange which are available as Envoy device entities. Some are enabled by default, others not, enable the latter as desired.
 
-##### Production CT sensor entities
+The CT entity names use format: **Envoy <abbr title="Envoy serial number">SN</abbr> <abbr title="CT Entity name part from table">CT Entity</abbr>**. SN is the envoy serial number as with all other entities. The CT Entity part contains the actual CT name in the description, shown as \<type\> in the table below.
 
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency production CT**: Frequency in Hz.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage production CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage))
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Production CT current**: Current in A.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor production CT**: Powerfactor, ratio of active to apparent power.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status production CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active production CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
+| CT Entity | Enabled | Description |
+| ----------------------------------------- | - | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **\<type\> CT energy delivered**          | Y | Accumulated energy delivered to the switchboard in Wh.                                                                                    |
+| **\<type\> CT energy received**           | Y | Accumulated energy received from the switchboard in Wh.                                                                                   |
+| **\<type\> CT power**                     | Y | Power in W. Positive to the switchboard                                                                                                   |
+| **Frequency \<type\> CT**                 | N | Frequency in Hz.                                                                                                                          |
+| **Voltage \<type\> CT**                   | N | Voltage in V. (see limitations [Summed voltage](#summed-voltage)).                                                                        |
+| **\<type\> CT current**                   | N | Current in A.                                                                                                                             |
+| **Powerfactor \<type\> CT**               | N | Powerfactor, ratio of active to apparent power.                                                                                           |
+| **Metering status \<type\> CT**           | N | Status of the metering process: `normal`, `not-metering`, `check-wiring`.                                                                 |
+| **Meter status flags active \<type\> CT** | N | Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero. |
 
-##### Net-consumption CT sensor entities
+For example, the Production CT Voltage entity name for Envoy 1234 would be **Envoy 1234 Voltage production CT**.
 
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency net consumption CT**: Frequency in Hz .
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage net consumption CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage)
-- **Envoy <abbr title="Envoy serial number">SN</abbr> net consumption CT current**: Current in A.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor net consumption CT**: Power factor, ratio of active to apparent power.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status net consumption CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active net consumption CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
+From the past, some name exceptions exist and are maintained for backward compatibility. These are listed in below table showing supported CT. For example, energy delivered by the net-consumption ct is named **Envoy 1234 lifetime net energy consumption** rather then the standard **Envoy 1234 net consumption CT energy delivered**.
 
-##### Storage CT sensor entities
-
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency storage CT**: Frequency in Hz.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage storage CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage)
-- **Envoy <abbr title="Envoy serial number">SN</abbr> storage CT current**: Current in A.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor storage CT**: Power factor, ratio of active to apparent power.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status storage CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
-
-For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-sensor-entities) description.
+| CT Type | Description | entity name exceptions |
+| --- | --- | --- |
+| Production | solar to switchboard |  |
+| Net-consumption | [grid to switchboard](#grid-sensor-entities) | energy delivered: **lifetime net energy consumption** <br> energy received: **lifetime net energy production** <br> power: **current net power consumption** |
+| Total-consumption | House load to switchboard |  |
+| Storage | [Batteries to switchboard](#battery-storage-data) | energy delivered: **Lifetime battery energy discharged:** <br> energy received:**Lifetime battery energy charged** <br> power: **Current battery discharge** |
+| Backfeed | combiner to switchboard | |
+| Load | backup load to switchboard | |
+| EVSE | Combiner to EV | |
+| PV3P | 3th party PV to switchboard | |
 
 ### Grid sensor entities
 
-When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available. See Limitations, [Grid Import/Export values incorrect](#grid-importexport-values-incorrect) when using these.
+When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available. See Limitations, [Grid Import/Export values incorrect](#grid-importexport-values-incorrect) when using these. These are the net-consumption CT entities, but use a non-standard CT naming scheme.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption**: Lifetime energy consumed / imported from the grid in Wh, default display in MWh.
@@ -253,10 +257,11 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 #### Grid Balanced import/export sensor entities
 
-When the Envoy Metered is equipped with either a [total-consumption CT](#current-transformers) or a [net-consumption CT](#current-transformers), the balance of grid import and export is available as well. The balanced power and energy entities are disabled by default, enable these as desired.
+When the Envoy metered is equipped with a a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no grid import and export measurements are available. The Envoy calculates a balance of grid import and export in one of its endpoint reports. These balanced power and energy entities are available, disabled by default.
+
+The used endpoint is not in the official API documentation and data quality has varied / may vary with firmware evolutions.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
-  (This is the same value as [Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption](#grid-sensor-entities) when using a net-consumption CT.)
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption**: Lifetime energy balance (difference) of imported and exported grid energy in Wh, default display in kWh.
 
 When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
@@ -282,7 +287,7 @@ Aggregated IQ battery data includes all installed IQ Batteries.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Reserve battery level**: Configured aggregated IQ Battery backup state of charge in %
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Reserve battery energy**: Configured aggregated IQ battery backup energy content in Wh
 
-If a [storage <abbr title="current transformers">CT</abbr>](#storage-ct-sensor-entities) is installed:
+If a [storage <abbr title="current transformers">CT</abbr>](#current-transformer-entities) is installed below entities are available. These are the storage CT entities, but use a non-standard CT naming scheme.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current battery discharge**: Current power in/out of the battery in W.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy discharged**: Lifetime energy discharged from the battery in Wh, default display format MWh.
@@ -417,7 +422,7 @@ The names of entities and devices are derived from the load_name configured in t
 
 ### IQ Meter Collar data
 
-The IQ Meter Collar has the net-consumption CT integrated. The CT data is reported in the [net-consumption data](#net-consumption-ct-sensor-entities) and [grid sensors](#grid-sensor-entities). In addition the status of the collar is available in entities.
+The IQ Meter Collar has the net-consumption CT integrated. The CT data is reported in the [net-consumption data](#current-transformers) and [grid sensors](#grid-sensor-entities). In addition the status of the collar is available in entities.
 
 #### Collar status entities
 
@@ -505,7 +510,7 @@ With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumpt
 
 #### Electricity grid with balanced consumption entities
 
-With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) or a [net-consumption CT](#grid-sensor-entities) installed, the balanced grid import-export energy value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
+With a [total-consumption CT](#grid-balanced-importexport-sensor-entities), the balanced grid import-export energy value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
 
 To split the balanced energy value **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** into import-export values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/943919) is available in the community blueprints exchange.
 
@@ -811,7 +816,7 @@ When experiencing issues during the use of the integration, enable the debug log
 If you're expecting features to show but they are not shown, make sure to reload the integration while debug logging is enabled.
 When this integration is loaded, it will scan the <abbr title="IQ Gateway">Envoy</abbr> for available features and configure these as needed. Following this initial scan, only data for the found features is collected.  Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
 
-Once the issue occurred, stop the debug logging again (_download of debug log file will start automatically_). When reporting the issue, include the debug log file as well as a [{% term diagnostics %}](#diagnostics) file.
+Once the issue occurred, stop the debug logging again (*download of debug log file will start automatically*). When reporting the issue, include the debug log file as well as a [{% term diagnostics %}](#diagnostics) file.
 
 The debug log will show all communication with the Envoy / IQ Gateway. Lines starting with below examples are log entries for the integration:
 
@@ -881,4 +886,15 @@ Shows all entities created by the integration based on the findings of the initi
 
 The data to build test fixtures from. This section is only available when the option to Collect test fixture data is enabled in the integration [options](#options).
 
+___
+
+## References
+
+### Enphase API reference
+
+[EB-00060-2.0-EN, June 2025](https://enphase.com/download/accessing-iq-gateway-local-apis-or-local-ui-token-based-authentication)
+
+### IQ Combiner reference
+
+[TEB-00269-2.0-EN, March 2025](https://enphase.com/it-it/media/26097)
 ___

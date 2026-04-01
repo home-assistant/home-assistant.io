@@ -322,6 +322,15 @@ It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark
 
 Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
 
+## Grouping entities
+
+If the MQTT entity represents a group of other entities, the member entities can be made visible in the UI by setting the list of unique IDs of the member entities in the `group` configuration option of the entity group:
+
+{% configuration_basic %}
+group:
+  description: A list of unique IDs of the member entities. Set this if the entity represents a group entity. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+{% endconfiguration_basic %}
+
 ## MQTT Discovery
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic, and the device configuration as payload.
@@ -784,6 +793,7 @@ support_url:
     'fan_mode_stat_tpl':   'fan_mode_state_template',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
+    'grp':                 'group',
     'hs_cmd_t':            'hs_command_topic',
     'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
