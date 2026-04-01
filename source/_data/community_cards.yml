@@ -1,0 +1,42 @@
+columns:
+  - - href: ""
+      text: "Home Assistant saved my house. Thanks!"
+      author_image: "/images/community-cards/reddit-logo.png"
+      author_image_alt: "Reddit logo"
+      author: "ightfoot_labs on Reddit"
+      link_icon: "/images/community-cards/document-icon.png"
+      theme: "light"
+
+  - - href: ""
+      quote: true
+      text: '"If simplicity is the goal, the team achieved it."'
+      author_image: "/images/community-cards/the-verge-logo.png"
+      author_image_alt: "The Verge logo"
+      author: "The Verge"
+      link_icon: "/images/community-cards/document-icon.png"
+      theme: "light"
+
+  - - href: ""
+      text: "Home Assistant saved my house. Thanks!"
+      author_image: "/images/community-cards/reddit-logo.png"
+      author_image_alt: "Reddit logo"
+      author: "ightfoot_labs on Reddit"
+      link_icon: "/images/community-cards/document-icon.png"
+      theme: "light"
+    - href: ""
+      quote: true
+      blue: true
+      text: '"If simplicity is the goal, the team achieved it."'
+      author_image: "/images/community-cards/the-verge-logo.png"
+      author_image_alt: "The Verge logo"
+      author: "The Verge"
+      link_icon: "/images/community-cards/document-icon.png"
+      theme: "light"
+
+  - - href: ""
+      text: '"Home Assistant has never been this EASY!"'
+      author: "Everything Smart Home"
+      link_icon: "/images/community-cards/play-icon.png"
+      theme: "light"
+      background_image: "/images/voice-pe/features/right-mobile.webp"
+      background_image_alt: ""
