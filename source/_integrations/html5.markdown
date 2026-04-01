@@ -215,11 +215,11 @@ When using a relative path for an image or icon URL, the path is resolved relati
 
 ### Dismiss message
 
-You can dismiss one or more notifications using the `html5.dismiss_message` action.
+You can dismiss notifications using the `html5.dismiss_message` action.
 
-#### Parameters
-
-- `tag`: The tag of the notifications to dismiss. If not specified, all notifications to the selected devices will be dismissed.
+- **Data attribute**: `tag`
+  - **Description**: The tag of the notifications to dismiss. If not specified, all notifications to the selected devices will be dismissed.
+  - **Optional**: Yes
 
 {% details "Example YAML configuration" %}
 
