@@ -154,7 +154,7 @@ And yes, while this is still a Home Assistant Labs feature, we encourage you to 
 
 Up until now, every {% term trigger %} and {% term condition %} was tied to a specific entity type. Want to know if a door opened? That used to depend on whether your door was represented as a magnetic contact sensor (a {% term "binary sensor" %}), a motorized door such as a garage door (a {% term cover %} entity), or something else entirely. You had to know the technical difference and pick the right one.
 
-But that's not how we think about our homes. We think in terms of doors, windows, motion, temperature, and humidity. These are real‑world concepts that can be represented by different entity types in Home Assistant.
+But that's not how we think about our homes. We think in terms of doors, windows, motion, temperature, and humidity. These are real-world concepts that can be represented by different entity types in Home Assistant.
 
 This release introduces {% term triggers %} and {% term conditions %} that work across entity types and are organized by what they _mean_, not where they live technically. A "door opened" trigger now responds to _any_ door entity, whether it's a contact sensor or a motorized cover. A "temperature changed" trigger picks up readings from temperature sensors, {% term climate %} {% term devices %}, and water heaters alike. You no longer need to know the technical details behind the scenes.
 
@@ -196,7 +196,7 @@ On top of the cross-domain additions, a _lot_ of existing {% term domains %} als
 - **Text** now has conditions.
 - **Temperature** now has conditions to check if a temperature value is above or below a threshold.
 - **To-do list** gained triggers for when an item is added, completed, or removed.
-- **Valve** gained triggers for when a valve is opened, or closed.
+- **Valve** gained triggers for when a valve is opened or closed.
 - **Water heater** gained both triggers and conditions, including an operation mode changed trigger.
 
 ### Try it out!
@@ -654,7 +654,7 @@ If you used `object_id` in your MQTT YAML configuration, you were previously ask
 
 {% details "pyLoad" %}
 
-pyLoad 0.4.x is now [deprecated](https://github.com/pyload/pyload/releases/tag/v0.4.x) and users are advised to switch to pyLoad-ng 0.5.0. pyLoad-ng introduced a new API, and support for the old API has been dropped.
+pyLoad 0.4.x is now [deprecated](https://github.com/pyload/pyload/releases/tag/v0.4.x), and you should switch to pyLoad-ng 0.5.0. pyLoad-ng introduced a new API, and support for the old API has been dropped.
 
 ([@tr4nt0r] - [#164495]) ([pyLoad documentation])
 
