@@ -92,15 +92,21 @@ This integration provides the following entities for each warning slot.
 - **Affected areas**:
   - **Description**: Areas affected by the warning.
   - **Remarks**: Shortened to 250 chars. To get all areas please use the `nina.get_affected_areas` action.
+- **Expires**:
+  - **Description**: Expiration timestamp of the warning.
 - **Headline**:
   - **Description**: Headline of the warning.
 - **More information URL**:
   - **Description**: URL with further information about the warning.
 - **Sender**:
   - **Description**: Sender of the warning.
+- **Sent**:
+  - **Description**: Transmission timestamp of the warning.
 - **Severity**:
   - **Description**: Severity of the warning.
   - **Options**: Extreme, Severe, Moderate, Minor, Unknown
+- **Start**:
+  - **Description**: Starting timestamp of the warning.
 
 #### Binary sensors
 
@@ -115,9 +121,6 @@ The following attributes are available for the warnings.
 | Attribute    | Description                            |
 | ------------ | -------------------------------------- |
 | `id` | *(str)* Individual ID for each warning. |
-| `sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
-| `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
-| `expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
 
 #### Response data
 
