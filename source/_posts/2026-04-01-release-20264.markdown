@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026.4 Beta: Infrared never left the chat"
-description: "Beta release notes: Infrared support turns your old remotes into smart home controllers, purpose-specific triggers and conditions almost feature complete, Matter lock management with PIN codes, background colors for dashboard sections, and 15 new integrations!"
+description: "Beta release notes: Infrared support turns your old remotes into smart home controllers, purpose-specific triggers and conditions almost feature complete, Matter lock management with PIN codes, background colors for dashboard sections, and 14 new integrations!"
 date: 2026-04-01 00:00:00
 date_formatted: "April 1, 2026"
 author: Franck Nijhof
@@ -72,7 +72,7 @@ I'll be honest: when I first heard the pitch for [infrared support](#infrared-be
 
 Our [purpose-specific automation triggers and conditions](#purpose-specific-automation-triggers--conditions) are back with a _whole metric ton_ of new triggers and conditions! This effort, currently available through [Home Assistant Labs](/blog/2025/12/03/release-202512/#home-assistant-labs), is now almost feature complete. If you haven't tried it yet, please give it a shot; I'm really looking forward to your feedback. 🧠
 
-There's also plenty of fun stuff: [background colors for dashboard sections](#background-color-for-your-dashboard-sections), [favorites on your dashboard cards](#favorites-on-your-dashboard), full [Matter lock management](#matter-lock-manager) with PIN codes, and you can now see [what your AI-powered Assist is thinking](#what-is-an-ai-powered-assist-thinking) while it processes your requests. Plus 15 new integrations! 🚀
+There's also plenty of fun stuff: [background colors for dashboard sections](#background-color-for-your-dashboard-sections), [favorites on your dashboard cards](#favorites-on-your-dashboard), full [Matter lock management](#matter-lock-manager) with PIN codes, and you can now see [what your AI-powered Assist is thinking](#what-is-an-ai-powered-assist-thinking) while it processes your requests. Plus 14 new integrations! 🚀
 
 Oh! And don't forget: [State of the Open Home 2026](https://sotoh.openhomefoundation.org/) is happening on April 8 in Utrecht, the Netherlands! Come celebrate everything we've built together in person. Tickets are limited, so [grab yours](https://sotoh.openhomefoundation.org/) while you can! 🎟️
 
@@ -248,9 +248,6 @@ We welcome the following new integrations in this release:
 - **[Chess.com]**, added by [@joostlek]  
   Monitor your [Chess.com](https://chess.com/) chess statistics in Home Assistant, including your ratings and game data.
 
-- **[Dropbox]**, added by [@bdr99]  
-  Use your [Dropbox](https://dropbox.com) account as a backup location for your Home Assistant backups.
-
 - **[Fresh-r]**, added by [@SierraNL] - launching at 🥈 silver quality  
   Monitor your [Fresh-r](https://www.fresh-r.me/) ventilation devices in Home Assistant. Track indoor air quality, CO2 levels, and ventilation performance through the Fresh-r cloud dashboard.
 
@@ -286,7 +283,6 @@ We welcome the following new integrations in this release:
 
 [@abmantis]: https://github.com/abmantis
 [@aryanhasgithub]: https://github.com/aryanhasgithub
-[@bdr99]: https://github.com/bdr99
 [@devinslick]: https://github.com/devinslick
 [@g4bri3lDev]: https://github.com/g4bri3lDev
 [@imhotep]: https://github.com/imhotep
@@ -301,7 +297,6 @@ We welcome the following new integrations in this release:
 [Autoskope]: /integrations/autoskope
 [Casper Glow]: /integrations/casper_glow
 [Chess.com]: /integrations/chess_com
-[Dropbox]: /integrations/dropbox
 [Fresh-r]: /integrations/freshr
 [Infrared]: /integrations/infrared
 [LG Infrared]: /integrations/lg_infrared
