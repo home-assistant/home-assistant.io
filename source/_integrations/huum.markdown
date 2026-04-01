@@ -131,7 +131,7 @@ The **Huum** integration {% term polling polls %} the Huum cloud service every 3
 **Symptom:** Entities show as unavailable
 
 1. Ensure your Home Assistant instance and the UKU WiFi controller both have a stable internet connection.
-2. Open the Huum app and verify the sauna is shown as online. If not, check the controller's power and WiFi connection.
+2. Open the Huum app and verify the sauna is shown as online. If not, check the controller's power and Wi‑Fi connection.
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Huum** integration, then select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reload**.
 
 {% enddetails %}
