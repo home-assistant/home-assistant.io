@@ -76,7 +76,7 @@ For a single vehicle with all 7 endpoints available, the integration fetches dat
 
 ### Sensor: Charging mode
 
-This sensor replaces  the charge mode selector for supported vehicles. 
+This sensor replaces the charge mode selector for supported vehicles. 
 The charging mode sensor has the following attributes depending on the active charging mode.
   | Attribute | Description |
   | ---------------------- | -------------------------------- |
