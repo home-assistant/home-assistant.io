@@ -122,6 +122,51 @@ The following attributes are available for the warnings.
 | ------------ | -------------------------------------- |
 | `id` | *(str)* Individual ID for each warning. |
 
+## Actions
+
+The integration provides the following actions.
+
+### Action: Get affected areas
+
+The `nina.get_affected_areas` action is used to fetch all affected areas of a warning.
+
+**Action configuration:**
+
+{% configuration_basic %}
+Target:
+  description: Select the NINA binary_sensor entity.
+{% endconfiguration_basic %}
+
+#### Response data
+
+The response data is a string containing all areas as provided by NINA.
+
+### Action: Get description
+
+The `nina.get_description` action is used to fetch the description of a warning.
+
+**Action configuration:**
+
+{% configuration_basic %}
+Target:
+  description: Select the NINA binary_sensor entity.
+{% endconfiguration_basic %}
+
+#### Response data
+
+The response data is a string with the description as provided by NINA.
+
+### Action: Get recommended actions
+
+The `nina.get_recommended_actions` action is used to fetch the recommended actions of a warning.
+
+**Action configuration:**
+
+{% configuration_basic %}
+Target:
+  description: Select the NINA binary_sensor entity.
+{% endconfiguration_basic %}
+
 #### Response data
 
 The response data is a string with the description as provided by NINA.
