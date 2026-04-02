@@ -143,7 +143,7 @@ The `renault.charge_start` action starts charging on a vehicle.
   | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
   | `vehicle`| yes | device_id of the vehicle | 
-  | `when` | no | Timestamp for charging to start, defaults to now. Max 24 hrs later. | `2020-05-01T17:45:00` |
+  | `when` | no | Timestamp for charging to start, defaults to now. Max 24 hours later. | `2020-05-01T17:45:00` |
 
 
 ### Action: Set charge schedules
