@@ -1156,7 +1156,8 @@ The numeric functions and filters raise an error if the input is not a valid num
 - `remap(v, in_min, in_max, out_min, out_max, *, [steps], [edges])` remaps a value `v` from the range `in_min`..`in_max` to the range `out_min`..`out_max`.
   If any of the values `v`, `in_min`, `in_max`, `out_min`, `out_max` cannot be converted to numbers, an error is raised. Can be used as a filter.
   - You can optionally set the `edges` parameter to control how out-of-bounds input values are handled:
-    - `edges='clamp'` (the default) will clamp the output to the min/max output range.
+    - `edges='none'` (the default) performs no clamping; out-of-range input values are extrapolated into the output range.
+    - `edges='clamp'` will clamp the output to the min/max output range.
     - `edges='wrap'` will wrap the input value around the input range before remapping.
     - `edges='mirror'` will bounce the input value back and forth within the input range before remapping.
   - You can optionally set the `steps` parameter to a positive integer to quantize the output to a number of discrete steps.
