@@ -80,10 +80,10 @@ This sensor replaces the charge mode selector for supported vehicles.
 The charging mode sensor has the following attributes depending on the active charging mode.
   | Attribute | Description |
   | ---------------------- | -------------------------------- |
-  | `dateTime`| Last update received from vehicle | 
-  | `startDateTime` | The timestamp of the next charge start | 
-  | `delay` | The delay in minutes to the next charge start relative to last received update | 
-  | `schedules` | The active charge schedules | 
+  | `dateTime`| Last update received from vehicle |
+  | `startDateTime` | The timestamp of the next charge start |
+  | `delay` | The delay in minutes to the next charge start relative to last received update |
+  | `schedules` | The active charge schedules |
 
 ## Actions
 
