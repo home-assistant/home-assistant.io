@@ -72,6 +72,20 @@ Battery charge limit controls are only available for electric vehicles that supp
 Due to rate limitations from the Renault servers, the integration limits {% term polling %} to 60 data requests/hour.
 For a single vehicle with all 7 endpoints available, the integration fetches data from the device every 7 minutes.
 
+## Sensors
+
+### Sensor: Charging mode
+
+This sensor replaces  the charge mode selector for supported vehicles. 
+The charging mode sensor has the following attributes depending on the active charging mode.
+  | Attribute | Description |
+  | ---------------------- | -------------------------------- |
+  | `dateTime`| Last update received from vehicle | 
+  | `startDateTime` | The timestamp of the next charge start | 
+  | `delay` | The delay in minutes to the next charge start relative to last received update | 
+  | `schedules` | The active charge schedules | 
+
+
 ## Actions
 
 ### Action: Start A/C
@@ -130,7 +144,7 @@ The `renault.charge_start` action starts charging on a vehicle.
   | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
   | `vehicle`| yes | device_id of the vehicle | 
-  | `when` | no | Timestamp for charging to start, defaults to now | `2020-05-01T17:45:00` |
+  | `when` | no | Timestamp for charging to start, defaults to now. Max 24 hrs later. | `2020-05-01T17:45:00` |
 
 
 ### Action: Set charge schedules
