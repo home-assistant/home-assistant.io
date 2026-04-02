@@ -44,7 +44,7 @@ Compatible DucoBox models:
 
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of your Duco ventilation box on the local network."
+  description: "The IP address or hostname of your DUCO Connectivity Board on the local network."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -53,7 +53,7 @@ The integration creates one device per ventilation node found in your Duco syste
 
 ### Fan
 
-The fan entity lets you control the ventilation speed of a node using preset modes. Turning the fan **off** returns it to **Auto** mode, in which Duco manages the ventilation automatically. Turning the fan **on** activates **Medium** manual override.
+The fan entity lets you control the ventilation speed of a node using preset modes. Turning the fan **off** returns it to **Auto** mode, in which Duco manages the ventilation automatically. Turning the fan **on** activates the **Medium** manual override.
 
 | Preset | Description |
 |--------|-------------|
