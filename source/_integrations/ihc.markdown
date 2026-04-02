@@ -3,6 +3,7 @@ title: IHC Controller
 description: Instructions on how to integrate the IHC integrations with Home Assistant
 ha_category:
   - Binary sensor
+  - Event 
   - Hub
   - Light
   - Sensor
@@ -12,6 +13,7 @@ ha_iot_class: Local Push
 ha_domain: ihc
 ha_platforms:
   - binary_sensor
+  - event
   - light
   - sensor
   - switch
@@ -27,6 +29,7 @@ The **IHC Controller** {% term integration %} for Home Assistant allows you to c
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Event](#event)
 - [Sensor](#sensor)
 - [Light](#light)
 - [Switch](#switch)
@@ -342,6 +345,56 @@ switch:
 {% endconfiguration %}
 
 The resource id should be a boolean resource (On/Off). For more information about IHC resource ids see [Manual Setup](#manual-setup).
+
+## Event
+
+Before you can use the IHC Event platform, you must setup the IHC integration.
+
+When auto setup is enabled the following products will be found in the IHC project and set up as event entities:
+
+- Wireless 6-button push button (product identifier `0x4103`)
+
+Each button on a device is exposed as a separate event entity. Pressing a button fires a `pressed` event. Entities are named using the group name, the product integer ID, and the button's address channel, e.g. `Living room_100_01`.
+
+To manually configure IHC event entities insert the "event" section in your IHC configuration:
+
+```yaml
+ihc:
+  - url: 'http://192.168.1.3'
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    info: true
+    event:
+      - id: 12345
+        name: button_hallway_top_left
+```
+
+{% configuration %}
+event:
+  description: List of event entities to set up manually.
+  required: false
+  type: map
+  keys:
+    id:
+      description: The IHC resource id of the airlink_input.
+      required: true
+      type: integer
+    name:
+      description: The name of the entity.
+      required: false
+      type: string
+    note:
+      description: Descriptive note.
+      required: false
+      type: string
+    position:
+      description: Where it is placed.
+      required: false
+      type: string
+{% endconfiguration %}
+
+The resource id should be the id of a boolean `airlink_input` resource. For more information about IHC resource ids see [Manual Setup](#manual-setup).
+
 
 ## Actions
 
