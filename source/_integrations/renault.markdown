@@ -85,7 +85,6 @@ The charging mode sensor has the following attributes depending on the active ch
   | `delay` | The delay in minutes to the next charge start relative to last received update | 
   | `schedules` | The active charge schedules | 
 
-
 ## Actions
 
 ### Action: Start A/C
