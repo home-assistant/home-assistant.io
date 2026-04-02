@@ -348,13 +348,13 @@ The resource id should be a boolean resource (On/Off). For more information abou
 
 ## Event
 
-Before you can use the IHC Event platform, you must setup the IHC integration.
+Before you can use the IHC Event platform, you must set up the IHC integration.
 
-When auto setup is enabled the following products will be found in the IHC project and set up as event entities:
+When auto set up is enabled the following products will be found in the IHC project and set up as event entities:
 
 - Wireless 6-button push button (product identifier `0x4103`)
 
-Each button on a device is exposed as a separate event entity. Pressing a button fires a `pressed` event. Entities are named using the group name, the product integer ID, and the button's address channel, e.g. `Living room_100_01`.
+Each button on a device is exposed as a separate event entity. Pressing a button fires a `pressed` event. Entities are named using the group name, the product integer ID, and the button's address channel, for example, the display name `Living room_100_01`, which results in an `entity_id` like `event.living_room_100_01`.
 
 To manually configure IHC event entities insert the "event" section in your IHC configuration:
 
