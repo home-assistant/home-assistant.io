@@ -121,7 +121,7 @@ Self defined [templates](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590
 
 Thermostats like the FRITZ!Smart Thermo series or Eurotronic Comet DECT will be integrated as {% term climate %} entities.
 
-Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
+Further there are additional {% term switch %}, {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
 
 - Battery
 - Battery low
@@ -135,6 +135,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 - Next Scheduled Preset
 - Next Scheduled Temperature
 - Open window detected
+- Manual open window indication (in combination with distinct window sensors)
 - Summer mode
 - Temperature
 
