@@ -74,8 +74,7 @@ a single set of sensors, taking into account your inverter's maximum power if sp
 
 To add a solar plane:
 
-1. Go to the **Forecast.Solar** integration on
-  the **{% my integrations title="Settings > Devices & services" %}** page.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Forecast.Solar**.
 2. Select **Add solar plane**.
 
 ## Sensors
