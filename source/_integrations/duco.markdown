@@ -59,11 +59,11 @@ The fan entity lets you control the ventilation speed of a node using preset mod
 |--------|-------------|
 | Auto | Duco controls ventilation automatically based on air quality. |
 | Away | Reduced ventilation for when nobody is home. |
-| Low | Low speed timed manual override (~30 minutes). |
+| Low | Low speed timed manual override (~15 minutes). |
 | Low (permanent) | Low speed permanent manual override. |
-| Medium | Medium speed timed manual override (~30 minutes). |
+| Medium | Medium speed timed manual override (~15 minutes). |
 | Medium (permanent) | Medium speed permanent manual override. |
-| High | High speed timed manual override (~30 minutes). |
+| High | High speed timed manual override (~15 minutes). |
 | High (permanent) | High speed permanent manual override. |
 
 ### Sensor
