@@ -56,7 +56,6 @@ The **Casper Glow** {% term integration %} provides the following entities.
 
 - **Dimming paused**
   - **Description**: Indicates whether the Glow's dimming sequence is currently paused.
-
 - **Charging**
   - **Description**: Indicates whether the Glow is currently charging.
 
