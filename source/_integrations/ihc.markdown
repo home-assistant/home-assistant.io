@@ -3,7 +3,7 @@ title: IHC Controller
 description: Instructions on how to integrate the IHC integrations with Home Assistant
 ha_category:
   - Binary sensor
-  - Event 
+  - Event
   - Hub
   - Light
   - Sensor
