@@ -44,7 +44,7 @@ Once the [Bluetooth](/integrations/bluetooth) integration is active, OpenDisplay
 
 OpenDisplay devices can be configured to require AES-128 encryption for all Bluetooth communication.
 
-If your device has encryption enabled, the setup flow will ask for a **32-character hexadecimal encryption key** after the initial connection attempt. The key is shown on the display when the device boots.
+If your device has encryption enabled, the setup flow will ask for a _32-character hexadecimal encryption key_ after the initial connection attempt. The key is shown on the display when the device boots.
 
 If the encryption key changes after the device has been set up, Home Assistant will prompt you to re-enter the key.
 
