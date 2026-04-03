@@ -46,6 +46,10 @@ OpenDisplay devices can be configured to require AES-128 encryption for all Blue
 
 If your device has encryption enabled, the setup flow will ask for a _32-character hexadecimal encryption key_ after the initial connection attempt. The key is shown on the display when the device boots.
 
+{% tip %}
+To avoid typing the key manually, scan the QR code on your device's display. The encryption key is shown on the page that opens, tap it to copy it to your clipboard, then paste it into Home Assistant.
+{% endtip %}
+
 If the encryption key changes after the device has been set up, Home Assistant will prompt you to re-enter the key.
 
 ## Actions
