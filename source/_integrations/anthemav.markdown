@@ -11,7 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Both [Anthem]'s current and last generation of <abbr title="Audio & video">A/V</abbr> receivers and processors support IP-based network control. This Home Assistant {% term integration %} adds proper "local push" support for any of these receivers on your network.
@@ -26,7 +26,7 @@ Both [Anthem]'s current and last generation of <abbr title="Audio & video">A/V</
 
 ### A/V Processor
 
-- [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview)
+- [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview), [AVM 70](https://www.anthemav.com/products-current/model=avm-70/page=overview)
 
 ### Distribution solution
 

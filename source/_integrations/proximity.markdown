@@ -17,7 +17,7 @@ ha_platforms:
 ha_config_flow: true
 ---
 
-The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
+The **Proximity** {% term integration %} allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
 
 This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/docs/automation/trigger#zone-trigger) and [state](/docs/automation/trigger#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 

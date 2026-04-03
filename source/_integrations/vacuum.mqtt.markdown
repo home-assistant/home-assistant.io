@@ -7,12 +7,23 @@ ha_release: 0.54
 ha_domain: mqtt
 ---
 
-The `mqtt` vacuum {% term integration %} allows you to control your MQTT-enabled vacuum.
+The **MQTT Vacuum** {% term integration %} allows you to control your MQTT-enabled vacuum.
 The initial state of the MQTT vacuum {% term entity %} will set to `unknown` and can be reset by a device by sending a `null` payload as state.
 
 ## Configuration
 
-MQTT vacuum configuration section.
+To use an MQTT vacuum in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  - vacuum:
+      state_topic: state-topic
+      command_topic: command-topic
+```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -53,6 +64,10 @@ availability_topic:
   type: string
 command_topic:
   description: The MQTT topic to publish commands to control the vacuum.
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `vacuum.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -130,10 +145,6 @@ name:
   required: false
   type: string
   default: MQTT Vacuum
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -197,14 +208,14 @@ set_fan_speed_topic:
   required: false
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#configuration-example)."
+  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `fan_speed` keys as shown in the [example](#configuration-example)."
   required: false
   type: string
 supported_features:
-  description: "List of features that the vacuum supports (possible values are `start`, `stop`, `pause`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
+  description: "List of features that the vacuum supports (possible values are `start`, `stop`, `pause`, `return_home`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
   required: false
   type: [string, list]
-  default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+  default: "`start`, `stop`, `return_home`, `status`, `clean_spot`"
 unique_id:
    description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false
@@ -223,7 +234,6 @@ mqtt:
         - pause
         - stop
         - return_home
-        - battery
         - status
         - locate
         - clean_spot
@@ -301,7 +311,6 @@ MQTT payload:
 
 ```json
 {
-    "battery_level": 61,
     "state": "docked",
     "fan_speed": "off"
 }

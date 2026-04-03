@@ -1,6 +1,6 @@
 ---
-title: Litter-Robot
-description: Instructions on how to integrate a Litter-Robot Wi-Fi-enabled, automatic, self-cleaning litter box to Home Assistant.
+title: Whisker
+description: Instructions on how to integrate Whisker's lineup of Wi-Fi-enabled, automatic, self-cleaning litter boxes and pet feeders to Home Assistant.
 ha_category:
   - Button
   - Select
@@ -19,6 +19,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - select
   - sensor
   - switch
@@ -26,16 +27,27 @@ ha_platforms:
   - update
   - vacuum
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
-The Litter-Robot integration allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
+The **Whisker** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
+
+## Supported devices
+
+Any Wi-Fi connected Whisker device that can be onboarded via the Whisker app should work with this integration.
 
 ## Prerequisites
 
 Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabled Litter-Robot or Feeder-Robot linked to it. You can do this via the Whisker app.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+    description: "The email address of your Whisker account."
+Password:
+    description: "The password of your Whisker account."
+{% endconfiguration_basic %}
 
 ## Entities
 
@@ -44,7 +56,7 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Entity                        | Domain          | Description                                                                                                 |
 | ----------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
 | Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
-| Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings.                                  |
+| Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
 | Last seen                     | `sensor`        | Displays the time the unit was last seen / reported an update.                                              |
 | Litter level                  | `sensor`        | Displays the litter level, only for Litter-Robot 4.                                                         |
@@ -52,11 +64,14 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Sleep mode start time         | `sensor`        | When sleep mode is enabled, displays the current or next sleep mode start time.                             |
 | Sleep mode end time           | `sensor`        | When sleep mode is enabled, displays the current or last sleep mode end time.                               |
 | Status code                   | `sensor`        | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc.).                               |
+| Total cycles                  | `sensor`        | Displays the total cycles.                                                                                  |
 | Waste drawer                  | `sensor`        | Displays the current waste drawer level.                                                                    |
 | Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |
 | Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
 | Sleeping                      | `binary_sensor` | Indicates whether sleep mode is currently active.                                                           |
 | Clean cycle wait time minutes | `select`        | View and select the clean cycle wait time.                                                                  |
+| Globe brightness              | `select`        | View and select the brightness level for the globe light, only for Litter-Robot 4.                          |
+| Globe light                   | `select`        | View and select the globe light setting, only for Litter-Robot 4.                                           |
 | Panel brightness              | `select`        | View and select the panel brightness, only for Litter-Robot 4.                                              |
 | Reset                         | `button`        | Button to reset the robot, clearing any errors and potentially triggering a cycle, only for Litter-Robot 4. |
 | Reset waste drawer            | `button`        | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.                                      |
@@ -64,19 +79,24 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 
 ### Feeder-Robot
 
-| Entity           | Domain   | Description                                                                      |
-| ---------------- | -------- | -------------------------------------------------------------------------------- |
-| Give snack       | `button` | Button to dispense a single snack portion.                                       |
-| Meal insert size | `select` | View and select the meal insert size.                                            |
-| Food level       | `sensor` | Displays the approximate food level remaining in the hopper.                     |
-| Night light mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
-| Panel lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+| Entity               | Domain   | Description                                                                                |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------ |
+| Give snack           | `button` | Button to dispense a single snack portion.                                                 |
+| Meal insert size     | `select` | View and select the meal insert size.                                                      |
+| Food dispensed today | `sensor` | Displays the amount of food, in cups, by the feeder.                                       |
+| Food level           | `sensor` | Displays the approximate food level remaining in the hopper.                               |
+| Last feeding         | `sensor` | Displays the timestamp of the last dispensed meal or snack.                                |
+| Next feeding         | `sensor` | Displays the timestamp of the next scheduled meal.                                         |
+| Gravity mode         | `switch` | When turned on, the unit will keep the bowl full by checking the food level every 6 hours. |
+| Night light mode     | `switch` | When turned on, automatically turns on the night light in darker settings.                 |
+| Panel lockout        | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings.           |
 
 ### Pet
 
-| Entity | Domain   | Description   |
-| ------ | -------- | ------------- |
-| Weight | `sensor` | Pet's weight. |
+| Entity       | Domain   | Description                                       |
+| ------------ | -------- | ------------------------------------------------- |
+| Visits today | `sensor` | Pet's daily visits to the Litter-Robot. |
+| Weight       | `sensor` | Pet's weight.                                     |
 
 ## Actions
 
@@ -102,6 +122,33 @@ data:
   start_time: "22:30:00"
 
 ```
+
+## Data updates
+
+This integration subscribes to updates from Feeder-Robot and Litter-Robot devices to receive new data as soon as it is available.
+
+Additionally, this integration {% term polling polls %} for updated device and pet data every 5 minutes.
+
+## Examples
+
+### Clean area(s) when a Litter-Robot cycles
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/litterrobot_clean_area_on_cycle.yaml" %}
+
+## Known limitations
+
+The following features are not currently supported by the integration:
+
+- Access to cameras on Litter-Robot 5 Pro models.
+- Configuring sleep schedules on Litter-Robot 4 and newer models.
+- Certain device settings, including renaming devices, filter replacement resets, and cycle count resets.
+- Reassigning pet visits.
+
+## Troubleshooting
+
+### Device becomes unavailable or unresponsive
+
+The device shows as unavailable when it cannot reach the Whisker cloud service. Check your internet connection first, then open the Whisker app and see if you can still control the device from there. If the app also cannot connect, the Whisker service may be down or your device may be offline.
 
 ## Removing the integration
 

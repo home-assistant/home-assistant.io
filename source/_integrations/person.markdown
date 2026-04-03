@@ -10,7 +10,7 @@ ha_iot_class: Calculated
 ha_integration_type: system
 ---
 
-The `person` integration allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
+The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
 
 1. If there are stationary trackers (non-GPS trackers, e.g., a router or Bluetooth device tracker) presenting the state `home`, the tracker most recently updated will be used.
 2. If there are trackers of type `gps`, then the most recently updated tracker will be used.
@@ -34,7 +34,7 @@ You can manage persons {% my people title="via the UI from the person page insid
 
 ## Adding a person to Home Assistant
 
-If you have administrator rights, you can add other persons to Home Assistant and create them a user account. Depending on the rights you give them, they can then use Home Assistant on their own devices, can have their own dashboards, and be used in automations.
+If you have administrator rights, you can add other persons to Home Assistant and create user accounts for them. Depending on the rights you give them, they can then use Home Assistant on their own devices, can have their own dashboards, and be used in automations.
 
 1. Go to {% my people title="**Settings** > **People**" %} and select **Add person**.
 2. Enter their **Name**.

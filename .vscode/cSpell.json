@@ -6,11 +6,13 @@
   "words": [
     "Accu",
     "aeotec",
+    "Airobot",
     "Alexa",
     "arest",
     "autodiscovery",
     "autoheal",
     "automations",
+    "Backblaze",
     "balloob",
     "bloomsky",
     "Bluesound",
@@ -54,6 +56,7 @@
     "Jeelink",
     "kardon",
     "laundrify",
+    "Liebherr",
     "Lutron",
     "macos",
     "Meteobridge",
@@ -75,6 +78,8 @@
     "POOLV",
     "Powerwall",
     "Pushbullet",
+    "Sankey",
+    "Saunum",
     "Schoutsen",
     "SmartThings",
     "SNOOZ",
@@ -93,7 +98,8 @@
     "WSDTH",
     "WTHV",
     "Xiaomi",
-    "Zigbee"
+    "Zigbee",
+    "Zimi"
   ],
   // flagWords - list of words to be always considered incorrect
   // This is useful for offensive words and common spelling errors.

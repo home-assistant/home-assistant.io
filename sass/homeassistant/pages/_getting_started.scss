@@ -1,6 +1,11 @@
+@use '../variables' as *;
 #getting_started {
 
   .installations {
+    &.second {
+      margin-top: 50px;
+    }
+
     .label {
       background: #e8e6f0;
       border-radius: 4px;
@@ -143,7 +148,7 @@
                 }
 
                 iconify-icon.external-link {
-                  padding-top: 4px;
+                  display: none;
                 }
 
                 svg {

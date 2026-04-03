@@ -44,7 +44,20 @@ homeassistant:
 
 Note that each line after `homeassistant:` is indented two (2) spaces. Since the configuration files in Home Assistant are based on the YAML language, indentation and spacing are important. Also note that seemingly strange entry under `customize:`.
 
-`!include customize.yaml` is the statement that tells Home Assistant to insert the parsed contents of `customize.yaml` at that point. The contents of the included file must be yaml data that is valid at the location it is included. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
+`!include customize.yaml` is the statement that tells Home Assistant to insert the parsed contents of `customize.yaml` at that point. The contents of the included file must be YAML data that is valid at the location it is included. This is how we are going to break a monolithic and hard-to-read file (when it gets big) into more manageable chunks.
+
+For example, `customize.yaml` could contain the following:
+
+```yaml
+light.living_room:
+  friendly_name: "Living Room"
+  icon: mdi:ceiling-light
+
+switch.patio:
+  friendly_name: "Patio Switch"
+```
+
+Notice that `customize:` is not written again inside `customize.yaml`. The key in `configuration.yaml` already defines the context — the included file only contains the entries that belong under it.
 
 Now before we start splitting out the different components, let's look at the other integrations (in our example) that will stay in the base file:
 
@@ -108,7 +121,7 @@ device_tracker: !include device_tracker.yaml
 
 Nesting `!include` statements (having an `!include` within a file that is itself `!include`d) will also work.
 
-Some integrations support multiple top-level `!include` statements. This includes integrations defining an IoT domain. For example, `light`, `switch`, or `sensor`; as well as the `automation`, `script`, and `template` integrations, if you give a different label to each one. 
+Some integrations support multiple top-level `!include` statements. This includes integrations defining an IoT domain. For example, `light`, `switch`, or `sensor`; as well as the `automation`, `script`, and `template` integrations, if you give a different label to each one.
 
 Configuration for other integrations can instead be split up by using packages. To learn more about packages, see the [Packages](/docs/configuration/packages) page.
 
@@ -221,7 +234,7 @@ learn more about packages, see the [Packages](/docs/configuration/packages) page
 
 That about wraps it up.
 
-If you have issues, checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
+If you have issues, check the file indentations and check [the Home Assistant logs](/integrations/logger/#viewing-logs). If all else fails, head over to our [Discord chat server][discord] and ask away.
 
 ## Debugging configuration files
 
@@ -229,8 +242,6 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
-- [Core](/common-tasks/core/#configuration-check)
-- [Supervised](/common-tasks/supervised/#configuration-check)
 
 ## Advanced usage
 
@@ -540,4 +551,4 @@ automation manual: !include_dir_merge_list automations/
 automation ui: !include automations.yaml
 ```
 
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

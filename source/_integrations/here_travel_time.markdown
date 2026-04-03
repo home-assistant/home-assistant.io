@@ -11,18 +11,18 @@ ha_codeowners:
 ha_domain: here_travel_time
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/README.html).
+The **HERE Travel Time** {% term integration %} provides travel time from the [HERE Routing API](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/README.html).
 
 ## Setup
 
 You need to register for an API key by following the instructions in the [API Developer Guide](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/topics/send-request.html).
 
-HERE offers a Limited Plan which includes 1000 free transactions per day. If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation), you can track 3 routes without exceeding the limit.
+HERE offers a Base Plan which includes 5000 free transactions per month. If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation), you can track 1 route without exceeding the limit.
 
-You can provide payment details if you want to pay for unlimited transactions. Be aware that the amount of transactions included for free in the paid plan might be _less_ than the 1000 transactions per day in the free plan. More information can be found [on the pricing page](https://www.here.com/get-started/pricing)
+More information can be found [on the pricing page](https://www.here.com/get-started/pricing)
 
 {% include integrations/config_flow.md %}
 
@@ -91,3 +91,9 @@ automation:
       target:
         entity_id: sensor.morning_commute
 ```
+
+For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}

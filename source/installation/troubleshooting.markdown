@@ -26,7 +26,7 @@ To resolve this issue, try the following steps:
      - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
      - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
-       - github.com: to update metadata of the add-on store.
+       - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 3. Make sure the system on which you opened the browser to access Home Assistant is connected to the same network as Home Assistant.
    - For example, if the system your Browser runs on is using Wi-Fi, make sure it is using the same Wi-Fi Home Assistant is connected to.
@@ -39,8 +39,8 @@ To resolve this issue, try the following steps:
 6. Check your router's web interface to see what IP address is assigned to your Home Assistant installation.
    - Enter this IP address (`http://x.x.x.x:8123`) directly into your browser.
 7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where Home Assistant gets stuck.
-   - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
-   - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
+   - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/articles/25153288092829).
+   - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://support.nabucasa.com/hc/articles/25454894609693), or [to access the console from Linux or macOS](https://support.nabucasa.com/hc/articles/25454972435357).
 8. [Reach out to our community for help](https://www.home-assistant.io/help/).
 
 ## "Error installing Home Assistant"
@@ -57,7 +57,7 @@ You are in the onboarding procedure, but you get the message **Error installing 
      - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
      - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
-       - github.com: to update metadata of the add-on store.
+       - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 2. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
 3. [Reach out to our community for help](https://www.home-assistant.io/help/).
@@ -72,13 +72,13 @@ You are in the onboarding procedure, but the process seems stuck at the step **P
 
 ### Resolution
 
-1. Select the pulsing blue dot to view the log files.
+1. Select **Show details** to view the log files.
    - The log files might provide more information on the current status.
 2. Make sure your network has internet access.
      - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
      - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
-       - github.com: to update metadata of the add-on store.
+       - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 3. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
 4. [Reach out to our community for help](https://www.home-assistant.io/help/).

@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-This platform allows you to connect to [Ruckus](https://www.ruckusnetworks.com/) access points.
+The **Ruckus** {% term integration %} allows you to connect to [Ruckus](https://www.ruckusnetworks.com/) access points.
 
 [Ruckus Unleashed](https://www.ruckusnetworks.com/products/network-control-and-management/controller-less/),
 [Ruckus ZoneDirector](https://support.ruckuswireless.com/products/73),

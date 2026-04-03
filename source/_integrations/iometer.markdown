@@ -6,7 +6,7 @@ ha_category:
   - Energy
   - Sensor
 ha_codeowners:
-  - '@MaestroOnICe'
+  - '@jukrebs'
 ha_quality_scale: bronze
 ha_domain: iometer
 ha_integration_type: device
@@ -14,6 +14,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 
@@ -44,6 +45,8 @@ The following sensors are supported:
 
 - Power (W): Active power
 - Total energy usage (kWh): How much energy the meter used
+- Total energy usage T1 (kWh): How much energy the meter used on tariff T1
+- Total energy usage T2 (kWh): How much energy the meter used on tariff T2
 - Total energy returned (kWh): How much energy the meter returned to the grid
 - Meter number: Electricity meter number
 - Pin status: Electricity meter pin status
@@ -58,7 +61,7 @@ The following sensors are supported:
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 

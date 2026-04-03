@@ -10,8 +10,9 @@ ha_codeowners:
   - '@keithle888'
 ha_domain: igloohome
 ha_platforms:
+  - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
