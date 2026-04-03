@@ -83,7 +83,6 @@ Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 
 ## Supported functionality
 
-
 This integration provides the following entities for each warning slot.
 
 ### Sensors
