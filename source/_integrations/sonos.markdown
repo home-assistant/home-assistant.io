@@ -78,7 +78,7 @@ The Sonos integration adds one `switch` for each alarm set in the Sonos app. The
 
 When enabling, disabling, or updating multiple Sonos alarms in a single automation or script, you may notice that not all alarms update as expected. This is a limitation of how Sonos synchronizes its alarm list across all speakers. If multiple alarm updates are sent rapidly (for example, by toggling several alarm switches at once), some changes may be lost or overwritten before they are fully synchronized between speakers.
 
-To ensure reliable updates, add a wait between each alarm update in your automation. A 1 second wait works well as a starting point, but you may need to increase it based on your setup. For example, add a `delay` action between each `switch.turn_on`, `switch.turn_off`, or `sonos.update_alarm` action call. This gives Sonos time to synchronize the alarm list before the next change.
+To ensure reliable updates, add a wait between each alarm update in your automation. A 1-second wait works well as a starting point, but you may need to increase it based on your setup. For example, add a `delay` action between each `switch.turn_on`, `switch.turn_off`, or `sonos.update_alarm` action call. This gives Sonos time to synchronize the alarm list before the next change.
 
 _Automation Example:_
 
