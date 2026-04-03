@@ -40,6 +40,14 @@ For a full list of supported boards and displays, see the [OpenDisplay hardware 
 
 Once the [Bluetooth](/integrations/bluetooth) integration is active, OpenDisplay devices are discovered automatically.
 
+### Encryption
+
+OpenDisplay devices can be configured to require AES-128 encryption for all Bluetooth communication.
+
+If your device has encryption enabled, the setup flow will ask for a **32-character hexadecimal encryption key** after the initial connection attempt. The key is shown on the display when the device boots.
+
+If the encryption key changes after the device has been set up, Home Assistant will prompt you to re-enter the key.
+
 ## Actions
 
 ### Action: Upload image
@@ -126,6 +134,12 @@ actions:
 {% details "Device is not discovered" %}
 
 Check that the [Bluetooth](/integrations/bluetooth) integration is set up and working, then confirm your OpenDisplay device is powered on and in range of your Home Assistant host or a Bluetooth proxy.
+
+{% enddetails %}
+
+{% details "Authentication failed" %}
+
+This means the encryption key stored in Home Assistant no longer matches the key configured on the device. Go to {% my integration domain="opendisplay" title="**Settings** > **Devices & services** > **OpenDisplay**" %} and select **Re-authenticate** to enter the correct key.
 
 {% enddetails %}
 
