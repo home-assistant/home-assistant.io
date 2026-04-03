@@ -55,6 +55,8 @@ Enjoy the release!
 - [Need help? Join the community](#need-help-join-the-community)
 - [Disclosed security advisories](#disclosed-security-advisories)
 - [Backward-incompatible changes](#backward-incompatible-changes)
+- [Patch releases](#patch-releases)
+  - [2026.4.1 - April 3](#202641---april-3)
 - [All changes](#all-changes)
 
 _A huge thank you to all the contributors who made this release possible! And a special shout-out to [@arturpragacz] and [@piitaya] who helped write the release notes this release. Also, [@mib1185], [@missyquarry], [@RaHehl], [@CoMPaTech], [@mikeodr], [@silamon], and [@tronikos] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
@@ -665,6 +667,88 @@ If you are a custom integration developer and want to learn about changes and ne
 - [New infrared entity platform for IR device integrations](https://developers.home-assistant.io/blog/2026/03/30/infrared-entity-platform)
 
 [devblog]: https://developers.home-assistant.io/blog/
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2026.4 in April.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2026.4.1 - April 3
+
+- Fix tuya energy sensor units ([@jbouwh] - [#160392])
+- Fix Ring snapshots ([@Ltek] - [#164337])
+- Fix Tesla Fleet charge current scope handling ([@Bre77] - [#166919])
+- Fix Tesla Fleet OAuth scope refresh during reauth ([@Bre77] - [#166920])
+- Fix select condition state selector ([@bramkragten] - [#167064])
+- Fix websocket calling `async_release_notes` in update component although unavailable ([@tr4nt0r] - [#167067])
+- Fix Proxmox VE backup status sensor false positive due to case mismatch ([@irishpadres] - [#167069])
+- Bump pySmartThings to 3.7.3 ([@joostlek] - [#167075])
+- Wrap hassio import in is_hassio check in get_system_info helper ([@mdegat01] - [#167111])
+- Remove not implemented supported feature from Wiim ([@joostlek] - [#167205])
+- Migrate image unique_id for Fritz ([@chemelli74] - [#167209])
+- Fix SMHI ([@gjohansson-ST] - [#167212])
+- Bump holiday library to 0.93 ([@gjohansson-ST] - [#167217])
+- Fix Sonos reporting wrong state when media title is whitespace ([@PeteRager] - [#167223])
+- Improve Recorder action naming consistency ([@NoRi2909] - [#167244])
+- Update arcam to 1.8.3 ([@elupus] - [#167249])
+- Bump psutil to 7.2.2 ([@dotlambda] - [#167263])
+- Remove Transmission port forward sensor ([@andrew-codechimp] - [#167269])
+- Improve Media player action naming consistency ([@NoRi2909] - [#167274])
+- Bump zinvolt to 0.4.0 ([@joostlek] - [#167276])
+- Improve Assist satellite action naming consistency ([@NoRi2909] - [#167278])
+- Fix to allow Matter Fan percent setting to be null when FanMode is Auto ([@lboue] - [#167279])
+- Update frontend to 20260325.6 ([@bramkragten] - [#167285])
+- Fix Matter water heater off mode ([@lboue] - [#167286])
+- Make sure we take all Zinvolt battery units in account ([@joostlek] - [#167294])
+- Bump Zinvolt to 0.4.1 ([@joostlek] - [#167296])
+- Bump soco to 0.30.15 ([@PeteRager] - [#167299])
+- Sonos alarm switch entities may not be created when speaker offline initially ([@PeteRager] - [#167303])
+
+[#160392]: https://github.com/home-assistant/core/pull/160392
+[#164337]: https://github.com/home-assistant/core/pull/164337
+[#166919]: https://github.com/home-assistant/core/pull/166919
+[#166920]: https://github.com/home-assistant/core/pull/166920
+[#167064]: https://github.com/home-assistant/core/pull/167064
+[#167067]: https://github.com/home-assistant/core/pull/167067
+[#167069]: https://github.com/home-assistant/core/pull/167069
+[#167075]: https://github.com/home-assistant/core/pull/167075
+[#167111]: https://github.com/home-assistant/core/pull/167111
+[#167205]: https://github.com/home-assistant/core/pull/167205
+[#167209]: https://github.com/home-assistant/core/pull/167209
+[#167212]: https://github.com/home-assistant/core/pull/167212
+[#167217]: https://github.com/home-assistant/core/pull/167217
+[#167223]: https://github.com/home-assistant/core/pull/167223
+[#167244]: https://github.com/home-assistant/core/pull/167244
+[#167249]: https://github.com/home-assistant/core/pull/167249
+[#167263]: https://github.com/home-assistant/core/pull/167263
+[#167269]: https://github.com/home-assistant/core/pull/167269
+[#167274]: https://github.com/home-assistant/core/pull/167274
+[#167276]: https://github.com/home-assistant/core/pull/167276
+[#167278]: https://github.com/home-assistant/core/pull/167278
+[#167279]: https://github.com/home-assistant/core/pull/167279
+[#167285]: https://github.com/home-assistant/core/pull/167285
+[#167286]: https://github.com/home-assistant/core/pull/167286
+[#167294]: https://github.com/home-assistant/core/pull/167294
+[#167296]: https://github.com/home-assistant/core/pull/167296
+[#167299]: https://github.com/home-assistant/core/pull/167299
+[#167303]: https://github.com/home-assistant/core/pull/167303
+[@Bre77]: https://github.com/Bre77
+[@Ltek]: https://github.com/Ltek
+[@NoRi2909]: https://github.com/NoRi2909
+[@PeteRager]: https://github.com/PeteRager
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@dotlambda]: https://github.com/dotlambda
+[@elupus]: https://github.com/elupus
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@irishpadres]: https://github.com/irishpadres
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@lboue]: https://github.com/lboue
+[@mdegat01]: https://github.com/mdegat01
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ## All changes
 
