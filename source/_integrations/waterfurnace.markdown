@@ -40,7 +40,7 @@ The integration exposes the following sensors (if available):
 
 ## Energy
 
-The integration is also able to track historic energy use. You can track the total power consumption in the energy dashboard. This data is refreshed every 2 hours, so your energy use may lag behind.
+The integration is also able to track historic energy use. You can track the total energy consumption in the energy dashboard. This data is refreshed every 2 hours, so your energy use may lag behind.
 
 ## Prerequisites
 
