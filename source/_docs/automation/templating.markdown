@@ -167,7 +167,7 @@ These are the properties available for a [Tag trigger](/docs/automation/trigger/
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `tag`
 | `trigger.tag_id` | The tag ID captured.
-| `trigger.device_id` | Optional device ID that captured the tag.
+| `trigger.event.data.device_id` | Optional device ID that captured the tag.
 
 ### Template
 

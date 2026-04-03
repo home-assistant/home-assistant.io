@@ -2,7 +2,11 @@
 title: Casper Glow
 description: Instructions on how to integrate Casper Glow lights into Home Assistant.
 ha_category:
+  - Binary Sensor
+  - Button
   - Light
+  - Select
+  - Sensor
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Polling
@@ -11,9 +15,13 @@ ha_codeowners:
 ha_domain: casper_glow
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - button
   - light
+  - select
+  - sensor
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Casper Glow** {% term integration %} allows you to control your [Casper Glow](https://casper.com/products/glow) light from Home Assistant over Bluetooth. The Casper Glow is a portable dimmable light designed as a sleep aid, featuring a gentle dimming sequence that gradually lowers brightness to help you fall asleep. You can incorporate it into your bedtime automations to control brightness levels.
@@ -40,10 +48,39 @@ Bluetooth address:
 
 ## Supported functionality
 
-### Lights
+### Entities
+
+The **Casper Glow** {% term integration %} provides the following entities.
+
+#### Binary sensors
+
+- **Dimming paused**
+  - **Description**: Indicates whether the Glow's dimming sequence is currently paused.
+- **Charging**
+  - **Description**: Indicates whether the Glow is currently charging.
+
+#### Buttons
+
+- **Pause dimming**
+  - **Description**: Pauses dimming, holding the current brightness level until resumed.
+
+- **Resume dimming**
+  - **Description**: Resumes dimming from where it left off.
+
+#### Lights
 
 - **Casper Glow**
   - **Description**: Controls the on/off state and brightness of the Glow light. Brightness is mapped to five levels.
+
+#### Sensors
+
+- **Battery**
+  - **Description**: Reports the current battery level of the Glow as a percentage.
+
+#### Selects
+
+- **Dimming time**
+  - **Description**: Configures how long the dimming sequence lasts before the light turns off. You can choose between 15, 30, 45, 60, or 90 minutes. The new dimming time takes effect the next time the light is turned on.
 
 ## Data updates
 
