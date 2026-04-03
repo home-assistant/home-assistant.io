@@ -42,7 +42,7 @@ Once the [Bluetooth](/integrations/bluetooth) integration is active, OpenDisplay
 
 ### Encryption
 
-OpenDisplay devices can be configured to require AES-128 encryption for all Bluetooth communication.
+OpenDisplay devices can be configured to require AES-128 encryption for all Bluetooth Low Energy communication.
 
 If your device has encryption enabled, the setup flow will ask for a _32-character hexadecimal encryption key_ after the initial connection attempt. The key is shown on the display when the device boots.
 
