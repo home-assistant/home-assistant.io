@@ -80,20 +80,20 @@ When enabling, disabling, or updating multiple Sonos alarms in a single automati
 
 To ensure reliable updates, add a wait between each alarm update in your automation. A 1 second wait works well as a starting point, but you may need to increase it based on your setup. For example, add a `delay` action between each `switch.turn_on`, `switch.turn_off`, or `sonos.update_alarm` action call. This gives Sonos time to synchronize the alarm list before the next change.
 
-_Example:_
+_Automation Example:_
 
 ```yaml
-sequence:
+actions:
   - action: switch.turn_on
     target:
       entity_id: switch.sonos_alarm_1
   - delay:
-      seconds: 1
+    seconds: 1
   - action: switch.turn_on
     target:
       entity_id: switch.sonos_alarm_2
   - delay:
-      seconds: 1
+    seconds: 1
   - action: switch.turn_on
     target:
       entity_id: switch.sonos_alarm_3
