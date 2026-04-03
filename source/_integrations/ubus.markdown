@@ -1,6 +1,6 @@
 ---
 title: OpenWrt (ubus)
-description: Instructions on how to integrate OpenWRT routers into Home Assistant.
+description: Instructions on how to integrate OpenWRT devices into Home Assistant.
 ha_category:
   - Presence detection
 ha_release: 0.7.6
@@ -15,7 +15,11 @@ related:
 ha_quality_scale: legacy
 ---
 
-This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://openwrt.org/docs/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
+This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://openwrt.org/docs/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the wireless network.
+
+{% warning %}
+Note that this integration should be configured on the specific OpenWrt device(s) that provide wireless access points. It should not be configured on devices that only act as pure routers.
+{% endwarning %}
 
 Before this scanner can be used, you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
 
@@ -24,17 +28,19 @@ opkg update
 opkg install rpcd-mod-file uhttpd-mod-ubus
 ```
 
-Add a new system user `hass` (or do it in any other way that you prefer):
+Generate a hashed version of a password (using `hass` for this example):
 
-- Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
-- Add line to /etc/shadow: hass:x:0:0:99999:7:::
+```bash
+# uhttpd -m hass
+$1$$2QnsnR7DqZshgg8q8IAGe1
+```
 
 Edit the `/etc/config/rpcd` and add the following lines:
 
 ```yaml
 config login
         option username 'hass'
-        option password '$p$hass'
+        option password '$1$$2QnsnR7DqZshgg8q8IAGe1'
         list read hass
         list read unauthenticated
         list write hass
@@ -49,7 +55,11 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
     "read": {
       "ubus": {
         "hostapd.*": ["get_clients"],
-        "uci": ["get"]
+        "uci": ["get"],
+        "dhcp": ["ipv4leases"]
+      },
+      "file": {
+        "/tmp/dhcp.leases": ["read"]
       }
     },
     "write": {}
@@ -57,11 +67,23 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
 }
 ```
 
-Restart the services. Add the file path to /etc/sysupgrade.conf so that it remains after updating/upgrading your OpenWrt firmware.
+
+_Check your lease file path:_ The entry `/tmp/dhcp.leases` is the OpenWrt default for dnsmasq. If you have a custom configuration, run `uci get dhcp.@dnsmasq[0].leasefile` on your router. If it returns a different path, you must update the `hass.json` file above to match that path, or device names will not be correctly resolved.
+
+Restart the services.
 
 ```bash
 # /etc/init.d/rpcd restart && /etc/init.d/uhttpd restart
 ```
+
+
+{% tip %}
+If not already done, add the file path to `/etc/sysupgrade.conf` so that it remains after updating/upgrading your OpenWrt firmware.
+
+```bash
+# echo "/usr/share/rpcd/acl.d/hass.json" >> /etc/sysupgrade.conf
+```
+{% endtip %}
 
 Check if the `file` namespaces is registered with the RPC server.
 
@@ -77,26 +99,31 @@ After this is done, add the following to your {% term "`configuration.yaml`" %} 
 # Example configuration.yaml entry
 device_tracker:
   - platform: ubus
-    host: ROUTER_IP_ADDRESS
-    username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
+    host: OPENWRT_IP_ADDRESS
+    username: hass
+    password: hass
+  # If you configured multiple OpenWrt devices, add a separate entry for each device.
+  - platform: ubus
+    host: OPENWRT_IP_ADDRESS_2
+    username: hass
+    password: hass
 ```
 
 {% configuration %}
 host:
-  description: The IP address of your router, e.g., 192.168.1.1.
+  description: The IP address of your OpenWrt device, e.g., 192.168.1.1.
   required: true
   type: string
 username:
-  description: The username of a user with administrative privileges, usually `root`.
+  description: The username for the RPC account.
   required: true
   type: string
 password:
-  description: The password for your given admin account.
+  description: The password for the RPC account.
   required: true
   type: string
 dhcp_software:
-  description: "The DHCP software used in your router: `dnsmasq`, `odhcpd`, or `none`."
+  description: "The DHCP software used in your OpenWrt device: `dnsmasq`, `odhcpd`, or `none`."
   required: false
   default: dnsmasq
   type: string
