@@ -2,7 +2,6 @@
 title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
 ha_category:
-  - Binary sensor
   - Downloading
   - Sensor
   - Switch
@@ -15,7 +14,6 @@ ha_codeowners:
   - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
-  - binary_sensor
   - sensor
   - switch
 ha_integration_type: service
@@ -54,9 +52,6 @@ Verify SSL certificate:
 
 The **Transmission** integration provides the following sensors and switches.
 
-### Binary sensors
-
-A binary sensor indicating whether the incoming peer port is open and reachable from the internet (port forwarding status).
 ### Sensors
 
 - The status of your Transmission daemon.
