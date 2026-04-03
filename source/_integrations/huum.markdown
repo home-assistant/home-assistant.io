@@ -83,6 +83,58 @@ The **Huum** integration provides the following entities.
 - **Temperature**
   - **Description**: Shows the current sauna temperature in degrees Celsius.
 
+## Examples
+
+Examples of automations you can create using the Huum integration.
+
+### Sauna ready notification with light
+
+Send a notification and turn on the sauna light when the target temperature is reached.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Sauna ready notification with light"
+description: >-
+  Sends a notification and turns on the sauna light when the target
+  temperature is reached.
+
+mode: restart
+
+variables:
+  notification_title: "Sauna is Ready!"
+  notification_message: "Your sauna has reached {target_temperature}°C. Enjoy!"
+
+triggers:
+  - trigger: state
+    entity_id: climate.huum_sauna
+    to: heat
+    from: "off"
+
+actions:
+  - wait_template: >-
+      {% set current = state_attr('climate.huum_sauna', 'current_temperature') | float(0) %}
+      {% set target = state_attr('climate.huum_sauna', 'temperature') | float(0) %}
+      {{ current >= target }}
+    continue_on_timeout: false
+  - action: light.turn_on
+    target:
+      entity_id: light.huum_sauna_light
+  - action: notify.mobile_app_your_phone
+    data:
+      title: "{{ notification_title }}"
+      message: >-
+        {% set target_temperature = state_attr('climate.huum_sauna', 'temperature') | int %}
+        {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
+
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 ## Data updates
 
 The **Huum** integration {% term polling polls %} the Huum cloud service every 30 seconds for status updates.
