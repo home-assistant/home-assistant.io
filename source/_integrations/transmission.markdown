@@ -56,7 +56,18 @@ The **Transmission** integration provides the following sensors and switches.
 
 ### Binary sensors
 
-A binary sensor indicating whether the incoming peer port is open and reachable from the internet (port forwarding status).
+* **Port forwarding**: Indicates whether the port configured in Transmission
+  is reachable from the internet. This sensor is disabled by default and can
+  be enabled in the entity settings.
+
+{% note %}
+The port forwarding check relies on an external service
+(`portcheck.transmissionbt.com`). If this service is unavailable or
+unreachable (for example when using a VPN such as ProtonVPN with NAT-PMP),
+the sensor state will show as **unknown** while all other Transmission sensors
+continue to update normally.
+{% endnote %}
+
 ### Sensors
 
 - The status of your Transmission daemon.
