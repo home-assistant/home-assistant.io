@@ -105,6 +105,11 @@ keep_alive:
   description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off).
   required: false
   type: [time, integer]
+sensor_error_action:
+  description: Set what action to take when the temperature sensor is unavailable, unknown, or has an invalid value. Use `keep` to keep the current behavior, `force_off` to force the output off, or `force_on` to force the output on.
+  required: false
+  default: keep
+  type: string
 initial_hvac_mode:
   description: Set the initial HVAC mode. Valid values are `off`, `heat` or `cool`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
   required: false
@@ -149,6 +154,8 @@ Time for `min_cycle_duration`, `max_cycle_duration`, `cycle_cooldown` and `keep_
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
+If the temperature sensor becomes unavailable, unknown, or reports an invalid value, `current_temperature` is set to unavailable. You can choose how the thermostat should behave in that situation with `sensor_error_action` (`keep`, `force_off`, or `force_on`).
+
 Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
 ## Full YAML configuration example
@@ -173,6 +180,7 @@ climate:
       seconds: 30
     keep_alive:
       minutes: 3
+    sensor_error_action: force_off
     initial_hvac_mode: "off"
     away_temp: 16
     precision: 0.1
