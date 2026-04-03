@@ -15,15 +15,6 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
-related:
-  - url: https://developers.home-assistant.io/docs/documenting/standards
-    title: Documentation standard
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
-    title: Integration Quality Scale - Rules
-  - docs: /docs/glossary/
-    title: Glossary
-  - docs: /docs/tools/quick-search/#my-links
-    title: My link
 ---
 
 **CentriConnect/MyPropane** {% term integration %} allows you to monitor the level and status of propane tanks equipped with [centriconnect.com](https://www.centriconnect.com/) monitoring devices from within Home Assistant and setup automations based on the information.
