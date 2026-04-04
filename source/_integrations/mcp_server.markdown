@@ -192,8 +192,8 @@ This resource returns a YAML snapshot of the entities you have exposed to
 Assist, including the entity ID, friendly name, domain, current state, area
 name, and a curated set of attributes. MCP clients can use this resource to
 understand what is available in your Home Assistant instance before they call
-tools. If you select an LLM API that does not include Assist, this resource is
-not available.
+tools. If the configured LLM API does not include Assist, this resource is not
+available.
 
 ## Known limitations
 
