@@ -11,7 +11,6 @@ ha_codeowners:
 ha_domain: duco
 ha_platforms:
   - fan
-  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -65,11 +64,6 @@ The fan entity lets you control the ventilation speed of a node using preset mod
 | Medium (permanent) | Medium speed permanent manual override. |
 | High | High speed timed manual override (~15 minutes). |
 | High (permanent) | High speed permanent manual override. |
-
-### Sensor
-
-- **Ventilation state**
-  - **Description**: The raw Duco ventilation state as reported by the box (for example `AUTO`, `MAN2`, or `CNT3`). Useful for logbook visibility and detailed automations.
 
 ## Use cases
 
@@ -147,7 +141,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 ## Known limitations
 
 - Timed presets (Low, Medium, High without "permanent") follow Duco's internal timer. Home Assistant cannot configure the override duration.
-- The integration currently only supports ventilation control nodes. CO₂ and humidity sensor data from Duco modules is not yet exposed.
+- The integration does not yet expose CO₂ and humidity sensor data from connected Duco modules. This is planned for a future update.
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
 
 ## Troubleshooting
