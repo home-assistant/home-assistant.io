@@ -53,7 +53,7 @@ The integration creates one device per ventilation node found in your Duco syste
 
 ### Fan
 
-The fan entity lets you control the ventilation speed of a node using preset modes. Turning the fan **off** returns it to **Auto** mode, in which Duco manages the ventilation automatically. Turning the fan **on** activates the **Medium** manual override.
+The fan entity lets you control the ventilation speed of a node using preset modes. Select the **Auto** preset to let Duco manage ventilation automatically based on air quality.
 
 | Preset | Description |
 |--------|-------------|
@@ -103,9 +103,11 @@ This automation switches the ventilation to high speed when the kitchen hood is 
       to: "off"
       for: "00:05:00"
   actions:
-    - action: fan.turn_off
+    - action: fan.set_preset_mode
       target:
         entity_id: fan.living_ventilation
+      data:
+        preset_mode: auto
 ```
 
 ### Switch to away mode when everybody leaves home
@@ -131,9 +133,11 @@ When the last person leaves home, the ventilation is set to Away mode to save en
       entity_id: zone.home
       above: 0
   actions:
-    - action: fan.turn_off
+    - action: fan.set_preset_mode
       target:
         entity_id: fan.living_ventilation
+      data:
+        preset_mode: auto
 ```
 
 ## Data updates
