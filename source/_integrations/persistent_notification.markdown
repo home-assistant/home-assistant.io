@@ -62,7 +62,7 @@ actions:
       title: "Custom subject"
 ```
 
-If you want to show some runtime information, you have to use [templates](/docs/configuration/templating/).
+If you want to show some runtime information, you have to use [templates](/docs/templating/).
 
 {% raw %}
 

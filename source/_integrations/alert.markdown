@@ -67,7 +67,7 @@ entity_id:
 title:
   description: >
     A title to be used for the notification if the notifier supports it
-    with [template](/docs/configuration/templating/) support.
+    with [template](/docs/templating/) support.
   required: false
   type: template
 state:
@@ -96,13 +96,13 @@ skip_first:
 message:
   description: >
     A message to be sent after an alert transitions from `idle` to `on`
-    with [template](/docs/configuration/templating/) support.
+    with [template](/docs/templating/) support.
   required: false
   type: template
 done_message:
   description: >
     A message sent after an alert transitions from `on` or `off` to `idle` with
-    [template](/docs/configuration/templating/) support. Is only sent if an alert notification
+    [template](/docs/templating/) support. Is only sent if an alert notification
     was sent for transitioning from `idle` to `on`.
   required: false
   type: template
@@ -315,4 +315,4 @@ alert:
       tag: garage-door
 ```
 
-[template]: /docs/configuration/templating/
+[template]: /docs/templating/

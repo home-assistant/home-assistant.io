@@ -9,8 +9,8 @@ related:
     title: Labels
   - docs: /docs/organizing/categories/
     title: Categories
-  - docs: /docs/configuration/templating/#areas
-    title: Using areas in template
+  - docs: /template-functions/category/area/
+    title: Using areas in templates
   - docs: /dashboards/dashboards/#home-dashboard
     title: Home dashboard
 ---

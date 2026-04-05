@@ -135,73 +135,15 @@ The integration uses a local push architecture via WebSocket. When a door's lock
 
 ### Send a notification when the doorbell rings
 
-{% raw %}
+Get notified on your phone or trigger any action when someone rings a UniFi Access doorbell.
 
-```yaml
-alias: "Doorbell notification"
-triggers:
-  - trigger: state
-    entity_id: event.front_door_doorbell
-actions:
-  - action: notify.mobile_app_my_phone
-    data:
-      title: "Doorbell"
-      message: "Someone is at the front door!"
-```
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/unifi_access_doorbell_notification.yaml" %}
 
-{% endraw %}
+### React to door access events
 
-### Log who unlocked a door
+Send a notification or trigger an action when someone unlocks a door or when an access attempt is denied.
 
-{% raw %}
-
-```yaml
-alias: "Access granted notification"
-triggers:
-  - trigger: state
-    entity_id: event.front_door_access
-conditions:
-  - condition: state
-    entity_id: event.front_door_access
-    attribute: event_type
-    state: "access_granted"
-actions:
-  - action: notify.mobile_app_my_phone
-    data:
-      title: "Door unlocked"
-      message: >
-        {{ trigger.to_state.attributes.actor }}
-        unlocked the front door
-        via {{ trigger.to_state.attributes.authentication }}.
-```
-
-{% endraw %}
-
-### Alert on denied access attempts
-
-{% raw %}
-
-```yaml
-alias: "Access denied alert"
-triggers:
-  - trigger: state
-    entity_id: event.front_door_access
-conditions:
-  - condition: state
-    entity_id: event.front_door_access
-    attribute: event_type
-    state: "access_denied"
-actions:
-  - action: notify.mobile_app_my_phone
-    data:
-      title: "Access denied!"
-      message: >
-        Access denied at front door
-        for {{ trigger.to_state.attributes.actor }}
-        ({{ trigger.to_state.attributes.authentication }}).
-```
-
-{% endraw %}
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/unifi_access_door_access_notification.yaml" %}
 
 ## Known limitations
 

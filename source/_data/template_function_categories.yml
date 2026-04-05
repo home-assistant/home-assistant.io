@@ -1,0 +1,103 @@
+- key: area
+  label: Areas
+  icon: "mdi:map-marker-radius"
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: collection
+  label: Collections
+  icon: "mdi:format-list-group"
+  learn_more:
+    - title: Common template patterns
+      url: /docs/templating/patterns/
+    - title: Types and conversion
+      url: /docs/templating/types/
+    - title: Loops and conditions
+      url: /docs/templating/loops-and-conditions/
+- key: comparison
+  label: Comparison
+  icon: "mdi:compare-horizontal"
+  learn_more:
+    - title: Loops and conditions
+      url: /docs/templating/loops-and-conditions/
+    - title: Types and conversion
+      url: /docs/templating/types/
+- key: datetime
+  label: Date & Time
+  icon: "mdi:clock-outline"
+  learn_more:
+    - title: Working with dates and times
+      url: /docs/templating/dates-and-times/
+- key: device
+  label: Devices
+  icon: "mdi:devices"
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: encoding
+  label: Encoding
+  icon: "mdi:lock-outline"
+  learn_more:
+    - title: Common template patterns
+      url: /docs/templating/patterns/
+- key: entity
+  label: Entities
+  icon: "mdi:shape-outline"
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: floor
+  label: Floors
+  icon: "mdi:layers-outline"
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: functional
+  label: Functional
+  icon: "mdi:cog-outline"
+  learn_more:
+    - title: Loops and conditions
+      url: /docs/templating/loops-and-conditions/
+- key: label
+  label: Labels
+  icon: "mdi:tag-outline"
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: math
+  label: Math
+  icon: "mdi:calculator-variant-outline"
+  learn_more:
+    - title: Common template patterns
+      url: /docs/templating/patterns/
+- key: regex
+  label: Regex
+  icon: "mdi:regex"
+  learn_more:
+    - title: Python methods in templates
+      url: /docs/templating/python-methods/
+    - title: Common template patterns
+      url: /docs/templating/patterns/
+- key: repairs
+  label: Repairs
+  icon: "mdi:wrench-outline"
+- key: state
+  label: States
+  icon: "mdi:toggle-switch-outline"
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: strings
+  label: Strings
+  icon: "mdi:format-text"
+  learn_more:
+    - title: Python methods in templates
+      url: /docs/templating/python-methods/
+- key: type
+  label: Type Conversion
+  icon: "mdi:swap-horizontal"
+  learn_more:
+    - title: Types and conversion
+      url: /docs/templating/types/
+    - title: Debugging templates
+      url: /docs/templating/debugging/

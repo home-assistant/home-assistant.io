@@ -427,13 +427,20 @@ ul#toc {
     display: inline-block;
   }
 
-  #integration-sidebar #toc-module {
+  #integration-sidebar #toc-module,
+  #integration-sidebar #learn-more-module {
     display: none;
   }
 
   .documentation-page #sidebar #toc-module {
     background: none;
     padding: 0;
+  }
+}
+
+@media only screen and (max-width: $desk-wide-start) {
+  #toc-bar-learn-more {
+    display: none;
   }
 }
 

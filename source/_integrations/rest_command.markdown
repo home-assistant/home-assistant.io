@@ -178,7 +178,7 @@ rest_command:
 
 The commands can be dynamic, using templates to insert values of other entities. Actions support variables for doing things with templates.
 
-In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
+This example uses [templates](/docs/templating/) for dynamic parameters.
 
 {% raw %}
 

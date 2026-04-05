@@ -151,7 +151,7 @@ username:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value."
   required: false
   type: template
 verify_ssl:
@@ -303,6 +303,10 @@ sensor:
 {% endraw %}
 
 ### Fetch multiple JSON attributes and present them as values
+
+{% note %}
+Most examples below use the `rest:` configuration format, which belongs to the [RESTful integration](/integrations/rest). The RESTful integration allows defining multiple sensors from a single HTTP endpoint, reducing the number of requests to the same service. If you only need a single sensor from an endpoint, use the `sensor` platform configuration shown in the examples above.
+{% endnote %}
 
 [JSON Test](https://www.jsontest.com/) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 

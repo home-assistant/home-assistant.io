@@ -67,7 +67,7 @@ trigger_variables:
   type: map
   keys:
     PARAMETER_NAME:
-      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used."
+      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/where-to-use/#limited-templates) can be used."
       type: any
 mode:
   description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](#automation-modes)."

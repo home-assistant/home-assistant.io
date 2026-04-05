@@ -428,11 +428,11 @@ queries:
       required: true
     where:
       type: template
-      description: Defines the data selection clause (the where clause of the query). This supports [templates](/docs/configuration/templating/#building-templates).
+      description: Defines the data selection clause (the where clause of the query). This supports [templates](/docs/templating/syntax/).
       required: true
     value_template:
       type: template
-      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+      description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload.
       required: false
     database:
       type: string
@@ -478,7 +478,7 @@ queries_flux:
       default: now()
     query:
       type: template
-      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates)."
+      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/templating/syntax/)."
       required: true
     group_function:
       type: string
@@ -486,7 +486,7 @@ queries_flux:
       required: false
     value_template:
       type: template
-      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Note that `value` will be set to the value of the `_value` field in your query output.
+      description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload. Note that `value` will be set to the value of the `_value` field in your query output.
       required: false
     bucket:
       type: string

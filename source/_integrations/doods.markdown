@@ -103,7 +103,7 @@ area:
         type: boolean
         default: true
 file_out:
-    description: A [template](/docs/configuration/templating/#processing-incoming-data) for the integration to save processed images including bounding boxes. `camera_entity` is available as the `entity_id` string of the triggered source camera.
+    description: A [template](/docs/templating/where-to-use/#processing-incoming-data) for the integration to save processed images including bounding boxes. `camera_entity` is available as the `entity_id` string of the triggered source camera.
     required: false
     type: list
 labels:

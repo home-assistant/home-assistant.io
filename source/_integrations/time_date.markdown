@@ -49,4 +49,4 @@ template:
 
 ## More time-related resources
 
-For more information about using time related variables and sensors in templates (such as `today_at()`, `now()` or `as_timestamp()`) visit this [time section](/docs/configuration/templating/#time) on the templating page.
+For more information about using time related variables and sensors in templates, see the template function reference for [`today_at`](/template-functions/today_at/), [`now`](/template-functions/now/), and [`as_timestamp`](/template-functions/as_timestamp/).
