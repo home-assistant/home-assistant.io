@@ -4,7 +4,6 @@ description: The SMLIGHT SLZB integration allows users to monitor and manage the
 ha_category:
   - Binary sensor
   - Button
-  - Remote
   - Sensor
   - Switch
   - Update
@@ -18,7 +17,6 @@ ha_platforms:
   - button
   - diagnostics
   - light
-  - remote
   - sensor
   - switch
   - update
@@ -129,21 +127,6 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 ### Lights
 
 - **Ambilight** - Controls the LED strip on the front of the Ultima device, including selecting built-in effects. The `color2`, `speed`, and `direction` properties used by some effects are not yet supported.
-
-### Remote
-
-- **IR Remote** - Sends raw infrared codes using the built-in IR transmitter on the Ultima device.
-
-To send a raw IR code, use the [`remote.send_command`](/integrations/remote/) action. Pass the raw IR code as the `command` parameter. Raw IR codes can be captured from a physical remote using the IR receiver in the SLZB-OS web UI, under **IR Learn & Replay**.
-
-```yaml
-actions:
-  - action: remote.send_command
-    target:
-      entity_id: remote.slzb_ultima_ir_remote
-    data:
-      command: "b6580d200d200d0a0c0a0d090d0a0d090d200d0a..."
-```
 
 ## Removing the integration
 
