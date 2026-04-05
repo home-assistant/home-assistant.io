@@ -175,8 +175,8 @@ To create a token:
 - **Max disk**: Maximum amount of available disk space.
 - **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
-- **Network input**: Amount of incoming network traffic since starting the node/VM/LXC.
-- **Network output**: Amount of outgoing network traffic since starting the node/VM/LXC.
+- **Network input**: Amount of incoming network traffic since starting the VM/LXC.
+- **Network output**: Amount of outgoing network traffic since starting the VM/LXC.
 - **Uptime**: Time since the node/VM/LXC started.
 
 ### Binary sensor
