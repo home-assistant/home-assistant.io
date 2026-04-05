@@ -32,7 +32,7 @@ type:
   type: string
 content:
   required: true
-  description: "Content to render as [Markdown](https://commonmark.org/help/). May contain [templates](/docs/configuration/templating/)."
+  description: "Content to render as [Markdown](https://commonmark.org/help/). May contain [templates](/docs/templating/)."
   type: string
 title:
   required: false

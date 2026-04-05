@@ -3,7 +3,7 @@ title: "Automation Templates"
 description: "List all trigger variables available to templates."
 ---
 
-Automations support the advanced features of [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available for automations.
+Automations support the advanced features of [templating](/docs/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/templating/) available to scripts, the `trigger` and `this` template variables are available for automations.
 
 Example of variables used in templates:
 

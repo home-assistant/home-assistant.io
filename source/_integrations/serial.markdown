@@ -78,7 +78,7 @@ dsrdtr:
   default: False
   type: boolean
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the serial line."
+  description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the serial line."
   required: false
   type: template
 {% endconfiguration %}
@@ -99,7 +99,7 @@ value_template:
 
 ### Arduino
 
-For controllers of the Arduino family, a possible sketch to read the temperature and the humidity could look like the sample below.The returned data is in JSON format and can be split into the individual sensor values using a [template](/docs/configuration/templating/#processing-incoming-data).
+For controllers of the Arduino family, a possible sketch to read the temperature and the humidity could look like the sample below.The returned data is in JSON format and can be split into the individual sensor values using a [template](/docs/templating/where-to-use/#processing-incoming-data).
 
 ```c
 #include <ArduinoJson.h>

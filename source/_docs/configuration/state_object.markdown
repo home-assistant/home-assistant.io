@@ -73,7 +73,7 @@ The table lists common state attributes that may be present, depending on the en
 | `device_class`        | The type of device that an entity represents. Used to display device specific information in the UI.                                                                                                         |
 | `supported_features`  | The features an entity supports. For covers, for example, it might list `opening`, `closing`, `stopping`, `setting position`. For media players, it might list `play`, `pause`, `stop`, and `volume control` |
 
-When an attribute contains spaces, you can retrieve it like this: `state_attr('sensor.livingroom', 'Battery numeric')`.
+When an attribute contains spaces, you can retrieve it with the [`state_attr`](/template-functions/state_attr/) function: `state_attr('sensor.livingroom', 'Battery numeric')`.
 
 ## Context
 

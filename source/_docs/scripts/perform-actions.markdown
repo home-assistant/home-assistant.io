@@ -188,7 +188,7 @@ There are four `homeassistant` actions that aren't tied to any single domain, th
 
 Complete action details and examples can be found on the [Home Assistant integration][homeassistant-integration-actions] page.
 
-[templating]: /docs/configuration/templating/
+[templating]: /docs/templating/
 [google travel time]: /integrations/google_travel_time/
 [template sensor]: /integrations/template/
 [light]: /integrations/light/

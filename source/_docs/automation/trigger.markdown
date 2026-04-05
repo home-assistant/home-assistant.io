@@ -66,7 +66,7 @@ There are two different types of variables available for triggers. Both work lik
 
 The first variant allows you to define variables that will be set when the trigger fires. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/templating#available-trigger-data).
 
-The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/configuration/templating/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
+The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/templating/where-to-use/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
 
 {% raw %}
 
@@ -118,7 +118,7 @@ automation:
         - scene_reloaded
 ```
 
-It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `event_type`, `event_data` and `context` options.
+It's also possible to use [limited templates](/docs/templating/where-to-use/#limited-templates) in the `event_type`, `event_data` and `context` options.
 
 {% important %}
 The `event_type`, `event_data` and `context` templates are only evaluated when setting up the trigger, they will not be reevaluated for every event.
@@ -185,7 +185,7 @@ automation:
 
 {% endraw %}
 
-It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
+It's also possible to use [limited templates](/docs/templating/where-to-use/#limited-templates) in the `topic` and `payload` options.
 
 {% note %}
 The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
@@ -639,7 +639,7 @@ automation:
 
 ## Template trigger
 
-Template triggers work by evaluating a [template](/docs/configuration/templating/) when any of the recognized entities change state. The trigger will fire if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
+Template triggers work by evaluating a [template](/docs/templating/) when any of the recognized entities change state. The trigger will fire if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
 
 This is achieved by having the template result in a true boolean expression (for example `{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render `true` (example below).
 
@@ -795,7 +795,7 @@ automation:
 
 ### Limited templates
 
-It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) for times.
+It's also possible to use [limited templates](/docs/templating/where-to-use/#limited-templates) for times.
 
 {% raw %}
 
@@ -967,7 +967,7 @@ See the [Persistent Notification](/integrations/persistent_notification/) integr
 
 ## Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/configuration/templating/#limited-templates).
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/templating/where-to-use/#limited-templates).
 
 {% note %}
 The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
