@@ -196,7 +196,7 @@ The `mastodon.update_profile` action allows you to update information and pictur
   - **Optional**: Yes
   - **Keys**:
     - `name`: The label for the field.
-    - `value`: The value for the field
+    - `value`: The value for the field.
 - **Data attribute**: `attribution_domains`
   - **Description**: Websites allowed to credit you. Protects from false attributions. Note that setting attribution domains will replace all existing attribution domains, not just the ones specified here.
   - **Optional**: Yes
