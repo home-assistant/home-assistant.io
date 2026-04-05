@@ -56,15 +56,15 @@ Open {% my developer_template title="**Developer tools** > **Template**" %} and 
 
 {% example %}
 template: |
-  {% set low = [] %}
+  {% set low = namespace(batteries=[]) %}
   {% for sensor in states.sensor
-     | selectattr('attributes.device_class', 'eq', 'battery')
-     | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
-    {% if sensor.state | float(100) < 20 %}
-      {% set low = low + [device_name(sensor.entity_id)] %}
+    | selectattr('attributes.device_class', 'eq', 'battery')
+    | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
+    {% if sensor.state | float(100) < 100 %}
+      {% set low.batteries = low.batteries + [device_name(sensor.entity_id)] %}
     {% endif %}
   {% endfor %}
-  {{ low }}
+  {{ low.batteries }}
 output: "['Front door lock', 'Motion sensor', 'Bedroom sensor']"
 {% endexample %}
 
