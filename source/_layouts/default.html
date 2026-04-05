@@ -21,19 +21,11 @@
             {%- unless page.no_toc -%}
               <aside id="toc-bar" class="grid__item desk-wide-one-sixth">
                 {% if page.function_name %}
-                <section class="aside-module grid__item one-whole">
+                <section id="toc-bar-learn-more" class="aside-module grid__item one-whole">
                   <div class='section'>
                     <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
                     <ul class='divided'>
-                      <li>{% active_link /docs/templating/ About templating %}</li>
-                      <li>{% active_link /docs/templating/introduction/ Introduction to templating %}</li>
-                      {%- assign current_category = site.data.template_function_categories | where: "key", page.category | first -%}
-                      {%- if current_category.learn_more -%}
-                        {%- for item in current_category.learn_more -%}
-                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-                        {%- endfor -%}
-                      {%- endif -%}
-                      <li>{% active_link /template-functions/ All template functions %}</li>
+                      {% include asides/template_function_learn_more.html %}
                     </ul>
                   </div>
                 </section>
