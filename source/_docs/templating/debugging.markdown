@@ -168,7 +168,7 @@ Templates use [Jinja2](https://jinja.palletsprojects.com/), a templating engine 
 - **`None` must be capitalized.** Python writes `None`, `True`, `False` with a capital first letter. Template tests and literals use lowercase `none`, `true`, `false`. Both work in most places, but be consistent.
 - **No f-strings.** Python's `f"hello {name}"` is not template syntax. Use `"hello " ~ name` (the `~` joins text) or `{{ name }}` directly.
 - **No `while` loops.** Templates only support `for` loops.
-- **List and dict methods are limited.** You can call `.items()`, `.values()`, `.keys()`, `.get()`, `.append()`, `.split()`, `.lower()`, `.upper()`, and similar, but not everything Python offers. When in doubt, test it in the editor.
+- **List and dict methods are limited.** Read-only methods like `.items()`, `.values()`, `.keys()`, `.get()`, `.split()`, `.lower()`, and `.upper()` work fine. Methods that mutate a value in place, like `.append()`, `.pop()`, or `.update()`, are blocked as unsafe. To build up a list across loop iterations, use a [`namespace`](/template-functions/namespace/) instead.
 
 ## Next steps
 

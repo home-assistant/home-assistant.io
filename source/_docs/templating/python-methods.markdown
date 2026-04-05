@@ -117,25 +117,6 @@ template: '{{ "Temperature: {} {}".format(22.5, "°C") }}'
 output: "Temperature: 22.5 °C"
 {% endexample %}
 
-## List methods
-
-Lists have fewer built-in methods than filters in templates, but these come up.
-
-### append
-
-Adds an item to the end of a list (usually used with `{% do %}`).
-
-{% example %}
-template: |
-  {% set items = [] %}
-  {% do items.append("first") %}
-  {% do items.append("second") %}
-  {{ items }}
-output: "['first', 'second']"
-{% endexample %}
-
-Most of the time you don't need `append`. The built-in list filters ([`map`](/template-functions/map/), [`select`](/template-functions/select/), [`join`](/template-functions/join/), and so on) give you a more template-like way to build up a list.
-
 ## Dictionary methods
 
 Dictionaries show up in entity attributes, JSON responses, and action responses.

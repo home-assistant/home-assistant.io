@@ -213,19 +213,9 @@ This one skips lights that are off (with `continue`), and stops entirely once th
 
 ## The do statement
 
-`do` runs an expression without adding its result to the output. It is useful when you want to call a method on something, like adding an item to a list.
+You may see `{% do %}` mentioned in Jinja documentation elsewhere. It runs an expression without printing anything, which in plain Jinja is useful for things like `{% do items.append(value) %}` to mutate a list.
 
-{% example %}
-template: |
-  {% set numbers = [] %}
-  {% do numbers.append(1) %}
-  {% do numbers.append(2) %}
-  {% do numbers.append(3) %}
-  {{ numbers }}
-output: "[1, 2, 3]"
-{% endexample %}
-
-Most of the time you won't need `do`. There are usually filters that achieve the same result in a more template-like way. It is there when you need it.
+Home Assistant's template environment is sandboxed. Mutation methods like `.append()`, `.pop()`, and `.update()` are blocked for safety, so `{% do %}` is rarely needed in Home Assistant templates. To build up a list or counter across loop iterations, use a [`namespace`](/template-functions/namespace/) with `{% set %}` instead.
 
 ## Next steps
 
