@@ -50,8 +50,8 @@ of `90` means your panels are standing up vertically.
 
 The **azimuth** (in degrees on a 360° scale);
 Is the direction in which the front surface of your solar panels are facing
-towards. As a full circle is 360°, a value of  `0` is facing North, `90` East,
-`180` South and `270` is facing West (or any value in between).
+towards. As a full circle is 360°, a value of  `180` is facing North, `-90` East,
+`0` South and `90` is facing West (or any value in between).
 
 The **total modules power** (in Watt peak);
 Each solar panel, in a solar panel system, has a maximum power peak production
