@@ -182,6 +182,19 @@ output: |
   Age: unknown
 {% endexample %}
 
+### When a key name conflicts with a dict method
+
+If a dictionary has a key with the same name as a dict method (like `values`, `keys`, `items`, or `get`), dot notation returns the method, not the value. This commonly happens when parsing API responses.
+
+{% example %}
+template: |
+  {% set response = {"status": "ok", "values": [1, 2, 3]} %}
+  {{ response['values'] }}
+output: "[1, 2, 3]"
+{% endexample %}
+
+Use bracket notation (`response['values']`) when a key might collide with a method. It always reaches the dictionary value first.
+
 ## Datetime methods
 
 When you have a datetime (for example, from `now()`), you can reach into its parts or format it.
