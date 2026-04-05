@@ -129,6 +129,55 @@ output: "3"
 
 You will see `| list` at the end of filter chains all over Home Assistant templates. It is not optional decoration, it is the step that makes the result countable, sortable, and reusable. A good habit: if you feed the result of [`map`](/template-functions/map/), [`select`](/template-functions/select/), [`reject`](/template-functions/reject/), [`selectattr`](/template-functions/selectattr/), or [`rejectattr`](/template-functions/rejectattr/) into anything that needs a list, add `| list`.
 
+## Getting items from lists and dictionaries
+
+Collections give you several ways to reach the items inside them.
+
+### From a list
+
+Use the [`first`](/template-functions/first/) and [`last`](/template-functions/last/) filters to grab the ends, or square brackets with an index to reach a specific position. Indices start at `0`, and negative numbers count from the end.
+
+{% example %}
+template: |
+  {% set rooms = ['kitchen', 'bedroom', 'garage'] %}
+  First:    {{ rooms | first }}
+  Last:     {{ rooms | last }}
+  Index 0:  {{ rooms[0] }}
+  Index 1:  {{ rooms[1] }}
+  Index -1: {{ rooms[-1] }}
+output: |
+  First:    kitchen
+  Last:     garage
+  Index 0:  kitchen
+  Index 1:  bedroom
+  Index -1: garage
+{% endexample %}
+
+### From a dictionary
+
+Dictionaries support two ways to read a value: bracket notation (`data['key']`) and dot notation (`data.key`). Both usually work.
+
+{% example %}
+template: |
+  {% set data = {'temp': 22.5, 'humidity': 54} %}
+  Bracket: {{ data['temp'] }}
+  Dot:     {{ data.temp }}
+output: |
+  Bracket: 22.5
+  Dot:     22.5
+{% endexample %}
+
+**Use bracket notation when a key name could conflict with a dict method.** If a key is named `values`, `keys`, `items`, `get`, or any other built-in dict method, dot notation returns the method instead of your value. This is common with API responses.
+
+{% example %}
+template: |
+  {% set response = {'status': 'ok', 'values': [1, 2, 3]} %}
+  {{ response['values'] }}
+output: "[1, 2, 3]"
+{% endexample %}
+
+When in doubt, reach for bracket notation. It always looks up the dictionary value first.
+
 ## Checking what type you have
 
 When you are not sure what type a value is, use [`typeof`](/template-functions/typeof/) to inspect it:
