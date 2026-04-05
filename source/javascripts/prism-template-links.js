@@ -91,6 +91,16 @@
     document.querySelectorAll(selectors).forEach(processCodeBlock);
   });
 
+  // Track the last input type so touch and mouse behave differently
+  var lastPointerType = 'mouse';
+  document.addEventListener('pointerdown', function(e) {
+    lastPointerType = e.pointerType;
+  }, { passive: true });
+
+  function isTouchInput() {
+    return lastPointerType === 'touch' || lastPointerType === 'pen';
+  }
+
   // Navigate to the linked URL, honoring modifier keys for new-tab behavior
   function navigate(url, event) {
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.button === 1) {
@@ -100,13 +110,39 @@
     }
   }
 
+  // On touch input, first tap primes the element and shows the tooltip;
+  // a second tap on the same element navigates.
+  var primedElement = null;
+
   // Click handler: left-click with or without modifier keys
   document.addEventListener('click', function(e) {
     var el = e.target.closest('.tf-linked');
-    if (!el) return;
+
+    // Tap outside any linked token: dismiss tooltip and clear primed state
+    if (!el) {
+      if (primedElement) {
+        primedElement = null;
+        hideTooltip();
+        currentHovered = null;
+      }
+      return;
+    }
+
     var url = el.getAttribute('data-tf-url');
     if (!url) return;
     e.preventDefault();
+
+    // On touch, require two taps: first shows tooltip, second navigates
+    if (isTouchInput() && primedElement !== el) {
+      if (primedElement) hideTooltip();
+      primedElement = el;
+      currentHovered = el;
+      showTooltip(el);
+      return;
+    }
+
+    // Desktop, or second tap on touch — navigate
+    primedElement = null;
     navigate(url, e);
   });
 
@@ -122,7 +158,8 @@
   });
 
   // Tooltip on hover — delegated mouseover/mouseout with enter/leave semantics
-  // to avoid repositioning while moving within the same token
+  // to avoid repositioning while moving within the same token. Touch input
+  // uses the click-based flow above, so mouse handlers bail out on touch.
   var tooltip = document.createElement('div');
   tooltip.className = 'tf-code-tooltip';
   tooltip.style.display = 'none';
@@ -161,6 +198,7 @@
   }
 
   document.addEventListener('mouseover', function(e) {
+    if (isTouchInput()) return;
     var el = e.target.closest('.tf-linked');
     if (el === currentHovered) return;
     if (currentHovered) hideTooltip();
@@ -169,6 +207,7 @@
   });
 
   document.addEventListener('mouseout', function(e) {
+    if (isTouchInput()) return;
     if (!currentHovered) return;
     var next = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('.tf-linked');
     if (!next) {
