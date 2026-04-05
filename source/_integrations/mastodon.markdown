@@ -165,7 +165,7 @@ Mastodon holds idempotency keys for up to one hour and subsequent posts using th
 
 ### Action: Update profile
 
-The `mastodon.update_profile` actions allowes you to update information and pictures of your Mastodon account.
+The `mastodon.update_profile` action allows you to update information and pictures of your Mastodon account.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the Mastodon config entry.
