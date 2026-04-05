@@ -91,10 +91,26 @@
     document.querySelectorAll(selectors).forEach(processCodeBlock);
   });
 
-  // Track the last input type so touch and mouse behave differently
+  // Track the last input type so touch and mouse behave differently.
+  // Also dismiss any active tooltip when the user taps outside a linked token.
   var lastPointerType = 'mouse';
   document.addEventListener('pointerdown', function(e) {
     lastPointerType = e.pointerType;
+    if (primedElement && !e.target.closest('.tf-linked')) {
+      primedElement = null;
+      currentHovered = null;
+      hideTooltip();
+    }
+  }, { passive: true });
+
+  // Dismiss tooltip when scrolling — the anchored position becomes stale
+  // and the user is no longer reading it.
+  window.addEventListener('scroll', function() {
+    if (primedElement || currentHovered) {
+      primedElement = null;
+      currentHovered = null;
+      hideTooltip();
+    }
   }, { passive: true });
 
   function isTouchInput() {
