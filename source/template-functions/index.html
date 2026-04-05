@@ -37,7 +37,7 @@ regenerate: false
             {%- for func in cat_functions -%}
             <li class="tf-item" data-title="{{ func.function_name | downcase }} {{ func.title | downcase }}{% if func.aliases %} {{ func.aliases | join: ' ' | downcase }}{% endif %}" data-desc="{{ func.description | downcase }}">
               <a href="{{ func.url }}">
-                <span class="tf-title">{{ func.title | remove: func.function_name | remove: ': ' | strip }}</span>
+                <span class="tf-title">{{ func.title | split: ': ' | first | strip }}</span>
                 <code class="tf-fn">{{ func.function_name }}</code>
               </a>
               <span class="tf-desc">{{ func.description }}</span>
