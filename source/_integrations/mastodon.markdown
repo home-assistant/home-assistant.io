@@ -189,7 +189,7 @@ The `mastodon.update_profile` action allows you to update information and pictur
   - **Description**: Signal to others that the account mainly performs automated actions.
   - **Optional**: Yes
 - **Data attribute**: `discoverable`
-  - **Description**: Whether your should be discoverable. Public posts and the profile may be featured or recommended across Mastodon.
+  - **Description**: Whether your profile should be discoverable. Public posts and the profile may be featured or recommended across Mastodon.
   - **Optional**: Yes
 - **Data attribute**: `fields`
   - **Description**: Up to 4 additional profile fields as key-value pairs. Your homepage, pronouns, age, anything you want. Note that updating fields will replace all existing fields, not just the ones specified here.
