@@ -12,7 +12,7 @@ ha_domain: led_ble
 ha_config_flow: true
 ha_platforms:
   - light
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates multiple brands of Bluetooth Low Energy LED devices into Home Assistant.
@@ -49,6 +49,6 @@ These devices have been sold under many brands, including:
 - REYSURPIUS
 - SUPERNIGHT
 - Triones
-- Zengee
+- [Zengge](http://www.zengge.com/sy)
 - YONEDA
 - Zerproc

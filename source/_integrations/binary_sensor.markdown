@@ -1,8 +1,8 @@
 ---
-title: Binary Sensor
+title: Binary sensor
 description: Instructions on how-to setup binary sensors with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.9
 ha_quality_scale: internal
 ha_domain: binary_sensor
@@ -25,26 +25,32 @@ Some binary sensors are created automatically when you add a device integration.
 For example, adding the [ecobee integration](/integrations/ecobee/) will create
 a binary sensor to detect room occupancy. Other binary sensors can be created
 manually using the [template integration](/integrations/template/)
-or using an [input boolean helper](/integrations/input_boolean),
+or using an [input boolean helper](/integrations/input_boolean).
 
-### Device Class
+{% include integrations/building_block_integration.md %}
 
-Knowing a sensor is binary impacts how the sensor's current state may be
-represented in Home Assistant's UI (see [Dashboards](/dashboards/)). Opposing states
-may be given different icons, colors, and value labels to highlight a particular
-state over the other. This is set by the binary sensor's device class.
+## The state of binary sensor
 
-Here are a few examples of this representation in the UI:
+A binary sensor can have two states: **on** or **off**. However, in the frontend, they might not be called **on** or **off**, but use an alternative term to be more meaningful in context. For example, hot/cold, locked/unlocked. The meaning of an **on** or **off** state depends on the device class.
 
-<p class='img'>
-<img src='/images/screenshots/binary_sensor_classes_icons.png' />
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+### Device class
+
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows a few examples of different device classes for binary sensors:
+
+![List of binary sensors](/images/screenshots/binary_sensor_classes_icons.png)
+
 Example of various device classes icons in `on` and `off` state. The on image
-in this example has `state_color: true` specified in the Entities card
+in this example has `state_color: true` specified in the entities card
 configuration to receive the icon coloring.
-</p>
 
-The full list of supported binary sensor device classes is below
-*(note: these may also be modified in the [customizing section](/docs/configuration/customizing-devices)).*
+The following device classes are supported for binary sensors:
 
 - **None**: Generic on/off. This is the default and doesn't need to be set.
 - **battery**: `on` means low, `off` means normal

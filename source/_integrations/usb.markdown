@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-The USB Discovery integration will detect newly connected USB devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The **USB Discovery** {% term integration %} will detect newly connected USB devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
 
 - On all supported systems, devices are detected during startup.
 - On Linux systems that have functional `udev` support, including Home Assistant Operating System, devices are detected as soon as they are plugged in.
@@ -20,7 +20,7 @@ The USB Discovery integration will detect newly connected USB devices. Discovere
 
 ## Configuration
 
-This integration is part of [`default_config:`](/integrations/default_config/) if you have opted to not use [`default_config:`](/integrations/default_config/)you can add this integration by adding the following lines to your `configuration.yaml`
+This {% term integration %} is part of [`default_config:`](/integrations/default_config/) if you have opted to not use [`default_config:`](/integrations/default_config/)you can add this {% term integration %} by adding the following lines to your {% term "`configuration.yaml`" %}
 
 ```yaml
 # Example configuration.yaml entry

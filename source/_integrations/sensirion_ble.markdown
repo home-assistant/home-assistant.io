@@ -12,7 +12,7 @@ ha_domain: sensirion_ble
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates sensors talking [Sensirion](https://sensirion.com/)'s BLE protocol into Home Assistant.
@@ -24,3 +24,5 @@ The Sensirion BLE integration will automatically discover devices once the [Blue
 ## Supported devices
 
 - [Sensirion MyCO2 Gadget](https://sensirion.com/products/catalog/SCD4x-CO2-Gadget/)
+- [Sensirion SHT4x Smart Gadget](https://www.sensirion.com/products/catalog/SHT4x-Smart-Gadget)
+- [Sensirion SHT31 Gadget](https://developer.sensirion.com/archive/platforms/sht31-smart-gadget-development-kit/) (untested)

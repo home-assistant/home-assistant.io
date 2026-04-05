@@ -12,10 +12,10 @@ ha_domain: escea
 ha_homekit: true
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Escea integration allows monitoring and control of local [Escea](https://escea.com/) fireplaces. These fireplaces are manufactured in New Zealand and sold throughout Australia and New Zealand.
+The **Escea** {% term integration %} allows monitoring and control of local [Escea](https://escea.com/) fireplaces. These fireplaces are manufactured in New Zealand and sold throughout Australia and New Zealand.
 
 ## Supported hardware
 
@@ -34,7 +34,7 @@ Fireplace on / off, fan settings, and desired temperature settings are supported
 
 ## Debugging
 
-If you're trying to track down issues with the component, set up logging for it:
+If you're trying to track down issues with this integration, set up logging for it:
 
 ```yaml
 # Example configuration.yaml with logging for Escea

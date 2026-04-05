@@ -8,12 +8,15 @@ ha_iot_class: Local Polling
 ha_domain: touchline
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
+ha_codeowners:
+  - '@mnordseth'
+ha_config_flow: true
 ---
 
-The `touchline` climate platform let you control [ROTH Touchline](https://www.roth-uk.com/en/roth-touchline.htm) floor heating thermostats from Roth.
+The **Roth Touchline** {% term integration %} lets you control [ROTH Touchline](https://www.roth-uk.com/en/roth-touchline.htm) floor heating thermostats from Roth.
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 climate:

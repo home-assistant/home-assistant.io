@@ -1,6 +1,7 @@
 ---
 title: "Understanding Home Energy Management"
 description: "How to get started using home energy management in Home Assistant."
+toc: false
 ---
 
 Home Assistant allows you to get on top of your energy use with its home energy management feature. Gain new insights, optimize your solar panel production, plan energy usage and save money.
@@ -18,6 +19,8 @@ Home Assistant is an open platform and so home energy management is not restrict
 - [Integrate your water consumption](/docs/energy/water/)
 - [Integrate individual devices](/docs/energy/individual-devices/)
 
-If you have a sensor that returns instantaneous power readings (W or kW), then to add a sensor that returns energy usage or generation (kWh) refer to [Riemann sum integral integration](/integrations/integration/#energy)
+If you have a sensor that returns instantaneous power readings (W or kW), then to add a sensor that returns energy usage or generation (kWh), refer to the [Riemann sum integral integration](/integrations/integration/#energy).
+
+You can also configure power sensors alongside energy sensors in the Energy dashboard. Power inputs accept sensors with `state_class: measurement` and appropriate units (for example `W` or `kW`).
 
 <img src='/images/docs/energy/energy-overview.png' alt='Visual representation of how all different energy forms relate.' style='border: 0;box-shadow: none;'>

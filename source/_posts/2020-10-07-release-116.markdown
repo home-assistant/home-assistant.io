@@ -50,7 +50,7 @@ As always, enjoy the release!
 - [Release 0.116.3 - October 15](#release-01163---october-15)
 - [Release 0.116.4 - October 15](#release-01164---october-15)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
 ## Entities card editor
@@ -136,7 +136,7 @@ effective in 0.118).
 
 This is only a concern if you are running Home Assistant Core directly on
 Python. You can check the Python version Home Assistant uses by going to the
-information screen in **Configuration** -> **Info**.
+information screen under {% my repairs title="**Settings** > **System** > **Repairs**" %} > **System information** in the three dots menu (top right).
 
 If you run Home Assistant OS, Supervised or Container, you don't have to worry
 about this, as the Home Assistant project takes care of this for you. As a
@@ -311,13 +311,13 @@ The following integrations are now available via the Home Assistant UI:
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -327,7 +327,7 @@ for that specific item.
   <summary><b>Custom Lovelace Cards</b></summary>
   <p>
 
-This release contains breaking changes for custom card developers, check the
+This release contains backward-incompatible changes for custom card developers, check the
 [developers blog](https://developers.home-assistant.io/blog/2020/10/02/lazyMoreInfo)
 for more information.
 

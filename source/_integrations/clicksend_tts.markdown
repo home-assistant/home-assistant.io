@@ -9,13 +9,14 @@ ha_domain: clicksend_tts
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
+The **ClickSend TTS** {% term integration %} uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
 
 After creating your account, you should now be able to obtain your `username` and `api_key` [here](https://dashboard.clicksend.com/account/subaccounts).
 
-To add ClickSend to your installation, add the following to your Home Assistant `configuration.yaml` file:
+To add ClickSend to your installation, add the following to your Home Assistant {% term "`configuration.yaml`" %} file:
 
 ```yaml
 notify:
@@ -27,7 +28,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME.
+  description: "Setting the optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   default: clicksend_tts
   type: string
@@ -40,11 +41,11 @@ api_key:
   required: true
   type: string
 recipient:
-  description: An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like `+14151234567`. This is the phone number that you want to call and notify via TTS, see [ClickSend Documentation](https://developers.clicksend.com/docs/rest/v3/#Send-Voice-Message) for more info.
+  description: An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like `+14151234567`. This is the phone number that you want to call and notify via TTS, see [ClickSend Documentation](https://developers.clicksend.com/docs/messaging/voice-messaging/other/send-voice-message) for more info.
   required: true
   type: string
 language:
-  description: The language you want to use to convert the message to audio. Accepted values are found in the [ClickSend Documentation](https://developers.clicksend.com/docs/rest/v3/#Send-Voice-Message).
+  description: The language you want to use to convert the message to audio. Accepted values are found in the [ClickSend Documentation](https://developers.clicksend.com/docs/messaging/voice-messaging/other/send-voice-message).
   required: false
   default: en-us
   type: string
@@ -57,15 +58,15 @@ voice:
 
 ### Usage
 
-ClickSend is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to the E.164 phone number you configured as **recipient**.
+ClickSend is a notify platform and thus can be controlled by calling the notify action [as described here](/integrations/notify/). It will send a notification to the E.164 phone number you configured as **recipient**.
 
 ```yaml
 alias: "The sun has set"
-trigger:
-  - platform: sun
+triggers:
+  - trigger: sun
     event: sunset
-action:
-  - service: notify.clicksend_tts
+actions:
+  - action: notify.clicksend_tts
     data:
       message: "The sun has set"
 ```

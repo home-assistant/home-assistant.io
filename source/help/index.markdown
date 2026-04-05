@@ -9,7 +9,9 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
-- Follow us on [Twitter][twitter], use [@home_assistant][twitter]
+- Follow us on Bluesky, use [@home-assistant.io][bluesky]
+- Follow us on Mastodon, use [@homeassistant@fosstodon.org][mastodon]
+- Follow us on X, use [@home_assistant][x-twitter]
 - Join the [Facebook community][facebook]
 - Join the Reddit in [/r/homeassistant][reddit]
 
@@ -17,7 +19,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 Have you found an issue in your Home Assistant installation? Please report it. Reporting it makes it easy to track and ensures that it gets fixed. For more details please refer to [Reporting issues](/help/reporting_issues/) page.
 
-- [Feature requests](https://community.home-assistant.io/c/feature-requests) (Don't post feature requests in the issue trackers. Thanks!)
+- [Feature requests](https://github.com/orgs/home-assistant/discussions) (Don't post feature requests in the issue trackers. Thanks!)
 - [Issue tracker Home Assistant Core](https://github.com/home-assistant/core/issues)
 - [Issue tracker Home Assistant Frontend](https://github.com/home-assistant/frontend/issues)
 - [Issue tracker Home Assistant Supervisor](https://github.com/home-assistant/supervisor/issues)
@@ -88,7 +90,9 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Home Assistant – Open Source Python Home Automation Platform](https://www.automatedhome.co.uk/new-products/home-assistant-open-source-python-home-automation-platform.html) - January 2015
 
 [forum]: https://community.home-assistant.io/
-[twitter]: https://twitter.com/home_assistant
+[mastodon]: https://fosstodon.org/@homeassistant
+[x-twitter]: https://x.com/home_assistant
 [facebook]: https://www.facebook.com/homeassistantio
 [reddit]: https://reddit.com/r/homeassistant
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: /join-chat
+[bluesky]: https://bsky.app/profile/home-assistant.io

@@ -2,9 +2,9 @@
 layout: page
 ---
 
-{% if page.og_image %}
+{% if page.hero_image %}
   <div class="banner">
-    <img src="{{ page.hero_image | default:page.og_image }}"></i>
+    <img src="{{ page.hero_image }}"></i>
     {% if page.tagline %}
       <div class="title {% if page.tagline_wide != false %}wide{% endif %}">
       {{ page.tagline }}
@@ -48,7 +48,7 @@ layout: page
               <div class="section-inner-content">
                 <img {% if entry.image_description %} alt="{{ entry.image_description }}" title="{{ entry.image_description }}" {% endif %} src="{{entry.image}}">
               </div>
-              <div class="section-inner-content">
+              <div class="section-inner-content padding">
                   <div class="title">{{entry.title}}</div>
                   <div class="description">{{entry.description}}</div>
                   {% if entry.read_more %}
@@ -70,10 +70,16 @@ layout: page
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
           e.preventDefault();
-
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-              behavior: 'smooth'
-          });
+          const href = this.getAttribute('href');
+          if (href === "#") {
+            return;
+          }
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+            });
+          }
       });
   });
   if (document.documentElement.clientWidth < 480) {
@@ -81,17 +87,10 @@ layout: page
       "scroll",
       function (e) {
         const header = document.querySelector(".site-header");
-        const fab = document.querySelector(".fab");
         if (e.currentTarget.scrollTop > 180) {
           header.style.backgroundColor = "#ffffff";
-          if (fab) {
-            fab.style.display = "flex";
-          }
         } else {
           header.style.backgroundColor = "#ffffff66";
-          if (fab) {
-            fab.style.display = "none";
-          }
         }
       },
       { passive: true, capture: true }

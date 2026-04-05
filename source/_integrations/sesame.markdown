@@ -9,9 +9,19 @@ ha_domain: sesame
 ha_platforms:
   - lock
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `sesame` platform allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.
+The **Sesame Smart Lock** {% term integration %} allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.
+
+## Sesame Smart Lock Versions
+
+The integration documented here should only be used with the original Sesame Lock.
+
+Sesame Smart Lock version 5 and Hub version 3 were released in 2025 and can be integrated with Home Assistant via the Matter integration instead.
 
 ## Configuration
 
@@ -19,7 +29,8 @@ Your Sesame needs to be paired with a standalone [Wi-Fi Access Point](https://ca
 
 You will also need to generate an API key from [my.candyhouse.co](https://my.candyhouse.co/#/credentials).
 
-Once you have remote access enabled using one of the above AND the Integration - cloud option enabled on the Sesame app for that lock settings, add the following to your `configuration.yaml` file:
+Once you have remote access enabled using one of the above AND the Integration - cloud option enabled on the Sesame app for that lock settings, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

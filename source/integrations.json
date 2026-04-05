@@ -10,7 +10,7 @@ layout: none
     "description": "{{ integration.description }}",
     "quality_scale": "{{integration.ha_quality_scale}}",
     "iot_class": "{{integration.ha_iot_class}}",
-    "integration_type": "{{integration.ha_integration_type}}"
+    "integration_type": "{{integration.ha_integration_type | default: 'hub'}}"
   }{%- if forloop.last -%}{%- else -%},{%- endif -%}
 {%- endif -%}
 {%- endfor %}

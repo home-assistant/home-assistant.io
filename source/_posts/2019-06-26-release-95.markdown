@@ -15,7 +15,7 @@ og_image: /images/blog/2019-06-release-95/social.png
 
 It is time for release 0.95, and guess what? It's good! First things first, did you see [the new Raspberry Pi 4](https://www.raspberrypi.org/blog/raspberry-pi-4-on-sale-now-from-35/)? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. However, you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
 
-Talking about Hass.io support, we've received ours and work to add support will start shortly 🚀. Since we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
+Talking about Hass.io support, we've received ours and work to add support will start shortly 🚀. Since we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://www.amazon.com/dp/B073JYVKNX) or, even better, [class A2](https://www.amazon.com/dp/B07G3GMRYF). The A stands for application and they are optimized for running apps, like Home Assistant.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">LOOK WHAT WE HAVE HERE 😍 <a href="https://t.co/HrEu1a272Y">pic.twitter.com/HrEu1a272Y</a></p>&mdash; Pascal Vizeli (@pvizeli) <a href="https://twitter.com/pvizeli/status/1143808786983006208?ref_src=twsrc%5Etfw">June 26, 2019</a>
 </blockquote>
@@ -66,7 +66,7 @@ However, we didn't stop there. The [manual installations of Alexa](/integrations
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Released `v3.7.95` to NPM/CDN. 100 new icons! 🧙‍♂️ Preview: <a href="https://t.co/N02X3rnQ8N">https://t.co/N02X3rnQ8N</a> Read more: <a href="https://t.co/CHQ3TEdVM2">https://t.co/CHQ3TEdVM2</a> <a href="https://twitter.com/hashtag/MaterialDesign?src=hash&amp;ref_src=twsrc%5Etfw">#MaterialDesign</a> <a href="https://twitter.com/hashtag/OpenSource?src=hash&amp;ref_src=twsrc%5Etfw">#OpenSource</a> <a href="https://t.co/LlWy8RfFVu">pic.twitter.com/LlWy8RfFVu</a></p>&mdash; Material Icons (@MaterialIcons) <a href="https://twitter.com/MaterialIcons/status/1142474126004760576?ref_src=twsrc%5Etfw">June 22, 2019</a>
 </blockquote>
 
-## Noteworthy breaking changes
+## Noteworthy backward-incompatible changes
 
 For the last couple of releases, we've been printing warnings if your configuration contained invalid slugs or extra keys. Starting with this release, these warnings are now errors. No procrastination anymore, you'll need to fix it now.
 
@@ -159,7 +159,7 @@ We have also realized that the default database clean up task never automaticall
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 ## Reporting Issues
 
@@ -167,7 +167,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - No longer allow invalid slugs or extra keys ([@balloob] - [#24176]) (breaking change)
 - Add service for adding event to google component ([@isabellaalstrom] - [#22473]) ([google docs]) (breaking change)

@@ -1,13 +1,26 @@
 ---
 type: card
-title: "Entities Card"
+title: "Entities card"
 sidebar_label: Entities
-description: "The Entities card is the most common type of card. It groups items together into lists."
+description: "The entities card is the most common type of card. It groups items together into lists."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /dashboards/header-footer/
+    title: Card header and footer
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The Entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
+The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
 
-To add the Entities card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entities** from the card picker.
+{% include dashboard/edit_dashboard.md %}
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -50,7 +63,7 @@ footer:
   type: map
 {% endconfiguration %}
 
-## Options For Entities
+## Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
 
@@ -61,12 +74,12 @@ entity:
   type: string
 type:
   required: false
-  description: "Sets a custom card type: `custom:my-custom-card`"
+  description: "Sets a custom card type: `custom:my-custom-card`. It also can be used to force entities with a default special row format to render as a simple state. You can do this by setting the type: `simple-entity`. This can be used, for example, to replace a helper with an editable control with a read-only value."
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites icon or entity picture.
@@ -77,7 +90,7 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
+  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `area`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
   type: string
 format:
   required: false
@@ -104,11 +117,15 @@ double_tap_action:
   required: false
   description: Action taken on row double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
+confirmation:
+  required: false
+  description: For entities that display a button element in the row (for example, button, lock, script), this option adds a confirmation dialog to the press of the button. See [options for confirmation](/dashboards/actions/#options-for-confirmation) for configuration options.
+  type: map
 {% endconfiguration %}
 
-## Special Row Elements
+## Special row elements
 
-Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
+Rather than only displaying an entity's state as a text output, the entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
 
 ### Attribute
 
@@ -135,8 +152,8 @@ suffix:
   type: string
 name:
   required: false
-  description: Overwrites friendly entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Icon to use. Defaults to icon of entity.
@@ -216,14 +233,14 @@ entities:
       type: string
     name:
       required: false
-      description: Override the friendly entity name.
-      type: string
+      description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+      type: [string, map, list]
       default: Entity name
     show_name:
       required: false
       description: If false, the button name is not shown.
       type: boolean
-      default: "true"
+      default: "false"
     show_icon:
       required: false
       description: If false, the icon is not shown.
@@ -288,30 +305,13 @@ type:
   type: string
 conditions:
   required: true
-  description: List of entity IDs and matching states.
+  description: List of conditions to check. See [available conditions](/dashboards/conditional/#card-conditions).
   type: list
-  keys:
-    entity:
-      required: true
-      description: Entity ID.
-      type: string
-    state:
-      required: false
-      description: Entity state is equal to this value.*
-      type: string
-    state_not:
-      required: false
-      description: Entity state is unequal to this value.*
-      type: string
 row:
   required: true
   description: Row to display if all conditions match. Can be any of the various supported rows described on this page.
   type: map
 {% endconfiguration %}
-
-*one is required (`state` or `state_not`)
-
-Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
 ### Divider
 
@@ -373,9 +373,9 @@ download:
   default: false
 {% endconfiguration %}
 
-## Examples
+### Examples
 
-### Entity rows
+#### Entity rows
 
 ```yaml
 type: entities
@@ -393,7 +393,7 @@ entities:
   - group.all_locks
 ```
 
-### Buttons row
+#### Buttons row
 
 Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitly specify a label / name.
 
@@ -416,7 +416,7 @@ entities:
         name: Dining Ceiling
 ```
 
-### Other special rows
+#### Other special rows
 
 <p class='img'>
 <img src='/images/dashboards/entity_row_special.jpg' alt='Screenshot of other special rows'>
@@ -432,8 +432,8 @@ entities:
     name: Bed light transition
     action_name: Toggle light
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       data:
         entity_id: light.bed_light
         transition: 10
@@ -464,8 +464,8 @@ entities:
     name: Power cycle LibreELEC
     icon: mdi:power-cycle
     tap_action:
-      action: call-service
+      action: perform-action
       confirmation:
         text: Are you sure you want to restart?
-      service: script.libreelec_power_cycle
+      perform_action: script.libreelec_power_cycle
 ```

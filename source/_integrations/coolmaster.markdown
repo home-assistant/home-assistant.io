@@ -10,10 +10,13 @@ ha_codeowners:
   - '@OnFreund'
 ha_domain: coolmaster
 ha_platforms:
+  - binary_sensor
+  - button
   - climate
-ha_integration_type: integration
+  - sensor
+ha_integration_type: hub
 ---
 
-The `coolmaster` climate platform lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
+The **CoolMasterNet** {% term integration %} lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
 
 {% include integrations/config_flow.md %}

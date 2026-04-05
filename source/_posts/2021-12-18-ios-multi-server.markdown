@@ -5,7 +5,9 @@ date: 2021-12-18 00:00:00
 date_formatted: "December 18, 2021"
 author: Zac West
 author_twitter: zacwest
-categories: Release-Notes
+categories:
+ - Release-Notes
+ - iOS
 og_image: /images/blog/2021-12-ios/social.png
 ---
 

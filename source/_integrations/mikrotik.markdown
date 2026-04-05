@@ -3,7 +3,7 @@ title: Mikrotik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 ha_category:
   - Hub
-  - Presence Detection
+  - Presence detection
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
@@ -12,14 +12,14 @@ ha_domain: mikrotik
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
+The **MikroTik** {% term integration %} offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
 
 There is currently support for the following device types within Home Assistant:
 
-- Presence Detection
+- Presence detection
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ set api disabled=no port=8728
 
 Web Frontend:
 
-Go to **IP** -> **Services** -> **API** and enable it.
+Go to **IP** > **Services** > **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 
@@ -62,10 +62,16 @@ If everything is working fine you can disable the pure `api` service in RouterOS
 
 ## The user privileges in RouterOS
 
-To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API  and perform ping test only:
+To use this device tracker, you only need limited privileges. To enhance the security of your MikroTik device, create a "read only" group with solely API and ping test permissions and add a user to that group:
 
 ```bash
-/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,test,!winbox,!password,!web,!sniff,!sensitive,!romon,!dude,!tikapp
-/user add group=homeassistant name=homeassistant
-/user set password="YOUR_PASSWORD" homeassistant
+/user
+group add name=homeassistant policy=read,api,test
+add group=homeassistant name=homeassistant
+```
+
+You will be prompted to set a password for the newly created user. Depending on your RouterOS version and configuration, you might need to set a password yourself:
+
+```bash
+/user set [find username=homeassistant] password=PASSWORD
 ```

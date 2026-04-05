@@ -1,5 +1,5 @@
 ---
-title: Home Assistant Frontend
+title: Home Assistant frontend
 description: Offers a frontend to Home Assistant.
 ha_category:
   - Other
@@ -11,7 +11,7 @@ ha_domain: frontend
 ha_integration_type: system
 ---
 
-This offers the official frontend to control Home Assistant. This integration is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This offers the official frontend to control Home Assistant. This integration is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your {% term "`configuration.yaml`" %} file. If that is the case, the following example shows you how to enable this integration manually in the {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,16 +42,25 @@ frontend:
     required: false
     type: list
   development_repo:
-    description: Allows you to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.
+    description: "Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. For more information, see [Frontend development](https://developers.home-assistant.io/docs/frontend/development)."
+    required: false
+    type: string
+  development_pr:
+    description: "Allows you to point to a specific frontend [pull request](https://github.com/home-assistant/frontend/pulls) containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. This requires `github_token` to be set. For more information, see [Frontend development](https://developers.home-assistant.io/docs/frontend/development#test-an-existing-pr)."
+    required: false
+    type: integer
+  github_token:
+    description: "GitHub token to use when fetching frontend files from a specific pull request. Required when `development_pr` is set. For more information, see [Creating a GitHub token](https://developers.home-assistant.io/docs/frontend/development#creating-a-github-token)."
     required: false
     type: string
 {% endconfiguration %}
 
-## Defining Themes
+## Defining themes
 
 ### Theme format
 
-The frontend integration allows you to create custom themes to influence the look and feel of the user interface. Note that we only officially support the `primary-color` and `accent-color` properties. Although we do our best to keep things working, the behavior of other properties can change between releases.
+The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
+Example of a configuration entry in the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,13 +68,50 @@ frontend:
   themes:
     happy:
       primary-color: pink
-      text-primary-color: purple
-      mdc-theme-primary: plum
+      accent-color: orange
     sad:
       primary-color: steelblue
+      accent-color: darkred
 ```
 
-The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise, YAML would consider them a comment (`primary-color: '#123456'`). For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in quotation marks, since otherwise, YAML would consider them a comment (`primary-color: "#123456"`).
+
+### Supported theme variables
+
+#### Primary and accent color
+
+Primary and accent colors are the main colors of the application.
+They can be modified using the `primary-color` and `accent-color` variables.
+
+#### State color
+
+Each entity has its own color, based on `domain`, `device_class`, and `state`, to be easily recognizable. Theses colors are used in [dashboards](/dashboards/) and [history](/integrations/history/). Home Assistant has default color rules that fit most use cases.
+
+Here is a list of domains that support colors: `alarm_control_panel`, `alert`, `automation`, `binary_sensor`, `calendar`, `camera`, `climate`, `cover`, `device_tracker`, `fan`, `group`, `humidifier`, `input_boolean`, `light`, `lock`, `media_player`, `person`, `plant`, `remote`, `schedule`, `script`, `siren`, `sun`, `switch`, `timer`, `update`, and `vacuum`.
+
+The color rules can be customized using theme variables:
+
+1. `state-{domain}-{device_class}-{state}-color`
+2. `state-{domain}-{state}-color`
+3. `state-{domain}-(active|inactive)-color`
+4. `state-(active|inactive)-color`
+
+Note that the variables will be used in the listed order, so if multiple match your entity, the first matching variable (= most specific one) will be used.
+
+```yaml
+# Example configuration.yaml entry
+frontend:
+  themes:
+    my_theme:
+      state-cover-garage-open-color: "#ff0000"
+      state-media_player-inactive-color: "#795548"
+```
+
+The example above defines red color for open garage doors and brown color for inactive media players.
+
+### Unsupported theme variables
+
+Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [color.globals.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/theme/color/color.globals.ts).
 
 ### Dark mode support
 
@@ -82,7 +128,6 @@ frontend:
     happy:
       primary-color: pink
       text-primary-color: purple
-      mdc-theme-primary: plum
     sad:
       primary-color: steelblue
       modes:
@@ -109,35 +154,38 @@ Theme `day_and_night`: This theme has both a `light` and a `dark` mode section. 
 
 As with all configuration, you can either:
 
-- Directly specify the themes inside your `configuration.yaml` file.
+- Directly specify the themes inside your {% term "`configuration.yaml`" %} file.
 - Put them into a separate file (e.g., `themes.yaml`) and include that in your configuration (`themes: !include themes.yaml`).
 - Create a dedicated folder (e.g., `my_themes`) and include all files from within this folder (`themes: !include_dir_merge_named my_themes`).
 
 For more details about splitting up the configuration into multiple files, see [this page](/docs/configuration/splitting_configuration/).
 
-Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
+Check our [community forums](https://community.home-assistant.io/c/29) to find themes to use.
 
-## Setting Themes
+## Setting themes
 
-There are two themes-related services:
+There are two themes-related actions:
 
-- `frontend.reload_themes`: Reloads theme configuration from your `configuration.yaml` file.
+- `frontend.reload_themes`: Reloads theme configuration from your {% term "`configuration.yaml`" %} file.
 - `frontend.set_theme`: Sets backend-preferred theme name.
 
-### Service `set_theme`
+### Action: Set theme
 
-| Service data attribute | Description                                                                                         |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| `name`                 | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
-| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`).  |
+The `frontend.set_theme` action allows you to set the theme used by the frontend.
 
-If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
-The backend theme settings will be saved and restored on a restart of Home Assistant.
+| Data attribute | Description                                                                                         |
+| -------------- | --------------------------------------------------------------------------------------------------- |
+| `name`         | Name of the theme to be used by default. Set `default` to use the default _Home Assistant_ theme. If omitted, the previous setting will be retained. |
+| `name_dark`    | Name of the theme to be used by default for dark mode. Set `default` to use the default _Home Assistant_ theme, or `none` to delete the dark mode override. If omitted, the previous setting will be retained. |
 
-### Manual Theme Selection
+If the dark mode has never been set, or has been erased by setting `name_dark` to `none`, the light mode theme will also be used in dark mode.
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
-This will overrule the theme settings set by the above service calls, and will only be applied to the current device.
+The theme settings will be saved and restored on a restart of Home Assistant.
+
+### Manual theme selection
+
+When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list, and it will be applied immediately.
+This overrides the theme settings set by the above actions and is saved to your user profile, so it applies across devices for that user.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' />
@@ -164,7 +212,7 @@ For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be load
 
 The ES5 and module version will never both be loaded, depending on if the device supports `import` the module of ES5 version will be loaded.
 
-### Manual Language Selection
+### Manual language selection
 
 The browser language is automatically detected. To use a different language, go to the user profile page (accessed by clicking your user account initials at the bottom of the sidebar) and select one. It will be applied immediately.
 

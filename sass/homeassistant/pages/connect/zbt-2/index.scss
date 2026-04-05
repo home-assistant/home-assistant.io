@@ -1,0 +1,30 @@
+@use 'homeassistant/pages/connect/mixins.scss' as *;
+@use 'homeassistant/pages/connect/variables.scss' as *;
+@use 'homeassistant/pages/connect/base.scss' as *;
+@use 'homeassistant/pages/connect/badge.scss' as *;
+@use 'homeassistant/pages/connect/header.scss' as *;
+@use 'homeassistant/pages/connect/buttons.scss' as *;
+
+// ZBT-2 specific styles
+@use 'homeassistant/pages/connect/zbt-2/variables.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/base.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/animations.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/debug.scss' as *;
+
+@use 'homeassistant/pages/connect/zbt-2/components/light-section.scss' as *;
+
+@use 'homeassistant/pages/connect/zbt-2/components/hero.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/features.scss' as *; 
+@use 'homeassistant/pages/connect/zbt-2/components/chipset.scss' as *; 
+@use 'homeassistant/pages/connect/zbt-2/components/collaboration.scss' as *; 
+@use 'homeassistant/pages/connect/zbt-2/components/long-range.scss' as *; 
+@use 'homeassistant/pages/connect/zbt-2/components/home.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/second-generation-platform.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/faq.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/build.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/buy.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/zigbee-thread.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/built-for-home-assistant.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/declutter.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/plug-and-play.scss' as *;
+@use 'homeassistant/pages/connect/zbt-2/components/specs.scss' as *;
