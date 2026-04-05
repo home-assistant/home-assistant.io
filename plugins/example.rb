@@ -1,3 +1,5 @@
+require 'cgi'
+require 'safe_yaml'
 require_relative 'terminology_helpers'
 
 module Jekyll

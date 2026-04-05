@@ -1,3 +1,5 @@
+require 'safe_yaml'
+
 module Jekyll
   class FunctionParametersBlock < ConfigurationBlock
 

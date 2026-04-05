@@ -44,7 +44,7 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 separator:
   description: >
-    The string to insert between items. Defaults to `, `.
+    The string to insert between items. Defaults to `", "`.
   required: false
   default: '", "'
   type: string
