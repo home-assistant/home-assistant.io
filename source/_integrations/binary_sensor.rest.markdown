@@ -19,7 +19,7 @@ _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the
 If the endpoint returns one of the values of these pairs: `0`/`1`,
 `"0"`/`"1"`, `FALSE`/`TRUE`, `false`/`true`, `off`/`on` or `closed`/`open`
 it can be used as-is. If the return value differs, use a
-[template](/docs/configuration/templating/#processing-incoming-data).
+[template](/docs/templating/where-to-use/#processing-incoming-data).
 If the endpoint returns XML with the `text/xml`, `application/xml`, or 
 `application/xhtml+xml` content type, it will automatically be converted 
 to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html).
@@ -107,7 +107,7 @@ device_class:
   type: string
 value_template:
   description: >
-    Defines a [template](/docs/configuration/templating/#processing-incoming-data)
+    Defines a [template](/docs/templating/where-to-use/#processing-incoming-data)
     to extract the value.
   required: false
   type: template

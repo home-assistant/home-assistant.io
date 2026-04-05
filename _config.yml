@@ -67,6 +67,9 @@ titlecase: true # Converts page and post titles to titlecase
 collections:
   integrations:
     output: true
+  template_functions:
+    output: true
+    permalink: /template-functions/:name/
   docs:
     output: true
   apps:
@@ -154,6 +157,11 @@ defaults:
   - scope:
       path: ""
       type: integrations
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: template_functions
     values:
       toc: true
   - scope:

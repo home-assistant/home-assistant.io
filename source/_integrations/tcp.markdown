@@ -61,7 +61,7 @@ timeout:
   default: 10
   type: integer
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
+  description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
   required: false
   type: template
 unit_of_measurement:
@@ -195,7 +195,7 @@ value_on:
   required: true
   type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
+  description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value.
   required: false
   type: template
   default: entire response is the value

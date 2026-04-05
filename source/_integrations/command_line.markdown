@@ -79,7 +79,7 @@ command_line:
           type: string
           default: 'OFF'
         value_template:
-          description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+          description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload.
           required: false
           type: string
         availability:
@@ -210,7 +210,7 @@ command_line:
           required: false
           type: string
         value_template:
-          description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+          description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload."
           required: false
           type: string
         availability:
@@ -615,7 +615,7 @@ command_line:
 
 ### Usage of templating in `command:`
 
-[Templates](/docs/configuration/templating/) are supported in the `command` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
+[Templates](/docs/templating/) are supported in the `command` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
 
 {% raw %}
 ```yaml

@@ -46,13 +46,21 @@ ha_platforms:
 ha_integration_type: helper
 ha_config_flow: true
 related:
+  - docs: /docs/templating/
+    title: About templating
+  - docs: /docs/templating/patterns/
+    title: Common template patterns
+  - docs: /docs/templating/debugging/
+    title: Debugging templates
+  - docs: /template-functions/
+    title: Template functions reference
   - docs: /docs/configuration/
     title: Configuration file
   - docs: /docs/blueprint/
     title: About blueprints
 ---
 
-The **Template** {% term integration %} allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
+The **Template** {% term integration %} allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/templating/) for properties of an entity, like the name or the state.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -2768,7 +2776,7 @@ When there are entities present in the template and no triggers are defined, the
 <a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
 {% endtip %}
 
-When `states` is used in a template by itself to iterate all states on the system, the template is re-rendered each
+When [`states`](/template-functions/states/) is used in a template by itself to iterate all states on the system, the template is re-rendered each
 time any state changed event happens if any part of the state is accessed. When merely counting states, the template
 is only re-rendered when a state is added or removed from the system. On busy systems with many entities or hundreds of
 thousands state changed events per day, templates may re-render more than desirable.
@@ -2805,9 +2813,9 @@ If the template accesses every state on the system, a rate limit of one update p
 
 ### Startup
 
-If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the `states()` function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent that returns the state and never results in `unknown`: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}.
+If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the [`states()`](/template-functions/states/) function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent that returns the state and never results in `unknown`: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}.
 
-The same would apply to the `is_state()` function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
+The same would apply to the [`is_state()`](/template-functions/is_state/) function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 
 {% raw %}
 

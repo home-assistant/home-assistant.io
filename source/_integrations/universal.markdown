@@ -76,11 +76,11 @@ children:
   required: false
   type: list
 active_child_template:
-  description: "A [template](/docs/configuration/templating/) that will allow to select (override) active child. Must return the `entity_id` of the child selected as active, or `None` to use the default behavior."
+  description: "A [template](/docs/templating/) that will allow to select (override) active child. Must return the `entity_id` of the child selected as active, or `None` to use the default behavior."
   required: false
   type: template
 state_template:
-  description: "A [template](/docs/configuration/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
+  description: "A [template](/docs/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
   required: false
   type: template
 commands:
@@ -115,7 +115,7 @@ It is also recommended that the command `volume_up`, the command `volume_down`, 
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
-When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/docs/configuration/templating/#time) section in the template documentation.
+When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/template-functions/now/) section in the template documentation.
 
 The `browse_media_entity` parameter allows you to specify which media player will be used in media browser.
 

@@ -91,7 +91,7 @@ data:
 
 {% endraw %}
 
-The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
+The notify integration supports specifying [templates](/docs/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
 
 {% raw %}
 
@@ -121,7 +121,7 @@ data:
 
 {% endraw %}
 
-The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
+The notify integration supports specifying [templates](/docs/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
 
 {% raw %}
 

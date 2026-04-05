@@ -206,7 +206,7 @@ username:
   type: string
   default: ''
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
+  description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to parse the value."
   required: false
   type: template
 version:

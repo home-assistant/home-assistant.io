@@ -531,7 +531,7 @@ It's also supported in script or automation `condition` actions:
 
 {% endraw %}
 
-[template]: /docs/configuration/templating/
+[template]: /docs/templating/
 [automation-templating]: /getting-started/automation-templating/
 
 ## Time condition
