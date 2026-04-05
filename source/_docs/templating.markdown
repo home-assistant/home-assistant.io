@@ -22,7 +22,7 @@ action: |
 output: "Frenck is at gym."
 {% endexample %}
 
-The text between `{%` and `%}` is the template. When the action runs, Home Assistant replaces it with the right message.
+The text between `{%`, `%}` and `{{`, `}}` is the template. When the action runs, Home Assistant replaces it with the right message.
 
 ## Learning guide
 
