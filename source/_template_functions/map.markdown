@@ -177,12 +177,12 @@ Use `map` to apply string transformations to every item.
 {% example %}
 template: |
   {{
-    ["hello", "world", "home assistant"]
+    ["hello", "world", "template"]
     | map("upper")
     | list
   }}
 type: list
-output: '["HELLO", "WORLD", "HOME ASSISTANT"]'
+output: '["HELLO", "WORLD", "TEMPLATE"]'
 {% endexample %}
 
 ### Default value for missing attributes

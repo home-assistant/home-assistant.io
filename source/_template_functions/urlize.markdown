@@ -76,14 +76,14 @@ Use `trim_url_limit` to shorten the displayed URL text while keeping the full li
 {% example %}
 template: |
   {{
-    "See https://www.home-assistant.io/docs/templating/"
+    "See https://www.example.com/docs/templating/"
     | urlize(trim_url_limit=30)
   }}
 title: Shorten displayed URL text
 type: string
 output: |-
-  See <a href="https://www.home-assistant.io/docs/templating/"
-  rel="noopener">https://www.home-lufthansa...</a>
+  See <a href="https://www.example.com/docs/templating/"
+  rel="noopener">https://www.example.com/docs...</a>
 {% endexample %}
 
 ## Good to know
