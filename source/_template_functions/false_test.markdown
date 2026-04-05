@@ -15,7 +15,7 @@ related_functions:
   - sameas
 ---
 
-The `false` test checks whether a value is `false`. It performs a strict identity check, meaning only the boolean value `false` passes. Values like `0`, ``, `none`, and `false` do not match.
+The `false` test checks whether a value is `false`. It performs a strict identity check, meaning only the boolean value `false` passes. Values like `0`, `""`, `none`, and the string `"false"` do not match.
 
 This is useful when you need to verify that a value is specifically the boolean `false` and not merely a falsy value. In Home Assistant, {% term entity %} attributes can be actual booleans, and this test lets you check for an exact `false` value without accidentally matching other falsy types like `0` or an empty string.
 

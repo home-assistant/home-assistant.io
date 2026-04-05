@@ -1,3 +1,5 @@
+require 'cgi'
+
 module Jekyll
   class JinjaInlineTag < Liquid::Raw
     # Renders inline Jinja2 code with syntax highlighting.

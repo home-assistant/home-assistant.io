@@ -46,7 +46,7 @@ separator:
   description: >
     The string to insert between items. Defaults to `, `.
   required: false
-  default: "\", \""
+  default: '", "'
   type: string
 {% endfunction_parameters %}
 

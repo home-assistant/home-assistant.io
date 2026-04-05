@@ -1,4 +1,5 @@
 require 'json'
+require 'safe_yaml'
 
 # Generate a JSON lookup of all template functions and their parameters
 # for use by prism-template-links.js (hover tooltips and clickable links)
@@ -33,7 +34,8 @@ module Jekyll
         register_aliases(funcs, doc.data['aliases'], entry)
       end
 
-      site.data['template_functions_json'] = JSON.generate(funcs)
+      # Escape </ to prevent breaking out of <script> tags when embedded in HTML
+      site.data['template_functions_json'] = JSON.generate(funcs).gsub('</', '<\\/')
     end
 
     private
