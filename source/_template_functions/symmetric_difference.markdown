@@ -26,6 +26,7 @@ This is useful when you want to find what has changed between two collections. F
 function: '{{ symmetric_difference([1, 2, 3, 4], [3, 4, 5, 6]) }}'
 type: list
 output: "[1, 2, 5, 6]"
+
 ---
 filter: '{{ [1, 2, 3, 4] | symmetric_difference([3, 4, 5, 6]) }}'
 type: list

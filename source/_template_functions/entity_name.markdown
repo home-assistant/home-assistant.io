@@ -25,6 +25,7 @@ This is helpful whenever you want to display a human-readable name instead of a 
 function: '{{ entity_name("sensor.living_room_temperature") }}'
 type: string
 output: "Living Room Temperature"
+
 ---
 filter: '{{ "sensor.living_room_temperature" | entity_name }}'
 type: string

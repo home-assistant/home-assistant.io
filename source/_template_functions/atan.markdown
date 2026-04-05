@@ -26,6 +26,7 @@ This is useful for converting a slope or ratio back into an angle, for example w
 function: '{{ atan(1) }}'
 type: float
 output: "0.7853981633974483"
+
 ---
 filter: '{{ 1 | atan }}'
 type: float

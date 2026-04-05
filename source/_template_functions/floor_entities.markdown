@@ -38,6 +38,7 @@ output: |
     "sensor.kitchen_humidity",
     "light.hallway",
   ]
+
 ---
 filter: '{{ "Ground Floor" | floor_entities }}'
 type: list

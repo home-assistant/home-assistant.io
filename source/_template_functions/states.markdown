@@ -30,6 +30,7 @@ For dashboards, a [Tile card](/dashboards/tile/) shows an entity's state without
 function: '{{ states("sensor.living_room_temperature") }}'
 type: string
 output: "21.5"
+
 ---
 filter: '{{ "sensor.living_room_temperature" | states }}'
 type: string

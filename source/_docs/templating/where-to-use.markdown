@@ -20,7 +20,7 @@ You don't need to memorize this. Come back when you're building something and ne
 
 ## Automation and script actions
 
-Most actions accept templates for their data values. You can use them to compose messages, pick targets, or tailor behaviour based on the current state of your home.
+Most actions accept templates for their data values. You can use them to compose messages, pick targets, or tailor behavior based on the current state of your home.
 
 {% example %}
 automation: |

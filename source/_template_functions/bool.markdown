@@ -26,6 +26,7 @@ This is useful when working with {% term entity %} states or attributes that rep
 function: '{{ bool("yes") }}'
 type: boolean
 output: "true"
+
 ---
 filter: '{{ "off" | bool }}'
 type: boolean

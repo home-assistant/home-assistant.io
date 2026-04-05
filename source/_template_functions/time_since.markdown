@@ -27,6 +27,7 @@ This is useful whenever you want to display elapsed time in a natural, readable 
 function: '{{ time_since(states.binary_sensor.front_door.last_changed) }}'
 type: string
 output: "2 hours"
+
 ---
 filter: '{{ states.binary_sensor.front_door.last_changed | time_since }}'
 type: string

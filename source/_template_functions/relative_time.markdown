@@ -27,6 +27,7 @@ This function has been deprecated in favor of [`time_since`](/template-functions
 function: '{{ relative_time(states.binary_sensor.front_door.last_changed) }}'
 type: string
 output: "2 hours"
+
 ---
 filter: '{{ states.binary_sensor.front_door.last_changed | relative_time }}'
 type: string

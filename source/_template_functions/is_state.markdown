@@ -30,6 +30,7 @@ Automation conditions and triggers already let you check an entity's state throu
 function: '{{ is_state("device_tracker.phone", "home") }}'
 type: boolean
 output: "true"
+
 ---
 test: |
   {% if "device_tracker.phone" is is_state("home") %}

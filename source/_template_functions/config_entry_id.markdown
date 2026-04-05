@@ -25,6 +25,7 @@ This is useful when you need to look up details about the config entry behind an
 function: '{{ config_entry_id("light.living_room") }}'
 type: string
 output: "01234567890abcdef01234567890abcd"
+
 ---
 filter: '{{ "light.living_room" | config_entry_id }}'
 type: string

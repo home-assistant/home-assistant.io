@@ -26,6 +26,7 @@ This is useful when you want to exclude certain items from a collection. For exa
 function: '{{ difference([1, 2, 3, 4, 5], [3, 4]) }}'
 type: list
 output: "[1, 2, 5]"
+
 ---
 filter: '{{ [1, 2, 3, 4, 5] | difference([3, 4]) }}'
 type: list

@@ -26,6 +26,7 @@ This is primarily useful for debugging {% term templates %}. When a template doe
 function: '{{ typeof(42) }}'
 type: string
 output: "int"
+
 ---
 filter: '{{ states("sensor.temperature") | typeof }}'
 type: string

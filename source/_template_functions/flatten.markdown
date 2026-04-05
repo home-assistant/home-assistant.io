@@ -25,6 +25,7 @@ This is useful when you collect data from multiple sources that each return a li
 function: '{{ flatten([[1, 2], [3, [4, 5]]]) }}'
 type: list
 output: "[1, 2, 3, 4, 5]"
+
 ---
 filter: '{{ [[1, 2], [3, [4, 5]]] | flatten }}'
 type: list

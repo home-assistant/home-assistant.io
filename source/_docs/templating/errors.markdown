@@ -157,7 +157,7 @@ See [Templates in YAML](/docs/templating/yaml/) for the full set of quoting rule
 
 ## Still stuck?
 
-The Home Assistant community is quick to help: join [Discord](https://discord.gg/home-assistant) for real-time chat, post on the [community forum](https://community.home-assistant.io) with your template and the exact error message, or share on [our subreddit /r/homeassistant](https://reddit.com/r/homeassistant).
+The Home Assistant community is quick to help: join [Discord](https://discord.gg/home-assistant) for real-time chat, post on the [community forum](https://community.home-assistant.io) with your template and the exact error message, or share on [our subreddit](https://reddit.com/r/homeassistant).
 
 {% tip %}
 AI assistants like ChatGPT or Claude can also explain or fix templates when you describe what you want in plain language. Paste in your template and the error message.

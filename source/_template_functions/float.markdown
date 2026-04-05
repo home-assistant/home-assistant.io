@@ -26,6 +26,7 @@ In Home Assistant, all {% term entity %} states are stored as strings, even when
 function: '{{ float("21.5") }}'
 type: float
 output: "21.5"
+
 ---
 filter: '{{ states("sensor.temperature") | float }}'
 type: float

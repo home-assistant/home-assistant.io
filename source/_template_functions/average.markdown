@@ -27,6 +27,7 @@ This is useful whenever you have multiple {% term sensors %} measuring the same 
 function: '{{ average(21.5, 22.0, 19.8) }}'
 type: float
 output: "21.1"
+
 ---
 filter: '{{ [21.5, 22.0, 19.8] | average }}'
 type: float

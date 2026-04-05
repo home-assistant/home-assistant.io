@@ -25,6 +25,7 @@ This is useful when you need to assemble data from multiple sources into a singl
 function: '{{ combine({"a": 1}, {"b": 2}, {"c": 3}) }}'
 type: dict
 output: "{'a': 1, 'b': 2, 'c': 3}"
+
 ---
 filter: '{{ {"a": 1} | combine({"b": 2}) }}'
 type: dict

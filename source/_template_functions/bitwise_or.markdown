@@ -24,6 +24,7 @@ This is useful when you need to combine multiple status flags into a single valu
 function: '{{ bitwise_or(5, 3) }}'
 type: int
 output: "7"
+
 ---
 filter: '{{ 5 | bitwise_or(3) }}'
 type: int

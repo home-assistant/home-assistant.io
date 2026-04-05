@@ -26,6 +26,7 @@ This is useful when you want to find what two collections have in common. For ex
 function: '{{ intersect([1, 2, 3, 4], [3, 4, 5, 6]) }}'
 type: list
 output: "[3, 4]"
+
 ---
 filter: '{{ [1, 2, 3, 4] | intersect([3, 4, 5, 6]) }}'
 type: list

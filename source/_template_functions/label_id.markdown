@@ -28,6 +28,7 @@ This is useful when you need the label ID to pass to other label functions like 
 function: '{{ label_id("Critical") }}'
 type: string
 output: "critical"
+
 ---
 filter: '{{ "Critical" | label_id }}'
 type: string

@@ -25,6 +25,7 @@ This function is primarily useful for IoT and low-level device communication. Ma
 function: '{{ pack(1234, ">H") }}'
 type: bytes
 output: "b''\\x04\\xd2''"
+
 ---
 filter: '{{ 1234 | pack(">H") }}'
 type: bytes

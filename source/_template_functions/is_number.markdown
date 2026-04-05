@@ -27,10 +27,12 @@ This is a safety check you should use before performing math on values that migh
 function: '{{ is_number("21.5") }}'
 type: boolean
 output: "true"
+
 ---
 filter: '{{ states("sensor.temperature") | is_number }}'
 type: boolean
 output: "true"
+
 ---
 test: |
   {% if states("sensor.temperature") is is_number %}

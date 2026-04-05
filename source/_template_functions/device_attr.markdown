@@ -26,6 +26,7 @@ This is useful when you need device-level information that isn't available throu
 function: '{{ device_attr("a1b2c3d4e5f6a1b2c3d4e5f6", "manufacturer") }}'
 type: string
 output: "Philips"
+
 ---
 filter: '{{ "a1b2c3d4e5f6a1b2c3d4e5f6" | device_attr("manufacturer") }}'
 type: string

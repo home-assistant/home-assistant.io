@@ -35,6 +35,7 @@ output: |
     "sensor.living_room_temperature",
     "binary_sensor.living_room_motion",
   ]
+
 ---
 filter: '{{ "Living Room" | area_entities }}'
 type: list

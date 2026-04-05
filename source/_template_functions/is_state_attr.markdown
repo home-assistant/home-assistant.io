@@ -26,6 +26,7 @@ You'll use this when you need to make decisions based on an entity's attributes 
 function: '{{ is_state_attr("light.desk", "color_mode", "color_temp") }}'
 type: boolean
 output: "true"
+
 ---
 test: |
   {% if "light.desk" is is_state_attr("color_mode", "color_temp") %}

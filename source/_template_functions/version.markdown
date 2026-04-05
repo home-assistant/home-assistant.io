@@ -23,6 +23,7 @@ This is useful when you have {% term devices %} or software that report their fi
 function: '{{ version("2.1.0") > version("2.0.0") }}'
 type: boolean
 output: "true"
+
 ---
 filter: '{{ "2.1.0" | version > "2.0.0" | version }}'
 type: boolean

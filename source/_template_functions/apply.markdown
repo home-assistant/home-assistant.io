@@ -25,10 +25,12 @@ You reach for `apply` when you want to run a custom function (one you built with
 function: '{{ apply(5, float) }}'
 type: float
 output: "5.0"
+
 ---
 filter: '{{ 5 | apply(float) }}'
 type: float
 output: "5.0"
+
 ---
 test: |
   {% if 5 is apply(lt, 10) %}

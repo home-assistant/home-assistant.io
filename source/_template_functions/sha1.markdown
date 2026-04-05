@@ -25,6 +25,7 @@ This is useful when you need a longer hash than MD5 for generating identifiers o
 function: '{{ sha1("Hello, World!") }}'
 type: string
 output: "0a0a9f2a6772942557ab5355d76af442f8f65e01"
+
 ---
 filter: '{{ "Hello, World!" | sha1 }}'
 type: string

@@ -33,6 +33,7 @@ output: |
     "critical",
     "energy_monitoring",
   ]
+
 ---
 filter: '{{ "light.living_room" | labels }}'
 type: list

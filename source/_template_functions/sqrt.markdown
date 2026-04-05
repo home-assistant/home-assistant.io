@@ -25,6 +25,7 @@ This is useful for distance calculations, root-mean-square computations, or any 
 function: '{{ sqrt(16) }}'
 type: float
 output: "4.0"
+
 ---
 filter: '{{ 16 | sqrt }}'
 type: float

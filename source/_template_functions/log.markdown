@@ -24,6 +24,7 @@ This is useful for scaling {% term sensor %} data that spans a wide range into s
 function: '{{ log(10, 10) }}'
 type: float
 output: "1.0"
+
 ---
 filter: '{{ 100 | log(10) }}'
 type: float

@@ -24,6 +24,7 @@ This is useful when you want to check whether a specific known issue is currentl
 function: '{{ issue("hue", "deprecated_bridge") }}'
 type: dict
 output: "{'domain': 'hue', 'issue_id': 'deprecated_bridge', 'severity': 'warning', ...}"
+
 ---
 filter: '{{ "deprecated_bridge" | issue("hue") }}'
 type: dict

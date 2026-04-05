@@ -26,6 +26,7 @@ In Home Assistant, all {% term entity %} states are stored as strings. When you 
 function: '{{ int("42") }}'
 type: integer
 output: "42"
+
 ---
 filter: '{{ states("sensor.battery_level") | int }}'
 type: integer

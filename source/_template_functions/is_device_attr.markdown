@@ -26,6 +26,7 @@ This is useful when you want to make decisions in {% term automations %} or {% t
 function: '{{ is_device_attr("a1b2c3d4e5f6a1b2c3d4e5f6", "manufacturer", "Philips") }}'
 type: boolean
 output: "true"
+
 ---
 test: |
   {% if "a1b2c3d4e5f6a1b2c3d4e5f6" is is_device_attr("manufacturer", "Philips") %}

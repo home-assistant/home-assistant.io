@@ -24,6 +24,7 @@ This is useful for toggling specific bits in a bitmask or comparing two status v
 function: '{{ bitwise_xor(5, 3) }}'
 type: int
 output: "6"
+
 ---
 filter: '{{ 5 | bitwise_xor(3) }}'
 type: int

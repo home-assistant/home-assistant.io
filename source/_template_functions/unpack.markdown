@@ -25,6 +25,7 @@ This function is primarily useful for IoT and low-level device communication. Ma
 function: '{{ unpack(b"\x04\xd2", ">H") }}'
 type: integer
 output: "1234"
+
 ---
 filter: '{{ b"\x04\xd2" | unpack(">H") }}'
 type: integer

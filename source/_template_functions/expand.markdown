@@ -34,6 +34,7 @@ output: |
     "light.living_room_lamp",
     "light.living_room_strip",
   ]
+
 ---
 filter: '{{ "group.living_room_lights" | expand | map(attribute="entity_id") | list }}'
 type: list

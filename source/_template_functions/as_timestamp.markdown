@@ -28,6 +28,7 @@ UNIX timestamps are useful when you need to perform arithmetic with dates and ti
 function: '{{ as_timestamp("2024-03-15T14:30:00+01:00") }}'
 type: float
 output: "1710510600.0"
+
 ---
 filter: '{{ "2024-03-15T14:30:00+01:00" | as_timestamp }}'
 type: float

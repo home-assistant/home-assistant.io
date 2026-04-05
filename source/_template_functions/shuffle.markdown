@@ -24,6 +24,7 @@ This is useful when you want to pick a random item from a collection or display 
 function: '{{ shuffle(["a", "b", "c", "d"]) }}'
 type: list
 output: '["c", "a", "d", "b"]'
+
 ---
 filter: '{{ ["a", "b", "c", "d"] | shuffle }}'
 type: list

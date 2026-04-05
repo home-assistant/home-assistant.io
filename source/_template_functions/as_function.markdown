@@ -28,6 +28,7 @@ function: |
   {{ as_function(macro_double)(5) }}
 type: integer
 output: "10"
+
 ---
 filter: |
   {% macro macro_double(value, returns) %}

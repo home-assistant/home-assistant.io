@@ -26,6 +26,7 @@ This is useful when you need the area ID to pass to other area functions like [`
 function: '{{ area_id("Living Room") }}'
 type: string
 output: "living_room"
+
 ---
 filter: '{{ "Living Room" | area_id }}'
 type: string

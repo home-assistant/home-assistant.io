@@ -24,6 +24,7 @@ In many places throughout Home Assistant, you'll want to change what is displaye
 function: '{{ iif(states("sensor.temperature") | float > 25, "warm", "cool") }}'
 type: string
 output: warm
+
 ---
 filter: '{{ is_state("binary_sensor.front_door", "on") | iif("open", "closed") }}'
 type: string

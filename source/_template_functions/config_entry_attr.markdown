@@ -25,6 +25,7 @@ This is useful for inspecting the configuration behind your {% term entities %}.
 function: '{{ config_entry_attr("01234567890abcdef01234567890abcd", "title") }}'
 type: string
 output: "Living Room Hue Bridge"
+
 ---
 filter: '{{ "01234567890abcdef01234567890abcd" | config_entry_attr("title") }}'
 type: string

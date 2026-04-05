@@ -26,6 +26,7 @@ Hidden entities are ones you have chosen to hide from the default user interface
 function: '{{ is_hidden_entity("sensor.internal_diagnostics") }}'
 type: boolean
 output: "true"
+
 ---
 test: |
   {% if "sensor.internal_diagnostics" is is_hidden_entity %}

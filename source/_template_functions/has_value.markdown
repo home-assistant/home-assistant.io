@@ -30,10 +30,12 @@ Automation triggers and conditions let you require an entity to have a valid sta
 function: '{{ has_value("sensor.temperature") }}'
 type: boolean
 output: "true"
+
 ---
 filter: '{{ "sensor.temperature" | has_value }}'
 type: boolean
 output: "true"
+
 ---
 test: |
   {% if "sensor.temperature" is has_value %}

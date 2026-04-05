@@ -27,7 +27,7 @@ output: "True (when the sensor reports a value above 20)"
 
 Without the quotes, YAML tries to interpret `{{` as the start of a flow-style mapping and fails. The error message you get in that case can be confusing, so if something refuses to load, check your quotes first.
 
-There is no difference in behaviour between single and double quotes as far as Home Assistant is concerned. Pick one style and stick with it.
+There is no difference in behavior between single and double quotes as far as Home Assistant is concerned. Pick one style and stick with it.
 
 ## Quotes inside the template
 
@@ -99,7 +99,6 @@ automation: |
   # Wrong: second line is less indented than the first
   message: |
           Status Report
-    ==============
     Temperature: 22
 {% endexample %}
 
@@ -108,11 +107,9 @@ automation: |
   # Correct: all lines share the same base indent
   message: |
     Status Report
-    ==============
     Temperature: 22
 output: |
   Status Report
-  ==============
   Temperature: 22
 {% endexample %}
 

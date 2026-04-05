@@ -28,6 +28,7 @@ This is especially useful for building dynamic messages and {% term notification
 function: '{{ label_name("critical") }}'
 type: string
 output: "Critical"
+
 ---
 filter: '{{ "critical" | label_name }}'
 type: string

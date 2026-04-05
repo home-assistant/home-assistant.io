@@ -33,6 +33,7 @@ output: |
     "kitchen",
     "hallway",
   ]
+
 ---
 filter: '{{ "Ground Floor" | floor_areas }}'
 type: list

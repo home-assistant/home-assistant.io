@@ -31,6 +31,7 @@ output: |
     "light.bedroom",
     "sensor.hue_motion",
   ]
+
 ---
 filter: '{{ "hue" | integration_entities }}'
 type: list

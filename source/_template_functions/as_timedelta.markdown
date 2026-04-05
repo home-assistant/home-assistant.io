@@ -26,6 +26,7 @@ Some {% term integrations %} and external services provide durations in ISO 8601
 function: '{{ as_timedelta("PT1H30M") }}'
 type: timedelta
 output: "1:30:00"
+
 ---
 filter: '{{ "PT1H30M" | as_timedelta }}'
 type: timedelta

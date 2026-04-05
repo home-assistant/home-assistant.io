@@ -28,6 +28,7 @@ This can be useful in calculations involving slopes, gradients, or angles derive
 function: '{{ tan(0.7854) }}'
 type: float
 output: "1.0"
+
 ---
 filter: '{{ 0.7854 | tan }}'
 type: float

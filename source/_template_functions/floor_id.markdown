@@ -27,6 +27,7 @@ This is useful when you need the floor ID to pass to other floor functions like 
 function: '{{ floor_id("Ground Floor") }}'
 type: string
 output: "ground_floor"
+
 ---
 filter: '{{ "Ground Floor" | floor_id }}'
 type: string

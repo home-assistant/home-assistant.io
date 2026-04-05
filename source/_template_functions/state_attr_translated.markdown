@@ -25,6 +25,7 @@ This is useful when you display attribute values that have been translated by {%
 function: '{{ state_attr_translated("climate.living_room", "hvac_action") }}'
 type: string
 output: Heating
+
 ---
 filter: '{{ "climate.living_room" | state_attr_translated("hvac_action") }}'
 type: string

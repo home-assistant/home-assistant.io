@@ -24,6 +24,7 @@ Slugs are the format Home Assistant uses for {% term entity %} IDs, so this func
 function: '{{ slugify("Hello World!") }}'
 type: string
 output: hello_world
+
 ---
 filter: '{{ "Hello World!" | slugify }}'
 type: string

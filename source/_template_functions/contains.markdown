@@ -24,6 +24,7 @@ This is useful when you need to check if a {% term sensor %} value includes a sp
 filter: '{{ "hello world" | contains("world") }}'
 type: boolean
 output: "true"
+
 ---
 test: |
   {% if "hello world" is contains("world") %}

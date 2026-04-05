@@ -26,6 +26,7 @@ This is the starting point for most device-related template work. Since many dev
 function: '{{ device_id("sensor.living_room_temperature") }}'
 type: string
 output: "a1b2c3d4e5f6a1b2c3d4e5f6"
+
 ---
 filter: '{{ "sensor.living_room_temperature" | device_id }}'
 type: string

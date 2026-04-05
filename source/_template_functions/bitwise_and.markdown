@@ -24,6 +24,7 @@ This is useful when working with {% term devices %} that communicate status or c
 function: '{{ bitwise_and(7, 3) }}'
 type: int
 output: "3"
+
 ---
 filter: '{{ 7 | bitwise_and(3) }}'
 type: int

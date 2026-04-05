@@ -24,6 +24,7 @@ This is useful for working with cyclic quantities like angles, hours of the day,
 function: '{{ wrap(370, 0, 360) }}'
 type: float
 output: "10.0"
+
 ---
 filter: '{{ 370 | wrap(0, 360) }}'
 type: float

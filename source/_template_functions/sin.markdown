@@ -28,6 +28,7 @@ This is helpful when you need to create smooth cyclic animations, compute positi
 function: '{{ sin(1.5708) }}'
 type: float
 output: "1.0"
+
 ---
 filter: '{{ 1.5708 | sin }}'
 type: float

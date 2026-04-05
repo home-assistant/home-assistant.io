@@ -27,6 +27,7 @@ This is useful when you want a representative value from multiple {% term sensor
 function: '{{ median(21.5, 22.0, 19.8) }}'
 type: float
 output: "21.5"
+
 ---
 filter: '{{ [21.5, 22.0, 19.8] | median }}'
 type: float

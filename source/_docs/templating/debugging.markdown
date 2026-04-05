@@ -178,7 +178,7 @@ Templates use [Jinja2](https://jinja.palletsprojects.com/), a templating engine 
 
 ## Still stuck?
 
-The Home Assistant community is quick to help: join [Discord](https://discord.gg/home-assistant) for real-time chat, post on the [community forum](https://community.home-assistant.io) with your template and expected result, or share on [our subreddit /r/homeassistant](https://reddit.com/r/homeassistant). When you ask, include these four things and the answer usually comes within minutes:
+The Home Assistant community is quick to help: join [Discord](https://discord.gg/home-assistant) for real-time chat, post on the [community forum](https://community.home-assistant.io) with your template and expected result, or share on [our subreddit](https://reddit.com/r/homeassistant). When you ask, include these four things and the answer usually comes within minutes:
 
 - The template you are using (copied from the editor, where you can see what it runs against).
 - What you expected the result to be.

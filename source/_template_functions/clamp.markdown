@@ -26,6 +26,7 @@ This is useful whenever you need to ensure a {% term sensor %} value stays withi
 function: '{{ clamp(150, 0, 100) }}'
 type: float
 output: "100.0"
+
 ---
 filter: '{{ 150 | clamp(0, 100) }}'
 type: float

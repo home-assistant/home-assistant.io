@@ -28,6 +28,7 @@ This is useful for trigonometric calculations based on {% term sensor %} data, s
 function: '{{ cos(0) }}'
 type: float
 output: "1.0"
+
 ---
 filter: '{{ 0 | cos }}'
 type: float

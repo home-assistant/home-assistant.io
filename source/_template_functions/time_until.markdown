@@ -26,6 +26,7 @@ This is useful whenever you want to display a countdown or remaining time in a n
 function: '{{ time_until(as_datetime(states("sensor.next_alarm"))) }}'
 type: string
 output: "6 hours"
+
 ---
 filter: '{{ as_datetime(states("sensor.next_alarm")) | time_until }}'
 type: string

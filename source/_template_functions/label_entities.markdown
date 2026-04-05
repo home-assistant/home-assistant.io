@@ -36,6 +36,7 @@ output: |
     "binary_sensor.front_door",
     "binary_sensor.smoke_detector",
   ]
+
 ---
 filter: '{{ "Critical" | label_entities }}'
 type: list

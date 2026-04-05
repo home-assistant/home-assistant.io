@@ -26,6 +26,7 @@ This is especially useful for building dynamic messages and {% term notification
 function: '{{ area_name("living_room") }}'
 type: string
 output: "Living Room"
+
 ---
 filter: '{{ "living_room" | area_name }}'
 type: string

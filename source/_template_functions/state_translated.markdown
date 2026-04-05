@@ -25,6 +25,7 @@ This is useful when you want to include entity states in {% term notifications %
 function: '{{ state_translated("climate.living_room") }}'
 type: string
 output: Heating
+
 ---
 filter: '{{ "climate.living_room" | state_translated }}'
 type: string

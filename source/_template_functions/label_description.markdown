@@ -28,6 +28,7 @@ This is useful when you want to display additional context about a label beyond 
 function: '{{ label_description("critical") }}'
 type: string
 output: "Sensors that trigger emergency alerts"
+
 ---
 filter: '{{ "critical" | label_description }}'
 type: string

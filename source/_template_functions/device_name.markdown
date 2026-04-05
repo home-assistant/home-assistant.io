@@ -26,6 +26,7 @@ This is useful whenever you want to display or include a device's name in a {% t
 function: '{{ device_name("a1b2c3d4e5f6a1b2c3d4e5f6") }}'
 type: string
 output: "Living Room Thermostat"
+
 ---
 filter: '{{ "a1b2c3d4e5f6a1b2c3d4e5f6" | device_name }}'
 type: string

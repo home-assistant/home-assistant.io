@@ -26,6 +26,7 @@ This is useful when you need to convert a ratio back into an angle. For example,
 function: '{{ asin(1) }}'
 type: float
 output: "1.5707963267948966"
+
 ---
 filter: '{{ 1 | asin }}'
 type: float

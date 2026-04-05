@@ -26,6 +26,7 @@ Many {% term entities %} in Home Assistant store their timestamps in UTC. When y
 function: '{{ as_local(utcnow()) }}'
 type: datetime
 output: "2024-03-15 14:30:00.123456+01:00"
+
 ---
 filter: '{{ utcnow() | as_local }}'
 type: datetime

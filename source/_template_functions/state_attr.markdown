@@ -30,6 +30,7 @@ For dashboards, a [Tile card](/dashboards/tile/) can show attributes as badges w
 function: '{{ state_attr("climate.living_room", "temperature") }}'
 type: float
 output: "21.0"
+
 ---
 filter: '{{ "climate.living_room" | state_attr("temperature") }}'
 type: float

@@ -26,6 +26,7 @@ This is useful when you need to compute a true bearing or direction angle from t
 function: '{{ atan2(1, 1) }}'
 type: float
 output: "0.7853981633974483"
+
 ---
 filter: '{{ (1, 1) | atan2 }}'
 type: float

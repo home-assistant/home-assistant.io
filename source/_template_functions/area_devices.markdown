@@ -30,6 +30,7 @@ output: |
     "a1b2c3d4e5f6a1b2c3d4e5f6",
     "f6e5d4c3b2a1f6e5d4c3b2a1",
   ]
+
 ---
 filter: '{{ "Living Room" | area_devices }}'
 type: list

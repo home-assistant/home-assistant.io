@@ -26,6 +26,7 @@ This is useful when you want to merge two collections without getting duplicate 
 function: '{{ union([1, 2, 3], [3, 4, 5]) }}'
 type: list
 output: "[1, 2, 3, 4, 5]"
+
 ---
 filter: '{{ [1, 2, 3] | union([3, 4, 5]) }}'
 type: list

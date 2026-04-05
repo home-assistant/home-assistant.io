@@ -24,6 +24,7 @@ This is useful whenever you need to convert a {% term sensor %} reading from one
 function: '{{ remap(50, 0, 100, 0, 255) }}'
 type: float
 output: "127.5"
+
 ---
 filter: '{{ 50 | remap(0, 100, 0, 255) }}'
 type: float

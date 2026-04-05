@@ -35,6 +35,7 @@ output: |
     "sensor.smart_plug_energy",
     "sensor.smart_plug_signal",
   ]
+
 ---
 filter: '{{ "a1b2c3d4e5f6a1b2c3d4e5f6" | device_entities }}'
 type: list

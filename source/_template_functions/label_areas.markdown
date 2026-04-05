@@ -32,6 +32,7 @@ output: |
     "garden",
     "driveway",
   ]
+
 ---
 filter: '{{ "Outdoor" | label_areas }}'
 type: list

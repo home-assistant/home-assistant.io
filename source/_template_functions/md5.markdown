@@ -25,6 +25,7 @@ This is useful when you need to generate a consistent, fixed-length identifier f
 function: '{{ md5("Hello, World!") }}'
 type: string
 output: "65a8e27d8879283831b664bd8b7f0ad4"
+
 ---
 filter: '{{ "Hello, World!" | md5 }}'
 type: string

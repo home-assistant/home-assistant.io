@@ -27,6 +27,7 @@ Many {% term sensors %} and {% term integrations %} provide dates and times as p
 function: '{{ as_datetime("2024-03-15T14:30:00+01:00") }}'
 type: datetime
 output: "2024-03-15 14:30:00+01:00"
+
 ---
 filter: '{{ "2024-03-15T14:30:00+01:00" | as_datetime }}'
 type: datetime

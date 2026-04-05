@@ -27,6 +27,7 @@ This is useful when you want to find the most frequent reading from a set of {% 
 function: '{{ statistical_mode(21, 22, 21, 23, 21) }}'
 type: float
 output: "21"
+
 ---
 filter: '{{ [21, 22, 21, 23, 21] | statistical_mode }}'
 type: float
