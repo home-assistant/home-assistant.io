@@ -24,7 +24,7 @@ This integration has been tested with the Guntamatic BMK 20 kW running firmware 
 ## Prerequisites
 
 Your Guntamatic heater must be connected to your local network and accessible via its IP address or hostname.
-Check the screen on the Guntamatic: Customer Level, Detailed Display, scroll down to network.
+To find your heater's network settings, go to **Customer Level** > **Detailed Display**, then scroll down to **Network**.
 
 {% include integrations/config_flow.md %}
 
