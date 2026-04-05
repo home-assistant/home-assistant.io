@@ -2,19 +2,15 @@
 title: Mitsubishi Comfort
 description: Instructions on how to integrate Mitsubishi minisplit systems into Home Assistant.
 ha_category:
-  - Binary sensor
   - Climate
-  - Sensor
-ha_release: "2025.x"
+ha_release: "2026.5"
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@nikolairahimi'
 ha_domain: mitsubishi_comfort
 ha_platforms:
-  - binary_sensor
   - climate
-  - sensor
 ha_dhcp: true
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -42,10 +38,8 @@ After setup, you can adjust the following options under **Settings** > **Devices
 
 ## Supported devices
 
-| Device type | Control | Sensors |
-|-------------|---------|---------|
-| Indoor unit (ductless, ducted) | Mode, temperature, fan speed, vane direction | Temperature, humidity, filter status, Wi-Fi signal |
-| Kumo Station (outdoor unit) | None (read-only) | Outdoor temperature, Wi-Fi signal |
+- **Indoor unit** (ductless, ducted) — Full climate control: mode, temperature, fan speed, vane direction. Sensors: temperature, humidity, filter status, Wi-Fi signal.
+- **Kumo Station** (outdoor unit) — Read-only: outdoor temperature, Wi-Fi signal.
 
 ## Climate entity
 
@@ -57,24 +51,6 @@ Each indoor unit is exposed as a climate entity with the following capabilities:
 - **Swing modes**: Horizontal, Mid-Horizontal, Midpoint, Mid-Vertical, Vertical, Auto, Swing — availability depends on the unit
 
 Temperature ranges are read from the device profile and may vary by unit and mode.
-
-## Sensor entities
-
-| Sensor | Enabled by default | Indoor | Outdoor |
-|--------|-------------------|--------|---------|
-| Temperature | Yes | Room temperature | — |
-| Humidity | No | From external sensor or MHK2 controller | — |
-| Wi-Fi signal | No | Adapter signal strength (dB) | Adapter signal strength (dB) |
-| Sensor battery | No | External sensor battery level (%) | — |
-| Sensor signal | No | External sensor signal strength (dB) | — |
-| Outdoor temperature | No | — | Outdoor temperature |
-| Uptime | No (diagnostic) | Device uptime | Device uptime |
-
-## Binary sensor entities
-
-| Sensor | Description |
-|--------|-------------|
-| Filter dirty | On when the unit's filter needs cleaning |
 
 ## How it works
 
