@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@tomer-w'
-ha_domain: victron_gx_mqtt
+ha_domain: victron_gx
 ha_platforms:
   - sensor
 ha_integration_type: integration
