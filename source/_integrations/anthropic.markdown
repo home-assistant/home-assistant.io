@@ -90,6 +90,8 @@ Maximum web searches:
   description: Limits the number of web searches that can be performed per user request. Once the limit is reached, no additional searches will be executed during that conversation.
 Include home location:
   description: The parameter allows you to localize search results based on the Home Assistant location.
+Enable tool search tool:
+  description: With [this tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool), instead of loading all tool definitions into the context window upfront, Claude searches the tool catalog and loads only the tools it needs. This may improve performance if you don't need to control devices every time, or if you have a long prompt or a big number of additional tools.
 {% endconfiguration_basic %}
 
 ## Supported features
@@ -130,7 +132,7 @@ The following table describes which [API features](https://platform.claude.com/d
 | [Text editor](https://platform.claude.com/docs/en/agents-and-tools/tool-use/text-editor-tool) | Create and edit text files with a built-in text editor interface for file manipulation tasks. | Not supported | This is probably not applicable to Home Assistant use cases |
 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Extend Claude's capabilities with Skills. Use pre-built Skills (PowerPoint, Excel, Word, PDF) or create custom Skills with instructions and scripts. Skills use progressive disclosure to efficiently manage context. | Not supported | This feature is still in beta |
 | [MCP connector](https://platform.claude.com/docs/en/agents-and-tools/mcp-connector) | Connect to remote MCP servers directly from the Messages API without a separate MCP client. | Not supported | This feature is still in beta |
-| [Tool search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool) | Scale to thousands of tools by dynamically discovering and loading tools on-demand using regex-based search, optimizing context usage and improving tool selection accuracy. | Not supported | May be added later, but usually Home Assistant does not have so many tools |
+| [Tool search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool) | Scale to thousands of tools by dynamically discovering and loading tools on-demand using regex-based search, optimizing context usage and improving tool selection accuracy. | Supported | Use the **Enable tool search tool** parameter to use this feature |
 | [Files API](https://platform.claude.com/docs/en/build-with-claude/files) | Upload and manage files to use with Claude without re-uploading content with each request. Supports PDFs, images, and text files. | Not supported | This feature is still in beta |
 
 #### Context management
