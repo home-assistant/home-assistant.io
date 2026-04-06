@@ -60,7 +60,7 @@ template: |
   {% for sensor in states.sensor
     | selectattr('attributes.device_class', 'eq', 'battery')
     | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
-    {% if sensor.state | float(100) < 100 %}
+    {% if sensor.state | float(100) < 20 %}
       {% set low.batteries = low.batteries + [device_name(sensor.entity_id)] %}
     {% endif %}
   {% endfor %}
