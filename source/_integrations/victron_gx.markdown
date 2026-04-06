@@ -43,17 +43,7 @@ This integration supports Victron Energy devices that run Venus OS and have MQTT
 - Network connectivity between your Home Assistant instance and the Victron device.
 - For secured installations: The MQTT password configured on your Victron device.
 
-The integration can be set up in two ways: automatic discovery or manual configuration.
-
-### Automatic discovery
-
-If your Victron device has MQTT enabled and is on the same network as Home Assistant, it should be automatically discovered.
-
-1. Go to **Settings** > **Devices & services**.
-2. Look for **Victron GX** integration in the discovered section.
-3. Follow the configuration flow.
-
-### Manual configuration
+{% include integrations/config_flow.md %}
 
 When setting up the integration manually, you need to provide connection details based on your Victron device's security profile.
 
@@ -159,4 +149,5 @@ The integration cannot discover or create entities from MQTT topics.
 ## Removing the integration
 
 This integration follows standard integration removal.
-After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
+
+{% include integrations/remove_device_service.md %}
