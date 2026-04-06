@@ -52,7 +52,7 @@ Serial port:
 
 ### Entities
 
-The **Teleinfo** integration provides the following {% term entity entities %}.
+The **Teleinfo** integration provides the following {% term entities %}.
 
 #### Sensors
 
@@ -188,7 +188,7 @@ If no data is received or the frame is incomplete within the 10-second timeout, 
 
 ## Known limitations
 
-- **Historique mode only**: Only the legacy 1200 baud "historique" TIC mode is supported. The newer "standard" mode (9600 baud) available on some Linky meters is not yet implemented.
+- **Historique mode only**: Only the legacy 1200 baud historique TIC mode is supported. The newer "standard" mode (9600 baud) available on some Linky meters is not yet implemented.
 - **Single-phase only**: The integration reads single-phase Teleinfo labels. Three-phase installations are not supported.
 
 ## Troubleshooting
