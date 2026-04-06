@@ -91,7 +91,7 @@ Maximum web searches:
 Include home location:
   description: The parameter allows you to localize search results based on the Home Assistant location.
 Enable tool search tool:
-  description: With [this tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool), instead of loading all tool definitions into the context window upfront, Claude searches the tool catalog and loads only the tools it needs. This may improve performance if you don't need to control devices every time, or if you have a long prompt or a big number of additional tools.
+  description: With [this tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool), instead of loading all tool definitions into the context window upfront, Claude searches the tool catalog and loads only the tools it needs. This may improve performance if you don't need to control devices every time, or if you have a long prompt or a large number of additional tools.
 {% endconfiguration_basic %}
 
 ## Supported features
