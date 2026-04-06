@@ -196,8 +196,8 @@ If you want to run different actions when a device goes offline or recovers, you
 automation:
   - alias: Connectivity Monitor - Device Alert
     triggers:
-      - event_type: connectivity_monitor_alert
-        trigger: event
+      - trigger: event
+        event_type: connectivity_monitor_alert
     conditions:
       - condition: template
         value_template: "{{ trigger.event.data.action_entity_id == this.entity_id }}"
