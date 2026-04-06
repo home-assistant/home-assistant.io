@@ -4,7 +4,6 @@ function_name: "distance"
 description: "Calculates the distance in kilometers between two points or from home."
 available_as:
   - function
-  - filter
 category: state
 return_type: float
 limited: false
