@@ -241,21 +241,124 @@ Tests are most useful inside [`if` statements](/docs/templating/loops-and-condit
 
 ## Whitespace: trimming unwanted spaces
 
-Templates keep every space and newline you write. Sometimes that is fine. Other times, all those extra line breaks from `{% if ... %}` blocks end up in the output and look messy.
+Templates keep every space and newline you write. That includes the line breaks around `{% if %}` and `{% set %}` tags. This is often fine for notifications, but when you need clean output (like a sensor value), those extra spaces become a problem.
 
-Adding a `-` inside a marker trims the whitespace on that side. So `{%- ... -%}` removes spaces and line breaks both before and after the marker.
+### The problem
 
 {% example %}
 template: |
-  Before
-  {%- if true -%}
-  middle
-  {%- endif -%}
-  After
-output: "BeforemiddleAfter"
+  {% set temp = 22 %}
+  {% if temp > 20 %}
+  Warm
+  {% else %}
+  Cool
+  {% endif %}
+  outside.
+output: |
+
+
+  Warm
+
+  outside.
 {% endexample %}
 
-Without those dashes, the output would have line breaks around "middle". Whitespace control matters most when a template has to fit on a single line, like a notification title, or when the spacing bothers you.
+The output has blank lines everywhere. Each `{% %}` tag occupies a line, and that line break stays in the output even though the tag itself produces nothing visible.
+
+### What trimming does
+
+Adding a `-` inside a tag marker removes all whitespace (spaces, tabs, and line breaks) on that side, up to the next non-whitespace character.
+
+- `{% ... %}` trims nothing (default).
+- `{%- ... %}` trims the left side: everything before the tag.
+- `{% ... -%}` trims the right side: everything after the tag.
+- `{%- ... -%}` trims both sides.
+
+The same works for expressions: `{{- ... }}`, `{{ ... -}}`, `{{- ... -}}`.
+
+### Trimming one side
+
+Trimming the right side (`-%}`) removes the line break after a tag. This is the most common form because the blank lines come from the line break that follows each tag:
+
+{% example %}
+template: |
+  {% set temp = 22 -%}
+  {% if temp > 20 -%}
+  Warm
+  {% else -%}
+  Cool
+  {% endif -%}
+  outside.
+output: |
+  Warm
+  outside.
+{% endexample %}
+
+The `-%}` on each tag eats the line break after it, so the tag and the content after it end up on the same line. "Warm" and "outside." each get their own line, which is clean output.
+
+Trimming the left side (`{%-`) removes whitespace before the tag. This pulls the tag toward whatever came before it:
+
+{% example %}
+template: |
+  The door is
+  {%- if true %} open{% endif %}.
+output: "The door is open."
+{% endexample %}
+
+The `{%-` on the `if` tag eats the line break and spaces before it, so "is" and "open" connect without a gap. Without the `-`, there would be a line break between "is" and "open".
+
+### Trimming both sides
+
+When every tag trims both sides, the output becomes as tight as possible:
+
+{% example %}
+template: |
+  {%- set temp = 22 -%}
+  {%- if temp > 20 -%}
+  Warm
+  {%- else -%}
+  Cool
+  {%- endif -%}
+output: "Warm"
+{% endexample %}
+
+Everything collapses onto one line. The `{%- ... -%}` on every tag removes all surrounding whitespace.
+
+### Mixing trimmed and untrimmed
+
+You do not have to trim every tag. Choose based on what the output should look like:
+
+{% example %}
+template: |
+  {%- set temp = 22 -%}
+  {%- set humidity = 65 -%}
+  Temperature: {{ temp }}°C
+  Humidity: {{ humidity }}%
+output: |
+  Temperature: 22°C
+  Humidity: 65%
+{% endexample %}
+
+The `{%- set ... -%}` tags are fully trimmed (they are setup, not output). The `{{ }}` expressions are not trimmed because we want each reading on its own line.
+
+### Expressions can trim too
+
+The `-` works inside `{{ }}` the same way:
+
+{% example %}
+template: |
+  Status:
+  {{- ' OK' if true else ' Error' }}
+output: "Status: OK"
+{% endexample %}
+
+The `{{-` eats the line break between "Status:" and the expression, so the result is one line. The space before "OK" is inside the string itself, so it survives.
+
+### When to trim
+
+- **Notifications and messages**: Usually no trimming needed. Extra blank lines are harmless and can improve readability.
+- **Sensor values**: Trim aggressively. A template sensor's state should be a clean value like `22.5`, not `  22.5\n` with extra whitespace.
+- **Building values on one line**: Trim both sides of every `set`, `if`, and `endif` tag.
+- **Multi-line output**: Trim the `set` and logic tags but leave the output expressions untrimmed so each result gets its own line.
 
 ## Putting it all together
 
