@@ -52,9 +52,9 @@ For Zigbee devices, only ZHA is currently supported.
 
 {% configuration_basic %}
 Update interval (seconds):
-    description: "How often Connectivity Monitor checks whether your devices are available. Use a value higher than 30 seconds."
+  description: "How often Connectivity Monitor checks whether your devices are available. Use a value of 30 seconds or higher."
 DNS Server:
-    description: "The DNS server used to resolve host names for network devices."
+  description: "The DNS server used to resolve host names for network devices."
 {% endconfiguration_basic %}
 
 ## Configuration options
@@ -206,7 +206,7 @@ automation:
                       {{ trigger.event.data.minutes_offline }} min(s)
                     {% endif %} — last seen: {{ trigger.event.data.last_online }} -
                     {{ this.entity_id }}
-                action: notify.mobile_app_gsm_josh
+                action: notify.example_service
         default:
           - data:
               title: ❌ {{ trigger.event.data.device_name }} is offline
@@ -219,7 +219,7 @@ automation:
                   {{ trigger.event.data.minutes_offline }} min(s)
                 {% endif %} — last seen: {{ trigger.event.data.last_online }}
                 - {{ this.entity_id }}
-            action: notify.mobile_app_gsm_josh
+            action: notify.example_service
     mode: parallel
     max: 10
 ```
