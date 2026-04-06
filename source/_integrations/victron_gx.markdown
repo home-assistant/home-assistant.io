@@ -96,45 +96,6 @@ Read-only sensors for monitoring system metrics, such as:
 
 For a complete list of supported entities, see the [auto-generated documentation](https://tomer-w.github.io/victron_mqtt/).
 
-#### Binary sensors
-
-Status indicators for various system states, such as:
-
-- Alarms and warnings
-- Connection status
-- Relay states
-
-#### Buttons
-
-Action buttons for triggering specific functions, like device reboot.
-
-#### Numbers
-
-Adjustable numeric settings for:
-
-- Current limits
-- Voltage setpoints
-- Power limits
-
-#### Selects
-
-Dropdown selections for:
-
-- Inverter mode (On, Off, Charger Only, Inverter Only)
-- <abbr title="electric vehicle">EV</abbr> charger mode
-- Battery charge mode
-
-#### Switches
-
-On/off controls for:
-
-- Relays
-- Device features
-
-#### Time
-
-Time-based settings for scheduled operations.
-
 ## Troubleshooting
 
 ### Cannot connect
