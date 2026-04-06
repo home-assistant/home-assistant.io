@@ -84,8 +84,6 @@ Read-only sensors for monitoring system metrics, such as:
 - Inverter input and output power, frequency, and state
 - <abbr title="electric vehicle">EV</abbr> charger status, power, and session energy
 
-For a complete list of supported entities, see the [auto-generated documentation](https://tomer-w.github.io/victron_mqtt/).
-
 ## Troubleshooting
 
 ### Cannot connect
