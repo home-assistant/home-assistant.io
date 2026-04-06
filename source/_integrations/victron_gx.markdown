@@ -64,7 +64,7 @@ SSL:
 
 ## Data updates
 
-The integration will update the entities every 30 seconds.
+Entities are updated only when new values are received from the device, but no more frequently than every 30 seconds.
 
 ## Supported functionality
 
