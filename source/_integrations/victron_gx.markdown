@@ -72,66 +72,9 @@ SSL:
   description: "Enable for secured connections (port 8883). Disable for unsecured connections (port 1883)."
 {% endconfiguration_basic %}
 
-### Bridged MQTT configuration
-
-Some users prefer to reduce the load on their Victron device by using a bridge from the Venus device to a local Mosquitto MQTT broker running as an add-on in Home Assistant.
-
-#### Prerequisites
-
-1. Install the [Mosquitto broker add-on](https://github.com/home-assistant/addons/tree/master/mosquitto) from the Home Assistant Add-on Store.
-2. Configure a username and password for the MQTT broker in the add-on configuration.
-
-#### Configuration steps
-
-1. Configure the Mosquitto bridge by editing the configuration file at `/share/mosquitto/mosquitto.conf` (accessible via the File Editor add-on or SSH) and add:
-
-   ```text
-   connection victron
-   address <YOUR_VENUS_IP>:1883
-   topic N/# in 0
-   # TO CHANGE settings via MQTT, one has to write to the "W/" topic!!
-   topic W/# out 0
-   topic R/# out 0
-   start_type automatic
-   allow_anonymous true
-   ```
-
-   Replace `<YOUR_VENUS_IP>` with your Victron device's IP address.
-
-2. Restart the Mosquitto add-on to apply the bridge configuration.
-3. When setting up the Victron MQTT integration:
-   - **Host**: `core-mosquitto` (the internal hostname for the Home Assistant MQTT broker)
-   - **Port**: `1883`
-   - **Username**: Your MQTT broker username
-   - **Password**: Your MQTT broker password
-   - **SSL**: Disable (internal connection does not require SSL)
-
-Benefits of the bridged configuration:
-
-- Reduces load on the Venus MQTT server
-- Provides a single MQTT broker for all your Home Assistant MQTT devices
-- Allows for better network traffic management
-
-## Configuration options
-
-The integration provides the following configuration options:
-
-{% configuration_basic %}
-Operation mode:
-  description: "Choose between **Read-only** (sensors and binary sensors only), **Full** (sensors plus controllable entities), or **Experimental** (may be unstable)."
-Simple naming:
-  description: "Enable simplified entity naming without device prefixes."
-Root topic prefix:
-  description: "Custom MQTT topic prefix if your Victron device uses a non-standard topic structure."
-Excluded devices:
-  description: "Select device types to exclude from the integration to reduce the number of entities."
-Elevated tracing:
-  description: "Enable additional debug logging for troubleshooting."
-{% endconfiguration_basic %}
-
 ## Data updates
 
-The integration receives real-time updates via MQTT. By default, it polls for updates every 30 seconds, but this can be configured in the integration options.
+The integration will update the entities every 30 seconds.
 
 ## Supported functionality
 
@@ -253,34 +196,6 @@ The integration cannot discover or create entities from MQTT topics.
 2. Check the Home Assistant logs under **Settings** > **System** > **Logs** for any error messages.
 3. Ensure the MQTT service on the Victron device is running and configured correctly.
 4. Try increasing the **Elevated tracing** option in the integration settings for more detailed logging.
-
-## Services
-
-### `victron.publish`
-
-The Victron integration exposes the `victron.publish` service, allowing you to publish a value to a specific metric on a Victron device.
-
-**Service:** `victron.publish`
-
-**Description:** Publish a value to a specific metric on a Victron device.
-
-**Fields:**
-
-- `device_id` (string): The device identifier to publish to.
-- `metric_id` (string): The metric identifier to publish to.
-- `value` (any): The value to publish to the metric.
-
-**Example service call:**
-
-```yaml
-service: victron.publish
-data:
-  device_id: "261"
-  metric_id: "generator_service_counter_reset"
-  value: 230.0
-```
-
-This will publish the value `85` to the `Soc` metric of the specified battery device.
 
 ## Removing the integration
 
