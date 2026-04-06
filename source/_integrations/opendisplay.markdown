@@ -58,7 +58,7 @@ If the encryption key changes after the device has been set up, Home Assistant w
 
 ### Button events
 
-OpenDisplay Flex devices with physical inputs configured show up as {% term button %} {% term entities %}. One {% term entity %} is created per button.
+OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
 
 | Event type | Description |
 | --- | --- |
