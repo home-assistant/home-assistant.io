@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: victron_gx
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
     title: Cerbo GX communication centre
@@ -43,7 +43,7 @@ This integration supports Victron Energy devices that run Venus OS and have MQTT
 - Network connectivity between your Home Assistant instance and the Victron device.
 - For secured installations: The MQTT password configured on your Victron device.
 
-The integration can be set up in three ways: automatic discovery, manual configuration with direct connection, or using a bridged MQTT broker.
+The integration can be set up in two ways: automatic discovery or manual configuration.
 
 ### Automatic discovery
 
@@ -126,8 +126,6 @@ To resolve this issue, try the following steps:
    - Enable SSL
    - Use username `root`
    - Use the password you defined to protect the instance
-
-6. Consider using the bridged configuration if you're experiencing frequent connectivity issues or want to reduce load on your Venus device.
 
 ### Authentication failed
 
