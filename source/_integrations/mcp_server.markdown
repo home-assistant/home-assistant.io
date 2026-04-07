@@ -16,7 +16,7 @@ related:
 ha_quality_scale: silver
 ---
 
-The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or let an MCP client read the entities you have exposed to Assist.
+The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or let an MCP client read a snapshot of your current Assist context.
 
 Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
 
@@ -184,16 +184,14 @@ are exposed.
 
 ### Resources
 
-When the selected LLM API includes Assist, Home Assistant also exposes a
-read-only [MCP Resource](https://modelcontextprotocol.io/docs/concepts/resources)
-named `homeassistant://assist/exposed-entities`.
+When the configured LLM API includes the `GetLiveContext` tool, Home Assistant
+also exposes a read-only [MCP Resource](https://modelcontextprotocol.io/docs/concepts/resources)
+named `homeassistant://assist/context-snapshot`.
 
-This resource returns a YAML snapshot of the entities you have exposed to
-Assist, including the entity ID, friendly name, domain, current state, area
-name, and a curated set of attributes. MCP clients can use this resource to
-understand what is available in your Home Assistant instance before they call
-tools. If the configured LLM API does not include Assist, this resource is not
-available.
+This resource returns a plain-text snapshot that matches the existing
+`GetLiveContext` tool output. It is intended for inspection, debugging, and
+explanation workflows where a static snapshot is useful. If the configured LLM
+API does not expose `GetLiveContext`, this resource is not available.
 
 ## Known limitations
 
