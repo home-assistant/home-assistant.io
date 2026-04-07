@@ -117,13 +117,13 @@ If you need more indentation on specific lines (for example, centered text), add
 
 ## Escaping: the `raw` block
 
-Sometimes you want to show a template as literal text, not have it be evaluated. For example, in a notification that teaches someone how to write a template. Wrap that part in `{% raw %}` and `{% endraw %}`.
+Sometimes you want to show a template as literal text, not have it be evaluated. For example, in a notification that teaches someone how to write a template. Wrap that part in `` and ``.
 
 {% example %}
 automation: |
   message: |
     Write a template like this:
-    {% raw %}{{ states('sensor.temp') }}{% endraw %}
+    {{ states('sensor.temp') }}
 output: |
   Write a template like this:
   {{ states('sensor.temp') }}
@@ -137,7 +137,7 @@ Without the `raw` block, the template engine would try to evaluate `{{ states('s
 - **Starting with a quote but forgetting to close it**. A common slip with long templates. Switch to a `>-` multi-line block when in doubt.
 - **Using `>` when you need line breaks preserved**. The output becomes one long line. Use `|` instead.
 - **Inconsistent indentation inside `|` or `>` blocks**. YAML truncates the block at the lowest indent.
-- **Forgetting `{% raw %}` around example templates**. The engine evaluates them instead of showing them.
+- **Forgetting `` around example templates**. The engine evaluates them instead of showing them.
 
 When a template refuses to work, the [Debugging templates](/docs/templating/debugging/) page walks through how to narrow the problem down.
 

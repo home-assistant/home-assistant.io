@@ -129,7 +129,6 @@ actions:
 
 Example of a {% term YAML %} based automation that you can add to {% term "`configuration.yaml`" %}.
 
-{% raw %}
 
 ```yaml
 # Example of entry in configuration.yaml
@@ -202,7 +201,6 @@ automation my_lights:
           message: "Cube has triggered this event: {{ trigger.event }}"
 ```
 
-{% endraw %}
 
 ## Extra options
 
@@ -237,7 +235,6 @@ automation:
 
 If you want to migrate your manual automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over, you'll have to add an `id`. This can be any string as long as it's unique.
 
-{% raw %}
 
 ```yaml
 # Example automations.yaml entry. Note, automations.yaml is always a list!
@@ -258,7 +255,6 @@ If you want to migrate your manual automations to use the editor, you'll have to
     - action: light.turn_on
 ```
 
-{% endraw %}
 
 ### Deleting automations
 

@@ -93,7 +93,6 @@ A special template variable - `config` is set up for the `content` of the card. 
 
 For example:
 
-{% raw %}
 
 ```yaml
 type: entity-filter
@@ -114,13 +113,11 @@ card:
     And the door is {% if is_state('binary_sensor.door', 'on') %} open {% else %} closed {% endif %}.
 ```
 
-{% endraw %}
 
 A special template variable - `user` is set up for the `content` of the card. It contains the currently logged in user.
 
 For example:
 
-{% raw %}
 
 ```yaml
 type: markdown
@@ -128,7 +125,6 @@ content: |
   Hello, {{user}}
 ```
 
-{% endraw %}
 
 ### Icons
 
@@ -136,7 +132,6 @@ You can use [Material Design Icons](https://pictogrammers.com/library/mdi/) icon
 
 For example:
 
-{% raw %}
 
 ```yaml
 type: markdown
@@ -144,7 +139,6 @@ content: |
   <ha-icon icon="mdi:home-assistant"></ha-icon>
 ```
 
-{% endraw %}
 
 ## ha-alert
 
