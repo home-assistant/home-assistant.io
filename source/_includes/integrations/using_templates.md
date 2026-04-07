@@ -16,6 +16,6 @@ With given payload:
 { "state": "ON", "temperature": 21.902 }
 ```
 
-Template `{{ value_json.temperature | round(1) }}` renders to `21.9`.
+Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
 
 {% endnote %}
