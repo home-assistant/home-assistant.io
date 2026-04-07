@@ -362,7 +362,7 @@ conditions:
 
 ### Sun elevation condition
 
-The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night, etc. when a trigger occurs.
+The sun elevation can be used to test if the sun has set or risen, it is dusk, or it is night when a trigger occurs.
 For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_elevation_trigger].
 
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
@@ -563,9 +563,7 @@ The after times are inclusive while before are exclusive. In the example above, 
 A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
 {% endtip %}
 
-For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, 
-or another `sensor` entity containing a timestamp with the "timestamp" device
-class, can be used instead.
+For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, or another `sensor` entity containing a timestamp with the "timestamp" device class, can be used instead.
 
 ```yaml
 conditions:

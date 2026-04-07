@@ -20,7 +20,6 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - climate
-  - device_tracker
   - diagnostics
   - sensor
   - switch

@@ -64,7 +64,7 @@ title:
   type: string
 period:
   required: false
-  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week` or `month`. If `energy_date_selection` is true, and `period` is not defined, the chart period will auto-select between month/day/hour based on the selected date range.
+  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week`, `month` or `year`. If `energy_date_selection` is true, and `period` is not defined, the chart period will auto-select between month/day/hour based on the selected date range.
   type: string  
 hide_legend:
   required: false

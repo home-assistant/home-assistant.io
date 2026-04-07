@@ -11,9 +11,10 @@ ha_codeowners:
 ha_domain: opower
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/utilities/opower-energy-efficiency/).
@@ -34,6 +35,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Orange & Rockland Utilities (ORU)
 - Duquesne Light Company (DQE)
 - Evergy
+- Eversource
 - Exelon subsidiaries
   - Atlantic City Electric
   - Baltimore Gas and Electric (BGE)
@@ -85,6 +87,10 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 **NOTE: At this time, ConEd only has a single TOTP set up per account. Therefore, it is important that you configure the same TOTP secret for ConEd access in both Opower and your authenticator app.**
 
+**Troubleshooting: "2FA code was invalid" error**
+
+If authentication fails despite correct credentials and TOTP secret, this might be due to your Home Assistant server's clock and the ConEd server's clock being out of sync. TOTP codes are only valid within 30-second windows. Try updating and restarting Home Assistant Core, which may resolve the issue. Some users have reported needing to restart multiple times before the issue gets resolved.
+
 ### Exelon subsidiaries (ACE, BGE, ComEd, Delmarva, PECO, Pepco)
 
 The integration properly supports Multi-Factor Authentication (MFA) for Exelon subsidiaries via code sent to either email or phone SMS. These subsidiaries turned on MFA automatically for customers,
@@ -99,6 +105,11 @@ You will be asked to re-authenticate via MFA every 180 days.
 {% include integrations/config_flow.md %}
 
 ## Sensors
+
+The integration adds the following diagnostic sensors for each account:
+
+- Last changed
+- Last updated
 
 The integration adds the following sensors only if your utility provides forecasted usage/cost:
 
@@ -169,8 +180,8 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 ## Known limitations
 
 - There is a delay, often for up to a few days, for sensors and statistics to have up-to-date data.
-- For some utilities, there are no sensors added by this integration.
-- For some utilities, the sensors might disappear or become unavailable at the beginning of your bill period.
+- For some utilities, there are no usage/cost sensors added by this integration.
+- For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
 - Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
 

@@ -120,7 +120,7 @@ just macros that render to strings.
 
 ## Home Assistant template extensions
 
-Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
+Extensions allow templates to access all the Home Assistant specific states and adds other convenience functions and filters.
 
 ### Limited templates
 
@@ -146,7 +146,7 @@ Not supported in [limited templates](#limited-templates).
 - `has_value('sensor.my_sensor')` will test if the given entity is not unknown or unavailable. Can be used as a filter or a test.
 
 {% warning %}
-Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
+Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (such as during Home Assistant startup).
 {% endwarning %}
 
 #### States examples
@@ -373,6 +373,31 @@ The `state_translated` function returns a translated state of an entity using a 
 {% endraw %}
 
 
+### State attribute translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_attr_translated` function returns a translated attribute value of an entity using the language that is currently configured in {% my general title="**Settings** > **System** > **General**" %}. This is useful for attributes like `fan_mode`, `hvac_action`, `preset_mode`, or `color_mode`, which have translations defined but are stored as untranslated values in the state.
+
+#### State attribute translated examples
+
+{% raw %}
+
+```text
+{{ state_attr("climate.living_room", "fan_mode") }} # low
+{{ state_attr_translated("climate.living_room", "fan_mode") }} # Low
+{{ "climate.living_room" | state_attr_translated("fan_mode") }} # Low
+```
+
+```text
+{{ state_attr("climate.living_room", "hvac_action") }} # heating
+{{ state_attr_translated("climate.living_room", "hvac_action") }} # Heating
+{{ "climate.living_room" | state_attr_translated("hvac_action") }} # Heating
+```
+
+{% endraw %}
+
+
 ### Working with groups
 
 Not supported in [limited templates](#limited-templates).
@@ -429,11 +454,16 @@ The same thing can also be expressed as a test:
 
 ### Entities
 
+- `entity_name(entity_id)` returns the name of an entity for a given entity ID. Can also be used as a filter.
 - `is_hidden_entity(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
 
-### Entities examples
+#### Entities examples
 
 {% raw %}
+
+```text
+{{ entity_name('light.main_light') }}  # Main light
+```
 
 ```text
 {{ area_entities('kitchen') | reject('is_hidden_entity') }} # Gets a list of visible entities in the kitchen area
@@ -749,7 +779,7 @@ Examples using `iif`:
 {% warning %}
 The immediate if filter does not short-circuit like you might expect with a typical conditional statement. The `if_true`, `if_false` and `if_none` expressions will all be evaluated and the filter will simply return one of the resulting values. This means you cannot use this filter to prevent executing an expression which would result in an error.
 
-For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
+For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead, you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
 {% endwarning%}
 
 ### Time
@@ -775,7 +805,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 
-- `as_datetime(value, default)` converts a string containing a timestamp or a valid UNIX timestamp to a datetime object. If conversion fails, the function returns the `default` value. If no `default` is provided and the input is a string that cannot be converted to a datetime, it returns `None`. For other invalid inputs (e.g., a list, dictionary, or a numeric value too large to convert), it raises an error when no `default` is supplied. In case the input is already a datetime object, it is returned unchanged. If the input is a `datetime.date` object, midnight is added as the time. This function can also be used as a filter.
+- `as_datetime(value, default)` converts a string containing a timestamp or a valid UNIX timestamp to a datetime object. If conversion fails, the function returns the `default` value. If no `default` is provided and the input is a string that cannot be converted to a datetime, it returns `None`. For other invalid inputs (such as a list, dictionary, or a numeric value too large to convert), it raises an error when no `default` is supplied. In case the input is already a datetime object, it is returned unchanged. If the input is a `datetime.date` object, midnight is added as the time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts a datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts a datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
@@ -798,7 +828,7 @@ A precision of 0 returns all available units, default is 1.
 
   {% endraw %}
 
-- `as_timedelta(string)` converts a string to a timedelta object, which represents a duration (an amount of time between two datetimes). Expects data in the format `DD HH:MM:SS.uuuuuu`, `DD HH:MM:SS,uuuuuu`, or as specified by ISO 8601 (e.g. `P4DT1H15M20S` which is equivalent to `4 1:15:20`) or PostgreSQL’s day-time interval format (e.g. `3 days 04:05:06`). This function can also be used as a filter.
+- `as_timedelta(string)` converts a string to a timedelta object, which represents a duration (an amount of time between two datetimes). Expects data in the format `DD HH:MM:SS.uuuuuu`, `DD HH:MM:SS,uuuuuu`, or as specified by ISO 8601 (for example, `P4DT1H15M20S` which is equivalent to `4 1:15:20`) or PostgreSQL’s day-time interval format (such as `3 days 04:05:06`). This function can also be used as a filter.
 
   {% raw %}
 
@@ -818,7 +848,7 @@ A precision of 0 returns all available units, default is 1.
 {% endtip %}
 
 {% important %}
-If your template is returning a timestamp that should be displayed in the frontend (e.g., as a sensor entity with `device_class: timestamp`), you have to ensure that it is the ISO 8601 format (meaning it has the "T" separator between the date and time portion). Otherwise, frontend rendering on macOS and iOS devices will show an error. The following value template would result in such an error:
+If your template is returning a timestamp that should be displayed in the frontend (such as a sensor entity with `device_class: timestamp`), you have to ensure that it is the ISO 8601 format (meaning it has the "T" separator between the date and time portion). Otherwise, frontend rendering on macOS and iOS devices will show an error. The following value template would result in such an error:
 
 {% raw %}
 
@@ -1104,7 +1134,7 @@ The numeric functions and filters raise an error if the input is not a valid num
 - `bool(value, default)` function converts the value to either `true` or `false`.
   The following values are considered to be `true`: boolean `true`, non-zero `int`s and `float`s, and the strings `"true"`, `"yes"`, `"on"`, `"enable"`, and `"1"` (case-insensitive). `false` is returned for the opposite values: boolean `false`, integer or floating-point `0`, and the strings `"false"`, `"no"`, `"off"`, `"disable"`, and `"0"` (also case-insensitive).
   If the value is not listed here, the function returns the `default` value, or if omitted raises an error.
-  This function is intended to be used on states of [binary sensors](/integrations/binary_sensor/), [switches](/integrations/switch/), or similar entities, so its behavior is different from Python's built-in `bool` conversion, which would consider e.g. `"on"`, `"off"`, and `"unknown"` all to be `true`, but `""` to be `false`; if that is desired, use `not not value` or a similar construct instead.
+  This function is intended to be used on states of [binary sensors](/integrations/binary_sensor/), [switches](/integrations/switch/), or similar entities, so its behavior is different from Python's built-in `bool` conversion, which would consider values like `"on"`, `"off"`, and `"unknown"` all to be `true`, but `""` to be `false`; if that is desired, use `not not value` or a similar construct instead.
   Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
 
 - `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
@@ -1148,10 +1178,10 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries. To help you with testing these types, you can use the following tests:
 
-- `x is list` will return whether `x` is a `list` or not (e.g. `[1, 2] is list` will return `True`).
-- `x is set` will return whether `x` is a `set` or not (e.g. `{1, 2} is set` will return `True`).
-- `x is tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) is tuple` will return `True`).
-- `x is datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
+- `x is list` will return whether `x` is a `list` or not (for example, `[1, 2] is list` will return `True`).
+- `x is set` will return whether `x` is a `set` or not (for example, `{1, 2} is set` will return `True`).
+- `x is tuple` will return whether `x` is a `tuple` or not (for example, `(1, 2) is tuple` will return `True`).
+- `x is datetime` will return whether `x` is a `datetime` or not (for example, `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
 - `x is string_like` will return whether `x` is a string, bytes, or bytearray object.
 
 Note that, in Home Assistant, Jinja has built-in tests for `boolean` (`True`/`False`), `callable` (any function), `float` (a number with a decimal), `integer` (a number without a decimal), `iterable` (a value that can be iterated over such as a `list`, `set`, `string`, or generator), `mapping` (mainly `dict` but also supports other dictionary like types), `number` (`float` or `int`), `sequence` (a value that can be iterated over and indexed such as `list` and `string`), and `string`.
@@ -1160,8 +1190,8 @@ Note that, in Home Assistant, Jinja has built-in tests for `boolean` (`True`/`Fa
 
 While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to a `tuple` or `set`. To help you with using these types, you can use the following functions:
 
-- `set(x)` will convert any iterable `x` to a `set` (e.g. `set([1, 2]) == {1, 2}`)
-- `tuple(x)` will convert any iterable `x` to a `tuple` (e.g. `tuple("abc") == ("a", "b", "c")`)
+- `set(x)` will convert any iterable `x` to a `set` (for example, `set([1, 2]) == {1, 2}`)
+- `tuple(x)` will convert any iterable `x` to a `tuple` (for example, `tuple("abc") == ("a", "b", "c")`)
 
 Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built-in functions with names that correspond to each type.
 
@@ -1199,14 +1229,14 @@ The entities are {{ entities | join(', ') }}
 
 ### Functions and filters to process raw data
 
-These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
+These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice versa.
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
 See: [Python struct library documentation](https://docs.python.org/3/library/struct.html)
 
 - Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
 - Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
-- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the filter `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
-- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the function `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
+- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the filter `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (for example, with `format_string` being `">hh"`.
+- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the function `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (for example, with `format_string` being `">hh"`.
 
 {% note %}
 
@@ -1224,13 +1254,13 @@ Some examples:
 
 ### String filters
 
-- Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
+- Filter `urlencode` will convert an object to a percent-encoded ASCII text string (for example, for use in HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
-- Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
+- Filter `ordinal` will convert an integer into a number defining a position in a series (such as `1st`, `2nd`, `3rd`, or `4th`).
 - Filter `value | from_hex` Decodes a hex string to raw bytes.
 - Filter `value | base64_encode` Encodes a string or bytes to a base 64 string.
 - Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
-- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
+- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ASCII encoding.
 - Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
 
 <div class='note'>
@@ -1279,7 +1309,7 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
-- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex. Access to the matched groups in `replace` is possible with `'\\1'`, `'\\2'`, etc.
+- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex. Access to the matched groups in `replace` is possible with `'\\1'`, `'\\2'`, and so on.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
 

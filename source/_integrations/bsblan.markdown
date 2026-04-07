@@ -1,7 +1,8 @@
 ---
-title: BSB-Lan
+title: BSB-LAN
 description: Instructions on how to integrate BSBLan device into Home Assistant.
 ha_category:
+  - Button
   - Climate
   - Sensor
   - Water heater
@@ -12,43 +13,60 @@ ha_codeowners:
   - '@liudger'
 ha_domain: bsblan
 ha_platforms:
+  - button
   - climate
   - diagnostics
   - sensor
   - water_heater
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: silver
 ---
 
 The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
-BSBLan is a device that is made by `Frederik Holst` and with
-the help of many other contributors.
-The board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling
-of heating systems such as `Elco Thision`, `Brötje` and similar systems.
-Also, available is an ESP32 version of the board.
+BSBLan is a device that is made by `Frederik Holst` and with the help of many other contributors. The board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling of heating systems such as `Elco Thision`, `Brötje` and similar systems. Also available is an ESP32 version of the board.
 
-It can interface with the heating system over Boiler-System-Bus, Local Process Bus and PPS (Punkt-zu-Punkt Schnittstelle)
-For more information of which system it supports, take a look at their [documentation](https://docs.bsb-lan.de).
+It can interface with the heating system over Boiler-System-Bus, Local Process Bus, and <abbr title="Punkt-zu-Punkt Schnittstelle">PPS</abbr>. For more information on which systems it supports, take a look at their [documentation](https://docs.bsb-lan.de).
 
 {% include integrations/config_flow.md %}
 
-For authentication HTTP authentication using a username and password,
-or using a passkey is supported. Use either one.
+For authentication, HTTP authentication using a username and password or using a passkey is supported. Use either one.
 
-## Available sensors depending on your heating system
+## Supported functionality
 
-- `inside temperature`
-- `outside temperature`
+Depending on your system, the following entities are available:
 
-## Available platforms depending on your system
+- Button
+- Climate
+- Diagnostics
+- Sensor
+- Water heater
 
-- `climate`
-- `water heater`
+### Buttons
+
+- **Sync time**: Synchronizes the BSB-Lan device time with the current Home Assistant time. Use it when your device's time drifts or doesn't match Home Assistant's time.
+
+The **Sync time** button appears under the **Configuration** section of the device page, not on your dashboards by default. You can also trigger the same synchronization programmatically using the `bsblan.sync_time` action, for example, in a daily automation.
+
+### Sensors
+
+The following sensors are available, depending on your heating system:
+
+- Inside temperature
+- Outside temperature
+- Total Energy (disabled by default)
+
+To use the **Total Energy** sensor, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) in Home Assistant.
+
+{% note %}
+The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the value changes only after another 1 kWh has been used.
+{% endnote %}
+
 
 ## Actions
 
-The integration provides the following action.
+The integration provides the following actions.
 
 ### Action: Set hot water schedule
 
@@ -85,7 +103,7 @@ Synchronize Home Assistant time to the BSB-Lan device. Only updates if device ti
   - **Description**: The BSB-LAN device to sync time for.
   - **Required**: Yes
 
-**Examples:**
+#### Examples
 
 Sync time for all BSB-Lan devices:
 
@@ -260,5 +278,4 @@ To see a more detailed listing of the reported systems which are successfully us
 
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
-The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed.
-For autodiscovery, use the latest release. [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0)
+The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0).

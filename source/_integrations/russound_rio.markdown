@@ -14,7 +14,7 @@ ha_platforms:
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_zeroconf: true
 ---
@@ -117,5 +117,5 @@ The Russound RIO integration allows you to browse saved presets from your dashbo
 
 ### There is a delay on getting the current status
 
-Some older Russound devices have a slight delay before posting a new status to Home Assistant. 
+Some older Russound devices have a slight delay before posting a new status to Home Assistant.
 This can be resolved by updating the unit to the latest firmware.

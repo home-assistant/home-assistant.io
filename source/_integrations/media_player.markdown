@@ -168,7 +168,7 @@ The `media_player.select_source` action selects an input source for a media play
 
 #### Action: Select sound mode
 
-The `media_player.select_sound_mode` action selects a sound mode for a media player. Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](/integrations/songpal).
+The `media_player.select_sound_mode` action selects a sound mode for a media player.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |

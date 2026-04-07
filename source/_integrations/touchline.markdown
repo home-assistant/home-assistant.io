@@ -8,8 +8,10 @@ ha_iot_class: Local Polling
 ha_domain: touchline
 ha_platforms:
   - climate
-ha_integration_type: integration
-ha_quality_scale: legacy
+ha_integration_type: hub
+ha_codeowners:
+  - '@mnordseth'
+ha_config_flow: true
 ---
 
 The **Roth Touchline** {% term integration %} lets you control [ROTH Touchline](https://www.roth-uk.com/en/roth-touchline.htm) floor heating thermostats from Roth.

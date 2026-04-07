@@ -353,7 +353,7 @@ The `event_data` accepts templates.
 
 {% endraw %}
 
-### Raise and Consume Custom Events
+### Raise and consume custom events
 
 The following {% term automation %} example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The {% term action %} part could be inside a script or an {% term automation %}.
 
@@ -430,7 +430,7 @@ script:
 This repeat form accepts a list of items to iterate over. The list of items
 can be a pre-defined list, or a list created by a template.
 
-The sequence is ran for each item in the list, and current item in the
+The sequence is run for each item in the list, and current item in the
 iteration is available as `repeat.item`.
 
 The following example will turn a list of lights:
@@ -565,7 +565,7 @@ For example:
 
 ### Repeat loop variable
 
-A variable named `repeat` is defined within the repeat {% term action %} (i.e., it is available inside `sequence`, `while` & `until`.)
+A variable named `repeat` is defined within the repeat {% term action %}, meaning it is available inside `sequence`, `while`, and `until`.
 It contains the following fields:
 
 | field   | description                                                                                  |
@@ -1006,4 +1006,4 @@ will not be used by anything.
 [actions page]: /docs/scripts/perform-actions/
 [conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
-[script variables]: /integrations/script/#configuration-variables
+[script variables]: /integrations/script/#variables
