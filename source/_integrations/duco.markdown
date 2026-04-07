@@ -48,7 +48,7 @@ Host:
 
 ## Supported functionality
 
-The integration creates one device per ventilation node found in your Duco system. Each node represents a physical ventilation unit (such as the main box or a valve).
+The integration creates one device for the main Duco box. Connected modules (such as CO₂ sensors or humidity sensors) are discovered but not yet exposed as separate devices.
 
 ### Fan
 
