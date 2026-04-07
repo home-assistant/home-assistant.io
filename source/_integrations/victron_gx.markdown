@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: victron_gx
 ha_platforms:
   - sensor
+  - binary_sensor
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -83,6 +84,14 @@ Read-only sensors for monitoring system metrics, such as:
 - Grid voltage, current, power, and energy consumption
 - Inverter input and output power, frequency, and state
 - <abbr title="electric vehicle">EV</abbr> charger status, power, and session energy
+
+#### Binary sensors
+
+Status indicators for various system states, such as:
+
+- Alarms and warnings
+- Connection status
+- Relay states
 
 ## Troubleshooting
 
