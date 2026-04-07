@@ -13,6 +13,9 @@ related:
 ha_category: []
 ha_quality_scale: bronze
 ha_platforms:
+  - fan
+  - number
+  - sensor
   - switch
 ha_config_flow: true
 ha_zeroconf: true
@@ -74,6 +77,49 @@ All fan entities support speed control (0-100%) and the following presets:
 - **Bound**
   - **Description**: Synchronizes supply and extract fans. When enabled, you control the Bound fan. When disabled, you control Supply and Extract fans separately.
 
+#### Numbers
+
+The integration provides number entities to configure device settings.
+
+- **Display brightness**
+  - **Description**: Adjusts the brightness of the device's display panel. The value can be set on a scale from 0 to 6, where 0 turns the display off and 6 is the maximum brightness.
+
+#### Sensors
+
+The integration provides sensors to monitor air quality and environmental conditions.
+
+Air quality and environmental sensors:
+
+- **CO2**
+  - **Description**: Carbon dioxide concentration in the room.
+  - **Unit**: ppm (parts per million)
+- **VOC**
+  - **Description**: Volatile Organic Compounds level (indoor air pollution).
+  - **Unit**: ppm (parts per million)
+- **Humidity**
+  - **Description**: Relative humidity level inside the room.
+  - **Unit**: % (relative humidity)
+- **Air pressure**
+  - **Description**: Current atmospheric pressure.
+  - **Unit**: mmHg (millimeters of mercury)
+
+- **Inside temperature**
+  - **Description**: Temperature of the air extracted from the room.
+  - **Unit**: °C
+- **Inside temperature 2**
+  - **Description**: Temperature of the incoming air after it has been warmed by the heat exchanger.
+  - **Unit**: °C
+- **Outside temperature**
+  - **Description**: Fresh outdoor air temperature before entering the unit.
+  - **Unit**: °C
+- **Outside temperature 2**
+  - **Description**: Temperature of the exhaust air after it has passed through the heat exchanger.
+  - **Unit**: °C
+
+{% note %}
+Some sensors may not appear in Home Assistant if your specific Prana model does not have the corresponding sensors.
+{% endnote %}
+
 ## Data updates
 
 The integration uses local polling. By default, Home Assistant polls the device every 10 seconds. If the device stops responding, entities are marked as *unavailable* until communication is restored.
@@ -104,7 +150,7 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 ## Removing the integration
 
-This integration follows standard integration removal in Home Assistant. 
+This integration follows standard integration removal in Home Assistant.
 
 {% include integrations/remove_device_service.md %}
 

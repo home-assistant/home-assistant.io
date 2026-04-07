@@ -82,7 +82,7 @@ collections:
 
 #Search
 algolia:
-  api_key: "ba6f7e6d97b3d3d2f778978c742a47c6"
+  api_key: "fcd41bf156f5ee0e390f8b860e3a2489"
 
 # Twitter
 twitter_user: balloob
@@ -107,9 +107,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2026
-current_minor_version: 3
+current_minor_version: 4
 current_patch_version: 0
-date_released: 2026-03-04
+date_released: 2026-04-01
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.

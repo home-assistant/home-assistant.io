@@ -43,41 +43,59 @@ The `lock.lock` action locks your door.
 | Data attribute | Optional | Description                  |
 | -------------- | -------- | ---------------------------- |
 | `entity_id`    | no       | Entity of the relevant lock. |
+| `code`         | yes      | Code used to lock the lock.  |
 
 #### Example
 
 ```yaml
 actions:
-  action: lock.lock
-  target:
-    entity_id: lock.my_place
+  - action: lock.lock
+    target:
+      entity_id: lock.my_place
+    data:
+      code: "1234"
 ```
 
 ### Action: Unlock
 
 The `lock.unlock` action unlocks your door.
 
-| Data attribute | Optional | Description                  |
-| -------------- | -------- | ---------------------------- |
-| `entity_id`    | no       | Entity of the relevant lock. |
+| Data attribute | Optional | Description                   |
+| -------------- | -------- | ----------------------------- |
+| `entity_id`    | no       | Entity of the relevant lock.  |
+| `code`         | yes      | Code used to unlock the lock. |
 
 #### Example
 
 ```yaml
 actions:
-  action: lock.unlock
-  target:
-    entity_id: lock.my_place
+  - action: lock.unlock
+    target:
+      entity_id: lock.my_place
+    data:
+      code: "1234"
+```
+
+### Action: Open
+
+The `lock.open` action opens (unlatches) a lock.
+
+| Data attribute | Optional | Description                   |
+| -------------- | -------- | ----------------------------- |
+| `entity_id`    | no       | Entity of the relevant lock.  |
+| `code`         | yes      | Code used to open the lock. |
+
+#### Example
+
+```yaml
+actions:
+  - action: lock.open
+    target:
+      entity_id: lock.my_place
+    data:
+      code: "1234"
 ```
 
 ## Use the actions
 
-Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions. Enter something like the sample below into the **data** field and select **Perform action**.
-
-```json
-{"entity_id":"lock.front_door"}
-```
-
-| Data attribute | Optional | Description                                                    |
-| -------------- | -------- | -------------------------------------------------------------- |
-| `entity_id`    | yes      | Only act on specific lock. Use `entity_id: all` to target all. |
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock`, or `lock.open` from the list of available actions. Fill in the required data and select **Perform action**.

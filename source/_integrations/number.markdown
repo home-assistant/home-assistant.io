@@ -56,7 +56,7 @@ The following device classes are supported for numbers:
 - **energy**: Energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **energy_distance**: Energy per distance in kWh/100km, Wh/km, mi/kWh, or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
-- **frequency**: Frequency in Hz, kHz, MHz, or GHz
+- **frequency**: Frequency in mHz, Hz, kHz, MHz, or GHz
 - **gas**: Gas volume in L, m³, ft³, CCF, or MCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
