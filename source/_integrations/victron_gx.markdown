@@ -67,8 +67,8 @@ SSL:
 If your MQTT password changes or the security profile on your Victron device is updated, Home Assistant prompts you to re-authenticate:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Victron GX** integration. It will show a **Re-authenticate** message.
-2. Select the **Reconfigure** button or the re-authenticate prompt.
-3. Enter your updated **password**.
+2. Select the **Reconfigure** button or the **Re-authenticate** prompt.
+3. Enter your updated **Password**.
 4. Select **Submit**.
 
 On success, the integration reloads automatically.
