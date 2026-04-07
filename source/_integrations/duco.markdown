@@ -64,7 +64,7 @@ The fan is always on — turning it off hands control back to Duco (automatic mo
 | Speed 100% | High speed manual override. |
 | Auto preset | Same as turn off: hands control back to Duco. |
 
-Timed speed overrides triggered externally (for example by a CO₂ sensor) are shown at their equivalent percentage level in Home Assistant, but writing a speed always uses the permanent mode.
+When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode.
 
 ## Use cases
 
@@ -140,6 +140,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 - The integration does not yet expose CO₂ and humidity sensor data from connected Duco modules. This is planned for a future update.
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
 - The Duco box enforces a rate limit of approximately 200 write requests per hour (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
+- Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode.
 
 ## Troubleshooting
 
