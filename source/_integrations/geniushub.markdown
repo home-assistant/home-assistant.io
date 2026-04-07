@@ -41,9 +41,10 @@ The local API is unofficial, but is faster and has more features, while the clou
 
 Each zone controlled by your Genius Hub will be exposed as either a:
 
-- `Climate` entity, for **Radiator** and **Wet Underfloor** zones, and
-- `Water heater` entity, for **Hot Water Temperature** zones and
-- `Switch` entity, for **On/Off** zones
+- `Climate` entity, for **Radiator** and **Wet Underfloor** zones,
+- `Water heater` entity, for **Hot Water Temperature** zones,
+- `Switch` entity, for **On/Off** zones, and
+- `Binary sensor` entity (device class: `heat`) for all of the above zone types, indicating whether the zone is actively calling for heat from the boiler
 
 **Group** zones are not supported.
 
@@ -82,6 +83,35 @@ Switch entities will report back their state; other properties are available via
 Note: if you turn a Switch entity `Off` via Home Assistant's web UI, it will revert to **Timer** mode - this may not be the behavior you are expecting.
 
 Individual smart plugs are not yet exposed as switches - you can create one zone per smart plug as a work-around.
+
+### Zone demand binary sensors
+
+For each **Radiator**, **Wet Underfloor**, **On/Off** and **Hot Water Temperature** zone, a `Binary sensor` entity with device class `heat` is created. This reflects whether the zone is currently requesting heat from the boiler.
+
+| State | Meaning |
+| :---: | ------- |
+| `on`  | Zone is calling for heat |
+| `off` | Zone is satisfied, not demanding heat |
+
+This is particularly useful for automations that need to know precisely when heating or hot water is actively demanding heat. For example, to switch a condensing boiler between a lower space-heating flow temperature and a higher domestic hot water flow temperature:
+
+{% raw %}
+
+```yaml
+- alias: "Boiler: raise flow temperature for hot water"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.hot_water
+      to: "on"
+  actions:
+    - action: number.set_value
+      target:
+        entity_id: number.opentherm_gateway_ch_water_temperature
+      data:
+        value: 80
+```
+
+{% endraw %}
 
 ### Devices
 
