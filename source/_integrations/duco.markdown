@@ -124,9 +124,11 @@ When the last person leaves home, the ventilation hands control back to Duco (au
       entity_id: zone.home
       above: 0
   actions:
-    - action: fan.turn_on
+    - action: fan.set_percentage
       target:
         entity_id: fan.living_ventilation
+      data:
+        percentage: 66
 ```
 
 ## Data updates
