@@ -74,13 +74,21 @@ The action returns the following data:
 }
 ```
 
-| Field             | Type   | Description                                        |
-| ----------------- | ------ | -------------------------------------------------- |
-| `hours_requested` | float  | The number of hours that were requested.           |
-| `prices`          | list   | List of 15-minute price slots.                     |
-| `prices[].start`  | string | ISO 8601 start timestamp of the slot.              |
-| `prices[].end`    | string | ISO 8601 end timestamp of the slot.                |
-| `prices[].price`  | float  | Electricity price for the slot in EUR/kWh.         |
+- `hours_requested`
+  - **Type**: `float`
+  - **Description**: The number of hours that were requested.
+- `prices`
+  - **Type**: `list`
+  - **Description**: List of 15-minute price slots.
+- `prices[].start`
+  - **Type**: `string`
+  - **Description**: ISO 8601 start timestamp of the slot.
+- `prices[].end`
+  - **Type**: `string`
+  - **Description**: ISO 8601 end timestamp of the slot.
+- `prices[].price`
+  - **Type**: `float`
+  - **Description**: Electricity price for the slot in EUR/kWh.
 
 ## Examples
 
