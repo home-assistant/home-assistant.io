@@ -159,7 +159,7 @@ You can reach the fields with dot notation:
 
 {% example %}
 template: |
-  Temperature: {{ value_json.temperature | round(1) }}
+  Temperature: {{ value_json.temperature }}
   Humidity: {{ value_json.humidity }}
   State: {{ value_json.state }}
 output: |
