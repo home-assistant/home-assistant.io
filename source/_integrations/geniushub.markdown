@@ -104,11 +104,9 @@ This is particularly useful for automations that need to know precisely when hea
       entity_id: binary_sensor.hot_water
       to: "on"
   actions:
-    - action: number.set_value
-      target:
-        entity_id: number.opentherm_gateway_ch_water_temperature
+    - action: notify.YOUR_NOTIFICATION_SERVICE
       data:
-        value: 80
+        message: "Hot water is calling for heat"
 ```
 
 {% endraw %}
