@@ -136,6 +136,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 
 - The integration does not yet expose CO₂ and humidity sensor data from connected Duco modules. This is planned for a future update.
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
+- The Duco box enforces a rate limit of approximately 200 write requests per hour (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
 
 ## Troubleshooting
 
