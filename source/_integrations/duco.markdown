@@ -62,7 +62,7 @@ The fan entity lets you control the ventilation speed of a node. You can set the
 | High (100%) | High speed — permanent manual override (CNT3). |
 | Auto preset | Same as Off: hands control back to Duco. |
 
-The fan card shows as **off** (grey) when Duco is in automatic control mode, and as **on** when a manual speed is active.
+The fan card shows as **off** (gray) when Duco is in automatic control mode, and as **on** when a manual speed is active.
 
 Timed speed overrides (set externally, for example via a CO₂ sensor) are shown at their equivalent percentage level in Home Assistant, but writing a speed always uses the permanent mode.
 
