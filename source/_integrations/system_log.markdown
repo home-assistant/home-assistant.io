@@ -105,6 +105,8 @@ automation:
 
 This automation will create a persistent notification whenever an error or warning is logged that has the word "action" in the message:
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Create notifications for 'action' errors"
@@ -120,6 +122,8 @@ automation:
           title: "Something bad happened"
           message: "{{ trigger.event.data.message[0] }}"
 ```
+
+{% endraw %}
 
 ### Writing to log
 

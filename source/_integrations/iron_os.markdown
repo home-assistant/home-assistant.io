@@ -157,6 +157,8 @@ Automatically activate the fume extractor when soldering begins and deactivate i
 
 {% details "Example YAML configuration" %}
 
+{% raw %}
+
 ```yaml
 triggers:
   - trigger: state
@@ -187,6 +189,8 @@ actions:
         target:
           entity_id: switch.fume_extractor
 ```
+
+{% endraw %}
 
 {% enddetails %}
 

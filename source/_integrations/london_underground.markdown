@@ -55,6 +55,8 @@ line:
 
 This automation triggers when the status of the Victoria line changes to something significant, and just before commutes are likely to begin. To avoid spam, it only runs if the commuter is at home in the morning or away from home in the evening.
 
+{% raw %}
+
 ```yaml
 alias: Notify Paulus if there are issues on the Victoria line
 mode: single
@@ -112,5 +114,7 @@ actions:
     action: notify.mobile_app_pixel_7
 
 ```
+
+{% endraw %}
 
 Powered by TfL Open Data [TFL](https://api.tfl.gov.uk/).

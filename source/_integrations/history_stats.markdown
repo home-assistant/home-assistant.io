@@ -59,6 +59,8 @@ Minimum duration of measurement:
 To enable the history statistics sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -70,6 +72,8 @@ sensor:
     start: "{{ today_at() }}"
     end: "{{ now() }}"
 ```
+
+{% endraw %}
 
 {% configuration %}
 entity_id:
@@ -197,13 +201,19 @@ Here are some examples of periods you could work with, and what to write in your
 
 **Today**: starts at 00:00 of the current day and ends right now.
 
+{% raw %}
+
 ```yaml
     start: "{{ today_at('00:00') }}"
     end: "{{ now() }}"
     state_class: total_increasing
 ```
 
+{% endraw %}
+
 **Yesterday**: ends today at 00:00, lasts 24 hours.
+
+{% raw %}
 
 ```yaml
     end: "{{ today_at('00:00') }}"
@@ -211,7 +221,11 @@ Here are some examples of periods you could work with, and what to write in your
       hours: 24
 ```
 
+{% endraw %}
+
 **This morning (6AM - 11AM)**: starts today at 6, lasts 5 hours.
+
+{% raw %}
 
 ```yaml
     start: "{{ today_at('06:00') }}"
@@ -219,30 +233,46 @@ Here are some examples of periods you could work with, and what to write in your
       hours: 5
 ```
 
+{% endraw %}
+
 **Current week**: starts last Monday at 00:00, ends right now.
 
 Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0 on Monday, 6 on Sunday).
+
+{% raw %}
 
 ```yaml
     start: "{{ today_at('00:00') - timedelta(days=now().weekday()) }}"
     end: "{{ now() }}"
 ```
 
+{% endraw %}
+
 **Current month**: starts the first day of the current month at 00:00, ends right now.
+
+{% raw %}
 
 ```yaml
     start: "{{ today_at('00:00').replace(day=1) }}"
     end: "{{ now() }}"
 ```
 
+{% endraw %}
+
 **Previous month**: starts the first day of the previous month at 00:00, ends the first day of the current month.
+
+{% raw %}
 
 ```yaml
     start: "{{ (today_at('00:00').replace(day=1) - timedelta(days=1)).replace(day=1) }}"
     end: "{{ today_at('00:00').replace(day=1) }}"
 ```
 
+{% endraw %}
+
 **Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, then add or subtract to the 8-hour buffer to match the next midnight.
+
+{% raw %}
 
 ```yaml
     end: "{{ (now() + timedelta(hours=8)).replace(hour=16, minute=0, second=0, microsecond=0) }}"
@@ -250,7 +280,11 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
         hours: 24
 ```
 
+{% endraw %}
+
 **Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
+
+{% raw %}
 
 ```yaml
     end: "{{ today_at('00:00') }}"
@@ -258,12 +292,18 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
       days: 30
 ```
 
+{% endraw %}
+
 **All your history** starts at timestamp = 0, and ends right now.
+
+{% raw %}
 
 ```yaml
     start: "{{ 0 }}"
     end: "{{ now() }}"
 ```
+
+{% endraw %}
 
 {% tip %}
 The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.

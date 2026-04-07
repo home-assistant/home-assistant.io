@@ -58,6 +58,8 @@ The `google_sheets.append_sheet` action allows you to add rows of data to the Sh
 | `add_created_column` | yes | Add `created` column containing date-time to the data being appended. Defaults to True. | True |
 | `data` | no | Data to be appended to the worksheet. This puts the data on new rows, one value per column. | {"hello": world, "cool": True, "count": 5} |
 
+{% raw %}
+
 ```yaml
 # Example action
 action: google_sheets.append_sheet
@@ -82,6 +84,8 @@ data:
       Cost: "{{ states('input_number.car_2_charging_cost')|float(0) }}"
 ```
 
+{% endraw %}
+
 {% enddetails %}
 
 
@@ -97,6 +101,8 @@ You can use the `google_sheets.get_sheet` action to retrieve rows of [data](/doc
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
 | `rows` | no | Maximum number of rows from the end of the worksheet to return.  | 2 |
 
+{% raw %}
+
 ```yaml
 # Example action
 action: google_sheets.get_sheet
@@ -105,6 +111,8 @@ data:
   worksheet: "Car Charging"
   rows: 2
 ```
+
+{% endraw %}
 
 {% enddetails %}
 

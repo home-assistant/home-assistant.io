@@ -64,6 +64,8 @@ template:
 
 Then use a templated Markdown card to list all packages in transit along with their status:
 
+{% raw %}
+
 ```yaml
 type: markdown
 title: Packages in transit
@@ -75,6 +77,8 @@ content: >
 
   {% endfor %}
 ```
+
+{% endraw %}
 
 {% tip %}
 To find your `config_entry_id`, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the 17Track integration, click the three-dot menu, and select **Copy entry ID**.

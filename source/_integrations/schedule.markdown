@@ -64,6 +64,7 @@ The `data` field follows the same logic as described above in *Adding additional
 
 {% endnote %}
 
+
 ```yaml
 schedule:
   light_schedule:
@@ -141,6 +142,8 @@ A schedule entity exports state attributes that can be useful in automations and
 A schedule creates an on/off (schedule) sensor within the times set.
 By incorporating the `light_schedule` example from above in an automation, we can turn on a light when the schedule is active.
 
+{% raw %}
+
 ```yaml
 triggers:
   - trigger: state
@@ -156,7 +159,11 @@ actions:
       kelvin: "{{ state_attr('schedule.light_schedule', 'color_temp') }}"
 ```
 
+{% endraw %}
+
 Another automation can be added to turn the lights off once the schedule is inactive:
+
+{% raw %}
 
 ```yaml
 triggers:
@@ -169,6 +176,8 @@ actions:
     target:
       entity_id: light.kitchen
 ```
+
+{% endraw %}
 
 ## Actions
 
@@ -230,6 +239,8 @@ schedule.air_purifier:
 
 The example below uses the response data from above in a template for another action.
 
+{% raw %}
+
 ```yaml
 action: notify.nina
 data:
@@ -245,7 +256,11 @@ data:
     {% endfor %}
 ```
 
+{% endraw %}
+
 If you want to run the above action both once per day and whenever one of the schedules changes, you can create an {% term automation %} that combines a time-based {% term trigger %} with an {% term event %} trigger per entity.
+
+{% raw %}
 
 ```yaml
 triggers:
@@ -262,3 +277,5 @@ triggers:
       action: update
       entity_id: schedule.air_purifier
 ```
+
+{% endraw %}

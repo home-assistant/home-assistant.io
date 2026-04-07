@@ -200,6 +200,8 @@ You can set up an automation to notify you when the filter has an error. This ex
 
 {% details "Example automation to notify about filter errors" %}
 
+{% raw %}
+
 ```yaml
 alias: Notify about filter error
 description: "This automation sends a notification when the filter has an error."
@@ -218,6 +220,8 @@ actions:
     data:
       title: The filter has a problem!
 ```
+
+{% endraw %}
 
 {% enddetails %}
 

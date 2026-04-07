@@ -60,6 +60,8 @@ The **HTML5 Push Notifications**  {% term integration %} will add a notify {% te
 
 {% details "Example YAML configuration" %}
 
+{% raw %}
+
 ```yaml
 action: notify.send_message
 data:
@@ -67,6 +69,8 @@ data:
   message: "Have you considered frogs?"
   entity_id: notify.my-desktop
 ```
+
+{% endraw %}
 
 {% enddetails %}
 
@@ -125,6 +129,8 @@ data:
 
 Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
 
+{% raw %}
+
 ```yaml
   - alias: "Push/update notification of sensor state with tag"
     triggers:
@@ -137,6 +143,8 @@ Example of adding a tag to your notification. This won't create new notification
           data:
             tag: "notification-about-sensor"
 ```
+
+{% endraw %}
 
 #### Targets
 

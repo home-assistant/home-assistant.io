@@ -287,6 +287,8 @@ Send a notification and turn on the sauna light when the target temperature is r
 
 {% details "Example YAML configuration" %}
 
+{% raw %}
+
 ```yaml
 alias: "Sauna ready notification with light"
 description: >-
@@ -324,6 +326,8 @@ actions:
         {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
 
 ```
+
+{% endraw %}
 
 {% enddetails %}
 

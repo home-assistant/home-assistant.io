@@ -36,6 +36,8 @@ Devices that did not work:
 
 An example automation:
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Notify CallerID"
@@ -69,3 +71,5 @@ automation:
         data:
           message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
 ```
+
+{% endraw %}

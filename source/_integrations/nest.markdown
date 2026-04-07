@@ -470,6 +470,8 @@ You can use the Nest Device Trigger payload fields `attachment.image` or `attach
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
+{% raw %}
+
 ```yaml
 action: notify.mobile_app_iphone
 data:
@@ -480,11 +482,15 @@ data:
     video: "{{ trigger.event.data.attachment.video }}"
 ```
 
+{% endraw %}
+
 {% enddetails %}
 
 {% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS" %}
 
 Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
+
+{% raw %}
 
 ```yaml
 action: notify.mobile_app_android
@@ -495,11 +501,15 @@ data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
 
+{% endraw %}
+
 {% enddetails %}
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS" %}
 
 Example for cameras that support Snapshot (jpg) on either Android or iOS.
+
+{% raw %}
 
 ```yaml
 action: notify.mobile_app
@@ -509,6 +519,8 @@ data:
   data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
+
+{% endraw %}
 
 {% enddetails %}
 

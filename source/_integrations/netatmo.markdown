@@ -207,6 +207,8 @@ Example:
 
 Example:
 
+{% raw %}
+
 ```yaml
 # Example automation for Netatmo Welcome
 - alias: "Motion at home"
@@ -225,7 +227,11 @@ Example:
         title: "Netatmo event"
 ```
 
+{% endraw %}
+
 Example:
+
+{% raw %}
 
 ```yaml
 # Example automation for Netatmo Presence
@@ -245,7 +251,11 @@ Example:
         title: Netatmo event
 ```
 
+{% endraw %}
+
 Example:
+
+{% raw %}
 
 ```yaml
 # Example automation
@@ -271,6 +281,8 @@ Example:
           {{ trigger.event.data["data"]["message"] }}
         title: "Netatmo event"
 ```
+
+{% endraw %}
 
 ## Development / Testing with your own client ID
 

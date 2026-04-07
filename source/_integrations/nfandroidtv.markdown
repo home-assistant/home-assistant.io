@@ -113,6 +113,8 @@ icon:
 
 Example of an automation with an action, full configuration:
 
+{% raw %}
+
 ```yaml
 action: notify.living_room_tv
 data:
@@ -126,5 +128,7 @@ data:
     color: "teal"
     interrupt: 0
 ```
+
+{% endraw %}
 
 Please note that `path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.

@@ -378,6 +378,8 @@ The close button will close the blinds to the closest closed position (either 0%
 
 Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/template/#cover), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 cover:
@@ -407,6 +409,8 @@ cover:
           target:
             entity_id: cover.example_blinds
 ```
+
+{% endraw %}
 
 #### Roller Shade
 The Roller Shade is exposed as a cover entity with control of the position only:
@@ -480,6 +484,8 @@ Features:
 
 The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. Here's a simple example for `configuration.yaml`:
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Daily SwitchBot CO2 Time Sync"
@@ -495,6 +501,8 @@ automation:
           # Replace with your actual entity ID
           entity_id: button.<your_device_name>_sync_date_and_time
 ```
+
+{% endraw %}
 {% enddetails %}
 
 #### Contact Sensor

@@ -88,6 +88,8 @@ A `shopping_list_updated` event is triggered when items in the list are modified
 | `item.name`            | The text attached to the item, for example `Milk`                                                                                                      |
 | `item.complete`        | A boolean indicated whether the item has been marked as complete.                                                                                      |
 
+{% raw %}
+
 ```yaml
 alias: "Notify on new shopping list item"
 triggers:
@@ -103,6 +105,8 @@ actions:
         clickAction: "/shopping-list"
         url: "/shopping-list"
 ```
+
+{% endraw %}
 
 You can also trigger an automation when a `shopping_list_updated` event was triggered by any of the following actions:
 

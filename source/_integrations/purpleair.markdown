@@ -108,6 +108,8 @@ Reminder that the breakpoints used below can be determined from the aforemention
 guidelines.
 {% endtip %}
 
+{% raw %}
+
 ```yaml
 template:
   - sensor:
@@ -159,3 +161,5 @@ template:
         {% endif %}
       unique_id: local_outdoor_air_quality
 ```
+
+{% endraw %}

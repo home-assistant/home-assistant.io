@@ -162,6 +162,7 @@ If you have a home battery system:
 
 To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
 
+{% raw %}
 ```yaml
 # Example automation
 triggers:
@@ -174,6 +175,8 @@ actions:
     data:
       message: "Vehicle plugged in"
 ```
+{% endraw %}
+
 
 ## Troubleshooting
 

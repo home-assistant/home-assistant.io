@@ -94,6 +94,7 @@ The integration {% term polling polls %} your Ghost site every 5 minutes to upda
 
 ### Announce milestone member counts
 
+{% raw %}
 ```yaml
 automation:
   - alias: "Member milestone celebration"
@@ -109,6 +110,7 @@ automation:
           title: "Milestone reached!"
           message: "You now have {{ trigger.to_state.state }} members!"
 ```
+{% endraw %}
 
 ## Known limitations
 

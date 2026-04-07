@@ -93,6 +93,8 @@ This automation will pause new downloads when your available disk space falls be
 
 {% details "Example YAML configuration" %}
 
+{% raw %}
+
 ```yaml
 alias: "Monitor pyLoad download queue"
 description: "Pause new downloads when the disk space is low."
@@ -110,6 +112,8 @@ actions:
 mode: single
 ```
 
+{% endraw %}
+
 {% enddetails %}
 
 ### Halt pyLoad downloads when watching Netflix
@@ -117,6 +121,8 @@ mode: single
 This automation halts all active pyLoad downloads when watching Netflix on your media player.
 
 {% details "Example YAML configuration" %}
+
+{% raw %}
 
 ```yaml
 alias: "Halt pyLoad downloads when watching Netflix"
@@ -139,6 +145,8 @@ actions:
     message: "pyLoad downloads have been halted because Netflix streaming started."
 mode: single
 ```
+
+{% endraw %}
 
 {% enddetails %}
 

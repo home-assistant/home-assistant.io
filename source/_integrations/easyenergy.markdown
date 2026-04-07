@@ -190,6 +190,8 @@ Create template sensors to display the prices in a chart or to calculate the all
 
 To use the response data from the actions, you can create a template sensor that updates every hour.
 
+{% raw %}
+
 ```yaml
 template:
   - triggers:
@@ -209,9 +211,13 @@ template:
           prices: "{{ prices }}"
 ```
 
+{% endraw %}
+
 ### All-in price sensor
 
 To calculate the all-in hour price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
+
+{% raw %}
 
 ```yaml
 template:
@@ -227,6 +233,8 @@ template:
           {% set current_price = states('sensor.easyenergy_today_energy_usage_current_hour_price') | float(0) %}
           {{ (current_price + energy_tax + purch_costs) | round(2) }}
 ```
+
+{% endraw %}
 
 ## Removing the integration
 

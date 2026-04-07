@@ -135,6 +135,8 @@ data:
 
 Example templates:
 
+{% raw %}
+
 ```yaml
 # Get all favorite names as a list (old behavior)
 {{ state_attr("sensor.sonos_favorites", "items").values() | list }}
@@ -150,6 +152,8 @@ Example templates:
   {{ name, media_id }}
 {% endfor %}
 ```
+
+{% endraw %}
 
 {% tip %}
 The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
@@ -392,6 +396,8 @@ The `sonos.get_queue` action returns the media player's queue.
 
 This example script does the following: get the queue, loop through in reverse order, and remove media containing the words "holiday".
 
+{% raw %}
+
 ```yaml
   - action: sonos.get_queue
     target:
@@ -419,6 +425,8 @@ This example script does the following: get the queue, loop through in reverse o
 
 ```
 
+{% endraw %}
+
 ### Action: Remove from queue
 
 The `sonos.remove_from_queue` action removes an item from the queue.
@@ -426,6 +434,8 @@ The `sonos.remove_from_queue` action removes an item from the queue.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will remove an item from the queue. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position in the queue to remove.
+
+{% raw %}
 
 ```yaml
 # Example automation to remove just played song from queue
@@ -461,6 +471,8 @@ actions:
       queue_position: >
         {{ trigger.from_state.attributes.queue_position }}
 ```
+
+{% endraw %}
 
 ## Network requirements
 

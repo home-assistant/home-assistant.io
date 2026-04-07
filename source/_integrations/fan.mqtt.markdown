@@ -372,6 +372,8 @@ mqtt:
 
 This example demonstrates how to use command templates with JSON output.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml with command templates
 mqtt:
@@ -395,7 +397,11 @@ mqtt:
         -  "breeze"
 ```
 
+{% endraw %}
+
 This example shows how to configure a fan that doesn't use `forward` and `backward` as directions.
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml with direction templates
@@ -405,3 +411,5 @@ mqtt:
       direction_command_template: "{{ iif(value == 'forward', 'fwd', 'rev') }}"
       direction_value_template: "{{ iif(value == 'fwd', 'forward', 'reverse') }}"
 ```
+
+{% endraw %}

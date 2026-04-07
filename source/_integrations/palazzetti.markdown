@@ -139,6 +139,8 @@ Get started quickly with these automation examples.
 
 {% details "Example YAML configuration" %}
 
+{% raw %}
+
 ```yaml
 alias: "Lower the temperature when last person leaves"
 description: "Lower the temperature when last person leaves the home"
@@ -154,7 +156,9 @@ actions:
       temperature: 16
     target:
       entity_id: climate.my_stove
-``` {% enddetails %}
+```
+
+{% endraw %} {% enddetails %}
 
 ## Known limitations
 

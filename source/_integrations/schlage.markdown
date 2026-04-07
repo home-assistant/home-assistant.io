@@ -81,6 +81,8 @@ You can use the `schlage.get_codes` action to retrieve the codes stored on your 
 | ---------------------- | -------- | ----------- | --------|
 | `entity_id` | no | Lock entity to use (one or more) | `lock.front_door` |
 
+{% raw %}
+
 ```yaml
 # Example action
 action: schlage.get_codes
@@ -101,6 +103,8 @@ lock.front_door:
     code: "2222"
 ```
 
+{% endraw %}
+
 {% enddetails %}
 
 ### Action: Add Code
@@ -115,6 +119,8 @@ You can use the `schlage.add_code` action to add a new code to your lock. The co
 | `name` | no | Name for the code | `Example Person` |
 | `code` | no | Code to add (4-8 digits) | `3333` |
 
+{% raw %}
+
 ```yaml
 # Example action
 action: schlage.add_code
@@ -124,6 +130,8 @@ data:
   name: Example Person
   code: "3333"
 ```
+
+{% endraw %}
 
 {% enddetails %}
 
@@ -138,6 +146,8 @@ You can use the `schlage.delete_code` action to delete a code from your lock.
 | `entity_id` | no | Lock entity to use (one or more) | `lock.front_door` |
 | `name` | no | Name for the code to delete. The name evaluation for deletion is case insensitive | `Example Person` |
 
+{% raw %}
+
 ```yaml
 # Example action
 action: schlage.delete_code
@@ -146,6 +156,8 @@ data:
     - lock.front_door
   name: Example Person
 ```
+
+{% endraw %}
 
 {% enddetails %}
 

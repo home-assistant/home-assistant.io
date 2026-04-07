@@ -105,6 +105,8 @@ The remaining lifespan of components on your Deebot vacuum will be reported as a
 
 Here's an example of how to extract the filter's lifespan to its own sensor using a [template sensor](/integrations/template):
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 template:
@@ -114,7 +116,11 @@ template:
       state: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') }}"
 ```
 
+{% endraw %}
+
 Or, if you want a simple binary sensor that becomes `On` when the filter needs to be replaced (5% or less):
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -124,6 +130,8 @@ template:
       device_class: problem
       state: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') <= 5 }}"
 ```
+
+{% endraw %}
 
 ### Handling errors
 

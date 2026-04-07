@@ -304,6 +304,8 @@ A read-only property which has states is represented as a sensor platform.
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
 
+{% raw %}
+
 ```yaml
 alias: lack of water example
 description: Toggle switch when air purifier's lack_of_water
@@ -321,6 +323,8 @@ actions:
     entity_id: xxxxxxxx
     domain: switch
 ```
+
+{% endraw %}
 
 ## Troubleshooting
 

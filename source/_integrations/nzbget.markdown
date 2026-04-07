@@ -47,6 +47,8 @@ The event includes the name, category, and status of the downloaded nzb.
 
 Example automation to send a Telegram message on a completed download:
 
+{% raw %}
+
 ```yaml
 - alias: "Completed Torrent"
   triggers:
@@ -60,6 +62,8 @@ Example automation to send a Telegram message on a completed download:
         title: "Download completed!"
         message: "{{trigger.event.data.name}}"
 ```
+
+{% endraw %}
 
 ## Actions
 

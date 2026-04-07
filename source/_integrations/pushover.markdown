@@ -101,6 +101,8 @@ To use notifications, please see the [getting started with automation page](/get
 
 Example notification triggered from the Alexa integration for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entries
 alexa:
@@ -117,3 +119,5 @@ alexa:
             url: "https://www.home-assistant.io/"
             attachment: "/tmp/image.png"
 ```
+
+{% endraw %}

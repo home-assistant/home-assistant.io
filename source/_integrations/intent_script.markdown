@@ -15,6 +15,8 @@ The **Intent Script** integration allows users to configure actions and response
 
 If you are using intent script with LLMs and have parameters, make sure to mention the parameters and their types in the description.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 intent_script:
@@ -27,6 +29,8 @@ intent_script:
       data:
         message: Hello from an intent!
 ```
+
+{% endraw %}
 
 Inside an intent we can define these variables:
 
@@ -97,6 +101,8 @@ intent:
 When using a `speech` template, data returned from the executed action are
 available in the `action_response` variable.
 
+{% raw %}
+
 ```yaml
 conversation:
   intents:
@@ -118,6 +124,8 @@ intent_script:
     speech:
       text: "{{ action_response['calendar.my_calendar'].events | length }}"   # use the action's response
 ```
+
+{% endraw %}
 
 ## Actions
 

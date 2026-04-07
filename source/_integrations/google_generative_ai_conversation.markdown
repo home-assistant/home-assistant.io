@@ -97,6 +97,8 @@ But you can do the following workaround that exposes a script to voice assistant
 9. Create a script (**Settings** > **Automations & scenes** > **Scripts** > **Create script**)
 10. Select 3 dots > **Edit in YAML** and enter the following (edit the `conversation.google_generative_ai_2` to match the entity created from the 1st step):
 
+{% raw %}
+
 ```yaml
 sequence:
   - action: conversation.process
@@ -124,6 +126,8 @@ fields:
     description: The query to search Google for
     required: true
 ```
+
+{% endraw %}
 
 11. Select **Save script**
 12. Select 3 dots > **Settings** > **Voice assistants**
@@ -153,6 +157,8 @@ This action populates [response data](/docs/scripts/perform-actions#use-template
 | `prompt`       | no       | The prompt for generating the content.               | Describe this image |
 | `filenames`    | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
 
+{% raw %}
+
 ```yaml
 action: google_generative_ai_conversation.generate_content
 data:
@@ -164,9 +170,13 @@ data:
 response_variable: generated_content
 ```
 
+{% endraw %}
+
 The response data field `text` will contain the generated content.
 
 Another example with multiple images:
+
+{% raw %}
 
 ```yaml
 action: google_generative_ai_conversation.generate_content
@@ -182,6 +192,8 @@ data:
 response_variable: generated_content
 ```
 
+{% endraw %}
+
 ### Speak
 
 The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the Google Gemini TTS entity, select the media player entity or group to send the TTS audio to, and enter the message to speak.
@@ -191,6 +203,8 @@ Text-to-speech (TTS) generation is controllable, meaning you can use natural lan
 For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#service-speak) building block page.
 
 In YAML, your action will look like this:
+
+{% raw %}
 
 ```yaml
 action: tts.speak
@@ -202,6 +216,8 @@ data:
   options:
     voice: <voice-name>
 ```
+
+{% endraw %}
 
 You can configure the following options:
 

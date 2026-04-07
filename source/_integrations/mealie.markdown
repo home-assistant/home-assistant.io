@@ -204,6 +204,8 @@ The `mealie.get_shopping_list_items` action gets the shopping list items for a s
 
 Example template sensor that contains today's dinner meal plan entries:
 
+{% raw %}
+
 ```yaml
 template:
   - triggers:
@@ -223,6 +225,8 @@ template:
           {{ ", " if not loop.last }}
           {%- endfor %}
 ```
+
+{% endraw %}
 
 {% enddetails %}
 

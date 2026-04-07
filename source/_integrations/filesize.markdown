@@ -23,6 +23,8 @@ File paths must also be added to [allowlist_external_dirs](/integrations/homeass
 
 Example `allowlist_external_dirs` configuration to monitor a file in your configuration folder.
 
+{% raw %}
+
 ```yaml
 
 homeassistant:
@@ -30,6 +32,8 @@ homeassistant:
     - "/config" # Default configuration directory
 
 ```
+
+{% endraw %}
 
 File paths should be absolute paths. For example: `/config/home-assistant_v2.db` to monitor the size of the default database.
 

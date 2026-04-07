@@ -124,6 +124,8 @@ image_processing:
 
 With the help of a [template sensor](/integrations/template), the value can be shown as badge.
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -133,3 +135,5 @@ sensor:
         friendly_name: "Ampere"
         unit_of_measurement: "A"
 ```
+
+{% endraw %}

@@ -112,6 +112,8 @@ These are documented below.
 
 ### Example automation
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Switch on a light when incident is received"
@@ -201,6 +203,8 @@ views:
     title: FireServiceRota
     type: horizontal-stack
 ```
+
+{% endraw %}
 
 ### Screenshot
 

@@ -75,6 +75,8 @@ covers:
   <img src='/images/integrations/garadget/cover_garadget_details.png' />
 </p>
 
+{% raw %}
+
 ```yaml
 # Related configuration.yaml entry
 cover:
@@ -110,6 +112,8 @@ customize:
   sensor.garage_door_wifi_signal_strength:
     icon: mdi:wifi
 ```
+
+{% endraw %}
 
 Some of the Garadget sensors can create a lot of clutter in the **Activity** section. Use this section of code in your{% term "`configuration.yaml`" %} to exclude those entries.
 

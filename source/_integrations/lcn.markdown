@@ -251,6 +251,8 @@ Example:
 This example shows how the `event_data` can be extracted and used in a condition using Home Assistant's templating engine.
 Trigger on a transponder event and ensure that the received code is in the given list:
 
+{% raw %}
+
 ```yaml
 automation:
   triggers:
@@ -260,6 +262,8 @@ automation:
   actions:
     ...
 ```
+
+{% endraw %}
 
 Further examples can be found in the [event section](#events).
 
@@ -454,12 +458,14 @@ When actions are linked to a particular device, the device is identified by its 
 {% tip %}
 A simple method to obtain the `device_id` for LCN modules in automations and scripts is to use a template with the `device_id()` function as detailed [here](/template-functions/#device). This allows for finding the `device_id` using the module name as shown in the frontend or configured in the LCN-PRO software.
 
+{% raw %}
 ```yaml
 action: lcn.pck
 data:
   device_id: "{{ device_id('Module name') }}"
   pck: PIN4
 ```
+{% endraw %}
 
 {% endtip %}
 

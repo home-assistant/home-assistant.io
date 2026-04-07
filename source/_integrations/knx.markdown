@@ -376,6 +376,8 @@ For values that require project data: if the information was not found, or if no
 
 Example automation configuration
 
+{% raw %}
+
 ```yaml
 - alias: "Single group address trigger"
   triggers:
@@ -386,6 +388,8 @@ Example automation configuration
   conditions: "{{ trigger.value == 0 }}"
   actions: []
 ```
+
+{% endraw %}
 
 Example trigger data
 
@@ -480,6 +484,8 @@ response:
   default: false
 {% endconfiguration %}
 
+{% raw %}
+
 ```yaml
 # Example script to send a fixed value and the state of an entity
 alias: "My Script"
@@ -502,6 +508,8 @@ sequence:
       payload: "{{ states('sensor.dew_point') }}"
       response: false
 ```
+
+{% endraw %}
 
 ### Read
 
@@ -611,6 +619,8 @@ type:
 
 Expose Home Assistant entities to share their state or attributes with the KNX bus. Home Assistant automatically sends the current value whenever it changes and responds to read requests on the KNX bus.
 
+{% raw %}
+
 ```yaml
 knx:
   expose:
@@ -653,6 +663,8 @@ knx:
       attribute: volume_level
       value_template: "{{ value * 100 }}"  # convert from 0..1 to percent
 ```
+
+{% endraw %}
 
 {% configuration %}
 address:

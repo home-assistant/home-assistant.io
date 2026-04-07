@@ -165,6 +165,8 @@ automation:
 
 Example of `input_select` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_select' in an action in an automation
    
@@ -207,3 +209,5 @@ input_select:
         retain: true
         payload: "{{ states('input_select.thermostat_mode') }}"
 ```
+
+{% endraw %}

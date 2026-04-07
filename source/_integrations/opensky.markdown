@@ -54,6 +54,8 @@ Both events have two attributes in common:
 
 To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your {% term "`configuration.yaml`" %} file:
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Flight entry notification"
@@ -65,8 +67,11 @@ automation:
         data:
           message: "Flight entry of {{ trigger.event.data.callsign }}"
 ```
+{% endraw %}
 
 One can also get a direct link to the OpenSky website to see the flight using the icao24 identification:
+
+{% raw %}
 
 ```yaml
 automation:
@@ -86,3 +91,4 @@ automation:
                   https://opensky-network.org/aircraft-profile?icao24={{
                   trigger.event.data.icao24 }}
 ```
+{% endraw %}

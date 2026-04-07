@@ -1157,6 +1157,8 @@ Get started with these automation examples
 
 {% details "Example YAML configuration" %}
 
+{% raw %}
+
 ```yaml
 alias: "Notify when program ends"
 triggers:
@@ -1169,6 +1171,8 @@ actions:
     data:
       message: "The appliance has finished the program."
 ```
+
+{% endraw %}
 {% enddetails %}
 
 ### Start a program when electricity is cheap
@@ -1176,6 +1180,8 @@ actions:
 Because electricity is typically cheaper at night, this automation will activate the silent mode when starting the program at night.
 
 {% details "Example YAML configuration" %}
+
+{% raw %}
 
 ```yaml
 alias: "Start program when electricity is cheap"
@@ -1206,6 +1212,8 @@ actions:
           affects_to: "active_program"
           program: "dishcare_dishwasher_program_eco_50"
 ```
+
+{% endraw %}
 {% enddetails %}
 
 ## Data updates

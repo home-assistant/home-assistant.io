@@ -33,6 +33,7 @@ To configure this sensor, define the sensor connection variables and a list of q
 To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
+{% raw %}
 ```yaml
 # Example configuration.yaml
 sql:
@@ -60,6 +61,7 @@ sql:
         1;
     column: "state"
 ```
+{% endraw %}
 
 {% configuration %}
 sql:
@@ -157,6 +159,8 @@ The data returned by the database is converted to be compatible with the action 
 
 ##### Example of calling the `sql.query` action in an automation:
 
+{% raw %}
+
 ```yaml
 action: sql.query
 data:
@@ -177,7 +181,11 @@ data:
 response_variable: sun_history
 ```
 
+{% endraw %}
+
 This would return a result similar to this, which will be stored in the `sun_history` variable:
+
+{% raw %}
 
 ```yaml
 result:
@@ -188,6 +196,7 @@ result:
   - state: below_horizon
     last_updated_ts: 1760633861.848531
 ```
+{% endraw %}
 
 ## Information
 

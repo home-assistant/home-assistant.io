@@ -1480,6 +1480,8 @@ $ curl -X POST \
 
 Use as [`script`](/integrations/script/) in automations.
 
+{% raw %}
+
 ```yaml
 automation:
   alias: "Send me a message when I get home"
@@ -1502,6 +1504,8 @@ script:
           topic: home/"{{ target }}"
           retain: true
 ```
+
+{% endraw %}
 
 ## Publish & Dump actions
 
@@ -1528,29 +1532,43 @@ topic: homeassistant/light/1/command
 payload: on
 ```
 
+{% raw %}
+
 ```yaml
 topic: homeassistant/light/1/state
 payload: "{{ states('device_tracker.paulus') }}"
 ```
+
+{% endraw %}
+
+{% raw %}
 
 ```yaml
 topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
 payload: "{{ states('device_tracker.paulus') }}"
 ```
 
+{% endraw %}
+
 Be aware that `payload` must be a string.
 If you want to send JSON using the YAML editor then you need to format/escape
 it properly. Like:
+
+{% raw %}
 
 ```yaml
 topic: homeassistant/light/1/state
 payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
 ```
 
+{% endraw %}
+
 The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
 The `device_class` is set, so it is not needed to set the "name" option. The entity
 will inherit the name from the `device_class` set and also support translations.
 If you set "name" in the payload the entity name will start with the device name.
+
+{% raw %}
 
 ```yaml
 action: mqtt.publish
@@ -1570,6 +1588,8 @@ data:
     "manufacturer": "rtl_433" }
     }
 ```
+
+{% endraw %}
 
 Example of how to use `qos` and `retain`:
 

@@ -108,6 +108,8 @@ If the command is a word command, the `data` field contains a list of the comman
 
 This example also uses the [matrix `notify` platform](#notifications).
 
+{% raw %}
+
 ```yaml
 # The Matrix integration
 matrix:
@@ -181,6 +183,8 @@ automation:
           room: "{{trigger.event.data.room}}"
           message_id: "{{trigger.event.data.event_id}}"
 ```
+
+{% endraw %}
 
 This configuration will:
 
@@ -273,6 +277,8 @@ is not inside of a thread, `thread_parent` will be the same as `event_id`.
 To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
 a reply message. For example:
 
+{% raw %}
+
 ```yaml
 action: notify.matrix_notify
 data:
@@ -280,6 +286,8 @@ data:
   data:
     thread_id: "{{ trigger.event.data.thread_parent }}"
 ```
+
+{% endraw %}
 
 ## Actions
 
@@ -335,6 +343,8 @@ data:
 
 To react to a message with an emoji reaction, use the `matrix.react` action:
 
+{% raw %}
+
 ```yaml
 action: matrix.react
 data:
@@ -342,6 +352,8 @@ data:
   room: "{{ trigger.event.data.room }}"
   message_id: "{{ trigger.event.data.event_id }}"
 ```
+
+{% endraw %}
 
 {% tip %}
 Reactions do not have to be an emoji. They can be any valid string. However, emoji are the typical/traditional use

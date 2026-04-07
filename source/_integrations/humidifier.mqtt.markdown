@@ -313,6 +313,8 @@ In this section you find some real-life examples of how to use this humidifier.
 
 The example below shows a full configuration for a MQTT humidifier including modes.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml
 mqtt:
@@ -343,3 +345,5 @@ mqtt:
       min_humidity: 30
       max_humidity: 80
 ```
+
+{% endraw %}
