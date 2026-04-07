@@ -308,7 +308,6 @@ logger:
   logs:
     homeassistant.components.command_line: debug
 ```
-{% endraw%}
 
 {% note %}
 
@@ -334,7 +333,6 @@ command_line:
       payload_on: "1"
       payload_off: "0"
 ```
-{% endraw%}
 
 ## Cover
 
@@ -351,7 +349,6 @@ command_line:
       command_stop: move_command stop garage
       name: Garage
 ```
-{% endraw%}
 
 ## Notify
 
@@ -365,7 +362,6 @@ command_line:
   - notify:
       command: "espeak -vmb/mb-us1"
 ```
-{% endraw%}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -381,7 +377,6 @@ command_line:
   - sensor:
       command: SENSOR_COMMAND_2
 ```
-{% endraw%}
 
 ## Switch
 
@@ -400,7 +395,6 @@ command_line:
       command_on: switch_command on kitchen
       command_off: switch_command off kitchen
 ```
-{% endraw%}
 
 {% note %}
 
@@ -442,7 +436,6 @@ command_line:
       payload_on: "Running"
       payload_off: "Not running"
 ```
-{% endraw%}
 
 ### Check RasPlex
 
@@ -457,7 +450,6 @@ command_line:
       payload_on: 1
       payload_off: 0
 ```
-{% endraw%}
 
 An alternative solution could look like this:
 
@@ -470,7 +462,6 @@ command_line:
       payload_on: "success"
       payload_off: "fail"
 ```
-{% endraw%}
 
 Consider to use the [ping sensor](/integrations/ping#binary-sensor) as an alternative to the samples above.
 
@@ -485,7 +476,7 @@ $ sudo service home-assistant@rock64.service stop
 $ systemctl is-active home-assistant@rock64.service
 inactive
 ```
-{% endraw%}
+
 
 A binary command line sensor can check this:
 
@@ -496,7 +487,7 @@ command_line:
       payload_on: "active"
       payload_off: "inactive"
 ```
-{% endraw%}
+
 
 ## Example cover platform
 
@@ -516,7 +507,7 @@ command_line:
         0
         {% endif %}
 ```
-{% endraw%}
+
 
 ## Examples sensor platform
 
@@ -536,7 +527,7 @@ command_line:
       unit_of_measurement: "°C"
       value_template: "{{ value | multiply(0.001) | round(1) }}"
 ```
-{% endraw%}
+
 
 ### Details about the upstream Home Assistant release
 
@@ -548,7 +539,7 @@ command_line:
       command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
       name: HA release
 ```
-{% endraw%}
+
 
 ### Read value out of a remote text file
 
@@ -560,7 +551,7 @@ command_line:
       command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
       name: File value
 ```
-{% endraw%}
+
 
 ### Use an external script
 
@@ -571,7 +562,7 @@ The one-line script to retrieve a value is shown below. Of course it would be po
 ```bash
 python3 -c "import requests; print(requests.get('http://10.0.0.48/analog/2').json()['return_value'])"
 ```
-{% endraw%}
+
 
 The script (saved as `arest-value.py`) that is used looks like the example below.
 
@@ -582,7 +573,7 @@ from requests import get
 response = get("http://10.0.0.48/analog/2")
 print(response.json()["return_value"])
 ```
-{% endraw%}
+
 
 To use the script you need to add something like the following to your {% term "`configuration.yaml`" %} file.
 
@@ -593,7 +584,7 @@ command_line:
       name: Brightness
       command: "python3 /path/to/script/arest-value.py"
 ```
-{% endraw%}
+
 
 ### Usage of templating in `command:`
 
@@ -607,7 +598,7 @@ command_line:
       command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
       unit_of_measurement: "Direction"
 ```
-{% endraw%}
+
 
 ### Usage of JSON attributes in command output
 
@@ -624,7 +615,7 @@ command_line:
       command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
       value_template: "{{ value_json.time }}"
 ```
-{% endraw%}
+
 
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath.
 
@@ -666,7 +657,7 @@ command_line:
         {% else %} mdi:toggle-switch-off
         {% endif %}
 ```
-{% endraw%}
+
 
 ### aREST device
 
@@ -685,7 +676,7 @@ command_line:
       value_template: '{{ value == "1" }}'
       name: Kitchen Lightswitch
 ```
-{% endraw%}
+
 
 Given this example, in the UI one would see the `friendly_name` of
 "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
@@ -707,7 +698,7 @@ command_line:
       name: Home Assistant System Shutdown
       command_off: "/usr/sbin/poweroff"
 ```
-{% endraw%}
+
 
 ### Control your VLC player
 
@@ -722,7 +713,7 @@ command_line:
       command_on: "cvlc 1.mp3 vlc://quit &"
       command_off: "pkill vlc"
 ```
-{% endraw%}
+
 
 ### Control Foscam motion sensor
 
@@ -741,7 +732,7 @@ command_line:
       command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
       value_template: '{{ value == "1" }}'
 ```
-{% endraw%}
+
 
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
