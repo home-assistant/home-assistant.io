@@ -102,7 +102,8 @@ actions:
     data: {}
     target:
       entity_id: lock.lock_a1b2
-``` {% enddetails %}
+```
+{% enddetails %}
 
 ## Known Limitations
 

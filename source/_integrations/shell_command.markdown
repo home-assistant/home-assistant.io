@@ -86,8 +86,6 @@ shell_command:
 This is an example of a shell command used in conjunction with an input
 helper and an automation.
 
-{% raw %}
-
 ```yaml
 # Apply value of a GUI slider to the shell_command
 automation:
@@ -110,11 +108,7 @@ shell_command:
   set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states("input_number.ac_temperature") }}_AUTO'
 ```
 
-{% endraw %}
-
 The following example shows how the shell command response may be used in automations.
-
-{% raw %}
 
 ```yaml
 # Create a ToDo notification based on file contents
@@ -144,8 +138,6 @@ shell_command:
   get_file_contents: "cat {{ filename }}"
 ```
 
-{% endraw %}
-
 ### Using SSH with shell_command
 
 The `/root/.ssh` directory in the container is not persistent. Store your keys in `/config/.ssh` instead.
@@ -174,8 +166,6 @@ More information about `ssh-keygen` can be found in the [OpenSSH manual](https:/
 
 Example configuration:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 # Replace <host> with your target hostname or IP address
@@ -185,7 +175,5 @@ shell_command:
       -o UserKnownHostsFile=/config/.ssh/known_hosts \
       user@<host> 'hostname'
 ```
-
-{% endraw %}
 
 This ensures SSH uses persistent files even after system updates.
