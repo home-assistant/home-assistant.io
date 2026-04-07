@@ -158,7 +158,7 @@ actions:
       entity_id: climate.my_stove
 ```
 
-
+{% endraw %} {% enddetails %}
 ## Known limitations
 
 This integration does **not** yet support the following features and sensors:
