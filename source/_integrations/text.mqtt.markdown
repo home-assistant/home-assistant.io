@@ -212,8 +212,6 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 This is an example of a manual configured MQTT `text` item.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -226,5 +224,3 @@ mqtt:
       min: 2
       max: 20
 ```
-
-{% endraw %}

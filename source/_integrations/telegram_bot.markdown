@@ -181,16 +181,12 @@ You can use the `notify.send_message` action to publish notifications.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
   message: "Reminder: Have you considered frogs?"
   entity_id: notify.telegram_bot_chat
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -698,8 +694,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -720,8 +714,6 @@ actions:
         File ID     : {{ trigger.to_state.attributes.file_id }} 
         File name   : {{ trigger.to_state.attributes.file_name }}
 ```
-
-{% endraw %}
 
 ### Event: Callback query received
 
@@ -757,8 +749,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -777,8 +767,6 @@ actions:
         Callback ID   : {{ trigger.to_state.attributes.id }}
         Callback query: {{ trigger.to_state.attributes.data }}
 ```
-
-{% endraw %}
 
 ### Event: Command received
 
@@ -809,8 +797,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -829,8 +815,6 @@ actions:
         Command: {{ trigger.to_state.attributes.command }}
         Args   : {{ trigger.to_state.attributes.args }}
 ```
-
-{% endraw %}
 
 ### Event: Text received
 
@@ -859,8 +843,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -881,8 +863,6 @@ actions:
       Last name : {{ trigger.to_state.attributes.from_last }}
       Message   : {{ trigger.to_state.attributes.text }}
 ```
-
-{% endraw %}
 
 ### Event: Message sent
 
@@ -911,8 +891,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -933,8 +911,6 @@ actions:
         
 ```
 
-{% endraw %}
-
 ### Sample automations with inline keyboards and callback queries
 
 A quick example to show some of the callback capabilities of inline keyboards with a dumb automation consisting in a simple repeater of normal text that presents an inline keyboard with 3 buttons: 'EDIT', 'NO' and 'REMOVE BUTTON':
@@ -944,8 +920,6 @@ A quick example to show some of the callback capabilities of inline keyboards wi
 - Pressing 'REMOVE BUTTON' changes the inline keyboard removing that button.
 
 Text repeater:
-
-{% raw %}
 
 ```yaml
 alias: Telegram bot that repeats text
@@ -969,11 +943,7 @@ actions:
         - Remove this button:/remove_button
 ```
 
-{% endraw %}
-
 Message editor:
-
-{% raw %}
 
 ```yaml
 alias: Telegram bot that edits the last sent message
@@ -1011,11 +981,7 @@ actions:
         Data: {{ trigger.to_state.attributes.data|replace("_", "\_") }}
 ```
 
-{% endraw %}
-
 Keyboard editor:
-
-{% raw %}
 
 ```yaml
 alias: Telegram bot that edits the keyboard
@@ -1046,11 +1012,7 @@ actions:
       message_id: last
 ```
 
-{% endraw %}
-
 Only acknowledges the 'NO' answer:
-
-{% raw %}
 
 ```yaml
 alias: Telegram bot that simply acknowledges
@@ -1074,14 +1036,10 @@ actions:
       callback_query_id: "{{ trigger.to_state.attributes.id }}"
 ```
 
-{% endraw %}
-
 ### Sample automation to receive `chat_id` and `message_id` identifiers of sent messages
 
 The following sample automation stores the `chat_id` and `message_id` of the last sent message using input entities.
 These attributes can then be used in other **Telegram bot** actions.
-
-{% raw %}
 
 ```yaml
 alias: Notifications about messages sent by Telegram bot
@@ -1106,8 +1064,6 @@ actions:
     target:
       entity_id: input_number.message_id # Replace with your input entity
 ```
-
-{% endraw %}
 
 ## Example: send_message with formatted Text
 
@@ -1144,8 +1100,6 @@ actions:
 
 ## Example: send_message then edit it after a delay
 
-{% raw %}
-
 ```yaml
 actions:
   - action: telegram_bot.send_message
@@ -1160,8 +1114,6 @@ actions:
       chat_id: "{{ response.chats[0].chat_id }}"
       message_id: "{{ response.chats[0].message_id }}"
 ```
-
-{% endraw %}
 
 ## Example: send_message to a topic within a group
 
@@ -1189,8 +1141,6 @@ actions:
 
 ## Example: automation to send a message and delete after a delay
 
-{% raw %}
-
 ```yaml
 alias: telegram send message and delete
 actions:
@@ -1208,8 +1158,6 @@ actions:
             chat_id: "{{ repeat.item.chat_id }}"
       for_each: "{{ response.chats }}"
 ```
-
-{% endraw %}
 
 ## Known limitations
 

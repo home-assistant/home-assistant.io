@@ -226,8 +226,6 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 This is an example of Update entity configuration for Shelly Gen1 device.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -244,8 +242,6 @@ mqtt:
       command_topic: "shellies/shellyplug-s-112233/command"
       payload_install: "update_fw"
 ```
-
-{% endraw %}
 
 JSON can also be used as `state_topic` payload. Note that this feature also allows to process and show live progress information.
 
@@ -358,8 +354,6 @@ update_percentage:
 
 For the above JSON payload examples, the `update` entity configuration should look like this:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -371,8 +365,6 @@ mqtt:
       command_topic: "amazing-device/command"
       payload_install: "install"
 ```
-
-{% endraw %}
 
 If the device/service sends data as JSON but the schema differs, `value_template` can be use to reformat the JSON.
 
@@ -389,8 +381,6 @@ If the device/service sends data as JSON but the schema differs, `value_template
 
 For the above JSON payload, the `update` entity configuration should look like this:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -403,5 +393,3 @@ mqtt:
       command_topic: "amazing-device/command"
       payload_install: "install"
 ```
-
-{% endraw %}
