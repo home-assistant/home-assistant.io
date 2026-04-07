@@ -72,6 +72,18 @@ Climate and water heater entities will report their current temperature, setpoin
 
 **Footprint** mode is only available to **Radiator** zones that have room sensors.
 
+Climate entities also report an `hvac_action` indicating the zone's current activity:
+
+| `hvac_action` | Meaning |
+| :-----------: | ------- |
+| `heating` | Zone is actively calling for heat |
+| `idle` | Zone is on but not currently calling for heat |
+| `off` | Zone is off and not active (local API only) |
+
+{% note %}
+Distinguishing `idle` from `off` requires the local API. When using the cloud API, a satisfied zone reports `idle` regardless of whether it is scheduled or switched off.
+{% endnote %}
+
 ### Switch entities
 
 Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant `state` will be *reported* as:
@@ -146,6 +158,7 @@ Many zone/device properties are available via the corresponding entity's state a
   "status": {
     "type": "radiator",
     "mode": "off",
+    "output": 0,
     "temperature": 19,
     "occupied": False,
     "override": {
@@ -155,6 +168,8 @@ Many zone/device properties are available via the corresponding entity's state a
   }
 }
 ```
+
+The `output` field indicates whether the zone is calling for heat (`1`) or satisfied (`0`).
 
 ... and for **Genius Valve**-derived `Sensor` entities (note 'state'):
 
