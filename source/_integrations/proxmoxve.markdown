@@ -218,7 +218,7 @@ If monitoring works (e.g. sensors provide relevant information) but button press
 
 ### Update unavailable
 
-When update shows as **Unavailable** on any of your node(s), additional privileges are be required. Check if your user has the 'Sys.Modify' privilege or role `PVEAdmin` in ProxmoxVE.
+If the update entity for any of your nodes shows **Unavailable**, make sure your Proxmox VE user has the `Sys.Modify` privilege or the `PVEAdmin` role.
 
 ### Diagnostic data
 
