@@ -132,5 +132,7 @@ bundle exec rake integrate
 ## Recent Changes
 
 - **VirtualBox macOS Installation Limitations:** Updated `source/_includes/installation/operating_system.md` to document that bridged networking over Wi-Fi is unreliable on macOS Monterey and later. Added explicit recommendation to use UTM for Wi-Fi and Apple Silicon users instead of VirtualBox.
+- **Branch T demonstration:** This line was added to demonstrate pushing and creating a PR from a new branch named `t`.
 
 [![Home Assistant - A project from the Open Home Foundation](https://www.openhomefoundation.org/badges/home-assistant.png)](https://www.openhomefoundation.org/)
+
