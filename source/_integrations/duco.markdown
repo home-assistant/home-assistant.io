@@ -172,6 +172,22 @@ Home Assistant lost the connection to the Duco box during operation. This can ha
 2. Reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
 3. If the box has a new IP address, reconfigure the integration with the updated address.
 
+### Write commands are not applied
+
+#### Symptom
+
+Fan speed or preset changes appear to be ignored, and the Duco box does not respond as expected.
+
+#### Description
+
+The Duco box enforces a rate limit of approximately 200 write requests per hour. When this limit is exceeded, the box returns HTTP 429 (error code 18) and rejects further write requests until the quota resets automatically.
+
+#### Resolution
+
+1. Avoid sending too many commands in a short period (for example, rapidly toggling fan speed in automations).
+2. Wait for the quota to reset — the firmware resets the limit automatically each hour.
+3. If the problem persists, restart the Duco box to force an immediate quota reset.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
