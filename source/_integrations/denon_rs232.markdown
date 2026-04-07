@@ -4,7 +4,7 @@ description: Instructions on how to integrate Denon receivers via their RS232 se
 ha_category:
   - Media player
 ha_iot_class: Local Push
-ha_release: "2026.5.0"
+ha_release: 2026.5
 ha_codeowners:
   - '@balloob'
 ha_config_flow: true
