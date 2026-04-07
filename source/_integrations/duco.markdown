@@ -52,18 +52,18 @@ The integration creates one device per ventilation node found in your Duco syste
 
 ### Fan
 
-The fan entity lets you control the ventilation speed of a node using preset modes. Select the **Auto** preset to let Duco manage ventilation automatically based on air quality.
+The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or use the on/off controls.
 
-| Preset | Description |
-|--------|-------------|
-| Auto | Duco controls ventilation automatically based on air quality. |
-| Away | Reduced ventilation for when nobody is home. |
-| Low | Low speed timed manual override (~15 minutes). |
-| Low (permanent) | Low speed permanent manual override. |
-| Medium | Medium speed timed manual override (~15 minutes). |
-| Medium (permanent) | Medium speed permanent manual override. |
-| High | High speed timed manual override (~15 minutes). |
-| High (permanent) | High speed permanent manual override. |
+| Action | Result |
+|--------|--------|
+| Turn off | Hands control back to Duco (automatic mode). |
+| Turn on | Sets medium ventilation speed (66%). |
+| Speed 33% | Low speed manual override. |
+| Speed 66% | Medium speed manual override. |
+| Speed 100% | High speed manual override. |
+| Auto preset | Same as turn off: hands control back to Duco. |
+
+Timed speed overrides triggered externally (for example by a CO₂ sensor) are shown at their equivalent percentage level in Home Assistant, but writing a speed always uses the permanent mode.
 
 ## Use cases
 
@@ -75,7 +75,7 @@ The fan entity lets you control the ventilation speed of a node using preset mod
 
 ### Activate high ventilation while cooking
 
-This automation switches the ventilation to high speed when the kitchen hood is turned on, and returns it to auto mode five minutes after the hood is switched off.
+This automation switches the ventilation to high speed when the kitchen hood is turned on, and returns it to automatic mode five minutes after the hood is switched off.
 
 ```yaml
 - alias: "High ventilation while cooking"
@@ -84,11 +84,11 @@ This automation switches the ventilation to high speed when the kitchen hood is 
       entity_id: switch.kitchen_hood
       to: "on"
   actions:
-    - action: fan.set_preset_mode
+    - action: fan.set_percentage
       target:
         entity_id: fan.living_ventilation
       data:
-        preset_mode: high
+        percentage: 100
 
 - alias: "Return to auto after cooking"
   triggers:
@@ -97,41 +97,35 @@ This automation switches the ventilation to high speed when the kitchen hood is 
       to: "off"
       for: "00:05:00"
   actions:
-    - action: fan.set_preset_mode
+    - action: fan.turn_off
       target:
         entity_id: fan.living_ventilation
-      data:
-        preset_mode: auto
 ```
 
-### Switch to away mode when everybody leaves home
+### Reduce ventilation when nobody is home
 
-When the last person leaves home, the ventilation is set to Away mode to save energy.
+When the last person leaves home, the ventilation hands control back to Duco (automatic mode). When someone returns, it switches to medium speed.
 
 ```yaml
-- alias: "Ventilation away mode on leave"
+- alias: "Ventilation auto mode on leave"
   triggers:
     - trigger: state
       entity_id: zone.home
       to: "0"
   actions:
-    - action: fan.set_preset_mode
+    - action: fan.turn_off
       target:
         entity_id: fan.living_ventilation
-      data:
-        preset_mode: away
 
-- alias: "Ventilation auto mode on arrive"
+- alias: "Ventilation medium speed on arrive"
   triggers:
     - trigger: numeric_state
       entity_id: zone.home
       above: 0
   actions:
-    - action: fan.set_preset_mode
+    - action: fan.turn_on
       target:
         entity_id: fan.living_ventilation
-      data:
-        preset_mode: auto
 ```
 
 ## Data updates
@@ -140,7 +134,6 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 
 ## Known limitations
 
-- Timed presets (Low, Medium, High without "permanent") follow Duco's internal timer. Home Assistant cannot configure the override duration.
 - The integration does not yet expose CO₂ and humidity sensor data from connected Duco modules. This is planned for a future update.
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
 
