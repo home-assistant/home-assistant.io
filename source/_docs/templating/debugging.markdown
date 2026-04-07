@@ -154,7 +154,7 @@ When a template works in the editor but not in an automation, check whether you 
 - **Entity is `unknown` or `unavailable`.** Add a fallback with `| default(...)` or an `if has_value(...)` check.
 - **Variable changes inside a loop are lost.** Use [`namespace`](/template-functions/namespace/).
 - **YAML refuses to load your template.** Check quoting. See [Templates in YAML](/docs/templating/yaml/).
-- **Template appears as literal text in output.** The field does not support templating, or the template is inside a `{% raw %}` block.
+- **Template appears as literal text in output.** The field does not support templating, or the template is inside a `{% raw %}` / `{% endraw %}` block.
 - **Template evaluates at the wrong time.** Triggers and conditions are checked on change, not continuously. A template condition that depends on `now()` only re-checks when something else triggers.
 - **Comparing text to a number.** `'6' < '10'` is `False` because text is compared alphabetically, not numerically. Convert with `| float(0)` or `| int(0)` on both sides first.
 

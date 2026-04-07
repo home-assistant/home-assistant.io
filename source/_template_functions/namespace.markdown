@@ -82,8 +82,8 @@ output: "3"
 
 ## Good to know
 
-- Without a namespace, a `{% raw %}{% set %}{% endraw %}` inside a loop does not persist outside of it. This is the main reason to reach for this function.
-- Access attributes with dot notation (`ns.count`), and update them with `{% raw %}{% set ns.count = ... %}{% endraw %}`.
+- Without a namespace, a `{% set %}` inside a loop does not persist outside of it. This is the main reason to reach for this function.
+- Access attributes with dot notation (`ns.count`), and update them with `{% set ns.count = ... %}`.
 
 {% include template_functions/try_it.md %}
 

@@ -17,10 +17,13 @@ end
 # backtick code with placeholders
 Jekyll::Hooks.register [:documents, :pages], :pre_render do |doc|
   # First: protect code fences (``` blocks)
-  doc.content = doc.content.gsub(/(^`{3,})([^\n]*)\n(.*?)\n(\1)/m) do
-    fence_open = "#{$1}#{$2}\n"
-    inner = $3
-    fence_close = $4
+  doc.content = doc.content.gsub(/(^[ \t]*)(`{3,})([^\n]*)\n(.*?)\n\1\2[ \t]*$/m) do
+    indent = $1
+    fence = $2
+    info = $3
+    inner = $4
+    fence_open = "#{indent}#{fence}#{info}\n"
+    fence_close = "#{indent}#{fence}"
 
     # Skip fences that don't contain any Liquid-like syntax
     next "#{fence_open}#{inner}\n#{fence_close}" unless inner.match?(/\{\{|\{%|\{#/)
