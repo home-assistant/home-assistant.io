@@ -18,6 +18,7 @@ related:
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - light
   - number
   - sensor

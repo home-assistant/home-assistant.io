@@ -10,6 +10,7 @@ ha_codeowners:
   - '@johnonolan'
 ha_domain: ghost
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
 ha_quality_scale: gold

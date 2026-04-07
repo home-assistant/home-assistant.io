@@ -10,6 +10,7 @@ ha_codeowners:
   - '@xirt'
 ha_platforms:
   - button
+  - diagnostics
   - number
   - select
   - sensor
@@ -20,7 +21,7 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
-The Indevolt {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
+The **Indevolt** {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
 
 ## Use cases
 
