@@ -52,12 +52,13 @@ The integration creates one device per ventilation node found in your Duco syste
 
 ### Fan
 
-The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or use the on/off controls.
+The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
+
+The fan is always on — turning it off hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation. Because the entity is always on, the turn on action is never triggered.
 
 | Action | Result |
 |--------|--------|
 | Turn off | Hands control back to Duco (automatic mode). |
-| Turn on | Sets medium ventilation speed (66%). |
 | Speed 33% | Low speed manual override. |
 | Speed 66% | Medium speed manual override. |
 | Speed 100% | High speed manual override. |
