@@ -54,7 +54,7 @@ The integration creates one device per ventilation node found in your Duco syste
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
 
-The fan is always on — turning it off hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation. Because the entity is always on, the turn on action is never triggered.
+The fan is always on — turning it off hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation and the entity switches back to on to reflect the actual state. Because the entity is always on, the turn on action is never triggered.
 
 | Action | Result |
 |--------|--------|
