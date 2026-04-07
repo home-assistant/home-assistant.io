@@ -121,7 +121,6 @@ If you need more indentation on specific lines (for example, centered text), add
 - **Starting with a quote but forgetting to close it**. A common slip with long templates. Switch to a `>-` multi-line block when in doubt.
 - **Using `>` when you need line breaks preserved**. The output becomes one long line. Use `|` instead.
 - **Inconsistent indentation inside `|` or `>` blocks**. YAML truncates the block at the lowest indent.
-- **Forgetting `` around example templates**. The engine evaluates them instead of showing them.
 
 When a template refuses to work, the [Debugging templates](/docs/templating/debugging/) page walks through how to narrow the problem down.
 
