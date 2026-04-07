@@ -76,7 +76,6 @@ action: backup.create
 This is a YAML example for an automation that initiate a backup every night
 at 3 AM:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -89,7 +88,6 @@ automation:
         action: backup.create
 ```
 
-{% endraw %}
 
 ## Restoring a backup
 
@@ -109,7 +107,6 @@ The **Backup** {% term integration %} provides an {% term "Event entity" %} whic
 
 Send notification to mobile app, when an automatic backup failed.
 
-{% raw %}
 
 ```yaml
 alias: Backup failed
@@ -130,7 +127,6 @@ actions:
 mode: single
 ```
 
-{% endraw %}
 
 ## Sensors
 

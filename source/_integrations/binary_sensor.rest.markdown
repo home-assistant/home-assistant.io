@@ -58,7 +58,6 @@ binary_sensor:
 
 or a template based request:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -67,7 +66,6 @@ binary_sensor:
     resource_template: "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}"
 ```
 
-{% endraw %}
 
 {% configuration %}
 resource:
@@ -163,7 +161,6 @@ Instead of using an [aREST](/integrations/arest#binary-sensor) binary sensor,
 you could retrieve the value of a device supporting
 aREST directly with a REST binary sensor.
 
-{% raw %}
 
 ```yaml
 binary_sensor:
@@ -175,13 +172,11 @@ binary_sensor:
     value_template: '{{ value_json.return_value }}'
 ```
 
-{% endraw %}
 
 ### Accessing an HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and template-enabled customized headers.
 
-{% raw %}
 
 ```yaml
 binary_sensor:
@@ -195,8 +190,6 @@ binary_sensor:
       Content-Type: application/json
       X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
 ```
-
-{% endraw %}
 
 
 The headers will contain all relevant details. This will also give

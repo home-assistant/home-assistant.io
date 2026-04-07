@@ -552,7 +552,6 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
 8. Double click the Template node to edit it, select:
 
-   {% raw %}
 
    ```bash
    Property: msg.payload
@@ -561,7 +560,6 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
    Output as: Plain text
    ```
 
-   {% endraw %}
 
 9. Drag a Debug node to the right of the Template node and link them.
 10. Show the debug messages, deploy the flow and click on the inject button.

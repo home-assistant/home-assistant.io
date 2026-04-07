@@ -196,7 +196,6 @@ If you have a Zigbee remote that is not yet supported you can request support fo
 
 #### Step up and step down input number with wireless dimmer
 
-{% raw %}
 
 ```yaml
 automation:
@@ -261,11 +260,9 @@ automation:
           entity_id: light.lamp
 ```
 
-{% endraw %}
 
 #### Changing color through the Müller Licht tint remote control
 
-{% raw %}
 
 ```yaml
 automation:
@@ -286,7 +283,6 @@ automation:
     mode: restart
 ```
 
-{% endraw %}
 
 #### Colored Flashing - RGB Philips Hue bulb using deconz.configure
 
