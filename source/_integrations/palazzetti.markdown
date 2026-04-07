@@ -158,8 +158,6 @@ actions:
       entity_id: climate.my_stove
 ```
 
-{% endraw %}
-{% enddetails %}
 
 ## Known limitations
 
