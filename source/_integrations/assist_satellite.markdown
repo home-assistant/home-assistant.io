@@ -180,9 +180,6 @@ actions:
           entity_id: assist_satellite.my_entity
 ```
 
-{%endraw %}
-
-
 Instead of text, the question can also be a media ID:
 
 ```yaml
