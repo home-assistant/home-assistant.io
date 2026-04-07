@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: duco
 ha_platforms:
   - fan
-ha_integration_type: service
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
@@ -52,19 +52,18 @@ The integration creates one device per ventilation node found in your Duco syste
 
 ### Fan
 
-The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage (mapped to three discrete levels), use the **Auto** preset, or use the on/off controls.
+The fan entity lets you control the ventilation speed of a node using preset modes. Select the **Auto** preset to let Duco manage ventilation automatically based on air quality.
 
-| Control | Action |
-|---------|--------|
-| Off | Hands control back to Duco (Auto mode). Duco manages the speed automatically. |
-| Low (33%) | Low speed — permanent manual override (CNT1). |
-| Medium (66%) | Medium speed — permanent manual override (CNT2). |
-| High (100%) | High speed — permanent manual override (CNT3). |
-| Auto preset | Same as Off: hands control back to Duco. |
-
-The fan card shows as **off** (gray) when Duco is in automatic control mode, and as **on** when a manual speed is active.
-
-Timed speed overrides (set externally, for example via a CO₂ sensor) are shown at their equivalent percentage level in Home Assistant, but writing a speed always uses the permanent mode.
+| Preset | Description |
+|--------|-------------|
+| Auto | Duco controls ventilation automatically based on air quality. |
+| Away | Reduced ventilation for when nobody is home. |
+| Low | Low speed timed manual override (~15 minutes). |
+| Low (permanent) | Low speed permanent manual override. |
+| Medium | Medium speed timed manual override (~15 minutes). |
+| Medium (permanent) | Medium speed permanent manual override. |
+| High | High speed timed manual override (~15 minutes). |
+| High (permanent) | High speed permanent manual override. |
 
 ## Use cases
 
@@ -85,11 +84,11 @@ This automation switches the ventilation to high speed when the kitchen hood is 
       entity_id: switch.kitchen_hood
       to: "on"
   actions:
-    - action: fan.set_percentage
+    - action: fan.set_preset_mode
       target:
-        entity_id: fan.living_manual_control
+        entity_id: fan.living_ventilation
       data:
-        percentage: 100
+        preset_mode: high
 
 - alias: "Return to auto after cooking"
   triggers:
@@ -98,37 +97,41 @@ This automation switches the ventilation to high speed when the kitchen hood is 
       to: "off"
       for: "00:05:00"
   actions:
-    - action: fan.turn_off
+    - action: fan.set_preset_mode
       target:
-        entity_id: fan.living_manual_control
+        entity_id: fan.living_ventilation
+      data:
+        preset_mode: auto
 ```
 
-### Reduce ventilation when nobody is home
+### Switch to away mode when everybody leaves home
 
-When the last person leaves home, the ventilation is turned off (Duco takes over in automatic mode at its minimum speed). When someone returns, it goes back to medium speed.
+When the last person leaves home, the ventilation is set to Away mode to save energy.
 
 ```yaml
-- alias: "Ventilation off on leave"
+- alias: "Ventilation away mode on leave"
   triggers:
     - trigger: state
       entity_id: zone.home
       to: "0"
   actions:
-    - action: fan.turn_off
+    - action: fan.set_preset_mode
       target:
-        entity_id: fan.living_manual_control
+        entity_id: fan.living_ventilation
+      data:
+        preset_mode: away
 
-- alias: "Ventilation on on arrive"
+- alias: "Ventilation auto mode on arrive"
   triggers:
     - trigger: numeric_state
       entity_id: zone.home
       above: 0
   actions:
-    - action: fan.set_percentage
+    - action: fan.set_preset_mode
       target:
-        entity_id: fan.living_manual_control
+        entity_id: fan.living_ventilation
       data:
-        percentage: 66
+        preset_mode: auto
 ```
 
 ## Data updates
@@ -137,9 +140,9 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 
 ## Known limitations
 
+- Timed presets (Low, Medium, High without "permanent") follow Duco's internal timer. Home Assistant cannot configure the override duration.
 - The integration does not yet expose CO₂ and humidity sensor data from connected Duco modules. This is planned for a future update.
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
-- **Write rate limit**: The DUCO Connectivity Board firmware allows approximately 200 write requests per hour. Rapid successive changes (for example, clicking the speed slider quickly) can trigger a rate limit error. If this happens, Home Assistant will show an error notification and you should wait a few minutes before trying again. The quota resets automatically.
 
 ## Troubleshooting
 
