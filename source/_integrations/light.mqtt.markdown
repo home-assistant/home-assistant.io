@@ -450,8 +450,6 @@ In this section you will find some real-life examples of how to use this sensor.
 
 To enable a light with brightness and RGB support in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -471,8 +469,6 @@ mqtt:
       payload_off: "OFF"
       optimistic: false
 ```
-
-{% endraw %}
 
 ### Brightness and no RGB support
 
@@ -1213,8 +1209,6 @@ In this section you find some real-life examples of how to use this light.
 
 For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -1231,13 +1225,9 @@ mqtt:
       blue_template: "{{ value.split(',')[2].split('-')[2] }}"
 ```
 
-{% endraw %}
-
 ### JSON payload
 
 For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your {% term "`configuration.yaml`" %} file:
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1273,16 +1263,12 @@ mqtt:
       effect_template: '{{ value_json.effect }}'
 ```
 
-{% endraw %}
-
 ### CCT light (brightness and temperature)
 
 This example comes from a configuration of Shelly RGBW Bulb working in White mode.
 `max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.
 The code also ensures bi-directional conversion of brightness scale between 0-100 (required by the device) and 0-255 (required by Home Assistant).
 Add the following to your {% term "`configuration.yaml`" %} file:
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1314,8 +1300,6 @@ mqtt:
       retain: false
       optimistic: false  
 ```
-
-{% endraw %}
 
 ### Template schema - No brightness or color support
 
