@@ -189,7 +189,7 @@
 
 <li>
   {% icon "mdi:code-braces" %} {% active_link /docs/templating/ Templating %}
-  {% if doc == 'templating' or include.docs_index %}
+  {% if doc == 'templating' or root == 'template-functions' or include.docs_index %}
   <ul>
     <li>{% active_link /docs/templating/introduction/ Introduction %}</li>
     <li>{% active_link /docs/templating/where-to-use/ Where to use templates %}</li>

@@ -108,7 +108,7 @@ See [Types and conversion](/docs/templating/types/#iterables-look-like-lists-but
 
 **What it means.** After `is`, you used a test name the engine does not know.
 
-**How to fix it.** Check the test name against the [template functions reference](/template-functions/category/comparison/). Common tests are [`defined`](/template-functions/defined/), [`none`](/template-functions/none/), `number`, [`string`](/template-functions/string/), `boolean`, [`iterable`](/template-functions/iterable/), [`mapping`](/template-functions/mapping/), [`even`](/template-functions/even/), [`odd`](/template-functions/odd/), [`eq`](/template-functions/eq/), [`gt`](/template-functions/gt/), [`lt`](/template-functions/lt/), and `in`. Aliases like `equalto`, `greaterthan`, and `lessthan` also work.
+**How to fix it.** Check the test name against the [template functions reference](/template-functions/#comparison). Common tests are [`defined`](/template-functions/defined/), [`none`](/template-functions/none/), `number`, [`string`](/template-functions/string/), `boolean`, [`iterable`](/template-functions/iterable/), [`mapping`](/template-functions/mapping/), [`even`](/template-functions/even/), [`odd`](/template-functions/odd/), [`eq`](/template-functions/eq/), [`gt`](/template-functions/gt/), [`lt`](/template-functions/lt/), and `in`. Aliases like `equalto`, `greaterthan`, and `lessthan` also work.
 
 ## UndefinedError: 'states' has no attribute 'sensor'
 

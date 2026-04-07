@@ -1,10 +1,9 @@
 ---
 title: "Template functions"
 description: "Reference of all template functions, filters, and tests available in Home Assistant."
-sidebar: false
 feedback: false
-body_id: components-page
 regenerate: false
+toc: true
 ---
 
 {%- assign all_functions = site.template_functions | sort: 'function_name' -%}
@@ -32,7 +31,8 @@ regenerate: false
         {%- assign cat_functions = all_functions | where: 'category', cat.key -%}
         {%- if cat_functions.size > 0 -%}
         <div class="tf-category" data-category="{{ cat.key }}">
-          <h3><iconify-icon inline icon="{{ cat.icon }}"></iconify-icon> {{ cat.label }}</h3>
+          <h3 id="{{ cat.key }}"><iconify-icon inline icon="{{ cat.icon }}"></iconify-icon> {{ cat.label }}</h3>
+          {%- if cat.description -%}<p>{{ cat.description }}</p>{%- endif -%}
           <ul class="tf-list">
             {%- for func in cat_functions -%}
             <li class="tf-item" data-title="{{ func.function_name | downcase }} {{ func.title | downcase }}{% if func.aliases %} {{ func.aliases | join: ' ' | downcase }}{% endif %}" data-desc="{{ func.description | downcase }}">
