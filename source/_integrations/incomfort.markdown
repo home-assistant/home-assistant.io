@@ -103,8 +103,6 @@ This integration follows standard integration removal, no extra steps are requir
 
 To send an alert if the CV pressure is too low or too high, consider the following example:
 
-{% raw %}
-
 ```yaml
 - alias: "Low CV Pressure Alert"
   triggers:
@@ -119,7 +117,5 @@ To send an alert if the CV pressure is too low or too high, consider the followi
           {{ trigger.to_state.attributes.friendly_name }}
           is low, {{ trigger.to_state.state }} bar.
 ```
-
-{% endraw %}
 
 Other properties are available via each device's attributes.

@@ -245,8 +245,6 @@ the device `Button1` with event type `single` to the required format.
 An extra attribute `button` will be set to `Button1` and be added to the entity,
 but only if the `Action` property is set. Empty dictionaries will be ignored.
 
-{% raw %}
-
 ```yaml
 mqtt:
   - event:
@@ -264,5 +262,3 @@ mqtt:
         {% endif %}
         {% endfor %} }
 ```
-
-{% endraw %}
