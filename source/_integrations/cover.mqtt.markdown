@@ -248,7 +248,7 @@ retain:
   type: boolean
   default: false
 set_position_template:
-  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available: `entity_id`, `position`, the target position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/templating/states/) template function;"
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{ position }}`. Within the template the following variables are available: `entity_id`, `position`, the target position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/templating/states/) template function;"
   required: false
   type: template
 set_position_topic:
@@ -350,7 +350,6 @@ In this section you will find some real-life examples of how to use this platfor
 
 The example below shows a full configuration for a cover without tilt with state topic only.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -376,13 +375,11 @@ mqtt:
       value_template: "{{ value.x }}"
 ```
 
-{% endraw %}
 
 ### Full configuration position topic without tilt
 
 The example below shows a full configuration for a cover without tilt with position topic.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -407,13 +404,11 @@ mqtt:
       value_template: "{{ value.x }}"
 ```
 
-{% endraw %}
 
 ### Full configuration for position, state and tilt
 
 The example below shows a full configuration for a cover with position, state & tilt.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -448,13 +443,11 @@ mqtt:
       tilt_opened_value: 180
 ```
 
-{% endraw %}
 
 ### Full configuration using stopped state
 
 The example below shows a full configuration for a cover using stopped state.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -481,14 +474,12 @@ mqtt:
       position_template: "{{ value.y }}"
 ```
 
-{% endraw %}
 
 ### Configuration for disabling cover commands
 
 The example below shows a configuration for a cover that does not have a close command.
 Setting `payload_close` empty or to `null` disables the close command and will not show the close button.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -499,11 +490,9 @@ mqtt:
       payload_stop: "on"
 ```
 
-{% endraw %}
 The following commands can be disabled: `open`, `close`, `stop` by overriding their payloads: `payload_open`, `payload_close`, `payload_stop`
 
 For auto discovery message the payload needs to be set to `null`, example for cover without close command:
-{% raw %}
 
 ```json
 {
@@ -517,13 +506,11 @@ For auto discovery message the payload needs to be set to `null`, example for co
 }
 ```
 
-{% endraw %}
 
 ### Full configuration using `entity_id`- variable in the template
 
 The example below shows an example of how to correct the state of the blind depending if it moved up, or down.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -553,7 +540,6 @@ mqtt:
         {% endif %}
 ```
 
-{% endraw %}
 
 ### Full configuration using advanced templating
 
@@ -569,7 +555,6 @@ Following variable might be used in `position_template`, `set_position_template`
 - `tilt_min`
 - `tilt_max`
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -625,7 +610,6 @@ mqtt:
       payload_stop: "on"
 ```
 
-{% endraw %}
 
 ### Testing your configuration
 

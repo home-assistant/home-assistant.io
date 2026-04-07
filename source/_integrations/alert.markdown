@@ -163,7 +163,6 @@ disable the alert on certain days. Maybe the alert firing should depend on more
 than one input. For all of these situations, it is best to use the alert in
 conjunction with a `Template Binary Sensor`. The following example does that.
 
-{% raw %}
 
 ```yaml
 template:
@@ -182,7 +181,6 @@ alert:
       - kristens_phone
 ```
 
-{% endraw %}
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
@@ -227,7 +225,6 @@ can be used in the message or name of the alert to make it more relevant.
 The following will show for a plant how to include the problem `attribute`
 of the entity.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -246,7 +243,6 @@ alert:
       - kristens_phone
 ```
 
-{% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 

@@ -301,7 +301,6 @@ As **Command line** {% term integration %} is a yaml only integration, turning o
 
 Entering this example in your configuration sets the default logging to info, and for `command_line` to debug. Once done, restart Home Assistant to enable.
 
-{% raw %}
 ```yaml
 # Set logging
 logger:
@@ -323,7 +322,6 @@ While `command` is accepting a template for `sensor` and `binary_sensor`, it's o
 
 To use your Command binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -344,7 +342,6 @@ A `command_line`cover platform that issues specific commands when it is moved up
 
 To enable a command line cover in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -362,7 +359,6 @@ The `command_line` platform allows you to use external tools for notifications f
 
 To enable those notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -377,7 +373,6 @@ To use notifications, please see the [getting started with automation page](/get
 
 To enable it, add the following lines to your {% term "`configuration.yaml`" %}:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -397,7 +392,6 @@ controlled from the command line, including calling other scripts!
 
 To enable it, add the following lines to your {% term "`configuration.yaml`" %}:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -438,7 +432,6 @@ In this section you find some real-life examples of how to use the command_line 
 
 Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instance.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -455,7 +448,6 @@ command_line:
 
 Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 
-{% raw %}
 ```yaml
 command_line:
   - binary_sensor:
@@ -469,7 +461,6 @@ command_line:
 
 An alternative solution could look like this:
 
-{% raw %}
 ```yaml
 command_line:
   - binary_sensor:
@@ -487,7 +478,6 @@ Consider to use the [ping sensor](/integrations/ping#binary-sensor) as an altern
 
 The services running is listed in `/etc/systemd/system` and can be checked with the `systemctl` command:
 
-{% raw %}
 ```bash
 $ systemctl is-active home-assistant@rock64.service
 active
@@ -499,7 +489,6 @@ inactive
 
 A binary command line sensor can check this:
 
-{% raw %}
 ```yaml
 command_line:
   - binary_sensor:
@@ -511,7 +500,6 @@ command_line:
 
 ## Example cover platform
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -538,7 +526,6 @@ In this section you find some real-life examples of how to use this sensor.
 
 Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -555,7 +542,6 @@ command_line:
 
 You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
-{% raw %}
 ```yaml
 command_line:
   - sensor:
@@ -568,7 +554,6 @@ command_line:
 
 If you own devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value.
 
-{% raw %}
 ```yaml
 command_line:
   - sensor:
@@ -583,7 +568,6 @@ The example is doing the same as the [aREST sensor](/integrations/arest#sensor) 
 
 The one-line script to retrieve a value is shown below. Of course it would be possible to use this directly in the {% term "`configuration.yaml`" %} file but need extra care about the quotation marks.
 
-{% raw %}
 ```bash
 python3 -c "import requests; print(requests.get('http://10.0.0.48/analog/2').json()['return_value'])"
 ```
@@ -591,7 +575,6 @@ python3 -c "import requests; print(requests.get('http://10.0.0.48/analog/2').jso
 
 The script (saved as `arest-value.py`) that is used looks like the example below.
 
-{% raw %}
 ```python
 #!/usr/bin/python3
 from requests import get
@@ -603,7 +586,6 @@ print(response.json()["return_value"])
 
 To use the script you need to add something like the following to your {% term "`configuration.yaml`" %} file.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -617,7 +599,6 @@ command_line:
 
 [Templates](/docs/templating/) are supported in the `command` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -632,7 +613,6 @@ command_line:
 
 The example shows how you can retrieve multiple values with one sensor (where the additional values are attributes) by using `value_json` and `json_attributes`.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -648,7 +628,6 @@ command_line:
 
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath.
 
-{% raw %}
 
 ```yaml
 command_line:
@@ -664,7 +643,6 @@ command_line:
       value_template: "{{ value_json[0].name }}"
 ```
 
-{% endraw %}
 
 ## Example switch platform
 
@@ -672,7 +650,6 @@ command_line:
 
 This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
-{% raw %}
 ```yaml
 command_line:
   - switch:
@@ -698,7 +675,6 @@ The example below is doing the same as the
 The command line tool [`curl`](https://curl.haxx.se/) is used to toggle a pin
 which is controllable through REST.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -724,7 +700,6 @@ This switch will shutdown your system that is hosting Home Assistant.
 This switch will shutdown your host immediately, there will be no confirmation.
 {% endwarning %}
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -739,7 +714,6 @@ command_line:
 This switch will control a local VLC media player
 ([Source](https://community.home-assistant.io/t/106)).
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:
@@ -757,7 +731,6 @@ Commands ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Fosca
 This switch supports statecmd,
 which checks the current state of motion detection.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 command_line:

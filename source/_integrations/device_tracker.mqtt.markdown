@@ -265,7 +265,6 @@ mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/attribut
 
 The following example shows how to configure the same device tracker through configuration.yaml
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -277,4 +276,3 @@ mqtt:
       payload_not_home: "not_home"
 ```
 
-{% endraw %}

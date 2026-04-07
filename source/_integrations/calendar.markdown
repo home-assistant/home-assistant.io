@@ -114,7 +114,6 @@ This example automation consists of:
 - Send a notification with the title and start time of the event.
 - Allowing multiple events starting at the same time.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Calendar notification"
@@ -129,7 +128,6 @@ automation:
             Event {{ trigger.calendar_event.summary }} @
             {{ trigger.calendar_event.start }}
 ```
-{% endraw %}
 
 {% enddetails %}
 
@@ -141,7 +139,6 @@ This example consists of:
 - When event summary contains `Front Lights`.
 - Turn on and off light named `light.front` when the event starts and ends.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Front Light Schedule"
@@ -167,7 +164,6 @@ automation:
             target:
               entity_id: light.front
 ```
-{% endraw %}
 
 {% enddetails %}
 
@@ -210,7 +206,6 @@ data:
 
 Home Assistant Calendars do not allow zero duration Calendar events. The following would create a one minute long event starting "now". This could be used to record an external event in a Calendar.
 
-{% raw %}
 ```yaml
 action: calendar.create_event
 target:
@@ -220,7 +215,6 @@ data:
   start_date_time: "{{ now() }}"
   end_date_time: "{{ now() + timedelta(minutes=1) }}"
 ```
-{% endraw %}
 
 
 ### Action: Get events
@@ -262,7 +256,6 @@ Every calendar entity has a field `events` containing a list of events with thes
 
 This example uses a template with response data in another action:
 
-{% raw %}
 ```yaml
 action: notify.nina
 data:
@@ -277,4 +270,3 @@ data:
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
 ```
-{% endraw %}

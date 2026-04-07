@@ -58,7 +58,6 @@ Set the TXT record of your Duck DNS subdomain.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 action: duckdns.set_txt
@@ -67,7 +66,6 @@ data:
   txt: LoqXcYV8...jxAjEuX0.9jg46WB3...fm21mqTI # Replace with a valid ACME DNS-01 challenge
 ```
 
-{% endraw %}
 
 {% enddetails %}
 

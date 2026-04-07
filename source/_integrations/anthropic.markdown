@@ -168,7 +168,6 @@ You can set the Claude AI Task entity as the default AI Task entity. To do this,
 You can use `conversation.process` and `ai_task.generate_data` actions in your scripts and automations.
 Here is a simple automation that implements a Claude Telegram chatbot using [Telegram bot integration](/integrations/telegram_bot):
 
-{% raw %}
 
 ```yaml
 triggers:
@@ -191,7 +190,6 @@ actions:
       config_entry_id: "{{ trigger.to_state.attributes.bot.config_entry_id }}"
 ```
 
-{% endraw %}
 
 ## Troubleshooting
 

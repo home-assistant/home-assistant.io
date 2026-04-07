@@ -244,7 +244,6 @@ mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m '{"state":"OFF"}'
 
 The example below shows a full configuration for a binary sensor:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -262,11 +261,9 @@ mqtt:
       value_template: "{{ value_json.state }}"
 ```
 
-{% endraw %}
 
 ### Toggle the binary sensor each time a message is received on state_topic
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -276,7 +273,6 @@ mqtt:
       value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
 ```
 
-{% endraw %}
 
 ### Get the state of a device with ESPEasy
 
