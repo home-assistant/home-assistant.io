@@ -102,7 +102,7 @@ Context is a property used in state objects and events. It ties {% term events %
   
   ```jinja
   {{ states.switch.my_switch.context.id }}
-    ```
+  ```
 
   result type: `string` representing an id code, for example  
   `01K9SF2R36KRV5N4PTC38S6KJ2F`

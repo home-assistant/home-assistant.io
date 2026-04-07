@@ -115,22 +115,6 @@ output: |
 
 If you need more indentation on specific lines (for example, centered text), add it with the template itself rather than with extra YAML indentation.
 
-## Escaping: the `raw` block
-
-Sometimes you want to show a template as literal text, not have it be evaluated. For example, in a notification that teaches someone how to write a template. Wrap that part in `` and ``.
-
-{% example %}
-automation: |
-  message: |
-    Write a template like this:
-    {{ states('sensor.temp') }}
-output: |
-  Write a template like this:
-  {{ states('sensor.temp') }}
-{% endexample %}
-
-Without the `raw` block, the template engine would try to evaluate `{{ states('sensor.temp') }}` and insert the sensor's value instead of showing the raw text.
-
 ## Common mistakes
 
 - **Unquoted single-line template**. YAML will complain about the `{{`. Add quotes.
