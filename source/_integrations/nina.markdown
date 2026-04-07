@@ -167,7 +167,7 @@ Target:
 
 #### Response data
 
-The response data is a string with the description as provided by NINA.
+The response data is a string with the recommended actions as provided by NINA.
 
 ## Data updates
 
