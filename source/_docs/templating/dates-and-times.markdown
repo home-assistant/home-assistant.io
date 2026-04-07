@@ -10,7 +10,7 @@ related:
     title: "`timestamp_custom` filter"
   - docs: /template-functions/relative_time/
     title: "`relative_time` function"
-  - docs: /template-functions/category/datetime/
+  - docs: /template-functions/#datetime
     title: All date and time functions
   - url: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
     title: Python strftime format codes
@@ -232,6 +232,6 @@ If you need to compare datetimes, both sides need to be in the same time zone. [
 
 ## Next steps
 
-- See the [full list of date and time functions](/template-functions/category/datetime/) in the reference.
+- See the [full list of date and time functions](/template-functions/#datetime) in the reference.
 - For common date/time recipes, see [Common template patterns](/docs/templating/patterns/).
 - The [Python methods](/docs/templating/python-methods/) page covers `.strftime()`, `.weekday()`, and similar datetime methods.

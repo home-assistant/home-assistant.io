@@ -6,7 +6,7 @@
         {%- assign cat_count = site.template_functions | where: 'category', cat.key | size -%}
         {%- if cat_count > 0 -%}
         <li{% if cat.key == page.category %} class="active"{% endif %}>
-          <a href='/template-functions/category/{{ cat.key }}/'><iconify-icon inline icon='{{ cat.icon }}'></iconify-icon> {{ cat.label }}</a>
+          <a href='/template-functions/#{{ cat.key }}'><iconify-icon inline icon='{{ cat.icon }}'></iconify-icon> {{ cat.label }}</a>
         </li>
         {%- endif -%}
       {%- endfor -%}

@@ -220,7 +220,7 @@ output: |
   True
 {% endexample %}
 
-Useful type tests: `number`, [`string`](/template-functions/string/), `boolean`, `integer`, [`float`](/template-functions/float/), [`iterable`](/template-functions/iterable/), [`mapping`](/template-functions/mapping/), [`none`](/template-functions/none/), [`defined`](/template-functions/defined/). See the [Comparison](/template-functions/category/comparison/) category in the reference for the full list.
+Useful type tests: `number`, [`string`](/template-functions/string/), `boolean`, `integer`, [`float`](/template-functions/float/), [`iterable`](/template-functions/iterable/), [`mapping`](/template-functions/mapping/), [`none`](/template-functions/none/), [`defined`](/template-functions/defined/). See the [Comparison](/template-functions/#comparison) category in the reference for the full list.
 
 ## Common type mistakes
 
