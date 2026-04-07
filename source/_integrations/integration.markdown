@@ -1,6 +1,6 @@
 ---
 title: Integral
-description: Instructions on how to integrate Integration Sensor into Home Assistant.
+description: Instructions on how to integrate Integration Sensor into Home Assistant. Note: The integral sensor persists its value across Home Assistant restarts.
 ha_category:
   - Energy
   - Helper
