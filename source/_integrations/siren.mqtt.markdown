@@ -265,8 +265,6 @@ In this section, you will find an example of how to use this siren platform.
 
 The example below shows a full configuration for a siren.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -289,13 +287,9 @@ mqtt:
       retain: true
 ```
 
-{% endraw %}
-
 ### On/Off only siren controlling a Tasmota relay
 
 The example below shows a configuration for an On/Off type siren, which does not accept JSON commands.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -313,8 +307,6 @@ mqtt:
       payload_available: "Online"
       payload_not_available: "Offline"
 ```
-
-{% endraw %}
 
 For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your siren manually:
 

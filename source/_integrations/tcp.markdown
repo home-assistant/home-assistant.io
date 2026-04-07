@@ -100,8 +100,6 @@ $ echo "r WaterPressure" | nc 10.0.0.127 8888
 
 You will notice that the output from the service is not just a single value (it contains ";ok" as well). To grab the value we're interested in, we can use a Jinja2 template. The response received is injected into the template as the `value` variable. To use this value within Home Assistant, use the following configuration:
 
-{% raw %}
-
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -114,8 +112,6 @@ sensor:
     value_template: "{{ value.split(';')[0] }}"
     unit_of_measurement: Bar
 ```
-
-{% endraw %}
 
 #### hddtemp
 
@@ -138,8 +134,6 @@ Escape character is '^]'.
 
 The entry for the `configuration.yaml` file for a `hddtemp` sensor could look like the example below.
 
-{% raw %}
-
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -152,9 +146,6 @@ sensor:
     value_template: "{{ value.split('|')[3] }}"
     unit_of_measurement: "°C"
 ```
-
-{% endraw %}
-
 
 ## Binary sensor
 

@@ -291,8 +291,6 @@ For all `*_state_topic`s, a template can be specified that will be used to rende
 
 Say you receive the operation mode `"off"` via your `mode_state_topic`, but the mode is actually called just `off`, here's what you could do:
 
-{% raw %}
-
 ```yaml
 mqtt:
   - water_heater:
@@ -306,8 +304,6 @@ mqtt:
       mode_state_template: "{{ value_json }}"
 ```
 
-{% endraw %}
-
 This will parse the incoming `"off"` as JSON, resulting in `off`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
 
 Similarly for `*_command_topic`s, a template can be specified to render the outgoing payloads on these topics.
@@ -315,8 +311,6 @@ Similarly for `*_command_topic`s, a template can be specified to render the outg
 ## Example
 
 A full configuration example looks like the one below.
-
-{% raw %}
 
 ```yaml
 # Full example configuration.yaml entry
@@ -335,5 +329,3 @@ mqtt:
       current_temperature_topic: "basement/boiler/current_temperature"
       precision: 1.0
 ```
-
-{% endraw %}

@@ -248,8 +248,6 @@ Images:
 
 Send a notification to your mobile phone if at least one door is open for 5 minutes.
 
-{% raw %}
-
 ```yaml
 alias: Notify me if doors are left open for 5 minutes
 description: ""
@@ -276,8 +274,6 @@ actions:
     action: notify.mobile_app_phone_john_doe
 mode: single
 ```
-
-{% endraw %}
 
 ### Estimated charging finish time
 
