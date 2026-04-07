@@ -2,6 +2,7 @@
 title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
 ha_category:
+  - Camera
   - Hub
   - Lawn mower
   - Vacuum
@@ -16,6 +17,7 @@ ha_domain: ecovacs
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - diagnostics
   - event
   - image
@@ -50,6 +52,8 @@ Additionally, **depending on your model**, the integration provides the followin
 
 - **Binary sensor**:
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
+- **Camera**:
+  - `Camera`: Live video stream from robots that support KVS (Kinesis Video Streams) WebRTC (e.g., Deebot X5 Pro Omni). Disabled by default. See [Camera](#camera) for setup instructions.
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
@@ -94,6 +98,45 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
   - `Safe protect`: Enable "Safe protect" feature. Disabled by default.
   - `True detect`: Enable "True detect" feature. Disabled by default.
+
+## Camera
+
+{% note %}
+The camera entity is only available for robots that support KVS (Kinesis Video Streams) WebRTC streaming, such as the **Deebot X5 Pro Omni**. Check your robot's app to see if it supports live video.
+{% endnote %}
+
+### Prerequisites
+
+To use the camera stream you need the **camera PIN** that was set during the initial setup of your robot in the Ecovacs app. This PIN is required by the robot firmware to authorize the WebRTC session.
+
+### Configuration
+
+1. In Home Assistant, go to **Settings** > **Devices & Services** > **Ecovacs**.
+2. Click **Configure** on your Ecovacs integration entry.
+3. In the **Camera** section, enter the camera PIN for each robot that supports it.
+4. Click **Submit**.
+
+After saving, a `camera` entity will be created for each configured robot (disabled by default). Enable it from the entity page to start receiving the live stream.
+
+### Enabling the camera entity
+
+The camera entity is **disabled by default** because it requires additional configuration (the PIN). Once you have set the PIN via the options flow:
+
+1. Go to **Settings** > **Devices & Services** > **Ecovacs** > your robot device.
+2. Find the `Camera` entity and click **Enable**.
+3. Open the camera entity to view the live stream.
+
+### Camera stream switch
+
+Each robot with a configured camera PIN also gets a **Camera stream** switch entity (in the **Switch** platform). This switch allows you to start or stop the WebRTC session independently of the camera entity itself. When the stream is inactive, the camera entity displays a black placeholder image instead of becoming unavailable.
+
+### Supported models
+
+| Model | Notes |
+|---|---|
+| Deebot X5 Pro Omni | Tested and confirmed working |
+
+Other models that use KVS WebRTC in the Ecovacs app may also work. If your model is not listed but supports camera streaming in the app, please open an issue and report your findings.
 
 ## Vacuum
 
