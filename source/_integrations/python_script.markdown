@@ -147,8 +147,6 @@ output["hello"] = f"hello {data.get('name', 'world')}"
 
 The above `python_script` can be called using the following YAML and return a result to later steps.
 
-{% raw %}
-
 ```yaml
 - action: python_script.hello_world
   response_variable: python_script_output
@@ -156,8 +154,6 @@ The above `python_script` can be called using the following YAML and return a re
   data:
     message: "{{ python_script_output['hello'] }}"
 ```
-
-{% endraw %}
 
 ## Documenting your Python scripts
 

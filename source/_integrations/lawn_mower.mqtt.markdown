@@ -218,8 +218,6 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 The example below shows how to use a single command topic with a command template.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -234,5 +232,3 @@ mqtt:
       start_mowing_command_topic: "lawn_mower_plus/set"
       start_mowing_command_template: '{"activity": "{{ value }}"}' 
 ```
-
-{% endraw %}
