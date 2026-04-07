@@ -176,7 +176,11 @@ Home Assistant lost the connection to the Duco box during operation. This can ha
 
 #### Symptom
 
-Fan speed or preset changes appear to be ignored, and the Duco box does not respond as expected.
+Fan speed or preset changes fail with an error like:
+
+```
+Failed to perform the action fan/set_percentage. Failed to set ventilation state: Duco API error (429): {"Code":18,"Result":"FAILED"}
+```
 
 #### Description
 
