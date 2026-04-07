@@ -297,7 +297,14 @@ Follow this guide if you already are running a supported virtual machine hypervi
 
 {% if page.installation_type == 'macos' %}
 
-- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
+{% note %}
+**VirtualBox Bridged Networking Limitation on macOS**
+
+Bridged networking in VirtualBox requires your Mac to be connected to the local network via a physical Ethernet cable. VirtualBox bridging over Wi-Fi is known to fail frequently on macOS Monterey and later, typically preventing the VM from obtaining an IP address.
+
+If you must connect your Mac via Wi-Fi, or if VirtualBox is not supported on your Mac (e.g., on Apple Silicon), we recommend running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
+{% endnote %}
+
 {% endif %}
 
 ### Create the virtual machine
@@ -351,6 +358,7 @@ Minimum recommended assignments:
 
     1. While still in the **Settings** window, go to the **Network** section.
     2. Change the **Attached to** setting from **NAT** to **Bridged Adapter**.
+       - *macOS users: Bridged networking requires your Mac to be connected via a physical Ethernet cable. It does not work reliably over Wi-Fi.*
     3. Under **Name**, select the adapter you use for internet access. This allows Home Assistant to talk to other devices in your home.
     4. Select **OK**.
 

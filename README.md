@@ -33,13 +33,53 @@ Setting up to contribute to documentation and the process for submitting pull re
 Translations of the README are available in `README.translations.md`.
 The file currently includes English, Spanish, and French sections.
 
-## Language selector in the site navigation
+## Feature documentation: Language selector in the site navigation
 
-The site header now includes a language dropdown with English, Spanish, and French options.
+### Feature name
 
-- Use the dropdown in the top navigation to switch language labels.
-- Your selection is stored in local browser storage and reused on your next visit.
-- The feature currently translates top-level navigation labels.
+Header language selector
+
+### Introduction
+
+The header language selector helps you switch key navigation labels between English, Spanish, and French. It is designed to make the website easier to use for a broader audience while keeping the interface simple.
+
+### Purpose
+
+This feature makes top-level navigation easier to understand for visitors who prefer different languages.
+
+### Intended audience
+
+- Website visitors who prefer English, Spanish, or French labels
+- Contributors who maintain navigation content
+- Developers and reviewers validating multilingual UI behavior
+
+### Key functions
+
+1. Language selection from a dropdown
+
+	You can select one of the supported languages from the header dropdown: English, Spanish, or French.
+
+2. Navigation label translation
+
+	The feature translates top-level navigation labels in the header based on your selected language.
+
+3. Preference persistence
+
+	Your selected language is stored in your browser and reused when you return.
+
+### Examples
+
+- Example 1: New visitor switches language
+  - Open the site and select **Español** in the header dropdown.
+  - The top-level navigation labels update to Spanish.
+
+- Example 2: Returning visitor keeps language preference
+  - Select **Français** and then refresh the page.
+  - The header keeps French labels because your selection is saved in browser storage.
+
+### Conclusion
+
+The header language selector improves navigation clarity for a wider audience, reduces friction for non-English users, and provides a lightweight multilingual experience without changing core page content.
 
 ## Site preview
 
@@ -88,5 +128,9 @@ When you're done working on the site, run the following command to move the post
 ```bash
 bundle exec rake integrate
 ```
+
+## Recent Changes
+
+- **VirtualBox macOS Installation Limitations:** Updated `source/_includes/installation/operating_system.md` to document that bridged networking over Wi-Fi is unreliable on macOS Monterey and later. Added explicit recommendation to use UTM for Wi-Fi and Apple Silicon users instead of VirtualBox.
 
 [![Home Assistant - A project from the Open Home Foundation](https://www.openhomefoundation.org/badges/home-assistant.png)](https://www.openhomefoundation.org/)
