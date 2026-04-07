@@ -195,16 +195,12 @@ To test it publish an image URL to the topic from the console:
 mosquitto_pub -h <mqtt_broker> -t mynas/status/url -m "https://design.home-assistant.io/images/logo.png"
 ```
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   - image:
       url_topic: mynas/status/url
 ```
-
-{% endraw %}
 
 ### Example receiving images from a file
 
@@ -216,8 +212,6 @@ To test it, publish an image URL to the topic from the console:
 mosquitto_pub -h <mqtt_broker> -t mynas/status/file -f <logo.png>
 ```
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -225,5 +219,3 @@ mqtt:
       image_topic: mynas/status/file
       content_type: image/png
 ```
-
-{% endraw %}

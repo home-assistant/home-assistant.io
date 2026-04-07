@@ -68,8 +68,6 @@ Sensors update on the hour using cached API data, so they advance to the current
 
 Charge your electric vehicle when electricity prices are lowest:
 
-{% raw %}
-
 ```yaml
 alias: Charge EV at lowest price
 triggers:
@@ -82,8 +80,6 @@ actions:
     target:
       entity_id: switch.ev_charger
 ```
-
-{% endraw %}
 
 ## Troubleshooting
 
