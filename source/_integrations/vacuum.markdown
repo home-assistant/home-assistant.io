@@ -80,7 +80,7 @@ To create an automation that uses a vacuum trigger:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, select a vacuum trigger.
+4. From the search box, search for and select a vacuum trigger.
 5. Under **Targets**:
    - To monitor specific entities, select the entities.
    - To monitor all vacuum entities in an area or a floor, select the area or floor.
