@@ -83,11 +83,9 @@ Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 
 ## Supported functionality
 
-### Entities
-
 This integration provides the following entities for each warning slot.
 
-#### Sensors
+### Sensors
 
 - **Affected areas**:
   - **Description**: Areas affected by the warning.
@@ -108,7 +106,7 @@ This integration provides the following entities for each warning slot.
 - **Start**:
   - **Description**: Starting timestamp of the warning.
 
-#### Binary sensors
+### Binary sensors
 
 - **Warning**:
   - **Description**: Presence of a warning.
@@ -118,9 +116,8 @@ This integration provides the following entities for each warning slot.
 
 The following attributes are available for the warnings.
 
-| Attribute    | Description                            |
-| ------------ | -------------------------------------- |
-| `id` | *(str)* Individual ID for each warning. |
+- **Attributes**:
+  - `id`: Individual ID for each warning.
 
 ## Actions
 
