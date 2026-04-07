@@ -65,35 +65,47 @@ When you have several sensors of the same kind, you often want to pick out the e
 A [Group helper](/integrations/group/) can pick the minimum, maximum, or mean from a group of sensors and expose it as a regular sensor. No template needed if you only need the value.
 {% endtip %}
 
-**The warmest room:**
+**The lowest battery:**
+
+{% example %}
+template: |
+  {{
+    states.sensor
+    | selectattr('attributes.device_class', 'eq', 'battery')
+    | selectattr('entity_id', 'has_value')
+    | map(attribute='state')
+    | map('float')
+    | min
+    | round(0)
+  }}%
+output: "18%"
+{% endexample %}
+
+We gather all battery sensors, use [`has_value`](/template-functions/has_value/) to remove any that are `unknown` or `unavailable`, convert their states to numbers, then [`min`](/template-functions/min/) picks the smallest. The `| float` conversion is important because sensor states are text, and comparing text alphabetically gives wrong results (`"9"` would beat `"23"` because `"9"` comes after `"2"`).
+
+**The warmest room (with the room name):**
+
+The previous example gives you the value but not which sensor it came from. When you need both, loop through the sensors and track the winner in a [`namespace`](/template-functions/namespace/):
 
 {% example %}
 template: |
   {% set temps = states.sensor
      | selectattr('attributes.device_class', 'eq', 'temperature')
+     | selectattr('entity_id', 'has_value')
      | list %}
-  {% set warmest = temps | max(attribute='state') %}
-  {{ warmest.name }}: {{ warmest.state }}°C
+  {% set ns = namespace(warmest=temps[0]) %}
+  {% for sensor in temps %}
+    {% if sensor.state | float > ns.warmest.state | float %}
+      {% set ns.warmest = sensor %}
+    {% endif %}
+  {% endfor %}
+  {{ ns.warmest.name }}: {{ ns.warmest.state }}°C
 output: "Kitchen: 23.5°C"
 {% endexample %}
 
-We gather all temperature sensors, then ask [`max`](/template-functions/max/) to find the one with the highest `state` value. The result is the whole entity, so we can show both its name and its state.
+Same filtering as before, but instead of extracting the values and losing track of which entity they belong to, we keep the full entity reference. The loop compares each sensor's state as a number and remembers the winner. At the end, we can show both the name and the value.
 
-**The lowest battery:**
-
-{% example %}
-template: |
-  {% set batteries = states.sensor
-     | selectattr('attributes.device_class', 'eq', 'battery')
-     | rejectattr('state', 'in', ['unknown', 'unavailable'])
-     | list %}
-  {{ batteries | map(attribute='state') | map('float') | min | round(0) }}%
-output: "18%"
-{% endexample %}
-
-This one adds an important step: [`rejectattr`](/template-functions/rejectattr/) removes sensors that are offline, so they don't accidentally become "the lowest". We then turn the states into numbers and ask [`min`](/template-functions/min/) to find the smallest.
-
-See also [`map`](/template-functions/map/).
+See also [`map`](/template-functions/map/) and [`namespace`](/template-functions/namespace/).
 
 ## Safe numbers from a sensor
 
@@ -220,7 +232,7 @@ A [Group helper](/integrations/group/) with a `sum` type adds up its members and
 template: |
   {{ states.sensor
      | selectattr('attributes.device_class', 'eq', 'power')
-     | rejectattr('state', 'in', ['unknown', 'unavailable'])
+     | selectattr('entity_id', 'has_value')
      | map(attribute='state') | map('float') | sum | round(1) }} W
 output: "427.3 W"
 {% endexample %}
@@ -285,7 +297,7 @@ On dashboards, a grid of [Tile cards](/dashboards/tile/) shows individual entiti
 template: |
   {% for sensor in states.sensor
      | selectattr('attributes.device_class', 'eq', 'temperature')
-     | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
+     | selectattr('entity_id', 'has_value') %}
     {{ sensor.name }}: {{ sensor.state }}°C
   {% endfor %}
 output: |
