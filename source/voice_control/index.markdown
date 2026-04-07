@@ -152,7 +152,7 @@ Assist aims to support more languages than other voice assistants, but this is s
 		</select>
 	</div>
 	<div class="supported-cards">
-		<div class="supported-card local warning" data-state="3">
+		<div class="supported-card local check" data-state="3">
 			<div class="heading">
 				<span>Local</span>
 			</div>
@@ -164,7 +164,7 @@ Assist aims to support more languages than other voice assistants, but this is s
 			<div class="info state-2">Usable</div>
 			<div class="info state-3">Fully supported</div>
 		</div>
-		<div class="supported-card cloud check" data-state="-1">
+		<div class="supported-card cloud check" data-state="3">
 			<div class="heading">
 				<span>Home Assistant Cloud</span>
 			</div>
