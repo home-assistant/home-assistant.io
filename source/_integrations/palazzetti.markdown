@@ -154,7 +154,9 @@ actions:
       temperature: 16
     target:
       entity_id: climate.my_stove
-``` {% enddetails %}
+```
+
+{% enddetails %}
 
 ## Known limitations
 
