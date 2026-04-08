@@ -2,7 +2,7 @@
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
   {% assign video_id = "XyAL1to3Lm4" %}
-  {% assign show_livestream = true %}
+  {% assign show_livestream = false %}
 
   {% if show_livestream %}
   <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" rel="noopener noreferrer" style="
@@ -257,48 +257,25 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // 7 PM CEST = 17:00 UTC
-    var liveDate = new Date('2026-04-08T17:00:00Z');
-    var banner = document.querySelector('.livestream-card-banner');
-    var status = document.querySelector('.livestream-card-status');
-    var loaded = false;
-
-    var lazyLoadYouTube = function () {
-      if (loaded) return;
+    let loaded = false;
+    const lazyLoadYouTube = () => {
+      if (loaded) return; // Prevent multiple loads
       loaded = true;
-      var iframes = document.querySelectorAll('.livestream-card iframe[data-src]');
-      iframes.forEach(function (iframe) {
+      const iframes = document.querySelectorAll('.livestream-card iframe[data-src]');
+      iframes.forEach(iframe => {
         iframe.src = iframe.getAttribute('data-src');
         iframe.removeAttribute('data-src');
-        setTimeout(function () {
+        setTimeout(() => {
           iframe.parentElement.style.opacity = 1;
         }, 500);
       });
     };
 
-    function goLive() {
-      if (status) status.textContent = "We're live!";
-      document.addEventListener('scroll', lazyLoadYouTube, { once: true });
-      document.addEventListener('click', lazyLoadYouTube, { once: true });
-      document.addEventListener('mousemove', lazyLoadYouTube, { once: true });
-      document.addEventListener('touchstart', lazyLoadYouTube, { once: true });
-      document.addEventListener('touchmove', lazyLoadYouTube, { once: true });
-    }
-
-    // Show banner with slide-up
-    if (banner) {
-      requestAnimationFrame(function () {
-        banner.classList.add('livestream-card-banner--visible');
-      });
-    }
-
-    if (new Date() >= liveDate) {
-      goLive();
-    } else {
-      // Schedule the switch for when the stream goes live
-      var msUntilLive = liveDate - new Date();
-      setTimeout(goLive, msUntilLive);
-    }
+    document.addEventListener('scroll', lazyLoadYouTube, { once: true });
+    document.addEventListener('click', lazyLoadYouTube, { once: true });
+    document.addEventListener('mousemove', lazyLoadYouTube, { once: true });
+    document.addEventListener('touchstart', lazyLoadYouTube, { once: true });
+    document.addEventListener('touchmove', lazyLoadYouTube, { once: true });
   });
 </script>
 <!-- Right content ends -->
