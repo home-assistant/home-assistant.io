@@ -171,22 +171,22 @@ To create a token:
 - **CPU**: Percentage of CPU usage.
 - **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
 - **Disk**: Disk usage of the node/VM/LXC.
+- **Last backup** & **Backup duration**: Time and duration of the last backup on the node. Returns `unknown` if no backups exist.
 - **Max disk**: Maximum amount of available disk space.
 - **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
 - **Network input**: Amount of incoming network traffic since starting the node/VM/LXC.
 - **Network output**: Amount of outgoing network traffic since starting the node/VM/LXC.
-- **Status**: Current status of the node/VM/LXC.
 - **Uptime**: Time since the node/VM/LXC started.
 
 ### Binary sensor
 
-The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM state is running or off if the VM state is different.
-
-The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
+- **Backup status**: for the node. This will be **on** if the last backup was successful or **off** for any other state.
+- **Status**: for each VM/LXC. This will be **on** if the state is running or **off** for any other state.
 
 ### Button
 
+- **Create snapshot**: Creates a snapshot of a VM/LXC.
 - **Start**: Starts a node/VM/LXC.
 - **Start all**: Starts all VMs and LXCs known on a node.
 - **Stop**: Stops a node/VM/LXC.
@@ -206,7 +206,10 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
 ### Buttons not working
 
-If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example, `VM.PowerMgmt` on the relevant path). If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
+If you want to use the `button` entities to perform actions on your node(s), additional privileges may be required:
+- For actions related to power, such as start, stop or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerManagemt`, or role `PVEVMUser`.
+- To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
+If monitoring works (e.g. sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
 
 ### Diagnostic data
 

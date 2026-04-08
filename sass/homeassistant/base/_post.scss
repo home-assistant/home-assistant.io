@@ -134,3 +134,19 @@ article {
     }
   }
 }
+
+.wwha-footer-mobile {
+  display: none;
+
+  @media only screen and (max-width: $lap-end) {
+    display: block;
+  }
+}
+
+.wwha-sidebar-desktop {
+  display: block;
+
+  @media only screen and (max-width: $lap-end) {
+    display: none;
+  }
+}

@@ -39,12 +39,7 @@ Heatit are also serious about the impact they have beyond their products, with s
 
 Works with Home Assistant isn't just a badge: every certified product is rigorously tested by our in-house team to make sure it works seamlessly with Home Assistant out of the box. Brands joining the program also commit to long-term support and firmware updates, and to being an active, positive part of our community. Here's what's made the cut from Heatit:
 
-* <a href="https://heatit.com/product/10221/products/controllers/heatit-z-push-wall-controller-white-ral-9010-glossy/1107" target="_blank" rel="noopener">Heatit Z-Push Wall Controller</a>
-* <a href="https://heatit.com/product/10289/heatit-z-temp3-white-ral-9003/0" target="_blank" rel="noopener">Heatit Z-Temp3</a>
-* <a href="https://heatit.com/produkt/10413/heatit-z-trm6-dc-white-ral-9003" target="_blank" rel="noopener">Heatit Z-TRM6 DC</a>
-* <a href="https://heatit.com/product/10524/heatit-z-smoke2-detector-230vac" target="_blank" rel="noopener">Heatit Z-Smoke 2</a>
-* <a href="https://heatit.com/product/10194/products/controllers/heatit-zm-thermostat-16a/1107" target="_blank" rel="noopener">Heatit ZM Thermostat 16A</a>
-* <a href="https://heatit.com/produkt/10343/heatit-z-han2" target="_blank" rel="noopener">Heatit Z-HAN2</a>
+{% include integrations/device_list.html brand="heatit" %}
 
 Professionally built and designed to last, these devices cover both sides of a smart heating setup: the thermostats handle the actual temperature control, while the wall controller gives you a physical way to manage it all without reaching for your phone.
 

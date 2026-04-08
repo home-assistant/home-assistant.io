@@ -63,11 +63,11 @@ availability_topic:
   required: false
   type: string
 clean_segments_command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `clean_segments_command_topic`. The `value` variable contains a list of segment ID strings. 
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `clean_segments_command_topic`. The `value` variable contains a list of segment ID strings.
   required: false
   type: template
 clean_segments_command_topic:
-  description: The MQTT topic to publish a JSON list of segment ID strings for the segments that should be cleaned. Use the `clean_segments_command_template` option if another payload format is needed. The `clean_segments_command_topic` option needs to be configured together with the `segments` and the `unique_id` option.
+  description: The MQTT topic to publish a JSON list of segment ID strings for the segments that should be cleaned. Use the `clean_segments_command_template` option if another payload format is needed. The available segments must be provided by the vacuum in the `segments` attribute of the JSON payload published to `state_topic` before the MQTT vacuum will support cleaning segments. Using `clean_segments_command_topic` also requires that the MQTT vacuum has a `unique_id` configured.
   required: false
   type: string
 command_topic:
@@ -207,10 +207,6 @@ retain:
   required: false
   type: boolean
   default: false
-segments:
-  description: 'A list of segment areas the vacuum supports. The list can be with or without IDs. With IDs the `.` char is used as a separator, for example `["1.Living room",: "2.Kitchen"]`. Without IDs the names and IDs will be identical, for example `["Living room", "Kitchen"]`. The `segments` option needs to be configured together with the `clean_segments_command_topic` and the `unique_id` option.'
-  required: false
-  type: list
 send_command_topic:
   description: The MQTT topic to publish custom commands to the vacuum.
   required: false
@@ -220,7 +216,7 @@ set_fan_speed_topic:
   required: false
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `fan_speed` keys as shown in the [example](#configuration-example)."
+  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `fan_speed` and `segments` keys as shown in the [example](#configuration-example)."
   required: false
   type: string
 supported_features:
@@ -229,9 +225,9 @@ supported_features:
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `clean_spot`"
 unique_id:
-  description: "An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery or when segment cleaning is configured."
-  required: false
-  type: string
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
+   required: false
+   type: string
 {% endconfiguration %}
 
 ## Configuration example
@@ -253,9 +249,6 @@ mqtt:
         - send_command
       command_topic: "vacuum/command"
       clean_segments_command_topic: "vacuum/clean_segments"
-      segments:
-        - "1.Living room"
-        - "2.Kitchen"
       set_fan_speed_topic: "vacuum/set_fan_speed"
       fan_speed_list:
         - min
@@ -263,7 +256,6 @@ mqtt:
         - high
         - max
       send_command_topic: "vacuum/send_command"
-      unique_id: "mqtt_vc_031928332"
 ```
 
 ## MQTT Protocol
@@ -329,7 +321,11 @@ MQTT payload:
 ```json
 {
     "state": "docked",
-    "fan_speed": "off"
+    "fan_speed": "off",
+    "segments": {
+      "1": "Kitchen",
+      "2": "Living room"
+    }
 }
 ```
 
@@ -341,6 +337,8 @@ State has to be one of vacuum states supported by Home Assistant:
 - idle,
 - returning,
 - error.
+
+The optional `segments` attribute in the MQTT payload should contain a mapping of the available cleanable segments the MQTT vacuum can clean. When this mapping changes, Home Assistant can guide you through a repair flow will support to update the segment-to-area mapping for the vacuum.   
 
 ### Set Fan Speed
 
