@@ -1299,9 +1299,9 @@ Currently, the supported features are:
   - Reset filter
 
 {% note %}
-`Water interval` is most useful when `Water mode` is set to `Interval`.
+**Water interval** is most useful when **Water mode** is set to **Interval**.
 
-The diagnostic entities `Fault` and `Fault code` are disabled by default.
+The diagnostic entities **Fault** and **Fault code** are disabled by default.
 {% endnote %}
 
 ## Xiaomi IR Remote
