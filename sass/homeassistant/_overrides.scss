@@ -1108,9 +1108,15 @@ a.material-card:hover {
       display: flex;
       align-items: center;
       gap: 12px;
-      transform: translateY(100%);
-      transition: transform 0.4s ease-out;
+      transform: translateY(0);
 
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.4s ease-out;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
       &--visible {
         transform: translateY(0);
       }
