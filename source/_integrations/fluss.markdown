@@ -54,7 +54,7 @@ To get open/close status from your Fluss+ device, you need to have a sensor cabl
 
 ## Data updates
 
-The integration polls the Fluss+ cloud API every 30 seconds to update device status.
+The integration {% term polling polls %} the Fluss+ cloud API every 30 seconds to update device status.
 
 ## Known limitations
 
