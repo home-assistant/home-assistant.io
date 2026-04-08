@@ -106,7 +106,7 @@ keep_alive:
   required: false
   type: [time, integer]
 sensor_error_action:
-  description: Set what action to take when the temperature sensor is unavailable, unknown, or has an invalid value. Use `keep` to keep the current behavior, `force_off` to force the output off, or `force_on` to force the output on.
+  description: Set what action to take when the temperature sensor is unavailable, unknown, or has an invalid value. Accepted values are `keep` (behaves as if the temperature is within the target band), `force_off` (behaves as if there is no heating or cooling demand), and `force_on` (behaves as if there is heating or cooling demand).
   required: false
   default: keep
   type: string
@@ -154,7 +154,7 @@ Time for `min_cycle_duration`, `max_cycle_duration`, `cycle_cooldown` and `keep_
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
-If the temperature sensor becomes unavailable, unknown, or reports an invalid value, `current_temperature` is set to unavailable. You can choose how the thermostat should behave in that situation with `sensor_error_action` (`keep`, `force_off`, or `force_on`).
+If the temperature sensor becomes unavailable, unknown, or reports an invalid value, `current_temperature` is set to unavailable. You can control how the thermostat behaves in that situation using `sensor_error_action`. All actions (`keep`, `force_off`, and `force_on`) still respect `keep_alive`, `min_cycle_duration`, and `max_cycle_duration`, so your timing and safety rules remain active during a sensor outage.
 
 The thermostat also exposes these state attributes, which you can use in automations and templates:
 
