@@ -1,24 +1,15 @@
 <!--  Left column begins -->
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
-    <!-- SOTOH 2026 - To move on/after event -->
-    <a href="https://sotoh.openhomefoundation.org/" class="material-card picture-promo" style="
-          background-image: url(/images/frontpage/sotoh-2026.webp);
-          background-size: cover;
-          padding-top: 55%;
-          aspect-ratio: 16/10;
-        " aria-label="Join us in Utrecht on April 8 for State of the Open Home 2026.">
-    </a>
-
-  {% assign video_id = "HSRvso6cbf0" %}
-  {% assign show_livestream = false %}
+  {% assign video_id = "XyAL1to3Lm4" %}
+  {% assign show_livestream = true %}
 
   {% if show_livestream %}
-  <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" style="
-      background-image: url(/images/frontpage/zbt-2-livestream.webp);
+  <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" rel="noopener noreferrer" style="
+      background-image: url(/images/frontpage/sotoh-2026-stream.webp);
       aspect-ratio: 16/9;
-    " aria-label="Home Assistant Livestream">
-    <div
+    " aria-label="Watch the State of the Open Home 2026 livestream on YouTube">
+    <div class="livestream-card-embed"
       style="position: absolute; pointer-events: none; inset: 0; opacity: 0; transition: opacity 1s; overflow: hidden; border-style: none;">
       <iframe
         style="aspect-ratio: 16/9; position: absolute; top:0; left: 50%; transform: translateX(-50%); height: 100%; border: 0; object-fit: cover;"
@@ -26,11 +17,21 @@
     </div>
     <div class="livestream-card-banner">
       <div>
-        <strong>We're live!</strong> Join the stream
+        <strong class="livestream-card-status">Live soon!</strong> <span class="livestream-card-subtitle">Join the stream</span>
       </div>
     </div>
   </a>
   {% endif %}
+
+    <!-- SOTOH 2026 - To move on/after event -->
+  <a href="https://sotoh.openhomefoundation.org/" class="material-card picture-promo" style="
+        background-image: url(/images/frontpage/sotoh-2026.webp);
+        background-size: cover;
+        padding-top: 55%;
+        aspect-ratio: 1200/600;
+        width: 100%;
+      " aria-label="Join us in Utrecht on April 8 for State of the Open Home 2026.">
+  </a>
 
   {% assign releases_post_limit = 2 %}
   {% assign blog_post_limit = 4 %}
@@ -256,25 +257,48 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    let loaded = false;
-    const lazyLoadYouTube = () => {
-      if (loaded) return; // Prevent multiple loads
+    // 7 PM CEST = 17:00 UTC
+    var liveDate = new Date('2026-04-08T17:00:00Z');
+    var banner = document.querySelector('.livestream-card-banner');
+    var status = document.querySelector('.livestream-card-status');
+    var loaded = false;
+
+    var lazyLoadYouTube = function () {
+      if (loaded) return;
       loaded = true;
-      const iframes = document.querySelectorAll('.livestream-card iframe[data-src]');
-      iframes.forEach(iframe => {
+      var iframes = document.querySelectorAll('.livestream-card iframe[data-src]');
+      iframes.forEach(function (iframe) {
         iframe.src = iframe.getAttribute('data-src');
         iframe.removeAttribute('data-src');
-        setTimeout(() => {
+        setTimeout(function () {
           iframe.parentElement.style.opacity = 1;
         }, 500);
       });
     };
 
-    document.addEventListener('scroll', lazyLoadYouTube, { once: true });
-    document.addEventListener('click', lazyLoadYouTube, { once: true });
-    document.addEventListener('mousemove', lazyLoadYouTube, { once: true });
-    document.addEventListener('touchstart', lazyLoadYouTube, { once: true });
-    document.addEventListener('touchmove', lazyLoadYouTube, { once: true });
+    function goLive() {
+      if (status) status.textContent = "We're live!";
+      document.addEventListener('scroll', lazyLoadYouTube, { once: true });
+      document.addEventListener('click', lazyLoadYouTube, { once: true });
+      document.addEventListener('mousemove', lazyLoadYouTube, { once: true });
+      document.addEventListener('touchstart', lazyLoadYouTube, { once: true });
+      document.addEventListener('touchmove', lazyLoadYouTube, { once: true });
+    }
+
+    // Show banner with slide-up
+    if (banner) {
+      requestAnimationFrame(function () {
+        banner.classList.add('livestream-card-banner--visible');
+      });
+    }
+
+    if (new Date() >= liveDate) {
+      goLive();
+    } else {
+      // Schedule the switch for when the stream goes live
+      var msUntilLive = liveDate - new Date();
+      setTimeout(goLive, msUntilLive);
+    }
   });
 </script>
 <!-- Right content ends -->
