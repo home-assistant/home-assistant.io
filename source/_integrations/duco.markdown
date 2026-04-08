@@ -19,7 +19,7 @@ The **Duco** {% term integration %} allows you to monitor and control [Duco](htt
 
 ## Supported devices
 
-This integration communicates with the **DUCO Connectivity Board** (article 0000-4810) via its local REST API over WiFi or Ethernet.
+This integration communicates with the **DUCO Connectivity Board** (article 0000-4810) via its local REST API over Wi-Fi or Ethernet.
 
 Hardware revisions:
 
