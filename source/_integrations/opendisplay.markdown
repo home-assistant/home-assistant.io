@@ -60,10 +60,8 @@ If the encryption key changes after the device has been set up, Home Assistant w
 
 OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
 
-| Event type | Description |
-| --- | --- |
-| `button_down` | Fires when the button is pressed. |
-| `button_up` | Fires when the button is released. |
+- `button_down`: Fires when the button is pressed.
+- `button_up`: Fires when the button is released.
 
 {% note %}
 Events are detected by comparing consecutive BLE advertisements, so no active Bluetooth connection is needed. A very fast press-and-release between two advertisements may not be observed.
