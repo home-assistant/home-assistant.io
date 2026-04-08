@@ -156,6 +156,11 @@ Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 
 
 If the temperature sensor becomes unavailable, unknown, or reports an invalid value, `current_temperature` is set to unavailable. You can choose how the thermostat should behave in that situation with `sensor_error_action` (`keep`, `force_off`, or `force_on`).
 
+The thermostat also exposes these state attributes, which you can use in automations and templates:
+
+- `sensor_error`: `true` when the temperature sensor is unavailable, unknown, or has an invalid value; otherwise `false`
+- `sensor_error_action`: The configured `sensor_error_action` value
+
 Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
 ## Full YAML configuration example
