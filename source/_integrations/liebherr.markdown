@@ -99,9 +99,9 @@ The integration creates cover entities for appliances equipped with an AutoDoor 
 
 For appliances with multiple cooling zones, a separate cover entity is created for each zone that has an AutoDoor:
 
-- **Top zone AutoDoor**: AutoDoor for the uppermost compartment
-- **Middle zone AutoDoor**: AutoDoor for the middle compartment (if present)
-- **Bottom zone AutoDoor**: AutoDoor for the lowermost compartment (if present)
+- **Top zone AutoDoor**: Controls the automatic door for the uppermost compartment.
+- **Middle zone AutoDoor**: Controls the automatic door for the middle compartment (if present).
+- **Bottom zone AutoDoor**: Controls the automatic door for the lowermost compartment (if present).
 
 ### Lights
 
