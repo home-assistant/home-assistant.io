@@ -91,7 +91,7 @@ Read-only sensors for monitoring system metrics, such as:
 Adjustable numeric settings for fine-tuning device parameters, such as:
 
 - Battery charge current limits
-- Grid set point for ESS (Energy Storage System)
+- Grid set point for <abbr title="Energy Storage System">ESS</abbr>
 - Minimum state of charge limits
 - <abbr title="electric vehicle">EV</abbr> charger current limits
 
