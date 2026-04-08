@@ -66,7 +66,7 @@ The APsystems EZ1 inverter automatically shuts down at night when there is no so
 When the inverter comes back online, all sensors will update with current values.
 
 {% note %}
-If you start Home Assistant when the inverter is offline (for example, if you restart at night), the energy sensors may show as "unknown" until the inverter comes back online and provides initial values.
+If you start Home Assistant when the inverter is offline (for example, if you restart at night), the energy sensors may show as `unknown` until the inverter comes back online and provides initial values.
 {% endnote %}
 
 ## Flash Endurance
