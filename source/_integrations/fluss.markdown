@@ -17,18 +17,14 @@ ha_integration_type: integration
 ha_quality_scale: silver
 ---
 
-The **Fluss+** {% term integration %} allows you to control [Fluss+](https://fluss.io/) devices through Home Assistant. Fluss turns your phone into a remote key that can open your garage, your gate, your door or even the parking at your office - giving you complete control. The Home Assistant integration allows you to trigger Fluss+ devices via Wi-Fi to open or close a connected motor device.
+The **Fluss+** {% term integration %} allows you to control [Fluss+](https://fluss.io/) devices through Home Assistant. Fluss turns your phone into a remote key that can open your garage, your gate, your door or even the parking at your office - giving you complete control. The Home Assistant integration allows you to open and close Fluss+ devices directly from your dashboard, automations, or voice assistants - without relying solely on the Fluss+ mobile app.
 
 ## Prerequisites
 
-- A Fluss+ device (Can order here: https://fluss.io/flussplus).
-- A Fluss+ account.
-- The Fluss+ app installed on your smart phone.
-- A Fluss+ device physically connected to your device (for example, a garage door opener).
-- Fluss+ device connected to your Wi-Fi network and has internet access.
-- During setup of the integration in Home Assistant, you will be prompted to input your API key.
-  - You can request an API key in the Fluss+ app under your profile settings.
-  - The API key will allow you to access your Fluss+ devices and trigger them through Home Assistant.
+- A [Fluss+ device](https://fluss.io/flussplus) physically connected to your appliance (for example, a garage door opener). See the [Fluss+ installation guide](https://support.fluss.io/support/solutions/articles/73000716043-fluss-installation-guide) for details.
+- The Fluss+ app installed on your smartphone with your device claimed and connected to Wi-Fi. See the [Fluss+ app setup guide](https://support.fluss.io/support/solutions/articles/73000716042-fluss-app-setup-guide) for details.
+- An API key for your Fluss+ account. See [how to get an API key](https://support.fluss.io/support/solutions/articles/73000723498-how-to-get-an-api-key-on-fluss-) for instructions.
+- A Home Assistant instance set up and running.
 
 {% include integrations/config_flow.md %}
 
@@ -72,8 +68,8 @@ This integration follows standard integration removal.
 
 ### Invalid authentication
 
-If you receive an "invalid authentication" error, verify that your API key is correct. You can regenerate your API key in the Fluss+ app under your profile settings. If your API key has been revoked or changed, Home Assistant will prompt you to re-authenticate.
+If you receive an "invalid authentication" error, verify that your API key is correct. You can regenerate your API key in the Fluss+ app under your profile settings. If your API key has been revoked or changed, Home Assistant will prompt you to re-authenticate. See [how to get an API key](https://support.fluss.io/support/solutions/articles/73000723498-how-to-get-an-api-key-on-fluss-) for instructions.
 
 ### Device not appearing
 
-Ensure that Wi-Fi is enabled for the device in the Fluss+ app and that your account has the **canUseWiFi** permission for that device.
+Ensure that Wi-Fi is enabled for the device in the Fluss+ app and that your account has the **canUseWiFi** permission for that device. See the [Fluss+ app setup guide](https://support.fluss.io/support/solutions/articles/73000716042-fluss-app-setup-guide) for help connecting your device.
