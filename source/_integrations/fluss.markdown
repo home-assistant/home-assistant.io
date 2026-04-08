@@ -52,7 +52,6 @@ If your Fluss+ device reports an open/close status, it will appear as a **cover*
 
 To get open/close status from your Fluss+ device, you need to have a sensor cable set up. Without it, the device will not be able to report its state to Home Assistant. See the [Fluss+ sensor set up instructions](https://support.fluss.io/portal/en/kb/articles/sensor-set-up-instructions) for more information.
 
-
 ## Data updates
 
 The integration polls the Fluss+ cloud API every 30 seconds to update device status.
@@ -61,12 +60,6 @@ The integration polls the Fluss+ cloud API every 30 seconds to update device sta
 
 - Only devices with Wi-Fi capability enabled in the Fluss+ app are supported.
 - Devices that do not report an open/close status are limited to a trigger button without state feedback.
-
-## Removing the integration
-
-This integration follows standard integration removal.
-
-{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 
@@ -83,3 +76,9 @@ If your access type is correct but the device still does not appear, make sure t
 ### Device losing internet connectivity
 
 If your Fluss+ device is intermittently going unavailable in Home Assistant, it may be dropping its internet connection. See the [Fluss+ Wi-Fi disconnection troubleshooting guide](https://support.fluss.io/portal/en/kb/articles/solutions-for-wi-fi-disconnection-problems) for steps to resolve common connectivity issues.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
