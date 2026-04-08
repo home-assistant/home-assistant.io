@@ -21,10 +21,10 @@ The **Duco** {% term integration %} allows you to monitor and control [Duco](htt
 
 This integration communicates with the **DUCO Connectivity Board** (article 0000-4810) via its local REST API over WiFi or Ethernet.
 
-| Hardware | Status |
-|----------|--------|
-| DUCO Connectivity Board 1.0 | Supported |
-| DUCO Connectivity Board 2.0 | Not tested |
+Hardware revisions:
+
+- **DUCO Connectivity Board 1.0**: Supported
+- **DUCO Connectivity Board 2.0**: Not tested
 
 Compatible DucoBox models:
 
@@ -43,7 +43,7 @@ Compatible DucoBox models:
 
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of your DUCO Connectivity Board on the local network."
+  description: "The IP address or hostname of your DUCO Connectivity Board on the local network, for example `192.168.1.10`."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -54,17 +54,17 @@ The integration creates one device for the main Duco box. Connected modules (suc
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
 
-The fan is always on — turning it off hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation and the entity switches back to on to reflect the actual state. Because the entity is always on, the turn on action is never triggered.
+The fan is always on — turning it off hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation and the entity switches back to on to reflect the actual state. Calling the turn on action without a speed sets the ventilation to medium speed (CNT2).
 
-| Action | Result |
-|--------|--------|
-| Turn off | Hands control back to Duco (automatic mode). |
-| Speed 33% | Low speed manual override. |
-| Speed 66% | Medium speed manual override. |
-| Speed 100% | High speed manual override. |
-| Auto preset | Same as turn off: hands control back to Duco. |
+The following actions are available:
 
-When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode.
+- **Turn off**: Hands control back to Duco (automatic mode).
+- **Speed 33%**: Low speed manual override.
+- **Speed 66%**: Medium speed manual override.
+- **Speed 100%**: High speed manual override.
+- **Auto preset**: Same as turn off: hands control back to Duco.
+
+When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
 ## Use cases
 
@@ -110,9 +110,9 @@ When the last person leaves home, the ventilation hands control back to Duco (au
 ```yaml
 - alias: "Ventilation auto mode on leave"
   triggers:
-    - trigger: state
+    - trigger: numeric_state
       entity_id: zone.home
-      to: "0"
+      below: 1
   actions:
     - action: fan.turn_off
       target:
@@ -140,7 +140,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 - The integration does not yet expose CO₂ and humidity sensor data from connected Duco modules. This is planned for a future update.
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
 - The Duco box enforces a rate limit of approximately 200 write requests per hour (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
-- Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode.
+- Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 
 ## Troubleshooting
 
