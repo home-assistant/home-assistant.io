@@ -35,7 +35,7 @@ The Fluss+ integration provides the following configuration option:
 
 {% configuration_basic %}
 Device icon style:
-  description: Choose the icon that best represents your Fluss+ device. Options are **Gate**, **Garage**, **Door**, **Boom gate**, and **Barrier**. This changes the icon displayed for your Fluss+ entities in the dashboard. Defaults to **Garage**.
+  description: Choose the icon that best represents your Fluss+ device. Options are **Gate**, **Garage**, **Door**, **Boom gate**, and **Barrier**. This changes the icon displayed for your Fluss+ entities in the dashboard. Default: **Garage**.
 {% endconfiguration_basic %}
 
 ## Supported devices
