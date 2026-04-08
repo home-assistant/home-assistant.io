@@ -1157,7 +1157,18 @@ a.material-card:hover {
         display: block;
         width: 44px;
         height: 32px;
+        background-size: contain;
+        background-repeat: no-repeat;
         align-self: flex-end;
+
+        @media only screen and (max-width: $palm-end) {
+          width: 37px;
+          height: 27px;
+        }
+      }
+
+      @media only screen and (max-width: $palm-end) {
+        padding: 10px 12px;
       }
 
     }
