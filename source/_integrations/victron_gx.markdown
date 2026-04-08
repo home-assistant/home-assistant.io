@@ -2,8 +2,8 @@
 title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
-  - Sensor
   - Select
+  - Sensor
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
