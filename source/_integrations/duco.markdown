@@ -171,7 +171,7 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 
 Setting the fan speed or preset mode fails with an error like:
 
-```
+```text
 Failed to set ventilation state: DucoError('Duco API error (429): {"Code":18,"Result":"FAILED"}')
 ```
 
@@ -181,7 +181,7 @@ The Duco box enforces a write rate limit of 200 write requests per 24 hours via 
 
 You can check the remaining write budget by querying the box directly:
 
-```
+```text
 http://<host>/info?module=General&parameter=PublicApi
 ```
 
