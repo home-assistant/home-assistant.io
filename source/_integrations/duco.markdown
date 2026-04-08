@@ -165,6 +165,32 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
 4. If the Duco box received a new IP address from your router, reconfigure the integration with the updated address: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Duco**, and reconfigure the host.
 
+### Failed to set ventilation state (rate limit)
+
+#### Symptom
+
+Setting the fan speed or preset mode fails with an error like:
+
+```
+Failed to set ventilation state: DucoError('Duco API error (429): {"Code":18,"Result":"FAILED"}')
+```
+
+#### Description
+
+The Duco box enforces a write rate limit of 200 write requests per 24 hours via the public API. Each time you change the ventilation state (speed or preset), the counter decrements. When it reaches 0, the box rejects further write requests with a 429 error. The counter resets automatically after 24 hours.
+
+You can check the remaining write budget by querying the box directly:
+
+```
+http://<host>/info?module=General&parameter=PublicApi
+```
+
+The `WriteReqCntRemain` field shows how many write requests are still allowed.
+
+#### Resolution
+
+Wait 24 hours for the counter to reset. To avoid hitting the limit in the future, reduce the number of automations or scripts that change the ventilation state frequently.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
