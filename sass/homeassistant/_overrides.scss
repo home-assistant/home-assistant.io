@@ -1108,6 +1108,12 @@ a.material-card:hover {
       display: flex;
       align-items: center;
       gap: 12px;
+      transform: translateY(100%);
+      transition: transform 0.4s ease-out;
+
+      &--visible {
+        transform: translateY(0);
+      }
 
       div {
         flex-grow: 1;
