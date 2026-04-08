@@ -16,7 +16,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Mitsubishi Comfort** integration connects Mitsubishi Electric ductless minisplit heat pump and air conditioning systems to Home Assistant. It communicates directly with each indoor unit over your local network for low-latency control, using the Kumo Cloud account only for initial device discovery and credential retrieval.
+The **Mitsubishi Comfort** {% term integration %} connects Mitsubishi Electric ductless minisplit heat pump and air conditioning systems to Home Assistant. It communicates directly with each indoor unit over your local network for low-latency control, using the Kumo Cloud account only for initial device discovery and credential retrieval.
 
 This integration supports indoor units (full climate control) and Kumo Station outdoor units (temperature monitoring only).
 
