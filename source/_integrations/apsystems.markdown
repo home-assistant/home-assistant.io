@@ -60,8 +60,8 @@ The APsystems EZ1 inverter automatically shuts down at night when there is no so
 
 - **Power sensors** are set to `0 W`, as the inverter is not producing any power.
 - **Energy sensors** retain their last known values, preventing false spikes in your energy statistics when the inverter comes back online in the morning.
-- **Entities remain available** instead of showing as unavailable, since offline at night is expected behavior, not an error condition.
-- The **inverter connection status** sensor will turn off when the inverter is unreachable, allowing you to monitor its connectivity.
+- **Entities remain available** instead of showing as `unavailable`, since being offline at night is expected behavior, not an error condition.
+- The **inverter connection status** binary sensor is `on` when the inverter is reachable and `off` when it is unreachable, allowing you to monitor its connectivity.
 
 When the inverter comes back online, all sensors will update with current values.
 
