@@ -53,7 +53,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Binary sensor**:
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Camera**:
-  - `Camera`: Live video stream from robots that support KVS (Kinesis Video Streams) WebRTC (e.g., Deebot X5 Pro Omni). Disabled by default. See [Camera](#camera) for setup instructions.
+  - `Camera`: Live video stream from robots that support KVS (Kinesis Video Streams) WebRTC, for example the Deebot X5 Pro Omni. Disabled by default. See [Camera](#camera) for setup instructions.
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
@@ -111,10 +111,10 @@ To use the camera stream you need the **camera PIN** that was set during the ini
 
 ### Configuration
 
-1. In Home Assistant, go to **Settings** > **Devices & Services** > **Ecovacs**.
-2. Click **Configure** on your Ecovacs integration entry.
+1. In Home Assistant, go to **Settings** > **Devices & services** > **Ecovacs**.
+2. Select **Configure** on your Ecovacs integration entry.
 3. In the **Camera** section, enter the camera PIN for each robot that supports it.
-4. Click **Submit**.
+4. Select **Submit**.
 
 After saving, a `camera` entity will be created for each configured robot (disabled by default). Enable it from the entity page to start receiving the live stream.
 
@@ -122,8 +122,8 @@ After saving, a `camera` entity will be created for each configured robot (disab
 
 The camera entity is **disabled by default** because it requires additional configuration (the PIN). Once you have set the PIN via the options flow:
 
-1. Go to **Settings** > **Devices & Services** > **Ecovacs** > your robot device.
-2. Find the `Camera` entity and click **Enable**.
+1. Go to **Settings** > **Devices & services** > **Ecovacs** > your robot device.
+2. Find the `Camera` entity and select **Enable**.
 3. Open the camera entity to view the live stream.
 
 ### Camera stream switch
@@ -132,9 +132,7 @@ Each robot with a configured camera PIN also gets a **Camera stream** switch ent
 
 ### Supported models
 
-| Model | Notes |
-|---|---|
-| Deebot X5 Pro Omni | Tested and confirmed working |
+- Deebot X5 Pro Omni: Tested and confirmed working
 
 Other models that use KVS WebRTC in the Ecovacs app may also work. If your model is not listed but supports camera streaming in the app, please open an issue and report your findings.
 
