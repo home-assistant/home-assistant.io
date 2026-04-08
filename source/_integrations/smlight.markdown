@@ -133,7 +133,7 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 
 #### Infrared
 
-- **IR Emitter** - This entity can be used by other integrations as an [Infrared](/integrations/infrared/) proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity type to control your TV.
+- **IR Emitter**: This entity can be used by other integrations as an [Infrared](/integrations/infrared/) proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity type to control your TV.
 
 ## Removing the integration
 
