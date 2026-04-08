@@ -50,7 +50,7 @@ By default, your Fluss+ device will appear as a **button** entity. Pressing the 
 
 If your Fluss+ device reports an open/close status, it will appear as a **cover** entity. You can open and close the device from the Home Assistant dashboard. The cover state (open/closed) is updated automatically via polling.
 
-To get open/close status from your Fluss+ device, you need to have a sensor cable set up. Without it, the device will not be able to report its state to Home Assistant. See the [Fluss+ sensor set up instructions](https://support.fluss.io/portal/en/kb/articles/sensor-set-up-instructions) for more information.
+To get open/close status from your Fluss+ device, you need to have a sensor cable set up. Without it, the device will not be able to report its state to Home Assistant. See the [Fluss+ sensor setup instructions](https://support.fluss.io/portal/en/kb/articles/sensor-set-up-instructions) for more information.
 
 ## Data updates
 
