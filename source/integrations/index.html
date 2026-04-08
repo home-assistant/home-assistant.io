@@ -8,7 +8,7 @@ body_id: components-page
 regenerate: false
 ---
 
-{%- comment -%}Can't use where to count nil because of https://github.com/jekyll/jekyll/issues/6038{%- endcomment -%}
+{%- comment -%}Note: Can't use where to count nil due to Jekyll issue #6038{%- endcomment -%}
 {%- assign tot = 0 -%}
 {%- for comp in site.integrations -%}
 {%- if comp.ha_category -%}
