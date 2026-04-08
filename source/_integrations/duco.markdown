@@ -144,37 +144,22 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 
 ## Troubleshooting
 
-### Cannot connect to Duco box
+### Cannot connect to the Duco box
 
 #### Symptom
 
-The integration setup fails with a "Cannot connect" error.
+The integration setup fails with a "Cannot connect" error, or all entities show as unavailable after the integration was working correctly.
 
 #### Description
 
-Home Assistant cannot reach the Duco box at the configured address. This is usually a network connectivity issue.
+Home Assistant cannot reach the Duco box at the configured address. This can happen during initial setup or later during operation if the box is restarted, loses power, or its IP address changes.
 
 #### Resolution
 
 1. Check that the Duco box is powered on and connected to your local network.
 2. Confirm the IP address or hostname is correct by opening `http://<host>` in a browser on your local network.
-3. If the Duco box received a new IP address from your router, update the integration: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Duco**, and reconfigure the host.
-
-### Entities show as unavailable
-
-#### Symptom
-
-All entities show as unavailable after the integration was working correctly.
-
-#### Description
-
-Home Assistant lost the connection to the Duco box during operation. This can happen if the box is restarted, loses power, or its IP address changes.
-
-#### Resolution
-
-1. Check that the Duco box is powered on and reachable on your network.
-2. Reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
-3. If the box has a new IP address, reconfigure the integration with the updated address.
+3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
+4. If the Duco box received a new IP address from your router, reconfigure the integration with the updated address: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Duco**, and reconfigure the host.
 
 ## Removing the integration
 
