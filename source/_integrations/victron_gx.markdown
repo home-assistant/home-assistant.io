@@ -3,6 +3,7 @@ title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
   - Sensor
+  - Select
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@tomer-w'
 ha_domain: victron_gx
 ha_platforms:
+  - select
   - sensor
 ha_integration_type: hub
 related:
@@ -83,6 +85,15 @@ Read-only sensors for monitoring system metrics, such as:
 - Grid voltage, current, power, and energy consumption
 - Inverter input and output power, frequency, and state
 - <abbr title="electric vehicle">EV</abbr> charger status, power, and session energy
+
+#### Selects
+
+Configurable options for controlling device behavior, such as:
+
+- Inverter mode (on, off, eco, charger only)
+- Solar charger mode
+- Relay function configuration
+- <abbr title="electric vehicle">EV</abbr> charger charge mode
 
 ## Troubleshooting
 
