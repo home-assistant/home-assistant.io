@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: airq
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - number
   - sensor
 ha_zeroconf: true
@@ -114,3 +115,9 @@ In addition to sensor readings, this integration exposes the brightness of the d
 
 For troubleshooting or when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue reoccurs stop the debug logging, which will trigger the download of the debug log file.
 Enabling debug logging has a slight performance impact on the system and is not recommended for long-term use.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

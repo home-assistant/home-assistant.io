@@ -1,4 +1,8 @@
-@charset "UTF-8";
+@use 'variables' as *;
+@use 'mixins' as *;
+@use '../inuitcss/defaults' as *;
+@use '../inuitcss/generic/mixins' as *;
+@use "sass:color";
 
 h1.title.indent {
   font-size: 3.5rem;
@@ -553,12 +557,16 @@ dd {
 header .breadcrumbs {
   color: $grayLight;
   font-size: .9rem;
-  padding-bottom: 24px;
+  padding-bottom: 12px;
 
   a {
     color: $grayLight;
     text-decoration: none !important;
-    font-weight: 600;
+    transition: 0.3s color ease-in-out;
+
+    &:hover {
+      color: $blueDark;
+    }
   }
 }
 
@@ -957,7 +965,7 @@ a.material-card:hover {
     }
 
     &:hover {
-      background-color: lighten(#038fc7, 10%);
+      background-color: color.adjust(#038fc7, $lightness: 10%);
     }
 
     iconify-icon {
@@ -1932,7 +1940,7 @@ pre[class*="language-"]:after {
   #not_found {
     .page {
       text-align: center;
-      margin-bottom: 300px;
+      margin-bottom: 10px;
 
       .search404-container {
         margin-bottom: 32px;
@@ -1943,12 +1951,6 @@ pre[class*="language-"]:after {
           justify-self: center;
         }
       }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
     }
   }
 }

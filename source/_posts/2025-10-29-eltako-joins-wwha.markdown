@@ -41,10 +41,7 @@ As always, all the devices below have gone through our rigorous certification pr
 
 What devices have been certified?
 
-* [ELTAKO Universal Dimming Actuator EUD64NPN-IPM](https://www.eltako.com/en/catalog/products/1761/eud64npn-ipm) (and the previous version [here](https://www.eltako.com/en/catalog/products/1238/eud62npn-ipm110-240v/))
-* [ELTAKO Impulse Switch ESR64PF-IPM](https://www.eltako.com/en/catalog/products/1760/esr64pf-ipm/)  
-* [ELTAKO Impulse Switch ESR64NP-IPM](https://www.eltako.com/en/catalog/products/1759/esr64np-ipm)  
-* [ELTAKO Shading Actuator ESB64NP-IPM](https://www.eltako.com/en/catalog/products/1792/esb64np-ipm/)
+{% include integrations/device_list.html brand="eltako" %}
 
 These Matter devices that work over Wi-Fi are all about giving you freedom to control your current hardware – switch lights on and off and dim them automatically – without replacing it all. The shading actuator is particularly useful in continental Europe, where shutters are more common. It has a good energy-saving use case to reduce the need for air conditioning, since automatic shutters help keep your home cool in summer and warm in winter, potentially reducing utility bills. This also reflects ELTAKO’s wider focus on sustainability – from low-power devices to recyclable packaging and shipping materials.
 

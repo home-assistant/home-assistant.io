@@ -4,19 +4,22 @@ description: Instructions on how to integrate UniFi Access with Home Assistant.
 ha_category:
   - Doorbell
   - Lock
+  - Sensor
 ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
-  - "@imhotep"
-  - "@RaHehl"
+  - '@imhotep'
+  - '@RaHehl'
 ha_platforms:
   - binary_sensor
   - button
   - event
+  - image
   - lock
+  - sensor
   - switch
 ha_integration_type: hub
 ---
@@ -93,6 +96,11 @@ Each door provides two **event** entities:
   - `authentication`: The authentication method used (for example, NFC, PIN code, Face).
   - `result`: The raw result from the UniFi Access controller (for example, `ACCESS`, `BLOCKED`).
 
+#### Images
+
+- **Door thumbnail**
+  - **Description**: Shows the most recent snapshot captured by the door's camera. The image is updated automatically whenever the UniFi Access controller sends a new thumbnail via WebSocket, for example after an access event.
+
 #### Binary sensors
 
 Each door registered in your UniFi Access controller is represented by a **binary sensor** entity that reports the door position.
@@ -111,6 +119,13 @@ These switches affect *all* doors managed by the controller at once and have dir
   - **Description**: Activates or deactivates the evacuation mode on your UniFi Access controller. When turned on, all doors managed by the controller are unlocked to allow evacuation.
 - **Lockdown**
   - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
+
+#### Sensors
+
+For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
+
+- **Door Lock Rule**: Reports the currently active temporary lock rule for the door. Possible states are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
+- **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
 
 ## Data updates
 

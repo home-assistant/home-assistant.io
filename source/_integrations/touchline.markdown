@@ -9,6 +9,8 @@ ha_domain: touchline
 ha_platforms:
   - climate
 ha_integration_type: hub
+ha_codeowners:
+  - '@mnordseth'
 ha_config_flow: true
 ---
 

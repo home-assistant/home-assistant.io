@@ -16,7 +16,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: device
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file

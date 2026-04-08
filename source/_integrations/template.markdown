@@ -207,7 +207,7 @@ template:
     type: template
     default: true
   default_entity_id:
-    description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available.  If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. Setting this overrides a user-customized Entity ID if the entity is deleted and added again.
+    description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available.  If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
     required: false
     type: string
   icon:
@@ -1229,6 +1229,56 @@ template:
                 - light.led_strip
               effect: "{{ effect }}"
         supports_transition: "{{ true }}"
+```
+
+{% endraw %}
+
+### Wrapping WLED presets as light effects
+
+This example creates a template light that wraps an RGBW WLED device and exposes its saved presets — predefined combinations of effects, colors, and brightness stored on the device — as selectable effects directly in the light entity. This is useful if you prefer to pick presets from the effects list in a light card on your dashboard, without having to use a separate select entity.
+
+The template light mirrors the state, brightness, and RGBW color of the underlying WLED light entity. Selecting an effect sends the matching preset name to the WLED preset select entity.
+
+{% raw %}
+
+```yaml
+template:
+  - light:
+      - name: "WLED bedroom with presets"
+        unique_id: wled_preset_light
+        state: "{{ states('light.wled_bedroom') }}"
+        level: "{{ state_attr('light.wled_bedroom', 'brightness') | default(0, true) | int }}"
+        rgbw: "{{ state_attr('light.wled_bedroom', 'rgbw_color') }}"
+        effect_list: "{{ state_attr('select.wled_bedroom_preset', 'options') }}"
+        effect: "{{ states('select.wled_bedroom_preset') }}"
+        availability: "{{ not is_state('light.wled_bedroom', 'unavailable') }}"
+        turn_on:
+          action: light.turn_on
+          target:
+            entity_id: light.wled_bedroom
+        turn_off:
+          action: light.turn_off
+          target:
+            entity_id: light.wled_bedroom
+        set_level:
+          action: light.turn_on
+          target:
+            entity_id: light.wled_bedroom
+          data:
+            brightness: "{{ brightness }}"
+        set_rgbw:
+          action: light.turn_on
+          target:
+            entity_id: light.wled_bedroom
+          data:
+            rgbw_color: "{{ rgbw }}"
+            effect: "Solid"
+        set_effect:
+          action: select.select_option
+          target:
+            entity_id: select.wled_bedroom_preset
+          data:
+            option: "{{ effect }}"
 ```
 
 {% endraw %}
@@ -2551,6 +2601,10 @@ weather:
       type: template
 
 {% endconfiguration %}
+
+### Condition
+
+The `condition` *must* match one of the Home Assistant defined conditons. See [here](/integrations/weather/#condition-mapping). If it does, not the state will be 'unknown' so will not be useable in a dashboard.
 
 ### Weather Forecast data
 

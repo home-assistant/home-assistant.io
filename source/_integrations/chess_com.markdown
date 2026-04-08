@@ -10,6 +10,7 @@ ha_codeowners:
   - '@joostlek'
 ha_domain: chess_com
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -34,10 +35,15 @@ The **Chess.com** integration provides the following entities.
 #### Sensors
 
 - **Followers**: The number of followers of your Chess.com account.
-- **Daily chess rating**: The current daily chess rating of your Chess.com account.
-- **Total chess games won**: The total number of chess games won.
-- **Total chess games lost**: The total number of chess games lost.
-- **Total chess games drawn**: The total number of chess games drawn.
+
+For each game mode you have played (daily, rapid, bullet, blitz, and daily Chess960), the following sensors are provided:
+
+- **Rating**: The current rating for that game mode.
+- **Games won**: The total number of games won in that game mode.
+- **Games lost**: The total number of games lost in that game mode.
+- **Games drawn**: The total number of games drawn in that game mode.
+
+Sensors for game modes that you have not played yet are not created.
 
 ## Data updates
 

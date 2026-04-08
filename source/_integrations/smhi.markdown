@@ -14,7 +14,7 @@ ha_platforms:
   - weather
 ha_codeowners:
   - '@gjohansson-ST'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **SMHI** {% term integration %} adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.

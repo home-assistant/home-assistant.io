@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 section#second-generation-platform {
     isolation: isolate;
     margin: 0 auto;

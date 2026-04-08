@@ -3,10 +3,13 @@ title: Gardena Bluetooth
 description: Instructions on how to integrate Gardena Bluetooth devices within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Number
+  - Select
   - Sensor
   - Switch
-  - Select
+  - Text
+  - Valve
 ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -17,10 +20,11 @@ ha_platforms:
   - binary_sensor
   - button
   - number
+  - select
   - sensor
   - switch
+  - text
   - valve
-  - select
 ha_integration_type: device
 ---
 
@@ -65,12 +69,8 @@ Gardena Bluetooth lawn mowers are currently not supported due to custom protocol
 
 ## Gard Pumps
 
-- Garden Pump ([9058-61](https://www.gardena.com/de/produkte/bewasserung/pumpen/gartenpumpe-6300-silentcomfort/970645401/))
-- Garden Pump ([9059-61](https://www.gardena.com/de/produkte/bewasserung/pumpen/gartenpumpe-6500-silentcomfort/970645601/))
-
-### Limitations
-
-Irrigation valves are currently untested, but expected to work.
+- Garden Pump ([9058-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6300-silentcomfort/970645301.html))
+- Garden Pump ([9059-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6500-silentcomfort/970645501.html))
 
 ## Aqua Contours
 
