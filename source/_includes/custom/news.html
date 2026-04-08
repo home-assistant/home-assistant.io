@@ -249,42 +249,45 @@
   document.addEventListener('DOMContentLoaded', function () {
     // 7 PM CEST = 17:00 UTC
     var liveDate = new Date('2026-04-08T17:00:00Z');
-    var now = new Date();
-    var isLive = now >= liveDate;
-
-    // Update banner text and show it with a slide-up
     var banner = document.querySelector('.livestream-card-banner');
     var status = document.querySelector('.livestream-card-status');
-    if (status && isLive) {
-      status.textContent = "We're live!";
+    var loaded = false;
+
+    var lazyLoadYouTube = function () {
+      if (loaded) return;
+      loaded = true;
+      var iframes = document.querySelectorAll('.livestream-card iframe[data-src]');
+      iframes.forEach(function (iframe) {
+        iframe.src = iframe.getAttribute('data-src');
+        iframe.removeAttribute('data-src');
+        setTimeout(function () {
+          iframe.parentElement.style.opacity = 1;
+        }, 500);
+      });
+    };
+
+    function goLive() {
+      if (status) status.textContent = "We're live!";
+      document.addEventListener('scroll', lazyLoadYouTube, { once: true });
+      document.addEventListener('click', lazyLoadYouTube, { once: true });
+      document.addEventListener('mousemove', lazyLoadYouTube, { once: true });
+      document.addEventListener('touchstart', lazyLoadYouTube, { once: true });
+      document.addEventListener('touchmove', lazyLoadYouTube, { once: true });
     }
+
+    // Show banner with slide-up
     if (banner) {
       requestAnimationFrame(function () {
         banner.classList.add('livestream-card-banner--visible');
       });
     }
 
-    // Only lazy-load the YouTube embed if we're live
-    if (isLive) {
-      var loaded = false;
-      var lazyLoadYouTube = function () {
-        if (loaded) return;
-        loaded = true;
-        var iframes = document.querySelectorAll('.livestream-card iframe[data-src]');
-        iframes.forEach(function (iframe) {
-          iframe.src = iframe.getAttribute('data-src');
-          iframe.removeAttribute('data-src');
-          setTimeout(function () {
-            iframe.parentElement.style.opacity = 1;
-          }, 500);
-        });
-      };
-
-      document.addEventListener('scroll', lazyLoadYouTube, { once: true });
-      document.addEventListener('click', lazyLoadYouTube, { once: true });
-      document.addEventListener('mousemove', lazyLoadYouTube, { once: true });
-      document.addEventListener('touchstart', lazyLoadYouTube, { once: true });
-      document.addEventListener('touchmove', lazyLoadYouTube, { once: true });
+    if (new Date() >= liveDate) {
+      goLive();
+    } else {
+      // Schedule the switch for when the stream goes live
+      var msUntilLive = liveDate - new Date();
+      setTimeout(goLive, msUntilLive);
     }
   });
 </script>
