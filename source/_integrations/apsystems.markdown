@@ -58,7 +58,7 @@ The **APsystems** {% term integration %} allows you to read the data from your [
 
 The APsystems EZ1 inverter automatically shuts down at night when there is no solar power. To handle this gracefully, the integration behaves as follows when the inverter is unreachable:
 
-- **Power sensors** are set to 0 watts, as the inverter is not producing any power.
+- **Power sensors** are set to `0 W`, as the inverter is not producing any power.
 - **Energy sensors** retain their last known values, preventing false spikes in your energy statistics when the inverter comes back online in the morning.
 - **Entities remain available** instead of showing as unavailable, since offline at night is expected behavior, not an error condition.
 - The **inverter connection status** sensor will turn off when the inverter is unreachable, allowing you to monitor its connectivity.
