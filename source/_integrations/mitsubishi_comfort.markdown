@@ -29,7 +29,6 @@ This integration supports indoor units (full climate control) and Kumo Station o
 
 ## Configuration
 
-During setup you will be asked to enter the **username** and **password** for your Kumo Cloud account. The integration uses these credentials to discover your devices and retrieve the local API passwords needed for direct communication.
 
 After setup, you can adjust the following options under **Settings** > **Devices & services** > **Mitsubishi Comfort** > **Configure**:
 
