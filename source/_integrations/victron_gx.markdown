@@ -112,7 +112,7 @@ automation:
   - alias: "Notify when battery is low"
     triggers:
       - trigger: numeric_state
-        entity_id: sensor.battery_monitor_charge
+        entity_id: sensor.battery_soc
         below: 20
     actions:
       - action: notify.notify
@@ -120,7 +120,7 @@ automation:
           title: "Low battery warning"
           message: >
             Your Victron battery charge is at
-            {{ states('sensor.battery_monitor_charge') }}%.
+            {{ states('sensor.battery_soc') }}%.
 ```
 
 {% endraw %}
