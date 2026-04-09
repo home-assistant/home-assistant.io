@@ -3,7 +3,7 @@ title: Threema
 description: Instructions on how to send Threema messages from Home Assistant.
 ha_category:
   - Notifications
-ha_release: "2026.4"
+ha_release: 2026.4
 ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: threema
@@ -18,22 +18,26 @@ The **Threema** {% term integration %} allows you to send end-to-end encrypted t
 
 ## Prerequisites
 
-- A [Threema Gateway](https://gateway.threema.ch) account. For testing purposes, you can [request developer credits](https://gateway.threema.ch) from Threema — make sure to select the **E2E Gateway** configuration when requesting.
-- A Gateway ID (starts with `*`) — either an existing one or a new one created during setup.
+- A [Threema Gateway](https://gateway.threema.ch) account. For testing purposes, you can [request developer credits](https://gateway.threema.ch) from Threema — make sure to select the **E2E Gateway** configuration when making the request.
+- A Gateway ID (starts with `*`). You can use an existing ID or create a new one during setup.
 - An API secret from the Threema Gateway dashboard.
 - Message credits on your Threema Gateway account. Sending a message costs **1,600 credits with E2E mode** or **800 credits with basic mode**.
 
-**Note:** Setting up Threema Gateway is a two-step process:
+Setting up Threema Gateway is a two-step process:
 
-1. **Generate encryption keys**: The integration generates a public and private key pair. You then need to provide the public key when creating your Gateway ID on the Threema Gateway website. As of March 2026, this requires manual approval by Threema, which may take some time.
-2. **Configure the integration**: Once your Gateway ID is approved, use the Gateway ID, API secret, and the previously generated keys to complete the integration setup in Home Assistant.
+1. Generate encryption keys
+   - The integration generates a public and private key pair.
+   - Provide the public key when creating your Gateway ID on the Threema Gateway website.
+   - As of March 2026, this requires manual approval by Threema, which may take some time.
+2. Configure the integration
+   - Once your Gateway ID is approved, use the Gateway ID, API secret, and the previously generated keys to complete the integration setup in Home Assistant.
 
 ## Setup
 
 During setup, you can choose between two options:
 
-- **Add Gateway**: Enter your Gateway ID, API secret, and your private and public keys to configure an existing Threema Gateway.
-- **Generate keys**: The integration generates an encryption key pair for you. Save the displayed keys — they cannot be recovered later. Then register a new Gateway ID at [gateway.threema.ch](https://gateway.threema.ch) using the generated public key, and complete setup with your Gateway credentials.
+- **Add existing Gateway ID**: Enter your Gateway ID, API secret, and your private and public keys to configure an existing Threema Gateway.
+- **Generate new encryption keys**: The integration generates an encryption key pair and displays them. Save the keys — they cannot be recovered later. Then register a new Gateway ID at [gateway.threema.ch](https://gateway.threema.ch) using the generated public key, and complete setup with your Gateway credentials.
 
 {% include integrations/config_flow.md %}
 
@@ -125,7 +129,11 @@ Double-check that your Gateway ID starts with `*` and is exactly 8 characters. V
 
 ### "Config entry not loaded" when sending a message
 
-The integration failed to initialize. Go to **Settings** > **Devices & services** > **Threema** and check if a reauthentication is required.
+The integration failed to initialize. Go to **Settings** > **Devices & services** > **Threema** and check the integration status. You may need to remove and re-add the integration.
+
+## Removing the integration
+
+This integration follows standard integration removal, no additional steps are required after removing it.
 
 ## Known limitations
 
