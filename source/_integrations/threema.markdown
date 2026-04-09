@@ -139,3 +139,9 @@ This integration follows standard integration removal, no additional steps are r
 - **Text messages only** — images, files, and other media are not supported.
 - **No group messaging** — only 1-to-1 messages are supported.
 - **Send only** — receiving messages is not supported.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
