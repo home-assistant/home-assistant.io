@@ -93,7 +93,7 @@ Configurable options for controlling device behavior, such as:
 - Inverter mode (on, off, eco, charger only)
 - Solar charger mode
 - Relay function configuration
-- <abbr title="electric vehicle">EV</abbr> charger charge mode
+- <abbr title="electric vehicle">EV</abbr> charger charge mode (auto, manual, or scheduled charge)
 
 ## Troubleshooting
 
