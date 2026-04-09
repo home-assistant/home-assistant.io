@@ -31,7 +31,9 @@ This integration supports indoor units (full climate control) and Kumo Station o
 
 - **Indoor unit** (ductless, ducted) — Full climate control: mode, temperature, fan speed, vane direction. Sensors: temperature, humidity, filter status, Wi-Fi signal.
 - **Kumo Station** (outdoor unit) — Read-only: outdoor temperature, Wi-Fi signal.
+## Supported functionality
 
+The **Mitsubishi Comfort** integration provides the following entities.
 ### Climate
 
 Each indoor unit is exposed as a climate entity with the following capabilities:
