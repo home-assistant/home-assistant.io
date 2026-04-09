@@ -82,7 +82,7 @@ Each zone also provides a **Button** entity to clear any override and return the
 
 The Evohome controller is also represented as a **Climate** entity that exposes the system's current operating mode. A controller has neither a current temperature nor a setpoint, but all **Climate** entities in Home Assistant are required to report a temperature, so this value is calculated as the average of all zones.
 
-The controller also provides a **Button** entity to reset the system mode. This **will** return the system to **Auto** and reset all zones and DHW to **FollowSchedule**.
+The controller also provides a **Button** entity to reset the system mode. This returns the system to **AutoWithReset** when supported, or **Auto** when **AutoWithReset** is unsupported, and resets all zones and DHW to **FollowSchedule**.
 
 The DHW controller is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
 
