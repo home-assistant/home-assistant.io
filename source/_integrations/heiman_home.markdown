@@ -50,57 +50,47 @@ Heiman Home represents devices as various sensor types and control capabilities.
 
 In Home Assistant, a binary sensor entity will be created for each of the following Heiman device capabilities:
 
-| Heiman capability            | Description                          |
-|------------------------------|--------------------------------------|
-| Smoke detection              | Smoke alarm status                   |
-| CO alarm                     | Carbon monoxide alarm status         |
-| Water leak                   | Water leak detection                 |
-| Door/Window status           | Open/closed state                    |
-| Motion detection             | Motion detected status               |
-| Tamper alert                 | Device tampering detection           |
-| Low battery                  | Battery level warning                |
+- **Smoke detection**: Smoke alarm status.
+- **CO alarm**: Carbon monoxide alarm status.
+- **Water leak**: Water leak detection.
+- **Door/Window status**: Open/closed state.
+- **Motion detection**: Motion detected status.
+- **Tamper alert**: Device tampering detection.
+- **Low battery**: Battery level warning.
 
 ### Button
 
 The Heiman Home Button platform provides the following buttons:
 
-| Button          | Description                        |
-|-----------------|------------------------------------|
-| Remote locate   | Trigger device location sound      |
-| Remote check    | Perform remote device check        |
-| Mute alarm      | Silence active alarms              |
+- **Remote locate**: Trigger device location sound.
+- **Remote check**: Perform remote device check.
+- **Mute alarm**: Silence active alarms.
 
 ### Select
 
 The Heiman Home Select platform lets you configure device options:
 
-| Select               | Description                        | Options                              |
-|----------------------|------------------------------------|--------------------------------------|
-| Alarm sound option   | Configure alarm sound pattern      | Fast Beep, Medium Beep, Slow Beep    |
+- **Alarm sound option**: Configure alarm sound pattern. Options: Fast Beep, Medium Beep, Slow Beep.
 
 ### Sensor
 
 The Heiman Home Sensor platform lets you view devices that have sensor-related capabilities. A Sensor entity is created for each attribute supported by the device.
 
-| Heiman capability            | Related entities in Home Assistant       | Unit    |
-|------------------------------|------------------------------------------|---------|
-| Temperature                  | Current temperature readings             | °C      |
-| Humidity                     | Current humidity levels                  | %       |
-| Battery level                | Device battery percentage                | %       |
-| Signal strength              | WiFi signal strength                     | dBm     |
-| Power consumption            | Real-time power usage                    | W       |
-| Energy usage                 | Total energy consumed                    | kWh     |
-| CO concentration             | Carbon monoxide levels                   | PPM     |
+- **Temperature**: Current temperature readings (°C).
+- **Humidity**: Current humidity levels (%).
+- **Battery level**: Device battery percentage (%).
+- **Signal strength**: WiFi signal strength (dBm).
+- **Power consumption**: Real-time power usage (W).
+- **Energy usage**: Total energy consumed (kWh).
+- **CO concentration**: Carbon monoxide levels (PPM).
 
 ### Switch
 
 The Heiman Home Switch platform lets you control devices that have switch-related capabilities:
 
-| Switch                       | Description                            |
-|------------------------------|----------------------------------------|
-| Light control                | Turn lights on/off                     |
-| Freezing point protection    | Enable/disable freeze protection       |
-| Buzzer control               | Enable/disable device buzzer           |
+- **Light control**: Turn lights on/off.
+- **Freezing point protection**: Enable/disable freeze protection.
+- **Buzzer control**: Enable/disable device buzzer.
 
 ## Services
 
