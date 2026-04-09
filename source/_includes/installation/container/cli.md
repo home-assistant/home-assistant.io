@@ -10,6 +10,7 @@
       --restart=unless-stopped \
       -e TZ=MY_TIME_ZONE \
       -v /PATH_TO_YOUR_CONFIG:/config \
+      -v /run/dbus:/run/dbus:ro \
       --network=host \
       {{ site.installation.container }}:{{ include.tag | default: 'stable' }}
     ```
@@ -40,6 +41,7 @@
       --privileged \
       -e TZ=MY_TIME_ZONE \
       -v /PATH_TO_YOUR_CONFIG:/config \
+      -v /run/dbus:/run/dbus:ro \
       --network=host \
       {{ site.installation.container }}:{{ include.tag | default: 'stable' }}
     ```

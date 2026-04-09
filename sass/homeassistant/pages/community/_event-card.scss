@@ -1,0 +1,21 @@
+.event-card{
+    background-color: rgba(255,255,255,0.4);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ffffff;
+
+    .button{
+        margin-top: 20px;
+    }
+
+    .event-title{
+        @include h4;
+    }
+    
+    .event-meta{
+        @include p;
+        color: #4F606E;
+        margin-top: 6px;
+        font-size: 12px;
+    }
+}

@@ -20,7 +20,7 @@ ha_platforms:
   - switch
   - text
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
@@ -44,9 +44,9 @@ In addition to the serial device you also need to enter the baud rate.
 If you are using the MQTT gateway, you will need to enter topic prefixes for input and output. These need to be swapped
 with the settings of the gateway. I.e. the input topic for Home Assistant needs to be the output (publish) topic of the gateway.
 
-<div class='note'>
+{% note %}
 The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
-</div>
+{% endnote %}
 
 ### Ethernet gateway
 
@@ -185,7 +185,7 @@ Visit the [library API][MySensors library api] of MySensors for more information
 
 [MySensors library API]: https://www.mysensors.org/download
 
-## Binary Sensor
+## Binary sensor
 
 The following binary sensor types are supported:
 
@@ -207,7 +207,7 @@ The following binary sensor types are supported:
 | S_VIBRATION  | V_TRIPPED |
 | S_MOISTURE   | V_TRIPPED |
 
-### Binary Sensor example sketch
+### Binary sensor example sketch
 
 ```cpp
 /**
@@ -604,7 +604,7 @@ This sketch is ideally for star topology wiring. You can run up to 12 covers wit
 
 [Check out the code on GitHub.](https://github.com/gryzli133/RollerShutterSplit)
 
-## Device Tracker
+## Device tracker
 
 The following sensor types are supported:
 
@@ -614,7 +614,7 @@ The following sensor types are supported:
 | ------ | ---------- |
 | S_GPS  | V_POSITION |
 
-### Device Tracker example sketch for MySensors 2.x
+### Device tracker example sketch for MySensors 2.x
 
 ```cpp
 /**
@@ -785,7 +785,7 @@ void receive(const MyMessage &message)
       last_dim=100;
     }
 
-    //Update constroller status
+    // Update controller status
     send_status_message();
 
   } else if ( message.type == V_PERCENTAGE ) {
@@ -794,14 +794,14 @@ void receive(const MyMessage &message)
     if ( dim_value == 0 ) {
       last_state = LIGHT_OFF;
 
-      //Update constroller with dimmer value & status
+      // Update controller with dimmer value & status
       send_dimmer_message();
       send_status_message();
     } else {
       last_state = LIGHT_ON;
       last_dim = dim_value;
 
-      //Update constroller with dimmer value
+      // Update controller with dimmer value
       send_dimmer_message();
     }
 

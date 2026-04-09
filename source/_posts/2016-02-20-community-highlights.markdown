@@ -9,7 +9,7 @@ categories: Community Video
 og_image: /images/blog/2016-02-community-highlights/part-of-the-thing.png
 ---
 
-Home Assistant land has been busy and a lot of people have been creating awesome stuff. We've added [a cookbook section](/examples/) to the website full of examples how you can automate different things. Make sure you take a look and share your own recipes too!
+Home Assistant land has been busy and a lot of people have been creating awesome stuff.
 
 ### Home automation demo by Part of the Thing
 

@@ -20,9 +20,9 @@ A big improvement has been brought this release by wind-rider. He took the time 
   <img src='/images/screenshots/media_player-card.png' />   Example of the new media player cards
 </p>
 
-<div class='note'>
+{% note %}
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</div>
+{% endnote %}
 
 <!--more-->
 

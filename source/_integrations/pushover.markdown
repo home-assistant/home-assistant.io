@@ -9,12 +9,12 @@ ha_iot_class: Cloud Push
 ha_domain: pushover
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@engrbm87'
 ---
 
-The [Pushover service](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.
+The [Pushover action](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.
 
 ## Configuration
 
@@ -22,10 +22,10 @@ In order to get an API key, you need to [register an application](https://pushov
 
 {% include integrations/config_flow.md %}
 
-Example Automation:
+Example automation:
 
 ```yaml
-- service: notify.entity_id
+- action: notify.entity_id
   data:
     message: "This is the message"
     title: "Title of message"
@@ -38,12 +38,12 @@ Example Automation:
 
 Integration-specific values in the nested `data` section are optional.
 
-Image attachments can be added using the `attachment` parameter, which can either be a local file reference (ex: `/tmp/image.png`).
+Image attachments can be added using the `attachment` parameter, which must be a local file reference (ex: `/tmp/image.png`).
 
 To use a specific Pushover device, set it using `target`. If one of the entered devices doesn't exist or is disabled in your Pushover account it will send a message to all you devices. To send to all devices, just skip the target attribute.
 
 ```yaml
-- service: notify.entity_id
+- action: notify.entity_id
   data:
     message: "This is the message"
     title: "Title of message"
@@ -54,11 +54,24 @@ To use a specific Pushover device, set it using `target`. If one of the entered 
       sound: pianobar
       priority: 0
 ```
+Using the `ttl` parameter, messages may be set to delete automatically after a certain period of time. This is useful for messages that, at some point, outlive their usefulness. The `ttl` parameter specifies a time-to-live in seconds. In the following example, the message will self-delete from the targeted device(s) after 6 hours.
+
+```yaml
+  - action: notify.pushover
+    data:
+      message: "This is the message"
+      title: "Title of message"
+      target:
+        - pixel9
+        - johnsmith
+      data:
+        ttl: 21600 
+```
 
 To use the highest priority, which repeats the notification every x seconds (`retry`) for the duration of y seconds (`expire`), you MUST specify these parameters. The minimal time for the `retry` parameter is 30 seconds. The `expire` parameter has a maximum of 10800 seconds (3 hours). If you target more than one device, make sure to enable the advanced option "Notification dismissal sync" in the app to be able to dismiss the alert on all devices simultaneously.
 
 ```yaml
-- service: notify.entity_id
+- action: notify.entity_id
   data:
     message: "This is the message"
     title: "Title of message"
@@ -85,10 +98,9 @@ alexa:
   intents:
     LocateIntent:
       action:
-        service: notify.notify
+        action: notify.notify
         data:
           message: "The location of {{ User }} has been queried via Alexa."
-        data:
           title: "Home Assistant"
           target: pixel
           data:

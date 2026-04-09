@@ -12,10 +12,9 @@ ha_domain: pvoutput
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_integration_type: device
 ---
 
-The PVOutput integration consumes information from [PVOutput](https://pvoutput.org/) which was uploaded by your solar photovoltaic (PV) system.
+The **PVOutput** {% term integration %} consumes information from [PVOutput](https://pvoutput.org/) which was uploaded by your solar photovoltaic (PV) system.
 
 {% include integrations/config_flow.md %}

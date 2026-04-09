@@ -1,24 +1,33 @@
 ---
 type: card
-title: "Entity Card"
+title: "Entity card"
 sidebar_label: Entity
-description: "The Entity card gives you a quick overview of your entity's state"
+description: "The entity card gives you a quick overview of your entity's state"
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/header-footer/
+    title: Card header and footer
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The Entity card gives you a quick overview of your entity's state.
+The entity card gives you a quick overview of your entity's state.
 
 <p class='img'>
   <img src='/images/dashboards/entity_card.png' alt='Screenshot of the entity card'>
   Screenshot of the Entity card.
 </p>
 
-To add the Entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -31,8 +40,8 @@ entity:
   type: string
 name:
   required: false
-  description: Name of entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name.
 icon:
   required: false
@@ -56,6 +65,18 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 footer:
   required: false
   description: Footer widget to render. See [footer documentation](/dashboards/header-footer/).

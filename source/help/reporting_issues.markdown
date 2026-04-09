@@ -1,7 +1,15 @@
 ---
 title: "Reporting issues"
 description: "Reporting issues about Home Assistant"
-sidebar: false
+related:
+  - docs: /docs/configuration/
+    title: Configuration.yaml file
+  - docs: /docs/configuration/troubleshooting/
+    title: Enable debug logging
+  - url: https://community.home-assistant.io/
+    title: Forum
+  - docs: /help/
+    title: Bug trackers
 ---
 
 If you have an installation, a setup or a configuration issue, please use our [Forum](https://community.home-assistant.io/) to get help. We have a big community which will help you if they can.
@@ -26,7 +34,7 @@ If possible, provide the latest release of which you know that the integration o
 
 ## Operating environment
 
-There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System, Home Assistant Supervised, Home Assistant Core in Docker, or a manual installation of the Home Assistant Core. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
+There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System or Home Assistant Container in Docker. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
 
 ## Integration
 
@@ -43,7 +51,7 @@ The information contained in the generated diagnostics file is redacted to avoid
 
 ### Problem-relevant `configuration.yaml` entries
 
-To exclude configuration issues and allow the developers to quickly test, and perhaps reproduce, your issue, add the relevant part of your `configuration.yaml` file. This file is located in your [configuration folder](/docs/configuration/).
+To exclude configuration issues and allow the developers to quickly test, and perhaps reproduce, your issue, add the relevant part of your {% term "`configuration.yaml`" %} file. This file is located in your [configuration folder](/docs/configuration/).
 
 ```yaml
 sensor:
@@ -54,7 +62,7 @@ Make sure that you don't post your username, password, API key, access token or 
 
 ### Traceback and log information (if applicable)
 
-If things go wrong, there will be a so-called traceback or an error message {% my logs title="in your log" %}. Please include this. It starts with **Traceback** and can contain information about where the error was triggered in the code.
+If things go wrong, there will be a so-called traceback or an error message in your logs under {% my logs title="**Settings** > **System** > **Logs**" %}. Please include this. It starts with **Traceback** and can contain information about where the error was triggered in the code.
 
 ```bash
 Traceback (most recent call last):
@@ -64,6 +72,8 @@ Traceback (most recent call last):
 In some cases, it is also necessary to [enable debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) to get detailed logs to triage an issue.
 Enabling this will instruct Home Assistant to log a lot of fine-grained information about the integration. This is helpful for debugging and fixing the issue.
 In contrast to the diagnostics information, debug logs are not automatically redacted. Make sure to include only the parts you think are relevant to the issue.
+
+[Download the logs](/integrations/logger/#viewing-logs) and see if there are any errors related to your integration.
 
 ### Additional information
 

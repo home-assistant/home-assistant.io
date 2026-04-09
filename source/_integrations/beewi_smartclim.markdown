@@ -11,9 +11,13 @@ ha_domain: beewi_smartclim
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `beewi_smartclim` sensor platform allows one to monitor room or external temperature and humidity. The BeeWi SmartClim BLE is a Bluetooth Low Energy sensor device that monitors temperature from a room or a garden from your smartphone by using an APP. Use this integration to track these metrics from any location thanks to Home Assistant, as well as to create some automation scripts based on your room's temperature.
+The **BeeWi SmartClim** {% term integration %} allows one to monitor room or external temperature and humidity. The BeeWi SmartClim BLE is a Bluetooth Low Energy sensor device that monitors temperature from a room or a garden from your smartphone by using an APP. Use this integration to track these metrics from any location thanks to Home Assistant, as well as to create some automation scripts based on your room's temperature.
 
 ## Installation
 
@@ -21,9 +25,6 @@ Depending on the operating system you're running, you have to configure the prop
 
 - `beewi_smartclim` will work out of the box as long as the host supports Bluetooth (like the Raspberry Pi does).
 - Using [Home Assistant Container installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
-- On other Home Assistant Core systems:
-  - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
-  - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth` or    `bluez-deprecated`.
 
 ## Configuration
 
@@ -48,7 +49,8 @@ Discovery started
 
 Check for `BeeWi SmartClim` or similar entries, those are your sensor.
 
-To use your Mi Temperature and Humidity sensor in your installation, add the following to your `configuration.yaml` file:
+To use your Mi Temperature and Humidity sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

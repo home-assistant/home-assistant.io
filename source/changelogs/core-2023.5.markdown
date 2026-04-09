@@ -599,7 +599,7 @@ For a summary in a more readable format:
 - Fix unknown/unavailable source sensor in Filter entities ([@frenck] - [#92241])
 - Bump plugwise to v0.31.1 ([@bouwew] - [#92249])
 - Bump pyunifiprotect to 4.8.3 ([@bdraco] - [#92251])
-- Pin `pyasn1` and `pysnmplib` since `pyasn1` 0.5.0 has breaking changes and `pysnmp-pyasn1` and `pyasn1` are both using the `pyasn1` namespace ([@bdraco] - [#92254])
+- Pin `pyasn1` and `pysnmplib` since `pyasn1` 0.5.0 has backward-incompatible changes and `pysnmp-pyasn1` and `pyasn1` are both using the `pyasn1` namespace ([@bdraco] - [#92254])
 - Handle onvif errors when detail is returned as bytes ([@bdraco] - [#92259])
 - Add VoIP error tone ([@synesthesiam] - [#92260])
 - Fix Google Mail Sensor key error ([@tkdrob] - [#92262])

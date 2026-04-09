@@ -12,11 +12,13 @@ ha_domain: elmax
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - cover
   - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
-The Elmax integration enables Home Assistant integration with 
+The **Elmax** {% term integration %} enables Home Assistant integration with 
 [ELMAX](https://www.elmaxsrl.it/) control panels. Elmax panels are 
 domotic systems focused on intrusion detection and home surveillance.
 

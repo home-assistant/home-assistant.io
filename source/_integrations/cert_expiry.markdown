@@ -11,17 +11,17 @@ ha_codeowners:
 ha_domain: cert_expiry
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Certificate Expiry integration fetches the certificate from a configured host and displays its expiration in a timestamp sensor.
+The **Certificate Expiry** {% term integration %} fetches the certificate from a configured host and displays its expiration in a timestamp sensor.
 The sensor checks and updates the certificate information for the configured host every 12 hours.
 
 {% include integrations/config_flow.md %}
 
 ## Attributes
 
-The Certificate Expiry entities provide extra attributes to represent the state of the certificate.
+The Certificate Expiry {% term entities %} provide extra attributes to represent the state of the certificate.
 
 | Name | Description |
 | ---- | ----------- |

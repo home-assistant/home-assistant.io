@@ -116,7 +116,7 @@ We also had some great drinks in the evenings with companies that integrate with
 
 [@timmo] has released version 2.0 of his Home Panel. This is an alternative user interface for Home Assistant.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s finally here. 🎉<br><br>Home Panel v2.0.0 is now released and has been completely rewritten in <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">#React</a> with <a href="https://twitter.com/hashtag/TypeScript?src=hash&amp;ref_src=twsrc%5Etfw">#TypeScript</a><br><br>⚠️Please read the release notes before upgrading as are breaking changes to know about before upgrading!<a href="https://t.co/NMDQu4zZW8">https://t.co/NMDQu4zZW8</a><a href="https://twitter.com/hashtag/HomePanel?src=hash&amp;ref_src=twsrc%5Etfw">#HomePanel</a> <a href="https://twitter.com/hashtag/HomeAssistant?src=hash&amp;ref_src=twsrc%5Etfw">#HomeAssistant</a> <a href="https://t.co/ucA1HxwurB">pic.twitter.com/ucA1HxwurB</a></p>&mdash; Timmo (@timmo001) <a href="https://twitter.com/timmo001/status/1172958335982850052?ref_src=twsrc%5Etfw">September 14, 2019</a>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s finally here. 🎉<br><br>Home Panel v2.0.0 is now released and has been completely rewritten in <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">#React</a> with <a href="https://twitter.com/hashtag/TypeScript?src=hash&amp;ref_src=twsrc%5Etfw">#TypeScript</a><br><br>⚠️Please read the release notes before upgrading as are backward-incompatible changes to know about before upgrading!<a href="https://t.co/NMDQu4zZW8">https://t.co/NMDQu4zZW8</a><a href="https://twitter.com/hashtag/HomePanel?src=hash&amp;ref_src=twsrc%5Etfw">#HomePanel</a> <a href="https://twitter.com/hashtag/HomeAssistant?src=hash&amp;ref_src=twsrc%5Etfw">#HomeAssistant</a> <a href="https://t.co/ucA1HxwurB">pic.twitter.com/ucA1HxwurB</a></p>&mdash; Timmo (@timmo001) <a href="https://twitter.com/timmo001/status/1172958335982850052?ref_src=twsrc%5Etfw">September 14, 2019</a>
 </blockquote>
 
 [@cogneato]: https://github.com/cogneato
@@ -191,7 +191,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Unifi** - Removes support of directly configuring the UniFi platform for device trackers. Use `unifi:` instead. Extra configuration through config entry options from the GUI (see release notes 0.98 for example) and through unifi configuration in configuration.yaml will continue to work.- ([@Kane610] - [#26587]) ([unifi docs])
 

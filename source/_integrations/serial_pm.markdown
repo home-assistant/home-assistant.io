@@ -9,6 +9,7 @@ ha_domain: serial_pm
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 Particulate matter sensors measure the amount of very small particles in the air.
@@ -30,7 +31,7 @@ At this time, the following sensors are supported:
 
 ## Configuration
 
-To use your PM sensor in your installation, add the following to your `configuration.yaml` file:
+To use your PM sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

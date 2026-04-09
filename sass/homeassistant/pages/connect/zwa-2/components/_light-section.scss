@@ -1,0 +1,37 @@
+div#light-wrapper{
+    .light{
+        border-radius: 20px;
+        overflow: clip;
+    }
+
+    .animation-wrapper-inner{
+        top: 0;
+
+        canvas{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .animation-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--container-gutters) / 2);
+
+        section{
+            border-radius: 20px;
+            overflow: clip;
+        }
+
+        @include bp(desktop){
+            display: block;
+            flex-direction: unset;
+            gap: unset;
+
+                 section{
+            border-radius: 0;
+            overflow: unset;
+        }
+        }
+    }
+}

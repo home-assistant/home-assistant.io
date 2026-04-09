@@ -7,14 +7,9 @@ date_formatted: "October 25, 2022"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories:
-- Announcements
+categories: Works-with-Home-Assistant
 og_image: /images/blog/2022-10-25-ultraloq-partner/social.png
 ---
-
-<div class="note important">
-On July 11th, 2023, due to fundamentally different perceptions of best Home Assistant user experience, Ultraloq by U-tec was removed from <a href="/blog/2022/07/12/partner-program">Works With Home Assistant</a> partner program.
-</div>
 
 <img src='/images/works_with/works-with-zwave.png' width="256" align="right" alt="Works via Zigbee with Home Assistant" class='no-shadow'>
 

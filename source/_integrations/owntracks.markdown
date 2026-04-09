@@ -2,25 +2,23 @@
 title: OwnTracks
 description: Instructions on how to use OwnTracks to track devices in Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Push
 ha_release: 0.7.4
 ha_config_flow: true
 ha_domain: owntracks
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-[OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allows you to track your location and send it directly to Home Assistant. OwnTracks can be set up via  **{% my integrations title="Settings > Devices & Services" %}**.
+[OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allows you to track your location and send it directly to Home Assistant. OwnTracks can be set up via  **{% my integrations title="Settings > Devices & services" %}**.
 
 By default, the integration listens for incoming messages from OwnTracks via HTTP. If Home Assistant is configured to use MQTT instead, it listens for MQTT messages. When a location is submitted via HTTP, Home Assistant returns all [Persons](/integrations/person/)' last known locations. Their location will be displayed within the OwnTracks app.
 
-<lite-youtube videoid="UieAQ8sC6GY" videotitle="Location Tracking with OwnTracks HTTP Mode and Home Assistant" posterquality="maxresdefault"></lite-youtube>
-
 ## Configuration
 
-1. To set up OwnTracks in Home Assistant, go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. To set up OwnTracks in Home Assistant, go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Add the **OwnTracks** integration.
    - This will give you the **Webhook** URL as well as the **Encryption key** to use during mobile device configuration (below).
 
@@ -44,7 +42,7 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 
 ### Configuring the app - iOS
 
-1. [Install the OwnTracks application for iOS.](https://itunes.apple.com/us/app/owntracks/id692424691?mt=8)
+1. [Install the OwnTracks application for iOS.](https://apps.apple.com/app/id692424691)
 2. In the OwnTracks app, tap the (i) in the top left and select **Settings**. 
 3. Change the following settings:
 
@@ -55,7 +53,7 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 
 ## Advanced configuration
 
-OwnTracks allows the user to set advanced configuration by adding a section to your `configuration.yaml`.
+OwnTracks allows the user to set advanced configuration by adding a section to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,7 +71,7 @@ waypoints:
   default: true
   type: boolean
 waypoint_whitelist:
-  description: "A list of user names (as defined for [OwnTracks](/integrations/owntracks)) who can export their waypoints from OwnTracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/username/iPhone)."
+  description: "A list of usernames (as defined for [OwnTracks](/integrations/owntracks)) who can export their waypoints from OwnTracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/username/iPhone)."
   required: false
   default: All users who are connected to Home Assistant via OwnTracks.
   type: list
@@ -124,9 +122,9 @@ When you exit a zone, Home Assistant will start using location updates to track 
 
 ## Using OwnTracks regions - forcing OwnTracks to update using iBeaconsOwntracks
 
-<div class='note'>
+{% note %}
 OwnTracks v2.0.0 removes support for iBeacons on Android.
-</div>
+{% endnote %}
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), OwnTracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 

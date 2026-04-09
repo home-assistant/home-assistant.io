@@ -3,18 +3,18 @@ title: Anova
 description: Instructions on how to integrate Anova Wi-Fi Sous Vide into home assistant.
 ha_category:
   - Sensor
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_release: 2023.5
 ha_codeowners:
   - '@Lash-L'
 ha_domain: anova
-ha_integration_type: integration
+ha_integration_type: hub
 ha_platforms:
   - sensor
 ---
 
-The Anova sensor platform allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with Wi-Fi capability.
+The **Anova** {% term integration %} allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with Wi-Fi capability.
 
 Supported devices (tested):
 - AN500-10 (Anova Precision Cooker)
@@ -25,6 +25,14 @@ Supported devices (tested):
 The 'nano' versions of the sous vide are not supported, but as long as your app is connected to the sous vide, the data should update. They would be better served using BLE instead of API calls.
 
 To add this platform to your installation, You will need your Anova username and password, and you need to have at least one sous vide connected to your account.
+
+{% important %}
+The Anova integration **requires** login via email and password.
+
+If your Anova account sign-in is through Google/Facebook/Apple, you will need to switch to the password login method.
+
+You can do this via the [Anova password reset page](https://anovaculinary.io/ali/password-reset) and then enter your new password in the Anova integration configuration.
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
