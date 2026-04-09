@@ -177,11 +177,13 @@ Failed to set ventilation state: DucoError('Duco API error (429): {"Code":18,"Re
 
 #### Description
 
-The Duco box enforces a write rate limit of 200 write requests per 24 hours via the public API. Each time you change the ventilation state (speed or preset), the counter decrements. When it reaches 0, the box rejects further write requests with a 429 error. The counter resets automatically after 24 hours.
+The Duco box enforces a write rate limit of 200 write requests per day via the public API. Each time you change the ventilation state (speed or preset), the counter decrements. When it reaches 0, the box rejects further write requests with a 429 error. The counter resets daily around midnight (after at least 24 hours).
+
+For normal daily use, the limit should be sufficient.
 
 #### Resolution
 
-Wait 24 hours for the counter to reset. To avoid hitting the limit in the future, reduce the number of automations or scripts that change the ventilation state frequently.
+Wait until midnight for the counter to reset. To avoid hitting the limit in the future, reduce the number of automations or scripts that change the ventilation state frequently.
 
 ## Removing the integration
 
