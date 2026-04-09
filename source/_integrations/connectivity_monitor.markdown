@@ -140,7 +140,7 @@ The **Connectivity Monitor** integration provides the following sensor entities.
 
 - **Overall Status**
   - **Connected**: The host and all configured protocol or port checks are reachable.
-  - **Partially Connected**: Some configured checks are reachable, but not all of them.
+  - **Partially connected**: Some configured checks are reachable, but not all of them.
   - **Disconnected**: None of the configured checks are reachable.
   - **Unknown**: The host has not been detected yet.
 - **[Protocol] [Port]**
