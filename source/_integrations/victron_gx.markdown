@@ -103,7 +103,7 @@ Read-only sensors for monitoring system metrics, such as:
 
 ### Send a notification when the battery is low
 
-You can use this automation to receive a notification when your battery state of charge drops below a certain threshold:
+You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_monitor_charge` with your actual battery charge entity.
 
 {% raw %}
 
@@ -112,15 +112,15 @@ automation:
   - alias: "Notify when battery is low"
     triggers:
       - trigger: numeric_state
-        entity_id: sensor.battery_state_of_charge
+        entity_id: sensor.battery_monitor_charge
         below: 20
     actions:
       - action: notify.notify
         data:
           title: "Low Battery Warning"
           message: >
-            Your Victron battery state of charge is at
-            {{ states('sensor.battery_state_of_charge') }}%.
+            Your Victron battery charge is at
+            {{ states('sensor.battery_monitor_charge') }}%.
 ```
 
 {% endraw %}
