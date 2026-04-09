@@ -827,7 +827,7 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 
 ### Enphase authentication issues
 
-If you experience authentication errors during the (re-)configuration of the Envoy, verify if multi-factor authentication (MFA) is enabled for your Enphase account. When using MFA, automatic token retrieval will fail and you need to use manual token entry as described in [Credentials and/or token configuration](#credentials-andor-token-configuration). Any of the errors below indicate that MFA is enabled on your Enphase cloud account.
+If you experience authentication errors during the (re-)configuration of the Envoy, verify if multi-factor authentication (MFA) is enabled for your Enphase account. When using MFA, automatic token retrieval will fail, and you need to use manual token entry as described in [Credentials and/or token configuration](#credentials-andor-token-configuration). Any of the errors below indicates that MFA is enabled on your Enphase cloud account.
 
 - Before HA version 2026.1.2: KeyError: 'is_consumer'
 - As of HA version 2026.1.2
