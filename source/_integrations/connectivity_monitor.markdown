@@ -46,7 +46,7 @@ Depending on what you want to monitor, you need the matching Home Assistant setu
 - Matter
 - Zigbee (ZHA)
 
-For Zigbee devices, only ZHA is currently supported.
+For Zigbee devices, only the **Zigbee Home Automation** integration is currently supported. Other Zigbee integrations, such as **Zigbee2MQTT**, are not supported.
 
 {% include integrations/config_flow.md %}
 
