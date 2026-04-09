@@ -1,6 +1,6 @@
 ---
 title: Mitsubishi Comfort
-description: Instructions on how to integrate Mitsubishi minisplit systems into Home Assistant.
+description: Integrate Mitsubishi Electric ductless minisplit heat pump and air conditioning systems with Home Assistant.
 ha_category:
   - Climate
 ha_release: 2026.5
