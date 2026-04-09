@@ -94,7 +94,9 @@ Configurable options for controlling device behavior, such as:
 - Solar charger mode
 - Relay function configuration
 - <abbr title="electric vehicle">EV</abbr> charger charge mode (auto, manual, or scheduled charge)
-
+- <abbr title="Energy Storage System">ESS</abbr> mode (optimized with or without phase compensation, or external control)
+- <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
+- <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
 ## Troubleshooting
 
 ### Cannot connect
