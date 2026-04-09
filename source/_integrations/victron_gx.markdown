@@ -97,7 +97,7 @@ Read-only sensors for monitoring system metrics, such as:
 
 ## Known limitations
 
-- The integration does not support real-time data push. Entities are updated at a fixed interval (every 30 seconds) even though the underlying connection is push-based via MQTT.
+- The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
 
 ## Examples
 
@@ -117,7 +117,7 @@ automation:
     actions:
       - action: notify.notify
         data:
-          title: "Low Battery Warning"
+          title: "Low battery warning"
           message: >
             Your Victron battery charge is at
             {{ states('sensor.battery_monitor_charge') }}%.
