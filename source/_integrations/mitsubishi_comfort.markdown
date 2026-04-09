@@ -36,10 +36,14 @@ This integration supports indoor units (full climate control) and Kumo Station o
 
 Each indoor unit is exposed as a climate entity with the following capabilities:
 
-- **HVAC modes**: Off, Cool, Heat, Dry, Fan Only, Heat/Cool (auto) — availability depends on the specific unit's capabilities
-- **Temperature setpoints**: Single setpoint in cool/heat modes, dual setpoints (high/low) in auto mode
-- **Fan modes**: Super Quiet, Quiet, Low, Powerful, Super Powerful, Auto — number of speeds depends on the unit
-- **Swing modes**: Horizontal, Mid-Horizontal, Midpoint, Mid-Vertical, Vertical, Auto, Swing — availability depends on the unit
+- **HVAC modes**: Off, Cool, Heat, Dry, Fan only, Heat/Cool (auto)
+  - Availability depends on the specific unit.
+- **Fan modes**: Super Quiet, Quiet, Low, Powerful, Super Powerful, Auto
+  - The number of available speeds depends on the unit.
+- **Swing modes**: Horizontal, Mid-Horizontal, Midpoint, Mid-Vertical, Vertical, Auto, Swing
+  - Availability depends on the unit.
+- **Temperature**: Single setpoint in Cool and Heat modes, separate high and low setpoints in Heat/Cool (auto) mode.
+  - Temperature ranges vary by unit and mode.
 
 Temperature ranges are read from the device profile and may vary by unit and mode.
 
