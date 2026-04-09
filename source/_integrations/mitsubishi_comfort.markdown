@@ -11,7 +11,6 @@ ha_codeowners:
 ha_domain: mitsubishi_comfort
 ha_platforms:
   - climate
-ha_dhcp: true
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
