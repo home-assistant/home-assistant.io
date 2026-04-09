@@ -31,9 +31,11 @@ This integration supports indoor units (full climate control) and Kumo Station o
 
 - **Indoor unit** (ductless, ducted) — Full climate control: mode, temperature, fan speed, vane direction. Sensors: temperature, humidity, filter status, Wi-Fi signal.
 - **Kumo Station** (outdoor unit) — Read-only: outdoor temperature, Wi-Fi signal.
+
 ## Supported functionality
 
 The **Mitsubishi Comfort** integration provides the following entities.
+
 ### Climate
 
 Each indoor unit is exposed as a climate entity with the following capabilities:
@@ -47,15 +49,9 @@ Each indoor unit is exposed as a climate entity with the following capabilities:
 - **Temperature**: Single setpoint in Cool and Heat modes, separate high and low setpoints in Heat/Cool (auto) mode.
   - Temperature ranges vary by unit and mode.
 
-Temperature ranges are read from the device profile and may vary by unit and mode.
+## Data updates
 
-## How it works
-
-1. **Setup**: The integration authenticates with Kumo Cloud to discover devices and retrieve per-device API credentials.
-2. **Runtime**: All communication happens directly with the devices over your LAN using their local HTTP API. No cloud connection is needed after initial setup.
-3. **Polling**: Device status is polled every 60 seconds. Commands (mode changes, temperature adjustments) are sent immediately and use optimistic state updates for responsive UI feedback.
-4. **Credentials**: Device credentials are cached locally so the integration can reconnect after a restart without contacting the cloud.
-
+The Mitsubishi Comfort integration {% term polling polls %} the status of your devices every 60 seconds. When you send a command (such as changing the mode or adjusting the temperature), Home Assistant reflects the change straight away, without waiting for the next poll.
 
 ## Removing the integration
 
