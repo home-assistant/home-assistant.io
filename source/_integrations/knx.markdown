@@ -743,7 +743,7 @@ entity_category:
 # Example configuration.yaml entry fragment for common entity configuration options
 knx:
   sensor:
-    - name: "My awesome sensor"
+    - name: My awesome sensor
       default_entity_id: "sensor.awesome_entity_id"
       entity_category: diagnostic
       ...
