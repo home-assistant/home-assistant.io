@@ -166,13 +166,6 @@ This action will set the operating mode of the system to **AutoWithReset**, and 
 
 This same reset is also available as a **Button** entity on the controller.
 
-```yaml
-- actions:
-    - action: evohome.reset_system
-      target:
-        entity_id: climate.my_home
-```
-
 Rarely, systems do not support **AutoWithReset**, in which case the integration will set the operating mode of the system to **Auto**, and set all the zones to **FollowSchedule**.
 
 ### evohome.refresh_system
