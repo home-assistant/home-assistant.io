@@ -33,8 +33,6 @@ Setting up Threema Gateway is a two-step process:
 2. Configure the integration
    - Once your Gateway ID is approved, use the Gateway ID, API secret, and the previously generated keys to complete the integration setup in Home Assistant.
 
-## Setup
-
 During setup, you can choose between two options:
 
 - **Add existing Gateway ID**: Enter your Gateway ID, API secret, and your private and public keys to configure an existing Threema Gateway.
