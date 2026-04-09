@@ -394,7 +394,7 @@ type: energy-grid-neutrality-gauge
   Screenshot of the Grid energy balance card.
 </p>
 
-The grid energy balance card shows your grid energy as an equation: imported energy minus exported energy equals net consumption. It includes a visual bar gauge that represents the ratio between imported and exported energy, with the bar filling from a center line toward the dominant direction.
+The grid energy balance card shows your net grid energy as an equation: imported energy minus exported energy. A positive value means you imported more energy from the grid than you exported. A negative value means you exported more energy to the grid than you imported. It includes a visual bar gauge that represents the ratio between imported and exported energy, with the bar filling from a center line toward the dominant direction.
 
 ### Example
 
