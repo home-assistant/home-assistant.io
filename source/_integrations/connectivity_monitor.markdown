@@ -131,7 +131,8 @@ The **Connectivity Monitor** integration provides the following sensor entities.
 
 #### Bluetooth, ESPHome, Matter, and Zigbee devices
 
-- **[DeviceType] Status**
+- **<Device type> Status**
+  - Replace `<Device type>` with Bluetooth, ESPHome, Matter, or Zigbee.
   - **Active**: The device is currently online or reachable.
   - **Inactive**: The device is currently offline or not reachable.
   - **Unknown**: The device has not been detected yet.
@@ -143,7 +144,9 @@ The **Connectivity Monitor** integration provides the following sensor entities.
   - **Partially connected**: Some configured checks are reachable, but not all of them.
   - **Disconnected**: None of the configured checks are reachable.
   - **Unknown**: The host has not been detected yet.
-- **[Protocol] [Port]**
+- **<Protocol> <Port>**
+  - Replace `<Protocol>` with TCP or UDP.
+  - Replace `<Port>` with the monitored port number, such as 443.
   - **Connected**: The configured protocol and port are reachable.
   - **Disconnected**: The configured protocol and port are not reachable.
 
@@ -175,15 +178,28 @@ This event is triggered when a monitored device changes status and the configure
 
 The event data contains the following fields:
 
-| Field | Type | Description |
-| --- | --- | --- |
-| `action_entity_id` | string | The entity ID of the Connectivity Monitor action entity that fired the event. You can use this value to match the event to a specific automation or monitored item. |
-| `recovered` | boolean | `true` when the monitored device has recovered and is back online, or `false` when the device is offline. |
-| `device_name` | string | The name of the monitored device. |
-| `device_address` | string | The network address of the monitored device, such as its IP address or hostname. |
-| `hours_offline` | integer | The number of whole hours the device has been offline when the event is fired. |
-| `minutes_offline` | integer | The number of minutes the device has been offline when the event is fired. This is especially useful for shorter outages. |
-| `last_online` | string | The last known time the device was online. |
+- **`action_entity_id`**:
+  - **Type:** string
+  - **Description**: The entity ID of the Connectivity Monitor action entity that fired the event. You can use this value to match the event to a specific automation or monitored item.
+- **`recovered`**:
+  - **Type**: boolean
+  - **Description**: `true` when the monitored device has recovered and is back online, or `false` when the device is offline.
+- **`device_name`**:
+  - **Type**: string
+  - **Description**: The name of the monitored device.
+- **`device_address`**:
+  - **Type**: string
+  - **Description**: The network address of the monitored device, such as its IP address or hostname.
+- **`hours_offline`**:
+  - **Type**:integer
+  - **Description**: The number of whole hours the device has been offline when the event is fired.
+- **`minutes_offline`**
+  - **Type**: integer
+  - **Description**: The number of minutes the device has been offline when the event is fired. This is especially useful for shorter outages.
+- **`last_online`**:
+  - **Type**: string
+  - **Description**: The last known time the device was online.
+
 ## Examples
 
 ### Use an automation when a device goes offline or comes back online
