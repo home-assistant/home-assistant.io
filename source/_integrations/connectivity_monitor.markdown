@@ -243,7 +243,7 @@ The **Connectivity Monitor** integration {% term polling polls %} device status 
 
 ## Known limitations
 
-- Zigbee monitoring currently supports ZHA only.
+- Zigbee monitoring currently only supports devices added via the **Zigbee Home Automation** integration.
 - Network checks depend on the selected protocol and whether the target host responds to that protocol.
 
 ## Removing the integration
