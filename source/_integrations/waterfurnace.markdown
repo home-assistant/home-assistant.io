@@ -18,7 +18,9 @@ ha_codeowners:
 
 The **WaterFurnace** {% term integration %} communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
 
-The sensors provided include:
+## Sensors
+
+The integration exposes the following sensors (if available):
 
 - Thermostat Setpoint
 - Thermostat Current Temp
@@ -36,8 +38,9 @@ The sensors provided include:
 - Compressor Speed
 - Fan Speed
 
-## Configuration
+## Energy
 
+The integration is also able to track historic energy use. You can track the total energy consumption in the energy dashboard. This data is refreshed every 2 hours, so your energy use may lag behind.
 
 ## Prerequisites
 
