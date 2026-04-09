@@ -29,8 +29,11 @@ This integration supports indoor units (full climate control) and Kumo Station o
 
 ## Supported devices
 
-- **Indoor unit** (ductless, ducted) — Full climate control: mode, temperature, fan speed, vane direction. Sensors: temperature, humidity, filter status, Wi-Fi signal.
-- **Kumo Station** (outdoor unit) — Read-only: outdoor temperature, Wi-Fi signal.
+- **Indoor unit** (ductless, ducted)
+  - Controls: mode, temperature, fan speed, vane direction
+  - Sensors: temperature, humidity, filter status, Wi-Fi signal
+- **Kumo Station** (outdoor unit, read-only)
+  - Sensors: outdoor temperature, Wi-Fi signal
 
 ## Supported functionality
 
