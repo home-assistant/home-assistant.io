@@ -55,7 +55,8 @@ Host:
 Port:
   description: The port on which the ETHM module listens for clients using the integration protocol.
 Integration encryption key:
-  description: Encryption key to use if encrypted connection is used. Leave empty if not using an encrypted connection.
+  description: Encryption key to use if an encrypted connection is used, as configured in DLOADX
+    for the ETHM-1 Plus module. Leave empty if not using an encrypted connection.
 Code:
   description: Optional code that will be used to toggle switchable outputs.
 {% endconfiguration_basic %}
