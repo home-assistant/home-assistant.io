@@ -6,10 +6,12 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 2026.4
 ha_config_flow: true
+ha_bluetooth: true
 ha_codeowners:
   - '@rikroe'
 ha_domain: eurotronic_cometblue
 ha_integration_type: device
+ha_quality_scale: bronze
 ha_platforms:
   - climate
 ---
@@ -32,11 +34,9 @@ Before you set up this integration, make sure the following requirements are met
 1. The [Bluetooth](/integrations/bluetooth) integration is enabled and working.
 2. Bluetooth active scanning is enabled.
 
-## Configuration
 
 The Eurotronic Comet Blue {% term integration %} will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-The devices require active scans to be discovered.
 
 {% include integrations/config_flow.md %}
 
