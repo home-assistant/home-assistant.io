@@ -153,11 +153,19 @@ The following actions are supported by Envisalink and can be used to script or a
 
 ## Attributes
 
+### Zone status
+
 The zone status binary sensors have extra attributes representing additional
 information about each zone.
 
 | Name                | Description                                                          |
 | ------------------- | -------------------------------------------------------------------- |
 | `last_tripped_time` | Last time this zone was tripped.                                     |
-| `zone`              | Zone number. Can be used in combination with `alarm_keypress` action |
-to issue commands relating to this zone.
+| `zone`              | Zone number. Can be used in combination with `alarm_keypress` action to issue commands relating to this zone. |
+
+### Alarm control panel
+
+Each partition's alarm control panel entity exposes the following extra attributes:
+
+- `last_armed_by_user_id`: The user slot number recorded by the panel for the most recent arming event, or `null` if the panel did not record a user (slot 0).
+- `last_disarmed_by_user_id`: The user slot number recorded by the panel for the most recent disarming event, or `null` if the panel did not record a user (slot 0).
