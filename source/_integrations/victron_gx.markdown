@@ -4,6 +4,7 @@ description: Instructions for connecting Victron Energy GX devices to Home Assis
 ha_category:
   - Select
   - Sensor
+  - Binary sensor
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_domain: victron_gx
 ha_platforms:
   - select
   - sensor
+  - binary_sensor
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -97,6 +99,14 @@ Read-only sensors for monitoring system metrics, such as:
 - Inverter input and output power, frequency, and state
 - <abbr title="electric vehicle">EV</abbr> charger status, power, and session energy
 
+#### Binary sensors
+
+Status indicators for various system states, such as:
+
+- Alarms and warnings
+- Connection status
+- Relay states
+
 #### Selects
 
 Configurable options for controlling device behavior, such as:
@@ -108,6 +118,7 @@ Configurable options for controlling device behavior, such as:
 - <abbr title="Energy Storage System">ESS</abbr> mode (optimized with or without phase compensation, or external control)
 - <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
 - <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
+
 ## Troubleshooting
 
 ### Cannot connect
