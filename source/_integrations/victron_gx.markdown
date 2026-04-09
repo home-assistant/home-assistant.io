@@ -3,6 +3,7 @@ title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
   - Sensor
+  - Time
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: victron_gx
 ha_platforms:
   - sensor
+  - time
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -94,6 +96,12 @@ Read-only sensors for monitoring system metrics, such as:
 - Grid voltage, current, power, and energy consumption
 - Inverter input and output power, frequency, and state
 - <abbr title="electric vehicle">EV</abbr> charger status, power, and session energy
+
+#### Times
+
+Configurable time-of-day settings, such as:
+
+- <abbr title="Energy Storage System">ESS</abbr> BatteryLife schedule charge start times
 
 ## Troubleshooting
 
