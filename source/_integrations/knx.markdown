@@ -724,7 +724,7 @@ name:
   required: false
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of `name` to automatically generate the entity ID.
+  description: Sets a preferred initial entity ID instead of having it derived from name.
     For example, `sensor.my_awesome_sensor`.
     If the entity ID already exists, the entity ID is created with a number at the end.
     The `default_entity_id` is only used when the entity is added for the first time.
