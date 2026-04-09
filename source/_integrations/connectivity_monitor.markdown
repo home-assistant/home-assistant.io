@@ -66,7 +66,7 @@ The integration provides additional options when you add a device to monitor.
 These options are available for every supported device type:
 
 {% configuration_basic %}
-Enable Alerts:
+Enable alerts:
   description: Enable notifications when a device goes offline or comes back online.
 Alert Delay (minutes):
   description: "How long Home Assistant waits after detecting a status change before sending a notification. The default is 15 minutes."
