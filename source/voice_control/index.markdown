@@ -410,114 +410,113 @@ function registerLanguageSelectChange() {
 }
 
 function updateLanguageSupports(locale = null) {
-	let data = {
-		"af-ZA": [0, 0],
-		"am-ET": [0, 0],
-		"ar-JO": [0, 2],
-		"az-AZ": [0, 0],
-		"bg-BG": [0, 2],
-		"bn-IN": [0, 0],
-		"bs-BA": [0, 0],
-		"ca-ES": [0, 3],
-		"cs-CZ": [0, 1],
-		"cy-GB": [0, 0],
-		"da-DK": [0, 2],
-		"de-DE": [3, 3],
-		"el-GR": [0, 1],
-		"en-US": [3, 3],
-		"es-ES": [3, 3],
-		"et-EE": [0, 1],
-		"eu-ES": [0, 1],
-		"fa-IR": [0, 1],
-		"fi-FI": [0, 3],
-		"fil-PH": [0, 0],
-		"fr-FR": [0, 3],
-		"ga-IE": [0, 0],
-		"gl-ES": [0, 2],
-		"gu-IN": [0, 0],
-		"he-IL": [0, 2],
-		"hi-IN": [0, 0],
-		"hr-HR": [0, 3],
-		"hu-HU": [0, 3],
-		"hy-AM": [0, 0],
-		"id-ID": [0, 1],
-		"is-IS": [0, 1],
-		"it-IT": [2, 2],
-		"ja-JP": [0, 0],
-		"jv-ID": [0, 0],
-		"ka-GE": [0, 1],
-		"kk-KZ": [0, 0],
-		"km-KH": [0, 0],
-		"kn-IN": [0, 0],
-		"ko-KR": [0, 1],
-		"lb-LU": [0, 0],
-		"lo-LA": [0, 0],
-		"lt-LT": [0, 1],
-		"lv-LV": [0, 1],
-		"mk-MK": [0, 0],
-		"ml-IN": [0, 1],
-		"mn-MN": [0, 0],
-		"mr-IN": [0, 0],
-		"ms-MY": [0, 1],
-		"mt-MT": [0, 0],
-		"my-MM": [0, 0],
-		"nb-NO": [0, 3],
-		"ne-NP": [0, 0],
-		"nl-BE": [0, 3],
-		"pl-PL": [0, 3],
-		"ps-AF": [0, 0],
-		"pt-BR": [3, 3],
-		"ro-RO": [0, 3],
-		"ru-RU": [2, 2],
-		"si-LK": [0, 0],
-		"sk-SK": [0, 1],
-		"sl-SI": [0, 2],
-		"so-SO": [0, 0],
-		"sq-AL": [0, 0],
-		"sr-RS": [0, 1],
-		"su-ID": [0, 0],
-		"sv-SE": [0, 2],
-		"sw-KE": [0, 0],
-		"sw-TZ": [0, 0],
-		"ta-IN": [0, 0],
-		"te-IN": [0, 1],
-		"th-TH": [0, 1],
-		"tr-TR": [0, 1],
-		"uk-UA": [0, 2],
-		"ur-IN": [0, 0],
-		"uz-UZ": [0, 0],
-		"vi-VN": [0, 1],
-		"wuu-CN": [0, 0],
-		"yue-CN": [0, 0],
-		"zh-CN": [0, 1],
-		"zh-HK": [0, 2],
-		"zu-ZA": [0, 0]
-	};
+    let data = {
+        "af-ZA": [0, 0],
+        "am-ET": [0, 0],
+        "ar-JO": [0, 3],
+        "az-AZ": [0, 0],
+        "bg-BG": [0, 3],
+        "bn-IN": [0, 2],
+        "bs-BA": [0, 0],
+        "ca-ES": [3, 3],
+        "cs-CZ": [0, 2],
+        "cy-GB": [0, 0],
+        "da-DK": [0, 3],
+        "de-DE": [3, 3],
+        "el-GR": [0, 2],
+        "en-US": [3, 3],
+        "es-ES": [3, 3],
+        "et-EE": [0, 2],
+        "eu-ES": [0, 2],
+        "fa-IR": [0, 2],
+        "fi-FI": [3, 3],
+        "fil-PH": [0, 0],
+        "fr-FR": [3, 3],
+        "ga-IE": [0, 2],
+        "gl-ES": [0, 3],
+        "gu-IN": [0, 2],
+        "he-IL": [0, 3],
+        "hi-IN": [0, 2],
+        "hr-HR": [3, 3],
+        "hu-HU": [3, 3],
+        "hy-AM": [0, 0],
+        "id-ID": [0, 2],
+        "is-IS": [0, 2],
+        "it-IT": [3, 3],
+        "ja-JP": [0, 0],
+        "jv-ID": [0, 0],
+        "ka-GE": [0, 2],
+        "kk-KZ": [0, 0],
+        "km-KH": [0, 0],
+        "kn-IN": [0, 2],
+        "ko-KR": [0, 2],
+        "lb-LU": [0, 2],
+        "lo-LA": [0, 0],
+        "lt-LT": [0, 2],
+        "lv-LV": [0, 2],
+        "mk-MK": [0, 0],
+        "ml-IN": [0, 2],
+        "mn-MN": [0, 2],
+        "mr-IN": [0, 2],
+        "ms-MY": [0, 2],
+        "mt-MT": [0, 0],
+        "my-MM": [0, 0],
+        "nb-NO": [3, 3],
+        "ne-NP": [0, 2],
+        "nl-BE": [3, 3],
+        "pl-PL": [3, 3],
+        "ps-AF": [0, 0],
+        "pt-BR": [3, 3],
+        "ro-RO": [3, 3],
+        "ru-RU": [3, 3],
+        "si-LK": [0, 0],
+        "sk-SK": [0, 2],
+        "sl-SI": [0, 3],
+        "so-SO": [0, 0],
+        "sq-AL": [0, 0],
+        "sr-RS": [0, 2],
+        "su-ID": [0, 0],
+        "sv-SE": [3, 3],
+        "sw-KE": [0, 2],
+        "sw-TZ": [0, 2],
+        "ta-IN": [0, 2],
+        "te-IN": [0, 2],
+        "th-TH": [0, 2],
+        "tr-TR": [0, 2],
+        "uk-UA": [3, 3],
+        "ur-IN": [0, 2],
+        "uz-UZ": [0, 0],
+        "vi-VN": [0, 2],
+        "wuu-CN": [0, 0],
+        "yue-CN": [0, 2],
+        "zh-CN": [0, 2],
+        "zh-HK": [0, 3],
+        "zu-ZA": [0, 0]
+    };
 
-	let elems = document.querySelectorAll(".supported-cards .supported-card");
-	if (!elems) return;
+    let elems = document.querySelectorAll(".supported-cards .supported-card");
+    if (!elems) return;
 
-	let supports = data[locale];
-	let foundLocale = locale;
-	if (!supports) {
-		Object.keys(data).forEach((key) => {
-			if (key.split("-")[0] === locale.split("-")[0]) {
-				supports = data[key];
-				foundLocale = key;
-			}
-		});
-	}
-	if (!supports) return;
+    let supports = data[locale];
+    let foundLocale = locale;
+    if (!supports) {
+        Object.keys(data).forEach((key) => {
+            if (key.split("-")[0] === locale.split("-")[0]) {
+                supports = data[key];
+                foundLocale = key;
+            }
+        });
+    }
+    if (!supports) return;
 
-	document.querySelector("#language-select").value = foundLocale;
-	languageSelect.update();
+    document.querySelector("#language-select").value = foundLocale;
+    languageSelect.update();
 
-	elems.forEach((elem) => elem.setAttribute("data-state", "-1"));
+    elems.forEach((elem) => elem.setAttribute("data-state", "-1"));
 
-	elems.forEach((elem, index) => {
-		// set data-state to the value of the value
-		elem.setAttribute("data-state", supports[index]);
-	});
+    elems.forEach((elem, index) => {
+        elem.setAttribute("data-state", supports[index]);
+    });
 }
 </script>
 
