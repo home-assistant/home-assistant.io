@@ -36,9 +36,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Known limitations
 
-Only iaqua/iq20 and exo systems are supported at this time.
+Only iAquaLink 2.0 (iQ20) and eXO systems are supported at this time.
 
-Please create requests for other systems in the iaqualink-py [repository](https://github.com/flz/iaqualink-py/issues).
+If you need support for other systems, please open a request in the iaqualink-py Python library [repository](https://github.com/flz/iaqualink-py/issues).
 
 ## Debugging integration
 
