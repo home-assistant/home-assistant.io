@@ -118,7 +118,7 @@ Port:
 
 {% configuration_basic %}
 Zigbee device:
-  description: "Select a Zigbee device that is already known to Home Assistant. Zigbee monitoring is currently supported for ZHA devices."
+  description: "Select a Zigbee device that is already known to Home Assistant. Zigbee monitoring is currently supported for devices added via the **Zigbee Home Automation** integration."
 {% endconfiguration_basic %}
 
 ## Supported functionality
