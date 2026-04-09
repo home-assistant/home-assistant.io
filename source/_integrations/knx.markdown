@@ -724,7 +724,12 @@ name:
   required: false
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. If the entity id already exists, the entity id is created with a number at the end. The `default_entity_id` is only used when the entity is added for the first time. After the entity is created, this configuration setting will no longer be used. You can change the entity id in the Home Assistant UI.
+  description: Use `default_entity_id` instead of `name` to automatically generate the entity ID.
+    For example, `sensor.my_awesome_sensor`.
+    If the entity ID already exists, the entity ID is created with a number at the end.
+    The `default_entity_id` is only used when the entity is added for the first time.
+    After the entity is created, this configuration setting will no longer be used.
+    You can change the entity ID in the Home Assistant UI.
   required: false
   type: string
 entity_category:
