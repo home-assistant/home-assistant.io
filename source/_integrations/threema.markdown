@@ -49,6 +49,7 @@ Private key:
 Public key:
   description: "Optional for basic mode, required for end-to-end encryption mode."
 {% endconfiguration_basic %}
+
 ## Recipients
 
 After setting up the gateway, add recipients as **subentries**. Go to **Settings** > **Devices & services** > **Threema**, select your gateway, and use **Add recipient**. Enter the 8-character Threema ID of the person you want to message and optionally a friendly display name (e.g., "Dad"). Each recipient creates a dedicated **notify entity**.
