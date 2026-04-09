@@ -36,8 +36,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Known limitations
 
-- The platform only supports a single pool.
-- Only Pool systems are supported at this time.
+Only iaqua/iq20 and exo systems are supported at this time.
+
+Please create requests for other systems in the iaqualink-py [repository](https://github.com/flz/iaqualink-py/issues).
 
 ## Debugging integration
 
@@ -50,3 +51,9 @@ logger:
     iaqualink: debug
     homeassistant.components.iaqualink: debug
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
