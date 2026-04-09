@@ -39,7 +39,16 @@ During setup, you can choose between two options:
 - **Generate new encryption keys**: The integration generates an encryption key pair and displays them. Save the keys — they cannot be recovered later. Then register a new Gateway ID at [gateway.threema.ch](https://gateway.threema.ch) using the generated public key, and complete setup with your Gateway credentials.
 
 {% include integrations/config_flow.md %}
-
+{% configuration_basic %}
+Gateway ID:
+  description: "Your Threema Gateway ID (starts with `*` and is 8 characters total)."
+API secret:
+  description: "The API secret from your Threema Gateway dashboard."
+Private key:
+  description: "Optional for basic mode, required for end-to-end encryption mode."
+Public key:
+  description: "Optional for basic mode, required for end-to-end encryption mode."
+{% endconfiguration_basic %}
 ## Recipients
 
 After setting up the gateway, add recipients as **subentries**. Go to **Settings** > **Devices & services** > **Threema**, select your gateway, and use **Add recipient**. Enter the 8-character Threema ID of the person you want to message and optionally a friendly display name (e.g., "Dad"). Each recipient creates a dedicated **notify entity**.
