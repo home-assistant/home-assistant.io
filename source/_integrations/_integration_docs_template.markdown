@@ -136,7 +136,7 @@ The **My integration** integration provides the following entities.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The **My integration** integration provides purpose-built automation triggers for common device events, such as connecting, disconnecting, or hitting an error state.
+The **My integration** integration provides automation triggers for common device events, such as connecting, disconnecting, or hitting an error state.
 Use them to watch one entity, every device in an area, or even multiple floors.
 
 ### Device connected
@@ -144,10 +144,9 @@ Use them to watch one entity, every device in an area, or even multiple floors.
 {% include integrations/labs_entity_triggers_note.md %}
 
 The **Device connected** trigger fires when the device reconnects to the service.
-In YAML, refer to it with `my_integration.connected`.
 Pair it with a notification or a script that resumes paused workflows.
 
-{% details "YAML example for this trigger" %}
+{% details "YAML example for the `my_integration.connected` trigger" %}
 
 ```yaml
 automation:
@@ -173,10 +172,9 @@ Conditions can check whether all, any, or none of the targeted devices match the
 ### Device is active
 
 The **Device is active** condition passes when the device is currently running.
-In YAML, refer to it with `my_integration.is_active`.
 This keeps actions from firing while maintenance tasks are already underway.
 
-{% details "YAML example for this condition" %}
+{% details "YAML example for the `my_integration.is_active` condition" %}
 
 ```yaml
 automation:
