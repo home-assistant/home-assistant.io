@@ -64,6 +64,17 @@ SSL:
   description: "Enable for secured connections (port 8883). Disable for unsecured connections (port 1883)."
 {% endconfiguration_basic %}
 
+### Reauthentication
+
+If your MQTT password changes or the security profile on your Victron device is updated, Home Assistant prompts you to re-authenticate:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Victron GX** integration. It will show a **Re-authenticate** message.
+2. Select the **Reconfigure** button or the **Re-authenticate** prompt.
+3. Enter your updated **Password**.
+4. Select **Submit**.
+
+On success, the integration reloads automatically.
+
 ## Data updates
 
 Entities are updated only when new values are received from the device, but no more frequently than every 30 seconds.

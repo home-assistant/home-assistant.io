@@ -37,6 +37,8 @@ There is currently support for the following Home Assistant Platforms:
 - [Media player](#media-player-entities)
 - [Button](#favorite-current-song-button)
 
+Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
+
 
 All of the Home Assistant [Media Player Control Actions](https://www.home-assistant.io/integrations/media_player/#media-control-actions) are supported.
 
@@ -60,6 +62,10 @@ The Music Assistant integration creates media player entities for all players an
 ### Favorite current song button
 
 The Music Assistant integration creates a button entity for each player to favorite the current song. Pressing this button (manually or by automation) adds the current song to your Music Assistant favorites. This works for songs stored locally as well as for tracks from streaming providers. It also works with remote content such as Spotify Connect, AirPlay, or a radio station, as long as the external source provides an artist and title combination (and optionally the album). 
+
+### Player options
+
+If a player provider supports player options, the Music Assistant integration exposes additional entities. For example, you may have a number entity to adjust the media player's bass or treble value. Refer to the [Player documentation](https://www.music-assistant.io/player-support/) to see whether your player supports this.
 
 
 ## Actions
