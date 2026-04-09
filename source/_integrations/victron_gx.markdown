@@ -95,6 +95,36 @@ Read-only sensors for monitoring system metrics, such as:
 - Inverter input and output power, frequency, and state
 - <abbr title="electric vehicle">EV</abbr> charger status, power, and session energy
 
+## Known limitations
+
+- The integration does not support real-time data push. Entities are updated at a fixed interval (every 30 seconds) even though the underlying connection is push-based via MQTT.
+
+## Examples
+
+### Send a notification when the battery is low
+
+You can use this automation to receive a notification when your battery state of charge drops below a certain threshold:
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Notify when battery is low"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.battery_state_of_charge
+        below: 20
+    actions:
+      - action: notify.notify
+        data:
+          title: "Low Battery Warning"
+          message: >
+            Your Victron battery state of charge is at
+            {{ states('sensor.battery_state_of_charge') }}%.
+```
+
+{% endraw %}
+
 ## Troubleshooting
 
 ### Cannot connect
