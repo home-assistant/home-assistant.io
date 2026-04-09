@@ -86,7 +86,7 @@ Individual smart plugs are not yet exposed as switches - you can create one zone
 
 ### Zone demand binary sensors
 
-For each **Radiator**, **Wet Underfloor**, **On/Off** and **Hot Water Temperature** zone, a `Binary sensor` entity with device class `heat` is created. This reflects whether the zone is currently requesting heat from the boiler.
+For each **Radiator**, **Wet Underfloor**, **On/Off**, and **Hot Water Temperature** zone, a `Binary sensor` entity with device class `heat` is created. This reflects whether the zone is currently requesting heat from the boiler.
 
 | State | Meaning |
 | :---: | ------- |
