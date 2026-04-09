@@ -28,8 +28,6 @@ This integration supports indoor units (full climate control) and Kumo Station o
 
 {% include integrations/config_flow.md %}
 
-
-
 After setup, you can adjust the following options under **Settings** > **Devices & services** > **Mitsubishi Comfort** > **Configure**:
 
 - **Connection timeout**: How long to wait when connecting to a device (default: 1.2 seconds)
