@@ -18,7 +18,7 @@ ha_quality_scale: silver
 
 The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or expose your Google Tasks to-do list as a tool.
 
-Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
+Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients with access to Home Assistant's Assist API. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}, and your <abbr title="Model Context Protocol">MCP</abbr> client can also read a real-time snapshot of that context. This gives your AI assistant a clear picture of your home's current state.
 
 ## Prerequisites
 
