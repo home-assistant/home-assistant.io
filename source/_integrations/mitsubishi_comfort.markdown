@@ -55,9 +55,6 @@ Temperature ranges are read from the device profile and may vary by unit and mod
 3. **Polling**: Device status is polled every 60 seconds. Commands (mode changes, temperature adjustments) are sent immediately and use optimistic state updates for responsive UI feedback.
 4. **Credentials**: Device credentials are cached locally so the integration can reconnect after a restart without contacting the cloud.
 
-## DHCP discovery
-
-The integration can automatically detect Mitsubishi adapters on your network via DHCP (MAC address prefixes `24:CD:8D` and `70:87:A7`). When a device is detected, you will be prompted to set up the integration.
 
 ## Removing the integration
 
