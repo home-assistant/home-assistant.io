@@ -90,7 +90,7 @@ Read-only sensors for monitoring system metrics, such as:
 
 Configurable options for controlling device behavior, such as:
 
-- Inverter mode (on, off, eco, charger only)
+- Inverter mode (on, off, charger only, inverter only)
 - Solar charger mode
 - Relay function configuration
 - <abbr title="electric vehicle">EV</abbr> charger charge mode (auto, manual, or scheduled charge)
