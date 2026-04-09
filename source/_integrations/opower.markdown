@@ -49,6 +49,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - National Grid NY Long Island
   - National Grid NY Metro
   - National Grid NY Upstate
+- Northern Indiana Public Service Company (NIPSCO)
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
