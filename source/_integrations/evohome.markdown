@@ -130,7 +130,7 @@ This integration provides its own actions to expose the full functionality of TC
 
 For reset operations, Evohome also provides **Button** entities in the UI. The corresponding actions described below will be deprecated in a future release.
 
-It is recommended to use the native actions (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic actions for integration with 3rd party systems such as Amazon Alexa or Google Home.
+It is recommended to use the native actions (for example, `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (for example, `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic actions for integration with third-party systems such as Amazon Alexa or Google Home.
 
 In particular, the native actions allow access to time-limited modes, such as being away for three days, rather than just being away indefinitely.
 
