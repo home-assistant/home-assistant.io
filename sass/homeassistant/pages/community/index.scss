@@ -1,20 +1,20 @@
 // Setup
-@import "homeassistant/pages/community/mixins.scss";
-@import "homeassistant/pages/community/variables.scss";
+@use 'homeassistant/pages/community/mixins.scss' as *;
+@use 'homeassistant/pages/community/variables.scss' as *;
 
 // Base
-@import "homeassistant/pages/community/base.scss";
-@import "homeassistant/pages/community/icon.scss";
-@import "homeassistant/pages/community/buttons.scss";
-@import "homeassistant/pages/community/event-card.scss";
-@import "homeassistant/pages/community/photos.scss";
-@import "homeassistant/pages/community/stats.scss";
+@use 'homeassistant/pages/community/base.scss' as *;
+@use 'homeassistant/pages/community/icon.scss' as *;
+@use 'homeassistant/pages/community/buttons.scss' as *;
+@use 'homeassistant/pages/community/event-card.scss' as *;
+@use 'homeassistant/pages/community/photos.scss' as *;
+@use 'homeassistant/pages/community/stats.scss' as *;
 
 // Components
-@import "homeassistant/pages/community/components/nav.scss";
-@import "homeassistant/pages/community/components/hero.scss";
-@import "homeassistant/pages/community/components/global.scss";
-@import "homeassistant/pages/community/components/join.scss";
-@import "homeassistant/pages/community/components/newsletter.scss";
-@import "homeassistant/pages/community/components/meetups.scss";
-@import "homeassistant/pages/community/components/faq.scss";
+@use 'homeassistant/pages/community/components/nav.scss' as *;
+@use 'homeassistant/pages/community/components/hero.scss' as *;
+@use 'homeassistant/pages/community/components/global.scss' as *;
+@use 'homeassistant/pages/community/components/join.scss' as *;
+@use 'homeassistant/pages/community/components/newsletter.scss' as *;
+@use 'homeassistant/pages/community/components/meetups.scss' as *;
+@use 'homeassistant/pages/community/components/faq.scss' as *;

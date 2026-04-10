@@ -13,6 +13,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
 The **GIOŚ** {% term integration %} uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.
@@ -67,8 +68,6 @@ The following examples show how to use the integration in Home Assistant automat
 
 The following example sends a notification to your mobile device when the PM10 level exceeds 100 µg/m³.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Notify when PM10 level is too high"
@@ -85,8 +84,6 @@ automation:
             The PM10 level is too high at {{ states('sensor.czerniawa_pm10') }} µg/m³.
             Avoid going outside.
 ```
-
-{% endraw %}
 
 ## Known limitations
 

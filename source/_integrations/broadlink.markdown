@@ -73,7 +73,7 @@ The `remote` {% term entities %} allow you to learn and send codes with universa
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later. A convenient interface to learn, send, and delete codes can be found in web interface under  `/developer-tools/service`.
 
 | Data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
@@ -428,6 +428,7 @@ The above example creates `switch.philips_tv` and `switch.lg_tv`, which are rela
 
 __IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
 
+##  Managing codes for remotes
 ### Using e-Control remotes
 
 If you already have your remotes learned on e-Control app you can use this method to "copy" them to Home Assistant.
@@ -551,7 +552,6 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
 8. Double click the Template node to edit it, select:
 
-   {% raw %}
 
    ```bash
    Property: msg.payload
@@ -560,7 +560,6 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
    Output as: Plain text
    ```
 
-   {% endraw %}
 
 9. Drag a Debug node to the right of the Template node and link them.
 10. Show the debug messages, deploy the flow and click on the inject button.
@@ -698,3 +697,7 @@ Assuming that your (or similar) device is in one of these databases:
 - <https://github.com/probonopd/irdb/tree/master/>
 
 You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.
+
+### Managig codes with Broadlink Manager
+
+A Docker based GUI to learn, send, and generate IR and RF codes is available through the [Broadlink Manager project](https://github.com/t0mer/broadlinkmanager-docker)

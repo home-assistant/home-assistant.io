@@ -14,7 +14,7 @@ ha_domain: solarlog
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
@@ -118,8 +118,6 @@ In addition, information from devices connected to the Solar-Log device becomes 
 
 In case you would like to get additional calculated sensors such as the amount of excess solar power available or the energy returned to the grid, you can use the [template platform](/integrations/template/).
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry for sensor template platform
 template:
@@ -127,8 +125,6 @@ template:
     - name: "Solarlog return to grid"
       state: "{{ states('sensor.solarlog_consumption_year') | float(0) - states('sensor.self_consumption_year') | float(0) }}"
 ```
-
-{% endraw %}
 
 ## Data updates
 

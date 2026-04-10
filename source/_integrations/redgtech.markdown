@@ -3,7 +3,7 @@ title: Redgtech
 description: Integrate your Redgtech smart switches with Home Assistant.
 ha_category:
   - Switch
-ha_release: 2026.2
+ha_release: 2026.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:

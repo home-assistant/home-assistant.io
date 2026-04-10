@@ -4,6 +4,7 @@ description: Connect and control your Maytag devices using the Whirlpool Applian
 ha_category:
   - Climate
   - Hub
+  - Select
 ha_integration_type: virtual
 ha_supporting_domain: whirlpool
 ha_supporting_integration: Whirlpool Appliances
@@ -17,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - select
   - sensor
 ha_iot_class: Cloud Push
 ---

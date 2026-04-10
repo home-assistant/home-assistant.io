@@ -200,7 +200,6 @@ binary_sensor:
 
 Here's an example for `template` observations, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` has not been seen in the last 5 minutes.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -218,7 +217,6 @@ binary_sensor:
       prob_given_false: 0.99
 ```
 
-{% endraw %}
 
 ### Multiple state and numeric entries per entity
 

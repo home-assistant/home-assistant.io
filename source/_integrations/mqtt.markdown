@@ -322,6 +322,15 @@ It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark
 
 Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
 
+## Grouping entities
+
+If the MQTT entity represents a group of other entities, the member entities can be made visible in the UI by setting the list of unique IDs of the member entities in the `group` configuration option of the entity group:
+
+{% configuration_basic %}
+group:
+  description: A list of unique IDs of the member entities. Set this if the entity represents a group entity. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+{% endconfiguration_basic %}
+
 ## MQTT Discovery
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic, and the device configuration as payload.
@@ -784,6 +793,7 @@ support_url:
     'fan_mode_stat_tpl':   'fan_mode_state_template',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
+    'grp':                 'group',
     'hs_cmd_t':            'hs_command_topic',
     'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
@@ -1077,7 +1087,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
@@ -1090,7 +1100,7 @@ availability_mode:
    type: string
    default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 payload_available:
@@ -1450,7 +1460,7 @@ MQTT devices often continuously generate numerous state updates. MQTT does not u
 
 ## Using Templates
 
-The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
+The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/templating/where-to-use/#mqtt).
 
 ### Examples
 
@@ -1469,8 +1479,6 @@ $ curl -X POST \
 #### Automations
 
 Use as [`script`](/integrations/script/) in automations.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -1495,8 +1503,6 @@ script:
           retain: true
 ```
 
-{% endraw %}
-
 ## Publish & Dump actions
 
 The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
@@ -1514,7 +1520,7 @@ The `mqtt.publish` action publishes a message to an MQTT topic.
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 {% note %}
-When `payload` is rendered from [template](/docs/configuration/templating/#using-value-templates-with-mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
+When `payload` is rendered from [template](/docs/templating/where-to-use/#mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
 {% endnote %}
 
 ```yaml
@@ -1522,43 +1528,29 @@ topic: homeassistant/light/1/command
 payload: on
 ```
 
-{% raw %}
-
 ```yaml
 topic: homeassistant/light/1/state
 payload: "{{ states('device_tracker.paulus') }}"
 ```
-
-{% endraw %}
-
-{% raw %}
 
 ```yaml
 topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
 payload: "{{ states('device_tracker.paulus') }}"
 ```
 
-{% endraw %}
-
 Be aware that `payload` must be a string.
 If you want to send JSON using the YAML editor then you need to format/escape
 it properly. Like:
-
-{% raw %}
 
 ```yaml
 topic: homeassistant/light/1/state
 payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
 ```
 
-{% endraw %}
-
 The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
 The `device_class` is set, so it is not needed to set the "name" option. The entity
 will inherit the name from the `device_class` set and also support translations.
 If you set "name" in the payload the entity name will start with the device name.
-
-{% raw %}
 
 ```yaml
 action: mqtt.publish
@@ -1578,8 +1570,6 @@ data:
     "manufacturer": "rtl_433" }
     }
 ```
-
-{% endraw %}
 
 Example of how to use `qos` and `retain`:
 

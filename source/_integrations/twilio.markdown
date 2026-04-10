@@ -7,7 +7,7 @@ ha_release: '0.40'
 ha_config_flow: true
 ha_domain: twilio
 ha_iot_class: Cloud Push
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Twilio** {% term integration %} enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
@@ -74,7 +74,6 @@ The above opens the garage door when the number `+1XXXXXXXXXXX` calls `+1YYYYYYY
 
 An example of an SMS handler:
 
-{% raw %}
 ```yaml
 alias: "Twilio incoming"
 triggers:
@@ -92,4 +91,3 @@ actions:
         incoming twilio message from {{sender}}: {{ message }}
         all event data: {{ trigger.event.data }}
 ```
-{% endraw %}

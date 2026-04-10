@@ -179,8 +179,6 @@ In this section you find some real-life examples of how to use this sensor. Ther
 
 The current release Home Assistant is published on [homepage](/)
 
-{% raw %}
-
 ```yaml
 scrape:
 # Example configuration.yaml entry
@@ -190,13 +188,9 @@ scrape:
         select: ".release-date"
 ```
 
-{% endraw %}
-
 ### Available implementations
 
 Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & services**" %}.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -207,8 +201,6 @@ scrape:
         select: 'a[href="#all"]'
         value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
-
-{% endraw %}
 
 ### Get a value out of a tag
 
@@ -257,8 +249,6 @@ scrape:
 
 This example tries to retrieve the price for electricity.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 scrape:
@@ -270,5 +260,3 @@ scrape:
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"
 ```
-
-{% endraw %}

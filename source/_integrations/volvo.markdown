@@ -60,7 +60,7 @@ Features available depend on model, year and location.
 3. Go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications).
 4. Create an **API application** and give it a meaningful name.
 
-It's recommended to add an API application per vehicle you want to add. There is a maximum on the number of requests that can be made per API key per day.
+To avoid hitting request limits, **create one API application per vehicle** you want to add. Each API application has a maximum number of requests per day. The primary and secondary API keys shown in Volvo's developer portal both belong to the same API application, and both count toward the same daily limit.
 
 {% note %}
 Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
@@ -228,13 +228,25 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter.
 - **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
 
+## Actions
+
+### Get image URL
+
+The action `get_image_url` retrieves the URL of your vehicle-specific images.
+Get all URLs at once, or select one or more angles.
+
+{% configuration_basic %}
+Entry:
+  description: "The entry ID to retrieve the vehicle images for."
+Images:
+  description: "The image angles to retrieve. Leave empty to get all images."
+{% endconfiguration_basic %}
+
 ## Examples
 
 ### Notify if doors are left open
 
 Send a notification to your mobile phone if at least one door is open for 5 minutes.
-
-{% raw %}
 
 ```yaml
 alias: Notify me if doors are left open for 5 minutes
@@ -262,8 +274,6 @@ actions:
     action: notify.mobile_app_phone_john_doe
 mode: single
 ```
-
-{% endraw %}
 
 ### Estimated charging finish time
 

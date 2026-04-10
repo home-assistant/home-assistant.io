@@ -11,9 +11,10 @@ ha_codeowners:
 ha_domain: opower
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/utilities/opower-energy-efficiency/).
@@ -48,6 +49,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - National Grid NY Long Island
   - National Grid NY Metro
   - National Grid NY Upstate
+- Northern Indiana Public Service Company (NIPSCO)
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
@@ -104,6 +106,11 @@ You will be asked to re-authenticate via MFA every 180 days.
 {% include integrations/config_flow.md %}
 
 ## Sensors
+
+The integration adds the following diagnostic sensors for each account:
+
+- Last changed
+- Last updated
 
 The integration adds the following sensors only if your utility provides forecasted usage/cost:
 
@@ -174,8 +181,8 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 ## Known limitations
 
 - There is a delay, often for up to a few days, for sensors and statistics to have up-to-date data.
-- For some utilities, there are no sensors added by this integration.
-- For some utilities, the sensors might disappear or become unavailable at the beginning of your bill period.
+- For some utilities, there are no usage/cost sensors added by this integration.
+- For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
 - Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
 

@@ -13,7 +13,7 @@ ha_domain: tami4
 ha_platforms:
   - button
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Tami4 Edge** {% term integration %} allows you to control and monitor [Tami4 Edge / Edge+ by Strauss](https://www.tami4.co.il/tami4edge-collection) devices in Home Assistant.

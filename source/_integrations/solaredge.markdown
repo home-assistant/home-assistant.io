@@ -174,7 +174,6 @@ Finally, create an automation that updates the sensors and notifies you. Example
 Update the SQL sensor entity IDs to match your setup.
 {% endnote %}
 
-{% raw %}
 ```yaml
 alias: "Notify: Low solar production modules"
 triggers:
@@ -205,7 +204,6 @@ actions:
           notification_id: solaredge_modules_low_production_alert
 mode: single
 ```
-{% endraw %}
 
 ## Known limitations
 

@@ -17,7 +17,7 @@ My Home Assistant allows the documentation to link you to specific pages in your
 
 ## Configuration
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is enabled by default, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 Add the following section to your {% term "`configuration.yaml`" %} file:
 

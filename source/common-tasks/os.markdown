@@ -55,7 +55,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
     1. Open the **Settings** panel.
     2. On the top you will be presented with an update notification.
-       - **Troubleshooting**: If you do not see that notification:
+       - Troubleshooting: If you do not see that notification:
          - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
          - Go to {% my updates title="**System** > **Updates**" %}.
            - Select the update notification.

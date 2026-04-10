@@ -139,7 +139,6 @@ The matched answer will be stored in a `response_variable` with the structure:
 
 Examples in YAML:
 
-{% raw %}
 
 ```yaml
 actions:
@@ -181,9 +180,6 @@ actions:
           entity_id: assist_satellite.my_entity
 ```
 
-{%endraw %}
-
-
 Instead of text, the question can also be a media ID:
 
 ```yaml
@@ -223,7 +219,6 @@ If `answers` is omitted, the response text from the user will be available in th
 
 Examples in YAML:
 
-{% raw %}
 
 ```yaml
 actions:
@@ -239,4 +234,3 @@ actions:
       entity_id: assist_satellite.my_entity
 ```
 
-{% endraw %}

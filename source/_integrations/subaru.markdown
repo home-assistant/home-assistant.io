@@ -17,7 +17,7 @@ ha_platforms:
   - diagnostics
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 This {% term integration %} retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.

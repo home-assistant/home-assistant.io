@@ -21,8 +21,6 @@ Scripts can be created via YAML configuration (described below) or via {% my scr
 
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -33,8 +31,6 @@ script:
         data:
           message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
-
-{% endraw %}
 
 {% important %}
 Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e., `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
@@ -146,7 +142,6 @@ To configure a script to accept variables using the UI, the variables can be add
 
 Using the variables in the script requires the use of templates:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -168,11 +163,9 @@ script:
           title: "{{ title }}"
           message: "{{ message }}"
 ```
-{% endraw %}
 
 Aside from the automation editor UI, variables can be passed to scripts within the action data. This can be used either by calling the script directly or the generic `script.turn_on` action. The difference is described in [Waiting for Script to Complete](#waiting-for-script-to-complete). All action data will be made available as variables in templates, even if not specified as fields in the script. This example shows how to call the script directly:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -187,11 +180,9 @@ automation:
         title: "State change"
         message: "The light is on!"
 ```
-{% endraw %}
 
 This example shows using `script.turn_on` action:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -209,13 +200,10 @@ automation:
           title: "State change"
           message: "The light is on!"
 ```
-{% endraw %}
-
-
 
 {% note %}
 
-Script variables that may be used by templates include the following: 
+Script variables that may be used by templates include the following:
 - those provided from the configuration as fields
 - those that are passed as data when started from an action,
 - the `this` variable the value of which is a dictionary of the current script's state.
@@ -237,8 +225,6 @@ Any errors that occur in the called scripts that cause them to abort will _not_ 
 Following is an example of the calling script not waiting. It performs some other operations while the called script runs "in the background." Then it later waits for the called script to complete via a `wait_template`.
 This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
-{% raw %}
-
 ```yaml
 script:
   script_1:
@@ -255,11 +241,8 @@ script:
       # Do some things at the same time as the first script...
 ```
 
-{% endraw %}
-
 ### Full configuration
 
-{% raw %}
 ```yaml
 script: 
   wakeup:
@@ -303,8 +286,6 @@ script: 
         target:
           entity_id: "{{ turn_on_entity }}"
 ```
-{% endraw %}
-
 
 ## Video tutorial
 

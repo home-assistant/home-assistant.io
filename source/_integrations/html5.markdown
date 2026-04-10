@@ -54,6 +54,22 @@ Assuming you have already configured the platform:
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
+### Notifiers
+
+The **HTML5 Push Notifications**  {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
+
+{% details "Example YAML configuration" %}
+
+```yaml
+action: notify.send_message
+data:
+  title: "Reminder"
+  message: "Have you considered frogs?"
+  entity_id: notify.my-desktop
+```
+
+{% enddetails %}
+
 ### Testing
 
 Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
@@ -109,8 +125,6 @@ data:
 
 Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
 
-{% raw %}
-
 ```yaml
   - alias: "Push/update notification of sensor state with tag"
     triggers:
@@ -123,8 +137,6 @@ Example of adding a tag to your notification. This won't create new notification
           data:
             tag: "notification-about-sensor"
 ```
-
-{% endraw %}
 
 #### Targets
 

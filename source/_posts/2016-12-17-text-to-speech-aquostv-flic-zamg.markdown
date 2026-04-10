@@ -152,5 +152,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [flic]: /integrations/flic
 [sensehat]: /integrations/sensehat/
 [tts]: /integrations/tts/
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 [discord-devs]: https://discord.gg/8X8DTH4

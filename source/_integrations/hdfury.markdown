@@ -6,6 +6,7 @@ ha_config_flow: true
 ha_release: 2026.2
 ha_category:
   - Button
+  - Number
   - Select
   - Sensor
   - Switch
@@ -15,11 +16,12 @@ ha_domain: hdfury
 ha_platforms:
   - button
   - diagnostics
+  - number
   - select
   - sensor
   - switch
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 
@@ -55,6 +57,13 @@ Below is a complete overview of the entities this integration provides.
 - Issue hotplug (Sends a command to hotplug TX & RX connected devices)
 - Restart (Reboot the device remotely)
 
+### Number
+
+- Unmute delay (Controls time offset before sending audio data to SINK0)
+- eARC unmute delay (Controls time offset before sending audio data to eARC TX)
+- OLED fade timer (Controls time before the front-panel OLED display fades out)
+- Restart timer (Controls interval for automatic device restarts)
+
 ### Select
 
 - Operation Mode (Controls the device Operation Mode, Splitter/Matrix/etc.)
@@ -81,6 +90,7 @@ Below is a complete overview of the entities this integration provides.
 ### Switches
 
 - Auto switch inputs (Automatically switches to the active HDMI input)
+- CEC (Enables or disables HDMI-CEC on all inputs and outputs)
 - CEC RX0 (Enables or disables HDMI-CEC on input RX0)
 - CEC RX1 (Enables or disables HDMI-CEC on input RX1)
 - CEC RX2 (Enables or disables HDMI-CEC on input RX2)
@@ -94,6 +104,8 @@ Below is a complete overview of the entities this integration provides.
 - Mute audio TX1 (Mutes audio output on HDMI output TX1)
 - OLED display (Turns the front-panel OLED display on or off)
 - Relay (Controls the onboard relay output)
+- TX0 force +5v (Forces the +5v line on the HDMI cable for TX0 to be active)
+- TX1 force +5v (Forces the +5v line on the HDMI cable for TX1 to be active)
 
 ## Data updates
 
@@ -109,8 +121,6 @@ These examples are just a starting point, and you can use them as inspiration to
 ### Switch HDMI input
 
 The following example switches the HDFury input to the correct source when the media player powers on.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -131,8 +141,6 @@ automation:
         data:
           option: 1
 ```
-
-{% endraw %}
 
 ## Known limitations
 

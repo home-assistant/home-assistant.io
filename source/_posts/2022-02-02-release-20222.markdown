@@ -249,7 +249,7 @@ Now the scene has a state; it also got logbook entries.
 There is now a search in the top right of the configuration dashboard, which
 opens the [Quick Bar](/docs/tools/quick-search/). This also works on mobile devices.
 
-It allows you to access and search for just about anything within
+It allows you to access and search forst about anything within
 Home Assistant. From accessing add-ons, configuration panels,
 and even entities and devices.
 
@@ -1015,7 +1015,7 @@ The following integrations are now available via the Home Assistant UI:
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
 

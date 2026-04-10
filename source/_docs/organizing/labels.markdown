@@ -8,7 +8,7 @@ related:
     title: Floors
   - docs: /docs/organizing/categories/
     title: Categories
-  - docs: /docs/configuration/templating/#labels
+  - docs: /template-functions/#label
     title: Using labels in templates
 ---
 
@@ -30,7 +30,7 @@ Follow these steps to create a new label from the **Labels** view.
     ![Create label dialog](/images/organizing/create_label_01.png)
 4. Select **Create**.
 
-   **Result**: A new label is created.
+   Result: A new label is created.
 
 ## Applying labels
 

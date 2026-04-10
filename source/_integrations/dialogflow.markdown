@@ -73,7 +73,6 @@ When activated, the [`alexa` integration](/integrations/alexa/) will have Home A
 
 Download [this zip](https://github.com/home-assistant/home-assistant.io/blob/current/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** > **Export and Import**) for examples intents to use with this configuration:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -122,4 +121,3 @@ intent_script:
           entity_id: "switch.light_{{ Room | striptags | replace(' ', '_') }}"
 ```
 
-{% endraw %}
