@@ -18,7 +18,7 @@ ha_quality_scale: silver
 
 The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or expose your Google Tasks to-do list as a tool.
 
-Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
+Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients with access to Home Assistant's Assist API. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}, and your <abbr title="Model Context Protocol">MCP</abbr> client can also read a real-time snapshot of that context. This gives your AI assistant a clear picture of your home's current state.
 
 ## Prerequisites
 
@@ -205,7 +205,18 @@ The [MCP Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provide
 inform LLMs how to call the tools. The tools used by the configured LLM API
 are exposed.
 
-## Known Limitations
+### Resources
+
+When the configured LLM API includes the `GetLiveContext` tool, Home Assistant
+also exposes a read-only [MCP Resource](https://modelcontextprotocol.io/docs/concepts/resources)
+named `homeassistant://assist/context-snapshot`.
+
+This resource returns a plain-text snapshot that matches the existing
+`GetLiveContext` tool output. It is intended for inspection, debugging, and
+explanation workflows where a static snapshot is useful. If the configured LLM
+API does not expose `GetLiveContext`, this resource is not available.
+
+## Known limitations
 
 The Home Assistant Model Context Protocol integration currently only supports a
 subset of MCP features:
@@ -214,7 +225,7 @@ subset of MCP features:
 | ------- | --------- |
 | Prompts | ✅ |
 | Tools | ✅ |
-| Resources | ❌ |
+| Resources | ✅ (Assist only) |
 | Sampling | ❌ |
 | Notifications | ❌ |
 
