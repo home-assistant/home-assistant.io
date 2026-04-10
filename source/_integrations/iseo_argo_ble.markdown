@@ -4,7 +4,7 @@ description: Instructions on how to integrate your ISEO Argo smart lock into Hom
 ha_category:
   - Lock
 ha_release: 2026.4
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@FezVrasta'
