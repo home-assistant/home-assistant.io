@@ -26,7 +26,7 @@ The **Neato** {% term integration %} allows you to control your [Neato Botvac Co
 
 Vorwerk is phasing out Neato cloud services. On 6 October 2025, they [announced](https://support.neatorobotics.com/support/solutions/articles/204000073686) that the cloud platform can no longer be maintained in a reliable and future-proof way.
 
-Because the Neato Developer Network is no longer available, **new setups of this integration are no longer possible**. Existing setups may continue to work until the cloud is fully shut down.
+Because the Neato Developer Network is no longer available, you can no longer set up this integration as a new installation. Existing setups may continue to work until the cloud is fully shut down.
 
 {% endimportant %}
 
