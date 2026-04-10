@@ -68,7 +68,7 @@ allow:
   default: "fullscreen"
 disable_sandbox:
   required: false
-  description: Disables the [sandbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) attribute of the iframe, e.g. required for Chrome when viewing PDFs. This is less secure and should only be used if you trust the content of the iframe.
+  description: Disables the [sandbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) attribute of the iframe, for example when viewing PDFs in Chrome. This is less secure and should only be used if you trust the content of the iframe.
   type: boolean
   default: false
 {% endconfiguration %}
