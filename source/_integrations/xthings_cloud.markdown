@@ -153,6 +153,6 @@ After successful setup, some or all devices are missing.
 
 ## Removing the integration
 
-This integration follows standard integration removal.
+This integration follows standard integration removal. 
 
 {% include integrations/remove_device_service.md %}
