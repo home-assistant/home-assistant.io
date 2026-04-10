@@ -189,7 +189,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Switch|Sentry mode|Yes|
 |Update|Update|Yes|
 
-The `Disable charge on solar` and `Enable charge on solar` buttons are available when the **Charge on solar buttons** preview feature is enabled for Teslemetry in [Home Assistant Labs](/integrations/labs). Preview features are still in development and may change.
+The **Disable charge on solar** and **Enable charge on solar** buttons are available when the **Charge on solar buttons** preview feature is enabled for Teslemetry in [Home Assistant Labs](/integrations/labs). Preview features are still in development and may change.
 
 These are action-only buttons because the Tesla Fleet API does not currently expose a reliable charge-on-solar state.
 
