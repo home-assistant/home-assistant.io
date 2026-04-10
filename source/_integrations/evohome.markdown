@@ -92,7 +92,7 @@ Note that support for schedules is limited. They cannot be changed, and there is
 
 ### Round thermostat
 
-These systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two **Climate** entities, one for system mode (Away, Economy, and similar modes), and another for the zone setpoint.
+These systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two **Climate** entities, one for system mode (Away, AutoWithEco, and similar modes), and another for the zone setpoint.
 
 ## Temperature precision
 
