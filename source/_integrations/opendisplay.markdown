@@ -71,8 +71,6 @@ Events are detected by comparing consecutive BLE advertisements, so no active Bl
 
 {% details "Turn on a light when a button is pressed" %}
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -84,9 +82,6 @@ actions:
     target:
       entity_id: light.my_light
 ```
-
-{% endraw %}
-
 {% enddetails %}
 
 ## Actions
