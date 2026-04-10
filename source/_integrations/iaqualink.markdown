@@ -34,8 +34,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Prerequisites
 
-1. Create an account and log in using either the iAqualink App or the [iAqualink website](https://site.iaqualink.net/signin).
-2. Add your device(s) to the account created above (typically using its serial number).
+1. Create an account and log in using either the iAqualink app or the [iAqualink website](https://site.iaqualink.net/signin).
+2. Add your devices to the account you created in the previous step, typically using their serial numbers.
 
 {% include integrations/config_flow.md %}
 
