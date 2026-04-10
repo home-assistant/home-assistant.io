@@ -227,7 +227,7 @@ To set the state of the device tracker to a named location:
 mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/state -m 'location_name'
 ```
 
-If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (that is, `json_attributes_topic`) in the configuration payload:
 
 - Attributes topic: `homeassistant/device_tracker/a4567d663eaf/attributes`
 - Example attributes payload:
