@@ -54,7 +54,7 @@ The integration creates one device for the main Duco box. Connected modules (suc
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
 
-The fan is always on — setting the speed to 0% hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation.
+The fan is always on, setting the speed to 0% hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation.
 
 The following actions are available:
 
@@ -62,7 +62,7 @@ The following actions are available:
 - **Speed 33%**: Low speed manual override.
 - **Speed 66%**: Medium speed manual override.
 - **Speed 100%**: High speed manual override.
-- **Auto preset**: Same as speed 0%: hands control back to Duco.
+- **Auto preset**: Same as speed 0%; hands control back to Duco.
 
 When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
