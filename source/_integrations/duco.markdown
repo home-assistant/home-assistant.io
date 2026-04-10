@@ -72,7 +72,7 @@ The following sensor entities are created per node, depending on the node type:
 
 #### Ventilation state
 
-Available for all node types (box, CO₂ module, humidity module). Shows the raw ventilation state from the device, such as `AUTO`, `CNT1`, `CNT2`, `CNT3`, `MAN1`, `MAN2`, or `MAN3`.
+Available for all node types (box, CO₂ module, humidity module). Shows the current ventilation state, for example _Automatic_, _Continuous high speed_, or _Manual low speed (15 min)_. The available states depend on the node type.
 
 #### CO₂ concentration
 
@@ -84,11 +84,11 @@ Available for the main ventilation box and humidity sensor modules. Shows the cu
 
 #### CO₂ air quality index
 
-Available for CO₂ sensor modules. Shows the CO₂ air quality index as a unitless number. This entity is disabled by default.
+Available for CO₂ sensor modules. Shows the CO₂ air quality score as a percentage (0–100 %), where 100 % means very good indoor air quality. This entity is disabled by default.
 
 #### Humidity air quality index
 
-Available for the main ventilation box and humidity sensor modules. Shows the humidity air quality index as a unitless number. This entity is disabled by default.
+Available for the main ventilation box and humidity sensor modules. Shows the humidity air quality score as a percentage (0–100 %), where 100 % means very good indoor air quality. This entity is disabled by default.
 
 ## Use cases
 
