@@ -426,7 +426,7 @@ switch:
 
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
-__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
+__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example Bedroom TV.
 
 ##  Managing codes for remotes
 ### Using e-Control remotes
@@ -492,7 +492,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
 
-5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g., `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
+5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located, for example `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
 
     ```bash
     C:\Python27>python getBroadlinkSharedData.py
