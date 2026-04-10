@@ -228,7 +228,7 @@ This action allows you to update a setting on a given VIZIO device. You will nee
 
 The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action.
 
-Commands are case-insensitive. You can use either the native key name (e.g., `VOL_UP`) or a human-friendly alias (e.g., `volume_up`).
+Commands are case-insensitive. You can use either the native key name (for example, `VOL_UP`) or a human-friendly alias (for example, `volume_up`).
 
 ### Available commands
 
