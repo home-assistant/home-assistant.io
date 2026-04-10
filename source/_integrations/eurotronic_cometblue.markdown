@@ -4,7 +4,7 @@ description: Instructions on how to integrate Eurotronic Comet Blue Thermostats 
 ha_category:
   - Climate
 ha_iot_class: Local Polling
-ha_release: 2026.4
+ha_release: 2026.5
 ha_config_flow: true
 ha_bluetooth: true
 ha_codeowners:
