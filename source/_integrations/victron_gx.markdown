@@ -135,6 +135,35 @@ Toggle controls for enabling or disabling device functions, such as:
 - PV DC overvoltage feed-in
 - VE.Bus PowerAssist, ignore AC input, and grid lost alarm settings
 
+## Known limitations
+
+- The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
+
+## Examples
+
+### Send a notification when the battery is low
+
+You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_soc` with your actual battery charge entity.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Notify when battery is low"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.battery_soc
+        below: 20
+    actions:
+      - action: notify.notify
+        data:
+          title: "Low battery warning"
+          message: >
+            Your Victron battery charge is at
+            {{ states('sensor.battery_soc') }}%.
+```
+
+{% endraw %}
 ## Troubleshooting
 
 ### Cannot connect
