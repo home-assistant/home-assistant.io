@@ -16,7 +16,7 @@ related:
     title: Configuration file
 ---
 
-The `alert` integration is designed to notify you when problematic issues arise.
+The **Alert** {% term integration %} is designed to notify you when problematic issues arise.
 For example, if the garage door is left open, the `alert` integration can be used
 to remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
@@ -67,7 +67,7 @@ entity_id:
 title:
   description: >
     A title to be used for the notification if the notifier supports it
-    with [template](/docs/configuration/templating/) support.
+    with [template](/docs/templating/) support.
   required: false
   type: template
 state:
@@ -96,13 +96,13 @@ skip_first:
 message:
   description: >
     A message to be sent after an alert transitions from `idle` to `on`
-    with [template](/docs/configuration/templating/) support.
+    with [template](/docs/templating/) support.
   required: false
   type: template
 done_message:
   description: >
     A message sent after an alert transitions from `on` or `off` to `idle` with
-    [template](/docs/configuration/templating/) support. Is only sent if an alert notification
+    [template](/docs/templating/) support. Is only sent if an alert notification
     was sent for transitioning from `idle` to `on`.
   required: false
   type: template
@@ -163,7 +163,6 @@ disable the alert on certain days. Maybe the alert firing should depend on more
 than one input. For all of these situations, it is best to use the alert in
 conjunction with a `Template Binary Sensor`. The following example does that.
 
-{% raw %}
 
 ```yaml
 template:
@@ -182,7 +181,6 @@ alert:
       - kristens_phone
 ```
 
-{% endraw %}
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
@@ -227,7 +225,6 @@ can be used in the message or name of the alert to make it more relevant.
 The following will show for a plant how to include the problem `attribute`
 of the entity.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -246,7 +243,6 @@ alert:
       - kristens_phone
 ```
 
-{% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
@@ -315,4 +311,4 @@ alert:
       tag: garage-door
 ```
 
-[template]: /docs/configuration/templating/
+[template]: /docs/templating/

@@ -1,3 +1,4 @@
+@use '../mixins' as *;
 section#meetups {
 
     background-color: #CCEFFE;
@@ -43,11 +44,11 @@ section#meetups {
                 }
             }
 
-            .event-card {
+            .event-card, .button {
                 margin-top: 20px;
 
                 @include bp(tablet) {
-                    margin-top: 40px;
+                    margin-top: 32px;
                 }
             }
         }

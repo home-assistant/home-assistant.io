@@ -14,7 +14,7 @@ ha_platforms:
   - alarm_control_panel
   - camera
   - diagnostics
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrate [Prosegur](https://www.prosegur.com/) Smart Alarms into Home Assistant. 

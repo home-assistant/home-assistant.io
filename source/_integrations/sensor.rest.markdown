@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: rest
 ---
 
-The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+The **RESTful Sensor** {% term integration %} is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
@@ -34,8 +34,6 @@ sensor:
 
 or a template based request:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -48,8 +46,6 @@ sensor:
       start_date: >
         {{ (now() - timedelta(days = 1)).strftime('%Y-%m-%d') }}
 ```
-
-{% endraw %}
 
 {% configuration %}
 authentication:
@@ -124,12 +120,17 @@ resource_template:
   description: The resource or endpoint that contains the value with template support.
   required: true
   type: template
+scan_interval:
+  description: The frequency in seconds to call the REST endpoint.
+  required: false
+  type: integer
+  default: 30
 state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
 timeout:
-  description: Defines max time to wait data from the endpoint.
+  description: Defines the maximum time in seconds to wait for data from the endpoint before the sensor is marked as `unavailable`.
   required: false
   type: integer
   default: 10
@@ -146,7 +147,7 @@ username:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value."
   required: false
   type: template
 verify_ssl:
@@ -179,8 +180,6 @@ In this section you find some real-life examples of how to use this sensor.
 
 You can find your external IP address using the [ipify](https://www.ipify.org) service for both IPv4 and IPv6.
 
-{% raw %}
-
 ```yaml
 sensor:
   - platform: rest
@@ -194,13 +193,9 @@ sensor:
     value_template: "{{ value_json.ip }}"
 ```
 
-{% endraw %}
-
 ### Single value from a local Glances instance
 
 The [glances](/integrations/glances) sensor is doing the exact same thing for all exposed values.
-
-{% raw %}
 
 ```yaml
 sensor:
@@ -211,15 +206,11 @@ sensor:
     unit_of_measurement: MB
 ```
 
-{% endraw %}
-
 ### Value from another Home Assistant instance
 
 The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not connected you can still get information from them.
 
 If the Home Assistant instance in the resource variable is protected by an API password, you can append `?api_password=YOUR_PASSWORD` to the resource URL to authenticate or use `headers:`.
-
-{% raw %}
 
 ```yaml
 sensor:
@@ -229,8 +220,6 @@ sensor:
     value_template: "{{ value_json.state }}"
     unit_of_measurement: "°C"
 ```
-
-{% endraw %}
 
 ### Accessing an HTTP authentication protected endpoint
 
@@ -279,8 +268,6 @@ my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCx
 
 This sample is very similar to the [`updater`](/integrations/updater/) integration but the information is received from GitHub.
 
-{% raw %}
-
 ```yaml
 sensor:
   - platform: rest
@@ -295,13 +282,13 @@ sensor:
       User-Agent: Home Assistant REST sensor
 ```
 
-{% endraw %}
-
 ### Fetch multiple JSON attributes and present them as values
 
-[JSON Test](https://www.jsontest.com/) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
+{% note %}
+Most examples below use the `rest:` configuration format, which belongs to the [RESTful integration](/integrations/rest). The RESTful integration allows defining multiple sensors from a single HTTP endpoint, reducing the number of requests to the same service. If you only need a single sensor from an endpoint, use the `sensor` platform configuration shown in the examples above.
+{% endnote %}
 
-{% raw %}
+[JSON Test](https://www.jsontest.com/) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 
 ```yaml
 rest:
@@ -317,11 +304,7 @@ rest:
         value_template: "{{ value_json.milliseconds_since_epoch }}"
 ```
 
-{% endraw %}
-
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find this [XML to JSON Converter](https://www.freeformatter.com/xml-to-json-converter.html) helpful for testing how your XML converts to JSON.
-
-{% raw %}
 
 ```yaml
 sensor:
@@ -337,11 +320,7 @@ sensor:
     value_template: "{{ value_json[0].name }}"
 ```
 
-{% endraw %}
-
 This sample fetches a weather report from [OpenWeatherMap](https://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/integrations/template) sensors that monitor the attributes and present the values in a usable form.
-
-{% raw %}
 
 ```yaml
 rest:
@@ -363,8 +342,6 @@ rest:
         value_template: "{{ value_json['main']['humidity'] }}"
         unit_of_measurement: "%"
 ```
-
-{% endraw %}
 
 This configuration shows how to extract multiple values from a dictionary. This method avoids flooding the REST service because the result is only requested once. From that single request, multiple sensors can be created by using template sensors.
 
@@ -395,8 +372,6 @@ This configuration shows how to extract multiple values from a dictionary. This 
 
 {% endraw %}
 
-{% raw %}
-
 ```yaml
 rest:
     resource: "http://<address_to_rest_service>"
@@ -419,11 +394,7 @@ rest:
         unit_of_measurement: "°C"
 ```
 
-{% endraw %}
-
 The example below shows how to extract multiple values from a dictionary from the XML file of a Steamist Steambath Wi-Fi interface. The values are used to create multiple sensors without having to poll the endpoint numerous times.
-
-{% raw %}
 
 ```yaml
 rest:
@@ -445,8 +416,6 @@ rest_command:
   set_steam_led:
     url: http://192.168.1.105/leds.cgi?led={{ led }}
 ```
-
-{% endraw %}
 
 For reference, the XML content of endpoint shown above example is below:
 

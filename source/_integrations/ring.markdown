@@ -27,13 +27,13 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@sdb9696'
 ha_quality_scale: bronze
 ---
 
-The Ring integration allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
+The **Ring** {% term integration %} allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
 
 ## How you can use this integration
 
@@ -233,8 +233,6 @@ downloader:
 
 Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>.mp4`:
 
-{% raw %}
-
 ```yaml
 automation:
   alias: "Save the video when the doorbell is pushed"
@@ -256,18 +254,14 @@ automation:
       filename: "{{state_attr('camera.front_door_last_recording', 'friendly_name')}}.mp4"
 ```
 
-{% endraw %}
-
 You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file:
 
-{% raw %}
 ```yaml
     data:
       url: "{{ state_attr('camera.front_door_last_recording', 'video_url') }}"
       subdir: "{{ state_attr('camera.front_door_last_recording', 'friendly_name') }}/{{ now().strftime('%Y.%m') }}"
       filename: "{{ now().strftime('%Y-%m-%d-at-%H-%M-%S') }}.mp4"
 ```
-{% endraw %}
 
 the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your localization format.
 

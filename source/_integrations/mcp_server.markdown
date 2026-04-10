@@ -23,7 +23,7 @@ Controlling Home Assistant is done by providing <abbr title="Model Context Proto
 ## Prerequisites
 
 - You need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
-- Since most clients do not support native remote servers, you need an additional local MCP server remote gateway.
+- If your client does not support remote servers, you need an additional local MCP server remote gateway.
 
 For detailed configuration instructions, refer to the [Client configuration](#client-configuration) section.
 
@@ -50,8 +50,8 @@ a client and can connect to multiple MCP servers to provide context. See the
 [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
 
 The Home Assistant Model Context Protocol Server integration implements the
-[Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse)
-allowing streaming client-to-server communication. Most MCP clients today only support
+[Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
+allowing client-to-server communication using the stateless protocol. Some MCP clients only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
 and directly run an MCP server as a local command line tool. You can 
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
@@ -63,6 +63,9 @@ The Model Context Protocol specification has recently defined standards for
 authorization and connecting to remote servers. The standards are a *work in progress*
 and so some clients may not support the latest functionality, and the specification
 will likely continue to evolve.
+
+The Home Assistant MCP server is exposed as `/api/mcp` and requires the
+client to provide an authentication token.
 
 ### Access control
 
@@ -94,42 +97,46 @@ For more information about Authentication in Home Assistant, refer to the [Authe
 
 ### Example: Claude for Desktop
 
-See [MCP Quickstart: For Claude Desktop Users](https://modelcontextprotocol.io/quickstart/user#for-claude-desktop-users)
-for a detailed guide on using Claude for Desktop with an MCP server. It is recommended
-to get the example server working first before using the Home Assistant MCP Server.
+Claude for Desktop now supports remote MCP servers, making it extremely easy to connect to your
+Home Assistant instance:
 
-Claude for Desktop currently only supports local MCP servers using the [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio)
-transport, run as a local command line tool. You can use a local MCP proxy server
-to allow Claude for Desktop to access Home Assistant using the SSE transport.
+1. Download [Claude for Desktop](https://claude.ai/download) and log in.
+2. Click your profile name, select **Settings**, and go to **Connectors**.
+3. Click **Add Custom Connector**.
+4. Enter the following details:
+   - **Name**: "Home Assistant" (or any more descriptive name you prefer)
+   - **Remote MCP Server URL**: `https://<your_home_assistant_url>/api/mcp`
+   - Under advanced settings:
+     - **OAuth Client ID**: `https://claude.ai`
+     - **OAuth Client Secret**: Leave this blank
+5. Click **OK**. Now click **Connect** next to the entry created with the name you provided above.
+6. Log in to your Home Assistant instance and allow the redirect back to Claude Desktop.
+7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
-1. Download [Claude for Desktop](https://claude.ai/download). 
-2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
-   For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
-3. Open the configuration file. Visit **Settings…** and on the **Developer** tab, select **Edit Config**.
-   which will edit `claude_desktop_config.json`. The full file location depends on your
-   operating system (macOS or Windows).
-4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
-   connect to Home Assistant with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
-   to the long live access token created above in the [access control instructions](#access-control)
-    ```json
-    {
-      "mcpServers": {
-        "Home Assistant": {
-          "command": "mcp-proxy",
-          "env": {
-            "SSE_URL": "http://localhost:8123/mcp_server/sse",
-            "API_ACCESS_TOKEN": "<your_access_token_here>"
-          }
-        }
-      }
-    }
-    ```
-5. Restart Claude.
-6. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the connection icon will show enabled MCP servers such as *Home Assistant*.
-7. Select the prompt provided by Home Assistant.
-8. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
+   ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
-  ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
+### Example: Claude Code
+
+Claude Code supports remote MCP servers, making it easy to connect to your Home Assistant instance:
+
+1. Install [Claude Code](https://claude.com/product/claude-code) and log in.
+2. In your shell, run the following command:
+
+   ```bash
+   claude mcp add-json "HA" '{
+     "type": "http",
+     "url": "https://<your_home_assistant_url>/api/mcp",
+     "oauth": {
+       "clientId": "http://localhost:12345",
+       "callbackPort": 12345
+     }
+   }' --client-secret
+   ```
+   The name "HA", the URL "https://<your_home_assistant_url>", and the callback port "12345" are examples; adjust them to match your setup.
+
+3. Start `claude` and type `/mcp`. Navigate to your MCP listing (for example, **HA**) and press Enter. Select **Authenticate** to open a web browser to your Home Assistant login page.
+4. After you authenticate to your Home Assistant server, Home Assistant will tell you that you can close the web browser.
+5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
 ### Example: Cursor
 
@@ -144,7 +151,9 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
         "Home Assistant": {
           "command": "mcp-proxy",
           "args": [
-            "http://localhost:8123/mcp_server/sse"
+            "--transport=streamablehttp",
+            "--stateless",
+            "http://localhost:8123/api/mcp"
           ],
           "env": {
             "API_ACCESS_TOKEN": "<your_access_token_here>"
@@ -158,6 +167,29 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 7. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
+
+### Example: gemini-cli
+
+1.  Install `gemini-cli` if you haven't already. You can find installation instructions at [https://geminicli.com/](https://geminicli.com/).
+2.  Open the `gemini-cli` configuration file. This is usually located at `~/.gemini/settings.json`. For more details, refer to the [gemini-cli MCP server documentation](https://geminicli.com/docs/tools/mcp-server/).
+3.  Add the following to your `mcpServers` configuration:
+
+    ```json
+    {
+      "mcpServers": {
+        "homeassistant": {
+          "httpUrl": "https://<your_home_assistant_url>/api/mcp",
+          "headers": {
+            "Authorization": "Bearer ${HOMEASSISTANT_TOKEN}"
+          }
+        }
+      }
+    }
+    ```
+
+4.  Replace `<your_home_assistant_url>` with the URL of your Home Assistant instance.
+5.  Set the `HOMEASSISTANT_TOKEN` environment variable to a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) from your Home Assistant instance.
+6.  Save the file. You can now use Home Assistant tools within `gemini-cli`.
 
 ## Supported functionality
 
@@ -227,9 +259,9 @@ To understand the root cause, first check debug logs on the client. For example 
 3. Select the `Home Assistant` MCP server.
 4. Select **Open Logs Folder**.
 5. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
-   - `Client error '404 Not Found' for url 'http://localhost:8123/mcp_server/sse'`:
+   - `Client error '404 Not Found' for url 'http://localhost:8123/api/mcp'`:
      this means the MCP Server integration is not configured in Home Assistant.
-   - `Client error '401 Unauthorized' for url 'http://localhost:8123/mcp_server/sse'`:
+   - `Client error '401 Unauthorized' for url 'http://localhost:8123/api/mcp'`:
      this means that the long live access token is not correct.
 ...
 

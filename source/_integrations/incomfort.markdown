@@ -17,13 +17,13 @@ ha_platforms:
   - diagnostics
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ha_dhcp: true
 ha_quality_scale: platinum
 ---
 
-This integration links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
+This {% term integration %} links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
 The integration uses the [incomfort-client](https://pypi.org/project/incomfort-client/) library.
 
 ### Supported devices
@@ -103,8 +103,6 @@ This integration follows standard integration removal, no extra steps are requir
 
 To send an alert if the CV pressure is too low or too high, consider the following example:
 
-{% raw %}
-
 ```yaml
 - alias: "Low CV Pressure Alert"
   triggers:
@@ -119,7 +117,5 @@ To send an alert if the CV pressure is too low or too high, consider the followi
           {{ trigger.to_state.attributes.friendly_name }}
           is low, {{ trigger.to_state.state }} bar.
 ```
-
-{% endraw %}
 
 Other properties are available via each device's attributes.

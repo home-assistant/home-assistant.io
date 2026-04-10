@@ -12,7 +12,7 @@ related:
     title: Configuration file
 ---
 
-This `plant` {% term integration %} lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
+This **Plant Monitor** {% term integration %} lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
 
 ## Configuration
 
@@ -124,8 +124,6 @@ The main sources of the data will usually be a [MiFlora sensor](/integrations/mi
 
 If you want to get the data via a PlantGateway, this is a typical configuration for the MQTT sensors:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 plant:
@@ -169,7 +167,5 @@ sensor:
     value_template: "{{ value_json.brightness | int }}"
     unit_of_measurement: "Lux"
 ```
-
-{% endraw %}
 
 You have to replace the `state_topic` with the value that you configured in the PlantGateway. It also depends on the global configuration of your MQTT server.

@@ -216,9 +216,46 @@ condition:
   type: string
 locations:
   required: true
-  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true. 
+  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true.
   type: list
 {% endconfiguration %}
+
+### Time
+
+Specify the visibility of the card based on the current time and day of the week.
+
+```yaml
+condition: time
+after: "08:00"
+before: "17:00"
+weekdays:
+  - mon
+  - tue
+  - wed
+  - thu
+  - fri
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`time`"
+  type: string
+after:
+  required: false
+  description: Time in 24-hour format (HH:MM) after which the card should be visible.*
+  type: string
+before:
+  required: false
+  description: Time in 24-hour format (HH:MM) before which the card should be visible.*
+  type: string
+weekdays:
+  required: false
+  description: List of weekdays on which the card should be visible. Valid values are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
+  type: list
+{% endconfiguration %}
+
+At least one of `after` or `before` must be used for this condition to be valid. Both can be used together to define a time range as in the example above.
 
 ### And
 

@@ -1,10 +1,13 @@
+@use '../variables' as *;
+@use "sass:string";
+
 // More specificity
 #landingpage .page-content .content {
     .ha-buy-dialog {
         background: rgba(0, 0, 0, 0.4);
         display: none;
         inset: 0;
-        padding: 40px;
+        padding: 20px;
         place-items: center;
         position: fixed;
         z-index: 1200;
@@ -164,7 +167,7 @@
 
                 $letters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 @for $i from 1 through 26 {
-                    $letter: str-slice($letters, $i, $i);
+                    $letter: string.slice($letters, $i, $i);
                 
                     &[data-sort="#{$letter}"] {
                         order: $i;

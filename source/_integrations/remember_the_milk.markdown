@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `remember_the_milk` integration allows you to create tasks in [Remember The Milk (RTM)](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
+The **Remember The Milk** {% term integration %} allows you to create tasks in [Remember The Milk (RTM)](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
 
 ## Setup
 
@@ -89,8 +89,6 @@ If you have created your task with an `id`, calling `<account>_complete_task` wi
 
 Here's an example for an automation that creates a new task whenever `sensor.mysensor` is `on` and completes it when the sensor reports `off`. This way it reminds you to switch it off. By using the `entity_id` as ID for the task, you can use the same rule also for multiple sensors.
 
-{% raw %}
-
 ```yaml
 - triggers:
     - trigger: state
@@ -110,8 +108,6 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
       data:
         id: "{{trigger.entity_id}}"
 ```
-
-{% endraw %}
 
 ## Disclaimer
 

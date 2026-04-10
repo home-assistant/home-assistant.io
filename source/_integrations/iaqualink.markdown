@@ -19,7 +19,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.
@@ -36,8 +36,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Known limitations
 
-- The platform only supports a single pool.
-- Only Pool systems are supported at this time.
+Only iAquaLink 2.0 (iQ20) and eXO systems are supported at this time.
+
+If you need support for other systems, please open a request in the iaqualink-py Python library [repository](https://github.com/flz/iaqualink-py/issues).
 
 ## Debugging integration
 
@@ -50,3 +51,9 @@ logger:
     iaqualink: debug
     homeassistant.components.iaqualink: debug
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

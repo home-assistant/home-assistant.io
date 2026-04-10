@@ -219,7 +219,7 @@ If you want to help translate that into your native language,
 [join the frontend team on Localize](https://developers.home-assistant.io/docs/translations).
 
 But we did not stop there! Now add-ons can provide
-[translation files](https://developers.home-assistant.io/docs/add-ons/configuration#add-on-translations)
+[translation files](https://developers.home-assistant.io/docs/apps/configuration#app-translations)
 for configuration options and network descriptions that
 are shown in the frontend.
 
@@ -516,7 +516,7 @@ The following integrations are now available via the Home Assistant UI:
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
 

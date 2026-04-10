@@ -11,7 +11,7 @@ ha_domain: paperless_ngx
 ha_codeowners:
   - '@fvgarrel'
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: platinum
 related:
   - url: https://docs.paperless-ngx.com/
     title: Paperless-ngx
@@ -89,8 +89,6 @@ This integration provides {% term sensors %} for the following information from 
 ## Example automations
 
 {% details "Send a push notification if a new document is available" %}
-{% raw %}
-
 ```yaml
 alias: New document push notification
 description: Sends a push notification if a new document is available
@@ -112,8 +110,6 @@ actions:
     data:
       message: A new document is available.
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Data updates
@@ -136,6 +132,7 @@ There are a few known limitations for using the integration:
 {% details "Message: 'Invalid hostname or IP address'" %}
 
 If you get the message **Invalid hostname or IP address**, try the following steps:
+
 1. Make sure you enter a complete URL, such as `https://paperless.example.com` or `https://192.168.178.11:8011`.
 
 2. SSL is enabled by default. If you're using an unencrypted connection, you must explicitly use `http://` instead of `https://` in the URL.
@@ -147,6 +144,7 @@ If you get the message **Invalid hostname or IP address**, try the following ste
 {% details "Message: 'The token does not have permission to access the API'" %}
 
 If you get the message **The token does not have permission to access the API**, try the following steps:
+
 1. Verify whether the token is still valid and correctly assigned to the user.
 
 2. Test the token using the Swagger interface available at
@@ -157,9 +155,3 @@ If you get the message **The token does not have permission to access the API**,
 3. If everything works correctly in Swagger but the integration still fails, check whether a reverse proxy (e.g., NGINX) is returning an **HTTP 403 error**. If so, the integration may also report this as a permission issue.
 
 {% enddetails %}
-
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}

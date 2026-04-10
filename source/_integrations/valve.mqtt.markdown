@@ -8,7 +8,7 @@ ha_release: 2024.1
 ha_domain: mqtt
 ---
 
-The `mqtt` valve platform allows you to control an MQTT valve (such a gas or water valve).
+The **MQTT Valve** {% term integration %} allows you to control an MQTT valve (such a gas or water valve).
 
 ## Configuration
 
@@ -18,7 +18,7 @@ A valve entity can be have the following states: `open`, `opening`, `closed` or 
 
 If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. Commands configured through `payload_open`, `payload_closed`, and `payload_stop` will be published to `command_topic` to control the valve.
 
-To use an MQTT valve in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT valve in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -80,7 +80,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the device's availability from the `topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the device's availability from the `topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -89,7 +89,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the device's availability from the `availability_topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the device's availability from the `availability_topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -97,11 +97,15 @@ availability_topic:
   required: false
   type: string
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `command_topic`.
+  description: Defines a [template](/docs/templating/where-to-use/#mqtt) to generate the payload to send to `command_topic`.
   required: false
   type: template
 command_topic:
   description: The MQTT topic to publish commands to control the valve. The value sent can be a value defined by `payload_open`, `payload_close` or `payload_stop`. If `reports_position` is set to `true`, a numeric value will be published instead.
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `valve.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -179,12 +183,16 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member value entities. Set this if the value entity represents a valve group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. A usage example can be found in the [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. A usage example can be found in the [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -196,10 +204,6 @@ name:
   required: false
   type: string
   default: MQTT valve
-object_id:
-  description: Used instead of `name` to have the `entity_id` generated automatically.
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if a switch works in optimistic mode.
   required: false
@@ -287,7 +291,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) that can be used to extract the payload for the `state_topic` topic. The rendered value should be a defined state payload or, if reporting a `position` is supported and `reports_position` is set to `true`, a numeric value is expected representing the position. See also `state_topic`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that can be used to extract the payload for the `state_topic` topic. The rendered value should be a defined state payload or, if reporting a `position` is supported and `reports_position` is set to `true`, a numeric value is expected representing the position. See also `state_topic`."
   required: false
   type: template
 {% endconfiguration %}
@@ -305,8 +309,6 @@ This section provides some examples showing how you can use this platform.
 ### Full configuration for a value that does not report position
 
 The example below shows a full configuration for a valve that does not report position.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -334,13 +336,9 @@ mqtt:
       value_template: "{{ value_json.x }}"
 ```
 
-{% endraw %}
-
 ### Sample configuration of a valve that reports the position
 
 The example below shows a sample configuration for a valve that reports the position using JSON messages.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -356,14 +354,10 @@ mqtt:
       value_template: "{{ value_json.x }}"
 ```
 
-{% endraw %}
-
 ### Configuration for disabling valve commands
 
 The example below shows a configuration for a valve that does not have a close command.
 Setting the `payload_close` to empty or to `null` disables the close command and will not show the close button.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -373,8 +367,6 @@ mqtt:
       payload_close: 
       payload_stop: "on"
 ```
-
-{% endraw %}
 
 An MQTT valve will support `open` and `close` commands if a `command_topic` is set. The MQTT valve supports `stop` if `payload_stop` is set.
 

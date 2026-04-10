@@ -10,10 +10,11 @@ ha_codeowners:
   - '@danielhiversen'
 ha_domain: met
 ha_platforms:
+  - diagnostics
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `met` platform uses the [Met.no](https://met.no/) web service as a source for meteorological data for your location. The weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
+The **Meteorologisk institutt (Met.no)** {% term integration %} uses the [Met.no](https://met.no/) web service as a source for meteorological data for your location. The weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
 
 {% include integrations/config_flow.md %}

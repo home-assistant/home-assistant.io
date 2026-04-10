@@ -1,3 +1,4 @@
+@use '../mixins' as *;
 section#hero {
     --section-spacing-y: 0;
 
@@ -32,14 +33,13 @@ section#hero {
             flex-direction: column;
             max-width: 670px;
 
-            .event-card {
+            .event-card, .button {
                 margin-top: 24px;
 
                 @include bp(tablet) {
-                    margin-top: 60px;
+                    margin-top: 32px;
                 }
             }
         }
-
     }
 }

@@ -10,12 +10,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: sleep_as_android
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
   - event
   - sensor
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Sleep as Android** {% term integration %} connects the Sleep as Android app to Home Assistant, allowing you to trigger automations based on alarm clock or sleep cycle events.
@@ -159,11 +159,18 @@ Events triggered when a specific sound is detected during sleep tracking.
 | `snore`    | Snoring              |
 | `talk`     | Talking              |
 
+### Jet lag prevention
+
+Events triggered when a specific sound is detected during sleep tracking.
+
+| Event type      | Description                |
+| --------------- | -------------------------- |
+| `jet_lag_start` | Jet lag prevention started |
+| `jet_lag_stop`  | Jet lag prevention stopped |
+
 ## Automation
 
 Here’s an example automation: when your Sleep as Android alarm starts ringing, your bedroom blinds will automatically open.
-
-{% raw %}
 
 ```yaml
 alias: Open window blinds on Alarm
@@ -185,8 +192,6 @@ actions:
 mode: single
 ```
 
-{% endraw %}
-
 ## Control Sleep as Android via Home Assistant
 
 The **Sleep as Android** app can be automated through its [Intent API](https://sleep.urbandroid.org/docs/devs/intent_api.html), allowing you to perform actions such as:
@@ -200,7 +205,7 @@ Thanks to the **Home Assistant Companion App for Android**, which supports [broa
 
 To make this even easier, you can import the following blueprint. It supports nearly all Sleep as Android actions, so you can automate your sleep routine without writing any custom scripts:
 
-{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/sleep-as-android-trigger-app-actions/920845" %}
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/sleep_as_android_trigger_app_actions.yaml" %}
 
 ## Data updates
 

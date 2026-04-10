@@ -1,5 +1,5 @@
 ---
-title: OPNSense
+title: OPNsense
 description: Instructions on how to configure OPNsense integration
 ha_category:
   - Hub

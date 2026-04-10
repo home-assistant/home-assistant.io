@@ -139,7 +139,6 @@ The devolo Gigabridge is the only device that comes with a default password. How
 
 PLC networks are sometimes flaky. To restore a network's state, it's sometimes a good idea to reboot the PLC device attached to the router if the number of PLC devices is lower than expected. If you apply this automation, keep in mind that devices might be expected on standby. In this example, the expected number of devices is 3.
 
-{% raw %}
 
 ```yaml
 alias: "PLC Feeder Restart"
@@ -159,13 +158,11 @@ actions:
       entity_id: button.devolo_001_restart_device  # Replace with your device's button
 ```
 
-{% endraw %}
 
 ### Notify on data rate drop
 
 Noise on the electric wire can significant disturb PLC data rates. A notification close to a drop can help identify the action that lead to the drop. The following example takes 25% as threshold.
 
-{% raw %}
 
 ```yaml
 alias: "PLC data rate"
@@ -190,13 +187,11 @@ actions:
       title: PLC data rate dropped
 ```
 
-{% endraw %}
 
 ### Enable guest wifi on time basis
 
 You might want to expose your guest wifi only during the day but turn it off at night.
 
-{% raw %}
 
 ```yaml
 alias: "Toggle guest Wi-Fi"
@@ -212,7 +207,6 @@ actions:
       entity_id: switch.devolo_001_enable_guest_wifi  # Replace with your device's switch
 ```
 
-{% endraw %}
 
 ## Removing the integration
 

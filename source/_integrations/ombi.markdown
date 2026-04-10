@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The Ombi integration monitors data from your [Ombi](https://ombi.io) instance.
+The **Ombi** {% term integration %} monitors data from your [Ombi](https://ombi.io) instance.
 
 ## Setup
 

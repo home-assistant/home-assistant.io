@@ -19,7 +19,7 @@ ha_platforms:
   - sensor
 ---
 
-This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups) as well as uploading generic files to your OneDrive.
+This {% term integration %} allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups) as well as uploading generic files to your OneDrive.
 
 Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups).
 
@@ -117,8 +117,6 @@ Send an alert when the drive usage is close to the storage limit and needs clean
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: Alert when OneDrive is close to storage limit
 description: Send notification to phone when drive needs cleanup.
@@ -142,8 +140,6 @@ actions:
         states('sensor.my_drive_total_available') }}GB.  Only {{ states('sensor.my_drive_remaining_storage') }}GB remaining.
 mode: single
 ```
-
-{% endraw %}
 {% enddetails %}
 
 

@@ -12,7 +12,6 @@ ha_codeowners:
 ha_domain: open_router
 ha_integration_type: service
 ha_platforms:
-  - ai_task
   - conversation
 ha_quality_scale: bronze
 ---

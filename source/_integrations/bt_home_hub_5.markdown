@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-This platform offers presence detection by looking at connected devices to a [BT Home Hub 5](https://en.wikipedia.org/wiki/BT_Home_Hub) based router.
+This {% term integration %} offers presence detection by looking at connected devices to a [BT Home Hub 5](https://en.wikipedia.org/wiki/BT_Home_Hub) based router.
 
 To use a BT Home Hub 5 router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

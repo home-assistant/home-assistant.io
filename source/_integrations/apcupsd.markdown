@@ -15,8 +15,8 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
-ha_integration_type: integration
-ha_quality_scale: bronze
+ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The **APC UPS Daemon** {% term integration %} is used to integrate with UPS devices from [APC](www.apc.com) when the Network Information Server ([apcupsd](http://www.apcupsd.org/)) is configured on the APC devices. Use case: When the Notify integration is set up in Home Assistant, you can send notifications. For example, when the UPS switches to battery power, or when the battery level drops low. You can also use it to track the UPS load.
@@ -67,7 +67,7 @@ The APC UPS Daemon integration provides the following entities.
 
 {% note %}
 
-Some sensors are disabled by default, since they provide information that is only useful for advanced users. You can manually enable them in **{% my entities title="Settings -> Devices & Services -> Entities" %}** -> the sensor entity you want to enable -> Advanced settings -> Enabled.
+Some sensors are disabled by default, since they provide information that is only useful for advanced users. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > **Advanced settings** > **Enabled**.
 
 {% endnote %}
 
@@ -179,7 +179,7 @@ Some sensors are disabled by default, since they provide information that is onl
 - **Transfer to Battery**
   - **Description**: Time and date of last transfer to batteries.
   - **Available for machines**: all
-  - **Remarks**: This entity only becomes available after a tranfer to battery event happens.
+  - **Remarks**: This entity only becomes available after a transfer to battery event happens.
 
 - **Battery Status**
   - **Description**: The status of the batteries.
@@ -367,7 +367,6 @@ Some sensors are disabled by default, since they provide information that is onl
 
 ### Send me a push notification when UPS load is high
 
-{% raw %}
 
 ```yaml
 alias: "APC UPS Load High Notification"
@@ -385,7 +384,6 @@ actions:
       message: "APC UPS load is high: {{ states('sensor.apc_ups_load') }}%"
 ```
 
-{% endraw %}
 
 ## Data updates
 

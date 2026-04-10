@@ -12,7 +12,7 @@ ha_domain: shell_command
 ha_integration_type: integration
 ---
 
-This integration can expose regular shell commands as actions. Actions can be called from a [script] or in [automation].
+This {% term integration %} can expose regular shell commands as actions. Actions can be called from a [script] or in [automation].
 Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
 Note that the shell command process will be terminated after 60 seconds, full stop. There is no option to alter this behavior, this is by design because Home Assistant is not intended to manage long-running external processes.
@@ -46,15 +46,21 @@ Any action data passed into the action to activate the shell command will be ava
 After you add or edit a command, restart Home Assistant. New commands won’t work until you restart, and changes to existing commands won’t take effect until after a restart.
 {% endnote %}
 
-## Execution
+## Execution and runtime environment
 
-The `command` is executed within the [configuration directory](/docs/configuration/).
+When running Home Assistant OS (HAOS), shell commands execute **inside** the `homeassistant` Docker container as the root user within that container. This root account is not the same as the system root of HAOS itself.
 
-{% tip %}
-If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
-{% endtip %}
+The `command` is executed within the [configuration directory](/docs/configuration/), which corresponds to `/config` inside the container.
 
-A `0` exit code means the commands completed successfully without error. In case a command results in a non `0` exit code or is terminated after a timeout of 60 seconds, the result is logged to Home Assistant log.
+Key characteristics:
+
+- **Working directory:** `/config`
+- **Persistent storage:** Use `/config` for persistent files. `/root` and `/tmp` are not persistent.
+- **Network mode:** `host` — network access from shell_command shares the host network.
+- **Available tools:** Limited to what's inside the container image (such as `ssh`, `curl`, `sh`)
+- **Timeout:** Commands longer than 60 seconds are stopped.
+
+Testing commands in a separate [Home Assistant Container](/installation/linux#install-home-assistant-container) installation can help identify what tools and binaries are available. However, keep in mind that the real execution context for Home Assistant OS users is always the managed `homeassistant` container.
 
 ## Response
 
@@ -80,8 +86,6 @@ shell_command:
 This is an example of a shell command used in conjunction with an input
 helper and an automation.
 
-{% raw %}
-
 ```yaml
 # Apply value of a GUI slider to the shell_command
 automation:
@@ -104,11 +108,7 @@ shell_command:
   set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states("input_number.ac_temperature") }}_AUTO'
 ```
 
-{% endraw %}
-
 The following example shows how the shell command response may be used in automations.
-
-{% raw %}
 
 ```yaml
 # Create a ToDo notification based on file contents
@@ -138,4 +138,42 @@ shell_command:
   get_file_contents: "cat {{ filename }}"
 ```
 
-{% endraw %}
+### Using SSH with shell_command
+
+The `/root/.ssh` directory in the container is not persistent. Store your keys in `/config/.ssh` instead.
+
+To generate a new SSH key pair, you can run the following command in the [terminal](https://github.com/home-assistant/addons/tree/master/ssh):
+
+```bash
+ssh-keygen -t ed25519 -f /config/.ssh/id_ed25519 -C "homeassistant"
+```
+
+This creates two files:
+
+- `id_ed25519` (private key)
+- `id_ed25519.pub` (public key)
+
+Add the public key to your target system’s `~/.ssh/authorized_keys` file.
+
+To create a `known_hosts` file with your host fingerprint, run:
+
+```bash
+# Replace <host> with your target hostname or IP address
+ssh-keyscan -H "<host>" >> /config/.ssh/known_hosts
+```
+
+More information about `ssh-keygen` can be found in the [OpenSSH manual](https://man.openbsd.org/ssh-keygen).
+
+Example configuration:
+
+```yaml
+# Example configuration.yaml entry
+# Replace <host> with your target hostname or IP address
+shell_command:
+  read_remote_hostname: |
+    ssh -i /config/.ssh/id_ed25519 \
+      -o UserKnownHostsFile=/config/.ssh/known_hosts \
+      user@<host> 'hostname'
+```
+
+This ensures SSH uses persistent files even after system updates.
