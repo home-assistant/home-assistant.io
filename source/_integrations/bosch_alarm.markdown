@@ -68,7 +68,7 @@ The following {% term entities %} are provided:
 ### Alarm Control Panel
 
 This integration adds an Alarm Control Panel device for each configured area, with the ability to issue arm/disarm commands.
-This entity reports state (_disarmed_, _armed_away_, etc.).
+This entity reports state, such as _disarmed_ or _armed_away_.
  
 ### Binary Sensor
 

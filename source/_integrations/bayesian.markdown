@@ -117,9 +117,9 @@ observations:
 
 A fundamental concept in Bayes' Rule is the distinction between the probability of an *event given an observation* and the probability of an *observation given an event*. These two probabilities are not interchangeable and must be considered separately. While they may be similar in some cases — for example, when motion sensors are accurate, the probability that someone is in the room *given* that motion is detected is often close to the probability that motion is detected *given* someone is in the room.
 
-Now consider the above, but in a home that has cats. The probability that the room is human-occupied *given* that motion detected may be quite low (e.g. 20%, p=0.2) if the room is popular with the cats. However, the probability that motion is detected *given* that it is occupied by a human is high (e.g 95%, p = 0.95) if our motion sensor is accurate. Said succinctly, not all motion is human, but all humans move.
+Now consider the above, but in a home that has cats. The probability that the room is human-occupied *given* that motion detected may be quite low (for example, 20%, p=0.2) if the room is popular with the cats. However, the probability that motion is detected *given* that it is occupied by a human is high (for example, 95%, p = 0.95) if our motion sensor is accurate. Said succinctly, not all motion is human, but all humans move.
 
-When configuring these conditional probabilities, define the probability of the sensor observation (e.g motion detected) *given* the thing you are trying to estimate (e.g human-occupancy of the room).
+When configuring these conditional probabilities, define the probability of the sensor observation (for example, motion detected) *given* the thing you are trying to estimate (for example, human-occupancy of the room).
 
 ## Estimating probabilities
 
