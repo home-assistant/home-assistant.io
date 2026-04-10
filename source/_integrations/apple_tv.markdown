@@ -206,27 +206,31 @@ require that the keyboard is currently focused on the device.
 
 Sets the text in the currently focused text input field, replacing any existing text.
 
-| Service data<br>attribute | Optional | Description                                       |
-| ------------------------- | -------- | ------------------------------------------------- |
-| `config_entry_id`         | no       | The config entry ID of the Apple TV               |
-| `text`                    | no       | The text to set                                   |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry ID of the Apple TV.
+  - **Optional**: No
+- **Data attribute**: `text`
+  - **Description**: The text to set.
+  - **Optional**: No
 
 ### Action `apple_tv.append_keyboard_text`
 
 Appends text to the currently focused text input field without clearing existing text.
 
-| Service data<br>attribute | Optional | Description                                       |
-| ------------------------- | -------- | ------------------------------------------------- |
-| `config_entry_id`         | no       | The config entry ID of the Apple TV               |
-| `text`                    | no       | The text to append                                |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry ID of the Apple TV.
+  - **Optional**: No
+- **Data attribute**: `text`
+  - **Description**: The text to append.
+  - **Optional**: No
 
 ### Action `apple_tv.clear_keyboard_text`
 
 Clears the text in the currently focused text input field.
 
-| Service data<br>attribute | Optional | Description                                       |
-| ------------------------- | -------- | ------------------------------------------------- |
-| `config_entry_id`         | no       | The config entry ID of the Apple TV               |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry ID of the Apple TV.
+  - **Optional**: No
 
 The `config_entry_id` can be found under {% my integrations title="**Settings** > **Devices & services**" %} > **Apple TV** > your device — it is the last part of the URL when viewing the device page.
 
