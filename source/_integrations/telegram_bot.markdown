@@ -1243,7 +1243,7 @@ actions:
   - action: telegram_bot.send_message_draft
     data:
       draft_id: 1
-      message: '_Opening shades..._'
+      message: "_Opening shades..._"
       chat_id: "{{ trigger.to_state.attributes.chat_id }}"
       message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
   - action: cover.open_cover
@@ -1252,7 +1252,7 @@ actions:
   - action: telegram_bot.send_message_draft
     data:
       draft_id: 1
-      message: '_Adjusting thermostat..._'
+      message: "_Adjusting thermostat..._"
       chat_id: "{{ trigger.to_state.attributes.chat_id }}"
       message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
   - action: climate.set_temperature
@@ -1262,7 +1262,7 @@ actions:
       temperature: 24
   - action: telegram_bot.send_message
     data:
-      message: 'Done!'
+      message: "Done!"
       chat_id: "{{ trigger.to_state.attributes.chat_id }}"
       message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
 ```
