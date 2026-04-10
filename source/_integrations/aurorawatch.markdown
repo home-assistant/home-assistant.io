@@ -4,7 +4,7 @@ description: Monitor aurora activity from AuroraWatch UK
 ha_category:
   - Environment
 ha_iot_class: Cloud Polling
-ha_release: 2026.1
+ha_release: 2026.5
 ha_domain: aurorawatch
 ha_codeowners:
   - '@agentgonzo'
@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **AuroraWatch UK** {% term integration %} uses the [AuroraWatch UK service](http://www.aurorawatch.lancs.ac.uk/) provided by Lancaster University to monitor geomagnetic activity and aurora alerts for the United Kingdom. This service helps you know when auroras (Northern Lights) might be visible from the UK.
+The **AuroraWatch UK** {% term integration %} uses the [AuroraWatch UK service](https://aurorawatch.lancs.ac.uk) by Lancaster University to monitor geomagnetic activity and aurora alerts for the United Kingdom. This service helps you know when auroras (Northern Lights) might be visible from the UK.
 
 The integration monitors the current aurora alert status, which indicates the likelihood of aurora visibility in the UK. The alert status ranges from green (no significant activity) through yellow and amber, to red (auroras very likely). It also provides the current geomagnetic activity measurement.
 
@@ -47,8 +47,12 @@ Shows the current aurora alert status for the UK.
 
 ### Geomagnetic activity
 
-Shows the current geomagnetic activity level measured in nanoTesla (nT). Higher values indicate increased geomagnetic activity, which correlates with a higher likelihood of visible auroras.
+Shows the current geomagnetic activity level measured in nanotesla (nT). Higher values indicate increased geomagnetic activity, which correlates with a higher likelihood of visible auroras.
 
 ## Data updates
 
 The integration {% term polling polls %} data from the AuroraWatch UK service every 5 minutes. This ensures you receive timely updates about changes in aurora activity and alert status.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
