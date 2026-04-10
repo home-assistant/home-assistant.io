@@ -160,6 +160,32 @@ The `nina.get_recommended_actions` action is used to fetch the recommended actio
 
 The response data is a string with the recommended actions as provided by NINA.
 
+## Examples
+
+{% details "Example usage" %}
+{% raw %}
+
+```yaml
+alias: "Notify on NINA warning with full affected areas"
+description: "When a NINA warning becomes active, fetch the full list of affected areas and send a notification."
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.nina_warning_1
+    to: "on"
+actions:
+  - action: nina.get_affected_areas
+    target:
+      entity_id: binary_sensor.nina_warning_1
+    response_variable: warning_data
+  - action: notify.mobile_app
+    data:
+      title: "NINA warning active"
+      message: "Affected areas: {{ warning_data['binary_sensor.nina_warning_1'] }}"
+```
+
+{% endraw %}
+{% enddetails %}
+
 ## Data updates
 
 The integration checks for warnings every 5 minutes.
