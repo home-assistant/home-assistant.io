@@ -14,11 +14,11 @@ The state will be updated only after a new message is published on `state_topic`
 the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup.
 Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 
-Stateless devices such as buttons and remote controls are better represented by [MQTT device triggers](/integrations/device_trigger.mqtt/) than by binary sensors.
+Stateless devices, like buttons, remote controls, and similar stateless devices, are better represented by [MQTT device triggers](/integrations/device_trigger.mqtt/) than by binary sensors.
 
 ## Configuration
 
-The `mqtt` binary sensor platform optionally supports a list of  `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (that is, publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
+The `mqtt` binary sensor platform optionally supports a list of `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (that is, publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
 
 To use an MQTT binary sensor in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
