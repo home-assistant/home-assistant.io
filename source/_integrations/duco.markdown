@@ -4,6 +4,7 @@ description: Instructions on how to integrate Duco ventilation with Home Assista
 ha_release: 2026.5
 ha_category:
   - Fan
+  - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -11,8 +12,9 @@ ha_codeowners:
 ha_domain: duco
 ha_platforms:
   - fan
+  - sensor
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Duco** {% term integration %} allows you to monitor and control [Duco](https://www.duco.eu/) demand-controlled ventilation (DCV) systems from Home Assistant. Duco produces ventilation boxes for residential buildings that regulate air quality based on CO₂ and humidity sensors. This integration communicates locally with the Duco box over your home network, requiring no cloud connection.
@@ -48,8 +50,6 @@ Host:
 
 ## Supported functionality
 
-The integration creates one device for the main Duco box. Connected modules (such as CO₂ sensors or humidity sensors) are discovered but not yet exposed as separate devices.
-
 ### Fan
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
@@ -66,11 +66,36 @@ The following actions are available:
 
 When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
+### Sensors
+
+The following sensor entities are created per node, depending on the node type:
+
+#### Ventilation state
+
+Available for all node types (box, CO₂ module, humidity module). Shows the raw ventilation state from the device, such as `AUTO`, `CNT1`, `CNT2`, `CNT3`, `MAN1`, `MAN2`, or `MAN3`.
+
+#### CO2
+
+Available for CO₂ sensor modules. Shows the current CO₂ concentration in parts per million (ppm).
+
+#### Humidity
+
+Available for the main ventilation box and humidity sensor modules. Shows the current relative humidity in percent.
+
+#### CO2 air quality index
+
+Available for CO₂ sensor modules. Shows the CO₂ air quality index as a unitless number. This entity is disabled by default.
+
+#### Humidity air quality index
+
+Available for the main ventilation box and humidity sensor modules. Shows the humidity air quality index as a unitless number. This entity is disabled by default.
+
 ## Use cases
 
 - Switch to high ventilation automatically when cooking or showering.
 - Return to auto mode when everyone leaves home using a presence-based automation.
 - Monitor ventilation activity over time via the logbook.
+- Trigger automations based on CO₂ levels or humidity reported by connected Duco modules.
 
 ## Examples
 
@@ -135,13 +160,42 @@ When the last person leaves home, the ventilation hands control back to Duco (au
         percentage: 66
 ```
 
+### Boost ventilation when CO₂ is high
+
+This automation switches to high speed when the CO₂ level in the office rises above 1000 ppm, and returns to automatic mode when it drops back below 800 ppm.
+
+```yaml
+- alias: "Boost ventilation on high CO2"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.office_co2_carbon_dioxide
+      above: 1000
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.living_ventilation
+      data:
+        percentage: 100
+
+- alias: "Return to auto when CO2 is low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.office_co2_carbon_dioxide
+      below: 800
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.living_ventilation
+      data:
+        percentage: 0
+```
+
 ## Data updates
 
 The integration {% term polling polls %} the Duco box every 30 seconds.
 
 ## Known limitations
 
-- The integration does not yet expose CO₂ and humidity sensor data from connected Duco modules. This is planned for a future update.
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
 - The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
