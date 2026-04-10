@@ -134,7 +134,13 @@ The `nina.get_affected_areas` action is used to fetch all affected areas of a wa
 
 #### Response data
 
-The response data is a string containing all areas as provided by NINA.
+The response data is a string with the full comma-separated list of areas affected by the warning, as provided by NINA. Returns `null` when no warning is active.
+
+```json
+{
+  "binary_sensor.nina_warning_1": "Gemeinde Oberreichenbach, Gemeinde Neuweiler, Stadt Nagold, Stadt Haiterbach"
+}
+```
 
 ### Action: Get description
 
@@ -146,7 +152,13 @@ The `nina.get_description` action is used to fetch the description of a warning.
 
 #### Response data
 
-The response data is a string with the description as provided by NINA.
+The response data is a string with the full description of the warning, as provided by NINA. Returns `null` when no warning is active.
+
+```json
+{
+  "binary_sensor.nina_warning_1": "Es treten Sturmböen mit Geschwindigkeiten zwischen 70 km/h (20m/s, 38kn, Bft 8) und 85 km/h (24m/s, 47kn, Bft 9) aus westlicher Richtung auf."
+}
+```
 
 ### Action: Get recommended actions
 
@@ -158,7 +170,13 @@ The `nina.get_recommended_actions` action is used to fetch the recommended actio
 
 #### Response data
 
-The response data is a string with the recommended actions as provided by NINA.
+The response data is a string with the recommended actions for the warning, as provided by NINA. Returns `null` when no warning is active.
+
+```json
+{
+  "binary_sensor.nina_warning_1": "ACHTUNG! Hinweis auf mögliche Gefahren: Zum Beispiel können einzelne Äste herabstürzen. Achte besonders auf herabfallende Gegenstände."
+}
+```
 
 ## Examples
 
