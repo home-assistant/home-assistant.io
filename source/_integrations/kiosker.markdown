@@ -47,8 +47,8 @@ Available sensors:
 
 - Battery level
 - Last interaction
-- Last motion (if a screensaver with motion detection is scheduled or if camera sensor is enabled)
-- Ambient light (if a screensaver with motion detection is scheduled or if camera sensor is enabled)
+- Last motion (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
+- Ambient light (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
 
 ## Removing the integration
 
