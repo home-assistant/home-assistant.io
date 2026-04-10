@@ -46,9 +46,9 @@ Password:
     description: "The password associated with your account."
 {% endconfiguration_basic %}
 
-## Data Updates
+## Data updates
 
-This integration uses cloud {% term polling %} to automatically discover your devices using the cloud APIs.
+This integration uses cloud {% term polling %} to refresh data from your iAqualink system, like equipment status, sensor readings, and climate values. Home Assistant updates this data approximately every 30 seconds.
 
 ## Known limitations
 
