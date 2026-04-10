@@ -129,7 +129,7 @@ The integration provides the following actions.
 The `nina.get_affected_areas` action is used to fetch all affected areas of a warning.
 
 - **Target**: NINA binary sensor entity
-  - **Description**: The NINA warning binary sensor to get the recommended actions for.
+  - **Description**: The NINA warning binary sensor to get the areas for.
   - **Optional**: No
 
 #### Response data
@@ -147,7 +147,7 @@ The response data is a string with the full comma-separated list of areas affect
 The `nina.get_description` action is used to fetch the description of a warning.
 
 - **Target**: NINA binary sensor entity
-  - **Description**: The NINA warning binary sensor to get the recommended actions for.
+  - **Description**: The NINA warning binary sensor to get the descriptions for.
   - **Optional**: No
 
 #### Response data
