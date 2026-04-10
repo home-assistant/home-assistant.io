@@ -3,7 +3,7 @@ title: MAWAQIT Prayer Times
 description: Instructions on how to integrate the MAWAQIT Prayer Times integration within Home Assistant.
 ha_category:
   - Sensor
-ha_iot_class: cloud_polling
+ha_iot_class: Cloud Polling
 ha_release: 2024.10.2
 ha_config_flow: true
 ha_domain: mawaqit
@@ -16,54 +16,46 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The MAWAQIT (`mawaqit`) integration displays the various prayer times for Muslims as sensors.
-
-This platform calculates prayer times from MAWAQIT.net.
+The **MAWAQIT Prayer Times** {% term integration %} retrieves prayer times from [MAWAQIT](https://mawaqit.net) and displays them as sensors in Home Assistant. This is useful if you want to automate actions around daily prayer times, such as adjusting lights or sending notifications.
 
 ## Prerequisites
-- a MAWAQIT.net account
+
+- A [MAWAQIT](https://mawaqit.net) account
 
 {% include integrations/config_flow.md %}
 
-## Integration Sensors
+{% configuration_basic %}
+Username:
+  description: "Your MAWAQIT account email address."
+Password:
+  description: "Your MAWAQIT account password."
+{% endconfiguration_basic %}
 
-The following sensors are added by the integration:
+After entering your credentials, you will have two options to find your mosque:
 
-- **fajr**: Shows the fajr prayer time for today.
-- **shuruq**: Shows the sunrise for today, which is the end of fajr prayer. This is a calculated field and may not necessarily be the same as the astronomical sunrise.
-- **dhuhr**: Shows the dhuhr prayer time for today.
-- **asr**: Shows the asr prayer time for today.
-- **maghrib**: Shows the maghrib prayer time for today.
-- **isha**: Shows the isha prayer time for today.
-- **next prayer**: Shows the time of the next prayer.
-- **jumua**: Shows the jumua time for the week.
-- **my_mosque**: displays information about your favorite mosque.
-For every prayer, you get an iqama sensor.
+- **Search by nearest mosques**: Uses the location configured in Home Assistant.
+- **Search by keyword**: Lets you manually search for a mosque by name.
 
-## Configuration
+## Supported functionality
 
-### Set up your account
+### Sensors
 
-This component allows you to integrate the data of your mawaqit mosque into Home Assistant. To do this, a Mawaqit account from https://mawaqit.net is required.
+The integration provides the following sensors:
 
-### Installation Instructions
+- **Fajr**: Shows the Fajr prayer time for today.
+- **Shuruq**: Shows the sunrise time for today, which marks the end of the Fajr prayer. This is a calculated value and may differ from the astronomical sunrise.
+- **Dhuhr**: Shows the Dhuhr prayer time for today.
+- **Asr**: Shows the Asr prayer time for today.
+- **Maghrib**: Shows the Maghrib prayer time for today.
+- **Isha**: Shows the Isha prayer time for today.
+- **Next prayer**: Shows the time of the next upcoming prayer.
+- **Jumua**: Shows the Jumua (Friday prayer) time for the week.
+- **My mosque**: Shows information about your selected mosque.
 
-1. Open **Home Assistant** and navigate to **Settings > Devices & Services**.
-2. Click on **+ ADD INTEGRATION**.
-3. In the search bar, type **Mawaqit** and select it from the results.
-4. Enter your **Mawaqit account credentials** if prompted.
-5. Once connected, you will have two options to find your mosque:
-   - **Search by nearest mosques**: Uses the location specified in Home Assistant.
-   - **Search by keyword**: Allows you to manually search for a mosque by name.
-6. Click **Submit**.
-   - If searching by location, select your mosque from the list and confirm.
-   - If searching by keyword, enter the desired keyword, find your mosque in the results, select it, and submit.
-7. Once completed, your Mawaqit integration will be added to Home Assistant.
+For every prayer, an additional Iqama sensor is provided, showing the congregation start time.
 
-### Removal Instructions
+## Removing the integration
 
-1. Open **Home Assistant** and navigate to **Settings > Devices & Services**.
-2. Locate the **Mawaqit** integration in the list.
-3. Click on it, then select the **three-dot menu** (⋮) on the top right.
-4. Click **Delete**.
-5. A confirmation prompt will appear. Click **DELETE** to confirm and remove the integration.```
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
