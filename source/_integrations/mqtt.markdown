@@ -207,7 +207,7 @@ The time in seconds between sending keep alive messages for this client. The def
 
 #### Broker certificate validation
 
-To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose **Auto**. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select **Custom**. A custom PEM- or DER-encoded CA certificate can be uploaded. Select **Next** to show the control to upload the CA certificate.
+To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose **Auto**. This validates the broker certificate against the bundled certificate authority (CA) certificates. If a self-signed certificate is used, select **Custom**. A custom PEM- or DER-encoded CA certificate can be uploaded. Select **Next** to show the control to upload the CA certificate.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the **Ignore broker certificate validation** switch on.
 
 #### MQTT Protocol
@@ -220,7 +220,7 @@ With a secure broker connection, it is possible to use a client certificate for 
 
 #### Using WebSockets as transport
 
-You can select `websockets` as the transport method if your MQTT broker supports it. When you select `websockets` and select **Next**, you will be able to add a WebSockets path (default is `/`) and WebSockets headers (optional). The target WebSockets URI `ws://{broker}:{port}{WebSockets path}` is built with the `broker`, `port`, and `ws_path` (WebSocket path) settings.
+You can select `websockets` as the transport method if your MQTT broker supports it. When you select `websockets` and select **Next**, you will be able to add a WebSockets path (default is `/`) and WebSockets headers (optional). The target WebSockets URI `ws://{broker}:{port}{ws_path}` is built with the `broker`, `port`, and `ws_path` (WebSocket path) settings.
 To configure the WebSocket's headers, supply a valid JSON dictionary string. For example, `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
 
 {% note %}
