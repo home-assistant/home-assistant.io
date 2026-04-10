@@ -2,9 +2,10 @@
 title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
+  - Binary sensor
   - Select
   - Sensor
-  - Binary sensor
+  - Switch
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -12,9 +13,10 @@ ha_codeowners:
   - '@tomer-w'
 ha_domain: victron_gx
 ha_platforms:
+  - binary_sensor
   - select
   - sensor
-  - binary_sensor
+  - switch
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -118,6 +120,20 @@ Configurable options for controlling device behavior, such as:
 - <abbr title="Energy Storage System">ESS</abbr> mode (optimized with or without phase compensation, or external control)
 - <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
 - <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
+
+#### Switches
+
+Toggle controls for enabling or disabling device functions, such as:
+
+- <abbr title="electric vehicle">EV</abbr> charger start/stop
+- Generator auto-start and manual start
+- Generator quiet hours and conditional start triggers (SOC, temperature, voltage)
+- <abbr title="Energy Storage System">ESS</abbr> disable charge and disable feed-in
+- <abbr title="Energy Storage System">ESS</abbr> battery-only critical loads and schedule charge slot enabled
+- Relay states on GX devices, Multi RS, and solar chargers
+- Digital input inversion and switchable output states
+- PV DC overvoltage feed-in
+- VE.Bus PowerAssist, ignore AC input, and grid lost alarm settings
 
 ## Troubleshooting
 
