@@ -74,7 +74,7 @@ The following sensor entities are created per node, depending on the node type:
 
 Available for all node types (box, CO₂ module, humidity module). Shows the raw ventilation state from the device, such as `AUTO`, `CNT1`, `CNT2`, `CNT3`, `MAN1`, `MAN2`, or `MAN3`.
 
-#### CO2
+#### CO₂ concentration
 
 Available for CO₂ sensor modules. Shows the current CO₂ concentration in parts per million (ppm).
 
@@ -82,7 +82,7 @@ Available for CO₂ sensor modules. Shows the current CO₂ concentration in par
 
 Available for the main ventilation box and humidity sensor modules. Shows the current relative humidity in percent.
 
-#### CO2 air quality index
+#### CO₂ air quality index
 
 Available for CO₂ sensor modules. Shows the CO₂ air quality index as a unitless number. This entity is disabled by default.
 
