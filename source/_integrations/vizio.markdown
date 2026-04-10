@@ -270,9 +270,7 @@ The VIZIO SmartCast integration automatically creates a remote entity for each c
 
 Speakers support a subset of the commands above:
 
-`MUTE_OFF`, `MUTE_ON`, `MUTE_TOGGLE`, `PAUSE`, `PLAY`, `POW_OFF`, `POW_ON`, `POW_TOGGLE`, `VOL_DOWN`, `VOL_UP`
-
-Aliases that map to these commands (for example, `mute`, `volume_up`, `on`, `off`) also work on speakers.
+`mute_off`, `mute_on`, `mute_toggle`, `pause`, `play`, `pow_off`, `pow_on`, `pow_toggle`, `vol_down`, `vol_up`
 
 ### Examples
 
@@ -308,7 +306,7 @@ target:
   entity_id: remote.vizio_smartcast
 data:
   command:
-    - volume_up
+    - vol_up
   num_repeats: 5
   delay_secs: 0.4
 ```
