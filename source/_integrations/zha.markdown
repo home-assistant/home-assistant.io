@@ -86,7 +86,7 @@ ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/z
 ### Zigbee concepts
 
 - A Zigbee network can have only one Zigbee coordinator.
-- The Zigbee coordinator can have multiple **Zigbee router** or **Zigbee end devices** connected.
+- The Zigbee coordinator can have multiple **Zigbee router devices** or **Zigbee end devices** connected.
 - Each Zigbee router device can have multiple **Zigbee end devices** connected to it.
 - A Zigbee device can only be connected to a single Zigbee network.
 - Zigbee networks depend heavily on having multiple [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand coverage and increase device capacity.
@@ -219,8 +219,8 @@ If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration
 
 - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
 - PiZigate: `pizigate:/dev/ttyS0`
-- Wi-Fi ZiGate: `socket://[IP]:[PORT]`. For example, `socket://192.168.1.10:9999`.
-- Sonoff ZBBridge: `socket://[IP]:[PORT]`. For example, `socket://192.168.1.11:8888`.
+- Wi-Fi ZiGate: `socket://[IP]:[PORT]` (for example, `socket://192.168.1.10:9999`)
+- Sonoff ZBBridge: `socket://[IP]:[PORT]` (for example, `socket://192.168.1.11:8888`)
 
 {% enddetails %}
 
