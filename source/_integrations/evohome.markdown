@@ -104,7 +104,7 @@ Therefore, depending upon the above, Home Assistant will display/record current 
 
 TCC systems can support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all systems support all modes.
 
-Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride** but 'inherit' an operating mode from their system (the actual algorithm for this is a little more complicated than indicated below - please see the vendor's documentation).
+Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride**, but 'inherit' an operating mode from their system (the actual algorithm for this is a little more complicated than indicated below - please see the vendor's documentation).
 
 For **FollowSchedule**, a zone's `setpoint` (target temperature) is a function of its scheduled target temperature and its inherited mode:
 
