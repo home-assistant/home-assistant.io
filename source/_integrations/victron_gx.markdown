@@ -127,7 +127,7 @@ Configurable options for controlling device behavior, such as:
 
 ### Send a notification when the battery is low
 
-You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_monitor_charge` with your actual battery charge entity.
+You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_soc` with your actual battery charge entity.
 
 {% raw %}
 
