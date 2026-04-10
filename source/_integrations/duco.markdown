@@ -84,11 +84,21 @@ Available for the main ventilation box and humidity sensor modules. Shows the cu
 
 #### CO₂ air quality index
 
-Available for CO₂ sensor modules. Shows the CO₂ air quality score as a percentage (0–100 %), where 100 % means very good indoor air quality. This entity is disabled by default.
+Available for CO₂ sensor modules. Shows the CO₂ air quality score as a percentage (0–100 %). This entity is disabled by default.
+
+- 90–100 %: Very good indoor air quality
+- 75–85 %: Good indoor air quality
+- 50–70 %: Temporarily acceptable indoor air quality
+- 35–45 %: Poor indoor air quality
 
 #### Humidity air quality index
 
-Available for the main ventilation box and humidity sensor modules. Shows the humidity air quality score as a percentage (0–100 %), where 100 % means very good indoor air quality. This entity is disabled by default.
+Available for the main ventilation box and humidity sensor modules. Shows the humidity air quality score as a percentage (0–100 %). This entity is disabled by default.
+
+- 95–100 %: Very good indoor air quality
+- 65–90 %: Good indoor air quality
+- 35–50 %: Temporarily acceptable indoor air quality
+- 5–20 %: Poor indoor air quality
 
 ## Use cases
 
