@@ -1,6 +1,6 @@
 ## Using external data disk
 
-{% term "Home Assistant Operating System" %} supports storing data on a secondary storage medium. For example, this can be a second internal SSD or HDD or a USB attached SSD or HDD. This data disk contains not only user data but also most of the Home Assistant software as well, including Core and Supervisor. This means a fast data disk will make the system overall much faster.
+{% term "Home Assistant Operating System" %} supports storing data on a secondary storage medium. For example, this can be a second internal SSD or HDD, or a USB-attached SSD or HDD. This data disk contains not only user data but also most of the Home Assistant software, including {% term "Home Assistant Core" %} and Apps. This means a fast data disk will make the system much faster overall.
 
 ![Graphics showing the architecture of the data disk feature](/images/haos/usb-data-disk.png)
 
