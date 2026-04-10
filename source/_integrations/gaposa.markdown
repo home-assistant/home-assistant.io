@@ -3,19 +3,18 @@ title: Gaposa
 description: Instructions on how to integrate Gaposa motorized blinds and shades into Home Assistant.
 ha_category:
   - Cover
-ha_release: 2024.5
+ha_release: 2026.5
 ha_domain: gaposa
-ha_iot_class: Local Push
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@mwatson2'  # Replace with your GitHub username
+  - '@mwatson2'
 ha_platforms:
   - cover
-  - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This Gaposa integration support control of [Gaposa](https://www.gaposa.it/eng) blinds and shades.
+The Gaposa integration supports control of [Gaposa](https://www.gaposa.it/eng) blinds and shades.
 
 The integration communicates with the blinds via the same cloud service and account as the [Gaposa RollApp mobile application](https://www.gaposa.it/eng/news/rollapp/). You will need the mobile application and the [LinkIt hub](https://www.gaposa.it/eng/prod/?residential/electronics/control-units/home-automation/linkit).
 
@@ -27,9 +26,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Prerequisites
 
-- Gaposa Hub configured and connected to your local network
-- Gaposa API key for cloud service access
-- Gaposa account (same as used for RollApp application)
+- A Gaposa LinkIt hub enrolled on your account through the RollApp mobile app
+- Your Gaposa RollApp account credentials (same username and password as the mobile app)
+- A Gaposa cloud API key
 
 ## Features
 
