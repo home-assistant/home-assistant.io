@@ -147,7 +147,9 @@ For **AutoWithEco**, the period of time is a `duration` of up to 24 hours.
     - action: evohome.set_system_mode
       data:
         mode: AutoWithEco
-        duration: {hours: 1, minutes: 30}
+        duration:
+          hours: 1
+          minutes: 30
 ```
 
 For the other modes, such as **Away**, the duration is a `period` in days, where 1 day reverts at midnight tonight, and 2 days reverts at midnight tomorrow.
@@ -157,7 +159,8 @@ For the other modes, such as **Away**, the duration is a `period` in days, where
     - action: evohome.set_system_mode
       data:
         mode: Away
-        period: {days: 30}
+        period:
+          days: 30
 ```
 
 ### evohome.reset_system
@@ -199,7 +202,8 @@ If the `duration` is 0 hours, then the change will be until the next scheduled s
         entity_id: climate.lounge_room
       data:
         setpoint: 5
-        duration: {hours: 0}
+        duration:
+          hours: 0
 ```
 
 ### evohome.clear_zone_override
@@ -235,7 +239,8 @@ If the `duration` is 0 hours, then the change will be until the next scheduled s
         entity_id: water_heater.dhw_controller
       data:
         state: false
-        duration: {hours: 0}
+        duration:
+          hours: 0
 ```
 
 ## Useful Jinja templates
