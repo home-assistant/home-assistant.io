@@ -45,7 +45,7 @@ Each indoor unit is exposed as a climate entity with the following capabilities:
 
 - **HVAC modes**: Off, Cool, Heat, Dry, Fan only, Heat/Cool (auto)
   - Availability depends on the specific unit.
-- **Fan modes**: Super Quiet, Quiet, Low, Powerful, Super Powerful, Auto
+- **Fan modes**: Super quiet, Quiet, Low, Powerful, Super powerful, Auto
   - The number of available speeds depends on the unit.
 - **Swing modes**: Horizontal, Mid-Horizontal, Midpoint, Mid-Vertical, Vertical, Auto, Swing
   - Availability depends on the unit.
