@@ -44,7 +44,7 @@ The **Z-Wave.Me** {% term integration %} allows you to control a Z-Wave network 
 
 {% configuration_basic %}
 URL:
-  description: "The IP address and port of the Z-Way server. The IP address can be prefixed with `wss://` to use HTTPS instead of HTTP (when using the `find.z-wave.me` remote access service or a public IP with TLS)."
+  description: "The IP address and port of the Z-Way server. You can prefix the address with `wss://` to use a secure WebSocket connection (for example, when using the `find.z-wave.me` remote access service or a public IP with TLS)."
 API Token:
   description: "The API access token of the Z-Way server. To get the token, go to the Z-Way Smart Home UI and select **Menu** > **Settings** > **Users** > **Administrator** > **API token**."
 {% endconfiguration_basic %}
