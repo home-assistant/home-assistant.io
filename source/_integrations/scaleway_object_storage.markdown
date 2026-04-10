@@ -11,6 +11,9 @@ ha_codeowners:
   - '@BjoernPetersen'
 ha_integration_type: service
 ha_quality_scale: bronze
+related:
+  - url: https://console.scaleway.com/
+    title: Scaleway Elements Console
 ---
 
 The **Scaleway Object Storage** {% term integration %} allows you to use a [Scaleway Object Storage] bucket with Home Assistant Backups.
@@ -90,18 +93,6 @@ Object Key Prefix:
   description: "Optional object key prefix within the Object Storage bucket where backups will be stored. For example, setting the `home-assistant/` prefix will store backup objects in `bucket-name/home-assistant/`. This is useful for organizing backups when using the same bucket for multiple purposes."
 {% endconfiguration_basic %}
 
-## Setting up the Scaleway Object Storage integration in Home Assistant
-
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select **Add Integration** and search for **Scaleway Object Storage**.
-3. Enter the following details:
-
-   - Access Key ID and Secret Key of the Scaleway application
-   - Select the correct region for your bucket
-   - Your bucket name
-   - The optional object key prefix (path inside the bucket for organizing backups; you can leave this empty)
-
-The integration will test the connection and confirm access to your Object Storage bucket.
 
 ## Organizing backups with the prefix option
 
