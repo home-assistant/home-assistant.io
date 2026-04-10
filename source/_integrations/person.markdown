@@ -59,7 +59,7 @@ If you have administrator rights, you can add other persons to Home Assistant an
 
 ### Customizing the picture for a person
 
-To upload a picture in the frontend, open a person's page, drop an image into the input field, and crop it.
+To upload a picture in the frontend, open a person's page, select an image file or drag and drop one into the input field, and then crop it.
 
 <lite-youtube videoid="rOlRnwaaT7Y" videotitle="Changing a profile picture" posterquality="maxresdefault"></lite-youtube>
 
@@ -96,7 +96,7 @@ person:
     required: true
     type: string
   user_id:
-    description: The user ID of the Home Assistant user account for the person. You can find the `user_id` (also known as `ID`) of users in the **Users** or **Manage users** screen of the configuration panel.
+    description: The user ID of the Home Assistant user account for the person. You can find the `user_id` (also shown as `ID`) under **Settings** > **People**, on the **Users** tab.
     required: false
     type: string
   device_trackers:
