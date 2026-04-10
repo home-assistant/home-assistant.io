@@ -3,7 +3,7 @@ title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
 ha_category:
   - Sensor
-ha_release: 2026.4.2
+ha_release: 2026.5.0
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
