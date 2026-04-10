@@ -69,6 +69,7 @@ The integration provides a few entities to configure the device settings. The fo
 - Balance
 - Loudness
 - Turn on volume
+- Party mode
 
 ## Playing media
 
