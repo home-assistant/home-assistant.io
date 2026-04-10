@@ -111,7 +111,7 @@ For **FollowSchedule**, a zone's `setpoint` (target temperature) is a function o
 - **Auto** setpoints are scheduled temperatures (the default)
 - **AutoWithEco** setpoints are scheduled temperatures, less 3 °C
 
-If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a permanent change until some subsequent intervention is made. Zones can be switched between the two override modes without changing the target temperature.
+If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a persistent change until some subsequent intervention is made. Zones can be switched between the two override modes without changing the target temperature.
 
 For some system modes all zones will have a setpoint enforced upon them, regardless of their own mode:
 
@@ -138,7 +138,7 @@ Actions that deal with the system as a whole require the `entity_id` of the cont
 
 ### evohome.set_system_mode
 
-This action call will set the operating `mode` of the system for a specified period of time, after which it will revert to **Auto**. However, if no period of time is provided, then the change is permanent.
+This action call will set the operating `mode` of the system for a specified period of time, after which it will revert to **Auto**. However, if no period of time is provided, then the change is indefinite.
 
 For **AutoWithEco**, the period of time is a `duration` of up to 24 hours.
 
@@ -189,7 +189,7 @@ This action will override the scheduled `setpoint` of a zone, as identified by i
         duration: "02:00"
 ```
 
-The `setpoint` (target temperature) is required. If no `duration` is provided, then the change is permanent (**PermanentOverride**).
+The `setpoint` (target temperature) is required. If no `duration` is provided, then the change is indefinite (**PermanentOverride**).
 
 The `duration` can be up to 24 hours. If a `duration` is provided, including 0 hours, then the change is temporary (**TemporaryOverride**).
 
@@ -226,7 +226,7 @@ This action will override the scheduled `state` of a DHW controller, as identifi
         duration: "02:00"
 ```
 
-The `state` is required and can be either `true` (On) or `false` (Off). If no `duration` is provided, then the change is permanent (**PermanentOverride**).
+The `state` is required and can be either `true` (On) or `false` (Off). If no `duration` is provided, then the change is indefinite (**PermanentOverride**).
 
 The `duration` can be up to 24 hours. If a `duration` is provided, including 0 hours, then the change is temporary (**TemporaryOverride**).
 
