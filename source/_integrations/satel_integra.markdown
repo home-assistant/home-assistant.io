@@ -42,6 +42,10 @@ The integration only supports the **ETHM-1 Plus**, with firmware version 2.00 or
 3. Open the **System and hardware structure** tab.
 4. Navigate to the **Hardware** section, expand the tree and select the **ETHM-1 Plus** module.
 5. Select the **Integration** checkbox.
+6. Configure encryption:
+    - If you want to use an unencrypted connection, clear the **Encrypted integration** checkbox.
+    - If you want to use an encrypted connection, select the **Encrypted integration** checkbox and note the
+     integration encryption key you configured in the **Keypads** module from the navigation tree.
 
 {% note %}
 If you do not have access to the DLOADX program or your project file, ask your installer to adjust the settings for you.
