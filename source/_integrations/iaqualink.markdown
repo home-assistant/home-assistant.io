@@ -32,7 +32,23 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
+## Prerequisites
+
+1. Create an account and log in using either the iAqualink App or the [iAqualink website](https://site.iaqualink.net/signin).
+2. Add your device to the account created above (typically using its serial number).
+
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+    description: "The email address used to sign in to your account using the iAqualink app or website."
+Password:
+    description: "The password associated with your account."
+{% endconfiguration_basic %}
+
+## Data Updates
+
+This integration uses cloud {% term polling %} to automatically discover your devices using the cloud APIs.
 
 ## Known limitations
 
@@ -57,3 +73,10 @@ logger:
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
+{% configuration_basic %}
+Host:
+    description: "The IP address of your bridge. You can find it in your router or in the Integration app under **Bridge Settings** > **Local API**."
+Local access token:
+    description: "The local access token for your bridge. You can find it in the Integration app under **Bridge Settings** > **Local API**."
+{% endconfiguration_basic %}
