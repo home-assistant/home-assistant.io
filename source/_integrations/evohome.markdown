@@ -71,8 +71,8 @@ This is an IoT cloud-polling integration and the recommended minimum `scan_inter
 
 TCC systems are implemented as a _location_, which consists of 1-12 _zones_ and, optionally, a DHW controller:
 
-- The system location (for example, a house) is used for operating modes such as Home, Away, and Economy.
-- Heating zones (e.g., rooms) are used for the target temperature.
+- The system location (for example, a house) is used for operating modes such as **Auto**, **AutoWithEco**, and **Away**.
+- Heating zones (for example, rooms) are used for the target temperature.
 
 ### Evohome
 
