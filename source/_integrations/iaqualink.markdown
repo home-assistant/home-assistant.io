@@ -48,7 +48,7 @@ Password:
 
 ## Data updates
 
-This integration uses cloud {% term polling %} to refresh data from your iAqualink system, like equipment status, sensor readings, and climate values. Home Assistant updates this data approximately every 30 seconds.
+This integration uses cloud {% term polling %} to refresh data from your iAqualink system, like equipment status, sensor readings, and climate values. Home Assistant updates this data approximately every 15 seconds.
 
 ## Known limitations
 
