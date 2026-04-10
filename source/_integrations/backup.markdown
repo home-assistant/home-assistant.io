@@ -114,10 +114,12 @@ conditions:
     attribute: event_type
     state: failed
 actions:
-  - action: notify.mobile-app
+  - action: notify.mobile_app_your_phone
     data:
       title: "Automatic backup failed"
-      message: "The last automatic backup failed due to {{ state_attr('event.backup_automatic_backup', 'failed_reason') }}"
+      message: >-
+        The last automatic backup failed due to
+        {{ state_attr('event.backup_automatic_backup', 'failed_reason') }}
 ```
 
 
