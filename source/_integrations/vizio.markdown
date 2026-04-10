@@ -257,7 +257,7 @@ The VIZIO SmartCast integration automatically creates a remote entity for each c
 | `play` | |
 | `pow_off` | `off`, `power_off` |
 | `pow_on` | `on`, `power_on` |
-| `pow_toggle` | `power_toggle`, `toggle_power` |
+| `pow_toggle` | `power_toggle`, `toggle_power`, `power` |
 | `right` | |
 | `seek_back` | `reverse`, `rewind` |
 | `seek_fwd` | `forward`, `fast_forward`, `ff` |
