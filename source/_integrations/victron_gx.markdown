@@ -2,6 +2,7 @@
 title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
+  - Select
   - Sensor
   - Binary sensor
 ha_release: '2026.5'
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@tomer-w'
 ha_domain: victron_gx
 ha_platforms:
+  - select
   - sensor
   - binary_sensor
 ha_integration_type: hub
@@ -104,6 +106,18 @@ Status indicators for various system states, such as:
 - Alarms and warnings
 - Connection status
 - Relay states
+
+#### Selects
+
+Configurable options for controlling device behavior, such as:
+
+- Inverter mode (on, off, charger only, inverter only)
+- Solar charger mode
+- Relay function configuration
+- <abbr title="electric vehicle">EV</abbr> charger charge mode (auto, manual, or scheduled charge)
+- <abbr title="Energy Storage System">ESS</abbr> mode (optimized with or without phase compensation, or external control)
+- <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
+- <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
 
 ## Troubleshooting
 
