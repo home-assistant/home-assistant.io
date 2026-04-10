@@ -41,7 +41,7 @@ If you have administrator rights, you can add other persons to Home Assistant an
 1. Go to {% my people title="**Settings** > **People**" %} and select **Add person**.
 2. Enter their **Name**.
 3. Add an image if you like.
-4. Under **Allow login**, select if they should be able to sign in.
+4. Under **Allow login**, select whether they should be able to sign in.
    - If they cannot sign in, they do not get a user account and cannot do much with Home Assistant.
    - They cannot have their own dashboard, for example.
    - But they can still be used for device tracking, show up on a map, and be included in automations.
