@@ -230,7 +230,7 @@ The `state` is required and can be either `true` (On) or `false` (Off). If no `d
 
 The `duration` can be up to 24 hours. If a `duration` is provided, including 0 hours, then the change is temporary (**TemporaryOverride**).
 
-If the `duration` is 0 hours, then the change will be until the next scheduled setpoint.
+If the `duration` is 0 hours, then the change will be until the next scheduled state change.
 
 ```yaml
 - actions:
