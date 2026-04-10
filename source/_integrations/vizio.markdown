@@ -274,7 +274,7 @@ Speakers support a subset of the commands above:
 
 `MUTE_OFF`, `MUTE_ON`, `MUTE_TOGGLE`, `PAUSE`, `PLAY`, `POW_OFF`, `POW_ON`, `POW_TOGGLE`, `VOL_DOWN`, `VOL_UP`
 
-Aliases that map to these commands (e.g., `mute`, `volume_up`, `on`, `off`) also work on speakers.
+Aliases that map to these commands (for example, `mute`, `volume_up`, `on`, `off`) also work on speakers.
 
 ### Examples
 
