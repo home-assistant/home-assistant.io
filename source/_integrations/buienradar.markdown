@@ -77,7 +77,7 @@ The following {% term entities %} will be created:
 - **Ground temperature**: The current ground temperature (in [°C](https://en.wikipedia.org/wiki/Celsius))
 - **Wind speed**: The wind speed (in [km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour))
 - **Wind force**: The wind speed/force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale))
-- **Wind direction**: Where the wind is coming from, such as N (North), Z (south), or NO (North-East).
+- **Wind direction**: Where the wind is coming from, such as N (North), Z (South), or NO (North-East)
 - **Wind azimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise
 - **Pressure**: The sea-level air pressure (in [hPa](https://en.wikipedia.org/wiki/Hectopascal))
 - **Visibility**: Visibility (in [m](https://en.wikipedia.org/wiki/Metre))

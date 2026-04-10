@@ -426,7 +426,7 @@ switch:
 
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
-__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example Bedroom TV.
+__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example, Bedroom TV.
 
 ##  Managing codes for remotes
 ### Using e-Control remotes
