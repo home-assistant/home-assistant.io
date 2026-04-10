@@ -127,7 +127,7 @@ Toggle controls for enabling or disabling device functions, such as:
 
 - <abbr title="electric vehicle">EV</abbr> charger start/stop
 - Generator auto-start and manual start
-- Generator quiet hours and conditional start triggers (SOC, temperature, voltage)
+- Generator quiet hours and conditional start triggers (<abbr title="state of charge">SOC</abbr>, temperature, voltage)
 - <abbr title="Energy Storage System">ESS</abbr> disable charge and disable feed-in
 - <abbr title="Energy Storage System">ESS</abbr> battery-only critical loads and schedule charge slot enabled
 - Relay states on GX devices, Multi RS, and solar chargers
