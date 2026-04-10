@@ -96,7 +96,7 @@ The following {% term entities %} will be created:
 - **Minimum rain n days ahead**: The minimum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead
 - **Maximum rain n days ahead**: The maximum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead
 - **Wind azimuth n days ahead**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise for n days ahead (derived from `Wind direction n days ahead`)
-- **Wind direction n days ahead**: Where the wind will be coming from n days ahead, such as N (North), Z (south), or NO (North-East).
+- **Wind direction n days ahead**: Where the wind will be coming from n days ahead. For example, N (North), Z (South), or NO (North-East).
 - **Wind force n days ahead**: The expected wind force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)) n days ahead
 - **Wind speed n days ahead**: The expected wind speed (in [m/s](https://en.wikipedia.org/wiki/M/s)) n days ahead (derived from `Wind force n days ahead`)
 - **Condition code n days ahead**: Symbol and condition code of the expected condition n days ahead
