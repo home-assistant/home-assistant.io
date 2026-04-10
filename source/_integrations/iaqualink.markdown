@@ -73,10 +73,3 @@ logger:
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-
-{% configuration_basic %}
-Host:
-    description: "The IP address of your bridge. You can find it in your router or in the Integration app under **Bridge Settings** > **Local API**."
-Local access token:
-    description: "The local access token for your bridge. You can find it in the Integration app under **Bridge Settings** > **Local API**."
-{% endconfiguration_basic %}
