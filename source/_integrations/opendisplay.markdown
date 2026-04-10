@@ -54,7 +54,9 @@ To avoid typing the key manually, scan the QR code on your device's display. The
 
 If the encryption key changes after the device has been set up, Home Assistant will prompt you to re-enter the key.
 
-## Entities
+## Supported functionality
+
+The **OpenDisplay** integration provides the following entities.
 
 ### Button events
 
