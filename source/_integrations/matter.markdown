@@ -477,7 +477,7 @@ response_variable: lock_info
 
 #### Action: Get lock users
 
-The `matter.get_lock_users` action returns all users configured on the lock. For each user, the response includes their name, status, type, credential rule, and a list of credential references (type and slot index). For security reasons, the lock does not expose the actual credential secrets (such as PIN codes or RFID tag data). This action returns a response and does not require any additional data attributes.
+The `matter.get_lock_users` action returns all users configured on the lock. For each user, the response includes their name, status, type, credential rule, a list of credential references (type and slot index), and which controller (such as Home Assistant, Apple Home, or Google Home) created and last modified the user. For security reasons, the lock does not expose the actual credential secrets (such as PIN codes or RFID tag data). This action returns a response and does not require any additional data attributes.
 
 ```yaml
 action: matter.get_lock_users
@@ -569,7 +569,7 @@ data:
 
 #### Action: Get lock credential status
 
-The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied and which user it belongs to. This action returns a response.
+The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied, which user it belongs to, and which controller (such as Home Assistant, Apple Home, or Google Home) created and last modified the credential. This action returns a response.
 
 - **Data attribute**: `credential_type`
   - **Description**: The type of credential to query.
