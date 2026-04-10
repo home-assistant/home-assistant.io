@@ -226,47 +226,45 @@ This action allows you to update a setting on a given VIZIO device. You will nee
 
 ## Remote
 
-The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action.
-
-Commands are case-insensitive. You can use either the native key name (for example, `VOL_UP`) or a human-friendly alias (for example, `volume_up`).
+The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action. Commands are case-insensitive.
 
 ### Available commands
 
 #### TV commands
 
-| Command | Aliases |
-| :------ | :------ |
-| `BACK` | |
-| `CC_TOGGLE` | `closed_captions`, `cc` |
-| `CH_DOWN` | `channel_down` |
-| `CH_PREV` | `previous_channel` |
-| `CH_UP` | `channel_up` |
-| `DOWN` | |
-| `EXIT` | |
-| `HOME` | |
-| `INFO` | |
-| `INPUT_NEXT` | `next_input` |
-| `LEFT` | |
-| `LEFT2` | |
-| `MENU` | |
-| `MUTE_OFF` | |
-| `MUTE_ON` | |
-| `MUTE_TOGGLE` | `mute` |
-| `OK` | `enter`, `select` |
-| `PAUSE` | |
-| `PIC_MODE` | `picture_mode` |
-| `PIC_SIZE` | `picture_size` |
-| `PLAY` | |
-| `POW_OFF` | `off`, `power_off` |
-| `POW_ON` | `on`, `power_on` |
-| `POW_TOGGLE` | `power_toggle` |
-| `RIGHT` | |
-| `SEEK_BACK` | `reverse`, `rewind` |
-| `SEEK_FWD` | `forward`, `fast_forward`, `ff` |
-| `SMARTCAST` | |
-| `UP` | |
-| `VOL_DOWN` | `volume_down` |
-| `VOL_UP` | `volume_up` |
+| Command |
+| :------ |
+| `back` |
+| `cc_toggle` |
+| `ch_down` |
+| `ch_prev` |
+| `ch_up` |
+| `down` |
+| `exit` |
+| `home` |
+| `info` |
+| `input_next` |
+| `left` |
+| `left2` |
+| `menu` |
+| `mute_off` |
+| `mute_on` |
+| `mute_toggle` |
+| `ok` |
+| `pause` |
+| `pic_mode` |
+| `pic_size` |
+| `play` |
+| `pow_off` |
+| `pow_on` |
+| `pow_toggle` |
+| `right` |
+| `seek_back` |
+| `seek_fwd` |
+| `smartcast` |
+| `up` |
+| `vol_down` |
+| `vol_up` |
 
 #### Speaker commands
 
