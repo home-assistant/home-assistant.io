@@ -80,7 +80,7 @@ fields:
           type: boolean
           default: false
         required:
-          description: Mark this field as required. This is a UI-only feature.
+          description: Marks this field as required. This is a UI-only feature.
           type: boolean
           default: false
         example:
@@ -220,7 +220,7 @@ Any errors that occur in the called scripts that cause them to abort will _not_ 
 
 ![Diagram showing the difference between calling a script directly and via script.turn_on, and how the calling script waits or continues](/images/integrations/script/script_wait.jpg)
 
-Here's an example of the calling script not waiting. It performs some other operations while the called script runs "in the background", then waits for the called script to complete via a `wait_template`.
+Here's an example of the calling script not waiting. It performs some other operations while the called script runs in the background, then waits for the called script to complete via a `wait_template`.
 You can also use this technique for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
 ```yaml
