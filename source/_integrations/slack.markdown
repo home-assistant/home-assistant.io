@@ -61,7 +61,7 @@ In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
 #### Sample App Manifest
 
-You can easily create a bot with all the permissions needed from an App Manifest. 
+You can easily create a bot with all the permissions needed from an App Manifest.
 
 ```yaml
 display_information:
@@ -104,7 +104,7 @@ Icon/Username:
 
 One of the easiest ways to send a message, is to create a script. You can paste in YAML and make changes in the GUI.
 
-You can call this script as an action. 
+You can call this script as an action.
 
 1. Go to Home Assistant Settings > Automations and Scenes > Scripts > Add Script
 2. Click the three dots in the top right, and pick 'Edit in YAML'. Paste in the contents below.

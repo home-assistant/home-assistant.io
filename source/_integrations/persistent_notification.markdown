@@ -40,8 +40,7 @@ automation:
         notification_id: invalid_config
 ```
 
-See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) 
-for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) for additional trigger data available for conditions or actions.
 
 ### Action: Create
 

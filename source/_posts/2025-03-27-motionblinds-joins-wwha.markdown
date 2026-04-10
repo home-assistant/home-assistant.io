@@ -34,15 +34,7 @@ Home Assistant was recently [Matter certified](/blog/2025/03/10/matter-certifica
 
 ### Which devices have been certified?
 
-- [Roller Shades](https://motionblinds.com/products/roller)
-- [Double Roller Shades](https://motionblinds.com/products/double-roller)
-- [Venetian Blinds](https://motionblinds.com/products/venetian)
-- [Honeycomb Shades](https://motionblinds.com/products/honeycomb)
-- [Curtains](https://motionblinds.com/products/curtains)
-- [Pleated Shades](https://motionblinds.com/products/pleated)
-- [Vertical Blinds](https://motionblinds.com/products/vertical)
-- [Roman Shades](https://motionblinds.com/products/roman)
-- [Upgrade Kit for Roller Blinds](https://motionblinds.com/products/upgrade-kit)
+{% include integrations/device_list.html brand="motionblinds" %}
 
 All these devices connect directly to Home Assistant via Matter, provided you pick the "powered by Eve" option, or combine with the Matter bridge. We're big fans of open standards like Matter, because they bring great benefits when it comes to local control, privacy, and long-term support.
 

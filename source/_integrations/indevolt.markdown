@@ -7,8 +7,10 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@xirtnl'
+  - '@xirt'
 ha_platforms:
+  - button
+  - diagnostics
   - number
   - select
   - sensor
@@ -19,7 +21,7 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
-The Indevolt {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
+The **Indevolt** {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
 
 ## Use cases
 
@@ -34,9 +36,11 @@ The integration supports the following devices:
 
 ## Prerequisites
 
+<!-- textlint-disable capitalize -->
 1. Connect your Indevolt device and Home Assistant to the same local network.
 2. Ensure the Indevolt device is powered on and has acquired a network IP address. You can get the IP from the app or from your router.
-3. Enable the device's API through the app.
+3. In the Indevolt app, enable the **Local API** and set the protocol to `http`.
+<!-- textlint-disable capitalize -->
 
 {% include integrations/config_flow.md %}
 
@@ -46,11 +50,18 @@ Host:
 
 {% endconfiguration_basic %}
 
+
 The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
 
 ## Supported functionality
 
 The Indevolt integration provides sensors for monitoring your device (read only).
+
+### Buttons
+
+The following button entity allows triggering device actions directly from Home Assistant.
+
+- **Enable standby mode**: Puts the battery in standby mode which pauses battery charging and discharging. Change the energy mode to resume normal battery activity.
 
 ### Sensors
 

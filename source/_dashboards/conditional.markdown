@@ -216,7 +216,7 @@ condition:
   type: string
 locations:
   required: true
-  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true. 
+  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true.
   type: list
 {% endconfiguration %}
 

@@ -31,7 +31,7 @@ The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
      2. In Home Assistant, go to [**Settings** > **Apps** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
      3. On the **ESP32-S3-BOX-3** app, select edit.
        ![ESP32-S3-BOX-3 open config file](/images/assist/esps32-s3-edit-config.png)
-        - **Result**: An editor opens, showing the configuration file.
+        - Result: An editor opens, showing the configuration file.
        ![ESP32-S3-BOX-3 edit config file](/images/assist/esp32-edit-wifi-credentials.png)
      4. In the **wifi** section, check if it refers to the `secrets` file (contains `!secret`).
         If it does not contain a **wifi** section, enter the section below:

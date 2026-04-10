@@ -1,6 +1,7 @@
 ---
 title: "Understanding Home Energy Management"
 description: "How to get started using home energy management in Home Assistant."
+toc: false
 ---
 
 Home Assistant allows you to get on top of your energy use with its home energy management feature. Gain new insights, optimize your solar panel production, plan energy usage and save money.

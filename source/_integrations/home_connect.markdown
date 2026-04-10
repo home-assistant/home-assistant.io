@@ -4,6 +4,8 @@ description: Instructions on how to set up the Home Connect integration within H
 ha_category:
   - Binary sensor
   - Button
+  - Climate
+  - Fan
   - Hub
   - Light
   - Number
@@ -22,7 +24,9 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - diagnostics
+  - fan
   - light
   - number
   - select
@@ -171,6 +175,29 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Partial open door**
   - **Description**: Opens the door of the appliance partially.
   - **Availability**: Oven
+
+{% enddetails %}
+
+### Climate
+
+{% details "List of climate entities" %}
+
+- **Air conditioner**:
+  - **Description**: Controls the air conditioner appliance.
+  - **Availability**: Air conditioner
+  - **Controls**:
+    - Active program: HVAC modes + preset modes
+    - Fan speed mode: fan speed
+ 
+{% enddetails %}
+### Fan
+
+{% details "List of fan entities" %}
+
+- **Air conditioner**:
+  - **Description**: Controls the fan speed of air conditioner appliances.
+  - **Availability**: Air conditioner
+  - **Controls**: fan speed percentage, fan speed mode
 
 {% enddetails %}
 
@@ -376,6 +403,10 @@ Both entities can use these options, but the availability of these will depend o
 - **Automatic**: `cooking_common_program_hood_automatic`
 - **Venting**: `cooking_common_program_hood_venting`
 - **Delayed shut off**: `cooking_common_program_hood_delayed_shut_off`
+- **3D heating**: `cooking_oven_program_heating_mode_3_d_heating`
+- **Air fry**: `cooking_oven_program_heating_mode_air_fry`
+- **Grill (large area)**: `cooking_oven_program_heating_mode_grill_large_area`
+- **Grill (small area)**: `cooking_oven_program_heating_mode_grill_small_area`
 - **Pre-heating**: `cooking_oven_program_heating_mode_pre_heating`
 - **Hot air**: `cooking_oven_program_heating_mode_hot_air`
 - **Hot air eco**: `cooking_oven_program_heating_mode_hot_air_eco`
@@ -384,6 +415,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Top bottom heating**: `cooking_oven_program_heating_mode_top_bottom_heating`
 - **Top bottom heating eco**: `cooking_oven_program_heating_mode_top_bottom_heating_eco`
 - **Bottom heating**: `cooking_oven_program_heating_mode_bottom_heating`
+- **Bread baking**: `cooking_oven_program_heating_mode_bread_baking`
 - **Pizza setting**: `cooking_oven_program_heating_mode_pizza_setting`
 - **Slow cook**: `cooking_oven_program_heating_mode_slow_cook`
 - **Intensive heat**: `cooking_oven_program_heating_mode_intensive_heat`
@@ -392,6 +424,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Special Heat-Up for frozen products**: `cooking_oven_program_heating_mode_frozen_heatup_special`
 - **Desiccation**: `cooking_oven_program_heating_mode_desiccation`
 - **Defrost**: `cooking_oven_program_heating_mode_defrost`
+- **Dough proving**: `cooking_oven_program_heating_mode_dough_proving`
 - **Proof**: `cooking_oven_program_heating_mode_proof`
 - **Hot air + 30 RH**: `cooking_oven_program_heating_mode_hot_air_30_steam`
 - **Hot air + 60 RH**: `cooking_oven_program_heating_mode_hot_air_60_steam`
@@ -1095,6 +1128,16 @@ The `home_connect.set_program_and_options` action starts or selects a program. I
 | `laundry_care_washer_option_i_dos1_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 1) |
 | `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
 | `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
+
+### Action: Start selected program
+
+The `home_connect.start_selected_program` action starts the program that is already selected using the specified options. You can specify start-only options to set them when starting the program. You can also use it to update the start-only options for a program that is already active but delayed (so that the operation state is "delayed start").
+
+| Data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | ID of the device. |
+| `b_s_h_common_option_finish_in_relative` | yes | Defines when the program should end, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
+| `b_s_h_common_option_start_in_relative` | yes | Defines when the program should start, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
 
 ### Action: Change setting
 
