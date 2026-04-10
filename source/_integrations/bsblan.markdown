@@ -33,7 +33,9 @@ It can interface with the heating system over Boiler-System-Bus, Local Process B
 
 For authentication, HTTP authentication using a username and password or using a passkey is supported. Use either one.
 
-If your heating system exposes more than one heating circuit, Home Assistant discovers the available circuits automatically. Each circuit is added as its own climate entity and as a separate sub-device under the main BSB-LAN device, so you can control each zone independently.
+If your heating system exposes more than one heating circuit, Home Assistant discovers the available circuits automatically during setup. The integration creates one main BSB-LAN device for shared entities, and adds each detected heating circuit as its own sub-device so you can control each zone independently.
+
+If your heating system changes later, for example after you enable an extra circuit in the controller, run the integration's reconfigure flow to let Home Assistant discover the updated circuit list.
 
 ## Supported functionality
 
@@ -44,6 +46,14 @@ Depending on your system and the available heating circuits, the following entit
 - Diagnostics
 - Sensor
 - Water heater
+
+### Device structure
+
+The integration groups entities by device in Home Assistant:
+
+- The main BSB-LAN device contains shared entities, like the **Sync time** button and temperature sensors.
+- Each detected heating circuit appears as a sub-device under the main BSB-LAN device.
+- If your system supports domestic hot water, it can also appear as its own sub-device.
 
 ### Buttons
 
@@ -56,6 +66,11 @@ The **Sync time** button appears under the **Configuration** section of the devi
 - Home Assistant creates one climate entity for each detected heating circuit.
 - These appear in Home Assistant as **Heating circuit 1**, **Heating circuit 2**, and **Heating circuit 3**, depending on what your system exposes.
 - Each heating circuit is grouped under its own sub-device on the BSB-LAN device page.
+
+### Water heater
+
+- If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
+- The water heater entity is grouped under its own sub-device on the BSB-LAN device page.
 
 ### Sensors
 
@@ -70,7 +85,6 @@ To use the **Total Energy** sensor, [enable the entity](/common-tasks/general/#e
 {% note %}
 The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the value changes only after another 1 kWh has been used.
 {% endnote %}
-
 
 ## Actions
 
@@ -287,4 +301,3 @@ To see a more detailed listing of the reported systems which are successfully us
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
 The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/bsb-lan/releases/tag/v5.0).
-
