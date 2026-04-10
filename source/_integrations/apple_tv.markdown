@@ -175,9 +175,9 @@ data:
 
 ## Keyboard
 
-A `binary_sensor` entity is created for each Apple TV to indicate whether the
-on-screen keyboard is active. When a text input field is focused on the device,
-`binary_sensor.<device>_keyboard_focused` will be `on`.
+The Apple TV remote platform will automatically create a Binary sensor entity
+for each Apple TV configured on your Home Assistant instance to determine if the
+on-screen keyboard is active.
 
 ### Example
 
