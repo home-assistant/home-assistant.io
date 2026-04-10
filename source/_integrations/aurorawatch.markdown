@@ -30,14 +30,14 @@ The integration provides two sensors:
 
 Shows the current aurora alert status for the UK.
 
-**Possible values:**
+Possible values:
 
 - **Green**: No significant activity
 - **Yellow**: Minor geomagnetic activity
 - **Amber**: Amber alert - possible aurora
 - **Red**: Red alert - auroras likely
 
-**Additional attributes:**
+Additional attributes:
 
 - **Last updated**: Timestamp of the last data update from AuroraWatch UK
 - **Project ID**: The AuroraWatch project identifier
