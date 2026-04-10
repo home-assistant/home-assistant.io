@@ -19,7 +19,7 @@ related:
     title: Configuration file
 ---
 
-The **Sun** {% term integration %} calculates all sun-related times (sunrise, sunset, dawn, dusk, etc.) based on your configured home location. This means that all time-based calculations and triggers will be accurate for your specific location, as defined in your [basic configuration](/docs/configuration/basic/).
+The **Sun** {% term integration %} calculates sun-related times such as sunrise, sunset, dawn, and dusk based on your configured home location. This means that all time-based calculations and triggers will be accurate for your specific location, as defined in your [basic configuration](/docs/configuration/basic/).
 
 The sun {% term integration %} will use the location as
 {% my general title="configured in your Home Assistant configuration" %} to
@@ -33,19 +33,19 @@ automations as
 
 ## Configured by default
 
-This {% term integration %} is by default configured and installed, and you don't need
-to configure it yourself, unless you've disabled or removed the
+This {% term integration %} is configured and installed by default, so you don't need
+to set it up yourself, unless you've disabled or removed the
 [`default_config:`](/integrations/default_config/) line from your
 YAML configuration.
 
-If that is the case, you can configure it as described in the next paragraphs.
+If that is the case, follow the steps below to set it up.
 
 {% include integrations/config_flow.md %}
 
 ## YAML configuration
 
-Alternatively, this integration can be configured and set up manually via YAML
-instead. To enable the sun integration in your installation, add the
+Alternatively, you can configure and set up this integration manually via YAML.
+To enable the sun integration in your installation, add the
 following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
@@ -63,7 +63,7 @@ sun:
 The sun's event listener will perform the action when the sun rises or sets with
 an offset.
 
-The sun trigger need to have the type 'sun', which event (sunset or sunrise) and an optional offset.
+The sun trigger needs the trigger type `sun`, an event (`sunset` or `sunrise`), and an optional offset.
 
 ```yaml
 triggers:
@@ -86,7 +86,7 @@ triggers:
 
 ## Sensors
 
-The sensors are also available as attributes on the `sun.sun` entity for backwards compatibility reasons.
+The sensors are also available as attributes on the `sun.sun` entity for backward compatibility.
 
 | Sensors       | Description                                                                                                            |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -101,8 +101,8 @@ The sensors are also available as attributes on the `sun.sun` entity for backwar
 
 ## Binary sensors
 
-The binary sensors are also available as attributes on the `sun.sun` entity for backwards compatibility reasons.
+The binary sensors are also available as attributes on the `sun.sun` entity for backward compatibility.
 
 | Sensors       | Description                                                                                                            |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Solar rising  | True if the Sun is currently rising, after solar midnight and before solar noon.                                       |
+| Solar rising  | `on` when the sun is currently rising (after solar midnight and before solar noon).                                    |
