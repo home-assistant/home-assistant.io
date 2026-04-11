@@ -175,7 +175,7 @@ If you need support for another iAqualink platform, please open a request in the
 
 1. Make sure you can sign in to the [iAqualink website](https://site.iaqualink.net/signin) or the iAqualink app with the same email address and password.
 2. Check for extra spaces or typing mistakes in your email address and password.
-3. If you recently changed your password, update the integration by reconfiguring it from {% my integrations title="**Settings** > **Devices & services**" %}.
+3. If you recently changed your password, go to {% my integrations title="**Settings** > **Devices & services**" %}, open the **Jandy iAqualink** three-dots menu, and select **Reconfigure**.
 
 {% enddetails %}
 
