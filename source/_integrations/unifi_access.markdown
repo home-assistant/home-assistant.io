@@ -11,8 +11,8 @@ ha_iot_class: Local Push
 ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
-  - "@imhotep"
-  - "@RaHehl"
+  - '@imhotep'
+  - '@RaHehl'
 ha_platforms:
   - binary_sensor
   - button
@@ -57,11 +57,11 @@ Before setting up this integration, make sure you have the following:
 
 {% configuration_basic %}
 Host:
-description: "The hostname or IP address of the UniFi Access controller."
+  description: "The hostname or IP address of the UniFi Access controller."
 API Token:
-description: "The API token generated in the UniFi Access controller settings. See [Prerequisites](#prerequisites) for how to create one."
+  description: "The API token generated in the UniFi Access controller settings. See [Prerequisites](#prerequisites) for how to create one."
 Verify SSL:
-description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate. Disabled by default."
+  description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate. Disabled by default."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -141,6 +141,7 @@ data:
   rule: keep_lock
   interval: 30
 ```
+
 #### Sensors
 
 For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
