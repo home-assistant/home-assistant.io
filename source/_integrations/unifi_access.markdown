@@ -11,8 +11,8 @@ ha_iot_class: Local Push
 ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
-  - '@imhotep'
-  - '@RaHehl'
+  - "@imhotep"
+  - "@RaHehl"
 ha_platforms:
   - binary_sensor
   - button
@@ -49,7 +49,7 @@ Before setting up this integration, make sure you have the following:
   1. Open the UniFi Access web interface.
   2. Navigate to **Settings** > **Advanced**.
   3. Under **API Token**, select **Create Token**.
-  4. Give the token a descriptive name (for example, *Home Assistant*) and save it.
+  4. Give the token a descriptive name (for example, _Home Assistant_) and save it.
   5. Copy the generated token — you will need it during setup.
 - Your Home Assistant instance must be able to reach the UniFi Access controller on your local network.
 
@@ -57,11 +57,11 @@ Before setting up this integration, make sure you have the following:
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of the UniFi Access controller."
+description: "The hostname or IP address of the UniFi Access controller."
 API Token:
-  description: "The API token generated in the UniFi Access controller settings. See [Prerequisites](#prerequisites) for how to create one."
+description: "The API token generated in the UniFi Access controller settings. See [Prerequisites](#prerequisites) for how to create one."
 Verify SSL:
-  description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate. Disabled by default."
+description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate. Disabled by default."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -91,7 +91,6 @@ Each door provides two **event** entities:
   - `access_denied`: The access attempt was denied (API result: `BLOCKED` or any other non-`ACCESS` value).
 
   The event includes the following additional attributes when available:
-
   - `actor`: The name of the person who attempted access.
   - `authentication`: The authentication method used (for example, NFC, PIN code, Face).
   - `result`: The raw result from the UniFi Access controller (for example, `ACCESS`, `BLOCKED`).
@@ -112,7 +111,7 @@ Each door registered in your UniFi Access controller is represented by a **binar
 The integration provides two switch entities for controlling the emergency modes of your UniFi Access controller.
 
 {% important %}
-These switches affect *all* doors managed by the controller at once and have direct physical security and safety implications. Make sure to restrict access to these switches in your dashboards and avoid triggering them accidentally in automations.
+These switches affect _all_ doors managed by the controller at once and have direct physical security and safety implications. Make sure to restrict access to these switches in your dashboards and avoid triggering them accidentally in automations.
 {% endimportant %}
 
 - **Evacuation**
@@ -120,6 +119,28 @@ These switches affect *all* doors managed by the controller at once and have dir
 - **Lockdown**
   - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
 
+#### Actions
+
+For controllers that support temporary lock rules, the integration provides the `unifi_access.set_lock_rule` action.
+
+Use this action to apply a temporary lock rule to a specific door. In the automation editor, select the UniFi Access door device you want to target.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `device_id` | no | The UniFi Access door device to update. |
+| `rule` | no | The lock rule to apply. Supported values are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, and `reset`. |
+| `interval` | yes | Rule duration in minutes. Defaults to `10`. |
+
+Example action:
+
+```yaml
+action: unifi_access.set_lock_rule
+target:
+  device_id: 0123456789abcdef0123456789abcdef
+data:
+  rule: keep_lock
+  interval: 30
+```
 #### Sensors
 
 For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
