@@ -248,7 +248,7 @@ The integration {% term polling polls %} the device for updates.
 
 ## Known limitations
 
-- The integration can only expose monitoring data and controls that are available through the NRGkick local JSON API. Settings and features that are only available in the NRGkick app and are not exposed through the local JSON API cannot be managed from Home Assistant (for example time-controlled charging, PV charging). However, you can build similar functionality in Home Assistant using the available controls and automations.
+- The integration can only expose monitoring data and controls that are available through the NRGkick local JSON API. Settings and features that are only available in the NRGkick app and are not exposed through the local JSON API cannot be managed from Home Assistant (for example, time-controlled charging, solar charging). However, you can build similar functionality in Home Assistant using the available controls and automations.
 - SIM-specific entities, such as cellular sensors and the GPS device tracker, are only available on SIM-capable models because only those devices provide that data.
 
 ## Troubleshooting
