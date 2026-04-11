@@ -86,7 +86,7 @@ Password:
   description: Password for HTTP Basic Authentication (optional).
 {% endconfiguration_basic %}
 
-The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}. Select {% icon "mdi:dots-vertical" %}, then select **Reconfigure**.
+The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}. On the **NRGkick** integration, select {% icon "mdi:dots-vertical" %}, then select **Reconfigure**.
 
 ## Supported functionality
 
