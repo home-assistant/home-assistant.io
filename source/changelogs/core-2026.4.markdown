@@ -2561,7 +2561,7 @@ For a summary in a more readable format
 [@mdegat01]: https://github.com/mdegat01
 [@tr4nt0r]: https://github.com/tr4nt0r
 
-## Release 2026.4.2 - April 10
+## Release 2026.4.2 - April 11
 
 - Improve handling of disconnected meters with Rainforest Automation Eagle-200 ([@SkySrfr] - [#161185])
 - Prevent the intellifire client from polling independently of its coordinator ([@jeeftor] - [#165341])
@@ -2577,7 +2577,6 @@ For a summary in a more readable format
 - Update to tplink-omada-client 1.5.7 ([@MarkGodwin] - [#167313])
 - Bump afsapi to 0.3.1 ([@007hacky007] - [#167321])
 - Bump pylutron to 0.4.1 ([@cdheiser] - [#167324])
-- Pin actions/helpers/info to fix release build ([@frenck] - [#167327])
 - Bump cryptography to 46.0.6 ([@pantherale0] - [#167330])
 - Align and cleanup tests data for Fritz ([@chemelli74] - [#167363])
 - Bump aiohue to 4.8.1 ([@joostlek] - [#167369])
@@ -2625,10 +2624,14 @@ For a summary in a more readable format
 - Bump pylitterbot to 2025.2.1 ([@natekspencer] - [#167921])
 - Update frontend to 20260325.7 ([@bramkragten] - [#167922])
 - Bump pyrisco to 0.6.8 ([@OnFreund] - [#167924])
+- Improve Tibber price coordinator ([@Danielhiversen] - [#166175])
+- Fix tibber price sensor first state update ([@MartinHjelmare] - [#167938])
+- Update cryptography to 46.0.7 ([@frenck] - [#167960])
 
 [#161185]: https://github.com/home-assistant/core/pull/161185
 [#165341]: https://github.com/home-assistant/core/pull/165341
 [#165647]: https://github.com/home-assistant/core/pull/165647
+[#166175]: https://github.com/home-assistant/core/pull/166175
 [#166480]: https://github.com/home-assistant/core/pull/166480
 [#167094]: https://github.com/home-assistant/core/pull/167094
 [#167189]: https://github.com/home-assistant/core/pull/167189
@@ -2640,7 +2643,6 @@ For a summary in a more readable format
 [#167313]: https://github.com/home-assistant/core/pull/167313
 [#167321]: https://github.com/home-assistant/core/pull/167321
 [#167324]: https://github.com/home-assistant/core/pull/167324
-[#167327]: https://github.com/home-assistant/core/pull/167327
 [#167330]: https://github.com/home-assistant/core/pull/167330
 [#167363]: https://github.com/home-assistant/core/pull/167363
 [#167369]: https://github.com/home-assistant/core/pull/167369
@@ -2688,6 +2690,8 @@ For a summary in a more readable format
 [#167921]: https://github.com/home-assistant/core/pull/167921
 [#167922]: https://github.com/home-assistant/core/pull/167922
 [#167924]: https://github.com/home-assistant/core/pull/167924
+[#167938]: https://github.com/home-assistant/core/pull/167938
+[#167960]: https://github.com/home-assistant/core/pull/167960
 [@007hacky007]: https://github.com/007hacky007
 [@CoMPaTech]: https://github.com/CoMPaTech
 [@Danielhiversen]: https://github.com/Danielhiversen
@@ -2696,6 +2700,7 @@ For a summary in a more readable format
 [@JamieMagee]: https://github.com/JamieMagee
 [@Kane610]: https://github.com/Kane610
 [@MarkGodwin]: https://github.com/MarkGodwin
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@OnFreund]: https://github.com/OnFreund
 [@SkySrfr]: https://github.com/SkySrfr
 [@SteveEasley]: https://github.com/SteveEasley
