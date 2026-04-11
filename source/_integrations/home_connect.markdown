@@ -290,7 +290,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
   - **Availability**: Oven
 - **Setpoint temperature** (Air conditioner):
   - **Description**: Defines the target temperature, which will be held by the air conditioner.
-  - **Availability**: Oven
+  - **Availability**: Air conditioner
 
 {% enddetails %}
 
@@ -1096,7 +1096,7 @@ The `home_connect.set_program_and_options` action starts or selects a program. I
 | `device_id` | no | ID of the device. |
 | `affects_to` | no | Selects if the program affected by the action should be the active or the selected program. |
 | `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
-| `heating_ventilation_air_conditioning_air_conditioner_option_setpoint_temperature` | yes | Defines the target temperature, which will be held by the air conditioner. | 
+| `heating_ventilation_air_conditioning_air_conditioner_option_setpoint_temperature` | yes | Defines the target temperature, which will be held by the air conditioner. |
 | `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage` | yes | Setting to adjust the venting levels of the air conditioner as percentage. |
 | `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode` | yes | Setting to adjust the fan speed mode to Manual or Automatic. |
 | `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
