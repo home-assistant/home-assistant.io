@@ -36,7 +36,7 @@ You can use the NRGkick integration to:
 - **Optimize your home energy management** - Add your charger to the Home Assistant energy dashboard to integrate EV charging into your overall energy monitoring system.
 - **Create smart charging automations** such as:
   - Receiving notifications when charging stops or reaches an energy target
-  - Starting charging when you have enough solar surplus available
+  - Controlling charging current based on solar surplus
   - Pausing charging during expensive peak hours
   - Reacting to warnings or errors reported by the charger
 - **Track charger location on SIM models** - Use the GPS device tracker in map views and zone-based automations.
@@ -74,6 +74,8 @@ To enable the API:
 
 If you enabled authentication in the NRGkick app, enter the username and password during setup.
 
+## Configuration options
+
 {% configuration_basic %}
 Host:
   description: |
@@ -84,7 +86,7 @@ Password:
   description: Password for HTTP Basic Authentication (optional).
 {% endconfiguration_basic %}
 
-The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}. Select {% icon "mdi:dots-vertical" %}, then select **Reconfigure**.
 
 ## Supported functionality
 
@@ -243,7 +245,6 @@ Entity IDs depend on your device name in Home Assistant. The examples below assu
 The integration {% term polling polls %} the device for updates.
 
 - Polling interval: 30 seconds.
-- You cannot change the polling interval.
 
 ## Known limitations
 
@@ -256,15 +257,15 @@ The integration {% term polling polls %} the device for updates.
 
 If setup fails with a connection error:
 
-- Verify the device is reachable on your network.
+- Verify the device is reachable on your network (for example by starting the NRGkick app or entering the device IP in a web browser).
 - Verify the REST JSON API is enabled in the NRGkick app.
 - If you use authentication, verify the username and password.
 
 ### Entities show unavailable
 
-- Verify the device is powered on and connected.
+- Verify the device is powered on and connected to the Wi-Fi network.
+- Sometimes the NRGkick device is not reachable on your network. Restart the device by unplugging it from power, waiting 30 seconds, and plugging it back in.
 - Under {% my integrations title="**Settings** > **Devices & services**" %}, select **NRGkick**, then reload the integration.
-- If your network is unstable, verify Wi-Fi coverage.
 
 ### Some phase sensors are missing or show as unknown
 
