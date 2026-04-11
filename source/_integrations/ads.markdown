@@ -72,7 +72,7 @@ ip_address:
 <!-- omit in toc -->
 ## Action
 
-The ADS integration registers the `write_data_by_name` action, allowing you to write a value to a variable on your ADS device.
+The ADS integration registers the `ads.write_data_by_name` action, allowing you to write a value to a variable on your ADS device.
 
 ```json
 {
