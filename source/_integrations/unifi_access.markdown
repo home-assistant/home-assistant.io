@@ -11,14 +11,15 @@ ha_iot_class: Local Push
 ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
-  - '@imhotep'
-  - '@RaHehl'
+  - "@imhotep"
+  - "@RaHehl"
 ha_platforms:
   - binary_sensor
   - button
   - event
   - image
   - lock
+  - select
   - sensor
   - switch
 ha_integration_type: hub
@@ -57,11 +58,11 @@ Before setting up this integration, make sure you have the following:
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of the UniFi Access controller."
+description: "The hostname or IP address of the UniFi Access controller."
 API Token:
-  description: "The API token generated in the UniFi Access controller settings. See [Prerequisites](#prerequisites) for how to create one."
+description: "The API token generated in the UniFi Access controller settings. See [Prerequisites](#prerequisites) for how to create one."
 Verify SSL:
-  description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate. Disabled by default."
+description: "Whether to verify the SSL certificate of the controller. Disable this if you are using a self-signed certificate. Disabled by default."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -119,6 +120,12 @@ These switches affect _all_ doors managed by the controller at once and have dir
 - **Lockdown**
   - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
 
+#### Selects
+
+For controllers that support temporary lock rules, each supported door also exposes a **select** entity:
+
+- **Door Lock Rule**: Applies a temporary lock rule to the door. Common options are `custom`, `keep_lock`, `keep_unlock`, and `reset`. When the controller reports schedule-based lock rules, the entity can also show `schedule` and `lock_early`.
+
 #### Sensors
 
 For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
@@ -128,15 +135,15 @@ For controllers that support temporary lock rules, each door also exposes the fo
 
 ### Actions
 
-For controllers that support temporary lock rules, the integration provides the `unifi_access.set_lock_rule` action.
+For controllers that support temporary lock rules, the integration also provides the `unifi_access.set_lock_rule` action.
 
-Use this action to apply a temporary lock rule to a specific door. In the automation editor, select the UniFi Access door device you want to target.
+Use this action to apply a temporary lock rule to a specific door from an automation or script. In the automation editor, select the UniFi Access door device you want to target.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `device_id` | no | The UniFi Access door device to update. |
-| `rule` | no | The lock rule to apply. Supported values are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, and `reset`. |
-| `interval` | yes | Rule duration in minutes. Defaults to `10`. |
+| Data attribute | Optional | Description                                                                                                   |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       | The UniFi Access door device to update.                                                                       |
+| `rule`         | no       | The lock rule to apply. Supported values are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, and `reset`. |
+| `interval`     | yes      | Rule duration in minutes. Defaults to `10`.                                                                   |
 
 Example action:
 
