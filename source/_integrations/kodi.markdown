@@ -13,6 +13,7 @@ ha_domain: kodi
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - media_player
   - notify
 ha_integration_type: service
@@ -24,10 +25,18 @@ The preferred way to set up the Kodi platform is through discovery, which requir
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensors](#binary-sensors)
 - [Media player](#configuration)
 - [Notifications](#notifications)
 
 {% include integrations/config_flow.md %}
+
+## Binary sensors
+
+The integration provides the following binary sensor entity:
+
+- **Screensaver**
+  - **Description**: Indicates whether the Kodi screensaver is currently active.
 
 If you previously had Kodi configured through {% term "`configuration.yaml`" %}, it's advisable to remove it, and configure from the UI.
 If you do not remove it, your configuration will be imported with the following limitations:
