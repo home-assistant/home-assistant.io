@@ -3,6 +3,7 @@ title: Honeywell Lyric
 description: How to integrate the Honeywell Lyric integration into Home Assistant.
 ha_category:
   - Climate
+  - Select
   - Sensor
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: lyric
 ha_platforms:
   - climate
+  - select
   - sensor
 ha_dhcp: true
 ha_integration_type: hub
@@ -47,6 +49,17 @@ You can then add the integration in the frontend via the steps below.
 {% include integrations/config_flow.md %}
 
 The integration configuration will ask for the **Client ID** and **Client Secret**, which correspond to the **Consumer** values in the app you created above. See [Application Credentials](/integrations/application_credentials) for more details.
+
+## Room priority
+
+For thermostats with wireless room sensors (such as the T9 and T10), a **Room priority** select entity is created. This lets you choose which room sensor the thermostat uses for its temperature reading.
+
+Available options:
+
+- **Follow me** — The thermostat automatically switches to the room where motion is detected.
+- **Room name** — The thermostat uses the selected room's temperature sensor.
+
+This entity only appears for LCC thermostats that have room sensor accessories paired.
 
 ## Sensors
 
