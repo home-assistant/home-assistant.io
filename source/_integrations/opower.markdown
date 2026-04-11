@@ -107,7 +107,9 @@ You will be asked to re-authenticate via MFA every 180 days.
 
 ## Sensors
 
-**Note:** Depending on your utility, some or all of the usage and cost sensors may not be provided, or they may permanently show a value of `0`. **This is expected and completely fine.** The primary way this integration provides historical energy data to Home Assistant is through **statistics**, which are not exposed as standard sensor entities. You should rely on these statistics for your Energy dashboard rather than standard sensor entities.
+{% note %}
+Depending on your utility, some or all of the usage and cost sensors may not be provided, or they may permanently show a value of `0`. **This is expected and completely fine.** The primary way this integration provides historical energy data to Home Assistant is through **statistics**, which are not exposed as standard sensor entities. You should rely on these statistics for your Energy dashboard rather than standard sensor entities.
+{% endnote %}
 
 The integration adds the following diagnostic sensors for each account:
 
