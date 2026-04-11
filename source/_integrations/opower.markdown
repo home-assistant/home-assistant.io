@@ -108,11 +108,11 @@ You will be asked to re-authenticate via MFA every 180 days.
 ## Sensors
 
 {% note %}
-Depending on your utility, some or all of the usage and cost sensors may not be provided, or they may permanently show a value of `0`. **This is expected and completely fine.**
+Depending on your utility, some or all of the usage and cost sensors may not be provided, or they may permanently show a value of `0`. **This can be normal for some utilities. If your utility should provide these sensors, refer to the troubleshooting steps.**
 
 The primary way this integration provides historical energy data to Home Assistant is through **statistics**. These statistics are not exposed as standard sensor entities.
 
-Use these statistics when configuring the Energy dashboard by selecting a **Statistics-based** source. You can also view the available statistics in **Developer Tools** → **Statistics**.
+Use these statistics when configuring the Energy dashboard by selecting a **statistic**. You can also view the available statistics in **Developer Tools > Statistics**.
 {% endnote %}
 
 The integration adds the following diagnostic sensors for each account:
@@ -196,9 +196,9 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 
 ## Troubleshooting
 
-- If your usage or cost sensors are completely missing or showing `0`, **this is normal**. The integration inserts historical utility data as statistics, which are not exposed as standard sensor entities.
+- If your usage or cost sensors are completely missing or showing `0`, this may be expected behavior; see **Known limitations** above.
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
-- In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
+- When configuring the Energy dashboard in Home Assistant, use the statistics as described in **Known limitations** above.
 
 ## Removing the integration
 
