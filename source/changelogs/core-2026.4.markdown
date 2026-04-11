@@ -2627,12 +2627,17 @@ For a summary in a more readable format
 - Improve Tibber price coordinator ([@Danielhiversen] - [#166175])
 - Fix tibber price sensor first state update ([@MartinHjelmare] - [#167938])
 - Update cryptography to 46.0.7 ([@frenck] - [#167960])
+- Fix spelling of "Shut down" button label in `proxmoxve` ([@NoRi2909] - [#167059])
+- Bump opower to 0.18.1 ([@tronikos] - [#167967])
+- Portainer fix fetching swarm stacks ([@erwindouna] - [#167979])
+- Bump python-bsblan to version 5.1.4 ([@liudger] - [#167987])
 
 [#161185]: https://github.com/home-assistant/core/pull/161185
 [#165341]: https://github.com/home-assistant/core/pull/165341
 [#165647]: https://github.com/home-assistant/core/pull/165647
 [#166175]: https://github.com/home-assistant/core/pull/166175
 [#166480]: https://github.com/home-assistant/core/pull/166480
+[#167059]: https://github.com/home-assistant/core/pull/167059
 [#167094]: https://github.com/home-assistant/core/pull/167094
 [#167189]: https://github.com/home-assistant/core/pull/167189
 [#167195]: https://github.com/home-assistant/core/pull/167195
@@ -2692,6 +2697,9 @@ For a summary in a more readable format
 [#167924]: https://github.com/home-assistant/core/pull/167924
 [#167938]: https://github.com/home-assistant/core/pull/167938
 [#167960]: https://github.com/home-assistant/core/pull/167960
+[#167967]: https://github.com/home-assistant/core/pull/167967
+[#167979]: https://github.com/home-assistant/core/pull/167979
+[#167987]: https://github.com/home-assistant/core/pull/167987
 [@007hacky007]: https://github.com/007hacky007
 [@CoMPaTech]: https://github.com/CoMPaTech
 [@Danielhiversen]: https://github.com/Danielhiversen
@@ -2701,6 +2709,7 @@ For a summary in a more readable format
 [@Kane610]: https://github.com/Kane610
 [@MarkGodwin]: https://github.com/MarkGodwin
 [@MartinHjelmare]: https://github.com/MartinHjelmare
+[@NoRi2909]: https://github.com/NoRi2909
 [@OnFreund]: https://github.com/OnFreund
 [@SkySrfr]: https://github.com/SkySrfr
 [@SteveEasley]: https://github.com/SteveEasley
@@ -2717,6 +2726,7 @@ For a summary in a more readable format
 [@cereal2nd]: https://github.com/cereal2nd
 [@chemelli74]: https://github.com/chemelli74
 [@emontnemery]: https://github.com/emontnemery
+[@erwindouna]: https://github.com/erwindouna
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@jbouwh]: https://github.com/jbouwh
@@ -2737,5 +2747,6 @@ For a summary in a more readable format
 [@sairon]: https://github.com/sairon
 [@shaiu]: https://github.com/shaiu
 [@thomasddn]: https://github.com/thomasddn
+[@tronikos]: https://github.com/tronikos
 [@wollew]: https://github.com/wollew
 [@xZise]: https://github.com/xZise
