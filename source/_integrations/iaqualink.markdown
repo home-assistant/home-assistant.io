@@ -32,7 +32,23 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
+## Prerequisites
+
+1. Create an account and log in using either the iAqualink app or the [iAqualink website](https://site.iaqualink.net/signin).
+2. Add your devices to the account you created in the previous step, typically using their serial numbers.
+
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+    description: "The email address used to sign in to your account using the iAqualink app or website."
+Password:
+    description: "The password associated with your account."
+{% endconfiguration_basic %}
+
+## Data updates
+
+This integration uses cloud {% term polling %} to refresh data from your iAqualink system, like equipment status, sensor readings, and climate values. Home Assistant updates this data approximately every 15 seconds.
 
 ## Known limitations
 
