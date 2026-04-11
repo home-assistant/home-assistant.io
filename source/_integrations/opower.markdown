@@ -107,6 +107,8 @@ You will be asked to re-authenticate via MFA every 180 days.
 
 ## Sensors
 
+**Note:** Depending on your utility, some or all of the usage and cost sensors may not be provided, or they may permanently show a value of `0`. **This is expected and completely fine.** The primary way this integration provides historical energy data to Home Assistant is through **statistics**, which are not exposed as standard sensor entities. You should rely on these statistics for your Energy dashboard rather than standard sensor entities.
+
 The integration adds the following diagnostic sensors for each account:
 
 - Last changed
@@ -181,13 +183,14 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 ## Known limitations
 
 - There is a delay, often for up to a few days, for sensors and statistics to have up-to-date data.
-- For some utilities, there are no usage/cost sensors added by this integration.
+- For some utilities, there are no usage/cost sensors added by this integration, or they may constantly show a value of `0`. This is expected and fine; you should use the statistics instead.
 - For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
 - Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
 
 ## Troubleshooting
 
+- If your usage or cost sensors are completely missing or showing `0`, **this is normal**. The integration inserts historical utility data as statistics, which are not exposed as standard sensor entities. 
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
 
