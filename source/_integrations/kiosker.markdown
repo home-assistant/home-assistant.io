@@ -50,6 +50,9 @@ Available sensors:
 - Last motion (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
 - Ambient light (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
 
+## Data updates
+This integration fetches data from the device every 15 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
