@@ -19,7 +19,6 @@ ha_platforms:
   - event
   - image
   - lock
-  - select
   - sensor
   - switch
 ha_integration_type: hub
@@ -120,12 +119,6 @@ These switches affect _all_ doors managed by the controller at once and have dir
 - **Lockdown**
   - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
 
-#### Selects
-
-For controllers that support temporary lock rules, each supported door also exposes a **select** entity:
-
-- **Door Lock Rule**: Applies a temporary lock rule to the door. Common options are `custom`, `keep_lock`, `keep_unlock`, and `reset`. When the controller reports schedule-based lock rules, the entity can also show `schedule` and `lock_early`.
-
 #### Sensors
 
 For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
@@ -137,7 +130,7 @@ For controllers that support temporary lock rules, each door also exposes the fo
 
 For controllers that support temporary lock rules, the integration also provides the `unifi_access.set_lock_rule` action.
 
-Use this action to apply a temporary lock rule to a specific door from an automation or script. In the automation editor, select the UniFi Access door device you want to target.
+Use this action to apply a temporary lock rule to a specific door from an automation or script. It complements the existing **Door Lock Rule** select entity and adds support for setting the interval directly. In the automation editor, select the UniFi Access door device you want to target.
 
 | Data attribute | Optional | Description                                                                                                   |
 | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
