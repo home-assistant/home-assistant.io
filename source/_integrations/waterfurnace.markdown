@@ -40,8 +40,9 @@ The integration exposes the following sensors (if available):
 
 ## Energy
 
-The integration is also able to track historic energy use. You can track the total energy consumption in the energy dashboard. This data is refreshed every 2 hours, so your energy use may lag behind. On first setup, the integration will automatically try to fetch the last 13 months of available data. This may take up to 40 minutes to complete.
+The integration is also able to track historic energy use. You can track the total energy consumption in the energy dashboard. This data is refreshed every 2 hours, so your energy use may lag behind.
 
+On first setup, the integration will automatically try to fetch the last 13 months of available data. This may take up to 40 minutes to complete.
 ## Prerequisites
 
 To use Waterfurnace in your installation, you need to configure the integration with your Symphony Waterfurnace account.
