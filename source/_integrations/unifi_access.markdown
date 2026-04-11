@@ -119,7 +119,14 @@ These switches affect _all_ doors managed by the controller at once and have dir
 - **Lockdown**
   - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
 
-#### Actions
+#### Sensors
+
+For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
+
+- **Door Lock Rule**: Reports the currently active temporary lock rule for the door. Possible states are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
+- **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
+
+### Actions
 
 For controllers that support temporary lock rules, the integration provides the `unifi_access.set_lock_rule` action.
 
@@ -141,13 +148,6 @@ data:
   rule: keep_lock
   interval: 30
 ```
-
-#### Sensors
-
-For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
-
-- **Door Lock Rule**: Reports the currently active temporary lock rule for the door. Possible states are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
-- **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
 
 ## Data updates
 
