@@ -31,6 +31,12 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+If you previously had Kodi configured through {% term "`configuration.yaml`" %}, it's advisable to remove it, and configure from the UI.
+If you do not remove it, your configuration will be imported with the following limitations:
+- Your turn on/off actions will not be imported. This functionality is now available through device triggers.
+- You may have duplicate entities.
+- Kodi must be on when Home Assistant is loading for the first time for the configuration to be imported.
+
 ### Turning On/Off
 
 You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence; see the [Kodi turn on/off samples](#kodi-turn-onoff-samples) section for scripts that can be used.
@@ -461,8 +467,3 @@ The integration provides the following binary sensor entity:
 - **Screensaver**
   - **Description**: Indicates whether the Kodi screensaver is currently active.
 
-If you previously had Kodi configured through {% term "`configuration.yaml`" %}, it's advisable to remove it, and configure from the UI.
-If you do not remove it, your configuration will be imported with the following limitations:
-- Your turn on/off actions will not be imported. This functionality is now available through device triggers.
-- You may have duplicate entities.
-- Kodi must be on when Home Assistant is loading for the first time for the configuration to be imported.
