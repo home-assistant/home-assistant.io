@@ -490,6 +490,12 @@ Cards can automatically adjust their height based on their content, instead of o
 
 Some cards, like the entities card and vertical stack card, already default to auto height. For other cards, you can now enable it yourself in the card's layout settings. This is especially handy for cards with variable content, so they no longer leave empty space or cut off content.
 
+{% note %}
+
+As part of this change, heading cards now default to auto height as well, making them shorter (about half a grid row). This is only visible for heading cards placed between other cards; headings at the top of a section are unaffected. The default row gap between sections also increased from 8 pixels to 24 pixels, giving sections a bit more breathing room. To restore the previous compact layout, set the `ha-view-sections-row-gap` theme variable to `8px` in your theme.
+
+{% endnote %}
+
 ### What is an AI-powered Assist thinking?
 
 If you use an <abbr title="Large Language Model">LLM</abbr>-powered conversation agent with Assist, you may have wondered what's going on behind the scenes when it's processing your request. Now you can find out! The Assist dialog now shows you the thinking steps and tool calls your AI agent makes while working on your request.
