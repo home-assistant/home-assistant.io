@@ -19,7 +19,7 @@ works_with:
   - local
 ---
 
-The **WattWächter Plus** {% term integration %} connects Home Assistant to a [WattWächter Plus](https://wattwächter.de) energy monitoring device by [SmartCircuits GmbH](https://smartcircuits.de). The device reads data from your smart electricity meter via the SML/OBIS protocol and exposes it over a local HTTP API. All communication stays on your local network — no cloud service is involved.
+The **WattWächter Plus** {% term integration %} connects Home Assistant to a [WattWächter Plus](https://wattwächter.de) energy monitoring device by [SmartCircuits GmbH](https://smartcircuits.de). The device reads data from your smart electricity meter via the via the <abbr title="Smart Message Language">SML</abbr>/<abbr title="Object Identification System">OBIS</abbr> protocol and exposes it over a local HTTP API. All communication stays on your local network. No cloud service is involved.
 
 Use this integration to monitor your electricity consumption, feed-in, voltage, current, and power factor. The collected data can be used in the [Energy dashboard](/home-energy-management).
 
@@ -29,11 +29,10 @@ Use this integration to monitor your electricity consumption, feed-in, voltage, 
 
 ## Prerequisites
 
-The WattWächter Plus must be connected to your local network and reachable from Home Assistant. Set up your device using the [WattWächter documentation](https://docs.wattwächter.de) before adding it to Home Assistant.
+- The WattWächter Plus must be connected to your local network and reachable from Home Assistant.
+- Set up your device using the [WattWächter documentation](https://docs.wattwächter.de) before adding it to Home Assistant.
 
 {% include integrations/config_flow.md %}
-
-The integration supports automatic discovery via mDNS. If your device is on the same network, it will appear automatically in the discovered integrations.
 
 ### Configuration parameters
 
@@ -46,7 +45,7 @@ API token:
 
 ## Supported functionality
 
-The WattWächter Plus provides sensors based on what your smart meter reports via the SML/OBIS protocol. Not all meters expose every value — only the available sensors are shown in the integration.
+The WattWächter Plus provides sensors that are based on your smart meter's reports via the SML/OBIS protocol. Not all meters expose every value. Only the available sensors are shown in the integration.
 
 ### Energy sensors
 
@@ -74,12 +73,12 @@ The WattWächter Plus provides sensors based on what your smart meter reports vi
 
 The following sensors are created with the diagnostic entity category and are disabled by default:
 
-- **WiFi signal (dBm)**: The wireless signal strength of the device.
-- **WiFi SSID**: The wireless network name the device is connected to.
+- **Wi-Fi signal (dBm)**: The wireless signal strength of the device.
+- **Wi-Fi SSID**: The wireless network name the device is connected to.
 
 ## Data updates
 
-The integration {% term polling polls %} your WattWächter Plus device locally every 120 seconds. Each poll fetches the meter data (SML/OBIS readings) and system information.
+The integration {% term polling polls %} your WattWächter Plus device locally every 2 minutes (120 seconds). Each poll fetches the meter data (SML/OBIS readings) and system information.
 
 ## Actions
 
@@ -103,7 +102,7 @@ alias: "High power consumption alert"
 description: "Notify when power consumption exceeds 4 kW for 5 minutes."
 triggers:
   - trigger: numeric_state
-    entity_id: sensor.wattwaechter_plus_active_power
+    entity_id: sensor.<your_wattwaechter_device_name>_active_power
     above: 4000
     for:
       minutes: 5
@@ -141,7 +140,7 @@ Most smart meters need to be unlocked with a PIN from your energy provider befor
 
 ### Authentication failed
 
-- If you have set an API token on the device, make sure you enter it correctly during setup.
+If you have set an API token on the device, make sure you enter it correctly during setup.
 
 ### No sensor data available
 
