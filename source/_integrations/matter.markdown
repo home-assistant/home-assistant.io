@@ -632,13 +632,13 @@ When you report an issue with a Matter device, you're usually asked for a diagno
 To download integration-level diagnostics:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. On the **Matter** integration card, open the three-dot {% icon "mdi:dots-vertical" %} menu and select **Download diagnostics**.
+2. On the **Matter** integration card, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Download diagnostics**.
 
 To download device-level diagnostics:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
 2. Select the device you want diagnostics for.
-3. Open the three-dot {% icon "mdi:dots-vertical" %} menu and select **Download diagnostics**.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Download diagnostics**.
 
 The diagnostics file contains device attributes, cluster data, and network information with sensitive data redacted. For more general information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
