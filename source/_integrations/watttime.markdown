@@ -49,4 +49,4 @@ The sensors available to you will depend on the type of WattTime subscription yo
 | Marginal Operating Emissions Rate     | Pro                | The currently measured amount of lbs of CO2 per MWh                                                         |
 | Relative Marginal Emissions Intensity | All                | A percentage between the lowest (cleanest) and highest (highest) MOER values observed in the past two weeks |
 
-You can learn more about the data that WattTime collects on the [WattTime API documentation](https://docs.watttime.org/) and the [WattTime solutions page](https://watttime.org/solutions/load-shifting/).
+You can learn more about the data that WattTime collects in the [WattTime API documentation](https://docs.watttime.org/) and on the [WattTime solutions page](https://watttime.org/solutions/load-shifting/).
