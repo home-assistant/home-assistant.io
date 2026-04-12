@@ -34,8 +34,6 @@ Use this integration to monitor your electricity consumption, feed-in, voltage, 
 
 {% include integrations/config_flow.md %}
 
-### Configuration parameters
-
 {% configuration_basic %}
 Host:
   description: "The IP address or hostname of your WattWächter Plus device."
