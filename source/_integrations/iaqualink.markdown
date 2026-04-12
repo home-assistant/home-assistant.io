@@ -22,15 +22,22 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-[iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.
+The **Jandy iAqualink** {% term integration %} lets you monitor and control supported Jandy pool and spa systems from Home Assistant. Depending on the equipment connected to your controller, you can check water and air temperatures, control auxiliary equipment like pumps and water features, manage compatible pool lights, and adjust supported pool or spa heaters.
 
-There is currently support for the following device types within Home Assistant:
+Use case: Turn on your spa heater before you get home, automate pool lights at sunset, get notified when freeze protection activates, or add your pool equipment status to a dashboard so you can check it at a glance.
 
-- Binary sensor
-- Climate
-- Light
-- Sensor
-- Switch
+## Supported devices
+
+The integration supports pool and spa systems that are managed through the iAqualink cloud service using one of the following platforms:
+
+- iAquaLink 2.0 (iQ20)
+- eXO
+
+The entities that appear in Home Assistant depend on the equipment configured in your iAqualink system. For example, if your system has a spa heater, pool lights, a cleaner, or a waterfall circuit, Home Assistant can create entities for those features.
+
+## Unsupported devices
+
+Other iAqualink systems are not supported. Equipment that is not exposed in the iAqualink app or cloud service also cannot be added to Home Assistant.
 
 ## Prerequisites
 
@@ -46,19 +53,165 @@ Password:
     description: "The password associated with your account."
 {% endconfiguration_basic %}
 
+## Supported functionality
+
+### Entities
+
+The **Jandy iAqualink** integration provides the following entities.
+
+#### Binary sensors
+
+- **Freeze protection**
+  - **Description**: Indicates whether the controller has enabled freeze protection.
+  - **Remarks**: Only available on systems that expose freeze protection status.
+
+#### Climate
+
+- **Pool heater** or **spa heater**
+  - **Description**: Lets you turn a supported heater on or off and set the target water temperature.
+  - **Modes**: Heat, Off
+  - **Remarks**: Created only when your iAqualink system exposes a controllable heater.
+
+#### Lights
+
+- **Pool and spa lights**
+  - **Description**: Lets you turn compatible lights on or off.
+  - **Remarks**: Some lights also support brightness control or effect selection, depending on the hardware exposed by your iAqualink system.
+
+#### Sensors
+
+- **Temperature sensors**
+  - **Description**: Report numeric values exposed by the controller, such as pool, spa, or air temperature.
+  - **Remarks**: Temperature units follow the unit configured in your iAqualink system.
+
+- **Other numeric sensors**
+  - **Description**: Additional numeric readings may be available when your controller exposes them through the cloud service.
+
+#### Switches
+
+- **Auxiliary equipment**
+  - **Description**: Lets you turn supported auxiliary circuits on or off.
+  - **Examples**: Filter pumps, cleaners, waterfalls, blowers, and other equipment connected to auxiliary relays.
+  - **Remarks**: The exact switch entities depend on how your pool or spa system is configured.
+
+## Examples
+
+Examples of automations you can create using the Jandy iAqualink integration.
+
+### Preheat the spa on a schedule
+
+This automation turns on the spa heater and sets the target temperature every weekday afternoon.
+
+This example assumes your iAqualink system is configured to use degrees Fahrenheit.
+
+{% details "Example YAML configuration" %}
+
+```yaml
+alias: "Preheat spa before evening"
+description: >
+  Turn on the spa heater and set the target temperature every weekday afternoon.
+triggers:
+  - trigger: time
+    at: "16:30:00"
+conditions:
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+actions:
+  - action: climate.set_temperature
+    target:
+      entity_id: climate.spa_heater
+    data:
+      hvac_mode: heat
+      temperature: 100
+```
+
+{% enddetails %}
+
+### Notify when freeze protection turns on
+
+This automation sends a notification when your controller activates freeze protection.
+
+{% details "Example YAML configuration" %}
+
+```yaml
+alias: "Notify when freeze protection starts"
+description: >
+  Send a notification when the pool controller enables
+  freeze protection.
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.freeze_protection
+    to: "on"
+actions:
+  - action: notify.mobile_app_your_phone
+    data:
+      title: "Pool freeze protection active"
+      message: >
+        The Jandy controller has enabled freeze protection.
+```
+
+{% enddetails %}
+
 ## Data updates
 
 This integration uses cloud {% term polling %} to refresh data from your iAqualink system, like equipment status, sensor readings, and climate values. Home Assistant updates this data approximately every 15 seconds.
 
 ## Known limitations
 
-Only iAquaLink 2.0 (iQ20) and eXO systems are supported at this time.
+Only equipment exposed through the iAqualink cloud service can be added to Home Assistant. The entities you see depend on the controller model and the pool or spa equipment configured in the iAqualink app.
 
-If you need support for other systems, please open a request in the iaqualink-py Python library [repository](https://github.com/flz/iaqualink-py/issues).
+If you need support for another iAqualink platform, please open a request in the iaqualink-py Python library [repository](https://github.com/flz/iaqualink-py/issues).
 
-## Debugging integration
+## Troubleshooting
 
-If you have problems with iAqualink or the integration you can add debug prints to the log.
+{% details "Cannot sign in during setup" %}
+
+**Symptom:** Setup fails with an authentication or login error.
+
+1. Make sure you can sign in to the [iAqualink website](https://site.iaqualink.net/signin) or the iAqualink app with the same email address and password.
+2. Check for extra spaces or typing mistakes in your email address and password.
+3. If you recently changed your password, go to {% my integrations title="**Settings** > **Devices & services**" %}, open the **Jandy iAqualink** three-dots menu, and select **Reconfigure**.
+
+{% enddetails %}
+
+{% details "Setup succeeds, but no systems or entities appear" %}
+
+**Symptom:** The integration is added, but no pool or spa system shows up in Home Assistant.
+
+1. Confirm the equipment is listed in the iAqualink app under the same account you used in Home Assistant.
+2. Verify your system is in the list of supported systems.
+3. If the account contains only unsupported systems, Home Assistant will not create any devices or entities.
+
+{% enddetails %}
+
+{% details "Some equipment is missing" %}
+
+**Symptom:** Your pool or spa system is added, but one or more expected entities are missing.
+
+1. Open the iAqualink app and confirm the missing equipment is visible and controllable there.
+2. The integration only creates entities for equipment exposed by the iAqualink cloud service.
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Jandy iAqualink**, and reload the integration after making changes in the manufacturer's app.
+
+{% enddetails %}
+
+{% details "Entities become unavailable" %}
+
+**Symptom:** One or more iAqualink entities show as unavailable.
+
+1. Check that Home Assistant has internet access.
+2. Open the iAqualink app or website and verify the controller is online.
+3. If the iAqualink service is unavailable, wait a few minutes and reload the integration.
+
+{% enddetails %}
+
+{% details "Enable debug logging" %}
+
+If you need more detail in the logs, add the following to your YAML configuration:
 
 ```yaml
 logger:
@@ -67,6 +220,10 @@ logger:
     iaqualink: debug
     homeassistant.components.iaqualink: debug
 ```
+
+After reproducing the issue, check the logs for the integration.
+
+{% enddetails %}
 
 ## Removing the integration
 
