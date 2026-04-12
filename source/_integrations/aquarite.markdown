@@ -65,7 +65,7 @@ The integration provides the following sensors:
 - **Electrolysis / Hydrolysis** — current production level in gr/h
 - **Filtration intel time** — daily runtime in Intel mode
 - **Wi-Fi signal strength** — controller RSSI (diagnostic, disabled by default)
-- **Pool location** — city, street, zipcode, country, coordinates (diagnostic)
+- **Pool location** — city, street, ZIP code, country, coordinates (diagnostic)
 
 ## Binary sensors
 
