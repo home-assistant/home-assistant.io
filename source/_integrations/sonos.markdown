@@ -41,7 +41,7 @@ Speaker-level controls are exposed as `number`, `select` or `switch` entities. A
 ### Controllable features
 
 - **All devices**: Alarms, Bass, Treble, Loudness, Crossfade, Status Light, Touch Controls
-- **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level, TV Autoplay, Ungroup on Autoplay 
+- **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level, TV Autoplay, Ungroup on Autoplay
 - **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain, Subwoofer Crossover Frequency (Sonos Amp only)
 
 ### Sensors
