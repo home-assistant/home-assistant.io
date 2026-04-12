@@ -627,7 +627,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 ### Downloading diagnostics
 
-When reporting an issue with a Matter device, you will usually be asked for a diagnostics file. The Matter integration supports diagnostics at both the integration and device level.
+When you report an issue with a Matter device, you're usually asked for a diagnostics file. The Matter integration supports diagnostics at both the integration and device level.
 
 To download integration-level diagnostics:
 
