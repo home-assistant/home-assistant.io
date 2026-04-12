@@ -71,7 +71,7 @@ When an external device (for example a CO₂ sensor or an RF wall switch) trigge
 The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
 
 - **BOX** — the main DucoBox (fan control, ventilation state)
-- **UCCO2** — a wireless CO₂ and ventilation-state sensor module
+- **UCCO2** — a wireless CO₂ sensor module
 - **BSRH** — a humidity sensor module installed inside the DucoBox
 
 The following sensor entities are created per node, depending on the node type:
