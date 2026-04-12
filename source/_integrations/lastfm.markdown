@@ -30,7 +30,7 @@ Last.fm username:
   description: "Your Last.fm username. This is the main user for the integration and is used to look up your friends list in the next step."
 {% endconfiguration_basic %}
 
-After entering your API key and username, you are asked to select additional Last.fm users to track. Your friends list is shown for convenience, but you can also enter any Last.fm username manually.
+After entering your API key and Last.fm username, you are asked to select additional Last.fm users to track. Your friends list is shown for convenience, but you can also enter any Last.fm username manually.
 
 ## Configuration options
 
