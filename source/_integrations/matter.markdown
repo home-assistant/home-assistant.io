@@ -146,6 +146,7 @@ Make sure you have all these components ready before trying to add a Matter devi
   - **Android**:
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
+    - Set the Home Assistant Companion app's **Location** permission to **Allow all the time**. During commissioning, the Google Matter UI takes the foreground and the Companion App runs in the background. Android restricts Wi-Fi SSID access for background apps when Location is set to "While using the app," which can cause commissioning to fail.
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the Home Assistant OpenThread Border Router app) present in your home network.
       - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - **iPhone**
