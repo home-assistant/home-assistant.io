@@ -68,6 +68,12 @@ When an external device (for example a CO₂ sensor or an RF wall switch) trigge
 
 ### Sensors
 
+The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
+
+- **BOX** — the main DucoBox (fan control, ventilation state)
+- **UCCO2** — a wireless CO₂ and ventilation-state sensor module
+- **BSRH** — a humidity sensor module installed inside the DucoBox
+
 The following sensor entities are created per node, depending on the node type:
 
 #### Ventilation state
@@ -80,7 +86,7 @@ Available for CO₂ sensor modules. Shows the current CO₂ concentration in par
 
 #### Humidity
 
-Available for the main ventilation box and humidity sensor modules. Shows the current relative humidity in percent.
+Available for humidity sensor modules (BSRH). Shows the current relative humidity in percent.
 
 #### CO₂ air quality index
 
@@ -93,7 +99,7 @@ Available for CO₂ sensor modules. Shows the CO₂ air quality score as a perce
 
 #### Humidity air quality index
 
-Available for the main ventilation box and humidity sensor modules. Shows the humidity air quality score as a percentage (0–100 %). This entity is disabled by default.
+Available for humidity sensor modules (BSRH). Shows the humidity air quality score as a percentage (0–100 %). This entity is disabled by default.
 
 - 95–100 %: Very good indoor air quality
 - 65–90 %: Good indoor air quality
