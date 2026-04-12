@@ -36,7 +36,7 @@ The **Philips Hue** {% term integration %} allows you to control and monitor the
 
 The Hue concept is based on Rooms and Zones. Although the underlying Hue lights are exposed directly to Home Assistant, it might also be useful to interact with the `grouped lights` of the Hue ecosystem, for example, to turn all lights in a Hue group on/off at the same time.
 
-Home Assistant creates lights for each Hue zone and room automatically but disables them by default. To enable them, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Hue** integration, and enable the grouped light entities you want to use.
+Home Assistant creates lights for each Hue zone and room automatically but disables them by default. To enable them, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Philips Hue** integration, and enable the grouped light entities you want to use.
 
 ## Scenes
 
