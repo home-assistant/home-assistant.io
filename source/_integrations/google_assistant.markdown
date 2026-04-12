@@ -133,8 +133,8 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 
 1. Open the project you created in the [Google Home Developer Console](https://console.home.google.com/projects).
 2. Expand the **Cloud-to-cloud** menu on the left and select **Develop**, then select **Edit** next to your integration.
-3. Scroll down and enable **Local fulfillment** 
-4. Upload Javascript files
+3. Scroll down and enable **Local fulfillment**
+4. Upload JavaScript files
    1. Download `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest)
    2. Select **Upload your JavaScript targeting Node** and upload the `app.js` from step 4.1.
    3. Select **Upload your JavaScript targeting Chrome (browser)** and upload the same `app.js` from step 4.1.
@@ -347,7 +347,7 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your fulfillment URL may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
+Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
 
 #### 500 / 429 error on request sync
 
