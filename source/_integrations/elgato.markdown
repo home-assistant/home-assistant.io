@@ -168,7 +168,7 @@ The integration polls the Elgato Light device every 10 seconds over the local ne
 If you see a "Cannot connect" error during setup, verify that:
 
 1. The Elgato Light device is powered on and connected to your network.
-2. The IP address you entered is correct.
+2. The hostname or IP address you entered in **Host** is correct.
 3. Home Assistant can reach the device on the local network.
 
 Most Elgato Lights are discovered automatically via zeroconf, so manual setup is rarely needed. If the device is not discovered, check that zeroconf/mDNS traffic is not blocked on your network.
