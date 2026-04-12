@@ -117,6 +117,6 @@ V2 Hue bridges (square shape) push state changes to Home Assistant instantly ove
 
 ## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
