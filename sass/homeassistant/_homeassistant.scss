@@ -35,6 +35,7 @@
 @use 'plugins/tabbed_block' as *;
 @use 'plugins/terminology_tooltip' as *;
 @use 'plugins/integration_alert' as *;
+@use 'plugins/template_functions' as *;
 
 @use 'base/sidebar' as *;
 @use 'aside/buy_dialog' as *;

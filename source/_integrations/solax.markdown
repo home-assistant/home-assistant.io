@@ -24,8 +24,6 @@ The **SolaX Power** {% term integration %} connects Home Assistant to Solax sola
 
 If you would like to convert the values from multiple panels or view the total power the house is using, you can use the [template platform](/integrations/template).
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry for template platform
 template:
@@ -37,8 +35,6 @@ template:
     unit_of_measurement: "W"
     state: "{{ (states('sensor.power_now') | float(default=0)) - (states('sensor.exported_power') | float(default=0)) }}"
 ```
-
-{% endraw %}
 
 ### Configuring the Energy Dashboard
 

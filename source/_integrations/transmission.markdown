@@ -2,7 +2,6 @@
 title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
 ha_category:
-  - Binary sensor
   - Downloading
   - Sensor
   - Switch
@@ -15,7 +14,6 @@ ha_codeowners:
   - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
-  - binary_sensor
   - sensor
   - switch
 ha_integration_type: service
@@ -54,9 +52,6 @@ Verify SSL certificate:
 
 The **Transmission** integration provides the following sensors and switches.
 
-### Binary sensors
-
-A binary sensor indicating whether the incoming peer port is open and reachable from the internet (port forwarding status).
 ### Sensors
 
 - The status of your Transmission daemon.
@@ -93,8 +88,6 @@ Inside the event, there is the name of the torrent that is started or completed 
 
 Example of an automation that notifies on successful download and removes the torrent from the client if the torrent has a label of Remove:
 
-{% raw %}
-
 ```yaml
 alias: Transmission download complete
 description: "Notify on download complete and remove if label set"
@@ -119,8 +112,6 @@ actions:
           entry_id: YOUR_TRANSMISSION_ENTRY_ID
           id: "{{trigger.event.data.id}}"
 ```
-
-{% endraw %}
 
 ## Actions
 
@@ -212,8 +203,6 @@ response_variable: torrents
 
 All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Settings** > **Developer tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
-{% raw %}
-
 ```yaml
 content: >
   {% set payload = state_attr('sensor.transmission_total_torrents', 'torrent_info') %}
@@ -223,8 +212,6 @@ content: >
   {{ name|truncate(20) }} is {{ data.percent_done }}% complete, with {{ data.ratio }} ratio, {{ data.eta }} remaining {% endfor %}
 type: markdown
 ```
-
-{% endraw %}
 
 ## Removing the integration
 
