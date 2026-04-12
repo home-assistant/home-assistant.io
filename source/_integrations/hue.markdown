@@ -72,7 +72,7 @@ You can use this action, for example, to start or stop dynamic mode on a scene.
 
 ## Configuration options
 
-After setting up the integration, the following options can be configured by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the **Hue** integration, and selecting **Configure**.
+After setting up the integration, the following options can be configured by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the **Philips Hue** integration, and selecting **Configure**.
 
 ### V2 bridges (square shape)
 
