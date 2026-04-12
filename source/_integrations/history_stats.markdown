@@ -251,7 +251,10 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 ```yaml
     end: >-
       {% set today_4pm = today_at('16:00') %}
-      {{ today_4pm if now() < today_4pm else today_4pm + timedelta(days=1) }}
+      {{
+        today_4pm if now() < today_4pm
+        else today_4pm + timedelta(days=1)
+      }}
     duration:
       hours: 24
 ```
