@@ -19,11 +19,11 @@ The **Time & Date** {% term integration %} provides sensors for the current date
 
 {% include integrations/config_flow.md %}
 
-During setup, you select which display format to use. Each format creates a separate sensor. To add multiple formats, set up the integration once for each format you need.
+During setup, select the display option for the sensor you want to create. The integration creates one sensor in the selected format.
 
 {% configuration_basic %}
-Display options:
-  description: "The date and time format for the sensor. Available options:"
+Display option:
+  description: "The date or time format for the sensor. Available options:"
 {% endconfiguration_basic %}
 
 - **Date**: The current date, for example, `2026-04-12`.
