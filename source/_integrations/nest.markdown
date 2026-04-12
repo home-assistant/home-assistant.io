@@ -22,10 +22,10 @@ ha_platforms:
   - diagnostics
   - event
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `nest` integration allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
+The **Google Nest** {% term integration %} allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -43,6 +43,7 @@ You are in control of the information and capabilities exposed to Home Assistant
 - The Nest Device Access Console Pub/Sub setup process has changed as of January 23rd 2025. **Please make sure you are using the latest version of Home Assistant.**
 
 - The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+- The SDM API is also incompatible with some Google Account types or Security settings, including Google Workspace and the Advanced Protection Program. See [Known limitations](#known-limitations) below.
 
 ## Configuration
 
@@ -158,7 +159,7 @@ The steps below use *Web Application Auth* with *My Home Assistant* to handle Go
 
     ![Screenshot of OAuth Client ID and Client Secret](/images/integrations/nest/oauth_created.png)
 
-8. You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.  See [Application Credentials](/integrations/application_credentials) for more general detail about how Home Assistant manages credentials.
+8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.  Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
 
 {% enddetails %}
 
@@ -469,8 +470,6 @@ You can use the Nest Device Trigger payload fields `attachment.image` or `attach
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
-{% raw %}
-
 ```yaml
 action: notify.mobile_app_iphone
 data:
@@ -481,15 +480,11 @@ data:
     video: "{{ trigger.event.data.attachment.video }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS" %}
 
 Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
-
-{% raw %}
 
 ```yaml
 action: notify.mobile_app_android
@@ -500,15 +495,11 @@ data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS" %}
 
 Example for cameras that support Snapshot (jpg) on either Android or iOS.
-
-{% raw %}
 
 ```yaml
 action: notify.mobile_app
@@ -518,8 +509,6 @@ data:
   data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -545,6 +534,26 @@ The primary limitations are the following:
 - Once a Google Account is associated with your Device Access Project, it cannot be changed. Be sure you are signed in to the correct Google Account before continuing.
 
 Keep in mind, the US$5 registration fee is non-refundable.
+
+### Google Advanced Protection Program
+
+The "Restricted" API scopes required for device control are automatically blocked for [Google Advanced Protection Program](https://landing.google.com/intl/en_in/advancedprotection/) users.
+
+{% important %}
+Workaround: If you have enabled AP, create and use a secondary, standard Google Account (non-AP) to host the devices:
+
+1. Create a new Google Account *without* Advanced Protection (if you don't have one already).
+
+2. Create a new **Home** in the Google Home app using this new account.
+
+3. Remove your Nest devices from your main account and re-add them to this new **Home**. Note that this may delete saved video history or settings for some devices.
+
+4. Invite your main account (the one with AP) as a **Family Member** to the new **Home**. This allows you to retain control in the Google Home app on your phone.
+
+5. Connect Home Assistant using the new standard account credentials.
+{% endimportant %}
+
+*[AP]: Advanced Protection Program
 
 ### Google Home App migration and cameras
 
@@ -690,7 +699,7 @@ from the SDM API.
 
 ##### Resolution
 
-You can add or remove devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Reload the Nest integration to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
+You can manage the devices and permissions shared with Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Home Assistant automatically updates to reflect any changes you make. For more details, refer to the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation.
 
 #### Symptom: Thermostats do not appear in Home Assistant or are unavailable
 
@@ -698,7 +707,7 @@ There have been reports that Thermostats may not appear or are unavailable due t
 
 - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
 - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %} next to *Nest* and choose **Reload**.
+- Home Assistant automatically updates to reflect any changes you make and will discover new devices that appear in the API.
 
 #### Symptom: Devices do not appear when the API is disabled
 

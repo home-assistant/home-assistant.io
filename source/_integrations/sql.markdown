@@ -19,7 +19,7 @@ related:
     title: Configuration file
 ---
 
-The `sql` sensor {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
+The **SQL** {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
 **This integration can be configured using both config flow and by YAML.**
@@ -33,7 +33,6 @@ To configure this sensor, define the sensor connection variables and a list of q
 To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-{% raw %}
 ```yaml
 # Example configuration.yaml
 sql:
@@ -61,7 +60,6 @@ sql:
         1;
     column: "state"
 ```
-{% endraw %}
 
 {% configuration %}
 sql:
@@ -81,7 +79,7 @@ sql:
     query:
       description: An SQL QUERY string, should return 1 result at most.
       required: true
-      type: string
+      type: template
     column:
       description: The field name to select.
       required: true
@@ -133,9 +131,9 @@ For more detailed steps on how to define a custom interval, follow the procedure
 
 ## Actions
 
-### Action SQL query
+### Action: SQL query
 
-The `sql.query` action allows you to execute an arbitrary read-only `SELECT` query against a database and get the results back.
+The `sql.query` action executes an arbitrary read-only `SELECT` query against a database and gets the results back.
 
 - **Data attribute**: `query`
   - **Description**: The `SELECT` query to execute. Only `SELECT` statements are allowed.
@@ -149,6 +147,7 @@ The `sql.query` action returns a list of rows, where each row is a dictionary of
 #### Data type conversion
 
 The data returned by the database is converted to be compatible with the action response. The following conversions are applied:
+
 - `Decimal` types are converted to floats.
 - `Date` and `Datetime` objects are converted to ISO 8601 formatted strings.
 - `bytes` and `bytearray` are converted to a hexadecimal string prefixed with `0x`.
@@ -156,9 +155,8 @@ The data returned by the database is converted to be compatible with the action 
 
 #### Example
 
-Example of calling the `sql.query` action in an automation:
+##### Example of calling the `sql.query` action in an automation:
 
-{% raw %}
 ```yaml
 action: sql.query
 data:
@@ -178,11 +176,9 @@ data:
       3;
 response_variable: sun_history
 ```
-{% endraw %}
 
 This would return a result similar to this, which will be stored in the `sun_history` variable:
 
-{% raw %}
 ```yaml
 result:
   - state: below_horizon
@@ -192,7 +188,6 @@ result:
   - state: below_horizon
     last_updated_ts: 1760633861.848531
 ```
-{% endraw %}
 
 ## Information
 
@@ -245,6 +240,48 @@ LIMIT
 
 Use `state` as column for value.
 
+### Amount of state changes since using a template
+
+This example shows the amount of state changes of the sensor `sensor.temperature_in`
+using another sensor's state to provide the time window.
+
+```yaml
+sensor:
+  - platform: random
+    name: Temperature in
+    unit_of_measurement: "°C"
+```
+
+The query will look like this:
+
+{% raw %}
+
+```sql
+SELECT
+  count(state) as changes
+FROM
+  (
+    SELECT
+      states.state
+    FROM
+      states
+    WHERE
+      metadata_id = (
+        SELECT
+          metadata_id
+        FROM
+          states_meta
+        WHERE
+          entity_id = 'sensor.temperature_in'
+      )
+      AND last_updated_ts >= strftime('%s','{{ states("sensor.datetime_helper") }}')
+  )
+```
+
+{% endraw %}
+
+Use `changes` as column for value.
+
 ### Previous state of an entity
 
 Based on previous example with temperature, the query to get the former state is :
@@ -275,6 +312,7 @@ WHERE
       1
   );
 ```
+
 Use `state` as column for value.
 
 ### State of an entity x time ago

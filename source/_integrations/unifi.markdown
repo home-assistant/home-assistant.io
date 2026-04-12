@@ -47,19 +47,13 @@ Using Early Access Release Candidate versions of UniFi Network or UniFi OS can b
 
 ### Local user
 
-You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
-It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
-but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
-use has.
+You need a local user created in your UniFi OS Console. Ubiquiti SSO cloud users will **not** work. Using an administrator or a user with full read/write access is recommended to get the most out of the integration, but it is not required. The entities that are created automatically adjust based on the permissions of the user you use.
 
-1. Login to your _Local Portal_ on your UniFi OS device, and select  **Users**. 
-    - **Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the UniFi Network app.
-2. Go to **Admins & Users** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
-3. Select **Add New Admin**.
-4. Check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for **Network**. **OS Settings** are not used, so they can be set to **None**.
-5. In the bottom right, select **Add**.
-
-![UniFi OS User Creation](/images/integrations/unifi/user.png)
+1. Sign in to your UniFi OS device.
+2. Go to **Admins & Users** from the left-hand side menu.
+3. Select **Create New**.
+4. Check **Admin**, then check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for **Network**. **OS Settings** are not used, so they can be set to **None**.
+5. In the bottom right, select **Create**.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -121,17 +115,17 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 ## Actions
 
-### Action unifi.reconnect_client
+### Action: Reconnect client
 
-Try to get a wireless client to reconnect to the network.
+The `unifi.reconnect_client` action tries to get a wireless client to reconnect to the network.
 
 | Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
 
-### Action unifi.remove_clients
+### Action: Remove clients
 
-Clean up clients on the UniFi Network application that has only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+The `unifi.remove_clients` action cleans up clients on the UniFi Network application that have only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
 
 ## Switch
 
@@ -177,6 +171,10 @@ Entities appear for each Zone-Based Firewall Policy. The switches can be identif
 
 Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
 
+### Wired client link speed sensor
+
+Get entities reporting the link speed for wired network clients. This sensor shows the connection speed in megabits per second (Mbit/s) between the wired client and the network switch or gateway. These sensors are disabled by default and are only available for wired clients with an active connection.
+
 ### Wlan clients sensor
 
 Entities reporting connected clients to a WLAN.
@@ -208,6 +206,10 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 ### Port Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+### Port link speed sensor
+
+Get entities reporting the link negotiation speed for network device ports. These sensors show the connection speed in megabits per second (Mbit/s) at which each port negotiated its link. Entities are disabled by default.
 
 ## Light
 

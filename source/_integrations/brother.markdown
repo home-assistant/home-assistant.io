@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The **Brother Printer** {% term integration %} allows you to read current data from your local Brother printer.
@@ -145,7 +146,6 @@ By default, the integration {% term polling polls %} data from the device every 
 You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows. First, add the following to {% term "`configuration.yaml`" %} under the `template:` section.
 Replace `sensor.hl_l2340d_status` with the actual name of your sensor.
 
-{% raw %}
 
 ```yaml
 template:
@@ -160,7 +160,6 @@ template:
         {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
 ```
 
-{% endraw %}
 
 Then, add this under the `alert:` section:
 

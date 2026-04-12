@@ -13,18 +13,16 @@ ha_domain: solax
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `solax` integration connects Home Assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This integration retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
+The **SolaX Power** {% term integration %} connects Home Assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This integration retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
 
 {% include integrations/config_flow.md %}
 
 ### Optional template sensor
 
 If you would like to convert the values from multiple panels or view the total power the house is using, you can use the [template platform](/integrations/template).
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry for template platform
@@ -37,8 +35,6 @@ template:
     unit_of_measurement: "W"
     state: "{{ (states('sensor.power_now') | float(default=0)) - (states('sensor.exported_power') | float(default=0)) }}"
 ```
-
-{% endraw %}
 
 ### Configuring the Energy Dashboard
 

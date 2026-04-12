@@ -292,7 +292,12 @@ Passive Scanning on Linux can be enabled in the options flow per adapter if the 
 
 Many integrations require active scanning and may not function when scanning is passive.
 
-{% include integrations/option_flow.md %}
+## Options
+
+1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+2. Select **Adapters**.
+3. On the adapter of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select your options.
+   - Not all adapters have options. If you don't see a cogwheel icon, your adapter does not support options.
 
 ## Remote adapters (Bluetooth proxies)
 
@@ -300,7 +305,7 @@ The Bluetooth integration supports receiving advertisement data from external ad
 
 When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
-For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/index.html).
+For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/).
 
 {% tip %}
 - The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
@@ -343,12 +348,12 @@ When switching to an adapter with better performance, disable the old, less perf
 
 The below adapters are listed from best-performing to worst-performing:
 
-- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
-- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
-- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
-- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
 - [Onboard high performance adapter](#cypress-based-adapters) with active scanning
 - [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
@@ -439,7 +444,7 @@ The following integrations are automatically discovered by the Bluetooth integra
  - [Probe Plus](/integrations/probe_plus/)
  - [Qingping](/integrations/qingping/)
  - [RAPT Bluetooth](/integrations/rapt_ble/)
- - [RuuviTag BLE](/integrations/ruuvitag_ble/)
+ - [Ruuvi BLE](/integrations/ruuvitag_ble/)
  - [Sensirion BLE](/integrations/sensirion_ble/)
  - [SensorPro](/integrations/sensorpro/)
  - [SensorPush](/integrations/sensorpush/)

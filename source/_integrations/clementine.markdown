@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `clementine` platform allows you to control a [Clementine Music Player](https://www.clementine-player.org).
+The **Clementine Music Player** {% term integration %} allows you to control a [Clementine Music Player](https://www.clementine-player.org).
 
 To add a Clementine Player to your Home Assistant installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -29,7 +29,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP address of the Clementine Player e.g., 192.168.0.20.
+  description: The IP address of the Clementine Player, for example, `192.168.0.20`.
   required: true
   type: string
 port:

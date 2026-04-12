@@ -3,7 +3,7 @@ title: "Automation YAML"
 description: "How to use the automation integration with YAML."
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a {% term YAML %} format. If you want to edit the {% term YAML %} of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
+Automations are created in Home Assistant via the UI, but are stored in a {% term YAML %} format. If you want to edit the {% term YAML %} of an {% term automation %}, select the automation, select the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
@@ -67,7 +67,7 @@ trigger_variables:
   type: map
   keys:
     PARAMETER_NAME:
-      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used."
+      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/where-to-use/#limited-templates) can be used."
       type: any
 mode:
   description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](#automation-modes)."
@@ -129,7 +129,6 @@ actions:
 
 Example of a {% term YAML %} based automation that you can add to {% term "`configuration.yaml`" %}.
 
-{% raw %}
 
 ```yaml
 # Example of entry in configuration.yaml
@@ -202,7 +201,6 @@ automation my_lights:
           message: "Cube has triggered this event: {{ trigger.event }}"
 ```
 
-{% endraw %}
 
 ## Extra options
 
@@ -237,7 +235,6 @@ automation:
 
 If you want to migrate your manual automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over, you'll have to add an `id`. This can be any string as long as it's unique.
 
-{% raw %}
 
 ```yaml
 # Example automations.yaml entry. Note, automations.yaml is always a list!
@@ -258,7 +255,6 @@ If you want to migrate your manual automations to use the editor, you'll have to
     - action: light.turn_on
 ```
 
-{% endraw %}
 
 ### Deleting automations
 

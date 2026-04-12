@@ -1,5 +1,5 @@
 ---
-title: homee
+title: Homee
 description: Instructions on how to setup homee devices in Home Assistant.
 ha_category:
   - Alarm

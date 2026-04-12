@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` Number platform allows you to integrate devices that might expose configuration options through MQTT into Home Assistant as a Number. Every time a message under the `topic` in the configuration is received, the number entity will be updated in Home Assistant and vice-versa, keeping the device and Home Assistant in-sync.
+The **MQTT Number** {% term integration %} allows you to integrate devices that might expose configuration options through MQTT into Home Assistant as a Number. Every time a message under the `topic` in the configuration is received, the number entity will be updated in Home Assistant and vice-versa, keeping the device and Home Assistant in-sync.
 
 ## Configuration
 
@@ -54,7 +54,7 @@ availability_mode:
    type: string
    default: latest
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `command_topic`.
+  description: Defines a [template](/docs/templating/where-to-use/#mqtt) to generate the payload to send to `command_topic`.
   required: false
   type: template
 command_topic:
@@ -145,7 +145,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
   type: template
 json_attributes_topic:
@@ -213,7 +213,7 @@ unit_of_measurement:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the value."
   required: false
   type: template
 {% endconfiguration %}

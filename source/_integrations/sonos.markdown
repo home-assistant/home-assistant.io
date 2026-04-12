@@ -22,11 +22,15 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
+The **Sonos** {% term integration %} allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
+
+## Prerequisites
+
+UPnP must be enabled on your Sonos system for this integration to work. In the Sonos app, go to **Account** > **Privacy and Security** > **UPnP** and enable the setting.
 
 {% include integrations/config_flow.md %}
 
@@ -65,9 +69,37 @@ For each speaker with a battery, a `sensor` showing the current battery charge l
 The battery sensors rely on working change events or updates will be delayed. S1 battery sensors **require** working events to report any data. See more details in [Advanced use](#advanced-use). 
 {% endnote %}
 
+
 ### Alarm support notes
 
-The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted and assigned automatically and come with several attributes that help to monitor Sonos alarms.
+The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted, and assigned automatically and come with several attributes that help you monitor Sonos alarms.
+
+#### Important note about updating multiple alarms
+
+When enabling, disabling, or updating multiple Sonos alarms in a single automation or script, you may notice that not all alarms update as expected. This is a limitation of how Sonos synchronizes its alarm list across all speakers. If multiple alarm updates are sent rapidly (for example, by toggling several alarm switches at once), some changes may be lost or overwritten before they are fully synchronized between speakers.
+
+To ensure reliable updates, add a wait between each alarm update in your automation. A 1-second wait works well as a starting point, but you may need to increase it based on your setup. For example, add a `delay` action between each `switch.turn_on`, `switch.turn_off`, or `sonos.update_alarm` action call. This gives Sonos time to synchronize the alarm list before the next change.
+
+_Automation Example:_
+
+```yaml
+actions:
+  - action: switch.turn_on
+    target:
+      entity_id: switch.sonos_alarm_1
+  - delay:
+    seconds: 1
+  - action: switch.turn_on
+    target:
+      entity_id: switch.sonos_alarm_2
+  - delay:
+    seconds: 1
+  - action: switch.turn_on
+    target:
+      entity_id: switch.sonos_alarm_3
+```
+
+If you do not add a delay, you may see inconsistent alarm states, or some alarms may not update at all. In rare cases, rapidly updating alarms can cause a speaker to become unavailable. If this happens, power cycle the speaker and reload the integration.
 
 ### Microphone support notes
 
@@ -103,8 +135,6 @@ data:
 
 Example templates:
 
-{% raw %}
-
 ```yaml
 # Get all favorite names as a list (old behavior)
 {{ state_attr("sensor.sonos_favorites", "items").values() | list }}
@@ -120,8 +150,6 @@ Example templates:
   {{ name, media_id }}
 {% endfor %}
 ```
-
-{% endraw %}
 
 {% tip %}
 The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
@@ -283,9 +311,9 @@ data:
 
 The Sonos integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
 
-### Action `sonos.snapshot`
+### Action: Snapshot
 
-Take a snapshot of what is currently playing on one or more speakers. This action, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
+The `sonos.snapshot` action takes a snapshot of what is currently playing on one or more speakers. This action, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
 {% note %}
 The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/integrations/tts/) announcements.
@@ -296,9 +324,9 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 | `entity_id` | yes | The speakers to snapshot. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group, defaults to true.
 
-### Action `sonos.restore`
+### Action: Restore
 
-Restore a previously taken snapshot of one or more speakers.
+The `sonos.restore` action restores a previously taken snapshot of one or more speakers.
 
 {% note %}
 The playing queue is not snapshotted. Using `sonos.restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
@@ -313,26 +341,26 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 | `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
 
-### Action `sonos.set_sleep_timer`
+### Action: Set sleep timer
 
-Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
+The `sonos.set_sleep_timer` action sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will have their timers set.
 | `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
 
-### Action `sonos.clear_sleep_timer`
+### Action: Clear sleep timer
 
-Clear the sleep timer on a speaker, if one is set.
+The `sonos.clear_sleep_timer` action clears the sleep timer on a speaker, if one is set.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 
-### Action `sonos.update_alarm`
+### Action: Update alarm
 
-Update an existing Sonos alarm.
+The `sonos.update_alarm` action updates an existing Sonos alarm.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -343,9 +371,9 @@ Update an existing Sonos alarm.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
-### Action `sonos.play_queue`
+### Action: Play queue
 
-Starts playing the Sonos queue.
+The `sonos.play_queue` action starts playing the Sonos queue.
 
 Force start playing the queue, allows switching from another stream (such as radio) to playing the queue.
 
@@ -354,17 +382,15 @@ Force start playing the queue, allows switching from another stream (such as rad
 | `entity_id` | yes | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position of the song in the queue to start playing from, starts at 0.
 
-### Action `sonos.get_queue`
+### Action: Get queue
 
-Returns the media_players queue.
+The `sonos.get_queue` action returns the media player's queue.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | media_player entity id. |
 
 This example script does the following: get the queue, loop through in reverse order, and remove media containing the words "holiday".
-
-{% raw %}
 
 ```yaml
   - action: sonos.get_queue
@@ -393,17 +419,13 @@ This example script does the following: get the queue, loop through in reverse o
 
 ```
 
-{% endraw %}
+### Action: Remove from queue
 
-### Action `sonos.remove_from_queue`
-
-Removes an item from the queue.
+The `sonos.remove_from_queue` action removes an item from the queue.
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will remove an item from the queue. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position in the queue to remove.
-
-{% raw %}
 
 ```yaml
 # Example automation to remove just played song from queue
@@ -439,8 +461,6 @@ actions:
       queue_position: >
         {{ trigger.from_state.attributes.queue_position }}
 ```
-
-{% endraw %}
 
 ## Network requirements
 
@@ -482,3 +502,28 @@ sonos:
 This integration follows the standard integration removal process; no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Troubleshooting
+
+### 403 error when setting up the integration
+
+#### Symptom
+
+When setting up the integration you see the following error:
+
+```txt
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: http://192.168.1.1:1400/DeviceProperties/Control
+```
+
+#### Description
+
+This error means UPnP is not properly enabled on your Sonos system. The integration requires UPnP to communicate with your Sonos devices.
+
+#### Resolution
+
+To fix this issue, enable UPnP on your Sonos system:
+
+1. Open the Sonos app on your phone or tablet.
+2. Go to **Account** > **Privacy and Security** > **UPnP**.
+3. Enable the **UPnP** setting.
+4. Try setting up the integration again.

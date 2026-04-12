@@ -28,11 +28,11 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.
+The **Ecovacs** {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.
 
 ## Prerequisites
 
-You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account.
+You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account. Your username is your email address.
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 
@@ -68,6 +68,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Water level`: Choose from predefined water levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
+  - `Auto-empty frequency`: The frequency of emptying the bot dust bin during cleaning.
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
   - `Lifespan`: For each supported component, an entity with the remaining lifespan will be created.
   - `Network`: The following network related entities will be created. All disabled by default.
@@ -84,6 +85,7 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Time`: The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Border spin`: Enable border spin, which means the bot will tilt to reach corners during mopping. Present on bots without an extendable mop. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
   - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
   - `Child lock`: Enable child lock. Disabled by default.
@@ -103,8 +105,6 @@ The remaining lifespan of components on your Deebot vacuum will be reported as a
 
 Here's an example of how to extract the filter's lifespan to its own sensor using a [template sensor](/integrations/template):
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 template:
@@ -114,11 +114,7 @@ template:
       state: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') }}"
 ```
 
-{% endraw %}
-
 Or, if you want a simple binary sensor that becomes `On` when the filter needs to be replaced (5% or less):
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -128,8 +124,6 @@ template:
       device_class: problem
       state: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') <= 5 }}"
 ```
-
-{% endraw %}
 
 ### Handling errors
 

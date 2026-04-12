@@ -16,10 +16,10 @@ ha_codeowners:
   - '@garbled1'
   - '@jhollowe'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The **Venstar** climate {% term integration %} allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
+The **Venstar** {% term integration %} allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
 Venstar thermostats feature a local API that allows for automation without the need for their Skyport cloud service.
 
 Currently supported and tested thermostats:

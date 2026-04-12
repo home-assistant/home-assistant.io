@@ -20,7 +20,7 @@ ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
 ha_quality_scale: bronze
-ha_integration_type: service
+ha_integration_type: hub
 related:
   - url: https://playstation.com/
     title: Playstation
@@ -41,6 +41,15 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 
 - To set up the PlayStation Network integration, you must first have an active PlayStation Network account. You can register for an account at the [Official PlayStation® Site](https://playstation.com/).
 - During the setup process in Home Assistant, you will be asked to provide your NPSSO token. You will need to be logged into [playstation.com](https://playstation.com/) to access the token in your browser. You will find a link to retrieve the token in the config flow.
+- The NPSSO token is valid for two months. Once it expires, the integration will automatically prompt you to re-authenticate.
+
+{% note %}
+
+After retrieving the NPSSO token, do not log out of the PlayStation website. Logging out will invalidate the token and re-authentication is required on the next Home Assistant reboot or after up to 7 days.
+
+It is recommended, especially if you have configured multiple PlayStation accounts in Home Assistant, to retrieve the token using an incognito or private browser window and close it afterward.
+
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -101,6 +110,9 @@ After adding a friend, a new device will be created with the following entities:
 - **Online status**: Indicates the friend's current availability on the PlayStation Network.
 - **Last online**: Displays the time the friend was last seen online.
 - **Now playing**: Shows the title of the game the friend is currently playing.
+- **Trophy level**: Your friend's current PlayStation trophy level.
+- **Next Level**: Your friend's progress towards the next PlayStation trophy level.
+- **Platinum, gold, silver, and bronze trophies**: The total number of trophies your friend has earned.
 
 ### Image
 

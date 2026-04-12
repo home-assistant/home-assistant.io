@@ -155,17 +155,17 @@ offset:
 
 Some of the actions are only available if tariffs are configured.
 
-### Action `utility_meter.reset`
+### Action: Reset
 
-Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
+The `utility_meter.reset` action resets the Utility Meter. All sensors tracking tariffs will be reset to 0.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 
-### Action `utility_meter.calibrate`
+### Action: Calibrate
 
-Calibrate the Utility Meter. Change the value of a given sensor.
+The `utility_meter.calibrate` action calibrates the Utility Meter by changing the value of a given sensor.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -208,8 +208,6 @@ Assuming your energy provider tariffs are time based according to:
 
 a time based automation can be used:
 
-{% raw %}
-
 ```yaml
 automation:
   triggers:
@@ -233,8 +231,6 @@ automation:
       data:
         option: "{{ tariff }}"
 ```
-
-{% endraw %}
 
 Assuming your utility provider cycle is offset from the last day of the month
 
@@ -291,10 +287,8 @@ utility_meter:
 ```
 
 Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
-we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
+we use the `is_number()` [function](/docs/templating/patterns/) to verify the values
 returned from the sensors are numeric. If this evaluates to false, `None` is returned.
-
-{% raw %}
 
 ```yaml
 template:
@@ -319,5 +313,3 @@ template:
           None
         {% endif %}
 ```
-
-{% endraw %}

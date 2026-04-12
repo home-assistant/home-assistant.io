@@ -14,10 +14,10 @@ ha_platforms:
   - climate
   - sensor
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The Honeywell Lyric integration integrates the Lyric thermostat platform into Home Assistant.
+The **Honeywell Lyric** {% term integration %} integrates the Lyric thermostat platform into Home Assistant.
 
 ## Setup
 
@@ -42,11 +42,15 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% enddetails %}
 
-You can then add the integration in the frontend via the steps below.
+You can then add the integration in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-The integration configuration will ask for the **Client ID** and **Client Secret**, which correspond to the **Consumer** values in the app you created above. See [Application Credentials](/integrations/application_credentials) for more details.
+The integration setup will ask for the **Client ID** and **Client Secret**. These correspond to the **Consumer Key** and **Consumer Secret** values from the app you created on the Honeywell developer site. See [Application Credentials](/integrations/application_credentials) for more details.
+
+{% important %}
+During setup, you will be redirected to Honeywell to sign in. Use your regular Resideo/Honeywell Home account here, not the developer account you created on the developer site. These are two separate accounts, even if they share the same email address.
+{% endimportant %}
 
 ## Sensors
 

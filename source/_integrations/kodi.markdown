@@ -15,10 +15,10 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
+The **Kodi** {% term integration %} allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
 The preferred way to set up the Kodi platform is through discovery, which requires an enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
@@ -186,7 +186,7 @@ script:
           method: System.Shutdown
 ```
 
-#### Turn on and off the TV with the Kodi JSON-CEC Add-on
+#### Turn on and off the TV with the Kodi JSON-CEC app
 
 For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi's, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:
 
@@ -226,8 +226,6 @@ This example and the following requires to have the [script.json-cec](https://gi
 
 #### Simple script to turn on the PVR in some channel as a time function
 
-{% raw %}
-
 ```yaml
 script:
   play_kodi_pvr:
@@ -259,11 +257,7 @@ script:
             {% endif %}
 ```
 
-{% endraw %}
-
 #### Simple script to play a smart playlist
-
-{% raw %}
 
 ```yaml
 script:
@@ -281,8 +275,6 @@ script:
           media_content_type: DIRECTORY
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
-
-{% endraw %}
 
 #### Trigger a Kodi video library update
 
@@ -426,8 +418,6 @@ data:
 
 A example of a automation to turn up/down the volume of a receiver using the event:
 
-{% raw %}
-
 ```yaml
 alias: Kodi keypress
 mode: parallel
@@ -454,5 +444,3 @@ actions:
             target:
               entity_id: media_player.receiver
 ```
-
-{% endraw %}

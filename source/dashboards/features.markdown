@@ -77,7 +77,7 @@ modes:
 
 ## Bar gauge
 
-Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
+Widget that displays the state of a numeric [sensor](/integrations/sensor) as a horizontal bar.
 
 <p class='img'>
   <img src='/images/dashboards/features/bar_gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
@@ -87,6 +87,8 @@ Widget that displays the state of a numeric [sensor](/integrations/sensor), with
 ```yaml
 features:
   - type: "bar-gauge"
+    min: 0
+    max: 100
 ```
 
 {% configuration features %}
@@ -94,6 +96,16 @@ type:
   required: true
   description: "`bar-gauge`"
   type: string
+min:
+  required: false
+  description: Minimum value for the gauge range.
+  type: integer
+  default: 0
+max:
+  required: false
+  description: Maximum value for the gauge range.
+  type: integer
+  default: 100
 {% endconfiguration %}
 
 ## Button
@@ -308,6 +320,29 @@ type:
   type: string
 {% endconfiguration %}
 
+## Cover favorite positions
+
+Widget that displays a dropdown with favorite positions for a [cover](/integrations/cover).
+
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
+
+<p class='img'>
+  <img src='/images/dashboards/features/cover_position_favorite.png' alt='Screenshot of the tile card with the cover favorite positions feature'>
+  Screenshot of the tile card with the cover favorite positions feature
+</p>
+
+```yaml
+features:
+  - type: "cover-position-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`cover-position-favorite`"
+  type: string
+{% endconfiguration %}
+
 ## Cover tilt
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
@@ -326,6 +361,29 @@ features:
 type:
   required: true
   description: "`cover-tilt`"
+  type: string
+{% endconfiguration %}
+
+## Cover favorite tilt positions
+
+Widget that displays a dropdown with favorite tilt positions for a [cover](/integrations/cover).
+
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
+
+<p class='img'>
+  <img src='/images/dashboards/features/cover_tilt_favorite.png' alt='Screenshot of the tile card with the cover favorite tilt positions feature'>
+  Screenshot of the tile card with the cover favorite tilt positions feature
+</p>
+
+```yaml
+features:
+  - type: "cover-tilt-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`cover-tilt-favorite`"
   type: string
 {% endconfiguration %}
 
@@ -361,13 +419,13 @@ Widget that displays a button to select a date using the date picker dialog for 
 
 ```yaml
 features:
-  - type: "date"
+  - type: "date-set"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`date`"
+  description: "`date-set`"
   type: string
 {% endconfiguration %}
 
@@ -571,6 +629,29 @@ features:
 type:
   required: true
   description: "`light-brightness`"
+  type: string
+{% endconfiguration %}
+
+## Light color favorites
+
+Widget that displays a set of buttons to select a color for a [light](/integrations/light) from a list of favorites.
+
+You can customize favorites in a light's more-info dialog. The feature shows as many favorites as fit in the available width, following the favorites' sort order.
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_color_favorites.png' alt='Screenshot of the tile card with the light color favorites feature'>
+  Screenshot of the tile card with the light color favorites feature
+</p>
+
+```yaml
+features:
+  - type: "light-color-favorites"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color-favorites`"
   type: string
 {% endconfiguration %}
 
@@ -797,7 +878,7 @@ type:
 
 ## Trend graph
 
-Widget that displays the a trend of the history for a numeric [sensor](/integrations/sensor).
+Widget that displays a trend of the history for a numeric [sensor](/integrations/sensor).
 
 <p class='img'>
   <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
@@ -808,6 +889,7 @@ Widget that displays the a trend of the history for a numeric [sensor](/integrat
 features:
   - type: "trend-graph"
     hours_to_show: 24
+    detail: true
 ```
 
 {% configuration features %}
@@ -820,7 +902,16 @@ hours_to_show:
   description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
+detail:
+  required: false
+  description: Show more detail in the graph. When enabled, samples to 1 point per 5 pixels. When disabled, samples to 1 point per hour using mean values for a smoother graph.
+  type: boolean
+  default: true
 {% endconfiguration %}
+
+{% note %}
+The `hours_to_show` option controls the time range of historical data shown in the graph. The amount of history available depends on the Recorder's `purge_keep_days` setting. By default, the Recorder purges data older than 10 days. See the [Recorder integration documentation](/integrations/recorder/#purge_keep_days) for more information.
+{% endnote %}
 
 ## Update actions
 
@@ -922,6 +1013,29 @@ type:
   type: string
 {% endconfiguration %}
 
+## Valve favorite positions
+
+Widget that displays a dropdown with favorite positions for a [valve](/integrations/valve).
+
+You can customize favorites in a valve's **More info** dialog. To edit them, press and hold a favorite.
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position_favorite.png' alt='Screenshot of the tile card with the valve favorite positions feature'>
+  Screenshot of the tile card with the valve favorite positions feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position-favorite`"
+  type: string
+{% endconfiguration %}
+
 ## Water heater operation modes
 
 Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
@@ -957,7 +1071,7 @@ operation_modes:
 
 ## Area control
 
-Widget that displays buttons to control different types of entity in your area.
+Widget that displays buttons to control different types of entities in your area. You can control all entities of a specific domain or select individual entities.
 
 <p class='img'>
   <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
@@ -971,6 +1085,7 @@ features:
       - light
       - fan
       - switch
+      - entity_id: light.kitchen_counter
 ```
 
 {% configuration features %}
@@ -980,6 +1095,6 @@ type:
   type: string
 controls:
   required: true
-  description: List of controls to show on the card. The list can contain `light`, `fan`, and `switch`.
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
   type: list
 {% endconfiguration %}

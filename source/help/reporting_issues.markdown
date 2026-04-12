@@ -14,7 +14,7 @@ related:
 
 If you have an installation, a setup or a configuration issue, please use our [Forum](https://community.home-assistant.io/) to get help. We have a big community which will help you if they can.
 
-If you found a bug, then please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers to identify the issue quickly, please fill out the provided template. The "weird" content you will see, is there to render your entry in a nice format after submitting. It's just [markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+If you found a bug, please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers identify the issue quickly, please fill out the provided template.
 
 To see the version information, refer to the {% my info title="**Settings** > **About**" %} page.
 
@@ -34,7 +34,7 @@ If possible, provide the latest release of which you know that the integration o
 
 ## Operating environment
 
-There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System, Home Assistant Supervised, Home Assistant Core in Docker, or a manual installation of the Home Assistant Core. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
+There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System or Home Assistant Container in Docker. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
 
 ## Integration
 

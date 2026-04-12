@@ -15,11 +15,11 @@ ha_platforms:
   - diagnostics
   - media_player
   - notify
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS TV.
+The **LG webOS TV** {% term integration %} allows you to control a [LG](https://www.lg.com/) webOS TV.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -115,7 +115,7 @@ The `webostv.command` action is used to send a generic command to the TV.
 | Data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
-| `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
+| `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/home-assistant-libs/aiowebostv/blob/main/aiowebostv/endpoints.py> |
 | `payload`             | yes      | An optional payload to provide to the endpoint in the format of key value pair(s). |
 
 ```yaml
@@ -180,7 +180,7 @@ It leverages `select_source` action from the [Media player](/integrations/media_
 
 To find available sources for your TV
 
-1. Go to {% my developer_states title="**Developer Tools** > **States**" %}.
+1. Go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
 2. Find your TV's media_player entity.
 3. Look for the `source_list` attribute which contains all available sources.
 

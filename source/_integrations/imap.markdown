@@ -9,13 +9,13 @@ ha_domain: imap
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@jbouwh'
 ha_config_flow: true
 ---
 
-The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). It can report the number of unread emails and can send a custom event that can be used to trigger an automation. Other search criteria can be used, as shown in the example below.
+The **IMAP** {% term integration %} is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). It can report the number of unread emails and can send a custom event that can be used to trigger an automation. Other search criteria can be used, as shown in the example below.
 
 {% include integrations/config_flow.md %}
 
@@ -125,7 +125,7 @@ date:
 headers:
   description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once. `headers` will be included if it is explicitly selected in the option flow.
 custom:
-  description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
+  description: Holds the result of the custom event data [template](/docs/templating). All attributes are available as a variable in the template.
 initial:
   description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
 parts:
@@ -141,8 +141,6 @@ If the default maximum message size (2048 bytes) to be used in events is too sma
 {% warning %}
 Increasing the default maximum message size (2048 bytes) could have a negative impact on performance as event data is also logged by the `recorder`. If the total event data size exceeds the maximum event size (32168 bytes), the event will be skipped.
 {% endwarning %}
-
-{% raw %}
 
 ```yaml
 template:
@@ -171,8 +169,6 @@ template:
           Received-last: "{{ trigger.event.data['headers'].get('Received',['n/a'])[-1] }}"
 ```
 
-{% endraw %}
-
 ### Actions for post-processing
 
 The IMAP integration has some actions for post-pressing email messages. The actions are intended to be used in automations as actions after an "imap_content" event. The actions require the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the action is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
@@ -190,8 +186,22 @@ The IMAP integration has some actions for post-pressing email messages. The acti
 | -- | -- | -- | -- |
 | `entry_id` | string | no | The IMAP config entry ID. |
 | `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
-| `target_folder` | string | no | The name of the target folder, for example `INBOX.Trash` where the message should be moved to. |
+| `target_folder` | string | no | The name of the target folder, for example `INBOX/Trash` (or `INBOX.Trash`) on older systems, where the message should be moved to. |
 | `seen` | boolean | yes | If set to `true` this will mark the message as "seen". |
+
+{% important %}
+Make sure to use the correct IMAP folder separator char. The table below show common used IMAP folder separator characters:
+
+| Mailserver            | Separator            |
+|-----------------------|----------------------|
+| Gmail                 | /                    |
+| Dovecot               | . (but often /)      |
+| Courier IMAP          | .                    |
+| Cyrus IMAP            | /                    |
+| Microsoft Exchange    | /                    |
+| Zimbra                | /                    |
+| Yahoo Mail            | /                    |
+{% endimportant %}
 
 #### Action `delete` - Delete the IMAP message
 
@@ -201,7 +211,7 @@ The IMAP integration has some actions for post-pressing email messages. The acti
 | `uid` | string | no | The `uid` of the message to be deleted. To be found in the message's event data. |
 
 {% caution %}
-When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
+When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, moved or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
 {% endcaution %}
 
 #### Action `fetch` - Fetch the an IMAP message
@@ -285,8 +295,6 @@ part:
 
 The example below filters the event trigger by `entry_id`, fetches the message and stores it in `message_text`. It then marks the message in the event as seen and finally, it adds a notification with the subject of the message. The `seen` action `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
 
-{% raw %}
-
 ```yaml
 alias: "imap fetch and seen example"
 description: "Fetch and mark an incoming message as seen"
@@ -313,11 +321,7 @@ actions:
       message: "{{ message_text['subject'] }}"
 ```
 
-{% endraw %}
-
 In case you want want to process a message part, use the `fetch_part` action, and specify the `part` option. 
-
-{% raw %}
 
 ```yaml
 alias: "imap fetch and seen example"
@@ -350,14 +354,10 @@ actions:
       message: "{{ message_text['part_data'] | base64_decode }}"
 ```
 
-{% endraw %}
-
 
 ## Example - keyword spotting
 
 The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service, which tells whether the UPS is running on battery or not.
-
-{% raw %}
 
 ```yaml
 template:
@@ -378,8 +378,6 @@ template:
           {% endif %}
 ```
 
-{% endraw %}
-
 ## Example - extracting formatted text from an email using template sensors
 
 This example shows how to extract numbers or other formatted data from an email to change the value of a template sensor to a value extracted from the email. In this example, we will be extracting energy use, cost, and billed amount from an email (from Georgia Power) and putting it into sensor values using a template sensor that runs against our IMAP email sensor already set up. A sample of the body of the email used is below:
@@ -394,8 +392,6 @@ To view your account for details about your energy use, please click here.
 ```
 
 Below is the template sensor which extracts the information from the body of the email in our IMAP email sensor (named sensor.energy_email) into 3 sensors for the energy use, daily cost, and billing cycle total.
-
-{% raw %}
 
 ```yaml
 template:
@@ -423,8 +419,6 @@ template:
             | regex_findall_index("\ days:\* \$([0-9.]+)") }}
 ```
 
-{% endraw %}
-
 By making small changes to the regular expressions defined above, a similar structure can parse other types of data out of the body text of other emails.
 
 ## Example - custom event data template
@@ -444,8 +438,6 @@ This will render to `True` if the sender is allowed. The result is added to the 
 
 The example below will only set the state to the subject of the email of template sensor, but only if the sender address matches.
 
-{% raw %}
-
 ```yaml
 template:
   - trigger:
@@ -458,8 +450,6 @@ template:
       - name: event filtered by template
         state: '{{ trigger.event.data["subject"] }}'
 ```
-
-{% endraw %}
 
 ## Remove an IMAP service
 

@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 section#hero {
     height: calc(100vh - 68px);
     position: relative;
@@ -57,12 +58,12 @@ section#hero {
     }
 
     .logos {
-        display: flex;
-        align-items: center;
-        gap: 24px;
+        margin-top: 0.5rem;
 
         img {
-            max-width: 50%;
+            max-width: 100%;
+            position: relative;
+            inset: 0;
         }
     }
 

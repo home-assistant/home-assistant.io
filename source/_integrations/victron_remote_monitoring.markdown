@@ -22,7 +22,7 @@ related:
 ha_quality_scale: bronze
 ---
 
-The Victron Remote Monitoring (VRM) {% term integration %} pulls site statistics, solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
+The **Victron Remote Monitoring** (VRM) {% term integration %} pulls site statistics, solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
 
 ## Prerequisites
 

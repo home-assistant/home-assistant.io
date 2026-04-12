@@ -19,7 +19,7 @@ ha_platforms:
   - cover
   - light
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [SwitchBee](https://www.switchbee.com), is an innovation company making smart homes more accessible and affordable to any household environment.
