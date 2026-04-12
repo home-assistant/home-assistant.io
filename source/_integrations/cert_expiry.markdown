@@ -63,6 +63,6 @@ The integration only provides the certificate expiration date. It does not provi
 
 ## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
