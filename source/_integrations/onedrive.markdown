@@ -107,6 +107,24 @@ to OneDrive. For example, to upload `camera` snapshots.
 
 {% enddetails %}
 
+### Action `onedrive.delete`
+
+You can use the `onedrive.delete` action to delete a file from your OneDrive app folder. Optionally, you can also delete the local copy of the file at the same time.
+
+{% details "Delete action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `destination_path` | no | Path to the file inside your `Apps/Home Assistant` app folder to delete. Supports subfolders. | photos/snapshots/image.jpg |
+| `filename` | yes | Path to the local file to also delete. If omitted, only the OneDrive copy is removed. | /media/snapshots/image.jpg |
+| `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to delete from). | a1bee602deade2b09bc522749bbce48e |
+
+{% enddetails %}
+
+{% note %}
+Whether the deleted file is moved to the Recycle Bin or permanently removed depends on the **Delete files permanently** option in the integration settings.
+{% endnote %}
+
 ## Automations
 
 Get started with these automation examples.
