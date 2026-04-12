@@ -26,7 +26,7 @@ To start the Radio Browser, in Home Assistant, go to **Media** > **Radio Browser
 
 You can also use the Radio Browser in automations. When creating an automation in the UI, use the **Play Media** action to browse the Radio Browser directory and select a station. The station identifier is filled in automatically. This allows you, for example, to create an automation that starts playing your favorite radio station on your Cast devices.
 
-If you prefer to write the automation in YAML, you need the station's UUID. To find it:
+If you prefer to write an automation in YAML, you need the station's UUID. To find it:
 
 1. Open the [Radio Browser website](https://www.radio-browser.info).
 2. Search for the station you want.
