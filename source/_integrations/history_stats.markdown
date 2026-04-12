@@ -246,7 +246,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
     end: "{{ today_at('00:00').replace(day=1) }}"
 ```
 
-**Next 4 pm**: 24 hours, from the last 4 pm until the next 4 pm. If it is not yet 4 pm today, the period runs from 4 pm yesterday to 4 pm today. If it is already past 4 pm today, the period runs from 4 pm today to 4 pm tomorrow.
+**Next 4 pm**: 24 hours, from the last 4 pm until the next 4 pm. If it is not yet 4 pm today, the period runs from 4 pm yesterday to 4 pm today. If it is already past 4 pm today, the period runs from 4 pm today to 4 pm tomorrow. When changing the start time, adjust the hour in `today_at()` accordingly.
 
 ```yaml
     end: >-

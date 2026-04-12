@@ -1268,7 +1268,7 @@ light:
       required: inclusive
       type: action
     set_level:
-      description: Defines a set of actions (script) to run when the light is given a brightness command. The script executes only if the light is turned on with a `brightness`, `brightness_pct`, or `transition`. The `set_level` script receives the variables `brightness` and/or `transition`.
+      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
       required: false
       type: action
     set_temperature:
@@ -1317,9 +1317,22 @@ light:
 
 {% endconfiguration %}
 
-### Light Considerations
+### Light considerations
 
-Transition does not have its own script. It is instead passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color`, or `rgbww_color` scripts. Brightness is passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color`, or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) is not called. If only brightness is passed to `light.turn_on` action, the `set_level` script is called.
+When `light.turn_on` is called, Home Assistant selects exactly one script to run based on the parameters included in the call. The first match in the following order wins:
+
+1. `color_temp_kelvin` (or `color_temp`) is provided and `set_temperature` is defined.
+2. `effect` is provided and `set_effect` is defined.
+3. `hs_color` is provided and `set_hs` is defined.
+4. `rgbww_color` is provided and `set_rgbww` is defined.
+5. `rgbw_color` is provided and `set_rgbw` is defined.
+6. `rgb_color` is provided and `set_rgb` is defined.
+7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+8. None of the above match, and `turn_on` is called.
+
+Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
+
+There is no separate script for transitions. The `transition` value is passed as a variable to whichever script is selected, including `turn_off`.
 
 ### State based light - Theater Volume Control
 

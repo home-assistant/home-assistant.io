@@ -28,12 +28,10 @@ The **InfluxDB** {% term integration %} lets you transfer all state changes to a
 
 For more information on configuration of InfluxDB, refer to the [InfluxDB configuration](#influxdb-configuration) section below.
 
-There is currently support for the following device types within Home Assistant:
-
-- [Sensor](#sensor)
+The integration can export state changes for all entity types to InfluxDB, not just sensors. In addition, it can create [Sensor](#sensor) entities in Home Assistant that query data back from InfluxDB.
 
 {% note %}
-The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
+The `influxdb` integration runs parallel to the Home Assistant database. It does not replace it.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
