@@ -341,29 +341,22 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 ### [Supla](https://www.supla.fi/)
 
-Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing audio clip. E.g., [this episode](https://www.bbc.co.uk/sounds/play/p009ycqy) shows:
-
-|          |                                         |
-| -------- | --------------------------------------- |
-| 128bps   | dash (mf_cloudfront_nonbidi_dash_https) |
-| p009ycqz |                                         |
-
-With p009ycqz being the `media_id`
+[Supla](https://www.supla.fi/) is a Finnish audio streaming service. The `media_id` is the numeric ID from the Supla URL. For example, the ID for `https://www.supla.fi/audio/3601824` is `3601824`.
 
 #### Media parameters
 
 Mandatory:
 
 - `app_name`: `supla`
-- `media_id`: Supla item ID
+- `media_id`: The numeric ID from the Supla audio URL
 
 Optional:
 
-- `is_live`: Item is a livestream
+- `is_live`: Set to `true` if the item is a livestream
 
 #### Example
 
-Example values to cast the item at <https://www.supla.fi/audio/3601824>
+Example values to cast the item at `https://www.supla.fi/audio/3601824`:
 
 ```yaml
 'cast_supla_to_my_chromecast':
