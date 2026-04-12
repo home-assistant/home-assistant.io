@@ -53,11 +53,20 @@ https://YOUR.DNS.HOSTNAME:PORT/api/webhook/WEBHOOK_ID
 - It's HIGHLY recommended to use SSL/TLS.
 - Use the domain that Home Assistant is available on the internet (or the public IP address if you have a static IP address). This can be a local IP address if you are using an always on VPN from your mobile device to your home network.
 - Only remove `PORT` if your Home Assistant instance is using port 443. Otherwise set it to the port you're using.
-- Add the following to **HTTP Body**
+- Add the following to **HTTP Body**:
+
 ```text
-latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
+latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC
 ```
-- You can change the `device_id` of your phone by replacing `&device=%SER` with `&device=SOME_DEVICE_ID`, otherwise your phone's serial number will be used.
+
+You can change the device identifier by replacing `%SER` with a custom value, for example, `device=my_phone`. Otherwise, your phone's serial number is used.
+
+{% tip %}
+
+The following optional parameters can be appended to the HTTP body if GPSLogger provides them: `&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT`. Only include parameters that your device actually reports values for. If GPSLogger sends an empty value for a numeric parameter (such as `battery`, `speed`, `direction`, or `altitude`), the webhook returns a 422 error.
+
+{% endtip %}
+
 - Check that the **HTTP Headers** setting contains
 ```text
 Content-Type: application/x-www-form-urlencoded
