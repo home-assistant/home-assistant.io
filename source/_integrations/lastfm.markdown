@@ -62,6 +62,6 @@ The integration {% term polling polls %} Last.fm every 30 seconds for updated li
 
 ## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
