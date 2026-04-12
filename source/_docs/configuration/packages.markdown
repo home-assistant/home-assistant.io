@@ -115,5 +115,5 @@ homeassistant:
 {% important %}
 If you are moving configuration to packages, `auth_providers` must stay within your {% term "`configuration.yaml`" %} file. See the general documentation for [Authentication Providers](/docs/authentication/providers/#configuring-auth-providers).
 
-This is because Home Assistant processes the authentication provided early in the start-up process, even before packages are processed.
+This is because Home Assistant processes the `auth_providers` configuration early during startup, before packages are processed.
 {% endimportant %}
