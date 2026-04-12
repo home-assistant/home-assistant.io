@@ -242,10 +242,10 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
     end: "{{ today_at('00:00').replace(day=1) }}"
 ```
 
-**Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, then add or subtract to the 8-hour buffer to match the next midnight.
+**Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, adjust the hour in `today_at()` accordingly.
 
 ```yaml
-    end: "{{ (now() + timedelta(hours=8)).replace(hour=16, minute=0, second=0, microsecond=0) }}"
+    end: "{{ today_at('16:00') if now() < today_at('16:00') else today_at('16:00') + timedelta(days=1) }}"
     duration:
         hours: 24
 ```
