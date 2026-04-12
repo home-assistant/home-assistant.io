@@ -46,9 +46,9 @@ track_battery:
   default: false
   type: boolean
 track_battery_interval:
-  description: Minimum interval to ask the device for its battery status. The battery status will be checked at most once every interval. If `track_battery` is false, this will be ignored.
+  description: "Minimum interval between battery status checks for tracked devices. The battery status is checked at most once per interval. Ignored if `track_battery` is `false`. Accepts a time period, for example, `\"01:00:00\"` for one hour, or a mapping nested under `track_battery_interval`, for example `track_battery_interval:` followed by `days: 1` on the next indented line."
   required: false
-  default: 1 day
+  default: "24:00:00"
   type: time
 interval_seconds:
   description: Seconds between each scan for new devices.
