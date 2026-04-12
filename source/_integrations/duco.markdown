@@ -78,7 +78,7 @@ The following sensor entities are created per node, depending on the node type:
 
 #### Ventilation state
 
-Available for all node types (box, CO₂ module, humidity module). Shows the current ventilation state, for example _Automatic_, _Continuous high speed_, or _Manual low speed (15 min)_. The available states depend on the node type.
+Available for the main ventilation box (BOX). Shows the current ventilation state, for example _Automatic_, _Continuous high speed_, or _Manual low speed (15 min)_.
 
 #### CO₂ concentration
 
