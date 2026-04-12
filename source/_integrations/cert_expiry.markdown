@@ -38,7 +38,7 @@ The integration creates a single sensor for each configured host.
 The sensor also provides the following attributes:
 
 - **`is_valid`**: Whether the certificate could be validated (`true` or `false`).
-- **`error`**: A human-readable error description if the certificate is considered invalid, or "None" if valid.
+- **`error`**: A human-readable error description if the certificate is considered invalid, or `None` when the certificate is valid.
 
 {% note %}
 To calculate the number of days until the certificate expires in a template or automation, use `as_datetime()` to convert the state and subtract `now()`. For example:
