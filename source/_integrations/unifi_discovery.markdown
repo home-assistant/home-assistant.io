@@ -15,11 +15,11 @@ ha_config_flow: true
 
 The **UniFi Discovery** {% term integration %} scans the local network for UniFi devices using the UniFi Discovery protocol. Discovered devices are automatically forwarded to their respective integrations, such as [UniFi Access](/integrations/unifi_access/), [UniFi Network](/integrations/unifi/), and [UniFi Protect](/integrations/unifiprotect/), for setup. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
 
-This is a system integration that runs in the background. It does not create any entities itself but acts as a central discovery provider for UniFi-based integrations.
+This is a system integration that runs in the background. It does not create any entities itself, but acts as a central discovery provider for UniFi-based integrations.
 
 ## How discovery works
 
-When Home Assistant starts, this integration begins scanning the local network for UniFi devices using the UniFi L2/L3 discovery protocol (UDP broadcast), similar to how the UniFi Network app finds devices. This scan repeats every 60 minutes. Additionally, the integration listens for devices joining the network through DHCP (using known Ubiquiti MAC address prefixes) and SSDP (UPnP announcements from UniFi consoles).
+When Home Assistant starts, this integration begins scanning the local network for UniFi devices using the UniFi discovery protocol, similar to how the UniFi Network app finds devices. This scan repeats every 60 minutes. Additionally, the integration listens for devices joining the network through DHCP (using known Ubiquiti MAC address prefixes) and SSDP (UPnP announcements from UniFi consoles).
 
 When a device is found, the integration checks the device's advertised services and creates a discovery flow for the matching Home Assistant integration. For example, a device running UniFi Protect triggers a discovery flow for the [UniFi Protect](/integrations/unifiprotect/) integration.
 
