@@ -14,7 +14,11 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The [Discord service](https://discordapp.com/) is a platform for the notify integration. This allows integrations to send messages to the user using Discord.
+The **Discord** {% term integration %} lets you send notifications from Home Assistant to [Discord](https://discordapp.com/) channels and users via a bot. You can send text messages, attach images from local files or remote URLs, and use Discord embeds for rich formatting.
+
+{% note %}
+This integration is for outgoing messages only. It cannot read incoming Discord messages or use them as triggers for automations.
+{% endnote %}
 
 ## Prerequisites
 
