@@ -193,6 +193,10 @@ This video tutorial explains how you can use history stats. It also shows how yo
 
 ## Examples
 
+{% important %}
+When writing templates for `start`, `end`, or `duration`, prefer helpers like [`today_at('HH:MM')`](/docs/templating/dates-and-times/#today_at) over manual datetime math with `now() + timedelta(...)` combined with `.replace(hour=..., minute=...)`. On days when daylight saving time starts or ends, replacing the hour field of a local time may land in a skipped or repeated hour, which can silently produce the wrong timestamp. `today_at()` always returns a valid local datetime and is the safer building block for local-time boundaries. For more context, see [Dates and times in templates](/docs/templating/dates-and-times/).
+{% endimportant %}
+
 Here are some examples of periods you could work with, and what to write in your {% term "`configuration.yaml`" %}:
 
 **Today**: starts at 00:00 of the current day and ends right now.
@@ -242,12 +246,17 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
     end: "{{ today_at('00:00').replace(day=1) }}"
 ```
 
-**Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, adjust the hour in `today_at()` accordingly.
+**Next 4 pm**: 24 hours, from the last 4 pm until the next 4 pm. If it is not yet 4 pm today, the period runs from 4 pm yesterday to 4 pm today. If it is at or after 4 pm today, the period runs from 4 pm today to 4 pm tomorrow. When changing the start time, adjust the hour in `today_at()` accordingly.
 
 ```yaml
-    end: "{{ today_at('16:00') if now() < today_at('16:00') else today_at('16:00') + timedelta(days=1) }}"
+    end: >-
+      {% set today_4pm = today_at('16:00') %}
+      {{
+        today_4pm if now() < today_4pm
+        else today_4pm + timedelta(days=1)
+      }}
     duration:
-        hours: 24
+      hours: 24
 ```
 
 **Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
