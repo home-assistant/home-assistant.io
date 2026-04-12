@@ -12,7 +12,7 @@ ha_domain: schedule
 ha_integration_type: helper
 ---
 
-The **Schedule** {% term integration %} provides a way to create a weekly schedule {% term entity %} in Home Assistant, consisting of time blocks with defined start and end times. The schedule is active when a time block starts and becomes inactive when it ends, allowing it to be used for triggering or making decisions in automations and scripts.
+The **Schedule** {% term integration %} lets you create a weekly schedule {% term entity %} in Home Assistant from time blocks with defined start and end times. The schedule is active when a time block starts and becomes inactive when it ends, so you can use it as a trigger or condition in automations and scripts.
 
 {% include integrations/config_flow.md %}
 
@@ -55,8 +55,7 @@ color_temp: 4000
 
 ## YAML configuration
 
-Alternatively, this {% term integration %} can be configured and set up manually via YAML instead.
-To enable the Integration sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+Alternatively, you can configure and set up this integration manually via YAML. To enable the **Schedule** integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 
 {% note %}
 
@@ -136,10 +135,22 @@ A schedule entity exports state attributes that can be useful in automations and
 | `next_event` | A datetime object containing the next time the schedule is going to change state. |
 | `key_1`, `key_2`, ... | The mapping values from **Additional data** / `data` settings of a time block when the respective block is active. |
 
+## Behavior at block boundaries
+
+Time blocks use an inclusive start and an exclusive end. A block from `09:00` to `12:00` is active from `09:00:00.000` up to but not including `12:00:00.000`.
+
+When two time blocks on the same day touch (for example, one block from `07:00` to `10:00` and another from `10:00` to `12:00`), the schedule transitions cleanly from one to the other:
+
+- The schedule's state stays `on` across the boundary. It does not briefly flip to `off` between two touching blocks.
+- The `data` attributes are replaced with the new block's data at the moment of the transition.
+- An automation triggering on the state changing to `off` does not fire at a boundary between two touching blocks.
+- An automation triggering on an attribute change (for example, a new setpoint) fires once, with the new block's data.
+
+Overlapping time blocks on the same day are not allowed and are rejected during configuration validation.
+
 ## Automation example
 
-A schedule creates an on/off (schedule) sensor within the times set.
-By incorporating the `light_schedule` example from above in an automation, we can turn on a light when the schedule is active.
+A schedule creates an on/off schedule entity that is `on` within the times set. You can use the `light_schedule` example from above in an automation to turn on a light when the schedule is active.
 
 ```yaml
 triggers:
@@ -192,9 +203,9 @@ target:
 response_variable: schedules
 ```
 
-The response data contains a field for every schedule entity (e.g. `schedule.vacuum_robot` and `schedule.air_purifier` in this case).
+The response data contains a field for every schedule entity (for example, `schedule.vacuum_robot` and `schedule.air_purifier` in this case).
 
-Every schedule entity response has 7 fields (one for each day of the week in lowercase), containing a list of the selected time ranges.
+Every schedule entity response has seven fields (one for each day of the week in lowercase), containing a list of the selected time ranges.
 Days without any ranges will be returned as an empty list.
 
 ```yaml
