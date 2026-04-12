@@ -428,7 +428,20 @@ The above example creates `switch.philips_tv` and `switch.lg_tv`, which are rela
 
 __IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example, Bedroom TV.
 
-##  Managing codes for remotes
+## Troubleshooting
+
+### Device is locked
+
+If you see the error `<device name> is locked` in the logs, the device has its lock setting enabled. When a device is locked, the integration cannot communicate with it and will fail to load, so the **Configure** button mentioned in the error is not available.
+
+To resolve this, unlock the device using the Broadlink app on your phone:
+
+1. Open the Broadlink app and select the device.
+2. Go to the device settings.
+3. Disable the lock.
+4. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %} and reload the Broadlink integration.
+
+## Managing codes for remotes
 ### Using e-Control remotes
 
 If you already have your remotes learned on e-Control app you can use this method to "copy" them to Home Assistant.
