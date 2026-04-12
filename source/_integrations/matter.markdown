@@ -52,6 +52,8 @@ related:
     title: HomeKit
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
+  - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
+    title: Debug logs and diagnostics
 ha_zeroconf: true
 ---
 
@@ -622,6 +624,23 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 11. Use the QR code to add the device using one of the above instructions on your phone, e.g. using the Home Assistant Companion app.
 
 ## Troubleshooting
+
+### Downloading diagnostics
+
+When reporting an issue with a Matter device, you will usually be asked for a diagnostics file. The Matter integration supports diagnostics at both the integration and device level.
+
+To download integration-level diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Matter** integration card, open the three-dot {% icon "mdi:dots-vertical" %} menu and select **Download diagnostics**.
+
+To download device-level diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
+2. Select the device you want diagnostics for.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu and select **Download diagnostics**.
+
+The diagnostics file contains device attributes, cluster data, and network information with sensitive data redacted. For more general information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ### General recommendations
 
