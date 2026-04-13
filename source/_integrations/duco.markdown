@@ -50,6 +50,12 @@ Host:
 
 ## Supported functionality
 
+The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
+
+- **BOX** — the main DucoBox (fan control, ventilation state)
+- **UCCO2** — a wireless CO₂ sensor module
+- **BSRH** — a humidity sensor module installed inside the DucoBox
+
 ### Fan
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
@@ -67,12 +73,6 @@ The following actions are available:
 When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
 ### Sensors
-
-The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
-
-- **BOX** — the main DucoBox (fan control, ventilation state)
-- **UCCO2** — a wireless CO₂ sensor module
-- **BSRH** — a humidity sensor module installed inside the DucoBox
 
 The following sensor entities are created per node, depending on the node type:
 
