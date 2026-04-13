@@ -8,12 +8,12 @@ ha_zeroconf: true
 ha_integration_type: hub
 ha_release: 2026.4
 ha_codeowners:
-  - '@Linkplay'
+  - '@Linkplay2020'
 ha_config_flow: true
 ha_platforms:
   - media_player
-  - button
 ha_iot_class: Local Push
+ha_quality_scale: bronze
 ---
 
 The **WiiM** {% term integration %} allows you to control different [WiiM](https://www.wiimhome.com) devices from Home Assistant.

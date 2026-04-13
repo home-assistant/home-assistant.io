@@ -8,7 +8,7 @@ group :development do
   gem 'stringex', '2.8.6'
   gem 'sass-embedded', '1.98.0'
   gem 'rubocop', '1.86.0'
-  gem 'ruby-lsp', '0.26.8'
+  gem 'ruby-lsp', '0.26.9'
   gem 'rackup', '2.3.1'
 end
 

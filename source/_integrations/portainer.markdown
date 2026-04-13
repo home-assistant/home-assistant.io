@@ -18,8 +18,8 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
-ha_integration_type: hub
-ha_quality_scale: bronze
+ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
 The **Portainer** {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).

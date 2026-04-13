@@ -44,7 +44,7 @@
 <meta name="twitter:label1" value="Reading time">
 <meta name="twitter:data1" value="~{{ reading_time }} minute{% if reading_time > 1 %}s{% endif %}">
 <meta name="twitter:label2" value="Written by">
-<meta name="twitter:data2" value="{{ page.author | default: site.author | escape_once }}">
+<meta name="twitter:data2" value="{% if page.author.first %}{{ page.author | join: ", " | escape_once }}{% else %}{{ page.author | default: site.author | escape_once }}{% endif %}">
 {% endif %}
 
 {% if site.social.mastodon.account %}<link rel="me" href="{{ site.social.mastodon.account | escape_once }}">{% endif %}
