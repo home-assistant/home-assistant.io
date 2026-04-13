@@ -255,7 +255,7 @@ We welcome the following new integrations in this release:
 [Lichess]: /integrations/lichess
 [LoJack]: /integrations/lojack
 [OpenDisplay]: /integrations/opendisplay
-[Qube Heat Pump]: /integrations/qube_heatpump
+[Qube Heat Pump]: /integrations/hr_energy_qube
 [Solarman]: /integrations/solarman
 [TRMNL]: /integrations/trmnl
 [UniFi Access]: /integrations/unifi_access
