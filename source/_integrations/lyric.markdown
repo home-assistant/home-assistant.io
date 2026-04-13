@@ -57,7 +57,7 @@ For thermostats with wireless room sensors (such as the T9 and T10), a **Room pr
 Available options:
 
 - **Follow me** — The thermostat automatically switches to the room where motion is detected.
-- **Each paired room** — The names of all rooms with sensors paired to the thermostat appear as individual options (for example, "Bedroom", "Office"). Selecting one tells the thermostat to use that room's sensor for its temperature reading.
+- The names of all rooms with sensors paired to the thermostat appear as individual options (for example, "Bedroom", "Office"). Selecting one tells the thermostat to use that room's sensor for its temperature reading.
 
 This entity only appears for thermostats that support room sensors and have room sensor accessories paired.
 
