@@ -260,5 +260,3 @@ Wait until midnight for the counter to reset. To avoid hitting the limit in the 
 This integration follows standard integration removal, no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-{% include integrations/remove_device_service.md %}
