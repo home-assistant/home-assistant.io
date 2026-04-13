@@ -647,17 +647,7 @@ header .breadcrumbs {
       }
     }
 
-    .socials {
-      .icons {
-        margin: -16px 0 16px 0;
-
-        iconify-icon {
-          font-size: 2em;
-          margin-top: 12px;
-          padding-right: 8px;
-        }
-      }
-
+    .social-media {
       @media only screen and (min-width: $desk-start) {
         .web-notice {
           text-align: right;
