@@ -215,7 +215,7 @@ No
 
 This can happen when pairing the AirPlay protocol if the access settings are too restrictive. On your Apple TV, go to **Settings** > **AirPlay and HomeKit** and make sure the access setting is set to **Everyone on the Same Network**, then try again.
 
-If that does not resolve the issue, open the **Home** app on your iPhone or iPad, go to **Home Settings** > **Speakers & TV**, and set the access to **Everyone**. In some network configurations, the **Everyone on the Same Network** setting is not sufficient for Home Assistant to receive the PIN prompt.
+If that does not resolve the issue, open the **Home** app on your iPhone or iPad, go to **Home Settings** > **Speakers & TV**, and set the access to **Everyone**. In some network configurations, the **Everyone on the Same Network** setting is not sufficient for the Apple TV to display the PIN prompt or for pairing to complete.
 
 ### The buttons (play, pause, etc.) do not work
 
