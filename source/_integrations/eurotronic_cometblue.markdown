@@ -75,7 +75,7 @@ Additionally, the following modes are available:
 
 ### Button
 
-The integration provides a **sync time** button per device to set the current Home Assistant time on the device.
+The integration provides a **Sync time** button for each device. Pressing this button synchronizes the thermostat's internal clock with Home Assistant's current time.
 
 ## Data updates
 
