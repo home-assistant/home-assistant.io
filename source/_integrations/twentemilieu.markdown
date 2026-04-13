@@ -78,9 +78,9 @@ automation:
       - trigger: calendar
         event: start
         entity_id: calendar.twente_milieu
-        offset: "-6:00:00"
-        # This triggers 6 hours before the calendar event starts
-
+        # Fire 12 hours before the calendar event starts,
+        # so you get notified the evening before the pickup day.
+        offset: "-12:00:00"
     actions:
       - action: notify.mobile_app_your_device
         data:
@@ -101,9 +101,9 @@ automation:
       - trigger: calendar
         event: end
         entity_id: calendar.twente_milieu
+        # Fire 4 hours before the calendar event ends,
+        # so you get notified in the evening of the pickup day.
         offset: "-4:00:00"
-        # This triggers 4 hours before the calendar event ends
-
     actions:
       - action: notify.mobile_app_your_device
         data:
