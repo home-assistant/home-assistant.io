@@ -20,7 +20,7 @@ related:
     title: Debug logs and diagnostics
 ---
 
-The **Sensor.Community** {% term integration %} brings readings from the [Sensor.Community](https://sensor.community) open data air quality network into Home Assistant. Sensor.Community (formerly known as luftdaten.info) is a global citizen science project that maps air quality and environmental data from thousands of DIY sensor stations around the world.
+The **Sensor.Community** {% term integration %} brings readings from the [Sensor.Community](https://sensor.community) open data air quality network into Home Assistant. Sensor.Community (formerly known as luftdaten.info) is a global citizen science project that maps air quality and environmental data from thousands of do-it-yourself (DIY) sensor stations around the world.
 
 Use cases for this integration include:
 
