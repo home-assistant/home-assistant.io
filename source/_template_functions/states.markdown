@@ -42,6 +42,8 @@ output: "21.5"
 ```signature
 states(
     entity_id: str,
+    rounded: bool = False,
+    with_unit: bool = False,
 ) -> str
 ```
 
@@ -55,6 +57,18 @@ entity_id:
     The entity ID to get the state from. Returns the state as a string, or `unknown` if the entity does not exist.
   required: true
   type: string
+rounded:
+  description: >
+    When `true`, numeric states are rounded according to the entity's display precision (the same rounding shown in the UI). When omitted, it follows `with_unit`.
+  required: false
+  default: "false"
+  type: boolean
+with_unit:
+  description: >
+    When `true`, appends the entity's unit of measurement to the state. Implies `rounded` unless `rounded` is set explicitly.
+  required: false
+  default: "false"
+  type: boolean
 {% endfunction_parameters %}
 
 ## Iterating over states
@@ -96,7 +110,7 @@ output: "22.5"
 
 ### Use a sensor value in a notification
 
-Include the current temperature reading in a notification message.
+Include the current temperature reading in a notification message. Use `with_unit=true` to automatically append the entity's unit of measurement, so the output uses whatever unit the sensor reports (°C, °F, K) without hardcoding it.
 
 {% example %}
 action: |
@@ -104,7 +118,7 @@ action: |
     - action: notify.mobile
       data:
         message: >
-          The temperature is {{ states("sensor.outside_temperature") }}°C
+          The temperature is {{ states("sensor.outside_temperature", with_unit=true) }}
 {% endexample %}
 
 ### Check a value before acting

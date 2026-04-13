@@ -154,7 +154,7 @@ When a template works in the editor but not in an automation, check whether you 
 - **Entity is `unknown` or `unavailable`.** Add a fallback with `| default(...)` or an `if has_value(...)` check.
 - **Variable changes inside a loop are lost.** Use [`namespace`](/template-functions/namespace/).
 - **YAML refuses to load your template.** Check quoting. See [Templates in YAML](/docs/templating/yaml/).
-- **Template appears as literal text in output.** The field does not support templating, or the template is inside a `{% raw %}` block.
+- **Template appears as literal text in output.** The field does not support templating, or the template is inside a `{% raw %}` / `{% endraw %}` block.
 - **Template evaluates at the wrong time.** Triggers and conditions are checked on change, not continuously. A template condition that depends on `now()` only re-checks when something else triggers.
 - **Comparing text to a number.** `'6' < '10'` is `False` because text is compared alphabetically, not numerically. Convert with `| float(0)` or `| int(0)` on both sides first.
 
@@ -168,7 +168,7 @@ Templates use [Jinja2](https://jinja.palletsprojects.com/), a templating engine 
 - **`None` must be capitalized.** Python writes `None`, `True`, `False` with a capital first letter. Template tests and literals use lowercase `none`, `true`, `false`. Both work in most places, but be consistent.
 - **No f-strings.** Python's `f"hello {name}"` is not template syntax. Use `"hello " ~ name` (the `~` joins text) or `{{ name }}` directly.
 - **No `while` loops.** Templates only support `for` loops.
-- **List and dict methods are limited.** You can call `.items()`, `.values()`, `.keys()`, `.get()`, `.append()`, `.split()`, `.lower()`, `.upper()`, and similar, but not everything Python offers. When in doubt, test it in the editor.
+- **List and dict methods are limited.** Read-only methods like `.items()`, `.values()`, `.keys()`, `.get()`, `.split()`, `.lower()`, and `.upper()` work fine. Methods that mutate a value in place, like `.append()`, `.pop()`, or `.update()`, are blocked as unsafe. To build up a list across loop iterations, use a [`namespace`](/template-functions/namespace/) instead.
 
 ## Next steps
 

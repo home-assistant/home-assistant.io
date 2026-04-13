@@ -28,12 +28,10 @@ The **InfluxDB** {% term integration %} lets you transfer all state changes to a
 
 For more information on configuration of InfluxDB, refer to the [InfluxDB configuration](#influxdb-configuration) section below.
 
-There is currently support for the following device types within Home Assistant:
-
-- [Sensor](#sensor)
+The integration can export state changes for all entity types to InfluxDB, not just sensors. In addition, it can create [Sensor](#sensor) entities in Home Assistant that query data back from InfluxDB.
 
 {% note %}
-The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
+The `influxdb` integration runs parallel to the Home Assistant database. It does not replace it.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -508,8 +506,6 @@ The example configuration entry below creates two requests to your local InfluxD
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`
 
-{% raw %}
-
 ```yaml
 sensor:
   - platform: influxdb
@@ -535,11 +531,7 @@ sensor:
         database: db2
 ```
 
-{% endraw %}
-
 ### Full configuration for InfluxDB 2.x
-
-{% raw %}
 
 ```yaml
 sensor:
@@ -570,8 +562,6 @@ sensor:
         query: "filter(fn: (r) => r._field == \"value\" and r.entity_id == \"glances_cpu_temperature\")"
         group_function: mean
 ```
-
-{% endraw %}
 
 Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history integration, this means by default, you will have a table for each entity and each attribute of each entity (other than `unit_of_measurement` and any others you promoted to tags).
 

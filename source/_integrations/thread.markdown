@@ -146,7 +146,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
    - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25742476767517).
    - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517).
    - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421).
-   - [Adding a Thread adapter to Home Assistant](#adding-a-thread-adapter-to-home-assistant).
+   - [Adding a Thread adapter to Home Assistant](#adding-a-third-party-thread-adapter-to-home-assistant).
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
    - This should happen automatically, but check to be sure.
@@ -202,7 +202,7 @@ Note: the steps and images here show the process with a Google Thread network. B
    - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25742476767517).
    - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517).
    - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421).
-   - [Adding a Thread adapter to Home Assistant](#adding-a-thread-adapter-to-home-assistant).
+   - [Adding a Thread adapter to Home Assistant](#adding-a-third-party-thread-adapter-to-home-assistant).
    - **Result**: The network now shows as the preferred network, joined with the third-party network.
 
    ![image](/images/integrations/thread/thread-ha-preferred.png)

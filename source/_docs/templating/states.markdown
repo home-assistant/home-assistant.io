@@ -12,9 +12,9 @@ related:
     title: "`is_state` function"
   - docs: /template-functions/has_value/
     title: "`has_value` function"
-  - docs: /template-functions/category/state/
+  - docs: /template-functions/#state
     title: All state functions
-  - docs: /template-functions/category/entity/
+  - docs: /template-functions/#entity
     title: All entity functions
 ---
 

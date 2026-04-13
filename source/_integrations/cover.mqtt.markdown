@@ -23,9 +23,9 @@ If position topic and state topic are both defined, the device state (`open`, `o
 
 If neither a state topic nor a position topic are defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
 
-Optimistic mode can be forced, even if a `state_topic` / `position_topic` is defined. Try to enable it if experiencing incorrect cover operation (Google Assistant gauge may need optimistic mode as it often send request to your Home Assistant immediately after send set_cover_position in which case MQTT could be too slow).
+Optimistic mode can be forced, even if a `state_topic` / `position_topic` is defined. Try to enable it if you experience incorrect cover operation (Google Assistant gauge may need optimistic mode, as it often sends requests to your Home Assistant immediately after sending `set_cover_position`, in which case MQTT could be too slow).
 
-The `mqtt` cover platform optionally supports a list of `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (i.e., publishes a matching `payload_not_available` to any `availability` topic), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
+The `mqtt` cover platform optionally supports a list of `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (that is, publishes a matching `payload_not_available` to any `availability` topic), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
 
 To use an MQTT cover in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -248,7 +248,7 @@ retain:
   type: boolean
   default: false
 set_position_template:
-  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available: `entity_id`, `position`, the target position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/templating/states/) template function;"
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{ position }}`. Within the template the following variables are available: `entity_id`, `position`, the target position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/templating/states/) template function;"
   required: false
   type: template
 set_position_topic:
@@ -338,8 +338,8 @@ value_template:
 
 {% note %}
 MQTT cover expects position and tilt values to be in range of 0 to 100, where 0 indicates closed position and 100 indicates fully open position.
-If position `min` or `max` are set to a different range (e.g. 40 to 140), when sending command to the device the range will be adjusted to the device range (position 0 will send a value of 40 to device) and when position payload is received from the device it will be adjusted back to the 0 to 100 range (device value of 40 will report cover position 0).
-`min` and `max` can also be used to reverse the direction of the device, if `min` is set to 100 and `max` is set to `0` device operation will be inverted (e.g. when setting position to 40, a value of 60 will be sent to device).
+If position `min` or `max` are set to a different range, for example, 40 to 140, when sending command to the device the range will be adjusted to the device range (position 0 will send a value of 40 to device) and when position payload is received from the device it will be adjusted back to the 0 to 100 range (device value of 40 will report cover position 0).
+If `min` is set to 100 and `max` is set to `0`, `min` and `max` can also be used to reverse the direction of the device, and device operation will be inverted. For example, when setting position to 40, a value of 60 will be sent to the device.
 {% endnote %}
 
 ## Examples
@@ -350,7 +350,6 @@ In this section you will find some real-life examples of how to use this platfor
 
 The example below shows a full configuration for a cover without tilt with state topic only.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -376,13 +375,11 @@ mqtt:
       value_template: "{{ value.x }}"
 ```
 
-{% endraw %}
 
 ### Full configuration position topic without tilt
 
 The example below shows a full configuration for a cover without tilt with position topic.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -407,13 +404,11 @@ mqtt:
       value_template: "{{ value.x }}"
 ```
 
-{% endraw %}
 
 ### Full configuration for position, state and tilt
 
 The example below shows a full configuration for a cover with position, state & tilt.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -448,13 +443,11 @@ mqtt:
       tilt_opened_value: 180
 ```
 
-{% endraw %}
 
 ### Full configuration using stopped state
 
 The example below shows a full configuration for a cover using stopped state.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -481,14 +474,12 @@ mqtt:
       position_template: "{{ value.y }}"
 ```
 
-{% endraw %}
 
 ### Configuration for disabling cover commands
 
 The example below shows a configuration for a cover that does not have a close command.
 Setting `payload_close` empty or to `null` disables the close command and will not show the close button.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -499,11 +490,9 @@ mqtt:
       payload_stop: "on"
 ```
 
-{% endraw %}
 The following commands can be disabled: `open`, `close`, `stop` by overriding their payloads: `payload_open`, `payload_close`, `payload_stop`
 
 For auto discovery message the payload needs to be set to `null`, example for cover without close command:
-{% raw %}
 
 ```json
 {
@@ -517,13 +506,11 @@ For auto discovery message the payload needs to be set to `null`, example for co
 }
 ```
 
-{% endraw %}
 
 ### Full configuration using `entity_id`- variable in the template
 
 The example below shows an example of how to correct the state of the blind depending if it moved up, or down.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -553,7 +540,6 @@ mqtt:
         {% endif %}
 ```
 
-{% endraw %}
 
 ### Full configuration using advanced templating
 
@@ -569,7 +555,6 @@ Following variable might be used in `position_template`, `set_position_template`
 - `tilt_min`
 - `tilt_max`
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -625,7 +610,6 @@ mqtt:
       payload_stop: "on"
 ```
 
-{% endraw %}
 
 ### Testing your configuration
 

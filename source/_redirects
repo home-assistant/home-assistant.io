@@ -696,6 +696,7 @@ layout: null
 /integrations/yweather /more-info/removed-integration 301
 /integrations/zengge /integrations/led_ble 301
 /integrations/google_gemini /integrations/google_generative_ai_conversation 301
+/integrations/qube_heatpump /integrations/hr_energy_qube 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images
@@ -768,3 +769,21 @@ layout: null
 /docs/configuration/templating/#inspecting-attributes /docs/templating/debugging/
 /docs/configuration/templating/#comparing-numbers /docs/templating/patterns/
 /docs/configuration/templating/#best-practices /docs/templating/debugging/
+
+# Template function category pages merged into index
+/template-functions/category/area/ /template-functions/#area
+/template-functions/category/collection/ /template-functions/#collection
+/template-functions/category/comparison/ /template-functions/#comparison
+/template-functions/category/datetime/ /template-functions/#datetime
+/template-functions/category/device/ /template-functions/#device
+/template-functions/category/encoding/ /template-functions/#encoding
+/template-functions/category/entity/ /template-functions/#entity
+/template-functions/category/floor/ /template-functions/#floor
+/template-functions/category/functional/ /template-functions/#functional
+/template-functions/category/label/ /template-functions/#label
+/template-functions/category/math/ /template-functions/#math
+/template-functions/category/regex/ /template-functions/#regex
+/template-functions/category/repairs/ /template-functions/#repairs
+/template-functions/category/state/ /template-functions/#state
+/template-functions/category/strings/ /template-functions/#strings
+/template-functions/category/type/ /template-functions/#type

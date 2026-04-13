@@ -56,31 +56,31 @@ Open {% my developer_template title="**Developer tools** > **Template**" %} and 
 
 {% example %}
 template: |
-  {% set low = [] %}
+  {% set low = namespace(batteries=[]) %}
   {% for sensor in states.sensor
-     | selectattr('attributes.device_class', 'eq', 'battery')
-     | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
+    | selectattr('attributes.device_class', 'eq', 'battery')
+    | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
     {% if sensor.state | float(100) < 20 %}
-      {% set low = low + [device_name(sensor.entity_id)] %}
+      {% set low.batteries = low.batteries + [device_name(sensor.entity_id)] %}
     {% endif %}
   {% endfor %}
-  {{ low }}
+  {{ low.batteries }}
 output: "['Front door lock', 'Motion sensor', 'Bedroom sensor']"
 {% endexample %}
 
 Read it left to right:
 
-1. Start with an empty list called `low`.
+1. Create a namespace called `low` with an empty `batteries` list inside.
 2. For each sensor whose `device_class` is `battery`, skipping any that are `unknown` or `unavailable`...
 3. If its state (converted to a number) is below `20`...
-4. Add the name of the **device** that sensor belongs to.
+4. Add the name of the **device** that sensor belongs to to `low.batteries`.
 
 Why the device name? With modern Home Assistant naming, a battery sensor's own name is often only "Battery", which is not very helpful in a notification. The [`device_name`](/template-functions/device_name/) function gives you back the friendly name of the device the sensor is attached to (like "Front door lock" or "Motion sensor").
 
 You should see a list of device names with low batteries. If the list is empty, you can temporarily raise the threshold (change `20` to `100`) to confirm the template is working.
 
 {% note %}
-You might remember from [Loops and conditions](/docs/templating/loops-and-conditions/) that variables changed inside a loop do not survive the loop. This example gets away with rebuilding `low` each time, which works for straightforward counting. For more complex counting, use a [`namespace`](/template-functions/namespace/).
+Variables set inside a `for` loop do not survive outside the loop, so `low` is created with a [`namespace`](/template-functions/namespace/). That is the object whose attribute (`low.batteries`) can be updated inside the loop and still hold the full list afterwards. See [Loops and conditions](/docs/templating/loops-and-conditions/) for more on this quirk.
 {% endnote %}
 
 ## Step 3: Format the message
@@ -89,7 +89,7 @@ A bare list is not what you want to send to your phone. Add the area the device 
 
 {% example %}
 template: |
-  {% set low = [] %}
+  {% set low = namespace(batteries=[]) %}
   {% for sensor in states.sensor
      | selectattr('attributes.device_class', 'eq', 'battery')
      | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
@@ -98,15 +98,15 @@ template: |
       {% set area = area_name(sensor.entity_id) %}
       {% set label = device ~ (' in ' ~ area if area else '')
          ~ ' (' ~ sensor.state ~ '%)' %}
-      {% set low = low + [label] %}
+      {% set low.batteries = low.batteries + [label] %}
     {% endif %}
   {% endfor %}
-  {% if low | count == 0 %}
+  {% if low.batteries | count == 0 %}
     All batteries are healthy.
-  {% elif low | count == 1 %}
-    1 device needs a new battery: {{ low[0] }}.
+  {% elif low.batteries | count == 1 %}
+    1 device needs a new battery: {{ low.batteries[0] }}.
   {% else %}
-    {{ low | count }} devices need new batteries: {{ low | join(', ') }}.
+    {{ low.batteries | count }} devices need new batteries: {{ low.batteries | join(', ') }}.
   {% endif %}
 output: |-
   3 devices need new batteries: Front door lock in Hallway (15%),
@@ -151,7 +151,7 @@ action: |
     data:
       title: "Battery check"
       message: >
-        {% set low = [] %}
+        {% set low = namespace(batteries=[]) %}
         {% for sensor in states.sensor
            | selectattr('attributes.device_class', 'eq', 'battery')
            | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
@@ -160,15 +160,15 @@ action: |
             {% set area = area_name(sensor.entity_id) %}
             {% set label = device ~ (' in ' ~ area if area else '')
                ~ ' (' ~ sensor.state ~ '%)' %}
-            {% set low = low + [label] %}
+            {% set low.batteries = low.batteries + [label] %}
           {% endif %}
         {% endfor %}
-        {% if low | count == 0 %}
+        {% if low.batteries | count == 0 %}
           All batteries are healthy.
-        {% elif low | count == 1 %}
-          1 device needs a new battery: {{ low[0] }}.
+        {% elif low.batteries | count == 1 %}
+          1 device needs a new battery: {{ low.batteries[0] }}.
         {% else %}
-          {{ low | count }} devices need new batteries: {{ low | join(', ') }}.
+          {{ low.batteries | count }} devices need new batteries: {{ low.batteries | join(', ') }}.
         {% endif %}
 {% endexample %}
 

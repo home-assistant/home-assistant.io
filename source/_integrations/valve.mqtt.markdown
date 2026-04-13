@@ -310,8 +310,6 @@ This section provides some examples showing how you can use this platform.
 
 The example below shows a full configuration for a valve that does not report position.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -338,13 +336,9 @@ mqtt:
       value_template: "{{ value_json.x }}"
 ```
 
-{% endraw %}
-
 ### Sample configuration of a valve that reports the position
 
 The example below shows a sample configuration for a valve that reports the position using JSON messages.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -360,14 +354,10 @@ mqtt:
       value_template: "{{ value_json.x }}"
 ```
 
-{% endraw %}
-
 ### Configuration for disabling valve commands
 
 The example below shows a configuration for a valve that does not have a close command.
 Setting the `payload_close` to empty or to `null` disables the close command and will not show the close button.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -377,8 +367,6 @@ mqtt:
       payload_close: 
       payload_stop: "on"
 ```
-
-{% endraw %}
 
 An MQTT valve will support `open` and `close` commands if a `command_topic` is set. The MQTT valve supports `stop` if `payload_stop` is set.
 

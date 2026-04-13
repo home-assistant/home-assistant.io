@@ -158,7 +158,6 @@ Both detectors `default` and `tensorflow` use the labels in [this file](https://
 
 ## Sample configuration
 
-{% raw %}
 
 ```yaml
 # Example advanced configuration.yaml entry
@@ -197,7 +196,6 @@ image_processing:
       - truck
 ```
 
-{% endraw %}
 
 ## Optimizing resources
 

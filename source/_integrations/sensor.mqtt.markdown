@@ -313,8 +313,6 @@ Topic: `home/sensor1/attributes`
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/templating/states/). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -329,8 +327,6 @@ mqtt:
       payload_not_available: "offline"
       json_attributes_topic: "home/sensor1/attributes"
 ```
-
-{% endraw %}
 
 ### JSON attributes template configuration
 
@@ -353,8 +349,6 @@ To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_t
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/templating/states/). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -372,8 +366,6 @@ mqtt:
       json_attributes_template: "{{ value_json.Timer2 | tojson }}"
 ```
 
-{% endraw %}
-
 {% warning %}
 If `json_attributes_topic` and `state_topic` share the same topic, a state update will happen only once, unless the state update did not change the state or `force_update` was set to `true`.
 
@@ -383,8 +375,6 @@ Setting up MQTT sensor's with extra state attributes that contain values that ch
 ### Usage of `entity_id` in the template
 
 The example below shows how a simple filter, that calculates the value by adding 90% of the new value and 10% of the previous value, can be implemented in a template.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -399,8 +389,6 @@ mqtt:
           {{ value | round(2) * 0.9 + states(entity_id) * 0.1 }}
         {% endif %}
 ```
-
-{% endraw %}
 
 ### Owntracks battery level sensor
 
@@ -422,8 +410,6 @@ Topic: `owntracks/tablet/tablet`
 
 Thus the trick is extracting the battery level from the payload.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -433,8 +419,6 @@ mqtt:
       unit_of_measurement: "%"
       value_template: "{{ value_json.batt }}"
 ```
-
-{% endraw %}
 
 ### Temperature and humidity sensors
 
@@ -450,8 +434,6 @@ Topic: `office/sensor1`
 
 Then use this configuration example to extract the data from the payload:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -466,8 +448,6 @@ mqtt:
       unit_of_measurement: "%"
       value_template: "{{ value_json.humidity }}"
 ```
-
-{% endraw %}
 
 ### Get sensor value from a device with ESPEasy
 

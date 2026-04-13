@@ -161,8 +161,6 @@ Schedule your Liebherr appliance to automatically enable night mode at bedtime a
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Liebherr Night Mode Schedule"
 description: >-
@@ -193,8 +191,6 @@ actions:
               entity_id: switch.my_fridge_night_mode
 mode: single
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

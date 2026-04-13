@@ -22,6 +22,21 @@ $tf-code-font: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-transform: none;
 }
 
+/* Template functions search box */
+.component-search {
+  margin-bottom: 24px;
+  min-height: 80px;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    background-color: #fefefe;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: #7c7c7c #c3c3c3 #ddd;
+  }
+}
+
 /* Template functions index page */
 #tf-container h3 {
   margin-top: 1.5em;
@@ -29,6 +44,7 @@ $tf-code-font: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   padding-bottom: 0.4em;
   border-bottom: 2px solid $primary-color;
   font-size: 1.1em;
+  scroll-margin-top: 100px;
 }
 
 .tf-list {

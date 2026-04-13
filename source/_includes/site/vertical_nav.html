@@ -4,6 +4,7 @@
 
 {% if root == 'template-functions' %}
   {% unless page.function_name %}
+    {% include asides/docs_navigation.html %}
     {% include asides/template_functions_navigation.html %}
   {% endunless %}
 {% elsif root == 'integrations' %}

@@ -448,11 +448,10 @@ If a property works in *optimistic mode* (when the corresponding state topic is 
 
 ## Using templates
 
-For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
+For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if the payloads you receive are, for example, in JSON format. Since in JSON, a quoted string (for example, `"foo"`) is just a string, this can also be used for unquoting.
 
 Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the mode is actually called just `auto`, here's what you could do:
 
-{% raw %}
 
 ```yaml
 mqtt:
@@ -467,9 +466,8 @@ mqtt:
       mode_state_template: "{{ value_json }}"
 ```
 
-{% endraw %}
 
-This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
+This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obviously, in this case you could also just set `value_template: "{{ value_json }}"`.
 
 Similarly for `*_command_topic`s, a template can be specified to render the outgoing payloads on these topics.
 
@@ -477,7 +475,6 @@ Similarly for `*_command_topic`s, a template can be specified to render the outg
 
 A full configuration example looks like the one below.
 
-{% raw %}
 
 ```yaml
 # Full example configuration.yaml entry
@@ -513,4 +510,3 @@ mqtt:
       precision: 1.0
 ```
 
-{% endraw %}

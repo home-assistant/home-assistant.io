@@ -63,7 +63,7 @@ Realm:
 
 ## Proxmox permissions
 
-To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication PMethod** during setup, choose the matching realm.
+To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication Method** during setup, choose the matching realm.
 
 You can use any realm as long as you have valid credentials, like a username and password or an API token:
 

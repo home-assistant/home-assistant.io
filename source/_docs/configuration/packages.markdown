@@ -1,16 +1,16 @@
 ---
 title: "Packages"
-description: "Describes all there is to know about configuration packages in Home Assistant."
+description: "Bundle configurations from multiple integrations using configuration packages."
 ---
 
-Packages in Home Assistant provide a way to bundle configurations from multiple integrations. With packages, we have a way to include multiple integrations, or parts of integrations using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
+Packages in Home Assistant provide a way to bundle configurations from multiple integrations. You can use packages to include multiple integrations, or parts of integrations, using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration/).
 
 Packages are configured under the core `homeassistant/packages` in the configuration and take the format of a package name (no spaces, all lowercase) followed by a dictionary with the package configuration. For example, package `pack_1` would be created as:
 
 ```yaml
 homeassistant:
   ...
-  packages: 
+  packages:
     pack_1:
       ...package configuration here...
 ```
@@ -24,7 +24,7 @@ Inline example, main {% term "`configuration.yaml`" %}:
 ```yaml
 homeassistant:
   ...
-  packages: 
+  packages:
     pack_1:
       switch:
         - platform: rest
@@ -39,7 +39,7 @@ Include example, main {% term "`configuration.yaml`" %}:
 ```yaml
 homeassistant:
   ...
-  packages: 
+  packages:
     pack_1: !include my_package.yaml
 ```
 
@@ -81,15 +81,13 @@ homeassistant:
   packages: !include_dir_named packages
 ```
 
-The benefit of this approach is to pull all configurations required to integrate a system into one file&mdash;rather than keeping them spread across several files.
-You can use other `!include` methods for packages. For example: `!include_dir_merge_named`. However, unlike `!include_dir_merge_named`, the `!include_dir_named` method uses the same indentation as the 'configuration.yaml'. This means that you can copy and paste elements from the config file.
+The benefit of this approach is to pull all configurations required to integrate a system into one file, rather than keeping them spread across several files.
 
-With the `!include_dir_merge_named` method, the package name has to be included in the file. The configuration below then needs to be indented accordingly. This means you cannot directly copy and paste from the configuration file.
-
+You can also use `!include_dir_merge_named` for packages. The two directives differ in how they handle the file contents. With `!include_dir_named`, each file's content is placed directly under the package name (which is the filename), so the content uses the same indentation as it would inside the `packages:` key in {% term "`configuration.yaml`" %}. This means you can copy and paste elements from the main config file. With `!include_dir_merge_named`, the package name has to be the top-level key inside the file, so the content needs an additional level of indentation and you cannot directly copy and paste from the configuration file.
 
 ```yaml
 homeassistant:
-  packages: !include_dir_merge_named packages/
+  packages: !include_dir_merge_named packages
 ```
 
 and in `packages/subsystem1/functionality1.yaml`:
@@ -115,7 +113,7 @@ homeassistant:
 
 
 {% important %}
-If you are moving configuration to packages, `auth_providers` must stay within ‘configuration.yaml’. See the general documentation for [Authentication Providers](/docs/authentication/providers/#configuring-auth-providers).
+If you are moving configuration to packages, `auth_providers` must stay within your {% term "`configuration.yaml`" %} file. See the general documentation for [Authentication Providers](/docs/authentication/providers/#configuring-auth-providers).
 
-This is because Home Assistant processes the authentication provided early in the start-up process, even before packages are processed.
+This is because Home Assistant processes the `auth_providers` configuration early during startup, before packages are processed.
 {% endimportant %}

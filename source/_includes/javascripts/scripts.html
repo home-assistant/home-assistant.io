@@ -131,6 +131,20 @@ window.__templateFunctions = {{ site.data.template_functions_json }};
 </script>
 
 <script type="text/javascript">
+  // Re-scroll to the hash anchor after page layout has settled.
+  // Browsers attempt the initial scroll before fonts, icons, and deferred
+  // scripts finish loading, so the target position is often wrong.
+  if (window.location.hash) {
+    window.addEventListener("load", function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector(window.location.hash);
+        if (el) el.scrollIntoView();
+      });
+    });
+  }
+</script>
+
+<script type="text/javascript">
   {
     const tocCurrent = document.querySelector(".toc-current");
     const blogTocList = document.querySelector("#toc-module #toc");

@@ -215,7 +215,6 @@ This integration provides the following entities.
 
 This automation monitors your pool's ORP level and sends a notification when it goes outside the recommended range.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pool ORP out of range"
@@ -234,13 +233,11 @@ automation:
           title: "Pool ORP alert"
           message: "ORP level is {{ trigger.id }}: {{ states('sensor.pool_device_orp') }} mV"
 ```
-{% endraw %}
 
 ### Monitor pH levels and send alerts
 
 This automation monitors your pool's pH level and sends a notification when it goes outside the recommended range.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pool pH out of range"
@@ -259,13 +256,11 @@ automation:
           title: "Pool pH alert"
           message: "pH level is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
 ```
-{% endraw %}
 
 ### Pause dosing when pH is extreme
 
 This automation pauses the dosing system when the pH level reaches dangerously high or low values, preventing excessive chemical dosing.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pause dosing on extreme pH"
@@ -287,7 +282,6 @@ automation:
           title: "Pool dosing paused"
           message: "Dosing paused - pH is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
 ```
-{% endraw %}
 
 ### Pool monitoring dashboard
 

@@ -286,7 +286,6 @@ In this section you find some real-life examples of how to use this alarm contro
 
 The example below shows a full configuration with an alarm panel that only supports the `arm_home` and `arm_away` features.
 
-{% raw %}
 
 ```yaml
 # Example with partial feature support
@@ -300,13 +299,11 @@ mqtt:
       command_topic: "alarmdecoder/panel/set"
 ```
 
-{% endraw %}
 
 ### Configuration with local code validation
 
 The example below shows a full configuration with local code validation.
 
-{% raw %}
 
 ```yaml
 # Example using text based code with local validation configuration.yaml
@@ -319,13 +316,11 @@ mqtt:
       code: mys3cretc0de
 ```
 
-{% endraw %}
 
 ### Configurations with remote code validation
 
 The example below shows a full configuration with remote code validation and `command_template`.
 
-{% raw %}
 
 ```yaml
 # Example using text code with remote validation configuration.yaml
@@ -353,7 +348,6 @@ mqtt:
         { "action": "{{ action }}", "code": "{{ code }}" }
 ```
 
-{% endraw %}
 
 {% caution %}
 When your MQTT connection is not secured, this will send your secret code over the network unprotected!
