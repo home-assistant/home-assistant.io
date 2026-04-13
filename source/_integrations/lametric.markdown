@@ -403,6 +403,6 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 ## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
