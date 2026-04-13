@@ -85,7 +85,7 @@ The integration polls the Sensor.Community API every 10 minutes over the interne
 
 ### Warn when PM2.5 levels are unhealthy
 
-Send a notification when the PM2.5 concentration exceeds 35 µg/m³, which the WHO considers unhealthy for sensitive groups:
+Send a notification when the PM2.5 concentration exceeds 35 µg/m³. You can adjust this example threshold to match the air quality guidance or standard you want to follow:
 
 ```yaml
 alias: "Unhealthy air quality alert"
