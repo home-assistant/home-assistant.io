@@ -20,7 +20,7 @@ The **Certificate Expiry** {% term integration %} monitors the expiration date o
 
 {% configuration_basic %}
 Host:
-  description: "The hostname to check the certificate for, for example, `home-assistant.io`. Do not include `https://` or a path."
+  description: "The hostname to check the certificate for, for example, `home-assistant.io`. Do not include `https://` or a path to a file on your computer."
 Port:
   description: "The port to connect to. The default is `443`."
 {% endconfiguration_basic %}
@@ -33,25 +33,16 @@ The integration creates a single sensor for each configured host.
 
 - **Certificate expiry**
   - **Description**: The expiration date and time of the host's SSL/TLS certificate.
-  - **Device class**: Timestamp. The state is a UTC datetime, not a number of days. The Home Assistant UI may display it as "in X days," but this is only a display format.
+  - **Device class**: Timestamp. The state is a UTC datetime, not a number of days. The Home Assistant UI might display it as "in X days," but this is only a display format.
 
 The sensor also provides the following attributes:
 
-- **`is_valid`**: Whether the certificate could be validated (`true` or `false`).
+- **`is_valid`**: Whether the certificate has been validated (`true` or `false`).
 - **`error`**: A human-readable error description if the certificate is considered invalid, or `None` when the certificate is valid.
 
-{% note %}
+{% tip %}
 To calculate the number of days until the certificate expires in a template or automation, use `as_datetime()` to convert the state and subtract `now()`. For example:
 
-```yaml
-value_template: >
-  {{
-    (as_datetime(states('sensor.cert_expiry_timestamp_example_com'))
-    - now()).days
-  }}
-```
-
-{% endnote %}
 
 ## Data updates
 
