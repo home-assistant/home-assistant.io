@@ -46,19 +46,19 @@ Port:
 
 The integration provides the following entities.
 
-## Binary sensors
+### Binary sensors
 
-- **WiFi connected**: Indicates whether the device reports an active WiFi connection.
+- **Wi-Fi connected**: Indicates whether the device reports an active Wi-Fi connection.
 - **Room boost enabled**: Indicates whether room boost mode is currently active.
 - **Silent mode enabled**: Indicates whether silent mode is currently active.
 - **Breeze mode enabled**: Indicates whether breeze mode is currently active.
 
-## Sensors
+### Sensors
 
 The integration exposes fixed sensors for device and ventilation status, including:
 
 - **Uptime**
-- **WiFi SSID**
+- **Wi-Fi SSID**
 - **Room boost decision**
 - **Room boost level**
 - **Silent mode decision**
@@ -66,14 +66,14 @@ The integration exposes fixed sensors for device and ventilation status, includi
 - **Breeze mode decision**
 - **Breeze temperature**
 
-The integration also creates additional sensors from the device constellation data when available. Depending on the device and firmware, this can include measurements such as:
+The integration also creates additional sensors for measurements exposed by the device's local API when available. Depending on the device model, firmware, and available API endpoints, this can include measurements such as:
 
 - Temperature
 - Relative humidity
 - Absolute humidity
 - Volatile organic compounds (VOC)
 - Pressure
-- WiFi signal strength
+- Wi-Fi signal strength
 
 ## Configuration options
 
