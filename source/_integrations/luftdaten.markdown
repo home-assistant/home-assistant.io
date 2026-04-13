@@ -132,7 +132,7 @@ actions:
 
 If you see a "Sensor not available or invalid" error during setup, verify that:
 
-1. The Sensor ID you entered is correct. The ID is the number with `#` in front on the [Sensor.Community map](https://maps.sensor.community/), not the sensor's physical location or name.
+1. The Sensor ID you entered is correct. The ID is the number with `#` in front of it on the [Sensor.Community map](https://maps.sensor.community/), not the sensor's physical location or name.
 2. The sensor is still online and uploading data to Sensor.Community. Check its recent values on the map.
 3. Your Home Assistant instance can reach the internet.
 
