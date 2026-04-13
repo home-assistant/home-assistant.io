@@ -115,7 +115,7 @@ The following attributes are available for `sensor` platform entities:
 - Daily cooling energy consumed / produced
 - Daily hot water energy consumed / produced
 
-The daily energy sensors use `SensorStateClass.TOTAL_INCREASING` and are compatible with the Energy Dashboard. Values reset at midnight in the MELCloud service timezone.
+The daily energy sensors use the state class `total_increasing` and are compatible with the Energy Dashboard. Values reset at midnight in the MELCloud service timezone.
 
 ### Binary sensor
 
