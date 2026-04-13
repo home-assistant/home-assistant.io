@@ -59,11 +59,20 @@ https://YOUR.DNS.HOSTNAME:PORT/api/webhook/WEBHOOK_ID
 latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC
 ```
 
-You can change the device identifier by replacing `%SER` with a custom value, for example, `device=my_phone`. Otherwise, your phone's serial number is used.
+You can change the device identifier by replacing `device=%SER` with `device=my_phone`. Otherwise, your phone's serial number is used.
 
 {% tip %}
 
-The following optional parameters can be appended to the HTTP body if GPSLogger provides them: `&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT`. Only include parameters that your device actually reports values for. If GPSLogger sends an empty value for a numeric parameter (such as `battery`, `speed`, `direction`, or `altitude`), the webhook returns a 422 error.
+You can append optional parameters to the HTTP body if GPSLogger provides them. Add only the parameters your device actually reports:
+
+- `&battery=%BATT`
+- `&speed=%SPD`
+- `&direction=%DIR`
+- `&altitude=%ALT`
+- `&provider=%PROV`
+- `&activity=%ACT`
+
+If GPSLogger sends an empty value for a numeric parameter, like `battery`, `speed`, `direction`, or `altitude`, the webhook returns a 422 error.
 
 {% endtip %}
 
