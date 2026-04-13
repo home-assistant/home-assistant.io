@@ -3,6 +3,7 @@ title: Eurotronic Comet Blue Thermostats
 description: Instructions on how to integrate Eurotronic Comet Blue Thermostats into Home Assistant.
 ha_category:
   - Climate
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 2026.5
 ha_config_flow: true
@@ -74,7 +75,7 @@ Additionally, the following modes are available:
 
 ### Sensor
 
-The device reports its current, although not very accurate, battery state.
+The device reports its current battery level, but the reading may not be very accurate.
 
 ## Data updates
 
