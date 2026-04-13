@@ -55,7 +55,7 @@ If you are unsure how to fix the error, copy the relevant log lines and search t
 When recovery mode does happen, these are the most common reasons:
 
 - **YAML syntax errors**: incorrect indentation, missing colons, or unmatched quotes in {% term "`configuration.yaml`" %} or any included YAML files.
-- **Missing include files**: a `!include` reference in {% term "`configuration.yaml`" %} points to a file that no longer exists.
+- **Missing include files**: an `!include` reference in {% term "`configuration.yaml`" %} points to a file that no longer exists.
 - **Backward-incompatible changes after an update**: a manually configured option was changed or removed in a release. Check the [backward-incompatible changes](/blog/categories/core/) section of the release notes for the version you upgraded to.
 - **Corrupted configuration storage**: can happen after a sudden power loss during a write.
 
