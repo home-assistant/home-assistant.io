@@ -22,7 +22,6 @@ The **Elgato Avea** {% term integration %} allows you to control Avea Bluetooth 
 
 - Elgato Avea bulbs
 
-## Configuration
 {% include integrations/config_flow.md %}
 
 The Elgato Avea integration will automatically discover bulbs once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. If a bulb is not discovered automatically, you can add the integration manually and select it by Bluetooth address.
