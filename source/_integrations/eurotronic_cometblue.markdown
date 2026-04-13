@@ -14,6 +14,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ha_platforms:
   - climate
+  - sensor
 ---
 
 The **Eurotronic Comet Blue** {% term integration %} allows you to integrate Eurotronic Comet Blue (and similar) thermostats.
@@ -70,6 +71,10 @@ Additionally, the following modes are available:
 - **Off**: Valve is fully closed.
 - **Heat**: Valve is fully open.
 - **Auto**: The thermostat controls the temperature automatically, based on the target temperature.
+
+### Sensor
+
+The device reports its current, although not very accurate, battery state.
 
 ## Data updates
 
