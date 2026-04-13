@@ -43,7 +43,7 @@ When recovery mode is active, Home Assistant loads only a minimal set of system 
    - Correcting a YAML syntax error in {% term "`configuration.yaml`" %}.
    - Removing or updating a configuration option that was changed. Check the [backward-incompatible changes](/blog/categories/core/) of a recent release if the issue appeared after an update.
    - Restoring a [{% term backup %}](/integrations/backup/) from before the problem started.
-3. Restart Home Assistant from {% my server_controls title="**Developer tools**" %} or by rebooting your host.
+3. Restart Home Assistant from {% my general title="**Settings** > **System**" %} by selecting **Restart Home Assistant**, or by rebooting your host.
 4. If Home Assistant starts normally, the issue is resolved. If recovery mode reactivates, the underlying issue is still there. Check the logs again for the current error.
 
 {% tip %}
