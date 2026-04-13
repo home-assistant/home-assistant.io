@@ -60,7 +60,7 @@ The Duco system consists of multiple nodes. Each node appears as a separate devi
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
 
-The fan is always on, setting the speed to 0% hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation.
+The fan is always on. Setting the speed to 0% returns control to Duco (automatic mode), after which the firmware automatically resumes ventilation.
 
 The following actions are available:
 
@@ -258,5 +258,7 @@ Wait until midnight for the counter to reset. To avoid hitting the limit in the 
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 {% include integrations/remove_device_service.md %}
