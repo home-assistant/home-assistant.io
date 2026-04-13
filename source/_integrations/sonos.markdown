@@ -34,7 +34,7 @@ UPnP must be enabled on your Sonos system for this integration to work. In the S
 
 {% include integrations/config_flow.md %}
 
-## Feature controls & sensors
+## Feature controls and sensors
 
 Speaker-level controls are exposed as `number`, `select` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
 
@@ -88,12 +88,12 @@ actions:
     target:
       entity_id: switch.sonos_alarm_1
   - delay:
-    seconds: 1
+      seconds: 1
   - action: switch.turn_on
     target:
       entity_id: switch.sonos_alarm_2
   - delay:
-    seconds: 1
+      seconds: 1
   - action: switch.turn_on
     target:
       entity_id: switch.sonos_alarm_3
@@ -159,13 +159,13 @@ The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It
 
 Sonos accepts a variety of `media_content_id` formats in the `media_player.play_media` action, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to local or remote media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
 
-Music services which require an account (e.g., Spotify) must first be configured using the Sonos app.
+Music services that require an account, such as Spotify, must first be configured using the Sonos app.
 
 Playing TTS (text-to-speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. Using `announce` will play the provided media URL as an overlay, gently lowering the current music volume and automatically restoring to the original level when finished. An optional `volume` argument can also be provided in the `extra` dictionary to play the alert at a specific volume level. Note that older Sonos hardware or legacy firmware versions ("S1") may not fully support these features. Additionally, see [Network Requirements](#network-requirements) for use in restricted networking environments.
 
 An optional `enqueue` argument can be added to the action. If `replace` or not provided then the queue will be replaced and the item will be replaced. If `add` the item will be appended to the queue. If `next` the item will be added into the queue to play next. If `play`, the item will be added into the queue and played immediately.
 
-### Examples:
+### Examples
 
 Below is an example action that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver) using the `announce` feature and its associated (optional) `volume` parameter:
 
@@ -234,7 +234,7 @@ data:
 
 #### Sonos Music Library
 
-If you have configured a Sonos music library; you can play music from it.
+If you have configured a Sonos music library, you can play music from it.
 
 Play all albums by the Beatles.
 
@@ -259,7 +259,7 @@ data:
   enqueue: replace
 ```
 
-Or add a specific album by a specific artist to the queue.  This is useful in case you have multiple albums with the same name.
+Or add a specific album by a specific artist to the queue. This is useful when you have multiple albums with the same name.
 
 ```yaml
 action: media_player.play_media
@@ -343,12 +343,12 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 
 ### Action: Set sleep timer
 
-The `sonos.set_sleep_timer` action sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
+The `sonos.set_sleep_timer` action sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. If you set `sleep_time` to `0`, the speaker immediately starts tapering the volume down.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will have their timers set.
-| `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
+| `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 7200 (2 hours).
 
 ### Action: Clear sleep timer
 
@@ -422,6 +422,7 @@ This example script does the following: get the queue, loop through in reverse o
 ### Action: Remove from queue
 
 The `sonos.remove_from_queue` action removes an item from the queue.
+
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will remove an item from the queue. It must be the coordinator if targeting a group.
