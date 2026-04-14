@@ -107,17 +107,17 @@ The following binary sensors indicate component operating status and are categor
 
 - Boiler
 - Booster heater 1
-- Booster heater 2 *(disabled by default)*
-- Booster heater 2+ *(disabled by default)*
+- Booster heater 2 _(disabled by default)_
+- Booster heater 2+ _(disabled by default)_
 - Immersion heater
 - Water pump 1
 - Water pump 2
-- Water pump 3 *(disabled by default)*
-- Water pump 4 *(disabled by default)*
+- Water pump 3 _(disabled by default)_
+- Water pump 4 _(disabled by default)_
 - 3-way valve
-- 2-way valve *(disabled by default)*
+- 2-way valve _(disabled by default)_
 
-Binary sensors are only created when the device reports the corresponding component status. Entities marked as *disabled by default* can be enabled in the entity settings.
+Binary sensors are only created when the device reports the corresponding component status. Entities marked as _disabled by default_ can be enabled in the entity settings.
 
 ### Water heater
 
