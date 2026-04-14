@@ -34,11 +34,11 @@ type:
   type: string
 entity:
   required: true
-  description: "A camera, image, or person `entity_id` used for the picture."
+  description: "Entity to display. Camera, image, and person entities are shown as pictures by default."
   type: string
 use_entity_picture:
   required: false
-  description: "Use the entity's `entity_picture` attribute as the card image. Useful for entities that dynamically set their picture (e.g., update entities showing component logos, custom integrations). The configured static `image` remains as a fallback when the `entity_picture` attribute is not present."
+  description: "Use the entity's `entity_picture` attribute as the image."
   type: boolean
   default: false
 camera_image:
