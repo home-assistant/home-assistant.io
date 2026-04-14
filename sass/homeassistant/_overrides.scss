@@ -647,6 +647,37 @@ header .breadcrumbs {
       }
     }
 
+    .socials {
+      .icons {
+        margin: -16px 0 16px 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        li {
+          padding: 0;
+        }
+
+        a {
+          color: $grayDarker;
+
+          display: flex;
+
+          &:hover {
+            color: $blueDark;
+          }
+        }
+
+        iconify-icon {
+          font-size: 1.25em;
+        }
+      }
+    }
+
     .social-media {
       @media only screen and (min-width: $desk-start) {
         .web-notice {
