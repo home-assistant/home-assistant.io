@@ -196,7 +196,28 @@ data:
 
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_media_group`, `send_location`, `send_chat_action`, `send_message_draft`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+Available actions:
+
+- `answer_callback_query`
+- `delete_message`
+- `edit_caption`
+- `edit_message_media`
+- `edit_message`
+- `edit_replymarkup`
+- `leave_chat`
+- `send_animation`
+- `send_chat_action`
+- `send_document`
+- `send_location`
+- `send_media_group`
+- `send_message_draft`
+- `send_message`
+- `send_photo`
+- `send_poll`
+- `send_sticker`
+- `send_video`
+- `send_voice`
+- `set_message_reaction`
 
 Chat targets can be specified in any of the following ways:
 
