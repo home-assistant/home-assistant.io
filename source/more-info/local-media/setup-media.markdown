@@ -3,6 +3,17 @@ title: "Setting up local media sources"
 description: "More information on how to set up local media sources in Home Assistant."
 ---
 
+## What is a local media folder?
+Think of a local media folder as a digital "bookshelf" inside your Home Assistant device. 
+
+If you have music, photos, or home videos saved on an SD card, an SSD, or a USB drive plugged into your Home Assistant hardware, this guide helps the system "see" those files. 
+
+**Common uses:**
+* Playing your own MP3 library through smart speakers.
+* Viewing security camera recordings saved to your hard drive.
+* Showing a slideshow of family photos on your dashboard.
+
+
 Home Assistant has a local media folder. Any audio or video files placed in this folder will be accessible via the media browser.
 
 The easiest way to manage your local media is using the tools accessible in the toolbar of the media browser when browsing the local media folder.
