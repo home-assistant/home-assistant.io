@@ -32,7 +32,7 @@ The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
 
-Select at a minimum the following scopes: **read:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
+Select at a minimum the following scopes: **read:accounts**, **write:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
 
 Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
@@ -135,6 +135,10 @@ The `mastodon.post` action posts a status to your Mastodon account.
   - **Description**: If not used, will default to account setting. `public`: post will be public. `unlisted`: post will be public but not appear on the public timeline. `private`: post will only be visible to followers. `direct`: post will only be visible to mentioned users.
   - **Optional**: Yes
 
+- **Data attribute**: `quote_approval_policy`
+  - **Description**: If not used, will default to account setting. If `visibility` is `private` or `direct` this attribute is ignored. `public`: anyone can quote this post. `followers`: only accounts that follow you can quote this post. `nobody`: no one but you can quote this post.
+  - **Optional**: Yes
+
 - **Data attribute**: `idempotency_key`
   - **Description**: A unique key to prevent duplicate posts for up to one hour. Common strategies include using a hash of the status text or a static string.
   - **Optional**: Yes
@@ -162,6 +166,44 @@ The `mastodon.post` action posts a status to your Mastodon account.
 {% note %}
 Mastodon holds idempotency keys for up to one hour and subsequent posts using the same key will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant.
 {% endnote %}
+
+### Action: Update profile
+
+The `mastodon.update_profile` action allows you to update information and pictures of your Mastodon account.
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mastodon config entry.
+  - **Optional**: No
+- **Data attribute**: `display_name`
+  - **Description**: The display name to set on your profile.
+  - **Optional**: Yes
+- **Data attribute**: `note`
+  - **Description**: The bio to set on your profile. You can @mention other people or #hashtags.
+  - **Optional**: Yes
+- **Data attribute**: `avatar`
+  - **Description**: An image to set as your profile picture. WEBP, PNG, or JPG. At most 8 MB. Will be downscaled to 400x400px.
+  - **Optional**: Yes
+- **Data attribute**: `header`
+  - **Description**: An image to set as your profile header. WEBP, PNG, or JPG. At most 8 MB. Will be downscaled to 1500x500px.
+  - **Optional**: Yes
+- **Data attribute**: `locked`
+  - **Description**: Whether to lock your profile. A locked profile requires you to approve followers and hides your posts from non-followers.
+  - **Optional**: Yes
+- **Data attribute**: `bot`
+  - **Description**: Signal to others that the account mainly performs automated actions.
+  - **Optional**: Yes
+- **Data attribute**: `discoverable`
+  - **Description**: Whether your profile should be discoverable. Public posts and the profile may be featured or recommended across Mastodon.
+  - **Optional**: Yes
+- **Data attribute**: `fields`
+  - **Description**: Up to 4 additional profile fields as key-value pairs. Your homepage, pronouns, age, anything you want. Note that updating fields will replace all existing fields, not just the ones specified here.
+  - **Optional**: Yes
+  - **Keys**:
+    - `name`: The label for the field.
+    - `value`: The value for the field.
+- **Data attribute**: `attribution_domains`
+  - **Description**: Websites allowed to credit you. Protects from false attributions. Note that setting attribution domains will replace all existing attribution domains, not just the ones specified here.
+  - **Optional**: Yes
 
 ### Examples
 
