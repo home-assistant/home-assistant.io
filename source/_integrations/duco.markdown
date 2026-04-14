@@ -14,7 +14,7 @@ ha_platforms:
   - fan
   - sensor
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
 The **Duco** {% term integration %} allows you to monitor and control [Duco](https://www.duco.eu/) demand-controlled ventilation (DCV) systems from Home Assistant. Duco produces ventilation boxes for residential buildings that regulate air quality based on CO₂ and humidity sensors. This integration communicates locally with the Duco box over your home network, requiring no cloud connection.
@@ -78,7 +78,11 @@ The following sensor entities are created per node, depending on the node type:
 
 #### Ventilation state
 
-Available for the main ventilation box (BOX). Shows the current ventilation state, for example _Automatic_, _Continuous high speed_, or _Manual low speed (15 min)_.
+Available for the main ventilation box (BOX). Shows the current ventilation state, for example:
+
+- Automatic
+- Continuous high speed
+- Manual low speed (15 min)
 
 #### CO₂ concentration
 
@@ -90,21 +94,25 @@ Available for humidity sensor modules (BSRH). Shows the current relative humidit
 
 #### CO₂ air quality index
 
-Available for CO₂ sensor modules. Shows the CO₂ air quality score as a percentage (0–100 %). This entity is disabled by default.
+Available for CO₂ sensor modules. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
 
-- 90–100 %: Very good indoor air quality
-- 75–85 %: Good indoor air quality
-- 50–70 %: Temporarily acceptable indoor air quality
-- 35–45 %: Poor indoor air quality
+Indoor air quality ranges for CO₂:
+
+- 90–100%: Very good
+- 75–85%: Good
+- 50–70%: Temporarily acceptable
+- 35–45%: Poor
 
 #### Humidity air quality index
 
-Available for humidity sensor modules (BSRH). Shows the humidity air quality score as a percentage (0–100 %). This entity is disabled by default.
+Available for humidity sensor modules (BSRH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
 
-- 95–100 %: Very good indoor air quality
-- 65–90 %: Good indoor air quality
-- 35–50 %: Temporarily acceptable indoor air quality
-- 5–20 %: Poor indoor air quality
+Indoor air quality ranges for humidity:
+
+- 95–100%: Very good
+- 65–90%: Good
+- 35–50%: Temporarily acceptable
+- 5–20%: Poor
 
 ## Use cases
 
