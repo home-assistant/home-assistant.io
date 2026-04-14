@@ -3,7 +3,7 @@ title: Eve Online
 description: Instructions on how to integrate Eve Online with Home Assistant.
 ha_category:
   - Sensor
-ha_release: "2025.6"
+ha_release: "2026.6"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
