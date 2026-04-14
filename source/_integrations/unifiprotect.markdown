@@ -85,7 +85,7 @@ use has.
 In addition to the username and password, you now need to create an API key for Home Assistant.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations**  or go to [IP address]/network/default/integrations/ (e.g. _192.168.1.1/network/default/integrations/_).
+2. Go to **Settings** > **Control Plane** > **Integrations** or go to [IP address]/network/default/integrations/ (e.g. _192.168.1.1/network/default/integrations/_).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
