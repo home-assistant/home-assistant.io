@@ -36,6 +36,11 @@ entity:
   required: true
   description: "A camera, image, or person `entity_id` used for the picture."
   type: string
+use_entity_picture:
+  required: false
+  description: "Use the entity's `entity_picture` attribute as the card image. Useful for entities that dynamically set their picture (e.g., update entities showing component logos, custom integrations). The configured static `image` remains as a fallback when the `entity_picture` attribute is not present."
+  type: boolean
+  default: false
 camera_image:
   required: false
   description: "Camera `entity_id` to use. (not required if `entity` is already a camera-entity)."
@@ -116,6 +121,16 @@ Basic example:
 type: picture-entity
 entity: light.bed_light
 image: /local/bed_light.png
+```
+
+Using an entity's `entity_picture` attribute (e.g., update entities showing component logos):
+
+```yaml
+type: picture-entity
+entity: update.home_assistant_core_update
+use_entity_picture: true
+show_state: true
+show_name: true
 ```
 
 Different images for each state (supports local, web, or `media-source://` URLs):
