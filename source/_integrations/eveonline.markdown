@@ -57,6 +57,7 @@ The scopes listed above are the minimum required for the current version of the 
 - `esi-markets.read_character_orders.v1`
 - `esi-skills.read_skillqueue.v1`
 - `esi-skills.read_skills.v1`
+
 {% endnote %}
 
 {% details "I have manually disabled My Home Assistant" %}
@@ -79,7 +80,7 @@ The integration setup will next give you instructions to enter the [Application 
 Client ID:
   description: "The Client ID from your Eve Online developer application."
 Client Secret:
-  description: "The Secret Key from your Eve Online developer application."
+  description: "The Client Secret from your Eve Online developer application."
 {% endconfiguration_basic %}
 
 {% note %}
@@ -165,6 +166,6 @@ Outside of the daily downtime window, unavailable entities may indicate an unpla
 
 ## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
