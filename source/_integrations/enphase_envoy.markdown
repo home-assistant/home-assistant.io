@@ -80,6 +80,8 @@ Collect test fixture data in diagnostics report:
   description: "No/Yes <br> When new features are requested or firmware is upgraded, it can happen that existing test fixtures no longer cover all test cases and new ones are needed. You may be requested to provide data for such test fixtures. If so, and you are willing to provide the data, setting this option enables the collection of test data as part of the [diagnostics report](#fixtures)."
 Always use a new connection when requesting data from the Envoy:
   description: "No/Yes <br> Some older Envoy firmware may exhibit connection issues when using the default keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R, but may apply to other older firmware versions as well."
+Data request attempts to use:
+  description: Number of data request attempts before failure is signalled. Each request attempt waits 45 second for a reply. Default is 4 attempts, configurable range is 2-10. For instance, increase when daily outages still occur around 11 PM, the time when the Envoy recycles internal tasks (See [Known issues](#data-outage-around-11pm).)
 {% endconfiguration_basic %}
 
 ## Reconfigure
@@ -775,6 +777,22 @@ Envoy Metered with a net-consumption CT measures current and energy exchange bet
 ### Balancing grid meter
 
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
+
+### Data outage around 11PM
+
+Shortly after 11PM, data requests to the Envoy may fail. This has been reported for various firmware versions and/or different moments in time. The Envoy is supposedly recycling internal processes or performing cleanups. While this activity is ongoing, data requests may fail. The issue is typically observed as entries in the log file and gaps in historical data. These gaps may last until a new, changed, value comes in. For some entities this may only be at next sunrise, when PV generation resumes.
+
+To correct for this issue, use the option [**Data request attempts to use**](#data-request-attempts-to-use) to increase the number of request attempts. Keep the number of attempts as close as possible to the default setting of 4, while trying to achieve flawless communication.
+
+{% details "History example for Envoy Lifetime energy production with gaps at 11PM" %}
+
+The example below shows data gaps starting at 11PM during multiple, but not all, days.
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_11pm_outages.png" alt="envoy lifetime energy production 11pm outages">
+  <figcaption>Envoy Lifetime energy production data gaps at 11PM.</figcaption>
+</figure>
+
+{% enddetails %}
 
 ## Troubleshooting
 
