@@ -780,7 +780,7 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 
 ### Data outage around 11 PM
 
-Shortly after 11 PM, data requests to the Envoy may fail. This has been reported for various firmware versions and/or at different times. The Envoy is reportedly recycling internal processes or performing cleanup tasks. While this activity is ongoing, data requests may fail. The issue is typically observed as log entries and gaps in historical data. These gaps may last until a new value comes in. For some entities, this may not happen until the next sunrise, when PV generation resumes.
+Shortly after 11 PM, data requests to the Envoy may fail. This has been reported for various firmware versions and at different times. The Envoy is reportedly recycling internal processes or performing cleanup tasks. While this activity is ongoing, data requests may fail. The issue is typically observed as log entries and gaps in historical data. These gaps may last until a new value comes in. For some entities, this may not happen until the next sunrise, when solar generation resumes.
 
 To help reduce this issue, use the option [**Number of data request attempts**](#number-of-data-request-attempts) to increase the number of request attempts. Keep the number of attempts as close as possible to the default setting of 4, while trying to reduce request failures and gaps in history.
 
