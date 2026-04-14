@@ -188,3 +188,8 @@ H80C5
 {% note %}
 Some scenes may not be supported from all devices. If you find a scene that's not working with a specific model, please open an issue at the [underling library](https://github.com/Galorhallen/govee-local-api/issues)
 {% endnote %}
+
+## Troubleshooting
+
+### Discovery issues
+If your devices are not being discovered, ensure that your firewall allows incoming traffic from your Govee devices on port `4002/udp`. This port is used by the Govee LAN API for device discovery and state updates.
