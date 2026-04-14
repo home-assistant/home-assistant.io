@@ -123,7 +123,7 @@ entity: light.bed_light
 image: /local/bed_light.png
 ```
 
-Using an entity's `entity_picture` attribute (e.g., update entities showing component logos):
+Use an entity's `entity_picture` attribute to show an entity-provided image, like an update entity that shows a component logo:
 
 ```yaml
 type: picture-entity
