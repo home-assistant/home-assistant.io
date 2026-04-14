@@ -57,7 +57,7 @@ days_to_show:
   default: 30
 chart_type:
   required: false
-  description: If the graph should be rendered as a `bar` or a `line` chart. Additional options of `bar-stack` and `line-stack` select stacked versions of the chart.
+  description: If the graph should be rendered as a `bar` or a `line` chart. Alternatively, using `bar-stack` or `line-stack` select stacked versions of the chart.
   type: string
 stat_types:
   required: false
