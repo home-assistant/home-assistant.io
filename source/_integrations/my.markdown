@@ -16,7 +16,7 @@ related:
 
 The **My Home Assistant** {% term integration %} adds support for the [My Home Assistant](https://my.home-assistant.io) redirect service. The service lets a link from outside Home Assistant, such as a link in this documentation, open a specific page inside your own Home Assistant instance without needing to know its hostname or IP address.
 
-For example, when the documentation says "go to {% my integrations title="**Settings** > **Devices & services**" %}", selecting that link opens the **Devices & services** page in the Home Assistant instance you are currently signed into.
+For example, when the documentation says "go to {% my integrations title="**Settings** > **Devices & services**" %}", selecting that link opens the **Devices & services** page in the Home Assistant instance you selected or saved in your browser.
 
 ## Use cases
 
