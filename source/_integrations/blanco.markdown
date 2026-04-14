@@ -117,7 +117,7 @@ The integration uses cloud polling and therefore requires an active internet con
 
 ## Long‑term statistics
 
-Water consumption data is also available as **long‑term statistics** in the Home Assistant {% term recorder %}. These statistics are stored under the IDs `blanco:<serial>_water_all`, `blanco:<serial>_water_still`, `blanco:<serial>_water_medium`, `blanco:<serial>_water_classic`, and `blanco:<serial>_water_hot`, where `<serial>` is the device serial number in lowercase with non‑alphanumeric characters replaced by underscores.
+Water consumption data is also available as {% term "Long-term statistics" %} via the Home Assistant [recorder](/integrations/recorder/) integration. These statistics are stored under the IDs `blanco:<serial>_water_all`, `blanco:<serial>_water_still`, `blanco:<serial>_water_medium`, `blanco:<serial>_water_classic`, and `blanco:<serial>_water_hot`, where `<serial>` is the device serial number in lowercase with non‑alphanumeric characters replaced by underscores.
 
 You can use these statistics in the Energy Dashboard or custom graphs and dashboards.
 
