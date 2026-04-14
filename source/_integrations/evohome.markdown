@@ -11,6 +11,7 @@ ha_codeowners:
   - '@zxdavb'
 ha_domain: evohome
 ha_platforms:
+  - button
   - climate
   - water_heater
 ha_integration_type: integration
@@ -75,13 +76,19 @@ TCC systems are implemented as a _location_, which consist of 1-12 _zones_ and, 
 
 ### Evohome
 
-Each zone is represented as a **Climate** entity which will expose the zone's operating mode, current temperature and setpoint.
+Each heating zone is represented as a **Climate** entity that exposes the zone's operating mode, current temperature, and setpoint. Due to limitations with the vendor's public API, there is no cooling functionality.
 
-The Evohome location (controller) is also represented as a **Climate** entity that will expose the location's operating mode. Locations have neither a current temperature nor a setpoint, but as all **Climate** entities are required by Home Assistant to report a temperature, this is calculated as the average of all the zones.
+Each zone also provides a **Button** entity to clear any override and return the zone to **FollowSchedule**.
+
+The Evohome controller is also represented as a **Climate** entity that exposes the system's current operating mode. A controller has neither a current temperature nor a setpoint, but all **Climate** entities in Home Assistant are required to report a temperature, so this value is calculated as the average of all zones.
+
+The controller also provides a **Button** entity to reset the system mode. This returns the system to **AutoWithReset** when supported, or **Auto** when **AutoWithReset** is unsupported, and resets all zones and DHW to **FollowSchedule**.
 
 The DHW controller is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
 
-Note that there is limited support for schedules: they cannot be changed and there is no facility to backup/restore that data (see [here](https://evohome.readthedocs.io/en/latest/) for such functionality).
+If present, it also provides a **Button** entity to clear any DHW override.
+
+Note that support for schedules is limited. They cannot be changed, and there is no way to back up or restore that data. For that functionality, refer to the [evohome-async documentation](https://github.com/zxdavb/evohome-async).
 
 ### Round thermostat
 
@@ -121,13 +128,19 @@ In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` 
 
 This integration provides its own actions to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
 
-It is recommended to use the native actions (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic actions for integration with 3rd party systems such as Amazon Alexa or Google Home.
+For reset operations, Evohome also provides **Button** entities in the UI. The corresponding actions described below will be deprecated in a future release.
+
+It is recommended to use the native actions (for example, `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (for example, `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic actions for integration with third-party systems such as Amazon Alexa or Google Home.
+
+In particular, the native actions allow access to time-limited modes, such as being away for three days, rather than just being away indefinitely.
+
+Actions that deal with the system as a whole require the `entity_id` of the controller. Other actions require the `entity_id` of a zone.
 
 ### evohome.set_system_mode
 
 This action call will set the operating `mode` of the system for a specified period of time, after which it will revert to **Auto**. However, if no period of time is provided, then the change is permanent.
 
-For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
+For **AutoWithEco**, the period of time is a `duration` of up to 24 hours.
 
 ```yaml
 - actions:
@@ -137,7 +150,7 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
         duration: {hours: 1, minutes: 30}
 ```
 
-For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight tonight, and 2 days reverts at midnight tomorrow.
+For the other modes, such as **Away**, the duration is a `period` in days, where 1 day reverts at midnight tonight, and 2 days reverts at midnight tomorrow.
 
 ```yaml
 - actions:
@@ -151,7 +164,9 @@ For the other modes, such as **Away**, the duration is a `period` of days, where
 
 This action will set the operating mode of the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
 
-Not all systems support this feature.
+This same reset is also available as a **Button** entity on the controller.
+
+Rarely, systems do not support **AutoWithReset**, in which case the integration will set the operating mode of the system to **Auto**, and set all the zones to **FollowSchedule**.
 
 ### evohome.refresh_system
 
@@ -185,6 +200,8 @@ The `duration` can be up to 24 hours, after which the zone mode will revert to s
 ### evohome.clear_zone_override
 
 This action is used to set a zone, as identified by its `entity_id`, to **FollowSchedule**.
+
+This same reset is also available as a **Button** entity on each heating zone. Using the button is preferable to actions or presets.
 
 ## Useful Jinja templates
 
