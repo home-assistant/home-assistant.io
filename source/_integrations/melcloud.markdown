@@ -101,7 +101,7 @@ The following attributes are available for `sensor` platform entities:
 **Device sensors:**
 
 - Tank water temperature
-- Outside temperature – 1 °C precision, polled every 1-2 hours
+- Outside temperature – 1°C precision, polled every 1-2 hours
 - System flow temperature
 - System return temperature
 - Boiler flow temperature
