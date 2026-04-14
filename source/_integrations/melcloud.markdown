@@ -8,7 +8,6 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: melcloud
 ha_platforms:
-  - binary_sensor
   - climate
   - diagnostics
   - sensor
@@ -69,7 +68,7 @@ The following attributes are available for `sensor` platform entities:
 
 ## Air-to-Water device
 
-An Air-to-Water device provides `water_heater`, `climate`, `sensor`, and `binary_sensor` platforms.
+An Air-to-Water device provides `water_heater`, `climate`, and `sensor` platforms.
 
 ### Climate
 
@@ -116,24 +115,6 @@ The following attributes are available for `sensor` platform entities:
 - Daily hot water energy consumed / produced
 
 The daily energy sensors use the state class `total_increasing` and are compatible with the Energy Dashboard. Values reset at midnight in the MELCloud service timezone.
-
-### Binary sensor
-
-The following binary sensors indicate component operating status and are categorized as diagnostic entities:
-
-- Boiler
-- Booster heater 1
-- Booster heater 2 *(disabled by default)*
-- Booster heater 2+ *(disabled by default)*
-- Immersion heater
-- Water pump 1
-- Water pump 2
-- Water pump 3 *(disabled by default)*
-- Water pump 4 *(disabled by default)*
-- 3-way valve
-- 2-way valve *(disabled by default)*
-
-Binary sensors are only created when the device reports the corresponding component status. Entities marked as *disabled by default* can be enabled in the entity settings.
 
 ### Water heater
 
