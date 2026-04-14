@@ -31,7 +31,7 @@ My Home Assistant is a redirect service hosted at [my.home-assistant.io](https:/
 This integration registers a hidden panel in Home Assistant that handles the incoming redirect from the My Home Assistant service and takes you to the right page.
 
 {% tip %}
-My Home Assistant is designed with privacy in mind. Your instance URL stays in your browser, and neither the URL of your Home Assistant instance nor the page you are trying to open is ever transmitted to a third-party service.
+My Home Assistant is designed with privacy in mind. Your Home Assistant instance URL stays in your browser and is not sent to the My Home Assistant service.
 {% endtip %}
 
 For more information, see the [My Home Assistant FAQ](https://my.home-assistant.io/faq/).
