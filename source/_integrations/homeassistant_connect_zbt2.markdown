@@ -23,4 +23,9 @@ If you are looking to buy one, please visit the [product page](https://home-assi
 
 ## Configuration
 
-This integration is not user configurable.
+While the integration itself doesn't require setup, it exposes a **Status light** switch that you can control.
+
+To manage the status light:
+1. Navigate to **Settings** > **System** > **Hardware**.
+2. Select **Connect ZBT-2**.
+3. You can now toggle the **Status light** on or off.
