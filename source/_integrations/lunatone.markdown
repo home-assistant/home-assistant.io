@@ -30,7 +30,7 @@ Right now the following devices are supported:
 - [DALI-2 Display 7''](https://www.lunatone.com/produkt/dali-2-display-7/)
 
 {% important %}
-Home Assistant auto-discovery requires version 1.17.1 or higher, though manual setup is available starting from version 1.14.1.
+Home Assistant automatic discovery requires device firmware version 1.17.1 or later. Manual setup is available with device firmware version 1.14.1 or later.
 {% endimportant %}
 
 There is currently support for the following device types within Home Assistant:
