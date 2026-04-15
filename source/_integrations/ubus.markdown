@@ -26,8 +26,14 @@ opkg install rpcd-mod-file uhttpd-mod-ubus
 
 Add a new system user `hass` (or do it in any other way that you prefer):
 
-- Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
-- Add line to /etc/shadow: hass:x:0:0:99999:7:::
+- Add line to `/etc/passwd`: `hass:x:10001:10001:hass:/var:/bin/false`
+- Add line to `/etc/shadow`: `hass:x:0:0:99999:7:::`
+
+Then set a password for the `hass` user:
+
+```bash
+passwd hass
+```
 
 Edit the `/etc/config/rpcd` and add the following lines:
 
@@ -78,21 +84,21 @@ After this is done, add the following to your {% term "`configuration.yaml`" %} 
 device_tracker:
   - platform: ubus
     host: ROUTER_IP_ADDRESS
-    username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
+    username: hass
+    password: YOUR_HASS_PASSWORD
 ```
 
 {% configuration %}
 host:
-  description: The IP address of your router, e.g., 192.168.1.1.
+  description: The IP address of your router, for example, `192.168.1.1`.
   required: true
   type: string
 username:
-  description: The username of a user with administrative privileges, usually `root`.
+  description: The username for the account you created on the router. Use the dedicated `hass` user rather than `root` to follow the principle of least privilege.
   required: true
   type: string
 password:
-  description: The password for your given admin account.
+  description: The password for the user above.
   required: true
   type: string
 dhcp_software:
