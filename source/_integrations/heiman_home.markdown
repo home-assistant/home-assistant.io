@@ -33,7 +33,8 @@ You can also choose how room names should be synchronized to Home Assistant area
 
 {% configuration_basic %}
 Area synchronization mode:
-description: "Choose how device areas should be synchronized: **Do not sync** (keep existing area assignments), **Room name** (use Heiman room names), **Home name** (use Heiman home names), or **Home name and Room name** (combine both)."
+  description: >
+    Choose how device areas should be synchronized. Options are: **Do not sync** (keep existing area assignments), **Room name** (use Heiman room names), **Home name** (use Heiman home names), or **Home name and Room name** (combine both).
 {% endconfiguration_basic %}
 
 ## Supported functionality
