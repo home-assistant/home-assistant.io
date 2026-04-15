@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - light
 ha_integration_type: hub
+ha_zeroconf: true
 ha_quality_scale: silver
 ---
 
@@ -23,10 +24,14 @@ The **Lunatone** {% term integration %} is used to integrate with the devices of
 
 Right now the following devices are supported:
 
-- [DALI-2 IoT Gateway (v1.14.1 or later)](https://www.lunatone.com/produkt/dali-2-iot-gateway/)
-- [DALI-2 IoT4 Gateway (v1.14.1 or later)](https://www.lunatone.com/produkt/dali-2-iot4-gateway/)
-- [DALI-2 Display 4'' (v1.14.1 or later)](https://www.lunatone.com/produkt/dali-2-display-4/)
-- [DALI-2 Display 7'' (v1.14.1 or later)](https://www.lunatone.com/produkt/dali-2-display-7/)
+- [DALI-2 IoT Gateway](https://www.lunatone.com/produkt/dali-2-iot-gateway/)
+- [DALI-2 IoT4 Gateway](https://www.lunatone.com/produkt/dali-2-iot4-gateway/)
+- [DALI-2 Display 4''](https://www.lunatone.com/produkt/dali-2-display-4/)
+- [DALI-2 Display 7''](https://www.lunatone.com/produkt/dali-2-display-7/)
+
+{% important %}
+Home Assistant automatic discovery requires device firmware version 1.17.1 or later. Manual setup is available with device firmware version 1.14.1 or later.
+{% endimportant %}
 
 There is currently support for the following device types within Home Assistant:
 
