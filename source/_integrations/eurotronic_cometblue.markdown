@@ -77,10 +77,10 @@ Additionally, the following modes are available:
 
 Number entities provide specific settings that affect automatic thermostat behavior.
 
-- **Temperature Offset**: Temperature calibration for the internal thermostat control.
-- **Target Temperature High**: Temperature used for the **Comfort** preset and if schedule is on.
-- **Target Temperature Low**: Temperature used for the **Eco** preset and if schedule is off.
-- **Window Open Minutes**: How long should the thermostat stay **Off** if it detects an abrupt temperature drop.
+- **Temperature offset**: Temperature calibration for the internal thermostat control.
+- **Target temperature high**: Temperature used for the **Comfort** preset and if schedule is on.
+- **Target temperature low**: Temperature used for the **Eco** preset and if schedule is off.
+- **Window open minutes**: How long should the thermostat stay **Off** if it detects an abrupt temperature drop.
 
 ## Data updates
 
