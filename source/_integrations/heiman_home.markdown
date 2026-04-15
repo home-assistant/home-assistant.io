@@ -1,7 +1,7 @@
 ---
 title: Heiman Home
 description: Instructions on how to integrate your Heiman smart home devices with Home Assistant.
-ha_release: 2026.3
+ha_release: 2026.5
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: heiman_home
@@ -13,7 +13,7 @@ ha_platforms:
   - switch
 ha_integration_type: hub
 ha_codeowners:
-  - '@joostlek'
+  - '@heimanhome'
 ha_quality_scale: bronze
 ---
 
