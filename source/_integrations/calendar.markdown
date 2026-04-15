@@ -93,8 +93,8 @@ automation:
 ```
 
 Calendar triggers should not generally use automation mode `single` to ensure
-the trigger can fire when multiple events start at the same time (e.g., use
-`queued` or `parallel` instead). Note that calendars are read once every 15
+the trigger can fire when multiple events start at the same time. For example,
+use `queued` or `parallel` instead. Note that calendars are read once every 15
 minutes. When testing, make sure you do not plan events less than 15 minutes
 away from the current time, or your {% term trigger %} might not fire.
 
@@ -243,7 +243,7 @@ data:
 response_variable: agenda
 ```
 
-The response data contains a field for every calendar entity (e.g. `calendar.school` and `calendar.work` in this case).
+The response data contains a field for every calendar entity, for example, `calendar.school` and `calendar.work` in this case.
 Every calendar entity has a field `events` containing a list of events with these fields:
 
 | Response data | Description                                       | Example             |

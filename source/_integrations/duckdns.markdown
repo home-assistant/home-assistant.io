@@ -32,7 +32,7 @@ If you are running the Duck DNS app for Home Assistant (formerly known as Duck D
 
 ## Prerequisites
 
-To set up the integration, you need your Duck DNS subdomain and token. You can find these on the [Duck DNS homepage](https://www.duckdns.org) after logging in. If you don’t have an account, sign up using your preferred method (e.g., GitHub, Google), then create a new subdomain.
+To set up the integration, you need your Duck DNS subdomain and token. You can find these on the [Duck DNS homepage](https://www.duckdns.org) after signing in. If you don’t have an account, sign up using your preferred method (for example, GitHub or Google), then create a new subdomain.
 
 {% include integrations/config_flow.md %}
 

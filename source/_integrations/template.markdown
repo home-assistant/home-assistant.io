@@ -203,7 +203,7 @@ template:
     type: template
     default: true
   default_entity_id:
-    description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available.  If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
+    description: Use `default_entity_id` instead of name for automatic generation of the entity id. For example, `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available. If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
     required: false
     type: string
   icon:
@@ -377,7 +377,7 @@ binary_sensor:
       required: false
       type: time
     delay_on:
-      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor switches to `on`. This can also be a template.
+      description: The amount of time (for example, `0:00:05`) the template state must be ***met*** before this sensor switches to `on`. This can also be a template.
       required: false
       type: time
     device_class:
@@ -386,7 +386,7 @@ binary_sensor:
       type: device_class
       default: None
     state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value renders it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable`, or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value renders it as `off`. The actual appearance in the frontend (such as `Open`/`Closed` or `Detected`/`Clear`) depends on the sensor's device_class value.
       required: true
       type: template
 
@@ -406,7 +406,7 @@ template:
         delay_off:
           minutes: 5
         state: >
-          {{ states('sensor.washing_machine_power')|float > 0 }}
+          {{ states('sensor.washing_machine_power') | float > 0 }}
 ```
 
 ### State based binary sensor - Is Anyone Home
@@ -430,7 +430,7 @@ template:
 
 ### State based binary sensor - device tracker sensor with latitude and longitude attributes
 
-This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
+This example shows how to combine a non-GPS (for example, NMAP) and GPS device tracker while still including latitude and longitude attributes
 
 ```yaml
 # Example configuration.yaml entry
@@ -537,7 +537,7 @@ The template cover platform allows you to create covers with templates to define
 template:
   - cover:
       - name: Garage Door
-        state: "{{ states('sensor.garage_door')|float > 0 }}"
+        state: "{{ states('sensor.garage_door') | float > 0 }}"
         device_class: garage
         open_cover:
           action: script.open_garage_door
@@ -555,7 +555,7 @@ template:
         entity_id: sensor.garage_door
     cover:
       - name: Garage Door
-        state: "{{ trigger.to_state.state|float(0) > 0 }}"
+        state: "{{ trigger.to_state.state | float(0) > 0 }}"
         device_class: garage
         open_cover:
           action: script.open_garage_door
@@ -666,7 +666,7 @@ template:
           target:
             entity_id: switch.garage_door
         icon: >-
-          {% if states('sensor.garage_door')|float > 0 %}
+          {% if states('sensor.garage_door') | float > 0 %}
             mdi:garage-open
           {% else %}
             mdi:garage
@@ -1060,8 +1060,8 @@ Light entities can be created from the frontend in the Helpers section or via YA
 template:
   - light:
       - name: "Theater Lights"
-        level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
-        state: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
+        level: "{{ state_attr('sensor.theater_brightness', 'lux') | int }}"
+        state: "{{ state_attr('sensor.theater_brightness', 'lux') | int > 0 }}"
         temperature: "{{states('input_number.temperature_input') | int}}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
@@ -1117,8 +1117,8 @@ template:
         - light.led_strip
     light:
       - name: "Theater Lights"
-        level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
-        state: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
+        level: "{{ state_attr('sensor.theater_brightness', 'lux') | int }}"
+        state: "{{ state_attr('sensor.theater_brightness', 'lux') | int > 0 }}"
         temperature: "{{states('input_number.temperature_input') | int}}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
@@ -1163,7 +1163,7 @@ template:
 
 ### Wrapping WLED presets as light effects
 
-This example creates a template light that wraps an RGBW WLED device and exposes its saved presets — predefined combinations of effects, colors, and brightness stored on the device — as selectable effects directly in the light entity. This is useful if you prefer to pick presets from the effects list in a light card on your dashboard, without having to use a separate select entity.
+This example creates a template light that wraps an RGBW WLED device and exposes its saved presets (predefined combinations of effects, colors, and brightness stored on the device) as selectable effects directly in the light entity. This is useful if you prefer to pick presets from the effects list in a light card on your dashboard, without having to use a separate select entity.
 
 The template light mirrors the state, brightness, and RGBW color of the underlying WLED light entity. Selecting an effect sends the matching preset name to the WLED preset select entity.
 
@@ -1268,7 +1268,7 @@ light:
       required: inclusive
       type: action
     set_level:
-      description: Defines a set of actions (script) to run when the light is given a brightness command. The script executes only if the light is turned on with a `brightness`, `brightness_pct`, or `transition`. The `set_level` script receives the variables `brightness` and/or `transition`.
+      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
       required: false
       type: action
     set_temperature:
@@ -1317,9 +1317,22 @@ light:
 
 {% endconfiguration %}
 
-### Light Considerations
+### Light considerations
 
-Transition does not have its own script. It is instead passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color`, or `rgbww_color` scripts. Brightness is passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color`, or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) is not called. If only brightness is passed to `light.turn_on` action, the `set_level` script is called.
+When `light.turn_on` is called, Home Assistant selects exactly one script to run based on the parameters included in the call. The first match in the following order wins:
+
+1. `color_temp_kelvin` (or `color_temp`) is provided and `set_temperature` is defined.
+2. `effect` is provided and `set_effect` is defined.
+3. `hs_color` is provided and `set_hs` is defined.
+4. `rgbww_color` is provided and `set_rgbww` is defined.
+5. `rgbw_color` is provided and `set_rgbw` is defined.
+6. `rgb_color` is provided and `set_rgb` is defined.
+7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+8. None of the above match, and `turn_on` is called.
+
+Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
+
+There is no separate script for transitions. The `transition` value is passed as a variable to whichever script is selected, including `turn_off`.
 
 ### State based light - Theater Volume Control
 
@@ -1361,10 +1374,10 @@ template:
           target:
             entity_id: media_player.receiver
           data:
-            volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
+            volume_level: "{{ (brightness / 255 * 100) | int / 100 }}"
         level: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {{ (state_attr('media_player.receiver', 'volume_level')|float * 255)|int }}
+            {{ (state_attr('media_player.receiver', 'volume_level') | float * 255) | int }}
           {% else %}
             0
           {% endif %}
@@ -1380,12 +1393,12 @@ template:
         unique_id: 28208f257b54c44e50deb2d618d44710
         name: Multi-segment Wled control
         state: "{{ states('light.wled_master') }}"
-        level: "{{ state_attr('light.wled_master', 'brightness')|d(0,true)|int }}"
+        level: "{{ state_attr('light.wled_master', 'brightness') | d(0,true) | int }}"
         rgbw: (
-          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[0]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[0]|d(0))/2 }},
-          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[1]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[1]|d(0))/2 }},
-          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[2]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[2]|d(0))/2 }},
-          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[3]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[3]|d(0))/2 }}
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[0] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[0] | d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[1] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[1] | d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[2] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[2] | d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[3] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[3] | d(0))/2 }}
           )
         effect_list: "{{ state_attr('light.wled_segment_0', 'effect_list') }}"
         effect: "{{ state_attr('light.wled_segment_0', 'effect') if state_attr('light.wled_segment_0', 'effect') == state_attr('light.wled_segment_1', 'effect') else none }}"
@@ -1570,7 +1583,7 @@ template:
         unlock:
           - variables:
               pin: !secret garage_door_pin
-          - condition: "{{ code|int == pin|int }}"
+          - condition: "{{ code | int == pin | int }}"
           - action: switch.turn_off
             target:
               entity_id: switch.source
@@ -1678,7 +1691,7 @@ template:
       - name: "Cutting Height"
         unit_of_measurement: "cm"
         unique_id: automower_cutting_height
-        state: "{{ states('number.automower_cutting_height_raw')|int(0) * 0.5 + 1.5 }}"
+        state: "{{ states('number.automower_cutting_height_raw') | int(0) * 0.5 + 1.5 }}"
         set_value:
           - action: number.set_value
             target:
@@ -1786,7 +1799,7 @@ template:
         state: >
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif state_attr('switch.kettle', 'W')|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'W') | float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on
@@ -1832,7 +1845,7 @@ sensor:
       type: template
       default: None
     state:
-      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
+      description: "Defines a template to get the state of the sensor. If the sensor is numeric, that is, it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
       required: true
       type: template
     state_class:
@@ -1857,7 +1870,7 @@ template:
   - sensor:
       - name: Sun Angle
         unit_of_measurement: "°"
-        state: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
+        state: "{{ '%+.1f' | format(state_attr('sun.sun', 'elevation')) }}"
 ```
 
 ### State based sensor - Modifying another sensor's output
@@ -1887,12 +1900,12 @@ template:
   - sensor:
       - name: "Transmission Down Speed"
         unit_of_measurement: "kB/s"
-        state: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
+        state: "{{ states('sensor.transmission_down_speed') | float * 1024 }}"
         availability: "{{ is_number(states('sensor.transmission_down_speed')) }}"
 
       - name: "Transmission Up Speed"
         unit_of_measurement: "kB/s"
-        state: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
+        state: "{{ states('sensor.transmission_up_speed') | float * 1024 }}"
         availability: "{{ is_number(states('sensor.transmission_up_speed')) }}"
 ```
 
@@ -2280,7 +2293,7 @@ vacuum:
     vacuums:
       living_room_vacuum:
         value_template: "{{ states('sensor.vacuum_state') }}"
-        battery_level_template: "{{ states('sensor.vacuum_battery_level')|int }}"
+        battery_level_template: "{{ states('sensor.vacuum_battery_level') | int }}"
         fan_speed_template: "{{ states('sensor.vacuum_fan_speed') }}"
         attribute_templates:
           status: >-

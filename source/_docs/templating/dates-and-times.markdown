@@ -229,6 +229,7 @@ If you need to compare datetimes, both sides need to be in the same time zone. [
 - **[`timestamp_custom`](/template-functions/timestamp_custom/) is not the only option.** For datetime values (like `now()`), use `.strftime(...)` directly. [`timestamp_custom`](/template-functions/timestamp_custom/) is specifically for UNIX timestamps.
 - **Templates using `now()` re-run every minute.** Don't use it for things that should update more often.
 - **Subtraction gives you a timedelta, not seconds.** Call `.total_seconds()` on the result when you need a number.
+- **`.replace(hour=..., minute=...)` can be wrong around daylight saving time.** Replacing the hour field on a timezone-aware datetime can land in a skipped or repeated local hour, which silently produces the wrong absolute time. Prefer [`today_at('HH:MM')`](#today_at) for "today at a specific local time", and add or subtract full days with `timedelta(days=1)` only when you accept 24 exact hours, not one calendar day.
 
 ## Next steps
 

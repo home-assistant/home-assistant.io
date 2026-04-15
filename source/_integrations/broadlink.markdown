@@ -426,9 +426,22 @@ switch:
 
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
-__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
+__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example, Bedroom TV.
 
-##  Managing codes for remotes
+## Troubleshooting
+
+### Device is locked
+
+If you see the error `<device name> is locked` in the logs, the device has its lock setting enabled. When a device is locked, the integration cannot communicate with it and will fail to load, so the **Configure** button mentioned in the error is not available.
+
+To resolve this, unlock the device using the Broadlink app on your mobile device:
+
+1. Open the Broadlink app and select the device.
+2. Go to the device settings.
+3. Disable the lock.
+4. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Broadlink**, and select **Reload**.
+
+## Managing codes for remotes
 ### Using e-Control remotes
 
 If you already have your remotes learned on e-Control app you can use this method to "copy" them to Home Assistant.
@@ -492,7 +505,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
 
-5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g., `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
+5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located, for example `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
 
     ```bash
     C:\Python27>python getBroadlinkSharedData.py
@@ -698,6 +711,6 @@ Assuming that your (or similar) device is in one of these databases:
 
 You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.
 
-### Managig codes with Broadlink Manager
+### Managing codes with Broadlink Manager
 
 A Docker based GUI to learn, send, and generate IR and RF codes is available through the [Broadlink Manager project](https://github.com/t0mer/broadlinkmanager-docker)

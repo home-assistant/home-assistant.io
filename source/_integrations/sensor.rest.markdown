@@ -172,6 +172,14 @@ The response is expected to be a dictionary or a list with a dictionary as its 0
 
 {% include integrations/using_templates.md %}
 
+## Data updates
+
+The RESTful sensor {% term polling polls %} the configured endpoint every 30 seconds by default. To change how often it polls, set the `scan_interval` option to a different value in seconds.
+
+If you want to refresh the sensor manually, for example, from an automation or a script, call the [`homeassistant.update_entity` action](/integrations/homeassistant/#action-update-entity) and target the sensor. This triggers an immediate request to the endpoint, outside of the normal polling schedule.
+
+The `force_update` option changes how state updates are published, not how often the endpoint is polled. When `force_update` is enabled, the sensor still polls on the configured interval, but it emits a state change event on every poll even if the returned value has not changed. This is useful for long-term statistics and history graphs that rely on state change events.
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor.
