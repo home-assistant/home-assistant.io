@@ -17,7 +17,7 @@ ha_codeowners:
 ha_quality_scale: bronze
 ---
 
-The **Heiman Home** {% term integration %} allows you to connect your Heiman smart home devices to Home Assistant. This integration uses OAuth2 authentication to securely access your Heiman Home account and provides real-time monitoring and control of your devices through MQTT updates.
+The **Heiman Home** {% term integration %} allows you to connect your Heiman smart home devices to Home Assistant. This integration uses OAuth2 authentication to securely access your Heiman Home account and provides real-time monitoring and control of your devices through MQTT updates. Use **Heiman Home** for devices that you set up in the Heiman Home app and account. If your device uses Matter, use the [Heiman](/integrations/heiman) integration instead.
 
 ## Prerequisites
 
@@ -106,14 +106,15 @@ The `heiman_home.read_device_properties` action is used to manually read propert
     - **Example**: `"1234567890abcdef"`
 
 ```yaml
-action: heiman_home.read_device_properties
-data:
-  device_id: "1234567890abcdef"
+actions:
+  - action: heiman_home.read_device_properties
+    data:
+      device_id: "1234567890abcdef"
 ```
 
 ## Real-time updates
 
-The **Heiman Home** integration uses MQTT for real-time device status updates, ensuring that device states are synchronized immediately when changes occur. This provides instant feedback when devices change state, such as when a smoke detector triggers or a door sensor changes from closed to open.
+The **Heiman Home** integration uses MQTT for real-time device status updates, ensuring that device states are synchronized immediately when changes occur. This provides instant feedback when devices change state, such as when a smoke detector triggers or a door sensor opens.
 
 ## Area synchronization
 
@@ -136,8 +137,7 @@ If your devices are not showing up:
 
 1. Verify devices are online in the Heiman Home app.
 2. Check that you selected the correct home during setup.
-3. Review device filter settings if configured.
-4. Try using the [`read_device_properties`](#action-read-device-properties) action to force a refresh.
+3. Try using the [`read_device_properties`](#action-read-device-properties) action to force a refresh.
 
 ### Connection issues
 
