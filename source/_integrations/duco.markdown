@@ -15,6 +15,7 @@ ha_platforms:
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
+ha_zeroconf: true
 ---
 
 The **Duco** {% term integration %} allows you to monitor and control [Duco](https://www.duco.eu/) demand-controlled ventilation (DCV) systems from Home Assistant. Duco produces ventilation boxes for residential buildings that regulate air quality based on CO₂ and humidity sensors. This integration communicates locally with the Duco box over your home network, requiring no cloud connection.
@@ -39,9 +40,10 @@ Compatible DucoBox models:
 ## Prerequisites
 
 - A Duco ventilation box with a DUCO Connectivity Board connected to your local network.
-- The IP address or hostname of your Duco Connectivity Board.
 
 {% include integrations/config_flow.md %}
+
+If your Duco box is on the same local network as Home Assistant, it is discovered automatically via mDNS. A notification appears in Home Assistant, and you can confirm the setup with one click. If the box is not discovered automatically, you can set it up manually by entering the IP address or hostname.
 
 {% configuration_basic %}
 Host:
@@ -224,8 +226,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 
 ## Known limitations
 
-- The integration does not support automatic discovery; the IP address or hostname must be entered manually.
-- The Duco box enforces a rate limit of 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully; the quota resets automatically around midnight.
+- The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 
 ## Troubleshooting
@@ -245,7 +246,7 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 1. Check that the Duco box is powered on and connected to your local network.
 2. Confirm the IP address or hostname is correct by opening `http://<host>` in a browser on your local network.
 3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
-4. If the Duco box received a new IP address from your router, reconfigure the integration with the updated address: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Duco**, and reconfigure the host.
+4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS. If that does not happen, you can update it manually: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Duco**, and use **Reconfigure** to enter the new address.
 
 ### Failed to set ventilation state (rate limit)
 
