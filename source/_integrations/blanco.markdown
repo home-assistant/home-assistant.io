@@ -10,7 +10,6 @@ ha_codeowners:
   - "@blancoGDPD"
 ha_domain: blanco
 ha_platforms:
-  - binary_sensor
   - diagnostics
   - sensor
 ha_integration_type: device
@@ -100,13 +99,6 @@ The following entities are updated roughly every 30 seconds:
 - **Consumption: This week** – Total water volume dispensed this week.
 - **Consumption: This month** – Total water volume dispensed this month.
 - **Consumption: This year** – Total water volume dispensed this year.
-
-### Binary sensors
-
-- **Connected to cloud** – Indicates whether the device is currently connected to the BLANCO cloud.
-- **Error** – Becomes `on` when the device has at least one active error.
-- **Mode: Hot water** – Indicates that the device is in hot water mode (CHOICE.ALL).
-- **Mode: Absence** – Indicates that the device is in absence mode (CHOICE.ALL).
 
 ## Data updates
 
