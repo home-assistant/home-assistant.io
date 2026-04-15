@@ -22,9 +22,9 @@ Sharing analytics is completely optional. Nothing is sent from your installation
 
 ## Why share?
 
-- **Shape the roadmap**: integration usage numbers help the Home Assistant team prioritize which integrations to improve, rewrite, or expand.
-- **Advocate for the open home**: when the team talks to manufacturers, concrete numbers such as "X thousand Home Assistant users have device Y" are far more convincing than anecdotes. This has directly contributed to manufacturers adding local APIs, local control, and privacy-respecting features.
-- **Help other users discover integrations**: the public dashboard at [analytics.home-assistant.io](https://analytics.home-assistant.io) lets anyone see which integrations and devices are popular, which can help new users decide what to try.
+- Shape the roadmap: integration usage numbers help the Home Assistant team prioritize which integrations to improve, rewrite, or expand.
+- Advocate for the open home: when the team talks to manufacturers, concrete numbers such as "X thousand Home Assistant users have device Y" are far more convincing than anecdotes. This has directly contributed to manufacturers adding local APIs, local control, and privacy-respecting features.
+- Help other users discover integrations: the public dashboard at [analytics.home-assistant.io](https://analytics.home-assistant.io) lets anyone see which integrations and devices are popular, which can help new users decide what to try.
 
 ## Enabling analytics
 
