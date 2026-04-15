@@ -2,6 +2,7 @@
 title: Eurotronic Comet Blue Thermostats
 description: Instructions on how to integrate Eurotronic Comet Blue Thermostats into Home Assistant.
 ha_category:
+  - Button
   - Climate
   - Number
 ha_iot_class: Local Polling
@@ -14,6 +15,7 @@ ha_domain: eurotronic_cometblue
 ha_integration_type: device
 ha_quality_scale: bronze
 ha_platforms:
+  - button
   - climate
   - number
 ---
@@ -81,6 +83,10 @@ Number entities provide specific settings that affect automatic thermostat behav
 - **Target temperature high**: Temperature used for the **Comfort** preset and if schedule is on.
 - **Target temperature low**: Temperature used for the **Eco** preset and if schedule is off.
 - **Window open minutes**: How long should the thermostat stay **Off** if it detects an abrupt temperature drop.
+
+### Button
+
+The integration provides a **Sync time** button for each device. Pressing this button synchronizes the thermostat's internal clock with Home Assistant's current time.
 
 ## Data updates
 
