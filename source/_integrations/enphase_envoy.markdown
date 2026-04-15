@@ -81,7 +81,7 @@ Collect test fixture data in diagnostics report:
 Always use a new connection when requesting data from the Envoy:
   description: "No/Yes <br> Some older Envoy firmware may exhibit connection issues when using the default keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R, but may apply to other older firmware versions as well."
 Number of data request attempts:
-  description: "Number of data request attempts before failure is signaled. Each request attempt waits 45 seconds for a reply. Increasing this value means Home Assistant waits longer before giving up on a request, which can also delay sensor updates while retries are in progress. Default is 4 attempts, and the configurable range is 2-10. For instance, increase this value when daily outages still occur around 11 PM, the time when the Envoy recycles internal tasks. See [Known issues](#data-outage-around-11-pm)."
+  description: "Number of data request attempts before failure is signaled. Each request attempt waits 45 seconds for a reply. Increasing this value means Home Assistant waits longer before giving up on a request, which can also delay sensor updates while retries are in progress. Default is 4 attempts, and the configurable range is 2-10. For instance, increase this value when daily outages still occur around 11 PM, the time when the Envoy recycles internal tasks. (See [Data outage around 11 PM](#data-outage-around-11-pm) in [Known Issues](#known-issues-and-limitations))."
 {% endconfiguration_basic %}
 
 ## Reconfigure
