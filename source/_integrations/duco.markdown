@@ -114,6 +114,14 @@ Indoor air quality ranges for humidity:
 - 35–50%: Temporarily acceptable
 - 5–20%: Poor
 
+#### Wi-Fi signal strength
+
+Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+
+#### Write requests remaining
+
+Available for the main ventilation box (BOX). Shows the number of write requests remaining for today. The Duco box enforces a daily limit of approximately 200 write requests. This entity is disabled by default.
+
 ## Use cases
 
 - Switch to high ventilation automatically when cooking or showering.
