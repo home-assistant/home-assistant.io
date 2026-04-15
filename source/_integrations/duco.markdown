@@ -120,7 +120,7 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 
 #### Write requests remaining
 
-Available for the main ventilation box (BOX). Shows the number of write requests remaining for today. The Duco box enforces a daily limit of approximately 200 write requests. This entity is disabled by default.
+Available for the main ventilation box (BOX). Shows the number of write requests remaining for today. The Duco box enforces a daily limit of 200 write requests. This entity is disabled by default.
 
 ## Use cases
 
@@ -229,7 +229,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 ## Known limitations
 
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
-- The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
+- The Duco box enforces a rate limit of 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 
 ## Troubleshooting
