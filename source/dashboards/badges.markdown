@@ -136,7 +136,7 @@ The label, icon, and color are automatically resolved from the action you config
 type: shortcut
 tap_action:
   action: navigate
-  navigation_path: /lovelace/kitchen
+  navigation_path: "/lovelace/kitchen"
 ```
 
 {% configuration shortcut %}
@@ -181,7 +181,7 @@ text: "Home Assistant docs"
 icon: mdi:book-open-variant
 tap_action:
   action: url
-  url_path: https://www.home-assistant.io
+  url_path: "https://www.home-assistant.io"
 ```
 
 Launch the voice assistant:
