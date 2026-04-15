@@ -87,6 +87,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- OasisMist 1000S Smart Ultrasonic Cool Mist Tower Humidifier (LUH-M101S-WUS)
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ### Air Fryers

@@ -268,7 +268,7 @@ To allow Home Assistant to control the Matter device that has already been added
 3. Select the **Add device** button.
 4. In the dialog, select **Yes, it's already in use**, then select which controller it is already connected to. For example, Google Home.
 5. Follow the instructions given in the dialog.
-   - **Troubleshooting**: If Home Assistant fails to add the device, check if you have the Matter integration installed   and the latest version of the Companion app.
+   - Troubleshooting: If Home Assistant fails to add the device, check if you have the Matter integration installed and the latest version of the Companion app.
 6. Once the device has been added to Home Assistant, you see a notification **Your device has been added**.
    - When the process finishes, you're redirected to the device page in Home Assistant.
    - You can now control your device from within Home Assistant, as well as from Google Home.
@@ -477,7 +477,7 @@ response_variable: lock_info
 
 #### Action: Get lock users
 
-The `matter.get_lock_users` action returns all users configured on the lock. For each user, the response includes their name, status, type, credential rule, and a list of credential references (type and slot index). For security reasons, the lock does not expose the actual credential secrets (such as PIN codes or RFID tag data). This action returns a response and does not require any additional data attributes.
+The `matter.get_lock_users` action lists all users on the lock. For each user, the response shows their name, status, and type. It also shows their credential rule. The response lists credential references, including type and slot index. It shows which controller created the user. It also shows which controller last changed the user. For security, the lock does not show real credential secrets like PIN codes or RFID tags. This action returns a response. No extra data is required.
 
 ```yaml
 action: matter.get_lock_users
@@ -569,7 +569,7 @@ data:
 
 #### Action: Get lock credential status
 
-The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied and which user it belongs to. This action returns a response.
+The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied, which user it belongs to, which controller (such as Home Assistant, Apple Home, or Google Home) created the credential, and which controller last modified it. This action returns a response.
 
 - **Data attribute**: `credential_type`
   - **Description**: The type of credential to query.

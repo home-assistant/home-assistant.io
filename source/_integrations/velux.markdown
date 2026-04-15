@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@Julius2342'
-  - '@DeerMaximum'
   - '@pawlizio'
   - '@wollew'
 ha_domain: velux

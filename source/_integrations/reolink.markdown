@@ -450,6 +450,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Elite WiFi](https://reolink.com/product/elite-wifi/)
 - [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
+- [Reolink Home Hub Mini](https://reolink.com/product/home-hub-mini/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - [Reolink Lumus](https://reolink.com/product/reolink-lumus/)
 - **[Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)**
@@ -466,6 +467,7 @@ Battery-powered Reolink cameras can be used with Home Assistant with the help of
 The following hubs/NVRs have been tested and confirmed to work with battery-powered models in Home Assistant:
 
 - **[Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)**
+- [Reolink Home Hub Mini](https://reolink.com/product/home-hub-mini/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only hardware versions N7MB01, N3MB01, N2MB02, or H3MB18. Hardware versions H3MB02 and H3MB16 did not get firmware updates since 2022)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only hardware versions N6MB01 or H3MB18. Hardware version H3MB02 did not get firmware updates since 2022)
