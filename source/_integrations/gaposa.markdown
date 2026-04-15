@@ -45,7 +45,7 @@ Password:
 
 ## Supported functionality
 
-The integration creates one device per motor. Each device hosts a single cover entity with the *shade* device class.
+The integration creates one device per motor. Each device hosts a single cover entity with the `shade` device class.
 
 ### Cover
 
@@ -100,7 +100,7 @@ Because Gaposa does not push state changes, you may see a short delay between a 
 ## Known limitations
 
 - The integration is cloud-polled, not cloud-pushed. Updates made to shades through the RollApp, a physical remote, or wall switches may take up to 10 minutes to show up in Home Assistant.
-- Motor position is not reported — only a three-state model of *open*, *closed*, or somewhere in between after a stop.
+- Motor position is not reported — only a three-state model of `open`, `closed`, or somewhere in between after a stop.
 - Adding, renaming, or removing motors in the RollApp mobile application requires the next coordinator refresh before Home Assistant catches up.
 
 ## Troubleshooting
@@ -125,7 +125,7 @@ Home Assistant could not sign in to your Gaposa account using the credentials yo
 
 #### Symptom
 
-The cover entities exist in Home Assistant and you can press **Open** or **Close**, but the physical shades don't move.
+The cover entities exist in Home Assistant and you can select **Open** or **Close**, but the physical shades don't move.
 
 #### Description
 
