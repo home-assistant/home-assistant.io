@@ -163,7 +163,7 @@ tap_action:
   type: map
 hold_action:
   required: false
-  description: The action taken on badge tap and hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
+  description: The action taken on badge tap-and-hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
