@@ -28,7 +28,7 @@ Sharing analytics is completely optional. Nothing is sent from your installation
 
 ## Enabling analytics
 
-You can opt in during onboarding or at any time afterwards by going to {% my analytics title="**Settings** > **System** > **Analytics**" %}.
+You can opt in during onboarding or at any time afterward by going to {% my analytics title="**Settings** > **System** > **Analytics**" %}.
 
 {% my analytics badge %}
 
