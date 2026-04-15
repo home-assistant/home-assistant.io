@@ -18,6 +18,16 @@ ha_quality_scale: bronze
 
 The **BLANCO** {% term integration %} connects Home Assistant to the BLANCO Smart Home Cloud API and exposes data from supported BLANCO smart home devices as entities in Home Assistant. Depending on the device model, this includes water temperatures, filter and CO₂ capacities, water consumption values, connectivity information, and device error states.
 
+## Supported devices
+
+The integration is currently compatible with the following devices:
+
+- **CHOICE.ALL** – All‑in‑one water system (still, sparkling, hot)
+- **EVOL‑S PRO SODA (Rev F or later)** – Sparkling water system
+- **AQUA** – Filtered water system with filter monitoring
+
+All other BLANCO device types are not supported at this time.
+
 ## Prerequisites
 
 Before setting up the integration, make sure the following requirements are met:
@@ -31,17 +41,7 @@ Before setting up the integration, make sure the following requirements are met:
 The Smart Home authorization must be granted from the BLANCO UNIT App while you are within Bluetooth range of the device.
 {% endnote %}
 
-## Supported devices
-
-The integration is currently compatible with the following devices:
-
-- **CHOICE.ALL** – All‑in‑one water system (still, sparkling, hot)
-- **EVOL‑S PRO SODA (Rev F or later)** – Sparkling water system
-- **AQUA** – Filtered water system with filter monitoring
-
-All other BLANCO device types are not supported at this time.
-
-## Configuration
+### Authorizing the connection
 
 Before starting the setup in Home Assistant, you must first authorize the connection in the **BLANCO UNIT App** by sending the **RCA (secure connection link)**. The authorization is valid for **5 minutes**.
 
@@ -81,31 +81,31 @@ The following entities are updated roughly every 30 seconds:
 
 ### Sensors
 
-- **Last online** – The timestamp of the last successful connection to the BLANCO cloud.
-- **Active errors** – The number of currently active errors reported by the device. To see detailed error information, open the BLANCO UNIT App.
-- **Temperature: Cold** – The target temperature to which the cold water is cooled (if cooling is supported).
-- **Temperature: Hot** – The target temperature to which the hot water is heated.
-- **CO2: Remaining capacity** – Percentage of CO₂ remaining in the sparkling‑water system (EVOL‑S PRO SODA and CHOICE.ALL).
-- **Filter: Remaining capacity** – Percentage of the filter’s capacity remaining, depending on the device model.
-- **Filter: Remaining quantity** – Remaining water volume in liters before the filter is exhausted (AQUA devices).
-- **Filter: Remaining time** – Remaining time in days before the filter is exhausted (AQUA devices).
-- **Consumption: Last** – Volume of the most recent water dispensing event in milliliters.
-- **Consumption: Total** – Total water volume dispensed by the device.
-- **Consumption: Total - Still** – Total volume of still water dispensed.
-- **Consumption: Total - Medium** – Total volume of medium‑carbonated water dispensed.
-- **Consumption: Total - Classic** – Total volume of classic‑sparkling water dispensed.
-- **Consumption: Total - Hot** – Total volume of hot water dispensed.
-- **Consumption: Today** – Total water volume dispensed today.
-- **Consumption: This week** – Total water volume dispensed this week.
-- **Consumption: This month** – Total water volume dispensed this month.
-- **Consumption: This year** – Total water volume dispensed this year.
+- **Last online**: The timestamp of the last successful connection to the BLANCO cloud.
+- **Active errors**: The number of currently active errors reported by the device. To see detailed error information, open the BLANCO UNIT App.
+- **Temperature: Cold**: The target temperature to which the cold water is cooled (if cooling is supported).
+- **Temperature: Hot**: The target temperature to which the hot water is heated.
+- **CO2: Remaining capacity**: Percentage of CO₂ remaining in the sparkling‑water system (EVOL‑S PRO SODA and CHOICE.ALL).
+- **Filter: Remaining capacity**: Percentage of the filter's capacity remaining, depending on the device model.
+- **Filter: Remaining quantity**: Remaining water volume in liters before the filter is exhausted (AQUA devices).
+- **Filter: Remaining time**: Remaining time in days before the filter is exhausted (AQUA devices).
+- **Consumption: Last**: Volume of the most recent water dispensing event in milliliters.
+- **Consumption: Total**: Total water volume dispensed by the device.
+- **Consumption: Total - Still**: Total volume of still water dispensed.
+- **Consumption: Total - Medium**: Total volume of medium‑carbonated water dispensed.
+- **Consumption: Total - Classic**: Total volume of classic‑sparkling water dispensed.
+- **Consumption: Total - Hot**: Total volume of hot water dispensed.
+- **Consumption: Today**: Total water volume dispensed today.
+- **Consumption: This week**: Total water volume dispensed this week.
+- **Consumption: This month**: Total water volume dispensed this month.
+- **Consumption: This year**: Total water volume dispensed this year.
 
 ## Data updates
 
-The integration polls the BLANCO Cloud API approximately every **30 seconds**.  
+The integration uses {% term polling %} to retrieve data from the BLANCO Cloud API approximately every **30 seconds**.
 Entity values are updated whenever the cloud reports a change. If no change is reported, values are refreshed at the next polling cycle.
 
-The integration uses cloud polling and therefore requires an active internet connection for both the device and the Home Assistant instance.
+The integration requires an active internet connection for both the device and the Home Assistant instance.
 
 ## Long‑term statistics
 
