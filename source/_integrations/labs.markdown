@@ -34,10 +34,10 @@ Labs allows you to:
 
 All preview features in Labs share a few common properties:
 
-- **Optional**: They are disabled by default. You choose which ones to turn on.
-- **Functional**: They are already usable in real setups. You are not signing up for broken software.
-- **Subject to change**: Their feature set, behavior, and direction may evolve based on community feedback.
-- **Reversible**: You can disable them at any time.
+- Optional: They are disabled by default. You choose which ones to turn on.
+- Functional: They are already usable in real setups. You are not signing up for broken software.
+- Subject to change: Their feature set, behavior, and direction may evolve based on community feedback.
+- Reversible: You can disable them at any time.
 
 ## About preview features
 
