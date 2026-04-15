@@ -90,9 +90,16 @@
 
   .hero-socialproof {
     display: flex;
-    padding-top: 48px;
     align-items: center;
     gap: 32px;
+
+    @media only screen and (min-width: 767px) {
+      padding-top: 24px;
+    }
+
+    @media only screen and (min-width: 1139px) {
+      padding-top: 48px;
+    }
 
     a {
       opacity: 0.75;
@@ -114,7 +121,7 @@
     border: 1px solid #F2F4F9;
     width: 312px;
 
-    @media only screen and (min-width: 375px) {
+    @media only screen and (min-width: 389px) {
       width: 330px;
     }
 
@@ -302,7 +309,7 @@
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 389px) {
   .hero {
     h1 {
       font-size: 4rem;
