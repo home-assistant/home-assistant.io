@@ -88,11 +88,7 @@ Tracks the most recently reported location of the vehicle. The vehicle reports i
 
 ## Remote start
 
-Remote start and stop is available on supported Gen 2/3 vehicles.
-
-### Climate preset selection
-
-Currently the Remote Start action will use the built-in "Auto" climate preset. Support for selecting a climate preset will be added in the future.
+Remote start and stop is available on supported Gen 2/3 vehicles. The remote start action will use the selected climate preset, falling back to "Auto" if no option is selected, or an invalid selection is made.
 
 ## Options
 
