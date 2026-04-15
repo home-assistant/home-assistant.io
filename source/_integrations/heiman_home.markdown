@@ -2,7 +2,7 @@
 title: Heiman Home
 description: Instructions on how to integrate your Heiman smart home devices with Home Assistant.
 ha_release: 2026.3
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: heiman_home
 ha_platforms:
@@ -92,13 +92,13 @@ The Heiman Home Switch platform lets you control devices that have switch-relate
 - **Freezing point protection**: Enable/disable freeze protection.
 - **Buzzer control**: Enable/disable device buzzer.
 
-## Services
+## Actions
 
-The integration provides the following services.
+The integration provides the following actions.
 
 ### Action: Read device properties
 
-The `heiman_home.read_device_properties` action is used to manually read properties from a specific Heiman device. This service is useful for troubleshooting or forcing a refresh of device properties when automatic updates are not working as expected.
+The `heiman_home.read_device_properties` action is used to manually read properties from a specific Heiman device. This action is useful for troubleshooting or forcing a refresh of device properties when automatic updates are not working as expected.
 
 - **Data attribute**: `device_id`
   - **Description**: The ID of the device to read properties from.
@@ -106,14 +106,14 @@ The `heiman_home.read_device_properties` action is used to manually read propert
   - **Example**: `"1234567890abcdef"`
 
 ```yaml
-service: heiman_home.read_device_properties
+action: heiman_home.read_device_properties
 data:
   device_id: "1234567890abcdef"
 ```
 
 ## Real-time updates
 
-The **Heiman Home** integration uses MQTT for real-time device status updates, ensuring that device states are synchronized immediately when changes occur. This provides instant feedback when devices change state, such as when a smoke detector triggers or a door sensor detects movement.
+The **Heiman Home** integration uses MQTT for real-time device status updates, ensuring that device states are synchronized immediately when changes occur. This provides instant feedback when devices change state, such as when a smoke detector triggers or a door sensor changes from closed to open.
 
 ## Area synchronization
 
