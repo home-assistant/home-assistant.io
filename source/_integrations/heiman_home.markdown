@@ -29,13 +29,7 @@ The **Heiman Home** {% term integration %} allows you to connect your Heiman sma
 
 During setup, you will be redirected to the Heiman Home authorization page where you need to log in with your credentials and grant permissions to Home Assistant. If you have multiple homes configured in your Heiman Home account, you can select which homes to import devices from.
 
-You can also choose how room names should be synchronized to Home Assistant areas:
-
-{% configuration_basic %}
-Area synchronization mode:
-  description: >
-    Choose how device areas should be synchronized. Options are: **Do not sync** (keep existing area assignments), **Room name** (use Heiman room names), **Home name** (use Heiman home names), or **Home name and Room name** (combine both).
-{% endconfiguration_basic %}
+You can also choose how room names should be synchronized to Home Assistant areas during setup.
 
 ## Supported functionality
 
