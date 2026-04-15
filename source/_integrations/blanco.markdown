@@ -49,7 +49,7 @@ Before starting the setup in Home Assistant, you must first authorize the connec
 2. Select the device you want to connect.
 3. Open **Settings**.
 4. Navigate to **Smart Home**.
-5. Send the **RCA (secure connection link)** by tapping **Activate**.
+5. Send the **RCA (secure connection link)** by selecting **Activate**.
 6. Within **5 minutes**, open Home Assistant and start the BLANCO integration setup.
 
 To add the **BLANCO** integration to your Home Assistant instance, use this My button:
@@ -68,11 +68,11 @@ You must remain within Bluetooth range of the device when sending the RCA. If th
 Serial number:
   description: >
     The serial number of the device, available in the BLANCO UNIT App under
-    Settings → Smart Home and on the device information label.
+    **Settings** > **Smart Home** and on the device information label.
 Service Code:
   description: >
     The Service Code for the device, shown in the BLANCO UNIT App under
-    Settings → Smart Home.
+    **Settings** > **Smart Home**.
 {% endconfiguration_basic %}
 
 ## Available entities
@@ -143,7 +143,7 @@ A BLANCO device can only be connected to **one Home Assistant instance** at a ti
 
 The integration can be removed in two ways:
 
-- In **Home Assistant**: Remove the integration as usual via **Settings → Devices & Services**.
-- In the **BLANCO UNIT App**: Open the UNIT App, go to **Settings → Smart Home**, select the device, and tap **Deactivate** to end the Smart Home connection there.
+- In **Home Assistant**: Remove the integration as usual via **Settings** > **Devices & services**.
+- In the **BLANCO UNIT App**: Open the UNIT App, go to **Settings** > **Smart Home**, select the device, and select **Deactivate** to end the Smart Home connection there.
 
 If you want to link the device again to a Home Assistant instance later, repeat the Smart Home authorization step in the UNIT App and follow the setup procedure anew.
