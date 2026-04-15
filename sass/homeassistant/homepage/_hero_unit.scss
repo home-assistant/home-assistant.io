@@ -112,7 +112,11 @@
     gap: 10px;
     border-radius: 12px;
     border: 1px solid #F2F4F9;
-    width: 330px;
+    width: 312px;
+
+    @media only screen and (min-width: 375px) {
+      width: 330px;
+    }
 
     p {
       color: #FFF;
@@ -293,6 +297,18 @@
     .hero-buttons a {
       &.primary {
         font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .hero {
+    h1 {
+      font-size: 4rem;
+
+      .line2 {
+        margin-top: 0;
       }
     }
   }
