@@ -7,8 +7,6 @@ ha_category:
   - Switch
 ha_domain: ubisys
 ha_integration_type: brand
-works_with:
-  - zigbee
 ha_platforms:
   - switch
 ha_iot_standard: zigbee
