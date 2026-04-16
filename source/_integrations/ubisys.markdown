@@ -15,7 +15,7 @@ ha_iot_standard: zigbee
 ha_brand: true
 ---
 
-[Ubisys](https://www.ubisys.com/) is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+[Ubisys](https://www.ubisys.de/) is committed to making sure their products are up-to-date and ready to use in Home Assistant.
 
 Ubisys Zigbee devices work locally and integrate seamlessly with the Zigbee integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
 
