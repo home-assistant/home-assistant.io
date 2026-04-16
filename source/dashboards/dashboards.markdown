@@ -189,7 +189,7 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 
 You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file.
 
-If it is the first time you edit the `configuration.yaml` file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configuration.yaml) to know what to do before editing the file.
+If it is the first time you edit the `configuration.yaml` file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configuration.yaml) to know how to install a file editor and find the file.
 
 To add YAML dashboards, in your `configuration.yaml` file, create a `dashboards:` section under the top-level `lovelace:` key.
 
