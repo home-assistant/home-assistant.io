@@ -3,6 +3,7 @@ title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
   - Climate
+  - Infrared
   - Light
   - Remote
   - Sensor
@@ -18,6 +19,7 @@ ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
   - climate
+  - infrared
   - light
   - remote
   - select
@@ -56,6 +58,7 @@ The {% term entities %} have the same name as the device by default. To change t
 The {% term entities %} are divided into four subdomains:
 
 - [Climate](#climate)
+- [Infrared](#infrared)
 - [Remote](#remote)
 - [Select](#select)
 - [Sensor](#sensor)
@@ -66,6 +69,41 @@ The {% term entities %} are divided into four subdomains:
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats.
+
+## Infrared
+
+The `infrared` {% term entities %} allow you to send infrared commands through Home Assistant's native [infrared platform](/integrations/infrared/). This provides a standardized way to control IR devices across all remotes.
+
+Once a Broadlink RM device is configured, an "IR transmitter" entity is automatically created. You can send IR commands using the `infrared.async_send_command` service or via automations and scripts.
+
+### Using BroadlinkIRCommand for Pre-existing Broadlink Code
+
+If you have Broadlink-encoded IR data (e.g., from SmartIR databases or the Broadlink e-Control app), you can create `BroadlinkIRCommand` objects to send them:
+
+```python
+import base64
+from broadlink.remote import data_to_pulses
+from homeassistant.components.broadlink.infrared import BroadlinkIRCommand
+
+# Decode SmartIR base64 code
+packet_data = base64.b64decode(b64_code)
+repeat_count = packet_data[1]
+
+# Parse Broadlink packet to microsecond timings
+pulses = data_to_pulses(packet_data)
+timings = list(zip(pulses[::2], pulses[1::2]))
+if len(pulses) % 2:
+    timings.append((pulses[-1], 0))
+
+# Send via infrared platform
+cmd = BroadlinkIRCommand(timings, repeat_count=repeat_count)
+await infrared.async_send_command(hass, entity_id, cmd)
+```
+
+### Repeat Handling
+
+- **Protocol-aware commands** (e.g., `infrared_protocols.NECCommand`): Repeats are encoded in the timing data; Broadlink hardware repeat is automatically set to 0 to avoid duplication
+- **BroadlinkIRCommand**: The `repeat_count` parameter controls Broadlink hardware repeats (0–255), causing the device to re-transmit the entire IR burst multiple times
 
 ## Remote
 
