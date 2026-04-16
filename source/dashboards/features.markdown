@@ -249,6 +249,74 @@ preset_modes:
   type: list
 {% endconfiguration %}
 
+## Climate swing modes
+
+Widget that displays a dropdown or icons to control the swing mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_swing_modes.png' alt='Screenshot of the tile card with the climate swing modes feature'>
+  Screenshot of the tile card with the climate swing modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-swing-modes"
+    style: "icons"
+    swing_modes:
+      - "on"
+      - "off"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-swing-modes`"
+  type: string
+style:
+  required: false
+  description: "How the swing modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+swing_modes:
+  required: true
+  description: List of swing modes to show on the card. The list can contain `on`, `off`, or any other custom swing mode supported by your climate device.
+  type: list
+{% endconfiguration %}
+
+## Climate swing horizontal modes
+
+Widget that displays a dropdown or icons to control the horizontal swing mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_swing_horizontal_modes.png' alt='Screenshot of the tile card with the climate swing horizontal modes feature'>
+  Screenshot of the tile card with the climate swing horizontal modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-swing-horizontal-modes"
+    style: "dropdown"
+    swing_horizontal_modes:
+      - "on"
+      - "off"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-swing-horizontal-modes`"
+  type: string
+style:
+  required: false
+  description: "How the horizontal swing modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+swing_horizontal_modes:
+  required: true
+  description: List of horizontal swing modes to show on the card. The list can contain `on`, `off`, or any other custom horizontal swing mode supported by your climate device.
+  type: list
+{% endconfiguration %}
+
 ## Counter actions
 
 Widget that displays buttons to increment, decrement, and reset a [counter](/integrations/counter).
@@ -853,6 +921,31 @@ style:
   description: "Which style of control to display. It can be either `buttons` or `slider`."
   type: string
   default: slider
+{% endconfiguration %}
+
+## Select options
+
+Widget that displays a dropdown to select an option for a [select](/integrations/select) or [input select](/integrations/input_select).
+
+<p class='img'>
+  <img src='/images/dashboards/features/select_options.png' alt='Screenshot of the tile card with the select options feature'>
+  Screenshot of the tile card with the select options feature
+</p>
+
+```yaml
+features:
+  - type: "select-options"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`select-options`"
+  type: string
+options:
+  required: false
+  description: List of options to show on the card. If not specified, all available options from the entity are displayed.
+  type: list
 {% endconfiguration %}
 
 ## Target humidity
