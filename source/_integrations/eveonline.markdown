@@ -3,7 +3,7 @@ title: Eve Online
 description: Instructions on how to integrate Eve Online with Home Assistant.
 ha_category:
   - Sensor
-ha_release: "2026.6"
+ha_release: 2026.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -79,13 +79,15 @@ The integration setup will next give you instructions to enter the [Application 
 {% configuration_basic %}
 Client ID:
   description: "The Client ID from your Eve Online developer application."
-Client Secret:
-  description: "The Client Secret from your Eve Online developer application."
+Client secret:
+  description: "The client secret from your Eve Online developer application."
 {% endconfiguration_basic %}
 
 {% note %}
-Your Client ID and Client Secret are stored exclusively in your Home Assistant instance and are never shared with the integration developer or any third party. These credentials are used solely to authenticate your Home Assistant with the Eve Online API on your behalf.
+Your client ID and client secret are stored exclusively in your Home Assistant instance and are never shared with the integration developer or any third party. These credentials are used solely to authenticate your Home Assistant with the Eve Online API on your behalf.
 {% endnote %}
+
+This integration supports multiple Eve Online characters. You don't need to create another developer application. To add an additional character, add the integration again and log in with a different character.
 
 ## Supported functionality
 
@@ -120,10 +122,6 @@ Keep an eye on your ISK balance with this automation. It triggers when your wall
       data:
         message: "Your wallet balance dropped below 100,000,000 ISK."
 ```
-
-## Using multiple characters
-
-This integration supports multiple Eve Online characters. You don't need to create another developer application. To add an additional character, add the integration again and log in with a different character.
 
 ## Data updates
 
@@ -166,6 +164,8 @@ Outside of the daily downtime window, unavailable entities may indicate an unpla
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
+To revoke Home Assistant's access to your Eve Online account, you can also delete the developer application on the Eve Online Developer Portal.
