@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: waterfurnace
 ha_platforms:
   - sensor
+  - climate
 ha_integration_type: device
 ha_config_flow: true
 ha_quality_scale: legacy
@@ -17,6 +18,10 @@ ha_codeowners:
 ---
 
 The **WaterFurnace** {% term integration %} communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
+
+## Climate
+
+The integration will create a climate entity for the each system found. The climate entity is read-only and will not accept any attempts to change the mode. Other functionality is also disabled due to the lack of write support.
 
 ## Sensors
 
@@ -67,4 +72,4 @@ If your account has more than one location, only devices in the first location w
 
 The WebSocket interface used by this module requires active polling to prevent the server side shuts down the connection. By default, this polling is happening every 10 seconds. All sensors are updated during every polling cycle.
 
-While this is communicating with a thermostat, geothermal systems operate most efficiently when setbacks are not used, and the home is kept at a constant temperature. It remains useful to collect the data from the system to understand its performance, but a full climate interface won't be implemented.
+While this is communicating with a thermostat, geothermal systems operate most efficiently when setbacks are not used, and the home is kept at a constant temperature. It remains useful to collect the data from the system to understand its performance.
