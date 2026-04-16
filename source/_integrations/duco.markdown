@@ -122,6 +122,8 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 
 Available for the main ventilation box (BOX). Shows the number of write requests remaining for today. The Duco box enforces a daily limit of 200 write requests. This entity is disabled by default.
 
+You can use this sensor as a condition in automations to prevent hitting the daily limit. For example, only allow an automation to change the ventilation speed when at least 10 write requests are still available.
+
 ## Use cases
 
 - Switch to high ventilation automatically when cooking or showering.
@@ -270,6 +272,26 @@ For normal daily use, the limit should be sufficient.
 #### Resolution
 
 Wait until midnight for the counter to reset. To avoid hitting the limit in the future, reduce the number of automations or scripts that change the ventilation state frequently.
+
+To diagnose which automations are consuming write requests, enable the **Write requests remaining** sensor on the Duco box device. This sensor shows the current remaining quota and decrements with each write action. By monitoring it over time, you can identify the automations that trigger the most writes and adjust their frequency. You can also use the sensor as a condition in automations to stop sending commands when the quota is low:
+
+```yaml
+- alias: "Boost ventilation on high CO2 (with rate limit guard)"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.office_co2_carbon_dioxide
+      above: 1000
+  conditions:
+    - condition: numeric_state
+      entity_id: sensor.duco_write_requests_remaining
+      above: 10
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.living_ventilation
+      data:
+        percentage: 100
+```
 
 ## Removing the integration
 
