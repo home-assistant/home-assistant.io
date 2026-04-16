@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '> 2.5.0'
 
 group :development do
-  gem 'rake', '13.4.1'
+  gem 'rake', '13.4.2'
   gem 'jekyll', '4.4.1'
   gem 'stringex', '2.8.6'
   gem 'sass-embedded', '1.99.0'
