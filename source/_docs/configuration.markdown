@@ -29,12 +29,12 @@ Example of a configuration.yaml file, accessed using the File editor app on a Ho
 
 How you edit your `configuration.yaml` file depends on your editor preferences and the [installation type](/installation/#about-installation-types) you used to set up Home Assistant. Follow these steps:
 
-1. [Set up file access](#to-set-up-access-to-the-files-and-prepare-an-editor).
-2. [Locate the config directory](#to-find-the-configuration-directory).
-3. [Edit your `configuration.yaml` file](#to-edit-the-configuration-file).
+1. [Set up file access and prepare an editor](#set-up-file-access-and-prepare-an-editor).
+2. [Find the configuration directory](#find-the-configuration-directory).
+3. [Edit the `configuration.yaml` file](#edit-the-configuration-file).
 4. Save your changes and [reload the configuration](#reloading-the-configuration-to-apply-changes) to apply the changes.
 
-### To set up access to the files and prepare an editor
+### Set up file access and prepare an editor
 
 Before you can edit a file, you need to know how to access files in Home Assistant and setup an editor.
 File access depends on your [installation type](/installation/#about-installation-types). If you use {% term "Home Assistant Operating System" %}, you can use editor apps, for example. If you use {% term "Home Assistant Container" %}, apps are not available.
@@ -45,7 +45,7 @@ To set up file access on the Home Assistant Operating System, follow these steps
   - Alternatively, use the [Studio Code Server app](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
   - If you prefer to use a file editor on your computer, use the [Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
 
-### To find the configuration directory
+### Find the configuration directory
 
 1. To look up the path to your configuration directory, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
    - Select the three dots menu and select **System information**.
@@ -59,7 +59,7 @@ To set up file access on the Home Assistant Operating System, follow these steps
      - {% term "Home Assistant Operating System" %}: the `configuration.yaml` is in the `/config` folder of the installation.
      - {% term "Home Assistant Container" %}: the `configuration.yaml` is in the config folder that you mounted in your container.
 
-### To edit the configuration file
+### Edit the configuration file
 
 Once you have located the config folder, you can edit your `configuration.yaml` file. How you edit the file depends on the editor you set up in step 1:
 
