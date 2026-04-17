@@ -1,5 +1,5 @@
 ---
-title: Radio Frequency
+title: Radio frequency
 description: Instructions on how to use radio frequency entities in Home Assistant.
 ha_category:
   - Radio Frequency
@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-A radio frequency {% term entity %} represents a radio frequency transmitter device, allowing other integrations to send RF commands to control devices such as remote outlets, garage doors, string lights, and other RF-controlled appliances.
+A radio frequency (RF) {% term entity %} represents a radio frequency transmitter device, allowing other integrations to send RF commands to control devices such as remote outlets, garage doors, string lights, and other RF-controlled appliances.
 
 The **Radio Frequency** {% term integration %} acts as an abstraction layer between RF transmitter hardware (such as ESPHome) and device-specific integrations that provide control for RF-controlled devices.
 
@@ -19,7 +19,7 @@ The **Radio Frequency** {% term integration %} acts as an abstraction layer betw
 
 ## The state of a radio frequency entity
 
-The radio frequency entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state of a radio frequency entity is a timestamp showing the date and time of the last time an RF command was sent through the transmitter.
+The radio frequency entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state of a radio frequency entity is a timestamp showing the date and time when an RF command was last sent through the transmitter.
 
 In addition, the entity can have the following states:
 
