@@ -71,7 +71,7 @@ The integration supports automatic device discovery via mDNS/Zeroconf. Discovere
 
 ### Sensors
 
-The integration provides the following sensor:
+The integration provides the following sensor entity:
 
 #### GDS/GSC Devices
 
