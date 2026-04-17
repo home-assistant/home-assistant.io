@@ -54,7 +54,7 @@ The integration can be configured through the UI:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select **Add integration**.
-3. Search for "Grandstream Home".
+3. Search for **Grandstream Home**.
 4. Follow the configuration steps:
    - Enter the device IP address or hostname
    - Enter the device name
