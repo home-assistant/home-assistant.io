@@ -93,6 +93,9 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
+## Mealplan
+Tuya supports mealplan for their feeder devices. Home assistant exposes `set_feeder_meal_plan` and `get_feeder_meal_plan` to fetch and update tuya mealplan. The feeder services rely on [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers/blob/main/src/tuya_device_handlers/device_wrapper/service_feeder_schedule.py) to convert tuya data into a visual home assistant presentation based on `product_id`. 
+
 ## Troubleshooting
 
 ### Unsupported device or missing device functionality
