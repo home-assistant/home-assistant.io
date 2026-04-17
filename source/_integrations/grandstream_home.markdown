@@ -107,10 +107,10 @@ The integration provides the following sensor:
 
 **Solutions:**
 
-1. Ensure the device and Home Assistant are on the same network
-2. Check mDNS/Zeroconf is not blocked by your network
-3. Verify multicast traffic is allowed
-4. Manually add the device using the IP address
+1. Ensure the device and Home Assistant are on the same network.
+2. Check mDNS/Zeroconf is not blocked by your network.
+3. Verify multicast traffic is allowed.
+4. Manually add the device using the IP address.
 
 ### Sensors not updating
 
@@ -120,15 +120,15 @@ The integration provides the following sensor:
 
 **Solutions:**
 
-1. Check device is online and accessible
-2. Verify device firmware is up to date
+1. Check device is online and accessible.
+2. Verify device firmware is up to date.
 3. Check Home Assistant logs for errors:
-   - Go to **Settings** > **System** > **Logs**
+   - Go to **Settings** > **System** > **Logs**.
 4. Try reloading the integration:
-   - Go to {% my integrations title="**Settings** > **Devices & services**" %}
-   - Find "Grandstream Home"
-   - Select the three dots {% icon "mdi:dots-vertical" %} menu
-   - Select **Reload**
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+   - Find **Grandstream Home**.
+   - Select the three dots {% icon "mdi:dots-vertical" %} menu.
+   - Select **Reload**.
 
 ### Authentication errors
 
@@ -139,10 +139,10 @@ The integration provides the following sensor:
 
 **Solutions:**
 
-1. Verify the password is correct (default username: `gdsha`)
-2. Confirm that the account is not locked due to excessive failed login attempts
-3. Reset the device password if necessary
-4. Verify Home Assistant control is enabled in device web interface settings
+1. Verify the password is correct (default username: `gdsha`).
+2. Confirm that the account is not locked due to excessive failed login attempts.
+3. Reset the device password if necessary.
+4. Verify Home Assistant control is enabled in device web interface settings.
 
 ### Home Assistant control disabled
 
@@ -152,10 +152,10 @@ The integration provides the following sensor:
 
 **Solutions:**
 
-1. Log in to the device web interface
-2. Navigate to the settings page
-3. Enable "Home Assistant control" or "Third-party integration" option
-4. Save settings and retry the integration setup
+1. Log in to the device web interface.
+2. Navigate to the settings page.
+3. Enable "Home Assistant control" or "Third-party integration" option.
+4. Save settings and retry the integration setup.
 
 ## Known limitations
 
