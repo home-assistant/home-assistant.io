@@ -165,9 +165,9 @@ The integration provides the following sensor entity:
 
 ## Security considerations
 
-- The integration stores credentials locally in Home Assistant's encrypted storage
+- The integration stores credentials locally in Home Assistant's configuration storage. Make sure you protect your backups, and limit access to your Home Assistant system.
 - Communication with devices uses HTTPS by default (port 443)
-- SSL certificate verification can be disabled for self-signed certificates (not recommended for production)
+- Keep SSL certificate verification enabled whenever possible. If your device uses a self-signed certificate, you can disable verification, but this reduces security and should only be used if you understand the risk.
 - Administrator password is required for full functionality
 - Home Assistant control must be explicitly enabled on the device
 
