@@ -39,7 +39,7 @@ The integration automatically discovers device models via mDNS/Zeroconf:
   - mDNS service: `_https._tcp.local.`
   - Example name: `gsc_001122334455`
 
-Device names follow the format: `{device_type}_{mac_address}`
+Device names follow the format: `{device_type}_{mac_address}`.
 
 ## Prerequisites
 
