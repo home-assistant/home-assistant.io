@@ -21,7 +21,7 @@ The **Grandstream Home** {% term integration %} allows you to integrate Grandstr
 
 This integration supports the following Grandstream device types:
 
-### GDS/GSC Series - Door access control systems
+### GDS/GSC series - door access control systems
 
 Door access control devices with SIP calling capabilities.
 
