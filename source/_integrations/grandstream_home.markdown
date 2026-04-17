@@ -101,11 +101,6 @@ When you set up the integration, configuration fails with a "Cannot connect" err
    ```bash
    ping <device-ip>
 
-1. Ensure the device and Home Assistant are on the same network.
-2. Check mDNS/Zeroconf is not blocked by your network.
-3. Verify multicast traffic is allowed.
-4. Manually add the device using the IP address.
-
 ### Sensors not updating
 
 **Symptoms:**
