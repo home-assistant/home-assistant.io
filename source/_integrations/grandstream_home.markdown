@@ -28,7 +28,7 @@ Door access control devices with SIP calling capabilities.
 - GDS372x series devices
 - GSC356X series devices
 
-### Device Model Discovery
+### Device model discovery
 
 The integration automatically discovers device models via mDNS/Zeroconf:
 
