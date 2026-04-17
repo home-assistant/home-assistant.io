@@ -42,7 +42,7 @@ Device names follow the format: `{device_type}_{mac_address}`
 ## Prerequisites
 
 - Grandstream device connected to your local network
-- Device administrator password (default username: `gdsha`)
+- Device administrator password (username: `gdsha`)
 - Device must be accessible from your Home Assistant instance
 - Home Assistant control must be enabled on the device (for GDS/GSC devices)
 
