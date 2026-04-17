@@ -49,7 +49,7 @@ If automatic discovery does not work, you can manually add the integration by pr
 
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of your DUCO Connectivity Board on the local network, for example `192.168.1.10`."
+  description: "The IP address or hostname of your DUCO Connectivity Board on the local network, for example `192.168.1.10`. Only needed when setting up the integration manually."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -228,7 +228,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 
 ## Known limitations
 
-- The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
+- The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically around midnight.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 
 ## Troubleshooting
@@ -237,10 +237,10 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 
 If your Duco ventilation box is not automatically discovered:
 
-- Ensure the device is powered on and connected to the same network as Home Assistant
-- Check that mDNS/Bonjour traffic is not blocked by your router or firewall
-- Verify the device name shows as "DUCO [MAC address]" in your router's device list or network scanner
-- Manually add the integration using the device's IP address if discovery continues to fail
+- Ensure the device is powered on and connected to the same network as Home Assistant.
+- Check that mDNS/Bonjour traffic is not blocked by your router or firewall.
+- Verify the device name shows as "DUCO [MAC address]" in your router's device list or network scanner.
+- Manually add the integration using the device's IP address if discovery continues to fail.
 
 ### Cannot connect to the Duco box
 
