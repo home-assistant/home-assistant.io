@@ -5,6 +5,7 @@ ha_category:
   - Select
   - Sensor
   - Binary sensor
+  - Presence detection
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@tomer-w'
 ha_domain: victron_gx
 ha_platforms:
+  - device_tracker
   - select
   - sensor
   - binary_sensor
@@ -118,6 +120,13 @@ Configurable options for controlling device behavior, such as:
 - <abbr title="Energy Storage System">ESS</abbr> mode (optimized with or without phase compensation, or external control)
 - <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
 - <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
+
+#### Device trackers
+
+GPS-equipped Victron devices (such as those with a built-in or connected GPS module) are exposed as device tracker entities, providing:
+
+- Latitude and longitude
+- Altitude, course, and speed (when available)
 
 ## Troubleshooting
 
