@@ -32,10 +32,12 @@ Door access control devices with SIP calling capabilities.
 
 The integration automatically discovers device models via mDNS/Zeroconf:
 
-| Device Type | mDNS Service               | Example Name                  |
-| ----------- | -------------------------- | ----------------------------- |
-| GDS         | `_https._tcp.local.`       | `gds_001122334455`            |
-| GSC         | `_https._tcp.local.`       | `gsc_001122334455`            |
+- GDS
+  - mDNS service: `_https._tcp.local.`
+  - Example name: `gds_001122334455`
+- GSC
+  - mDNS service: `_https._tcp.local.`
+  - Example name: `gsc_001122334455`
 
 Device names follow the format: `{device_type}_{mac_address}`
 
