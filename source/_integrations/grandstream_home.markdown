@@ -160,10 +160,10 @@ When you set up the integration, configuration fails with a "Cannot connect" err
 ## Security considerations
 
 - The integration stores credentials locally in Home Assistant's configuration storage. Make sure you protect your backups, and limit access to your Home Assistant system.
-- Communication with devices uses HTTPS by default (port 443)
+- Communication with devices uses HTTPS by default (port 443).
 - Keep SSL certificate verification enabled whenever possible. If your device uses a self-signed certificate, you can disable verification, but this reduces security and should only be used if you understand the risk.
-- Administrator password is required for full functionality
-- Home Assistant control must be explicitly enabled on the device
+- Administrator password is required for full functionality.
+- Home Assistant control must be explicitly enabled on the device.
 
 ## Removing the integration
 
