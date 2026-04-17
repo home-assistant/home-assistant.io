@@ -65,7 +65,7 @@ The integration can be configured through the UI:
 
 ### Automatic discovery
 
-The integration supports automatic device discovery via Zeroconf/mDNS. Discovered devices will appear on the {% my integrations title="**Settings** > **Devices & services**" %} page with a notification to configure them.
+The integration supports automatic device discovery via mDNS/Zeroconf. Discovered devices will appear on the {% my integrations title="**Settings** > **Devices & services**" %} page with a notification to configure them.
 
 ## Supported functionality
 
