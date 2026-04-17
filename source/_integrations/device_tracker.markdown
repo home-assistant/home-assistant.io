@@ -39,11 +39,11 @@ Device tracker will only look for the following global settings under the config
 | Parameter          | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `interval_seconds` | 12      | Seconds between each scan for new devices. This only applies to local device trackers, not applications that push updates.                                                                                                                                                                                                                                                                                                                                                                                               |
-| `consider_home`    | 180     | Seconds to wait until marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones occasionally drop off the network and then reappear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations. For example, the following all represent 3 minutes: `180`, `0:03`, `0:03:00`. |
+| `consider_home`    | 180     | Seconds to wait until marking someone as **Not home** after being last seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones occasionally drop off the network and then reappear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations. For example, the following all represent 3 minutes: `180`, `0:03`, `0:03:00`. |
 
 {% note %}
 
-Note that setting `track_new_devices: false` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: false`).
+The `consider_home` value must exceed `interval_seconds` to prevent the device from being marked as **Not home** between scan cycles.
 
 {% endnote %}
 
@@ -61,6 +61,12 @@ device_tracker:
     new_device_defaults:
       track_new_devices: true
 ```
+
+{% note %}
+
+Note that setting `track_new_devices: false` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: false`).
+
+{% endnote %}
 
 Multiple device trackers can be used in parallel, such as [Owntracks](/integrations/owntracks/) and [Nmap](/integrations/nmap_tracker/). The state of the device will be determined by the source that reported last.
 
@@ -98,7 +104,7 @@ In the example above, `devicename` refers to the detected name of the device.  F
 | `icon`          | mdi:account                   | An icon for this device (use as an alternative to `picture`).                                                                                                                                                                                                                                                                                   |
 | `gravatar`      | None                          | An email address for the device's owner. If provided, it will override `picture`.                                                                                                                                                                                                                                                               |
 | `track`         | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. The `track` setting only applies for devices that were configured directly in YAML.                                                                                                                                                    |
-| `consider_home` | [uses platform setting]       | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level. The `consider_home` setting only applies for devices that were configured directly in YAML.                                                             |
+| `consider_home` | [uses platform setting]       | Seconds to wait till marking someone as **Not home** after being last seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level. The `consider_home` setting only applies for devices that were configured directly in YAML.                                                             |
 
 ## The state of a tracked device
 
