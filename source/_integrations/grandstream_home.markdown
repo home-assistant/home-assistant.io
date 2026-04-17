@@ -88,26 +88,18 @@ The integration provides the following sensor entity:
 
 ### Cannot connect to device
 
-**Symptoms:**
+#### Symptom: "Cannot connect" error during setup
 
-- Configuration fails with "Cannot connect" error
-- Device shows as unavailable
+When you set up the integration, configuration fails with a "Cannot connect" error, or the device shows as unavailable.
 
-**Solutions:**
+##### Resolution
 
-1. Verify the device is powered on and connected to the network.
-2. Check the IP address is correct.
-3. Ensure your Home Assistant instance can reach the device:
+1. Verify that the device is powered on and connected to the network.
+2. Check that the IP address is correct.
+3. Confirm that your Home Assistant instance can reach the device:
+
    ```bash
    ping <device-ip>
-
-### Device not discovered automatically
-
-**Symptoms:**
-
-- Failed to discover the device
-
-**Solutions:**
 
 1. Ensure the device and Home Assistant are on the same network.
 2. Check mDNS/Zeroconf is not blocked by your network.
