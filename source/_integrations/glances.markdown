@@ -37,6 +37,7 @@ Glances integration will add the following sensors if available in the platform:
   - disk_use_percent: The used disk space in percent.
   - disk_use: The used disk space.
   - disk_free: The free disk space.
+  - disk_size: The total size of the disk.
 - For each detected physical disk, the following sensors will be created:
   - diskio_read: Average rate of data read from the device in megabytes per second.
   - diskio_write: Average rate of data written to the device in megabytes per second.

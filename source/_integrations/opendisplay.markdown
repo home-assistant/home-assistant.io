@@ -3,6 +3,7 @@ title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
   - DIY
+  - Event
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Push
@@ -12,6 +13,7 @@ ha_domain: opendisplay
 ha_config_flow: true
 ha_platforms:
   - diagnostics
+  - event
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -51,6 +53,36 @@ To avoid typing the key manually, scan the QR code on your device's display. The
 {% endtip %}
 
 If the encryption key changes after the device has been set up, Home Assistant will prompt you to re-enter the key.
+
+## Supported functionality
+
+The **OpenDisplay** integration provides the following entities.
+
+### Button events
+
+OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
+
+- `button_down`: Fires when the button is pressed.
+- `button_up`: Fires when the button is released.
+
+{% note %}
+Events are detected by comparing consecutive BLE advertisements, so no active Bluetooth connection is needed. A very fast press-and-release between two advertisements may not be observed.
+{% endnote %}
+
+{% details "Turn on a light when a button is pressed" %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: event.opendisplay_1234_button_1
+    attribute: event_type
+    to: button_down
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.my_light
+```
+{% enddetails %}
 
 ## Actions
 

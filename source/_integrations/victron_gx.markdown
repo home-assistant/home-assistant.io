@@ -2,8 +2,11 @@
 title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
+  - Binary sensor
   - Number
+  - Select
   - Sensor
+  - Switch
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,8 +14,11 @@ ha_codeowners:
   - '@tomer-w'
 ha_domain: victron_gx
 ha_platforms:
+  - binary_sensor
   - number
+  - select
   - sensor
+  - switch
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -64,6 +70,17 @@ SSL:
   description: "Enable for secured connections (port 8883). Disable for unsecured connections (port 1883)."
 {% endconfiguration_basic %}
 
+### Reauthentication
+
+If your MQTT password changes or the security profile on your Victron device is updated, Home Assistant prompts you to re-authenticate:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Victron GX** integration. It will show a **Re-authenticate** message.
+2. Select the **Reconfigure** button or the **Re-authenticate** prompt.
+3. Enter your updated **Password**.
+4. Select **Submit**.
+
+On success, the integration reloads automatically.
+
 ## Data updates
 
 Entities are updated only when new values are received from the device, but no more frequently than every 30 seconds.
@@ -86,6 +103,14 @@ Read-only sensors for monitoring system metrics, such as:
 - Inverter input and output power, frequency, and state
 - <abbr title="electric vehicle">EV</abbr> charger status, power, and session energy
 
+#### Binary sensors
+
+Status indicators for various system states, such as:
+
+- Alarms and warnings
+- Connection status
+- Relay states
+
 #### Numbers
 
 Adjustable numeric settings for fine-tuning device parameters, such as:
@@ -95,6 +120,61 @@ Adjustable numeric settings for fine-tuning device parameters, such as:
 - Minimum state of charge limits
 - <abbr title="electric vehicle">EV</abbr> charger current limits
 
+#### Selects
+
+Configurable options for controlling device behavior, such as:
+
+- Inverter mode (on, off, charger only, inverter only)
+- Solar charger mode
+- Relay function configuration
+- <abbr title="electric vehicle">EV</abbr> charger charge mode (auto, manual, or scheduled charge)
+- <abbr title="Energy Storage System">ESS</abbr> mode (optimized with or without phase compensation, or external control)
+- <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
+- <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
+
+#### Switches
+
+Toggle controls for enabling or disabling device functions, such as:
+
+- <abbr title="electric vehicle">EV</abbr> charger start/stop
+- Generator auto-start and manual start
+- Generator quiet hours and conditional start triggers (<abbr title="state of charge">SoC</abbr>, temperature, voltage)
+- <abbr title="Energy Storage System">ESS</abbr> disable charge and disable feed-in
+- <abbr title="Energy Storage System">ESS</abbr> battery-only critical loads and schedule charge slot enabled
+- Relay states on GX devices, Multi RS, and solar chargers
+- Digital input inversion and switchable output states
+- PV DC overvoltage feed-in
+- VE.Bus PowerAssist, ignore AC input, and grid lost alarm settings
+
+## Known limitations
+
+- The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
+
+## Examples
+
+### Send a notification when the battery is low
+
+You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_soc` with your actual battery charge entity.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Notify when battery is low"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.battery_soc
+        below: 20
+    actions:
+      - action: notify.notify
+        data:
+          title: "Low battery warning"
+          message: >
+            Your Victron battery charge is at
+            {{ states('sensor.battery_soc') }}%.
+```
+
+{% endraw %}
 ## Troubleshooting
 
 ### Cannot connect
