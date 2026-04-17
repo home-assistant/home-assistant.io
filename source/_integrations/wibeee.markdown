@@ -39,6 +39,11 @@ The integration supports the following Wibeee models:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Wibeee device on your network. For example, `192.168.1.150`."
+{% endconfiguration_basic %}
+
 ## Update modes
 
 The integration supports two data update modes:
@@ -60,6 +65,7 @@ To use push mode:
 3. Or manually configure the device's push server settings
 
 When auto-configuration is enabled, Home Assistant will:
+
 - Configure the device to send data to your Home Assistant instance
 - Set the push interval to match your scan interval preference
 - Apply the configuration and reboot the device
@@ -139,12 +145,12 @@ The push interval on the device is automatically configured to match your Home A
 ```yaml
 automation:
   - alias: "High power alert"
-    trigger:
-      - platform: numeric_state
+    triggers:
+      - trigger: numeric_state
         entity_id: sensor.wibeee_xxxx_l1_active_power
         above: 2000
-    action:
-      - service: notify.notify
+    actions:
+      - action: notify.notify
         data:
           message: "Power consumption on L1 exceeded 2000W"
 ```
@@ -164,7 +170,9 @@ template:
   - sensor:
       - name: "Daily energy cost"
         unit_of_measurement: "€"
-        state: "{{ states('sensor.wibeee_xxxx_l1_active_energy') | float(0) * 0.15 }}"
+        state: >-
+          {{ states('sensor.wibeee_xxxx_l1_active_energy')
+              | float(0) * 0.15 }}
 ```
 
 {% endraw %}
@@ -198,6 +206,7 @@ Make sure the device is powered on and connected to the network. Try pinging the
 ### Connection errors
 
 If you see connection errors in the logs:
+
 1. Verify the device IP address is correct and reachable
 2. Check that no firewall is blocking local connections
 3. Ensure the device is not in sleep/power-saving mode
@@ -211,6 +220,7 @@ If you see connection errors in the logs:
 ### Entities unavailable
 
 If entities show as unavailable:
+
 1. Check the device is online (ping the IP address)
 2. Try restarting the integration
 3. Increase the scan interval in the options flow
