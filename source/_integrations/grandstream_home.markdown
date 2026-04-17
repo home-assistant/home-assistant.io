@@ -93,16 +93,11 @@ The integration provides the following sensor:
 
 **Solutions:**
 
-1. Verify the device is powered on and connected to the network
-2. Check the IP address is correct
+1. Verify the device is powered on and connected to the network.
+2. Check the IP address is correct.
 3. Ensure your Home Assistant instance can reach the device:
    ```bash
    ping <device-ip>
-   ```
-4. Check firewall settings on both Home Assistant and the device
-5. Verify the password is correct (default username: `gdsha`)
-6. Check if you're using the correct port (default: 443 for HTTPS)
-7. If using HTTPS, try disabling SSL verification in the configuration
 
 ### Device not discovered automatically
 
