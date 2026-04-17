@@ -1,6 +1,6 @@
 ---
 title: OpenWrt (ubus)
-description: Instructions on how to integrate OpenWRT devices into Home Assistant.
+description: Instructions on how to integrate OpenWrt devices into Home Assistant.
 ha_category:
   - Presence detection
 ha_release: 0.7.6
@@ -72,7 +72,7 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
 }
 ```
 
-_Check your lease file path:_ The entry `/tmp/dhcp.leases` is the OpenWrt default for dnsmasq. If you have a custom configuration, run `uci get dhcp.@dnsmasq[0].leasefile` on your device. Should it return a different path, then you must update the `hass.json` file above to match it, or client device names will not be correctly resolved. This step can be ignored, if dnsmasq is disabled on your device.
+_Check your lease file path:_ The entry `/tmp/dhcp.leases` is the OpenWrt default for dnsmasq. If you have a custom configuration, run `uci get dhcp.@dnsmasq[0].leasefile` on your device. Should it return a different path, then you must update the `hass.json` file above to match it, or client device names will not be correctly resolved. This step can be ignored if dnsmasq is disabled on your device.
 
 Restart the services.
 
@@ -98,7 +98,7 @@ If not already done, add the ACL file path to `/etc/sysupgrade.conf` so that the
 Now that the device setup is finished, add the password for the `hass` account created in a previous step to your [`secrets.yaml`](/docs/configuration/secrets/) file.
 
 ```yaml
-hass_password: 'YOUR_HASS_PASSWORD'
+hass_password: "YOUR_HASS_PASSWORD"
 ```
 
 Add the following to your {% term "`configuration.yaml`" %} file.
