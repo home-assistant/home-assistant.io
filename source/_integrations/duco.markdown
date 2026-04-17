@@ -43,7 +43,9 @@ Compatible DucoBox models:
 
 {% include integrations/config_flow.md %}
 
-If your Duco box is on the same local network as Home Assistant, it is discovered automatically via mDNS. A notification appears in Home Assistant, and you can confirm the setup with one click. If the box is not discovered automatically, you can set it up manually by entering the IP address or hostname.
+Your Duco ventilation box can be **automatically discovered** on your network when the device is connected and powered on. When Home Assistant discovers a new Duco device, it appears as a notification in the UI. Select the notification to complete the setup with one click.
+
+If automatic discovery does not work, you can manually add the integration by providing the IP address or hostname.
 
 {% configuration_basic %}
 Host:
@@ -230,6 +232,15 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 
 ## Troubleshooting
+
+### Device is not automatically discovered
+
+If your Duco ventilation box is not automatically discovered:
+
+- Ensure the device is powered on and connected to the same network as Home Assistant
+- Check that mDNS/Bonjour traffic is not blocked by your router or firewall
+- Verify the device name shows as "DUCO [MAC address]" in your router's device list or network scanner
+- Manually add the integration using the device's IP address if discovery continues to fail
 
 ### Cannot connect to the Duco box
 
