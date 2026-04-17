@@ -73,7 +73,7 @@ The integration supports automatic device discovery via mDNS/Zeroconf. Discovere
 
 The integration provides the following sensor entity:
 
-#### GDS/GSC Devices
+#### GDS/GSC devices
 
 - **Device status** - Overall device status showing:
   - `online` - Device is connected and responding
