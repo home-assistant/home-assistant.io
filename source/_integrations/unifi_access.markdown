@@ -136,17 +136,19 @@ Use this action to apply a temporary lock rule to a specific door from an automa
 | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
 | `device_id`    | no       | The UniFi Access door device to update.                                                                       |
 | `rule`         | no       | The lock rule to apply. Supported values are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, and `reset`. |
-| `interval`     | yes      | Rule duration in minutes. Defaults to `10`.                                                                   |
+| `interval`     | yes      | How long the rule stays active, as a duration (for example, `"00:30:00"` for 30 minutes). Defaults to 10 minutes when omitted. |
 
 Example action:
 
 ```yaml
 action: unifi_access.set_lock_rule
-target:
-  device_id: 0123456789abcdef0123456789abcdef
 data:
+  device_id: 0123456789abcdef0123456789abcdef
   rule: keep_lock
-  interval: 30
+  interval:
+    hours: 0
+    minutes: 30
+    seconds: 0
 ```
 
 ## Data updates
