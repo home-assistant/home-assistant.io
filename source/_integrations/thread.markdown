@@ -341,23 +341,23 @@ This section helps you resolve common issues with Thread networks and device com
 
 #### Symptom: "IPv6 routing/forwarding is not enabled" warning in the OTBR app logs, or Thread devices join the network but cannot be reached
 
-Thread is an IPv6-only protocol. For Thread devices to communicate with Home Assistant and other devices on your network, IPv6 forwarding must be enabled at every layer of your network stack. If any layer is missing IPv6 support, Thread devices may join the mesh but fail to communicate beyond it.
+Thread is an IPv6-only protocol. For Thread devices to communicate with Home Assistant and other devices on your network, your Home Assistant system must have working IPv6 connectivity. In setups that route traffic between networks, IPv6 forwarding must also be enabled on the system acting as the router. If any required layer is missing IPv6 support, Thread devices may join the mesh but fail to communicate beyond it.
 
 ##### Layers to check
 
-Every setup has at least two layers that need IPv6 forwarding:
+Every setup should have these basics in place:
 
-- **Home Assistant host** — the system where Home Assistant runs
-- **Network router** — the device that manages traffic on your local network
+- **Home Assistant host** — the system where Home Assistant runs must have working IPv6 connectivity
+- **Network router** — the device that manages traffic on your local network must support IPv6 routing for your network
 
-Depending on how Home Assistant is deployed, there may be additional layers:
+Depending on how Home Assistant is deployed, there may be additional layers to check:
 
-- **Hypervisor host** — if Home Assistant runs inside a virtual machine (for example, Proxmox, ESXi, or VirtualBox), the hypervisor also needs IPv6 forwarding enabled
-- **Docker daemon** — if Home Assistant runs as a container, the Docker daemon needs IPv6 enabled in its configuration
-- **Host operating system** — if Home Assistant runs as a container on Linux, the host OS needs IPv6 forwarding enabled at the kernel level
+- **Hypervisor host** — if Home Assistant runs inside a virtual machine, like Proxmox, ESXi, or VirtualBox, make sure the virtual NIC connected to the Home Assistant VM has IPv6 connectivity. In bridged setups, the hypervisor usually does not need IPv6 forwarding. If the hypervisor is routing traffic, IPv6 forwarding may be required there
+- **Docker daemon** — if Home Assistant runs as a container, Docker may need IPv6 enabled in its configuration
+- **Host operating system** — if Home Assistant runs as a container on Linux, the host OS may need IPv6 forwarding enabled at the kernel level when it is routing container traffic
 
 {% note %}
-The warning in the OTBR app logs only detects whether IPv6 forwarding is enabled on the Home Assistant host itself. Issues at the hypervisor, Docker, host OS, or router layer will not trigger this warning but can still prevent Thread devices from communicating.
+The warning in the OTBR app logs only detects whether IPv6 forwarding is enabled on the Home Assistant host itself. Issues at the hypervisor, Docker, host OS, virtual network, or router layer will not trigger this warning but can still prevent Thread devices from communicating.
 {% endnote %}
 
 ##### Home Assistant Operating System
@@ -383,7 +383,7 @@ IPv6 may not be enabled in Docker on your Home Assistant OS installation. There 
    ha host reboot
    ```
 
-If Home Assistant OS is running inside a virtual machine, the hypervisor host also needs IPv6 forwarding enabled. Refer to your hypervisor's documentation for instructions.
+If Home Assistant OS is running inside a virtual machine, make sure the VM has IPv6 connectivity. If the hypervisor is routing traffic (rather than bridging), IPv6 forwarding may also need to be enabled. Refer to your hypervisor's documentation for instructions.
 
 ##### Home Assistant Container
 
@@ -392,7 +392,7 @@ If you are running Home Assistant Container, there are two additional layers to 
 - **Docker daemon** — IPv6 must be enabled in the Docker daemon configuration. Refer to the [Docker documentation on enabling IPv6](https://docs.docker.com/config/daemon/ipv6/) for instructions.
 - **Host operating system** — the Linux host needs IPv6 forwarding enabled at the kernel level. Refer to your distribution's documentation for instructions on enabling IPv6 forwarding.
 
-If the host machine is itself a virtual machine, the hypervisor also needs IPv6 forwarding enabled. Refer to your hypervisor's documentation for instructions.
+If the host machine is itself a virtual machine, make sure the VM has IPv6 connectivity. If the hypervisor is routing traffic (rather than bridging), IPv6 forwarding may also need to be enabled. Refer to your hypervisor's documentation for instructions.
 
 ##### Network router
 
@@ -406,11 +406,11 @@ If you experience frequent pairing failures or devices that drop off the network
 
 ##### Description
 
-Thread uses the IEEE 802.15.4 radio standard, which operates in the 2.4 GHz band — the same band used by Wi-Fi and Bluetooth. Thread channels 11 through 22 overlap with common Wi-Fi channels 1, 6, and 11. This overlap can cause interference that prevents the Thread radio from transmitting successfully.
+Thread uses the IEEE 802.15.4 radio standard, which operates in the 2.4 GHz band — the same band used by Wi-Fi and Bluetooth. Thread channels 11 through 24 can overlap with 2.4 GHz Wi-Fi, including common Wi-Fi channels like 1, 6, and 11. This overlap can cause interference that prevents the Thread radio from transmitting successfully.
 
 A sign of interference in the OTBR app logs is repeated `ChannelAccessFailure` errors. This means the radio attempted to send a frame but the channel was too busy, even after multiple retries.
 
-Thread channels 25 and 26 sit above the Wi-Fi band and are the least likely to experience Wi-Fi interference. Channel 26 is a common recommendation for environments with heavy Wi-Fi traffic.
+Thread channel 26 is the least likely to experience Wi-Fi interference. Channel 25 can also help reduce interference, but it may still partially overlap with some Wi-Fi configurations, depending on channel width. Channel 26 is a common recommendation for environments with heavy Wi-Fi traffic.
 
 ##### Resolution
 
