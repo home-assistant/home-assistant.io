@@ -4,6 +4,7 @@ description: Instructions on how to integrate Duco ventilation with Home Assista
 ha_release: 2026.5
 ha_category:
   - Fan
+  - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: duco
 ha_platforms:
   - fan
+  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -48,13 +50,17 @@ Host:
 
 ## Supported functionality
 
-The integration creates one device for the main Duco box. Connected modules (such as CO₂ sensors or humidity sensors) are discovered but not yet exposed as separate devices.
+The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
+
+- **BOX** — the main DucoBox (fan control, ventilation state)
+- **UCCO2** — a wireless CO₂ sensor module
+- **BSRH** — a humidity sensor module installed inside the DucoBox
 
 ### Fan
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
 
-The fan is always on, setting the speed to 0% hands control back to Duco (automatic mode), after which the firmware automatically resumes ventilation.
+The fan is always on. Setting the speed to 0% returns control to Duco (automatic mode), after which the firmware automatically resumes ventilation.
 
 The following actions are available:
 
@@ -66,11 +72,58 @@ The following actions are available:
 
 When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
+### Sensors
+
+The following sensor entities are created per node, depending on the node type:
+
+#### Ventilation state
+
+Available for the main ventilation box (BOX). Shows the current ventilation state, for example:
+
+- Automatic
+- Continuous high speed
+- Manual low speed (15 min)
+
+#### CO₂ concentration
+
+Available for CO₂ sensor modules. Shows the current CO₂ concentration in parts per million (ppm).
+
+#### Humidity
+
+Available for humidity sensor modules (BSRH). Shows the current relative humidity in percent.
+
+#### CO₂ air quality index
+
+Available for CO₂ sensor modules. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
+
+Indoor air quality ranges for CO₂:
+
+- 90–100%: Very good
+- 75–85%: Good
+- 50–70%: Temporarily acceptable
+- 35–45%: Poor
+
+#### Humidity air quality index
+
+Available for humidity sensor modules (BSRH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
+
+Indoor air quality ranges for humidity:
+
+- 95–100%: Very good
+- 65–90%: Good
+- 35–50%: Temporarily acceptable
+- 5–20%: Poor
+
+#### Wi-Fi signal strength
+
+Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+
 ## Use cases
 
 - Switch to high ventilation automatically when cooking or showering.
 - Return to auto mode when everyone leaves home using a presence-based automation.
 - Monitor ventilation activity over time via the logbook.
+- Trigger automations based on CO₂ levels or humidity reported by connected Duco modules.
 
 ## Examples
 
@@ -135,15 +188,44 @@ When the last person leaves home, the ventilation hands control back to Duco (au
         percentage: 66
 ```
 
+### Boost ventilation when CO₂ is high
+
+This automation switches to high speed when the CO₂ level in the office rises above 1000 ppm, and returns to automatic mode when it drops back below 800 ppm.
+
+```yaml
+- alias: "Boost ventilation on high CO2"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.office_co2_carbon_dioxide
+      above: 1000
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.living_ventilation
+      data:
+        percentage: 100
+
+- alias: "Return to auto when CO2 is low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.office_co2_carbon_dioxide
+      below: 800
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.living_ventilation
+      data:
+        percentage: 0
+```
+
 ## Data updates
 
 The integration {% term polling polls %} the Duco box every 30 seconds.
 
 ## Known limitations
 
-- The integration does not yet expose CO₂ and humidity sensor data from connected Duco modules. This is planned for a future update.
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
-- The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
+- The Duco box enforces a rate limit of 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully; the quota resets automatically around midnight.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 
 ## Troubleshooting
@@ -177,13 +259,11 @@ Failed to set ventilation state: DucoError('Duco API error (429): {"Code":18,"Re
 
 #### Description
 
-The Duco box enforces a write rate limit of 200 write requests per day via the public API. Each time you change the ventilation state (speed or preset), the counter decrements. When it reaches 0, the box rejects further write requests with a 429 error. The counter resets daily around midnight (after at least 24 hours).
-
-For normal daily use, the limit should be sufficient.
+The Duco box enforces a write rate limit of 200 write requests per day. When the limit is reached, the box rejects further write requests with a 429 error until the quota resets around midnight.
 
 #### Resolution
 
-Wait until midnight for the counter to reset. To avoid hitting the limit in the future, reduce the number of automations or scripts that change the ventilation state frequently.
+Wait until midnight for the quota to reset. To avoid hitting the limit, reduce the frequency of automations that change the ventilation state.
 
 ## Removing the integration
 
