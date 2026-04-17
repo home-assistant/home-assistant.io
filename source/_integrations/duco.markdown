@@ -114,6 +114,10 @@ Indoor air quality ranges for humidity:
 - 35–50%: Temporarily acceptable
 - 5–20%: Poor
 
+#### Wi-Fi signal strength
+
+Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+
 ## Use cases
 
 - Switch to high ventilation automatically when cooking or showering.
@@ -221,7 +225,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds.
 ## Known limitations
 
 - The integration does not support automatic discovery; the IP address or hostname must be entered manually.
-- The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically.
+- The Duco box enforces a rate limit of 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully; the quota resets automatically around midnight.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 
 ## Troubleshooting
@@ -255,13 +259,11 @@ Failed to set ventilation state: DucoError('Duco API error (429): {"Code":18,"Re
 
 #### Description
 
-The Duco box enforces a write rate limit of 200 write requests per day via the public API. Each time you change the ventilation state (speed or preset), the counter decrements. When it reaches 0, the box rejects further write requests with a 429 error. The counter resets daily around midnight (after at least 24 hours).
-
-For normal daily use, the limit should be sufficient.
+The Duco box enforces a write rate limit of 200 write requests per day. When the limit is reached, the box rejects further write requests with a 429 error until the quota resets around midnight.
 
 #### Resolution
 
-Wait until midnight for the counter to reset. To avoid hitting the limit in the future, reduce the number of automations or scripts that change the ventilation state frequently.
+Wait until midnight for the quota to reset. To avoid hitting the limit, reduce the frequency of automations that change the ventilation state.
 
 ## Removing the integration
 
