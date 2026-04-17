@@ -26,7 +26,7 @@ The **Denon RS232** {% term integration %} lets you control Denon receivers by c
 
 ## Supported functionality
 
-The integration adds {% term media player entities as entity %} for your receiver.
+The integration adds media player entities as an {% term entity %} for your receiver.
 
 ### Media player controls
 
