@@ -4,6 +4,7 @@ description: Instructions on how to integrate Eurotronic Comet Blue Thermostats 
 ha_category:
   - Button
   - Climate
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 2026.5
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_quality_scale: bronze
 ha_platforms:
   - button
   - climate
+  - sensor
 ---
 
 The **Eurotronic Comet Blue** {% term integration %} allows you to integrate Eurotronic Comet Blue (and similar) thermostats.
@@ -72,6 +74,10 @@ Additionally, the following modes are available:
 - **Off**: Valve is fully closed.
 - **Heat**: Valve is fully open.
 - **Auto**: The thermostat controls the temperature automatically, based on the target temperature.
+
+### Sensor
+
+The device reports its current battery level, but the reading may not be very accurate.
 
 ### Button
 
