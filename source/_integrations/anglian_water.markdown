@@ -66,15 +66,11 @@ The statistic entities imported via this integration have an `anglian_water:` pr
 
 To set up the **Anglian Water** long-term statistics in your Home Assistant energy dashboard, follow these steps:
 
-- **Access the energy configuration panel**
-  - Go to the [energy configuration panel](https://my.home-assistant.io/redirect/config_energy/) of your Home Assistant instance.
-
-    [![Open your Home Assistant instance and show your energy configuration panel.](https://my.home-assistant.io/badges/config_energy.svg)](https://my.home-assistant.io/redirect/config_energy/)
-
-- **Add water consumption**
-  - Go to **Water consumption**.
-    - Select **Add water source**.
-    - Choose the **Water** entity (for example, `anglian_water:account_meter_usage`).
+1. Go to the [energy configuration panel](https://my.home-assistant.io/redirect/config_energy/) of your Home Assistant instance.
+   [![Open your Home Assistant instance and show your energy configuration panel.](https://my.home-assistant.io/badges/config_energy.svg)](https://my.home-assistant.io/redirect/config_energy/)
+2. Go to **Water consumption**.
+3. Select **Add water source**.
+4. Choose the **Water** entity, for example, `anglian_water:account_meter_usage`.
 
 ## Data updates
 
