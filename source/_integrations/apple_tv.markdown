@@ -25,7 +25,7 @@ There is currently support for the following entities within the Apple TV device
 
 - [Media Player](#media-player)
 - [Remote](#remote)
-- [Keyboard focused](#keyboard-focused) `binary_sensor`
+- [Keyboard](#keyboard) `binary_sensor` and text input actions
 
 {% include integrations/config_flow.md %}
 
@@ -173,7 +173,7 @@ data:
     - left
 ```
 
-## Keyboard focused
+## Keyboard
 
 The Apple TV remote platform will automatically create a Binary sensor entity
 for each Apple TV configured on your Home Assistant instance to determine if the
@@ -197,6 +197,61 @@ actions:
   - action: apple_tv.clear_search_text
     target:
       entity_id: remote.my_apple_tv_remote
+```
+
+Three actions are available for sending text to the focused input field. These
+require that the keyboard is currently focused on the device.
+
+### Action `apple_tv.set_keyboard_text`
+
+Sets the text in the currently focused text input field, replacing any existing text.
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry ID of the Apple TV.
+  - **Optional**: No
+- **Data attribute**: `text`
+  - **Description**: The text to set.
+  - **Optional**: No
+
+### Action `apple_tv.append_keyboard_text`
+
+Appends text to the currently focused text input field without clearing existing text.
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry ID of the Apple TV.
+  - **Optional**: No
+- **Data attribute**: `text`
+  - **Description**: The text to append.
+  - **Optional**: No
+
+### Action `apple_tv.clear_keyboard_text`
+
+Clears the text in the currently focused text input field.
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry ID of the Apple TV.
+  - **Optional**: No
+
+The `config_entry_id` can be found under {% my integrations title="**Settings** > **Devices & services**" %} > **Apple TV** > your device — it is the last part of the URL when viewing the device page.
+
+### Examples
+
+Type a search query when the keyboard appears:
+
+```yaml
+description: "Search for a show on Apple TV"
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.my_apple_tv_keyboard_focused
+    from: "off"
+    to: "on"
+actions:
+  - action: apple_tv.set_keyboard_text
+    data:
+      config_entry_id: YOUR_CONFIG_ENTRY_ID
+      text: "Severance"
 ```
 
 ## FAQ
