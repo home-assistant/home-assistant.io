@@ -2,6 +2,7 @@
 title: Honeywell Total Connect Comfort (Europe)
 description: Instructions on how to integrate a Honeywell Evohome/TCC system with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Hub
   - Water heater
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@zxdavb'
 ha_domain: evohome
 ha_platforms:
+  - binary_sensor
   - button
   - climate
   - water_heater
@@ -87,6 +89,8 @@ The controller also provides a **Button** entity to reset the system mode. This 
 The DHW controller is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
 
 If present, it also provides a **Button** entity to clear any DHW override and return the DHW controller to Evohome's **FollowSchedule** mode.
+
+Each device in the system — the gateway, the controller, DHW (if present), and each heating zone — also provides a **BinarySensor** entity that reports active faults. These are diagnostic entities of the `problem` device class: they are _on_ when one or more faults are active, and _off_ otherwise. Each entity exposes a `fault_count` attribute and a `faults` attribute containing the details of any active faults.
 
 Note that support for schedules is limited. They cannot be changed, and there is no way to back up or restore that data. For that functionality, refer to the [evohome-async documentation](https://github.com/zxdavb/evohome-async).
 
@@ -281,16 +285,16 @@ The Zones will expose the current/upcoming scheduled `setpoints`:
 
 {% endraw %}
 
-All Evohome entities may have faults, and these can be turned into sensors, or:
+All Evohome entities may have faults, which are exposed as **BinarySensor** entities. You can also use them in templates:
 
 {% raw %}
 
 ```text
-{% if state_attr('climate.bedroom', 'status').active_faults %}
-  {% if state_attr('climate.bedroom', 'status').active_faults[0].faultType == 'TempZoneActuatorLowBattery' %}
+{% if states('binary_sensor.bedroom_faults') == 'on' %}
+  {% if state_attr('binary_sensor.bedroom_faults', 'faults')[0].fault_type == 'TempZoneActuatorLowBattery' %}
     There is a low battery
   {% endif %}
-    There is a Fault!
+  There is a Fault!
 {% else %}
   Yay, everything is OK :)
 {% endif %}
