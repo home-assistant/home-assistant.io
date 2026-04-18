@@ -28,13 +28,7 @@ Use case: If you have a TechnoVE charging station at home, you can automate your
 
 ## Supported devices
 
-The integration supports all TechnoVE smart charging stations that expose a local API, including:
-
-- TechnoVE i16
-- TechnoVE i32
-- TechnoVE i40
-
-The specific model is automatically detected based on the maximum station current reported by the device.
+The integration supports all Wi-Fi enabled EV charging stations released by the TechnoVE brand.
 
 ## Prerequisites
 
@@ -42,13 +36,13 @@ Before setting up this integration, make sure:
 
 1. Your TechnoVE charging station is powered on and connected to your local network (Wi-Fi).
 2. Your Home Assistant instance can reach the charging station over the network.
-3. You know the IP address or hostname of your TechnoVE station. You can find this in your router's connected devices list.
+3. While Home Assistant will typically discover your station automatically on your network, if you need to add it manually, make sure you know the IP address or hostname of your TechnoVE station. You can find this in your router's connected devices list.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of your TechnoVE charging station. You can find this in your router's connected devices list."
+  description: "The IP address or hostname of your TechnoVE charging station. If not discovered automatically, you can find this in your router's connected devices list."
 {% endconfiguration_basic %}
 
 ## Supported functionality
