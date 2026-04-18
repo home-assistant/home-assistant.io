@@ -58,6 +58,10 @@ The {% term integration %} adds the following sensors:
   - Unplugged
   - Plugged, waiting
   - Plugged, charging
+  - Ventilation required
+  - Pilot fault
+  - EVSE fault
+  - Ground fault
   - Out of activation period
   - High tariff period
 
