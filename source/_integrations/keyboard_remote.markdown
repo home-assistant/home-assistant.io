@@ -146,7 +146,7 @@ automation:
 ## Migrating from YAML configuration
 
 {% important %}
-YAML configuration for the **Keyboard Remote** integration is deprecated and will be removed in Home Assistant 2026.9.0. When you upgrade, your existing YAML configuration is automatically imported as one integration entry per device. Please remove the `keyboard_remote` key from your {% term "`configuration.yaml`" %} after confirming the import was successful.
+YAML configuration for the **Keyboard Remote** integration is deprecated and will be removed in Home Assistant 2026.11.0. When you upgrade, your existing YAML configuration is automatically imported as one integration entry per device. Please remove the `keyboard_remote` key from your {% term "`configuration.yaml`" %} after confirming the import was successful.
 {% endimportant %}
 
 To complete the migration:
