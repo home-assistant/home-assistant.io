@@ -60,7 +60,7 @@ The {% term integration %} adds the following sensors:
   - Plugged, charging
   - Ventilation required
   - Pilot fault
-  - EVSE fault
+  - <abbr title="Electric Vehicle Supply Equipment">EVSE</abbr> fault
   - Ground fault
   - Out of activation period
   - High tariff period
