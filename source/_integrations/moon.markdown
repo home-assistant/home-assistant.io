@@ -2,24 +2,22 @@
 title: Moon
 description: Instructions on how to use the Moon integration in Home Assistant.
 ha_category:
-  - Environment
+    - Environment
 ha_iot_class: Calculated
 ha_release: 0.38
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
-  - '@frenck'
+    - "@fabaff"
+    - "@frenck"
 ha_domain: moon
 ha_platforms:
-  - binary_sensor
-  - sensor
+    - binary_sensor
+    - sensor
 ha_config_flow: true
 ha_integration_type: service
 ---
 
-The **Moon** {% term integration %} tracks the moon based on your configured home location. In addition to the moon phase, it also provides data like illumination, rise and set times, the next major lunar phases, and whether the moon is currently above the horizon.
-
-You can use these entities in automations and dashboards. For example, you can use the phase sensor to show the current moon phase, or use the `above_horizon` binary sensor in automations that should only run when the moon is visible.
+The **Moon** {% term integration %} tracks the moon based on your configured home location.
 
 {% include integrations/config_flow.md %}
 
