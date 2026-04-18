@@ -3,6 +3,7 @@ title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
   - Binary sensor
+  - Number
   - Select
   - Sensor
   - Switch
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: victron_gx
 ha_platforms:
   - binary_sensor
+  - number
   - select
   - sensor
   - switch
@@ -110,6 +112,15 @@ Status indicators for various system states, such as:
 - Alarms and warnings
 - Connection status
 - Relay states
+
+#### Numbers
+
+Adjustable numeric settings for fine-tuning device parameters, such as:
+
+- Battery charge current limits
+- Grid setpoint for <abbr title="Energy Storage System">ESS</abbr>
+- Minimum state of charge limits
+- <abbr title="electric vehicle">EV</abbr> charger current limits
 
 #### Selects
 
