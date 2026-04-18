@@ -58,6 +58,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2026.4.1 - April 3](#202641---april-3)
   - [2026.4.2 - April 11](#202642---april-11)
+  - [2026.4.3 - April 17](#202643---april-17)
 - [All changes](#all-changes)
 
 _A huge thank you to all the contributors who made this release possible! And a special shout-out to [@arturpragacz] and [@piitaya] who helped write the release notes this release. Also, [@mib1185], [@missyquarry], [@RaHehl], [@CoMPaTech], [@mikeodr], [@silamon], and [@tronikos] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
