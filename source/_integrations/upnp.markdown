@@ -33,6 +33,12 @@ Please note that UPnP or NAT-PMP needs to be enabled on your router for this {% 
 
 Some UPnP/IGD devices have a broken UPnP implementation and will provide invalid data or no data at all. A configuration option is provided to fall back to polling of all data for the sensors. Please try this when you feel not all sensors which should be working are working.
 
+## Traffic counters not handling rollover properly
+
+In case the Download speed, Upload speed, Packet download speed, or Packet upload speed, sensors are not working properly, one can fallback to the sensors without rollover handling. For example, when an unexpectedly large spike occurs in the sensor values.
+
+These sensors have the suffix "without rollover handling" and will give a Unavailable value when a rollover is detected. This is the behavior from before Home Assistant 2026.05.
+
 ## Debugging integration
 
 If you have problems with this {% term integration %} you can add debug prints to the log.
