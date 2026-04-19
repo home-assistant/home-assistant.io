@@ -35,9 +35,9 @@ Some UPnP/IGD devices have a broken UPnP implementation and will provide invalid
 
 ## Traffic counters not handling rollover properly
 
-In case the Download speed, Upload speed, Packet download speed, or Packet upload speed, sensors are not working properly, one can fallback to the sensors without rollover handling. For example, when an unexpectedly large spike occurs in the sensor values.
+If the Download speed, Upload speed, Packet download speed, or Packet upload speed sensors are not working properly, you can fall back to the sensors `without rollover handling`. For example, this can help when an unexpectedly large spike occurs in the sensor values.
 
-These sensors have the suffix "without rollover handling" and will give a Unavailable value when a rollover is detected. This is the behavior from before Home Assistant 2026.05.
+These sensors have the suffix `without rollover handling` and will have the state `unavailable` when a rollover is detected. This is the behavior from before Home Assistant 2026.5.
 
 ## Debugging integration
 
