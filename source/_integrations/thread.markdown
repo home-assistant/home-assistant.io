@@ -402,7 +402,7 @@ Your network router needs IPv6 forwarding enabled so that IPv6 traffic can flow 
 
 #### Symptom: Thread border routers are visible, but Matter over Thread pairing fails or devices cannot be reached
 
-You are running Home Assistant and the Matter Server in QNAP Container Station, and Thread border routers appear in Home Assistant, but pairing Matter over Thread devices fails or commissioned devices cannot be reached — even when using `network_mode: host`.
+You are running Home Assistant and the Matter Server app in QNAP Container Station, and Thread border routers appear in Home Assistant, but pairing Matter over Thread devices fails or commissioned devices cannot be reached — even when using `network_mode: host`.
 
 ##### Description
 
@@ -415,11 +415,11 @@ To support this, the Linux kernel requires two configuration options:
 
 According to a [community report for QTS 5.2.3](https://community.qnap.com/t/qnap-home-assistant-thread/4349), the kernel shipped by QNAP may not include these options. Without them, the host cannot learn the routes that Thread border routers advertise, so Matter over Thread pairing and communication with Thread devices will not work reliably — even with `network_mode: host`.
 
-There is also a second pitfall common in Docker and container environments: when IPv6 forwarding is enabled on a Linux host, the kernel ignores Router Advertisements by default unless `accept_ra` is set to `2`. On QNAP, however, adjusting `accept_ra` alone does not help if the kernel is already missing RFC 4191 route-info support.
+There is also a second pitfall common in Docker and container environments: when IPv6 forwarding is enabled on a Linux host, the kernel ignores Router Advertisements by default unless the Linux sysctl `net.ipv6.conf.<interface>.accept_ra` is set to `2` on the interface that receives those advertisements. A value of `2` tells Linux to accept Router Advertisements even when forwarding is enabled. On QNAP, however, adjusting `accept_ra` alone does not help if the kernel is already missing RFC 4191 route-info support.
 
 ##### Resolution
 
-There is currently no known workaround that fully resolves this on QNAP hardware. The root cause is a missing kernel feature that can only be fixed by QNAP shipping a kernel built with `CONFIG_IPV6_ROUTER_PREF` and `CONFIG_IPV6_ROUTE_INFO` enabled. QNAP has been made aware of this issue through the community forum.
+There is currently no known workaround that fully resolves this on QNAP hardware. The root cause is a missing kernel feature that can only be fixed by QNAP shipping a kernel built with `CONFIG_IPV6_ROUTER_PREF` and `CONFIG_IPV6_ROUTE_INFO` enabled. This issue has been reported on the QNAP community forum.
 
 If you are affected, consider running Home Assistant on a different platform, such as a dedicated device running [Home Assistant Operating System](/installation/) or a Linux machine with a kernel that includes these options.
 
