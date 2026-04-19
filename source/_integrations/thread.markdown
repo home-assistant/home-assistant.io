@@ -398,7 +398,7 @@ If the host machine is itself a virtual machine, make sure the VM has IPv6 conne
 
 Your network router needs IPv6 forwarding enabled so that IPv6 traffic can flow between your local network and the Thread mesh. Refer to your router's documentation for details on enabling IPv6 support and forwarding.
 
-### Matter over Thread not working on QNAP / Container Station
+### Matter over Thread not working on QNAP Container Station
 
 #### Symptom: Thread border routers are visible, but Matter over Thread pairing fails or devices cannot be reached
 
@@ -419,9 +419,9 @@ There is also a second pitfall common in Docker and container environments: when
 
 ##### Resolution
 
-There is currently no known workaround that fully resolves this on QNAP hardware. The root cause is a missing kernel feature that can only be fixed by QNAP shipping a kernel built with `CONFIG_IPV6_ROUTER_PREF` and `CONFIG_IPV6_ROUTE_INFO` enabled. This issue has been reported on the QNAP community forum.
+There is currently no known workaround within QNAP Container Station. The root cause is a missing host kernel feature that can only be fixed by QNAP shipping a kernel built with `CONFIG_IPV6_ROUTER_PREF` and `CONFIG_IPV6_ROUTE_INFO` enabled. This issue has been reported on the QNAP community forum.
 
-If you are affected, consider running Home Assistant on a different platform, such as a dedicated device running [Home Assistant Operating System](/installation/) or a Linux machine with a kernel that includes these options.
+If you are affected, consider running Home Assistant or the Matter Server app in an environment with its own kernel, such as a virtual machine or separate hardware. For example, you could use a dedicated device running [Home Assistant Operating System](/installation/) or a Linux machine with a kernel that includes these options.
 
 {% note %}
 For more background on the IPv6 requirements for Thread, see the [Matter Server OS requirements](https://github.com/home-assistant-libs/python-matter-server/blob/main/docs/os_requirements.md) and the [Home Assistant OS discussion on RFC 4191 and Thread](https://github.com/home-assistant/operating-system/discussions/2333).
@@ -471,7 +471,7 @@ First, make sure you have followed all the prerequisites for adding a Matter dev
 If pairing still fails after verifying the prerequisites, check the following:
 
 - **The device is still in pairing mode.** Most devices only stay in pairing mode for a limited time. If it expires, reset the device to pairing mode and try again.
-- **Restart your phone.** If commissioning fails or stalls, a full restart of your phone can clear stale Bluetooth or Thread credential state and often resolves the issue.
+- **Restart your phone.** If commissioning fails or stalls, a full restart of your phone can clear stale Bluetooth state or Thread credentials and often resolves the issue.
 - **Mesh Wi-Fi access points are not blocking multicast.** Some mesh Wi-Fi systems aggressively filter multicast traffic on Wi-Fi. This can prevent your phone from discovering the border router via mDNS. If you suspect this, check your mesh system's settings for options related to multicast, IGMP snooping, or mDNS.
 
 ### Understanding OTBR log messages
