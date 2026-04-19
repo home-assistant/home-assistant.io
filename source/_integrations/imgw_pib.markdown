@@ -47,6 +47,9 @@ The IMGW-PIB integration provides the following entities.
   - **Remarks**: Not available for all hydrological stations
 - **Hydrological alert**
   - **Description**: Provides information on hydrological alerts for a given river or reservoir
+- **Ice phenomena**
+  - **Description**: Provides information on the percentage of ice phenomena in a river or water reservoir
+  - - **Remarks**: Not available for all hydrological stations
 
 ## Data updates
 
