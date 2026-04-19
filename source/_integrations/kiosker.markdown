@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: kiosker
 ha_platforms:
   - sensor
+  - binary_sensor
 ha_integration_type: integration
 ha_zeroconf: true
 ha_quality_scale: bronze
@@ -49,9 +50,12 @@ Due to Apple's restrictive approach to device control, it's not possible to cont
 Available sensors:
 
 - Battery level
+- Charging state
 - Last interaction
 - Last motion (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
 - Ambient light (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
+- Screensaver state
+- Blackout state
 
 ## Data updates
 This integration fetches data from the device every 15 seconds.
