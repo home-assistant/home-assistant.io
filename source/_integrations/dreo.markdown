@@ -12,15 +12,12 @@ ha_integration_type: integration
 
 The **Dreo** {% term integration %} enables you to control smart products connected to the [Dreo App](https://m.dreo.com/en) from [Dreo](https://www.dreo.com/).
 
-
-
 ## Prerequisites
 
 Before you can use this integration, all devices must be registered with the
 Dreo App. Once registration is complete, you can add the Dreo integration in Home Assistant through the UI.
 
 {% include integrations/config_flow.md %}
-
 
 ## Supported functionality
 
