@@ -7,6 +7,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -145,6 +147,12 @@ Toggle controls for enabling or disabling device functions, such as:
 - Digital input inversion and switchable output states
 - PV DC overvoltage feed-in
 - VE.Bus PowerAssist, ignore AC input, and grid lost alarm settings
+
+#### Times
+
+Configurable time-of-day settings, such as:
+
+- <abbr title="Energy Storage System">ESS</abbr> BatteryLife schedule charge start times
 
 ## Known limitations
 
