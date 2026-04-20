@@ -257,7 +257,7 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 1. Check that the Duco box is powered on and connected to your local network.
 2. Confirm the IP address or hostname is correct by opening `http://<host>` in a browser on your local network.
 3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
-4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS. If that does not happen, see [Reconfiguring the integration](#reconfiguring-the-integration).
+4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS/Bonjour (zeroconf). If that does not happen, see [Reconfiguring the integration](#reconfiguring-the-integration).
 
 ### Failed to set ventilation state (rate limit)
 
