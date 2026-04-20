@@ -667,8 +667,6 @@ The list of ZHA limitations may not be exhaustive.
 **Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the `zha.permit` action:**
 
 - Home Assistant's user interface does not currently support scanning a QR code for Zigbee 3.0 secure provisioning for device pre-commissioning in ZHA's UI (instead, you currently need to use the `zha.permit` action with the qr_code parameter).
-- Actions have so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) and 'znp' (Texas Instruments) radio types in ZHA.
-  - Other radio types are missing support for these actions in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
 
 **ZHA does _not_ currently support devices that can only use:**
 
