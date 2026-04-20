@@ -149,7 +149,7 @@ You can add the energy index sensors to the energy dashboard to track your elect
       entity_id: sensor.teleinfo_XXXXXXXXXXXX_apparent_power
       above: 6000
   actions:
-    - action: notify.mobile_app
+    - action: notify.mobile_app_<device_name>
       data:
         title: "High power usage"
         message: "Apparent power is above 6000 VA"
@@ -170,7 +170,7 @@ You can add the energy index sensors to the energy dashboard to track your elect
           entity_id: sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color
           state: "unknown"
   actions:
-    - action: notify.mobile_app
+    - action: notify.mobile_app_<device_name>
       data:
         title: "Tempo color tomorrow"
         message: >-
@@ -180,6 +180,7 @@ You can add the energy index sensors to the energy dashboard to track your elect
           ) }} day
 ```
 {% endraw %}
+
 ## Data updates
 
 The **Teleinfo** integration {% term polling polls %} data from the serial port every 10 seconds. Each poll opens the serial port at 1200 baud (historique mode), reads a complete Teleinfo frame, and decodes the label-value pairs using the `pyteleinfo` library.
