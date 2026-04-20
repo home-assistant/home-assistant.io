@@ -668,6 +668,7 @@ The list of ZHA limitations may not be exhaustive.
 
 - This has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA.
 - Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
+- There is no frontend implementation for Zigbee 3.0 device secure provisioning that allow QR code scanning for device provisioning in ZHA integration UI.
 
 **ZHA does _not_ currently support devices that can only use:**
 
