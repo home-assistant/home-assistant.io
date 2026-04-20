@@ -1,7 +1,7 @@
 {
   "linkset": [
     {
-      "anchor": "https://www.home-assistant.io/",
+      "anchor": "/",
       "service-doc": [
         {
           "href": "https://developers.home-assistant.io/docs/api/rest",
