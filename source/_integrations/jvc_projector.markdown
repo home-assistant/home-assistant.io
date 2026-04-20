@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@SteveEasley'
-  - '@msavazzi'
 ha_domain: jvc_projector
 ha_platforms:
   - binary_sensor
