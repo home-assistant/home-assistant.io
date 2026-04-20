@@ -3,7 +3,7 @@ title: BLANCO
 description: Instructions on how to integrate BLANCO smart home devices in Home Assistant.
 ha_category:
   - Water
-ha_release: "2026.x"
+ha_release: 2026.5
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
