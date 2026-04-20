@@ -29,18 +29,18 @@ The **EARN-E P1 Meter** integration provides the following entities.
 
 ### Real-time sensors (~1 second updates)
 
-- **Power delivered**: Current power being consumed (kW)
-- **Power returned**: Current power being returned to the grid (kW)
+- **Power imported**: Current power being imported from the grid (kW)
+- **Power exported**: Current power being exported to the grid (kW)
 - **Voltage L1**: Voltage on phase 1 (V)
 - **Current L1**: Current on phase 1 (A)
 
 ### Meter reading sensors (~60 second updates)
 
-- **Energy delivered tariff 1**: Total energy consumed on tariff 1 (kWh)
-- **Energy delivered tariff 2**: Total energy consumed on tariff 2 (kWh)
-- **Energy returned tariff 1**: Total energy returned on tariff 1 (kWh)
-- **Energy returned tariff 2**: Total energy returned on tariff 2 (kWh)
-- **Gas delivered**: Total gas consumed (m³)
+- **Energy imported tariff 1**: Total energy imported on tariff 1 (kWh)
+- **Energy imported tariff 2**: Total energy imported on tariff 2 (kWh)
+- **Energy exported tariff 1**: Total energy exported on tariff 1 (kWh)
+- **Energy exported tariff 2**: Total energy exported on tariff 2 (kWh)
+- **Gas consumed**: Total gas consumed (m³)
 - **Wi-Fi RSSI**: Wi-Fi signal strength of the device (dBm)
 
 ## Prerequisites
@@ -61,15 +61,6 @@ If no device is discovered (for example, if the meter is on a different subnet),
 IP Address:
   description: "The local IP address of your EARN-E P1 Meter (for example, 192.168.1.100). Only required if auto-discovery does not find your device."
 {% endconfiguration_basic %}
-
-## Reconfiguration
-
-If the IP address of your EARN-E device changes (for example, after a DHCP renewal), you can update it through the reconfigure option:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. On the **EARN-E P1 Meter** integration, select the three dots {% icon "mdi:dots-vertical" %} menu.
-3. Select **Reconfigure**.
-4. Enter the new IP address.
 
 ## Known limitations
 
