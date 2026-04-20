@@ -285,13 +285,13 @@ The Zones will expose the current/upcoming scheduled `setpoints`:
 
 {% endraw %}
 
-All Evohome entities may have faults, which are exposed as **BinarySensor** entities. You can also use them in templates:
+All Evohome entities may have faults, which are exposed as binary sensor entities. You can also use them in templates:
 
 {% raw %}
 
 ```text
 {% if states('binary_sensor.bedroom_faults') == 'on' %}
-  {% if state_attr('binary_sensor.bedroom_faults', 'faults')[0].fault_type == 'TempZoneActuatorLowBattery' %}
+  {% if state_attr('binary_sensor.bedroom_faults', 'faults')[0].fault == 'temp_zone_actuator_low_battery' %}
     There is a low battery
   {% endif %}
   There is a Fault!
