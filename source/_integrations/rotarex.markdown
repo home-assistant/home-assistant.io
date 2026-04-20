@@ -5,6 +5,7 @@ ha_release: 2026.2
 ha_domain: rotarex
 ha_config_flow: true
 ha_iot_class: Cloud Polling
+ha_integration_type: hub
 ha_codeowners:
   - '@Rotarex'
 related:
