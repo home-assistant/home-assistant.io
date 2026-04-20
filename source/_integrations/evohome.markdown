@@ -292,8 +292,8 @@ All Evohome entities may have faults, which are exposed as binary sensor entitie
 {% raw %}
 
 ```text
-{% if states('binary_sensor.bedroom_faults') == 'on' %}
-  {% if state_attr('binary_sensor.bedroom_faults', 'faults')[0].fault == 'temp_zone_actuator_low_battery' %}
+{% if states('binary_sensor.bedroom_zone_faults') == 'on' %}
+  {% if state_attr('binary_sensor.bedroom_zone_faults', 'faults')[0].fault == 'temp_zone_actuator_low_battery' %}
     There is a low battery
   {% endif %}
   There is a Fault!
