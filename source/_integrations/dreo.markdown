@@ -20,9 +20,6 @@ Dreo App. Once registration is complete, you can add the Dreo integration in Hom
 
 {% include integrations/config_flow.md %}
 
-## Configuration parameters
-
-To add the Dreo integration, you need to provide the following credentials from your Dreo App account:
 
 {% configuration_basic %}
 Username / email:
