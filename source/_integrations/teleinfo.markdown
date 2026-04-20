@@ -15,7 +15,7 @@ ha_quality_scale: bronze
 
 The **Teleinfo** {% term integration %} reads data from the French electricity metering system known as Télé-Information Client (TIC). This protocol is used by Linky smart meters and older electronic meters deployed by [Enedis](https://www.enedis.fr/), the French electricity distribution network operator.
 
-By connecting a Teleinfo USB adapter to your meter's TIC output, you can monitor real-time electricity consumption data directly in Home Assistant — including energy indexes for each tariff period, apparent power, instantaneous current, and tariff information. All data is read locally from the serial port, with no cloud dependency.
+By connecting a Teleinfo USB adapter to your meter's TIC output, you can monitor real-time electricity consumption data directly in Home Assistant. This includes energy indexes for each tariff period, apparent power, instantaneous current, and tariff information. All data is read locally from the serial port, with no cloud dependency.
 
 ## Supported devices
 
