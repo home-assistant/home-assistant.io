@@ -15,6 +15,8 @@ The device tracker allows you to track devices in Home Assistant. This can happe
 
 {% include integrations/building_block_integration.md %}
 
+To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/).
+
 ## The state of a tracked device
 
 The type of state a device tracker can have depends on whether it uses GPS or a router as the data source.
