@@ -21,7 +21,10 @@ The integration uses the [Radio Frequency](/integrations/radio_frequency/) {% te
 
 {% include integrations/config_flow.md %}
 
-During configuration, you will be asked to select the radio frequency transmitter that is used to control the lights. Only transmitters that support 433.92&nbsp;MHz OOK transmissions are shown.
+{% configuration_basic %}
+Radio frequency transmitter:
+  description: "Select the RF transmitter that Home Assistant should use to control the lights. Only transmitters that support 433.92&nbsp;MHz OOK transmissions are shown."
+{% endconfiguration_basic %}
 
 ## Assumed state
 
