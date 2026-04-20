@@ -12,11 +12,6 @@ ha_integration_type: integration
 
 The **Dreo** {% term integration %} enables you to control smart products connected to the [Dreo App](https://m.dreo.com/en) from [Dreo](https://www.dreo.com/).
 
-The devices must be added to the Dreo App before this integration can discover them.
-
-Supported platforms:
-
-- **fan**
 
 
 ## Prerequisites
