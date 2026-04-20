@@ -103,27 +103,27 @@ The sensors created depend on your electricity contract type. The integration au
 
 ##### Tempo (BBR) contract
 
-- **Index: blue day off-peak** (`BBRHCJB`)
+- **Blue day off-peak index** (`BBRHCJB`)
   - **Description**: Energy index for blue day off-peak hours (Wh). Total increasing counter.
   - **Device class**: `energy`
 
-- **Index: blue day peak** (`BBRHPJB`)
+- **Blue day peak index** (`BBRHPJB`)
   - **Description**: Energy index for blue day peak hours (Wh). Total increasing counter.
   - **Device class**: `energy`
 
-- **Index: white day off-peak** (`BBRHCJW`)
+- **White day off-peak index** (`BBRHCJW`)
   - **Description**: Energy index for white day off-peak hours (Wh). Total increasing counter.
   - **Device class**: `energy`
 
-- **Index: white day peak** (`BBRHPJW`)
+- **White day peak index** (`BBRHPJW`)
   - **Description**: Energy index for white day peak hours (Wh). Total increasing counter.
   - **Device class**: `energy`
 
-- **Index: red day off-peak** (`BBRHCJR`)
+- **Red day off-peak index** (`BBRHCJR`)
   - **Description**: Energy index for red day off-peak hours (Wh). Total increasing counter.
   - **Device class**: `energy`
 
-- **Index: red day peak** (`BBRHPJR`)
+- **Red day peak index** (`BBRHPJR`)
   - **Description**: Energy index for red day peak hours (Wh). Total increasing counter.
   - **Device class**: `energy`
 
