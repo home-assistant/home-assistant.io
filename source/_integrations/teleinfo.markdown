@@ -1,7 +1,7 @@
 ---
 title: Teleinfo
 description: Read electricity consumption data from French Linky smart meters using the Télé-Information Client (TIC) protocol.
-ha_release: "2026.2"
+ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
