@@ -3,7 +3,7 @@ title: Dreo
 description: Instructions on how to set up Dreo products within Home Assistant.
 ha_category:
   - Fan
-ha_release: 2024.12
+ha_release: 2026.5
 ha_domain: dreo
 ha_platforms:
   - fan
@@ -66,7 +66,7 @@ If the device becomes unresponsive, try the following steps:
 2. **Check the Wi-Fi connection**: Ensure that the device is connected to a stable Wi-Fi network. You can try moving the device closer to the router to improve the signal strength.
 3. **Reset the device**: If the above steps do not work, you may need to reset the device to its factory settings. Refer to the device's user manual for the specific reset procedure. After resetting, re-add the device to the Dreo App and then to Home Assistant.
 
-## Remove the integration
+## Removing the integration
 
 This integration follows standard integration removal.
 
