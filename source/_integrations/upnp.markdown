@@ -41,7 +41,7 @@ If the **Download speed**, **Upload speed**, **Packet download speed**, or **Pac
 
 These sensors have the suffix `without rollover handling` and will have the state `unavailable` when a rollover is detected. This is the behavior from before Home Assistant 2026.5.
 
-## Debugging integration
+### Debugging the integration
 
 If you have problems with this {% term integration %} you can add debug prints to the log.
 
