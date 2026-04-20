@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.home-assistant.io/",
+      "service-doc": [
+        {
+          "href": "https://developers.home-assistant.io/docs/api/rest",
+          "type": "text/html",
+          "title": "Home Assistant REST API"
+        },
+        {
+          "href": "https://developers.home-assistant.io/docs/api/websocket",
+          "type": "text/html",
+          "title": "Home Assistant WebSocket API"
+        }
+      ]
+    }
+  ]
+}

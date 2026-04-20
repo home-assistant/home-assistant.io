@@ -6,6 +6,10 @@
   Referrer-Policy: no-referrer-when-downgrade
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
+  Link: </.well-known/api-catalog>; rel="api-catalog"
+/.well-known/api-catalog
+  Content-Type: application/linkset+json
+  Cache-Control: public, max-age=3600
 /*.css
   Cache-Control: public, max-age=604800, s-maxage=604800
 /*.js
