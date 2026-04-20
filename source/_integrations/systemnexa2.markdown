@@ -15,10 +15,9 @@ ha_release: 2026.3
 ha_iot_class: Local Push
 ha_codeowners:
   - '@konsulten'
-  - '@slangstrom'
 ha_domain: systemnexa2
 ha_zeroconf: true
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_integration_type: device
 ---
 

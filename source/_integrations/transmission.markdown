@@ -2,6 +2,7 @@
 title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
 ha_category:
+  - Binary sensor
   - Downloading
   - Sensor
   - Switch
@@ -14,6 +15,8 @@ ha_codeowners:
   - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
+  - binary_sensor
+  - event
   - sensor
   - switch
 ha_integration_type: service
@@ -50,8 +53,11 @@ Verify SSL certificate:
 
 ## Supported functionality
 
-The Transmission integration will add the following sensors and switches.
+The **Transmission** integration provides the following sensors and switches.
 
+### Binary sensors
+
+A binary sensor indicating whether the incoming peer port is open and reachable from the internet (port forwarding status).
 ### Sensors
 
 - The status of your Transmission daemon.
@@ -62,11 +68,66 @@ The Transmission integration will add the following sensors and switches.
 - The total number of torrents present in the client.
 - The current number of started torrents (downloading).
 - The current number of completed torrents (seeding).
+- The current session downloaded data [GB].
+- The current session uploaded data [GB].
+- The total downloaded data [GB].
+- The total uploaded data [GB].
+- The current session upload/download ratio.
+- The total upload/download ratio.
 
 ### Switches
 
 - A switch to start/stop all torrents.
 - A switch to enable turtle mode (a.k.a. alternative speed limits).
+
+## Event entity
+
+The **Transmission** {% term integration %} provides an {% term "Event entity" %} that records the last torrent event. The entity state stores the time of that event, and several event attributes provide more details that you can use in automations.
+
+- **State attribute**: `event_type`
+  - **Description**: The type of the last torrent event. Possible states are Started, Downloaded, and Removed.
+
+- **State attribute**: `name`
+  - **Description**: The filename of the torrent.
+
+- **State attribute**: `id`
+  - **Description**: The ID of the torrent within **Transmission**.
+
+- **State attribute**: `download_path`
+  - **Description**: The path where the torrent content is downloaded.
+
+- **State attribute**: `labels`
+  - **Description**: The list of labels added to the torrent.
+
+### Usage examples
+
+Create a persistent notification when a torrent is downloaded.
+
+{% raw %}
+
+```yaml
+alias: Transmission torrent downloaded event
+description: "Notify when a torrent is downloaded"
+triggers:
+  - trigger: state
+    entity_id:
+      - event.transmission_torrent
+    not_from:
+      - unavailable
+conditions:
+  - condition: state
+    entity_id: event.transmission_torrent
+    attribute: event_type
+    state: "downloaded"
+actions:
+  - action: persistent_notification.create
+    data:
+      message: >
+        {{ state_attr(trigger.entity_id, 'name') }} was downloaded
+mode: single
+```
+
+{% endraw %}
 
 ## Event automation
 

@@ -240,14 +240,14 @@ If you have a Home Assistant Thread adapter, follow the corresponding instructio
 5. Enter the **Baudrate** as specified in the documentation of your adapter.
    - If you can't find the baudrate, try `460800` or contact the manufacturer's support.
    - **Save** your changes.
-   - **Troubleshooting**:
+   - Troubleshooting:
      - Check the logs.
      - If the app crashes or fails to communicate with the Thread integration: Toggle the **Hardware flow control** option and try again.
 6. Restart the app and check the logs. Wait.
 7. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
    - Select the cogwheel {% icon "mdi:cog-outline" %}.
    - **Result**: You should now see a new `ha-thread` Thread network.
-   - **Troubleshooting**: If you don't see the network there, go back to the app configuration and adjust your settings, if needed, and try again.
+   - Troubleshooting: If you don't see the network there, go back to the app configuration and adjust your settings, if needed, and try again.
 
 ## Migrating a Thread network to a new adapter
 
@@ -277,7 +277,7 @@ If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in th
 4. Enter the **Baudrate** as specified in the documentation of your adapter.
    - If you can't find the baudrate, try `460800` or contact the manufacturer's support.
    - **Save** your changes.
-   - **Troubleshooting**:
+   - Troubleshooting:
      - Check the logs.
      - If the app crashes or fails to communicate with the Thread integration: Toggle the **Hardware flow control** option and try again.
 5. Restart the app and check the logs. Wait.
@@ -285,7 +285,7 @@ If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in th
 6. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
    - Select the cogwheel {% icon "mdi:cog-outline" %}.
    - **Result**: You should now see that the Thread network is still there.
-   - **Troubleshooting**: If you don't see the network there, go back to the app configuration and adjust your settings, if needed, and try again.
+   - Troubleshooting: If you don't see the network there, go back to the app configuration and adjust your settings, if needed, and try again.
 7. If you no longer want to use the old adapter, you can unplug it now.
 
 ## Understanding the Thread configuration page

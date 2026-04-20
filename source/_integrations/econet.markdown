@@ -16,6 +16,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - climate
+  - select
   - sensor
   - switch
   - water_heater

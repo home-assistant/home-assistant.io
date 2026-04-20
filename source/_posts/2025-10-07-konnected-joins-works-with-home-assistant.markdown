@@ -46,9 +46,7 @@ For anyone new to the Works With Home Assistant program, it’s a way for us to 
 
 The Konnected certified devices are listed below:
 
-* [Konnected Smart Garage Door Opener blaQ](https://konnected.io/products/smart-garage-door-opener-blaq-myq-alternative)  
-* [Konnected Smart Garage Door Opener White (v2)](https://konnected.io/products/smart-garage-door-opener)  
-* [Konnected Alarm Panel Pro](https://konnected.io/collections/smart-alarm-panels)
+{% include integrations/device_list.html brand="konnected" %}
 
 ## Let’s Konnect
 
