@@ -22,9 +22,9 @@ The **BLANCO** {% term integration %} connects Home Assistant to the BLANCO Smar
 
 The integration is currently compatible with the following devices:
 
-- **CHOICE.ALL** – All‑in‑one water system (still, sparkling, hot)
-- **EVOL‑S PRO SODA (Rev F or later)** – Sparkling water system
-- **AQUA** – Filtered water system with filter monitoring
+- **CHOICE.ALL**: All‑in‑one water system (still, sparkling, hot)
+- **EVOL‑S PRO SODA (Rev F or later)**: Sparkling water system
+- **AQUA**: Filtered water system with filter monitoring
 
 All other BLANCO device types are not supported at this time.
 
