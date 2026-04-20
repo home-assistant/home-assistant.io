@@ -706,7 +706,7 @@ Fan entities are added for Air Purifier, and Air Purifier Table.
 
 Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
-Note: Air purifiers are available as a US model and a JP model, and When the light sensor is activated, turning the light on or off will deactivate it.
+Note: Air purifiers are available as a US model and a JP model. When the light sensor is activated, turning the light on or off deactivates it.
 
 #### Air Purifier
 
