@@ -50,15 +50,13 @@ Serial port:
 
 ## Supported functionality
 
-### Entities
-
 The **Teleinfo** integration provides the following {% term entities %}.
 
-#### Sensors
+### Sensors
 
 The sensors created depend on your electricity contract type. The integration automatically detects your contract and creates only the relevant sensors.
 
-##### Common sensors (all contracts)
+#### Common sensors (all contracts)
 
 - **Apparent power** (`PAPP`)
   - **Description**: Instantaneous apparent power (VA).
@@ -71,13 +69,13 @@ The sensors created depend on your electricity contract type. The integration au
 - **Current tariff period** (`PTEC`)
   - **Description**: The active tariff period code.
 
-##### Base contract
+#### Base contract
 
 - **Base index** (`BASE`)
   - **Description**: Total energy index (Wh). Total increasing counter.
   - **Device class**: `energy`
 
-##### HC (Heures Creuses) contract
+#### HC (Heures Creuses) contract
 
 - **Off-peak index** (`HCHC`)
   - **Description**: Energy index for off-peak hours (Wh). Total increasing counter.
@@ -87,7 +85,7 @@ The sensors created depend on your electricity contract type. The integration au
   - **Description**: Energy index for peak hours (Wh). Total increasing counter.
   - **Device class**: `energy`
 
-##### EJP contract
+#### EJP contract
 
 - **Normal hours index** (`EJPHN`)
   - **Description**: Energy index for normal hours (Wh). Total increasing counter.
@@ -101,7 +99,7 @@ The sensors created depend on your electricity contract type. The integration au
   - **Description**: Minutes before the next EJP peak period. Disabled by default.
   - **Device class**: `duration`
 
-##### Tempo (BBR) contract
+#### Tempo (BBR) contract
 
 - **Blue day off-peak index** (`BBRHCJB`)
   - **Description**: Energy index for blue day off-peak hours (Wh). Total increasing counter.
