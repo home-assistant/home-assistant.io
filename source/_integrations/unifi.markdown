@@ -31,12 +31,12 @@ ha_integration_type: hub
 
 With this {% term integration %}, you can bring your UniFi Network into Home Assistant to automate and monitor your network. Common use cases include:
 
-- Use connected clients as presence detection to trigger automations when family members arrive home or leave
-- Control Wi-Fi availability on a schedule, for example to disable guest networks overnight or pause kids' Wi-Fi during homework time
-- Monitor bandwidth usage and uptime of clients and network devices
-- Control PoE power on individual switch ports to remotely restart connected devices like cameras or access points
-- Toggle firewall rules, port forwarding, or traffic rules as part of broader home automations
-- Get notified about firmware updates and install them from Home Assistant
+- Use connected clients as presence detection to trigger automations when family members arrive home or leave.
+- Control Wi-Fi availability on a schedule, for example to disable guest networks overnight or pause kids' Wi-Fi during homework time.
+- Monitor bandwidth usage and uptime of clients and network devices.
+- Control PoE power on individual switch ports to remotely restart connected devices like cameras or access points.
+- Toggle firewall rules, port forwarding, or traffic rules as part of broader home automations.
+- Get notified about firmware updates and install them from Home Assistant.
 
 ## Prerequisites
 
@@ -87,7 +87,7 @@ Password:
 Port:
   description: "The port your UniFi Network application is running on. Defaults to `443`."
 Verify SSL:
-  description: "Whether to verify the SSL certificate of the UniFi Network application. Leave disabled if you use a self-signed certificate."
+  description: "Whether to verify the SSL certificate of the UniFi Network application. Keep this enabled unless you are using a self-signed certificate in a trusted environment and understand the security risk of disabling certificate verification."
 Site ID:
   description: "The site ID of the UniFi Network site to manage. Only shown if your UniFi Network application has more than one site."
 {% endconfiguration_basic %}
@@ -284,7 +284,7 @@ The Home Assistant community has created blueprints that use the UniFi Network i
 
 ## Data updates
 
-The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near real time as they happen on the controller, without the need for {% term polling %}.
+The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}.
 
 If the WebSocket connection is lost, the integration automatically tries to reconnect. While disconnected, entities are marked as unavailable until the connection is restored.
 
