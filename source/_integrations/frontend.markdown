@@ -171,7 +171,7 @@ There are two themes-related actions:
 
 ### Action: Set theme
 
-The `frontend.set_theme` action allows you to set the theme.
+The `frontend.set_theme` action allows you to set the theme used by the Home Assistant frontend as the default for light mode and, optionally, dark mode.
 
 | Data attribute | Description                                                                                         |
 | -------------- | --------------------------------------------------------------------------------------------------- |
@@ -180,7 +180,7 @@ The `frontend.set_theme` action allows you to set the theme.
 
 If the dark mode has never been set, or has been erased by setting `name_dark` to `none`, the light mode theme will also be used in dark mode.
 
-Home Assistant saves the theme settings and restores them on restart.
+Home Assistant saves the theme settings and restores them when Home Assistant restarts.
 
 ### Manual theme selection
 
@@ -207,8 +207,8 @@ frontend:
     - /local/my_es5.js
 ```
 
-Modules will be loaded with `import({{ extra_module }})`, on devices that support it (`latest` mode).
-For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be loaded with `<script defer src='{{ extra_module }}'></script>`.
+Modules will be loaded with `import('{{ extra_module_url }}')`, on devices that support it (`latest` mode).
+For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be loaded with `<script defer src='{{ extra_js_url_es5 }}'></script>`.
 
 The ES5 and module versions are never both loaded. Depending on whether the device supports `import`, either the module or the ES5 version is loaded.
 
