@@ -398,35 +398,6 @@ If the host machine is itself a virtual machine, make sure the VM has IPv6 conne
 
 Your network router needs IPv6 forwarding enabled so that IPv6 traffic can flow between your local network and the Thread mesh. Refer to your router's documentation for details on enabling IPv6 support and forwarding.
 
-### Matter over Thread not working on QNAP Container Station
-
-#### Symptom: Thread border routers are visible, but Matter over Thread pairing fails or devices cannot be reached
-
-You are running Home Assistant and the Matter Server app in QNAP Container Station, and Thread border routers appear in Home Assistant, but pairing Matter over Thread devices fails or commissioned devices cannot be reached — even when using `network_mode: host`.
-
-##### Description
-
-For Thread devices to communicate with Home Assistant, the Linux host must correctly process IPv6 Router Advertisements (RA) that Thread border routers send on your local network. Thread border routers use RAs with Route Information Options (RIO), as defined in RFC 4191, to announce Thread network prefixes and routes. The host must install these advertised routes into its routing table before it can reach Thread devices.
-
-To support this, the Linux kernel requires two configuration options:
-
-- `CONFIG_IPV6_ROUTER_PREF` — enables processing of the IPv6 router preference extension
-- `CONFIG_IPV6_ROUTE_INFO` — enables support for Route Information Options in Router Advertisements
-
-According to a [community report for QTS 5.2.3](https://community.qnap.com/t/qnap-home-assistant-thread/4349), the kernel shipped by QNAP may not include these options. Without them, the host cannot learn the routes that Thread border routers advertise, so Matter over Thread pairing and communication with Thread devices will not work reliably — even with `network_mode: host`.
-
-There is also a second pitfall common in Docker and container environments: when IPv6 forwarding is enabled on a Linux host, the kernel ignores Router Advertisements by default unless the Linux sysctl `net.ipv6.conf.<interface>.accept_ra` is set to `2` on the interface that receives those advertisements. A value of `2` tells Linux to accept Router Advertisements even when forwarding is enabled. On QNAP, however, adjusting `accept_ra` alone does not help if the kernel is already missing RFC 4191 route-info support.
-
-##### Resolution
-
-There is currently no known workaround within QNAP Container Station. The root cause is a missing host kernel feature that can only be fixed by QNAP shipping a kernel built with `CONFIG_IPV6_ROUTER_PREF` and `CONFIG_IPV6_ROUTE_INFO` enabled. This issue has been reported on the QNAP community forum.
-
-If you are affected, consider running Home Assistant or the Matter Server app in an environment with its own kernel, such as a virtual machine or separate hardware. For example, you could use a dedicated device running [Home Assistant Operating System](/installation/) or a Linux machine with a kernel that includes these options.
-
-{% note %}
-For more background on the IPv6 requirements for Thread, see the [Matter Server OS requirements](https://github.com/home-assistant-libs/python-matter-server/blob/main/docs/os_requirements.md) and the [Home Assistant OS discussion on RFC 4191 and Thread](https://github.com/home-assistant/operating-system/discussions/2333).
-{% endnote %}
-
 ### Changing the Thread channel
 
 #### Symptom: frequent pairing failures or poor device communication
@@ -473,6 +444,7 @@ If pairing still fails after verifying the prerequisites, check the following:
 - **The device is still in pairing mode.** Most devices only stay in pairing mode for a limited time. If it expires, reset the device to pairing mode and try again.
 - **Restart your phone.** If commissioning fails or stalls, a full restart of your phone can clear stale Bluetooth state or Thread credentials and often resolves the issue.
 - **Mesh Wi-Fi access points are not blocking multicast.** Some mesh Wi-Fi systems aggressively filter multicast traffic on Wi-Fi. This can prevent your phone from discovering the border router via mDNS. If you suspect this, check your mesh system's settings for options related to multicast, IGMP snooping, or mDNS.
+- **Your container platform has a limited kernel.** If you are running Home Assistant as a container on a NAS or similar device, the host kernel may be missing the IPv6 routing support that Thread requires. Thread border routers announce routes to the host, and if the kernel cannot process these announcements, Thread devices cannot be reached — even after pairing appears to succeed. The most reliable solution is to migrate to a platform with a fully capable kernel, such as a dedicated device running [Home Assistant Operating System](/installation/) or a virtual machine running a standard Linux distribution. For technical details, see the [Matter Server OS requirements](https://github.com/home-assistant-libs/python-matter-server/blob/main/docs/os_requirements.md).
 
 ### Understanding OTBR log messages
 
