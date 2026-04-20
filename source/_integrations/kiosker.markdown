@@ -57,6 +57,26 @@ Available sensors:
 - Screensaver state
 - Blackout state
 
+### Entities
+
+#### Sensors
+- **Battery level**
+  - Shows the current battery percentage of your device.
+- **Last interaction**
+  - Shows when your device was last interacted with.
+- **Last motion**
+  - Shows when motion was last detected. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
+- **Ambient light**
+  - Shows the current ambient light level. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
+
+#### Binary sensors
+- **Charging state**
+  - Shows whether the device is connected to a charger
+- **Screensaver state**
+  - Shows whether the screensaver is currently active.
+- **Blackout state**
+  - Shows whether the screen is currently blacked out. Has extra attributes with the blackout data when active.
+
 ## Data updates
 This integration fetches data from the device every 15 seconds.
 
