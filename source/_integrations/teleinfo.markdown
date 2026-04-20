@@ -167,8 +167,7 @@ You can add the energy index sensors to the energy dashboard to track your elect
     - condition: not
       conditions:
         - condition: state
-          entity_id: >-
-            sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color
+          entity_id: sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color
           state: "unknown"
   actions:
     - action: notify.mobile_app
