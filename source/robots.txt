@@ -5,3 +5,6 @@ User-agent: *
 Disallow:
 
 Sitemap: {{ site.url }}/sitemap.xml
+
+# Content usage preferences (https://contentsignals.org/)
+Content-Signal: search=yes, ai-input=yes, ai-train=no
