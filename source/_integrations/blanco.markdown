@@ -10,13 +10,12 @@ ha_codeowners:
   - "@blancoGDPD"
 ha_domain: blanco
 ha_platforms:
-  - diagnostics
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **BLANCO** {% term integration %} connects Home Assistant to the BLANCO Smart Home Cloud API and exposes data from supported BLANCO smart home devices as entities in Home Assistant. Depending on the device model, this includes water temperatures, filter and CO₂ capacities, water consumption values, connectivity information, and device error states.
+The **BLANCO** {% term integration %} connects Home Assistant to the BLANCO Smart Home Cloud API and exposes data from supported BLANCO smart home devices as entities in Home Assistant. Depending on the device model, this includes water temperatures, filter and CO₂ capacities, connectivity information, and device error states.
 
 ## Supported devices
 
@@ -89,16 +88,6 @@ The following entities are updated roughly every 30 seconds:
 - **Filter: Remaining capacity**: Percentage of the filter's capacity remaining, depending on the device model.
 - **Filter: Remaining quantity**: Remaining water volume in liters before the filter is exhausted (AQUA devices).
 - **Filter: Remaining time**: Remaining time in days before the filter is exhausted (AQUA devices).
-- **Consumption: Last**: Volume of the most recent water dispensing event in milliliters.
-- **Consumption: Total**: Total water volume dispensed by the device.
-- **Consumption: Total - Still**: Total volume of still water dispensed.
-- **Consumption: Total - Medium**: Total volume of medium‑carbonated water dispensed.
-- **Consumption: Total - Classic**: Total volume of classic‑sparkling water dispensed.
-- **Consumption: Total - Hot**: Total volume of hot water dispensed.
-- **Consumption: Today**: Total water volume dispensed today.
-- **Consumption: This week**: Total water volume dispensed this week.
-- **Consumption: This month**: Total water volume dispensed this month.
-- **Consumption: This year**: Total water volume dispensed this year.
 
 ## Data updates
 
@@ -106,12 +95,6 @@ The integration uses {% term polling %} to retrieve data from the BLANCO Cloud A
 Entity values are updated whenever the cloud reports a change. If no change is reported, values are refreshed at the next polling cycle.
 
 The integration requires an active internet connection for both the device and the Home Assistant instance.
-
-## Long‑term statistics
-
-Water consumption data is also available as {% term "Long-term statistics" %} via the Home Assistant [recorder](/integrations/recorder/) integration. These statistics are stored under the IDs `blanco:<serial>_water_all`, `blanco:<serial>_water_still`, `blanco:<serial>_water_medium`, `blanco:<serial>_water_classic`, and `blanco:<serial>_water_hot`, where `<serial>` is the device serial number in lowercase with non‑alphanumeric characters replaced by underscores.
-
-You can use these statistics in the Energy Dashboard or custom graphs and dashboards.
 
 ## Known limitations
 
