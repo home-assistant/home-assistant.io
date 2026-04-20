@@ -8,6 +8,7 @@ ha_domain: dreo
 ha_platforms:
   - fan
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The **Dreo** {% term integration %} enables you to control smart products connected to the [Dreo App](https://m.dreo.com/en) from [Dreo](https://www.dreo.com/).
@@ -18,6 +19,17 @@ Before you can use this integration, all devices must be registered with the
 Dreo App. Once registration is complete, you can add the Dreo integration in Home Assistant through the UI.
 
 {% include integrations/config_flow.md %}
+
+## Configuration parameters
+
+To add the Dreo integration, you need to provide the following credentials from your Dreo App account:
+
+{% configuration_basic %}
+Username / email:
+  description: Your Dreo App account username or email address.
+Password:
+  description: Your Dreo App account password.
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
@@ -59,15 +71,15 @@ If your Dreo App credentials are invalid or expired, you can follow these steps:
 
 If the device becomes unresponsive, try the following steps:
 
-1. Power cycle the device: 
-   - Turn off the device using its power switch or unplug it from the power source. 
+1. Power cycle the device:
+   - Turn off the device using its power switch or unplug it from the power source.
    - Wait for about 10–15 seconds and then turn it back on or plug it back in.
-2. Check the Wi-Fi connection: 
-   - Ensure that the device is connected to a stable Wi-Fi network. 
+2. Check the Wi-Fi connection:
+   - Ensure that the device is connected to a stable Wi-Fi network.
    - You can try moving the device closer to the router to improve the signal strength.
-3. Reset the device: 
-   - If the above steps do not work, you may need to reset the device to its factory settings. 
-   - Refer to the device's user manual for the specific reset procedure. 
+3. Reset the device:
+   - If the above steps do not work, you may need to reset the device to its factory settings.
+   - Refer to the device's user manual for the specific reset procedure.
    - After resetting, re-add the device to the Dreo App and then to Home Assistant.
 
 ## Removing the integration
