@@ -50,18 +50,25 @@ The Dreo integration provides the following entities:
 
 If your Dreo App credentials are invalid or expired, you can follow these steps:
 
-1. Open the Dreo App. Navigate to the account settings section.
-2. Click on the "Log out" option if you are currently logged in.
-3. Enter your correct username and password. If you have forgotten your password, use the "Forgot password" option in the app to reset it.
+1. Open the Dreo App. Go to the account settings section.
+2. If you are currently logged in, select the **Log out** option.
+3. Enter your correct username and password. If you have forgotten your password, use the **Forgot password** option in the app to reset it.
 4. Once you have successfully logged in to the Dreo App, go back to Home Assistant. Navigate to the Dreo integration settings and re-enter your Dreo App credentials. Then save the settings.
 
 ### Device becomes unresponsive
 
 If the device becomes unresponsive, try the following steps:
 
-1. **Power cycle the device**: Turn off the device using its power switch or unplug it from the power source. Wait for about 10–15 seconds and then turn it back on or plug it back in.
-2. **Check the Wi-Fi connection**: Ensure that the device is connected to a stable Wi-Fi network. You can try moving the device closer to the router to improve the signal strength.
-3. **Reset the device**: If the above steps do not work, you may need to reset the device to its factory settings. Refer to the device's user manual for the specific reset procedure. After resetting, re-add the device to the Dreo App and then to Home Assistant.
+1. Power cycle the device: 
+   - Turn off the device using its power switch or unplug it from the power source. 
+   - Wait for about 10–15 seconds and then turn it back on or plug it back in.
+2. Check the Wi-Fi connection: 
+   - Ensure that the device is connected to a stable Wi-Fi network. 
+   - You can try moving the device closer to the router to improve the signal strength.
+3. Reset the device: 
+   - If the above steps do not work, you may need to reset the device to its factory settings. 
+   - Refer to the device's user manual for the specific reset procedure. 
+   - After resetting, re-add the device to the Dreo App and then to Home Assistant.
 
 ## Removing the integration
 
