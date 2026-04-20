@@ -18,6 +18,12 @@ The **Diagnostics** {% term integration %} lets you download a diagnostics file 
 
 This integration is always enabled and requires no setup. However, not every integration provides diagnostic data. When no data is available, the download option is not shown.
 
+{% important %}
+**About sensitive information in the diagnostics file**
+
+Before sharing a diagnostics file publicly (for example, in a GitHub issue), open it in any text editor to review its contents. Integrations must redact sensitive information, such as API keys, tokens, and passwords. Redacted values appear in the file as `**REDACTED**`, but it is always good to verify before sharing.
+{% endimportant %}
+
 ## Downloading diagnostics
 
 You can download diagnostics from two places in Home Assistant.
@@ -43,11 +49,6 @@ The downloaded file contains information specific to that device only, which is 
 Screenshot of the Download diagnostics button on a device page.
 </p>
 
-## About the diagnostics file
-
-The diagnostics file is a plain text JSON file. Before sharing it publicly, for example, in a GitHub issue, you can open it in any text editor to review its contents.
-
-Integrations are required to redact sensitive information, such as API keys, tokens, and passwords, before exposing diagnostic data. Redacted values appear in the file as `**REDACTED**`.
 
 ## Related
 
