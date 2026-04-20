@@ -43,7 +43,7 @@ Compatible DucoBox models:
 
 {% include integrations/config_flow.md %}
 
-Your Duco ventilation box can be **automatically discovered** on your network when the device is connected and powered on. When Home Assistant discovers a new Duco device, it appears as a notification in the UI. Select the notification to complete the setup with one click.
+Your Duco ventilation box can be automatically discovered on your network when the device is connected and powered on. When Home Assistant discovers a new Duco device, it appears as a notification in the UI. Select the notification to complete the setup with one click.
 
 If automatic discovery does not work, you can manually add the integration by providing the IP address or hostname.
 
