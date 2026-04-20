@@ -28,7 +28,7 @@ The **Evohome** {% term integration %} links Home Assistant with all _non-US_ [H
 - the Honeywell Evohome CH/DHW system, and
 - the Honeywell Mobile Access Kit with a Round Thermostat
 
-It does not support the home security functionality of TCC.
+It does not support cooling. It does not support the home security functionality of TCC.
 
 It uses the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
 
@@ -78,25 +78,25 @@ TCC systems are implemented as a _location_, which consists of 1-12 _zones_ and,
 
 ### Evohome
 
-Each heating zone is represented as a **Climate** entity that exposes the zone's operating mode, current temperature, and setpoint. Due to limitations with the vendor's public API, there is no cooling functionality.
+Each heating zone is represented as a climate entity that exposes the zone's operating mode, current temperature, and setpoint.
 
-Each zone also provides a **Button** entity to clear any override and return the zone to Evohome's **FollowSchedule** mode.
+Each zone also provides a button entity to clear any override and return the zone to Evohome's **FollowSchedule** mode.
 
-The Evohome controller is also represented as a **Climate** entity that exposes the system's current operating mode. A controller has neither a current temperature nor a setpoint, but all **Climate** entities in Home Assistant are required to report a temperature, so this value is calculated as the average of all zones.
+The system controller is also represented as a climate entity that exposes the system's current operating mode. A controller has neither a current temperature nor a setpoint, but all climate entities in Home Assistant are required to report a temperature, so this value is calculated as the average of all zones.
 
-The controller also provides a **Button** entity to reset the system mode. This returns the system to **AutoWithReset** when supported, or **Auto** when **AutoWithReset** is unsupported, and resets all zones and DHW to **FollowSchedule**.
+The controller also provides a button entity to reset the system mode. This returns the system to Evohome's **Auto** mode (or the equivalent, for edge-case systems), and resets all zones and DHW to **FollowSchedule**.
 
-The DHW controller is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
+The DHW controller is represented as a water heater entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
 
-If present, it also provides a **Button** entity to clear any DHW override and return the DHW controller to Evohome's **FollowSchedule** mode.
+If present, it also provides a button entity to clear any DHW override and return the DHW controller to Evohome's **FollowSchedule** mode.
 
-Each device in the system—the gateway, the controller, DHW (if present), and each heating zone—also provides a **BinarySensor** entity that reports active faults. These are diagnostic entities of the `problem` device class: they are _on_ when one or more faults are active, and _off_ otherwise. Each entity exposes a `fault_count` attribute and a `faults` attribute containing the details of any active faults.
+Each device in the system—the gateway, the controller, DHW (if present), and each heating zone—also provides a binary sensor that reports active faults. These are diagnostic entities of the `problem` device class: they are _on_ when one or more faults are active, and _off_ otherwise. Each entity exposes a `fault_count` attribute and a `faults` attribute containing the details of any active faults.
 
 Note that support for schedules is limited. They cannot be changed, and there is no way to back up or restore that data. For that functionality, refer to the [evohome-async documentation](https://github.com/zxdavb/evohome-async).
 
 ### Round thermostat
 
-These systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two **Climate** entities, one for system mode (Away, AutoWithEco, and similar modes), and another for the zone setpoint.
+These systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two climate entities, one for system mode (**Away**, **AutoWithEco**, and similar modes), and another for the zone mode and setpoint.
 
 ## Temperature precision
 
@@ -106,21 +106,21 @@ Therefore, depending upon the above, Home Assistant will display/record current 
 
 ## System modes, zone overrides and inheritance
 
-TCC systems can support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all systems support all modes.
+TCC systems can support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all systems support all of these modes.
 
 Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride**, but 'inherit' an operating mode from their system (the actual algorithm for this is a little more complicated than indicated below - please see the vendor's documentation).
 
 For **FollowSchedule**, a zone's `setpoint` (target temperature) is a function of its scheduled target temperature and its inherited mode:
 
-- **Auto** setpoints are scheduled temperatures (the default)
-- **AutoWithEco** setpoints are scheduled temperatures, less 3 °C
+- **Auto**, setpoints are scheduled temperatures (the default)
+- **AutoWithEco**, setpoints are scheduled temperatures, less 3 °C
 
 If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a persistent change until some subsequent intervention is made. Zones can be switched between the two override modes without changing the target temperature.
 
 For some system modes all zones will have a setpoint enforced upon them, regardless of their own mode:
 
-- **Away** setpoints to 12 °C
-- **HeatingOff** setpoints to a minimum, usually 4 °C
+- **Away**, setpoints to 12 °C
+- **HeatingOff**, setpoints to a minimum, usually 4 °C
 
 For **Away**, the DHW controller will also be turned off.
 
@@ -132,7 +132,7 @@ In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` 
 
 This integration provides its own actions to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time systems revert to **Auto**, while zones and DHW controllers revert to **FollowSchedule**.
 
-For mode reset operations, Evohome also provides **Button** entities in the UI. The corresponding actions described below will be deprecated in a future release.
+For mode reset operations, Evohome also provides button entities in the UI. The corresponding actions described below will be deprecated in a future release.
 
 It is recommended to use the native actions (for example, `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (for example, `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic actions for integration with third-party systems such as Amazon Alexa or Google Home.
 
@@ -171,9 +171,9 @@ For the other modes, such as **Away**, the duration is a `period` in days, where
 
 This action will set the operating mode of the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
 
-This same reset is also available as a **Button** entity on the controller, and this is the preferred mechanism.
+Rarely, systems do not support **AutoWithReset**, in which case the integration will set the operating mode of the system to **Auto**, and set all its zones to **FollowSchedule**.
 
-Rarely, systems do not support **AutoWithReset**, in which case the integration will set the operating mode of the system to **Auto**, and set all the zones to **FollowSchedule**.
+This same reset is also available as a button entity on the controller, and this is the preferred mechanism.
 
 ### evohome.refresh_system
 
@@ -214,7 +214,7 @@ If the `duration` is 0 hours, then the change will be until the next scheduled s
 
 This action is used to set a zone, as identified by its `entity_id`, to follow its scheduled setpoints (**FollowSchedule**).
 
-This same function is also available as a **Button** entity on each heating zone, and this is the preferred mechanism.
+This same function is also available as a button entity on each heating zone, and this is the preferred mechanism.
 
 ### evohome.set_dhw_override
 
@@ -246,6 +246,8 @@ If the `duration` is 0 hours, then the change will be until the next scheduled s
         duration:
           hours: 0
 ```
+
+There is no action to set a DHW controller to **FollowSchedule**; but a button entity is available to clear any override.
 
 ## Useful Jinja templates
 
