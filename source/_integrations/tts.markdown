@@ -99,6 +99,50 @@ data:
   cache: false
 ```
 
+## Specifying a language
+
+The `language` option in the `tts.speak` and `say` actions accepts a language code
+that tells the TTS provider which language (and optionally, regional dialect) to use.
+The exact format depends on the platform you are using — refer to your specific
+[TTS integration's documentation](https://www.home-assistant.io/integrations/#text-to-speech)
+for supported values.
+
+Most platforms follow the [BCP 47](https://www.rfc-editor.org/rfc/rfc5646) standard,
+which uses a language tag such as `en` (English) or a language-region tag such as
+`en-US` (English, United States). Some platforms use underscores instead of hyphens
+(e.g., `en_US`).
+
+The following table lists common language codes as a general reference:
+
+| Language             | Code    | Regional variant example |
+|----------------------|---------|--------------------------|
+| English              | `en`    | `en-US`, `en-GB`         |
+| Spanish              | `es`    | `es-ES`, `es-MX`         |
+| French               | `fr`    | `fr-FR`, `fr-CA`         |
+| German               | `de`    | `de-DE`, `de-AT`         |
+| Italian              | `it`    | `it-IT`                  |
+| Portuguese           | `pt`    | `pt-PT`, `pt-BR`         |
+| Dutch                | `nl`    | `nl-NL`, `nl-BE`         |
+| Polish               | `pl`    | `pl-PL`                  |
+| Russian              | `ru`    | `ru-RU`                  |
+| Japanese             | `ja`    | `ja-JP`                  |
+| Chinese (Mandarin)   | `zh`    | `zh-CN`, `zh-TW`         |
+| Korean               | `ko`    | `ko-KR`                  |
+| Arabic               | `ar`    | `ar-SA`                  |
+| Hindi                | `hi`    | `hi-IN`                  |
+
+Example using `tts.speak` with a language specified:
+
+```yaml
+action: tts.speak
+target:
+  entity_id: tts.home_assistant_cloud
+data:
+  media_player_entity_id: media_player.living_room
+  message: "Que la force soit avec toi."
+  language: "fr-FR"
+```
+
 ## Cache
 
 The integration cache can be controlled with the `cache` option in the action to `speak` or `say`, setting it to `True` to enable it (default), or `False` to disable it. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
