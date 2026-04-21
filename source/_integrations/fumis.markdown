@@ -169,7 +169,7 @@ Never run out of pellets unexpectedly. This automation sends you a notification 
       entity_id: sensor.pellet_stove_fuel_level
       below: 20
   actions:
-    - action: notify.mobile_app_frenck_phone
+    - action: notify.mobile_app_your_phone
       data:
         title: "Pellet stove"
         message: >
