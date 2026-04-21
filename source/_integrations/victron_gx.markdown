@@ -4,6 +4,7 @@ description: Instructions for connecting Victron Energy GX devices to Home Assis
 ha_category:
   - Binary sensor
   - Number
+  - Presence detection
   - Select
   - Sensor
   - Switch
@@ -16,6 +17,7 @@ ha_codeowners:
 ha_domain: victron_gx
 ha_platforms:
   - binary_sensor
+  - device_tracker
   - number
   - select
   - sensor
@@ -133,6 +135,13 @@ Configurable options for controlling device behavior, such as:
 - <abbr title="Energy Storage System">ESS</abbr> mode (optimized with or without phase compensation, or external control)
 - <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
 - <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
+
+#### Device trackers
+
+GPS-equipped Victron devices (such as those with a built-in or connected GPS module) are exposed as device tracker entities, providing:
+
+- Latitude and longitude
+- Altitude, course, and speed (when available)
 
 #### Switches
 
