@@ -110,9 +110,15 @@ The following attributes are available for `sensor` platform entities:
 - Condensing temperature
 - Heat pump frequency (compressor frequency in Hz)
 - Demand percentage
-- Daily heating energy consumed / produced
-- Daily cooling energy consumed / produced
-- Daily hot water energy consumed / produced
+- Daily heating energy:
+  - Consumed
+  - Produced
+- Daily cooling energy:
+  - Consumed
+  - Produced
+- Daily hot water energy:
+  - Consumed
+  - Produced
 
 The daily energy sensors use the state class `total_increasing` and are compatible with the Energy Dashboard. Values reset at midnight in the MELCloud service timezone.
 
