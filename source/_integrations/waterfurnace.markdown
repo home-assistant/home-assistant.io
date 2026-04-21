@@ -24,7 +24,7 @@ The **WaterFurnace** {% term integration %} communicates with the WaterFurnace S
 
 The integration creates a {% term climate %} entity for each geothermal system found in your account. You can use this entity to set the target temperature, humidity setpoint, and HVAC mode directly from Home Assistant.
 
-Setting the unit to E-Heat mode is not currently supported. If you need to use E-Heat, you can set it through the thermostat, Symphony website or app.
+Setting the unit to E-Heat mode is not currently supported. If you need to use E-Heat, you can set it through the thermostat, Symphony website, or Symphony app.
 
 ## Sensors
 
