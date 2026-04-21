@@ -609,7 +609,7 @@ forecast_type:
   type: string
 days_to_show:
   required: false
-  description: Number of days of forecast data to show. Minimum is 1 day. The available data depends on how far ahead your weather integration provides daily forecasts.
+  description: Number of days of forecast data to show. Minimum is 1 day (showing the forecast for the current day). The available data depends on how far ahead your weather integration provides daily forecasts.
   type: integer
   default: 7
 {% endconfiguration %}
