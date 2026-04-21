@@ -30,9 +30,38 @@ To turn a light on from an automation or a script:
 7. _Optional_: under **Advanced options**, set the brightness, color, color temperature, or transition.
 8. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Transition:
+  description: How long, in seconds, it takes to get to the next state. Use this for a smooth fade instead of switching instantly.
+  required: false
+Brightness:
+  description: How bright the light should be, on a scale from 0 (off) to 255 (brightest).
+  required: false
+Brightness percentage:
+  description: How bright the light should be, from 0% (off) to 100% (brightest).
+  required: false
+Color:
+  description: A color for the light. You can pick a named color, a color from the color wheel, or a specific value in RGB, hue/sat, or XY format.
+  required: false
+Color temperature:
+  description: Warm or cool white, measured in Kelvin. Lower is warmer (more yellow), higher is cooler (more blue).
+  required: false
+Effect:
+  description: A light effect to play, for example a color loop or a candle flicker. Available effects depend on the light.
+  required: false
+Flash:
+  description: Ask the light to flash briefly, either short or long. Useful as a visual notification.
+  required: false
+Profile:
+  description: The name of a light profile to apply. Profiles bundle a brightness and color together under a single name.
+  required: false
+{% endoptions_ui %}
+
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `light.turn_on`. The simplest call looks like this:
+In YAML, refer to this action as `light.turn_on`. A basic example looks like this:
 
 {% example %}
 action: |
@@ -43,95 +72,69 @@ action: |
 
 This turns on `light.kitchen` at its previous brightness and color.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+transition:
+  description: >
+    Duration, in seconds, it takes to get to the next state. Use this to fade smoothly instead of switching instantly.
+  required: false
+  type: integer
+brightness:
+  description: >
+    Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness, and 255 is the maximum brightness.
+  required: false
+  type: integer
+brightness_pct:
+  description: >
+    Number indicating the percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness, and 100 is the maximum brightness.
+  required: false
+  type: integer
+color_name:
+  description: >
+    A human-readable color name, for example `warm_white`, `tomato`, or `cornflowerblue`.
+  required: false
+  type: string
+color_temp_kelvin:
+  description: >
+    Color temperature in Kelvin. Lower values are warmer (more yellow), higher values are cooler (more blue).
+  required: false
+  type: integer
+rgb_color:
+  description: >
+    The color in RGB format. A list of three integers between 0 and 255 representing the values of red, green, and blue.
+  required: false
+  type: list
+hs_color:
+  description: >
+    Color in hue/sat format. A list of two integers, where hue is 0 to 360 and saturation is 0 to 100.
+  required: false
+  type: list
+xy_color:
+  description: >
+    Color in XY format. A list of two decimal numbers between 0 and 1.
+  required: false
+  type: list
+effect:
+  description: >
+    Light effect to apply. Available effects depend on the specific light.
+  required: false
+  type: string
+flash:
+  description: >
+    Tell the light to flash briefly. Accepts either `short` or `long`.
+  required: false
+  type: string
+profile:
+  description: >
+    Name of a light profile to apply.
+  required: false
+  type: string
+{% endoptions_yaml %}
+
 {% include actions/targets.md %}
-
-## Options
-
-The following fields control how the light comes on. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
-
-{% fields %}
-ui:
-  Transition:
-    description: How long, in seconds, it takes to get to the next state. Use this for a smooth fade instead of switching instantly.
-    required: false
-  Brightness:
-    description: How bright the light should be, on a scale from 0 (off) to 255 (brightest).
-    required: false
-  Brightness percentage:
-    description: How bright the light should be, from 0% (off) to 100% (brightest).
-    required: false
-  Color:
-    description: A color for the light. You can pick a named color, a color from the color wheel, or a specific value in RGB, hue/sat, or XY format.
-    required: false
-  Color temperature:
-    description: Warm or cool white, measured in Kelvin. Lower is warmer (more yellow), higher is cooler (more blue).
-    required: false
-  Effect:
-    description: A light effect to play, for example a color loop or a candle flicker. Available effects depend on the light.
-    required: false
-  Flash:
-    description: Ask the light to flash briefly, either short or long. Useful as a visual notification.
-    required: false
-  Profile:
-    description: The name of a light profile to apply. Profiles bundle a brightness and color together under a single name.
-    required: false
-yaml:
-  transition:
-    description: >
-      Duration, in seconds, it takes to get to the next state. Use this to fade smoothly instead of switching instantly.
-    required: false
-    type: integer
-  brightness:
-    description: >
-      Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness, and 255 is the maximum brightness.
-    required: false
-    type: integer
-  brightness_pct:
-    description: >
-      Number indicating the percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness, and 100 is the maximum brightness.
-    required: false
-    type: integer
-  color_name:
-    description: >
-      A human-readable color name, for example `warm_white`, `tomato`, or `cornflowerblue`.
-    required: false
-    type: string
-  color_temp_kelvin:
-    description: >
-      Color temperature in Kelvin. Lower values are warmer (more yellow), higher values are cooler (more blue).
-    required: false
-    type: integer
-  rgb_color:
-    description: >
-      The color in RGB format. A list of three integers between 0 and 255 representing the values of red, green, and blue.
-    required: false
-    type: list
-  hs_color:
-    description: >
-      Color in hue/sat format. A list of two integers, where hue is 0 to 360 and saturation is 0 to 100.
-    required: false
-    type: list
-  xy_color:
-    description: >
-      Color in XY format. A list of two decimal numbers between 0 and 1.
-    required: false
-    type: list
-  effect:
-    description: >
-      Light effect to apply. Available effects depend on the specific light.
-    required: false
-    type: string
-  flash:
-    description: >
-      Tell the light to flash briefly. Accepts either `short` or `long`.
-    required: false
-    type: string
-  profile:
-    description: >
-      Name of a light profile to apply.
-    required: false
-    type: string
-{% endfields %}
 
 ## Good to know
 
@@ -144,7 +147,7 @@ yaml:
 
 {% include actions/more_examples.md %}
 
-### Set a cozy warm white tone
+### Action: set a cozy warm white tone
 
 When you start winding down in the evening, dim the kitchen light to a warm white tone.
 
@@ -167,7 +170,7 @@ action: |
 
 {% enddetails %}
 
-### Fade the bedroom light up over ten seconds
+### Action: fade the bedroom light up over ten seconds
 
 A long transition is a gentle way to wake up. Instead of snapping the light on, fade it up slowly.
 
@@ -190,7 +193,7 @@ action: |
 
 {% enddetails %}
 
-### Turn on every light in a room
+### Action: turn on every light in a room
 
 Target an area instead of a specific entity and Home Assistant resolves it to every light inside the room.
 

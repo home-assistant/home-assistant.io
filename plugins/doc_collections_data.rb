@@ -29,8 +29,7 @@ module Jekyll
       { name: 'conditions', front_matter_key: 'condition', data_key: 'conditions_json' }
     ].freeze
 
-    FIELDS_YAML_PATTERN = /\{%\s*fields_yaml\s*%\}(.*?)\{%\s*endfields_yaml\s*%\}/m
-    FIELDS_PATTERN = /\{%\s*fields\s*%\}(.*?)\{%\s*endfields\s*%\}/m
+    OPTIONS_YAML_PATTERN = /\{%\s*options_yaml\s*%\}(.*?)\{%\s*endoptions_yaml\s*%\}/m
     MAX_FIELD_DESCRIPTION_LENGTH = 160
 
     def generate(site)
@@ -59,20 +58,12 @@ module Jekyll
 
     private
 
+    # Extract option descriptions from the page's `{% options_yaml %}` block.
     def extract_fields(doc, entry_name)
-      yaml_body = nil
+      match = doc.content.match(OPTIONS_YAML_PATTERN)
+      return nil unless match
 
-      # Prefer the combined `{% fields %}` block, reading its `yaml:` sub-map.
-      if (match = doc.content.match(FIELDS_PATTERN))
-        parsed = SafeYAML.load(match[1])
-        yaml_body = parsed['yaml'] if parsed.is_a?(Hash) && parsed['yaml'].is_a?(Hash)
-      end
-
-      # Fall back to the standalone `{% fields_yaml %}` block.
-      if yaml_body.nil? && (match = doc.content.match(FIELDS_YAML_PATTERN))
-        yaml_body = SafeYAML.load(match[1])
-      end
-
+      yaml_body = SafeYAML.load(match[1])
       return nil unless yaml_body.is_a?(Hash)
 
       fields = {}

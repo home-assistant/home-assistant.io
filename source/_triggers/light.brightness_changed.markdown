@@ -26,9 +26,17 @@ To use this trigger in an automation:
 6. Under **Threshold type**, set how much the brightness has to change before the trigger fires.
 7. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Threshold type:
+  description: How much the brightness has to change before the trigger fires, as a percentage of full brightness. Can be a fixed number, or reference a helper entity that provides the value.
+  required: true
+{% endoptions_ui %}
+
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `light.brightness_changed`. The simplest trigger looks like this:
+In YAML, refer to this trigger as `light.brightness_changed`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -41,24 +49,19 @@ trigger: |
 
 This fires whenever the living room light's brightness changes by at least ten percent.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+threshold:
+  description: >
+    The minimum amount (in percent) the brightness must change before the trigger fires. Accepts a number, or a reference to an `input_number`, `number`, or `sensor` entity with a percent unit.
+  required: true
+  type: any
+{% endoptions_yaml %}
+
 {% include triggers/targets.md %}
-
-## Options
-
-The following fields control how the trigger fires. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
-
-{% fields %}
-ui:
-  Threshold type:
-    description: How much the brightness has to change before the trigger fires, as a percentage of full brightness. Can be a fixed number, or reference a helper entity that provides the value.
-    required: true
-yaml:
-  threshold:
-    description: >
-      The minimum amount (in percent) the brightness must change before the trigger fires. Accepts a number, or a reference to an `input_number`, `number`, or `sensor` entity with a percent unit.
-    required: true
-    type: any
-{% endfields %}
 
 ## Good to know
 

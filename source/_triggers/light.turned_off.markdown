@@ -30,9 +30,17 @@ To use this trigger in an automation:
 6. Under **Trigger when**, pick **Any**, **First**, or **Last**.
 7. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Trigger when:
+  description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **Last** to fire only after every targeted light is off.
+  required: true
+{% endoptions_ui %}
+
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `light.turned_off`. The simplest trigger looks like this:
+In YAML, refer to this trigger as `light.turned_off`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -43,29 +51,24 @@ trigger: |
 
 This fires every time `light.kitchen` transitions from on to off.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+behavior:
+  description: >
+    When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  required: true
+  type: string
+  default: any
+{% endoptions_yaml %}
+
 {% include triggers/targets.md %}
-
-## Options
-
-The following fields control how the trigger fires. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
-
-{% fields %}
-ui:
-  Trigger when:
-    description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **Last** to fire only after every targeted light is off.
-    required: true
-yaml:
-  behavior:
-    description: >
-      When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
-    required: true
-    type: string
-    default: any
-{% endfields %}
 
 ## Good to know
 
-- The trigger only fires when a light transitions from a known, valid state. Transitions from `unavailable` or `unknown` to off do not count.
+- The trigger only fires when a light transitions from a known, valid state. Transitions from being unavailable (`unavailable`) or having an unknown state (`unknown`) to off do not count.
 - To react to the opposite transition, use [Light turned on](/triggers/light.turned_on/).
 - Pair this trigger with the `last` behavior to run something once every light in an area is off, like turning off the TV when every light in the living room has been switched off.
 

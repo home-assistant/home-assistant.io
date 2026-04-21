@@ -27,9 +27,20 @@ To use this condition in an automation:
 7. Under **Condition passes if**, pick **Any** or **All**.
 8. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Threshold type:
+  description: The brightness level the light has to meet or exceed. Expressed as a percentage of full brightness.
+  required: true
+Condition passes if:
+  description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one light meets the threshold, or **All** to pass only when every targeted light does.
+  required: true
+{% endoptions_ui %}
+
 {% include conditions/yaml_header.md %}
 
-In YAML, refer to this condition as `light.is_brightness`. The simplest condition looks like this:
+In YAML, refer to this condition as `light.is_brightness`. A basic example looks like this:
 
 {% example %}
 condition: |
@@ -43,38 +54,30 @@ condition: |
 
 This passes when the living room light's brightness is at or above 50%.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+threshold:
+  description: >
+    The brightness percentage the light has to meet or exceed for the condition to pass. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
+  required: true
+  type: any
+behavior:
+  description: >
+    When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
+  required: true
+  type: string
+  default: any
+{% endoptions_yaml %}
+
 {% include conditions/targets.md %}
-
-## Options
-
-The following fields control how the condition evaluates. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
-
-{% fields %}
-ui:
-  Threshold type:
-    description: The brightness level the light has to meet or exceed. Expressed as a percentage of full brightness.
-    required: true
-  Condition passes if:
-    description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one light meets the threshold, or **All** to pass only when every targeted light does.
-    required: true
-yaml:
-  threshold:
-    description: >
-      The brightness percentage the light has to meet or exceed for the condition to pass. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-    required: true
-    type: any
-  behavior:
-    description: >
-      When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
-    required: true
-    type: string
-    default: any
-{% endfields %}
 
 ## Good to know
 
 - A light that is off has brightness zero, so it never meets a positive threshold. Combine with [Light is on](/conditions/light.is_on/) if you want to check both.
-- Lights that are `unavailable` or `unknown` are skipped for `any` and fail for `all`.
+- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - Pair with [Light brightness crossed threshold](/triggers/light.brightness_crossed_threshold/) as a matching trigger when you need the automation to run the moment the brightness crosses that line.
 
 {% include conditions/try_it.md %}

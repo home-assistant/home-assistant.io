@@ -30,9 +30,38 @@ To toggle a light from an automation or a script:
 7. _Optional_: under **Advanced options**, set the brightness, color, color temperature, or transition that should apply when the light turns on.
 8. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Transition:
+  description: How long, in seconds, the light takes to reach the new state. Use this for a smooth fade instead of switching instantly.
+  required: false
+Brightness:
+  description: How bright the light should be when the toggle turns it on, on a scale from 0 (off) to 255 (brightest).
+  required: false
+Brightness percentage:
+  description: How bright the light should be when the toggle turns it on, from 0% (off) to 100% (brightest).
+  required: false
+Color:
+  description: A color for the light when the toggle turns it on. You can pick a named color, a color from the color wheel, or a specific value in RGB, hue/sat, or XY format.
+  required: false
+Color temperature:
+  description: Warm or cool white, measured in Kelvin, for when the toggle turns the light on. Lower is warmer (more yellow), higher is cooler (more blue).
+  required: false
+Effect:
+  description: A light effect to play when the toggle turns the light on, for example a color loop or a candle flicker. Available effects depend on the light.
+  required: false
+Flash:
+  description: Ask the light to flash briefly, either short or long. Useful as a visual notification.
+  required: false
+Profile:
+  description: The name of a light profile to apply when the toggle turns the light on.
+  required: false
+{% endoptions_ui %}
+
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `light.toggle`. The simplest call looks like this:
+In YAML, refer to this action as `light.toggle`. A basic example looks like this:
 
 {% example %}
 action: |
@@ -43,93 +72,69 @@ action: |
 
 This flips `light.hallway` to the opposite state.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+transition:
+  description: >
+    Duration, in seconds, it takes to reach the next state. Use this to fade smoothly instead of switching instantly.
+  required: false
+  type: integer
+brightness:
+  description: >
+    Number indicating brightness when the light turns on, where 0 is off, 1 is the minimum, and 255 is the maximum.
+  required: false
+  type: integer
+brightness_pct:
+  description: >
+    Percentage of full brightness when the light turns on, where 0 is off, 1 is the minimum, and 100 is the maximum.
+  required: false
+  type: integer
+color_name:
+  description: >
+    A human-readable color name to apply when the light turns on, for example `warm_white`, `tomato`, or `cornflowerblue`.
+  required: false
+  type: string
+color_temp_kelvin:
+  description: >
+    Color temperature in Kelvin to apply when the light turns on. Lower values are warmer (more yellow), higher values are cooler (more blue).
+  required: false
+  type: integer
+rgb_color:
+  description: >
+    The color in RGB format to apply when the light turns on. A list of three integers between 0 and 255 representing red, green, and blue.
+  required: false
+  type: list
+hs_color:
+  description: >
+    Color in hue/sat format to apply when the light turns on. A list of two integers, where hue is 0 to 360 and saturation is 0 to 100.
+  required: false
+  type: list
+xy_color:
+  description: >
+    Color in XY format to apply when the light turns on. A list of two decimal numbers between 0 and 1.
+  required: false
+  type: list
+effect:
+  description: >
+    Light effect to apply when the light turns on. Available effects depend on the specific light.
+  required: false
+  type: string
+flash:
+  description: >
+    Tell the light to flash briefly. Accepts either `short` or `long`.
+  required: false
+  type: string
+profile:
+  description: >
+    Name of a light profile to apply when the light turns on.
+  required: false
+  type: string
+{% endoptions_yaml %}
+
 {% include actions/targets.md %}
-
-## Options
-
-{% fields %}
-ui:
-  Transition:
-    description: How long, in seconds, the light takes to reach the new state. Use this for a smooth fade instead of switching instantly.
-    required: false
-  Brightness:
-    description: How bright the light should be when the toggle turns it on, on a scale from 0 (off) to 255 (brightest).
-    required: false
-  Brightness percentage:
-    description: How bright the light should be when the toggle turns it on, from 0% (off) to 100% (brightest).
-    required: false
-  Color:
-    description: A color for the light when the toggle turns it on. You can pick a named color, a color from the color wheel, or a specific value in RGB, hue/sat, or XY format.
-    required: false
-  Color temperature:
-    description: Warm or cool white, measured in Kelvin, for when the toggle turns the light on. Lower is warmer (more yellow), higher is cooler (more blue).
-    required: false
-  Effect:
-    description: A light effect to play when the toggle turns the light on, for example a color loop or a candle flicker. Available effects depend on the light.
-    required: false
-  Flash:
-    description: Ask the light to flash briefly, either short or long. Useful as a visual notification.
-    required: false
-  Profile:
-    description: The name of a light profile to apply when the toggle turns the light on.
-    required: false
-yaml:
-  transition:
-    description: >
-      Duration, in seconds, it takes to reach the next state. Use this to fade smoothly instead of switching instantly.
-    required: false
-    type: integer
-  brightness:
-    description: >
-      Number indicating brightness when the light turns on, where 0 is off, 1 is the minimum, and 255 is the maximum.
-    required: false
-    type: integer
-  brightness_pct:
-    description: >
-      Percentage of full brightness when the light turns on, where 0 is off, 1 is the minimum, and 100 is the maximum.
-    required: false
-    type: integer
-  color_name:
-    description: >
-      A human-readable color name to apply when the light turns on, for example `warm_white`, `tomato`, or `cornflowerblue`.
-    required: false
-    type: string
-  color_temp_kelvin:
-    description: >
-      Color temperature in Kelvin to apply when the light turns on. Lower values are warmer (more yellow), higher values are cooler (more blue).
-    required: false
-    type: integer
-  rgb_color:
-    description: >
-      The color in RGB format to apply when the light turns on. A list of three integers between 0 and 255 representing red, green, and blue.
-    required: false
-    type: list
-  hs_color:
-    description: >
-      Color in hue/sat format to apply when the light turns on. A list of two integers, where hue is 0 to 360 and saturation is 0 to 100.
-    required: false
-    type: list
-  xy_color:
-    description: >
-      Color in XY format to apply when the light turns on. A list of two decimal numbers between 0 and 1.
-    required: false
-    type: list
-  effect:
-    description: >
-      Light effect to apply when the light turns on. Available effects depend on the specific light.
-    required: false
-    type: string
-  flash:
-    description: >
-      Tell the light to flash briefly. Accepts either `short` or `long`.
-    required: false
-    type: string
-  profile:
-    description: >
-      Name of a light profile to apply when the light turns on.
-    required: false
-    type: string
-{% endfields %}
 
 ## Good to know
 
@@ -142,7 +147,7 @@ yaml:
 
 {% include actions/more_examples.md %}
 
-### Flip the hallway light with a single button press
+### Action: flip the hallway light with a single button press
 
 Wire a physical button or a dashboard tile to a single toggle action so it acts like a light switch.
 
@@ -160,7 +165,7 @@ action: |
 
 {% enddetails %}
 
-### Toggle the kitchen light to a warm white tone
+### Action: toggle the kitchen light to a warm white tone
 
 When the toggle turns the kitchen light on, have it come up dim and warm instead of at full blast.
 

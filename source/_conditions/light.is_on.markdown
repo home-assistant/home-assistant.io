@@ -26,9 +26,17 @@ To use this condition in an automation:
 6. Under **Condition passes if**, pick **Any** or **All** to control how the check behaves when multiple lights are targeted.
 7. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Condition passes if:
+  description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one targeted light is on, or **All** to pass only when every targeted light is on.
+  required: true
+{% endoptions_ui %}
+
 {% include conditions/yaml_header.md %}
 
-In YAML, refer to this condition as `light.is_on`. The simplest condition looks like this:
+In YAML, refer to this condition as `light.is_on`. A basic example looks like this:
 
 {% example %}
 condition: |
@@ -39,29 +47,24 @@ condition: |
 
 This passes when the living room light is currently on.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+behavior:
+  description: >
+    When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
+  required: true
+  type: string
+  default: any
+{% endoptions_yaml %}
+
 {% include conditions/targets.md %}
-
-## Options
-
-The following fields control how the condition evaluates. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
-
-{% fields %}
-ui:
-  Condition passes if:
-    description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one targeted light is on, or **All** to pass only when every targeted light is on.
-    required: true
-yaml:
-  behavior:
-    description: >
-      When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
-    required: true
-    type: string
-    default: any
-{% endfields %}
 
 ## Good to know
 
-- Lights that are `unavailable` or `unknown` do not count as on. With `any` behavior, they are skipped. With `all` behavior, the condition fails if every targeted light is unavailable.
+- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as on. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted light is unavailable.
 - To gate an automation on a light being off instead, use [Light is off](/conditions/light.is_off/).
 - Pair with [Light is brightness](/conditions/light.is_brightness/) when you also want to check whether the light's brightness meets a threshold.
 

@@ -30,9 +30,17 @@ To use this trigger in an automation:
 6. Under **Trigger when**, pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple lights are targeted.
 7. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Trigger when:
+  description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **Last** to fire only after every targeted light is on.
+  required: true
+{% endoptions_ui %}
+
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `light.turned_on`. The simplest trigger looks like this:
+In YAML, refer to this trigger as `light.turned_on`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -43,29 +51,24 @@ trigger: |
 
 This fires every time `light.kitchen` transitions from off to on.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+behavior:
+  description: >
+    When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  required: true
+  type: string
+  default: any
+{% endoptions_yaml %}
+
 {% include triggers/targets.md %}
-
-## Options
-
-The following fields control how the trigger fires. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
-
-{% fields %}
-ui:
-  Trigger when:
-    description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **Last** to fire only after every targeted light is on.
-    required: true
-yaml:
-  behavior:
-    description: >
-      When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
-    required: true
-    type: string
-    default: any
-{% endfields %}
 
 ## Good to know
 
-- The trigger only fires when a light transitions from a known, valid state. If a light comes back from `unavailable` or `unknown`, the trigger does not fire for that recovery.
+- The trigger only fires when a light transitions from a known, valid state. If a light comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
 - Pair this trigger with [Light is off](/conditions/light.is_off/) to make sure the automation only runs when a specific target is expected to have been off first.
 - To react to the opposite transition, use [Light turned off](/triggers/light.turned_off/).
 

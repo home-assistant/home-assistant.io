@@ -27,9 +27,20 @@ To use this trigger in an automation:
 7. Under **Trigger when**, pick **Any**, **First**, or **Last** to control how multiple targets interact.
 8. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Threshold type:
+  description: The brightness level the light has to cross for the trigger to fire. Expressed as a percentage of full brightness.
+  required: true
+Trigger when:
+  description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
+  required: true
+{% endoptions_ui %}
+
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `light.brightness_crossed_threshold`. The simplest trigger looks like this:
+In YAML, refer to this trigger as `light.brightness_crossed_threshold`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -43,33 +54,25 @@ trigger: |
 
 This fires whenever the living room light crosses 50% brightness in either direction.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+threshold:
+  description: >
+    The brightness percentage the light has to cross for the trigger to fire. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
+  required: true
+  type: any
+behavior:
+  description: >
+    When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  required: true
+  type: string
+  default: any
+{% endoptions_yaml %}
+
 {% include triggers/targets.md %}
-
-## Options
-
-The following fields control how the trigger fires. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
-
-{% fields %}
-ui:
-  Threshold type:
-    description: The brightness level the light has to cross for the trigger to fire. Expressed as a percentage of full brightness.
-    required: true
-  Trigger when:
-    description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
-    required: true
-yaml:
-  threshold:
-    description: >
-      The brightness percentage the light has to cross for the trigger to fire. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-    required: true
-    type: any
-  behavior:
-    description: >
-      When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
-    required: true
-    type: string
-    default: any
-{% endfields %}
 
 ## Good to know
 

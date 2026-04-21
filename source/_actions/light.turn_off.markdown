@@ -29,9 +29,20 @@ To turn a light off from an automation or a script:
 7. _Optional_: under **Advanced options**, set a transition or a flash effect.
 8. Select **Save**.
 
+### Options in the UI
+
+{% options_ui %}
+Transition:
+  description: How long, in seconds, it takes to fade the light out. Use this for a smooth fade instead of switching off instantly.
+  required: false
+Flash:
+  description: Ask the light to flash briefly before it turns off, either short or long. Useful as a visual notification.
+  required: false
+{% endoptions_ui %}
+
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `light.turn_off`. The simplest call looks like this:
+In YAML, refer to this action as `light.turn_off`. A basic example looks like this:
 
 {% example %}
 action: |
@@ -42,28 +53,22 @@ action: |
 
 This turns off `light.kitchen`.
 
+### Options in YAML
+
+YAML may provide additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+transition:
+  description: >
+    Duration, in seconds, it takes to fade the light out. Use this to dim down smoothly instead of switching off instantly.
+  type: integer
+flash:
+  description: >
+    Tell the light to flash briefly before turning off. Accepts either `short` or `long`.
+  type: string
+{% endoptions_yaml %}
+
 {% include actions/targets.md %}
-
-## Options
-
-{% fields %}
-ui:
-  Transition:
-    description: How long, in seconds, it takes to fade the light out. Use this for a smooth fade instead of switching off instantly.
-    required: false
-  Flash:
-    description: Ask the light to flash briefly before it turns off, either short or long. Useful as a visual notification.
-    required: false
-yaml:
-  transition:
-    description: >
-      Duration, in seconds, it takes to fade the light out. Use this to dim down smoothly instead of switching off instantly.
-    type: integer
-  flash:
-    description: >
-      Tell the light to flash briefly before turning off. Accepts either `short` or `long`.
-    type: string
-{% endfields %}
 
 ## Good to know
 
@@ -76,7 +81,7 @@ yaml:
 
 {% include actions/more_examples.md %}
 
-### Gentle fade-out at the end of movie night
+### Action: gentle fade-out at the end of movie night
 
 Fade the bedroom light out over five seconds, which is a much nicer way to end a movie than an instant off.
 
@@ -97,7 +102,7 @@ action: |
 
 {% enddetails %}
 
-### Turn off every light on a floor
+### Action: turn off every light on a floor
 
 Target a floor instead of a specific entity and Home Assistant resolves it to every light on that floor.
 
