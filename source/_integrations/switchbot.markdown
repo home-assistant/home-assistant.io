@@ -717,13 +717,13 @@ Features:
 - turn on/off device
 - turn on/off LED
 - turn on/off child lock
-- open light sensor
+- turn on/off light sensor
 - set fan mode
 - set fan speed
 - set LED RGB
 - set LED brightness
 - get air quality level
-- get PM2.5 value (US model only)
+- get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 #### Air Purifier Table
 
@@ -735,13 +735,13 @@ Features:
 - turn on/off LED
 - turn on/off child lock
 - turn on/off wireless charging
-- open light sensor
+- turn on/off light sensor
 - set fan mode
 - set fan speed
 - set LED RGB
 - set LED brightness
 - get air quality level
-- get PM2.5 value (US model only)
+- get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 ### Vacuums
 
