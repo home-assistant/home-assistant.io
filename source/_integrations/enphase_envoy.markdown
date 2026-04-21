@@ -91,7 +91,7 @@ When configuring an Envoy, a form appears that prompts you for the [required man
 
 {% details "Configuration form in automatic token retrieval mode" %}
 <figure>
-  <img src="/images/integrations/enphase_envoy/enphase_envoy_automatic_token.png" alt="Envoy automatic token">
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_automatic_token.png" alt="Example screenshot of Envoy configuration form in automatic token retrieval mode.">
   <figcaption>Envoy configuration form in automatic token retrieval mode.</figcaption>
 </figure>
 {% enddetails %}
@@ -104,7 +104,7 @@ If you have multi-factor authentication enabled on your Enphase cloud account, a
 
 {% details "Configuration form in manual token entry mode" %}
 <figure>
-  <img src="/images/integrations/enphase_envoy/enphase_envoy_manual_token_entry.png" alt="Envoy manual token">
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_manual_token_entry.png" alt="Example screenshot of Envoy configuration form in manual token entry mode.">
   <figcaption>Envoy configuration form in manual token entry mode.</figcaption>
 </figure>
 {% enddetails %}
@@ -602,7 +602,7 @@ Although not a replacement for individual energy or power measurement devices, w
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect) and [`enphase_envoy.token_lifetime`](#action-enphase_envoytoken_lifetime).
+Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select_option`](#action-selectselect_option) and [`enphase_envoy.token_lifetime`](#action-enphase_envoytoken_lifetime).
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -691,7 +691,7 @@ The action `enphase_envoy.token_lifetime` returns the number of days until the E
 
 | Data attribute | Optional | Description |
 | - | - | - |
-| `device_id` | yes | The device_id for the Envoy to inspect. If no Envoy is specified, the first configured one will be used. No need to specify if only a single Envoy is configured. <ul><li>In UI mode, click the checkbox and select an Envoy device from the dropdown list. <br><li> In YAML mode enter a device_id or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')` </ul> |
+| `device_id` | yes | The `device_id` for the Envoy to inspect. If no Envoy is specified, the first configured one will be used. You do not need to specify this if only a single Envoy is configured.<br>In UI mode, select the checkbox, and then select an Envoy device from the drop-down list.<br>In YAML mode, enter a `device_id` or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')`. |
 
 The integration updates the token_lifetime value once every 24 hours. Account for this when using the action in any automation.
 
@@ -719,7 +719,7 @@ lifetime: 333
 {% details "Envoy token lifetime UI example" %}
 
 <figure>
-  <img src="/images/integrations/enphase_envoy/enphase_envoy_token_lifetime_action_ui.png" alt="envoy token lifetime">
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_token_lifetime_action_ui.png" alt="Screenshot of the Envoy token lifetime action result">
   <figcaption>Example of Envoy token lifetime action.</figcaption>
 </figure>
 
