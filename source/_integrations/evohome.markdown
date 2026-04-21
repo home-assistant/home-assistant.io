@@ -113,7 +113,7 @@ Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, a
 For **FollowSchedule**, a zone's `setpoint` (target temperature) is a function of its scheduled target temperature and its inherited mode:
 
 - **Auto**, setpoints are scheduled temperatures (the default)
-- **AutoWithEco**, setpoints are scheduled temperatures, less 3 °C
+- **AutoWithEco** mode means the target temperature is 3 °C below the scheduled temperature (for example, a scheduled temperature of 20 °C results in a target temperature of 17 °C).
 
 If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a persistent change until some subsequent intervention is made. Zones can be switched between the two override modes without changing the target temperature.
 
