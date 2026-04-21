@@ -18,7 +18,7 @@ ha_zeroconf: true
 ha_quality_scale: silver
 ---
 
-The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This will allow you to use lights in Home Assistant, that are connected to the DALI bus of your device.
+The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This allows you to use lights in Home Assistant that are connected to the DALI bus via your device.
 
 ## Supported devices
 
