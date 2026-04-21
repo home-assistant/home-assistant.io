@@ -585,7 +585,7 @@ type:
 
 ## Daily forecast
 
-Widget that displays a bar chart of daily forecast temperature ranges for a [weather](/integrations/weather) entity. Each bar shows the low-to-high temperature range for the day, colored by the forecasted weather condition, with a thin line across the bars marking the current temperature.
+Widget that displays a bar chart of daily forecast temperature ranges for a weather entity. Each bar shows the low-to-high temperature range for the day, colored by the forecasted weather condition. A thin horizontal line marks the current temperature across the bars.
 
 <p class='img'>
   <img src='/images/dashboards/features/daily_forecast.png' alt='Screenshot of the tile card with the daily forecast feature'>
@@ -595,7 +595,7 @@ Widget that displays a bar chart of daily forecast temperature ranges for a [wea
 ```yaml
 features:
   - type: "daily-forecast"
-    days_to_show: 7
+    days_to_show: 5
 ```
 
 {% configuration features %}
