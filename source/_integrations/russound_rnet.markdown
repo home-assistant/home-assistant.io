@@ -12,7 +12,7 @@ ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 ---
 
 The **Russound RNET** {% term integration %} allows you to control Russound multi-zone audio systems that use the RNET protocol. Each enabled zone appears as a media player entity, allowing you to control power, volume, mute, and source selection from your Home Assistant dashboard.
@@ -21,43 +21,44 @@ The **Russound RNET** {% term integration %} allows you to control Russound mult
 
 This integration supports Russound controllers that use the RNET protocol:
 
-- Russound CAS44
-- Russound CAA66
-- Russound CAM6.6
 - Russound CAV6.6
+- Russound CAM6.6
+- Russound CAA66
+- Russound CAS44
+- Russound MCA-C5
+- Russound MCA-C3
+- Russound ACA-E5
 
-### Connection requirements
+### Connection methods
 
-The RNET protocol uses a serial (RS-232) connection. To connect to Home Assistant, you need a TCP-to-Serial gateway (such as an IP-to-Serial adapter or [tcp_serial_redirect](https://github.com/pyserial/pyserial/blob/master/examples/tcp_serial_redirect.py)) that bridges the serial port to a TCP socket.
+The RNET protocol uses a serial (RS-232) connection. You can connect to Home Assistant in two ways:
+
+- **TCP**: Use a TCP-to-Serial gateway (such as an IP-to-Serial adapter or [tcp_serial_redirect](https://github.com/pyserial/pyserial/blob/master/examples/tcp_serial_redirect.py)) that bridges the serial port to a TCP socket.
+- **Serial**: Connect the Russound controller directly to a serial port on the Home Assistant host.
 
 If you are using a Russound CAA66, use a null-modem cable for the serial connection.
 
 ## Multi-controller support
 
-If you have multiple controllers connected via the RNET link ports, each controller adds 6 zones. For example, with 2 controllers you get zones 1–12: zones 1–6 map to controller 1, and zones 7–12 map to controller 2.
+Some Russound models (CAV6.6, CAM6.6, CAA66, MCA-C5, MCA-C3, ACA-E5) support daisy-chaining multiple controllers via the RNET link ports. During setup, the zone naming step shows all zones across all supported controllers for your model.
 
 {% include integrations/config_flow.md %}
 
-The setup consists of three steps:
+The setup consists of five steps:
 
-1. **Connection and sources**: Enter the IP address and port of your TCP-to-Serial gateway, the number of controllers, and the names of your audio sources.
-2. **Zone selection**: Select which zones to enable. Deselect any zones that are not in use.
-3. **Zone naming**: Enter a descriptive name for each selected zone (for example, "Living Room" or "Kitchen").
-
-{% configuration_basic %}
-Host:
-    description: The IP address or hostname of your TCP-to-Serial gateway.
-Port:
-    description: "The TCP port of your gateway (default: 9621)."
-Controllers:
-    description: "The number of Russound controllers connected (each supports 6 zones)."
-Source 1–6:
-    description: "Names for each audio source input (for example: TV, Radio, Sonos). Leave blank for unused sources."
-{% endconfiguration_basic %}
+1. **Transport type**: Choose between TCP or Serial connection.
+2. **Connection details**: Enter the IP address and port (TCP) or serial device path and baud rate (Serial).
+3. **Model selection**: Select your Russound controller model. This determines the number of available zones, sources, and controllers.
+4. **Source naming**: Enter a name for each audio source input (for example: TV, Radio, Sonos). Leave blank for unused sources.
+5. **Zone naming**: Enter a descriptive name for each zone (for example, "Living Room" or "Kitchen"). Leave blank for unused zones.
 
 ## Configuration
 
-After setup, you can reconfigure sources and enable or disable zones by selecting **Configure** on the integration card under {% my integrations title="**Settings** > **Devices & services**" %}.
+After setup, you can reconfigure source names by selecting **Configure** on the integration card under {% my integrations title="**Settings** > **Devices & services**" %}.
+
+## Migrating from YAML
+
+If you previously configured this integration via YAML under `media_player: - platform: russound_rnet`, a repair issue will appear prompting you to migrate. The repair flow will guide you through selecting your model, naming sources, and naming zones. Once complete, a second repair issue will remind you to remove the deprecated YAML configuration.
 
 ## Data updates
 
@@ -72,14 +73,14 @@ This integration follows standard integration removal. No extra steps are requir
 ## Known limitations
 
 - The RNET protocol is request/response only — the device does not push state changes. There may be a short delay before changes made directly on the device (or via a physical keypad) are reflected in Home Assistant.
-- The mute command toggles mute on/off. There is no way to explicitly set mute to a specific state.
+- The RNET protocol does not report mute state. Mute is tracked locally within Home Assistant. If mute is toggled externally (for example, via a physical keypad), Home Assistant may be out of sync until the next volume change.
 - Volume range is 0–50 on the device, mapped to 0%–100% in Home Assistant.
 
 ## Troubleshooting
 
 ### Cannot connect during setup
 
-- Verify the IP address and port of your TCP-to-Serial gateway are correct.
+- Verify the IP address and port of your TCP-to-Serial gateway are correct, or that your serial device path is valid.
 - Ensure the gateway is powered on and connected to the Russound controller's serial port.
 - The integration retries the connection up to 3 times during setup. If it still fails, check your network connectivity.
 
