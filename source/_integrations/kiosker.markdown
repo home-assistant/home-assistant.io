@@ -72,7 +72,8 @@ The **Kiosker** integration provides the following entities.
 - **Ambient light**
   - Shows the current ambient light level. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
 
-#### Binary sensors
+### Binary sensors
+
 - **Charging state**
   - Shows whether the device is connected to a charger
 - **Screensaver state**
