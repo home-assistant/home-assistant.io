@@ -37,6 +37,25 @@ Compatible DucoBox models:
 - DucoBox Energy Comfort / Energy Comfort Plus
 - DucoBox Energy Premium
 
+### Supported sensor modules
+
+The following sensor module types are supported:
+
+- **BOX** — the main ventilation box; provides fan control, ventilation state, and Wi-Fi signal strength
+- **UCCO2** — wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index
+- **BSRH** — humidity sensor module connected directly to the DucoBox PCB; provides relative humidity and humidity air quality index
+- **UCRH** — wireless humidity sensor module; provides relative humidity and humidity air quality index
+
+### Unsupported sensor modules
+
+The following sensor module types are discovered but not yet supported:
+
+- **UC** — universal control unit (no sensor data exposed)
+- **UCBAT** — battery-powered sensor module
+- **VLV** — valve actuator
+
+When Home Assistant discovers a node with an unsupported type, it logs a warning and skips that node. All other nodes continue to work normally.
+
 ## Prerequisites
 
 - A Duco ventilation box with a DUCO Connectivity Board connected to your local network.
@@ -55,6 +74,7 @@ The Duco system consists of multiple nodes. Each node appears as a separate devi
 - **BOX** — the main DucoBox (fan control, ventilation state)
 - **UCCO2** — a wall-mounted control unit with a built-in CO₂ sensor
 - **BSRH** — a humidity sensor module installed in the duct inlet of the DucoBox
+- **UCRH** — a wireless humidity sensor module
 
 ### Fan
 
