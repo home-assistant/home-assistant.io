@@ -59,4 +59,12 @@ div.alert {
       color: #d32f2f;
     }
   }
+
+  &.alert-labs {
+    background-color: #e0f2f1;
+
+    p.alert-title {
+      color: #00897b;
+    }
+  }
 }
