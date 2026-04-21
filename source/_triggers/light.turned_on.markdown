@@ -53,7 +53,7 @@ This fires every time `light.kitchen` transitions from off to on.
 
 ### Options in YAML
 
-YAML may provide additional options for more complex use cases that are not available through the UI.
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

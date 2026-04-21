@@ -51,7 +51,7 @@ This fires whenever the living room light's brightness changes by at least ten p
 
 ### Options in YAML
 
-YAML may provide additional options for more complex use cases that are not available through the UI.
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 threshold:
