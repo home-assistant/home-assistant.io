@@ -734,7 +734,7 @@ Features:
 - turn on/off device
 - turn on/off LED
 - turn on/off child lock
-- turn on/off wireless charging 
+- turn on/off wireless charging
 - open light sensor
 - set fan mode
 - set fan speed
