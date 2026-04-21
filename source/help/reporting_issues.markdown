@@ -25,6 +25,8 @@ Many issue reports require details about your Home Assistant installation. To fi
 1. Go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
 2. From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**.
    - This [system information dialog](/more-info/system-health/) shows your Home Assistant version, installation type, operating system, and other system details.
+3. To copy the system information, at the bottom of the dialog, select the **Copy** button. 
+   
 
 ## Description of the problem
 
