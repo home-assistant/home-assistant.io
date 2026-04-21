@@ -3,11 +3,9 @@ title: "System Health"
 description: "View detailed information about your Home Assistant installation."
 ---
 
-System health provides detailed technical information about your Home Assistant instance, including system architecture, operating system and version, installation type, Python version, frontend version, and more.
+The **System Health** integration provides detailed technical information about your Home Assistant instance, including system architecture, operating system and version, installation type, Python version, frontend version, and more.
 
 ## Viewing system information
-
-To view your system information:
 
 1. Go to {% my repairs title="**Settings** > **System** > **Repairs**" %}.
 2. From the three dots {% icon "mdi:dots-vertical" %} menu (top right), select **System information**.
