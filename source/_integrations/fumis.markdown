@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: fumis
 ha_platforms:
   - climate
+  - sensor
 ha_codeowners:
   - '@frenck'
 ha_integration_type: device
@@ -67,7 +68,7 @@ This integration supports multiple stoves. If you have more than one stove with 
 
 ### Entities
 
-The **Fumis** integration provides a climate entity for your pellet stove.
+The **Fumis** integration provides a climate entity and a collection of sensor entities for your pellet stove.
 
 #### Climate
 
@@ -81,6 +82,28 @@ The climate entity lets you monitor and control your stove's heating. It provide
   - **Preheating**: The stove is starting up. This includes the ignition phase, where the stove lights the pellets and brings the combustion chamber up to temperature.
   - **Heating**: The stove is actively burning pellets and heating your room.
   - **Idle**: The stove is in a cooling-down phase after a heating cycle.
+
+#### Sensors
+
+The integration provides sensors that give you insight into your stove's operation and health. The available sensors depend on your stove model and its capabilities.
+
+- **Temperature**: The current room temperature as measured by your stove.
+- **Stove status**: A simplified view of what your stove is doing (off, heating up, ignition, burning, eco, or cooling).
+- **Detailed stove status**: The precise operational phase of your stove, useful for advanced automations.
+- **Fuel level**: How much fuel is left in the pellet hopper, shown as a percentage.
+- **Power output**: The current thermal output of your stove in kilowatts.
+- **Combustion chamber**: The temperature inside the combustion chamber.
+- **WiRCU module**: The temperature of the Wi-Fi module itself.
+- **Wi-Fi signal strength**: How strong the Wi-Fi connection of your stove's module is.
+- **Uptime**: When your stove was last powered on.
+- **Burning time**: Total time your stove has been actively burning.
+- **Fuel consumed**: Total amount of fuel your stove has used.
+- **Igniter starts**: How many times the igniter has been activated.
+- **Overheatings**: Number of overheating events recorded.
+- **Misfires**: Number of failed ignition attempts.
+- **Time to service**: Hours remaining until the next scheduled maintenance.
+
+Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
 
 ## Examples
 
@@ -133,6 +156,26 @@ Why heat an empty house? This automation turns off your stove when the last pers
     - action: climate.turn_off
       target:
         entity_id: climate.pellet_stove
+```
+
+### Getting a notification when fuel is running low
+
+Never run out of pellets unexpectedly. This automation sends you a notification when the fuel level drops below 20%, giving you plenty of time to refill the hopper.
+
+```yaml
+- alias: "Notify when pellet fuel is running low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.pellet_stove_fuel_level
+      below: 20
+  actions:
+    - action: notify.mobile_app_frenck_phone
+      data:
+        title: "Pellet stove"
+        message: >
+          Fuel level is low
+          ({{ states('sensor.pellet_stove_fuel_level', with_unit=true) }}).
+          Time to refill the hopper.
 ```
 
 ## Data updates
