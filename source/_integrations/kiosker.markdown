@@ -57,7 +57,9 @@ Available sensors:
 - Screensaver state
 - Blackout state
 
-### Entities
+## Supported functionality
+
+The **Kiosker** integration provides the following entities.
 
 #### Sensors
 - **Battery level**
