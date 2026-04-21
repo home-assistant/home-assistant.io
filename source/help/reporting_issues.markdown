@@ -38,11 +38,11 @@ Please provide the version that contains the issue. See [Finding system informat
 
 ## Last working Home Assistant release (if known)
 
-If possible, provide the latest release of which you know that the integration or platform was working. Home Assistant is evolving very fast and issues may already be addressed or be introduced by a recent change. See [Finding system information](#finding-system-information) above for instructions on how to find this information.
+If possible, provide the latest release that you know was working. Home Assistant is evolving very fast and issues may already be addressed or be introduced by a recent change. See [Finding system information](#finding-system-information) for instructions on finding the version.
 
 ## Operating environment
 
-There are many different ways to run Home Assistant. In this section, please mention which you are using: {% term "Home Assistant Operating System" %} or {% term "Home Assistant Container" %} in Docker. It would be helpful to mention which operating system you are using because not all are supported on the same level. See [Finding system information](#finding-system-information) above for instructions on how to find this information.
+There are many different ways to run Home Assistant. In this section, please mention which you are using: {% term "Home Assistant Operating System" %} or {% term "Home Assistant Container" %} in Docker. It would be helpful to mention which operating system you are using because not all are supported on the same level. See [Finding system information](#finding-system-information) for instructions on how to find this information.
 
 ## Integration
 
