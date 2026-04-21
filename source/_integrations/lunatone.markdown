@@ -18,7 +18,7 @@ ha_zeroconf: true
 ha_quality_scale: silver
 ---
 
-The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API.
+The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This will allow you to use lights in Home Assistant, that are connected to the DALI bus of your device.
 
 ## Supported devices
 
@@ -33,10 +33,6 @@ Right now the following devices are supported:
 Home Assistant automatic discovery requires device firmware version 1.17.1 or later. Manual setup is available with device firmware version 1.14.1 or later.
 {% endimportant %}
 
-There is currently support for the following device types within Home Assistant:
-
-- Lights
-
 ## Prerequisites
 
 Before setting up the Lunatone integration, ensure you have:
@@ -50,6 +46,30 @@ Before setting up the Lunatone integration, ensure you have:
 URL:
     description: "The URL to your gateway device. For example: `http://10.0.0.131`"
 {% endconfiguration_basic %}
+
+## Supported functionality
+
+### Entities
+
+The Lunatone integration provides the following entities.
+
+#### Lights
+
+- **Brightness**
+  - **Description**: Control the brightness of the light
+  - **Available for devices**: all
+
+- **Color Temperature**
+  - **Description**: Control the color temperature of the light
+  - **Available for devices**: Devices with software version 1.17.0 or greater
+
+- **RGB Color**
+  - **Description**: Control the RGB color of the light
+  - **Available for devices**: Devices with software version 1.17.0 or greater
+
+- **RGBW Color**
+  - **Description**: Control the RGBW color of the light
+  - **Available for devices**: Devices with software version 1.17.0 or greater
 
 ## Removing the integration
 
