@@ -61,7 +61,8 @@ Available sensors:
 
 The **Kiosker** integration provides the following entities.
 
-#### Sensors
+### Sensors
+
 - **Battery level**
   - Shows the current battery percentage of your device.
 - **Last interaction**
