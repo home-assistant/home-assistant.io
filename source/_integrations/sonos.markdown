@@ -60,7 +60,7 @@ The following select entities are created:
 
 ### TV Autoplay and Ungroup on Autoplay support notes
 
-Since the Sonos UPnP spec does not emit events for these, both entities rely on polling for state updates from external changes (e.g. changes made in the Sonos app). That mean those entities will always have some delay before updating, so changes made outside of Home Assistant will be reflected on the next device polling which default to 30 seconds.
+Since the Sonos UPnP spec does not emit events for these, both entities rely on polling for state updates from external changes (for example, changes made in the Sonos app). That means those entities will always have some delay before updating, so changes made outside of Home Assistant will be reflected on the next device polling, which defaults to 30 seconds.
 
 ### Battery support notes
 
