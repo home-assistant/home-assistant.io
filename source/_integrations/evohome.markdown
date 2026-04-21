@@ -90,7 +90,7 @@ The DHW controller is represented as a water heater entity which will report its
 
 If present, it also provides a button entity to clear any DHW override and return the DHW controller to Evohome's **FollowSchedule** mode.
 
-Each device in the system—the gateway, the controller, DHW (if present), and each heating zone—also provides a binary sensor that reports active faults. These are diagnostic entities of the `problem` device class: they are _on_ when one or more faults are active, and _off_ otherwise. Each entity exposes a `fault_count` attribute and a `faults` attribute containing the details of any active faults.
+Each device in the system—the gateway, the controller, DHW (if present), and each heating zone—also provides a binary sensor that reports active faults. These are diagnostic entities of the `problem` device class: they are _on_ when one or more faults are active, and _off_ otherwise. Each entity exposes a `faults` attribute containing a list with the details of any active faults.
 
 Note that support for schedules is limited. They cannot be changed, and there is no way to back up or restore that data. For that functionality, refer to the [evohome-async documentation](https://github.com/zxdavb/evohome-async).
 
