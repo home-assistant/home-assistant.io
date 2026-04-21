@@ -1,23 +1,57 @@
 ---
 title: "System Health"
-description: "More information about System Health."
+description: "View detailed information about your Home Assistant installation."
 ---
 
-System health is information about your Home Assistant instance. Information including data on your system architecture, operating system and version, Home Assistant installation type and version, Python version, frontend version, the number of [Dashboards](/dashboards/dashboards/) and [Views](/dashboards/views/) you have, and more.
+System health provides detailed technical information about your Home Assistant instance, including system architecture, operating system and version, installation type, Python version, frontend version, and more.
 
-System Health integration data can be viewed under {% my repairs title="**Settings** > **System** > **Repairs**" %} > **System information** in the three dots menu (top right). Or by using the My link below:
+## Viewing system information
 
-{% my system_health badge %}
+To view your system information:
 
-<img class="no-shadow" src='/images/more-info/system_health.png' alt="Screenshot showing System Health dialog">
+1. Go to {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+2. From the three dots {% icon "mdi:dots-vertical" %} menu (top right), select **System information**.
 
-## GitHub issues
+<img class="no-shadow" src='/images/more-info/system_health.png' alt="Screenshot showing the System information dialog">
 
-GitHub issues often call for the data presented in the System Health.
-The Home Assistant UI provides an easy way to get this information.
+## What information is available
 
-In the bottom-right corner of the System information dialog click on the copy button.
-This will format the content of the card and place it on your clipboard so you
-can easily paste it into a GitHub issue.
+The **System information** dialog provides system details, including:
 
-<img class="no-shadow" src='/images/more-info/system_health_github.png' alt="Screenshot showing copy button in System Health dialog">
+- Home Assistant Core: Version, installation type, and Python version
+- Home Assistant Supervisor: Version and disk usage (if applicable)
+- Home Assistant Operating System: Version and board type (if applicable)
+- Home Assistant Cloud: Connection status and certificate information (if configured)
+- Frontend: Version
+- Recorder: Database engine and estimated database size
+- Network: Network configuration details
+- Resources: Number of [Dashboards](/dashboards/dashboards/) and [Views](/dashboards/views/)
+- System: Architecture, operating system, and timezone
+
+This information is useful for:
+
+- Troubleshooting issues with your installation
+- Checking system resources before [creating backups](/common-tasks/general/#backups)
+- Verifying your installation meets [requirements for specific integrations](/integrations/)
+- Sharing technical details when [reporting issues on GitHub](#reporting-issues-on-github)
+
+## Viewing integration startup times
+
+If Home Assistant is taking a long time to start, you can identify which integrations are causing delays and potentially have connectivity issues
+
+To view integration startup times, follow these steps:
+
+1. Go to {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+2. From the three dots {% icon "mdi:dots-vertical" %} menu, select **Integration startup time**.
+
+## Reporting issues on GitHub
+
+When reporting issues on GitHub, you're often asked to provide system health data.
+
+Follow these steps to copy your system information:
+
+1. In the bottom-right corner of the **System information** dialog, select the copy button.
+2. This formats the data and places it on your clipboard.
+3. Paste it into your GitHub issue.
+
+<img class="no-shadow" src='/images/more-info/system_health_github.png' alt="Screenshot showing copy button in System information dialog">
