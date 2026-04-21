@@ -16,7 +16,7 @@ The **System information** dialog provides detailed technical information about 
 
 The **System information** dialog provides system details, including:
 
-- Home Assistant Core: Version, installation type, and Python version, architecture, operating system, and timezone
+- Home Assistant Core: Version, installation type, and Python version, architecture, operating system (kernel) version, and timezone
 - Home Assistant Supervisor: Version and disk usage (if applicable)
 - Home Assistant Operating System: Version and board type (if applicable)
 - Home Assistant Cloud: Connection status and certificate information (if configured)
@@ -31,7 +31,7 @@ This information is useful for:
 - Verifying your installation meets [requirements for specific integrations](/integrations/)
 - Sharing technical details when [reporting issues on GitHub](#reporting-issues-on-github)
 
-## Reporting issues on GitHub
+### Reporting issues on GitHub
 
 When reporting issues on GitHub, you're often asked to provide system information.
 
