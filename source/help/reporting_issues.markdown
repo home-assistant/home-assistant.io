@@ -34,7 +34,7 @@ There are integrations which require additional steps (installing third-party to
 
 ## First Home Assistant version with the issue
 
-Please provide the version which contains the issue. See [Finding system information](#finding-system-information) above for instructions on finding the version.
+Please provide the version that contains the issue. See [Finding system information](#finding-system-information) for instructions on finding the version.
 
 ## Last working Home Assistant release (if known)
 
