@@ -8,8 +8,8 @@ ha_release: 0.62
 ha_iot_class: Cloud Polling
 ha_domain: waterfurnace
 ha_platforms:
-  - sensor
   - climate
+  - sensor
 ha_integration_type: device
 ha_config_flow: true
 ha_quality_scale: legacy
