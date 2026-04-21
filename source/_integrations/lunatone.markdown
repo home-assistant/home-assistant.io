@@ -61,15 +61,15 @@ The Lunatone integration provides the following entities.
 
 - **Color Temperature**
   - **Description**: Control the color temperature of the light
-  - **Available for devices**: Devices with software version 1.17.0 or greater
+  - **Available for devices**: Devices with firmware version 1.17.0 or greater
 
 - **RGB Color**
   - **Description**: Control the RGB color of the light
-  - **Available for devices**: Devices with software version 1.17.0 or greater
+  - **Available for devices**: Devices with firmware version 1.17.0 or greater
 
 - **RGBW Color**
   - **Description**: Control the RGBW color of the light
-  - **Available for devices**: Devices with software version 1.17.0 or greater
+  - **Available for devices**: Devices with firmware version 1.17.0 or greater
 
 ## Removing the integration
 
