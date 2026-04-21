@@ -117,7 +117,7 @@ To switch back from manual token entry to automatic token retrieval use the reve
 
 When in manual token entry mode, you will have to take care of timely token update. When in manual token mode, the integration will display a persistent notification to refresh the token when token expiry is within the next 30 days. Use the `reconfigure` menu option to update the token. The notification will disappear when the token is updated and valid again.
 
-The entity **Envoy <abbr title="Envoy serial number">SN</abbr> token lifetime** is available and shows the number of days to token expiry. This entity is updated once a day.
+The action [enphase_envoy.token_lifetime](#action-enphase_envoytoken_lifetime) is available to inspect the number of days to token expiry. It can be used in automations as desired.
 
 ## Reconfigure
 
@@ -602,7 +602,7 @@ Although not a replacement for individual energy or power measurement devices, w
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect)
+Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect) and [`enphase_envoy.token_lifetime`](#action-enphase_envoytoken_lifetime).
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -684,6 +684,46 @@ data:
 {% note %}
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
+
+### Action `enphase_envoy.token_lifetime`
+
+The action `enphase_envoy.token_lifetime` returns the number of days until the Envoy access token expires. This allows retrieving this value using {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. In the **Action** drop-down, select **Envoy token lifetime**. Configure the desired attributes as listed below.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `device_id` | yes | The device_id for the Envoy to inspect. If no Envoy is specified, the first configured one will be used. No need to specify if only a single Envoy is configured. <ul><li>In UI mode, click the checkbox and select an Envoy device from the dropdown list. <br><li> In YAML mode enter a device_id or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')` </ul> |
+
+The integration updates the token_lifetime value once every 24 hours. Account for this when using the action in any automation.
+
+Example with a single envoy installed, no Envoy device_id specified:
+
+{% raw %}
+
+```yaml
+action: enphase_envoy.token_lifetime
+data: {}
+```
+
+{% endraw %}
+
+Response example
+
+{% raw %}
+
+```yaml
+lifetime: 333
+```
+
+{% endraw %}
+
+{% details "Envoy token lifetime UI example" %}
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_token_lifetime_action_ui.png" alt="envoy token lifetime">
+  <figcaption>Example of Envoy token lifetime action.</figcaption>
+</figure>
+
+{% enddetails %}
 
 ## Envoy replacement
 
