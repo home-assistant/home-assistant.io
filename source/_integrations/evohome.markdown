@@ -119,7 +119,7 @@ If the zone's target temperature is changed then it will either be a **Temporary
 
 For some system modes all zones will have a setpoint enforced upon them, regardless of their own mode:
 
-- **Away**, setpoints to 12 °C
+- **Away** mode sets the target temperature to 12 °C.
 - **HeatingOff** mode sets the target temperature to a predefined minimum, usually 4 °C.
 
 For **Away**, the DHW controller will also be turned off.
