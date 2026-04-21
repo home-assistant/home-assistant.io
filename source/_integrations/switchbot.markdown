@@ -741,7 +741,7 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
-- get PM25 value(US model only)
+- get PM2.5 value (US model only)
 
 ### Vacuums
 
