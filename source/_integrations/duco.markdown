@@ -224,12 +224,13 @@ This automation switches to high speed when the CO₂ level in the office rises 
 
 ## Data updates
 
-The integration {% term polling polls %} the Duco box every 30 seconds.
+The integration {% term polling polls %} the Duco box every 30 seconds. If you add a new sensor module (such as a CO₂ or humidity sensor) to your Duco system after the integration is already set up, it will automatically appear in Home Assistant the next time the integration polls for data. No restart or reconfiguration required.
 
 ## Known limitations
 
 - The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically around midnight.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
+- When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
 
