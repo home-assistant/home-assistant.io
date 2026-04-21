@@ -1,6 +1,6 @@
 {%- assign target_domain = include.domain | default: page.domain -%}
 
-### Targets
+## Targets
 
 This trigger supports **targets**. A target tells Home Assistant what the trigger should watch. You can point it at a single {% term entity %}, a device, an area, a floor, or a label, and Home Assistant watches every matching {{ target_domain }} entity behind that target.
 

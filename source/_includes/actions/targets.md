@@ -1,6 +1,6 @@
 {%- assign target_domain = include.domain | default: page.domain -%}
 
-### Targets
+## Targets
 
 This action supports **targets**. A target tells Home Assistant what the action should act on. You can point it at a single {% term entity %}, a device, an area, a floor, or a label, and Home Assistant runs the action on every matching {{ target_domain }} entity behind that target.
 
