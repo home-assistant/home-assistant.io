@@ -15,6 +15,7 @@ ha_platforms:
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
+ha_dhcp: true
 ha_zeroconf: true
 ---
 
@@ -239,7 +240,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds. If you a
 If your Duco ventilation box is not automatically discovered:
 
 - Ensure the device is powered on and connected to the same network as Home Assistant.
-- Check that mDNS/Bonjour traffic is not blocked by your router or firewall.
+- Check that mDNS/Bonjour traffic is not blocked by your router or firewall. If it is, the integration can still discover the device automatically via DHCP the next time the device renews its IP address lease.
 - Verify the device name shows as "DUCO [MAC address]" in your router's device list or network scanner.
 - Manually add the integration using the device's IP address if discovery continues to fail.
 
