@@ -6,7 +6,7 @@ related:
     title: Configuration.yaml file
   - docs: /docs/configuration/troubleshooting/
     title: Enable debug logging
-  - docs: /more-info/system-health/
+  - docs: /more-info/system-information/
     title: System information
   - url: https://community.home-assistant.io/
     title: Forum
