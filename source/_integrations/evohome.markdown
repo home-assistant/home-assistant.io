@@ -78,15 +78,15 @@ TCC systems are implemented as a _location_, which consists of 1-12 _zones_ and,
 
 ### Evohome
 
-Each heating zone is represented as a climate entity that exposes the zone's operating mode, current temperature, and setpoint.
+Each heating zone is represented as a climate entity that exposes the zone's operating mode, current temperature, and target temperature.
 
 Each zone also provides a button entity to clear any override and return the zone to Evohome's **FollowSchedule** mode.
 
-The system controller is also represented as a climate entity that exposes the system's current operating mode. A controller has neither a current temperature nor a setpoint, but all climate entities in Home Assistant are required to report a temperature, so this value is calculated as the average of all zones.
+The system controller is also represented as a climate entity that exposes the system's current operating mode. A controller has neither a current temperature nor a target temperature, but all climate entities in Home Assistant are required to report a temperature, so this value is calculated as the average of all zones.
 
 The controller also provides a button entity to reset the system mode. This returns the system to Evohome's **Auto** mode (or the equivalent, for edge-case systems), and resets all zones and DHW to **FollowSchedule**.
 
-The DHW controller is represented as a water heater entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
+The DHW controller is represented as a water heater entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, its setpoint is not reported and cannot be changed.
 
 If present, it also provides a button entity to clear any DHW override and return the DHW controller to Evohome's **FollowSchedule** mode.
 
@@ -110,14 +110,14 @@ TCC systems can support up to six distinct operating modes: **Auto**, **AutoWith
 
 Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride**, but 'inherit' an operating mode from their system (the actual algorithm for this is a little more complicated than indicated below - please see the vendor's documentation).
 
-For **FollowSchedule**, a zone's `setpoint` (target temperature) is a function of its scheduled target temperature and its inherited mode:
+For **FollowSchedule**, a zone's target temperature is a function of its scheduled `setpoint` and its inherited mode:
 
-- **Auto** mode follows the scheduled temperature (for example, a scheduled temperature of 20 °C results in a target temperature of 20 °C. **Auto** mode is the default).
-- **AutoWithEco** mode means the target temperature is 3 °C below the scheduled temperature (for example, a scheduled temperature of 20 °C results in a target temperature of 17 °C).
+- **Auto** mode follows the scheduled setpoint (for example, a setpoint of 20 °C results in a target temperature of 20 °C. **Auto** mode is the default).
+- **AutoWithEco** mode means the target temperature is 3 °C below the scheduled setpoint (for example, a scheduled setpoint of 20 °C results in a target temperature of 17 °C).
 
-If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a persistent change until some subsequent intervention is made. Zones can be switched between the two override modes without changing the target temperature.
+If the zone's setpoint is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a persistent change until some subsequent intervention is made. Zones can be switched between the two override modes without changing the target temperature.
 
-For some system modes all zones will have a setpoint enforced upon them, regardless of their own mode:
+For some system modes all zones will have a target temperature enforced upon them, regardless of their own mode:
 
 - **Away** mode sets the target temperature to 12 °C.
 - **HeatingOff** mode sets the target temperature to a predefined minimum, usually 4 °C.
