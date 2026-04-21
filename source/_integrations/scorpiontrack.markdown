@@ -17,7 +17,7 @@ ha_quality_scale: bronze
 
 The **ScorpionTrack** {% term integration %} lets Home Assistant follow vehicles that have been shared through a public ScorpionTrack location-share link.
 
-This integration is intentionally focused on the share-link workflow. It does not use your private ScorpionTrack account credentials. Instead, it reads the shared vehicle feed exposed by ScorpionTrack and creates Home Assistant map entities from that data.
+This integration is intentionally focused on the share-link workflow. It does not use your private ScorpionTrack account credentials. Instead, it reads the shared vehicle feed exposed by ScorpionTrack and creates `device_tracker` entities from that data, which appear on the Home Assistant map.
 
 ## Prerequisites
 
@@ -30,13 +30,13 @@ Before setting up the integration, you need:
 
 Create the share in the ScorpionTrack customer portal:
 
-- Open the ScorpionTrack location share page at [app.scorpiontrack.com/customer/locationshare](https://app.scorpiontrack.com/customer/locationshare)
-- Create a new shared-location entry
-- Add every vehicle you want Home Assistant to track
-- Choose a suitable expiry time for the share
-- Copy the generated share URL
+1. Open the ScorpionTrack location share page at [app.scorpiontrack.com/customer/locationshare](https://app.scorpiontrack.com/customer/locationshare)
+2. Create a new shared-location entry
+3. Add every vehicle you want Home Assistant to track
+4. Choose a suitable expiry time for the share
+5. Copy the generated share URL
 
-Home Assistant can accept either the full shared-location URL or just the token contained within it.
+You can paste either the full shared-location URL or just the token from that URL.
 
 {% include integrations/config_flow.md %}
 
@@ -49,9 +49,9 @@ Share URL or token:
 
 ### Entities
 
-The **ScorpionTrack** integration creates one {% term device tracker %} for each vehicle included in the share.
+The **ScorpionTrack** integration creates one {% term "device tracker" %} for each vehicle included in the share.
 
-Each tracker is intended to represent the car directly on the Home Assistant map and in zone logic. The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
+Each tracker is intended to represent the vehicle directly on the Home Assistant map and in zone logic. The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 
 The following tracker attributes are exposed when available:
 
