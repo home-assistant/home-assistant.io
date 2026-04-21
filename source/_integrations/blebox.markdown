@@ -142,47 +142,60 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 ### switchBox
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
 - Energy consumption measurement
 
 ### switchBox DIN
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
 - Energy consumption measurement
 
 ### switchBoxD
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
 - Energy consumption measurement
 
 ### switchBoxD DIN
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
 - Energy consumption measurement
 
 ### switchBoxDC
 
 This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### switchBoxD DC DIN
+
+This integration adds the Blebox device as 2 switch entities to Home Assistant.
 
 #### Key supported features
 
@@ -200,7 +213,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant.
 
 ### switchBoxT PRO
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as 3 switch entities to Home Assistant.
 
 #### Key supported features
 
