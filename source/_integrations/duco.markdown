@@ -257,7 +257,7 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 1. Check that the Duco box is powered on and connected to your local network.
 2. Confirm the IP address or hostname is correct by opening `http://<host>` in a browser on your local network.
 3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
-4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS. If that does not happen, you can update it manually: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Duco**, and use **Reconfigure** to enter the new address.
+4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS/Bonjour (zeroconf). If that does not happen, see [Reconfiguring the integration](#reconfiguring-the-integration).
 
 ### Failed to set ventilation state (rate limit)
 
@@ -276,6 +276,19 @@ The Duco box enforces a write rate limit of 200 write requests per day. When the
 #### Resolution
 
 Wait until midnight for the quota to reset. To avoid hitting the limit, reduce the frequency of automations that change the ventilation state.
+
+## Reconfiguring the integration
+
+If your Duco ventilation box gets a new IP address, you can update it without removing and re-adding the integration.
+
+When zeroconf discovery is available, Home Assistant updates the address automatically. If that does not happen, you can update it manually:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Duco** integration and select it.
+3. Select the three dots menu {% icon "mdi:dots-vertical" %} next to the integration and choose **Reconfigure**.
+4. Enter the new IP address or hostname and select **Submit**.
+
+Home Assistant verifies that the new address belongs to the same Duco box. If you enter the address of a different device, the reconfiguration is aborted.
 
 ## Removing the integration
 
