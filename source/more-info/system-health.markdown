@@ -33,7 +33,7 @@ This information is useful for:
 - Verifying your installation meets [requirements for specific integrations](/integrations/)
 - Sharing technical details when [reporting issues on GitHub](#reporting-issues-on-github)
 
-## Viewing integration startup times
+## Viewing integration startup time
 
 If Home Assistant is taking a long time to start, you can identify which integrations are causing delays and potentially have connectivity issues.
 
