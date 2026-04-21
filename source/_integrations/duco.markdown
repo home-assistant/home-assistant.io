@@ -230,7 +230,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds. If you a
 
 - The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically around midnight.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
-- Once a sensor module is paired with the Duco box, the firmware retains it permanently. If you physically remove a sensor, its entities will continue to appear in Home Assistant because the device still shows up in the Duco API. There is no way to permanently remove such a device from Home Assistant: if you delete it manually, it will be re-added automatically on the next data update.
+- When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
 
