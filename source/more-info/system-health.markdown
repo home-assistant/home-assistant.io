@@ -37,7 +37,7 @@ This information is useful for:
 
 ## Viewing integration startup times
 
-If Home Assistant is taking a long time to start, you can identify which integrations are causing delays and potentially have connectivity issues
+If Home Assistant is taking a long time to start, you can identify which integrations are causing delays and potentially have connectivity issues.
 
 To view integration startup times, follow these steps:
 
