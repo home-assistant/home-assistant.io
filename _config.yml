@@ -70,6 +70,15 @@ collections:
   template_functions:
     output: true
     permalink: /template-functions/:path/
+  actions:
+    output: true
+    permalink: /actions/:path/
+  triggers:
+    output: true
+    permalink: /triggers/:path/
+  conditions:
+    output: true
+    permalink: /conditions/:path/
   docs:
     output: true
   apps:
@@ -162,6 +171,21 @@ defaults:
   - scope:
       path: ""
       type: template_functions
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: actions
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: triggers
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: conditions
     values:
       toc: true
   - scope:

@@ -104,6 +104,21 @@ $tf-code-font: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   margin-bottom: -1em;
 }
 
+/* Fields block: tabbed UI and YAML views on action, trigger, and
+   condition pages. Adds bottom breathing room so the last field does not
+   sit flush against the wrapping tab container. */
+.fields-block {
+  margin-bottom: 1.5em;
+}
+
+.fields-block .tabbed-content-block-content {
+  padding-bottom: 0.75em;
+}
+
+.fields-block .config-vars .config-vars-item:last-child {
+  margin-bottom: 0;
+}
+
 .template-example-input,
 .template-example-output {
   position: relative;
