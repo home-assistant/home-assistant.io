@@ -9,9 +9,11 @@ ha_codeowners:
   - '@tr4nt0r'
 ha_domain: ista_ecotrend
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
+ha_quality_scale: gold
 ---
 
 The **ista EcoTrend** {% term integration %} for Home Assistant allows you to import your monthly meter readings from the [ista EcoTrend](https://ecotrend.ista.de) service.
@@ -104,10 +106,16 @@ The integration checks for new readings every 24 hours.
 
 ## Known limitations
 
-- The integration does not support two-factor authentication. To connect Home Assistant to **ista Ecotrend**, you must first disable two-factor authentication. To do this, navigate to **Menü -> Benutzerkonto -> Zwei-Stufen-Authentifizierung** and remove any registered authentication devices.
+- The integration does not support two-factor authentication. To connect Home Assistant to **ista Ecotrend**, you must first disable two-factor authentication. To do this, navigate to **Menü** > **Benutzerkonto** > **Zwei-Stufen-Authentifizierung** and remove any registered authentication devices.
 - Sensor values reflect the meter readings from the previous month, as **ista** publishes new readings a few days after the end of the billing period. Long-term statistics are adjusted to display these readings as of the last day of the corresponding month.
 
-## Remove integration
+## Troubleshooting
+
+The **ista EcoTrend** integration relies on an active internet connection to communicate with ista. If you encounter issues, verify that your network connection is stable. Additionally, the ista EcoTrend service itself may experience downtime, whether unexpected or due to scheduled maintenance.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+## Removing the integration
 
 This integration can be removed by following these steps:
 

@@ -58,7 +58,7 @@ The following device classes are supported for covers.
 - **garage**: Control of a garage door that provides access to a garage.
 - **gate**: Control of a gate. Gates are found outside of a structure and are typically part of a fence.
 - **shade**: Control of shades, which are a continuous plane of material or connected cells that expanded or collapsed over an opening, such as window shades.
-- **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
+- **shutter**: Control of shutters. Shutters are linked slats that can be raised or lowered to cover an opening, such as window or door roller shutters. Some shutters (for example, some indoor or exterior window shutters) swing out/in to cover an opening or may be tilted to provide partial cover.
 - **window**: Control of a physical window that opens and closes or may tilt.
 
 ## Actions
@@ -84,9 +84,9 @@ automation:
         entity_id: cover.demo
 ```
 
-### Action `cover.set_cover_position`
+### Action: Set cover position
 
-Set cover position of one or multiple covers.
+The `cover.set_cover_position` action allows you to set cover position of one or multiple covers.
 
 | Data attribute | Optional | Description                                                                                          |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -108,9 +108,9 @@ automation:
         position: 50
 ```
 
-### Action `cover.set_cover_tilt_position`
+### Action: Set cover tilt position
 
-Set cover tilt position of one or multiple covers.
+The `cover.set_cover_tilt_position` action allows you to set cover tilt position of one or multiple covers.
 
 | Data attribute  | Optional | Description                                                                                          |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------- |

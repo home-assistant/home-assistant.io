@@ -15,7 +15,7 @@ ha_integration_type: hub
 ha_config_flow: true
 ---
 
-The `thethingsnetwork` {% term integration%} allows you to interact with the [The Things Network](https://www.thethingsnetwork.org) from within Home Assistant. This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long-range (~5 to 15 km) communication with low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfer the received data from the sensors to The Things Network.
+The **The Things Network** {% term integration%} allows you to interact with the [The Things Network](https://www.thethingsnetwork.org) from within Home Assistant. This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long-range (~5 to 15 km) communication with low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfer the received data from the sensors to The Things Network.
 
 The Things Network supports various integrations to make the data available:
 

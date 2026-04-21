@@ -60,7 +60,7 @@
       <iconify-icon icon="mdi:about-circle"></iconify-icon> Dashboard basics
       <ul>
         <li>{% active_link /dashboards/ Introduction %}</li>
-        <li>{% active_link /dashboards/dashboards/ Multiple dashboards %}</li>
+        <li>{% active_link /dashboards/dashboards/ Dashboard types %}</li>
         <li>{% active_link /dashboards/views/ Views %}</li>
         <li>{% active_link /dashboards/cards/ Cards %}</li>
         <li>{% active_link /dashboards/badges/ Badges %}</li>
@@ -99,8 +99,7 @@
             class="external-link" 
             href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
             >Developing custom cards
-            {% icon "tabler:external-link" %}
-          </a></li>
+                     </a></li>
       </ul>
     </li>
 
@@ -179,6 +178,9 @@
   <ul>
     <li>{% active_link /docs/energy/electricity-grid/ Electricity grid %}</li>
     <li>{% active_link /docs/energy/solar-panels/ Solar panels %}</li>
+    <li>{% active_link /docs/energy/battery/ Home batteries %}</li>
+    <li>{% active_link /docs/energy/gas/ Gas usage %}</li>
+    <li>{% active_link /docs/energy/water/ Water usage %}</li>
     <li>{% active_link /docs/energy/individual-devices/ Individual devices %}</li>
     <li>{% active_link /docs/energy/faq/ FAQ %}</li>
   </ul>
@@ -192,8 +194,6 @@
     <li>{% active_link /common-tasks/general/ Installation independent %}</li>
     <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
     <li>{% active_link /common-tasks/container/ Home Assistant Container %}</li>
-    <li>{% active_link /common-tasks/core/ Home Assistant Core %}</li>
-    <li>{% active_link /common-tasks/supervised/ Home Assistant Supervised %}</li>
     <li>{% active_link /docs/troubleshooting_general/ General troubleshooting %}</li>
   </ul>
   {% endif %}
@@ -247,15 +247,14 @@
   {% if doc == 'tools' or include.docs_index %}
   <ul>
     <li>{% active_link /docs/tools/dev-tools/ Developer tools %}</li>
-    <li>{% active_link /docs/tools/quick-bar/ Quick bar %}</li>
-    <li>{% active_link /docs/tools/hass/ hass %}</li>
+    <li>{% active_link /docs/tools/quick-search/ Quick search %}</li>
     <li>{% active_link /docs/tools/check_config/ check_config %}</li>
   </ul>
   {% endif %}
 </li>
 
 <li>
-  {% icon "mdi:cellphone" %} <a href="https://companion.home-assistant.io/docs">iOS and Android apps {% icon "tabler:external-link" %}</a>
+  {% icon "mdi:cellphone" %} <a href="https://companion.home-assistant.io/docs">iOS and Android apps</a>
 </li>
 
 <li>
@@ -276,9 +275,11 @@
 <li>
   {% icon "bitcoin-icons:node-hardware-filled" %} Official hardware
   <ul>
-    <li><a href="https://green.home-assistant.io/">Home Assistant Green {% icon "tabler:external-link" %}</a></li>
-    <li><a href="https://yellow.home-assistant.io/">Home Assistant Yellow {% icon "tabler:external-link" %}</a></li>
-    <li><a href="https://connectzbt1.home-assistant.io/">Home Assistant Connect ZBT-1 {% icon "tabler:external-link" %}</a></li>
-    <li><a href="https://voice-pe.home-assistant.io/">Home Assistant Voice Preview Edition {% icon "tabler:external-link" %}</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24638797677853">Home Assistant Green</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24734620813469">Home Assistant Connect ZBT-1</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/29400540866973">Home Assistant Connect ZBT-2</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/28669861145885">Home Assistant Connect ZWA-2</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24734575925149">Home Assistant Yellow</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24451727188125">Home Assistant Voice Preview Edition</a></li>
   </ul>
 </li>

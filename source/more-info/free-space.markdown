@@ -8,7 +8,7 @@ related:
     title: Add network storage
   - docs: /common-tasks/os/#using-external-data-disk
     title: Using an external data disk
-  - URL: https://yellow.home-assistant.io/guides/add-ssd-existing-installation/
+  - URL: https://support.nabucasa.com/hc/articles/25549332241949
     title: Adding an SSD to Home Assistant Yellow
 ---
 
@@ -18,7 +18,7 @@ There are several things you can do to free up some space:
 
 - [Clean the database](#cleaning-the-database)
 - [Reduce space used for backups](#reducing-space-used-for-backups)
-- [Uninstall unused add-ons](#uninstalling-unused-add-ons)
+- [Uninstall unused apps](#uninstalling-unused-apps)
 - [Expand storage](#expanding-storage)
 
 ## Viewing the available disk space
@@ -57,13 +57,13 @@ Previous backups are not included when you create a new one. But they do take up
 
 Storing backups outside of Home Assistant makes sure they don't use space on Home Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/general/#restoring-a-backup) in case you have an issue with your current installation. Follow the steps on [defining backup locations](/common-tasks/general/#defining-backup-locations).
 
-## Uninstalling unused add-ons
+## Uninstalling unused apps
 
-Add-ons can take a lot of space, not just the add-on itself but also their data.
+Apps can take a lot of space, not just the app itself but also their data.
 
-1. Go to {% my supervisor title="**Settings** > **Add-ons**" %}.
-2. Look at your installed add-ons and identify the ones you no longer use.
-3. To remove the add-on, select the add-on and select **Uninstall**.
+1. Go to {% my supervisor title="**Settings** > **Apps**" %}.
+2. Look at your installed apps and identify the ones you no longer use.
+3. To remove the app, select the app and select **Uninstall**.
 
 ## Expanding storage
 

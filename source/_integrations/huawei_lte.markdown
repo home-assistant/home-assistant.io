@@ -22,14 +22,15 @@ ha_platforms:
   - binary_sensor
   - button
   - device_tracker
+  - diagnostics
   - notify
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/routers/).
+The **Huawei LTE** router and modem {% term integration %} for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/routers/).
 
 There is currently support for the following platforms within Home Assistant:
 
@@ -75,26 +76,45 @@ entities varies by device model and firmware version.
 
 {% include integrations/config_flow.md %}
 
-Unauthenticated mode and default list of notification recipient phone
-numbers can be set using the integration's configuration options.
+{% configuration_basic %}
+URL:
+  description: Base URL to the API of the router. Typically, something like `http://192.168.X.1` where `X` is, for example, `1`, `8`, or `100`. This is the beginning of the location shown in a browser when accessing the router's web interface.
+Verify SSL certificate:
+  description: Whether to verify the SSL certificate of the router when accessing it. Applicable only if the router is accessed via HTTPS. In other words, if the configured URL starts with `https://`.
+Username:
+  description: Username for accessing the router's API. Typically, either `admin`, or left empty (recommended if that works).
+Password:
+  description: Password for accessing the router's API.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Notification service name:
+  description: Name of the notification service. Used to distinguish between notification services in case there are multiple Huawei LTE devices configured. The name here will be prefixed with `notify.`. For example, specifying `huawei_lte` will yield `notify.huawei_lte` as the complete service name.
+Notification recipients:
+  description: Comma separated list of default recipient SMS phone numbers for the notification service, used in case the notification sender does not specify any. Accepted formats may vary between device models and subscription types, but international [E.164](https://en.wikipedia.org/wiki/E.164) format including the `+` prefix and country code, numbers only, is a good first bet.
+Track wired network clients:
+  description: Whether the device tracker entities track also clients attached to the router's wired Ethernet network, in addition to wireless clients.
+Unauthenticated mode:
+  description: Whether to run in unauthenticated mode. See above for more information between authenticated and unauthenticated modes.
+{% endconfiguration_basic %}
 
 ## Actions
 
 The following router action actions are available. When invoked by a user, administrator access is required.
 
-### Action `huawei_lte.suspend_integration`
+### Action: Suspend integration
 
-Suspend integration. Suspending logs the integration out from the router, and stops accessing it.
-Useful e.g.,  if accessing the router web interface from another source such as a web browser is temporarily required.
-Invoke the `huawei_lte.resume_integration` action to resume.
+The `huawei_lte.suspend_integration` action suspends the integration. This logs the integration out from the router and stops accessing it. This is useful if accessing the router web interface from another source (such as a web browser) is temporarily required. Invoke the `huawei_lte.resume_integration` action to resume.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `url`                  | yes, if only one router configured | Router URL. |
 
-### Action `huawei_lte.resume_integration`
+### Action: Resume integration
 
-Resume suspended integration.
+The `huawei_lte.resume_integration` action resumes the suspended integration.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -106,3 +126,9 @@ It is the intention and highly likely that this integration works with all devic
 [reported working with the underlying huawei-lte-api library](https://github.com/Salamek/huawei-lte-api#tested-on).
 
 It will not work on ones noted as not working in that list.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -25,7 +25,8 @@ ha_platforms:
   - fan
   - light
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
+ha_dhcp: true
 ---
 
 The **Bond** {% term integration %} allows you to control appliances through your [Bond Bridge](https://bondhome.io/). Duplicates your RF remote control.

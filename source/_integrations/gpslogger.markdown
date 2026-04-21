@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
+This {% term integration %} sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
 
 ## Configuration
 

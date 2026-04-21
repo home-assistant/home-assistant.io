@@ -6,7 +6,7 @@ date: 2024-09-03 00:00:01
 date_formatted: "September 3, 2024"
 author: Guy Sie
 comments: true
-categories: Announcements
+categories: Works-with-Home-Assistant
 og_image: /images/blog/2024-09-aqara-wwha/art.jpg
 ---
 <img src='/images/blog/2024-09-aqara-wwha/art.jpg' style='border: 0;box-shadow: none;' alt="Aqara joins Works with Home Assistant">
@@ -27,17 +27,7 @@ One superpower of Matter compared to other standards is being able to control th
 
 Aqara has had the following three devices Works with Home Assistant certified. All of which can be directly connected to Home Assistant without an account.
 
-- [Motion and Light Sensor P2](https://www.aqara.com/en/product/motion-and-light-sensor-p2/) - Matter over Thread battery-powered motion and lux sensor.
-
-- [Door and Window Sensor P2](https://www.aqara.com/en/product/door-and-window-sensor-p2/) - Matter over Thread battery-powered cover sensor.
-
-- [Smart Lock U200](https://www.aqara.com/en/product/smart-lock-u200/) - Matter over Thread battery-powered lock.
-
-We're also testing the yet-to-be-launched Smart Lock U300, which we hope to see added soon.
-
-We have also certified a hub that makes it easy to connect an existing Aqara-based smart home to Home Assistant using Matter.
-
-- [Hub M3](https://www.aqara.com/en/product/hub-m3/) - It has many functions, but we have certified it as a Matter Bridge. This means you can use it to bridge your existing Aqara Zigbee devices to Matter. It can also act as a Thread Border Router for Home Assistant.
+{% include integrations/device_list.html brand="aqara" %}
 
 If you have some Aqara products that are not listed above, rest assured that they will continue to work as they always have. The program is a way to clearly indicate which devices provide the best experience with Home Assistant. We've ensured this by testing these devices' compatibility ourselves. We also get assurances from the brand that they will provide responsive support and maintenance, while being a positive brand in the Home Assistant community.
 

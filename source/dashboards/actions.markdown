@@ -33,6 +33,7 @@ Actions can be enabled on the following cards:
 - [Picture element](/dashboards/picture-elements/)
 - [Picture entity](/dashboards/picture-entity/)
 - [Picture glance](/dashboards/picture-glance/)
+- [Shortcut](/dashboards/shortcut/)
 - [Tile](/dashboards/tile/)
 - [Weather forecast](/dashboards/weather-forecast/)
 
@@ -273,6 +274,21 @@ text:
   required: false
   description: Text to present in the confirmation dialog.
   type: string
+title:
+  required: false
+  description: Title text of the confirmation dialog.
+  type: string
+  default: "Are you sure? (translated)"
+confirm_text:
+  required: false
+  description: Confirmation button text of the confirmation dialog.
+  type: string
+  default: "OK (translated)"
+dismiss_text:
+  required: false
+  description: Dismiss button text of the confirmation dialog.
+  type: string
+  default: "Cancel (translated)"
 exemptions:
   required: false
   description: "List of `exemption` objects. See below"

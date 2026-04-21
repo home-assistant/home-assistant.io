@@ -13,25 +13,12 @@ ha_platforms:
   - sensor
 ha_iot_standard: matter
 ha_brand: true
+works_with:
+  - matter
 ---
 
-[Eve](https://www.evehome.com/) is a manufacturer of Matter products.
+{% include integrations/wwha.md url="https://www.evehome.com/" %}
 
-Eve Matter devices work locally and integrate seamlessly with the Matter integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
+## Supported devices
 
-{% my add_matter_device badge domain=page.ha_domain %}
-
-[Learn more about Matter in Home Assistant.](/integrations/matter/)
-
-The following devices are supported:
-
-- [Door & Window](https://www.evehome.com/en/eve-door-window)
-- [Energy Outlet](https://www.evehome.com/en/eve-energy-outlet)
-- [Energy Outdoor](https://www.evehome.com/en/eve-energy-outdoor)
-- [Energy](https://www.evehome.com/en/eve-energy)
-- [Light Switch](https://www.evehome.com/en/eve-light-switch)
-- [Dimmer Switch](https://www.evehome.com/en/eve-dimmer-switch)
-- [Motion](https://www.evehome.com/en/eve-motion)
-- [MotionBlinds](https://www.evehome.com/en/eve-blinds-collection)
-- [Thermo](https://www.evehome.com/en/eve-thermo)
-- [Weather](https://www.evehome.com/en/eve-weather)
+{% include integrations/device_list.html brand="eve" %}

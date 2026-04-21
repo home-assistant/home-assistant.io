@@ -164,7 +164,7 @@ command_line:
         command:
           description: The action to take.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
@@ -329,8 +329,12 @@ To use your Command binary sensor in your installation, add the following to you
 command_line:
   - binary_sensor:
       command: "cat /proc/sys/net/ipv4/ip_forward"
+      payload_on: "1"
+      payload_off: "0"
   - binary_sensor:
       command: "echo 1"
+      payload_on: "1"
+      payload_off: "0"
 ```
 {% endraw%}
 
@@ -439,7 +443,7 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 # Example configuration.yaml entry
 command_line:
   - binary_sensor:
-      command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
+      command: 'netstat -na | grep "33322" | grep -q "LISTENING" > nul && (echo "Running") || (echo "Not running")'
       name: "sickragerunning"
       device_class: moving
       payload_on: "Running"
@@ -544,32 +548,6 @@ command_line:
       # If errors occur, make sure configuration file is encoded as UTF-8
       unit_of_measurement: "°C"
       value_template: "{{ value | multiply(0.001) | round(1) }}"
-```
-{% endraw%}
-
-### Monitoring failed login attempts on Home Assistant
-
-If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your {% term "`configuration.yaml`" %} file:
-
-{% raw %}
-```yaml
-# Example configuration.yaml entry
-command_line:
-  - sensor:
-      name: Badlogin
-      command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
-```
-{% endraw%}
-
-Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
-
-{% raw %}
-```yaml
-# Example working logger settings that works
-logger:
-  default: critical
-  logs:
-    homeassistant.components.http: warning
 ```
 {% endraw%}
 
@@ -759,7 +737,7 @@ command_line:
 ### Control your VLC player
 
 This switch will control a local VLC media player
-([Source](https://community.home-assistant.io/t/vlc-player/106)).
+([Source](https://community.home-assistant.io/t/106)).
 
 {% raw %}
 ```yaml
@@ -799,8 +777,8 @@ command_line:
 
 Available actions: `reload`.
 
-### Action `command_line.reload`
+### Action: Reload
 
-Reload all `command_line` entities.
+The `command_line.reload` action allows you to reload all `command_line` entities.
 
 This action takes no data attributes.

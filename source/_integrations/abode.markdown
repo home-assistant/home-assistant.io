@@ -90,9 +90,9 @@ and the inferred groups and their ranges of event codes are defined in
 
 Available {% term actions %}: `change_setting`, `capture_image`, `trigger_automation`
 
-### Action `change_setting`
+### Action: Change setting
 
-Change settings on your Abode system.
+The `abode.change_setting` action is used to change settings on your Abode system.
 For a full list of settings and valid values, consult the
 [`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
 
@@ -101,17 +101,17 @@ For a full list of settings and valid values, consult the
 | `setting` | No | The setting you wish to change. |
 | `value` | No | The value you wish to change the setting to. |
 
-### Action `capture_image`
+### Action: Capture image
 
-Request a new still image from your Abode camera.
+The `abode.capture_image` action is used to request a new still image from your Abode camera.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras. |
 
-### Action `trigger_automation`
+### Action: Trigger automation
 
-Trigger an automation on your Abode system.
+The `abode.trigger_automation` action is used to trigger an automation on your Abode system.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
