@@ -164,7 +164,7 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 
 ### switchBoxD
 
-This integration adds the Blebox device as 2 switch and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -175,7 +175,7 @@ This integration adds the Blebox device as 2 switch and 2 sensor entities to Hom
 
 ### switchBoxD DIN
 
-This integration adds the Blebox device as 2 switch and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
