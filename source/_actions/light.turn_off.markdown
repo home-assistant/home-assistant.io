@@ -81,7 +81,7 @@ flash:
 
 {% include actions/more_examples.md %}
 
-### Action: gentle fade-out at the end of movie night
+### Action: fade out gently at the end of movie night
 
 Fade the bedroom light out over five seconds, which is a much nicer way to end a movie than an instant off.
 
