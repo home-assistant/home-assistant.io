@@ -43,10 +43,6 @@ Compatible DucoBox models:
 
 {% include integrations/config_flow.md %}
 
-Your Duco ventilation box can be automatically discovered on your network when the device is connected and powered on. When Home Assistant discovers a new Duco device, it appears as a notification in the UI. Select the notification to complete the setup.
-
-If automatic discovery does not work, you can manually add the integration by providing the IP address or hostname.
-
 {% configuration_basic %}
 Host:
   description: "The IP address or hostname of your DUCO Connectivity Board on the local network, for example `192.168.1.10`. Only needed when setting up the integration manually."
@@ -57,8 +53,8 @@ Host:
 The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
 
 - **BOX** — the main DucoBox (fan control, ventilation state)
-- **UCCO2** — a wireless CO₂ sensor module
-- **BSRH** — a humidity sensor module installed inside the DucoBox
+- **UCCO2** — a wall-mounted control unit with a built-in CO₂ sensor
+- **BSRH** — a humidity sensor module installed in the duct inlet of the DucoBox
 
 ### Fan
 
@@ -74,7 +70,7 @@ The following actions are available:
 - **Speed 100%**: High speed manual override.
 - **Auto preset**: Same as speed 0%; hands control back to Duco.
 
-When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
+When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
 ### Sensors
 
@@ -229,7 +225,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds. If you a
 ## Known limitations
 
 - The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically around midnight.
-- Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
+- Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
@@ -264,15 +260,13 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 
 #### Symptom
 
-Setting the fan speed or preset mode fails with an error like:
+Setting the fan speed or preset mode fails with a notification in the Home Assistant UI:
 
-```text
-Failed to set ventilation state: DucoError('Duco API error (429): {"Code":18,"Result":"FAILED"}')
-```
+> The Duco device has reached its daily write limit. Try again tomorrow.
 
 #### Description
 
-The Duco box enforces a write rate limit of 200 write requests per day. When the limit is reached, the box rejects further write requests with a 429 error until the quota resets around midnight.
+The Duco box enforces a write rate limit of 200 write requests per day. When the limit is reached, the box rejects further write requests until the quota resets around midnight.
 
 #### Resolution
 
