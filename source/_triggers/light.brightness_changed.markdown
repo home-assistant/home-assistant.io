@@ -43,7 +43,7 @@ This fires whenever the living room light's brightness changes by at least ten p
 
 {% include triggers/targets.md %}
 
-## Fields
+## Options
 
 The following fields control how the trigger fires. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
 

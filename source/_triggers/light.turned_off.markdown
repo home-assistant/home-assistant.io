@@ -45,7 +45,7 @@ This fires every time `light.kitchen` transitions from on to off.
 
 {% include triggers/targets.md %}
 
-## Fields
+## Options
 
 The following fields control how the trigger fires. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
 

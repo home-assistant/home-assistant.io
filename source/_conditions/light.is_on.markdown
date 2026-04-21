@@ -41,7 +41,7 @@ This passes when the living room light is currently on.
 
 {% include conditions/targets.md %}
 
-## Fields
+## Options
 
 The following fields control how the condition evaluates. Switch tabs to see the friendly labels you pick in the UI or the technical names and types you use in YAML.
 

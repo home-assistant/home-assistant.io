@@ -44,7 +44,7 @@ This turns off `light.kitchen`.
 
 {% include actions/targets.md %}
 
-## Fields
+## Options
 
 {% fields %}
 ui:
