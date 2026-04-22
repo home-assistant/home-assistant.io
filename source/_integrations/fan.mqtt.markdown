@@ -321,6 +321,11 @@ unique_id:
   description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
+visible_by_default:
+  description: Flag which defines if the entity should be visible when first added.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}

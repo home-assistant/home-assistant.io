@@ -194,6 +194,11 @@ value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the value and render it to a valid JSON event payload. If the template throws an error, the current state will be used instead."
   required: false
   type: template
+visible_by_default:
+  description: Flag which defines if the entity should be visible when first added.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}

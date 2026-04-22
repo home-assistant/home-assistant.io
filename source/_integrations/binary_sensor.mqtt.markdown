@@ -223,6 +223,11 @@ value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (i.e no preprocessing of original message is required)."
   required: false
   type: template
+visible_by_default:
+  description: Flag which defines if the entity should be visible when first added.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Examples

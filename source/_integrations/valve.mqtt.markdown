@@ -294,6 +294,11 @@ value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) that can be used to extract the payload for the `state_topic` topic. The rendered value should be a defined state payload or, if reporting a `position` is supported and `reports_position` is set to `true`, a numeric value is expected representing the position. See also `state_topic`."
   required: false
   type: template
+visible_by_default:
+  description: Flag which defines if the entity should be visible when first added.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% note %}

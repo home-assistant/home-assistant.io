@@ -172,4 +172,9 @@ unique_id:
   description: An ID that uniquely identifies this camera. If two cameras have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
+visible_by_default:
+  description: Flag which defines if the entity should be visible when first added.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}

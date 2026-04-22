@@ -440,6 +440,11 @@ value_template:
   description: Default template to render the payloads on *all* `*_state_topic`s with.
   type: template
   required: false
+visible_by_default:
+  description: Flag which defines if the entity should be visible when first added.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Optimistic mode

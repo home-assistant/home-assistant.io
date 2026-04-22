@@ -264,6 +264,11 @@ value_template:
   description: Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a state value from the payload.
   required: false
   type: template
+visible_by_default:
+  description: Flag which defines if the entity should be visible when first added.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}
