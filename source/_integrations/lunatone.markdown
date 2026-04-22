@@ -4,6 +4,7 @@ description: Instructions on how to integrate Lunatone REST API devices with Hom
 ha_category:
   - Hub
   - Light
+  - Sensor
 ha_release: 2025.11
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -13,12 +14,13 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - light
+  - sensor
 ha_integration_type: hub
 ha_zeroconf: true
 ha_quality_scale: silver
 ---
 
-The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This allows you to use lights in Home Assistant that are connected to the DALI bus via your device.
+The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This allows you to use lights and sensors in Home Assistant that are connected to the DALI bus via your device.
 
 ## Supported devices
 
@@ -70,6 +72,16 @@ The Lunatone integration provides the following entities.
 - **RGBW Color**
   - **Description**: Control the RGBW color of the light
   - **Available for devices**: Devices with firmware version 1.17.0 or later
+
+#### Sensors
+
+- Air quality index
+- Carbon dioxide
+- Humidity
+- Illuminance
+- Pressure
+- Temperature
+- Volatile organic compounds
 
 ## Removing the integration
 
