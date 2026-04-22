@@ -12,6 +12,7 @@ ha_domain: kiosker
 ha_platforms:
   - sensor
   - binary_sensor
+  - switch
 ha_integration_type: integration
 ha_zeroconf: true
 ha_quality_scale: bronze
@@ -82,6 +83,10 @@ The **Kiosker** integration provides the following entities.
   - Shows whether the screensaver is currently active.
 - **Blackout state**
   - Shows whether the screen is currently blacked out. Has extra attributes with the blackout data when active.
+
+#### Switches
+- **Disable screensaver**
+  - Disables the currently active screensaver
 
 ## Data updates
 This integration fetches data from the device every 15 seconds.
