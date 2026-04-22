@@ -1,5 +1,5 @@
 ---
-title: "Assigning an area to devices and areas to floors"
+title: "Assigning areas to floors and an area to a device"
 related:
   - docs: /docs/organizing/areas/
     title: Areas
