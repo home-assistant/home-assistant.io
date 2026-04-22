@@ -41,18 +41,18 @@ Compatible DucoBox models:
 
 The following sensor module types are supported:
 
-- **BOX** — the main ventilation box; provides fan control, ventilation state, and Wi-Fi signal strength
-- **UCCO2** — wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index
-- **BSRH** — humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index
-- **UCRH** — wireless humidity sensor module; provides relative humidity and humidity air quality index
+- **BOX**: The main ventilation box; provides fan control, ventilation state, and Wi-Fi signal strength.
+- **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
+- **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
+- **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
 
 ### Unsupported sensor modules
 
 The following sensor module types are discovered but not yet supported:
 
-- **UC** — universal control unit (no sensor data exposed)
-- **UCBAT** — battery-powered sensor module
-- **VLV** — valve actuator
+- **UC**: Universal control unit (no sensor data exposed)
+- **UCBAT**: Battery-powered sensor module
+- **VLV**: Valve actuator
 
 When Home Assistant discovers a node with an unsupported type, it logs a warning and skips that node. All other nodes continue to work normally.
 
@@ -71,10 +71,10 @@ Host:
 
 The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
 
-- **BOX** — the main DucoBox (fan control, ventilation state)
-- **UCCO2** — a wall-mounted control unit with a built-in CO₂ sensor
-- **BSRH** — a humidity sensor module installed in the duct inlet of the DucoBox
-- **UCRH** — a wireless humidity sensor module
+- **BOX**: The main DucoBox (fan control, ventilation state)
+- **UCCO2**: A wall-mounted control unit with a built-in CO₂ sensor
+- **BSRH**: A humidity sensor module installed in the duct inlet of the DucoBox
+- **UCRH**: A wireless humidity sensor module
 
 ### Fan
 
