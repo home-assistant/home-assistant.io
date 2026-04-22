@@ -28,7 +28,7 @@ All options for this card can be configured via the user interface.
 As shown in the screenshot of the area cards, they can display values and buttons of entities and devices that you have assigned the area to, such as:
 
 - Buttons for {% term entities %} such as fan, light, and switch that are in the area of the card.
-- The measured value of a sensor, if the sensor is in the area of the card or if the sensor is assigned to the area in {% my areas title="Settings > Areas, labels & zones" %}.
+- The measured value of a sensor, if the sensor is in the area of the card or if the sensor is assigned to the area in {% my areas title="**Settings** > **Areas, labels & zones**" %}.
 - The median of the values measured by temperature sensors, if more than one temperature sensor is in the area of the card.
 - The median of the values measured by humidity sensors, if more than one humidity sensor is in the area of the card.
 - A motion sensor in the top left of the card, if a motion sensor is in the area of the card.
