@@ -213,7 +213,7 @@ When using a relative path for an image or icon URL, the path is resolved relati
 
 {% endnote %}
 
-### Dismiss message
+### Action: Dismiss message
 
 You can dismiss notifications using the `html5.dismiss_message` action.
 
