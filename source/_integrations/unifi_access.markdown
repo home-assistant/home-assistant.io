@@ -150,6 +150,40 @@ Send a notification or trigger an action when someone unlocks a door or when an 
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/unifi_access_door_access_notification.yaml" %}
 
+### Use a UniFi Access unlock button as a HomeKit lock
+
+HomeKit natively supports door locks, which lets you unlock doors with Siri or from the Home app. Because a door strike only supports a momentary unlock pulse — there is no physical lock state to read back — the UniFi Access integration correctly models door openers as **button** entities. This is by design and cannot be changed within the integration itself. As a result, HomeKit Bridge cannot expose them as locks directly.
+
+You can work around this by creating a **Template Lock** helper that wraps the unlock button. The lock always reports as _locked_ (because the door re-locks itself after the momentary pulse), and the unlock action calls the button. HomeKit handles this pattern gracefully.
+
+#### Step 1: Create a Template Lock helper
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
+2. Select **+ Create helper**.
+3. Select **Template**, then select **Template Lock**.
+4. Fill in the form:
+   - **Name**: for example, `Front door`.
+   - **Value template**: enter `true` (this makes the lock always report as _locked_, which is correct for a door that re-locks itself after each pulse).
+   - **Lock action**: leave empty (no-op).
+   - **Unlock action**: use the action picker to select `button.press`, then choose your UniFi Access unlock button entity, for example `button.front_door_unlock`.
+   - **Open action**: leave empty.
+5. Select **Submit**.
+
+#### Step 2: Expose the lock to HomeKit Bridge
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and open your **HomeKit Bridge** integration.
+2. Select **Configure** on your bridge instance.
+3. Verify that the newly created `lock.front_door` entity is not filtered out. If needed, add it explicitly under the entity filter.
+4. Restart Home Assistant so the new lock entity is picked up by HomeKit Bridge.
+
+After restarting, HomeKit Bridge automatically exposes the entity as a **Door Lock** accessory in the Home app.
+
+#### How it works
+
+- Saying _"Hey Siri, unlock the front door"_ sends an unlock command to Home Assistant, which calls `button.press` on the UniFi Access unlock button.
+- The door opens momentarily and then re-locks itself.
+- Because the value template always returns `true` (locked), HomeKit correctly shows the door as locked again after the pulse — no extra automation is needed.
+
 ## Known limitations
 
 - **No per-door lock command**: The UniFi Access API only supports unlocking individual door entities. The controller-wide lockdown emergency mode is a separate feature and can lock all doors simultaneously.
