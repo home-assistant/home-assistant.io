@@ -2,7 +2,7 @@
 title: "Areas"
 description: "Group your devices and entities in areas and group areas in floors."
 related:
-  - docs: /docs/dashboards/area/
+  - docs: /dashboards/area/
     title: Area card
   - docs: /docs/organizing/
   - docs: /docs/organizing/labels/
