@@ -35,7 +35,7 @@ As shown in the screenshot of the area cards, they can display values and button
 - The camera feed instead of the area picture, if a camera is added to the {% term area %} of the card.
 
 {% note %}
-The device is in an area if you have previously [assigned the area to the device](/voice_control/assign_areas_floors/#to-assign-a-device-to-an-area).
+The device is in an area if you have previously [assigned the area to the device](/voice_control/assign_areas_floors/#to-assign-an-area-to-a-device).
 {% endnote %}
 
 ## Adding buttons to the area card for controlling devices
@@ -43,7 +43,7 @@ The device is in an area if you have previously [assigned the area to the device
 You can add buttons to the area card that will allow you to control different devices in that area.
 
 1. Depending on your goal, do one of the following:
-   - Assign the area of the card to the device by following the steps in [Assigning an area to a device](/voice_control/assign_areas_floors/#to-assign-a-device-to-an-area).
+   - Assign the area of the card to the device by following the steps in [Assigning an area to a device](/voice_control/assign_areas_floors/#to-assign-an-area-to-a-device).
    - Assign the area of the card to a group of devices by following the steps in [Assigning an area to multiple items](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
 2. Go to your dashboard and, in the top-right corner, select the {% icon "mdi:pencil" %} button.
 3. In the area card that you have previously created, select **Edit**.
