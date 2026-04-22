@@ -100,7 +100,7 @@ For firmware before 7.0, the username *installer* without a password can be used
 
 For firmware version 7.0 and later, you need to enter your Enphase cloud username and password. Home Assistant stores these credentials in the configuration and uses them to retrieve an access token from the Enphase token portal. Token retrieval happens initially during the configuration process and again 30 days before the one-year token expires. The Enphase token portal must be reachable during configuration. If it is not, the configuration fails, and you need to retry it later. If the Enphase token portal is unreachable during a token refresh attempt 30 days before expiry, Home Assistant retries the refresh on subsequent days until it succeeds.
 
-If you have multi-factor authentication enabled on your Enphase cloud account, automatic token retrieval will not work. You will have to obtain a token manually and enter it in the form. If this is the case, you have to switch the configuration method to manual token entry. Do this by selecting the option `Enter the Envoy access token manually` and select **Submit**. This will change the form to only prompt for host and token. Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description below the form field includes the link to the portal for easy access and shows the current token days to expiry.
+If you have multi-factor authentication enabled on your Enphase cloud account, automatic token retrieval will not work. You will have to obtain a token manually and enter it in the form. If this is the case, you have to switch the configuration method to manual token entry. Do this by selecting the option `Enter the Envoy access token manually` and select **Submit**. This will change the form to only prompt for host and token. Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description below the form field includes the link to the portal for easy access and shows the number of days until the token expires.
 
 {% details "Configuration form in manual token entry mode" %}
 <figure>
@@ -691,7 +691,7 @@ The action `enphase_envoy.token_lifetime` returns the number of days until the E
 
 | Data attribute | Optional | Description |
 | - | - | - |
-| `device_id` | yes | The `device_id` for the Envoy to inspect. If no Envoy is specified, the first configured one will be used. You do not need to specify this if only a single Envoy is configured.<br>In UI mode, select the checkbox, and then select an Envoy device from the drop-down list.<br>In YAML mode, enter a `device_id` or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')`. |
+| `device_id` | yes | The `device_id` for the Envoy to inspect. If no Envoy is specified, the first configured one will be used. You do not need to specify this if only a single Envoy is configured.<br>In UI mode, select the checkbox, and then select an Envoy device from the drop-down list.<br>In YAML mode, enter a `device_id` or use an expression as shown in the examples below. |
 
 The integration updates the token_lifetime value once every 24 hours. Account for this when using the action in any automation.
 
@@ -712,6 +712,18 @@ Response example
 
 ```yaml
 lifetime: 333
+```
+
+{% endraw %}
+
+Example using specified device_id identified by Envoy entity.
+
+{% raw %}
+
+```yaml
+action: enphase_envoy.token_lifetime
+data:
+  device_id: "{{device_id('sensor.envoy_123456789012_current_power_production')}}"
 ```
 
 {% endraw %}
@@ -867,12 +879,13 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 
 ### Enphase authentication issues
 
-If you experience authentication errors during the (re-)configuration of the Envoy, verify if multi-factor authentication (MFA) is enabled for your Enphase account. When using MFA, automatic token retrieval will fail, and you need to use manual token entry as described in [Credentials and/or token configuration](#credentials-andor-token-configuration). Any of the errors below indicate that MFA is enabled on your Enphase cloud account.
+If you experience authentication errors during the (re-)configuration of the Envoy, verify if multi-factor authentication (MFA) is enabled for your Enphase account. When using MFA, automatic token retrieval will fail, and you need to use manual token entry as described in [Credentials and/or token configuration](#credentials-andor-token-configuration). Disabling MFA is not required if manual token entry mode is used. Any of the errors below indicate that MFA is enabled on your Enphase cloud account.
 
 - Before HA version 2026.1.2: KeyError: 'is_consumer'
 - As of HA version 2026.1.2
   - KeyError: 'session_id'
   - EnvoyAuthenticationError: No session id in Enphase login reply, disable multi-factor authentication
+    - Although the error mentions to disable multi-factor authentication, in the current HA version the resolution is to switch to manual token entry.
 
 These errors may also appear in the log upon token refresh, 11 months after initial token collection.
 
