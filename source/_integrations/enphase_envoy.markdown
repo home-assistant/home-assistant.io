@@ -71,7 +71,7 @@ Password:
 Enter the Envoy access token manually:
   description: "If you want to enable or disable entering a token manually, select or clear this option and select **Submit**. The form will switch between username/password entry and token entry modes. Use manual token entry mode if your Enphase cloud account has multi-factor authentication enabled. See [credentials and/or token configuration](#credentials-andor-token-configuration)."
 Envoy access token:
-  description: "Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description text below the field includes the link to the portal and the current token lifetime. This field is only available when `Enter the Envoy access token manually` is enabled."
+  description: "Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description text below the field includes the link to the portal and the current token lifetime. This field is only available when **Enter the Envoy access token manually** is enabled."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -867,14 +867,14 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 
 ### Enphase authentication issues
 
-If you experience authentication errors during the (re-)configuration of the Envoy, verify if multi-factor authentication (MFA) is enabled for your Enphase account. When using MFA, automatic token retrieval will fail, and you need to use manual token entry as described in [Credentials and/or token configuration](#credentials-andor-token-configuration). Any of the errors below indicates that MFA is enabled on your Enphase cloud account.
+If you experience authentication errors during the (re-)configuration of the Envoy, verify if multi-factor authentication (MFA) is enabled for your Enphase account. When using MFA, automatic token retrieval will fail, and you need to use manual token entry as described in [Credentials and/or token configuration](#credentials-andor-token-configuration). Any of the errors below indicate that MFA is enabled on your Enphase cloud account.
 
 - Before HA version 2026.1.2: KeyError: 'is_consumer'
 - As of HA version 2026.1.2
   - KeyError: 'session_id'
   - EnvoyAuthenticationError: No session id in Enphase login reply, disable multi-factor authentication
 
-These error may also appear in the log upon token refresh, 11 months after initial token collection.
+These errors may also appear in the log upon token refresh, 11 months after initial token collection.
 
 ### Periodic network connection issues
 
