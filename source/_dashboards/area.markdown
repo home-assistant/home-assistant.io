@@ -27,7 +27,7 @@ All options for this card can be configured via the user interface.
 
 As shown in the screenshot of the area cards, they can display values and buttons of entities and devices that you have assigned the area to, such as:
 
-- Buttons for {% term entities %} such as fan, light and switch, that are in the area of the card.
+- Buttons for {% term entities %} such as fan, light, and switch that are in the area of the card.
 - The measured value of a sensor, if the sensor is in the area of the card or if the sensor is assigned to the area in {% my areas title="Settings > Areas, labels & zones" %}.
 - The median of the values measured by temperature sensors, if more than one temperature sensor is in the area of the card.
 - The median of the values measured by humidity sensors, if more than one humidity sensor is in the area of the card.
@@ -45,7 +45,7 @@ You can add buttons to the area card that will allow you to control different de
 1. Depending on your goal, do one of the following:
    - Assign the area of the card to the device by following the steps in [Assigning an area to a device](/voice_control/assign_areas_floors/#to-assign-a-device-to-an-area).
    - Assign the area of the card to a group of devices by following the steps in [Assigning an area to multiple items](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
-2. Go to your dashboard and, in the top right of the screen, select the {% icon "mdi:pencil" %} button.
+2. Go to your dashboard and, in the top-right corner, select the {% icon "mdi:pencil" %} button.
 3. In the area card that you have previously created, select **Edit**.
 4. Expand the **Features** section and select **Add feature** > **Area controls**.
 5. You can also:
