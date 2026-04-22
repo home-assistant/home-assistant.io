@@ -44,17 +44,14 @@ Some Russound models (CAV6.6, CAM6.6, CAA66, MCA-C5, MCA-C3, ACA-E5) support dai
 
 {% include integrations/config_flow.md %}
 
-The setup consists of five steps:
+The setup consists of six steps:
 
 1. **Transport type**: Choose between TCP or Serial connection.
-2. **Connection details**: Enter the IP address and port (TCP) or serial device path and baud rate (Serial).
+2. **Connection details**: Enter the IP address and port (TCP) or serial device path (Serial).
 3. **Model selection**: Select your Russound controller model. This determines the number of available zones, sources, and controllers.
-4. **Source naming**: Enter a name for each audio source input (for example: TV, Radio, Sonos). Leave blank for unused sources.
-5. **Zone naming**: Enter a descriptive name for each zone (for example, "Living Room" or "Kitchen"). Leave blank for unused zones.
-
-## Configuration
-
-After setup, you can reconfigure source names by selecting **Configure** on the integration card under {% my integrations title="**Settings** > **Devices & services**" %}.
+4. **Number of controllers**: Enter the number of controllers in your system. This step is skipped for models that only support a single controller (CAS44).
+5. **Source naming**: Enter a name for each audio source input (for example: TV, Radio, Sonos). Leave blank for unused sources.
+6. **Zone naming**: Enter a descriptive name for each zone (for example, "Living Room" or "Kitchen"). Leave blank for unused zones.
 
 ## Migrating from YAML
 
