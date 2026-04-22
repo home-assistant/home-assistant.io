@@ -109,7 +109,7 @@ sensor_classes:
   required: false
   type: list
   default: "temperature, humidity"
-  description: A list of sensor device classes to display for the area. Most classes (such as temperature, humidity, or pressure) show the median value when multiple sensors are present. Accumulative classes (such as power, energy, gas, or water) show the sum instead.
+  description: A list of sensor device classes to display for the area. Most classes (such as temperature, humidity, or pressure) show the median value when multiple sensors are present. Sensors representing cumulative measurements (such as power, energy, gas, or water) show the sum instead.
 features:
   required: false
   description: Additional widgets to control entities in the area. See [available features](/dashboards/features).
