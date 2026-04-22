@@ -5,6 +5,8 @@ ha_category:
   - Fan
 ha_release: 2026.5
 ha_domain: dreo
+ha_codeowners:
+  - '@w-xtao'
 ha_platforms:
   - fan
 ha_integration_type: integration
