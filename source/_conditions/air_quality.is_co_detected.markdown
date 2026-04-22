@@ -104,7 +104,7 @@ automation: |
         title: "Carbon monoxide detected at home"
         message: >
           The hallway CO sensor is detecting carbon
-          monoxide. Stay outside and call 911.
+          monoxide. Stay outside and call emergency services.
 {% endexample %}
 
 {% enddetails %}

@@ -51,7 +51,7 @@ condition: |
     behavior: any
 {% endexample %}
 
-This passes when the bedroom PM1 sensor reads at or above 25 ug/m3.
+This passes when the bedroom PM1 sensor reads at or above 25 µg/m³.
 
 ### Options in YAML
 

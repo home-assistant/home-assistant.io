@@ -51,7 +51,7 @@ condition: |
     behavior: any
 {% endexample %}
 
-This passes when the outdoor PM10 sensor reads at or above 50 ug/m3.
+This passes when the outdoor PM10 sensor reads at or above 50 µg/m³.
 
 ### Options in YAML
 

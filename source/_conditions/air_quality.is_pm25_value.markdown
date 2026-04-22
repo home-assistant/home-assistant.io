@@ -51,7 +51,7 @@ condition: |
     behavior: any
 {% endexample %}
 
-This passes when the living room PM2.5 sensor reads at or above 35 ug/m3.
+This passes when the living room PM2.5 sensor reads at or above 35 µg/m³.
 
 ### Options in YAML
 

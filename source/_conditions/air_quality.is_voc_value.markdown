@@ -50,7 +50,7 @@ condition: |
     behavior: any
 {% endexample %}
 
-This passes when the living room VOC sensor reads at or above 300 ug/m3.
+This passes when the living room VOC sensor reads at or above 300 µg/m³.
 
 ### Options in YAML
 

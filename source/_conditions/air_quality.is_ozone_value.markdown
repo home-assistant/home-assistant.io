@@ -50,7 +50,7 @@ condition: |
     behavior: any
 {% endexample %}
 
-This passes when the outdoor ozone sensor reads at or above 100 ug/m3.
+This passes when the outdoor ozone sensor reads at or above 100 µg/m³.
 
 ### Options in YAML
 

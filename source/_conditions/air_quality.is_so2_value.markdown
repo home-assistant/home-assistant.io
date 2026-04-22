@@ -50,7 +50,7 @@ condition: |
     behavior: any
 {% endexample %}
 
-This passes when the outdoor SO2 sensor reads at or above 40 ug/m3.
+This passes when the outdoor SO2 sensor reads at or above 40 µg/m³.
 
 ### Options in YAML
 
