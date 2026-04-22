@@ -12,6 +12,7 @@ ha_domain: sfr_box
 ha_platforms:
   - binary_sensor
   - button
+  - event
   - diagnostics
   - sensor
 ha_integration_type: device
@@ -24,6 +25,7 @@ This integration provides the following platforms:
 
 - Binary sensors - such as ADSL status.
 - Buttons - such as reboot.
+- Events - such as VoIP call history.
 - Sensors - such as ADSL line status, attenuation, noise and data rate.
 
 {% include integrations/config_flow.md %}
