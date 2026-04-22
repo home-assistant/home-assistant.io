@@ -704,3 +704,25 @@ This integration adds the DARCO device ("blebox inside") as a light entity to Ho
 - Off
 - Effects
 - Brightness
+
+### SELT pergola DC
+
+This integration adds the SELT device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### SELT smartScreen
+
+This integration adds the SELT device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
