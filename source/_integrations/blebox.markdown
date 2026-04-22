@@ -410,6 +410,14 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of current wind speed
 
+### luxSensor
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of illuminance (unit: lx)
+
 ### actionBox, actionBoxS, and proxiBox
 
 This integration does not add direct support for actionBox, actionBoxS, and proxiBox
@@ -446,14 +454,6 @@ this ID like a password.
 Note: in order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
-
-### luxSensor
-
-This integration adds the Blebox device as a sensor entity to Home Assistant.
-
-#### Key supported features
-
-- Periodic read of illuminance (unit: lx)
 
 ------
 
