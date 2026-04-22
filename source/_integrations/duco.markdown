@@ -110,7 +110,7 @@ Available for CO₂ sensor modules. Shows the current CO₂ concentration in par
 
 #### Humidity
 
-Available for humidity sensor modules (BSRH). Shows the current relative humidity in percent.
+Available for humidity sensor modules (BSRH, UCRH). Shows the current relative humidity in percent.
 
 #### CO₂ air quality index
 
@@ -125,7 +125,7 @@ Indoor air quality ranges for CO₂:
 
 #### Humidity air quality index
 
-Available for humidity sensor modules (BSRH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for humidity sensor modules (BSRH, UCRH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
 
 Indoor air quality ranges for humidity:
 
