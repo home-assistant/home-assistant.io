@@ -693,3 +693,14 @@ This integration adds the Tedee device ("blebox inside") as a cover entity to Ho
 
 - Open
 - Door state (open, close, unknown)
+
+### DARCO ERO-32WS-0
+
+This integration adds the DARCO device ("blebox inside") as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
