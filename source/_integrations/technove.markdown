@@ -78,7 +78,12 @@ The **TechnoVE** integration provides the following entities.
 
 - **Status**
   - **Description**: The current charging status of the station.
-  - **Possible values**: Unplugged, Plugged (waiting), Plugged (charging), Out of activation period, High tariff period
+  - **Possible values**:
+    - Unplugged
+    - Plugged (waiting)
+    - Plugged (charging)
+    - Out of activation period
+    - High tariff period
 
 - **Current**
   - **Description**: The electrical current currently being delivered to the vehicle.
@@ -141,7 +146,7 @@ If you see a "Failed to connect" error when trying to add the integration:
 
 If the station keeps going unavailable and coming back:
 
-1. Check the Wi-Fi signal strength sensor. A weak signal can cause intermittent connection issues.
+1. Check the **Signal strength** sensor, if available. This entity may be disabled by default, so you might need to enable it first. If you don't see it, check your router, access point, or manufacturer tools to verify the station's Wi-Fi signal quality. A weak signal can cause intermittent connection issues.
 2. Consider moving the station closer to your Wi-Fi access point or adding a Wi-Fi extender.
 3. Make sure your network is not blocking local traffic between Home Assistant and the station.
 
