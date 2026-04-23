@@ -38,7 +38,18 @@ Username (optional):
 Password (optional):
   description: "The password for accessing your SFR box's web interface. The default is the Wi-Fi security key found on the device label."
 {% endconfiguration_basic %}
+## Supported functionality
 
+### Events
+
+- **VoIP call history**: Triggers for every new call entry in the call history
+  - **Event types**: incoming, outgoing, missed
+  - **Event attributes**:
+    - `type`: The type of call (voip)
+    - `direction`: The direction of the call (incoming or outgoing)
+    - `number`: The phone number associated with the call
+    - `length`: The duration of the call in seconds (-1 for missed calls)
+    - `date`: Unix timestamp of when the call occurred
 ## Compatibility
 
 The integration uses the REST API, which is known to be available on models `NB4`, `NB5`, `NB6`, `NB6V`, and `NB6VAC`.
