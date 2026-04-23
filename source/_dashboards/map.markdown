@@ -23,7 +23,7 @@ The map card allows you to display your home zone, entities, and other predefine
 Screenshot of the map card.
 </p>
 
-## Adding the map card to your dashboard
+## Adding the map card to a dashboard
 
 1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.

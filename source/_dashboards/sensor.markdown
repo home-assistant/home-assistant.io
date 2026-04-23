@@ -19,9 +19,9 @@ The sensor card gives you a quick overview of a sensor's state with an optional 
   Screenshot of the sensor card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
