@@ -151,7 +151,7 @@ Each button press event has 4 event_type values: **on**, **off**, **on_fast** an
 
 To trigger an automation with a button press event, select the device's button press entity and the event_type attribute.
 
-Example: To trigger an automation from "double-tapping" a switch on, select the **Button Press** entity, the **Event Type** attribute and the **on_fast** value for the **To** field.
+Example: To trigger an automation from double-pressing an on switch, select the **Button press** entity, the **Event type** attribute and the **on_fast** value for the **To** field.
 
 ## Events and Mini-Remotes
 
