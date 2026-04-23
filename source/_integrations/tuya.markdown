@@ -94,15 +94,18 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
 ## Actions
+
 The **Tuya** integration provide actions to manage the meal plan for feeders. 
 
 ### Action: Get feeder meal plan
+
 The `tuya.get_feeder_meal_plan` action retrieves the meal plan data from a Tuya feeder device.
 - **Data attribute**: `device_id`
   - **Description**: The device ID of the Tuya feeder to retrieve the meal plan from.
   - **Optional**: No
 
 ### Action: Set feeder meal plan
+
 The `tuya.set_feeder_meal_plan` action set the mealplan data from a Tuya feeder device.
 - **Data attribute**: `device_id`
   - **Description**: The device ID of the Tuya feeder to retrieve the meal plan from.
@@ -117,7 +120,9 @@ The `tuya.set_feeder_meal_plan` action set the mealplan data from a Tuya feeder 
     - enabled: Enable or disable the schedule.
 
 This action returns [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) containing the meal plan for the specified feeder device.
+
 #### Example
+
 ```yaml
 action: tuya.set_feeder_meal_plan
 data:
@@ -130,6 +135,7 @@ data:
       portions: 2
       enabled: true
 ```
+
 ## Troubleshooting
 
 ### Unsupported device or missing device functionality
@@ -158,5 +164,6 @@ To fix this:
 3. Reconfigure the Tuya integration.
 
 ### Feeder meal plan not supported
+
 Feeders are dependent on [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) to be integrated based on feeders `product_id`. Open a issue to [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) with information provided from QueryThingsDataModel API result from iot.tuya.com (under Cloud / API Explorer / Device Control). 
 
