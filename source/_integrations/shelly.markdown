@@ -224,7 +224,7 @@ The Wall Display media player can play local audio files (you need to upload the
 
 These audio files and your favorite radio stations are visible in the Home Assistant media browser.
 
-### Play media using `media_player.play_media` action
+### Play media using the `media_player.play_media` action
 
 This action will start playing your favorite radio station with ID `2`:
 
