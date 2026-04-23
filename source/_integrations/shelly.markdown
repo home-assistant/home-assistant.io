@@ -250,7 +250,6 @@ target:
   entity_id: media_player.shelly_wall_display
 ```
 
-
 ## Event entities
 
 ### Event entities (generation 1)
