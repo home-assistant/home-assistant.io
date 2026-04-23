@@ -1,5 +1,5 @@
 ---
-title: "Adding local media"
+title: "Adding your media to Home Assistant"
 description: "More information on how to add local media to Home Assistant."
 related:
   - docs: /integrations/media_player/#action-play-media
