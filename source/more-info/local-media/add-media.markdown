@@ -1,38 +1,64 @@
 ---
 title: "Adding local media"
 description: "More information on how to add local media to Home Assistant."
+related:
+  - docs: /integrations/media_player/#action-play-media
+    title: Play media action
+  - docs: /integrations/media_source/#identifying-a-media-source-from-the-media-browser
+    title: Identifying a media source from the media browser
 ---
 
-In order to see your local media in your Home Assistant media browser, you'll
-need to add media to your media folder.
+Home Assistant includes a built-in media browser that lets you browse and play your local media files. This feature is available in all Home Assistant installation types.
 
-If you haven't set up a local media folder yet, check out this page on
-[setting up the local media source][setup-media]
+On {% term "Home Assistant Operating System" %}, the media folder is automatically created and ready to use. On {% term "Home Assistant Container" %}, you need to mount a volume to `/media` when starting your container.
 
+## Accessing the media browser
 
-You can access your (automatically) created media folder using the dashboard.
-Navigate to the {% my media_browser title="Media > Local Media" %}, and in the 
-top right corner, click manage. Here you can add and delete your media. 
+1. In the sidebar (left side of your Home Assistant interface), select **Media**.
+2. Select **My media**.
+3. From here, you can browse all media files in your `/media` folder and any custom media directories you've configured.
 
-## Home Assistant OS
+## Adding media via the built-in media browser
 
-If you are running {% term "Home Assistant Operating System" %}, you can also use the 
-Samba app. If you haven't installed the **Samba** app yet, you can do 
-so by browsing to the {% my supervisor title="**Settings** > **Apps**" %} panel. 
-Next, select **Install app** and search for the **Samba** app.
+You can add media files using the built-in media browser. This method is ideal for uploading a few files at a time. This method does not let you create folders.
 
-On the **Samba** app page, you can find a tab called **Documentation** with
-the app installation and usage instructions. After that, you can copy/move
-media onto your device using drag and drop in your file explorer.
+1. Go to {% my media_browser title="**Media** > **My media**" %}.
+2. In the top-right corner, select {% icon "mdi:cog" %} **Manage**.
+3. Select **Upload** and choose files from your device.
+4. If you uploaded the wrong file, select the file and choose **Delete**.
 
-Other apps, such as SSH, provide access to the
-media folders as well.
+## Removing media via the built-in media browser
 
-## Home Assistant Container
+You can remove media files using the built-in media browser. This method is ideal for deleting a few files at a time. This method does not let you delete folders.
 
-After you have [set up a local media][setup-media] folder, you can add
-any media to that folder you have mounted in.
+1. Go to {% my media_browser title="**Media** > **My media**" %}.
+2. In the top-right corner, select {% icon "mdi:cog" %} **Manage**.
+3. Select one or more files and choose **Delete**.
 
-Your media will show up in the Home Assistant frontend automatically.
+## Adding media using network file sharing (Home Assistant OS)
+
+If you are running {% term "Home Assistant Operating System" %}, you can use the **Samba** app for bulk file transfers. This method is ideal for transferring large files or many files at once using your computer's file explorer (Windows Explorer, macOS Finder, or Linux file manager).
+
+1. To install and use the Samba app, follow the instructions on [installing and using the Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
+2. After setup, you can copy or move media files onto your device using drag and drop in your file explorer.
+3. You can also create folders to organize your media.
+
+Other apps, such as **SSH**, also provide access to the media folders.
+
+## Adding media on Home Assistant Container
+
+### Prerequisites
+
+- Home Assistant Container installation type.
+- Before you can add media files on Home Assistant Container, you need to [set up a local media folder][setup-media] by mounting a volume to the `/media` directory when starting your container. This must be done at container startup time.
+
+### To add media on Home Assistant Container
+
+After you have mounted the volume, you can add media files directly to the folder on your host machine. This gives you direct file system access to add media files and create folders to organize them.
+
+Your media will show up in the Home Assistant media browser automatically. You can manage your files in the following ways:
+
+- Use the built-in media browser (as described above).
+- Use direct file system access on your host machine.
 
 [setup-media]: /more-info/local-media/setup-media
