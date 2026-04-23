@@ -220,7 +220,10 @@ For generation 2+ hardware, it's possible to select if a device's input is conne
 
 Wall Display devices with firmware 2.2 or newer can function as media players. The integration creates media player entities for them.
 
-The Wall Display media player can play local audio files (you need to upload them to the Wall Display media library) and internet radio stations that you have added to your favorites in the device interface.
+The Wall Display media player can play the following audio formats:
+
+- Local audio files uploaded to the Wall Display media library
+- Internet radio stations added to your favorites
 
 These audio files and your favorite radio stations are visible in the Home Assistant media browser.
 
