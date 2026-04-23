@@ -209,7 +209,7 @@ unique_id:
   required: false
   type: string
 visible_by_default:
-  description: Flag which defines if the entity should be visible when first added.
+  description: Control whether this entity is visible by default. When set to false the entity is hidden and does not appear on dashboards until you manually make it visible it's settings.
   required: false
   type: boolean
   default: true
