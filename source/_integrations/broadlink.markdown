@@ -18,6 +18,7 @@ ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
   - climate
+  - infrared
   - light
   - remote
   - select
@@ -53,9 +54,10 @@ There is no more need to set up platforms, except for custom IR/RF switches. Onc
 
 The {% term entities %} have the same name as the device by default. To change the name, icon or entity id, select the entity on the frontend and select the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to select **Update** to save your changes when you're done.
 
-The {% term entities %} are divided into four subdomains:
+The {% term entities %} are divided into subdomains:
 
 - [Climate](#climate)
+- [Infrared](#infrared)
 - [Remote](#remote)
 - [Select](#select)
 - [Sensor](#sensor)
@@ -66,6 +68,14 @@ The {% term entities %} are divided into four subdomains:
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats.
+
+## Infrared
+
+The `infrared` {% term entities %} allow other integrations to transmit IR commands through your Broadlink universal remote. They are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro` and `RM4 TV mate`).
+
+Unlike the `remote` subdomain, which sends learned or base64-encoded codes as opaque payloads, the `infrared` entity accepts protocol-native commands from the [Infrared integration](/integrations/infrared/). This lets integrations such as [LG infrared](/integrations/lg_infrared/) send IR commands (for example, NEC-encoded) through any Broadlink universal remote without you having to learn the codes first.
+
+The `infrared` entity is complementary to the `remote` entity — both are created for IR-capable devices. You can continue to use `remote.learn_command` and `remote.send_command` for the traditional base64 workflow described below.
 
 ## Remote
 
