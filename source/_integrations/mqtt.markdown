@@ -39,6 +39,7 @@ ha_platforms:
   - tag
   - tag
   - text
+  - time
   - update
   - vacuum
   - valve
@@ -81,6 +82,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Update](/integrations/update.mqtt/)
 - [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
@@ -112,6 +114,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
