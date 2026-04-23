@@ -59,7 +59,7 @@ The Lunatone integration provides the following entities.
 
 - **Brightness**
   - **Description**: Control the brightness of the light
-  - **Available for devices**: all
+  - **Available for devices**: All
 
 - **Color Temperature**
   - **Description**: Control the color temperature of the light
@@ -75,13 +75,35 @@ The Lunatone integration provides the following entities.
 
 #### Sensors
 
-- Air quality index
-- Carbon dioxide
-- Humidity
-- Illuminance
-- Pressure
-- Temperature
-- Volatile organic compounds
+The following sensor entities are available from your Lunatone gateway and connected DALI devices..
+
+- **Air quality index**
+  - **Description**: Shows the overall air quality index reported by the connected sensor device.
+  - **Available for devices**: All
+
+- **Carbon dioxide**
+  - **Description**: Shows the measured carbon dioxide concentration.
+  - **Available for devices**: All
+
+- **Humidity**
+  - **Description**: Shows the measured relative humidity.
+  - **Available for devices**: All
+
+- **Illuminance**
+  - **Description**: Shows the measured ambient light level.
+  - **Available for devices**: All
+
+- **Pressure**
+  - **Description**: Shows the measured air pressure.
+  - **Available for devices**: All
+
+- **Temperature**
+  - **Description**: Shows the measured temperature.
+  - **Available for devices**: All
+
+- **Volatile organic compounds**
+  - **Description**: Shows the measured level of volatile organic compounds.
+  - **Available for devices**: All
 
 ## Removing the integration
 
