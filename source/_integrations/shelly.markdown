@@ -218,7 +218,7 @@ For generation 2+ hardware, it's possible to select if a device's input is conne
 
 ## Media player entities
 
-Wall Display devices with firmware 2.2 or newer can function as media players and the integration creates media player entities for them.
+Wall Display devices with firmware 2.2 or newer can function as media players. The integration creates media player entities for them.
 
 The Wall Display media player can play local audio files (you need to upload them to the Wall Display media library) and internet radio stations that you have added to your favorites in the device interface.
 
