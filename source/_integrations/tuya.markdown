@@ -166,7 +166,7 @@ To fix this:
 ### Feeder meal plan not supported
 
 
-#### Symptom: "Feeder not supported warning"
+#### Symptom: "Feeder not supported" warning
 
 Home Assistant shows a warning that this particular feeder is not supported.
 
