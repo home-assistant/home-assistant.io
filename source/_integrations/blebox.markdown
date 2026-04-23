@@ -81,6 +81,15 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Open
 - Door state (open, close, unknown)
 
+### doorBox PRO
+
+This integration adds the Blebox device as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Door state (open, close, unknown)
+
 ### saunaBox
 
 This integration adds the Blebox device as a climate entity to Home Assistant.
@@ -357,6 +366,14 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of temperature for all probes
 
+### tempSensor DIN
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of temperature for all probes
+
 ### floodSensor
 
 This integration adds the Blebox device as a moisture binary sensor entity to Home Assistant.
@@ -585,6 +602,16 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Effects
 - Brightness
 - Color
+### Simon 55 GO thermo
+
+This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Set target temperature
+- Read current temperature
 
 ### Simon 54 GO Control and Simon 55 GO Control
 
@@ -726,3 +753,13 @@ This integration adds the SELT device ("blebox inside") as a cover entity to Hom
 - Close
 - Position
 - Tilt regulation
+
+### Wikęd doorUnit
+
+This integration adds the Wikęd device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Door state (open, close, unknown)
+
