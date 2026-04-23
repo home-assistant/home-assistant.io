@@ -15,6 +15,8 @@ ha_platforms:
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
+ha_dhcp: true
+ha_zeroconf: true
 ---
 
 The **Duco** {% term integration %} allows you to monitor and control [Duco](https://www.duco.eu/) demand-controlled ventilation (DCV) systems from Home Assistant. Duco produces ventilation boxes for residential buildings that regulate air quality based on CO₂ and humidity sensors. This integration communicates locally with the Duco box over your home network, requiring no cloud connection.
@@ -39,13 +41,16 @@ Compatible DucoBox models:
 ## Prerequisites
 
 - A Duco ventilation box with a DUCO Connectivity Board connected to your local network.
-- The IP address or hostname of your Duco Connectivity Board.
 
 {% include integrations/config_flow.md %}
 
+Your Duco ventilation box can be automatically discovered on your network when the device is connected and powered on. When Home Assistant discovers a new Duco device, it appears as a notification in the UI. Select the notification to complete the setup.
+
+If automatic discovery does not work, you can manually add the integration by providing the IP address or hostname.
+
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of your DUCO Connectivity Board on the local network, for example `192.168.1.10`."
+  description: "The IP address or hostname of your DUCO Connectivity Board on the local network, for example `192.168.1.10`. Only needed when setting up the integration manually."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -220,15 +225,24 @@ This automation switches to high speed when the CO₂ level in the office rises 
 
 ## Data updates
 
-The integration {% term polling polls %} the Duco box every 30 seconds.
+The integration {% term polling polls %} the Duco box every 30 seconds. If you add a new sensor module (such as a CO₂ or humidity sensor) to your Duco system after the integration is already set up, it will automatically appear in Home Assistant the next time the integration polls for data. No restart or reconfiguration required.
 
 ## Known limitations
 
-- The integration does not support automatic discovery; the IP address or hostname must be entered manually.
-- The Duco box enforces a rate limit of 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully; the quota resets automatically around midnight.
+- The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically around midnight.
 - Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
+- When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
+
+### Device is not automatically discovered
+
+If your Duco ventilation box is not automatically discovered:
+
+- Ensure the device is powered on and connected to the same network as Home Assistant.
+- Check that mDNS/Bonjour traffic is not blocked by your router or firewall. If it is, the integration can still discover the device automatically via DHCP the next time the device renews its IP address lease.
+- Verify the device name shows as "DUCO [MAC address]" in your router's device list or network scanner.
+- Manually add the integration using the device's IP address if discovery continues to fail.
 
 ### Cannot connect to the Duco box
 
@@ -245,7 +259,7 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 1. Check that the Duco box is powered on and connected to your local network.
 2. Confirm the IP address or hostname is correct by opening `http://<host>` in a browser on your local network.
 3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
-4. If the Duco box received a new IP address from your router, reconfigure the integration with the updated address: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Duco**, and reconfigure the host.
+4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS/Bonjour (zeroconf). If that does not happen, see [Reconfiguring the integration](#reconfiguring-the-integration).
 
 ### Failed to set ventilation state (rate limit)
 
@@ -264,6 +278,19 @@ The Duco box enforces a write rate limit of 200 write requests per day. When the
 #### Resolution
 
 Wait until midnight for the quota to reset. To avoid hitting the limit, reduce the frequency of automations that change the ventilation state.
+
+## Reconfiguring the integration
+
+If your Duco ventilation box gets a new IP address, you can update it without removing and re-adding the integration.
+
+When zeroconf discovery is available, Home Assistant updates the address automatically. If that does not happen, you can update it manually:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Duco** integration and select it.
+3. Select the three dots menu {% icon "mdi:dots-vertical" %} next to the integration and choose **Reconfigure**.
+4. Enter the new IP address or hostname and select **Submit**.
+
+Home Assistant verifies that the new address belongs to the same Duco box. If you enter the address of a different device, the reconfiguration is aborted.
 
 ## Removing the integration
 
