@@ -64,7 +64,6 @@ The **Kiosker** integration provides the following entities.
 
 ### Sensors
 
-
 - **Battery level**
   - Shows the current battery percentage of your device.
 - **Last interaction**
@@ -76,7 +75,6 @@ The **Kiosker** integration provides the following entities.
 
 ### Binary sensors
 
-
 - **Charging state**
   - Shows whether the device is connected to a charger
 - **Screensaver state**
@@ -85,7 +83,6 @@ The **Kiosker** integration provides the following entities.
   - Shows whether the screen is currently blacked out. Has extra attributes with the blackout data when active.
 
 #### Switches
-
 
 - **Disable screensaver**
   - Disables the currently active screensaver
