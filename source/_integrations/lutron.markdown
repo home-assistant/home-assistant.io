@@ -55,6 +55,11 @@ Keypads also appear as devices in Home Assistant. You can use their button
 actions as [device triggers](/integrations/device_automation/) in automations
 created from the UI.
 
+If you automate directly from `lutron_event`, include the controller-scoped
+fields in your filters. The event payload now includes `controller_guid`,
+`keypad_uuid`, and `button_subtype` so events stay unambiguous when more than
+one Lutron controller is configured.
+
 For Pico remotes, trigger subtypes use the standard Lutron button positions:
 
 - `top`
@@ -113,6 +118,9 @@ Example using the `lutron_event` event:
     - trigger: event
       event_type: lutron_event
       event_data:
+        controller_guid: YOUR_CONTROLLER_GUID
+        keypad_uuid: keypad_uuid
+        button_subtype: button_1
         id: office_pico_on
         action: single
   actions:
