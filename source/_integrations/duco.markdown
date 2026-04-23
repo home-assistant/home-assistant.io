@@ -91,11 +91,26 @@ The following actions are available:
 - **Speed 100%**: High speed manual override.
 - **Auto preset**: Same as speed 0%; hands control back to Duco.
 
+{% note %}
+The percentages 33%, 66%, and 100% are abstract speed levels used in the Home Assistant fan UI and do not match the actual airflow percentages configured in the Duco firmware. To see the real airflow target, use the **Airflow target level** sensor.
+{% endnote %}
+
 When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
 ### Sensors
 
 The following sensor entities are created per node, depending on the node type:
+
+#### Airflow target level
+
+Available for the main ventilation box (BOX). Shows the actual airflow target as reported by the Duco box, as a percentage (0–100%). This value reflects the real airflow configured in the Duco firmware and will differ from the fan entity speed (33%, 66%, or 100%) shown in Home Assistant. For example, if your Duco system is configured with manual speed levels of 15%, 30%, and 100%, this sensor shows those values rather than the abstract speed levels used by the fan entity.
+
+#### Ventilation mode
+
+Available for the main ventilation box (BOX). Shows whether ventilation is controlled automatically by the Duco firmware or manually through an override.
+
+- **Auto**: The Duco firmware determines the ventilation speed based on sensor readings.
+- **Manual**: A manual override is active, for example because you set a speed from Home Assistant or a connected wall switch.
 
 #### Ventilation state
 
@@ -104,6 +119,14 @@ Available for the main ventilation box (BOX). Shows the current ventilation stat
 - Automatic
 - Continuous high speed
 - Manual low speed (15 min)
+
+#### Ventilation state end time
+
+Available for the main ventilation box (BOX). Shows the timestamp at which the current timed ventilation state will end. When no timer is active, this sensor shows no value.
+
+#### Ventilation state remaining time
+
+Available for the main ventilation box (BOX). Shows the number of seconds remaining in the current timed ventilation state. When no timer is active, the value is 0.
 
 #### CO₂ concentration
 
@@ -153,30 +176,32 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 This automation switches the ventilation to high speed when the kitchen hood is turned on, and returns it to automatic mode five minutes after the hood is switched off.
 
 ```yaml
-- alias: "High ventilation while cooking"
-  triggers:
-    - trigger: state
-      entity_id: switch.kitchen_hood
-      to: "on"
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.living_ventilation
-      data:
-        percentage: 100
+alias: "High ventilation while cooking"
+triggers:
+  - trigger: state
+    entity_id: switch.kitchen_hood
+    to: "on"
+actions:
+  - action: fan.set_percentage
+    target:
+      entity_id: fan.living_ventilation
+    data:
+      percentage: 100
+```
 
-- alias: "Return to auto after cooking"
-  triggers:
-    - trigger: state
-      entity_id: switch.kitchen_hood
-      to: "off"
-      for: "00:05:00"
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.living_ventilation
-      data:
-        percentage: 0
+```yaml
+alias: "Return to auto after cooking"
+triggers:
+  - trigger: state
+    entity_id: switch.kitchen_hood
+    to: "off"
+    for: "00:05:00"
+actions:
+  - action: fan.set_percentage
+    target:
+      entity_id: fan.living_ventilation
+    data:
+      percentage: 0
 ```
 
 ### Reduce ventilation when nobody is home
@@ -184,29 +209,31 @@ This automation switches the ventilation to high speed when the kitchen hood is 
 When the last person leaves home, the ventilation hands control back to Duco (automatic mode). When someone returns, it switches to medium speed.
 
 ```yaml
-- alias: "Ventilation auto mode on leave"
-  triggers:
-    - trigger: numeric_state
-      entity_id: zone.home
-      below: 1
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.living_ventilation
-      data:
-        percentage: 0
+alias: "Ventilation auto mode on leave"
+triggers:
+  - trigger: numeric_state
+    entity_id: zone.home
+    below: 1
+actions:
+  - action: fan.set_percentage
+    target:
+      entity_id: fan.living_ventilation
+    data:
+      percentage: 0
+```
 
-- alias: "Ventilation medium speed on arrive"
-  triggers:
-    - trigger: numeric_state
-      entity_id: zone.home
-      above: 0
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.living_ventilation
-      data:
-        percentage: 66
+```yaml
+alias: "Ventilation medium speed on arrive"
+triggers:
+  - trigger: numeric_state
+    entity_id: zone.home
+    above: 0
+actions:
+  - action: fan.set_percentage
+    target:
+      entity_id: fan.living_ventilation
+    data:
+      percentage: 66
 ```
 
 ### Boost ventilation when CO₂ is high
@@ -214,29 +241,31 @@ When the last person leaves home, the ventilation hands control back to Duco (au
 This automation switches to high speed when the CO₂ level in the office rises above 1000 ppm, and returns to automatic mode when it drops back below 800 ppm.
 
 ```yaml
-- alias: "Boost ventilation on high CO2"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.office_co2_carbon_dioxide
-      above: 1000
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.living_ventilation
-      data:
-        percentage: 100
+alias: "Boost ventilation on high CO2"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.office_co2_carbon_dioxide
+    above: 1000
+actions:
+  - action: fan.set_percentage
+    target:
+      entity_id: fan.living_ventilation
+    data:
+      percentage: 100
+```
 
-- alias: "Return to auto when CO2 is low"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.office_co2_carbon_dioxide
-      below: 800
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.living_ventilation
-      data:
-        percentage: 0
+```yaml
+alias: "Return to auto when CO2 is low"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.office_co2_carbon_dioxide
+    below: 800
+actions:
+  - action: fan.set_percentage
+    target:
+      entity_id: fan.living_ventilation
+    data:
+      percentage: 0
 ```
 
 ## Data updates
