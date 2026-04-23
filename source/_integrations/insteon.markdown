@@ -144,7 +144,7 @@ Dimmers, switches, keypads have a **Button Press** event entity for the main but
 
 Each button press event has 4 event_type values: **on**, **off**, **on_fast** and **off_fast**.
 
-- **on**: A single ON press
+- **on**: Single press of the On button
 - **off**: A single OFF press
 - **on_fast**: A quick double ON tap
 - **off_fast** A quick double OFF tap
