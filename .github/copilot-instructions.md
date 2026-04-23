@@ -87,10 +87,9 @@ Some other rules:
       reason not to (like it is a command or a code block).
     - Don’t use semicolons, commas, or conjunctions (like and or or) at the end
       of list items.
-    - If at least one item in a list is a complete sentence, use periods at the end
-      of all items in that list.
-    - Don’t use a period at the end of list items if none of the items are complete
-      sentences.
+    - If one item in a list is a complete sentence, use periods at the end
+      of all items in that list. Even if not all items are complete sentences.
+    - Don’t use a period at the end of list items if none of the items in this list are complete sentences.
 
 ## Terminology
 
@@ -245,24 +244,22 @@ Timeframe:
 
 ## Supported functionality
 
-### Entities
-
 The **My integration** integration provides the following entities.
 
-#### Buttons
+### Buttons
 
 - **Start backflush**
   - **Description**: Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation.
   - **Available for machines**: all
 
-#### Numbers
+### Numbers
 
 - **Dose**
   - **Description**: Dosage (in ticks) for each key
   - **Available for machines**: GS3 AV, Linea Mini.
   - **Remarks**: GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default.
 
-#### Sensors
+### Sensors
 
 - **Current coffee temperature**
   - **Description**: Current temperature of the coffee boiler.
@@ -274,7 +271,7 @@ The **My integration** integration provides the following entities.
   - **Available for machines**: Linea Micra, GS3 AV, GS3 MP.
   - **Remarks**: -
 
-#### Selects
+### Selects
 
 - **Prebrew/-infusion mode**
   - **Description**: Whether to use prebrew, preinfusion, or neither.
@@ -286,7 +283,7 @@ The **My integration** integration provides the following entities.
   - **Options**: 1, 2, 3
   - **Available for machines**: Linea Micra
 
-#### Updates
+### Updates
 
 - **Gateway firmware**
   - **Description**: Firmware status of the gateway.
