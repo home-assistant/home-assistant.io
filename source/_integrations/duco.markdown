@@ -122,7 +122,7 @@ Available for the main ventilation box (BOX). Shows the current ventilation stat
 
 #### Ventilation state end time
 
-Available for the main ventilation box (BOX). Shows the timestamp at which the current timed ventilation state will end. When no timer is active, this sensor shows no value.
+Available for the main ventilation box (BOX). Shows the timestamp at which the current timed ventilation state will end. When no timer is active, this sensor state is `unknown`.
 
 #### Ventilation state remaining time
 
@@ -241,7 +241,7 @@ actions:
 This automation switches to high speed when the CO₂ level in the office rises above 1000 ppm, and returns to automatic mode when it drops back below 800 ppm.
 
 ```yaml
-alias: "Boost ventilation on high CO2"
+alias: "Boost ventilation on high CO₂"
 triggers:
   - trigger: numeric_state
     entity_id: sensor.office_co2_carbon_dioxide
@@ -255,7 +255,7 @@ actions:
 ```
 
 ```yaml
-alias: "Return to auto when CO2 is low"
+alias: "Return to auto when CO₂ is low"
 triggers:
   - trigger: numeric_state
     entity_id: sensor.office_co2_carbon_dioxide
