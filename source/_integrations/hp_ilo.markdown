@@ -16,7 +16,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **HP Integrated Lights-Out** {% term integration %} allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors. You can also send power-control commands to the server via button entities.
+The **HP Integrated Lights-Out** {% term integration %} allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors. It also provides button entities to control server power.
 
 If the ILO or specified jsonpath query returns only a single value (e.g., a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
 
@@ -26,55 +26,7 @@ Some more details about what can be retrieved from these sensors is available in
   <img src='/images/screenshots/hp_ilo.png' />
 </p>
 
-## Button entities
-
-The following button entities are available for power control:
-
-| Button | Description |
-|--------|-------------|
-| Power On | Powers on the server |
-| Power Off | Powers off the server |
-| Press Power Button | Simulates a physical press of the power button |
-| Cold Boot | Performs a cold (hard) reboot |
-| Warm Boot | Performs a warm (graceful) reboot |
-
-### Button configuration
-
-```yaml
-# Example configuration.yaml entry
-button:
-  - platform: hp_ilo
-    host: IP_ADDRESS or HOSTNAME
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-host:
-  description: The hostname or IP address on which the ILO can be reached.
-  required: true
-  type: string
-port:
-  description: The port on which the ILO can be reached.
-  required: false
-  default: 443
-  type: integer
-username:
-  description: The username used to connect to the ILO.
-  required: true
-  type: string
-password:
-  description: The password used to connect to the ILO.
-  required: true
-  type: string
-name:
-  description: Friendly name prefix for the button entities.
-  required: false
-  default: HP ILO
-  type: string
-{% endconfiguration %}
-
-## Sensor configuration
+## Configuration
 
 To use this integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -150,6 +102,8 @@ Valid sensor_types:
 
 In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your {% term "`configuration.yaml`" %} file
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: hp_ilo
@@ -170,9 +124,59 @@ sensor:
         value_template: '{{ ilo_data.health_at_a_glance }}'
 ```
 
+{% endraw %}
+
 <p class='img'>
   <img src='/images/screenshots/hp_ilo_sensors.png' />
 </p>
+
+## Power control buttons
+
+The integration provides button entities for controlling server power. Add the following to your {% term "`configuration.yaml`" %} file:
+
+```yaml
+# Example configuration.yaml entry
+button:
+  - platform: hp_ilo
+    host: IP_ADDRESS or HOSTNAME
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+```
+
+{% configuration %}
+host:
+  description: The hostname or IP address on which the ILO can be reached.
+  required: true
+  type: string
+port:
+  description: The port on which the ILO can be reached.
+  required: false
+  default: 443
+  type: integer
+username:
+  description: The username used to connect to the ILO.
+  required: true
+  type: string
+password:
+  description: The password used to connect to the ILO.
+  required: true
+  type: string
+name:
+  description: Friendly name prefix for the button entities.
+  required: false
+  default: HP ILO
+  type: string
+{% endconfiguration %}
+
+The following button entities are created:
+
+| Button | Description |
+|--------|-------------|
+| Power On | Powers on the server |
+| Power Off | Powers off the server |
+| Press Power Button | Simulates a physical press of the power button |
+| Cold Boot | Performs a cold (hard) reboot |
+| Warm Boot | Performs a warm (graceful) reboot |
 
 ## Hardware specifics
 
