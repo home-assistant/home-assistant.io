@@ -90,7 +90,7 @@ Before doing anything else, strip out embedded base64 image data from the draft 
 
 Google Docs markdown exports include image references like `![][image1]` in the content body, with corresponding base64 definitions at the bottom of the file in the format:
 
-```
+```text
 [image1]: <data:image/png;base64,iVBORw0KGgo... (potentially megabytes of data)>
 ```
 
