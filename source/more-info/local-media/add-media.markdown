@@ -1,6 +1,6 @@
 ---
 title: "Adding your media to Home Assistant"
-description: "More information on how to add local media to Home Assistant."
+description: "More information on how to add your media to Home Assistant."
 related:
   - docs: /integrations/media_player/#action-play-media
     title: Play media action
@@ -36,7 +36,7 @@ You can remove media files using the built-in media browser. This method is idea
 
 ## Adding media using network file sharing (Home Assistant OS)
 
-If you are running {% term "Home Assistant Operating System" %}, you can use the **Samba** app for bulk file transfers. This method is ideal for transferring large files or many files at once using your computer's file explorer (Windows Explorer, macOS Finder, or Linux file manager).
+If you are running {% term "Home Assistant Operating System" %}, you can use the **Samba** app for bulk file transfers. This method is ideal for transferring large files or many files at once using your computer's file explorer (File Explorer, macOS Finder, or Linux file manager).
 
 1. To install and use the Samba app, follow the instructions on [installing and using the Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
 2. After setup, you can copy or move media files onto your device using drag and drop in your file explorer.
