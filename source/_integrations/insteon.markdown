@@ -146,7 +146,7 @@ Each button press event has 4 event_type values: **on**, **off**, **on_fast** an
 
 - **on**: Single press of the On button
 - **off**: Single press of the Off button
-- **on_fast**: A quick double ON tap
+- **on_fast**: Quick double-press of the On button
 - **off_fast** A quick double OFF tap
 
 To trigger an automation with a button press event, select the device's button press entity and the event_type attribute.
