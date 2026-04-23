@@ -7,6 +7,8 @@ ha_category:
   - Switch
 ha_domain: ubisys
 ha_integration_type: brand
+works_with:
+  - zigbee
 ha_platforms:
   - switch
 ha_iot_standard: zigbee
@@ -20,3 +22,7 @@ Ubisys Zigbee devices work locally and integrate seamlessly with the Zigbee inte
 {% my add_zigbee_device badge brand=page.ha_domain %}
 
 [Learn more about Zigbee in Home Assistant.](/integrations/zha/)
+
+## Supported devices
+
+{% include integrations/device_list.html brand="ubisys" %}
