@@ -8,6 +8,7 @@ ha_category:
   - Energy
   - Event
   - Light
+  - Media player
   - Number
   - Select
   - Sensor
@@ -34,6 +35,7 @@ ha_platforms:
   - diagnostics
   - event
   - light
+  - media_player
   - number
   - select
   - sensor
@@ -213,6 +215,14 @@ Depending on how a device's button type is configured, the integration will crea
 ### Binary input sensors (generation 2+)
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
+
+## Media player entities
+
+Wall Display devices with firmware 2.2 or newer can function as media players and the integration creates media player entities for them.
+
+The Wall Display media player can play local audio files (you need to upload them to the Wall Display media library) and internet radio stations that you have added to your favorites in the device interface.
+
+These audio files and your favorite radio stations are visible in the Home Assistant media browser.
 
 ## Event entities
 
