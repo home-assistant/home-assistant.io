@@ -224,6 +224,33 @@ The Wall Display media player can play local audio files (you need to upload the
 
 These audio files and your favorite radio stations are visible in the Home Assistant media browser.
 
+### Play media using `media_player.play_media` action
+
+This action will start playing your favorite radio station with ID `2`:
+
+```yaml
+action: media_player.play_media
+data:
+  media:
+    media_content_id: 2
+    media_content_type: radio
+target:
+  entity_id: media_player.shelly_wall_display
+```
+
+This action will start playing your audio file with ID `15`:
+
+```yaml
+action: media_player.play_media
+data:
+  media:
+    media_content_id: 15
+    media_content_type: audio
+target:
+  entity_id: media_player.shelly_wall_display
+```
+
+
 ## Event entities
 
 ### Event entities (generation 1)
