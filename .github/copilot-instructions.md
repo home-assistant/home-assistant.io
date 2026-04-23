@@ -87,9 +87,9 @@ Some other rules:
       reason not to (like it is a command or a code block).
     - Don’t use semicolons, commas, or conjunctions (like and or or) at the end
       of list items.
-    - If one item in a list is a complete sentence, use periods at the end
-      of all items in that list. Even if not all items are complete sentences.
-    - Don’t use a period at the end of list items if none of the items in this list are complete sentences.
+    - If at least one item in a list is a complete sentence, use periods at the end
+      of all items in that list, even if not all items are complete sentences.
+    - Don’t use a period at the end of list items if none of the items in the list are complete sentences.
 
 ## Terminology
 
