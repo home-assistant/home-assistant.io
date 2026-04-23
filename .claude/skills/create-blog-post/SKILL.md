@@ -170,6 +170,7 @@ If the blog post category is `Works-with-Home-Assistant`, look for a section tha
 - **Heading levels**: If content starts with H1 (`#`), demote all headings one level (content should start at H2)
 - **Backticks**: Strip erroneous `\`` characters (preserve code blocks/inline code)
 - **Text content**: Do not change the author's wording, phrasing, or writing style. The blog text should stay as-is. If you spot obvious typos or locale spelling issues (such as British English instead of American English), do not fix them silently — collect them and ask the user for confirmation before applying any changes.
+- **Emojis**: Preserve all emojis that appear in the blog content. Do not strip them out.
 
 ### 7. Build Blog Post
 

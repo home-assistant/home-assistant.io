@@ -12,7 +12,7 @@ og_image: /images/blog/2026-04-ubisys/art.webp
 
 <img src="/images/blog/2026-04-ubisys/art.webp" alt="ubisys joins Works with Home Assistant" style="border: 0;box-shadow: none;">
 
-We're thrilled to welcome <a href="https://www.ubisys.de/en/main-page/" target="_blank" rel="noopener">ubisys</a> to Works with Home Assistant! This German company has been dedicated to smart home automation for more than 20 years, and offers a range of Zigbee devices designed to help you retrofit your home. If retrofitting is conjuring up images of avocado bathrooms and artexed ceilings, fear not -- it just means upgrading what you already have, rather than ripping it out and starting again. Better for your home, and the planet.<!--more-->
+We're thrilled to welcome <a href="https://www.ubisys.de/en/main-page/" target="_blank" rel="noopener">ubisys</a> to Works with Home Assistant! This German company has been dedicated to smart home automation for more than 20 years, and offers a range of Zigbee devices designed to help you retrofit your home. If retrofitting is conjuring up images of avocado bathrooms 🥑 and artexed ceilings, fear not -- it just means upgrading what you already have, rather than ripping it out and starting again. Better for your home, and the planet 🌍.<!--more-->
 
 ## Here today, here tomorrow
 
@@ -31,7 +31,7 @@ For retrofit devices that need to just get on with their jobs in the background,
 
 ## Devices
 
-Every device in the Works with Home Assistant program is put through its paces by our in-house team before it earns certification, so when you see the badge, you know it works. But that's not all: every partner must also commit to providing long-term support and firmware updates, and engaging with our community -- all things we're confident ubisys will deliver, for the reasons outlined above!
+Every device in the Works with Home Assistant program is put through its paces by our in-house team before it earns certification, so when you see the badge, you know it works. But that's not all: every partner must also commit to providing long-term support and firmware updates, and engaging with our community -- all things we're confident ubisys will deliver, for the reasons outlined above! 👆
 
 These are the first Works with Home Assistant-certified Zigbee devices designed to fit behind your existing wall fixtures. Together they cover switch and scene control, energy monitoring, and heating:
 
@@ -45,7 +45,7 @@ To use these devices with Home Assistant, you need a [Zigbee adapter](/connect/z
 
 If you'd like to support this work, a <a href="https://www.nabucasa.com/" target="_blank" rel="noopener">Home Assistant Cloud subscription</a> helps fund ZHA and the wider Open Home Foundation mission -- all while giving you secure, remote access to your smart home.
 
-We hope ubisys's inclusion in the program means more Home Assistant users can upgrade their smart homes without starting from scratch -- and with our <a href="https://works-with.home-assistant.io/certified-products/" target="_blank" rel="noopener">certified device list</a> growing all the time, there's never been more ways to build the way you want. We look forward to seeing what you get up to!
+We hope ubisys's inclusion in the program means more Home Assistant users can upgrade their smart homes without starting from scratch -- and with our <a href="https://works-with.home-assistant.io/certified-products/" target="_blank" rel="noopener">certified device list</a> growing all the time, there's never been more ways to build the way you want. We look forward to seeing what you get up to! 👀
 
 ## Frequently asked questions
 
