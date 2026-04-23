@@ -142,16 +142,18 @@ automation:
 
 Dimmers, switches, and keypads have a **Button press** event entity for the main button on the device. Keypads also have **Button X press** event entities where **X** is buttons **A** through **H**.
 
-Each button press event has 4 event_type values: **on**, **off**, **on_fast** and **off_fast**.
+Each button press event has 4 event_type values: 'on', 'off', 'on_fast' and 'off_fast'.
 
-- **on**: Single press of the On button
-- **off**: Single press of the Off button
-- **on_fast**: Quick double-press of the On button
-- **off_fast**: Quick double-press of the Off button
+- 'on': Single press of the On button
+- 'off': Single press of the Off button
+- 'on_fast': Quick double-press of the On button
+- 'off_fast' Quick double-press of the Off button
 
 To trigger an automation with a button press event, select the device's button press entity. In the automation editor UI, set **Attribute** to **Event type**. In YAML, this is the `attribute: event_type` option on a state trigger.
 
-Example: To trigger an automation from double-pressing the **On** button on a switch, select the **Button press** entity, set **Attribute** to **Event type**, and set **To** to **on_fast**.
+Example: To trigger an automation from double-pressing the **On** button on a switch, select the **Button press** entity, set **Attribute** to **Event type**, and set **To** to 'on_fast'.
+
+The 'on_fast' and 'off_fast' event types can be used for additional operations.  For example, they could be used in an automation to turn an entire area of lights on or off when a light switch in the area is double pressed on or off.
 
 ## Events and Mini-Remotes
 
