@@ -165,5 +165,16 @@ To fix this:
 
 ### Feeder meal plan not supported
 
-Feeders are dependent on [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) to be integrated based on feeders `product_id`. Open a issue to [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) with information provided from QueryThingsDataModel API result from iot.tuya.com (under Cloud / API Explorer / Device Control). 
+
+#### Symptom: "Feeder not supported warning"
+
+Home Assistant shows a warning that this particular feeder is not supported.
+
+#### Description
+
+Feeders are dependent on [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) to be integrated based on feeders `product_id`. 
+
+#### Resolution
+
+Open a issue to [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) with information provided from QueryThingsDataModel API result from iot.tuya.com (under Cloud / API Explorer / Device Control). 
 
