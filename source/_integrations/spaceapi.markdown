@@ -91,20 +91,20 @@ State message:
 
 Select entities to expose as SpaceAPI sensors. Each sensor type accepts one or more entities. The unit of measurement is taken from the entity's attributes when available, falling back to the defaults listed below.
 
-- **Temperature sensors** — default unit: °C
-- **Humidity sensors** — default unit: %
-- **Barometer sensors** — default unit: hPa
-- **CO₂ sensors** — default unit: ppm
-- **Power consumption sensors** — default unit: W
-- **Power generation sensors** — default unit: W
-- **Beverage supply sensors** — default unit: btl
-- **Account balance sensors** — default unit: EUR
-- **Radiation sensors** — default unit: µSv/h
-- **Network traffic sensors** — default unit: packets_per_second
-- **Total member count sensors** — no unit
-- **People now present sensors** — no unit
-- **Network connection sensors** — no unit
-- **Door lock entities** — reports a boolean value; no unit
+- **Temperature**: Default unit is °C
+- **Humidity**: Default unit is %
+- **Barometer**: Default unit is hPa
+- **CO₂**: Default unit is ppm
+- **Power consumption**: Default unit is W
+- **Power generation**: Default unit is W
+- **Beverage supply**: Default unit is btl
+- **Account balance**: Default unit is EUR
+- **Radiation**: Default unit is µSv/h
+- **Network traffic**: Default unit is packets_per_second
+- **Total member count**: No unit
+- **People now present**: No unit
+- **Network connection**: No unit
+- **Door lock**: Reports a boolean value; no unit
 
 ### Space federation
 
