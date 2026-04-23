@@ -138,6 +138,21 @@ automation:
         group: 25
 ```
 
+## Button event entities
+
+Dimmers, switches, keypads have a **Button Press** event entity for the main button on the device. Keypads also have **Button X Press** event entities where **X** is the button **A** through **H**.
+
+Each button press event has 4 event_type values: **on**, **off**, **on_fast** and **off_fast**.
+
+- **on**: A single ON press
+- **off**: A single OFF press
+- **on_fast**: A quick double ON tap
+- **off_fast** A quick double OFF tap
+
+To trigger an automation with a button press event, select the device's button press entity and the event_type attribute.
+
+Example: To trigger an automation from "double-tapping" a switch on, select the **Button Press** entity, the **Event Type** attribute and the **on_fast** value for the **To** field.
+
 ## Events and Mini-Remotes
 
 Mini-Remote devices do not appear as Home Assistant entities, they generate events. The following events are available:
