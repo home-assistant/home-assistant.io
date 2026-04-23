@@ -47,11 +47,9 @@ Host:
 
 ## Supported functionality
 
-### Entities
-
 The **TechnoVE** integration provides the following entities.
 
-#### Binary sensors
+### Binary sensors
 
 - **Battery protected**
   - **Description**: Indicates whether battery protection mode is active on the station.
@@ -69,12 +67,12 @@ The **TechnoVE** integration provides the following entities.
 - **Update available**
   - **Description**: Indicates whether a firmware update is available for the station.
 
-#### Numbers
+### Numbers
 
 - **Maximum current**
   - **Description**: Sets the maximum current that the charging station is allowed to deliver to the vehicle. This value cannot be changed when the station is in power sharing mode.
 
-#### Sensors
+### Sensors
 
 - **Status**
   - **Description**: The current charging status of the station.
@@ -111,7 +109,7 @@ The **TechnoVE** integration provides the following entities.
   - **Description**: The name (SSID) of the Wi-Fi network the station is connected to.
   - **Enabled by default**: No
 
-#### Switches
+### Switches
 
 - **Auto-charge**
   - **Description**: When enabled, vehicles start charging automatically as soon as they are plugged in. When turned off, you need to manually start each charging session. Disabling auto-charge does not interrupt an ongoing charging session.
