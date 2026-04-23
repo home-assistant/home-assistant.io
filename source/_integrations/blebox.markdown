@@ -602,7 +602,6 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Effects
 - Brightness
 - Color
-  
 ### Simon 55 GO thermo
 
 This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
