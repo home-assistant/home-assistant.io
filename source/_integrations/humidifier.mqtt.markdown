@@ -157,7 +157,7 @@ device_class:
   type: string
   default: humidifier
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to true, the entity is enabled and usable immediately. Disabled entities don't appear in Home Assistant until you manually enable them from the device page.
   required: false
   type: boolean
   default: true

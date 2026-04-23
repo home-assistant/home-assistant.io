@@ -123,6 +123,11 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+enabled_by_default:
+  description: Controls whether this entity is enabled by default. When set to true, the entity is enabled and usable immediately. Disabled entities don't appear in Home Assistant until you manually enable them from the device page.
+  required: false
+  type: boolean
+  default: true
 encoding:
   description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
   required: false
