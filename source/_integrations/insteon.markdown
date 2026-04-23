@@ -140,7 +140,7 @@ automation:
 
 ## Button event entities
 
-Dimmers, switches, keypads have a **Button press** event entity for the main button on the device. Keypads also have **Button X press** event entities where **X** is the button **A** through **H**.
+Dimmers, switches, and keypads have a **Button press** event entity for the main button on the device. Keypads also have **Button X press** event entities where **X** is buttons **A** through **H**.
 
 Each button press event has 4 event_type values: **on**, **off**, **on_fast** and **off_fast**.
 
