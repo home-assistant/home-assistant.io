@@ -50,6 +50,15 @@ Password (optional):
     - `number`: The phone number associated with the call
     - `length`: The duration of the call in seconds (-1 for missed calls)
     - `date`: Unix timestamp of when the call occurred
+
+{% note %}
+The VoIP call history is updated every 60 seconds. If multiple calls happened during that time frame, they will all trigger one after the other once the call history is refreshed.
+{% endnote %}
+
+{% note %}
+If a VoIP call happens while Home Assistant is down, no event will fire, even after it has restarted.
+{% endnote %}
+
 ## Compatibility
 
 The integration uses the REST API, which is known to be available on models `NB4`, `NB5`, `NB6`, `NB6V`, and `NB6VAC`.
