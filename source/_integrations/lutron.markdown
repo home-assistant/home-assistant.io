@@ -49,7 +49,24 @@ If you are using RadioRA2 software version 12 or later, the default `lutron` use
 
 ## Keypad buttons
 
-Keypad buttons actions are provided in event entities.
+Keypad button actions are provided in event entities.
+
+Keypads also appear as devices in Home Assistant. You can use their button
+actions as [device triggers](/integrations/device_automation/) in automations
+created from the UI.
+
+For Pico remotes, trigger subtypes use the standard Lutron button positions:
+
+- `top`
+- `favorite`
+- `bottom`
+- `raise`
+- `lower`
+
+Other keypads use numbered trigger subtypes such as `button_1`.
+
+Buttons that support press-and-hold expose `press` and `release` triggers.
+Other buttons expose a `single_press` trigger.
 
 ## Keypad LEDs
 
@@ -72,7 +89,25 @@ Any configured Powr Savr occupancy sensors will be added as occupancy binary sen
 
 ## Example automations
 
-``` yaml
+Example using a device trigger:
+
+```yaml
+- alias: "Pico raise button pressed"
+  triggers:
+    - trigger: device
+      domain: lutron
+      device_id: YOUR_DEVICE_ID
+      type: press
+      subtype: raise
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.office
+```
+
+Example using the `lutron_event` event:
+
+```yaml
 - alias: "keypad button pressed notification"
   triggers:
     - trigger: event
