@@ -44,8 +44,8 @@ Host:
 
 - **Outputs**: source pump, user pump, buffer pump, four-way valve, three-way valve, cooling output, and heater steps 1-3
 - **Alarms**: global alarm, plus specific alarms for anti-legionella timeout, domestic hot water (DHW) timeout, dewpoint, supply too hot, flow, central heating, cooling, heating, source, compressor, and working hours
-- **Demand signals**: heat demand, thermostat demand, plant demand, and external demand
-- **System status**: keypad, day mode, summer mode, anti-legionella, dewpoint, booster, source flow, and photovoltaic (PV) surplus
+- **Demand signals**: thermostat demand, plant demand, and external demand
+- **System status**: keypad, day mode, summer mode, anti-legionella, dewpoint, booster security, source flow, and photovoltaic (PV) surplus
 - **Sensor status** (disabled by default): room sensor enabled, plant sensor enabled, buffer sensor enabled, and DHW controller enabled
 
 ### Sensors
