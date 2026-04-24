@@ -14,6 +14,8 @@ On {% term "Home Assistant Operating System" %}, the media folder is automatical
 
 ## Accessing the media browser
 
+The media browser is available on both {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %} installations.
+
 1. In the sidebar (left side of your Home Assistant interface), go to {% my media_browser title="**Media** > **My media**" %}.
 2. From here, you can browse all media files in your `/media` folder and any custom media directories you've configured.
 
