@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introducing Home Assistant Green: Your entry to Home Assistant"
-description: "For $99 (MSRP) the Home Assistant Green is the way for new users to start their smart home with Home Assistant."
+description: "The Home Assistant Green is the way for new users to start their smart home with Home Assistant."
 date: 2023-09-17 00:00:02
 date_formatted: "September 17, 2023"
 author: Guy Sie
