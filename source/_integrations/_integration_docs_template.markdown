@@ -146,6 +146,11 @@ Create separate files for each:
 
 ## Examples
 
+The real power of this integration is...
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
 ### Turning off the LEDs during the night
 
 The status LEDs on the device can be quite bright.

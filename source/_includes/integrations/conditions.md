@@ -1,7 +1,7 @@
 {%- assign domain = include.domain | default: page.ha_domain -%}
 {%- assign domain_conditions = site.conditions | where: "domain", domain | sort: "condition" -%}
 
-## Conditions
+## List of conditions
 
 {% if domain_conditions.size > 0 %}
 
