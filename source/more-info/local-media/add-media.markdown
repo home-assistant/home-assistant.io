@@ -28,7 +28,7 @@ You can add media files using the built-in media browser. This method is ideal f
 3. Select **Upload** and choose files from your device.
 4. If you uploaded the wrong file, select the file and choose **Delete**.
 
-## Removing media via the built-in media browser
+## Removing media using the media browser on Home Assistant OS
 
 You can remove media files using the built-in media browser. This method is ideal for deleting a few files at a time. This method does not let you delete folders.
 
