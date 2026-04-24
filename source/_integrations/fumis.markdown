@@ -10,6 +10,7 @@ ha_domain: fumis
 ha_platforms:
   - climate
   - sensor
+  - switch
 ha_codeowners:
   - '@frenck'
 ha_integration_type: device
@@ -68,7 +69,7 @@ This integration supports multiple stoves. If you have more than one stove with 
 
 ### Entities
 
-The **Fumis** integration provides a climate entity and a collection of sensor entities for your pellet stove.
+The **Fumis** integration provides climate, sensor, and switch entities for your pellet stove.
 
 #### Climate
 
@@ -104,6 +105,11 @@ The integration provides sensors that give you insight into your stove's operati
 - **Time to service**: Hours remaining until the next scheduled maintenance.
 
 Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
+
+#### Switches
+
+- **Eco mode**: Turn eco mode on or off. When eco mode is active and the room temperature exceeds the target temperature, the stove turns off automatically and restarts when the temperature drops below the target again. This switch is only available on stoves that support eco mode.
+- **Timer**: Enable or disable the weekly timer schedule. When enabled, the stove follows the programmed schedule to turn on and off at set times throughout the week.
 
 ## Examples
 
