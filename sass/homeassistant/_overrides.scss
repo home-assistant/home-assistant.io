@@ -2023,10 +2023,14 @@ h6 {
       flex-direction: column;
       gap: 1rem;
 
-      flex-basis: calc(50% - 0.5rem);
+      flex-basis: 100%;
+
+      @media only screen and (min-width: 640px) {
+        flex-basis: calc(50% - 0.5rem);
+      }
 
       @media only screen and (min-width: $menu-collapse) {
-        flex-basis: calc(25% - 01rem);
+        flex-basis: calc(25% - 1rem);
       }
     }
   }
@@ -2071,8 +2075,11 @@ h6 {
     }
 
     &__link {
-      height: 100%;
       text-decoration: none;
+
+      &:has(.community-card__image) {
+        height: 100%;
+      }
     }
 
     &--dark {
@@ -2097,7 +2104,7 @@ h6 {
 
       p {
         font-size: 24px;
-        font-weight: 700;
+        font-weight: 600;
         font-family: $heading-font;
         margin: 0;
         line-height: 1;
@@ -2119,7 +2126,7 @@ h6 {
       img {
         width: 40px;
         border: none;
-        border-radius: 0;
+        border-radius: 100%;
         box-shadow: none;
 
         &.meta-link {
