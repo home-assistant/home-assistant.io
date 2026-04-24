@@ -21,8 +21,6 @@ The area card lets you control and monitor an individual {% term area %}.
   Screenshot of the area cards.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
 
 As shown in the screenshot of the area cards, they can display values and buttons of entities and devices that you have assigned the area to, such as:
@@ -37,6 +35,8 @@ As shown in the screenshot of the area cards, they can display values and button
 {% note %}
 The device is in an area if you have previously [assigned the area to the device](/voice_control/assign_areas_floors/#to-assign-an-area-to-a-device).
 {% endnote %}
+
+{% include dashboard/edit_dashboard.md %}
 
 ## Adding buttons to the area card for controlling devices
 
