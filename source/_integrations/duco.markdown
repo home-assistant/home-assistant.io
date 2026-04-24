@@ -42,7 +42,7 @@ Compatible DucoBox models:
 
 The following sensor module types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state, and Wi-Fi signal strength.
+- **BOX**: The main ventilation box; provides fan control, ventilation state, Wi-Fi signal strength, and temperature (measured inside the housing; disabled by default).
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration, CO₂ air quality index, and temperature.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity, humidity air quality index, and temperature.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity, humidity air quality index, and temperature.
@@ -137,7 +137,7 @@ Indoor air quality ranges for humidity:
 
 #### Temperature
 
-Available for sensor modules (UCCO2, BSRH, UCRH). Shows the current air temperature in degrees Celsius measured by the sensor module.
+Available for the external sensor modules (UCCO2, BSRH, and UCRH). Shows the current air temperature in degrees Celsius measured by the sensor module.
 
 The main ventilation box (BOX) also provides a temperature reading. This entity is disabled by default because it reflects the temperature inside the box housing, which is typically not representative of the room temperature.
 
