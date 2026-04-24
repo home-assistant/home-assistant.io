@@ -36,7 +36,7 @@ entity:
   required: true
   description: "Entity to display. Camera, image, and person entities are shown as pictures by default."
   type: string
-use_entity_picture:
+show_entity_picture:
   required: false
   description: "Use the entity's `entity_picture` attribute as the image."
   type: boolean
@@ -128,7 +128,7 @@ Use an entity's `entity_picture` attribute to show an entity-provided image, lik
 ```yaml
 type: picture-entity
 entity: update.home_assistant_core_update
-use_entity_picture: true
+show_entity_picture: true
 show_state: true
 show_name: true
 ```
