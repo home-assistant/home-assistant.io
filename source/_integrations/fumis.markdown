@@ -108,7 +108,7 @@ Some additional sensors are available but disabled by default because they are p
 
 #### Switches
 
-- **Eco mode**: Turn eco mode on or off. When eco mode is active and the room temperature exceeds the target temperature, the stove turns off automatically and restarts when the temperature drops below the target again. This switch is only available on stoves that support eco mode.
+- **Eco mode**: Turn eco mode on or off. When eco mode is active and the room temperature exceeds the target temperature, the stove turns off automatically and restarts when the room temperature drops below the target temperature again. This switch is only available on stoves that support eco mode.
 - **Timer**: Enable or disable the weekly timer schedule. When enabled, the stove follows the programmed schedule to turn on and off at set times throughout the week.
 
 ## Examples
