@@ -22,7 +22,7 @@ cards:
     background_image_alt: ""
   - href: "https://6monthslater.net/2024/06/home-assistant-green-review-6-months-later/"
     text: 'Home Assistant Green Review'
-    author_image: "/images/community-cards/xxx-logo.png"
+    author_image: "/images/community-cards/6-months-later-logo.png"
     author_image_alt: "6 Months Later logo"
     author: "6 Months Later"
     link_icon: "/images/community-cards/document-icon.png"
@@ -50,21 +50,21 @@ cards:
     background_image_alt: ""
   - href: "https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/"
     text: '"Versatility is the true magic of Home Assistant"'
-    author_image: "/images/community-cards/xxx-logo.png"
+    author_image: "/images/community-cards/ars-technica-logo.png"
     author_image_alt: "Ars Technica logo"
     author: "Ars Technica"
     link_icon: "/images/community-cards/document-icon.png"
     theme: "light"
   - href: "https://tweakers.net/reviews/8704/paulus-schoutsen-home-assistant-concurreert-met-alles-wat-via-de-cloud-gaat.html"
     text: '"We want privacy and local control to be the standard."'
-    author_image: "/images/community-cards/xxx-logo.png"
+    author_image: "/images/community-cards/tweakers-logo.png"
     author_image_alt: "Tweakers logo"
     author: "Tweakers"
     link_icon: "/images/community-cards/document-icon.png"
     theme: "light"
   - href: "https://www.producthunt.com/products/home-assistant?launch=home-assistant"
     text: '"Control and monitor your home from anywhere in the world."'
-    author_image: "/images/community-cards/xxx-logo.png"
+    author_image: "/images/community-cards/product-hunt-logo.png"
     author_image_alt: "Product Hunt logo"
     author: "Product Hunt"
     link_icon: "/images/community-cards/document-icon.png"
