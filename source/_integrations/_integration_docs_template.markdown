@@ -144,7 +144,7 @@ Create separate files for each:
 -->
 {% include integrations/triggers_conditions_actions.md %}
 
-## What you can do with My integration automations
+## Examples
 
 The real power of this integration is...
 Here are a few ideas to get you started.
