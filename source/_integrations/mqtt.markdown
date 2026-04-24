@@ -20,6 +20,7 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - date
   - device_tracker
   - diagnostics
   - event
@@ -63,6 +64,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
+- [Date](/integrations/date.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
@@ -98,6 +100,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Camera](/integrations/camera.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Date](/integrations/date.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
