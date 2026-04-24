@@ -80,6 +80,10 @@ The **TechnoVE** integration provides the following entities.
     - Unplugged
     - Plugged (waiting)
     - Plugged (charging)
+    - Ventilation required
+    - Pilot fault
+    - <abbr title="Electric Vehicle Supply Equipment">EVSE</abbr> fault
+    - Ground fault
     - Out of activation period
     - High tariff period
 
