@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: fumis
 ha_platforms:
+  - button
   - climate
   - sensor
 ha_codeowners:
@@ -68,7 +69,7 @@ This integration supports multiple stoves. If you have more than one stove with 
 
 ### Entities
 
-The **Fumis** integration provides a climate entity and a collection of sensor entities for your pellet stove.
+The **Fumis** integration provides climate, sensor, and button entities for your pellet stove.
 
 #### Climate
 
@@ -104,6 +105,10 @@ The integration provides sensors that give you insight into your stove's operati
 - **Time to service**: Hours remaining until the next scheduled maintenance.
 
 Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
+
+#### Buttons
+
+- **Sync clock**: The Fumis WiRCU module does not synchronize its internal clock from the internet. Over time, the clock can drift, and it does not automatically adjust for daylight saving time changes. This button sends the current time from Home Assistant to your stove's controller, keeping its clock accurate. This is especially useful for stoves that use the built-in weekly timer schedule. You can automate this by pressing the button on a regular basis, for example, after a daylight saving time change.
 
 ## Examples
 
