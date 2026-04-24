@@ -77,15 +77,15 @@ The **TechnoVE** integration provides the following entities.
 - **Status**
   - **Description**: The current charging status of the station.
   - **Possible values**:
-    - Unplugged
-    - Plugged (waiting)
-    - Plugged (charging)
-    - Ventilation required
-    - Pilot fault
     - <abbr title="Electric Vehicle Supply Equipment">EVSE</abbr> fault
     - Ground fault
-    - Out of activation period
     - High tariff period
+    - Out of activation period
+    - Pilot fault
+    - Plugged (waiting)
+    - Plugged (charging)
+    - Unplugged
+    - Ventilation required
 
 - **Current**
   - **Description**: The electrical current currently being delivered to the vehicle.
