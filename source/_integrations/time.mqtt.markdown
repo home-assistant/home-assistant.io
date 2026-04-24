@@ -3,7 +3,7 @@ title: "MQTT Time"
 description: "Instructions on how to interact with a device exposing a time control capability through MQTT from within Home Assistant."
 ha_category:
   - Time
-ha_release: "2026.5"
+ha_release: 2026.5
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
