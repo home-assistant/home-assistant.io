@@ -8,7 +8,7 @@ related_conditions:
   - air_quality.is_co_cleared
 ---
 
-The **Carbon monoxide value** condition passes when a carbon monoxide (CO) sensor's reading meets a specific level. Carbon monoxide is a colorless, odorless gas produced by incomplete combustion, and even moderate levels deserve attention. This condition gives you finer control than a simple detected/cleared check, letting you start ventilation at a lower reading and sound the full alarm only when concentrations climb higher.
+The **Carbon monoxide value** condition passes when a carbon monoxide (CO) sensor's reading meets a specific level. Carbon monoxide is a colorless, odorless gas produced by incomplete combustion, and even moderate levels deserve attention. This condition gives you finer control than simpler detected or cleared checks, letting you start ventilation at a lower reading and sound the full alarm only when concentrations climb higher.
 
 {% include integrations/labs_entity_triggers_note.md %}
 

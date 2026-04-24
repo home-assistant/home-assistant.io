@@ -84,7 +84,7 @@ automation: |
 
 ### Run the air purifier during wildfire season
 
-When wildfire smoke pushes outdoor PM2.5 above a safe level, the last thing you want is to open the windows. This automation starts the air purifier when PM2.5 crosses 25 µg/m³ and stops it when the air clears.
+When wildfire smoke raises outdoor PM2.5 above a safe level, the last thing you want is to open the windows. This automation starts the air purifier when PM2.5 crosses 25 µg/m³ and stops it when the air clears.
 
 - **Trigger**: PM2.5 level crossed threshold (above 25 µg/m³)
 - **Action**: Turn on the air purifier

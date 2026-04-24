@@ -72,7 +72,7 @@ behavior:
 
 ### Automation: alert when you arrive home and gas is detected
 
-If a gas leak started while you were away, you want to know the moment you pull into the driveway. This automation triggers when you arrive home and checks whether the kitchen gas sensor is still detecting gas. If it is, you get an urgent notification before you even open the front door, so you know to stay outside and call for help.
+If a gas leak started while you were away, you want to know the moment you pull into the driveway. This automation triggers when you arrive home and checks whether the kitchen gas sensor is still detecting gas. If it is, you get an urgent notification before you even open the front door so you know to stay outside and call for help.
 
 - **Trigger**: Zone: Person enters home zone
 - **Condition**: Air Quality: Gas detected

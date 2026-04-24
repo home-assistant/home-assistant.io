@@ -74,7 +74,7 @@ threshold:
 
 ### Automation: alert when living room air quality shifts
 
-Maybe someone just sprayed cleaning solution or the new couch is off-gassing. This automation sends a notification when the VOC ratio in the living room changes significantly, so you know to investigate the cause and open a window.
+Maybe someone just sprayed cleaning solution, or the new couch is off-gassing. This automation sends a notification when the VOC ratio in the living room changes significantly so you know to investigate the cause and open a window.
 
 - **Trigger**: Volatile organic compounds ratio changed
 - **Target**: Living room VOC ratio sensor

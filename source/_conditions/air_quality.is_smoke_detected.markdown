@@ -72,7 +72,7 @@ behavior:
 
 ### Automation: send a reminder every 5 minutes while smoke is detected
 
-During a smoke event, a single notification is easy to miss. This automation fires every 5 minutes and checks whether the kitchen smoke sensor is still detecting smoke. As long as smoke is present, you keep getting reminders so the situation stays top of mind.
+During a smoke event, a single notification is easy to miss. This automation fires every 5 minutes and checks whether the kitchen smoke sensor is still detecting smoke. As long as smoke is present, you keep getting reminders so you stay up to date.
 
 - **Trigger**: Time pattern: Every 5 minutes
 - **Condition**: Air Quality: Smoke detected

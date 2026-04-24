@@ -83,7 +83,7 @@ for:
 
 ### Automation: flash the lights and alert everyone in the household
 
-Picture this: it is the middle of the night and a smoke sensor trips in the hallway. A standard alarm beeps, but someone wearing earplugs or a heavy sleeper might not notice. This automation flashes every light in the living room and sends an urgent notification to your phone at the same time, making sure the alert reaches everyone through both sight and sound.
+Picture this: it is the middle of the night and a smoke sensor activates in the hallway. A standard alarm beeps, but someone wearing earplugs or a heavy sleeper might not notice. This automation flashes every light in the living room and sends an urgent notification to your phone at the same time, making sure the alert reaches everyone through both sight and sound.
 
 - **Trigger**: Smoke detected
 - **Target**: All smoke sensors (by label)

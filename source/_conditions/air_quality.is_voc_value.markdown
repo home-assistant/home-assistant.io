@@ -85,7 +85,7 @@ behavior:
 
 ### Automation: start the air purifier when you wake up only if VOC levels are high
 
-Overnight, off-gassing from furniture, carpets, and cleaning products pushes VOC levels up in a closed room. This automation triggers at wake-up time and checks the living room VOC reading. If the level is at or above 300 ug/m3, the air purifier turns on to clear the air before you start your day. On mornings when the air is already fresh, the purifier stays off and you save energy.
+Overnight, off-gassing from furniture, carpets, and cleaning products pushes VOC levels up in a closed room. This automation triggers at wake-up time and checks the living room VOC reading. If the level is at or above 300 μg/m3, the air purifier turns on to clear the air before you start your day. On mornings when the air is already fresh, the purifier stays off and you save energy.
 
 - **Trigger**: Time: 07:00
 - **Condition**: Air Quality: Volatile organic compounds value

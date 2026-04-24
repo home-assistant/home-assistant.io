@@ -8,7 +8,7 @@ related_conditions:
   - air_quality.is_ozone_value
 ---
 
-The **Sulphur dioxide value** condition passes when a sulphur dioxide (SO2) sensor's reading meets a specific level. SO2 is a sharp-smelling gas released by burning fossil fuels and, in some regions, volcanic activity. Elevated levels irritate the respiratory system and make outdoor air uncomfortable. This condition lets your automation respond to real readings, closing the windows and notifying you to stay indoors when SO2 is too high, and letting fresh air back in once the reading drops.
+The **Sulphur dioxide value** condition passes when a sulphur dioxide (SO2) sensor's reading meets a specific level. SO2 is a sharp-smelling gas released by burning fossil fuels and volcanic activity. Elevated levels irritate the respiratory system and make outdoor air uncomfortable. This condition lets your automation respond to real readings, closing the windows and notifying you to stay indoors when SO2 is too high, and letting fresh air back in once the reading drops.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -85,7 +85,7 @@ behavior:
 
 ### Automation: warn you before heading outside in the morning
 
-If you live near an industrial area, SO2 readings sometimes spike overnight. This automation triggers at 7:00 AM and checks the outdoor SO2 level. If the reading is at or above 40 ug/m3, you get a notification recommending you stay indoors. On mornings with clean air, you head out without interruption.
+If you live near an industrial area, SO2 readings sometimes spike overnight. This automation triggers at 7:00 AM and checks the outdoor SO2 level. If the reading is at or above 40 μg/m3, you get a notification recommending you stay indoors. On mornings with clean air, you can leave without interruption.
 
 - **Trigger**: Time: 07:00
 - **Condition**: Air Quality: Sulphur dioxide value

@@ -64,7 +64,7 @@ threshold:
 
 ## Good to know
 
-- PM2.5 is the particle size most commonly referenced in air quality indexes worldwide. A threshold of 5 to 15 micrograms per cubic meter suits most home automations.
+- PM2.5 is the particle size most commonly referenced in air quality indexes worldwide. A threshold of 5 to 15 μg/m³ suits most home automations.
 - The trigger fires on any change that meets the threshold, whether the level goes up or down.
 - To react only when PM2.5 crosses a specific concentration in one direction, use [PM2.5 level crossed threshold](/triggers/air_quality.pm25_crossed_threshold/) instead.
 

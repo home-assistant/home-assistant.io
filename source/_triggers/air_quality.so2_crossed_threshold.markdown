@@ -7,7 +7,7 @@ related_triggers:
   - air_quality.so2_changed
 ---
 
-The **Sulphur dioxide level crossed threshold** trigger fires when the sulphur dioxide (SO2) reading on one or more air quality sensors crosses a specific level. Sulphur dioxide is a sharp-smelling gas produced by burning sulfur-containing fossil fuels, volcanic activity, and some industrial processes. The WHO recommends keeping 24-hour SO2 exposure below 40 micrograms per cubic meter, because elevated levels irritate the respiratory system and worsen conditions like asthma.
+The **Sulphur dioxide level crossed threshold** trigger fires when the sulphur dioxide (SO2) reading on one or more air quality sensors crosses a specific level. Sulphur dioxide is a sharp-smelling gas produced by burning fossil fuels that contain sulphur, volcanic activity, and some industrial processes. The WHO recommends keeping 24-hour SO2 exposure below 40 micrograms per cubic meter, because elevated levels irritate the respiratory system and worsen conditions like asthma.
 
 If you live near industrial areas or in a region with volcanic activity, this trigger is especially valuable. Have your smart windows close automatically the moment outdoor SO2 crosses your safety limit, or get an alert on your phone so you know to stay indoors until the air clears. Your home reacts to changing conditions in real time, keeping irritating fumes outside where they belong.
 

@@ -78,8 +78,11 @@ behavior:
 ## Good to know
 
 - Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
-- The World Health Organization recommends keeping 24-hour average PM2.5 exposure below 15 ug/m3.
-- For other particle sizes, see [PM1 value](/conditions/air_quality.is_pm1_value/), [PM4 value](/conditions/air_quality.is_pm4_value/), and [PM10 value](/conditions/air_quality.is_pm10_value/).
+- The World Health Organization recommends keeping 24-hour average PM2.5 exposure below 15 μg/m3.
+- For other particle sizes, see
+  - [PM1 value](/conditions/air_quality.is_pm1_value/)
+  - [PM4 value](/conditions/air_quality.is_pm4_value/)
+  - [PM10 value](/conditions/air_quality.is_pm10_value/)
 
 {% include conditions/try_it.md %}
 
@@ -87,7 +90,7 @@ behavior:
 
 ### Automation: check outdoor PM2.5 before opening the windows each morning
 
-During wildfire season, outdoor PM2.5 readings spike overnight while you sleep. This automation triggers when you open the living room window cover and checks the outdoor PM2.5 reading first. If the level is at or above 35 ug/m3, the cover closes right back and you get a notification letting you know the air outside is not safe for ventilation. On clear mornings, nothing happens and you enjoy the fresh air.
+During wildfire season, outdoor PM2.5 readings spike overnight while you sleep. This automation triggers when you open the living room window cover and checks the outdoor PM2.5 reading first. If the level is at or above 35 μg/m3, the cover closes right back and you get a notification letting you know the air outside is not safe for ventilation. On clear mornings, nothing happens and you enjoy the fresh air.
 
 - **Trigger**: State: Living room window cover opened
 - **Condition**: Air Quality: PM2.5 value

@@ -83,7 +83,7 @@ for:
 
 ### Automation: get peace of mind with an all-clear notification
 
-After a gas scare, the last thing you want is to keep wondering whether the situation is truly resolved. This automation waits until every gas sensor in the house has been clear for at least ten minutes, then sends a reassuring notification to your phone. No more checking the sensors yourself or second-guessing whether it is safe to go back inside.
+After a gas alarm, the last thing you want is to keep wondering whether the situation is truly resolved. This automation waits until every gas sensor in the house has been clear for at least ten minutes, then sends a reassuring notification to your phone. No more checking the sensors yourself or second-guessing whether it is safe to go back inside.
 
 - **Trigger**: Gas cleared
 - **Target**: All gas sensors (by label)

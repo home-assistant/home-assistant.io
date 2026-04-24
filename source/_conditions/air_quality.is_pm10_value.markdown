@@ -78,7 +78,10 @@ behavior:
 ## Good to know
 
 - Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
-- PM10 includes larger particles like dust and pollen. If you need finer readings, see [PM1 value](/conditions/air_quality.is_pm1_value/), [PM2.5 value](/conditions/air_quality.is_pm25_value/), and [PM4 value](/conditions/air_quality.is_pm4_value/).
+- PM10 includes larger particles like dust and pollen. For finer readings, see:
+  - [PM1 value](/conditions/air_quality.is_pm1_value/)
+  - [PM2.5 value](/conditions/air_quality.is_pm25_value/)
+  - [PM4 value](/conditions/air_quality.is_pm4_value/)
 
 {% include conditions/try_it.md %}
 
@@ -86,7 +89,7 @@ behavior:
 
 ### Automation: check outdoor air before opening windows in the morning
 
-On spring mornings, pollen and dust push PM10 readings up before you even notice. This automation triggers when you open the bedroom window cover and checks the outdoor PM10 reading first. If the level is at or above 50 ug/m3, the cover closes right back and you get a notification explaining why. On clean-air mornings, nothing happens and you enjoy the fresh breeze.
+On spring mornings, pollen and dust push PM10 readings up before you even notice. This automation triggers when you open the bedroom window cover and checks the outdoor PM10 reading first. If the level is at or above 50 μg/m3, the cover closes right back and you get a notification explaining why. On clean-air mornings, nothing happens and you enjoy the fresh breeze.
 
 - **Trigger**: State: Bedroom window cover opened
 - **Condition**: Air Quality: PM10 value

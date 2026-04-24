@@ -9,7 +9,7 @@ related_conditions:
   - air_quality.is_pm10_value
 ---
 
-The **PM4 value** condition passes when a PM4 sensor's reading meets a specific level. PM4 covers particulate matter smaller than 4 micrometers in diameter, a size range that bridges fine and coarse particles. Some sensors report PM4 alongside PM2.5 and PM10, giving you a more complete picture of what is floating in the air. This condition lets your automation react when PM4 readings are genuinely elevated, for example sending a notification that your air filter is due for a check.
+The **PM4 value** condition passes when a PM4 sensor's reading meets a specific level. PM4 covers particulate matter smaller than 4 micrometers in diameter, a size range that bridges fine and coarse particles. Some sensors report PM4 alongside PM2.5 and PM10, giving you a more complete picture of what is floating in the air. This condition lets your automation react when PM4 readings are elevated, for example sending a notification that your air filter is due for a check.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -78,7 +78,10 @@ behavior:
 ## Good to know
 
 - Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
-- For other particle sizes, see [PM1 value](/conditions/air_quality.is_pm1_value/), [PM2.5 value](/conditions/air_quality.is_pm25_value/), and [PM10 value](/conditions/air_quality.is_pm10_value/).
+- For other particle sizes, see
+- [PM1 value](/conditions/air_quality.is_pm1_value/)
+- PM2.5 value](/conditions/air_quality.is_pm25_value/)
+- [PM10 value](/conditions/air_quality.is_pm10_value/)
 
 {% include conditions/try_it.md %}
 
@@ -86,7 +89,7 @@ behavior:
 
 ### Automation: send a weekly filter reminder only if PM4 is elevated
 
-If your indoor PM4 readings are consistently high, the air filters are likely overdue for a swap. This automation runs every Sunday morning and checks the living room PM4 reading. If the level is at or above 50 ug/m3, you get a friendly reminder to check the filters. On weeks when the air is clean, no notification is sent.
+If your indoor PM4 readings are consistently high, the air filters are likely overdue for a swap. This automation runs every Sunday morning and checks the living room PM4 reading. If the level is at or above 50 μg/m3, you get a reminder to check the filters. On weeks when the air is clean, no notification is sent.
 
 - **Trigger**: Time: Every Sunday at 09:00
 - **Condition**: Air Quality: PM4 value

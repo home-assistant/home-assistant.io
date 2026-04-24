@@ -78,7 +78,10 @@ behavior:
 ## Good to know
 
 - Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
-- For coarser particulate readings, see [PM2.5 value](/conditions/air_quality.is_pm25_value/), [PM4 value](/conditions/air_quality.is_pm4_value/), and [PM10 value](/conditions/air_quality.is_pm10_value/).
+- For coarser particulate readings, see
+  - [PM2.5 value](/conditions/air_quality.is_pm25_value/)
+  - [PM4 value](/conditions/air_quality.is_pm4_value/)
+  - [PM10 value](/conditions/air_quality.is_pm10_value/)
 
 {% include conditions/try_it.md %}
 
@@ -86,7 +89,7 @@ behavior:
 
 ### Automation: start the bedroom purifier at bedtime only if PM1 is elevated
 
-Ultra-fine particles from cooking, candles, or the heating system linger in a closed bedroom. This automation triggers at bedtime and checks the current PM1 reading. If the level is at or above 25 ug/m3, the air purifier turns on so you breathe clean air while you sleep. On evenings when the air is already fresh, the purifier stays off and the bedroom stays quiet.
+Ultra-fine particles from cooking, candles, or the heating system linger in a closed bedroom. This automation triggers at bedtime and checks the current PM1 reading. If the level is at or above 25 μg/m3, the air purifier turns on so you breathe clean air while you sleep. On evenings when the air is already fresh, the purifier stays off and the bedroom stays quiet.
 
 - **Trigger**: Time: 22:00
 - **Condition**: Air Quality: PM1 value

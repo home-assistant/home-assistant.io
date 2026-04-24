@@ -7,9 +7,9 @@ related_triggers:
   - air_quality.pm25_changed
 ---
 
-The **PM2.5 level crossed threshold** trigger fires when the PM2.5 (particulate matter 2.5 micrometers or smaller) reading on one or more air quality sensors crosses a specific level. PM2.5 is one of the most widely tracked air quality metrics because these fine particles travel deep into the lungs and affect your health. When PM2.5 rises above 25 micrograms per cubic meter, air quality is already poor enough to bother sensitive groups, including children and anyone with asthma or allergies.
+The **PM2.5 level crossed threshold** trigger fires when the PM2.5 (particulate matter 2.5 micrometers or smaller) reading on one or more air quality sensors crosses a specific level. PM2.5 is one of the most widely tracked air quality metrics because these fine particles travel deep into the lungs and affect your health. When PM2.5 rises above 25 μg/m³, air quality is already poor enough to bother sensitive groups, including children and anyone with asthma or allergies.
 
-Have your air purifier kick in the second PM2.5 crosses the safe limit, or close your windows automatically when wildfire smoke pushes outdoor readings into unhealthy territory. You also get a notification on your phone so you always know what is happening, whether you are at home or away. This trigger helps your home react to air quality changes faster than you ever could on your own.
+Have your air purifier start the second PM2.5 crosses the safe limit, or close your windows automatically when wildfire smoke pushes outdoor readings into unhealthy territory. You also get a notification on your phone so you always know what is happening, whether you are at home or away. This trigger helps your home react to air quality changes faster than you ever could on your own.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -87,7 +87,7 @@ for:
 
 ## Good to know
 
-- The trigger fires on any crossing, up or down. If you only want one direction, add a condition that checks whether the current PM2.5 level is above or below your threshold.
+- The trigger fires on any crossing, up or down. If you want to monitor only one direction, add a condition that checks whether the current PM2.5 level is above or below your threshold.
 - The WHO guideline for 24-hour average PM2.5 exposure is 15. Many people use a threshold between 25 and 50 for automations depending on their sensitivity and local conditions.
 - Pair this trigger with [PM2.5 level changed](/triggers/air_quality.pm25_changed/) if you also want to track smaller fluctuations between crossings.
 

@@ -9,7 +9,7 @@ related_triggers:
 
 The **PM4 level crossed threshold** trigger fires when the PM4 (particulate matter 4 micrometers or smaller) reading on one or more air quality sensors crosses a specific level. PM4 sits between the finest particles (PM2.5) and the coarser dust and pollen (PM10), capturing a range of irritants that affect breathing and comfort. Sources include household dust, pollen, mold spores, and cooking emissions.
 
-Think of a nursery where clean air really matters. This trigger lets you boost the air filter to high speed the moment PM4 levels rise, or send a notification to your phone when spring pollen pushes particle counts past your comfort level. Your home stays one step ahead, keeping the air cleaner for young children and anyone with allergies.
+Think of a nursery where clean air really matters. This trigger lets you boost the air filter to high speed the moment PM4 levels rise, or send a notification to your phone when spring pollen pushes particle counts past your comfort level. You stay one step ahead, keeping the air cleaner for young children and anyone with allergies.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -97,7 +97,7 @@ for:
 
 ### Automation: protect the nursery by boosting the air filter
 
-Young children are more sensitive to airborne particles. This automation switches the nursery air filter to high speed the moment PM4 crosses 30, keeping the room cleaner so little ones breathe easier.
+Young children are more sensitive to airborne particles. This automation switches the nursery air filter to high speed the moment PM4 crosses 30, keeping the room cleaner so your children breathe easier.
 
 - **Trigger**: PM4 level crossed threshold
 - **Target**: Nursery PM4 sensor

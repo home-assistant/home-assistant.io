@@ -85,7 +85,7 @@ behavior:
 
 ### Automation: ventilate the greenhouse each morning only if N2O is elevated
 
-Fertilizer off-gassing pushes N2O levels up overnight in an enclosed greenhouse, especially on warm nights. This automation runs each morning at sunrise and checks the current reading. If N2O is at or above 500 ppb, the ventilation fan turns on so the air is fresh before you start working. On mornings when levels stayed low, the fan stays off, keeping the greenhouse warm and saving energy.
+Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, especially on warm nights. This automation runs each morning at sunrise and checks the current reading. If N2O is at or above 500 ppb, the ventilation fan turns on so the air is fresh before you start working. On mornings when levels stayed low, the fan stays off, keeping the greenhouse warm and saving energy.
 
 - **Trigger**: Sun: At sunrise
 - **Condition**: Air Quality: Nitrous oxide value

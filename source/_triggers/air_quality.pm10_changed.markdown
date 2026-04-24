@@ -64,7 +64,7 @@ threshold:
 
 ## Good to know
 
-- PM10 levels tend to spike during spring pollen season, construction work nearby, or windy days. A threshold of 10 to 25 micrograms per cubic meter works well for most home automations.
+- PM10 levels tend to spike during spring pollen season, construction work nearby, or windy days. A threshold of 10 to 25 μg/m³ works well for most home automations.
 - The trigger fires on any change that meets the threshold, whether the level goes up or down.
 - To react only when PM10 crosses a specific concentration in one direction, use [PM10 level crossed threshold](/triggers/air_quality.pm10_crossed_threshold/) instead.
 

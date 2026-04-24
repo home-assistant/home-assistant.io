@@ -8,7 +8,7 @@ related_conditions:
   - air_quality.is_voc_value
 ---
 
-The **Ozone value** condition passes when an ozone (O3) sensor's reading meets a specific level. Ground-level ozone is a key component of smog and tends to spike on hot, sunny afternoons. This condition helps your automation make smarter ventilation decisions, keeping the windows shut during a smog alert but allowing fresh air in once the ozone reading drops back to a comfortable level.
+The **Ozone value** condition passes when an ozone (O3) sensor's reading meets a specific level. Ground-level ozone is a key component of smog and tends to spike on hot, sunny afternoons. This condition helps your automation make smarter ventilation decisions, keeping the windows shut during a smog alert but allowing fresh air in after the ozone reading decreases to a comfortable level.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -85,7 +85,7 @@ behavior:
 
 ### Automation: only open windows in the afternoon if ozone is low enough
 
-On hot summer days, ozone builds up through the afternoon and peaks around 3 PM. This automation triggers at that time and checks whether outdoor ozone is at or above 100 ug/m3. If the reading is still high, the windows stay shut and you get a notification explaining why. On breezy days with lower ozone, the automation does nothing and you enjoy fresh air as usual.
+On hot summer days, ozone builds up through the afternoon and peaks around 3 PM. This automation triggers at that time and checks whether outdoor ozone is at or above 100 μg/m3. If the reading is still high, the windows stay shut, and you get a notification explaining why. On breezy days with lower ozone, the automation does nothing, and you enjoy fresh air as usual.
 
 - **Trigger**: Time: 15:00
 - **Condition**: Air Quality: Ozone value

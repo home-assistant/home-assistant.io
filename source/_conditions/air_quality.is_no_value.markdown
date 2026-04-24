@@ -8,7 +8,7 @@ related_conditions:
   - air_quality.is_n2o_value
 ---
 
-The **Nitrogen monoxide value** condition passes when a nitrogen monoxide (NO) sensor's reading meets a specific level. NO is a reactive gas that shows up mainly around vehicle exhaust and industrial activity. If you live near a busy road, rush-hour traffic pushes NO levels up noticeably. This condition lets your automation respond to that pattern, closing the garage ventilation when NO spikes during the morning commute and reopening it once readings settle down.
+The **Nitrogen monoxide value** condition passes when a nitrogen monoxide (NO) sensor's reading meets a specific level. NO is a reactive gas that shows up mainly around vehicle exhaust and industrial activity. If you live near a busy road, rush-hour traffic raises NO levels noticeably. This condition lets your automation respond to that pattern, closing the garage ventilation when NO spikes during the morning commute and reopening it once readings settle down.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -85,7 +85,7 @@ behavior:
 
 ### Automation: keep the garage sealed during the morning commute
 
-If you live near a busy road, rush-hour exhaust pushes outdoor NO levels up fast. This automation triggers at 7:30 AM and checks the outdoor NO reading. If the level is at or above 100 ug/m3, the garage ventilation closes so fumes stay outside. On mornings with light traffic, the ventilation stays open as usual.
+If you live near a busy road, rush-hour exhaust raises outdoor NO levels fast. This automation triggers at 7:30 AM and checks the outdoor NO reading. If the level is at or above 100 μg/m3, the garage ventilation closes so fumes stay outside. On mornings with light traffic, the ventilation stays open as usual.
 
 - **Trigger**: Time: 07:30
 - **Condition**: Air Quality: Nitrogen monoxide value
