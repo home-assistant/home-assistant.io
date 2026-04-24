@@ -34,7 +34,7 @@ You can remove media files using the built-in media browser. This method is idea
 2. In the top-right corner, select {% icon "mdi:cog" %} **Manage**.
 3. Select one or more files and choose **Delete**.
 
-## Adding media using network file sharing (Home Assistant OS)
+## Adding media using network file sharing on Home Assistant OS
 
 If you are running {% term "Home Assistant Operating System" %}, you can use the **Samba** app for bulk file transfers. This method is ideal for transferring large files or many files at once using your computer's file explorer (File Explorer, macOS Finder, or Linux file manager).
 
