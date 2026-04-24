@@ -4,7 +4,6 @@
 
 ## Adding the {{ title | downcase }} to a dashboard
 
-To add the {{ title | downcase }} to your user interface:
 
 1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.
