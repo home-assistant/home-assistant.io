@@ -144,6 +144,10 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+icon:
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  required: false
+  type: icon
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
