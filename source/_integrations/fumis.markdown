@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: fumis
 ha_platforms:
   - climate
+  - number
   - sensor
 ha_codeowners:
   - '@frenck'
@@ -68,7 +69,7 @@ This integration supports multiple stoves. If you have more than one stove with 
 
 ### Entities
 
-The **Fumis** integration provides a climate entity and a collection of sensor entities for your pellet stove.
+The **Fumis** integration provides climate, sensor, and number entities for your pellet stove.
 
 #### Climate
 
@@ -104,6 +105,11 @@ The integration provides sensors that give you insight into your stove's operati
 - **Time to service**: Hours remaining until the next scheduled maintenance.
 
 Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
+
+#### Numbers
+
+- **Power level**: Set the stove's heating power from level 1 (lowest) to 5 (highest). A higher power level means more pellets are fed into the combustion chamber, producing more heat. The actual thermal output in kilowatts adjusts gradually after changing the power level.
+- **Fan speed**: Adjust the fan speed from 0 to 5. This controls the airflow through the stove and should typically not need to be changed. This entity is disabled by default and only available on stoves with a controllable fan.
 
 ## Examples
 
