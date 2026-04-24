@@ -422,6 +422,14 @@ Features:
 - set position
 - get position
 - get battery level
+- toggle quiet mode
+
+Quiet mode reduces motor noise at the cost of slower movement, and applies to open, close, and set position commands.
+
+1. To enable **Quiet mode**, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the SwitchBot integration and select the roller shade device you want to configure.
+3. Select **Configure** for that device.
+4. In the **Options** dialog, toggle **Quiet mode** on. The default is off (performance mode).
 
 #### Garage Door Opener
 
