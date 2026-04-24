@@ -18,8 +18,8 @@ To use an MQTT time entity in your installation, add the following to your {% te
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - time:
-      command_topic: command-topic
+  time:
+    - command_topic: command-topic
 ```
 
 Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
@@ -53,10 +53,10 @@ availability_topic:
   required: false
   type: string
 availability_mode:
-   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
-   required: false
-   type: string
-   default: latest
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
@@ -172,11 +172,11 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: "The MQTT topic subscribed to receive time state updates. Time state updates should contain a parable time string, e.a. '12:33:00' or '3:34 PM'. If a date/time stucture is passed, only the time component will be used. Can be used with `value_template` to render the incoming payload to a parsable time string."
+  description: "The MQTT topic subscribed to receive time state updates. Time state updates should contain a parsable time string, e.a. '12:33:00' or '3:34 PM'. If a date/time stucture is passed, only the time component will be used. Can be used with `value_template` to render the incoming payload to a parsable time string."
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
+  description: An ID that uniquely identifies this time entity. If two time entities have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:
@@ -198,8 +198,8 @@ This is an example of a manual configured MQTT `time` item.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - time:
-      name: "Scheduled task"
+  time:
+    - name: "Scheduled task"
       icon: mdi:ab-testing
       command_topic: "timer/start"
       state_topic: "timer/start_state"
