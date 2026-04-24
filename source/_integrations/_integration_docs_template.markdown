@@ -144,7 +144,12 @@ Create separate files for each:
 -->
 {% include integrations/triggers_conditions_actions.md %}
 
-## Examples
+## What you can do with My integration automations
+
+The real power of this integration is...
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
 
 ### Turning off the LEDs during the night
 
