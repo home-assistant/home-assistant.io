@@ -17,7 +17,7 @@ On {% term "Home Assistant Operating System" %}, the media folder is automatical
 1. In the sidebar (left side of your Home Assistant interface), go to {% my media_browser title="**Media** > **My media**" %}.
 2. From here, you can browse all media files in your `/media` folder and any custom media directories you've configured.
 
-## Adding media via the built-in media browser
+## Adding media using the media browser on Home Assistant OS
 
 You can add media files using the built-in media browser. This method is ideal for uploading a few files at a time. This method does not let you create folders.
 
