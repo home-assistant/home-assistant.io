@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: fumis
 ha_platforms:
+  - binary_sensor
   - climate
   - sensor
 ha_codeowners:
@@ -68,7 +69,7 @@ This integration supports multiple stoves. If you have more than one stove with 
 
 ### Entities
 
-The **Fumis** integration provides a climate entity and a collection of sensor entities for your pellet stove.
+The **Fumis** integration provides climate, sensor, and binary sensor entities for your pellet stove.
 
 #### Climate
 
@@ -104,6 +105,10 @@ The integration provides sensors that give you insight into your stove's operati
 - **Time to service**: Hours remaining until the next scheduled maintenance.
 
 Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
+
+#### Binary sensors
+
+- **Door**: Shows whether the combustion chamber door is open or closed. This sensor is only available on stoves that have a door sensor (like the Austroflamm Clou Duo).
 
 ## Examples
 
