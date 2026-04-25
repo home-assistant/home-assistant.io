@@ -97,4 +97,3 @@ You can expose more than one media directory to the media browser. For example, 
 4. To add files, follow the [steps on adding media][add-media].
 
 [add-media]: /more-info/local-media/add-media
-[basic-configuration]: /integrations/homeassistant/#media_dirs
