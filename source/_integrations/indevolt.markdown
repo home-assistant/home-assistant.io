@@ -120,7 +120,7 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 The `indevolt.change_energy_mode` action configures the battery to start charging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
 
 - **Data attribute**: `device_id`
-  - **Description**: The `entity_id` of the Indevolt device(s)
+  - **Description**: The `device_id` of the Indevolt device(s)
   - **Optional**: No
 - **Data attribute**: `power`
   - **Description**: The maximum charging power (0 - 2400W)
@@ -133,9 +133,8 @@ The `indevolt.change_energy_mode` action configures the battery to start chargin
 
 ```yaml
 action: indevolt.charge
-target:
-  device_id: YOUR_DEVICE_ID
 data:
+  device_id: YOUR_DEVICE_ID
   power: 1000
   target_soc: 100
 ```
@@ -145,7 +144,7 @@ data:
 The `indevolt.change_energy_mode` action configure the battery to start discharging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
 
 - **Data attribute**: `device_id`
-  - **Description**: The `entity_id` of the Indevolt device(s)
+  - **Description**: The `device_id` of the Indevolt device(s)
   - **Optional**: No
 - **Data attribute**: `power`
   - **Description**: The maximum charging power (0 - 2400W), keeping network limitations in mind
@@ -158,9 +157,8 @@ The `indevolt.change_energy_mode` action configure the battery to start discharg
 
 ```yaml
 action: indevolt.discharge
-target:
-  device_id: YOUR_DEVICE_ID
 data:
+  device_id: YOUR_DEVICE_ID
   power: 800
   target_soc: 10
 ```
