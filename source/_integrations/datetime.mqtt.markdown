@@ -172,7 +172,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: "The MQTT topic subscribed to receive date/time state updates. Date state updates should contain a parable date string, e.a. '2025-12-01' or '1 March 2025'. If a time structure is passed, the current date will be will be used. Can be used with `value_template` to render the incoming payload to a parsable date/time string expression. The expression must include a timezone, but must be omitted if the `timezone` option is set. If needed, the `value_template` option can be used to define a template that renders to a valid date/time structure.
+  description: "The MQTT topic subscribed to receive date/time state updates. Date state updates should contain a parsable date string, e.a. '2025-12-01' or '1 March 2025'. If a time structure is passed, the current date will be will be used. Can be used with `value_template` to render the incoming payload to a parsable date/time string expression. The expression must include a timezone, but must be omitted if the `timezone` option is set. If needed, the `value_template` option can be used to define a template that renders to a valid date/time structure."
   required: false
   type: string
 timezone:
