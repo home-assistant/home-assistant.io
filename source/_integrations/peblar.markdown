@@ -94,6 +94,12 @@ to enable them first. See the [enabling or disabling entities](/common-tasks/gen
 documentation for information on how to do this.
 {% endimportant %}
 
+- **Socket lock**: Indicates whether the socket of the charger is currently locked. When this sensor is on ({% term state %}: `on`), the socket is locked; when it is off ({% term state %}: `off`), the socket is unlocked.
+
+{% note %}
+The **Socket lock** binary sensor is only available on Peblar chargers that are equipped with a socket.
+{% endnote %}
+
 ### Buttons
 
 The buttons provided by this integration can be used to trigger an action on
@@ -101,12 +107,17 @@ the charger. The following buttons are available:
 
 - **Identify**: This button can be used to identify the charger. This can be useful if you have multiple chargers and want to identify which one is which. Once pressed, the LED on the charger will start blinking for a few seconds.
 - **Restart**: This button can be used to restart the charger. This can be useful if the charger is not responding as expected.
+- **Unlock socket**: This button unlocks the socket on the charger, allowing you to manually release the connector. This is useful when the socket is locked and you need to disconnect your vehicle.
 
 {% important %}
 These buttons are disabled by default. If you want to use them, you need
 to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
 documentation for information on how to do this.
 {% endimportant %}
+
+{% note %}
+The **Unlock socket** button is only available on Peblar chargers that are equipped with a socket.
+{% endnote %}
 
 ### Numbers
 
@@ -118,9 +129,38 @@ The minimum value for this entity is 6A, and the maximum value is depending on y
 
 ### Selects
 
-This integration provides a single select entity: **Smart charging**.
+This integration provides the following select entities.
 
-It reflects the same smart charging state as is shown on the charger's local web interface, and allows you to control the charging behavior of the charger.
+#### Buzzer volume
+
+The **Buzzer volume** select entity controls the volume level of the charger's built-in buzzer. The following options are available:
+
+- **Off** ({% term state %}: `off`): The buzzer is disabled.
+- **Low** ({% term state %}: `low`): The buzzer plays at a low volume.
+- **Medium** ({% term state %}: `medium`): The buzzer plays at a medium volume.
+- **High** ({% term state %}: `high`): The buzzer plays at a high volume.
+
+{% note %}
+The **Buzzer volume** select entity is only available on Peblar chargers that are equipped with a buzzer.
+{% endnote %}
+
+#### LED brightness
+
+The **LED brightness** select entity controls the brightness of the status LED on the charger. The following options are available:
+
+- **Automatic** ({% term state %}: `automatic`): The charger automatically adjusts the LED brightness based on ambient light conditions.
+- **Bright** ({% term state %}: `bright`): The LED is set to its maximum brightness.
+- **Medium** ({% term state %}: `medium`): The LED is set to a medium brightness.
+- **Dim** ({% term state %}: `dim`): The LED is set to a low brightness.
+- **Off** ({% term state %}: `off`): The LED is turned off.
+
+{% note %}
+The **LED brightness** select entity is only available on Peblar chargers that support LED brightness control.
+{% endnote %}
+
+#### Smart charging
+
+The **Smart charging** select entity reflects the same smart charging state as is shown on the charger's local web interface, and allows you to control the charging behavior of the charger.
 
 The following options are available:
 
@@ -193,13 +233,18 @@ documentation for information on how to do this.
 
 ### Switches
 
-This integration provides two switch entities:
+This integration provides the following switch entities:
 
 - **Charge**: This switch allows you to start or stop/pause the charging of your electric vehicle. This can be helpful if you want to temporarily stop charging your electric vehicle, for example, to avoid charging during expensive peak hours.
 - **Force single phase**: This switch can be used to force the charger to use a single phase for charging your electric vehicle. This can be useful if you want to limit your current draw from the charger to a single phase, for example, to prevent overloading your electrical installation.
+- **Keep socket locked**: When enabled, the charger keeps the socket locked when no electric vehicle is connected. This can help prevent unauthorized use of the charger.
 
 {% note %}
 The **Force single phase** switch is only available if your charger is connected to multiple phases. If your charger is connected to a single-phase power source, this switch will not be created.
+{% endnote %}
+
+{% note %}
+The **Keep socket locked** switch is only available on Peblar chargers that are equipped with a socket.
 {% endnote %}
 
 ### Updates
