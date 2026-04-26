@@ -207,12 +207,21 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
 - **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
 
+### UniFi Protect relays
+
+Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the NVR. Requires a UniFi Protect version that includes **Relay information & management** in the public API. See [Public API features](#public-api-features).
+
+- **Switch** - A switch entity is added for each relay output channel to turn the output on or off.
+
+{% note %}
+Relay input channels are not yet supported.
+{% endnote %}
+
 ### NVR
 
 Your main UniFi Protect NVR device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
 
-- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
-
+- **Alarm Manager** - An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
 - **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
