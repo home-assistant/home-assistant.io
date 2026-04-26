@@ -36,6 +36,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - text
 ha_integration_type: hub
@@ -206,6 +207,12 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
 - **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
+
+### UniFi Protect sirens
+
+Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the NVR. This requires a UniFi Protect version that includes **Siren information & management** in the public API. See [Public API features](#public-api-features).
+
+- **Siren** - A siren entity to trigger and stop the siren.
 
 ### NVR
 
