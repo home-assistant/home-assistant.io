@@ -58,7 +58,7 @@ URL:
 Verify SSL certificate:
   description: "If checked, the SSL certificate will be validated to ensure a secure connection."
 API key:
-  description: "The API key to authenticato with the pyload API."
+  description: "The API key to authenticato with the pyLoad API."
 Username [Deprecated]:
   description: "The username used to access the pyLoad instance. No longer supported with pyLoad 0.5.0b3.dev97 or later."
 Password [Deprecated]:
