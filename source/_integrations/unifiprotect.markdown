@@ -54,7 +54,7 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 
 ### Software support
 
-The **absolute minimum** software version is `v6.0.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration.
+The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
 
 ### Public API features {#public-api-features}
 
@@ -209,9 +209,9 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 ### NVR
 
-Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
+Your main UniFi Protect NVR device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
 
-- **Alarm Manager** - An alarm control panel entity to arm and disarm the NVR Alarm Manager. Arming the system sets it to _away_ mode. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
 
 - **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
