@@ -14,7 +14,7 @@ This action works with any alarm control panel {% term entity %} in Home Assista
 
 {% include actions/ui_header.md %}
 
-To arm an alarm in home mode from an automation or a script:
+Arming an alarm in home mode from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create** to start a new one.

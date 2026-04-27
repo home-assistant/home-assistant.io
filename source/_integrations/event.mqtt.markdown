@@ -125,7 +125,7 @@ device_class:
   required: false
   type: device_class
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to true, the entity is enabled and usable immediately. Disabled entities don't appear in Home Assistant until you manually enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true

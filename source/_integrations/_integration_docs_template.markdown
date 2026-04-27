@@ -146,6 +146,11 @@ Create separate files for each:
 
 ## My-integration automation examples
 
+The real power of this integration is...
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
 ### Automation: Turning off the LEDs during the night
 
 The status LEDs on the device can be quite bright.

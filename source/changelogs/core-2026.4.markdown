@@ -2828,3 +2828,50 @@ For a summary in a more readable format
 [@natekspencer]: https://github.com/natekspencer
 [@timmo001]: https://github.com/timmo001
 [@zerzhang]: https://github.com/zerzhang
+
+## Release 2026.4.4 - April 24
+
+- Fixed Kodi Media Browsing ([@albaintor] - [#165819])
+- Fix Victron BLE false reauth on unrecognised advertisement mode bytes ([@rajlaud] - [#168209])
+- Fix case-sensitive MIME type check in Google Generative AI TTS ([@MohamedBarrak3] - [#168458])
+- Hive - Bump pyhive-integration to 1.0.9 ([@KJonline] - [#168489])
+- Bump aioamazondevices to 13.4.3 ([@chemelli74] - [#168536])
+- Fix MQTT JSON light restoring None color_mode on startup ([@noerstad] - [#168608])
+- Add Roborock fan speed validation and error handling ([@allenporter] - [#168623])
+- Correct state/device class for water in gardena ([@elupus] - [#168637])
+- Cancel and await idle_start future if the task was canceled after an IMAP connection was lost ([@jbouwh] - [#168662])
+- Validate local_only user property during ws auth phase ([@edenhaus] - [#168812])
+- Update Tibber library, 0.37.2 ([@Danielhiversen] - [#169027])
+- Slow down Tractive API polling to avoid 429 too many requests ([@bieniu] - [#169057])
+- Bump aiotractive to 1.0.3 ([@bieniu] - [#169059])
+- Validate local_only user for signed requests ([@edenhaus] - [#169066])
+- Update frontend to 20260325.8 ([@bramkragten] - [#169076])
+
+[#165819]: https://github.com/home-assistant/core/pull/165819
+[#168209]: https://github.com/home-assistant/core/pull/168209
+[#168458]: https://github.com/home-assistant/core/pull/168458
+[#168489]: https://github.com/home-assistant/core/pull/168489
+[#168536]: https://github.com/home-assistant/core/pull/168536
+[#168608]: https://github.com/home-assistant/core/pull/168608
+[#168623]: https://github.com/home-assistant/core/pull/168623
+[#168637]: https://github.com/home-assistant/core/pull/168637
+[#168662]: https://github.com/home-assistant/core/pull/168662
+[#168812]: https://github.com/home-assistant/core/pull/168812
+[#169027]: https://github.com/home-assistant/core/pull/169027
+[#169057]: https://github.com/home-assistant/core/pull/169057
+[#169059]: https://github.com/home-assistant/core/pull/169059
+[#169066]: https://github.com/home-assistant/core/pull/169066
+[#169076]: https://github.com/home-assistant/core/pull/169076
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@KJonline]: https://github.com/KJonline
+[@MohamedBarrak3]: https://github.com/MohamedBarrak3
+[@albaintor]: https://github.com/albaintor
+[@allenporter]: https://github.com/allenporter
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@jbouwh]: https://github.com/jbouwh
+[@noerstad]: https://github.com/noerstad
+[@rajlaud]: https://github.com/rajlaud
