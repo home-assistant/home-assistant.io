@@ -2,6 +2,7 @@
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
+  - Alarm
   - Binary sensor
   - Button
   - Camera
@@ -23,6 +24,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: unifiprotect
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
@@ -52,7 +54,11 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 
 ### Software support
 
-The **absolute minimum** software version is `v6.0.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. 
+The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
+
+### Public API features {#public-api-features}
+
+Some entities depend on features that were added to the UniFi Protect public API in a specific version. If your UniFi Protect version is older than the version that introduced a given feature, the corresponding entity will not be available. You can look up which features were introduced in which version on the [UniFi Protect developer portal](https://developer.ui.com/protect/).
 
 ### No EA support
 {% important %}
@@ -203,7 +209,9 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 ### NVR
 
-Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
+Your main UniFi Protect NVR device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
+
+- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
 
 - **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
