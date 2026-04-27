@@ -124,7 +124,7 @@ The alert sensor shows the currently active alert on your stove. Alerts are less
 - **Low fuel level** (A001): The pellet tank is running low. Time to refill.
 - **Service due** (A002): Your stove is due for regular maintenance.
 - **Flue gas temperature warning** (A003): The flue gas temperature is elevated. Consider cleaning the chimney or heat exchanger.
-- **Low battery** (A004): The controller battery is low. Contact your service technician for replacement.
+- **Low battery** (A004): The controller battery is low. Contact your service technician for a replacement.
 - **Speed sensor failure** (A005): The speed sensor is not working correctly. Contact your service technician.
 - **Door open** (A006): The combustion chamber door is open. Close the door.
 - **Airflow sensor malfunction** (A007): The airflow sensor is malfunctioning. The stove is operating in a limited mode.
