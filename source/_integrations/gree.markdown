@@ -64,7 +64,7 @@ Preset mode **Away** represents Gree's "8°C heating mode."
 Both the vertical and horizontal airflow direction can be controlled independently with granular position control.
 
 {% important %}
-The vertical swing mode values changed in Home Assistant 2025.x. If you have automations or scripts that use the old values (`off`, `vertical`, `horizontal`, or `both`), you will need to update them to use the new values listed below.
+The vertical swing mode values changed in Home Assistant 2026.x. If you have automations or scripts that use the old values (`off`, `vertical`, `horizontal`, or `both`), you will need to update them to use the new values listed below.
 {% endimportant %}
 
 The vertical swing mode controls the up/down airflow direction and supports the following positions:
