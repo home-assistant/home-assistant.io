@@ -105,12 +105,12 @@ The **Socket lock** binary sensor is only available on Peblar chargers that are 
 The buttons provided by this integration can be used to trigger an action on
 the charger. The following buttons are available:
 
-- **Identify**: This button can be used to identify the charger. This can be useful if you have multiple chargers and want to identify which one is which. Once pressed, the LED on the charger will start blinking for a few seconds.
-- **Restart**: This button can be used to restart the charger. This can be useful if the charger is not responding as expected.
-- **Unlock socket**: This button unlocks the socket on the charger, allowing you to manually release the connector. This is useful when the socket is locked and you need to disconnect your vehicle.
+- **Identify**: This button can be used to identify the charger. This can be useful if you have multiple chargers and want to identify which one is which. Once pressed, the LED on the charger will start blinking for a few seconds. Disabled by default.
+- **Restart**: This button can be used to restart the charger. This can be useful if the charger is not responding as expected. Disabled by default.
+- **Unlock socket**: This button unlocks the socket on the charger, allowing you to manually release the connector. This is useful when the socket is locked and you need to disconnect your vehicle. This button is enabled by default.
 
 {% important %}
-These buttons are disabled by default. If you want to use them, you need
+Some of these buttons are disabled by default. If you want to use them, you need
 to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
 documentation for information on how to do this.
 {% endimportant %}
