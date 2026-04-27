@@ -74,6 +74,15 @@ ip_ban_enabled:
   required: false
   type: boolean
   default: true
+ip_ban_whitelist:
+  description: >
+    A list of IP addresses or networks that should be excluded 
+    from IP banning. Whitelisted IPs will not be banned even if they exceed the 
+    login attempts threshold. Supports both individual IP addresses (e.g., 
+    192.168.1.100) and CIDR notation (e.g., 192.168.1.0/24).
+  required: false
+  type: list
+  default: []
 login_attempts_threshold:
   description: "Number of failed login attempts from a single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
   required: false
@@ -102,6 +111,9 @@ http:
     - 10.0.0.200
     - 172.30.33.0/24
   ip_ban_enabled: true
+  ip_ban_whitelist:
+    - 10.0.0.200
+    - 172.30.33.0/24
   login_attempts_threshold: 5
 ```
 
@@ -166,6 +178,20 @@ To clear an IP ban, you can either:
 - Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
 
 After making changes, restart Home Assistant to apply them.
+
+### IP ban whitelist
+
+If you want to exclude certain IP addresses or networks from being banned, you can add them to the ip_ban_whitelist list. This is useful for trusted IPs or networks that should never be blocked, even if they exceed the login attempts threshold.
+
+```yaml
+http:
+  ip_ban_enabled: true
+  ip_ban_whitelist:
+    - 192.168.1.0/24
+    - 10.0.0.0/8
+```
+
+The whitelist supports both individual IP addresses and CIDR notation for networks.
 
 ## Hosting files
 
