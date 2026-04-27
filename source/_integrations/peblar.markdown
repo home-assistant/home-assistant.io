@@ -237,28 +237,34 @@ The Peblar integration provides the following actions to manage the RFID tokens 
 
 The `peblar.list_rfid_tokens` action returns all RFID tokens currently configured in the charger's standalone authorization list.
 
-| Data attribute | Optional | Description |
-| --- | --- | --- |
-| `config_entry_id` | No | The Peblar charger to retrieve the RFID token list from. |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The Peblar charger to retrieve the RFID token list from.
+  - **Optional**: No
 
 ### Action: Add RFID token
 
 The `peblar.add_rfid_token` action adds a new RFID token to the charger's standalone authorization list.
 
-| Data attribute | Optional | Description |
-| --- | --- | --- |
-| `config_entry_id` | No | The Peblar charger to add the RFID token to. |
-| `uid` | No | The unique identifier (UID) of the RFID token to add. |
-| `description` | No | A human-readable label for this RFID token, for example, the name of the person it belongs to. |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The Peblar charger to add the RFID token to.
+  - **Optional**: No
+- **Data attribute**: `uid`
+  - **Description**: The unique identifier (UID) of the RFID token to add.
+  - **Optional**: No
+- **Data attribute**: `description`
+  - **Description**: A human-readable label for this RFID token, for example, the name of the person it belongs to.
+  - **Optional**: No
 
 ### Action: Remove RFID token
 
 The `peblar.remove_rfid_token` action removes an RFID token from the charger's standalone authorization list.
 
-| Data attribute | Optional | Description |
-| --- | --- | --- |
-| `config_entry_id` | No | The Peblar charger to remove the RFID token from. |
-| `uid` | No | The unique identifier (UID) of the RFID token to remove. |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The Peblar charger to remove the RFID token from.
+  - **Optional**: No
+- **Data attribute**: `uid`
+  - **Description**: The unique identifier (UID) of the RFID token to remove.
+  - **Optional**: No
 
 ## Examples
 
