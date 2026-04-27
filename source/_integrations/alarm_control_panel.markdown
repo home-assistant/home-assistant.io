@@ -37,21 +37,34 @@ An alarm panel {% term entity %} reflects the current state of your alarm system
 - **Unavailable**: the entity is currently unavailable.
 - **Unknown**: the state is not yet known.
 
-## Code requirements
+## Using an alarm PIN code in actions
 
-Some alarm panels require a PIN code to arm, disarm, or both. Others work without a code at all. When you use the arm or disarm actions, you pass the code as an optional field. If your panel requires a code and you don't provide one (or provide the wrong one), the action fails silently and the alarm stays in its current state. Check your alarm integration's documentation for details on how codes are handled.
+Some alarm panels require a PIN code to arm, disarm, or both. Others work without a PIN code. If your panel requires a PIN and you omit it or enter the wrong one, the action fails silently, and the alarm stays in its current state.
 
-## The "Changed by" attribute
+1. Check your alarm integration's documentation to find out whether a PIN is required for arming, disarming, or both.
+2. In your automation or script, add the alarm action.
+3. If a PIN is needed, under **Data**, add `code` with your PIN:
+
+    ```yaml
+    actions:
+      - action: alarm_control_panel.alarm_disarm
+        target:
+          entity_id: alarm_control_panel.home_alarm
+        data:
+          code: "1234"
+    ```
+
+## About the "Changed by" attribute
 
 If your alarm panel supports it, the **Changed by** (`changed_by`) attribute tells you _who_ last changed the alarm state. This is the name or identifier reported by your alarm system, for example a person's name like "Franck Nijhof" or a key fob ID. You can use this attribute in notifications and automations to keep your household informed about who armed or disarmed the alarm.
 
-## What you can do with alarm automations
+## Alarm automation examples
 
 The real power of this integration is combining triggers and conditions into automations that protect your home without you having to think about it. Here are a few ideas to get you started.
 
 {% include docs/paste_yaml_tip.md %}
 
-### Arm the alarm when everyone leaves
+### Automation: arm the alarm when everyone leaves
 
 When the last person leaves the house, arm the alarm in away mode automatically. No more wondering whether you remembered to set the alarm after rushing out the door.
 
@@ -88,7 +101,7 @@ automation: |
 
 {% enddetails %}
 
-### Disarm when you arrive home
+### Automation: disarm when you arrive home
 
 When you pull into the driveway, Home Assistant recognizes you are home and disarms the alarm. You walk through the front door without fumbling for a keypad or app.
 
@@ -115,7 +128,7 @@ automation: |
 
 {% enddetails %}
 
-### Send an urgent notification when the alarm triggers
+### Automation: send an urgent notification when the alarm triggers
 
 If the alarm goes off, you want to know immediately, even if you are on the other side of town. This automation sends a critical notification to your phone the instant the alarm triggers.
 
@@ -144,7 +157,7 @@ automation: |
 
 {% enddetails %}
 
-### Arm in night mode at bedtime
+### Automation: arm in night mode at bedtime
 
 When bedtime arrives, switch the alarm to night mode so perimeter sensors stay active while you move freely inside the house.
 
@@ -167,7 +180,7 @@ automation: |
 
 {% enddetails %}
 
-### Notify the household who disarmed the alarm
+### Automation: notify the household who disarmed the alarm
 
 If your alarm panel reports who made the change, you get a notification telling you exactly who disarmed the system. Handy for families who want to know when the kids got home, or for keeping a log of who opened up the house.
 
