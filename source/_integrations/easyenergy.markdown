@@ -94,7 +94,7 @@ The `easyenergy.get_gas_prices` action allows you to fetch the hourly prices for
 | -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
 | `config_entry` | no       | Config entry ID to use.                              | 013713c172577bada2874a32dbe44feb |
 | `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | False                            |
-| `price_type`   | yes      | Defines the type of price. Defaults to `market`.     | `all_in`                         |
+| `price_type`   | yes      | Defines the type of price. Defaults to `market`      | `all_in`                         |
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
 
@@ -129,8 +129,8 @@ The `easyenergy.get_energy_usage_prices` action allows you to fetch the prices f
 | -------------- | -------- | --------------------------------------------------------- | -------------------------------- |
 | `config_entry` | no       | Config entry ID to use.                                   | 013713c172577bada2874a32dbe44feb |
 | `incl_vat`     | no       | Defines whether the prices include or exclude VAT.        | False                            |
-| `granularity`  | yes      | Defines the granularity of the prices. Defaults to `hour`. | `quarter`                        |
-| `price_type`   | yes      | Defines the type of price. Defaults to `market`.           | `all_in`                         |
+| `granularity`  | yes      | Defines the granularity of the prices. Defaults to `hour` | `quarter`                        |
+| `price_type`   | yes      | Defines the type of price. Defaults to `market`           | `all_in`                         |
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00      | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00        | 2023-01-01 00:00:00              |
 
@@ -164,7 +164,7 @@ The `easyenergy.get_energy_return_prices` action allows you to fetch the prices 
 | Data attribute | Optional | Description                                               | Example                          |
 | -------------- | -------- | --------------------------------------------------------- | -------------------------------- |
 | `config_entry` | no       | Config entry ID to use.                                   | 013713c172577bada2874a32dbe44feb |
-| `granularity`  | yes      | Defines the granularity of the prices. Defaults to `hour`. | `quarter`                        |
+| `granularity`  | yes      | Defines the granularity of the prices. Defaults to `hour` | `quarter`                        |
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00      | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices from. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
 
