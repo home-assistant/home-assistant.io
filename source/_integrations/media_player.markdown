@@ -304,7 +304,7 @@ The media player entity will be represented by one of the following icons in the
 - {% icon "mdi:cast" %} Default
 - {% icon "mdi:television" %} TV
 - {% icon "mdi:speaker" %} Speaker
-- {% icon "mdi:audio-video" %} Receiver (Device that takes audio and video input and outputs to speakers and displays)
+- {% icon "mdi:audio-video" %} Receiver (device that takes audio and video input and outputs to speakers and displays)
 - {% icon "mdi:projector" %} Projector
 
 Some device classes also support additional icons based on their state:
