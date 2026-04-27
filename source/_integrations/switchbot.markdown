@@ -700,7 +700,7 @@ Options:
 
 #### Lock Ultra
 
-This is an encrypted device.
+This is an encrypted device. The half-lock function only supports EU model, and users need to configure it to nightlatch operation mode in the settings. See Options.
 
 Features:
 
@@ -709,6 +709,7 @@ Features:
 - auto-lock paused state
 - calibration state
 - get battery level
+- half lock
 
 Options:
 
