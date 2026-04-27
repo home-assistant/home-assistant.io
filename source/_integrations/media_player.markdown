@@ -301,11 +301,11 @@ media_player.living_room:
 
 The media player entity will be represented by one of the following icons in the frontend, depending on the device class of the media player:
 
-- {% icon "mdi:cast" %} Default
-- {% icon "mdi:television" %} TV
-- {% icon "mdi:speaker" %} Speaker
-- {% icon "mdi:audio-video" %} Receiver (device that takes audio and video input and outputs to speakers and displays)
-- {% icon "mdi:projector" %} Projector
+- {% icon "mdi:cast" %} `None`
+- {% icon "mdi:television" %} `tv`
+- {% icon "mdi:speaker" %} `speaker`
+- {% icon "mdi:audio-video" %} `receiver` (device that takes audio and video input and outputs to speakers and displays)
+- {% icon "mdi:projector" %} `projector`
 
 Some device classes also support additional icons based on their state:
 
