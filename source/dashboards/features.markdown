@@ -587,7 +587,7 @@ type:
 
 Widget that displays a bar chart of daily forecast temperature ranges for a weather entity. Each bar shows the low-to-high temperature range for the day, colored by the forecasted weather condition. A thin horizontal line marks the current temperature across the bars.
 
-You can also overlay precipitation forecast as translucent bars rising from the bottom, either as forecasted amount or as probability of rain. When you hide the temperature, dry periods are marked with a small dot so the cadence of days stays visible.
+You can also overlay precipitation forecast as translucent bars rising from the bottom, either as forecasted amount or as probability of precipitation. When you hide the temperature, dry periods are marked with a small dot so the cadence of days stays visible.
 
 <p class='img'>
   <img src='/images/dashboards/features/daily_forecast.png' alt='Screenshot of the tile card with the daily forecast feature'>
@@ -682,7 +682,7 @@ show_precipitation:
   default: false
 precipitation_type:
   required: false
-  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the visible window's maximum) or `probability` (chance of rain on a fixed 0–100% scale). Pick `probability` when your weather integration provides chance-of-rain but no volume forecast."
+  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the visible window's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides chance of precipitation but no volume forecast."
   type: string
   default: amount
 {% endconfiguration %}
