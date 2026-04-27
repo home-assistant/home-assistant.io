@@ -1176,6 +1176,8 @@ actions:
 
 ## Example: automation to send a message and delete after a delay
 
+{% raw %}
+
 ```yaml
 alias: telegram send message and delete
 actions:
