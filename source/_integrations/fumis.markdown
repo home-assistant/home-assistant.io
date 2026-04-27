@@ -91,7 +91,9 @@ The integration provides sensors that give you insight into your stove's operati
 
 - **Temperature**: The current room temperature as measured by your stove.
 - **Stove status**: A simplified view of what your stove is doing (off, heating up, ignition, burning, eco, or cooling).
-- **Detailed stove status**: The precise operational phase of your stove, useful for advanced automations.
+- **Detailed stove status**: The precise operational phase of your stove, useful for automations.
+- **Alert**: The currently active alert on your stove. Shows "No alert" when there are no warnings. See the [alert codes](#alert-codes) below.
+- **Error**: The currently active error on your stove. Shows "No error" when everything is fine. See the [error codes](#error-codes) below.
 - **Fuel level**: How much fuel is left in the pellet hopper, shown as a percentage.
 - **Power output**: The current thermal output of your stove in kilowatts.
 - **Combustion chamber**: The temperature inside the combustion chamber.
@@ -114,6 +116,35 @@ Some additional sensors are available but disabled by default because they are p
 #### Buttons
 
 - **Sync clock**: The Fumis WiRCU module does not synchronize its internal clock from the internet. Over time, the clock can drift, and it does not automatically adjust for daylight saving time changes. This button sends the current time from Home Assistant to your stove's controller, keeping its clock accurate. This is especially useful for stoves that use the built-in weekly timer schedule. You can automate this by pressing the button on a regular basis, for example, after a daylight saving time change.
+
+### Alert codes
+
+The alert sensor shows the currently active alert on your stove. Alerts are less critical than errors and typically indicate something that needs your attention. The following alert codes are recognized:
+
+- **Low fuel level** (A001): The pellet tank is running low. Time to refill.
+- **Service due** (A002): Your stove is due for regular maintenance.
+- **Flue gas temperature warning** (A003): The flue gas temperature is elevated. Consider cleaning the chimney or heat exchanger.
+- **Low battery** (A004): The controller battery is low. Contact your service technician for replacement.
+- **Speed sensor failure** (A005): The speed sensor is not working correctly. Contact your service technician.
+- **Door open** (A006): The combustion chamber door is open. Close the door.
+- **Airflow sensor malfunction** (A007): The airflow sensor is malfunctioning. The stove is operating in a limited mode.
+
+### Error codes
+
+The error sensor shows the currently active error on your stove. When an error occurs, the sensor state changes to a descriptive name, and the original device error code is available as a `code` attribute on the sensor. The following error codes are recognized:
+
+- **Ignition failed** (E101): Ignition failed, water overtemperature, or backfire protection triggered.
+- **Chimney or burning pot dirty** (E102): The chimney or burning pot needs cleaning, or the stove was manually stopped before flame detection.
+- **Sensor T02 malfunction** (E105): Temperature sensor T02 is malfunctioning or disconnected.
+- **Sensor T03/T05 malfunction** (E106): Temperature sensor T03 or T05 is malfunctioning or disconnected.
+- **Sensor T04 malfunction** (E107): Temperature sensor T04 is malfunctioning or disconnected.
+- **Safety switch tripped** (E108): The safety thermostat (STB) has tripped. Reset and restart the stove.
+- **Pressure sensor off** (E109): The pressure sensor has switched off. Reset and restart the stove.
+- **Sensor T01/T02 malfunction** (E110): Temperature sensor T01 or T02 is malfunctioning or disconnected.
+- **Sensor T01/T03 malfunction** (E111): Temperature sensor T01 or T03 is malfunctioning or disconnected.
+- **Flue gas overtemperature** (E113): The flue gas temperature is too high. Clean the chimney or heat exchanger.
+- **Fuel ignition timeout** (E114): The fuel did not ignite in time. The burning pot may be empty, or the pellet tank needs refilling.
+- **General error** (E115): A general error has occurred. Contact your service technician.
 
 ## Examples
 
