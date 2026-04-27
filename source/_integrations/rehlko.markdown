@@ -37,6 +37,35 @@ password:
 
 The integration uses your generator's name as the device name and within your entity names. To change this name, it is recommended to do so in the Kohler app before configuring the integration.
 
+## Finding your generator
+
+After configuring the integration, your generator will appear as {% term entities %} in Home Assistant rather than as a traditional device.
+
+To view your generator entities:
+
+1. Go to **Settings** → **Devices & Services**
+2. Click on **Rehlko** (you will see **1 Entity** listed)
+3. Click on the integration to see all available entities
+
+The entities will use your generator's name (as set in the Kohler app) and include:
+- **Binary sensors** such as auto run, connectivity, and oil pressure status
+- **Sensors** such as generator status, engine state, and power source
+
+You can also find your generator entities by going to **Settings** → **Entities** and searching for your generator's name.
+
+## Troubleshooting
+
+### Entities don't appear after setup
+
+If you have configured the integration but don't see any entities:
+
+1. Verify your login credentials are correct in the Rehlko (Kohler Energy Management) app
+2. Make sure your generator is connected to the internet and showing in the Kohler app
+3. Check the **Settings** → **Devices & Services** page — the integration should show **1 Entity**
+4. Try removing and re-adding the integration
+
+If issues persist, check the [Home Assistant logs](https://www.home-assistant.io/docs/configuration/) for any error messages related to the Rehlko integration.
+
 ## Binary sensors
 
 This integration provides the following binary sensors to help you keep track of your generator's key states:
