@@ -229,13 +229,7 @@ Although this integration uses local polling, any configuration changes you make
 Peblar charger from Home Assistant will appear on the charger almost
 instantly.
 
-## Actions
-
-The Peblar integration provides the following actions to manage the RFID tokens in the charger's standalone authorization list.
-
-- [List RFID tokens](/actions/peblar.list_rfid_tokens/) — returns all RFID tokens currently configured on the charger.
-- [Add RFID token](/actions/peblar.add_rfid_token/) — adds a new RFID token using a UID and description.
-- [Remove RFID token](/actions/peblar.remove_rfid_token/) — removes an RFID token by its UID.
+{% include integrations/actions.md %}
 
 ## Examples
 
