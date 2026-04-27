@@ -49,7 +49,11 @@ exclude:
 
 ## Network settings
 
-The iZone system uses UDP broadcasts over the local network to find and communicate with iZone devices. For this to work properly, UDP port  12107 must be able to be broadcasted on, 7005 needs to be listened to for broadcasted messages, and TCP port 80 for HTTP data to the bridge. The integration currently listens on `0.0.0.0` and broadcasts to all broadcast IPv4 local addresses, which is not configurable.
+The iZone system uses UDP multicast/broadcast discovery on the local network to find and communicate with iZone devices. For discovery to work reliably, Home Assistant must be able to receive these multicast messages, which this means Home Assistant should be on the same L2 network as the iZone bridge, or your network must be configured to retransmit/forward multicast traffic between segments.
+
+For connectivity, UDP port 12107 must be reachable for discovery traffic, UDP port 7005 must be reachable for incoming iZone messages, and TCP port 80 is used for HTTP communication with the bridge. The integration currently listens on `0.0.0.0` and sends discovery to local IPv4 broadcast addresses, which is not configurable.
+
+Direct setup by IP address is planned for a future update, but is not available yet.
 
 ## Master controller
 
