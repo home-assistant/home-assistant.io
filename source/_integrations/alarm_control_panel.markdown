@@ -45,14 +45,14 @@ Some alarm panels require a PIN code to arm, disarm, or both. Others work withou
 2. In your automation or script, add the alarm action.
 3. If a PIN is needed, under **Data**, add `code` with your PIN:
 
-    ```yaml
-    actions:
-      - action: alarm_control_panel.alarm_disarm
-        target:
-          entity_id: alarm_control_panel.home_alarm
-        data:
-          code: "1234"
-    ```
+   ```yaml
+   actions:
+     - action: alarm_control_panel.alarm_disarm
+       target:
+         entity_id: alarm_control_panel.home_alarm
+       data:
+         code: "1234"
+   ```
 
 ## About the "Changed by" attribute
 
