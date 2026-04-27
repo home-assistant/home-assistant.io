@@ -26,15 +26,18 @@ Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wi
 
 {% include integrations/config_flow.md %}
 
-## Manual configuration
+## Multiple iZone systems
 
-Alternatively, the iZone integration can be configured manually via the
-{% term "`configuration.yaml`" %} file if there is more than one iZone system on the local
-network and one or more must be excluded use manual configuration.
+If you have more than one iZone system on your local network, the iZone integration will discover all available controllers and show them to you. When you set up the integration, you can choose which controller you want to configure. You can add additional controllers by running the integration setup again.
+
+## Legacy YAML configuration
+
+For legacy setups or if you need to exclude specific controllers from integration with Home Assistant, you can configure the iZone integration via the {% term "`configuration.yaml`" %} file with the `exclude` option.
+
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
-# Full manual example configuration.yaml entry
+# Example configuration.yaml entry with excluded controllers
 izone:
   exclude:
     - "000013170"
@@ -42,7 +45,7 @@ izone:
 
 {% configuration %}
 exclude:
-  description: Exclude particular units from integration with Home Assistant.
+  description: Exclude particular units from integration with Home Assistant. Only applies to YAML-based configuration.
   required: false
   type: list
 {% endconfiguration %}
