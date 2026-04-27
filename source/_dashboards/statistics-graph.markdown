@@ -33,9 +33,9 @@ Statistics are gathered every 5 minutes and also hourly for sensors with a state
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

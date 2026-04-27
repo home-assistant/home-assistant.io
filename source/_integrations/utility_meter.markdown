@@ -208,8 +208,6 @@ Assuming your energy provider tariffs are time based according to:
 
 a time based automation can be used:
 
-{% raw %}
-
 ```yaml
 automation:
   triggers:
@@ -233,8 +231,6 @@ automation:
       data:
         option: "{{ tariff }}"
 ```
-
-{% endraw %}
 
 Assuming your utility provider cycle is offset from the last day of the month
 
@@ -291,10 +287,8 @@ utility_meter:
 ```
 
 Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
-we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
+we use the `is_number()` [function](/docs/templating/patterns/) to verify the values
 returned from the sensors are numeric. If this evaluates to false, `None` is returned.
-
-{% raw %}
 
 ```yaml
 template:
@@ -319,5 +313,3 @@ template:
           None
         {% endif %}
 ```
-
-{% endraw %}

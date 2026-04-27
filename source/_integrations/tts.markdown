@@ -92,16 +92,12 @@ data:
 
 With a template:
 
-{% raw %}
-
 ```yaml
 action: tts.google_translate_say
 data:
   message: "Temperature is {{states('sensor.temperature')}}."
   cache: false
 ```
-
-{% endraw %}
 
 ## Cache
 
