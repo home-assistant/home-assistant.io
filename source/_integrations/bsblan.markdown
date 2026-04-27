@@ -90,32 +90,35 @@ The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the 
 
 The integration provides the following actions.
 
+### Action: Set heating schedule
+
+The `bsblan.set_heating_schedule` action allows you to set the weekly heating schedule for a BSB-LAN heating circuit. Select the heating-circuit sub-device you want to update, such as **Heating circuit 1**. The selected circuit determines which heating schedule is changed.
+
+- **Target**: `device_id`
+  - **Description**: The heating-circuit sub-device to configure.
+  - **Required**: Yes
+
 ### Action: Set hot water schedule
 
 The `bsblan.set_hot_water_schedule` action allows you to set the hot water heating schedule for your BSB-LAN device. Each day of the week can have one or more time slots when hot water heating should be active.
 
 - **Target**: `device_id`
-  - **Description**: The BSB-LAN device to configure.
+  - **Description**: The BSB-LAN water heater device to configure.
   - **Required**: Yes
-- **Data attributes**:
-  - **`monday_slots`**: List of time slots for Monday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`tuesday_slots`**: List of time slots for Tuesday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`wednesday_slots`**: List of time slots for Wednesday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`thursday_slots`**: List of time slots for Thursday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`friday_slots`**: List of time slots for Friday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`saturday_slots`**: List of time slots for Saturday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`sunday_slots`**: List of time slots for Sunday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`standard_values_slots`**: List of standard/default time slots. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
 
-Time slots are defined using time pickers for easy configuration without manual formatting. You only need to specify the days you want to configure.
+### Schedule data attributes
+
+The `bsblan.set_heating_schedule` and `bsblan.set_hot_water_schedule` actions use the same schedule fields. Each field is optional. Only specify the days you want to configure.
+
+- **`monday_slots`**: List of time slots for Monday
+- **`tuesday_slots`**: List of time slots for Tuesday
+- **`wednesday_slots`**: List of time slots for Wednesday
+- **`thursday_slots`**: List of time slots for Thursday
+- **`friday_slots`**: List of time slots for Friday
+- **`saturday_slots`**: List of time slots for Saturday
+- **`sunday_slots`**: List of time slots for Sunday
+
+Each slot contains a `start_time` and an `end_time`. Time slots are defined using time pickers for easy configuration without manual formatting.
 
 ### Action `bsblan.sync_time`
 
@@ -155,16 +158,16 @@ automation:
 
 ## Examples
 
-The following examples show how to use the BSB-LAN integration actions in Home Assistant automations.
+The following examples show how to use the BSB-LAN integration schedule actions in Home Assistant automations.
 
 ### Setting a weekday and weekend schedule
 
-This example sets different schedules for weekdays and weekends. Each day can have multiple time slots.
+This example sets different schedules for weekdays and weekends for one heating circuit. Use the device ID of the heating-circuit sub-device you want to configure. To use the same schedule for domestic hot water, use the `bsblan.set_hot_water_schedule` action and target the BSB-LAN water heater device instead.
 
 ```yaml
-action: bsblan.set_hot_water_schedule
+action: bsblan.set_heating_schedule
 target:
-  device_id: abc123device456
+  device_id: abc123heatingcircuit456
 data:
   monday_slots:
     - start_time: "06:00:00"
