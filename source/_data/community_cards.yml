@@ -11,8 +11,8 @@ cards:
     author: "NetworkChuck"
     link_icon: "/images/community-cards/play-icon.png"
     theme: "light"
-    background_image: "/images/voice-pe/features/right-mobile.webp"
-    background_image_alt: ""
+    video: /video/frontpage/nc-card.webm
+    video_poster: /images/frontpage/nc-card.webp
   - href: "https://www.youtube.com/watch?v=Z4gvkmJ8q48"
     text: '"Ultimate Home Assistant Beginner’s Guide!"'
     author: "Smart Home Solver"

@@ -117,6 +117,7 @@
             {% if card.quote %}{% assign card_classes = card_classes | append: ' community-card--quote' %}{% endif %}
             {% if card.blue %}{% assign card_classes = card_classes | append: ' community-card--blue' %}{% endif %}
             {% if card.background_image %}{% assign card_classes = card_classes | append: ' community-card--image' %}{% endif %}
+            {% if card.video %}{% assign card_classes = card_classes | append: ' community-card--video' %}{% endif %}
             {% if card.theme %}{% assign card_classes = card_classes | append: ' community-card--' | append: card.theme %}{% endif %}
             <a href="{{ card.href }}" class="community-card__link">
               <div class="{{ card_classes }}">
@@ -129,6 +130,8 @@
                   </p>
                 </div>
                 {% if card.background_image %}<img class="community-card__image" src="{{ card.background_image }}" alt="{{ card.background_image_alt }}">{% endif %}
+                {% if card.video_poster %}<img class="community-card__video-poster" src="{{ card.video_poster }}" alt="{{ card.video_poster_alt }}">{% endif %}
+                {% if card.video %}<video class="community-card__video" loop muted playsinline><source src="{{ card.video }}" type="video/webm"></video>{% endif %}
               </div>
             </a>
           {% endif %}
@@ -137,3 +140,26 @@
     {% endfor %}
   </div>
 </section>
+
+<script>
+  // Play videos on hover
+  document.querySelectorAll('.community-card--video').forEach(card => {
+    const video = card.querySelector('.community-card__video');
+    const poster = card.querySelector('.community-card__video-poster');
+    card.addEventListener('mouseenter', () => {
+      if (video) {
+        video.setAttribute('autoplay', '');
+        video.play();
+        if (poster) poster.style.opacity = '0';
+      }
+    });
+    card.addEventListener('mouseleave', () => {
+      if (video) {
+        video.removeAttribute('autoplay');
+        video.pause();
+        video.currentTime = 0;
+        if (poster) poster.style.opacity = '1';
+      }
+    });
+   });
+</script>
