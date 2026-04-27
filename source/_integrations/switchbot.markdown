@@ -709,7 +709,7 @@ Features:
 - auto-lock paused state
 - calibration state
 - get battery level
-- half lock
+- half-lock
 
 Options:
 
