@@ -12,6 +12,7 @@ ha_domain: lichess
 ha_integration_type: service
 ha_platforms:
   - sensor
+ha_quality_scale: bronze
 ---
 
 The **Lichess** {% term integration %} allows you to monitor your [Lichess](https://lichess.org) chess statistics in Home Assistant.

@@ -19,6 +19,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - select
   - sensor
   - switch
@@ -26,7 +27,7 @@ ha_platforms:
   - update
   - vacuum
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Whisker** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.

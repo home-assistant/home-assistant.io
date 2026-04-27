@@ -1940,7 +1940,7 @@ pre[class*="language-"]:after {
   #not_found {
     .page {
       text-align: center;
-      margin-bottom: 300px;
+      margin-bottom: 10px;
 
       .search404-container {
         margin-bottom: 32px;
@@ -1951,12 +1951,6 @@ pre[class*="language-"]:after {
           justify-self: center;
         }
       }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
     }
   }
 }

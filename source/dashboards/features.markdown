@@ -583,6 +583,72 @@ type:
   type: string
 {% endconfiguration %}
 
+## Daily forecast
+
+Widget that displays a bar chart of daily forecast temperature ranges for a weather entity. Each bar shows the low-to-high temperature range for the day, colored by the forecasted weather condition. A thin horizontal line marks the current temperature across the bars.
+
+<p class='img'>
+  <img src='/images/dashboards/features/daily_forecast.png' alt='Screenshot of the tile card with the daily forecast feature'>
+  Screenshot of the tile card with the daily forecast feature
+</p>
+
+```yaml
+features:
+  - type: "daily-forecast"
+    days_to_show: 5
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`daily-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "Which forecast feed to use. One of `daily` or `twice_daily`. Only types supported by the weather entity are selectable. Defaults to `daily` when available, otherwise `twice_daily`."
+  type: string
+days_to_show:
+  required: false
+  description: Number of days of forecast data to show. Minimum is 1 day (showing the forecast for the current day). The available data depends on how far ahead your weather integration provides daily forecasts.
+  type: integer
+  default: 7
+{% endconfiguration %}
+
+{% note %}
+This feature requires a weather integration that supports daily or twice-daily forecasts. If your weather entity provides neither, this feature will not be available.
+{% endnote %}
+
+## Hourly forecast
+
+Widget that displays a graph of hourly forecast temperatures for a [weather](/integrations/weather) entity. The graph line starts from the current temperature and shows forecast data points for the upcoming hours.
+
+<p class='img'>
+  <img src='/images/dashboards/features/hourly_forecast.png' alt='Screenshot of the tile card with the hourly forecast feature'>
+  Screenshot of the tile card with the hourly forecast feature
+</p>
+
+```yaml
+features:
+  - type: "hourly-forecast"
+    hours_to_show: 24
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`hourly-forecast`"
+  type: string
+hours_to_show:
+  required: false
+  description: Number of hours of forecast data to show. Minimum is 1 hour. The available data depends on how far ahead your weather integration provides hourly forecasts.
+  type: integer
+  default: 24
+{% endconfiguration %}
+
+{% note %}
+This feature requires a weather integration that supports hourly forecasts. If your weather entity does not provide hourly forecast data, this feature will not be available.
+{% endnote %}
+
 ## Lawn mower commands
 
 Widget that displays buttons to control a [lawn mower](/integrations/lawn_mower).
@@ -736,6 +802,48 @@ features:
 type:
   required: true
   description: "`media-player-playback`"
+  type: string
+{% endconfiguration %}
+
+## Media player sound mode
+
+Widget that displays a dropdown to select the sound mode for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_sound_mode.png' alt='Screenshot of the tile card with media player sound mode feature'>
+  Screenshot of the tile card with media player sound mode feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-sound-mode"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-sound-mode`"
+  type: string
+{% endconfiguration %}
+
+## Media player source
+
+Widget that displays a dropdown to select the source for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_source.png' alt='Screenshot of the tile card with media player source feature'>
+  Screenshot of the tile card with media player source feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-source"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-source`"
   type: string
 {% endconfiguration %}
 

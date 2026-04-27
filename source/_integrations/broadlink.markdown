@@ -4,6 +4,7 @@ description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
   - Climate
   - Light
+  - Radio Frequency
   - Remote
   - Sensor
   - Switch
@@ -19,6 +20,7 @@ ha_config_flow: true
 ha_platforms:
   - climate
   - light
+  - radio_frequency
   - remote
   - select
   - sensor
@@ -53,9 +55,10 @@ There is no more need to set up platforms, except for custom IR/RF switches. Onc
 
 The {% term entities %} have the same name as the device by default. To change the name, icon or entity id, select the entity on the frontend and select the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to select **Update** to save your changes when you're done.
 
-The {% term entities %} are divided into four subdomains:
+The {% term entities %} are divided into the following subdomains:
 
 - [Climate](#climate)
+- [Radio frequency](#radio-frequency)
 - [Remote](#remote)
 - [Select](#select)
 - [Sensor](#sensor)
@@ -67,13 +70,21 @@ The {% term entities %} are divided into four subdomains:
 
 The `climate` entities allow you to monitor and control Broadlink thermostats.
 
+## Radio frequency
+
+The `radio_frequency` {% term entity %} allows other integrations to send RF commands through your Broadlink device. It is created automatically for `RM pro` and `RM4 pro` devices, which include an RF transmitter. The supported bands are 433 MHz (433.05–434.79 MHz) and 315 MHz (314.95–315.25 MHz).
+
+This entity is intended for use by device-specific integrations that control RF appliances, such as range hoods, garage doors, or smart blinds. When you set up such an integration, you can select your Broadlink RF entity as the transmitter. Refer to the [Radio Frequency](/integrations/radio_frequency/) integration for more information.
+
+The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned RF codes.
+
 ## Remote
 
 The `remote` {% term entities %} allow you to learn and send codes with universal remotes. They are created automatically when you configure devices with IR/RF capabilities.
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later. A convenient interface to learn, send, and delete codes can be found in web interface under  `/developer-tools/service`.
 
 | Data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
@@ -428,6 +439,7 @@ The above example creates `switch.philips_tv` and `switch.lg_tv`, which are rela
 
 __IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
 
+##  Managing codes for remotes
 ### Using e-Control remotes
 
 If you already have your remotes learned on e-Control app you can use this method to "copy" them to Home Assistant.
@@ -698,3 +710,7 @@ Assuming that your (or similar) device is in one of these databases:
 - <https://github.com/probonopd/irdb/tree/master/>
 
 You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.
+
+### Managig codes with Broadlink Manager
+
+A Docker based GUI to learn, send, and generate IR and RF codes is available through the [Broadlink Manager project](https://github.com/t0mer/broadlinkmanager-docker)

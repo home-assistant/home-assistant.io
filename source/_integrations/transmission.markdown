@@ -2,10 +2,10 @@
 title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
 ha_category:
+  - Binary sensor
   - Downloading
   - Sensor
   - Switch
-  - Binary sensor
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_config_flow: true
