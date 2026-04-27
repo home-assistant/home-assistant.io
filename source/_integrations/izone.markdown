@@ -49,9 +49,9 @@ exclude:
 
 ## Network settings
 
-The iZone system uses UDP broadcast discovery on the local network to find and communicate with iZone devices. For discovery to work reliably, Home Assistant must be able to receive this broadcast discovery traffic. This means Home Assistant should be on the same local network segment, for example, the same VLAN, as the iZone bridge, or your network must be configured to forward this traffic between segments.
+The iZone system uses UDP broadcast discovery on the local network to find and communicate with iZone devices. For discovery to work reliably, Home Assistant must be able to receive this broadcast discovery traffic. In most cases, this means Home Assistant and the iZone bridge need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature that relays this discovery traffic between segments.
 
-For connectivity, Home Assistant must be able to send outbound UDP discovery traffic on port 12107, receive inbound UDP iZone messages on port 7005, and use TCP port 80 for HTTP communication with the bridge. The integration currently listens on `0.0.0.0` and sends discovery to local IPv4 broadcast addresses, which is not configurable.
+For connectivity, Home Assistant must be able to send outbound UDP discovery packets to destination port `12107`, listen locally for inbound UDP iZone messages on port `7005`, and use TCP port `80` for HTTP communication with the bridge. The integration currently listens on `0.0.0.0` and sends discovery to local IPv4 broadcast addresses, which is not configurable.
 
 ## Master controller
 
