@@ -628,12 +628,12 @@ show_temperature:
   default: true
 show_precipitation:
   required: false
-  description: Whether to overlay precipitation forecast as translucent bars in the rainy condition color.
+  description: Whether to overlay precipitation forecast as translucent bars.
   type: boolean
   default: false
 precipitation_type:
   required: false
-  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the period's maximum) or `probability` (chance of rain on a fixed 0–100% scale). Pick `probability` when your weather integration provides chance-of-rain but no volume forecast."
+  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the period's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides chance of precipitation but no volume forecast."
   type: string
   default: amount
 {% endconfiguration %}
@@ -646,7 +646,7 @@ This feature requires a weather integration that supports daily or twice-daily f
 
 Widget that displays a graph of hourly forecast temperatures for a [weather](/integrations/weather) entity. The graph line starts from the current temperature and shows forecast data points for the upcoming hours.
 
-You can also overlay precipitation forecast as translucent bars rising from the bottom, either as forecasted amount or as probability of rain. When you hide the temperature, dry hours are marked with a small dot so the cadence stays visible.
+You can also overlay precipitation forecast as translucent bars rising from the bottom, either as forecasted amount or as probability of precipitation. When you hide the temperature, dry hours are marked with a small dot so the cadence stays visible.
 
 <p class='img'>
   <img src='/images/dashboards/features/hourly_forecast.png' alt='Screenshot of the tile card with the hourly forecast feature'>
@@ -677,7 +677,7 @@ show_temperature:
   default: true
 show_precipitation:
   required: false
-  description: Whether to overlay precipitation forecast as translucent bars in the rainy condition color.
+  description: Whether to overlay precipitation forecast as translucent bars.
   type: boolean
   default: false
 precipitation_type:
