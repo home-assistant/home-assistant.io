@@ -89,6 +89,7 @@ The `easyenergy.get_gas_prices` action allows you to fetch the hourly prices for
 | -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
 | `config_entry` | no       | Config entry ID to use.                              | 013713c172577bada2874a32dbe44feb |
 | `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | False                            |
+| `price_type`   | yes      | Defines the type of price. Defaults to `market`      | `all_in`                         |
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
 
@@ -119,12 +120,14 @@ The response data is a dictionary with the gas timestamps and prices as string a
 
 The `easyenergy.get_energy_usage_prices` action allows you to fetch the hourly prices for energy that you use (buy).
 
-| Data attribute | Optional | Description                                          | Example                          |
-| -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
-| `config_entry` | no       | Config entry ID to use.                              | 013713c172577bada2874a32dbe44feb |
-| `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | False                            |
-| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
-| `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              | 
+| Data attribute | Optional | Description                                               | Example                          |
+| -------------- | -------- | --------------------------------------------------------- | -------------------------------- |
+| `config_entry` | no       | Config entry ID to use.                                   | 013713c172577bada2874a32dbe44feb |
+| `incl_vat`     | no       | Defines whether the prices include or exclude VAT.        | False                            |
+| `granularity`  | yes      | Defines the granularity of the prices. Defaults to `hour` | `quarter`                        |
+| `price_type`   | yes      | Defines the type of price. Defaults to `market`           | `all_in`                         |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00      | 2023-01-01 00:00:00              |
+| `end`          | yes      | End time to get prices. Defaults to today 00:00:00        | 2023-01-01 00:00:00              | 
 
 {% tip %}
 You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
@@ -153,11 +156,12 @@ The response data is a dictionary with the energy timestamps as strings and pric
 
 The `easyenergy.get_energy_return_prices` action allows you to fetch the hourly prices for energy that you return (sell).
 
-| Data attribute | Optional | Description                                             | Example                          |
-| -------------- | -------- | ------------------------------------------------------- | -------------------------------- |
-| `config_entry` | no       | Config entry ID to use.                                 | 013713c172577bada2874a32dbe44feb |
-| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00    | 2023-01-01 00:00:00              |
-| `end`          | yes      | End time to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
+| Data attribute | Optional | Description                                               | Example                          |
+| -------------- | -------- | --------------------------------------------------------- | -------------------------------- |
+| `config_entry` | no       | Config entry ID to use.                                   | 013713c172577bada2874a32dbe44feb |
+| `granularity`  | yes      | Defines the granularity of the prices. Defaults to `hour` | `quarter`                        |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00      | 2023-01-01 00:00:00              |
+| `end`          | yes      | End time to get prices from. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
 
 {% tip %}
 You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
@@ -203,6 +207,8 @@ template:
         data:
           config_entry: 013713c172577bada2874a32dbe44feb
           incl_vat: true
+          granularity: quarter
+          price_type: all_in
     sensor:
       - name: Energy prices
         device_class: timestamp
