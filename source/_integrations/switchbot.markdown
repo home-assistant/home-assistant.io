@@ -700,7 +700,7 @@ Options:
 
 #### Lock Ultra
 
-This is an encrypted device. The half-lock function only supports EU model, and users need to configure it to nightlatch operation mode in the settings. See Options.
+This is an encrypted device. Half-lock is supported only on European Union (EU) models. To use it, you need to enable nightlatch operation mode. See the Options section below.
 
 Features:
 
