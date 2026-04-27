@@ -212,7 +212,7 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the NVR. This requires a UniFi Protect version that includes **Siren information & management** in the public API. See [Public API features](#public-api-features).
 
-- **Siren** - A siren entity to trigger and stop the siren.
+- **Siren**: A siren entity to trigger and stop the siren.
 
 ### NVR
 
