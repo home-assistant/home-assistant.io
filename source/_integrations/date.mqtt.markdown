@@ -1,25 +1,25 @@
 ---
-title: "MQTT Time"
-description: "Instructions on how to interact with a device exposing a time control capability through MQTT from within Home Assistant."
+title: "MQTT Date"
+description: "Instructions on how to interact with a device exposing a date control capability through MQTT from within Home Assistant."
 ha_category:
-  - Time
+  - Date
 ha_release: 2026.5
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The **MQTT Time** {% term integration %} allows you to integrate devices that expose a control to set the time.
+The **MQTT Date** {% term integration %} allows you to integrate devices that expose a control to set the date.
 
 ## Configuration
 
-To use an MQTT time entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT date entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  time:
-    - command_topic: command-topic
+  - date:
+      command_topic: command-topic
 ```
 
 Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
@@ -53,10 +53,10 @@ availability_topic:
   required: false
   type: string
 availability_mode:
-  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the most recent `payload_available` or `payload_not_available` received on any configured availability topic determines availability.
-  required: false
-  type: string
-  default: latest
+   description:  When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the most recent `payload_available` or `payload_not_available` received on any configured availability topic determines availability.
+   required: false
+   type: string
+   default: latest
 availability_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the device's availability from the `availability_topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
@@ -66,11 +66,11 @@ command_template:
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish the time value that is set in ISO format.
+  description: The MQTT topic to publish the date value that is set in ISO format.
   required: true
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `time.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, it will be created with a number appended. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `date.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, it will be created with a number appended. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -144,25 +144,21 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
-icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
-  required: false
-  type: icon
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
   type: template
 json_attributes_topic:
-  description: The MQTT topic subscribed to for receiving a JSON dictionary payload that sets the entity attributes. Implies `force_update` of the current time state when a message is received on this topic.
+  description: The MQTT topic subscribed to for receiving a JSON dictionary payload that sets the entity attributes. Implies `force_update` of the current daye state when a message is received on this topic.
   required: false
   type: string
 name:
-  description: The name of the time entity. Can be set to `null` if only the device name is relevant.
+  description: The name of the date entity. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
-  default: "MQTT Time"
+  default: "MQTT Date"
 platform:
-  description: Must be `time`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  description: Must be `date`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
   required: true
   type: string
 qos:
@@ -176,15 +172,15 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: "The MQTT topic subscribed to receive time state updates. Time state updates should contain a parsable time string, such as '12:33:00' or '3:34 PM'. If a date/time structure is passed, only the time component will be used. Can be used with `value_template` to render the incoming payload to a parsable time string."
+  description: "The MQTT topic subscribed to receive date state updates. Date state updates should contain a parable date string, e.a. '2025-12-01' or '1 March 2025'. If a date/time structure is passed, only the date component will be used. Can be used with `value_template` to render the incoming payload to a parsable date string."
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this time entity. If two time entities have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
+  description: An ID that uniquely identifies this date entity. If two date entities have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the time state value from the payload received on `state_topic`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the date state value from the payload received on `state_topic`."
   required: false
   type: template
 {% endconfiguration %}
@@ -195,18 +191,18 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 ## Examples
 
-This is an example of a manual configured MQTT `time` item.
+This is an example of a manual configured MQTT `date` item.
 
 {% raw %}
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  time:
-    - name: "Scheduled task"
+  - date:
+      name: "Scheduled task"
       icon: mdi:ab-testing
-      command_topic: "timer/start"
-      state_topic: "timer/start_state"
+      command_topic: "date_selector/set"
+      state_topic: "date_selector/state"
 ```
 
 {% endraw %}

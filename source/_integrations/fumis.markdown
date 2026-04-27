@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: fumis
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - sensor
 ha_codeowners:
@@ -69,7 +70,7 @@ This integration supports multiple stoves. If you have more than one stove with 
 
 ### Entities
 
-The **Fumis** integration provides climate, sensor, and binary sensor entities for your pellet stove.
+The **Fumis** integration provides binary sensor, button, climate, and sensor entities for your pellet stove.
 
 #### Climate
 
@@ -109,6 +110,10 @@ Some additional sensors are available but disabled by default because they are p
 #### Binary sensors
 
 - **Door**: Shows whether the combustion chamber door is open or closed. This sensor is only available on stoves that have a door sensor (like the Austroflamm Clou Duo).
+
+#### Buttons
+
+- **Sync clock**: The Fumis WiRCU module does not synchronize its internal clock from the internet. Over time, the clock can drift, and it does not automatically adjust for daylight saving time changes. This button sends the current time from Home Assistant to your stove's controller, keeping its clock accurate. This is especially useful for stoves that use the built-in weekly timer schedule. You can automate this by pressing the button on a regular basis, for example, after a daylight saving time change.
 
 ## Examples
 
