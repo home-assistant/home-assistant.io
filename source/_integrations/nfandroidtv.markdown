@@ -28,8 +28,6 @@ The **Notifications for Android TV / Fire TV** {% term integration %} will add a
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
@@ -37,8 +35,6 @@ data:
   message: "You are awesome!"
   entity_id: notify.my_tv
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
