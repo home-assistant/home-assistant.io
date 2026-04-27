@@ -32,7 +32,7 @@ The Intergas Gateway connects thermostats based on the OpenTherm standard. An ex
 
 {% important %}
 
-The V3 version of the Intergas LAN2RF Gateway is not support via this integration.
+The V3 version (EAN: 8718556040273) of the Intergas LAN2RF Gateway is not support via this integration.
 
 {% endimportant %}
 
