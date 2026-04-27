@@ -76,10 +76,10 @@ ip_ban_enabled:
   default: true
 ip_ban_whitelist:
   description: >
-    A list of IP addresses or networks that should be excluded 
-    from IP banning. Whitelisted IPs will not be banned even if they exceed the 
-    login attempts threshold. Supports both individual IP addresses (e.g., 
-    192.168.1.100) and CIDR notation (e.g., 192.168.1.0/24).
+    A list of IP addresses or networks that should be excluded
+    from IP banning. Whitelisted IPs will not be banned even if they exceed the
+    login attempts threshold. Supports both individual IP addresses, for example,
+    `192.168.1.100`, and CIDR notation, for example, `192.168.1.0/24`.
   required: false
   type: list
   default: []
