@@ -2,6 +2,7 @@
 title: Novy Cooker Hood
 description: Instructions on how to integrate Novy cooker hoods into Home Assistant.
 ha_category:
+  - Fan
   - Light
 ha_release: 2026.5
 ha_iot_class: Assumed State
@@ -10,43 +11,46 @@ ha_codeowners:
   - '@piitaya'
 ha_domain: novy_cooker_hood
 ha_platforms:
+  - fan
   - light
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **Novy Cooker Hood** {% term integration %} lets you control the light on a [Novy](https://www.novy.com/) cooker hood from Home Assistant. The integration uses one-way 433.92&nbsp;MHz OOK radio frequency commands sent through a compatible RF transmitter, the same way the white Novy remote does.
+The **Novy Cooker Hood** {% term integration %} lets you control the light and extractor of a [Novy](https://www.novy.com/) cooker hood over 433.92&nbsp;MHz radio, through a compatible RF transmitter.
 
 ## Supported devices
 
-The integration controls Novy cooker hoods that ship with the white RF remote, model 840029. The integration currently exposes the light toggle only.
+The integration controls Novy cooker hoods that ship with the white RF remote, model 840029.
 
 ### Unsupported devices
 
 The following devices are not supported:
 
 - Higher-end Novy cooker hoods that ship with a remote other than the 840029.
-- Newer Novy hoods that use the Novy Connect app. These use a different protocol.
+- Newer Novy hoods that use the Novy Connect app (different protocol).
 - Novy hoods without an RF remote, such as touch-only or wired-only models.
 
 ## Supported functionality
 
 ### Entities
 
-The **Novy Cooker Hood** integration provides the following entities.
+The **Novy Cooker Hood** integration provides the following entities. State is assumed and restored across restarts. See [Known limitations](#known-limitations).
+
+#### Fans
+
+- **Fan**
+  - **Description**: Controls the extractor with four speeds (25%, 50%, 75%, 100%).
 
 #### Lights
 
 - **Light**
   - **Description**: Toggles the cooker hood light on or off.
-  - **Remarks**: The state is assumed and restored across Home Assistant restarts. See [Known limitations](#known-limitations).
 
 ## Prerequisites
 
-Before adding the integration, complete the following steps:
-
 1. Set up a [Radio Frequency](/integrations/radio_frequency/) transmitter integration that supports 433.92&nbsp;MHz OOK transmissions.
-2. Identify the pairing code of your hood. New hoods leave the factory paired with code 1, so this is the right value if you have never changed it. To check the current code on the remote, follow the button combination described in your Novy manual. The remote acknowledges the code by flashing its green LED once for code 1, twice for code 2, and so on up to 10.
+2. Identify the pairing code of your hood. New hoods are paired with code 1; if yours was changed, follow the button combination in your Novy manual to read it back. The remote's green LED flashes once for code 1, twice for code 2, and so on up to 10.
 
 {% include integrations/config_flow.md %}
 
@@ -54,30 +58,28 @@ Before adding the integration, complete the following steps:
 
 {% configuration_basic %}
 Radio frequency transmitter:
-  description: "The RF transmitter Home Assistant uses to send commands to the cooker hood. Only transmitters that support 433.92&nbsp;MHz OOK transmissions are shown."
+  description: "The RF transmitter Home Assistant uses to send commands. Only transmitters that support 433.92&nbsp;MHz OOK transmissions are shown."
 Code:
-  description: "The pairing code (1 to 10) the hood is paired with. Use code 1 if you have not changed the factory default. The 10 codes exist so two cooker hoods, or a hood and another nearby 433&nbsp;MHz device, can coexist without interfering with each other. To check or change the current code on the remote, follow the button combination described in your Novy manual."
+  description: "The pairing code (1 to 10) the hood is paired with. Use code 1 if you have not changed the factory default. The 10 codes let two hoods or other 433&nbsp;MHz devices coexist without interfering."
 {% endconfiguration_basic %}
 
-After you submit the form, Home Assistant toggles the hood light on, then off, so you can confirm the code is correct. If the light reacted, select **Finish** to save the configuration. If nothing happened, select **Retry** to pick a different code.
+Home Assistant then toggles the light on and off so you can confirm the code. Select **Finish** if the light reacted, or **Retry** to try another code.
 
 ## Use cases
 
-Novy cooker hoods controlled by the 840029 remote have no smart control out of the box, so the light is normally only operated from the physical remote. Once it's in Home Assistant, you can:
+Once your hood is in Home Assistant, you can:
 
-- Tie the light to your hob, for example, turn it on when a hob smart plug reports power draw and off a few minutes after cooking ends.
+- Run the extractor automatically when the hob is in use, for example, at 50% as soon as a hob smart plug reports power draw.
 - Switch the light by voice through [Assist](/voice_control/), which is handy when your hands are full or covered in food.
 
 ## Examples
 
-### Turn the hood light on when the hob is in use
+### Set the extractor speed to 50% when the hob is in use
 
-This automation uses a smart plug measuring the hob's power draw to turn the hood light on as soon as you start cooking and off a few minutes after the last burner is switched off.
-
-{% raw %}
+Use a hob smart plug to turn the extractor on at 50% when cooking starts and off a few minutes after it ends.
 
 ```yaml
-- alias: "Hood light follows the hob"
+- alias: "Hood follows the hob"
   triggers:
     - trigger: numeric_state
       entity_id: sensor.hob_power
@@ -95,59 +97,48 @@ This automation uses a smart plug measuring the hob's power draw to turn the hoo
             - condition: trigger
               id: hob_on
           sequence:
-            - action: light.turn_on
+            - action: fan.turn_on
               target:
-                entity_id: light.novy_cooker_hood_light
+                entity_id: fan.novy_cooker_hood
+              data:
+                percentage: 50
         - conditions:
             - condition: trigger
               id: hob_off
           sequence:
-            - action: light.turn_off
+            - action: fan.turn_off
               target:
-                entity_id: light.novy_cooker_hood_light
+                entity_id: fan.novy_cooker_hood
 ```
 
-{% endraw %}
-
-Replace `sensor.hob_power` with the entity that reflects hob activity in your setup, and adjust the thresholds to match your appliance. Induction hobs in standby typically draw a few watts, so a low threshold (around 10&nbsp;W) keeps the light off when nothing is cooking.
+Replace `sensor.hob_power` with your hob's activity entity, and adjust the thresholds for your appliance.
 
 ## Data updates
 
-The hood uses a one-way 433.92&nbsp;MHz protocol, so Home Assistant only sends commands and does not receive any data back. The light state shown in Home Assistant is the last state it set, and is restored across restarts.
+The hood uses a one-way 433.92&nbsp;MHz protocol: Home Assistant only sends commands and does not receive any data back. The state shown in Home Assistant is the last command sent, and is restored across restarts.
 
 ## Known limitations
 
-- **One-way protocol**: there is no feedback channel from the hood to Home Assistant. The integration tracks the state it last set, which is restored across restarts. If you press the physical remote, the state in Home Assistant will be out of sync until you turn the light on or off again from Home Assistant.
-- **Light is toggle-only by design**: the protocol only defines a single "flip" press for the light, with no separate on or off code. Home Assistant compensates by tracking an assumed boolean and sending the toggle when the requested state differs from the assumed state. This works in normal use but cannot guarantee a specific final state if the hood and Home Assistant are out of sync.
-- **One pairing code per hood on a transmitter**: if you control two Novy hoods from the same RF transmitter, each hood must use a different pairing code (1 to 10). Otherwise both hoods react to every command.
-- **Range and interference**: 433.92&nbsp;MHz is shared with weather stations, doorbells, garage door openers, and other consumer devices. Walls, distance, and noisy neighbors can reduce reliability.
+- **Home Assistant does not know what the hood is doing**: the hood does not report its state back. If you change the light or fan speed from the physical remote, the values in Home Assistant will be wrong until you control the hood from Home Assistant again.
+- **Two Novy hoods need different codes**: if two hoods share the same transmitter, set each to a different pairing code so they don't react to each other's commands.
+- **Other 433&nbsp;MHz devices can interfere**: weather stations, doorbells, and garage door openers share the same frequency. Distance and walls between the transmitter and the hood can also reduce reliability.
 
 ## Troubleshooting
 
-### The hood does not react when you turn the light on or off
+### The hood does not react when you control it from Home Assistant
 
-Try the following:
-
-1. Check that the configured code matches the one your hood is paired with. Verify the current code on the remote with the button combination described in your Novy manual (the green LED flashes once per code unit). If you are unsure, remove the integration and add it again, trying each code from 1 to 10 in turn until the verification step succeeds.
-2. Confirm the RF transmitter entity is not unavailable. Open the entity from {% my integrations title="**Settings** > **Devices & services**" %} and verify its state.
+1. Check the configured code matches the hood's. Read the current code from the remote with the button combination in your Novy manual (the green LED flashes once per code). If unsure, re-add the integration trying each code (1-10) until verification succeeds.
+2. Check the RF transmitter entity is available from {% my integrations title="**Settings** > **Devices & services**" %}.
 3. Move the transmitter closer to the hood, or remove obstacles between them. Metal kitchen appliances and dense walls can attenuate 433&nbsp;MHz signals.
-4. Check whether another 433&nbsp;MHz device in your home, or a neighbor's hood on the same code, is generating interference. Change the pairing code on the remote, then re-add the integration with the new code.
+4. Check whether another 433&nbsp;MHz device, or a neighbor's hood on the same code, is generating interference.
 
-### The setup verification fails with "Failed to send the test command"
+### The setup verification fails with "Could not send the test command"
 
-This means the RF transmitter could not send the command:
+The RF transmitter could not send the command. Check it is online and reachable, restart it if needed, then select **Retry**.
 
-1. Check that the transmitter device is online and reachable from Home Assistant.
-2. Restart the transmitter integration, or re-pair the transmitter device if needed.
-3. Once the transmitter is healthy, select **Retry** in the verification step.
+### The light or fan state in Home Assistant does not match the hood
 
-### The light state in Home Assistant does not match the hood
-
-Because the protocol is one-way, Home Assistant has no way to read the real state of the hood. To resync:
-
-1. Look at the hood and note whether the light is on or off.
-2. From Home Assistant, turn the light on if it is off, or off if it is on, so the assumed state matches reality.
-3. To avoid future desync, prefer using Home Assistant or the physical remote consistently rather than mixing both.
+Home Assistant has no way to read the hood's real state. To resync, control the entity from Home Assistant so the assumed state matches reality. To avoid future desync, prefer using Home Assistant or the remote consistently.
 
 ## Removing the integration
 
