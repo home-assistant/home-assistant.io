@@ -21,10 +21,11 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
 3. In the **When** section, select **Add trigger**.
-4. Search for **Vacuum: Vacuum started cleaning**.
+4. Search for **Vacuum: Vacuum cleaner started cleaning**.
 5. Select targets (area, floor, or vacuums).
 6. Pick **Trigger when**: **Any**, **First**, or **Last** as needed.
-7. Save the automation.
+7. Under **For at least**, enter how long the vacuum must keep cleaning before the trigger fires.
+8. Save the automation.
 
 ### Options in the UI
 
@@ -32,6 +33,9 @@ To use this trigger in an automation:
 Trigger when:
   description: If targeting multiple vacuums, determines when the trigger fires (first, last, or any device starting to clean).
   required: true
+For at least:
+  description: The time the vacuum must keep cleaning before the trigger fires.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -64,6 +68,10 @@ target:
   description: Vacuum entity or group to monitor.
   required: true
   type: target
+for:
+  description: The time the vacuum must keep cleaning before the trigger fires.
+  required: false
+  type: duration
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}

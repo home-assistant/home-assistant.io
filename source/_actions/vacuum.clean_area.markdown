@@ -5,7 +5,7 @@ domain: vacuum
 description: "Cleans specific mapped areas using vacuum segments."
 ---
 
-The **Clean area** action sends your vacuum to clean designated areas (segments) mapped in Home Assistant.
+The **Clean area** action sends your vacuum to clean one or more mapped Home Assistant areas.
 
 Use it when only part of the home needs attention, like the kitchen after dinner or the hallway after muddy shoes, without sending the robot through every room.
 
@@ -17,9 +17,9 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Clean area**.
+3. Add an action and search for **Vacuum: Clean area with vacuum cleaner**.
 4. Select your vacuum entity.
-5. In **Area**, choose one or more mapped Home Assistant areas.
+5. In **Areas**, choose one or more mapped Home Assistant areas.
 6. Save the automation.
 
 {% include actions/yaml_header.md %}
@@ -29,7 +29,7 @@ action: |
   action: vacuum.clean_area
   target:
     entity_id: vacuum.cleaner
-  area:
+  cleaning_area_id:
     - living_room
     - kitchen
 {% endexample %}
@@ -45,8 +45,8 @@ target:
   description: The vacuum to send to specific areas.
   required: true
   type: target
-area:
-  description: The area(s) to clean. Use Home Assistant area IDs.
+cleaning_area_id:
+  description: The areas to clean. Use Home Assistant area IDs.
   required: true
   type: list
 {% endoptions_yaml %}
@@ -88,7 +88,7 @@ automation: |
     - action: vacuum.clean_area
       target:
         entity_id: vacuum.main_floor
-      area:
+      cleaning_area_id:
         - kitchen
         - dining_room
 {% endexample %}

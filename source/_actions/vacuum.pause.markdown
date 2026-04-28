@@ -17,7 +17,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. In **Add action**, search for **Vacuum: Pause cleaning**.
+3. In **Add action**, search for **Vacuum: Pause vacuum cleaner**.
 4. Choose the vacuum, area, or device to pause.
 5. Select **Save**.
 

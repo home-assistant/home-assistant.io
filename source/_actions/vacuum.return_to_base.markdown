@@ -17,7 +17,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Return to base**.
+3. Add an action and search for **Vacuum: Return vacuum cleaner to dock**.
 4. Select a vacuum, area, or group.
 5. Save.
 

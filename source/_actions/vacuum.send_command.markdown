@@ -17,9 +17,9 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Send command**.
-4. Enter the desired command (as a string).
-5. Optionally add parameters (YAML or JSON format, as required).
+3. Add an action and search for **Vacuum: Send command to vacuum cleaner**.
+4. Enter the desired command.
+5. Optionally add parameters.
 6. Select the vacuum target and save.
 
 {% include actions/yaml_header.md %}

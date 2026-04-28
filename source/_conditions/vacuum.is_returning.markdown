@@ -18,10 +18,11 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Vacuum: Vacuum is returning**.
+4. From the search box, search for and select **Vacuum: Vacuum cleaner is returning**.
 5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
-7. Select **Save**.
+7. Under **For at least**, enter how long the vacuum must keep returning before the condition passes.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -29,6 +30,9 @@ To use this condition in an automation:
 Condition passes if:
   description: When multiple vacuums are targeted, controls how results combine. Pick **Any** to pass if at least one targeted vacuum is returning, or **All** to pass only when every targeted vacuum is returning.
   required: true
+For at least:
+  description: The time the vacuum must keep returning before the condition passes.
+  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -57,6 +61,10 @@ behavior:
   required: true
   type: string
   default: any
+for:
+  description: The time the vacuum must keep returning before the condition passes.
+  required: false
+  type: duration
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}

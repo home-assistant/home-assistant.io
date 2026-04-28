@@ -22,10 +22,11 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Vacuum: Vacuum paused cleaning**.
+4. From the search box, search for and select **Vacuum: Vacuum cleaner paused cleaning**.
 5. Under **Targets**, pick the vacuums, area, or group you want.
 6. Under **Trigger when**, pick **First**, **Last**, or **Any**.
-7. Save the automation.
+7. Under **For at least**, enter how long the vacuum must stay paused before the trigger fires.
+8. Save the automation.
 
 ### Options in the UI
 
@@ -33,6 +34,9 @@ To use this trigger in an automation:
 Trigger when:
   description: When monitoring more than one vacuum, controls when the trigger fires. Pick **First** to fire when any monitored vacuum pauses, **Last** for when they all have, or **Any** for every individual event.
   required: true
+For at least:
+  description: The time the vacuum must remain paused before the trigger fires.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -65,6 +69,10 @@ target:
   description: Vacuum entity or group to monitor.
   required: true
   type: target
+for:
+  description: The time the vacuum must remain paused before the trigger fires.
+  required: false
+  type: duration
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}

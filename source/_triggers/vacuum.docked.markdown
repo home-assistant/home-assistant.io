@@ -25,7 +25,8 @@ To use this trigger in an automation:
 4. From the search box, search for and select **Vacuum: Vacuum returned to dock**.
 5. Under **Targets**, choose a single vacuum, an area, floor, or multiple vacuums.
 6. Under **Trigger when**, pick **First**, **Last**, or **Any** to control how the trigger fires when more than one vacuum is targeted.
-7. Select **Save**.
+7. Under **For at least**, enter how long the vacuum must stay docked before the trigger fires.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -33,6 +34,9 @@ To use this trigger in an automation:
 Trigger when:
   description: When monitoring more than one vacuum, controls when the trigger fires. Pick **First** to fire when any monitored vacuum returns to dock, **Last** for when they all have, or **Any** for every individual event.
   required: true
+For at least:
+  description: The time the vacuum must remain docked before the trigger fires.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -67,6 +71,10 @@ target:
   description: Vacuum entity or group to monitor.
   required: true
   type: target
+for:
+  description: The time the vacuum must remain docked before the trigger fires.
+  required: false
+  type: duration
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
