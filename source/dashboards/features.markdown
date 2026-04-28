@@ -626,6 +626,11 @@ show_temperature:
   description: Whether to show the temperature range bars and the current-temperature line.
   type: boolean
   default: true
+show_current_temperature:
+  required: false
+  description: Whether to show a thin horizontal line marking the current temperature across the bars.
+  type: boolean
+  default: true
 show_precipitation:
   required: false
   description: Whether to overlay precipitation forecast as translucent bars.
@@ -636,6 +641,11 @@ precipitation_type:
   description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the period's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
   type: string
   default: amount
+color:
+  required: false
+  description: "Color of the temperature bars and the current temperature line. When set to `state` or omitted, each bar is colored by its forecasted weather condition. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
+  type: string
+  default: state
 {% endconfiguration %}
 
 {% note %}
@@ -685,6 +695,11 @@ precipitation_type:
   description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the visible window's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
   type: string
   default: amount
+color:
+  required: false
+  description: "Color of the temperature line. When set to `state` or omitted, the line uses the tile's feature color. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
+  type: string
+  default: state
 {% endconfiguration %}
 
 {% note %}
