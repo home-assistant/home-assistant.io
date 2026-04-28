@@ -498,15 +498,35 @@ The panel does not automatically send counter value updates under certain condit
 | `entity_id`    | No       | ElkM1 counter to refresh or set             |
 | `value`        | Yes (for `sensor_counter_set`) | Value to set the counter to (0-65536) |
 
+#### (Custom) Settings management
+
+- `elkm1.sensor_setting_set` - Update a custom setting
+
+| Data attribute | Required | Description                                                  |
+| -------------- | -------- | ------------------------------------------------------------ |
+| `entity_id`    | No       | ElkM1 setting to set                                          |
+| `value`        | Yes      | Value can be an integer (0-65536) for integer and timer settings, or a 24-hour time for time settings (HH:MM) |
+
+
+#### Output management
+
+- `elkm1.switch_output_turn_on` - Turn on a switch passing a duration time to the ElkM1
+
+| Data attribute | Required | Description                                                  |
+| -------------- | -------- | ------------------------------------------------------------ |
+| `entity_id`    | No       | ElkM1 output to set                                          |
+| `value`        | Yes      | Value for the duration that the output is to be on (0-65536) |
+
 #### Zone management
 
 - `elkm1.sensor_zone_bypass` - Bypass a zone
 - `elkm1.sensor_zone_trigger` - Trigger a zone virtually
+- `elkm1.sensor_zone_update_voltage` - Update the voltage for a sensor of type zone
 
-| Data attribute | Required | Description                                     |
-| -------------- | -------- | ----------------------------------------------- |
-| `entity_id`    | No       | ElkM1 zone to bypass or trigger                |
-| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits)                |
+| Data attribute | Required | Description                                      |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | No       | ElkM1 zone to bypass, trigger, or update voltage |
+| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits)          |
 
 {% note %}
 The only mechanism ElkM1 offers to clear zone bypass is to clear all bypassed zones in a given alarm panel (area).
