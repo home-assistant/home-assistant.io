@@ -1,7 +1,7 @@
 {%- assign domain = include.domain | default: page.ha_domain -%}
 {%- assign domain_triggers = site.triggers | where: "domain", domain | sort: "trigger" -%}
 
-## Triggers
+## List of triggers
 
 {% if domain_triggers.size > 0 %}
 

@@ -1,7 +1,7 @@
 {%- assign domain = include.domain | default: page.ha_domain -%}
 {%- assign domain_actions = site.actions | where: "domain", domain | sort: "action" -%}
 
-## Actions
+## List of actions
 
 {% if domain_actions.size > 0 %}
 
