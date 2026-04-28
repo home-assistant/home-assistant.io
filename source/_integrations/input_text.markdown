@@ -108,8 +108,6 @@ scene:
 
 Here's an example using `input_text` in an action in an automation.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry using 'input_text' in an action in an automation
 input_select:
@@ -139,5 +137,3 @@ automation:
         data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
-
-{% endraw %}

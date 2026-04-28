@@ -62,8 +62,6 @@ The **HTML5 Push Notifications** {% term integration %} will add a notify {% ter
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
@@ -71,8 +69,6 @@ data:
   message: "Have you considered frogs?"
   entity_id: notify.my-desktop
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

@@ -66,7 +66,7 @@ The Conversation and AI Task subentries have the following configuration options
 
 {% configuration_basic %}
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 Recommended settings:
@@ -141,7 +141,6 @@ with the requested image.
 | `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. | standard         |
 | `style`                | yes      | The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. | vivid            |
 
-{% raw %}
 ```yaml
 action: openai_conversation.generate_image
 data:
@@ -152,7 +151,6 @@ data:
   style: vivid
 response_variable: generated_image
 ```
-{% endraw %}
 
 The response data field `url` will contain a URL to the generated image and `revised_prompt` will contain the updated prompt used.
 
@@ -173,7 +171,6 @@ Select **YAML Mode** to reveal the *config_entry* value to be used in the below 
 
 ![Open AI Conversation YAML Mode](/images/integrations/openai_conversation/openai_developer_tools_yaml.png)
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Update image when weather changes"
@@ -205,8 +202,6 @@ template:
         url: "{{ trigger.event.data.url }}"
 ```
 
-{% endraw %}
-
 ### Action: Generate content
 
 The `openai_conversation.generate_content` action allows you to ask OpenAI to generate a content based on a prompt. This action
@@ -228,8 +223,6 @@ with the response from OpenAI.
   - **Example**: /tmp/image.jpg
   - **Optional**: yes
 
-{% raw %}
-
 ```yaml
 action: openai_conversation.generate_content
 data:
@@ -243,13 +236,9 @@ data:
 response_variable: generated_content
 ```
 
-{% endraw %}
-
 The response data field `text` will contain the generated content.
 
 Another example with multiple images:
-
-{% raw %}
 
 ```yaml
 action: openai_conversation.generate_content
@@ -264,8 +253,6 @@ data:
     - /tmp/driveway_snapshot4.jpg
 response_variable: generated_content
 ```
-
-{% endraw %}
 
 ## Known Limitations
 
