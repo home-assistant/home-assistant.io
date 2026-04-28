@@ -1,7 +1,7 @@
 ---
 title: Scaleway Object Storage
 description: Instructions on how to set up a Scaleway Object Storage bucket to be used as a backup location.
-ha_release: 2026.5
+ha_release: 2026.6
 ha_category:
   - Backup
 ha_iot_class: Cloud Polling
