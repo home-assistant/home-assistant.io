@@ -1,0 +1,9 @@
+<li>{% active_link /docs/templating/ About templating %}</li>
+<li>{% active_link /docs/templating/introduction/ Introduction to templating %}</li>
+{%- assign current_category = site.data.template_function_categories | where: "key", page.category | first -%}
+{%- if current_category.learn_more -%}
+  {%- for item in current_category.learn_more -%}
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  {%- endfor -%}
+{%- endif -%}
+<li>{% active_link /template-functions/ All template functions %}</li>

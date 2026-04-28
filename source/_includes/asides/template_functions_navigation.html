@@ -1,0 +1,31 @@
+{%- assign all_functions = site.template_functions | sort: 'title' -%}
+{%- assign current_category = page.category -%}
+<section class="vertical-nav aside-module grid__item one-whole lap-one-half">
+  <div class="section">
+    <h2 class="h1 title epsilon">{% icon "mdi:code-braces" %} Template Functions</h2>
+    <ul class="divided sidebar-menu">
+      <li>{% active_link /template-functions/ All template functions %}</li>
+      <li>{% active_link /docs/templating/ Templating docs %}</li>
+    </ul>
+
+    <ul class="divided sidebar-menu">
+      {%- for cat in site.data.template_function_categories -%}
+        {%- assign cat_functions = all_functions | where: 'category', cat.key -%}
+        {%- if cat_functions.size > 0 -%}
+        <li>
+          {{ cat.label }} ({{ cat_functions.size }})
+          {%- if current_category == cat.key -%}
+          <ul>
+            {%- for func in cat_functions -%}
+            <li{% if page.url == func.url %} class="active"{% endif %}>
+              <a href="{{ func.url }}"><code>{{ func.function_name }}</code></a>
+            </li>
+            {%- endfor -%}
+          </ul>
+          {%- endif -%}
+        </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
