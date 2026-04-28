@@ -31,7 +31,7 @@ To set up the integration, you will need to know a device address and an access 
 3. In the top right corner, tap the three-dot menu and select **Rename**.
 4. On the **Rename device** screen, tap your device name (for example, **MinusA2**) to expand the section and reveal the **Thing ID** and **User key**.
 
-Use the **Thing ID** for `host` by adding the suffix ".local" at the end. Use the **User key** for `access_token`.
+The **Thing ID** is used as an mDNS name of the device. You can use the **Thing ID** for `host` by adding the suffix ".local" at the end. Use the **User key** for `access_token`.
 
 For example, you got:
 
@@ -44,7 +44,7 @@ For example, you got:
   </a>
 </p>
 
-Then you can use `abcdef1234_123456789012345678.local` as the **Host** and `0123456789ABCDEF0123456789ABCDEF` as the **Access Token**.
+Then use the **Thing ID** for `host` and the **User key** for `access_token`.
 
 If the app says "your device is not supported", it probably means that you are trying to connect to a first-generation MinusA2 model (an older hardware revision). It is not yet supported by this integration.
 
