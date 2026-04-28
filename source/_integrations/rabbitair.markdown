@@ -24,16 +24,16 @@ The fan platform of this integration allows you to turn the unit on/off, select 
 
 ## Prerequisites
 
-To set up the integration, you will need to know a device address and an access token.
+To set up the integration, you need the **Thing ID** and **User key** from the **Rabbit Air 2** app. In Home Assistant, use the **Thing ID** for `host` and the **User key** for `access_token`.
 
 1. Open the **Rabbit Air 2** app. You will see a list of devices connected to your account.
 2. Tap your Rabbit Air device to open the device control page.
 3. In the top right corner, tap the three-dot menu and select **Rename**.
 4. On the **Rename device** screen, tap your device name (for example, **MinusA2**) to expand the section and reveal the **Thing ID** and **User key**.
 
-The **Thing ID** is used as an mDNS name of the device. You can use the **Thing ID** for `host` by adding the suffix ".local" at the end. Use the **User key** for `access_token`.
+The **Thing ID** is the device's mDNS hostname. You can use the **Thing ID** for `host` by adding the suffix `.local` at the end. Use the **User key** for `access_token`.
 
-For example, you got:
+For example, the app shows:
 
 <p class='img'>
   <a href='/images/integrations/rabbitair/rename_device_menu.jpg' target='_blank'>
