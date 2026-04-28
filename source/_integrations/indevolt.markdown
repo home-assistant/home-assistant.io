@@ -68,7 +68,7 @@ The following button entity allows triggering device actions directly from Home 
 
 #### BK1600/BK1600Ultra (Generation 1)
 
-- Device mode (overal setup of the device, for example standalone/cluster)
+- Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-Consumped Prioritized/Price-Based Strategy)
 - Device heating state (on/off)
 - DC input power (2 channels, W)
