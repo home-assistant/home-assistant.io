@@ -1,0 +1,155 @@
+---
+title: "Humidifier turned on"
+trigger: humidifier.turned_on
+domain: humidifier
+description: "Triggers after one or more humidifiers turn on."
+related_triggers:
+  - humidifier.turned_off
+  - humidifier.started_humidifying
+  - humidifier.started_drying
+---
+
+The **Humidifier turned on** trigger fires after a humidifier {% term entity %} turns on. Use it to start an automation the moment the device powers up, whether you turned it on manually, through the app, or via another automation.
+
+When you target more than one humidifier, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted humidifier turns on, the last time the final targeted humidifier turns on, or every single time any of them turn on.
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+{% include triggers/ui_header.md %}
+
+To use this trigger in an automation:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **When** section, select **Add trigger**.
+4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
+5. From the triggers shown for that target, select **Humidifier turned on**.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple humidifiers are targeted.
+7. Under **For at least**, set how long the humidifier must stay on before the trigger fires. Leave it at zero to fire immediately.
+8. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Trigger when:
+  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier turns on, **First** to fire only when the first of a group turns on, or **Last** to fire only after every targeted humidifier is on.
+  required: true
+For at least:
+  description: How long the humidifier must stay on before the trigger fires. Set to zero to fire immediately.
+  required: true
+{% endoptions_ui %}
+
+{% include triggers/yaml_header.md %}
+
+In YAML, refer to this trigger as `humidifier.turned_on`. A basic example looks like this:
+
+{% example %}
+trigger: |
+  trigger: humidifier.turned_on
+  target:
+    entity_id: humidifier.bedroom
+{% endexample %}
+
+This fires every time `humidifier.bedroom` transitions from off to on.
+
+### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+behavior:
+  description: >
+    When multiple humidifiers are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  required: true
+  type: string
+  default: any
+for:
+  description: >
+    Duration the humidifier must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+  required: true
+  type: string
+  default: "00:00:00"
+{% endoptions_yaml %}
+
+{% include triggers/targets.md %}
+
+{% include triggers/behavior.md %}
+
+## Good to know
+
+- The trigger only fires when a humidifier transitions from a known, valid state. If a humidifier comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
+- Turning on a humidifier does not necessarily mean it starts actively humidifying immediately. To react when humidification actually begins, use [Humidifier started humidifying](/triggers/humidifier.started_humidifying/) instead.
+- To react to the opposite transition, use [Humidifier turned off](/triggers/humidifier.turned_off/).
+
+{% include triggers/try_it.md %}
+
+{% include triggers/more_examples.md %}
+
+### Automation: log when the bedroom humidifier powers on
+
+Keep a simple history of when the bedroom humidifier starts running by writing an entry to a logbook each time it turns on.
+
+- **Trigger**: Humidifier turned on
+- **Target**: Bedroom humidifier
+- **Trigger when**: Any
+- **For at least**: 00:00:00
+- **Action**: Logbook: Log entry
+
+{% details "YAML example for logging humidifier power-on events" %}
+
+{% example %}
+automation: |
+  alias: "Log bedroom humidifier on"
+  triggers:
+    - trigger: humidifier.turned_on
+      target:
+        entity_id: humidifier.bedroom
+      options:
+        behavior: any
+        for: "00:00:00"
+  actions:
+    - action: logbook.log
+      data:
+        name: "Bedroom humidifier"
+        message: "Turned on"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: notify when the nursery humidifier turns on overnight
+
+If the nursery humidifier turns on during the night, send a quiet notification to your phone so you know air quality is being maintained without having to check the app.
+
+- **Trigger**: Humidifier turned on
+- **Target**: Nursery humidifier
+- **Trigger when**: Any
+- **Condition**: Time is between 22:00 and 07:00
+- **Action**: Send a mobile notification
+
+{% details "YAML example for a nighttime nursery humidifier notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify on nursery humidifier at night"
+  triggers:
+    - trigger: humidifier.turned_on
+      target:
+        entity_id: humidifier.nursery
+      options:
+        behavior: any
+        for: "00:00:00"
+  conditions:
+    - condition: time
+      after: "22:00:00"
+      before: "07:00:00"
+  actions:
+    - action: notify.mobile_app_phone
+      data:
+        message: "Nursery humidifier turned on."
+{% endexample %}
+
+{% enddetails %}
+
+{% include triggers/stuck.md %}
+
+{% include triggers/related.md %}

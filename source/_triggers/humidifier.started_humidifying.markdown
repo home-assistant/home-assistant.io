@@ -1,0 +1,157 @@
+---
+title: "Humidifier started humidifying"
+trigger: humidifier.started_humidifying
+domain: humidifier
+description: "Triggers after one or more humidifiers start actively humidifying."
+related_triggers:
+  - humidifier.turned_on
+  - humidifier.started_drying
+---
+
+The **Humidifier started humidifying** trigger fires when a humidifier {% term entity %} begins actively adding moisture to the air. A humidifier that is turned on does not necessarily humidify continuously — it may pause once the target humidity is reached and then resume when the air dries out again. This trigger fires every time it moves from idle back into active humidification, giving you a precise moment to react to the air in the room becoming drier than the target.
+
+Use this trigger to track active humidification cycles, send notifications when the air is dry enough that the device kicks back in, or coordinate other devices that should run alongside it.
+
+When you target more than one humidifier, the trigger's **behavior** option controls when it fires.
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+{% include triggers/ui_header.md %}
+
+To use this trigger in an automation:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **When** section, select **Add trigger**.
+4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
+5. From the triggers shown for that target, select **Humidifier started humidifying**.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple humidifiers are targeted.
+7. Under **For at least**, set how long the humidifier must be actively humidifying before the trigger fires. Leave it at zero to fire immediately.
+8. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Trigger when:
+  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier starts humidifying, **First** to fire only on the first, or **Last** to fire only after every targeted humidifier starts humidifying.
+  required: true
+For at least:
+  description: How long the humidifier must be actively humidifying before the trigger fires. Set to zero to fire immediately.
+  required: true
+{% endoptions_ui %}
+
+{% include triggers/yaml_header.md %}
+
+In YAML, refer to this trigger as `humidifier.started_humidifying`. A basic example looks like this:
+
+{% example %}
+trigger: |
+  trigger: humidifier.started_humidifying
+  target:
+    entity_id: humidifier.bedroom
+{% endexample %}
+
+This fires every time `humidifier.bedroom` starts actively adding moisture to the air.
+
+### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+behavior:
+  description: >
+    When multiple humidifiers are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  required: true
+  type: string
+  default: any
+for:
+  description: >
+    Duration the humidifier must be actively humidifying before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+  required: true
+  type: string
+  default: "00:00:00"
+{% endoptions_yaml %}
+
+{% include triggers/targets.md %}
+
+{% include triggers/behavior.md %}
+
+## Good to know
+
+- This trigger fires independently of [Humidifier turned on](/triggers/humidifier.turned_on/). A humidifier can be on but idle, and this trigger fires only when it moves from idle to active.
+- To react to the opposite transition on a dehumidifier, use [Humidifier started drying](/triggers/humidifier.started_drying/).
+- If your device is a dehumidifier, it removes moisture rather than adds it. Use [Humidifier started drying](/triggers/humidifier.started_drying/) instead.
+
+{% include triggers/try_it.md %}
+
+{% include triggers/more_examples.md %}
+
+### Automation: notify when the nursery needs more moisture
+
+When the nursery humidifier starts humidifying again after a pause, it means the air has dried out. Send a gentle notification so you're aware the cycle has restarted overnight.
+
+- **Trigger**: Humidifier started humidifying
+- **Target**: Nursery humidifier
+- **Trigger when**: Any
+- **Condition**: Time is between 22:00 and 07:00
+- **Action**: Send a mobile notification
+
+{% details "YAML example for a nursery humidity cycle alert" %}
+
+{% example %}
+automation: |
+  alias: "Alert when nursery starts humidifying at night"
+  triggers:
+    - trigger: humidifier.started_humidifying
+      target:
+        entity_id: humidifier.nursery
+      options:
+        behavior: any
+        for: "00:00:00"
+  conditions:
+    - condition: time
+      after: "22:00:00"
+      before: "07:00:00"
+  actions:
+    - action: notify.mobile_app_phone
+      data:
+        message: "Nursery humidifier started humidifying."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn on a fan to help distribute moisture
+
+When the bedroom humidifier starts humidifying, turn on a low-speed fan to distribute the moisture more evenly throughout the room.
+
+- **Trigger**: Humidifier started humidifying
+- **Target**: Bedroom humidifier
+- **Trigger when**: Any
+- **For at least**: 00:00:00
+- **Action**: Fan: Turn on
+
+{% details "YAML example for running a fan when humidifying starts" %}
+
+{% example %}
+automation: |
+  alias: "Run fan when bedroom humidifies"
+  triggers:
+    - trigger: humidifier.started_humidifying
+      target:
+        entity_id: humidifier.bedroom
+      options:
+        behavior: any
+        for: "00:00:00"
+  actions:
+    - action: fan.turn_on
+      target:
+        entity_id: fan.bedroom
+      data:
+        percentage: 30
+{% endexample %}
+
+{% enddetails %}
+
+{% include triggers/stuck.md %}
+
+{% include triggers/related.md %}
