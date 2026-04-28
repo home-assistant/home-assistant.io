@@ -117,8 +117,6 @@ Replace `NAME` with the weather entity used in your configuration.
 
 A sensor that takes into account the humidex or wind chill for what the temperature feels like.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
@@ -135,13 +133,9 @@ template:
         {% endif %}
 ```
 
-{% endraw %}
-
 ### Additional Forecast Data
 
 The configuration snippet below adds a template sensor containing the current forecast information as attributes and the text summary of the forecast for the current day.
-
-{% raw %}
 
 ```yaml
 - trigger:
@@ -166,8 +160,6 @@ The configuration snippet below adds a template sensor containing the current fo
         summary: "{{ forecasts['weather.NAME']['daily_forecast'][0]['text_summary'] }}"
         temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
 ```
-
-{% endraw %}
 
 ## Actions
 

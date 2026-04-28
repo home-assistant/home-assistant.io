@@ -24,7 +24,7 @@ This integration requires an existing R2 bucket and admin access to the bucket s
 1. Log in to your [Cloudflare Dashboard](https://dash.cloudflare.com/).
 2. On the sidebar, go to **Storage & databases**, click on **R2 object storage** and then **Overview**.
 3. Select **+ Create bucket**.
-4. Choose a unique **Bucket name** (e.g., `home-assistant-backups-123456`).
+4. Choose a unique **Bucket name**, for example, `home-assistant-backups-123456`.
 5. Select your preferred [location](https://developers.cloudflare.com/r2/reference/data-location/).
 6. Select your preferred [storage class](https://developers.cloudflare.com/r2/buckets/storage-classes/#set-default-storage-class-for-buckets) (Standard is fine, as Infrequent Access is still in beta)
 7. Select **Create bucket**.
@@ -42,7 +42,7 @@ To create a new Secret Key that can access the R2 bucket:
 3. Click **Create User API token**.
 4. Give it a name like `Home Assistant Backup`.
 5. Check **Object Read & Write**.
-6. Click **Apply to specific buckets only** and chose the bucket you created previously (e.g., `home-assistant-backups-123456`).
+6. Select **Apply to specific buckets only** and choose the bucket you created previously, for example, `home-assistant-backups-123456`.
 7. Do not touch the other options and click **Create User API Token**.
 8. Save the **Access Key ID**, the **Secret Access Key** and also the **S3 endpoint** — you'll need these when setting up the Cloudflare R2 integration in Home Assistant.
 

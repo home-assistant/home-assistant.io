@@ -76,7 +76,6 @@ Get started with these automation examples.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 alias: "Start timer on scale"
@@ -101,7 +100,6 @@ actions:
         - button.lunar_start_stop_timer
 ```
 
-{% endraw %}
 {% enddetails %}
 
 ## Known limitations

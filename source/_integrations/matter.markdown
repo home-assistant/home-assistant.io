@@ -52,6 +52,8 @@ related:
     title: HomeKit
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
+  - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
+    title: Debug logs and diagnostics
 ha_zeroconf: true
 ---
 
@@ -146,6 +148,7 @@ Make sure you have all these components ready before trying to add a Matter devi
   - **Android**:
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
+    - Set the Home Assistant Companion app's **Location** permission to **Allow all the time**. During commissioning, the Google Matter UI takes the foreground and the Companion App runs in the background. Android restricts Wi-Fi SSID access for background apps when Location is set to "While using the app," which can cause commissioning to fail.
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the Home Assistant OpenThread Border Router app) present in your home network.
       - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - **iPhone**
@@ -622,6 +625,23 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 11. Use the QR code to add the device using one of the above instructions on your phone, e.g. using the Home Assistant Companion app.
 
 ## Troubleshooting
+
+### Downloading diagnostics
+
+When you report an issue with a Matter device, you're usually asked for a diagnostics file. The Matter integration supports diagnostics at both the integration and device level.
+
+To download integration-level diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Matter** integration card, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Download diagnostics**.
+
+To download device-level diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
+2. Select the device you want diagnostics for.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Download diagnostics**.
+
+The diagnostics file contains device attributes, cluster data, and network information with sensitive data redacted. For more general information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ### General recommendations
 

@@ -7,7 +7,7 @@ related:
   - docs: /docs/organizing/
   - docs: /docs/organizing/labels/
     title: Labels
-  - docs: /docs/configuration/templating/#floors
+  - docs: /template-functions/#floor
     title: Using floors in templates
   - docs: /voice_control/aliases/
     title: Using floor alias for voice assistants
