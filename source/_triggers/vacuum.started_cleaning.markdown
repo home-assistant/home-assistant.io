@@ -61,13 +61,9 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple vacuums are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
-  required: false
+  required: true
   type: string
   default: any
-target:
-  description: Vacuum entity or group to monitor.
-  required: true
-  type: map
 for:
   description: The time the vacuum must keep cleaning before the trigger fires.
   required: false

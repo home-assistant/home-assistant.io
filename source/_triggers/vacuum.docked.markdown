@@ -64,13 +64,9 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple vacuums are targeted, controls when the trigger fires. Options: `any` (every time any targeted vacuum docks), `first` (only when the first returns), or `last` (only after all have docked).
-  required: false
+  required: true
   type: string
   default: any
-target:
-  description: Vacuum entity or group to monitor.
-  required: true
-  type: map
 for:
   description: The time the vacuum must remain docked before the trigger fires.
   required: false
