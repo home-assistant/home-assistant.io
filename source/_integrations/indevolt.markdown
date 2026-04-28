@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@xirt'
 ha_platforms:
+  - binary_sensor
   - button
   - diagnostics
   - number
@@ -69,6 +70,7 @@ The following button entity allows triggering device actions directly from Home 
 
 - Device mode (overal setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-Consumped Prioritized/Price-Based Strategy)
+- Device heating state (on/off)
 - DC input power (2 channels, W)
 - Daily production (kWh)
 - Cumulative production (kWh)
@@ -88,7 +90,7 @@ The following button entity allows triggering device actions directly from Home 
 
 #### SolidFlex2000/PowerFlex2000 (Generation 2)
 
-All Generation 1 sensors, plus:
+All Generation 1 sensors except device heating state, plus:
 
 - Rated capacity (kWh)
 - DC input voltage (4 channels, V)
@@ -110,6 +112,7 @@ All Generation 1 sensors, plus:
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
+- Battery pack 1-5 heating state (on/off)
 
 ### Configurable entities (Generation 2 only)
 
