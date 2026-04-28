@@ -34,16 +34,15 @@ There is currently support for the following device types within Home Assistant:
 
 ## Powerwall 3 support
 
-Powerwall 3 (and recent Tesla Backup Gateway firmware revisions) expose a more restricted local HTTP API than Powerwall 2. As a result, some entities and features are not available when connected to one of these gateways:
+Powerwall 3 and Backup Gateways running newer Tesla firmware expose a more restricted local HTTP API than Powerwall 2. As a result, some entities and features are not available when Home Assistant connects to one of these gateways:
 
-- Off-grid operation switch
-- Backup reserve sensor
-- Per-battery sensors (battery capacity, remaining energy, power, frequency, current, voltage, grid state, export/import energy)
+- Off-Grid operation
+- Powerwall Backup Reserve
+- Per-battery sensors (Powerwall Battery Capacity, Powerwall Battery Remaining, Powerwall Battery Power, Frequency/Average Current/Average Voltage Now, Powerwall Battery Export, Powerwall Battery Import, Powerwall Grid State)
 - Powerwall Status and Powerwall Connected to Tesla binary sensors
 
 The aggregate sensors (power flow, charge, lifetime energy) and the Grid Status / Grid Services / Powerwall Charging binary sensors remain available.
 
-Because the gateway's serial number cannot be read on these devices, the integration uses a hash of the local gateway password as a stable unique identifier. As a consequence, changing the gateway password is not supported on Powerwall 3 — if the password changes, you will need to remove and re-add the integration.
 
 ### Binary sensor
 
