@@ -72,7 +72,7 @@ Host:
 
 The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
 
-- **BOX**: The main DucoBox (fan control, ventilation state)
+- **BOX**: The main DucoBox (fan control, ventilation state, target flow level, mode time remaining)
 - **UCCO2**: A wall-mounted control unit with a built-in CO₂ sensor
 - **BSRH**: A humidity sensor module installed in the duct inlet of the DucoBox
 - **UCRH**: A wireless humidity sensor module
