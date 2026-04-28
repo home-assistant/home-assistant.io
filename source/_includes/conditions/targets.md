@@ -1,5 +1,7 @@
 {%- assign target_domain = include.domain | default: page.domain -%}
 
+<a id="targets"></a>
+
 ## Targets of the condition
 
 This condition requires a target. The target is the object that Home Assistant will check. You can point the condition at a single {% term entity %}, a device, an area, a floor, or a label, and Home Assistant will evaluate every matching {{ target_domain }} entity behind that target.
