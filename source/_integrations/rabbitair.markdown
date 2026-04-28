@@ -1,6 +1,6 @@
 ---
 title: Rabbit Air
-description: Instructions on how to integrate Rabbit Air air purifier within Home Assistant.
+description: Instructions on how to integrate Rabbit Air air purifiers within Home Assistant.
 ha_category:
   - Fan
 ha_iot_class: Local Polling
@@ -15,9 +15,10 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **Rabbit Air** {% term integration %} lets you control your air purifier over the local network. The following device models are currently supported:
+The **Rabbit Air** {% term integration %} lets you control supported Rabbit Air air purifiers over the local network. The following device models are currently supported:
 
-- MinusA2 (2-nd generation)
+- BioGS 2.0
+- MinusA2 (2nd generation)
 - A3
 
 The fan platform of this integration allows you to turn the unit on/off, select the preset mode, or set the speed manually.
