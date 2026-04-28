@@ -9,8 +9,6 @@ The **Turn off vacuum** action turns off a supported vacuum cleaner.
 
 Use it when your vacuum supports a separate power state and you want to shut it down after cleaning or before maintenance.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

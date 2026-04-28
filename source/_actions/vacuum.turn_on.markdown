@@ -9,8 +9,6 @@ The **Turn on vacuum** action turns on a supported vacuum cleaner.
 
 Use it when your vacuum supports a separate power state and you want to make sure it is powered on before you run another action.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

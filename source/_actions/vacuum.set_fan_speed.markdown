@@ -9,8 +9,6 @@ The **Set fan speed** action changes the fan or suction power level of the vacuu
 
 Use it when you want stronger suction for dirtier rooms, a quieter mode during the evening, or different cleaning intensity for different schedules.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

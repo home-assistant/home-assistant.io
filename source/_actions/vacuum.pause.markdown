@@ -9,8 +9,6 @@ The **Pause cleaning** action instructs your vacuum to pause its current operati
 
 Use it when you need the robot to stop temporarily without ending the run, like during a phone call, while someone is sleeping, or when the doorbell rings.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

@@ -9,8 +9,6 @@ The **Clean area** action sends your vacuum to clean one or more mapped Home Ass
 
 Use it when only part of the home needs attention, like the kitchen after dinner or the hallway after muddy shoes, without sending the robot through every room.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

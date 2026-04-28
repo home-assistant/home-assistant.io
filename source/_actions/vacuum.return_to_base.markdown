@@ -9,8 +9,6 @@ The **Return to base** action instructs the vacuum to stop its current task and 
 
 Use it when you want the robot to head home in an orderly way, like before bedtime, before guests arrive, or when you want the floor clear without leaving the vacuum stranded in the middle of a room.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

@@ -9,8 +9,6 @@ The **Start or pause cleaning** action starts, pauses, or resumes a supported va
 
 Use it when you want a single action to handle the current cleaning state without first checking whether the vacuum is idle, cleaning, or paused.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

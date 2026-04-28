@@ -9,8 +9,6 @@ The **Toggle vacuum power** action switches a supported vacuum cleaner between o
 
 Use it when you want one automation to flip the vacuum power state without first checking whether it is already on or off.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

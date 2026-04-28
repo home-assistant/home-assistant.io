@@ -9,8 +9,6 @@ The **Clean spot** action asks the vacuum to perform a concentrated cleaning cyc
 
 Use it when a small area needs extra attention, like around a chair, near pet bowls, or where crumbs have just landed.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

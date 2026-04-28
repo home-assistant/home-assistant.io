@@ -9,8 +9,6 @@ The **Locate vacuum** action causes the vacuum to play a sound or flash lights, 
 
 Use it when the robot has ended up under a bed, behind furniture, or somewhere else that is hard to spot at a glance.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

@@ -9,8 +9,6 @@ The **Start cleaning** action sends a start or resume command to a vacuum, begin
 
 Use it when you want the robot to begin on a schedule, resume after a pause, or start automatically once the house is empty.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation:

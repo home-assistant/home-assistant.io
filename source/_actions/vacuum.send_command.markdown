@@ -9,8 +9,6 @@ The **Send command** action passes a custom command (and optional parameters) di
 
 Use it for features that your vacuum integration exposes but that do not have a dedicated Home Assistant action, like toggling a do-not-disturb mode or changing a vendor-specific setting.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:

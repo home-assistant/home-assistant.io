@@ -9,8 +9,6 @@ The **Stop vacuum** action immediately stops the vacuum's current activity (clea
 
 Use it when you want the robot to stop right away instead of pausing or returning to the dock, like during an unexpected spill, a pet accident, or another situation where you need it out of the area immediately.
 
-{% include integrations/labs_entity_actions_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:
