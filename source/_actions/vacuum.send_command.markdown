@@ -42,7 +42,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 target:
   description: The vacuum to send the command to.
   required: false
-  type: target
+  type: map
 command:
   description: The command name the vacuum platform expects (string).
   required: true
@@ -50,7 +50,7 @@ command:
 params:
   description: (Optional) Parameters for the command (YAML or JSON mapping).
   required: false
-  type: mapping
+  type: map
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}

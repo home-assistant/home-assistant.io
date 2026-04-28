@@ -64,7 +64,7 @@ behavior:
 for:
   description: The time the vacuum must keep returning before the condition passes.
   required: false
-  type: duration
+  type: time
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}

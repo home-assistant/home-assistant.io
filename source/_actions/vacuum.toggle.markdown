@@ -40,7 +40,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 target:
   description: The vacuum, area, or device to toggle.
   required: false
-  type: target
+  type: map
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}

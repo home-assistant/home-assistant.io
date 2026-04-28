@@ -41,7 +41,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 target:
   description: Vacuum entity to control.
   required: false
-  type: target
+  type: map
 fan_speed:
   description: Fan speed as a label (like 'eco', 'turbo') or percentage (0-100).
   required: true

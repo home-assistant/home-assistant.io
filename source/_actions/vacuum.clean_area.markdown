@@ -42,7 +42,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 target:
   description: The vacuum to send to specific areas.
   required: true
-  type: target
+  type: map
 cleaning_area_id:
   description: The areas to clean. Use Home Assistant area IDs.
   required: true

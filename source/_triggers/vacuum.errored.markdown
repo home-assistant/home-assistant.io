@@ -70,11 +70,11 @@ behavior:
 target:
   description: Vacuum entity or group to monitor.
   required: true
-  type: target
+  type: map
 for:
   description: The time the vacuum must remain in the error state before the trigger fires.
   required: false
-  type: duration
+  type: time
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}

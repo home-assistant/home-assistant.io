@@ -64,7 +64,7 @@ behavior:
 for:
   description: The time the vacuum must stay docked before the condition passes.
   required: false
-  type: duration
+  type: time
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
