@@ -23,7 +23,7 @@ The **Novy Cooker Hood** {% term integration %} lets you control the light and e
 
 The integration controls Novy cooker hoods that ship with the white RF remote, model 840029.
 
-### Unsupported devices
+## Unsupported devices
 
 The following devices are not supported:
 
@@ -49,7 +49,7 @@ The **Novy Cooker Hood** integration provides the following entities. State is a
 
 ## Prerequisites
 
-1. Set up a [Radio Frequency](/integrations/radio_frequency/) transmitter integration that supports 433.92&nbsp;MHz OOK transmissions.
+1. Set up a hardware integration (for example, [ESPHome](/integrations/esphome/) or [Broadlink](/integrations/broadlink/)) that provides a [Radio Frequency](/integrations/radio_frequency/) {% term entity %} supporting 433.92&nbsp;MHz OOK transmissions.
 2. Identify the pairing code of your hood. New hoods are paired with code 1; if yours was changed, follow the button combination in your Novy manual to read it back. The remote's green LED flashes once for code 1, twice for code 2, and so on up to 10.
 
 {% include integrations/config_flow.md %}
