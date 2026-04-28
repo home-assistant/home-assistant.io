@@ -221,6 +221,8 @@ Your main UniFi Protect NVR device also gets a number of entities that can be us
 
 - **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
 
+- **Alarm profile**: A select entity that lets you switch between the arm profiles configured in UniFi Protect. The state reflects the currently active arm profile. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+
 - **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
