@@ -8,7 +8,9 @@ related_triggers:
   - vacuum.docked
 ---
 
-The **Vacuum started cleaning** trigger fires when the vacuum begins a new cleaning run. Use it for automations that need to respond when cleaning starts—like announcements, status changes, or notifications.
+The **Vacuum started cleaning** trigger fires when the vacuum begins a new cleaning run. Use it for automations that need to respond when cleaning starts, like announcements, status changes, or notifications.
+
+If you want to mark the house as being cleaned, pause other noisy routines, or let someone know the robot has started, this trigger gives you a reliable starting point.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -73,6 +75,31 @@ target:
 {% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
+
+### Automation: mark cleaning as in progress
+
+When the downstairs vacuum starts, turn on a helper that other automations can use to avoid interrupting the cleaning run.
+
+- **Trigger**: Vacuum started cleaning
+- **Target**: Downstairs vacuum
+- **Action**: Turn on input boolean
+
+{% details "YAML example for tracking an active cleaning run" %}
+
+{% example %}
+automation: |
+  alias: "Track active vacuum cleaning"
+  triggers:
+    - trigger: vacuum.started_cleaning
+      target:
+        entity_id: vacuum.downstairs
+  actions:
+    - action: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.vacuum_cleaning
+{% endexample %}
+
+{% enddetails %}
 
 {% include triggers/stuck.md %}
 

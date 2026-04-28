@@ -11,6 +11,8 @@ related_triggers:
 The **Vacuum returned to dock** trigger fires when your vacuum docks at its charging station.
 Use it to automate notifications or actions when cleaning has finished.
 
+This is a good fit when you want to send a completion message, reset a cleaning status helper, or start another task only after the robot is safely back on the charger.
+
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
@@ -67,6 +69,7 @@ target:
   type: target
 
 {% include triggers/targets.md %}
+
 {% include triggers/behavior.md %}
 
 ## Good to know
@@ -76,6 +79,32 @@ target:
 {% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
+
+### Automation: send a notification when cleaning is finished
+
+When the vacuum docks, the cleaning run is usually complete. This automation sends a quick message so you know the robot is done and back on the charger.
+
+- **Trigger**: Vacuum returned to dock
+- **Target**: Downstairs vacuum
+- **Action**: Notify mobile app
+
+{% details "YAML example for a cleaning finished notification" %}
+
+{% example %}
+automation: |
+  alias: "Vacuum finished cleaning"
+  triggers:
+    - trigger: vacuum.docked
+      target:
+        entity_id: vacuum.downstairs
+  actions:
+    - action: notify.mobile_app_phone
+      data:
+        title: "Vacuum finished"
+        message: "The downstairs vacuum returned to its dock."
+{% endexample %}
+
+{% enddetails %}
 
 {% include triggers/stuck.md %}
 

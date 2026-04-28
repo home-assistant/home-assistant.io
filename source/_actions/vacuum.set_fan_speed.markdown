@@ -7,6 +7,8 @@ description: "Sets the fan/power level for cleaning."
 
 The **Set fan speed** action changes the fan or suction power level of the vacuum while running or before cleaning starts.
 
+Use it when you want stronger suction for dirtier rooms, a quieter mode during the evening, or different cleaning intensity for different schedules.
+
 {% include integrations/labs_entity_actions_note.md %}
 
 ## Usage in the UI
@@ -48,3 +50,31 @@ fan_speed:
 
 - Some platforms use named speeds; others use numeric values.
 
+### Automation: use turbo mode for weekday cleaning
+
+Before the weekday cleaning run starts, this automation sets the vacuum to a stronger fan speed so it can do a deeper clean while the house is empty.
+
+- **Trigger**: Time: 09:00
+- **Action**: Set fan speed
+- **Target**: Main vacuum
+- **Fan speed**: turbo
+
+{% details "YAML example for increasing vacuum suction before cleaning" %}
+
+{% example %}
+automation: |
+  alias: "Weekday vacuum turbo mode"
+  triggers:
+    - trigger: time
+      at: "09:00:00"
+  actions:
+    - action: vacuum.set_fan_speed
+      target:
+        entity_id: vacuum.main_floor
+      fan_speed: turbo
+    - action: vacuum.start
+      target:
+        entity_id: vacuum.main_floor
+{% endexample %}
+
+{% enddetails %}

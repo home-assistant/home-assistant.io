@@ -11,6 +11,8 @@ related_triggers:
 The **Vacuum paused cleaning** trigger fires when a vacuum interrupts its cleaning session by pausing.
 Use this to send reminders, alert for stuck devices, or to chain additional automations.
 
+Use it to send a message when the robot needs help, turn on a nearby light so you can find it, or record how often it gets stuck in the same place.
+
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
@@ -74,6 +76,32 @@ target:
 {% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
+
+### Automation: send a notification when the vacuum pauses
+
+If the vacuum pauses unexpectedly, it may be stuck under furniture, wrapped in a cable, or waiting for you to empty the bin. This automation sends a phone alert so you can check on it.
+
+- **Trigger**: Vacuum paused cleaning
+- **Target**: Hallway vacuum
+- **Action**: Notify mobile app
+
+{% details "YAML example for a paused vacuum alert" %}
+
+{% example %}
+automation: |
+  alias: "Vacuum paused alert"
+  triggers:
+    - trigger: vacuum.paused_cleaning
+      target:
+        entity_id: vacuum.hallway
+  actions:
+    - action: notify.mobile_app_phone
+      data:
+        title: "Vacuum paused"
+        message: "The hallway vacuum paused and may need attention."
+{% endexample %}
+
+{% enddetails %}
 
 {% include triggers/stuck.md %}
 

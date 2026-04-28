@@ -7,6 +7,8 @@ description: "Send a platform-specific command or advanced function."
 
 The **Send command** action passes a custom command (and optional parameters) directly to your vacuum for advanced or platform-specific control.
 
+Use it for features that your vacuum integration exposes but that do not have a dedicated Home Assistant action, like toggling a do-not-disturb mode or changing a vendor-specific setting.
+
 {% include integrations/labs_entity_actions_note.md %}
 
 ## Usage in the UI
@@ -53,3 +55,30 @@ params:
 
 - Platform-specific commands may not be documented. Consult your integration’s docs for command names and parameters.
 
+### Automation: enable Do Not Disturb at night
+
+Some vacuum platforms support a Do Not Disturb mode through a custom command. This automation sends that command each night so the robot stays quiet during sleeping hours.
+
+- **Trigger**: Time: 23:00
+- **Action**: Send command
+- **Target**: Upstairs vacuum
+- **Command**: `set_do_not_disturb`
+
+{% details "YAML example for sending a custom vacuum command" %}
+
+{% example %}
+automation: |
+  alias: "Vacuum Do Not Disturb at night"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: vacuum.send_command
+      target:
+        entity_id: vacuum.upstairs
+      command: set_do_not_disturb
+      params:
+        enabled: true
+{% endexample %}
+
+{% enddetails %}

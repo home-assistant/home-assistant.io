@@ -7,6 +7,8 @@ description: "Plays a sound or flashes lights to help you find the vacuum."
 
 The **Locate vacuum** action causes the vacuum to play a sound or flash lights, making it easier to find.
 
+Use it when the robot has ended up under a bed, behind furniture, or somewhere else that is hard to spot at a glance.
+
 {% include integrations/labs_entity_actions_note.md %}
 
 ## Usage in the UI
@@ -43,3 +45,28 @@ target:
 
 - The locate function’s effects (sound, lights) depend on your vacuum model.
 
+### Automation: locate the vacuum when the dust bin is full
+
+Some vacuum integrations expose a binary sensor when the dust bin is full (for example, [iRobot Roomba and Braava](/integrations/roomba/)).
+If your vacuum reports that its bin needs attention, this automation makes it play its locate signal so you can find it quickly.
+
+- **Trigger**: Roomba bin full sensor turns on
+- **Action**: Locate vacuum
+- **Target**: Upstairs vacuum
+
+{% details "YAML example for locating a vacuum that needs emptying" %}
+
+{% example %}
+automation: |
+  alias: "Locate vacuum when bin is full"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.roomba_bin_full
+      to: "on"
+  actions:
+    - action: vacuum.locate
+      target:
+        entity_id: vacuum.upstairs
+{% endexample %}
+
+{% enddetails %}

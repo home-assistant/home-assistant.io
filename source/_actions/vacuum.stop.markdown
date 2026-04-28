@@ -7,6 +7,8 @@ description: "Stops the current activity of a vacuum."
 
 The **Stop vacuum** action immediately stops the vacuum's current activity (cleaning, returning to dock, spot clean, etc.).
 
+Use it when you want the robot to stop right away instead of pausing or returning to the dock, like during an unexpected spill, a pet accident, or another situation where you need it out of the area immediately.
+
 {% include integrations/labs_entity_actions_note.md %}
 
 ## Usage in the UI
@@ -43,3 +45,27 @@ target:
 
 - This action only works for vacuums that are currently active or returning.
 
+### Automation: stop the vacuum if a leak is detected
+
+If a leak sensor activates in the kitchen, this automation stops the vacuum immediately so it does not drive through water.
+
+- **Trigger**: Leak detected
+- **Action**: Stop vacuum
+- **Target**: Downstairs vacuum
+
+{% details "YAML example for stopping a vacuum on leak detection" %}
+
+{% example %}
+automation: |
+  alias: "Stop vacuum on leak"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.kitchen_leak
+      to: "on"
+  actions:
+    - action: vacuum.stop
+      target:
+        entity_id: vacuum.downstairs
+{% endexample %}
+
+{% enddetails %}

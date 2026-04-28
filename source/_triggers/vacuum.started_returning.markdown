@@ -10,6 +10,8 @@ related_triggers:
 
 The **Vacuum started returning to dock** trigger fires when the vacuum finishes its current activity and sets out for its charging station. Use this to automate post-cleanup events, notifications, or dock preparation routines.
 
+Use it to prepare for the robot to pass through a dark hallway, announce that cleaning is almost done, or turn off modes that only matter while active cleaning is in progress.
+
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
@@ -74,6 +76,35 @@ target:
 {% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
+
+### Automation: turn on the hallway light while the vacuum returns
+
+If your vacuum docks in a darker part of the house, you can turn on a nearby light when it starts heading back so it can finish its route with a clear path.
+
+- **Trigger**: Vacuum started returning to dock
+- **Target**: Downstairs vacuum
+- **Condition**: Sun is below horizon
+- **Action**: Turn on hallway light
+
+{% details "YAML example for lighting the path back to the dock" %}
+
+{% example %}
+automation: |
+  alias: "Light path for returning vacuum"
+  triggers:
+    - trigger: vacuum.started_returning
+      target:
+        entity_id: vacuum.downstairs
+  conditions:
+    - condition: sun
+      after: sunset
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.hallway
+{% endexample %}
+
+{% enddetails %}
 
 {% include triggers/stuck.md %}
 
