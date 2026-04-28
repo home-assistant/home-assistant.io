@@ -70,7 +70,7 @@ The following button entity allows triggering device actions directly from Home 
 
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
-- Device heating state (on/off)
+- Device heating state (Gen-1 specific, on/off)
 - DC input power (2 channels, W)
 - Daily production (kWh)
 - Cumulative production (kWh)
@@ -90,7 +90,7 @@ The following button entity allows triggering device actions directly from Home 
 
 #### SolidFlex2000/PowerFlex2000 (Generation 2)
 
-All Generation 1 sensors except device heating state, plus:
+All Generation 1 sensors, plus:
 
 - Rated capacity (kWh)
 - DC input voltage (4 channels, V)
