@@ -1,6 +1,7 @@
 {%- assign target_domain = include.domain | default: page.domain -%}
 
 <a id="targets"></a>
+<a id="targets-of-the-action"></a>
 
 ## Targets of the action
 
