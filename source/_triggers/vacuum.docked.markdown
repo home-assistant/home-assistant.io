@@ -37,7 +37,7 @@ Trigger when:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `vacuum.docked`. Example:
+In YAML, refer to this trigger as `vacuum.docked`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -54,6 +54,8 @@ This example fires after both vacuums have docked.
 
 ### Options in YAML
 
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
 {% options_yaml %}
 behavior:
   description: >
@@ -61,12 +63,11 @@ behavior:
   required: false
   type: string
   default: any
-{% endoptions_yaml %}
-
 target:
   description: Vacuum entity or group to monitor.
   required: true
   type: target
+{% endoptions_yaml %}
 
 {% include triggers/targets.md %}
 
@@ -74,7 +75,8 @@ target:
 
 ## Good to know
 
-- This trigger does **not** fire when a vacuum comes back online from an `unavailable` or `unknown` state—only on a stateful, valid transition to docked.
+- This trigger fires only on a real transition to docked.
+- If a vacuum comes back online from `unavailable` or `unknown`, that does not count as docking.
 
 {% include triggers/try_it.md %}
 

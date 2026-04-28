@@ -11,7 +11,9 @@ Use it when only part of the home needs attention, like the kitchen after dinner
 
 {% include integrations/labs_entity_actions_note.md %}
 
-## Usage in the UI
+{% include actions/ui_header.md %}
+
+To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
@@ -20,21 +22,23 @@ Use it when only part of the home needs attention, like the kitchen after dinner
 5. In **Area**, choose one or more mapped Home Assistant areas.
 6. Save the automation.
 
-## Usage in YAML
+{% include actions/yaml_header.md %}
 
 {% example %}
 action: |
-  - action: vacuum.clean_area
-    target:
-      entity_id: vacuum.cleaner
-    area:
-      - living_room
-      - kitchen
+  action: vacuum.clean_area
+  target:
+    entity_id: vacuum.cleaner
+  area:
+    - living_room
+    - kitchen
 {% endexample %}
 
-## Options
+This sends `vacuum.cleaner` to clean the `living_room` and `kitchen` areas.
 
 ### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -47,10 +51,16 @@ area:
   type: list
 {% endoptions_yaml %}
 
+{% include actions/targets.md %}
+
 ## Good to know
 
 - You must first map vacuum segments to Home Assistant areas in the entity settings.
 - If mapping or area selection does not appear, your vacuum does not support this feature.
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
 
 ### Automation: clean the kitchen and dining room after dinner
 
@@ -84,3 +94,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

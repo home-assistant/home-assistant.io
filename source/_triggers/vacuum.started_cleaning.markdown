@@ -36,7 +36,7 @@ Trigger when:
 
 {% include triggers/yaml_header.md %}
 
-YAML example:
+In YAML, refer to this trigger as `vacuum.started_cleaning`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -51,18 +51,20 @@ trigger: |
 
 ### Options in YAML
 
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
 {% options_yaml %}
 behavior:
-  description: Behavior when multiple vacuums targeted. Options: `any`/`first`/`last`.
+  description: >
+    When multiple vacuums are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
   required: false
   type: string
   default: any
-{% endoptions_yaml %}
-
 target:
   description: Vacuum entity or group to monitor.
   required: true
   type: target
+{% endoptions_yaml %}
 
 {% include triggers/targets.md %}
 
@@ -70,7 +72,8 @@ target:
 
 ## Good to know
 
-- Does not trigger when a vacuum comes back online—only on the actual start-cleaning event.
+- This trigger fires only when cleaning actually starts.
+- If a vacuum comes back online from `unavailable` or `unknown`, that does not count as starting a cleaning run.
 
 {% include triggers/try_it.md %}
 

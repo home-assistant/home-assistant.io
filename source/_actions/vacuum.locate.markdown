@@ -11,7 +11,9 @@ Use it when the robot has ended up under a bed, behind furniture, or somewhere e
 
 {% include integrations/labs_entity_actions_note.md %}
 
-## Usage in the UI
+{% include actions/ui_header.md %}
+
+To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
@@ -19,20 +21,22 @@ Use it when the robot has ended up under a bed, behind furniture, or somewhere e
 4. Select one or more vacuums, area, or group.
 5. Save.
 
-## Usage in YAML
+{% include actions/yaml_header.md %}
 
 {% example %}
 action: |
-  - action: vacuum.locate
-    target:
-      entity_id: vacuum.upstairs
+  action: vacuum.locate
+  target:
+    entity_id: vacuum.upstairs
 {% endexample %}
+
+This makes `vacuum.upstairs` play its locate signal.
 
 Omitting `entity_id` will target all supported vacuums in your system.
 
-## Options
-
 ### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -41,9 +45,15 @@ target:
   type: target
 {% endoptions_yaml %}
 
+{% include actions/targets.md %}
+
 ## Good to know
 
 - The locate function’s effects (sound, lights) depend on your vacuum model.
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
 
 ### Automation: locate the vacuum when the dust bin is full
 
@@ -70,3 +80,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

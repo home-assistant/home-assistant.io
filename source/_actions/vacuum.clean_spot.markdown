@@ -11,7 +11,9 @@ Use it when a small area needs extra attention, like around a chair, near pet bo
 
 {% include integrations/labs_entity_actions_note.md %}
 
-## Usage in the UI
+{% include actions/ui_header.md %}
+
+To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
@@ -19,20 +21,22 @@ Use it when a small area needs extra attention, like around a chair, near pet bo
 4. Select the target vacuum, area, or group.
 5. Save.
 
-## Usage in YAML
+{% include actions/yaml_header.md %}
 
 {% example %}
 action: |
-  - action: vacuum.clean_spot
-    target:
-      entity_id: vacuum.office
+  action: vacuum.clean_spot
+  target:
+    entity_id: vacuum.office
 {% endexample %}
+
+This starts a spot clean at `vacuum.office`'s current location.
 
 Omitting `entity_id` targets all supported vacuums.
 
-## Options
-
 ### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -41,9 +45,15 @@ target:
   type: target
 {% endoptions_yaml %}
 
+{% include actions/targets.md %}
+
 ## Good to know
 
 - Not all vacuum models support spot cleaning.
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
 
 ### Automation: run a quick spot clean from a dashboard button
 
@@ -68,3 +78,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

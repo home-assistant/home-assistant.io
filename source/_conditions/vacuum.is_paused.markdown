@@ -5,45 +5,74 @@ domain: vacuum
 description: "Passes when the vacuum cleaner is paused."
 ---
 
-The **Vacuum is paused** condition passes when the vacuum is currently paused in the middle of a cleaning run.
+The **Vacuum is paused** condition passes when one or more targeted vacuums are paused in the middle of a cleaning run.
 
 Use this when you want an automation to continue only if the robot is stopped mid-run, like sending a reminder, turning on a nearby light, or resuming later as part of a scheduled routine.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-Entities that are `unavailable` or `unknown` are excluded from the check.
-With `behavior: any` (the default), the condition passes if at least one targeted vacuum is paused.
-With `behavior: all`, it passes only if all targeted vacuums are paused.
-If all are `unavailable` or `unknown`, the condition fails for `any` and passes for `all`.
+{% include conditions/ui_header.md %}
 
-## Usage in YAML
+To use this condition in an automation:
 
-{% details "YAML example for the `vacuum.is_paused` condition" %}
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **And if** section, select **Add condition**.
+4. From the search box, search for and select **Vacuum: Vacuum is paused**.
+5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+7. Select **Save**.
 
-```yaml
-automation:
-  conditions:
-    - condition: vacuum.is_paused
-      target:
-        entity_id:
-          - vacuum.upstairs
-          - vacuum.downstairs
-      options:
-        behavior: all
-```
+### Options in the UI
 
-- **Data attribute**: `target`
-  - **Description**: The `vacuum` entities to check.
-  - **Optional**: No
+{% options_ui %}
+Condition passes if:
+  description: When multiple vacuums are targeted, controls how results combine. Pick **Any** to pass if at least one targeted vacuum is paused, or **All** to pass only when every targeted vacuum is paused.
+  required: true
+{% endoptions_ui %}
 
-- **Data attribute**: `behavior`
-  - **Description**: Controls how multiple vacuums are evaluated. Options:
-    - `any` (passes if at least one vacuum is paused)
-    - `all` (passes only if all targeted vacuums are paused)
-  - **Optional**: Yes
-  - Defaults to `any` if not specified.
+{% include conditions/yaml_header.md %}
 
-{% enddetails %}
+In YAML, refer to this condition as `vacuum.is_paused`. A basic example looks like this:
+
+{% example %}
+condition: |
+  condition: vacuum.is_paused
+  target:
+    entity_id: vacuum.hallway
+  options:
+    behavior: any
+{% endexample %}
+
+This passes when `vacuum.hallway` is paused.
+
+### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+behavior:
+  description: >
+    When multiple vacuums are targeted, controls how results combine. Accepts `all` or `any`.
+  required: true
+  type: string
+  default: any
+{% endoptions_yaml %}
+
+{% include conditions/targets.md %}
+
+{% include conditions/behavior.md %}
+
+## Good to know
+
+- Entities with state `unavailable` or `unknown` are ignored when Home Assistant evaluates the condition.
+- With **Any** (default), the condition passes if at least one targeted vacuum is paused.
+- With **All**, the condition passes only if every targeted vacuum that Home Assistant can evaluate is paused.
+- If every targeted vacuum is `unavailable` or `unknown`, **Any** fails and **All** passes.
+
+{% include conditions/try_it.md %}
+
+{% include conditions/more_examples.md %}
 
 ### Automation: remind you if the vacuum is still paused
 
@@ -56,8 +85,8 @@ This automation checks every 15 minutes whether the hallway vacuum is paused. If
 
 {% details "YAML example for a paused vacuum reminder" %}
 
-```yaml
-automation:
+{% example %}
+automation: |
   alias: "Reminder for paused vacuum"
   triggers:
     - trigger: time_pattern
@@ -73,6 +102,10 @@ automation:
       data:
         title: "Vacuum is paused"
         message: "The hallway vacuum is still paused."
-```
+{% endexample %}
 
 {% enddetails %}
+
+{% include conditions/stuck.md %}
+
+{% include conditions/related.md %}

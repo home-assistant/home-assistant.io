@@ -31,13 +31,13 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: For multiple targets, pick when the trigger fires: **First**/ **Last**/ **Any** device paused.
+  description: When monitoring more than one vacuum, controls when the trigger fires. Pick **First** to fire when any monitored vacuum pauses, **Last** for when they all have, or **Any** for every individual event.
   required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-YAML example:
+In YAML, refer to this trigger as `vacuum.paused_cleaning`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -52,18 +52,20 @@ trigger: |
 
 ### Options in YAML
 
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
 {% options_yaml %}
 behavior:
-  description: If multiple vacuums are targeted, controls whether the trigger fires on the first, last, or any vacuum pausing.
+  description: >
+    When multiple vacuums are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
   required: false
   type: string
   default: any
-{% endoptions_yaml %}
-
 target:
   description: Vacuum entity or group to monitor.
   required: true
   type: target
+{% endoptions_yaml %}
 
 {% include triggers/targets.md %}
 
@@ -71,7 +73,8 @@ target:
 
 ## Good to know
 
-- This trigger does not fire on recovery from unavailable/offline states—only on an actual pause event.
+- This trigger fires only when a vacuum actually pauses.
+- If a vacuum comes back online from `unavailable` or `unknown`, that does not count as a pause event.
 
 {% include triggers/try_it.md %}
 

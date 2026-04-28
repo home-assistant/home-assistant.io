@@ -11,7 +11,7 @@ Use it when you want the robot to begin on a schedule, resume after a pause, or 
 
 {% include integrations/labs_entity_actions_note.md %}
 
-## Usage in the UI
+{% include actions/ui_header.md %}
 
 To use this action in an automation:
 
@@ -21,22 +21,24 @@ To use this action in an automation:
 4. Choose one or more vacuum entities or an area.
 5. Configure as needed and select **Save**.
 
-## Usage in YAML
+{% include actions/yaml_header.md %}
 
 {% example %}
 action: |
-  - action: vacuum.start
-    target:
-      entity_id:
-        - vacuum.downstairs
-        - vacuum.upstairs
+  action: vacuum.start
+  target:
+    entity_id:
+      - vacuum.downstairs
+      - vacuum.upstairs
 {% endexample %}
+
+This starts `vacuum.downstairs` and `vacuum.upstairs`.
 
 The `entity_id` is optional; omit it to target all vacuums.
 
-## Options
-
 ### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -45,9 +47,15 @@ target:
   type: target
 {% endoptions_yaml %}
 
+{% include actions/targets.md %}
+
 ## Good to know
 
 - This action only works if your vacuum supports the start function.
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
 
 ### Automation: start cleaning after everyone leaves
 
@@ -73,3 +81,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

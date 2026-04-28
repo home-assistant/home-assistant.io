@@ -11,7 +11,9 @@ Use it when you want stronger suction for dirtier rooms, a quieter mode during t
 
 {% include integrations/labs_entity_actions_note.md %}
 
-## Usage in the UI
+{% include actions/ui_header.md %}
+
+To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
@@ -19,21 +21,23 @@ Use it when you want stronger suction for dirtier rooms, a quieter mode during t
 4. Choose the target vacuum, then select or enter the desired fan speed/power.
 5. Save the automation.
 
-## Usage in YAML
+{% include actions/yaml_header.md %}
 
 {% example %}
 action: |
-  - action: vacuum.set_fan_speed
-    target:
-      entity_id: vacuum.cleaner
-    fan_speed: turbo
+  action: vacuum.set_fan_speed
+  target:
+    entity_id: vacuum.cleaner
+  fan_speed: turbo
 {% endexample %}
+
+This sets `vacuum.cleaner` to `turbo`.
 
 The `fan_speed` value (label or number) is platform-dependent. Allowed values are typically found in your vacuum’s manual or entity attributes.
 
-## Options
-
 ### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -46,9 +50,15 @@ fan_speed:
   type: string
 {% endoptions_yaml %}
 
+{% include actions/targets.md %}
+
 ## Good to know
 
 - Some platforms use named speeds; others use numeric values.
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
 
 ### Automation: use turbo mode for weekday cleaning
 
@@ -78,3 +88,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

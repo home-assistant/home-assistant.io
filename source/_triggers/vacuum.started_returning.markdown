@@ -30,13 +30,13 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: For multiple vacuums, controls if trigger fires on first, last, or any device starting the return.
+  description: When monitoring more than one vacuum, controls when the trigger fires. Pick **First** to fire when any monitored vacuum starts returning, **Last** for when they all have, or **Any** for every individual event.
   required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-YAML example:
+In YAML, refer to this trigger as `vacuum.started_returning`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -51,19 +51,20 @@ trigger: |
 
 ### Options in YAML
 
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
 {% options_yaml %}
 behavior:
   description: >
-    For multiple targets: `any`, `first`, or `last` to control group event logic.
+    When multiple vacuums are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
   required: false
   type: string
   default: any
-{% endoptions_yaml %}
-
 target:
   description: Vacuum entity or group to monitor.
   required: true
   type: target
+{% endoptions_yaml %}
 
 {% include triggers/targets.md %}
 
@@ -71,7 +72,8 @@ target:
 
 ## Good to know
 
-- This does not trigger on a vacuum coming online—only on the return-to-dock event.
+- This trigger fires only when a vacuum actually starts returning to its dock.
+- If a vacuum comes back online from `unavailable` or `unknown`, that does not count as a return-to-dock event.
 
 {% include triggers/try_it.md %}
 

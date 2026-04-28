@@ -5,45 +5,74 @@ domain: vacuum
 description: "Passes when the vacuum cleaner is returning to the dock."
 ---
 
-The **Vacuum is returning** condition passes when the vacuum is currently returning to its dock or base.
+The **Vacuum is returning** condition passes when one or more targeted vacuums are returning to their dock or base.
 
 Use this when you only want an automation to run while the robot is on its way home, like turning on a light near the dock, delaying another routine, or waiting to start cleanup until the path is clear again.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-Entities that are `unavailable` or `unknown` are excluded from the check.
-With `behavior: any` (the default), the condition passes if at least one targeted vacuum is returning.
-With `behavior: all`, it passes only if all targeted vacuums are returning.
-If all are `unavailable` or `unknown`, the condition fails for `any` and passes for `all`.
+{% include conditions/ui_header.md %}
 
-## Usage in YAML
+To use this condition in an automation:
 
-{% details "YAML example for the `vacuum.is_returning` condition" %}
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **And if** section, select **Add condition**.
+4. From the search box, search for and select **Vacuum: Vacuum is returning**.
+5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+7. Select **Save**.
 
-```yaml
-automation:
-  conditions:
-    - condition: vacuum.is_returning
-      target:
-        entity_id:
-          - vacuum.upstairs
-          - vacuum.downstairs
-      options:
-        behavior: all
-```
+### Options in the UI
 
-- **Data attribute**: `target`
-  - **Description**: The `vacuum` entities to check.
-  - **Optional**: No
+{% options_ui %}
+Condition passes if:
+  description: When multiple vacuums are targeted, controls how results combine. Pick **Any** to pass if at least one targeted vacuum is returning, or **All** to pass only when every targeted vacuum is returning.
+  required: true
+{% endoptions_ui %}
 
-- **Data attribute**: `behavior`
-  - **Description**: Controls how multiple vacuums are evaluated. Options:
-    - `any` (passes if at least one vacuum is returning)
-    - `all` (passes only if all targeted vacuums are returning)
-  - **Optional**: Yes
-  - Defaults to `any` if not specified.
+{% include conditions/yaml_header.md %}
 
-{% enddetails %}
+In YAML, refer to this condition as `vacuum.is_returning`. A basic example looks like this:
+
+{% example %}
+condition: |
+  condition: vacuum.is_returning
+  target:
+    entity_id: vacuum.downstairs
+  options:
+    behavior: any
+{% endexample %}
+
+This passes when `vacuum.downstairs` is returning to its dock.
+
+### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+behavior:
+  description: >
+    When multiple vacuums are targeted, controls how results combine. Accepts `all` or `any`.
+  required: true
+  type: string
+  default: any
+{% endoptions_yaml %}
+
+{% include conditions/targets.md %}
+
+{% include conditions/behavior.md %}
+
+## Good to know
+
+- Entities with state `unavailable` or `unknown` are ignored when Home Assistant evaluates the condition.
+- With **Any** (default), the condition passes if at least one targeted vacuum is returning.
+- With **All**, the condition passes only if every targeted vacuum that Home Assistant can evaluate is returning.
+- If every targeted vacuum is `unavailable` or `unknown`, **Any** fails and **All** passes.
+
+{% include conditions/try_it.md %}
+
+{% include conditions/more_examples.md %}
 
 ### Automation: turn on the dock light if the vacuum is returning
 
@@ -56,8 +85,8 @@ At night, this automation checks whether the vacuum is currently returning to th
 
 {% details "YAML example for lighting the dock area" %}
 
-```yaml
-automation:
+{% example %}
+automation: |
   alias: "Light dock area for returning vacuum"
   triggers:
     - trigger: time
@@ -72,6 +101,10 @@ automation:
     - action: light.turn_on
       target:
         entity_id: light.dock_area
-```
+{% endexample %}
 
 {% enddetails %}
+
+{% include conditions/stuck.md %}
+
+{% include conditions/related.md %}

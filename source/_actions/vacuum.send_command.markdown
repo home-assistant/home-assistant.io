@@ -11,7 +11,9 @@ Use it for features that your vacuum integration exposes but that do not have a 
 
 {% include integrations/labs_entity_actions_note.md %}
 
-## Usage in the UI
+{% include actions/ui_header.md %}
+
+To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
@@ -20,21 +22,23 @@ Use it for features that your vacuum integration exposes but that do not have a 
 5. Optionally add parameters (YAML or JSON format, as required).
 6. Select the vacuum target and save.
 
-## Usage in YAML
+{% include actions/yaml_header.md %}
 
 {% example %}
 action: |
-  - action: vacuum.send_command
-    target:
-      entity_id: vacuum.upstairs
-    command: set_do_not_disturb
-    params:
-      enabled: true
+  action: vacuum.send_command
+  target:
+    entity_id: vacuum.upstairs
+  command: set_do_not_disturb
+  params:
+    enabled: true
 {% endexample %}
 
-## Options
+This sends the `set_do_not_disturb` command to `vacuum.upstairs`.
 
 ### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -51,9 +55,15 @@ params:
   type: mapping
 {% endoptions_yaml %}
 
+{% include actions/targets.md %}
+
 ## Good to know
 
 - Platform-specific commands may not be documented. Consult your integration’s docs for command names and parameters.
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
 
 ### Automation: enable Do Not Disturb at night
 
@@ -82,3 +92,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

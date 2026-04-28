@@ -5,45 +5,74 @@ domain: vacuum
 description: "Passes when the vacuum cleaner is in an error state."
 ---
 
-The **Vacuum is encountering an error** condition passes when the vacuum is in an error state.
+The **Vacuum is encountering an error** condition passes when one or more targeted vacuums are in an error state.
 
 Use this when you want an automation to act only if the robot still needs attention, like sending a reminder later in the day, turning on a helper light, or skipping a follow-up routine until the issue is fixed.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-Entities that are `unavailable` or `unknown` are excluded from the check.
-With `behavior: any` (the default), the condition passes if at least one targeted vacuum is in error.
-With `behavior: all`, it passes only if all targeted vacuums are in error.
-If all are `unavailable` or `unknown`, the condition fails for `any` and passes for `all`.
+{% include conditions/ui_header.md %}
 
-## Usage in YAML
+To use this condition in an automation:
 
-{% details "YAML example for the `vacuum.is_encountering_an_error` condition" %}
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **And if** section, select **Add condition**.
+4. From the search box, search for and select **Vacuum: Vacuum is encountering an error**.
+5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+7. Select **Save**.
 
-```yaml
-automation:
-  conditions:
-    - condition: vacuum.is_encountering_an_error
-      target:
-        entity_id:
-          - vacuum.upstairs
-          - vacuum.downstairs
-      options:
-        behavior: all
-```
+### Options in the UI
 
-- **Data attribute**: `target`
-  - **Description**: The `vacuum` entities to check.
-  - **Optional**: No
+{% options_ui %}
+Condition passes if:
+  description: When multiple vacuums are targeted, controls how results combine. Pick **Any** to pass if at least one targeted vacuum is in an error state, or **All** to pass only when every targeted vacuum is in an error state.
+  required: true
+{% endoptions_ui %}
 
-- **Data attribute**: `behavior`
-  - **Description**: Controls how multiple vacuums are evaluated. Options:
-    - `any` (passes if at least one vacuum is in error)
-    - `all` (passes only if all targeted vacuums are in error)
-  - **Optional**: Yes
-  - Defaults to `any` if not specified.
+{% include conditions/yaml_header.md %}
 
-{% enddetails %}
+In YAML, refer to this condition as `vacuum.is_encountering_an_error`. A basic example looks like this:
+
+{% example %}
+condition: |
+  condition: vacuum.is_encountering_an_error
+  target:
+    entity_id: vacuum.upstairs
+  options:
+    behavior: any
+{% endexample %}
+
+This passes when `vacuum.upstairs` is reporting an error.
+
+### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
+{% options_yaml %}
+behavior:
+  description: >
+    When multiple vacuums are targeted, controls how results combine. Accepts `all` or `any`.
+  required: true
+  type: string
+  default: any
+{% endoptions_yaml %}
+
+{% include conditions/targets.md %}
+
+{% include conditions/behavior.md %}
+
+## Good to know
+
+- Entities with state `unavailable` or `unknown` are ignored when Home Assistant evaluates the condition.
+- With **Any** (default), the condition passes if at least one targeted vacuum is in an error state.
+- With **All**, the condition passes only if every targeted vacuum that Home Assistant can evaluate is in an error state.
+- If every targeted vacuum is `unavailable` or `unknown`, **Any** fails and **All** passes.
+
+{% include conditions/try_it.md %}
+
+{% include conditions/more_examples.md %}
 
 ### Automation: remind you about an unresolved vacuum error
 
@@ -56,8 +85,8 @@ This automation checks every evening whether the upstairs vacuum is still in an 
 
 {% details "YAML example for an unresolved vacuum error reminder" %}
 
-```yaml
-automation:
+{% example %}
+automation: |
   alias: "Reminder for vacuum error"
   triggers:
     - trigger: time
@@ -73,6 +102,10 @@ automation:
       data:
         title: "Vacuum still needs help"
         message: "The upstairs vacuum is still reporting an error."
-```
+{% endexample %}
 
 {% enddetails %}
+
+{% include conditions/stuck.md %}
+
+{% include conditions/related.md %}

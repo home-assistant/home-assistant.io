@@ -11,7 +11,9 @@ Use it when you need the robot to stop temporarily without ending the run, like 
 
 {% include integrations/labs_entity_actions_note.md %}
 
-## Usage in the UI
+{% include actions/ui_header.md %}
+
+To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
@@ -19,20 +21,22 @@ Use it when you need the robot to stop temporarily without ending the run, like 
 4. Choose the vacuum, area, or device to pause.
 5. Select **Save**.
 
-## Usage in YAML
+{% include actions/yaml_header.md %}
 
 {% example %}
 action: |
-  - action: vacuum.pause
-    target:
-      entity_id: vacuum.downstairs
+  action: vacuum.pause
+  target:
+    entity_id: vacuum.downstairs
 {% endexample %}
+
+This pauses `vacuum.downstairs`.
 
 The `entity_id` target is optional. If omitted, all connected vacuums will pause.
 
-## Options
-
 ### Options in YAML
+
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -41,9 +45,15 @@ target:
   type: target
 {% endoptions_yaml %}
 
+{% include actions/targets.md %}
+
 ## Good to know
 
 - Some vacuums may not support pausing if they are not currently cleaning.
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
 
 ### Automation: pause cleaning when the doorbell rings
 
@@ -69,3 +79,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}
