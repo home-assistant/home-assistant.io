@@ -127,3 +127,5 @@ The `humidifier.toggle` action toggles the humidifier device on/off.
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+
+{% include integrations/conditions.md %}
