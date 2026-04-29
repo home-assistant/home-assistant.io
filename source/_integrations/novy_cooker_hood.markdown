@@ -118,9 +118,15 @@ The hood uses a one-way 433.92&nbsp;MHz protocol: Home Assistant only sends comm
 
 ## Known limitations
 
-- **Home Assistant does not know what the hood is doing**: the hood does not report its state back. If you change the light or fan speed from the physical remote, the values in Home Assistant will be wrong until you control the hood from Home Assistant again.
-- **Two Novy hoods need different codes**: if two hoods share the same transmitter, set each to a different pairing code so they don't react to each other's commands.
-- **Other 433&nbsp;MHz devices can interfere**: weather stations, doorbells, and garage door openers share the same frequency. Distance and walls between the transmitter and the hood can also reduce reliability.
+### Home Assistant does not know what the hood is doing
+
+The hood does not report its state back. If you change the light or fan speed from the physical remote, the values in Home Assistant will be wrong until you control the hood from Home Assistant again.
+### Two Novy hoods need different codes
+
+If two hoods share the same transmitter, set each to a different pairing code so they don't react to each other's commands.
+### Other 433&nbsp;MHz devices can interfere
+
+Weather stations, doorbells, and garage door openers share the same frequency. Distance and walls between the transmitter and the hood can also reduce reliability.
 
 ## Troubleshooting
 
