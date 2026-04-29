@@ -419,6 +419,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[UniFi Access]** added a select platform and now uses the new [UniFi Discovery] integration for automatic device discovery on your network. Thanks, [@imhotep] and [@RaHehl]!
 - **[WaterFurnace]** geothermal systems now expose a climate entity, alongside new energy statistics so you can track your system's energy use over time. Thanks, [@masterkoppa]!
 - **[OpenDisplay]** Flex e-paper devices now expose new diagnostic sensors driven by passive Bluetooth Low Energy advertisements: a battery percentage and battery voltage sensor for battery- and solar-powered devices, and a chip temperature sensor. Thanks, [@g4bri3lDev]!
+- **[Satel Integra]** now supports encrypted connections, keeping your alarm panel communications secure over the network. Thanks, [@Tommatheussen]!
 
 [@andrew-codechimp]: https://github.com/andrew-codechimp
 [@arsenicks]: https://github.com/arsenicks
@@ -446,6 +447,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [@tronikos]: https://github.com/tronikos
 [@YuvalWS]: https://github.com/YuvalWS
 [@zerzhang]: https://github.com/zerzhang
+[@Tommatheussen]: https://github.com/Tommatheussen
 [Anthropic]: /integrations/anthropic
 [Apple TV]: /integrations/apple_tv
 [Broadlink]: /integrations/broadlink
@@ -462,6 +464,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [OpenDisplay]: /integrations/opendisplay
 [Portainer]: /integrations/portainer
 [Roborock]: /integrations/roborock
+[Satel Integra]: /integrations/satel_integra
 [Shelly]: /integrations/shelly
 [SMLIGHT SLZB]: /integrations/smlight
 [SolarEdge]: /integrations/solaredge
