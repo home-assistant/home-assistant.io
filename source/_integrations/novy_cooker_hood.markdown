@@ -33,7 +33,6 @@ The following devices are not supported:
 
 ## Supported functionality
 
-The **Novy Cooker Hood** integration provides the following entities.
 
 The **Novy Cooker Hood** integration provides the following entities. State is assumed and restored across restarts. See [Known limitations](#known-limitations).
 
