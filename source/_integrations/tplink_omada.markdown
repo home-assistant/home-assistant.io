@@ -13,6 +13,7 @@ ha_domain: tplink_omada
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
   - switch
   - update

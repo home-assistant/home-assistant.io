@@ -11,10 +11,11 @@ ha_codeowners:
   - '@ronaldvdmeer'
 ha_domain: duco
 ha_platforms:
+  - diagnostics
   - fan
   - sensor
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_dhcp: true
 ha_zeroconf: true
 ---

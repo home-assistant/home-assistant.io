@@ -20,6 +20,8 @@ ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The **Elgato Light** {% term integration %} lets you control [Elgato](https://www.elgato.com/) LED lighting devices locally over your network. Elgato Lights are designed for streamers, content creators, and home studio setups, and are commonly used on platforms like YouTube and Twitch.

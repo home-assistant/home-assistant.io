@@ -7,7 +7,6 @@ ha_release: 0.47
 ha_iot_class: Local Push
 ha_domain: onvif
 ha_codeowners:
-  - '@hunterjm'
   - '@jterrace'
 ha_config_flow: true
 ha_platforms:
@@ -15,7 +14,6 @@ ha_platforms:
   - button
   - camera
   - diagnostics
-  - event
   - sensor
   - switch
 ha_integration_type: device

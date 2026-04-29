@@ -9,7 +9,7 @@ ha_domain: pjlink
 ha_platforms:
   - media_player
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file

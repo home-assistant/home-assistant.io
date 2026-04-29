@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - event
+  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---

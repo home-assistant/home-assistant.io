@@ -15,6 +15,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bbx-a'
   - '@swistakm'
+  - '@bkobus-bbx'
 ha_domain: blebox
 ha_platforms:
   - binary_sensor
@@ -768,4 +769,3 @@ This integration adds the Wikęd device ("blebox inside") as a cover entity to H
 
 - Open
 - Door state (open, close, unknown)
-

@@ -8,7 +8,7 @@ ha_category:
 ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@imhotep'
@@ -16,6 +16,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - event
   - image
   - select
