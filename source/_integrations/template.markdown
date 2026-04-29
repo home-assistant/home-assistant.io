@@ -2224,7 +2224,7 @@ vacuum:
       required: false
       type: template
     clean_area:
-      description: Defines an action to run when the vacuum is given a clean area command. The action receives the variable `segment_ids` containing the list of selected area segment IDs. Requires `unique_id` and `segments_template`.
+      description: Defines an action to run when the vacuum is given a clean area command. The action receives the `segment_ids` variable, which contains the list of selected area segment IDs. Requires `unique_id` and `segments_template`.
       required: inclusive
       type: action
     clean_spot:
