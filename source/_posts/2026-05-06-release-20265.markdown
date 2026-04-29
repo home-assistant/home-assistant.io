@@ -258,6 +258,8 @@ The card is smart about defaults: pick a navigation target and it picks up the t
 
 <img src='/images/blog/2026-05/shortcut-card-options.png' alt='Screenshot of the shortcut card configuration dialog.' class='no-shadow' />
 
+The shortcut also comes as a **badge**, so you can drop the same one-tap actions into the badge row at the top of any view. Same options, same smart defaults, just in a more compact form.
+
 ### New tile card features for media players
 
 The [tile card](/dashboards/tile/) is one of the most flexible building blocks in Home Assistant dashboards, and this release expands what it can do for **media players**. Two brand new card features and a more flexible playback feature give you a lot more choice in how your media player tiles look and behave. 🎶
