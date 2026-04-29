@@ -570,7 +570,7 @@ The following integrations are now available via the Home Assistant UI:
 
 The following {% term integration %} is also no longer available as of this release:
 
-- **LANnouncer** has been removed. The integration was deprecated and scheduled for removal in Home Assistant 2026.3, and is now removed. If you were still using it, you'll need to look for an alternative notification integration.
+- **LANnouncer** has been removed. The companion Android app is no longer available, which made the integration impossible to install or use. It was deprecated in Home Assistant 2025.10 and is now removed. If you were still using it, you'll need to look for an alternative notification integration.
 
 ## Other noteworthy changes
 
