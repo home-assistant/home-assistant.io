@@ -647,7 +647,7 @@ The rework didn't stop at the documentation. While building it, it became painfu
 
 <img src='/images/blog/2026-05/template-autocomplete-functions.png' alt='Screenshot of the template editor showing autocomplete for template functions.' class='no-shadow' />
 
-Start typing inside a `{% raw %}{{ ... }}{% endraw %}` or `{% raw %}{% ... %}{% endraw %}` block, and the editor now suggests Home Assistant's template functions, filters, tests, and globals. Each suggestion comes with a short signature, a description, and tab-stops for the arguments, so you can fly through writing a template without keeping the [template documentation](/docs/templating/) open in another tab.
+Start typing inside a `{{ ... }}` or `{% ... %}` block, and the editor now suggests Home Assistant's template functions, filters, tests, and globals. Each suggestion comes with a short signature, a description, and tab-stops for the arguments, so you can fly through writing a template without keeping the [template documentation](/docs/templating/) open in another tab.
 
 It gets even better inside the string arguments of those functions. The editor knows what _kind_ of ID a function expects and offers matching suggestions:
 
