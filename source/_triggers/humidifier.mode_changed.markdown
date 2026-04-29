@@ -80,7 +80,7 @@ mode:
     The mode or modes the humidifier must switch to for the trigger to fire. Accepts a single mode string or a list of modes. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device. Omit to fire on any mode change.
   required: false
   type: string
-  default: (empty — fires on any mode change)
+  default: (empty, fires on any mode change)
 behavior:
   description: >
     When multiple humidifiers are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
