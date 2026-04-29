@@ -9,7 +9,7 @@ related_conditions:
   - humidifier.is_drying
 ---
 
-The **Humidifier is on** condition passes when a humidifier {% term entity %} is currently switched on. Use it to gate an automation so it only runs when the device is already powered up, for example to adjust the target humidity only when the humidifier is ready to act on the change.
+The **Humidifier is on** condition passes when a humidifier {% term entity %} is currently switched on. For example, you can adjust the target humidity only when the humidifier is ready to act on the change.
 
 When you target more than one humidifier, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted humidifier to be on, or demand that all of them are.
 
@@ -24,7 +24,7 @@ To use **Humidifier is on** in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Humidifier is on**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple humidifiers are targeted.
+6. If you targeted more than one humidifier, an extra option appears: under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check combines results.
 7. Under **For at least**, set how long the humidifier must have been on before the condition passes. Leave it at zero to pass immediately.
 8. Select **Save**.
 
@@ -32,7 +32,7 @@ To use **Humidifier is on** in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier is on, or **All** to pass only when every targeted humidifier is on. Default is **Any**.
+  description: Only shown when multiple humidifiers are targeted. Controls how results combine. Pick **Any** to pass if at least one targeted humidifier is on, or **All** to pass only when every targeted humidifier is on. Default is **Any**.
   required: true
 For at least:
   description: How long the humidifier must have been continuously on before the condition passes. Useful to confirm the device has been running for a meaningful amount of time before taking action. Default is `0` (passes immediately).
@@ -54,18 +54,16 @@ This passes when the bedroom humidifier is currently on.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
-    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
+    Only relevant when multiple humidifiers are targeted. Controls how results combine. Use `any` to pass if at least one targeted humidifier is on, or `all` to pass only when every targeted humidifier is on.
   required: true
   type: string
   default: any
 for:
   description: >
-    How long the humidifier must have been continuously on before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the humidifier must have been continuously on before the condition passes. Useful to confirm the device has been running for a meaningful amount of time before taking action. Accepts a duration string in `HH:MM:SS` format.
   required: true
   type: string
   default: "00:00:00"

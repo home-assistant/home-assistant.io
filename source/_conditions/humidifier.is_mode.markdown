@@ -9,7 +9,7 @@ related_conditions:
   - humidifier.is_drying
 ---
 
-The **Humidifier is in mode** condition passes when a humidifier {% term entity %} is set to a specific operating mode. Modes are device-specific and typically include options like `normal`, `eco`, `sleep`, `auto`, or `baby`, though the exact modes available depend on your device. Use **Humidifier is in mode** to gate automations based on the current operating mode, for example to skip a scene change if the humidifier is already in sleep mode.
+The **Humidifier is in mode** condition passes when a humidifier {% term entity %} is set to a specific operating mode. Modes are device-specific and typically include options like `normal`, `eco`, `sleep`, `auto`, or `baby`, though the exact modes available depend on your device. Use **Humidifier is in mode** to have an automation run only when the humidifier is set to a specific mode. For example, to skip a scene change if the humidifier is already in sleep mode.
 
 When you target more than one humidifier, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted humidifier to be in the selected mode, or demand that all of them are.
 
@@ -68,8 +68,6 @@ condition: |
 {% endexample %}
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 mode:
