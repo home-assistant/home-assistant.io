@@ -32,7 +32,7 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 
 <p class='img'>
   <img src='/images/screenshots/ecobee-sensor-badges.png' />
-  <br \>
+  <br />
   <img src='/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
@@ -46,9 +46,9 @@ Since March 2026, it is no longer required to get a [developer API key](https://
 API key:
   description: If you have developer API key, use this field and ignore the others. **If you are logging in without an API key, leave this field blank, and use the others.**
 username:
-  The email address you use to sign in to [ecobee.com](https://ecobee.com).
+  description: The email address you use to sign in to [ecobee.com](https://ecobee.com).
 password:
-  The password for the above account.
+  description: The password for the above account.
 {% endconfiguration_basic %}
 
 ## Notifications
