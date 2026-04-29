@@ -211,7 +211,7 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 ### UniFi Protect relays
 
-Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the NVR. This requires a UniFi Protect version that includes **Relay information & management** in the public API. See [Public API features](#public-api-features).
+Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. This requires a UniFi Protect version that includes **Relay information & management** in the public API. See [Public API features](#public-api-features).
 
 - **Switch**: A switch entity is added for each relay output channel to turn the output on or off.
 
@@ -227,10 +227,10 @@ Each UniFi Protect siren is added as a separate device in Home Assistant, linked
 
 ### NVR
 
-Your main UniFi Protect NVR device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
+Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
 
 - **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. This requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
-- **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
+- **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
 ## Media source
