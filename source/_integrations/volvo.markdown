@@ -162,7 +162,7 @@ The **Volvo** integration provides the following entities.
 - **Lock reduced guard**: Locks the vehicle with reduced guard.
 
 {% important %}
-Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12&nbsp;V battery.
+The **Honk** and **Flash** controls have caused 12&nbsp;V battery drain issues in the past.
 Use them with care!
 {% endimportant %}
 
@@ -248,8 +248,6 @@ Images:
 
 Send a notification to your mobile phone if at least one door is open for 5 minutes.
 
-{% raw %}
-
 ```yaml
 alias: Notify me if doors are left open for 5 minutes
 description: ""
@@ -276,8 +274,6 @@ actions:
     action: notify.mobile_app_phone_john_doe
 mode: single
 ```
-
-{% endraw %}
 
 ### Estimated charging finish time
 
@@ -322,16 +318,15 @@ The official Volvo app has access to a more feature-rich API. As a result, this 
 - Some models will report `fault` if there is no power from the charger (for example, because the charger was paused) while being connected.
 - This field is poorly documented in the API, and therefore, we need to learn the possible values along the way. If an unknown value is detected, the entity will become `unavailable` and a warning will be logged. Please [open a ticket](https://github.com/home-assistant/core/issues/new?template=bug_report.yml) - if no one else has - with the value mentioned in the log.
 
-### Recharge API
+### API availability
 
 #### Symptoms
 
-The **Volvo** {% term integration %} does not show recharge entities, or they are unavailable.
-This happens because sometimes the Volvo recharge API does not respond properly.
+Entities from the **Volvo** {% term integration %} can become unavailable when one or more Volvo API endpoints do not respond properly.
 
 #### Resolution
 
-The integration will automatically re-enable the recharge entities once the API becomes available again.
+The integration will automatically re-enable affected entities once the API becomes available again.
 
 ## Removing the integration
 
