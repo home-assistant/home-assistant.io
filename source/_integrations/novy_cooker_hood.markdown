@@ -17,7 +17,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **Novy Cooker Hood** {% term integration %} lets you control the light and extractor of a [Novy](https://www.novy.com/) cooker hood over 433.92&nbsp;MHz radio, through a compatible RF transmitter.
+The **Novy Cooker Hood** {% term integration %} lets you control the light and extractor of a [Novy](https://www.novy.com/) cooker hood over 433.92&nbsp;MHz radio, through a compatible RF transmitter. You can automatically run the extractor when the hob is in use, for example at 50%, as soon as a smart plug reports power draw, and switch the light by voice through Assist, which is handy when your hands are full in the kitchen.
 
 ## Supported devices
 
@@ -48,7 +48,7 @@ The **Novy Cooker Hood** integration provides the following entities. State is a
 
 ## Prerequisites
 
-1. Set up a hardware integration (for example, [ESPHome](/integrations/esphome/) or [Broadlink](/integrations/broadlink/)) that provides a [Radio Frequency](/integrations/radio_frequency/) {% term entity %} supporting 433.92&nbsp;MHz OOK transmissions.
+1. Set up a hardware integration (for example, [ESPHome](/integrations/esphome/) or [Broadlink](/integrations/broadlink/)) that provides a [Radio Frequency](/integrations/radio_frequency/) {% term entity %} supporting 433.92&nbsp;MHz <abbr title="On-Off Keying">OOK</abbr> transmissions.
 2. Identify the pairing code of your hood. New hoods are paired with code 1; if yours was changed, follow the button combination in your Novy manual to read it back. The remote's green LED flashes once for code 1, twice for code 2, and so on up to 10.
 
 {% include integrations/config_flow.md %}
@@ -64,12 +64,6 @@ Code:
 
 Home Assistant then toggles the light on and off so you can confirm the code. Select **Finish** if the light reacted, or **Retry** to try another code.
 
-## Use cases
-
-Once your hood is in Home Assistant, you can:
-
-- Run the extractor automatically when the hob is in use, for example, at 50% as soon as a hob smart plug reports power draw.
-- Switch the light by voice through [Assist](/voice_control/), which is handy when your hands are full or covered in food.
 
 ## Examples
 
