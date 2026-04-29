@@ -496,7 +496,7 @@ This release, we celebrate several {% term integrations %} that have improved th
 - **3 integrations reached silver** 🥈
   - [Anthropic], thanks to [@Shulyaka]
   - [Huum], thanks to [@frwickst] and [@vincentwolsink]
-  - [UniFi Network], thanks to [@Kane610]
+  - [UniFi Network], thanks to [@RaHehl] and [@Kane610]
 
 - **2 integrations reached bronze** 🥉
   - [iAqualink], thanks to [@flz]
