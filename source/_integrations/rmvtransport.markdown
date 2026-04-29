@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `rvmtransport` {% term integration %} will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
+The **RMV** {% term integration %} will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
 
 ## Setup
 
@@ -123,7 +123,7 @@ sensor:
 
 The first sensor will return S-Bahn, bus, RB and RE trains departures from Frankfurt Hauptbahnhof to Frankfurt Airport or Stadium that are at least 5 minutes away.
 
-The second sensor returns bus departures from Wiesbaden Hauptbahnhof going to Dernsches Gelände and Mainz Hauptbahnhof. To retrieve the time of the second departure, you would use `state_attr('sensor.ENTITY_NAME', 'departures')[1].time`.
+The second sensor returns bus departures from Wiesbaden Hauptbahnhof going to Dernsches Gelände and Mainz Hauptbahnhof. To retrieve the time of the second departure, you would use the [`state_attr`](/template-functions/state_attr/) function: `state_attr('sensor.ENTITY_NAME', 'departures')[1].time`.
 
 The third sensor returns all S-Bahn trains from Mainz Hauptbahnhof for line S8.
 

@@ -24,10 +24,10 @@ ha_platforms:
   - event
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
+The **August** {% term integration %} allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
 
 For devices that use the [Yale Home](https://yalehome.com/global) app, the [Yale](/integrations/yale) integration should be used instead.
 
@@ -141,7 +141,6 @@ For locks that support the Yale Access system, the August integration can keep y
 
 Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in August locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by August.
 
-{% raw %}
 
 ```yaml
 - id: "1583706446906"
@@ -160,4 +159,3 @@ Using the lock operation sensors, you can detect when a user operates a lock and
     
 ```
 
-{% endraw %}

@@ -13,10 +13,10 @@ ha_codeowners:
 ha_domain: speedtestdotnet
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
+The **Speedtest.net** {% term integration %} uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
 {% include integrations/config_flow.md %}
 
@@ -43,8 +43,6 @@ Please be aware of the potential [inconsistencies](https://github.com/sivel/spee
 
 In this section you will find some real-life examples of how to use this integration.
 ### Using as a trigger in an automation
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -81,8 +79,6 @@ automation:
         data:
           rgb_color: [255, 0, 0]
 ```
-
-{% endraw %}
 
 ## Notes
 

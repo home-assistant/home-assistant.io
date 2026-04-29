@@ -81,6 +81,11 @@ service_name:
       required: false
       type: boolean
       default: false
+    skip_url_encoding:
+      description: Skip internal URL canonicalization, which would have encoded the _host_ part by [IDNA](https://docs.aiohttp.org/en/stable/glossary.html#term-IDNA) codec and applied [requoting](https://docs.aiohttp.org/en/stable/glossary.html#term-requoting) to the _path_ and _query_ parts.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## Examples
@@ -126,8 +131,6 @@ This response can be accessed in automations using [`response_variable`](/docs/s
 
 The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
 
-{% raw %}
-
 ```yaml
 # Create a ToDo notification based on file contents
 automation:
@@ -167,15 +170,11 @@ rest_command:
     method: GET
 ```
 
-{% endraw %}
-
 ### Using templates to change the payload based on entities
 
 The commands can be dynamic, using templates to insert values of other entities. Actions support variables for doing things with templates.
 
-In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
-
-{% raw %}
+This example uses [templates](/docs/templating/) for dynamic parameters.
 
 ```yaml
 # Example configuration.yaml entry
@@ -191,8 +190,6 @@ rest_command:
     content_type:  'application/json; charset=utf-8'
     verify_ssl: true
 ```
-
-{% endraw %}
 
 ### How to test your new REST command
 

@@ -1,0 +1,58 @@
+blueprint:
+  name: UniFi Access door access notification
+  description: >
+    Send a notification when someone unlocks a door or
+    when an access attempt is denied at a UniFi Access
+    door.
+  domain: automation
+  author: RaHehl
+  homeassistant:
+    min_version: 2026.4.0
+
+  input:
+    access_entity:
+      name: Access event
+      description: >
+        The UniFi Access door access event entity to
+        monitor.
+      selector:
+        entity:
+          filter:
+            - integration: unifi_access
+              domain: event
+
+    event_type:
+      name: Event type
+      description: >
+        The type of access event to react to.
+      selector:
+        select:
+          options:
+            - label: "Access granted"
+              value: "access_granted"
+            - label: "Access denied"
+              value: "access_denied"
+
+    actions:
+      name: Actions
+      description: >
+        The actions to run when the selected access event
+        occurs (for example, send a notification or log
+        the event).
+      default: []
+      selector:
+        action:
+
+triggers:
+  - trigger: state
+    entity_id: !input access_entity
+
+conditions:
+  - condition: state
+    entity_id: !input access_entity
+    attribute: event_type
+    state: !input event_type
+
+actions: !input actions
+
+mode: single

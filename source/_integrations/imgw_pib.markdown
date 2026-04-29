@@ -12,11 +12,11 @@ ha_domain: imgw_pib
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
-IMGW-PIB {% term integration %} uses hydrological data from [Institute of Meteorology and Water Management - National Research Institute](https://hydro.imgw.pl) to present information about rivers and water reservoirs in Poland.
+The **IMGW-PIB** {% term integration %} uses hydrological data from [Institute of Meteorology and Water Management - National Research Institute](https://hydro.imgw.pl) to present information about rivers and water reservoirs in Poland.
 
 {% include integrations/config_flow.md %}
 
@@ -47,6 +47,9 @@ The IMGW-PIB integration provides the following entities.
   - **Remarks**: Not available for all hydrological stations
 - **Hydrological alert**
   - **Description**: Provides information on hydrological alerts for a given river or reservoir
+- **Ice phenomena**
+  - **Description**: Ice phenomena sensor shows how much of the river surface is affected by ice, such as slush, ice floes, or a frozen cover
+  - **Remarks**: Not available for all hydrological stations
 
 ## Data updates
 

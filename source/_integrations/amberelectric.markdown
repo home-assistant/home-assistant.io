@@ -13,10 +13,10 @@ ha_domain: amberelectric
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides access to wholesale electricity prices. Customers monitor the wholesale price and shift their energy usage to cheaper, greener times. This saves them money and supports the shift to a more renewably-powered Australia.
+[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides access to wholesale electricity prices. Customers monitor the wholesale price and shift their energy usage to cheaper, greener times. This saves them money and supports Australia's shift towards more renewable energy. Customers can also sell their unused electricity for fluctuating prices. This differs from other wholesale providers, where selling prices vary based on grid demand.
 
 Using the **Amber Electric** {% term integration %}, customers can go a step further - setting up devices to automatically shift energy usage to cheaper and greener times, based on real-time electricity prices and forecasts
 
@@ -53,9 +53,9 @@ There are two additional sensors:
 - **Renewables** - The percentage of renewable energy currently in the grid.
 
 ## Actions
-### `get_forecasts`
+### Action: Get forecasts
 
-The `get_forecasts` action returns an array of forecasts for the requested channel type.
+The `amberelectric.get_forecasts` action allows you to get an array of forecasts for the requested channel type.
 
 | Data attribute    | Optional | Description                                                           |
 | ----------------- | -------- | --------------------------------------------------------------------- |

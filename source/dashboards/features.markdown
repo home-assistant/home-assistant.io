@@ -77,7 +77,7 @@ modes:
 
 ## Bar gauge
 
-Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
+Widget that displays the state of a numeric [sensor](/integrations/sensor) as a horizontal bar.
 
 <p class='img'>
   <img src='/images/dashboards/features/bar_gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
@@ -87,6 +87,8 @@ Widget that displays the state of a numeric [sensor](/integrations/sensor), with
 ```yaml
 features:
   - type: "bar-gauge"
+    min: 0
+    max: 100
 ```
 
 {% configuration features %}
@@ -94,6 +96,16 @@ type:
   required: true
   description: "`bar-gauge`"
   type: string
+min:
+  required: false
+  description: Minimum value for the gauge range.
+  type: integer
+  default: 0
+max:
+  required: false
+  description: Maximum value for the gauge range.
+  type: integer
+  default: 100
 {% endconfiguration %}
 
 ## Button
@@ -308,6 +320,29 @@ type:
   type: string
 {% endconfiguration %}
 
+## Cover favorite positions
+
+Widget that displays a dropdown with favorite positions for a [cover](/integrations/cover).
+
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
+
+<p class='img'>
+  <img src='/images/dashboards/features/cover_position_favorite.png' alt='Screenshot of the tile card with the cover favorite positions feature'>
+  Screenshot of the tile card with the cover favorite positions feature
+</p>
+
+```yaml
+features:
+  - type: "cover-position-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`cover-position-favorite`"
+  type: string
+{% endconfiguration %}
+
 ## Cover tilt
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
@@ -326,6 +361,29 @@ features:
 type:
   required: true
   description: "`cover-tilt`"
+  type: string
+{% endconfiguration %}
+
+## Cover favorite tilt positions
+
+Widget that displays a dropdown with favorite tilt positions for a [cover](/integrations/cover).
+
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
+
+<p class='img'>
+  <img src='/images/dashboards/features/cover_tilt_favorite.png' alt='Screenshot of the tile card with the cover favorite tilt positions feature'>
+  Screenshot of the tile card with the cover favorite tilt positions feature
+</p>
+
+```yaml
+features:
+  - type: "cover-tilt-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`cover-tilt-favorite`"
   type: string
 {% endconfiguration %}
 
@@ -361,13 +419,13 @@ Widget that displays a button to select a date using the date picker dialog for 
 
 ```yaml
 features:
-  - type: "date"
+  - type: "date-set"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`date`"
+  description: "`date-set`"
   type: string
 {% endconfiguration %}
 
@@ -525,6 +583,129 @@ type:
   type: string
 {% endconfiguration %}
 
+## Daily forecast
+
+Widget that displays a bar chart of daily forecast temperature ranges for a weather entity. Each bar shows the low-to-high temperature range for the day, colored by the forecasted weather condition. A thin horizontal line marks the current temperature across the bars.
+
+You can also overlay a precipitation forecast as translucent bars rising from the bottom, either as the forecasted amount or as the probability of precipitation. When you hide the temperature, dry periods are marked with a small dot so the cadence of days stays visible.
+
+<p class='img'>
+  <img src='/images/dashboards/features/daily_forecast.png' alt='Screenshot of the tile card with the daily forecast feature'>
+  Screenshot of the tile card with the daily forecast feature
+</p>
+
+<p class='img'>
+  <img src='/images/dashboards/features/daily_forecast_precipitation.png' alt='Screenshot of the daily forecast feature showing precipitation bars with the temperature hidden'>
+  Screenshot of the daily forecast feature showing precipitation bars with the temperature hidden
+</p>
+
+```yaml
+features:
+  - type: "daily-forecast"
+    days_to_show: 5
+    show_temperature: false
+    show_precipitation: true
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`daily-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "Which forecast feed to use. One of `daily` or `twice_daily`. Only types supported by the weather entity are selectable. Defaults to `daily` when available, otherwise `twice_daily`."
+  type: string
+days_to_show:
+  required: false
+  description: Number of days of forecast data to show. Minimum is 1 day (showing the forecast for the current day). The available data depends on how far ahead your weather integration provides daily forecasts.
+  type: integer
+  default: 7
+show_temperature:
+  required: false
+  description: Whether to show the temperature range bars and the current-temperature line.
+  type: boolean
+  default: true
+show_current_temperature:
+  required: false
+  description: Whether to show a thin horizontal line marking the current temperature across the bars.
+  type: boolean
+  default: true
+show_precipitation:
+  required: false
+  description: Whether to overlay precipitation forecast as translucent bars.
+  type: boolean
+  default: false
+precipitation_type:
+  required: false
+  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the period's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
+  type: string
+  default: amount
+color:
+  required: false
+  description: "Color of the temperature bars and the current temperature line. When set to `state` or omitted, each bar is colored by its forecasted weather condition. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
+  type: string
+  default: state
+{% endconfiguration %}
+
+{% note %}
+This feature requires a weather integration that supports daily or twice-daily forecasts. If your weather entity provides neither, this feature will not be available.
+{% endnote %}
+
+## Hourly forecast
+
+Widget that displays a graph of hourly forecast temperatures for a [weather](/integrations/weather) entity. The graph line starts from the current temperature and shows forecast data points for the upcoming hours.
+
+You can also overlay a precipitation forecast as translucent bars rising from the bottom, either as the forecasted amount or as the probability of precipitation. When you hide the temperature, dry hours are marked with a small dot so the cadence stays visible.
+
+<p class='img'>
+  <img src='/images/dashboards/features/hourly_forecast.png' alt='Screenshot of the tile card with the hourly forecast feature'>
+  Screenshot of the tile card with the hourly forecast feature
+</p>
+
+```yaml
+features:
+  - type: "hourly-forecast"
+    hours_to_show: 24
+    show_precipitation: true
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`hourly-forecast`"
+  type: string
+hours_to_show:
+  required: false
+  description: Number of hours of forecast data to show. Minimum is 1 hour. The available data depends on how far ahead your weather integration provides hourly forecasts.
+  type: integer
+  default: 24
+show_temperature:
+  required: false
+  description: Whether to show the temperature graph.
+  type: boolean
+  default: true
+show_precipitation:
+  required: false
+  description: Whether to overlay precipitation forecast as translucent bars.
+  type: boolean
+  default: false
+precipitation_type:
+  required: false
+  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the visible window's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
+  type: string
+  default: amount
+color:
+  required: false
+  description: "Color of the temperature line. When set to `state` or omitted, the line uses the tile's feature color. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
+  type: string
+  default: state
+{% endconfiguration %}
+
+{% note %}
+This feature requires a weather integration that supports hourly forecasts. If your weather entity does not provide hourly forecast data, this feature will not be available.
+{% endnote %}
+
 ## Lawn mower commands
 
 Widget that displays buttons to control a [lawn mower](/integrations/lawn_mower).
@@ -571,6 +752,29 @@ features:
 type:
   required: true
   description: "`light-brightness`"
+  type: string
+{% endconfiguration %}
+
+## Light color favorites
+
+Widget that displays a set of buttons to select a color for a [light](/integrations/light) from a list of favorites.
+
+You can customize favorites in a light's more-info dialog. The feature shows as many favorites as fit in the available width, following the favorites' sort order.
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_color_favorites.png' alt='Screenshot of the tile card with the light color favorites feature'>
+  Screenshot of the tile card with the light color favorites feature
+</p>
+
+```yaml
+features:
+  - type: "light-color-favorites"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color-favorites`"
   type: string
 {% endconfiguration %}
 
@@ -655,6 +859,48 @@ features:
 type:
   required: true
   description: "`media-player-playback`"
+  type: string
+{% endconfiguration %}
+
+## Media player sound mode
+
+Widget that displays a dropdown to select the sound mode for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_sound_mode.png' alt='Screenshot of the tile card with media player sound mode feature'>
+  Screenshot of the tile card with media player sound mode feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-sound-mode"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-sound-mode`"
+  type: string
+{% endconfiguration %}
+
+## Media player source
+
+Widget that displays a dropdown to select the source for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_source.png' alt='Screenshot of the tile card with media player source feature'>
+  Screenshot of the tile card with media player source feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-source"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-source`"
   type: string
 {% endconfiguration %}
 
@@ -797,7 +1043,7 @@ type:
 
 ## Trend graph
 
-Widget that displays the a trend of the history for a numeric [sensor](/integrations/sensor).
+Widget that displays a trend of the history for a numeric [sensor](/integrations/sensor).
 
 <p class='img'>
   <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
@@ -808,6 +1054,7 @@ Widget that displays the a trend of the history for a numeric [sensor](/integrat
 features:
   - type: "trend-graph"
     hours_to_show: 24
+    detail: true
 ```
 
 {% configuration features %}
@@ -820,7 +1067,16 @@ hours_to_show:
   description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
+detail:
+  required: false
+  description: Show more detail in the graph. When enabled, samples to 1 point per 5 pixels. When disabled, samples to 1 point per hour using mean values for a smoother graph.
+  type: boolean
+  default: true
 {% endconfiguration %}
+
+{% note %}
+The `hours_to_show` option controls the time range of historical data shown in the graph. The amount of history available depends on the Recorder's `purge_keep_days` setting. By default, the Recorder purges data older than 10 days. See the [Recorder integration documentation](/integrations/recorder/#purge_keep_days) for more information.
+{% endnote %}
 
 ## Update actions
 
@@ -922,6 +1178,29 @@ type:
   type: string
 {% endconfiguration %}
 
+## Valve favorite positions
+
+Widget that displays a dropdown with favorite positions for a [valve](/integrations/valve).
+
+You can customize favorites in a valve's **More info** dialog. To edit them, press and hold a favorite.
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position_favorite.png' alt='Screenshot of the tile card with the valve favorite positions feature'>
+  Screenshot of the tile card with the valve favorite positions feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position-favorite`"
+  type: string
+{% endconfiguration %}
+
 ## Water heater operation modes
 
 Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
@@ -957,7 +1236,7 @@ operation_modes:
 
 ## Area control
 
-Widget that displays buttons to control different types of entity in your area.
+Widget that displays buttons to control different types of entities in your area. You can control all entities of a specific domain or select individual entities.
 
 <p class='img'>
   <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
@@ -971,6 +1250,7 @@ features:
       - light
       - fan
       - switch
+      - entity_id: light.kitchen_counter
 ```
 
 {% configuration features %}
@@ -980,6 +1260,6 @@ type:
   type: string
 controls:
   required: true
-  description: List of controls to show on the card. The list can contain `light`, `fan`, and `switch`.
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
   type: list
 {% endconfiguration %}

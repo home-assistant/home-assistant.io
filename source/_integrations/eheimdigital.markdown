@@ -2,6 +2,7 @@
 title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Light
   - Number
@@ -17,6 +18,7 @@ ha_codeowners:
 ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - light
@@ -91,9 +93,9 @@ Currently, the following devices and entities are supported:
 #### Select
 
 - **Filter mode**: Setting the filter mode
-  - Manual mode: The filter uses the **manual speed**
-  - Pulse mode: The filter uses a high and low pulse, the speeds are configured via **high pulse speed** and **low pulse speed**, the durations are configured via **high pulse duration** and **low pulse duration**
-  - Bio mode: The filter uses a day and night rhythm, the speeds are configured via **day speed** and **night speed**, the start times of day and night are configured via **day start time** and **night start time**
+  - **Manual mode**: The filter uses the **manual speed**.
+  - **Pulse mode**: The filter uses a high and low pulse. The speeds are configured via **high pulse speed** and **low pulse speed**. The durations are configured via **high pulse duration** and **low pulse duration**.
+  - **Bio mode**: The filter uses a day and night rhythm. The speeds are configured via **day speed** and **night speed**. The start times of day and night are configured via **day start time** and **night start time**.
 
 #### Sensor
 
@@ -110,6 +112,80 @@ Currently, the following devices and entities are supported:
 - **Day start time**: Setting the start time for the day pump speed in Bio mode
 - **Night start time**: Setting the start time for the night pump speed in Bio mode
 
+### [EHEIM professionel5e](https://eheim.com/en_GB/aquatics/technology/external-filters/professionel-5e/)
+
+#### Number
+
+- **High pulse duration**: Setting the duration of the high pulse in Pulse mode
+- **Low pulse duration**: Setting the duration of the low pulse in Pulse mode
+
+#### Select
+
+- **Filter mode**: Setting the filter mode
+  - **Manual mode**: The filter uses the **manual speed**.
+  - **Constant flow mode**: The filter uses the **constant flow speed**.
+  - **Pulse mode**: The filter uses a high and low pulse. The speeds are configured via **high pulse speed** and **low pulse speed**. The durations are configured via **high pulse duration** and **low pulse duration**.
+  - **Bio mode**: The filter uses a day and night rhythm. The speeds are configured via **day speed** and **night speed**. The start times of day and night are configured via **day start time** and **night start time**.
+- **Manual speed**: Setting the pump speed in Manual mode
+- **Constant flow speed**: Setting the pump speed in Constant flow mode
+- **Day speed**: Setting the pump speed for the day in Bio mode
+- **Night speed**: Setting the pump speed for the night in Bio mode
+- **High pulse speed**: Setting the pump speed for the high pulse in Pulse mode
+- **Low pulse speed**: Setting the pump speed for the low pulse in Pulse mode
+
+#### Sensor
+
+- **Current pump speed**: Displays the current pump speed
+- **Remaining hours until service**: Displays the remaining time until the filter needs to be serviced
+- **Operating time**: Displays the operating time
+- **Remaining off time**: Displays the remaining time before the pump turns on again after turning it off
+- **Remaining off time after feeding**: Displays the remaining time before the pump turns on again after receiving a signal from the autofeeder
+
+#### Switch
+
+- **Pump**: Turning on and off the filter pump
+
+#### Time
+
+- **Day start time**: Setting the start time for the day pump speed in Bio mode
+- **Night start time**: Setting the start time for the night pump speed in Bio mode
+
+### [EHEIM reeflexUV+e](https://eheim.com/en_GB/aquatics/eheim-digital/uv-sterilizer/)
+
+#### Binary sensor
+
+- **Light**: Displays whether the UVC lamp is currently burning
+- **UVC lamp connected**: Displays whether a UVC lamp is connected
+
+#### Number
+
+- **Daily burn duration**: Setting the daily burn duration of the UV lamp
+- **Booster duration**: Setting the duration of the booster
+- **Pause duration**: Setting the pause duration
+
+#### Select
+
+- **Operation mode**: Setting the operation mode
+  - **Constant mode**: The UVC lamp is burning constantly
+  - **Daycycle mode**: The UVC lamp is burning on a day cycle
+
+#### Sensor
+
+- **Remaining booster time**: Displays the remaining booster duration
+- **Remaining pause time**: Displays the remaining pause duration
+- **Time until next service**: Displays the time until the lamp needs to be serviced
+
+#### Switch
+
+- Activating and deactivating the device
+- **Booster**: Turning on the booster for the **Booster duration**, and turning it off
+- **Pause**: Pausing the lamp for the **Pause duration**, and unpausing the lamp
+- **Expert mode**: Turning on and off expert mode
+
+#### Time
+
+- **Start time**: Setting the start time of the lamp in daycycle mode
+
 ### All supported devices
 
 #### Number
@@ -123,8 +199,6 @@ Currently, the following devices and entities are supported:
 You can set up an automation to notify you when the filter has an error. This example uses the `notify.notify` service to send a notification:
 
 {% details "Example automation to notify about filter errors" %}
-
-{% raw %}
 
 ```yaml
 alias: Notify about filter error
@@ -144,8 +218,6 @@ actions:
     data:
       title: The filter has a problem!
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

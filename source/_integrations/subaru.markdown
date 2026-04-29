@@ -17,10 +17,10 @@ ha_platforms:
   - diagnostics
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This integration retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
+This {% term integration %} retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
 
 This integration requires a telematics equipped Subaru and an active vehicle subscription to the MySubaru service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com). 
 
@@ -86,11 +86,19 @@ The action requires the `door` parameter which may be set to one of the followin
 
 Tracks the most recently reported location of the vehicle. The vehicle reports its location when it is turned off. If enabled, the [polling option](#options) will also update the vehicle location.
 
+## Remote start
+
+Remote start and stop is available on supported Gen 2/3 vehicles.
+
+### Climate preset selection
+
+Currently the Remote Start action will use the built-in "Auto" climate preset. Support for selecting a climate preset will be added in the future.
+
 ## Options
 
 Subaru integration options are set via:
 
-**Settings** -> **Devices & services** -> **Subaru** -> **Options**.
+{% my integrations title="**Settings** > **Devices & services**" %} > **Subaru** > **Options**.
 
 - **Enable vehicle polling *[Default: off]*:** When enabled, vehicle polling will send a remote command to your vehicle every 2 hours to obtain new sensor data. This involves "waking" your vehicle and requesting that it send new data to Subaru servers. Without vehicle polling, new sensor data is only received when the vehicle automatically pushes data (normally after engine shutdown). This option only applies to vehicles with Security Plus subscriptions because it uses a "locate" command to request the data.
 
@@ -103,12 +111,6 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 **Q:** How do I use the locator, and remote light/horn features in Home Assistant?
 
 **A:** Those features are supported by the underlying [subarulink](https://github.com/G-Two/subarulink) Python package, and will be integrated into Home Assistant soon.
-
----
-
-**Q:** Will remote start ever be supported?
-
-**A:** Yes, Gen 2/3 remote start and climate settings are supported by the underlying [subarulink](https://github.com/G-Two/subarulink) Python package, and will be integrated into Home Assistant soon.
 
 ---
 **Q:** Why do I need to enter my PIN during configuration?

@@ -18,11 +18,11 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 
-[BleBox](https://blebox.eu/?lang=en) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
+[BleBox](https://blebox.eu/) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
 
 {% include integrations/config_flow.md %}
 
@@ -73,6 +73,15 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - "stop" requires setting your device's secondary trigger as stop (via website or phone app).
 
 ### doorBox
+
+This integration adds the Blebox device as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Door state (open, close, unknown)
+
+### doorBox PRO
 
 This integration adds the Blebox device as a cover entity to Home Assistant.
 
@@ -142,47 +151,60 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 ### switchBox
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
 - Energy consumption measurement
 
 ### switchBox DIN
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
 - Energy consumption measurement
 
 ### switchBoxD
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
 - Energy consumption measurement
 
 ### switchBoxD DIN
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
 - Energy consumption measurement
 
 ### switchBoxDC
 
 This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### switchBoxD DC DIN
+
+This integration adds the Blebox device as 2 switch entities to Home Assistant.
 
 #### Key supported features
 
@@ -200,7 +222,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant.
 
 ### switchBoxT PRO
 
-This integration adds the Blebox device as a switch entity to Home Assistant.
+This integration adds the Blebox device as 3 switch entities to Home Assistant.
 
 #### Key supported features
 
@@ -344,6 +366,14 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of temperature for all probes
 
+### tempSensor DIN
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of temperature for all probes
+
 ### floodSensor
 
 This integration adds the Blebox device as a moisture binary sensor entity to Home Assistant.
@@ -397,6 +427,14 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of current wind speed
 
+### luxSensor
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of illuminance (unit: lx)
+
 ### actionBox, actionBoxS, and proxiBox
 
 This integration does not add direct support for actionBox, actionBoxS, and proxiBox
@@ -433,14 +471,6 @@ this ID like a password.
 Note: in order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
-
-### luxSensor
-
-This integration adds the Blebox device as a sensor entity to Home Assistant.
-
-#### Key supported features
-
-- Periodic read of illuminance (unit: lx)
 
 ------
 
@@ -572,6 +602,16 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Effects
 - Brightness
 - Color
+### Simon 55 GO thermo
+
+This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Set target temperature
+- Read current temperature
 
 ### Simon 54 GO Control and Simon 55 GO Control
 
@@ -680,3 +720,46 @@ This integration adds the Tedee device ("blebox inside") as a cover entity to Ho
 
 - Open
 - Door state (open, close, unknown)
+
+### DARCO ERO-32WS-0
+
+This integration adds the DARCO device ("blebox inside") as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+
+### SELT pergola DC
+
+This integration adds the SELT device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### SELT smartScreen
+
+This integration adds the SELT device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### Wikęd doorUnit
+
+This integration adds the Wikęd device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Door state (open, close, unknown)
+

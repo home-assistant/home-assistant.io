@@ -13,7 +13,7 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The Radio Browser integration allows you to use the directory of
+The **Radio Browser** {% term integration %} allows you to use the directory of
 radio stations collected on [Radio Browser](https://www.radio-browser.info)
 in Home Assistant.
 
@@ -24,17 +24,23 @@ To start the Radio Browser, in Home Assistant, go to **Media** > **Radio Browser
 
 ## Automation
 
-You can also use the Radio Browser in automations. When creating an automation, use the **Play Media** action to pick a station from the directory. This allows you, for example, to create
-an automation that starts playing your favorite radio station on your Cast devices. 
+You can also use the Radio Browser in automations. When creating an automation in the UI, use the **Play Media** action to browse the Radio Browser directory and select a station. The station identifier is filled in automatically. This allows you, for example, to create an automation that starts playing your favorite radio station on your Cast devices.
 
-If you want to use a YAML for the automation, you would look like this:
+If you prefer to write an automation in YAML, you need the station's UUID. To find it:
+
+1. Open the [Radio Browser website](https://www.radio-browser.info).
+2. Search for the station you want.
+3. Select the station to open its details page. The UUID is shown on that page and is also part of the station's URL.
+
+Then use the UUID in the `media_content_id` as shown below:
 
 ```yaml
 action: media_player.play_media
 target:
   entity_id: media_player.YOUR_MEDIA_PLAYER
 data:
-  media_content_id: media-source://radio_browser/963ccae5-0601-11e8-ae97-52543be04c81
+  media_content_id: >-
+    media-source://radio_browser/963ccae5-0601-11e8-ae97-52543be04c81
   media_content_type: audio/mpeg
 ```
 

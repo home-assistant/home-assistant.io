@@ -36,7 +36,7 @@ The **pyLoad** integration allows you to monitor and control your downloads dire
 
 To set up the pyLoad integration, you must have a running pyLoad instance on your home server, NAS, or any other device. An always-on device is recommended. Ensure that pyLoad's web interface is accessible for Home Assistant.
 
-If you haven't set up pyLoad yet, an easy way to get it up and running is by installing the [pyLoad-ng add-on for Home Assistant](https://github.com/tr4nt0r/pyload-ng).
+If you haven't set up pyLoad yet, an easy way to get it up and running is by installing the [pyLoad-ng app for Home Assistant](https://github.com/tr4nt0r/pyload-ng).
 
 - During the setup process in Home Assistant, you will need:
   - pyLoad account credentials – A valid *username* and *password* to authenticate with pyLoad.
@@ -93,8 +93,6 @@ This automation will pause new downloads when your available disk space falls be
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Monitor pyLoad download queue"
 description: "Pause new downloads when the disk space is low."
@@ -106,13 +104,11 @@ actions:
   - action: switch.turn_off
     target:
       entity_id: switch.pyload_pause_resume_queue
-  - service: notify.persistent_notification
+  - action: notify.persistent_notification
     data:
       message: "Free space is low, pausing pyLoad queue."
 mode: single
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -121,8 +117,6 @@ mode: single
 This automation halts all active pyLoad downloads when watching Netflix on your media player.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: "Halt pyLoad downloads when watching Netflix"
@@ -145,8 +139,6 @@ actions:
     message: "pyLoad downloads have been halted because Netflix streaming started."
 mode: single
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

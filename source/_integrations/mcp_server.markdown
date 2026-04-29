@@ -18,7 +18,7 @@ ha_quality_scale: silver
 
 The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or expose your Google Tasks to-do list as a tool.
 
-Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
+Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients with access to Home Assistant's Assist API. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}, and your <abbr title="Model Context Protocol">MCP</abbr> client can also read a real-time snapshot of that context. This gives your AI assistant a clear picture of your home's current state.
 
 ## Prerequisites
 
@@ -97,46 +97,46 @@ For more information about Authentication in Home Assistant, refer to the [Authe
 
 ### Example: Claude for Desktop
 
-See [MCP Quickstart: For Claude Desktop Users](https://modelcontextprotocol.io/quickstart/user#for-claude-desktop-users)
-for a detailed guide on using Claude for Desktop with an MCP server. It is recommended
-to get the example server working first before using the Home Assistant MCP Server.
+Claude for Desktop now supports remote MCP servers, making it extremely easy to connect to your
+Home Assistant instance:
 
-Claude for Desktop currently only supports local MCP servers using the [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio)
-transport, run as a local command line tool. You can use a local MCP proxy server
-to allow Claude for Desktop to access Home Assistant using the SSE transport.
+1. Download [Claude for Desktop](https://claude.ai/download) and log in.
+2. Click your profile name, select **Settings**, and go to **Connectors**.
+3. Click **Add Custom Connector**.
+4. Enter the following details:
+   - **Name**: "Home Assistant" (or any more descriptive name you prefer)
+   - **Remote MCP Server URL**: `https://<your_home_assistant_url>/api/mcp`
+   - Under advanced settings:
+     - **OAuth Client ID**: `https://claude.ai`
+     - **OAuth Client Secret**: Leave this blank
+5. Click **OK**. Now click **Connect** next to the entry created with the name you provided above.
+6. Log in to your Home Assistant instance and allow the redirect back to Claude Desktop.
+7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
-1. Download [Claude for Desktop](https://claude.ai/download). 
-2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
-   For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
-3. Open the configuration file. Visit **Settings…** and on the **Developer** tab, select **Edit Config**.
-   which will edit `claude_desktop_config.json`. The full file location depends on your
-   operating system (macOS or Windows).
-4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
-   connect to Home Assistant with the path `/api/mcp`. You will also need to set `API_ACCESS_TOKEN`
-   to the long live access token created above in the [access control instructions](#access-control)
-    ```json
-    {
-      "mcpServers": {
-        "Home Assistant": {
-          "command": "mcp-proxy",
-          "args": [
-            "--transport=streamablehttp",
-            "--stateless",
-            "http://localhost:8123/api/mcp"
-          ],
-          "env": {
-            "API_ACCESS_TOKEN": "<your_access_token_here>"
-          }
-        }
-      }
-    }
-    ```
-5. Restart Claude.
-6. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the connection icon will show enabled MCP servers such as *Home Assistant*.
-7. Select the prompt provided by Home Assistant.
-8. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
+   ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
-  ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
+### Example: Claude Code
+
+Claude Code supports remote MCP servers, making it easy to connect to your Home Assistant instance:
+
+1. Install [Claude Code](https://claude.com/product/claude-code) and log in.
+2. In your shell, run the following command:
+
+   ```bash
+   claude mcp add-json "HA" '{
+     "type": "http",
+     "url": "https://<your_home_assistant_url>/api/mcp",
+     "oauth": {
+       "clientId": "http://localhost:12345",
+       "callbackPort": 12345
+     }
+   }' --client-secret
+   ```
+   The name "HA", the URL "https://<your_home_assistant_url>", and the callback port "12345" are examples; adjust them to match your setup.
+
+3. Start `claude` and type `/mcp`. Navigate to your MCP listing (for example, **HA**) and press Enter. Select **Authenticate** to open a web browser to your Home Assistant login page.
+4. After you authenticate to your Home Assistant server, Home Assistant will tell you that you can close the web browser.
+5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
 ### Example: Cursor
 
@@ -168,6 +168,29 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
 
+### Example: gemini-cli
+
+1.  Install `gemini-cli` if you haven't already. You can find installation instructions at [https://geminicli.com/](https://geminicli.com/).
+2.  Open the `gemini-cli` configuration file. This is usually located at `~/.gemini/settings.json`. For more details, refer to the [gemini-cli MCP server documentation](https://geminicli.com/docs/tools/mcp-server/).
+3.  Add the following to your `mcpServers` configuration:
+
+    ```json
+    {
+      "mcpServers": {
+        "homeassistant": {
+          "httpUrl": "https://<your_home_assistant_url>/api/mcp",
+          "headers": {
+            "Authorization": "Bearer ${HOMEASSISTANT_TOKEN}"
+          }
+        }
+      }
+    }
+    ```
+
+4.  Replace `<your_home_assistant_url>` with the URL of your Home Assistant instance.
+5.  Set the `HOMEASSISTANT_TOKEN` environment variable to a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) from your Home Assistant instance.
+6.  Save the file. You can now use Home Assistant tools within `gemini-cli`.
+
 ## Supported functionality
 
 ### Tools
@@ -182,7 +205,18 @@ The [MCP Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provide
 inform LLMs how to call the tools. The tools used by the configured LLM API
 are exposed.
 
-## Known Limitations
+### Resources
+
+When the configured LLM API includes the `GetLiveContext` tool, Home Assistant
+also exposes a read-only [MCP Resource](https://modelcontextprotocol.io/docs/concepts/resources)
+named `homeassistant://assist/context-snapshot`.
+
+This resource returns a plain-text snapshot that matches the existing
+`GetLiveContext` tool output. It is intended for inspection, debugging, and
+explanation workflows where a static snapshot is useful. If the configured LLM
+API does not expose `GetLiveContext`, this resource is not available.
+
+## Known limitations
 
 The Home Assistant Model Context Protocol integration currently only supports a
 subset of MCP features:
@@ -191,7 +225,7 @@ subset of MCP features:
 | ------- | --------- |
 | Prompts | ✅ |
 | Tools | ✅ |
-| Resources | ❌ |
+| Resources | ✅ (Assist only) |
 | Sampling | ❌ |
 | Notifications | ❌ |
 

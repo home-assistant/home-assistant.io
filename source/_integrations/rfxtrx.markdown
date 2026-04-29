@@ -27,10 +27,10 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
+The **RFXCOM RFXtrx** {% term integration %} supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -341,6 +341,8 @@ automation:
 
 ### Action: Send
 
+The `rfxtrx.send` action sends a custom event using the RFXtrx device.
+
 Simulate a button being pressed:
 
 ```yaml
@@ -353,7 +355,7 @@ actions:
 
 Alternatively:
 
-- Go to: {% my developer_call_service title="**Developer tools** > **Actions**" service="rfxtrx.send" %}
+- Go to: {% my developer_call_service title="**Settings** > **Developer tools** > **Actions**" service="rfxtrx.send" %}
 - Select: `RFXCOM RFXtrx: Send` from the **Action** drop-down menu.
 
 ```yaml
@@ -366,38 +368,26 @@ data:
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to: {% my developer_template title="Developer tools -> Template" %}
+- Go to: {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC
-
-{% raw %}
 
 ```yaml
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
 ```
 
-{% endraw %}
-
 ### Light: ARC
-
-{% raw %}
 
 ```yaml
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}020f70
 ```
 
-{% endraw %}
-
 ### Light: Lightwave RF
-
-{% raw %}
 
 ```yaml
 0a14000{{ range(100,700) | random | int }}bc0cf{{ range(0,10) | random | int }}100f70
 ```
-
-{% endraw %}
 
 - Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.

@@ -8,7 +8,7 @@ This page contains only irrelevant and unhelpful information about Home Assistan
 
 ## Name
 
-Isn't it obvious? Home Assistant is the good soul that is assisting you in your home. It's common to refer to Home Assistant simply as HA or `hass` (not to be confused with the German word "Hass", it's more like the abbreviation of **H**ome **A**ssistant **S**erver **S**ervice). [`hass`](/docs/tools/hass/) is also the name of the command-line part.
+Isn't it obvious? Home Assistant is the good soul that is assisting you in your home. The abbreviation `hass` (not to be confused with the German word "Hass", it's more like the abbreviation of **H**ome **A**ssistant **S**erver **S**ervice) was commonly used in the past, though it's now recommended to use the full name "Home Assistant" in documentation.
 
 ## Website
 

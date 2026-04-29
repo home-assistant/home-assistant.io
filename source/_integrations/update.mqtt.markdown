@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` Update platform allows you to integrate devices that might expose firmware/software installed and the latest versions through MQTT into Home Assistant as an Update entity. Every time a message under the `topic` in the configuration is received, the entity will be updated in Home Assistant.
+The **MQTT Update** {% term integration %} allows you to integrate devices that might expose firmware/software installed and the latest versions through MQTT into Home Assistant as an Update entity. Every time a message under the `topic` in the configuration is received, the entity will be updated in Home Assistant.
 
 ## Configuration
 
@@ -46,7 +46,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
@@ -59,7 +59,7 @@ availability_mode:
    type: string
    default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 command_topic:
@@ -133,7 +133,7 @@ display_precision:
   type: integer
   default: 0
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -155,7 +155,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
   type: template
 json_attributes_topic:
@@ -163,7 +163,7 @@ json_attributes_topic:
   required: false
   type: string
 latest_version_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the latest version value. Use `state_topic` with a `value_template` if all update state values can be extracted from a single JSON payload."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the latest version value. Use `state_topic` with a `value_template` if all update state values can be extracted from a single JSON payload."
   required: false
   type: template
 latest_version_topic:
@@ -213,7 +213,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the `installed_version` state value or to render to a valid JSON payload on from the payload received on `state_topic`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the `installed_version` state value or to render to a valid JSON payload on from the payload received on `state_topic`."
   required: false
   type: template
 {% endconfiguration %}
@@ -225,8 +225,6 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 ## Examples
 
 This is an example of Update entity configuration for Shelly Gen1 device.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -244,8 +242,6 @@ mqtt:
       command_topic: "shellies/shellyplug-s-112233/command"
       payload_install: "update_fw"
 ```
-
-{% endraw %}
 
 JSON can also be used as `state_topic` payload. Note that this feature also allows to process and show live progress information.
 
@@ -358,8 +354,6 @@ update_percentage:
 
 For the above JSON payload examples, the `update` entity configuration should look like this:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -371,8 +365,6 @@ mqtt:
       command_topic: "amazing-device/command"
       payload_install: "install"
 ```
-
-{% endraw %}
 
 If the device/service sends data as JSON but the schema differs, `value_template` can be use to reformat the JSON.
 
@@ -389,8 +381,6 @@ If the device/service sends data as JSON but the schema differs, `value_template
 
 For the above JSON payload, the `update` entity configuration should look like this:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -403,5 +393,3 @@ mqtt:
       command_topic: "amazing-device/command"
       payload_install: "install"
 ```
-
-{% endraw %}

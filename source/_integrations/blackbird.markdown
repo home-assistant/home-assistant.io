@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `blackbird` platform allows you to control [Monoprice Blackbird Matrix Switch](https://www.monoprice.com/product?p_id=21819) (8x8) using a serial or IP connection, this integration does not support the 4x4 matrix switch.
+The **Monoprice Blackbird Matrix Switch** {% term integration %} allows you to control [Monoprice Blackbird Matrix Switch](https://www.monoprice.com/product?p_id=21819) (8x8) using a serial or IP connection, this integration does not support the 4x4 matrix switch.
 
 To add a Blackbird 8x8 device to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

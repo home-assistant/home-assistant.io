@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-This integration provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
+This {% term integration %} provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
 of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
@@ -99,6 +99,10 @@ max_sub_interval:
 {% endconfiguration %}
 
 The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
+
+## Data updates
+
+The integral sensor keeps its accumulated value when Home Assistant restarts. After a restart, it picks up where it left off and continues integrating from the restored value as soon as the source sensor starts providing new readings.
 
 ## Integration method
 

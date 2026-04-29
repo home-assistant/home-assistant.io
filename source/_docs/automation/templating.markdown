@@ -3,14 +3,12 @@ title: "Automation Templates"
 description: "List all trigger variables available to templates."
 ---
 
-Automations support the advanced features of [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available for automations.
+Automations support the advanced features of [templating](/docs/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/templating/) available to scripts, the `trigger` and `this` template variables are available for automations.
 
 Example of variables used in templates:
 
-{% raw %}
 - `{{ this.name }}` is the name of the automation executing from this trigger
 - `{{ trigger.platform }}` is the type of trigger object, like `calendar`
-{% endraw %}
 
 ## Available state data
 
@@ -46,8 +44,8 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 | `trigger.event`                      | The trigger event type, either `start`  or `end`.
 | `trigger.calendar_event`             | The calendar event object matched. 
 | `trigger.calendar_event.summary`     | The title or summary of the calendar event.
-| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`
-| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC  e.g. `2022-04-11`, or `2022-04-10 11:45:00-07:00`
+| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event, for example `2022-04-10`, or `2022-04-10 11:30:00-07:00`
+| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC, for example `2022-04-11`, or `2022-04-10 11:45:00-07:00`
 | `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.
 | `trigger.calendar_event.description` | A detailed description of the calendar event, if available.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available. 
@@ -100,7 +98,7 @@ These are the properties available for a [Home Assistant trigger](/docs/automati
 
 ### MQTT
 
-These are the properties available for a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
+These are the properties available for an [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -167,7 +165,7 @@ These are the properties available for a [Tag trigger](/docs/automation/trigger/
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `tag`
 | `trigger.tag_id` | The tag ID captured.
-| `trigger.device_id` | Optional device ID that captured the tag.
+| `trigger.event.data.device_id` | Optional device ID that captured the tag.
 
 ### Template
 
@@ -240,7 +238,6 @@ These are the properties available for a [Zone trigger](/docs/automation/trigger
 
 ## Examples
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entries
@@ -309,6 +306,5 @@ automation 4:
           - light.living_room
 ```
 
-{% endraw %}
 
 [state object]: /docs/configuration/state_object/

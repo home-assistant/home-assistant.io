@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-This `mqtt` sensor platform uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
+The **MQTT Sensor** {% term integration %} uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
 
 ## Configuration
 
@@ -47,7 +47,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -56,7 +56,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -125,7 +125,7 @@ device_class:
   required: false
   type: device_class
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -152,12 +152,16 @@ force_update:
   required: false
   type: boolean
   default: false
+group:
+  description: A list of unique IDs of the member sensor entities. Set this if the sensor entity represents a sensor group.
+  required: false
+  type: list 
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
   type: template
 json_attributes_topic:
@@ -165,7 +169,7 @@ json_attributes_topic:
   required: false
   type: string
 last_reset_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the last_reset. When `last_reset_value_template` is set, the `state_class` option must be `total`. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the last_reset. When `last_reset_value_template` is set, the `state_class` option must be `total`. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
   required: false
   type: template
 name:
@@ -205,7 +209,7 @@ state_class:
   required: false
   type: string
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'None'` value will set the sensor to an `unknown` state. If a `value_template` is used to parse a JSON payload, a `null` value in the JSON [will be rendered as](/docs/configuration/templating/#using-value-templates-with-mqtt) `'None'`. Note that the `device_class` can be `null`.
+  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'None'` value will set the sensor to an `unknown` state. If a `value_template` is used to parse a JSON payload, a `null` value in the JSON [will be rendered as](/docs/templating/where-to-use/#mqtt) `'None'`. Note that the `device_class` can be `null`.
   required: true
   type: string
 unique_id:
@@ -217,7 +221,7 @@ unit_of_measurement:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the value. If the template throws an error, the current state will be used instead."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the value. If the template throws an error, the current state will be used instead."
   required: false
   type: template
 {% endconfiguration %}
@@ -307,9 +311,7 @@ Topic: `home/sensor1/attributes`
  ```
  It also makes use of the `availability` topic.
 
-Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
-
-{% raw %}
+Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/templating/states/). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 
 ```yaml
 # Example configuration.yaml entry
@@ -325,8 +327,6 @@ mqtt:
       payload_not_available: "offline"
       json_attributes_topic: "home/sensor1/attributes"
 ```
-
-{% endraw %}
 
 ### JSON attributes template configuration
 
@@ -344,12 +344,10 @@ Topic: `tele/sonoff/sensor`
         "Time": <time>
     }
 }
-``` 
+```
 To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
 
-Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
-
-{% raw %}
+Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/templating/states/). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
 
 ```yaml
 # Example configuration.yaml entry
@@ -368,8 +366,6 @@ mqtt:
       json_attributes_template: "{{ value_json.Timer2 | tojson }}"
 ```
 
-{% endraw %}
-
 {% warning %}
 If `json_attributes_topic` and `state_topic` share the same topic, a state update will happen only once, unless the state update did not change the state or `force_update` was set to `true`.
 
@@ -379,8 +375,6 @@ Setting up MQTT sensor's with extra state attributes that contain values that ch
 ### Usage of `entity_id` in the template
 
 The example below shows how a simple filter, that calculates the value by adding 90% of the new value and 10% of the previous value, can be implemented in a template.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -395,8 +389,6 @@ mqtt:
           {{ value | round(2) * 0.9 + states(entity_id) * 0.1 }}
         {% endif %}
 ```
-
-{% endraw %}
 
 ### Owntracks battery level sensor
 
@@ -418,8 +410,6 @@ Topic: `owntracks/tablet/tablet`
 
 Thus the trick is extracting the battery level from the payload.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -429,8 +419,6 @@ mqtt:
       unit_of_measurement: "%"
       value_template: "{{ value_json.batt }}"
 ```
-
-{% endraw %}
 
 ### Temperature and humidity sensors
 
@@ -446,8 +434,6 @@ Topic: `office/sensor1`
 
 Then use this configuration example to extract the data from the payload:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -462,8 +448,6 @@ mqtt:
       unit_of_measurement: "%"
       value_template: "{{ value_json.humidity }}"
 ```
-
-{% endraw %}
 
 ### Get sensor value from a device with ESPEasy
 

@@ -18,10 +18,10 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The SolarEdge integration allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
+The **SolarEdge** {% term integration %} allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 It provides two main features:
 
-1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. This requires a site ID and an API key.
+1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. If your site includes one or more SolarEdge batteries, additional sensors for battery state of charge, power, and daily charge/discharge energy are also created. This requires a site ID and an API key.
 2.  Module-level statistics: Retrieves energy production data per inverter, string, and module, and inserts it into Home Assistant statistics. This is useful for identifying underperforming modules. This requires a site ID, username, and password.
 
 You can configure either feature individually or both at the same time for the same site.
@@ -46,7 +46,7 @@ To get detailed per-module production data, you need:
 
 The integration fetches energy production for the past 7 days every 12 hours and inserts the data into statistics.
 
-You can find the created statistics under {% my developer_statistics title="**Developer tools** > **Statistics**" %}, searching for `solaredge:`.
+You can find the created statistics under {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**" %}, searching for `solaredge:`.
 
 You can show them in the UI using the [`Statistic card`](/dashboards/statistic/) or [`Statistics graph card`](/dashboards/statistics-graph/).
 You can use them in automations using the [`SQL`](/integrations/sql/) integration.
@@ -174,7 +174,6 @@ Finally, create an automation that updates the sensors and notifies you. Example
 Update the SQL sensor entity IDs to match your setup.
 {% endnote %}
 
-{% raw %}
 ```yaml
 alias: "Notify: Low solar production modules"
 triggers:
@@ -205,7 +204,6 @@ actions:
           notification_id: solaredge_modules_low_production_alert
 mode: single
 ```
-{% endraw %}
 
 ## Known limitations
 
