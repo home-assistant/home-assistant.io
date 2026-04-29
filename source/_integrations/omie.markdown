@@ -27,10 +27,10 @@ Having the wholesale electricity prices within Home Assistant enables a range of
 
 ## Sensors
 
-The **OMIE** integration will retrieve the results of the [day-ahead market](https://www.omie.es/en/mercado-de-electricidad) for Spain and Portugal on a daily basis and expose them to the following {% term sensors %}.
+The **OMIE** integration will retrieve the results of the [day-ahead market](https://www.omie.es/en/mercado-de-electricidad) for Spain and Portugal on a daily basis and expose them to the following {% term sensors %}:
 
-- **Portugal spot price**
-- **Spain spot price**
+- Portugal spot price
+- Spain spot price
 
 ## Removing the integration
 
