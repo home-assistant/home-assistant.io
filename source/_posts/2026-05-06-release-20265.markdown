@@ -134,12 +134,16 @@ Think about all the RF-controlled devices already living in your home: motorized
 
 The new [Radio frequency] integration follows the exact same pattern as last release's infrared platform. It's an entity type that represents an RF transmitter, like an [ESPHome](https://esphome.io)-powered device with a 433.92&nbsp;MHz transmitter attached. You don't set it up directly. Instead, other integrations use it to send RF commands on your behalf, and you simply pick which transmitter they should use.
 
+<img src='/images/blog/2026-05/rf-config-flow.png' alt='Screenshot of an RF device setup dialog, with a Radio frequency transmitter dropdown.' class='no-shadow' />
+
 Two transmitter integrations support this from day one:
 
 - **[ESPHome](/integrations/esphome/)**, so any ESPHome device with a compatible RF transmitter (an [inexpensive 433.92&nbsp;MHz module](https://esphome.io/components/remote_transmitter/) does the trick) can act as your home's RF bridge.
 - **[Broadlink](/integrations/broadlink/)**, so existing Broadlink RM-series remotes you may already own can be reused for new RF integrations as well.
 
 On the other side, device-specific integrations use the platform to actually do something useful. The first one shipping in this release is the new [Honeywell String Lights] integration, which lets you turn your RF remote-controlled Honeywell string lights on and off from Home Assistant, with all the automation magic that brings. 🎄
+
+<img src='/images/blog/2026-05/rf-device.png' alt='Screenshot of an RF-controlled device page in Home Assistant, showing controls and recent activity.' class='no-shadow' />
 
 ### Why this is a big deal
 
@@ -201,7 +205,7 @@ Over the past few releases, Home Assistant has been quietly growing a family of 
 
 Keeping your smart home _running_ smoothly is a side of home automation that doesn't always get the spotlight. We've all been there: that motion sensor in the hallway that suddenly stops triggering the lights one evening, only to discover days later that its battery had died. 🪫 Wouldn't it be nice to spot that _before_ it becomes a problem? The brand new built-in **Maintenance** dashboard gives questions like that a home of their own. 🧰
 
-<img src='/images/blog/2026-05/temp-maintenance-dashboard.png' alt='Screenshot of the new Maintenance dashboard showing the Batteries view, with battery entities grouped by area (Living Room, Hallway, Office, Bedroom, Bathroom) and an Other devices section. Each battery is shown as a tile with its current percentage and a color-coded battery icon, making low batteries easy to spot at a glance.' class='no-shadow' />
+<img src='/images/blog/2026-05/maintenance-dashboard.png' alt='Screenshot of the new Maintenance dashboard showing battery entities grouped by area.' class='no-shadow' />
 
 The dashboard focuses on what is probably the most-requested view of all: your **batteries**. It automatically discovers every battery {% term entity %} in your home and lays them out grouped by area, with low ones highlighted so you can spot the ones that need swapping at a glance. No more digging through entity lists or building your own dashboard for it. 🔋
 
@@ -219,6 +223,8 @@ The built-in **Security** dashboard also gets a nice upgrade this release: a bra
 
 It's a small change with a big impact: at a glance, you can see if a door was opened, if someone arrived home, or if the front camera spotted motion, without having to dig through the logbook or build a dashboard for it yourself. The sidebar appears automatically on wider screens whenever the [Logbook](/integrations/logbook/) integration is enabled (it is, by default).
 
+<img src='/images/blog/2026-05/security-activity-log.png' alt='Screenshot of the Security dashboard with the new Activity sidebar showing recent events.' class='no-shadow' />
+
 [@Brookke]: https://github.com/Brookke
 
 ## More for the dashboards you build yourself
@@ -231,7 +237,7 @@ Of course, the dashboards you craft yourself get plenty of love this release too
 
 Dashboards are the front door to your smart home, and sometimes the most useful thing you can put on them isn't an entity, but a quick way to _get somewhere_. Jump to your energy dashboard. Open the camera view. Launch [Assist](/voice_control/). Open the manual in a new tab. The new **shortcut card** makes building those one-tap launchers a breeze. ⚡
 
-<img src='/images/blog/2026-05/temp-shortcut-card.png' alt='Screenshot of a dashboard section titled "Shortcut card" showing five shortcut tiles: Energy (View energy data), Assist (Speak to casita), Calendar, Documentation (Open Home Assistant documentation), and Good bye! (Turn off all the lights). Each tile has a colored icon on the left and a label with an optional description.' class='no-shadow' />
+<img src='/images/blog/2026-05/shortcut-card.png' alt='Screenshot of a dashboard with several shortcut cards.' class='no-shadow' />
 
 It looks and feels like a tile card, but instead of representing an entity, it triggers an action when you select it. You can pick from:
 
@@ -242,31 +248,29 @@ It looks and feels like a tile card, but instead of representing an entity, it t
 
 The card is smart about defaults: pick a navigation target and it picks up the title, icon, and color of that destination automatically. Pick **Launch Assist** and it suggests a microphone icon. You can override any of it, of course; set your own label, description, icon, and color, and pick between a horizontal or vertical layout.
 
-<img src='/images/blog/2026-05/temp-shortcut-card-options.png' alt='Screenshot of the shortcut card configuration dialog. The Tap behavior is set to Navigate with the Energy dashboard selected. The Content section shows a Label and Description field, an Icon picker, a Color picker set to Accent, and a Content layout choice between Horizontal and Vertical.' class='no-shadow' />
+<img src='/images/blog/2026-05/shortcut-card-options.png' alt='Screenshot of the shortcut card configuration dialog.' class='no-shadow' />
 
 ### New tile card features for media players
 
 The [tile card](/dashboards/tile/) is one of the most flexible building blocks in Home Assistant dashboards, and this release expands what it can do for **media players**. Two brand new card features and a more flexible playback feature give you a lot more choice in how your media player tiles look and behave. 🎶
 
-<img src='/images/blog/2026-05/temp-media-player-source-sound-mode.png' alt='Screenshot of two media player tile cards. The Lounge room card shows a Sound mode dropdown set to Music, and the Living Room TV card shows a Source dropdown set to Ziggo Set-Top Box.' class='no-shadow' />
+<img src='/images/blog/2026-05/media-player-features.png' alt='Screenshot of two media player tile cards showing the new playback and source features.' class='no-shadow' />
 
 The first new feature is **select source**: a dropdown right on the tile that lets you switch the input or source on your media player. HDMI 1, the Spotify input on your receiver, that one obscure radio station you actually like; it's all one tap away. The second is **select sound mode**, with the same dropdown experience for picking modes like _Movie_, _Music_, or _Night_ on receivers and AV gear that support it.
 
 And the existing **playback** card feature got a long-requested upgrade: you can now pick exactly _which_ buttons appear and in _what_ order. Mix and match from on/off, play, pause, play/pause, stop, previous track, and next track to build a remote that fits your media player perfectly. No more turn-on button on a TV that doesn't need one, no more missing the next-track button on your speaker. 🎚️
 
-<img src='/images/blog/2026-05/temp-media-player-controls-options.png' alt='Screenshot of the playback feature editor showing the Controls dropdown with Turn on, Turn off, and Play/pause buttons selected and reorderable, and a preview of a Samsung S95B media player tile with a power and play/pause button.' class='no-shadow' />
+<img src='/images/blog/2026-05/media-player-controls-options.png' alt='Screenshot of the tile card playback feature editor with reorderable control chips and a media player preview.' class='no-shadow' />
 
 ### New weather forecast features for tile cards
 
 Weather entities also got some serious tile card love this release. Two brand new card features turn the humble weather tile into a compact, glanceable forecast right on your dashboard, no separate weather card or popup required. 🌦️
 
+<img src='/images/blog/2026-05/weather-forecast-features.png' alt='Screenshot of weather tile cards showing the new forecast features.' class='no-shadow' />
+
 First up is the **hourly forecast** feature: a smooth temperature line that starts at the current temperature and extends into the coming hours. You pick how many hours to show (24 by default), and you instantly see whether the day is heating up, cooling down, or about to take a sudden dip.
 
-<img src='/images/dashboards/features/hourly_forecast.png' alt='Screenshot of a weather tile card showing a Cloudy condition at 11.8 °C, with a soft temperature line graph below it tracing the next hours of forecast.' class='no-shadow' />
-
 The **daily forecast** feature takes a different approach. Each upcoming day, or half-day for entities that provide a twice-daily forecast, is shown as a rounded bar spanning its expected min and max temperature, and colored by the forecast condition. A horizontal line marks the current temperature so you have a reference point. Sunny days, rainy stretches, and that one cold snap on Friday all jump out at a glance.
-
-<img src='/images/dashboards/features/daily_forecast.png' alt='Screenshot of a weather tile card with a Rainy condition, showing a row of rounded bars for the upcoming days. Each bar represents the min to max temperature range, colored by weather condition, with a horizontal line indicating the current temperature.' class='no-shadow' />
 
 Both forecast features can also visualize precipitation, so you can see when rain (or snow) is on the way without leaving your dashboard. ☔
 
@@ -280,11 +284,11 @@ Reading back the feedback we've received in the months this has been in [Home As
 
 Now they can. On the **trigger** side, a brand new **for** field has landed across a wide range of state-based purpose-specific triggers, from motion and occupancy to doors, windows, lights, switches, climate, covers, and many more. Pick a trigger, set how long the situation has to hold, and you're done. No more wrestling with template helpers or YAML `for:` keys hidden in code views to express something this fundamental.
 
-TODO: Screenshot of a purpose-specific trigger in the automation editor with the new "for" duration field highlighted.
+<img src='/images/blog/2026-05/purpose-specific-trigger-duration.png' alt='Screenshot of a purpose-specific trigger in the automation editor with the new for duration field.' class='no-shadow' />
 
 On the **condition** side, this release introduces duration support for **motion** conditions and the entire family of **cover-based** conditions (doors, windows, gates, and garage doors). More conditions will follow in upcoming releases as the underlying machinery rolls out.
 
-TODO: Screenshot of a purpose-specific condition in the automation editor with the new duration field highlighted.
+<img src='/images/blog/2026-05/purpose-specific-condition-duration.png' alt='Screenshot of a purpose-specific condition in the automation editor with the new duration field.' class='no-shadow' />
 
 A few examples of what this unlocks:
 
@@ -560,17 +564,17 @@ There are many more improvements in this release; here are some of the other not
 
 When you tap on an entity in your dashboard, the **more-info dialog** that pops up is one of the most-used surfaces in Home Assistant. This release, two of them get a fresh new look: **vacuums** and **lawn mowers**. 🧹🌱
 
-TODO: Screenshot of the redesigned vacuum more-info dialog showing the new vacuum illustration, the battery in the header, and the unified action button row.
+<img src='/images/blog/2026-05/vacuum-more-info.png' alt='Screenshot of the redesigned vacuum more-info dialog with the new illustration and action buttons.' class='no-shadow' />
 
 The redesigned vacuum dialog leads with a friendly new illustration of your vacuum that comes to life with **state-driven animations**: it spins while cleaning, glides home while returning, sits quietly when docked, and shakes when something's wrong. Battery moved up into the header where you can spot it at a glance, and the action buttons (start, pause, return to dock) are now lined up in a single, consistent row.
 
 The biggest functional addition is a brand new **Clean by area** view. Many modern robot vacuums let you ask them to clean a specific room, but until now, there was no built-in way to do that from the dialog. You can now map your Home Assistant {% term areas %} to the rooms your vacuum knows about, and start a cleaning job for one or more areas right from the dialog. If you haven't set up a mapping yet, the dialog walks you through it with a friendly empty state.
 
-TODO: Screenshot of the new Clean by area view in the vacuum more-info dialog showing area cards that can be selected for targeted cleaning.
+<img src='/images/blog/2026-05/vacuum-clean-by-area.png' alt='Screenshot of the new Clean by area view in the vacuum more-info dialog.' class='no-shadow' />
 
 **Lawn mowers** got the same love. The redesigned lawn mower dialog brings the same fresh illustration with state-driven animations (mowing, returning, docked, error), the same battery-in-the-header layout, and the same unified action button row. Whether your robot is busy on the carpet or busy on the lawn, the experience now feels the same.
 
-TODO: Screenshot of the redesigned lawn mower more-info dialog showing the new mower illustration with state-driven animation and the unified action button row.
+<img src='/images/blog/2026-05/lawn-mower-more-info.png' alt='Screenshot of the redesigned lawn mower more-info dialog with the new illustration and action buttons.' class='no-shadow' />
 
 This work delivers on two Open Home Foundation roadmap opportunities: [refined more info screen for vacuum cleaners](https://github.com/OpenHomeFoundation/roadmap/issues/35) and [refining the more info screen for lawn mowers](https://github.com/OpenHomeFoundation/roadmap/issues/92). Two birds, one redesign. 🐦
 
@@ -579,8 +583,8 @@ This work delivers on two Open Home Foundation roadmap opportunities: [refined m
 The trusty toggle on entities cards got a small but lovely makeover this release. The old switch has been replaced with the same modern, pill-shaped control switch you already know from the more-info dialogs and tile cards, so the look stays consistent no matter where you reach for it. 🎨
 
 <p class='img'>
-<img src='/images/blog/2026-05/temp-new-toggle-styling.png' alt='Screenshot of an entities card with three toggles in different states: on, off, and offline.' />
-The refreshed toggles on an entities card, showing on, off, and offline states.
+<img src='/images/blog/2026-05/new-toggle-styling.png' alt='Screenshot of an entities card showing the refreshed toggle styling.' />
+The refreshed toggles on an entities card.
 </p>
 
 It's not just a fresh coat of paint either: the new toggle is fully keyboard-friendly. Tab to it, then use the arrow keys to flip it on or off without ever touching the mouse. Small change, big quality-of-life upgrade. ⌨️
@@ -591,7 +595,7 @@ First, the most important thing to say up front: **you do not need to write code
 
 That said, [templating](/docs/templating/) _is_ one of the most powerful corners of Home Assistant for the people who do want to go a step further: dynamic notifications that read the actual temperature, automations that decide based on a calculation across several entities, [template entities](/integrations/template/) whose value is computed from other entities. And it has long been one of the most intimidating corners too. So we shipped a top-to-bottom rework of the [templating documentation](/docs/templating/), with one goal: if you have ever felt that templates were "not for you", we want to change that. 📚✨
 
-TODO: Screenshot of the new templating documentation landing page showing the learning guide cards.
+<img src='/images/blog/2026-05/templating-docs-landing.png' alt='Screenshot of the new templating documentation landing page with the learning guide.' class='no-shadow' />
 
 If you decide to learn templating, we are now confident we have everything in place to take you all the way:
 
@@ -602,7 +606,7 @@ If you decide to learn templating, we are now confident we have everything in pl
 
 There's a quality-of-life upgrade across the entire website too: templates in code blocks are now interactive. Hover over a function name to see its description, select it to jump to the [reference page](/template-functions/), hover over a parameter for a quick reminder of what it does. Examples render with the input on top and the actual output right below, so you never have to guess what a template will produce.
 
-TODO: Screenshot or short clip showing a tooltip appearing when hovering over a template function in a code block, plus an input/output example block.
+<img src='/images/blog/2026-05/templating-docs-tooltip.png' alt='Screenshot of the new templating documentation showing an interactive function tooltip and an input/output example block.' class='no-shadow' />
 
 Skip it, skim it, or master it. Either way, we've got your back. And this is just the beginning: we've expanded our documentation team and are investing heavily in making _all_ of our documentation more approachable. So expect more reworks, more tutorials, and more friendly-but-thorough guides in releases to come. 💪
 
@@ -610,7 +614,7 @@ Skip it, skim it, or master it. Either way, we've got your back. And this is jus
 
 The rework didn't stop at the documentation. While building it, it became painfully clear that even with great docs, writing a template still meant flipping back and forth between tabs. So the code editors you find throughout Home Assistant, the ones you use to write a template or fine-tune an automation, got a serious upgrade this release too. They now offer rich, context-aware **autocomplete** for both YAML and [Jinja2 templates](/docs/templating/). ✨
 
-TODO: Screenshot or short clip of the new autocomplete in action in a Home Assistant code editor.
+<img src='/images/blog/2026-05/template-autocomplete-functions.png' alt='Screenshot of the template editor showing autocomplete for template functions.' class='no-shadow' />
 
 Start typing inside a `{% raw %}{{ ... }}{% endraw %}` or `{% raw %}{% ... %}{% endraw %}` block, and the editor now suggests Home Assistant's template functions, filters, tests, and globals. Each suggestion comes with a short signature, a description, and tab-stops for the arguments, so you can fly through writing a template without keeping the [template documentation](/docs/templating/) open in another tab.
 
@@ -621,6 +625,8 @@ It gets even better inside the string arguments of those functions. The editor k
 - **Area IDs** for `area_entities()`, `area_devices()`, and `area_name()`.
 - **Floor IDs** for `floor_areas()`, `floor_entities()`, and `floor_name()`.
 - **Label IDs** for `label_areas()`, `label_devices()`, and `label_entities()`.
+
+<img src='/images/blog/2026-05/template-autocomplete-areas.png' alt='Screenshot of the template editor showing autocomplete for area IDs.' class='no-shadow' />
 
 No more copy-pasting entity IDs from the developer tools, and no more typos sneaking into your templates. Less friction, fewer mistakes. 🎯
 
