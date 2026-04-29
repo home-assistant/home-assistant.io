@@ -32,6 +32,10 @@ The **OMIE** integration retrieves the results of the [day-ahead market](https:/
 - **Portugal spot price**: Current quarter-hour electricity spot price in Portugal, in €/kWh.
 - **Spain spot price**: Current quarter-hour electricity spot price in Spain, in €/kWh.
 
+## Data updates
+
+The OMIE integration {% term polling polls %} OMIE for new data at the start of each quarter-hour (in Central European Time).
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
