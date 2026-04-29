@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@xirt'
 ha_platforms:
+  - binary_sensor
   - button
   - diagnostics
   - number
@@ -67,8 +68,9 @@ The following button entity allows triggering device actions directly from Home 
 
 #### BK1600/BK1600Ultra (Generation 1)
 
-- Device mode (overal setup of the device, for example standalone/cluster)
-- Energy mode (battery and energy management strategy, for example Self-Consumped Prioritized/Price-Based Strategy)
+- Device mode (overall setup of the device, for example standalone/cluster)
+- Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
+- Device heating state (Gen-1 specific, on/off)
 - DC input power (2 channels, W)
 - Daily production (kWh)
 - Cumulative production (kWh)
@@ -110,6 +112,7 @@ All Generation 1 sensors, plus:
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
+- Battery pack 1-5 heating state (on/off)
 
 ### Configurable entities (Generation 2 only)
 
