@@ -119,7 +119,7 @@
             {% if card.background_image %}{% assign card_classes = card_classes | append: ' community-card--image' %}{% endif %}
             {% if card.video %}{% assign card_classes = card_classes | append: ' community-card--video' %}{% endif %}
             {% if card.theme %}{% assign card_classes = card_classes | append: ' community-card--' | append: card.theme %}{% endif %}
-            <a href="{{ card.href }}" class="community-card__link">
+            <a href="{{ card.href }}" class="community-card__link" style="--source-order: {{ forloop.index0 }};">
               <div class="{{ card_classes }}">
                 <div class="community-card__content">
                   <p>{{ card.text }}</p>
@@ -130,8 +130,7 @@
                   </p>
                 </div>
                 {% if card.background_image %}<img class="community-card__image" src="{{ card.background_image }}" alt="{{ card.background_image_alt }}">{% endif %}
-                {% if card.video_poster %}<img class="community-card__video-poster" src="{{ card.video_poster }}" alt="{{ card.video_poster_alt }}">{% endif %}
-                {% if card.video %}<video class="community-card__video" loop muted playsinline><source src="{{ card.video }}" type="video/webm"></video>{% endif %}
+                {% if card.video %}<video class="community-card__video" loop muted playsinline loading="lazy" poster="{{ card.video_poster }}"><source src="{{ card.video }}" type="video/webm"></video>{% endif %}
               </div>
             </a>
           {% endif %}
@@ -142,24 +141,40 @@
 </section>
 
 <script>
-  // Play videos on hover
-  document.querySelectorAll('.community-card--video').forEach(card => {
-    const video = card.querySelector('.community-card__video');
-    const poster = card.querySelector('.community-card__video-poster');
-    card.addEventListener('mouseenter', () => {
-      if (video) {
-        video.setAttribute('autoplay', '');
-        video.play();
-        if (poster) poster.style.opacity = '0';
-      }
-    });
-    card.addEventListener('mouseleave', () => {
-      if (video) {
-        video.removeAttribute('autoplay');
-        video.pause();
-        video.currentTime = 0;
-        if (poster) poster.style.opacity = '1';
-      }
-    });
-   });
+  (function () {
+    const cards = document.querySelectorAll('.community-card--video');
+    if (!cards.length) return;
+
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
+
+    if (supportsHover) {
+      // Desktop: play on hover
+      cards.forEach(card => {
+        const video = card.querySelector('.community-card__video');
+        if (!video) return;
+        card.addEventListener('mouseenter', () => {
+          video.play().catch(() => {});
+        });
+        card.addEventListener('mouseleave', () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+    } else if ('IntersectionObserver' in window) {
+      // Mobile/touch: play when the card is in view
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const video = entry.target.querySelector('.community-card__video');
+          if (!video) return;
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: [0, 0.6, 1] });
+
+      cards.forEach(card => observer.observe(card));
+    }
+  })();
 </script>

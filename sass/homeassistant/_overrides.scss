@@ -2014,18 +2014,40 @@ h6 {
 
   .masonry {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
+    height: clamp(340px, 95vw, 400px);
     gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    margin-right: -24px;
+    padding-right: 24px;
+
+    @media only screen and (min-width: 640px) {
+      flex-direction: row;
+      align-content: stretch;
+      align-items: stretch;
+      height: auto;
+      overflow: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+      margin-right: 0;
+      padding-right: 0;
+    }
 
     &__col {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-
-      flex-basis: 100%;
+      display: contents;
 
       @media only screen and (min-width: 640px) {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
         flex-basis: calc(50% - 0.5rem);
       }
 
@@ -2076,6 +2098,12 @@ h6 {
 
     &__link {
       text-decoration: none;
+
+      @media only screen and (max-width: 639.98px) {
+        width: clamp(220px, 75vw, 280px);
+        order: var(--source-order, 0);
+        scroll-snap-align: center;
+      }
 
       &:has(.community-card__image) {
         height: 100%;
