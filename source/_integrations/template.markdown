@@ -2194,14 +2194,14 @@ template:
           data:
             segment_ids: "{{ segment_ids }}"
         segments_template: >-
-          {{[
+          {{ [
             {'id': '1', 'name': 'Kitchen'},
             {'id': '2', 'name': 'Living room', 'group': 'Upstairs'},
-          ]}}
+          ] }}
         start:
           action: script.vacuum_start
         unique_id: living_room_vacuum
-          
+
 ```
 
 {% configuration vacuum %}
@@ -2224,7 +2224,7 @@ vacuum:
       required: false
       type: template
     clean_area:
-      description: Defines an action to run when the vacuum is given a clean area command. The action receives the variable `segment_ids` containing the list of selected area segment ids. Requires `unique_id` and `segments_template`.
+      description: Defines an action to run when the vacuum is given a clean area command. The action receives the variable `segment_ids` containing the list of selected area segment IDs. Requires `unique_id` and `segments_template`.
       required: inclusive
       type: action
     clean_spot:
