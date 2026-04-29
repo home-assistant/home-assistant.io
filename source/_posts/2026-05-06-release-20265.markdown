@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026.5 Beta: We're on the same frequency now 📡"
-description: "Radio frequency joins the smart home, a brand new Maintenance dashboard for your batteries, serial ports proxied over the network with ESPHome, new tile card features for media players and weather, durations for purpose-specific automation triggers and conditions, redesigned more-info dialogs for vacuums and lawn mowers, autocomplete in the code editors, and 10 new integrations!"
+description: "Radio frequency joins the smart home, a brand new Maintenance dashboard for your batteries, serial ports proxied over the network with ESPHome, new tile card features for media players and weather, durations for purpose-specific automation triggers and conditions, redesigned more-info dialogs for vacuums and lawn mowers, autocomplete in the code editors, and 12 new integrations!"
 date: 2026-04-29 00:00:00
 date_formatted: "May 6, 2026"
 author: Franck Nijhof
@@ -78,7 +78,7 @@ Now, on to this release. My personal favorite this month is maybe a bit unexpect
 
 That said, I'd be lying if I said I wasn't also _super_ stoked about [radio frequency (RF) support](#radio-frequency-joins-infrared-as-a-first-class-citizen) landing this release. Just like last month's [infrared (IR) release](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant), this brings a _massive_ category of devices into Home Assistant natively: blinds, garage doors, ceiling fans, RF outlets, doorbells… you name it. Sure, there have always been clever workarounds and custom integrations to bridge some of these, but having it built right into the platform changes the game completely. There is so much cool stuff going on around this, and we're only getting started. 📡
 
-And there's plenty more: a brand new [Maintenance dashboard](#stay-on-top-of-your-batteries-with-the-new-maintenance-dashboard) for your batteries, [serial ports proxied over the network](#serial-ports-over-the-network-with-esphome) with ESPHome, [new tile card features](#new-tile-card-features-for-media-players) for media players and weather, [durations for purpose-specific automation triggers and conditions](#automations-that-finally-understand-for-a-while), redesigned [more-info dialogs for vacuums and lawn mowers](#a-modern-more-info-dialog-for-vacuums-and-lawn-mowers), [autocomplete in the code editors](#smarter-code-editors-with-autocomplete), and 10 new integrations! 🚀
+And there's plenty more: a brand new [Maintenance dashboard](#stay-on-top-of-your-batteries-with-the-new-maintenance-dashboard) for your batteries, [serial ports proxied over the network](#serial-ports-over-the-network-with-esphome) with ESPHome, [new tile card features](#new-tile-card-features-for-media-players) for media players and weather, [durations for purpose-specific automation triggers and conditions](#automations-that-finally-understand-for-a-while), redesigned [more-info dialogs for vacuums and lawn mowers](#a-modern-more-info-dialog-for-vacuums-and-lawn-mowers), [autocomplete in the code editors](#smarter-code-editors-with-autocomplete), and 12 new integrations! 🚀
 
 Enjoy the (beta) release!
 
@@ -132,16 +132,19 @@ Think about all the RF-controlled devices already living in your home: motorized
 
 ### Meet the Radio frequency platform
 
-The new [Radio frequency] integration follows the exact same pattern as last release's infrared platform. It's an entity type that represents an RF transmitter, like an [ESPHome](https://esphome.io)-powered device with a 433.92&nbsp;MHz transmitter attached. You don't set it up directly. Instead, other integrations use it to send RF commands on your behalf, and you simply pick which transmitter they should use.
+The new [Radio frequency] integration follows the exact same pattern as last release's infrared platform. It's an entity type that represents an RF transmitter, like an [ESPHome](https://esphome.io)-powered device with a sub-GHz transmitter attached. You don't set it up directly. Instead, other integrations use it to send RF commands on your behalf, and you simply pick which transmitter they should use.
 
 <img src='/images/blog/2026-05/rf-config-flow.png' alt='Screenshot of an RF device setup dialog, with a Radio frequency transmitter dropdown.' class='no-shadow' />
 
 Two transmitter integrations support this from day one:
 
-- **[ESPHome](/integrations/esphome/)**, so any ESPHome device with a compatible RF transmitter (an [inexpensive 433.92&nbsp;MHz module](https://esphome.io/components/remote_transmitter/) does the trick) can act as your home's RF bridge.
-- **[Broadlink](/integrations/broadlink/)**, so existing Broadlink RM-series remotes you may already own can be reused for new RF integrations as well.
+- **[ESPHome](/integrations/esphome/)**, so any ESPHome device with a compatible sub-GHz transmitter can act as your home's RF bridge. Most modules cover all common sub-GHz bands (315, 433, 868, and 915&nbsp;MHz), so a single transmitter can talk to a wide range of devices. For DIY, we recommend the inexpensive [CC1101](https://esphome.io/components/remote_transmitter/) module (around $10), which you wire up to an ESP32 yourself. There's a step-by-step guide on how to build one in the [ESPHome documentation](https://esphome.io/components/remote_transmitter/).
+- **[Broadlink](/integrations/broadlink/)**, so any Broadlink RM4 Pro you may already own can be reused as an RF transmitter for the new integrations. The RM4 Pro is the only model in the RM4 line with RF support, and it's limited to the 433&nbsp;MHz band.
 
-On the other side, device-specific integrations use the platform to actually do something useful. The first one shipping in this release is the new [Honeywell String Lights] integration, which lets you turn your RF remote-controlled Honeywell string lights on and off from Home Assistant, with all the automation magic that brings. 🎄
+On the other side, device-specific integrations use the platform to actually do something useful. Two are shipping in this release:
+
+- **[Honeywell String Lights]**, to turn your RF remote-controlled Honeywell string lights on and off from Home Assistant, with all the automation magic that brings. 🎄
+- **[Novy Cooker Hood]**, to control the light and the extractor fan on your Novy cooker hood. These are typically ceiling-mounted, so an RF remote (and now Home Assistant) is the only practical way to reach them. 💨
 
 <img src='/images/blog/2026-05/rf-device.png' alt='Screenshot of an RF-controlled device page in Home Assistant, showing controls and recent activity.' class='no-shadow' />
 
@@ -165,19 +168,20 @@ This work is part of [an Open Home Foundation roadmap opportunity](https://githu
 
 We have a bit of a theme going on. Last release, [infrared became a first-class citizen of Home Assistant](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant). This release, [radio frequency joined the party](#radio-frequency-joins-infrared-as-a-first-class-citizen). And now, there's _another_ way you can put an ESPHome device somewhere in your home and let Home Assistant talk to things through it: **serial ports**. 🔌
 
-If you've ever set up a [Bluetooth proxy](/integrations/bluetooth/), the idea will feel familiar. Plenty of smart home gear talks over a serial connection, like [Zigbee](/integrations/zha/) sticks, energy meters with a P1 port, or that classic Denon receiver with the [new Denon RS232 integration](#new-integrations) shipping in this release. Until now, the device producing those serial signals had to be physically plugged into the same machine running Home Assistant, or wired up over a long, unwieldy cable. Not anymore. ✨
+If you've ever set up a [Bluetooth proxy](/integrations/bluetooth/), the idea will feel familiar. Plenty of smart home gear talks over a serial connection, like energy meters with a P1 port, or that classic Denon receiver with the [new Denon RS232 integration](#new-integrations) shipping in this release. Until now, the device producing those serial signals had to be physically plugged into the same machine running Home Assistant, or wired up over a long, unwieldy cable. Not anymore. ✨
 
 With the new [serial proxy](https://esphome.io/components/serial_proxy/) support in [ESPHome](https://esphome.io), any serial port plugged into (or built into) an ESPHome device can now be exposed over your network and used by Home Assistant as if it were sitting right next to it. Drop an ESP somewhere convenient, plug your serial device into it, and Home Assistant takes care of the rest. 🪄
+
+<img src='/images/blog/2026-05/serial-proxy-picker.png' alt='Screenshot of the new serial port selector in the UI, showing local USB serial ports and remote ESPHome serial proxies side by side.' class='no-shadow' />
 
 ### Where this comes in handy
 
 This is great news if you've ever struggled to put a serial-connected device exactly where you wanted it. A few practical examples:
 
 - Connect to receivers, projectors, or other AV gear over RS-232 from anywhere on your network.
-- Mount your Zigbee stick in the center of your home for the best mesh coverage, rather than next to your Home Assistant box in a closet.
-- Read your smart meter's P1 port from the meter cabinet, even if your Home Assistant server lives upstairs.
+- Read your smart meter's P1 port from the meter cabinet, even if your Home Assistant server lives upstairs in a closet. ⚡
 
-Like our existing Bluetooth, infrared, and radio frequency proxies, this is also a sustainability win. ♻️ Instead of replacing perfectly good serial-only equipment with newer Wi-Fi versions, you can keep using what you already have. Reuse those existing USB Zigbee sticks, that energy meter, that older AV receiver. They all just work, over the network. 🌱
+Like our existing Bluetooth, infrared, and radio frequency proxies, this is also a sustainability win. ♻️ Instead of replacing perfectly good serial-only equipment with newer Wi-Fi versions, you can keep using what you already have. That energy meter, that older AV receiver, that industrial sensor: they all just work, over the network. 🌱
 
 ### Under the hood
 
@@ -185,7 +189,7 @@ Behind the scenes, this release rewires Home Assistant's serial-port handling to
 
 - All of Home Assistant has been migrated to a modern, async-first serial driver called **serialx**, replacing the older `pyserial` library that Home Assistant has used for years. It's designed for the way Home Assistant works today and adds support for new connection types, including ESPHome serial proxies, transparently.
 - Integrations that need a serial port now get a brand new, polished serial port selector in the UI. It lists local USB serial ports _and_ remote ESPHome serial proxies side by side, with friendly names. The list even updates live, so a USB device you plug in while the dropdown is open shows up right away.
-- Common integrations that talk over serial, like [ZHA](/integrations/zha/), support serial proxies out of the box. The brand new [Denon RS232] integration uses it from day one, and the existing [Russound RIO](/integrations/russound_rio/) integration has been migrated to serialx as well, so it can now talk to your multi-room audio gear over an ESPHome serial proxy too.
+- Common integrations that talk over serial pick up serial proxies for free. The brand new [Denon RS232] integration uses it from day one, and the existing [Russound RIO](/integrations/russound_rio/) integration has been migrated to serialx as well, so it can now talk to your multi-room audio gear over an ESPHome serial proxy too.
 
 If you're an integration developer (or maintain a custom component) talking over serial, head over to the [migrating from pyserial to serialx](https://developers.home-assistant.io/blog/2026/04/27/pyserial-to-serialx) developer blog post to read all about how to take advantage of this. 🛠️
 
@@ -309,6 +313,8 @@ Your **media players** got chatty: four brand new {% term triggers %} fire when 
 
 Your **remotes** picked up matching _is on_ and _is off_ conditions, finishing what last release's triggers started. And your **to-do lists** can now answer two questions an automation might have: are _all items completed_, or are there _still incomplete items_ on the list? Great for end-of-day check-ins or those "did I forget to feed the cat" moments. 🐱
 
+Your **timers** got a whole lifecycle of new {% term triggers %}: _started_, _paused_, _restarted_, _cancelled_, and _finished_. So that 20-minute "tea is ready" timer can now actually _tell_ your kitchen lights to flash, and your "kids screen time" timer can announce when it's running, paused, or up. ⏲️
+
 And finally, a small but lovely addition: a brand new **doorbell rang** trigger. Doorbell event entities now speak a shared language, so a single trigger lights up regardless of which brand sits at your front door. 🔔
 
 ### Try it out!
@@ -335,17 +341,23 @@ We welcome the following new integrations in this release:
 - **[Eurotronic Comet Blue]**, added by [@rikroe]  
   Integrate your Eurotronic Comet Blue (and similar) Bluetooth radiator thermostats with Home Assistant. Read thermostat status and adjust temperatures locally, without a hub or cloud connection. Compatible thermostats include Sygonix HT100 BT, Xavax Hama, and Lidl Silvercrest RT2000BT.
 
-- **[Fumis]**, added by [@frenck]  
+- **[Fumis]**, added by [@frenck] — launching at 🏆 platinum quality  
   Bring your Fumis-based pellet stove into Home Assistant through the Fumis online service. Monitor your room temperature, set a comfortable target temperature, and turn your stove on or off. Pellet stoves, pellet boilers, and hybrid wood and pellet stoves equipped with a Fumis WiRCU Wi-Fi module are sold under many different brands, including Austroflamm, Eco Spar, HAAS+SOHN, and Heta.
 
 - **[Honeywell String Lights]**, added by [@balloob]  
-  Control your Honeywell radio frequency (RF) remote-controlled string lights from Home Assistant. Uses the new [Radio frequency](#radio-frequency-joins-infrared-as-a-first-class-citizen) entity platform, so you'll need a compatible 433.92&nbsp;MHz RF transmitter (for example, an ESPHome device) to send commands.
+  Control your Honeywell radio frequency (RF) remote-controlled string lights from Home Assistant. Uses the new [Radio frequency](#radio-frequency-joins-infrared-as-a-first-class-citizen) entity platform, so you'll need a compatible sub-GHz RF transmitter (for example, an ESPHome device) to send commands.
 
 - **[Kiosker]**, added by [@Claeysson]  
   Monitor your [Kiosker](https://kiosker.io) web kiosks running on iPad or iPhone from Home Assistant. Kiosker turns your iOS device into a powerful, easy-to-use web kiosk, perfect for dashboards on the wall.
 
+- **[Novy Cooker Hood]**, added by [@piitaya]  
+  Control the light and the extractor fan on your [Novy](https://www.novy.com/) cooker hood from Home Assistant. Novy hoods are typically ceiling-mounted, with no buttons within reach, so an RF remote (and now Home Assistant) is the only practical way to control them. Uses the new [Radio frequency](#radio-frequency-joins-infrared-as-a-first-class-citizen) entity platform, so you'll need a compatible sub-GHz RF transmitter (for example, a Broadlink RM4 Pro or an ESPHome device) to send commands.
+
+- **[OMIE]**, added by [@luuuis] — launching at 🥉 bronze quality  
+  Bring Iberian Peninsula day-ahead electricity spot prices from [OMIE](https://www.omie.es/) into Home Assistant. Sensors expose the current and next-hour prices for both Spain and Portugal, perfect for smarter automations around when to run your dishwasher, charge your EV, or heat your water.
+
 - **[Radio frequency]**, added by [@balloob]  
-  A new entity type that represents a radio frequency (RF) transmitter, like an [ESPHome](https://esphome.io) device with a 433.92&nbsp;MHz transmitter attached. You don't set this integration up directly; instead, other integrations use it to send RF commands to devices such as remote outlets, garage doors, and string lights. The new [Honeywell String Lights] integration is the first to make use of it. Read more about it in the [Radio frequency joins infrared as a first-class citizen](#radio-frequency-joins-infrared-as-a-first-class-citizen) section above.
+  A new entity type that represents a sub-GHz radio frequency (RF) transmitter, like an [ESPHome](https://esphome.io) device with a CC1101 module attached. You don't set this integration up directly; instead, other integrations use it to send RF commands to devices such as remote outlets, garage doors, and string lights. The new [Honeywell String Lights] and [Novy Cooker Hood] integrations are the first to make use of it. Read more about it in the [Radio frequency joins infrared as a first-class citizen](#radio-frequency-joins-infrared-as-a-first-class-citizen) section above.
 
 - **[Teleinfo]**, added by [@esciara] — launching at 🥈 silver quality  
   Read electricity consumption data from French Linky smart meters and older electronic meters using the Télé-Information Client (TIC) protocol. Connect a Teleinfo USB adapter to your meter's TIC output to monitor real-time energy indexes, apparent power, instantaneous current, and tariff information, all locally.
@@ -357,7 +369,9 @@ We welcome the following new integrations in this release:
 [@Claeysson]: https://github.com/Claeysson
 [@esciara]: https://github.com/esciara
 [@frenck]: https://github.com/frenck
+[@luuuis]: https://github.com/luuuis
 [@Miggets7]: https://github.com/Miggets7
+[@piitaya]: https://github.com/piitaya
 [@rikroe]: https://github.com/rikroe
 [@ronaldvdmeer]: https://github.com/ronaldvdmeer
 [@tomer-w]: https://github.com/tomer-w
@@ -368,6 +382,8 @@ We welcome the following new integrations in this release:
 [Fumis]: /integrations/fumis
 [Honeywell String Lights]: /integrations/honeywell_string_lights
 [Kiosker]: /integrations/kiosker
+[Novy Cooker Hood]: /integrations/novy_cooker_hood
+[OMIE]: /integrations/omie
 [Radio frequency]: /integrations/radio_frequency
 [Teleinfo]: /integrations/teleinfo
 [Victron GX]: /integrations/victron_gx
@@ -547,6 +563,7 @@ The following {% term integration %} is also no longer available as of this rele
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
+- **Mobile app notifications are now entities.** The [Mobile app](/integrations/mobile_app/) integration now exposes a {% term notification %} entity for each of your devices, on top of the existing notify actions. That means you can group your phones and tablets together using the regular [group helper](/integrations/group/) right from the user interface, and send a single notification to all of them at once. No YAML, no scripting, no scrolling through a list of targets. Thanks, [@tr4nt0r]! 📱
 - **A search bar on the integration detail page.** Integrations with a lot of devices and entries (think Z-Wave, Zigbee, or your sprawling pile of ESPHome devices) now have a search bar at the top, matching across entry titles, device names, manufacturers, models, and areas. 🔍
 - **Dashboard visibility conditions can now refer to the card's own entity.** State and numeric state visibility conditions get a new **Current entity** option that automatically follows whichever entity the card is bound to. No more re-typing entity IDs, and your card stays reusable.
 - **Dashboard visibility conditions now support attributes.** State and numeric state visibility conditions on cards can now check an entity attribute instead of just the state, catching up with their automation counterparts.
@@ -559,6 +576,7 @@ There are many more improvements in this release; here are some of the other not
 [@Lamarqe]: https://github.com/Lamarqe
 [@Phunkafizer]: https://github.com/Phunkafizer
 [@potelux]: https://github.com/potelux
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ### A modern more-info dialog for vacuums and lawn mowers
 
