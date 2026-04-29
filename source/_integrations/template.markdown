@@ -2101,7 +2101,7 @@ template:
           action: script.update_frigate
 ```
 
-{% configuration vacuum %}
+{% configuration update %}
 update:
   description: List of update entities
   required: true
@@ -2184,6 +2184,26 @@ template:
           action: script.vacuum_start
 ```
 
+```yaml
+# Example state-based configuration.yaml entry with segment cleaning
+template:
+  - vacuum:
+      - name: Living Room Vacuum
+        clean_area:
+          action: script.vacuum_start
+          data:
+            segment_ids: "{{ segment_ids }}"
+        segments_template: >-
+          {{[
+            {'id': '1', 'name': 'Kitchen'},
+            {'id': '2', 'name': 'Living room', 'group': 'Upstairs'},
+          ]}}
+        start:
+          action: script.vacuum_start
+        unique_id: living_room_vacuum
+          
+```
+
 {% configuration vacuum %}
 vacuum:
   description: List of vacuum entities
@@ -2237,7 +2257,7 @@ vacuum:
       required: false
       type: action
     segments_template:
-      description: Defines a template to get the segments of the vacuum. Requires `unique_id` and `clean_area`.
+      description: Defines a template to get the segments of the vacuum. Expects a list of dictionaries with keys `id`, `name`, and optional `group`. Requires `unique_id` and `clean_area`.
       required: inclusive
       type: template
     set_fan_speed:
