@@ -189,7 +189,7 @@ template: |
 output: "3.3333333333333335"
 {% endexample %}
 
-You might read that as "ten divided by three, rounded to two decimals", which should be `3.33`. But because filters take priority, it actually runs as "ten divided by (three rounded to two decimals)", which is `10 / 3.0 = 3.3333333333333335`
+You might read that as "ten divided by three, rounded to two decimals", which should be `3.33`. But because filters take priority, it actually runs as "ten divided by (three rounded to two decimals)", which is `10 / 3.0 = 3.3333333333333335`.
 
 The gotcha bites hardest when the filter changes the value meaningfully. When in doubt, add parentheses so the order you want is clear:
 
