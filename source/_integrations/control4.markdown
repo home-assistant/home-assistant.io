@@ -22,7 +22,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Control4** {% term integration %} allows you to control and monitor lights, Room Media, and climate devices from your local Control4 system. Your Control4 controller must be running OS 3.0+.
+The **Control4** {% term integration %} allows you to control and monitor lights, Room Media, cover, and climate devices from your local Control4 system. Your Control4 controller must be running OS 3.0+.
 
 ## Prerequisites
 
