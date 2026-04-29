@@ -6,8 +6,6 @@ description: "Triggers after one or more humidifiers start actively drying (dehu
 related_triggers:
   - humidifier.turned_on
   - humidifier.started_humidifying
-  - humidifier.current_humidity_changed
-  - humidifier.current_humidity_crossed_threshold
 ---
 
 The **Humidifier started drying** trigger fires when a humidifier {% term entity %} begins actively removing moisture from the air. This typically applies to dehumidifiers and devices with a dehumidification device class that pause once the target humidity is reached and then resume when the air becomes too humid again.
