@@ -33,6 +33,22 @@ To use this {% term integration %}, you will need to generate an API key.
 
 {% include integrations/config_flow.md %}
 
+## Troubleshooting
+
+### Invalid API key
+
+If you see an "Invalid API key" error during setup, try the following:
+
+1. In your Amber account, confirm **Developer Mode** is enabled and generate a new API key.
+2. Test the key with the API:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.amber.com.au/v1/sites
+```
+
+If the request returns 401 or 403, the API key is not valid.
+
 ## How the integration works
 
 Prices are split up into three channel types:
