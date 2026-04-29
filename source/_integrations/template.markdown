@@ -2203,6 +2203,10 @@ vacuum:
       description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
       required: false
       type: template
+    clean_area:
+      description: Defines an action to run when the vacuum is given a clean area command. The action receives the variable `segment_ids` containing the list of selected area segment ids. Requires `unique_id` and `segments_template`.
+      required: inclusive
+      type: action
     clean_spot:
       description: Defines an action to run when the vacuum is given a clean spot command.
       required: false
@@ -2232,6 +2236,10 @@ vacuum:
       description: Defines an action to run when the vacuum is given a return to base command.
       required: false
       type: action
+    segments_template:
+      description: Defines a template to get the segments of the vacuum. Requires `unique_id` and `clean_area`.
+      required: inclusive
+      type: template
     set_fan_speed:
       description: Defines an action to run when the vacuum is given a command to set the fan speed.
       required: false
