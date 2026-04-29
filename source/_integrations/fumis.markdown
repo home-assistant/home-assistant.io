@@ -13,6 +13,7 @@ ha_platforms:
   - climate
   - number
   - sensor
+  - switch
 ha_codeowners:
   - '@frenck'
 ha_integration_type: device
@@ -71,7 +72,7 @@ This integration supports multiple stoves. If you have more than one stove with 
 
 ### Entities
 
-The **Fumis** integration provides binary sensor, button, climate, number, and sensor entities for your pellet stove.
+The **Fumis** integration provides a climate entity, as well as binary sensor, button, sensor, and switch entities, for your pellet stove.
 
 #### Climate
 
@@ -118,6 +119,10 @@ Some additional sensors are available but disabled by default because they are p
 
 - **Sync clock**: The Fumis WiRCU module does not synchronize its internal clock from the internet. Over time, the clock can drift, and it does not automatically adjust for daylight saving time changes. This button sends the current time from Home Assistant to your stove's controller, keeping its clock accurate. This is especially useful for stoves that use the built-in weekly timer schedule. You can automate this by pressing the button on a regular basis, for example, after a daylight saving time change.
 
+#### Switches
+
+- **Eco mode**: Turn eco mode on or off. When eco mode is active and the room temperature exceeds the target temperature, the stove turns off automatically and restarts when the room temperature drops below the target temperature again. This switch is only available on stoves that support eco mode.
+- **Timer**: Enable or disable the weekly timer schedule. When enabled, the stove follows the programmed schedule to turn on and off at set times throughout the week.
 #### Numbers
 
 - **Power level**: Set the stove's heating power from level 1 (lowest) to 5 (highest). A higher power level means more pellets are fed into the combustion chamber, producing more heat. The actual thermal output in kilowatts adjusts gradually after changing the power level.
