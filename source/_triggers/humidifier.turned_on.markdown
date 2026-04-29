@@ -17,7 +17,7 @@ When you target more than one humidifier, the trigger's **behavior** option cont
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
+To use **Humidifier turned on** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
@@ -32,16 +32,16 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier turns on, **First** to fire only when the first of a group turns on, or **Last** to fire only after every targeted humidifier is on.
+  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier turns on, **First** to fire only when the first of a group turns on, or **Last** to fire only after every targeted humidifier is on. This corresponds to the `behavior` field in YAML. Default is **Any**.
   required: true
 For at least:
-  description: How long the humidifier must stay on before the trigger fires. Set to zero to fire immediately.
+  description: How long the humidifier must stay on before the trigger fires. Default is `0` (fires immediately).
   required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `humidifier.turned_on`. A basic example looks like this:
+In YAML, **Humidifier turned on** is referred to as `humidifier.turned_on`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -65,7 +65,7 @@ behavior:
   default: any
 for:
   description: >
-    Duration the humidifier must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the humidifier must stay on before the trigger fires.
   required: true
   type: string
   default: "00:00:00"
@@ -85,21 +85,21 @@ for:
 
 {% include triggers/more_examples.md %}
 
-### Automation: log when the bedroom humidifier powers on
+### Automation: turn on a fan when the bedroom humidifier powers on
 
-Keep a simple history of when the bedroom humidifier starts running by writing an entry to a logbook each time it turns on.
+When the bedroom humidifier turns on, start a low-speed fan to help distribute the moisture more evenly throughout the room.
 
 - **Trigger**: Humidifier turned on
 - **Target**: Bedroom humidifier
 - **Trigger when**: Any
 - **For at least**: 00:00:00
-- **Action**: Logbook: Log entry
+- **Action**: Fan: Turn on
 
-{% details "YAML example for logging humidifier power-on events" %}
+{% details "YAML example for running a fan when the humidifier turns on" %}
 
 {% example %}
 automation: |
-  alias: "Log bedroom humidifier on"
+  alias: "Start fan when bedroom humidifier turns on"
   triggers:
     - trigger: humidifier.turned_on
       target:
@@ -108,10 +108,11 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: logbook.log
+    - action: fan.turn_on
+      target:
+        entity_id: fan.bedroom
       data:
-        name: "Bedroom humidifier"
-        message: "Turned on"
+        percentage: 30
 {% endexample %}
 
 {% enddetails %}

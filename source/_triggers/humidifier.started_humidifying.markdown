@@ -8,9 +8,9 @@ related_triggers:
   - humidifier.started_drying
 ---
 
-The **Humidifier started humidifying** trigger fires when a humidifier {% term entity %} begins actively adding moisture to the air. A humidifier that is turned on does not necessarily humidify continuously — it may pause once the target humidity is reached and then resume when the air dries out again. This trigger fires every time it moves from idle back into active humidification, giving you a precise moment to react to the air in the room becoming drier than the target.
+The **Humidifier started humidifying** trigger fires when a humidifier {% term entity %} begins actively adding moisture to the air. A humidifier that is turned on does not necessarily humidify continuously — it may pause once the target humidity is reached and then resume when the air dries out again. **Humidifier started humidifying** fires every time it moves from idle back into active humidification, giving you a precise moment to react to the air in the room becoming drier than the target.
 
-Use this trigger to track active humidification cycles, send notifications when the air is dry enough that the device kicks back in, or coordinate other devices that should run alongside it.
+Use **Humidifier started humidifying** to track active humidification cycles, send notifications when the air is dry enough that the device kicks back in, or coordinate other devices that should run alongside it.
 
 When you target more than one humidifier, the trigger's **behavior** option controls when it fires.
 
@@ -18,7 +18,7 @@ When you target more than one humidifier, the trigger's **behavior** option cont
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
+To use **Humidifier started humidifying** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
@@ -33,16 +33,16 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier starts humidifying, **First** to fire only on the first, or **Last** to fire only after every targeted humidifier starts humidifying.
+  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier starts humidifying, **First** to fire only on the first, or **Last** to fire only after every targeted humidifier starts humidifying. This corresponds to the `behavior` field in YAML. Default is **Any**.
   required: true
 For at least:
-  description: How long the humidifier must be actively humidifying before the trigger fires. Set to zero to fire immediately.
+  description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
   required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `humidifier.started_humidifying`. A basic example looks like this:
+In YAML, **Humidifier started humidifying** is referred to as `humidifier.started_humidifying`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -66,7 +66,7 @@ behavior:
   default: any
 for:
   description: >
-    Duration the humidifier must be actively humidifying before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the humidifier must be actively humidifying before the trigger fires.
   required: true
   type: string
   default: "00:00:00"
@@ -78,7 +78,7 @@ for:
 
 ## Good to know
 
-- This trigger fires independently of [Humidifier turned on](/triggers/humidifier.turned_on/). A humidifier can be on but idle, and this trigger fires only when it moves from idle to active.
+- **Humidifier started humidifying** fires independently of [Humidifier turned on](/triggers/humidifier.turned_on/). A humidifier can be on but idle, and **Humidifier started humidifying** fires only when it moves from idle to active.
 - To react to the opposite transition on a dehumidifier, use [Humidifier started drying](/triggers/humidifier.started_drying/).
 - If your device is a dehumidifier, it removes moisture rather than adds it. Use [Humidifier started drying](/triggers/humidifier.started_drying/) instead.
 

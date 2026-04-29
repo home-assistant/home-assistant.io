@@ -8,7 +8,7 @@ related_triggers:
   - humidifier.started_humidifying
 ---
 
-The **Humidifier started drying** trigger fires when a humidifier {% term entity %} begins actively removing moisture from the air. This typically applies to dehumidifiers and devices with a dehumidification device class that pause once the target humidity is reached and then resume when the air becomes too humid again. This trigger fires every time the device moves from idle back into active drying, giving you a precise moment to react to excess moisture in the room.
+The **Humidifier started drying** trigger fires when a humidifier {% term entity %} begins actively removing moisture from the air. This typically applies to dehumidifiers and devices with a dehumidification device class that pause once the target humidity is reached and then resume when the air becomes too humid again.
 
 Use this trigger to track dehumidification cycles, send alerts when the air becomes too humid, or coordinate other actions that should happen while the device is actively removing moisture.
 
@@ -18,7 +18,7 @@ When you target more than one humidifier, the trigger's **behavior** option cont
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
+To use **Humidifier started drying** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
@@ -33,16 +33,16 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple devices are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted device starts drying, **First** to fire only on the first, or **Last** to fire only after every targeted device starts drying.
+  description: When multiple devices are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted device starts drying, **First** to fire only on the first, or **Last** to fire only after every targeted device starts drying. This corresponds to the `behavior` field in YAML. Default is **Any**.
   required: true
 For at least:
-  description: How long the device must be actively drying before the trigger fires. Set to zero to fire immediately.
+  description: How long the device must be actively drying before the trigger fires. Default is `0` (fires immediately).
   required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `humidifier.started_drying`. A basic example looks like this:
+In YAML, **Humidifier started drying** is referred to as `humidifier.started_drying`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -66,7 +66,7 @@ behavior:
   default: any
 for:
   description: >
-    Duration the device must be actively drying before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the device must be actively drying before the trigger fires.
   required: true
   type: string
   default: "00:00:00"
@@ -78,9 +78,8 @@ for:
 
 ## Good to know
 
-- This trigger fires independently of [Humidifier turned on](/triggers/humidifier.turned_on/). A dehumidifier can be on but idle (the air is already dry enough), and this trigger fires only when active drying begins.
-- To react to active humidification starting instead, use [Humidifier started humidifying](/triggers/humidifier.started_humidifying/).
-- This trigger is most useful with devices that have the dehumidifier device class, but it also applies to multi-mode devices that can switch between humidifying and drying.
+- **Humidifier started drying** fires independently of [Humidifier turned on](/triggers/humidifier.turned_on/). A dehumidifier can be on but idle (the air is already dry enough), and **Humidifier started drying** fires only when active drying begins.
+- **Humidifier started drying** is most useful with devices that have the dehumidifier device class, but it also applies to multi-mode devices that can switch between humidifying and drying.
 
 {% include triggers/try_it.md %}
 
@@ -118,7 +117,7 @@ automation: |
 
 ### Automation: close the windows when the dehumidifier kicks in
 
-When the dehumidifier starts drying, close any open windows automatically to prevent more humid air from coming in and making the device work harder.
+When the dehumidifier starts drying, close any open motorized windows automatically to prevent more humid air from coming in and making the device work harder. Motorized windows are supported in Home Assistant through integrations like [Velux](/integrations/velux/), [Somfy](/integrations/somfy/), and [KNX](/integrations/knx/).
 
 - **Trigger**: Humidifier started drying
 - **Target**: Basement dehumidifier

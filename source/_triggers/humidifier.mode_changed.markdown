@@ -10,7 +10,7 @@ related_conditions:
   - humidifier.is_mode
 ---
 
-The **Humidifier mode changed** trigger fires after the operating mode of a humidifier {% term entity %} changes. Modes are device-specific and typically include options like `normal`, `eco`, `sleep`, `auto`, or `baby`, though the exact modes available depend on your device. Use this trigger to react when someone switches the humidifier to a different setting, like dimming the lights and muting notifications when the humidifier enters sleep mode.
+The **Humidifier mode changed** trigger fires after the operating mode of a humidifier {% term entity %} changes. Modes are device-specific and typically include options like `normal`, `eco`, `sleep`, `auto`, or `baby`, though the exact modes available depend on your device. Use **Humidifier mode changed** to react when the mode changes, for example to automatically lower the target humidity on all your humidifiers when one of them switches to `eco` mode, keeping your whole home in sync with a single mode change.
 
 You can optionally filter the trigger to fire only when the humidifier switches to a specific mode. Leave the mode option empty to fire on any mode change.
 
@@ -20,7 +20,7 @@ When you target more than one humidifier, the trigger's **behavior** option cont
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation, follow these steps:
+To use **Humidifier mode changed** in an automation, follow these steps:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
@@ -36,19 +36,19 @@ To use this trigger in an automation, follow these steps:
 
 {% options_ui %}
 Mode:
-  description: The mode or modes the humidifier must switch to for the trigger to fire. Leave empty to fire on any mode change. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device.
+  description: The mode or modes the humidifier must switch to for the trigger to fire. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device. Default is empty, which fires on any mode change.
   required: false
 Trigger when:
-  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier changes mode, **First** to fire only on the first change, or **Last** to fire only after every targeted humidifier changes mode.
+  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier changes mode, **First** to fire only on the first change, or **Last** to fire only after every targeted humidifier changes mode. This corresponds to the `behavior` field in YAML. Default is **Any**.
   required: true
 For at least:
-  description: How long the humidifier must remain in the new mode before the trigger fires. For most automations you can leave this at zero to fire immediately. Use it if your device briefly flickers through a transitional mode during startup — a short delay of a few seconds prevents your automation from firing on that momentary blip.
+  description: How long the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup. If you set a short delay of a few seconds, it prevents your automation from firing on that momentary blip. Default is `0` (fires immediately).
   required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `humidifier.mode_changed`. A basic example looks like this:
+In YAML, **Humidifier mode changed** is referred to as `humidifier.mode_changed`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -77,9 +77,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 mode:
   description: >
-    The mode or modes the humidifier must switch to for the trigger to fire. Accepts a single mode string or a list of modes. Omit to fire on any mode change. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device.
+    The mode or modes the humidifier must switch to for the trigger to fire. Accepts a single mode string or a list of modes. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device. Omit to fire on any mode change.
   required: false
   type: string
+  default: (empty — fires on any mode change)
 behavior:
   description: >
     When multiple humidifiers are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
@@ -88,7 +89,7 @@ behavior:
   default: any
 for:
   description: >
-    Duration the humidifier must remain in the new mode before the trigger fires. For most automations, omit this or set it to `00:00:00` to fire immediately. Useful to ignore brief transitional modes some devices cycle through during startup.
+    Duration the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup.
   required: true
   type: string
   default: "00:00:00"
