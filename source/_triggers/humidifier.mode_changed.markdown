@@ -6,8 +6,6 @@ description: "Triggers after the mode of one or more humidifiers changes."
 related_triggers:
   - humidifier.turned_on
   - humidifier.turned_off
-related_conditions:
-  - humidifier.is_mode
 ---
 
 The **Humidifier mode changed** trigger fires after the operating mode of a humidifier {% term entity %} changes. Modes are device-specific and typically include options like `normal`, `eco`, `sleep`, `auto`, or `baby`, though the exact modes available depend on your device. Use **Humidifier mode changed** to react when the mode changes, for example to automatically lower the target humidity on all your humidifiers when one of them switches to `eco` mode, keeping your whole home in sync with a single mode change.
@@ -103,7 +101,7 @@ for:
 
 - The available modes depend entirely on the device. Check your humidifier's documentation or the Home Assistant entity's attributes to see which modes are supported.
 - If you filter by mode, the trigger only fires when the humidifier _enters_ that mode, not when it leaves it.
-- To check whether the humidifier is currently in a specific mode during a condition step, use [Humidifier is in mode](/conditions/humidifier.is_mode/).
+- To check whether the humidifier is currently in a specific mode during a condition step, use the **Humidifier is in mode** condition.
 
 {% include triggers/try_it.md %}
 
