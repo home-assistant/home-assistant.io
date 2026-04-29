@@ -443,11 +443,11 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [@Shulyaka]: https://github.com/Shulyaka
 [@tgechev]: https://github.com/tgechev
 [@tl-sl]: https://github.com/tl-sl
+[@Tommatheussen]: https://github.com/Tommatheussen
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tronikos]: https://github.com/tronikos
 [@YuvalWS]: https://github.com/YuvalWS
 [@zerzhang]: https://github.com/zerzhang
-[@Tommatheussen]: https://github.com/Tommatheussen
 [Anthropic]: /integrations/anthropic
 [Apple TV]: /integrations/apple_tv
 [Broadlink]: /integrations/broadlink
