@@ -651,11 +651,11 @@ Start typing inside a `{{ ... }}` or `{% ... %}` block, and the editor now sugge
 
 It gets even better inside the string arguments of those functions. The editor knows what _kind_ of ID a function expects and offers matching suggestions:
 
-- **Entity IDs** for functions like `states()`, `is_state()`, and `state_attr()`, including the `states["..."]` shorthand.
-- **Device IDs** for `device_entities()`, `device_name()`, and `device_attr()`, showing the device's friendly name with the raw ID as the inserted value.
-- **Area IDs** for `area_entities()`, `area_devices()`, and `area_name()`.
-- **Floor IDs** for `floor_areas()`, `floor_entities()`, and `floor_name()`.
-- **Label IDs** for `label_areas()`, `label_devices()`, and `label_entities()`.
+- **Entity IDs** for functions like [`states()`](/template-functions/states/), [`is_state()`](/template-functions/is_state/), and [`state_attr()`](/template-functions/state_attr/), including the `states["..."]` shorthand.
+- **Device IDs** for [`device_entities()`](/template-functions/device_entities/), [`device_name()`](/template-functions/device_name/), and [`device_attr()`](/template-functions/device_attr/), showing the device's friendly name with the raw ID as the inserted value.
+- **Area IDs** for [`area_entities()`](/template-functions/area_entities/), [`area_devices()`](/template-functions/area_devices/), and [`area_name()`](/template-functions/area_name/).
+- **Floor IDs** for [`floor_areas()`](/template-functions/floor_areas/), [`floor_entities()`](/template-functions/floor_entities/), and [`floor_name()`](/template-functions/floor_name/).
+- **Label IDs** for [`label_areas()`](/template-functions/label_areas/), [`label_devices()`](/template-functions/label_devices/), and [`label_entities()`](/template-functions/label_entities/).
 
 <img src='/images/blog/2026-05/template-autocomplete-areas.png' alt='Screenshot of the template editor showing autocomplete for area IDs.' class='no-shadow' />
 
