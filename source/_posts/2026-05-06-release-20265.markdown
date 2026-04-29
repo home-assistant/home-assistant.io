@@ -120,9 +120,11 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@frenck] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@piitaya] who helped write the release notes this release. Also, [@RaHehl] and [@balloob] for putting effort into improving its contents. Thanks to them, these release notes are in great shape. ❤️_
 
-[@frenck]: https://github.com/frenck
+[@balloob]: https://github.com/balloob
+[@piitaya]: https://github.com/piitaya
+[@RaHehl]: https://github.com/RaHehl
 
 ## Radio frequency joins infrared as a first-class citizen
 
