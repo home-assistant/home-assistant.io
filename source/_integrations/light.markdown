@@ -20,8 +20,8 @@ The **Light** {% term integration %} allows you to track and control various lig
 Light {% term entities %} can have the following {% term states %}: `on` or `off`. The list of available attributes depends on the {% term device %}. Refer to the integration documentation of your light.
 
 <p class='img'>
-  <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with differents states: `on`, `off`, or `unavailable`'>
-  Three lights with differents states: `on`, `off`, or `unavailable`.
+  <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states: `on`, `off`, or `unavailable`'>
+  Three lights with different states: `on`, `off`, or `unavailable`.
 </p>
 
 ## Default turn-on values
@@ -32,6 +32,20 @@ The `light_profiles.csv` has to have a header. The format of the header is:
 
 ```txt
 id,x,y,brightness,transition
+```
+
+The header fields mean the following:
+
+- `id`: The profile name you reference in the `profile` field of a `light.turn_on` action.
+- `x` and `y`: The CIE 1931 XY color coordinates in the same format as `xy_color`.
+- `brightness`: The brightness level using the same 0 to 255 scale as `brightness`.
+- `transition`: The transition time in seconds.
+
+Example:
+
+```csv
+id,x,y,brightness,transition
+reading,0.4448,0.4066,200,2
 ```
 
 The field transition is optional and can be omitted.
