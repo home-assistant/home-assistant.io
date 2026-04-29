@@ -33,16 +33,16 @@ The following devices are not supported:
 
 ## Supported functionality
 
-### Entities
+The **Novy Cooker Hood** integration provides the following entities.
 
 The **Novy Cooker Hood** integration provides the following entities. State is assumed and restored across restarts. See [Known limitations](#known-limitations).
 
-#### Fans
+### Fans
 
 - **Fan**
   - **Description**: Controls the extractor with four speeds (25%, 50%, 75%, 100%).
 
-#### Lights
+### Lights
 
 - **Light**
   - **Description**: Toggles the cooker hood light on or off.
