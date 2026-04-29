@@ -44,8 +44,6 @@ Please be aware of the potential [inconsistencies](https://github.com/sivel/spee
 In this section you will find some real-life examples of how to use this integration.
 ### Using as a trigger in an automation
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -81,8 +79,6 @@ automation:
         data:
           rgb_color: [255, 0, 0]
 ```
-
-{% endraw %}
 
 ## Notes
 

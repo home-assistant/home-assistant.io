@@ -391,7 +391,7 @@ Minimum recommended assignments:
     3. Choose **Generic Default** for the operating system.
     4. Check the box for **Customize configuration before install**.
     5. Under **Network Selection**, select your bridge.
-    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), for example `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain words such as `secure` or `secboot`), for example `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
     7. Select **Add Hardware** (bottom left), and select **Channel**.
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
@@ -492,7 +492,7 @@ Minimum recommended assignments:
 
 1. Start the virtual machine.
 2. Observe the boot process of the Home Assistant Operating System.
-3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine’s IP address).
+3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. {% if page.installation_type == 'windows' %}If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% else %}If you have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% endif %}
 
 {% endif %}
 

@@ -185,7 +185,6 @@ This small example illustrates how the "split" files work. In this case, we star
 
 This (large) sensor configuration gives us another example:
 
-{% raw %}
 
 ```yaml
 ### sensor.yaml
@@ -225,7 +224,6 @@ This (large) sensor configuration gives us another example:
   name: "Ann Arbor"
 ```
 
-{% endraw %}
 
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 
@@ -340,7 +338,6 @@ It is important to note that each file must contain only **one** entry when usin
 `configuration.yaml`
 
 ```yaml
-{% raw %}
 alexa:
   intents:
     LocateIntent:
@@ -366,7 +363,7 @@ alexa:
             iPhone is home.
           {%- else -%}
             iPhone is not home.
-          {% endif %}{% endraw %}
+          {% endif %}
 ```
 
 can be turned into:
@@ -381,7 +378,6 @@ alexa:
 `alexa/LocateIntent.yaml`
 
 ```yaml
-{% raw %}
 actions:
   action: notify.pushover
   data:
@@ -395,13 +391,12 @@ speech:
       {%- endif -%}
     {%- else -%}
       I am sorry. Pootie! I do not know where {{User}} is.
-    {%- endfor -%}{% endraw %}
+    {%- endfor -%}
 ```
 
 `alexa/WhereAreWeIntent.yaml`
 
 ```yaml
-{% raw %}
 speech:
   type: plaintext
   text: >
@@ -409,7 +404,7 @@ speech:
       iPhone is home.
     {%- else -%}
       iPhone is not home.
-    {% endif %}{% endraw %}
+    {% endif %}
 ```
 
 ### Example: `!include_dir_merge_list`
