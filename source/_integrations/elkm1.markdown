@@ -510,12 +510,12 @@ The panel does not automatically send counter value updates under certain condit
 
 #### Output management
 
-- `elkm1.switch_output_turn_on` - Turn on a switch passing a duration time to the ElkM1
+- `elkm1.switch_output_turn_on` - Turn on the output for a specified duration
 
-| Data attribute | Required | Description                                                  |
-| -------------- | -------- | ------------------------------------------------------------ |
-| `entity_id`    | No       | ElkM1 output to set                                          |
-| `value`        | Yes      | Value for the duration that the output is to be on (0-65536) |
+| Data attribute | Required | Description                                                                 |
+| -------------- | -------- | --------------------------------------------------------------------------- |
+| `entity_id`    | No       | ElkM1 output to turn on                                                     |
+| `value`        | Yes      | Duration to keep the output on, as an ElkM1 integer value from 0 to 65536   |
 
 #### Zone management
 
