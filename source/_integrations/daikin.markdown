@@ -22,11 +22,16 @@ ha_integration_type: device
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
 
+This integration uses local network communication and does not support signing in with a cloud or mobile app account. Home Assistant must be able to reach your Daikin controller on the same network or a routed network.
+
 There is currently support for the following device types within Home Assistant:
 
+- [Supported hardware](#supported-hardware)
 - [Climate](#climate)
+  - [Zone climate entities](#zone-climate-entities)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Region changing](#region-changing)
 
 ## Supported hardware
 
