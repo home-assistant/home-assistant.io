@@ -6,7 +6,7 @@ ha_category:
   - Sensor
 ha_release: '2026.5'
 ha_iot_class: Cloud Polling
-ha_quality_scale: Bronze
+ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
   - '@luuuis'
@@ -16,18 +16,18 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-[OMIE](https://www.omie.es/en) is the electricity market operator for Spain and Portugal's day-ahead and intraday energy markets. The **OMIE** {% term integration %} retrieves day-ahead market prices from [OMIE](https://www.omie.es/en) APIs and makes them available within Home Assistant.
+[OMIE](https://www.omie.es/en) is the electricity market operator for the day-ahead and intraday energy markets in Spain and Portugal. The **OMIE** {% term integration %} retrieves day-ahead market prices from the OMIE APIs and makes them available within Home Assistant.
 
 Having the wholesale electricity prices within Home Assistant enables a range of use cases, such as:
 
-- calculating electricity bills ahead of time (for those on variable-price tariffs that are linked to the wholesale price),
-- deciding whether to export locally-produced energy (for example from solar panels) to the grid.
+- Calculating electricity bills ahead of time (for those on variable-price tariffs that are linked to the wholesale price)
+- Deciding whether to export locally produced energy (for example from solar panels) to the grid
 
 {% include integrations/config_flow.md %}
 
 ## Sensors
 
-The **OMIE** integration will retrieve the results of the [day-ahead market](https://www.omie.es/en/mercado-de-electricidad) for Spain and Portugal on a daily basis and expose them to the following {% term sensors %}:
+The **OMIE** integration retrieves the results of the [day-ahead market](https://www.omie.es/en/mercado-de-electricidad) for Spain and Portugal daily and exposes them as the following {% term sensors %}.
 
 - Portugal spot price
 - Spain spot price
