@@ -498,10 +498,11 @@ The panel does not automatically send counter value updates under certain condit
 | `entity_id`    | No       | ElkM1 counter to refresh or set             |
 | `value`        | Yes (for `sensor_counter_set`) | Value to set the counter to (0-65536) |
 
-#### (Custom) Settings management
+#### Custom settings
 
-- `elkm1.sensor_setting_set` - Update a custom setting
+These settings are configurable values stored on your Elk-M1 panel, such as integer, timer, and time-based settings.
 
+- `elkm1.sensor_setting_set` - Update an Elk-M1 panel setting
 | Data attribute | Required | Description                                                  |
 | -------------- | -------- | ------------------------------------------------------------ |
 | `entity_id`    | No       | ElkM1 setting to set                                          |
