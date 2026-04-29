@@ -587,15 +587,24 @@ type:
 
 Widget that displays a bar chart of daily forecast temperature ranges for a weather entity. Each bar shows the low-to-high temperature range for the day, colored by the forecasted weather condition. A thin horizontal line marks the current temperature across the bars.
 
+You can also overlay a precipitation forecast as translucent bars rising from the bottom, either as the forecasted amount or as the probability of precipitation. When you hide the temperature, dry periods are marked with a small dot so the cadence of days stays visible.
+
 <p class='img'>
   <img src='/images/dashboards/features/daily_forecast.png' alt='Screenshot of the tile card with the daily forecast feature'>
   Screenshot of the tile card with the daily forecast feature
+</p>
+
+<p class='img'>
+  <img src='/images/dashboards/features/daily_forecast_precipitation.png' alt='Screenshot of the daily forecast feature showing precipitation bars with the temperature hidden'>
+  Screenshot of the daily forecast feature showing precipitation bars with the temperature hidden
 </p>
 
 ```yaml
 features:
   - type: "daily-forecast"
     days_to_show: 5
+    show_temperature: false
+    show_precipitation: true
 ```
 
 {% configuration features %}
@@ -612,6 +621,31 @@ days_to_show:
   description: Number of days of forecast data to show. Minimum is 1 day (showing the forecast for the current day). The available data depends on how far ahead your weather integration provides daily forecasts.
   type: integer
   default: 7
+show_temperature:
+  required: false
+  description: Whether to show the temperature range bars and the current-temperature line.
+  type: boolean
+  default: true
+show_current_temperature:
+  required: false
+  description: Whether to show a thin horizontal line marking the current temperature across the bars.
+  type: boolean
+  default: true
+show_precipitation:
+  required: false
+  description: Whether to overlay precipitation forecast as translucent bars.
+  type: boolean
+  default: false
+precipitation_type:
+  required: false
+  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the period's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
+  type: string
+  default: amount
+color:
+  required: false
+  description: "Color of the temperature bars and the current temperature line. When set to `state` or omitted, each bar is colored by its forecasted weather condition. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
+  type: string
+  default: state
 {% endconfiguration %}
 
 {% note %}
@@ -622,6 +656,8 @@ This feature requires a weather integration that supports daily or twice-daily f
 
 Widget that displays a graph of hourly forecast temperatures for a [weather](/integrations/weather) entity. The graph line starts from the current temperature and shows forecast data points for the upcoming hours.
 
+You can also overlay a precipitation forecast as translucent bars rising from the bottom, either as the forecasted amount or as the probability of precipitation. When you hide the temperature, dry hours are marked with a small dot so the cadence stays visible.
+
 <p class='img'>
   <img src='/images/dashboards/features/hourly_forecast.png' alt='Screenshot of the tile card with the hourly forecast feature'>
   Screenshot of the tile card with the hourly forecast feature
@@ -631,6 +667,7 @@ Widget that displays a graph of hourly forecast temperatures for a [weather](/in
 features:
   - type: "hourly-forecast"
     hours_to_show: 24
+    show_precipitation: true
 ```
 
 {% configuration features %}
@@ -643,6 +680,26 @@ hours_to_show:
   description: Number of hours of forecast data to show. Minimum is 1 hour. The available data depends on how far ahead your weather integration provides hourly forecasts.
   type: integer
   default: 24
+show_temperature:
+  required: false
+  description: Whether to show the temperature graph.
+  type: boolean
+  default: true
+show_precipitation:
+  required: false
+  description: Whether to overlay precipitation forecast as translucent bars.
+  type: boolean
+  default: false
+precipitation_type:
+  required: false
+  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the visible window's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
+  type: string
+  default: amount
+color:
+  required: false
+  description: "Color of the temperature line. When set to `state` or omitted, the line uses the tile's feature color. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
+  type: string
+  default: state
 {% endconfiguration %}
 
 {% note %}
