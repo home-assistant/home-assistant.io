@@ -1,6 +1,6 @@
 ---
 title: OMIE
-description: Instructions on how to integrate OMIE day-ahead market prices within Home Assistant.
+description: Monitor OMIE day-ahead electricity market prices for Spain and Portugal directly in Home Assistant.
 ha_category:
   - Energy
   - Sensor
@@ -29,8 +29,8 @@ Having the wholesale electricity prices within Home Assistant enables a range of
 
 The **OMIE** integration retrieves the results of the [day-ahead market](https://www.omie.es/en/mercado-de-electricidad) for Spain and Portugal daily and exposes them as the following {% term sensors %}.
 
-- Portugal spot price
-- Spain spot price
+- **Portugal spot price**: Current quarter-hour electricity spot price in Portugal, in €/kWh.
+- **Spain spot price**: Current quarter-hour electricity spot price in Spain, in €/kWh.
 
 ## Removing the integration
 
