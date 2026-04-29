@@ -18,8 +18,6 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-ha_dhcp: true
-ha_ssdp: true
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true

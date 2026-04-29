@@ -13,6 +13,10 @@ ha_domain: music_assistant
 ha_platforms:
   - button
   - media_player
+  - number
+  - select
+  - switch
+  - text
 ha_zeroconf: true
 ha_integration_type: service
 ha_quality_scale: bronze

@@ -9,7 +9,7 @@ ha_codeowners:
 ha_domain: huum
 ha_integration_type: device
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - url: https://huum.eu/
     title: Huum
