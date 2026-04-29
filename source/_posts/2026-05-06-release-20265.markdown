@@ -353,7 +353,7 @@ We welcome the following new integrations in this release:
 - **[Novy Cooker Hood]**, added by [@piitaya]  
   Control the light and the extractor fan on your [Novy](https://www.novy.com/) cooker hood from Home Assistant. Novy hoods are typically ceiling-mounted, with no buttons within reach, so an RF remote (and now Home Assistant) is the only practical way to control them. Uses the new [Radio frequency](#radio-frequency-joins-infrared-as-a-first-class-citizen) entity platform, so you'll need a compatible sub-GHz RF transmitter (for example, a Broadlink RM4 Pro or an ESPHome device) to send commands.
 
-- **[OMIE]**, added by [@luuuis] — launching at 🥉 bronze quality  
+- **[OMIE]**, added by [@luuuis] — launching at 🥈 silver quality  
   Bring Iberian Peninsula day-ahead electricity spot prices from [OMIE](https://www.omie.es/) into Home Assistant. Sensors expose the current and next-hour prices for both Spain and Portugal, perfect for smarter automations around when to run your dishwasher, charge your EV, or heat your water.
 
 - **[Radio frequency]**, added by [@balloob]  
@@ -362,7 +362,7 @@ We welcome the following new integrations in this release:
 - **[Teleinfo]**, added by [@esciara] — launching at 🥈 silver quality  
   Read electricity consumption data from French Linky smart meters and older electronic meters using the Télé-Information Client (TIC) protocol. Connect a Teleinfo USB adapter to your meter's TIC output to monitor real-time energy indexes, apparent power, instantaneous current, and tariff information, all locally.
 
-- **[Victron GX]**, added by [@tomer-w] — launching at 🥈 silver quality  
+- **[Victron GX]**, added by [@tomer-w] — launching at 🏆 platinum quality  
   Connect your [Victron Energy](https://www.victronenergy.com/) GX devices, like the Cerbo GX, Venus GX, and Color Control GX, to Home Assistant over MQTT. Get real-time monitoring and control of your Victron system, including inverters, solar chargers, battery systems, grid meters, and EV chargers.
 
 [@balloob]: https://github.com/balloob

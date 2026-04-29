@@ -11,12 +11,13 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - diagnostics
   - number
   - sensor
 ha_codeowners:
   - '@frenck'
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_dhcp: true
 ---
 

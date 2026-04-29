@@ -32,7 +32,7 @@ related:
     title: Victron MQTT Python library
   - url: https://tomer-w.github.io/victron_mqtt/
     title: Supported entities documentation
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_ssdp: true
 ---
 

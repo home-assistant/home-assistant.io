@@ -682,6 +682,7 @@ source/_integrations/nordpool.markdown @gjohansson-ST
 source/_integrations/notify.markdown @home-assistant/core
 source/_integrations/notify_events.markdown @matrozov @papajojo
 source/_integrations/notion.markdown @bachya
+source/_integrations/novy_cooker_hood.markdown @piitaya
 source/_integrations/nrgkick.markdown @andijakl
 source/_integrations/nsw_fuel_station.markdown @nickw444
 source/_integrations/nsw_rural_fire_service_feed.markdown @exxamalte

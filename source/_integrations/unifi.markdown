@@ -14,7 +14,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Kane610'
 ha_domain: unifi
-ha_ssdp: true
 ha_platforms:
   - button
   - device_tracker
