@@ -129,7 +129,7 @@ When you're done working on the site, run the following command to move the post
 bundle exec rake integrate
 ```
 
-## Recent Changes
+## Recent changes
 
 - **Voice language support sync:** Updated the language selector in `source/voice_control/index.markdown` so the “Check supported languages” content matches the Voice Preview Edition page.
 - **Live language score data:** Replaced hardcoded language support values with `site.data.language_scores` to keep support states current as data updates.
