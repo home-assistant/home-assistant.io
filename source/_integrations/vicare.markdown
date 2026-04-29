@@ -24,6 +24,7 @@ ha_dhcp: true
 ha_integration_type: hub
 ha_codeowners:
   - '@CFenner'
+  - '@lackas'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann-climatesolutions.com) devices via the Viessmann ViCare (REST) API.

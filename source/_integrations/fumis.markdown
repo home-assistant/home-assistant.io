@@ -16,6 +16,7 @@ ha_codeowners:
   - '@frenck'
 ha_integration_type: device
 ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The **Fumis** {% term integration %} connects your pellet stove to Home Assistant through the Fumis online service. Fumis, by [ATech Electronics](https://www.atech.si/) in Slovenia, makes the combustion controllers found in pellet stoves from many different manufacturers. The Fumis WiRCU Wi-Fi module connects your stove to the internet, making it possible to monitor and control your stove from anywhere.

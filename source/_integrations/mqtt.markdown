@@ -39,6 +39,7 @@ ha_platforms:
   - siren
   - switch
   - tag
+  - tag
   - text
   - time
   - update

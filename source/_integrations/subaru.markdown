@@ -13,6 +13,7 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
   - lock

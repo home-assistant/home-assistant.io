@@ -158,4 +158,3 @@ Using the lock operation sensors, you can detect when a user operates a lock and
     entity_id: camera.inside
     
 ```
-

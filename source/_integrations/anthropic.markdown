@@ -13,6 +13,7 @@ ha_domain: anthropic
 ha_integration_type: service
 ha_platforms:
   - conversation
+  - diagnostics
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -24,7 +25,7 @@ related:
     title: Anthropic
   - url: https://claude.ai
     title: Claude
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Anthropic** {% term integrations %} adds a conversation agent powered by [Anthropic](https://www.anthropic.com), such as Claude 3.5 Sonnet, in Home Assistant.

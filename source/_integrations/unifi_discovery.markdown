@@ -4,13 +4,15 @@ description: Discover UniFi devices on the network using the UniFi Discovery pro
 ha_category:
   - Network
 ha_iot_class: Local Polling
-ha_release: "2026.5"
+ha_release: '2026.5'
 ha_domain: unifi_discovery
 ha_quality_scale: internal
 ha_codeowners:
-  - "@RaHehl"
+  - '@RaHehl'
 ha_integration_type: system
 ha_config_flow: true
+ha_ssdp: true
+ha_dhcp: true
 ---
 
 The **UniFi Discovery** {% term integration %} scans the local network for UniFi devices using the UniFi Discovery protocol. Discovered devices are automatically forwarded to their respective integrations, such as [UniFi Access](/integrations/unifi_access/), [UniFi Network](/integrations/unifi/), and [UniFi Protect](/integrations/unifiprotect/), for setup. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.

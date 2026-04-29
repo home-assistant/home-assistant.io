@@ -12,8 +12,8 @@ ha_codeowners:
 ha_domain: nina
 ha_platforms:
   - binary_sensor
-  - sensor
   - diagnostics
+  - sensor
 ha_integration_type: service
 ha_quality_scale: silver
 ---

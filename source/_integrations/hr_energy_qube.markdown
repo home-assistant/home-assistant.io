@@ -1,5 +1,5 @@
 ---
-title: HR-Energy Qube heat pump
+title: Qube heat pump
 description: Instructions on how to integrate your Qube heat pump with Home Assistant.
 ha_release: 2026.4
 ha_category:

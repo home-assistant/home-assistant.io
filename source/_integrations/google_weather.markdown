@@ -10,8 +10,9 @@ ha_domain: google_weather
 ha_codeowners:
   - '@tronikos'
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
   - weather
 ---
