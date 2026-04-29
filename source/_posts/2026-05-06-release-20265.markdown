@@ -664,6 +664,20 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
+{% details "Gardena Bluetooth" %}
+
+The "finish watering" value in the Gardena Bluetooth integration has been moved from a binary sensor to a regular sensor that exposes the timestamp of when watering is expected to finish. This makes the value far more useful in dashboards and automations.
+
+If you have automations, scripts, or dashboards that reference the previous binary sensor entity, update them to use the new sensor entity instead.
+
+([@elupus] - [#169476]) ([Gardena Bluetooth documentation])
+
+[@elupus]: https://github.com/elupus
+[#169476]: https://github.com/home-assistant/core/pull/169476
+[Gardena Bluetooth documentation]: /integrations/gardena_bluetooth/
+
+{% enddetails %}
+
 {% details "pilight" %}
 
 The pilight integration has been disabled because the underlying [pilight library](https://github.com/DavidLP/pilight) relies on `setuptools.pkg_resources`, which is no longer available in setuptools 82.0.0 and later.
@@ -702,6 +716,20 @@ These actions now properly raise on failure, which means your automation or scri
 [@mdegat01]: https://github.com/mdegat01
 [#166558]: https://github.com/home-assistant/core/pull/166558
 [Supervisor documentation]: /integrations/hassio/
+
+{% enddetails %}
+
+{% details "Webhook" %}
+
+The `local_only` option on webhooks must now be a proper boolean (`true` or `false`). Previously, other truthy values like `1` or `"yes"` were silently accepted. This brings the option in line with the rest of Home Assistant.
+
+If you have webhooks configured in YAML with non-boolean `local_only` values, update them to use `true` or `false`.
+
+([@edenhaus] - [#169296]) ([Webhook documentation])
+
+[@edenhaus]: https://github.com/edenhaus
+[#169296]: https://github.com/home-assistant/core/pull/169296
+[Webhook documentation]: /integrations/webhook/
 
 {% enddetails %}
 
