@@ -416,7 +416,10 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[LG Netcast]** got a new action to send remote control commands, letting you script TV navigation and input. Thanks, [@mithomas]!
 - **[Subaru]** vehicles that support remote start now have a dedicated start/stop button entity. Thanks, [@masterkoppa]!
 - **[London Underground]** expanded beyond the tube: it now reports status for the Trams and the IFS Cloud Cable Car as well. Thanks, [@prpr19xx]!
-- **[UniFi Access]** added a select platform and now uses the new [UniFi Discovery] integration for automatic device discovery on your network. Thanks, [@imhotep] and [@RaHehl]!
+- **[UniFi Access]** picked up a whole batch of improvements: a new select platform, support for the UA-HUB-Door, an entry/exit direction attribute on access events, and a friendly warning when you accidentally use a UniFi Protect API key during setup. Thanks, [@imhotep] and [@RaHehl]!
+- **[UniFi Protect]** is turning into your alarm hub. Thanks to improvements in the UniFi Protect public API (landing with UniFi Protect 7.1, coming soon), a new alarm control panel entity lets you arm and disarm Protect alarms directly from Home Assistant. A new siren platform supports both the [UniFi PoE Siren] and the long-range [UniFi SuperLink LoRa Siren] (up to 2 km), and switches expose the outputs of the brand-new [UniFi SuperLink LoRa Relay]; input support for the relay is planned for a future release. On top of that, UniFi Protect, [UniFi Network], and [UniFi Access] now share the new [UniFi Discovery] integration for automatic device discovery on your network. A special thank you to [Ubiquiti] for their support and continued investment in the public API that made all of this possible — and to [@RaHehl] for bringing it all to Home Assistant!
+- **[Stream]** now supports AV1 video streams through the HLS fallback path, so newer AV1-capable cameras (for example, UniFi Protect G6 cameras with AV1 enabled) play back smoothly when WebRTC is not available. Thanks, [@RaHehl]!
+- **[MELCloud]** now offers much better support for Mitsubishi air-to-water (Ecodan) heat pumps, with a new binary sensor platform and a set of new sensor entities tailored to ATW devices. Thanks, [@RaHehl]!
 - **[WaterFurnace]** geothermal systems now expose a climate entity, alongside new energy statistics so you can track your system's energy use over time. Thanks, [@masterkoppa]!
 - **[OpenDisplay]** Flex e-paper devices now expose new diagnostic sensors driven by passive Bluetooth Low Energy advertisements: a battery percentage and battery voltage sensor for battery- and solar-powered devices, and a chip temperature sensor. Thanks, [@g4bri3lDev]!
 
@@ -456,6 +459,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [LG Netcast]: /integrations/lg_netcast
 [London Underground]: /integrations/london_underground
 [Matter]: /integrations/matter
+[MELCloud]: /integrations/melcloud
 [MQTT]: /integrations/mqtt
 [Music Assistant]: /integrations/music_assistant
 [OpenAI Conversation]: /integrations/openai_conversation
@@ -466,12 +470,19 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [SMLIGHT SLZB]: /integrations/smlight
 [SolarEdge]: /integrations/solaredge
 [Sonos]: /integrations/sonos
+[Stream]: /integrations/stream
 [Subaru]: /integrations/subaru
 [SwitchBot]: /integrations/switchbot
 [Tado]: /integrations/tado
 [Transmission]: /integrations/transmission
 [UniFi Access]: /integrations/unifi_access
 [UniFi Discovery]: /integrations/unifi_discovery
+[UniFi Network]: /integrations/unifi
+[Ubiquiti]: https://ui.com
+[UniFi PoE Siren]: https://techspecs.ui.com/unifi/cameras-nvrs/up-siren-poe
+[UniFi Protect]: /integrations/unifiprotect
+[UniFi SuperLink LoRa Relay]: https://techspecs.ui.com/unifi/cameras-nvrs/usl-relay
+[UniFi SuperLink LoRa Siren]: https://techspecs.ui.com/unifi/cameras-nvrs/usl-siren
 [WaterFurnace]: /integrations/waterfurnace
 [WLED]: /integrations/wled
 
@@ -496,7 +507,7 @@ This release, we celebrate several {% term integrations %} that have improved th
 - **3 integrations reached silver** 🥈
   - [Anthropic], thanks to [@Shulyaka]
   - [Huum], thanks to [@frwickst] and [@vincentwolsink]
-  - [UniFi Network], thanks to [@Kane610]
+  - [UniFi Network], thanks to [@RaHehl]
 
 - **2 integrations reached bronze** 🥉
   - [iAqualink], thanks to [@flz]
@@ -515,7 +526,6 @@ A big thank you to all the contributors involved! 👏
 [@frenck]: https://github.com/frenck
 [@frwickst]: https://github.com/frwickst
 [@imhotep]: https://github.com/imhotep
-[@Kane610]: https://github.com/Kane610
 [@masterkoppa]: https://github.com/masterkoppa
 [@mettolen]: https://github.com/mettolen
 [@mib1185]: https://github.com/mib1185
