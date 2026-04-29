@@ -512,7 +512,7 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [UniFi Network], thanks to [@RaHehl] and [@Kane610]
 
 - **2 integrations reached bronze** 🥉
-  - [iAqualink], thanks to [@flz]
+  - [iAquaLink], thanks to [@flz]
   - [WaterFurnace], thanks to [@sdague] and [@masterkoppa]
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
@@ -544,7 +544,7 @@ A big thank you to all the contributors involved! 👏
 [fritz]: /integrations/fritz
 [Google Weather]: /integrations/google_weather
 [Huum]: /integrations/huum
-[iAqualink]: /integrations/iaqualink
+[iAquaLink]: /integrations/iaqualink
 [Liebherr]: /integrations/liebherr
 [samsungtv]: /integrations/samsungtv
 [Twente Milieu]: /integrations/twentemilieu
