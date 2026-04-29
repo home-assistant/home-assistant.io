@@ -26,6 +26,23 @@ on the back of the hub. If the hub is on a different network than Home Assistant
 
 {% include integrations/config_flow.md %}
 
+## Reconfiguration
+
+You can update the IP address and automatic discovery setting without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Nobø Ecohub** integration, select the three-dot menu and choose **Reconfigure**.
+3. Update the settings as needed.
+4. Select **Submit** to save.
+
+While the integration is connected to the hub, only the **Discover IP address automatically** toggle can be changed; the IP address is locked because Home Assistant has already verified the connection works. To change the IP address, the integration must first be disconnected from the hub (for example, when the hub is unreachable at the stored IP).
+
+This is useful when:
+
+- The hub has moved to a new network and the stored IP address no longer reaches it.
+- You want to pin a static IP address and disable automatic rediscovery.
+- You want to re-enable automatic rediscovery after the hub has been moved back onto the same network as Home Assistant.
+
 # Heaters
 
 Each zone containing floor or wall mounted heaters is represented as an HVAC entity. Adding and removing zones
