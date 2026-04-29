@@ -160,7 +160,9 @@ This is a great fit with the values of the [Open Home Foundation](https://www.op
 
 You may have caught a glimpse of where this is heading at the [State of the Open Home 2026](https://www.youtube.com/watch?v=XyAL1to3Lm4&t=5193s). [Nabu Casa](https://www.nabucasa.com) is a commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org/), running [Home Assistant Cloud](/cloud/) and producing devices like the [Home Assistant Green](/green/) and the [Home Assistant Voice Preview Edition](/voice-pe/). They've been working on a new device, currently going by the codename _Project Blast_, that brings infrared and radio frequency capabilities together in a single, polished package. The new Radio frequency platform in this release is part of the foundation that makes products like that possible. Stay tuned. 👀
 
-If this tickles your interest, watch [Carl from Nabu Casa explain what's coming in this segment of the State of the Open Home 2026](https://www.youtube.com/watch?v=XyAL1to3Lm4&t=5193s). 📺
+If this tickles your interest, watch Carl from Nabu Casa explain what's coming in this segment of the State of the Open Home 2026. 📺
+
+<lite-youtube videoid="XyAL1to3Lm4" videoStartAt="5193" videotitle="Carl from Nabu Casa on what's coming - State of the Open Home 2026"></lite-youtube>
 
 We're excited to see where the community takes this. The Radio frequency platform is designed to grow: more transmitter integrations, more device integrations, and more protocols over time.
 
