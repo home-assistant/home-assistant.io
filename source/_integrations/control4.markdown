@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Light
   - Media Player
+  - Cover
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
