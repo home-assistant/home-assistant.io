@@ -13,7 +13,7 @@ These conditions work well alongside this one:
 {% for condition_name in page.related_conditions %}
   {% assign cnd = all_conditions | where: "condition", condition_name | first %}
   {% if cnd %}
-- [{{ cnd.title }}]({{ cnd.url }}) - {{ cnd.description }}
+- [{{ cnd.title }}]({{ cnd.url }}): {{ cnd.description }}
   {% endif %}
 {% endfor %}
 {% endif %}
