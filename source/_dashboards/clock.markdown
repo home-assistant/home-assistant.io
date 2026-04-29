@@ -15,9 +15,9 @@ The Clock card shows the current time in a variety of formats, sizes and time zo
 Screenshot of the clock card
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## Card settings
 

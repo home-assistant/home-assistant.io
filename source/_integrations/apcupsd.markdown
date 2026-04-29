@@ -367,7 +367,6 @@ Some sensors are disabled by default, since they provide information that is onl
 
 ### Send me a push notification when UPS load is high
 
-{% raw %}
 
 ```yaml
 alias: "APC UPS Load High Notification"
@@ -385,7 +384,6 @@ actions:
       message: "APC UPS load is high: {{ states('sensor.apc_ups_load') }}%"
 ```
 
-{% endraw %}
 
 ## Data updates
 

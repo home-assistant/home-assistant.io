@@ -88,7 +88,6 @@ You can use the current power sensor (`sensor.electricity_example_street_11_tota
 
 Example: Send a notification when power consumption exceeds 3000&nbsp;W for 5 minutes.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -105,11 +104,9 @@ automation:
           message: "High power consumption detected: {{ states('sensor.electricity_example_street_11_total_power') }} W"
 ```
 
-{% endraw %}
 
 Example: Turn off high-power devices when photovoltaic production is insufficient (for bidirectional meters).
 
-{% raw %}
 
 ```yaml
 automation:
@@ -127,7 +124,6 @@ automation:
           entity_id: switch.high_power_device
 ```
 
-{% endraw %}
 
 ## Troubleshooting
 

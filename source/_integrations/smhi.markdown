@@ -42,7 +42,7 @@ The following weather sensors are provided (cloud sensors are disabled by defaul
 - **Low cloud coverage** (%): Mean value of low-level cloud cover
 - **Medium cloud coverage** (%): Mean value of medium-level cloud cover
 - **High cloud coverage** (%): Mean value of high-level cloud cover
-- **Precipitation category**: Precipitation category can be any of the following: No precipitation, Snow, Snow and rain, Rain, Drizzle, Freezing rain, or Freezing drizzle
+- **Precipitation category**: Precipitation category can be any of the following: No precipitation, Rain, Thunderstorm, Freezing rain, Mixed/ice, Snow, Wet snow, Mixture of rain and snow, Ice pellets, Graupel, Hail, Drizzle and Freezing drizzle
 - **Frozen precipitation** (%): Percent of precipitation in frozen form
 
 The following fire sensors are provided (fire sensors are disabled by default):

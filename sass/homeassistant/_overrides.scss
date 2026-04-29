@@ -427,13 +427,20 @@ ul#toc {
     display: inline-block;
   }
 
-  #integration-sidebar #toc-module {
+  #integration-sidebar #toc-module,
+  #integration-sidebar #learn-more-module {
     display: none;
   }
 
   .documentation-page #sidebar #toc-module {
     background: none;
     padding: 0;
+  }
+}
+
+@media only screen and (max-width: $desk-wide-start) {
+  #toc-bar-learn-more {
+    display: none;
   }
 }
 
@@ -643,14 +650,35 @@ header .breadcrumbs {
     .socials {
       .icons {
         margin: -16px 0 16px 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        li {
+          padding: 0;
+        }
+
+        a {
+          color: $grayDarker;
+
+          display: flex;
+
+          &:hover {
+            color: $blueDark;
+          }
+        }
 
         iconify-icon {
-          font-size: 2em;
-          margin-top: 12px;
-          padding-right: 8px;
+          font-size: 1.25em;
         }
       }
+    }
 
+    .social-media {
       @media only screen and (min-width: $desk-start) {
         .web-notice {
           text-align: right;
@@ -1101,6 +1129,18 @@ a.material-card:hover {
       display: flex;
       align-items: center;
       gap: 12px;
+      transform: translateY(0);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.4s ease-out;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+      &--visible {
+        transform: translateY(0);
+      }
 
       div {
         flex-grow: 1;
@@ -1138,7 +1178,18 @@ a.material-card:hover {
         display: block;
         width: 44px;
         height: 32px;
+        background-size: contain;
+        background-repeat: no-repeat;
         align-self: flex-end;
+
+        @media only screen and (max-width: $palm-end) {
+          width: 37px;
+          height: 27px;
+        }
+      }
+
+      @media only screen and (max-width: $palm-end) {
+        padding: 10px 12px;
       }
 
     }
