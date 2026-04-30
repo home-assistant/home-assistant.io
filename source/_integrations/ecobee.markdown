@@ -44,7 +44,7 @@ Since March 2026, it is no longer required to get a [developer API key](https://
 
 {% configuration_basic %}
 API key:
-  description: If you have developer API key, use this field and ignore the others. **If you are logging in without an API key, leave this field blank, and use the others.**
+  description: If you have a developer API key, use this field and ignore the others. If you are logging in without an API key, leave this field blank and use username and password.
 username:
   description: The email address you use to sign in to [ecobee.com](https://ecobee.com).
 password:
