@@ -1417,15 +1417,56 @@ a.material-card:hover {
 
   }
 
+  .sponsor {
+    margin-top: 5rem;
+  }
+
   .sponsored-by {
     text-align: center;
 
     img {
+      width: 100%;
+      max-width: 180px;
+      max-height: 160px;
       border: 0;
       border-radius: 0;
       box-shadow: none;
-      margin: 24px;
-      max-height: 160px;
+    }
+
+    &-title {
+      max-width: 800px;
+      margin: 0 auto 24px;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      font-weight: 600;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1.6rem;
+        line-height: 1.6;
+      }
+    }
+
+    &-subtitle {
+      font-size: 1rem;
+      margin-bottom: 0;
+      font-weight: 400;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+
+      @media screen and (min-width: 768px) {
+        gap: 4rem;
+      }
     }
   }
 }
