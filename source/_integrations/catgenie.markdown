@@ -19,7 +19,7 @@ related:
 ---
 
 The **CatGenie** {% term integration %} is used to integrate with the devices of [CatGenie](https://www.catgenie.com/). CatGenie creates automatic cat toilets.
-Use case: You can automatically trigger an exhaust fan when the CatGenie is running to remove any lingering odour.
+Use case: You can automatically trigger an exhaust fan when the CatGenie is running to remove any lingering odor.
 
 ## Supported devices
 
@@ -37,14 +37,14 @@ The following devices are not supported by the integration:
 
 ## Prerequisites
 
-1. Your device must support the CatGenie App
-2. Your device must be setup in the CatGenie App prior to setting up this integration
+1. Your device must support the CatGenie App.
+2. Your device must be set up in the CatGenie App prior to setting up this integration.
 
 {% include integrations/config_flow.md %}
 
 ## Supported functionality
 
-The **My integration** integration provides the following entities.
+The **CatGenie** integration provides the following entities.
 
 ### Sensor
 
@@ -70,11 +70,11 @@ The **My integration** integration provides the following entities.
 
 ## Examples
 
-You can utilise this integration to:
+You can use this integration to:
 
 ### Turn on an exhaust fan when the unit is running
 
-You can automatically set a fan to run when the sensor 'status' is in the 'cleaning' mode, and turn off when the status is in the 'idle' mode.
+You can automatically set a fan to run when the **Status** sensor is in the `cleaning` state, and turn it off when the **Status** sensor is in the `idle` state.
 
 ## Removing the integration
 
