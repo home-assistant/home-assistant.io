@@ -15,7 +15,7 @@ ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The **Grandstream Home** {% term integration %} allows you to integrate Grandstream devices with Home Assistant for monitoring. This integration supports door access control systems (GDS, GSC).
+The **Grandstream Home** {% term integration %} allows you to integrate Grandstream devices with Home Assistant for monitoring. This integration supports door access control systems (GDS372X, GSC356X).
 
 ## Supported devices
 
@@ -103,11 +103,9 @@ When you set up the integration, configuration fails with a "Cannot connect" err
 
 ### Sensors not updating
 
-**Symptoms:**
+#### Symptom: Sensor values are stale or not updating
 
-- Sensor values are stale or not updating
-
-**Solutions:**
+##### Resolution
 
 1. Check device is online and accessible.
 2. Verify device firmware is up to date.
@@ -121,12 +119,11 @@ When you set up the integration, configuration fails with a "Cannot connect" err
 
 ### Authentication errors
 
-**Symptoms:**
+#### Symptom: "Invalid authentication" error during setup
 
-- "Invalid authentication" error during setup
-- Device becomes unavailable with authentication errors
+When you set up the integration or during normal operation, the device becomes unavailable with authentication errors.
 
-**Solutions:**
+##### Resolution
 
 1. Verify the password is correct (default username: `gdsha`).
 2. Confirm that the account is not locked due to excessive failed login attempts.
@@ -135,11 +132,9 @@ When you set up the integration, configuration fails with a "Cannot connect" err
 
 ### Home Assistant control disabled
 
-**Symptoms:**
+#### Symptom: "Home Assistant control is disabled" error
 
-- "Home Assistant control is disabled" error
-
-**Solutions:**
+##### Resolution
 
 1. Log in to the device web interface.
 2. Navigate to the settings page.
