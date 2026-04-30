@@ -36,8 +36,11 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
   <img src='/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
+## Prerequisites
+To set up the connection, you will need to have a username and password for [ecobee.com](https://ecobee.com). Set this up before adding the integration. You can add devices either before or after you configure the service in Home Assistant, but having them connected to your ecobee.com account ahead of time is recommended to confirm that they are picked up by the service correctly.
+
 {% note %}
-Since March 2026, it is no longer required to get a [developer API key](https://www.ecobee.com/developers/) to use this integration. Existing API keys will continue to function. If you revoke your existing key in the ecobee portal, you will need to remove the `ecobee` configuration in the Integrations panel, and then configure the integration again.
+Since version 2026.3, it is no longer required to get a [developer API key](https://www.ecobee.com/developers/) to use this integration. Existing API keys will continue to function. If you revoke your existing key in the ecobee portal, the integraion will fail, and you will need to remove the service in Home Assistant and set it up again.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
