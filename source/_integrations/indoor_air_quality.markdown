@@ -33,9 +33,9 @@ The integration can use these source types:
 - Temperature
 - Humidity
 - Carbon dioxide
-- tVOC
-- VOC index
-- Particulate matter, like PM1, PM2.5, and PM10
+- Total volatile organic compounds (tVOC)
+- Volatile organic compound index (VOC index)
+- Particulate matter, like PM1, PM2.5, and PM10 (particle sizes of 1, 2.5, and 10 micrometers)
 - Nitrogen dioxide
 - Carbon monoxide
 - Formaldehyde
