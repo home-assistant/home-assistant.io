@@ -3,6 +3,8 @@ title: Actron Air
 description: Instructions on how to integrate the Actron Air A/C controller into Home Assistant.
 ha_category:
   - Climate
+  - Sensor
+  - Switch
 ha_release: 2025.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -49,7 +51,7 @@ The integration will add the following sensors to Home Assistant for your air co
 - Compressor mode
 - Compressor power
 - Compressor speed
-- Fan rpm
+- Fan RPM
 - Outdoor temperature
 
 The integration will add the following sensors for each peripheral connected to your air conditioner:
