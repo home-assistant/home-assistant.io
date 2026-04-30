@@ -42,7 +42,7 @@ Compatible DucoBox models:
 
 The following sensor module types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state, Wi-Fi signal strength, and temperature (measured inside the housing; disabled by default).
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, mode end time, Wi-Fi signal strength, and temperature (measured inside the housing; disabled by default).
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration, CO₂ air quality index, and temperature.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity, humidity air quality index, and temperature.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity, humidity air quality index, and temperature.
@@ -72,7 +72,7 @@ Host:
 
 The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
 
-- **BOX**: The main DucoBox (fan control, ventilation state)
+- **BOX**: The main DucoBox (fan control, ventilation state, target flow level, mode end time)
 - **UCCO2**: A wall-mounted control unit with a built-in CO₂ sensor
 - **BSRH**: A humidity sensor module installed in the duct inlet of the DucoBox
 - **UCRH**: A wireless humidity sensor module
@@ -93,9 +93,17 @@ The following actions are available:
 
 When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
+{% note %}
+The percentages 33%, 66%, and 100% are abstract speed levels used in the Home Assistant fan UI and do not match the actual airflow percentages configured in the Duco firmware. To see the real airflow target, use the **Target flow level** sensor.
+{% endnote %}
+
 ### Sensors
 
 The following sensor entities are created per node, depending on the node type:
+
+#### Target flow level
+
+Available for the main ventilation box (BOX). Shows the actual airflow target as reported by the Duco box, as a percentage (0–100%). This value reflects the real airflow configured in the Duco firmware and differs from the abstract speed levels (33%, 66%, or 100%) shown in the fan entity. For example, if your Duco system is configured with manual speed levels of 15%, 30%, and 100%, this sensor shows those values.
 
 #### Ventilation state
 
@@ -104,6 +112,10 @@ Available for the main ventilation box (BOX). Shows the current ventilation stat
 - Automatic
 - Continuous high speed
 - Manual low speed (15 min)
+
+#### Mode end time
+
+Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation mode ends. When no timer is active, this sensor is unavailable.
 
 #### CO₂ concentration
 
