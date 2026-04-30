@@ -47,7 +47,6 @@ Device names follow the format: `{device_type}_{mac_address}`.
 - Device administrator credentials for the `gdsha` account
 - Device must be accessible from your Home Assistant instance
 - Home Assistant control must be enabled on the device (for GDS/GSC devices)
-
 {% include integrations/config_flow.md %}
 
 ## Configuration
