@@ -187,7 +187,8 @@ actions:
 
 ## Known limitations
 
-- **BRT-WR02-RF devices paired as heaters** are not exposed as separate switch entities in Home Assistant. When a BRT-WR02-RF is paired as a heater on the gateway, the firmware merges it with the thermostat into a single heater entity, which cannot be exposed separately to Home Assistant. Only BRT-WR02-RF devices paired as standalone switches on the gateway will appear as switch entities.
+- **BRT-WR02-RF devices paired as heaters** are not exposed as separate switch entities in Home Assistant.
+- When a BRT-WR02-RF is paired as a heater on the gateway, the firmware merges it with the thermostat into a single heater entity. Only BRT-WR02-RF devices paired as standalone switches on the gateway appear as switch entities.
 
 Control these devices indirectly by adjusting the thermostat setpoint or mode through automations, for example, based on solar panel production or an external thermostat. The thermostat then manages the `on`/`off` state of the BRT-WR02-RF. This allows the built-in regulation algorithm to manage the temperature effectively.
 
