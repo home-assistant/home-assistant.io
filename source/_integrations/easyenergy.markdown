@@ -81,11 +81,6 @@ For the dynamic gas prices, only entities are created that display the
 
 The energy and gas prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
-The following optional action parameters accept these values when available:
-
-- `granularity`: `hour` for hourly prices, or `quarter` for quarter-hour prices.
-- `price_type`: `market` for the bare market price, or `all_in` for the all-in price.
-
 ### Action: Get gas prices
 
 The `easyenergy.get_gas_prices` action allows you to fetch the hourly prices for gas.
@@ -97,6 +92,11 @@ The `easyenergy.get_gas_prices` action allows you to fetch the hourly prices for
 | `price_type`   | yes      | Defines the type of price. Defaults to `market`      | `all_in`                         |
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
+
+Valid values for `price_type` are:
+
+- `market`: The bare market price.
+- `all_in`: The all-in price.
 
 {% tip %}
 You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
@@ -134,6 +134,16 @@ The `easyenergy.get_energy_usage_prices` action allows you to fetch the prices f
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00      | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00        | 2023-01-01 00:00:00              |
 
+Valid values for `granularity` are:
+
+- `hour`: Hourly prices.
+- `quarter`: Quarter-hour prices.
+
+Valid values for `price_type` are:
+
+- `market`: The bare market price.
+- `all_in`: The all-in price.
+
 {% tip %}
 You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
 {% endtip %}
@@ -167,6 +177,11 @@ The `easyenergy.get_energy_return_prices` action allows you to fetch the prices 
 | `granularity`  | yes      | Defines the granularity of the prices. Defaults to `hour` | `quarter`                        |
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00      | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices from. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
+
+Valid values for `granularity` are:
+
+- `hour`: Hourly prices.
+- `quarter`: Quarter-hour prices.
 
 {% tip %}
 You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
