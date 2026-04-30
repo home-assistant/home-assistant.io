@@ -154,7 +154,7 @@ Reverses the direction of the LED effect on a segment. One switch is created per
 
 #### Freeze
 
-Freezes the LED segment. One switch is created per segment.
+Freezes the LED effect on a segment. One switch is created per segment.
 
 ### Buttons
 
