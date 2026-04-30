@@ -32,7 +32,7 @@ To use **Humidifier target humidity** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: The target humidity percentage the humidifier has to be set to or above for the condition to pass. Can be a fixed number between 0 and 100, or a reference to an `input_number`, `number`, or `sensor` helper entity that provides a humidity value.
+  description: The target humidity percentage the humidifier has to be set to or above for the condition to pass. Can be a fixed number between 0 and 100, or a reference to an `input_number`, `number`, or `sensor` entity that provides a humidity value.
   required: true
 Condition passes if:
   description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier meets the threshold, or **All** to pass only when every targeted humidifier does. Default is **Any**.

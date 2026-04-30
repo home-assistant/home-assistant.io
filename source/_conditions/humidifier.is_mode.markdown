@@ -74,7 +74,7 @@ mode:
   description: >
     The mode or modes to check for. Accepts a single mode string or a list of modes. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device.
   required: true
-  type: string
+  type: [string, list]
 behavior:
   description: >
     When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
