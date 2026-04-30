@@ -7,7 +7,7 @@ ha_release: 2026.5
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - "@wtxu-gs"
+  - '@wtxu-gs'
 ha_domain: grandstream_home
 ha_platforms:
   - sensor
