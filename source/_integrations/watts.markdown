@@ -120,8 +120,6 @@ The `watts.activate_timer_mode` action sets the thermostat to **Timer** mode wit
 
 Example:
 
-{% raw %}
-
 ```yaml
 action: watts.activate_timer_mode
 target:
@@ -130,8 +128,6 @@ data:
   temperature: 21
   duration: 90
 ```
-
-{% endraw %}
 
 ## Data updates
 
