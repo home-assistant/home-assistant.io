@@ -148,7 +148,7 @@ When you set up the integration, configuration fails with a "Cannot connect" err
 
 ## Known limitations
 
-- Only sensor platform is supported in the initial release.
+- Only sensors are supported in the initial release.
 - Device discovery requires mDNS/Zeroconf to be enabled on your network.
 - Some older device firmware versions may have limited functionality.
 
