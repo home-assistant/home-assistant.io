@@ -77,7 +77,7 @@ The `climate` entities allow you to monitor and control Broadlink thermostats.
 
 The `infrared` {% term entities %} allow other integrations to transmit IR commands through your Broadlink universal remote. They are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, and `RM4 TV mate`).
 
-The `infrared` entity is complementary to the `remote` entity — both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) integration for more information. 
+The `infrared` entity is complementary to the `remote` entity. Both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) integration for more information. 
 The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned IR codes.
 
 ## Radio frequency
