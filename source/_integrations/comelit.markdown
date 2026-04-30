@@ -139,17 +139,17 @@ This means that the IP address or the port specified is wrong.
 
 To resolve this issue, verify the device’s IP address and port by navigating to them in a web browser.
 
-### Can't update data
+### Can’t update data
 
-#### Symptom: "Device Storage error"
+#### Symptom: Device storage error
 
 During data refresh, the device may fail to provide the expected data and logs the error above.
-In most cases, accessing the device Web UI will show some or all pages as blank.
+In most cases, the device web UI shows some or all pages as blank.
 
 ##### Description
 
 This usually indicates that the SD card is failing and can no longer be read reliably.
-One of the most commonly affected files is DATA\BPAGES.BIN.
+One of the most commonly affected files is `DATA\BPAGES.BIN`.
 
 ##### Resolution
 
