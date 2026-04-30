@@ -152,6 +152,10 @@ Can be configured on the WLED itself under
 
 Reverses the direction of the LED effect on a segment. One switch is created per segment.
 
+#### Freeze
+
+Freezes the LED effect on a segment. One switch is created per segment.
+
 ### Buttons
 
 This {% term integration %} provides a [button entity](/integrations/button)
