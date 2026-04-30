@@ -137,7 +137,7 @@ When you set up the integration or during normal operation, the device becomes u
 
 1. Log in to the device web interface.
 2. Navigate to the settings page.
-3. Enable "Home Assistant control" or "Third-party integration" option.
+3. Enable the **Home Assistant control** or **Third-party integration** option.
 4. Save settings and retry the integration setup.
 
 ## Known limitations
