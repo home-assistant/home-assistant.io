@@ -26,7 +26,7 @@ Use case: If your monitor reports temperature, humidity, carbon dioxide, and par
 
 ## Supported devices
 
-You can use this integration with any Home Assistant device that exposes one or more supported sensor entities. During setup, you can select a device and let Home Assistant detect matching sensors automatically, or you can choose the sensors manually.
+You can use this integration with any device in Home Assistant that provides one or more supported sensor entities. During setup, you can select a device and let Home Assistant detect matching sensors automatically, or you can choose the sensors manually.
 
 The integration can use these source types:
 
