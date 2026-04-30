@@ -3,6 +3,7 @@ title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
   - Climate
+  - Infrared
   - Light
   - Radio Frequency
   - Remote
@@ -74,11 +75,10 @@ The `climate` entities allow you to monitor and control Broadlink thermostats.
 
 ## Infrared
 
-The `infrared` {% term entities %} allow other integrations to transmit IR commands through your Broadlink universal remote. They are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro` and `RM4 TV mate`).
+The `infrared` {% term entities %} allow other integrations to transmit IR commands through your Broadlink universal remote. They are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, and `RM4 TV mate`).
 
-Unlike the `remote` subdomain, which sends learned or base64-encoded codes as opaque payloads, the `infrared` entity accepts protocol-native commands from the [Infrared integration](/integrations/infrared/). This lets integrations such as [LG infrared](/integrations/lg_infrared/) send IR commands (for example, NEC-encoded) through any Broadlink universal remote without you having to learn the codes first.
-
-The `infrared` entity is complementary to the `remote` entity — both are created for IR-capable devices. You can continue to use `remote.learn_command` and `remote.send_command` for the traditional base64 workflow described below.
+The `infrared` entity is complementary to the `remote` entity — both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) integration for more information. 
+The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned IR codes.
 
 ## Radio frequency
 
