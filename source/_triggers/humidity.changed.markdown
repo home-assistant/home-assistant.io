@@ -36,7 +36,15 @@ To use **Relative humidity changed** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: "Controls which changes fire the trigger. Select **Any change** to fire on any change. Select **Above** or **Below** and enter a value to fire only when the new reading is above or below that value. Select **In range** and enter a lower and upper bound to fire only when the new reading falls between them. Select **Outside range** and enter a lower and upper bound to fire only when the new reading is below the lower bound or above the upper bound. For each mode you can enter a fixed percentage or reference an `input_number`, `number`, or `sensor` entity."
+  description: |
+    Controls which changes fire the trigger:
+
+    - **Any change**: fire on any change, regardless of direction or new value.
+    - **Above** or **Below**: enter a value to fire only when the new reading is above or below that value.
+    - **In range**: enter a lower and upper bound to fire only when the new reading falls between them.
+    - **Outside range**: enter a lower and upper bound to fire only when the new reading is below the lower bound or above the upper bound.
+
+    For each mode you can enter a fixed percentage or reference an `input_number`, `number`, or `sensor` entity.
   required: true
 {% endoptions_ui %}
 

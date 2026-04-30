@@ -37,13 +37,27 @@ To use **Relative humidity crossed threshold** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: "Controls the zone the reading must enter for the trigger to fire. Select **Above** or **Below** and enter a value to fire when the reading crosses that level. Select **In range** and enter a lower and upper bound to fire when the reading enters the range from outside. Select **Outside range** and enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound). For each mode you can enter a fixed percentage or reference an `input_number`, `number`, or `sensor` entity."
+  description: |
+    Controls the zone the reading must enter for the trigger to fire:
+
+    - **Above** or **Below**: enter a value to fire when the reading crosses that level.
+    - **In range**: enter a lower and upper bound to fire when the reading enters the range from outside.
+    - **Outside range**: enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
+
+    For each mode you can enter a fixed percentage or reference an `input_number`, `number`, or `sensor` entity.
   required: true
 Trigger when:
-  description: When multiple entities are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted entity crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after every targeted entity crosses the threshold. This corresponds to the `behavior` field in YAML. Default is **Any**.
+  description: |
+    When multiple entities are targeted, controls when the trigger fires:
+
+    - **Any**: fire every time any targeted entity crosses the threshold.
+    - **First**: fire only on the first crossing.
+    - **Last**: fire only after every targeted entity crosses the threshold.
+
+    This corresponds to the `behavior` field in YAML. Default is **Any**.
   required: true
 For at least:
-  description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief spikes. Default is `0` (fires immediately).
+  description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief spikes. For example, set it to `0:05:00` to fire only after the reading has stayed past the threshold for 5 minutes. Default is `0` (fires immediately).
   required: true
 {% endoptions_ui %}
 
@@ -89,19 +103,26 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 threshold:
-  description: >
-    A mapping that defines the zone the reading must enter for the trigger to fire. Set `type` to one of `above`, `below`, `between`, or `outside`. For `above` and `below`, provide `value` with a `number` key or an `entity` key. For `between` and `outside`, provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+  description: |
+    A mapping that defines the zone the reading must enter for the trigger to fire. Set `type` to one of:
+
+    - `above` or `below`: provide `value` with a `number` key or an `entity` key.
+    - `between` or `outside`: provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
   required: true
   type: map
 behavior:
-  description: >
-    When multiple entities are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  description: |
+    When multiple entities are targeted, controls when the trigger fires. Accepts:
+
+    - `any`: fire every time any targeted entity crosses the threshold.
+    - `first`: fire only on the first crossing.
+    - `last`: fire only after every targeted entity crosses the threshold.
   required: true
   type: string
   default: any
 for:
-  description: >
-    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: |
+    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
   required: true
   type: string
   default: "00:00:00"
