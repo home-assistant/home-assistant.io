@@ -15,7 +15,7 @@ ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The **Grandstream Home** {% term integration %} allows you to integrate Grandstream devices with Home Assistant for monitoring. This integration supports door access control systems (GDS372X, GSC356X).
+The **Grandstream Home** {% term integration %} allows you to integrate Grandstream devices with Home Assistant for monitoring. This integration supports door access control systems (GDS372x, GSC356X).
 
 ## Supported devices
 
