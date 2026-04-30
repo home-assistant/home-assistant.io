@@ -42,7 +42,7 @@ Compatible DucoBox models:
 
 The following sensor module types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, mode time remaining, Wi-Fi signal strength, and temperature (measured inside the housing; disabled by default).
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, mode end time, Wi-Fi signal strength, and temperature (measured inside the housing; disabled by default).
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration, CO₂ air quality index, and temperature.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity, humidity air quality index, and temperature.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity, humidity air quality index, and temperature.
@@ -72,7 +72,7 @@ Host:
 
 The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
 
-- **BOX**: The main DucoBox (fan control, ventilation state, target flow level, mode time remaining)
+- **BOX**: The main DucoBox (fan control, ventilation state, target flow level, mode end time)
 - **UCCO2**: A wall-mounted control unit with a built-in CO₂ sensor
 - **BSRH**: A humidity sensor module installed in the duct inlet of the DucoBox
 - **UCRH**: A wireless humidity sensor module
@@ -113,9 +113,9 @@ Available for the main ventilation box (BOX). Shows the current ventilation stat
 - Continuous high speed
 - Manual low speed (15 min)
 
-#### Mode time remaining
+#### Mode end time
 
-Available for the main ventilation box (BOX). Shows the number of seconds remaining in the current timed ventilation mode. When no timer is active, the value is 0.
+Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation mode ends. When no timer is active, this sensor is unavailable.
 
 #### CO₂ concentration
 
