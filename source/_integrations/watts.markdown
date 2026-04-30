@@ -75,12 +75,12 @@ The integration creates a climate entity for each thermostat device in your Watt
   - **Heat**: Manual comfort or eco mode
   - **Off**: Turn off heating for the zone
   - **Auto**: Follow programmed schedule
-- **HVAC action**: Reports the current activity of the thermostat (heating, cooling, idle, or off).
+- **HVAC action**: Reports the current activity of the thermostat (heating, cooling, idle, or off)
 - **Preset modes**: Switch between the native Watts Vision + thermostat modes:
-  - **Comfort**: Standard comfort temperature.
-  - **Eco**: Reduced setpoint to save energy.
-  - **Defrost**: Frost protection.
-  - **Timer**: Temporary boost mode with a custom temperature and duration (see the [`watts.activate_timer_mode`](#action-activate-timer-mode) action).
+  - **Comfort**: Standard comfort temperature
+  - **Eco**: Reduced setpoint to save energy
+  - **Defrost**: Frost protection
+  - **Timer**: Temporary boost mode with a custom temperature and duration (see the [`watts.activate_timer_mode`](#action-activate-timer-mode) action)
 - **Temperature range**: The min/max temperature limits configured for the device
 
 #### Climate entity attributes
