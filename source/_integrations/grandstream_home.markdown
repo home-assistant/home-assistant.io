@@ -58,12 +58,12 @@ The integration can be configured through the UI:
 2. Select **Add integration**.
 3. Search for **Grandstream Home**.
 4. Follow the configuration steps:
-   - Enter the device IP address or hostname
-   - Enter the device name
+   - Enter the device IP address or hostname.
+   - Enter the device name.
 5. On the authentication screen:
-   - Enter administrator password (username is fixed to `gdsha`)
-   - (Optional) Configure custom port (default: 443 for HTTPS)
-   - (Optional) Disable SSL certificate verification (for self-signed certificates)
+   - Enter administrator password (username is fixed to `gdsha`).
+   - (Optional) Configure custom port (default: 443 for HTTPS).
+   - (Optional) Disable SSL certificate verification (for self-signed certificates).
 
 ### Automatic discovery
 
