@@ -35,7 +35,7 @@ Infrared transmitter:
 
 ## Supported devices
 
-The integration currently supports the **Marantz PM6006** integrated amplifier. Other Marantz amplifiers share much of the IR command set, but each model has its own quirks (for example, which inputs are present, which functions exist as discrete codes versus toggles, and which proprietary "Pre-Code" 38 kHz raw timings are needed for digital inputs). Adding more models is a community effort — if you own another Marantz amplifier and want it supported, please [open an issue](https://github.com/home-assistant/core/issues) with captured IR signals from your remote.
+The integration currently supports the **Marantz PM6006** integrated amplifier. Other Marantz amplifiers share much of the IR command set, but each model has its own quirks (for example, which inputs are present, which functions exist as discrete codes versus toggles, and which proprietary "Pre-Code" 38 kHz raw timings are needed for digital inputs). Adding more models is a community effort — if you own another Marantz amplifier and want it supported, please [open an issue on the infrared-protocols repository](https://github.com/home-assistant-libs/infrared-protocols/issues) with captured IR signals from your remote.
 
 ## Supported functionality
 
