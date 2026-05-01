@@ -44,12 +44,6 @@ The integration supports the following devices:
 3. In the Indevolt app, enable the **Local API** and set the protocol to `http`.
 <!-- textlint-disable capitalize -->
 
-## Automatic discovery
-
-Indevolt devices can be automatically discovered via DHCP after which the device can be added without configuration.
-
-## Manual configuration
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -57,8 +51,6 @@ Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
 
 {% endconfiguration_basic %}
-
-The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
 
 ## Supported functionality
 
