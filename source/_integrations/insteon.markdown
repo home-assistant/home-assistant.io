@@ -80,7 +80,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 
 ### Managing Insteon scenes
 
-Insteon scenes can be created, changed or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To trigger an Insteon scene see [Controlling Insteon Scenes](#controlling-insteon-scenes) below.
+Insteon scenes can be created, changed, or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To control an Insteon scene, see [Controlling Insteon scenes](#controlling-insteon-scenes) below.
 
 ### Device properties
 
