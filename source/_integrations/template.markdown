@@ -2189,7 +2189,7 @@ template:
 template:
   - vacuum:
       - name: Living Room Vacuum
-        clean_area:
+        clean_segments:
           action: script.vacuum_start
           data:
             segment_ids: "{{ segment_ids }}"
@@ -2223,7 +2223,7 @@ vacuum:
       description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
       required: false
       type: template
-    clean_area:
+    clean_segments:
       description: Defines an action to run when the vacuum is given a clean area command. The action receives the `segment_ids` variable, which contains the list of selected area segment IDs. Requires `unique_id` and `segments`.
       required: inclusive
       type: action
@@ -2257,7 +2257,7 @@ vacuum:
       required: false
       type: action
     segments:
-      description: Defines a template to get the segments of the vacuum. Expects a list of dictionaries with keys `id`, `name`, and optional `group`. Requires `unique_id` and `clean_area`.
+      description: Defines a template to get the segments of the vacuum. Expects a list of dictionaries with keys `id`, `name`, and optional `group`. Requires `unique_id` and `clean_segments`.
       required: inclusive
       type: template
     set_fan_speed:
