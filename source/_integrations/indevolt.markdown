@@ -18,7 +18,7 @@ ha_platforms:
   - switch
 ha_domain: indevolt
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_config_flow: true
 ---
 
