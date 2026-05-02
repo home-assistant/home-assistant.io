@@ -8,6 +8,7 @@ ha_category:
   - Presence detection
   - Select
   - Sensor
+  - Image
 ha_release: 2021.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -22,6 +23,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - image
 ha_integration_type: hub
 ha_quality_scale: silver
 ---
@@ -36,6 +38,7 @@ This integration provides the following platforms:
 - Numbers - to set battery charge limits (minimum and target charge levels for electric vehicles).
 - Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
+- Image - to show the configured vehicle image.
 
 {% include integrations/config_flow.md %}
 
