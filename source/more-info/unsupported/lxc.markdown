@@ -9,4 +9,4 @@ Running the Supervisor in an LXC virtual machine will cause issues both with per
 
 ## The solution
 
-You need to reinstall the host operating system that runs the Supervisor. For instructions on how to proceed with that, [have a look here](/more-info/unsupported/os).
+You need to reinstall the host operating system that runs the Supervisor. For instructions on how to proceed, [have a look here](/more-info/unsupported/os).
