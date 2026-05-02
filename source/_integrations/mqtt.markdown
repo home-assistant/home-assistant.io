@@ -1469,13 +1469,13 @@ MQTT devices often continuously generate numerous state updates. MQTT does not u
 
 ## Troubleshooting
 
-### Device triggers or entities are triggered receive duplicate updates
+### Device triggers or entities receive duplicate updates
 
-When there are overlapping subscriptions, the MQTT broker might send the same message for all matching subscription. This is an issue for MQTT protocol version 3.1 and 3.1.1. Try to use MQTT protocol version 5 to allow matching subscriptions with the incoming messages to resolve duplicate messages.
+When you have overlapping subscriptions, the MQTT broker might send the same message for all matching subscriptions. This can happen with MQTT protocol version 3.1 and 3.1.1. To help resolve duplicate messages, set [**MQTT Protocol**](#mqtt-protocol) to `5` instead of the default `3.1.1`, so Home Assistant can match incoming messages to the correct subscriptions.
 
-Overlapping subscriptions are caused when wildcard subscriptions or a simple subscription trigger the same message.
+Overlapping subscriptions happen when multiple subscriptions, whether wildcard subscriptions, specific subscriptions, or both, match the same message topic.
 
-For example, the subscriptions `test/bla/status`, `test/+/status` and `test/#` match with a message published at topic `test/bla/status`. With protocol version 3.1 or 3.1.1, it is possible the broker sends 3 messages, one for each match. But there is no way to link the incoming message to the subscription. With protocol version 5, an identifier is assigned to each subscription which allows to process each message for its matching subscription.
+For example, the subscriptions `test/bla/status`, `test/+/status`, and `test/#` all match a message published to the topic `test/bla/status`. With protocol version 3.1 or 3.1.1, it is possible that the broker sends 3 messages, one for each match. However, there is no way to link an incoming message to the matching subscription. With protocol version 5, an identifier is assigned to each subscription, which makes it possible to process each message for the subscription that matched it.
 
 ## Using Templates
 
