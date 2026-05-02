@@ -5,7 +5,7 @@ description: "More information on why not running with privileged marks the inst
 
 ## The issue
 
-The Supervisor needs to have privileged access to the docker runtime on your host to be able to do everything it needs to do.
+The Supervisor needs privileged access to the Docker runtime on your host so it can perform all required tasks.
 
 ## The solution
 
