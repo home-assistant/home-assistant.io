@@ -5,7 +5,7 @@ description: "More information on why issues with a DNS server marks the install
 
 ## The issue
 
-Home Assistant requires a working DNS server to function. Without one it may be unable to provide functionality like checking and executing updates, showing documentation, reach external services required by add-ons and integrations, etc.
+Home Assistant requires a working DNS server to function. Without one, it may be unable to provide functionality like checking and executing updates, showing documentation, reaching external services required by add-ons and integrations, and other tasks that depend on internet access.
 
 ## The solution
 
@@ -31,7 +31,7 @@ You will see one or more issues with a context of `dns_server`. For each such is
 
 ### `dns_server_ipv6_error`
 
-If you see this that means the application you are using for DNS is not handling A and AAAA requests correctly. You can test this by executing the following commands:
+If you see this, that means the application you are using for DNS is not handling A and AAAA requests correctly. You can test this by executing the following commands:
 
 ```sh
 server="<IP address of DNS server>"
