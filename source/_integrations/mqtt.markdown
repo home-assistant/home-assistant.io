@@ -1467,6 +1467,16 @@ Because MQTT state updates are often repeated frequently, even when no actual ch
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
+## Troubleshooting
+
+### Device triggers or entities are triggered receive duplicate updates
+
+When there are overlapping subscriptions, the MQTT broker might send the same message for all matching subscription. This is an issue for MQTT protocol version 3.1 and 3.1.1. Try to use MQTT protocol version 5 to allow matching subscriptions with the incoming messages to resolve duplicate messages.
+
+Overlapping subscriptions are caused when wildcard subscriptions or a simple subscription trigger the same message.
+
+For example, the subscriptions `test/bla/status`, `test/+/status` and `test/#` match with a message published at topic `test/bla/status`. With protocol version 3.1 or 3.1.1, it is possible the broker sends 3 messages, one for each match. But there is no way to link the incoming message to the subscription. With protocol version 5, an identifier is assigned to each subscription which allows to process each message for its matching subscription.
+
 ## Using Templates
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/templating/where-to-use/#mqtt).
