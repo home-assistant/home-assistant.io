@@ -477,9 +477,9 @@ Features:
 - set display time offset
 - sync the device date and time with Home Assistant
 
-{% details "Setting Display time offset" %} 
+{% details "Setting display time offset" %} 
 
-**Display time offset** entity shifts the time shown on the device display without altering the device's internal timekeeping. The offset can be negative and it is applied independently: e.g., pressing the **Sync date and time** button will update the internal clock to match Home Assistant but will not change or reset your custom offset. This allows you to maintain a specific time offset while still using automations to prevent hardware time drift.
+**Display time offset** entity shifts the time shown on the device display without altering the device's internal timekeeping. The offset can be negative and it is applied independently: for example, pressing the **Sync date and time** button will update the internal clock to match Home Assistant but will not change or reset your custom offset. This allows you to maintain a specific time offset while still using automations to prevent hardware time drift.
 
 {% enddetails %}
 
