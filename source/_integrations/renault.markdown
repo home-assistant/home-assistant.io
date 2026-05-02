@@ -4,11 +4,11 @@ description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
   - Binary sensor
   - Car
+  - Image
   - Number
   - Presence detection
   - Select
   - Sensor
-  - Image
 ha_release: 2021.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -20,10 +20,10 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - image
   - number
   - select
   - sensor
-  - image
 ha_integration_type: hub
 ha_quality_scale: silver
 ---
