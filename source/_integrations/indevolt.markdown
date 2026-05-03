@@ -29,7 +29,7 @@ With this integration, you can monitor energy production, consumption, and batte
 
 Beyond basic monitoring, the Indevolt integration enables advanced energy management automations within Home Assistant. For example, you can:
 
-- Optimize battery charging and discharging based on solar (PV) production forecasts
+- Optimize battery charging and discharging based on solar photovoltaic (PV) production forecasts
 - Automatically adjust energy modes to take advantage of variable electricity pricing
 - Prevent grid feed-in during peak tariff periods by dynamically limiting output power
 - Maintain a minimum battery charge for backup scenarios by adjusting discharge limits when applicable
