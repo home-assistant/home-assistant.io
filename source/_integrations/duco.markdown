@@ -85,9 +85,9 @@ The fan is always on. Turning off the fan is not supported.
 
 #### Speed control
 
-Setting a speed percentage activates a continuous override with no time limit:
+Setting a speed percentage to 33%, 66%, or 100% activates a continuous override with no time limit. Setting it to 0% clears the override and hands control back to Duco:
 
-- **Speed 0%**: Returns control to Duco (automatic mode).
+- **Speed 0%**: Clears the override and returns to automatic mode.
 - **Speed 33%**: Continuous low speed override.
 - **Speed 66%**: Continuous medium speed override.
 - **Speed 100%**: Continuous high speed override.
@@ -278,7 +278,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds. If you a
 ## Known limitations
 
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
-- Automatic boost states triggered by a sensor module (such as a UCCO2 detecting high CO₂ or humidity) cannot be set from Home Assistant. They are shown as the **Auto** preset in the fan entity. Use the **Ventilation state** sensor to see the exact active state.
+- Automatic boost states triggered by a sensor module (such as a UCCO2 detecting high CO₂, or a UCRH detecting high humidity) cannot be set from Home Assistant. They are shown as the **Auto** preset in the fan entity. Use the **Ventilation state** sensor to see the exact active state.
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
