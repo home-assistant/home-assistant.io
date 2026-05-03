@@ -1,6 +1,7 @@
 ---
 title: inepro Metering
 description: Instructions on how to integrate inepro energy meters with Home Assistant.
+ha_release: 2026.6
 ha_category:
   - Energy
   - Sensor
