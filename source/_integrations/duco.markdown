@@ -100,11 +100,11 @@ The percentages 33%, 66%, and 100% are abstract speed levels used in the Home As
 
 Selecting a preset mode lets you activate a specific ventilation behavior:
 
-- **Auto**: Returns control to Duco (automatic mode).
-- **Timed low speed**: Activates a low speed override for 15 minutes, after which the Duco firmware automatically returns to the previous mode.
-- **Timed medium speed**: Activates a medium speed override for 15 minutes.
-- **Timed high speed**: Activates a high speed override for 15 minutes.
-- **Empty house**: Activates the empty house ventilation mode.
+- **Auto** (`auto`): Returns control to Duco (automatic mode).
+- **Timed low speed** (`man1`): Activates a low speed override for 15 minutes, after which the Duco firmware automatically returns to the previous mode.
+- **Timed medium speed** (`man2`): Activates a medium speed override for 15 minutes.
+- **Timed high speed** (`man3`): Activates a high speed override for 15 minutes.
+- **Empty house** (`empt`): Activates the empty house ventilation mode.
 
 When a sensor module (such as a UCCO2) triggers an automatic boost, the fan entity does not reflect a percentage or a preset. Use the **Ventilation state** sensor to see the current state.
 
