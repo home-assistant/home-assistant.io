@@ -106,7 +106,7 @@ Selecting a preset mode lets you activate a specific ventilation behavior:
 - **Timed high speed** (`man3`): Activates a high speed override for 15 minutes.
 - **Empty house** (`empt`): Activates the empty house ventilation mode.
 
-When a sensor module (such as a UCCO2) triggers an automatic boost, the fan entity does not reflect a percentage or a preset. Use the **Ventilation state** sensor to see the current state.
+When a sensor module (such as a UCCO2) triggers an automatic boost, the fan entity shows the **Auto** preset. Use the **Ventilation state** sensor to see the exact active state.
 
 ### Sensors
 
@@ -276,7 +276,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds. If you a
 ## Known limitations
 
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
-- Automatic boost states triggered by a sensor module (such as a UCCO2 detecting high CO₂ or humidity) cannot be set from Home Assistant. They are visible in the **Ventilation state** sensor but are not reflected in the fan entity.
+- Automatic boost states triggered by a sensor module (such as a UCCO2 detecting high CO₂ or humidity) cannot be set from Home Assistant. They are shown as the **Auto** preset in the fan entity. Use the **Ventilation state** sensor to see the exact active state.
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
