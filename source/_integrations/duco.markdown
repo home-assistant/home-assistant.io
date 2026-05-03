@@ -191,7 +191,7 @@ This automation switches the ventilation to high speed when the kitchen hood is 
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.living
       data:
         percentage: 100
 
@@ -204,7 +204,7 @@ This automation switches the ventilation to high speed when the kitchen hood is 
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.living
       data:
         percentage: 0
 ```
@@ -222,7 +222,7 @@ When the last person leaves home, the ventilation switches to empty house mode. 
   actions:
     - action: fan.set_preset_mode
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.living
       data:
         preset_mode: "empt"
 
@@ -234,7 +234,7 @@ When the last person leaves home, the ventilation switches to empty house mode. 
   actions:
     - action: fan.set_preset_mode
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.living
       data:
         preset_mode: "auto"
 ```
@@ -252,7 +252,7 @@ This automation switches to high speed when the CO₂ level in the office rises 
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.living
       data:
         percentage: 100
 
@@ -264,7 +264,7 @@ This automation switches to high speed when the CO₂ level in the office rises 
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.living
       data:
         percentage: 0
 ```
