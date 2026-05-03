@@ -425,7 +425,9 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
               "17": Living room
       ```
 
-3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Settings** > **Developer tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+3. You can then apply [Mapping your areas to Home Assistant areas](https://www.home-assistant.io/integrations/vacuum/#mapping-your-vacuum-areas-to-home-assistant-areas) to the Roborock vacuum entity linked to your Roborock device.
+
+Alternatively, go back to {% my developer_call_service service="vacuum.send_command" title="**Settings** > **Developer tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
 
