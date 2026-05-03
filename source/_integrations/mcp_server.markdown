@@ -313,18 +313,20 @@ To understand the root cause, first check debug logs on the client. For example 
    - `Client error '404 Not Found' for url 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
      this means the MCP Server integration is not configured in Home Assistant.
    - `Client error '401 Unauthorized' for url 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
-     this means that the long live access token is not correct.
+     this means that the long-lived access token is not correct.
 ...
 
 ### Repeated OAuth failures
 
 #### Symptom: Unable to access Home Assistant after several failed login attempts
 
-If you accidentally enter incorrect credentials or configuration details multiple times during the OAuth setup flow, Home Assistant might temporarily block your IP address for security.
+If authentication keeps failing during the OAuth setup flow, the most likely cause is that one or more OAuth details are incorrect, like the client ID, client secret, or Home Assistant URL.
 
 ##### Resolution
 
-Check your `ip_bans.yaml` file in the Home Assistant configuration directory. If your computer's IP address or the client's IP is listed there, remove it and restart Home Assistant, then try authenticating again.
+Review the OAuth configuration in your client and enter the details again. Make sure the client ID, client secret, and Home Assistant URL exactly match the values you configured for the MCP server in Home Assistant.
+
+If you have explicitly enabled IP bans in Home Assistant and repeated failed sign-in attempts caused a ban, check the `ip_bans.yaml` file in your Home Assistant configuration directory. If your computer's IP address or the client's IP address is listed there, remove it, restart Home Assistant, and then try authenticating again.
 
 ## Removing the integration
 
