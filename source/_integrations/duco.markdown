@@ -243,13 +243,13 @@ When the last person leaves home, the ventilation switches to empty house mode. 
 
 ### Boost ventilation when CO₂ is high
 
-This automation switches to high speed when the CO₂ level in the office rises above 1000 ppm, and returns to automatic mode when it drops back below 800 ppm.
+This automation switches to high speed when the CO₂ level rises above 1000 ppm on a UCCO2 sensor module (node 2 in this example), and returns to automatic mode when it drops back below 800 ppm.
 
 ```yaml
 - alias: "Boost ventilation on high CO2"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.office_co2_carbon_dioxide
+      entity_id: sensor.node_2_carbon_dioxide
       above: 1000
   actions:
     - action: fan.set_percentage
@@ -261,8 +261,38 @@ This automation switches to high speed when the CO₂ level in the office rises 
 - alias: "Return to auto when CO2 is low"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.office_co2_carbon_dioxide
+      entity_id: sensor.node_2_carbon_dioxide
       below: 800
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.node_1
+      data:
+        percentage: 0
+```
+
+### Boost ventilation when humidity is high
+
+This automation switches to medium speed when relative humidity rises above 70% on a UCRH or BSRH sensor module (node 113 in this example), and returns to automatic mode when it drops back below 60%.
+
+```yaml
+- alias: "Boost ventilation on high humidity"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.node_113_humidity
+      above: 70
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.node_1
+      data:
+        percentage: 66
+
+- alias: "Return to auto when humidity is normal"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.node_113_humidity
+      below: 60
   actions:
     - action: fan.set_percentage
       target:
