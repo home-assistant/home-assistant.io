@@ -1,5 +1,5 @@
 blueprint:
-  name: Battery Mangement (smart discharge)
+  name: Battery Management (smart discharge)
   description: Dynamically adjust battery discharge based on import/export and conditions
   domain: automation
 
