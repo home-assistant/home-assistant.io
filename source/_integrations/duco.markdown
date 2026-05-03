@@ -106,6 +106,8 @@ Selecting a preset mode lets you activate a specific ventilation behavior:
 - **Timed high speed** (`man3`): Activates a high speed override for 15 minutes.
 - **Empty house** (`empt`): Activates the empty house ventilation mode.
 
+When a timed preset or the **Auto** preset is active, the speed slider shows no value. The slider only reflects a level when a continuous override is active.
+
 When a sensor module (such as a UCCO2) triggers an automatic boost, the fan entity shows the **Auto** preset. Use the **Ventilation state** sensor to see the exact active state.
 
 ### Sensors
