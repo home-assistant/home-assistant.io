@@ -79,23 +79,34 @@ The Duco system consists of multiple nodes. Each node appears as a separate devi
 
 ### Fan
 
-The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
+The fan entity lets you control the ventilation speed in two ways: by setting a speed percentage for a continuous override, or by selecting a preset mode for a timed or special ventilation behavior.
 
-The fan is always on. Setting the speed to 0% returns control to Duco (automatic mode), after which the firmware automatically resumes ventilation.
+The fan is always on. Turning off the fan is not supported.
 
-The following actions are available:
+#### Speed control
 
-- **Speed 0%**: Hands control back to Duco (automatic mode).
-- **Speed 33%**: Low speed manual override.
-- **Speed 66%**: Medium speed manual override.
-- **Speed 100%**: High speed manual override.
-- **Auto preset**: Same as speed 0%; hands control back to Duco.
+Setting a speed percentage activates a continuous override with no time limit:
 
-When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
+- **Speed 0%**: Returns control to Duco (automatic mode).
+- **Speed 33%**: Continuous low speed override.
+- **Speed 66%**: Continuous medium speed override.
+- **Speed 100%**: Continuous high speed override.
 
 {% note %}
 The percentages 33%, 66%, and 100% are abstract speed levels used in the Home Assistant fan UI and do not match the actual airflow percentages configured in the Duco firmware. To see the real airflow target, use the **Target flow level** sensor.
 {% endnote %}
+
+#### Preset modes
+
+Selecting a preset mode lets you activate a specific ventilation behavior:
+
+- **Auto**: Returns control to Duco (automatic mode).
+- **Timed low speed**: Activates a low speed override for 15 minutes, after which the Duco firmware automatically returns to the previous mode.
+- **Timed medium speed**: Activates a medium speed override for 15 minutes.
+- **Timed high speed**: Activates a high speed override for 15 minutes.
+- **Empty house**: Activates the empty house ventilation mode.
+
+When a sensor module (such as a UCCO2) triggers an automatic boost, the fan entity does not reflect a percentage or a preset. Use the **Ventilation state** sensor to see the current state.
 
 ### Sensors
 
@@ -160,7 +171,7 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 ## Use cases
 
 - Switch to high ventilation automatically when cooking or showering.
-- Return to auto mode when everyone leaves home using a presence-based automation.
+- Switch to empty house mode when everyone leaves home using a presence-based automation.
 - Monitor ventilation activity over time via the logbook.
 - Trigger automations based on CO₂ levels or humidity reported by connected Duco modules.
 - Use temperature readings from sensor modules to detect rooms that are too hot or too cold and adjust ventilation accordingly.
@@ -200,32 +211,32 @@ This automation switches the ventilation to high speed when the kitchen hood is 
 
 ### Reduce ventilation when nobody is home
 
-When the last person leaves home, the ventilation hands control back to Duco (automatic mode). When someone returns, it switches to medium speed.
+When the last person leaves home, the ventilation switches to empty house mode. When someone returns, it switches back to automatic mode.
 
 ```yaml
-- alias: "Ventilation auto mode on leave"
+- alias: "Ventilation empty house mode on leave"
   triggers:
     - trigger: numeric_state
       entity_id: zone.home
       below: 1
   actions:
-    - action: fan.set_percentage
+    - action: fan.set_preset_mode
       target:
         entity_id: fan.living_ventilation
       data:
-        percentage: 0
+        preset_mode: "empt"
 
-- alias: "Ventilation medium speed on arrive"
+- alias: "Ventilation auto mode on arrive"
   triggers:
     - trigger: numeric_state
       entity_id: zone.home
       above: 0
   actions:
-    - action: fan.set_percentage
+    - action: fan.set_preset_mode
       target:
         entity_id: fan.living_ventilation
       data:
-        percentage: 66
+        preset_mode: "auto"
 ```
 
 ### Boost ventilation when CO₂ is high
@@ -265,7 +276,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds. If you a
 ## Known limitations
 
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
-- Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
+- Automatic boost states triggered by a sensor module (such as a UCCO2 detecting high CO₂ or humidity) cannot be set from Home Assistant. They are visible in the **Ventilation state** sensor but are not reflected in the fan entity.
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
