@@ -18,7 +18,7 @@ related:
     title: Configuration file
 ---
 
-The **iZone** {% term integration %} allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
+The **iZone** {% term integration %} lets you monitor and control local [iZone](https://izone.com.au/) ducted reverse-cycle climate control systems. These systems are largely available in Australia.
 
 ## Supported hardware
 
@@ -28,11 +28,15 @@ Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wi
 
 ## Multiple iZone systems
 
-If you have more than one iZone system on your local network, the iZone integration will discover all available controllers and show them to you. When you set up the integration, you can choose which controller you want to configure. You can add additional controllers by running the integration setup again.
+If you have more than one iZone system on your local network, the iZone integration discovers all available controllers and shows them during setup. You can then choose the controller you want to configure.
+
+Any other controllers found during the search will become available as discovered controllers.
 
 ## Legacy YAML configuration
 
-For legacy setups or if you need to exclude specific controllers from integration with Home Assistant, you can configure the iZone integration via the {% term "`configuration.yaml`" %} file with the `exclude` option.
+YAML configuration is now deprecated, it will be removed in a future update. 
+
+For legacy setups, or if you need to exclude specific controllers from Home Assistant, you can configure the iZone integration via the {% term "`configuration.yaml`" %} file with the `exclude` option.
 
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
@@ -45,7 +49,7 @@ izone:
 
 {% configuration %}
 exclude:
-  description: Exclude particular units from integration with Home Assistant. Only applies to YAML-based configuration.
+  description: Exclude specific units from Home Assistant. This option applies only to YAML-based configuration.
   required: false
   type: list
 {% endconfiguration %}
