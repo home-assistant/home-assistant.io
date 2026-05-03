@@ -55,8 +55,15 @@ latest release from the [WLED GitHub releases page](https://github.com/wled/WLED
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
+Host:
+  description: Hostname or IP address of your WLED device.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
 Keep Master Light:
-  description: Keep the master light entity even when there is only 1 segment. See [Keep Master Light option](#keep-master-light-option) for details.
+  description: Keep the main light entity even when there is only 1 segment. See [Keep Master Light option](#keep-master-light-option) for details.
 {% endconfiguration_basic %}
 
 ## Using WLED segments
@@ -67,50 +74,35 @@ Home Assistant reflects this structure: every segment gets its own set of
 {% term entities %} for lights, color palette selects, speed and intensity
 numbers, and freeze and reverse switches.
 
-### Single segment (default)
-
-If WLED has 1 segment defined (the default), that one segment controls the
-whole LED strip. Home Assistant creates a single light {% term entity %} named
-after the device (e.g., "Garage Door Light") to control the strip.
-
-### Multiple segments
-
-If WLED has 2 or more segments, each segment gets its own light
-{% term entity %}, as well as its own color palette, speed, intensity, freeze,
-and reverse {% term entities %}. Additionally, a master light {% term entity %}
-is created. This master {% term entity %} controls the strip power and overall
-brightness applied to all segments.
-
-To keep {% term entity %} names concise, segment 0 is treated as the
-"default" segment and its {% term entities %} do not include a segment number
-in their names (for example, "Speed" and "Color palette" rather than
-"Segment 0 speed" and "Segment 0 color palette"). All subsequent segments
-include the segment number in their names (for example, "Segment 1 speed",
-"Segment 2 color palette").
-
 ### Keep Master Light option
 
-By default, when a WLED device has only 1 segment, the master light
-{% term entity %} is not created — it appears automatically only when a second
-segment is added. This is fine for static setups, but can be problematic
-when segments are added and removed dynamically via automations: the
-{% term entity %} that was previously controlling the whole strip (segment 0)
-suddenly only controls one segment.
+The **Keep Master Light** option controls whether the main light
+{% term entity %} is always present or only created when needed.
 
-Enabling the **Keep Master Light** option in the integration settings ensures
-the master light {% term entity %} is always present, regardless of how many
-segments are active. When this option is enabled:
+**Enabled (default):** The main light {% term entity %}
+is always present, regardless of how many segments are active. This is the
+recommended mode — it keeps entities thin and separate, with the main light
+controlling the device and each segment controlling only itself.
 
-- The **master light** {% term entity %} becomes the primary {% term entity %}
-  of the device and is named after the WLED device (e.g., "Garage Door
-  Light"). It controls the overall power and brightness of the entire strip.
-- **Segment 0** gets its own named {% term entity %} (e.g., "Garage Door Light
-  Segment 0"), along with its own color palette, speed, intensity, freeze, and
-  reverse {% term entities %}. The segment number prefix is always included in
-  all entity names, including segment 0 (for example, "Segment 0 speed").
+- The **main light** {% term entity %} is the primary {% term entity %} of the
+  device and is named after the WLED device (for example, "Garage Door Light").
+  It controls the overall power and brightness of the entire strip.
+- Each segment gets its own {% term entity %} with a segment number in the name
+  (for example, "Garage Door Light Segment 0", "Garage Door Light Segment 1").
 
-This makes it safe to use the master light in automations even when the number
-of segments changes at runtime.
+**Disabled — simplified single-segment mode:** When there is only 1 segment,
+the main light {% term entity %} is not created. Instead, segment 0 acts as
+the primary {% term entity %} of the device: it is named after the WLED device
+(for example, "Garage Door Light") without any segment prefix, and it controls
+both the strip power and the segment. Entity names for segment-specific
+controls (color palette, speed, intensity, freeze, reverse) also omit the
+segment prefix (for example, "Speed" instead of "Segment 0 speed").
+
+When a second segment is added, the main light {% term entity %} is created
+automatically. Be aware that this changes the role of the segment 0 entity —
+it no longer controls the overall strip power and brightness. If you use
+automations that rely on the device-named entity to control the whole strip,
+enabling **Keep Master Light** is recommended.
 
 ## Supported functionality
 
@@ -120,8 +112,8 @@ The **WLED** integration provides the following entities.
 
 The integration creates the following light {% term entities %}:
 
-- **Segment lights**: one light {% term entity %} per segment, controlling its color, effect, speed, and brightness.
-- **Master light**: controls the overall power and brightness of the entire strip. See [Using WLED segments](#using-wled-segments) for details on when this entity is created.
+- **Segment lights**: one light {% term entity %} per segment, controlling its color, effect, and brightness.
+- **Main light**: controls the overall power and brightness of the entire strip. See [Using WLED segments](#using-wled-segments) for details on when this entity is created.
 
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
@@ -175,7 +167,7 @@ Can be configured on the WLED itself under
 #### Sync receive and sync send
 
 Toggles the synchronization between multiple WLED devices.
-Can be configured on the WLED itself under 
+Can be configured on the WLED itself under
 **Settings** > **Sync Interfaces** > **WLED Broadcast**.
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-notifier/)
@@ -230,7 +222,7 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - The integration does not support controlling WLED usermods, such as the AudioReactive usermod. Features like toggling the microphone on or off are not available.
 
-- There is no segment master control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
+- There is no segment main control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
 
 - Only the primary color of a segment can be set through the integration. The secondary and tertiary colors that many WLED effects use cannot be controlled directly from Home Assistant. The workaround is to configure those colors in the WLED app or web interface, save the configuration as a preset, and then activate that preset from Home Assistant — the preset restores all colors, including secondary and tertiary.
 
@@ -260,7 +252,7 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
 ```
 
-It is recommended to select an effect that matches the capabilities of your WLED device (e.g., 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
+It is recommended to select an effect that matches the capabilities of your WLED device (for example, 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
 
 Below is an example of how to select a random effect with an ID between 1 and 117, excluding retired effects:
 
@@ -289,7 +281,7 @@ data:
 ### Activating a preset
 
 Activating a preset is an easy way to set a WLED light to a specific
-configuration. Here is an example action to set a WLED light 
+configuration. Here is an example action to set a WLED light
 to a preset called My Preset:
 
 ```yaml
@@ -316,7 +308,7 @@ An automation to turn on a WLED light and select a specific palette and
 set intensity, and speed can be created by first calling the `light.turn_on`
 action, then calling the `select.select_option` action to select the
 palette, then call the `number.set_value` action to set the intensity
-and again to set the speed. 
+and again to set the speed.
 
 Here is an example of all of these put together into an automation:
 
