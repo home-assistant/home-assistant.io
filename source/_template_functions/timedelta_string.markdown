@@ -30,7 +30,7 @@ type: string
 output: "15 minutes"
 
 ---
-filter: '{{ trigger.to_state.last_changed - trigger.from_state.last_changed | timedelta_string }}'
+filter: '{{ (trigger.to_state.last_changed - trigger.from_state.last_changed) | timedelta_string }}'
 type: string
 output: "15 minutes"
 {% endtemplate_function_usage %}
