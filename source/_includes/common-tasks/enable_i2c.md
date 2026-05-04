@@ -2,7 +2,7 @@
 
 Home Assistant using the {% term "Home Assistant Operating System" %} which is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi. In order to use I2C devices you will have to 
 - Enable I2C for the Home Assistant Operating System 
-- Setup I2C devices e.g. sensors
+- Set up I2C devices, such as sensors
 
 ### Enable I2C with an SD card reader
 
@@ -48,22 +48,19 @@ Alternatively, by attaching a keyboard and screen to your device, you can access
 You can enable I2C via this terminal:
 
 - Login as `root`.
-- Type `login` and press enter to access the shell.
-- Type the following to enable I2C, you may need to replace `sda1` with `sdb1` or `mmcblk0p1` depending on your platform:
+- Type `login` and press enter to access the shell:
 
   ```shell
-  mkdir /tmp/mnt
-  mount /dev/sda1 /tmp/mnt
-  mkdir -p /tmp/mnt/modules
-  echo -ne i2c-dev>/tmp/mnt/modules/rpi-i2c.conf
-  echo dtparam=i2c_vc=on >> /tmp/mnt/config.txt
-  echo dtparam=i2c_arm=on >> /tmp/mnt/config.txt
+  mkdir -p /mnt/boot/CONFIG/modules
+  echo i2c-dev > /mnt/boot/CONFIG/modules/rpi-i2c.conf
+  echo dtparam=i2c_vc=on >> /mnt/boot/config.txt
+  echo dtparam=i2c_arm=on >> /mnt/boot/config.txt
   sync
   reboot
   ```
 ### Troubleshooting
 
-After rebooting the host there should be `i2c-0` and similar device files in `/dev`. If such device files are missing, enabling I2C failed for some reason. You can check the status of I2C kernel modules by using `lsmod | grep i2c` in the terminal. If they are loaded, you should find at least the entry `i2c_dev`. Active usage of the modules is indicated by a number, e.g. `i2c_dev 20480 2` would indicate two active I2C device files.
+After rebooting the host there should be `i2c-0` and similar device files in `/dev`. If such device files are missing, enabling I2C failed for some reason. You can check the status of I2C kernel modules by using `lsmod | grep i2c` in the terminal. If they are loaded, you should find at least the entry `i2c_dev`. Active usage of the modules is indicated by a number. For example, `i2c_dev 20480 2` would indicate two active I2C device files.
 
 An active I2C can also be checked with a multi meter showing 3.3 V on the I2C pins GPIO2 and GPIO3. 
   

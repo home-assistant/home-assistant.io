@@ -3,8 +3,8 @@ title: Uptime Kuma
 description: Instructions on how to integrate Uptime Kuma with Home Assistant.
 ha_category:
   - Sensor
-  - Update
   - System monitor
+  - Update
 ha_iot_class: Cloud Polling
 ha_release: 2025.8
 ha_config_flow: true
@@ -33,7 +33,7 @@ This integration allows you to track the status of your **Uptime Kuma** monitors
 
 To set up the **Uptime Kuma** integration, you need an **API key** and the **URL** of your Uptime Kuma instance (for example: `https://uptime.example.org`).
 
-You can create an API key by logging into your Uptime Kuma instance, navigating to **{% icon "mdi:cog" %} Settings → API Keys** and selecting **{% icon "mdi:plus" %}Add API Key**.
+You can create an API key by logging in to your Uptime Kuma instance, navigating to **Settings** > **API Keys**, and selecting **Add API Key**.
 
 {% include integrations/config_flow.md %}
 
@@ -55,6 +55,9 @@ You can create an API key by logging into your Uptime Kuma instance, navigating 
 - **Monitored hostname**: The hostname or IP address being monitored (if applicable).
 - **Monitored port**: The port number used by the monitored service (if applicable).
 - **Monitored URL**: The full URL of the monitored service (if applicable).
+- **Uptime (1/30/365 days)**: Uptime ratio in percent, calculated over a sliding window of 1, 30, or 365 days.
+- **Response time Ø (1/30/365 days)**: Average response time calculated over a sliding window of 1, 30, or 365 days.
+- **Tags**: Number of tags assigned to the monitor. The full list of tags is available as state attributes.
 
 ## Update
 
@@ -65,8 +68,6 @@ You can create an API key by logging into your Uptime Kuma instance, navigating 
 Get started with this automation example to create an Uptime Kuma warning light that changes color based on the monitor's status.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 actions:
@@ -118,9 +119,41 @@ triggers:
       - sensor.uptime_kuma_my_service
 ```
 
+{% enddetails %}
+
+## Examples
+
+### Global status binary sensor
+
+If you'd like a single binary sensor that reflects the global status of your Uptime Kuma monitors, you can create a template binary sensor. This sensor will report a problem whenever one or more selected monitors are in a problem state (for example, down, pending, or maintenance).
+
+1. Open your Home Assistant Dashboard.
+2. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
+3. Select **Create helper**.
+4. Go to **Templates** > **Binary sensor**.
+5. Fill in the name, for example **Uptime Kuma global status**.
+6. Select the device class **problem**.
+7. Paste the following state template:
+
+{% raw %}
+
+```jinja
+{% set problems = ['down', 'pending', 'maintenance'] %}
+{% set has_label = 'my-label' %}
+{% set entities = integration_entities('uptime_kuma') | select('match', 'sensor.*_status*') %}
+{% set alerts = expand(entities) | selectattr('state', 'in', problems ) | selectattr('entity_id', 'in', label_entities(has_label))  | list %}
+{{ alerts | count }}
+```
+
 {% endraw %}
 
-{% enddetails %}
+{% important %}
+
+- Replace `my-label` with your actual label name.
+- Adjust `sensor.*_status*` if your Home Assistant language or entity naming differs.
+- Add the chosen label to all the Uptime Kuma status sensors you want included in this global check.
+
+{% endimportant %}
 
 ## Data updates
 

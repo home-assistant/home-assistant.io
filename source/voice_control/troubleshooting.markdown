@@ -113,18 +113,18 @@ You think there is an issue with background noise or speaker volume? In some cas
 
 ### To tweak the Assist audio configuration for your device
 
-1. Make sure you have the ESPHome add-on installed:
-   - Go to {% my supervisor_store title="**Settings** > **Add-ons** > **Add-on store**" %}.
-   - If you do not have the **ESPHome** add-on installed, install it.
-2. Start the ESPHome add-on, and select **Open Web UI**.
-3. Adopt your device to the ESPHome add-on:
-   - Once the ESPHome add-on is started, you see your device as **Discovered**.
+1. Make sure you have the ESPHome app (formerly known as an add-on) installed:
+   - Go to {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
+   - If you do not have the **ESPHome** app installed, install it.
+2. Start the ESPHome app, and select **Open Web UI**.
+3. Adopt your device to the ESPHome app:
+   - Once the ESPHome app is started, you see your device as **Discovered**.
    - Select **Adopt**.
    - When prompted, enter the Network credentials of your local 2.4 GHz Wi-Fi network and select **Adopt**.
 
 4. If you see a notification that there is an update available for this device, select **Update**.
 5. Make sure you have access to the configuration file.
-   - If you are unsure what method to use, [install the File editor](/common-tasks/os/#installing-and-using-the-file-editor-add-on) add-on.
+   - If you are unsure what method to use, [install the File editor](/common-tasks/os/#installing-and-using-the-file-editor-app) app.
    - In the File Editor configuration, make sure the **Enforce basepath** option is disabled.
 6. Edit the general configuration to enable debug mode:
    - Access the `config` folder and open the `configuration.yaml` file.
@@ -140,7 +140,7 @@ You think there is an issue with background noise or speaker volume? In some cas
    - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
 9. Listen to the audio file of interest.
 10. Open the configuration file:
-    - In the ESPHome add-on, on your device, select **Edit**.
+    - In the ESPHome app, on your device, select **Edit**.
     - This lets you edit the configuration file of that device.
 11. To add a section to adjust noise suppression and volume, add the following lines:
 

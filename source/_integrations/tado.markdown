@@ -20,7 +20,6 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - climate
-  - device_tracker
   - diagnostics
   - sensor
   - switch
@@ -144,7 +143,6 @@ script:
           time_period: "01:30:00"
 ```
 
-{% raw %}
 ```yaml
 # Example automation to set temperature offset based on another thermostat value
 automation:
@@ -175,7 +173,6 @@ automation:
           {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
           {{ (-(tado_temp - room_temp) + current_offset)|round(1) }}
 ```
-{% endraw %}
 
 ### Action: Add meter reading
 
@@ -188,7 +185,6 @@ The `tado.add_meter_reading` action adds your meter readings to Tado Energy IQ. 
 
 Examples:
 
-{% raw %}
 ```yaml
 # Example automation add meter readings on a daily basis.
 automation:
@@ -206,4 +202,3 @@ automation:
           config_entry: ef2e84b3dfc0aee85ed44ac8e8038ccf
           reading: "{{ states('sensor.gas_consumption')|int }}"
 ```
-{% endraw %}

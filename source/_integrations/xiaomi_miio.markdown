@@ -1501,8 +1501,6 @@ The `xiaomi_miio.vacuum_clean_zone` action starts the cleaning operation in the 
 Example of `xiaomi_miio.vacuum_clean_zone` use:
 
 Inline array:
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
@@ -1518,11 +1516,7 @@ automation:
           zone: [[30914, 26007, 35514, 28807], [20232, 22496, 26032, 26496]]
 ```
 
-{% endraw %}
-
 Array with inline zone:
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
@@ -1539,8 +1533,6 @@ automation:
             - [30914, 26007, 35514, 28807]
             - [20232, 22496, 26032, 26496]
 ```
-
-{% endraw %}
 
 Array mode:
 

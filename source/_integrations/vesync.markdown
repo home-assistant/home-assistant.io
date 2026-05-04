@@ -29,7 +29,9 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets, humidifers and select air fryers.
@@ -85,6 +87,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- OasisMist 1000S Smart Ultrasonic Cool Mist Tower Humidifier (LUH-M101S-WUS)
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ### Air Fryers
@@ -208,8 +211,6 @@ In the example below, change all of the `vesync_switch`'s to match your device's
 
 Adapted from the [TP-Link integration](https://www.home-assistant.io/integrations/tplink/#plugs).
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
@@ -217,5 +218,3 @@ template:
       state: "{{ state_attr('switch.vesync_switch', 'voltage') | float(default=0) }}"
       unit_of_measurement: "V"
 ```
-
-{% endraw %}

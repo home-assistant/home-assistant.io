@@ -11,7 +11,7 @@ Many automations can be tested directly in the automation editor UI.
 
 ### Running the entire automation
 
-In the three dots menu in the automation list or automation editor UI, select the **Run actions** button. This will execute all of the {% term actions %}, while skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. Note that any [trigger ID](/docs/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
+In the three dots menu in the automation list or automation editor UI, select the **Run actions** button. This will execute all the {% term actions %}, while skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. Note that any [trigger ID](/docs/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
 
 You can also trigger an automation manually. This can test the conditions as if the automation was triggered by an event. Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. In the **Action** drop-down, select **Automation: Trigger**, then **Choose entity** to select the automation you are testing. Toggle whether to skip the conditions, then **Perform action**. If needed, additional `trigger` or other data can be added in the YAML view for testing. The [trigger](/docs/automation/trigger/) page has more information about data within the trigger.
 
@@ -55,20 +55,18 @@ Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating
 
 The last 5 traces are recorded for all automations. It is possible to change this by adding the following code to your automation.
 
-{% raw %}
 
 ```yaml
 trace:
   stored_traces: 20
 ```
 
-{% endraw %}
 
 ## Testing templates
 
-If your automation uses [templates](/docs/configuration/templating/) in any part, you can do the following to make sure it works as expected:
+If your automation uses [templates](/docs/templating/) in any part, you can do the following to make sure it works as expected:
 
 1. Go to {% my developer_template title="**Settings** > **Developer tools** > **Template**" %} tab.
-2. Create all variables (sources) required for your template as described at the end of [this](https://www.home-assistant.io/docs/configuration/templating/#processing-incoming-data) paragraph.
+2. Create all variables (sources) required for your template as described at the end of [this](https://www.home-assistant.io/docs/templating/where-to-use/#processing-incoming-data) paragraph.
 3. Copy your template code and paste it in Template editor straight after your variables.
 4. If necessary, change your sources' value and check if the template works as you want and does not generate any errors.

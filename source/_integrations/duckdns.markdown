@@ -6,10 +6,11 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.55
 ha_domain: duckdns
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
+ha_quality_scale: platinum
 ---
 
 The **Duck DNS** {% term integration %} keeps your Duck DNS subdomain in sync with your current public IP address.
@@ -31,7 +32,7 @@ If you are running the Duck DNS app for Home Assistant (formerly known as Duck D
 
 ## Prerequisites
 
-To set up the integration, you need your Duck DNS subdomain and token. You can find these on the [Duck DNS homepage](https://www.duckdns.org) after logging in. If you don’t have an account, sign up using your preferred method (e.g., GitHub, Google), then create a new subdomain.
+To set up the integration, you need your Duck DNS subdomain and token. You can find these on the [Duck DNS homepage](https://www.duckdns.org) after signing in. If you don’t have an account, sign up using your preferred method (for example, GitHub or Google), then create a new subdomain.
 
 {% include integrations/config_flow.md %}
 
@@ -57,7 +58,6 @@ Set the TXT record of your Duck DNS subdomain.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 action: duckdns.set_txt
@@ -66,7 +66,6 @@ data:
   txt: LoqXcYV8...jxAjEuX0.9jg46WB3...fm21mqTI # Replace with a valid ACME DNS-01 challenge
 ```
 
-{% endraw %}
 
 {% enddetails %}
 

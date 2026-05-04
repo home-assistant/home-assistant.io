@@ -43,7 +43,7 @@ Entities are the basic building blocks to hold data in Home Assistant. An {% ter
 ## Areas
 
 An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target service calls at an entire group of devices. For example, turning off all the lights in the living room.
-Locations within your home such as living room, dance floor, etc. Areas can be assigned to {% term floors %}.
+These are locations within your home, such as the living room or the dance floor. Areas can be assigned to {% term floors %}.
 Areas can also be used for automatically generated cards, such as the [Area card](/dashboards/area/).
 
 ## Automations
@@ -60,7 +60,7 @@ To learn the basics about {% term automations %}, refer to the [automation basic
 
 ## Scripts
 
-Similar to {% term automations %}, scripts are repeatable {% term actions %} that can be run. The difference between {% term scripts %} and {% term automations %} is that {% term scripts %} do not have triggers. This means that {% term scripts %} cannot automatically run unless they are used in an {% term automations %}. Scripts are particularly useful if you perform the same {% term actions %} in different {% term automations %} or trigger them from a dashboard. For information on how to create {% term scripts %}, refer to the [scripts](/integrations/script/) documentation.
+Similar to {% term automations %}, scripts are repeatable {% term actions %} that can be run. The difference between {% term scripts %} and {% term automations %} is that {% term scripts %} do not have triggers. This means that {% term scripts %} cannot automatically run unless they are used in {% term automations %}. Scripts are particularly useful if you perform the same {% term actions %} in different {% term automations %} or trigger them from a dashboard. For information on how to create {% term scripts %}, refer to the [scripts](/integrations/script/) documentation.
 
 ![Scripts](/images/getting-started/script_01.png)
 

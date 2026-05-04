@@ -26,6 +26,6 @@ The UK Environment Agency Flood Monitoring only provides data for England - Nort
 
 Home Assistant offers the flood monitoring integration through {% my integrations title="**Settings** > **Devices & services**" %} > **Environment Agency Flood Gauges**.
 
-You will be prompted to select a monitoring station. You can find the name of nearby monitoring stations on the Flood information service [website](https://check-for-flooding.service.gov.uk/river-and-sea-levels).
+You will be prompted to select a monitoring station. You can find the name of nearby monitoring stations on the Flood information service [website](https://check-for-flooding.service.gov.uk/river-and-sea-levels). If there are multiple stations with the same name, you can use the ID to filter to the correct one. The ID can be found at the end of the URL from the Flood information service, e.g. for "Westminster" (`https://check-for-flooding.service.gov.uk/station/7389`), the ID would be `7389`.
 
 Sensors for that monitoring station should then appear in your Home Assistant instance.

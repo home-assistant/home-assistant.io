@@ -18,7 +18,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Xiaomi Gateway (Aqara)** {% term integration %} allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
@@ -347,8 +347,6 @@ List of supported binary sensors, including the following properties (if availab
 
 #### Gas
 
-{% raw %}
-
 ```yaml
 - alias: "Send notification on gas alarm"
   triggers:
@@ -362,8 +360,6 @@ List of supported binary sensors, including the following properties (if availab
         title: "Gas alarm!"
         message: "Gas with a density of {{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }} detected."
 ```
-
-{% endraw %}
 
 #### Xiaomi Wireless Button
 
@@ -488,8 +484,6 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 
 The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
 
-{% raw %}
-
 ```yaml
 - alias: "Decrease brightness of the gateway light"
   triggers:
@@ -549,8 +543,6 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
       target:
         entity_id: light.gateway_light_34xxxxxxxx13
 ```
-
-{% endraw %}
 
 #### Vibration sensor
 

@@ -26,7 +26,7 @@ It allows specifying which days of the week will count as workdays and also uses
 
 This can be used to make daily automations that act differently on workdays than non-workdays. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a workday but wait until 11 if it is a non-working day.
 
-The `workday` {% term integration %} also provides a `calendar` entity that may be used to see upcoming workdays.
+The `workday` {% term integration %} also provides a {% term calendar %} entity that may be used to see upcoming workdays.
 
 ## Setup
 
@@ -64,7 +64,6 @@ providing feedback if the date is a workday or not.
 | ---------------------- | -------- | ----------- | --------|
 | `check_date` | yes | Date to test if workday or not. | 2022-03-10
 
-{% raw %}
 ```yaml
 action: workday.check_date
 target:
@@ -73,7 +72,6 @@ data:
   check_date: "2023-12-25"
 response_variable: check_date
 ```
-{% endraw %}
 
 The response data field `check_date` is providing:
 

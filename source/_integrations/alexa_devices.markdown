@@ -3,6 +3,7 @@ title: Alexa Devices
 description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Notify
   - Sensor
   - Switch
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_iot_class: Cloud Polling
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - notify
   - sensor
@@ -37,7 +39,7 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
-
+- **Amazon Air Quality Monitor**
 - **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
@@ -63,7 +65,7 @@ You must ensure the authenticator app is setup as your preferred method for 2FA.
 
 ### Available Actions
 
-Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`
+Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`, `alexa_devices.send_info_skill`
 
 ### Action: Send message
 
@@ -109,6 +111,15 @@ Additional sounds are available through advanced markup using the `notify.send_m
 | `device_id` | no | Device on which you want to play sound |
 | `sound` | no | The name of the sound to play |
 
+### Action: Send Info Skill
+
+The `alexa_devices.send_info_skill` action allows you to run some of the inbuilt Alexa actions that output things like the date, a weather forecast, or tell you a joke.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------------------------------------- |
+| `device_id` | no | Device on which you want to run action |
+| `info_skill` | no | The info skill you want to run |
+
 ## Sensors
 
 The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
@@ -123,10 +134,18 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 - **Illuminance**
 - **Wi-Fi and Bluetooth connectivity**
 
+#### Air Quality Monitor sensors
+
+- **Particulate Matter** - 10 μm & 2.5 μm
+- **Carbon Monoxide**
+- **Volatile Organic Compounds Index**
+- **Air Quality Index**
+
 ## Supported functionality
 
 In addition to sensors, you can use the following entities:
 
+- **Button** - Execute Alexa routines
 - **Notify** - Speak and Announce notifications
 - **Switch** - Do not disturb
 

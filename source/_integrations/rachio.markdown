@@ -20,7 +20,7 @@ ha_platforms:
   - calendar
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Rachio** {% term integration %} allows you to control your [Rachio irrigation system](https://rachio.com/).
@@ -75,7 +75,7 @@ Once configured, a switch will be added for every zone that is enabled on every 
 
 ## Calendar
 
-A [calendar](https://www.home-assistant.io/integrations/calendar/) entity will be added for each smart hose timer base station on the account, which will show past and future events for all enabled schedules. An upcoming event can be deleted from the calendar, which will trigger a skip of that event.
+A {% term calendar %} entity will be added for each smart hose timer base station on the account, which will show past and future events for all enabled schedules. An upcoming event can be deleted from the calendar, which will trigger a skip of that event.
 
 ## Actions
 

@@ -10,7 +10,7 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@tstabrawa'
 ---
