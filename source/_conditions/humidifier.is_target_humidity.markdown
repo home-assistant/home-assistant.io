@@ -100,7 +100,7 @@ for:
 
 When the bedroom humidifier's target humidity is set to 70% or above, turn on the ventilation fan to reduce the risk of condensation. This keeps air circulating whenever the humidifier is running at a high setting.
 
-- **Trigger**: State: Humidifier target humidity changed
+- **Trigger**: State change of the bedroom humidifier's `humidity` attribute
 - **Condition**: Humidifier target humidity (70% or above)
 - **Target**: Bedroom humidifier
 - **Condition passes if**: Any
