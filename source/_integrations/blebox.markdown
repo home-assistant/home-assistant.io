@@ -453,8 +453,8 @@ This integration adds the Blebox device as multiple sensor entities to Home Assi
 
 #### Additional features
 
-- Option to configure number of phases (1 or 3) is available in wBox app.
-- Option to enable/disable reverse energy measurement is available in wBox app.
+- Option to configure the number of phases (1 or 3) is available in the wBox app.
+- Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
 
 ### actionBox, actionBoxS, and proxiBox
@@ -797,6 +797,6 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 
 #### Additional features
 
-- Option to configure number of phases (1 or 3) is available in wBox app.
-- Option to enable/disable reverse energy measurement is available in wBox app.
+- Option to configure the number of phases (1 or 3) is available in the wBox app.
+- Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
