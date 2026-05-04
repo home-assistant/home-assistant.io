@@ -64,7 +64,7 @@ trigger: |
         number: 5
 {% endexample %}
 
-This fires whenever the bedroom humidity sensor reading moves to a value above 5 %. To fire on any change regardless of direction or value, use `type: any` and omit `value`.
+This fires whenever the bedroom humidity sensor reading moves to a value above 5%. To fire on any change regardless of direction or value, use `type: any` and omit `value`.
 
 To fire only when the new reading is within a comfort range:
 
@@ -125,11 +125,11 @@ threshold:
 
 ### Automation: run the bathroom fan after a shower
 
-After a shower, humidity in a bathroom can spike quickly. This automation turns on the bathroom fan whenever the humidity reading jumps by 10 %, keeping the room from getting damp.
+After a shower, humidity in a bathroom can spike quickly. This automation turns on the bathroom fan whenever the humidity reading rises above 70%, keeping the room from getting damp.
 
 - **Trigger**: Relative humidity changed
 - **Target**: Bathroom humidity sensor
-- **Threshold type**: 10
+- **Threshold type**: Above 70%
 - **Action**: Fan: Turn on
 
 {% details "YAML example for a post-shower bathroom fan" %}
@@ -142,7 +142,10 @@ automation: |
       target:
         entity_id: sensor.bathroom_humidity
       options:
-        threshold: 10
+        threshold:
+          type: above
+          value:
+            number: 70
   actions:
     - action: fan.turn_on
       target:
@@ -153,7 +156,7 @@ automation: |
 
 ### Automation: log humidity changes in the greenhouse
 
-Track how much the humidity in your greenhouse shifts throughout the day by sending a notification whenever the reading changes by more than 5 %.
+Track how much the humidity in your greenhouse shifts throughout the day by sending a notification whenever the reading changes by more than 5%.
 
 - **Trigger**: Relative humidity changed
 - **Target**: Greenhouse humidity sensor
@@ -170,7 +173,8 @@ automation: |
       target:
         entity_id: sensor.greenhouse_humidity
       options:
-        threshold: 5
+        threshold:
+          type: any
   actions:
     - action: notify.mobile_app_phone
       data:

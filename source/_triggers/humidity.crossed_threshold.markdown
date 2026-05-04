@@ -7,7 +7,7 @@ related_triggers:
   - humidity.changed
 ---
 
-The **Relative humidity crossed threshold** trigger fires when a humidity reading crosses into a zone you define. A bathroom sensor crossing above 70 % after a shower, a basement sensor dipping below 30 % in a dry winter, a reading entering a target comfort range, or a reading escaping that range are all supported.
+The **Relative humidity crossed threshold** trigger fires when a humidity reading crosses into a zone you define. A bathroom sensor crossing above 70% after a shower, a basement sensor dipping below 30% in a dry winter, a reading entering a target comfort range, or a reading escaping that range are all supported.
 
 Use **Relative humidity crossed threshold** to automate ventilation when the air becomes too humid, alert you when conditions in a sensitive room drift out of range, or coordinate devices that respond to specific humidity levels.
 
@@ -29,7 +29,7 @@ To use **Relative humidity crossed threshold** in an automation:
    - Select **In range** and enter a lower and upper bound to fire when the reading enters the range from outside.
    - Select **Outside range** and enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
    For each option, you can enter a fixed percentage or use an `input_number`, `number`, or `sensor` entity as the threshold.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple entities are targeted.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple entities are targeted.
 8. Under **For at least**, set how long the reading must stay past the threshold before the trigger fires. Leave it at zero to fire immediately.
 9. Select **Save**.
 
@@ -50,11 +50,11 @@ Trigger when:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
 
-    - **Any**: fire every time any targeted entity crosses the threshold.
+    - **Each**: fire every time any targeted entity crosses the threshold.
     - **First**: fire only on the first crossing.
-    - **Last**: fire only after every targeted entity crosses the threshold.
+    - **All**: fire only after every targeted entity crosses the threshold.
 
-    This corresponds to the `behavior` field in YAML. Default is **Any**.
+    This corresponds to the `behavior` field in YAML. Default is **Each**.
   required: true
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief spikes. For example, set it to `0:05:00` to fire only after the reading has stayed past the threshold for 5 minutes. Default is `0` (fires immediately).
@@ -79,9 +79,9 @@ trigger: |
         number: 60
 {% endexample %}
 
-This fires whenever the bedroom humidity sensor enters the comfort range (40 % to 60 %).
+This fires whenever the bedroom humidity sensor enters the comfort range (40% to 60%).
 
-To fire when the reading leaves a comfort range (escapes above 60 % or below 40 %):
+To fire when the reading leaves a comfort range (escapes above 60% or below 40%):
 
 {% example %}
 trigger: |
@@ -136,7 +136,7 @@ for:
 
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
-- A comfortable indoor humidity range is typically 40 % to 60 %. Use **Outside range** with those bounds to fire the moment conditions drift out of that comfort zone.
+- A comfortable indoor humidity range is typically 40% to 60%. Use **Outside range** with those bounds to fire the moment conditions drift out of that comfort zone.
 - Pair this trigger with [Relative humidity changed](/triggers/humidity.changed/) if you also want to react to smaller fluctuations between crossings.
 - The trigger works with climate entities, humidifier entities, weather entities, and sensors with the humidity device class.
 
@@ -146,12 +146,12 @@ for:
 
 ### Automation: turn on the bathroom fan when it gets too humid
 
-After a shower, bathroom humidity can climb fast. This automation turns on the bathroom fan the moment humidity crosses 70 %, and keeps it running until the air is dry again.
+After a shower, bathroom humidity can climb fast. This automation turns on the bathroom fan the moment humidity crosses 70%, and keeps it running until the air is dry again.
 
 - **Trigger**: Relative humidity crossed threshold
 - **Target**: Bathroom humidity sensor
-- **Threshold type**: 70
-- **Trigger when**: Any
+- **Threshold type**: Above 70%
+- **Trigger when**: Each
 - **Action**: Fan: Turn on
 
 {% details "YAML example for bathroom humidity ventilation" %}
@@ -164,7 +164,10 @@ automation: |
       target:
         entity_id: sensor.bathroom_humidity
       options:
-        threshold: 70
+        threshold:
+          type: above
+          value:
+            number: 70
   actions:
     - action: fan.turn_on
       target:
@@ -179,8 +182,8 @@ Keep your basement at a healthy humidity level by sending a notification wheneve
 
 - **Trigger**: Relative humidity crossed threshold
 - **Target**: Basement humidity sensor
-- **Threshold type**: 60
-- **Trigger when**: Any
+- **Threshold type**: Above 60%
+- **Trigger when**: Each
 - **For at least**: 00:10:00
 - **Action**: Send a mobile notification
 
@@ -194,12 +197,15 @@ automation: |
       target:
         entity_id: sensor.basement_humidity
       options:
-        threshold: 60
+        threshold:
+          type: above
+          value:
+            number: 60
         for: "00:10:00"
   actions:
     - action: notify.mobile_app_phone
       data:
-        message: "Basement humidity crossed 60 %."
+        message: "Basement humidity crossed 60%."
 {% endexample %}
 
 {% enddetails %}
