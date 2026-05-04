@@ -94,7 +94,6 @@ Start a dimming sequence at a set time each night. This blueprint lets you pick 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_bedtime_routine.yaml" %}
 
 {% details "Example YAML" %}
-{% raw %}
 ```yaml
 triggers:
   - trigger: time
@@ -109,7 +108,7 @@ actions:
     target:
       entity_id: light.jar
 ```
-{% endraw %}
+
 {% enddetails %}
 
 ### Pause on motion
@@ -119,7 +118,6 @@ Keep the light from dimming while you're still up. This blueprint pauses the dim
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_pause_on_motion.yaml" %}
 
 {% details "Example YAML" %}
-{% raw %}
 ```yaml
 triggers:
   - trigger: state
@@ -134,7 +132,7 @@ actions:
     target:
       entity_id: button.jar_pause_dimming
 ```
-{% endraw %}
+
 {% enddetails %}
 
 ### Turn on and hold at nightlight level
@@ -148,7 +146,6 @@ The `sensor.jar_dimming_end_time` sensor is disabled by default. You must enable
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_turn_on_pause_nightlight.yaml" %}
 
 {% details "Example YAML" %}
-{% raw %}
 ```yaml
 triggers:
   - trigger: time
@@ -178,7 +175,7 @@ actions:
     target:
       entity_id: button.jar_pause_dimming
 ```
-{% endraw %}
+
 {% enddetails %}
 
 ## Data updates
