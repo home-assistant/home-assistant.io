@@ -156,11 +156,11 @@ automation: |
 
 ### Automation: log humidity changes in the greenhouse
 
-Track how much the humidity in your greenhouse shifts throughout the day by sending a notification whenever the reading changes by more than 5%.
+Track how much the humidity in your greenhouse shifts throughout the day by sending a notification whenever the reading changes.
 
 - **Trigger**: Relative humidity changed
 - **Target**: Greenhouse humidity sensor
-- **Threshold type**: 5
+- **Threshold type**: Any change
 - **Action**: Send a mobile notification
 
 {% details "YAML example for greenhouse humidity logging" %}
