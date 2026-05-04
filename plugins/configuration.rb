@@ -10,8 +10,8 @@ module Jekyll
 
     TYPES = [
       'action', 'boolean', 'string', 'integer', 'float', 'time', 'template',
-      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'any',
-      'selector',
+      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'timedelta',
+      'any', 'selector',
     ]
 
     MIN_DEFAULT_LENGTH = 30
