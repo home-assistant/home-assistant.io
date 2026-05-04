@@ -21,7 +21,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your alarm panel is in (like your hallway or entryway). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Alarm disarmed**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple alarm panels are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple alarm panels are targeted.
 7. Under **For at least**, set how long the alarm must stay disarmed before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -29,7 +29,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted panel disarms, **First** to fire only when the first panel in a group disarms, or **Last** to fire only after every targeted panel is disarmed.
+  description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel disarms, **First** to fire only when the first panel in a group disarms, or **All** to fire only after every targeted panel is disarmed.
   required: true
 For at least:
   description: How long the alarm must stay disarmed before the trigger fires. Set to zero to fire immediately.
@@ -75,7 +75,7 @@ for:
 ## Good to know
 
 - The trigger only fires when an alarm panel transitions from a known, valid state. If an alarm panel comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
-- This trigger fires regardless of which armed mode the alarm was previously in. It responds to transitions from armed away, armed home, armed night, armed vacation, and triggered states.
+- This trigger fires regardless of which armed mode the alarm was previously in. It responds when the alarm changes to disarmed from another valid state, including armed away, armed custom bypass, armed home, armed night, armed vacation, and triggered.
 - To react when the alarm is armed instead of disarmed, use [Alarm armed](/triggers/alarm_control_panel.armed/).
 
 {% include triggers/try_it.md %}
@@ -88,7 +88,7 @@ When the alarm is disarmed, someone just walked in. Turn on the entryway light a
 
 - **Trigger**: Alarm disarmed
 - **Target**: Home alarm panel
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Turn on entryway lights
 - **Action**: Set the thermostat to 21 degrees
@@ -124,7 +124,7 @@ When you arrive home from vacation and disarm the alarm, turn off the occupancy 
 
 - **Trigger**: Alarm disarmed
 - **Target**: Home alarm panel
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Turn off the vacation mode helper
 

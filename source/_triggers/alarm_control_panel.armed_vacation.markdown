@@ -21,7 +21,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your alarm panel is in (like your hallway or entryway). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Alarm armed vacation**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple alarm panels are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple alarm panels are targeted.
 7. Under **For at least**, set how long the alarm must stay armed vacation before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -29,7 +29,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted panel arms vacation, **First** to fire only when the first panel in a group arms vacation, or **Last** to fire only after every targeted panel is armed vacation.
+  description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms vacation, **First** to fire only when the first panel in a group arms vacation, or **All** to fire only after every targeted panel is armed vacation.
   required: true
 For at least:
   description: How long the alarm must stay armed vacation before the trigger fires. Set to zero to fire immediately.
@@ -88,7 +88,7 @@ When you arm the alarm in vacation mode, turn on a helper that your other automa
 
 - **Trigger**: Alarm armed vacation
 - **Target**: Home alarm panel
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Turn on the vacation mode helper
 
@@ -118,7 +118,7 @@ When vacation mode activates, drop the thermostat to save energy and send a mess
 
 - **Trigger**: Alarm armed vacation
 - **Target**: Home alarm panel
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Set the thermostat to 15 degrees
 - **Action**: Notify all household members

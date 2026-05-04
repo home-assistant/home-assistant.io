@@ -21,7 +21,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your alarm panel is in (like your hallway or entryway). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Alarm armed home**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple alarm panels are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple alarm panels are targeted.
 7. Under **For at least**, set how long the alarm must stay armed home before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -29,7 +29,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted panel arms home, **First** to fire only when the first panel in a group arms home, or **Last** to fire only after every targeted panel is armed home.
+  description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms home, **First** to fire only when the first panel in a group arms home, or **All** to fire only after every targeted panel is armed home.
   required: true
 For at least:
   description: How long the alarm must stay armed home before the trigger fires. Set to zero to fire immediately.
@@ -88,7 +88,7 @@ When you arm the alarm in home mode for the evening, make sure every exterior do
 
 - **Trigger**: Alarm armed home
 - **Target**: Home alarm panel
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Lock all exterior doors
 
@@ -118,7 +118,7 @@ When you arm the alarm in home mode, dim the porch lights to a gentle glow. They
 
 - **Trigger**: Alarm armed home
 - **Target**: Home alarm panel
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Dim porch lights to 20%
 
