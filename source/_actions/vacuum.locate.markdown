@@ -17,7 +17,7 @@ To use this action from an automation or script:
 2. Open or create an automation.
 3. Add an action and search for **Vacuum: Locate vacuum cleaner**.
 4. Select one or more vacuums, area, or group.
-5. Save.
+5. Select **Save**.
 
 {% include actions/yaml_header.md %}
 
