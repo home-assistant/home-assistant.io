@@ -16,7 +16,7 @@ related_functions:
   - time_until
 ---
 
-The `timedelta_string` template function converts a timedelta object into a human-readable string like "2 hours" or "1 day and 30 minutes". Unlike [`time_since`](/template-functions/time_since/) and [`time_until`](/template-functions/time_until/), which compute the duration from the current time to a given datetime, `timedelta_string` works directly on an already-computed timedelta. This makes it useful when you've already calculated a duration from a subtraction or from a sensor, and just want to display it nicely.
+The `timedelta_string` template function converts a timedelta object into a human-readable string like "2 hours" or "1 day 30 minutes". Unlike [`time_since`](/template-functions/time_since/) and [`time_until`](/template-functions/time_until/), which compute the duration from the current time to a given datetime, `timedelta_string` works directly on an already-computed timedelta. This makes it useful when you've already calculated a duration from a subtraction or from a sensor, and just want to display it nicely.
 
 Negative timedeltas are formatted using their absolute value.
 
@@ -56,7 +56,7 @@ value:
   type: timedelta
 precision:
   description: >
-    The number of time components to include in the output, from 1 to 6. A precision of 1 might return "2 hours", while a precision of 2 might return "2 hours and 30 minutes". Use 0 to include all components. Higher precision gives more detail.
+    The number of time components to include in the output, from 1 to 6. A precision of 1 might return "2 hours", while a precision of 2 might return "2 hours 30 minutes". Use 0 to include all components. Higher precision gives more detail.
   required: false
   default: "1"
   type: integer
