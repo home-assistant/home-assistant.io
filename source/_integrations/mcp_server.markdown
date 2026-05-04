@@ -161,7 +161,7 @@ ChatGPT supports connecting to remote Model Context Protocol servers for Plus, P
        - **OAuth Client Secret**: Enter any random text (it is not used by Home Assistant, but the ChatGPT configuration form may require a value).
        - **Token endpoint auth method**: `client_secret_post`
      - Under **OAuth endpoints**:
-       - **Auth Url**: `https://<your_home_assistant_external_url>/auth/authorize`
+       - **Auth URL**: `https://<your_home_assistant_external_url>/auth/authorize`
        - **Token URL**: `https://<your_home_assistant_external_url>/auth/token`
        - **Authorization server base**: `https://<your_home_assistant_external_url>`
 4. Select **Create**. Once created, the app will appear in your **Enabled Apps**.
