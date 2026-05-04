@@ -33,11 +33,9 @@ There are two integrations for WeatherFlow devices, and you are not limited to s
 
 {% include integrations/config_flow.md %}
 
-## Sensors
-
 This integration will expose the following sensors:
 
-### Atmospheric
+### Atmospheric sensors
 
 | Sensor | Description |
 |-------|------------|
@@ -50,7 +48,7 @@ This integration will expose the following sensors:
 | Vapor pressure | Pressure exerted by water vapor in the air (absolute moisture content). |
 | Wet bulb temperature | The lowest temperature that can be reached under current ambient conditions by the evaporation of water only. |
 
-### Wind
+### Wind sensors
 
 | Sensor | Description |
 |-------|------------|
@@ -60,7 +58,7 @@ This integration will expose the following sensors:
 | Wind lull | Wind lull over a minimum 3 second sample. |
 | Wind speed | Wind speed at the station. |
 
-### Precipitation
+### Precipitation sensors
 
 | Sensor | Description |
 |-------|------------|
@@ -68,7 +66,7 @@ This integration will expose the following sensors:
 | Precipitation intensity | Precipitation intensity ([extrapolated](https://weatherflow.github.io/Tempest/api/derived-metric-formulas.html#rain-rate) from the accumulation over the previous minute). |
 | Precipitation type | Precipitation type (`none`, `rain`, `hail`, `rain_hail`). |
 
-### Lightning
+### Lightning sensors
 
 | Sensor | Description |
 |-------|------------|
@@ -78,7 +76,7 @@ This integration will expose the following sensors:
 | Lightning last energy | Energy estimate for the most recent detected lightning strike, as reported by the station. |
 | Lightning last strike | Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time. |
 
-### Solar & Light
+### Solar & Light sensors
 
 | Sensor | Description |
 |-------|------------|
