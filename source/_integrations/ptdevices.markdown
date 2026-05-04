@@ -1,33 +1,36 @@
 ---
-title: "PTDevices"
-description: "home-assistant.io web presence"
-ha_release: "0.38"
-ha_category: Integration
-ha_iot_class: "Cloud Polling"
+title: PTDevices
+description: Instructions on how to integrate you PTLevel into Home Assistant.
+ha_release: 2026.5.0
+ha_category: Sensor
+ha_platforms:
+  - sensor
+ha_iot_class: Cloud Polling
 ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
   - '@paremtech-inc'
   - '@frogman85978'
 ha_domain: ptdevices
+ha_integration_type: hub
 ---
 
 The `PTDevices` integration allows you to integrate your PTDevice cistern monitor into Home Assistant.
 Use cases include:
 
-- With the notify integration installed, you can send notifications for low level.
+- Send notifications for low level or excessive usage.
 - Setup Automations to turn off pumps when running low.
-- Automatically run appliances that use water after a load has been delivered.
+- Setup Automations to run appliances after water has been delivered.
 
 ## Token API key
 
-You will need to create a token for your PTDevices account if your haven't done so already. If your have already generated a Token API token, you can use it for setting up more devices linked to the same account.
+You will need to create a token for your PTDevices account if your haven't done so already. If your have already generated a Token API token, you don't need to generate another one.
 
 1. Login to your PTDevices account that contains the devices your wish to integrate.
 2. Go to **My Account** page from the left hand side menu or [https://www.ptdevices.com/profile](https://www.ptdevices.com/profile)
 3. Go to the **Settings** page from the top menu.
 4. At the bottom of this page, click the **Regenerate API Token** button.
-5. Copy the generated API token to a safe location for setting up future devices. This API token will be used when setting up the PTDevices integration in Home Assistant.
+5. Copy the generated API token to a safe location. This API token will be used when setting up the PTDevices integration in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -74,12 +77,6 @@ The PTDevices integration provides the following entities.
 Some sensors are disabled by default, since they provide information that is only useful for advanced users. You can manually enable them in **{% my entities title="Settings -> Devices & Services -> Entities" %}** -> the sensor entity you want to enable -> Advanced settings -> Enabled.
 
 {% endnote %}
-
-#### Binary Sensors
-
-- **Battery Status**:
-  - **Description**: The current status of the onboard batteries. e.g. Normal or Low
-  - **Available for models**: All battery powered models
 
 #### Sensors
 
