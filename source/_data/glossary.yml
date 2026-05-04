@@ -307,6 +307,14 @@
   link: /integrations/group/
   aliases:
     - groups
+- term: Helper
+  definition: >-
+    A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need. Simple helpers include a toggle, number slider, dropdown list, text field, date/time picker, counter, timer, and schedule. More advanced helpers derive their value from other entities. For example, computing a minimum or maximum, tracking a trend, measuring utility consumption, or applying a filter. Depending on the type, you can create a helper in **Settings** > **Devices & services** > **Helpers** or with a YAML configuration. Helpers appear as regular entities and can be used in automations, conditions, dashboards, and templates.
+  excerpt: >-
+    A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need.
+  aliases:
+    - helpers
+  link: /integrations/#helper
 - term: HASS
   definition: >-
     HASS is an abbreviation for Home Assistant that was commonly used in the past.
