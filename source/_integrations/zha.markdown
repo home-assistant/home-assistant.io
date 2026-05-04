@@ -49,7 +49,7 @@ ha_zeroconf: true
 ha_integration_type: hub
 ---
 
-The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
+The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect most off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called a _Zigbee Coordinator_.
 
 This {% term integration %} currently supports the following device types within Home Assistant:
 
@@ -71,26 +71,28 @@ This {% term integration %} currently supports the following device types within
 
 ## Introduction
 
-The ZHA integration is a hardware-independent Zigbee gateway implementation that can replace most proprietary Zigbee gateways (or bridges, hubs, or controllers). ZHA creates a single Zigbee network to which you can add most Zigbee-based devices.
+The ZHA integration is a hardware-independent Zigbee gateway implementation that can replace many proprietary Zigbee gateways (or bridges, hubs, or controllers). ZHA creates a single Zigbee network to which you can add most Zigbee-based devices.
 
-ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/zigpy), so any coordinator that is compatible with zigpy can be used with ZHA. Review [compatible hardware](#compatible-hardware) recommendations before purchasing Zigbee devices.
+ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/zigpy), so any Zigbee Coordinator adapter that is compatible with zigpy can be used with ZHA. Review [compatible hardware](#compatible-hardware) recommendations before purchasing Zigbee devices.
 
 ### Zigbee terminology
 
-- **Zigbee network**: A mesh-network of devices with low-power digital radios using a low-bandwidth communication protocol.
-- **Zigbee coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
-- **Zigbee router device**: A hardware device that is always mains-powered (AC) such as outlets or fans.
-- **Zigbee end device**: A hardware device that is typically battery-powered (DC) such as remotes or motion sensors.
-- **Zigbee group**: A collection of two or more Zigbee devices of the same type, different from Home Assistant's [Groups](/integrations/group/).
+- **Zigbee network**: A mesh-network of Zigbee devices with low-power digital radios using a low-bandwidth communication protocol.
+- **Zigbee Coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
+- **Zigbee Router device**: A hardware device that is always mains-powered (AC), such as example outlets, fans, relays or dimmer switches.
+- **Zigbee End Device**: A hardware device that is typically battery-powered (DC), such as example buttons, door/window or motion sensors.
+- **Zigbee group**: A collection of two or more grouped Zigbee devices of the same type, (works different from Home Assistant's [Groups](/integrations/group/)).
 
-### Zigbee concepts
+### Zigbee fundamental concepts
 
-- A Zigbee network can have only one Zigbee coordinator.
-- The Zigbee coordinator can have multiple **Zigbee router devices** or **Zigbee end devices** connected.
-- Each Zigbee router device can have multiple **Zigbee end devices** connected to it.
-- A Zigbee device can only be connected to a single Zigbee network.
-- Zigbee networks depend heavily on having multiple [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand coverage and increase device capacity.
-- Router devices help pass messages to other nearby devices in the Zigbee network and therefore can improve range and increase the number of devices you can add.
+- A Zigbee network can have only one Zigbee Coordinator.
+  - Zigbee Coordinator can only belong to be member of a single Zigbee network.
+- A single Zigbee Coordinator adapter can have multiple **Zigbee Router devices** or **Zigbee End Devices** connected directly (direct children).
+  - Zigbee devices can only be connected to a single Zigbee network.
+- Zigbee uses a mesh network of intermediate [Zigbee Router devices](#using-router-devices-to-add-more-devices) to extend range by passing messages along to reach distant devices.
+  - Each Zigbee Router devices can have multiple Zigbee devices connected to it (as indirect children, or indirectly connected devices).
+  - Mesh networking is strengthen by adding more Zigbee Router devices which pass messages to nearby devices within the Zigbee network mesh, offloading the Zigbee Coordinator and thereby increasing the total number of devices you can add to the network.
+  - Zigbee networks therefore depend heavily on having multiple Zigbee Router devices to expand coverage and improving range.
 
 ## Compatible hardware
 
