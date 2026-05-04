@@ -28,17 +28,17 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Ecovacs** {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) vacuum cleaner and lawn mower robots.
+The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.com) robotic vacuum cleaners and lawn mowers.
 
 This is for the "Deebot" series of robotic vacuum cleaners and the "GOAT" series of robotic lawn mowers from Ecovacs.
 
-Note that Ecovacs also have other type of cleaning robots which are not supported by this integration at this time.
+Note that Ecovacs also has other types of cleaning robots that are not supported by this integration at this time.
 
 ## Prerequisites
 
-You will need your Ecovacs account information (username + password) to discover and control vacuums and mowers in your account. Your username is the same as your email address.
+You will need your Ecovacs account information (username and password) to discover and control vacuums and mowers in your account. Your username is the same as your email address.
 
-Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-` and `?`) in your password does not work.
+Additional note: There are some issues with password encoding. Using some special characters, for example `-` and `?`, in your password may not work.
 
 {% include integrations/config_flow.md %}
 
