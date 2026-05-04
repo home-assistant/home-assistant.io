@@ -39,52 +39,89 @@ This integration will expose the following sensors:
 
 ### Atmospheric sensors
 
-| Sensor | Description |
-|-------|------------|
-| Air density | The mass per unit volume of Earth’s atmosphere. |
-| Air pressure | The atmospheric pressure at the station level. |
-| Dew point | The temperature to which air must be cooled to become saturated with water vapor. |
-| Feels like | An index that combines temperature and humidity to determine the apparent temperature. |
-| Humidity | Percentage of moisture in the air relative to the maximum it can hold at the current temperature. |
-| Temperature | The degree or intensity of heat present in the area. |
-| Vapor pressure | Pressure exerted by water vapor in the air (absolute moisture content). |
-| Wet bulb temperature | The lowest temperature that can be reached under current ambient conditions by the evaporation of water only. |
+- **Air density**
+  - **Description**: The mass per unit volume of Earth’s atmosphere.
+
+- **Air pressure**
+  - **Description**: The atmospheric pressure at the station level.
+
+- **Dew point**
+  - **Description**: The temperature to which air must be cooled to become saturated with water vapor.
+
+- **Feels like**
+  - **Description**: An index that combines temperature and humidity to determine the apparent temperature.
+
+- **Humidity**
+  - **Description**: Percentage of moisture in the air relative to the maximum it can hold at the current temperature.
+
+- **Temperature**
+  - **Description**: The degree or intensity of heat present in the area.
+
+- **Vapor pressure**
+  - **Description**: Pressure exerted by water vapor in the air (absolute moisture content).
+
+- **Wet bulb temperature**
+  - **Description**: The lowest temperature that can be reached under current ambient conditions by the evaporation of water only.
+
 
 ### Wind sensors
 
-| Sensor | Description |
-|-------|------------|
-| Wind direction | Wind direction relative to the station direction. |
-| Wind direction average | Wind direction average. |
-| Wind gust | Wind gusts over a maximum 3 second sample. |
-| Wind lull | Wind lull over a minimum 3 second sample. |
-| Wind speed | Wind speed at the station. |
+- **Wind direction**
+  - **Description**: Wind direction relative to the station direction.
+
+- **Wind direction average**
+  - **Description**: Wind direction average.
+
+- **Wind gust**
+  - **Description**: Wind gusts over a maximum 3 second sample.
+
+- **Wind lull**
+  - **Description**: Wind lull over a minimum 3 second sample.
+
+- **Wind speed**
+  - **Description**: Wind speed at the station.
+
 
 ### Precipitation sensors
 
-| Sensor | Description |
-|-------|------------|
-| Precipitation | Precipitation (accumulated over the previous minute). |
-| Precipitation intensity | Precipitation intensity ([extrapolated](https://weatherflow.github.io/Tempest/api/derived-metric-formulas.html#rain-rate) from the accumulation over the previous minute). |
-| Precipitation type | Precipitation type (`none`, `rain`, `hail`, `rain_hail`). |
+- **Precipitation**
+  - **Description**: Precipitation (accumulated over the previous minute).
+
+- **Precipitation intensity**
+  - **Description**: Precipitation intensity ([extrapolated](https://weatherflow.github.io/Tempest/api/derived-metric-formulas.html#rain-rate) from the accumulation over the previous minute).
+
+- **Precipitation type**
+  - **Description**: Precipitation type (`none`, `rain`, `hail`, `rain_hail`).
+
 
 ### Lightning sensors
 
-| Sensor | Description |
-|-------|------------|
-| Lightning average distance | Average distance of recently detected lightning strikes. |
-| Lightning count | Count of lightning strikes in the past minute. |
-| Lightning last distance | Distance to the most recent detected lightning strike. |
-| Lightning last energy | Energy estimate for the most recent detected lightning strike, as reported by the station. |
-| Lightning last strike | Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time. |
+- **Lightning average distance**
+  - **Description**: Average distance of recently detected lightning strikes.
+
+- **Lightning count**
+  - **Description**: Count of lightning strikes in the past minute.
+
+- **Lightning last distance**
+  - **Description**: Distance to the most recent detected lightning strike.
+
+- **Lightning last energy**
+  - **Description**: Energy estimate for the most recent detected lightning strike, as reported by the station.
+
+- **Lightning last strike**
+  - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
+
 
 ### Solar & Light sensors
 
-| Sensor | Description |
-|-------|------------|
-| Illuminance | Amount of visible light received, measured in lux. |
-| Irradiance | Total solar radiation received, measured in W/m². |
-| UV index | Intensity of ultraviolet radiation received. |
+- **Illuminance**
+  - **Description**: Amount of visible light received, measured in lux.
+
+- **Irradiance**
+  - **Description**: Total solar radiation received, measured in W/m².
+
+- **UV index**
+  - **Description**: Intensity of ultraviolet radiation received.
 
 ## Event entity
 
