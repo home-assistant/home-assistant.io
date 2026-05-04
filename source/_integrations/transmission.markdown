@@ -99,8 +99,6 @@ The **Transmission** {% term integration %} provides an {% term "Event entity" %
 
 Create a persistent notification when a torrent is downloaded.
 
-{% raw %}
-
 ```yaml
 alias: Transmission torrent downloaded event
 description: "Notify when a torrent is downloaded"
@@ -122,8 +120,6 @@ actions:
         {{ state_attr(trigger.entity_id, 'name') }} was downloaded
 mode: single
 ```
-
-{% endraw %}
 
 ## Event automation
 

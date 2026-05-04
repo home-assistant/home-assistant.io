@@ -104,8 +104,6 @@ You can use the `onedrive.upload` action to upload one or more files from Home A
 | `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded files. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
 | `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
 
-{% raw %}
-
 ```yaml
 # Upload a single file
 action: onedrive.upload
@@ -122,7 +120,6 @@ data:
   destination_folder: Snapshots/2025
 ```
 
-{% endraw %}
 
 {% enddetails %}
 
