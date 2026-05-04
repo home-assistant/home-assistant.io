@@ -5,7 +5,7 @@ domain: humidity
 description: "Tests if a relative humidity value is above a threshold, below a threshold, or in a range of values."
 ---
 
-The **Relative humidity** condition passes when a humidity reading meets a threshold you define. You can check that humidity is above, below, or within a specific range. The condition works with humidity sensors, climate devices, humidifiers, and weather entities. Use it to run an automation only when the bedroom feels too damp, or only when the air is dry enough to need attention.
+The **Relative humidity** condition passes when a humidity reading meets a threshold you define. You can check that humidity is above, below, or within a specific range. The condition works with humidity sensors, climate devices, humidifiers, and weather entities. Use it to run an automation only when the bedroom feels too damp, or only when the air is dry enough to need attention. To start the automation based on a humidity change, pair this condition with [Relative humidity changed](/triggers/humidity.changed/) or [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/).
 
 When you target more than one entity, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted entity to meet the threshold, or demand that all of them do.
 
