@@ -29,6 +29,8 @@ The following device classes have been verified with real hardware and are fully
   - Sharp, SUNVISTA
 - **Storage battery** (Class code: 0x027D)
   - Sharp, SUNVISTA
+- **Switch (supporting JEM-A/HA terminals)** (Class code: 0x05FD)
+  - Panasonic, HF-JA1
 - **Controller** (Class code: 0x05FF)
   - Sharp, JH-RVB1
   - Sharp, JH-RWL8
@@ -89,8 +91,6 @@ The following device classes are implemented but have not been tested with real 
   - Commercial showcase (0x03CE)
   - Washer and dryer (0x03D3)
   - Commercial showcase outdoor unit (0x03D4)
-- **Management / Operations** (Group code: 0x05)
-  - Switch (supporting JEM-A/HA terminals) (0x05FD)
 - **Audiovisuals** (Group code: 0x06)
   - Television (0x0602)
 
@@ -112,8 +112,6 @@ Network interface:
 The integration provides the following configuration options, which can be changed after setup via {% my integrations title="**Settings** > **Devices & services**" %} > **HEMS Echonet Lite** > **Configure**:
 
 {% configuration_basic %}
-Polling interval:
-    description: "How often to poll device properties (in seconds). Lower values provide faster updates but increase network traffic. Default is 60 seconds."
 Enable experimental device classes:
     description: "When enabled, device classes that have not been verified with real hardware will also be registered. These may not work correctly."
 {% endconfiguration_basic %}
@@ -135,7 +133,7 @@ On/off control for features such as:
 
 The **HEMS Echonet Lite** integration uses both {% term polling %} and event-driven updates:
 
-- **Polling interval**: Device properties are polled at the interval specified in the [configuration options](#configuration-options) (default: 60 seconds).
+- **Polling interval**: Device properties are polled every 60 seconds.
 - **Discovery interval**: New devices are discovered every hour via multicast.
 - **Event-driven**: Devices that support property change notifications (INF) will push updates immediately.
 
@@ -144,7 +142,7 @@ The **HEMS Echonet Lite** integration uses both {% term polling %} and event-dri
 - Only IPv4 networks are supported.
 - The integration requires UDP multicast support on the network.
 - Some device properties may not be available if the device does not advertise them in its property map.
-- Vendor-specific extensions require additional YAML configuration files.
+- Currently, only the switch platform is implemented; other entity platforms (sensor, climate, etc.) are not yet available.
 
 ## Troubleshooting
 
