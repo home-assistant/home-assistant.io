@@ -310,9 +310,9 @@ To understand the root cause, first check debug logs on the client. For example 
 3. Select the **Home Assistant** MCP server.
 4. Select **Open Logs Folder**.
 5. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
-   - `Client error '404 Not Found' for url 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
+   - `Client error '404 Not Found' for URL 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
      this means the MCP Server integration is not configured in Home Assistant.
-   - `Client error '401 Unauthorized' for url 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
+   - `Client error '401 Unauthorized' for URL 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
      this means that the long-lived access token is not correct.
 ...
 
