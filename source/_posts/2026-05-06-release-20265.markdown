@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026.5 Beta: We're on the same frequency now 📡"
-description: "Radio frequency joins the smart home, a brand new Maintenance dashboard for your batteries, serial ports proxied over the network with ESPHome, new tile card features for media players and weather, durations for purpose-specific automation triggers and conditions, redesigned more-info dialogs for vacuums and lawn mowers, autocomplete in the code editors, and 12 new integrations!"
+description: "Radio frequency joins the smart home, a brand new Maintenance dashboard for your batteries, serial ports proxied over the network with ESPHome, new tile card features for media players, durations for purpose-specific automation triggers and conditions, redesigned more-info dialogs for vacuums and lawn mowers, autocomplete in the code editors, and 12 new integrations!"
 date: 2026-04-29 00:00:00
 date_formatted: "May 6, 2026"
 author: Franck Nijhof
@@ -78,7 +78,7 @@ Now, on to this release. My personal favorite this month is maybe a bit unexpect
 
 That said, I'd be lying if I said I wasn't also _super_ stoked about [radio frequency (RF) support](#radio-frequency-joins-infrared-as-a-first-class-citizen) landing this release. Just like last month's [infrared (IR) release](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant), this brings a _massive_ category of devices into Home Assistant natively: blinds, garage doors, ceiling fans, RF outlets, doorbells… you name it. Sure, there have always been clever workarounds and custom integrations to bridge some of these, but having it built right into the platform changes the game completely. There is so much cool stuff going on around this, and we're only getting started. 📡
 
-And there's plenty more: a brand new [Maintenance dashboard](#stay-on-top-of-your-batteries-with-the-new-maintenance-dashboard) for your batteries, [serial ports proxied over the network](#serial-ports-over-the-network-with-esphome) with ESPHome, [new tile card features](#new-tile-card-features-for-media-players) for media players and weather, [durations for purpose-specific automation triggers and conditions](#automations-that-finally-understand-for-a-while), redesigned [more-info dialogs for vacuums and lawn mowers](#a-modern-more-info-dialog-for-vacuums-and-lawn-mowers), [autocomplete in the code editors](#smarter-code-editors-with-autocomplete), and 12 new integrations! 🚀
+And there's plenty more: a brand new [Maintenance dashboard](#stay-on-top-of-your-batteries-with-the-new-maintenance-dashboard) for your batteries, [serial ports proxied over the network](#serial-ports-over-the-network-with-esphome) with ESPHome, [new tile card features](#new-tile-card-features-for-media-players) for media players, [durations for purpose-specific automation triggers and conditions](#automations-that-finally-understand-for-a-while), redesigned [more-info dialogs for vacuums and lawn mowers](#a-modern-more-info-dialog-for-vacuums-and-lawn-mowers), [autocomplete in the code editors](#smarter-code-editors-with-autocomplete), and 12 new integrations! 🚀
 
 Enjoy the (beta) release!
 
@@ -100,7 +100,6 @@ Enjoy the (beta) release!
 - [More for the dashboards you build yourself](#more-for-the-dashboards-you-build-yourself)
   - [Introducing the shortcut card](#introducing-the-shortcut-card)
   - [New tile card features for media players](#new-tile-card-features-for-media-players)
-  - [New weather forecast features for tile cards](#new-weather-forecast-features-for-tile-cards)
 - [Purpose-specific automation triggers \& conditions](#purpose-specific-automation-triggers--conditions)
   - [Automations that finally understand "for a while"](#automations-that-finally-understand-for-a-while)
   - [A few more triggers and conditions to play with](#a-few-more-triggers-and-conditions-to-play-with)
@@ -239,7 +238,7 @@ It's a small change with a big impact: at a glance, you can see if a door was op
 
 Building your own dashboard is one of the most rewarding parts of Home Assistant. The best part: you can build the entire thing right in the UI, by dragging and dropping cards into place. You don't need to be technical, you don't need to know YAML, and you don't need to touch a single line of code to make something that looks great and works exactly the way you want.
 
-Of course, the dashboards you craft yourself get plenty of love this release too. A brand new card for one-tap shortcuts, fresh tile card features for your media players, and the weather tile finally gets a proper forecast at a glance. 🎨
+Of course, the dashboards you craft yourself get plenty of love this release too. A brand new card for one-tap shortcuts and fresh tile card features for your media players. 🎨
 
 ### Introducing the shortcut card
 
@@ -271,18 +270,6 @@ The first new feature is **select source**: a dropdown right on the tile that le
 And the existing **playback** card feature got a long-requested upgrade: you can now pick exactly _which_ buttons appear and in _what_ order. Mix and match from on/off, play, pause, play/pause, stop, previous track, and next track to build a remote that fits your media player perfectly. No more turn-on button on a TV that doesn't need one, no more missing the next-track button on your speaker. 🎚️
 
 <img src='/images/blog/2026-05/media-player-controls-options.png' alt='Screenshot of the tile card playback feature editor with reorderable control chips and a media player preview.' class='no-shadow' />
-
-### New weather forecast features for tile cards
-
-Weather entities also got some serious tile card love this release. Two brand new card features turn the humble weather tile into a compact, glanceable forecast right on your dashboard, no separate weather card or popup required. 🌦️
-
-<img src='/images/blog/2026-05/weather-forecast-features.png' alt='Screenshot of weather tile cards showing the new forecast features.' class='no-shadow' />
-
-First up is the **hourly forecast** feature: a smooth temperature line that starts at the current temperature and extends into the coming hours. You pick how many hours to show (24 by default), and you instantly see whether the day is heating up, cooling down, or about to take a sudden dip.
-
-The **daily forecast** feature takes a different approach. Each upcoming day, or half-day for entities that provide a twice-daily forecast, is shown as a rounded bar spanning its expected min and max temperature, and colored by the forecast condition. A horizontal line marks the current temperature so you have a reference point. Sunny days, rainy stretches, and that one cold snap on Friday all jump out at a glance.
-
-Both forecast features can also visualize precipitation, so you can see when rain (or snow) is on the way without leaving your dashboard. ☔
 
 ## Purpose-specific automation triggers & conditions
 
