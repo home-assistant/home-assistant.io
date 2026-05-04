@@ -156,7 +156,7 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 
 ## Examples
 
-The example entity IDs below use the default naming that Home Assistant assigns on a clean install. Replace them with the entity IDs from your own system.
+The example entity IDs below use the default naming that Home Assistant assigns on a new Home Assistant installation. Replace them with the entity IDs from your own system.
 
 ### Activate high ventilation while cooking
 
