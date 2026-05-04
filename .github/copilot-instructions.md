@@ -160,7 +160,15 @@ This is the structure we use for integration pages:
 - Community notes
 - Removing the integration
 
-Here is an example template/page:
+#### Deprecated features or integrations
+
+When a feature is deprecated or an integration is removed from Home Assistant, remove its documentation.
+
+- If a feature is deprecated, remove the related section from the integration page.
+- Do not add a deprecation notice to the documentation.
+- If an entire integration is deprecated, follow the steps on [removing an integration page](https://developers.home-assistant.io/docs/documenting/remove-page).
+
+#### Example integration page
 
 ````markdown
 ---

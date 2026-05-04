@@ -13,7 +13,7 @@ These triggers work well alongside this one:
 {% for trigger_name in page.related_triggers %}
   {% assign trg = all_triggers | where: "trigger", trigger_name | first %}
   {% if trg %}
-- [{{ trg.title }}]({{ trg.url }}) - {{ trg.description }}
+- [{{ trg.title }}]({{ trg.url }}): {{ trg.description }}
   {% endif %}
 {% endfor %}
 {% endif %}

@@ -11,4 +11,6 @@ ha_domain: humidity
 ha_integration_type: system
 ---
 
-This {% term integration %} provides automation triggers for climate, humidifier, and weather entities as well as sensors with device class humidity. There are no configuration options for this integration.
+This {% term integration %} provides automation triggers and conditions for climate, humidifier, and weather entities as well as sensors with device class humidity. There are no configuration options for this integration.
+
+{% include integrations/conditions.md %}
