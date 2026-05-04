@@ -23,7 +23,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Search for **Vacuum: Vacuum cleaner started returning to dock**.
 5. Select targets (individual/group, area, or floor).
-6. Choose **Trigger when**: **Any**, **First**, or **Last** as needed.
+6. Choose **Trigger when**: **Each**, **First**, or **All** as needed.
 7. Under **For at least**, enter how long the vacuum must keep returning before the trigger fires.
 8. Save the automation.
 
@@ -31,7 +31,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When monitoring more than one vacuum, controls when the trigger fires. Pick **First** to fire when any monitored vacuum starts returning, **Last** for when they all have, or **Any** for every individual event.
+  description: When monitoring more than one vacuum, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum starts returning, **First** to fire only on the first return event, or **All** to fire only after all targeted vacuums have started returning.
   required: true
 For at least:
   description: The time the vacuum must keep returning before the trigger fires.

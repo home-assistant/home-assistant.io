@@ -24,7 +24,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Vacuum: Vacuum encountered an error**.
 5. Under **Targets**, pick the vacuum entities (or an area/floor) you want to monitor.
-6. Under **Trigger when**, pick **First**, **Last**, or **Any** to control group behavior.
+6. Under **Trigger when**, pick **Each**, **First**, or **All** to control group behavior.
 7. Under **For at least**, enter how long the vacuum must remain in the error state before the trigger fires.
 8. Select **Save**.
 
@@ -32,7 +32,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When more than one vacuum is targeted, controls when the trigger fires. Pick **First** for the first error, **Last** after all have errored, **Any** for every error event.
+  description: When more than one vacuum is targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum reports an error, **First** to fire only on the first error event, or **All** to fire only after all targeted vacuums have reported an error.
   required: true
 For at least:
   description: The time the vacuum must remain in the error state before the trigger fires.
