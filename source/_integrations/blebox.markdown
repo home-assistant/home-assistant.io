@@ -443,7 +443,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 ### smartMeter DIN
 
-This integration adds the Blebox device as sensor entities to Home Assistant.
+This integration adds the Blebox device as multiple sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -787,7 +787,7 @@ This integration adds the Wikęd device ("blebox inside") as a cover entity to H
 
 ### Pstryk smartEnergyMeter
 
-This integration adds the Pstryk device ("blebox inside") as sensor entities to Home Assistant.
+This integration adds the Pstryk device ("blebox inside") as multiple sensor entities to Home Assistant.
 
 #### Key supported features
 
