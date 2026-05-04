@@ -24,7 +24,8 @@ To use **Humidifier target humidity** in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Humidifier target humidity**.
-6. Under **Threshold type**, enter the target humidity percentage the condition checks against.
+6. Under **Threshold type**, set the comparison direction (**Above**, **Below**, **In range**, or **Outside range**) and the threshold value.
+   - Choose **Number** to enter a fixed humidity percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple humidifiers are targeted.
 8. Under **For at least**, set how long the humidifier must have been at the threshold before the condition passes. Leave it at zero to pass immediately.
 9. Select **Save**.
@@ -33,7 +34,7 @@ To use **Humidifier target humidity** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: The target humidity percentage the humidifier has to be set to or above for the condition to pass. Can be a fixed number between 0 and 100, or a reference to an `input_number`, `number`, or `sensor` entity that provides a humidity value.
+  description: Controls how the target humidity is compared and where the threshold value comes from. Use **Above**, **Below**, **In range**, or **Outside range** to set the comparison direction. Then choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
   required: true
 Condition passes if:
   description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier meets the threshold, or **All** to pass only when every targeted humidifier does. Default is **Any**.
@@ -53,19 +54,20 @@ condition: |
   target:
     entity_id: humidifier.bedroom
   options:
-    threshold: 50
+    threshold:
+      above: 50
 {% endexample %}
 
-This passes when the bedroom humidifier's target humidity is set to 50% or above.
+This passes when the bedroom humidifier's target humidity is set above 50%.
 
 ### Options in YAML
 
 {% options_yaml %}
 threshold:
   description: >
-    The target humidity percentage the humidifier has to be set to or above for the condition to pass. Accepts a number between 0 and 100, or a reference to an `input_number`, `number`, or `sensor` entity that provides a humidity value.
+    The threshold to check the target humidity against. Accepts a mapping with the comparison direction as the key and the humidity percentage (0–100) as the value. Use `above`, `below`, or both (`above` and `below` together for a range) as keys. Instead of a fixed number, you can reference a `sensor`, `input_number`, or `number` entity as the value.
   required: true
-  type: any
+  type: map
 behavior:
   description: >
     When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
@@ -118,7 +120,8 @@ automation: |
       target:
         entity_id: humidifier.bedroom
       options:
-        threshold: 70
+        threshold:
+          above: 70
         behavior: any
   actions:
     - action: switch.turn_on

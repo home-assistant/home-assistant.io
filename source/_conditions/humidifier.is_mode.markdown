@@ -9,7 +9,7 @@ related_conditions:
   - humidifier.is_drying
 ---
 
-The **Humidifier is in mode** condition passes when a humidifier {% term entity %} is set to a specific operating mode. Modes are device-specific and typically include options like `normal`, `eco`, `sleep`, `auto`, or `baby`, though the exact modes available depend on your device. Use **Humidifier is in mode** to have an automation run only when the humidifier is set to a specific mode. For example, to skip a scene change if the humidifier is already in sleep mode.
+The **Humidifier is in mode** condition passes when a humidifier {% term entity %} is set to a specific operating mode. Modes are device-specific and typically include options like **Normal**, **Eco**, **Sleep**, **Auto**, or **Baby**, though the exact modes available depend on your device. Use **Humidifier is in mode** to have an automation run only when the humidifier is set to a specific mode. For example, to skip a scene change if the humidifier is already in sleep mode.
 
 When you target more than one humidifier, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted humidifier to be in the selected mode, or demand that all of them are.
 
@@ -33,7 +33,7 @@ To use **Humidifier is in mode** in an automation:
 
 {% options_ui %}
 Mode:
-  description: The mode or modes to check for. Only the modes available on the targeted device are shown. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes depend on your device.
+  description: The mode or modes to check for. Only the modes available on the targeted device are shown. Typical modes include **Normal**, **Eco**, **Not home**, **Boost**, **Comfort**, **Home**, **Sleep**, **Auto**, and **Baby**, though the exact modes depend on your device.
   required: true
 Condition passes if:
   description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier is in the selected mode, or **All** to pass only when every targeted humidifier is in the selected mode. Default is **Any**.
