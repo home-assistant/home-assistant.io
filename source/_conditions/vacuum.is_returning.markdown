@@ -5,7 +5,7 @@ domain: vacuum
 description: "Passes when the vacuum cleaner is returning to the dock."
 ---
 
-The **Vacuum is returning** condition passes when one or more targeted vacuums are returning to their dock or base.
+The **Vacuum cleaner is returning** condition passes when one or more targeted vacuums are returning to their dock or base.
 
 Use this when you only want an automation to run while the robot is on its way home, like turning on a light near the dock, delaying another routine, or waiting to start cleanup until the path is clear again.
 

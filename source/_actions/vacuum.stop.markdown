@@ -5,7 +5,7 @@ domain: vacuum
 description: "Stops the current activity of a vacuum."
 ---
 
-The **Stop vacuum** action immediately stops the vacuum's current activity (cleaning, returning to dock, spot clean, etc.).
+The **Stop vacuum cleaner** action immediately stops the vacuum's current activity (cleaning, returning to dock, spot clean, etc.).
 
 Use it when you want the robot to stop right away instead of pausing or returning to the dock, like during an unexpected spill, a pet accident, or another situation where you need it out of the area immediately.
 

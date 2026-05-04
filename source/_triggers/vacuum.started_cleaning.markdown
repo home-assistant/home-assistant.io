@@ -8,7 +8,7 @@ related_triggers:
   - vacuum.docked
 ---
 
-The **Vacuum started cleaning** trigger fires when the vacuum begins a new cleaning run. Use it for automations that need to respond when cleaning starts, like announcements, status changes, or notifications.
+The **Vacuum cleaner started cleaning** trigger fires when the vacuum begins a new cleaning run. Use it for automations that need to respond when cleaning starts, like announcements, status changes, or notifications.
 
 If you want to mark the house as being cleaned, pause other noisy routines, or let someone know the robot has started, this trigger gives you a reliable starting point.
 

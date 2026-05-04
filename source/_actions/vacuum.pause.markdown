@@ -5,7 +5,7 @@ domain: vacuum
 description: "Pauses the current cleaning task on a vacuum."
 ---
 
-The **Pause cleaning** action instructs your vacuum to pause its current operation.
+The **Pause vacuum cleaner** action instructs your vacuum to pause its current operation.
 
 Use it when you need the robot to stop temporarily without ending the run, like during a phone call, while someone is sleeping, or when the doorbell rings.
 

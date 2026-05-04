@@ -5,7 +5,7 @@ domain: vacuum
 description: "Turns on a vacuum cleaner."
 ---
 
-The **Turn on vacuum** action turns on a supported vacuum cleaner.
+The **Turn on vacuum cleaner** action turns on a supported vacuum cleaner.
 
 Use it when your vacuum supports a separate power state and you want to make sure it is powered on before you run another action.
 

@@ -5,7 +5,7 @@ domain: vacuum
 description: "Toggles a vacuum cleaner on or off."
 ---
 
-The **Toggle vacuum power** action switches a supported vacuum cleaner between on and off.
+The **Toggle vacuum cleaner** action switches a supported vacuum cleaner between on and off.
 
 Use it when you want one automation to flip the vacuum power state without first checking whether it is already on or off.
 

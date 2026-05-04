@@ -5,7 +5,7 @@ domain: vacuum
 description: "Cleans specific mapped areas using vacuum segments."
 ---
 
-The **Clean area** action sends your vacuum to clean one or more mapped Home Assistant areas.
+The **Clean area with vacuum cleaner** action sends your vacuum to clean one or more mapped Home Assistant areas.
 
 Use it when only part of the home needs attention, like the kitchen after dinner or the hallway after muddy shoes, without sending the robot through every room.
 

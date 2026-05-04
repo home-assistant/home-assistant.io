@@ -5,7 +5,7 @@ domain: vacuum
 description: "Starts, pauses, or resumes a vacuum cleaner's cleaning task."
 ---
 
-The **Start or pause cleaning** action starts, pauses, or resumes a supported vacuum cleaner's cleaning task.
+The **Start/pause vacuum cleaner** action starts, pauses, or resumes a supported vacuum cleaner's cleaning task.
 
 Use it when you want a single action to handle the current cleaning state without first checking whether the vacuum is idle, cleaning, or paused.
 

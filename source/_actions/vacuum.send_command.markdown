@@ -57,7 +57,7 @@ params:
 
 ## Good to know
 
-- Platform-specific commands may not be documented. Consult your integration’s docs for command names and parameters.
+- Platform-specific commands may not be documented. Consult your integration’s documentation for command names and parameters.
 
 {% include actions/try_it.md %}
 

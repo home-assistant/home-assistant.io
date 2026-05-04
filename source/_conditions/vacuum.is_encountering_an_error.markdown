@@ -5,7 +5,7 @@ domain: vacuum
 description: "Passes when the vacuum cleaner is in an error state."
 ---
 
-The **Vacuum is encountering an error** condition passes when one or more targeted vacuums are in an error state.
+The **Vacuum cleaner is encountering an error** condition passes when one or more targeted vacuums are in an error state.
 
 Use this when you want an automation to act only if the robot still needs attention, like sending a reminder later in the day, turning on a helper light, or skipping a follow-up routine until the issue is fixed.
 

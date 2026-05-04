@@ -5,7 +5,7 @@ domain: vacuum
 description: "Plays a sound or flashes lights to help you find the vacuum."
 ---
 
-The **Locate vacuum** action causes the vacuum to play a sound or flash lights, making it easier to find.
+The **Locate vacuum cleaner** action causes the vacuum to play a sound or flash lights, making it easier to find.
 
 Use it when the robot has ended up under a bed, behind furniture, or somewhere else that is hard to spot at a glance.
 

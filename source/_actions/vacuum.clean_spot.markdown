@@ -5,7 +5,7 @@ domain: vacuum
 description: "Performs a spot cleaning at the vacuum's location."
 ---
 
-The **Clean spot** action asks the vacuum to perform a concentrated cleaning cycle at its current position.
+The **Clean spot with vacuum cleaner** action asks the vacuum to perform a concentrated cleaning cycle at its current position.
 
 Use it when a small area needs extra attention, like around a chair, near pet bowls, or where crumbs have just landed.
 

@@ -5,7 +5,7 @@ domain: vacuum
 description: "Sends the vacuum to the charging dock."
 ---
 
-The **Return to base** action instructs the vacuum to stop its current task and return to its charging dock.
+The **Return vacuum cleaner to dock** action instructs the vacuum to stop its current task and return to its charging dock.
 
 Use it when you want the robot to head home in an orderly way, like before bedtime, before guests arrive, or when you want the floor clear without leaving the vacuum stranded in the middle of a room.
 

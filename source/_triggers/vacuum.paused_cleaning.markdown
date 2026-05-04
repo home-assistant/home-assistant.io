@@ -8,7 +8,7 @@ related_triggers:
   - vacuum.started_returning
 ---
 
-The **Vacuum paused cleaning** trigger fires when a vacuum interrupts its cleaning session by pausing.
+The **Vacuum cleaner paused cleaning** trigger fires when a vacuum interrupts its cleaning session by pausing.
 Use this to send reminders, alert for stuck devices, or to chain additional automations.
 
 Use it to send a message when the robot needs help, turn on a nearby light so you can find it, or record how often it gets stuck in the same place.

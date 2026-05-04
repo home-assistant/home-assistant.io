@@ -5,7 +5,7 @@ domain: vacuum
 description: "Turns off a vacuum cleaner."
 ---
 
-The **Turn off vacuum** action turns off a supported vacuum cleaner.
+The **Turn off vacuum cleaner** action turns off a supported vacuum cleaner.
 
 Use it when your vacuum supports a separate power state and you want to shut it down after cleaning or before maintenance.
 

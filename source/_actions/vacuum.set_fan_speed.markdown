@@ -5,7 +5,7 @@ domain: vacuum
 description: "Sets the fan/power level for cleaning."
 ---
 
-The **Set fan speed** action changes the fan or suction power level of the vacuum while running or before cleaning starts.
+The **Set vacuum cleaner fan speed** action changes the fan or suction power level of the vacuum while running or before cleaning starts.
 
 Use it when you want stronger suction for dirtier rooms, a quieter mode during the evening, or different cleaning intensity for different schedules.
 

@@ -5,7 +5,7 @@ domain: vacuum
 description: "Passes when the vacuum cleaner is docked."
 ---
 
-The **Vacuum is docked** condition passes when one or more targeted vacuums are on their dock or charging base.
+The **Vacuum cleaner is docked** condition passes when one or more targeted vacuums are on their dock or charging base.
 
 Use this when you want to continue only if the robot is safely parked, like before turning off a light near the charger, starting maintenance, or sending a reminder that the cleaning cycle is complete.
 

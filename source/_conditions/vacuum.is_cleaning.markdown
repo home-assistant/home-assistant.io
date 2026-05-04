@@ -5,7 +5,7 @@ domain: vacuum
 description: "Passes when the vacuum cleaner is cleaning."
 ---
 
-The **Vacuum is cleaning** condition passes when one or more targeted vacuums are actively cleaning.
+The **Vacuum cleaner is cleaning** condition passes when one or more targeted vacuums are actively cleaning.
 
 Use this when you want an automation to continue only if the robot is actively cleaning, like pausing it for a quiet activity, avoiding another floor-cleaning routine, or sending a status update only while the run is still underway.
 

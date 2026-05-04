@@ -5,7 +5,7 @@ domain: vacuum
 description: "Starts or resumes a cleaning task on a vacuum."
 ---
 
-The **Start cleaning** action sends a start or resume command to a vacuum, beginning or continuing a cleaning job.
+The **Start vacuum cleaner** action sends a start or resume command to a vacuum, beginning or continuing a cleaning job.
 
 Use it when you want the robot to begin on a schedule, resume after a pause, or start automatically once the house is empty.
 
