@@ -72,7 +72,7 @@ This integration will expose the following sensors:
 
 | Sensor | Description |
 |-------|------------|
-| Lightning average distance | Average distance of recent detected lightning strikes. |
+| Lightning average distance | Average distance of recently detected lightning strikes. |
 | Lightning count | Count of lightning strikes in the past minute. |
 | Lightning last distance | Distance to the most recent detected lightning strike. |
 | Lightning last energy | Energy estimate for the most recent detected lightning strike, as reported by the station. |
@@ -83,7 +83,7 @@ This integration will expose the following sensors:
 | Sensor | Description |
 |-------|------------|
 | Illuminance | Amount of visible light received, measured in lux. |
-| Irradiance | Total solar radiation power received per W/m². |
+| Irradiance | Total solar radiation received, measured in W/m². |
 | UV index | Intensity of ultraviolet radiation received. |
 
 ## Event entity
