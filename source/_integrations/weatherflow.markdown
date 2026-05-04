@@ -46,6 +46,9 @@ This {% term integration %} will expose the following sensors:
 - Irradiance
 - Lightning average distance
 - Lightning count
+- Lightning last distance
+- Lightning last energy
+- Lightning last strike
 - Precipitation (accumulated over the previous minute)
 - Precipitation intensity ([extrapolated](https://weatherflow.github.io/Tempest/api/derived-metric-formulas.html#rain-rate) from the accumulation over the previous minute)
 - Precipitation type
