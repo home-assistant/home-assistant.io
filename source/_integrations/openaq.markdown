@@ -2,7 +2,9 @@
 title: OpenAQ
 description: Instructions on how to integrate OpenAQ air quality data within Home Assistant.
 ha_category:
+  - Environment
   - Health
+  - Sensor
 ha_release: 2026.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -23,8 +25,6 @@ OpenAQ collects public air quality data from many providers around the world. In
 You need an OpenAQ API key. Sign up for an API key from the [OpenAQ Explorer registration page](https://explore.openaq.org/register). You can manage your API key from your [OpenAQ Explorer account settings](https://explore.openaq.org/account).
 
 Treat your API key like a password. Do not share it or publish it in screenshots, logs, or public configuration examples.
-
-## Configuration
 
 {% include integrations/config_flow.md %}
 
