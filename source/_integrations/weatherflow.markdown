@@ -33,6 +33,8 @@ There are two integrations for WeatherFlow devices, and you are not limited to s
 
 {% include integrations/config_flow.md %}
 
+## Sensors
+
 This integration will expose the following sensors:
 
 ### Atmospheric sensors
