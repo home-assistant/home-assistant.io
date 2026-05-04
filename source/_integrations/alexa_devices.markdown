@@ -37,7 +37,7 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
-
+- **Amazon Air Quality Monitor**
 - **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
@@ -63,11 +63,11 @@ You must ensure the authenticator app is setup as your preferred method for 2FA.
 
 ### Available Actions
 
-Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`
+Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`, `alexa_devices.send_info_skill`
 
-#### Action `notify.send_message`
+### Action: Send message
 
-Devices with appropriate functionality will have speak and announce notify entities created. These can be used as the target for the `notify.send_message` action.
+The `notify.send_message` action allows you to send messages to devices with appropriate functionality that have speak and announce notify entities created.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
@@ -87,18 +87,18 @@ Amazon provide a set of [sounds you can use](https://developer.amazon.com/en-US/
 
 {% enddetails %}
 
-#### Action `alexa_devices.send_text_command`
+### Action: Send text command
 
-This action essentially allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
+The `alexa_devices.send_text_command` action allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to run action |
 | `text_command` | no | Command to send |
 
-#### Action `alexa_devices.send_sound`
+### Action: Send sound
 
-This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
+The `alexa_devices.send_sound` action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
 
 {%tip%}
 Additional sounds are available through advanced markup using the `notify.send_message` [action](#action-notifysend_message)
@@ -108,6 +108,15 @@ Additional sounds are available through advanced markup using the `notify.send_m
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to play sound |
 | `sound` | no | The name of the sound to play |
+
+### Action: Send Info Skill
+
+The `alexa_devices.send_info_skill` action allows you to run some of the inbuilt Alexa actions that output things like the date, a weather forecast, or tell you a joke.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------------------------------------- |
+| `device_id` | no | Device on which you want to run action |
+| `info_skill` | no | The info skill you want to run |
 
 ## Sensors
 
@@ -122,6 +131,13 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 - **Temperature**
 - **Illuminance**
 - **Wi-Fi and Bluetooth connectivity**
+
+#### Air Quality Monitor sensors
+
+- **Particulate Matter** - 10 μm & 2.5 μm
+- **Carbon Monoxide**
+- **Volatile Organic Compounds Index**
+- **Air Quality Index**
 
 ## Supported functionality
 

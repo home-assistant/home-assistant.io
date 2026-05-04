@@ -14,7 +14,6 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 

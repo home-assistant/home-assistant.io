@@ -16,7 +16,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **NETGEAR LTE** {% term integration %} for Home Assistant allows you to observe and control [NETGEAR LTE modems](https://www.netgear.com/home/mobile-wifi/lte-modems/).
@@ -54,34 +54,34 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 
 ## Actions
 
-### Action `netgear_lte.connect_lte`
+### Action: Connect LTE
 
-This action asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
+The `netgear_lte.connect_lte` action asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem that should connect (optional when just one modem is configured).
 
-### Action `netgear_lte.disconnect_lte`
+### Action: Disconnect LTE
 
-This action asks the modem to close its LTE connection.
+The `netgear_lte.disconnect_lte` action asks the modem to close its LTE connection.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem that should disconnect (optional when just one modem is configured).
 
-### Action `netgear_lte.delete_sms`
+### Action: Delete SMS
 
-The integration makes an action available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+The `netgear_lte.delete_sms` action deletes messages from the modem inbox. This can be used to clean up after incoming SMS events.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem that should have a message deleted (optional when just one modem is configured).
 | `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
 
-### Action `netgear_lte.set_option`
+### Action: Set option
 
-This action can set modem configuration options (otherwise available in the modem web UI).
+The `netgear_lte.set_option` action sets modem configuration options (otherwise available in the modem web UI).
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

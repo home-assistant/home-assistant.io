@@ -25,3 +25,4 @@ source/.jekyll-metadata
 !.vscode/tasks.json
 *.suo
 tags*
+create-blog-post

@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: google_tasks
 ha_codeowners:
   - '@allenporter'
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - todo
 related:
@@ -89,7 +89,7 @@ you can use this blueprint to send a notification with devices that have low
 low battery level. The notification includes a button that can add an item to your
 Google Tasks to-do list.
 
-[Low Battery Notifications & Actions](https://community.home-assistant.io/t/low-battery-notifications-actions/653754)
+[Low Battery Notifications & Actions](https://community.home-assistant.io/t/653754)
 
 
 ## Data updates

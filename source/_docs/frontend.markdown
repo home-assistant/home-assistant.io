@@ -34,16 +34,16 @@ To learn how to organize and filter your data on an existing dashboard, refer to
 
 ### User- or browser-dependent settings
 
-Some of the frontend settings depend on the user. Other settings can be set by client. This allows you for example to have different languages per user, and a different theme depending on the device that is used to display Home Assistant.
+Some of the frontend settings depend on the user. Other settings can be set by client. This allows you, for example, to have different languages per user and different device-specific settings.
 
 To change these settings, in the bottom left, select your username to open your {% my profile title="**User profile**" %}.
 
-- To change general settings such as language, number and time format, go to the **User settings**.
-- To change browser dependent settings such as the theme, default dashboard, or whether or not to show the sidebar, change the **Browser settings**.
+- To change general settings such as language, number, time format, and theme, go to the **User settings**.
+- To change browser-dependent settings such as sidebar behavior, use the **Browser settings**.
 
 ### Themes
 
-Themes can be set per browser. In the {% my profile title="**User profile**" %}, you can define some theme settings, such as whether you want a light or dark theme. However, more detailed theme settings require YAML configuration. Refer to the documentation of the [frontend integration](/integrations/frontend/).
+Themes are set per user. In the {% my profile title="**User profile**" %}, you can define theme settings, such as whether you want a light or dark theme. More detailed theme settings require YAML configuration. Refer to the documentation of the [frontend integration](/integrations/frontend/).
 
 ### General settings
 

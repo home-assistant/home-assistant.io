@@ -23,7 +23,7 @@ ha_platforms:
 ha_quality_scale: platinum
 related:
   - url: https://developer.volvocars.com/
-    title: Volvo developers portal
+    title: Volvo developer portal
 ---
 
 The **Volvo** {% term integration %} is used to integrate your [Volvo](https://www.volvocars.com/) vehicle.
@@ -228,6 +228,20 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter.
 - **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
 
+## Actions
+
+### Get image URL
+
+The action `get_image_url` retrieves the URL of your vehicle-specific images.
+Get all URLs at once, or select one or more angles.
+
+{% configuration_basic %}
+Entry:
+  description: "The entry ID to retrieve the vehicle images for."
+Images:
+  description: "The image angles to retrieve. Leave empty to get all images."
+{% endconfiguration_basic %}
+
 ## Examples
 
 ### Notify if doors are left open
@@ -325,4 +339,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
+After deleting the integration, go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications) on Volvo's developer portal and delete the app you use for the Home Assistant integration.

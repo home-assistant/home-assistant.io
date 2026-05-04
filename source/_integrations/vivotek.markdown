@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: vivotek
 ha_platforms:
   - camera
-ha_integration_type: integration
+ha_integration_type: device
 ha_config_flow: true
 ---
 
@@ -51,9 +51,9 @@ Once loaded, the `camera` platform will expose actions that can be called to per
 
 Available actions: `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
 
-#### Action `play_stream`
+#### Action: Play stream
 
-Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) {% term integration %} to be set up.
+The `play_stream` action plays a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) {% term integration %} to be set up.
 
 | Data attribute | Optional | Description                                                                                            |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |

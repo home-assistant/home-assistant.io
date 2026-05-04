@@ -30,6 +30,7 @@ ha_platforms:
   - cover
   - fan
   - humidifier
+  - image
   - light
   - lock
   - sensor
@@ -88,6 +89,11 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- Lock Pro Wifi
+- Lock Lite
+- [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- Lock Vision
+- Lock Vision Pro
 
 ### Sensors
 
@@ -136,6 +142,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Water heater
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Image
+
+- [AI Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
 ## Supported functionality
 
@@ -478,6 +488,16 @@ Features:
 - get temperature
 - set mode
 - get battery
+
+
+### Image
+
+#### AI Art Frame
+
+Features:
+- get battery
+- switch picture
+- display current picture
 
 ## Important considerations
 

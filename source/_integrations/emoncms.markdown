@@ -11,7 +11,7 @@ ha_codeowners:
   - '@alexandrecuer'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file

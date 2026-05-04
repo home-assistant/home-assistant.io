@@ -94,9 +94,9 @@ zoneminder:
     password: YOUR_PASSWORD
 ```
 
-### Action
+### Action: Set run state
 
-Once loaded, the `zoneminder` platform will expose an action (`set_run_state`) that can be used to change the current run state of ZoneMinder.
+The `zoneminder.set_run_state` action changes the current run state of ZoneMinder.
 
 | Data attribute | Optional | Description                       |
 | :--------------------- | :------- | :-------------------------------- |

@@ -21,7 +21,7 @@ ha_platforms:
   - switch
   - vacuum
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@LG-ThinQ-Integration'
 ha_dhcp: true
