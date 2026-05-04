@@ -545,7 +545,8 @@ The configuration consists of three steps:
 4. Edit the remote actions:
    - Select the trigger the remote button should simulate, for example "short press".
    - Select the actionBox input the remote button should simulate, for example input 1.
-   - <img src="/images/integrations/blebox/wbox_remote_actions.jpg" alt="wBox app remote actions editor showing button gesture and input number" style="max-width: 350px;">
+    <br>
+    <img src="/images/integrations/blebox/wbox_remote_actions.jpg" alt="wBox app remote actions editor showing button gesture and input number" style="max-width: 350px;">
 
 5. Once configured, pressing a button on the remote triggers the actionBox, which calls the webhook URL you set up in the [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant) section.
 
