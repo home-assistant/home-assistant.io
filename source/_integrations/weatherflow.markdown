@@ -63,7 +63,6 @@ This integration will expose the following sensors:
 - **Wet bulb temperature**
   - **Description**: The lowest temperature that can be reached under current ambient conditions by the evaporation of water only.
 
-
 ### Wind sensors
 
 - **Wind direction**
@@ -81,7 +80,6 @@ This integration will expose the following sensors:
 - **Wind speed**
   - **Description**: Wind speed at the station.
 
-
 ### Precipitation sensors
 
 - **Precipitation**
@@ -92,7 +90,6 @@ This integration will expose the following sensors:
 
 - **Precipitation type**
   - **Description**: Precipitation type (`none`, `rain`, `hail`, `rain_hail`).
-
 
 ### Lightning sensors
 
@@ -110,7 +107,6 @@ This integration will expose the following sensors:
 
 - **Lightning last strike**
   - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
-
 
 ### Solar & Light sensors
 
@@ -139,13 +135,16 @@ Additionally the following diagnostic sensors are available:
 - **Uptime**
   - **Description**: Uptime of station.
 
-## Event entity
+## Event entities
 
 The WeatherFlow Tempest station also sends out event triggers when it starts raining and when there is a lightning strike near by.
-This {% term integration %} will expose these {% term event %} {% term entities %}  and can be used for automations. The following entities will be exposed:
+This {% term integration %} will expose these {% term event %} {% term entities %} and can be used for automations. The following entities will be exposed:
 
-- Lightning strike
-- Precipitation start
+- **Lightning strike**
+  - **Description**: Fires when lightning strikes within range of station.
+    
+- **Precipitation start**
+  - **Description**: Fires when precipitation starts at the station.
 
 ## Networking notes
 
