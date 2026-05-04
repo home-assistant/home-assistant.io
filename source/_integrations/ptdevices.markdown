@@ -9,8 +9,8 @@ ha_iot_class: Cloud Polling
 ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
-  - '@paremtech-inc'
   - '@frogman85978'
+  - '@paremtech-inc'
 ha_domain: ptdevices
 ha_integration_type: hub
 ---
