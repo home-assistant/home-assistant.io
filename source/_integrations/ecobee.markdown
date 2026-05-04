@@ -37,10 +37,14 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 </p>
 
 ## Prerequisites
-To set up the connection, you will need to have a username and password for [ecobee.com](https://ecobee.com). Set this up before adding the integration. You can add devices either before or after you configure the service in Home Assistant, but having them connected to your ecobee.com account ahead of time is recommended to confirm that they are picked up by the service correctly.
+
+- Username and password for [ecobee.com](https://ecobee.com). 
+   - You will need it when adding the integration to set up a connection between the integration and Home Assistant. 
+- Have the devices connected to your ecobee.com account.
+   - You can add devices either before or after you configure the service in Home Assistant, but having them connected to your ecobee.com account ahead of time is recommended to confirm that they are picked up by the service correctly.
 
 {% note %}
-Since version 2026.3, it is no longer required to get a [developer API key](https://www.ecobee.com/developers/) to use this integration. Existing API keys will continue to function. If you revoke your existing key in the ecobee portal, the integraion will fail, and you will need to remove the service in Home Assistant and set it up again.
+Since version 2026.3, it is no longer required to get a [developer API key](https://www.ecobee.com/developers/) to use this integration. Existing API keys will continue to function. If you revoke your existing key in the ecobee portal, the integration will fail, and you will need to remove the service in Home Assistant and set it up again.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
