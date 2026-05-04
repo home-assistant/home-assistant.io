@@ -123,6 +123,22 @@ This integration will expose the following sensors:
 - **UV index**
   - **Description**: Intensity of ultraviolet radiation received.
 
+### Diagnostic sensors
+
+Additionally the following diagnostic sensors are available:
+
+- **Battery (percentage)**
+  - **Description**: Station battery (percentage).
+
+- **Battery voltage**
+  - **Description**: Battery voltage of station.
+
+- **Signal strength**
+  - **Description**: Signal strength between station and hub.
+
+- **Uptime**
+  - **Description**: Uptime of station.
+
 ## Event entity
 
 The WeatherFlow Tempest station also sends out event triggers when it starts raining and when there is a lightning strike near by.
@@ -130,15 +146,6 @@ This {% term integration %} will expose these {% term event %} {% term entities 
 
 - Lightning strike
 - Precipitation start
-
-## Diagnostic sensors
-
-Additionally the following diagnostic sensors are available:
-
-- Battery (percentage)
-- Battery voltage
-- Signal strength
-- Uptime
 
 ## Networking notes
 
