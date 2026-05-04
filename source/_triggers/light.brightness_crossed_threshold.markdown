@@ -24,7 +24,7 @@ To use this trigger in an automation:
 4. From the search box, search for and select **Light: Light brightness crossed threshold**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Threshold type**, set the brightness percentage you want the trigger to watch for.
-7. Under **Trigger when**, pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when**, pick **Each**, **First**, or **All** to control how multiple targets interact.
 8. Select **Save**.
 
 ### Options in the UI
@@ -34,7 +34,7 @@ Threshold type:
   description: The brightness level the light has to cross for the trigger to fire. Expressed as a percentage of full brightness.
   required: true
 Trigger when:
-  description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
+  description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted lights have crossed the threshold.
   required: true
 {% endoptions_ui %}
 
@@ -91,7 +91,7 @@ When you dim the ceiling light below 40% in the evening, turn on the accent ligh
 - **Trigger**: Light brightness crossed threshold
 - **Target**: Living room ceiling light
 - **Threshold type**: 40
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Condition**: Sun is below horizon
 - **Condition**: Ceiling light brightness is below 40%
 - **Action**: Light: Turn on (accent lights)
