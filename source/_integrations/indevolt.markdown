@@ -25,7 +25,15 @@ The **Indevolt** {% term integration %} enables direct local communication betwe
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status, and configure power limits and other battery protection settings.
+With this integration, you can monitor energy production, consumption, and battery status in real time.
+
+Beyond basic monitoring, the Indevolt integration enables advanced energy management automations within Home Assistant. For example, you can:
+
+- Optimize battery charging and discharging based on solar production forecasts
+- Automatically adjust energy modes to take advantage of variable electricity pricing
+- Prevent grid feed-in during peak tariff periods by dynamically limiting output power
+- Maintain a minimum battery charge for backup scenarios by adjusting discharge limits when applicable
+- Coordinate battery behavior with other Home Assistant energy devices for whole-home optimization
 
 ## Supported devices
 
@@ -130,7 +138,8 @@ The Indevolt integration automatically retrieves data from your devices by polli
 
 ## Known limitations
 
-- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode
+- Real-time configuration changes may appear with a small delay in Home Assistant and the Indevolt app.
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode.
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
 
@@ -141,7 +150,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 1. Ensure the device is powered on and functioning normally.
 2. Confirm both the device and Home Assistant are connected to the same local network.
 3. Ensure the device's IP address is correct and hasn't changed.
-4. Check the device's settings in the Indevolt app to ensure that the API is enabled.
+4. Check the device's settings in the Indevolt app to ensure that the API is enabled in "HTTP" mode.
 
 Check the Home Assistant logs for more information.
 
