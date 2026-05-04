@@ -446,15 +446,17 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 This integration adds the Blebox device as sensor entities to Home Assistant.
 
 #### Key supported features
+
 - Periodic read of energy consumption (forward and reverse)
 - Periodic read of power (active, reactive, and apparent)
 - Periodic read of voltage, current, and frequency
 
 #### Additional features
+
 - Option to configure number of phases (1 or 3) is available in wBox app.
 - Option to enable/disable reverse energy measurement is available in wBox app.
 - After a settings change, the device needs to be reloaded.
-  
+
 ### actionBox, actionBoxS, and proxiBox
 
 This integration does not add direct support for actionBox, actionBoxS, and proxiBox
@@ -788,11 +790,13 @@ This integration adds the Wikęd device ("blebox inside") as a cover entity to H
 This integration adds the Pstryk device ("blebox inside") as sensor entities to Home Assistant.
 
 #### Key supported features
+
 - Periodic read of energy consumption (forward and reverse)
 - Periodic read of power (active, reactive, and apparent)
 - Periodic read of voltage, current, and frequency
 
 #### Additional features
+
 - Option to configure number of phases (1 or 3) is available in wBox app.
 - Option to enable/disable reverse energy measurement is available in wBox app.
 - After a settings change, the device needs to be reloaded.
