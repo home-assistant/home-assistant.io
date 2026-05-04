@@ -27,14 +27,14 @@ To use this trigger in an automation:
     - To watch every light in a room, select an area.
     - To watch every light on a floor, select a floor.
     - To watch lights sharing a tag, select a label.
-6. Under **Trigger when**, pick **Any**, **First**, or **Last**.
+6. Under **Trigger when**, pick **Each**, **First**, or **All**.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Trigger when:
-  description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **Last** to fire only after every targeted light is off.
+  description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **All** to fire only after every targeted light is off.
   required: true
 {% endoptions_ui %}
 
@@ -82,7 +82,7 @@ When the last light in the house turns off late at night, arm the alarm automati
 
 - **Trigger**: Light turned off
 - **Target**: All lights (by label)
-- **Trigger when**: Last
+- **Trigger when**: All
 - **Condition**: Time is after 22:30
 - **Action**: Alarm control panel: Arm away
 
@@ -114,7 +114,7 @@ When every light in the living room is off, stop whatever is playing on the livi
 
 - **Trigger**: Light turned off
 - **Target**: Living room area
-- **Trigger when**: Last
+- **Trigger when**: All
 - **Action**: Media player: Turn off
 
 {% details "YAML example for auto-pausing media when the room goes dark" %}

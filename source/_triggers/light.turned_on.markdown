@@ -27,14 +27,14 @@ To use this trigger in an automation:
     - To watch every light in a room, select an area.
     - To watch every light on a floor, select a floor.
     - To watch lights sharing a tag, select a label.
-6. Under **Trigger when**, pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple lights are targeted.
+6. Under **Trigger when**, pick **Each**, **First**, or **All** to control how the trigger behaves when multiple lights are targeted.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Trigger when:
-  description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **Last** to fire only after every targeted light is on.
+  description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **All** to fire only after every targeted light is on.
   required: true
 {% endoptions_ui %}
 
@@ -82,7 +82,7 @@ When the hallway light turns on after sunset, send a phone notification so you k
 
 - **Trigger**: Light turned on
 - **Target**: Hallway light
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Condition**: Sun is below horizon
 - **Action**: Send a mobile notification
 

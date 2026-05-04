@@ -23,7 +23,7 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Carbon dioxide level crossed threshold**.
 6. Under **Threshold type**, set the carbon dioxide level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
 8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
 9. Select **Save**.
 
@@ -34,7 +34,7 @@ Threshold type:
   description: The carbon dioxide level (in ppm) the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
   required: true
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
   required: true
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
@@ -102,7 +102,7 @@ Stuffy air makes for restless nights. This automation turns on the bedroom venti
 - **Trigger**: Carbon dioxide level crossed threshold
 - **Target**: Bedroom CO2 sensor
 - **Threshold type**: 1000
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Action**: Turn on fan
 
 {% details "YAML example for CO2-based bedroom ventilation" %}
