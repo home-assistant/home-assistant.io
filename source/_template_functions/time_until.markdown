@@ -11,6 +11,7 @@ limited: false
 since: "2024.11"
 related_functions:
   - time_since
+  - timedelta_string
   - now
   - as_datetime
   - today_at

@@ -11,6 +11,7 @@ limited: false
 since: "2024.11"
 related_functions:
   - time_until
+  - timedelta_string
   - relative_time
   - now
   - as_datetime
