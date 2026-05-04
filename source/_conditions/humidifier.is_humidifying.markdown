@@ -25,13 +25,17 @@ To use **Humidifier is humidifying** in an automation:
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Humidifier is humidifying**.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple humidifiers are targeted.
-7. Select **Save**.
+7. Under **For at least**, set how long the humidifier must have been actively humidifying before the condition passes. Leave it at zero to pass immediately.
+8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Condition passes if:
   description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier is actively humidifying, or **All** to pass only when every targeted humidifier is actively humidifying. Default is **Any**.
+  required: true
+For at least:
+  description: How long the humidifier must have been continuously humidifying before the condition passes. Default is `0` (passes immediately).
   required: true
 {% endoptions_ui %}
 
@@ -57,6 +61,12 @@ behavior:
   required: true
   type: string
   default: any
+for:
+  description: >
+    How long the humidifier must have been continuously humidifying before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  required: true
+  type: string
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
