@@ -20,7 +20,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your CO sensor is in (like your kitchen or garage). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Carbon monoxide cleared**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple sensors are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple sensors are targeted.
 7. Under **For at least**, set how long the sensor must stay in the cleared state before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor clears, **First** to fire only when the first sensor in a group clears, or **Last** to fire only after every targeted sensor has cleared.
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor clears, **First** to fire only when the first sensor in a group clears, or **All** to fire only after every targeted sensor has cleared.
   required: true
 For at least:
   description: How long the sensor must stay in the cleared state before the trigger fires. Set to zero to fire immediately.
@@ -87,7 +87,7 @@ After a carbon monoxide alarm, a blaring siren and anxious waiting are the last 
 
 - **Trigger**: Carbon monoxide cleared
 - **Target**: All CO sensors (by label)
-- **Trigger when**: Last
+- **Trigger when**: All
 - **For at least**: 00:15:00
 - **Action**: Siren: Turn off
 - **Action**: Send a mobile notification
