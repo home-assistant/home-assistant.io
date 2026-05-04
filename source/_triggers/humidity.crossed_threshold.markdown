@@ -146,7 +146,7 @@ for:
 
 ### Automation: turn on the bathroom fan when it gets too humid
 
-After a shower, bathroom humidity can climb fast. This automation turns on the bathroom fan the moment humidity crosses 70%, and keeps it running until the air is dry again.
+After a shower, bathroom humidity can climb fast. This automation turns on the bathroom fan the moment humidity crosses 70%.
 
 - **Trigger**: Relative humidity crossed threshold
 - **Target**: Bathroom humidity sensor
