@@ -263,4 +263,10 @@ group.all_switches              8018
 
 If you don't want to keep certain entities, you can delete them permanently by using the [actions provided by the recorder](/integrations/recorder/#action-purge_entities).
 
+### Use the SQL sensor for live queries
+
+Beyond manual exploration, you can run SQL queries directly inside Home Assistant using the [SQL](/integrations/sql/) {% term integration %}. It connects to the same recorder database by default and lets you expose query results as sensor entities, or call queries from automations using the `sql.query` action — no external tools needed.
+
+### Data Science Portal
+
 For a more interactive way of working with the database, check the [Data Science Portal](https://data.home-assistant.io/).
