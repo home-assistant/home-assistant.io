@@ -82,14 +82,14 @@ The Duco system consists of multiple nodes. Each node appears as a separate devi
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
 
-The fan is always on. Setting the speed to 0% returns control to Duco (automatic mode), after which the firmware automatically resumes ventilation.
+The fan is always on. Turning off the fan is not supported.
 
-The following actions are available:
+Setting a speed percentage to 33%, 66%, or 100% activates a continuous override with no time limit. Setting it to 0% clears the override and hands control back to Duco:
 
-- **Speed 0%**: Hands control back to Duco (automatic mode).
-- **Speed 33%**: Low speed manual override.
-- **Speed 66%**: Medium speed manual override.
-- **Speed 100%**: High speed manual override.
+- **Speed 0%**: Clears the override and returns to automatic mode.
+- **Speed 33%**: Continuous low speed override.
+- **Speed 66%**: Continuous medium speed override.
+- **Speed 100%**: Continuous high speed override.
 - **Auto preset**: Same as speed 0%; hands control back to Duco.
 
 When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
@@ -156,6 +156,8 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 
 ## Examples
 
+The example entity IDs below use the default naming that Home Assistant assigns on a clean install. Replace them with the entity IDs from your own system.
+
 ### Activate high ventilation while cooking
 
 This automation switches the ventilation to high speed when the kitchen hood is turned on, and returns it to automatic mode five minutes after the hood is switched off.
@@ -169,7 +171,7 @@ This automation switches the ventilation to high speed when the kitchen hood is 
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 100
 
@@ -182,7 +184,7 @@ This automation switches the ventilation to high speed when the kitchen hood is 
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 0
 ```
@@ -200,7 +202,7 @@ When the last person leaves home, the ventilation hands control back to Duco (au
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 0
 
@@ -212,37 +214,67 @@ When the last person leaves home, the ventilation hands control back to Duco (au
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 66
 ```
 
 ### Boost ventilation when CO₂ is high
 
-This automation switches to high speed when the CO₂ level in the office rises above 1000 ppm, and returns to automatic mode when it drops back below 800 ppm.
+This automation switches to high speed when the CO₂ level rises above 1000 ppm on a UCCO2 sensor module, and returns to automatic mode when it drops back below 800 ppm.
 
 ```yaml
 - alias: "Boost ventilation on high CO2"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.office_co2_carbon_dioxide
+      entity_id: sensor.node_2_carbon_dioxide
       above: 1000
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 100
 
 - alias: "Return to auto when CO2 is low"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.office_co2_carbon_dioxide
+      entity_id: sensor.node_2_carbon_dioxide
       below: 800
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
+      data:
+        percentage: 0
+```
+
+### Boost ventilation when humidity is high
+
+This automation switches to medium speed when relative humidity rises above 70% on a UCRH or BSRH sensor module, and returns to automatic mode when it drops back below 60%.
+
+```yaml
+- alias: "Boost ventilation on high humidity"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.node_113_humidity
+      above: 70
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.node_1
+      data:
+        percentage: 66
+
+- alias: "Return to auto when humidity is normal"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.node_113_humidity
+      below: 60
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.node_1
       data:
         percentage: 0
 ```
