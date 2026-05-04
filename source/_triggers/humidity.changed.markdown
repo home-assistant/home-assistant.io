@@ -7,9 +7,9 @@ related_triggers:
   - humidity.crossed_threshold
 ---
 
-The **Relative humidity changed** trigger fires after a humidity reading changes by a meaningful amount. Humidity creeps up slowly in a bathroom after a shower, climbs in a greenhouse overnight, or drops when the sun beats down on a dry afternoon. Small fluctuations happen all the time, so this trigger lets you set a threshold so that only a noticeable shift starts your automation.
+The **Relative humidity changed** trigger fires after a humidity reading changes. Humidity creeps up slowly in a bathroom after a shower, climbs in a greenhouse overnight, or drops when the sun beats down on a dry afternoon. Use the threshold type to filter which changes matter to your automation.
 
-The threshold type controls not just how much the reading must change, but also where the new value must land. You can require the new value to be above a level, below a level, within a range, or outside a range. You can also leave the threshold unset to fire on any change at all.
+The threshold type controls where the new reading must land for the trigger to fire. You can require the new value to be above a level, below a level, within a range, or outside a range. You can also select **Any change** to fire on any change at all.
 
 Use **Relative humidity changed** to log humidity trends, trigger a fan when the air in a room becomes noticeably more humid, or alert you when a sensor reading shifts in a way that might signal a problem.
 
