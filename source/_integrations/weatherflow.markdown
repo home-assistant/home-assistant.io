@@ -35,32 +35,56 @@ There are two integrations for WeatherFlow devices, and you are not limited to s
 
 ## Sensors
 
-This {% term integration %} will expose the following sensors:
+This integration will expose the following sensors:
 
-- Air density
-- Air pressure
-- Dew point
-- Feels like
-- Humidity
-- Illuminance
-- Irradiance
-- Lightning average distance
-- Lightning count
-- Lightning last distance
-- Lightning last energy
-- Lightning last strike
-- Precipitation (accumulated over the previous minute)
-- Precipitation intensity ([extrapolated](https://weatherflow.github.io/Tempest/api/derived-metric-formulas.html#rain-rate) from the accumulation over the previous minute)
-- Precipitation type
-- Temperature
-- UV index
-- Vapor pressure
-- Wet bulb temperature
-- Wind direction
-- Wind direction average
-- Wind gust
-- Wind lull
-- Wind speed
+### Atmospheric
+
+| Sensor | Description |
+|-------|------------|
+| Air density | The mass per unit volume of Earth’s atmosphere. |
+| Air pressure | The atmospheric pressure at the station level. |
+| Dew point | The temperature to which air must be cooled to become saturated with water vapor. |
+| Feels like | An index that combines temperature and humidity to determine the apparent temperature. |
+| Humidity | Percentage of moisture in the air relative to the maximum it can hold at the current temperature. |
+| Temperature | The degree or intensity of heat present in the area. |
+| Vapor pressure | Pressure exerted by water vapor in the air (absolute moisture content). |
+| Wet bulb temperature | The lowest temperature that can be reached under current ambient conditions by the evaporation of water only. |
+
+### Wind
+
+| Sensor | Description |
+|-------|------------|
+| Wind direction | Wind direction relative to the station direction. |
+| Wind direction average | Wind direction average. |
+| Wind gust | Wind gusts over a maximum 3 second sample. |
+| Wind lull | Wind lull over a minimum 3 second sample. |
+| Wind speed | Wind speed at the station. |
+
+### Precipitation
+
+| Sensor | Description |
+|-------|------------|
+| Precipitation | Precipitation (accumulated over the previous minute). |
+| Precipitation intensity | Precipitation intensity ([extrapolated](https://weatherflow.github.io/Tempest/api/derived-metric-formulas.html#rain-rate) from the accumulation over the previous minute). |
+| Precipitation type | Precipitation type (`none`, `rain`, `hail`, `rain_hail`). |
+
+### Lightning
+
+| Sensor | Description |
+|-------|------------|
+| Lightning average distance | Average distance of recent detected lightning strikes. |
+| Lightning count | Count of lightning strikes in the past minute. |
+| Lightning last distance | Distance to the most recent detected lightning strike. |
+| Lightning last energy | Energy estimate for the most recent detected lightning strike, as reported by the station. |
+| Lightning last strike | Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time. |
+
+### Solar & Light
+
+| Sensor | Description |
+|-------|------------|
+| Illuminance | Amount of visible light received, measured in lux. |
+| Irradiance | Total solar radiation power received per W/m². |
+| UV index | Intensity of ultraviolet radiation received. |
 
 ## Event entity
 
