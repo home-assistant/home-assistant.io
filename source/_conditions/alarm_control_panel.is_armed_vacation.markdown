@@ -82,17 +82,19 @@ for:
 
 {% include conditions/more_examples.md %}
 
-### Automation: randomly toggle a lamp in the evening to simulate occupancy
+### Automation: toggle a lamp in the evening  while on vacation
 
-Every evening at a random time, toggle the living room lamp on or off to make the house look lived-in, but only while the alarm is armed in vacation mode. When you're home, the lamp follows your normal routine instead.
+Every evening, toggle the living room lamp on or off to make the house look lived-in, but only while the alarm is armed in vacation mode. When you're home, the lamp follows your normal routine instead.
 
-- **Trigger**: Time: Random time between 19:00 and 22:00
+Don't forget to pair it with an automation to turn the lamp off, or you'll come back from vacation to a high energy bill!
+
+- **Trigger**: Time: 20:30
 - **Condition**: Alarm is armed vacation
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
 - **Action**: Light: Toggle
 
-{% details "YAML example for occupancy simulation when on vacation" %}
+{% details "YAML example for an evening lamp toggle on vacation" %}
 
 {% example %}
 automation: |
