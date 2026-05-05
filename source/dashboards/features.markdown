@@ -419,13 +419,13 @@ Widget that displays a button to select a date using the date picker dialog for 
 
 ```yaml
 features:
-  - type: "date"
+  - type: "date-set"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`date`"
+  description: "`date-set`"
   type: string
 {% endconfiguration %}
 
@@ -582,37 +582,6 @@ type:
   description: "`humidifier-toggle`"
   type: string
 {% endconfiguration %}
-
-## Hourly forecast
-
-Widget that displays a graph of hourly forecast temperatures for a [weather](/integrations/weather) entity. The graph line starts from the current temperature and shows forecast data points for the upcoming hours.
-
-<p class='img'>
-  <img src='/images/dashboards/features/hourly_forecast.png' alt='Screenshot of the tile card with the hourly forecast feature'>
-  Screenshot of the tile card with the hourly forecast feature
-</p>
-
-```yaml
-features:
-  - type: "hourly-forecast"
-    hours_to_show: 24
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`hourly-forecast`"
-  type: string
-hours_to_show:
-  required: false
-  description: Number of hours of forecast data to show. Minimum is 1 hour. The available data depends on how far ahead your weather integration provides hourly forecasts.
-  type: integer
-  default: 24
-{% endconfiguration %}
-
-{% note %}
-This feature requires a weather integration that supports hourly forecasts. If your weather entity does not provide hourly forecast data, this feature will not be available.
-{% endnote %}
 
 ## Lawn mower commands
 

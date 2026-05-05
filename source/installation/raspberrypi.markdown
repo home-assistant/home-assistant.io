@@ -86,9 +86,9 @@ To download the image to your computer, copy the correct URL for the Raspberry P
 - title: {{ variant.name }}
   content: |
 
-    ```text
+    {% raw %}```{% endraw %}text
     https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
-    ```    
+    {% raw %}```{% endraw %}
 
 {% endfor %}
 {% endtabbed_block %}

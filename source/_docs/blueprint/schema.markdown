@@ -193,7 +193,6 @@ input:
 {% endconfiguration %}
 
 
-
 The following example shows a *blueprint schema* with some inputs in a section:
 
 ```yaml

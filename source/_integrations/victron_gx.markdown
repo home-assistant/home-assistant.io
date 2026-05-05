@@ -4,9 +4,11 @@ description: Instructions for connecting Victron Energy GX devices to Home Assis
 ha_category:
   - Binary sensor
   - Number
+  - Presence detection
   - Select
   - Sensor
   - Switch
+  - Time
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -15,10 +17,12 @@ ha_codeowners:
 ha_domain: victron_gx
 ha_platforms:
   - binary_sensor
+  - device_tracker
   - number
   - select
   - sensor
   - switch
+  - time
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -132,6 +136,13 @@ Configurable options for controlling device behavior, such as:
 - <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
 - <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
 
+#### Device trackers
+
+GPS-equipped Victron devices (such as those with a built-in or connected GPS module) are exposed as device tracker entities, providing:
+
+- Latitude and longitude
+- Altitude, course, and speed (when available)
+
 #### Switches
 
 Toggle controls for enabling or disabling device functions, such as:
@@ -146,6 +157,12 @@ Toggle controls for enabling or disabling device functions, such as:
 - PV DC overvoltage feed-in
 - VE.Bus PowerAssist, ignore AC input, and grid lost alarm settings
 
+#### Times
+
+Configurable time-of-day settings, such as:
+
+- <abbr title="Energy Storage System">ESS</abbr> BatteryLife schedule charge start times
+
 ## Known limitations
 
 - The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
@@ -155,8 +172,6 @@ Toggle controls for enabling or disabling device functions, such as:
 ### Send a notification when the battery is low
 
 You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_soc` with your actual battery charge entity.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -174,7 +189,6 @@ automation:
             {{ states('sensor.battery_soc') }}%.
 ```
 
-{% endraw %}
 ## Troubleshooting
 
 ### Cannot connect

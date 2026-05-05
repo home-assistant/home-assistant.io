@@ -206,7 +206,7 @@ username:
   type: string
   default: ''
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
+  description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to parse the value."
   required: false
   type: template
 version:
@@ -258,8 +258,6 @@ According to the most common SNMP standard, the uptime of a device is accessible
 
 To create a sensor that displays the uptime for your printer in minutes, you can use this configuration:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -271,8 +269,6 @@ sensor:
     unit_of_measurement: "minutes"
     value_template: "{{((value | int) / 6000) | int}}"
 ```
-
-{% endraw %}
 
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.
 

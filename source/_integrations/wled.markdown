@@ -152,6 +152,10 @@ Can be configured on the WLED itself under
 
 Reverses the direction of the LED effect on a segment. One switch is created per segment.
 
+#### Freeze
+
+Freezes the LED effect on a segment. One switch is created per segment.
+
 ### Buttons
 
 This {% term integration %} provides a [button entity](/integrations/button)
@@ -216,8 +220,6 @@ Home Assistant can only manage one color model at a time.
 
 You can automate changing the effect using an action like this:
 
-{% raw %}
-
 ```yaml
 action: light.turn_on
 target:
@@ -226,13 +228,9 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
 ```
 
-{% endraw %}
-
 It is recommended to select an effect that matches the capabilities of your WLED device (e.g., 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
 
 Below is an example of how to select a random effect with an ID between 1 and 117, excluding retired effects:
-
-{% raw %}
 
 ```yaml
 action: light.turn_on
@@ -242,15 +240,11 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list')[1:118] | reject('equalto', 'RSVD') | list | random }}"
 ```
 
-{% endraw %}
-
 ### Activating random palette
 
 Activating a random palette is very similar to the above random effect,
 and can be done by selecting a random one from the available palette select
 {% term entity %}.
-
-{% raw %}
 
 ```yaml
 action: select.select_option
@@ -259,8 +253,6 @@ target:
 data:
   option: "{{ state_attr('select.wled_color_palette', 'options') | random }}"
 ```
-
-{% endraw %}
 
 ### Activating a preset
 
