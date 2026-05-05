@@ -16,37 +16,43 @@ related:
     title: Glossary
 ---
 
-The **Arcam Solo** {% term integration %} lets you control compatible Arcam Solo receivers from Home Assistant using a local serial device path (for example `/dev/ttyUSB0`).
+The **Arcam Solo** {% term integration %} lets you control compatible Arcam Solo receivers from Home Assistant over a serial connection.
 
 Use case: add your Arcam Solo receiver as a `media_player` to automate power, source selection, volume, and playback controls from Home Assistant dashboards and automations.
 
 ## Supported devices
 
-The integration supports Arcam Solo receivers that can be reached through a serial connection.
+The following devices are known to be supported by the integration:
+
+- Solo Music
+- Solo Mini
+- Solo Neo
+
+## Unsupported devices
+
+The following devices are not supported by the integration:
+
+- Solo Uno
 
 ## Prerequisites
 
-1. Connect your Arcam Solo receiver to the Home Assistant host via serial (direct or adapter).
-2. Identify the serial device path on your Home Assistant host (for example `/dev/ttyUSB0`).
-3. Ensure the receiver is powered and responsive on the selected serial port.
+- Arcam Solo Hi-Fi that supports control over its RS232 port.
+- A physical serial connection between your receiver and the system running Home Assistant, or ESPHome-based serial proxy.
 
 {% include integrations/config_flow.md %}
 
 During setup, you provide:
 
-- **Name**: Friendly name used in Home Assistant.
 - **Serial port**: Serial device path used to connect to the receiver.
 
 {% configuration_basic %}
-Name:
-  description: Friendly name used for this Arcam Solo in Home Assistant.
 Serial port / connection URI:
   description: Connection target used to reach the receiver. This can be a local serial device path (for example `/dev/ttyUSB0`) or an advanced URI such as a TCP serial bridge (`socket://192.168.1.50:2000`). ESPHome serial proxies also show up here automatically.
 {% endconfiguration_basic %}
 
 ## Advanced setups
 
-Besides direct local serial paths, advanced connection methods can be used when supported by your serial stack.
+Besides direct local serial paths, advanced connection methods can be used where available.
 
 ### TCP serial bridge (for example ser2net)
 
@@ -123,14 +129,11 @@ automation:
           
 ## Data updates
 
-The **Arcam Solo** integration is classified as {% term polling polls %}.  
-It communicates locally over the configured serial port and does not use a cloud connection.
+The **Arcam Solo** integration {% term polling polls %} data from the Arcam system every minute via the configured serial connection.
 
 ## Known limitations
 
 - Setup is manual; automatic discovery is not available.
-- A working local serial connection is required.
-- The integration currently exposes a single media player entity.
 
 ## Troubleshooting
 
@@ -142,15 +145,14 @@ When adding the integration, setup fails with a cannot-connect error.
 
 #### Description
 
-Home Assistant could not open or communicate with the configured serial device.
+Home Assistant could not communicate with the configured serial device or the Arcam system is not responding.
 
 #### Resolution
 
-1. Verify the receiver is powered on.
-2. Confirm the serial path is correct (for example `/dev/ttyUSB0`).
-3. Check that the Home Assistant host has permission to access the serial device.
-4. Ensure no other process is already using the same serial port.
-5. Retry setup after reconnecting the serial adapter/cable.
+1. Verify the cable is securely connected to the RS232 port of the Arcam system.
+2. Confirm the power switch on the Arcam system is switched on.
+3. Confirm the serial path is correct.
+4. Retry setup after reconnecting the serial adapter/cable.
 
 ### Integration is already configured
 
@@ -167,7 +169,7 @@ This integration allows one config entry per serial device path.
 
 ### Entity is unavailable
 
-If the media player becomes unavailable, verify serial connectivity and that the receiver is still reachable on the same port.
+If the media player becomes unavailable, verify serial connectivity and that the Arcam system is still powered on.
 
 ## Removing the integration
 
