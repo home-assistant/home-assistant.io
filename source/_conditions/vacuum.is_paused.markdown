@@ -89,7 +89,7 @@ This automation checks every 15 minutes whether the hallway vacuum is paused. If
 - **Trigger**: Every 15 minutes
 - **Condition**: Vacuum is paused
 - **Target**: Hallway vacuum
-- **Action**: Notify mobile app
+- **Action**: Send notification via mobile_app_phone
 
 {% details "YAML example for a paused vacuum reminder" %}
 

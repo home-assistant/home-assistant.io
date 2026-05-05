@@ -89,7 +89,7 @@ This automation checks every evening whether the upstairs vacuum is still in an 
 - **Trigger**: Time: 18:00
 - **Condition**: Vacuum is encountering an error
 - **Target**: Upstairs vacuum
-- **Action**: Notify mobile app
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for an unresolved vacuum error reminder" %}
 

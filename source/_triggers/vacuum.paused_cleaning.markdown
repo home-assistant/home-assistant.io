@@ -90,7 +90,7 @@ If the vacuum pauses unexpectedly, it may be stuck under furniture, wrapped in a
 
 - **Trigger**: Vacuum paused cleaning
 - **Target**: Hallway vacuum
-- **Action**: Notify mobile app
+- **Action**: Send notification via mobile_app_phone
 
 {% details "YAML example for a paused vacuum alert" %}
 

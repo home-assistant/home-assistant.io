@@ -92,7 +92,7 @@ When the vacuum enters an error state, send a notification right away so you can
 
 - **Trigger**: Vacuum encountered an error
 - **Target**: Upstairs vacuum
-- **Action**: Notify mobile app
+- **Action**: Send notification via mobile_app_phone
 
 {% details "YAML example for a vacuum error alert" %}
 
