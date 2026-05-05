@@ -22,6 +22,14 @@ ha_integration_type: hub
 
 The **Neato** {% term integration %} allows you to control your [Neato Botvac Connected Robots][botvac-connected].
 
+{% important %}
+
+Vorwerk is phasing out Neato cloud services. On 6 October 2025, they [announced](https://support.neatorobotics.com/support/solutions/articles/204000073686) that the cloud platform can no longer be maintained in a reliable and future-proof way.
+
+Because the Neato Developer Network is no longer available, you can no longer set up this integration as a new installation. Existing setups may continue to work until the cloud is fully shut down.
+
+{% endimportant %}
+
 There is support for the following platform types within Home Assistant:
 
 - **Camera** - allows you to view the latest cleaning map.
@@ -32,7 +40,7 @@ There is support for the following platform types within Home Assistant:
 
 ## Prerequisites
 
-Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
+Previously, you would visit the Neato Developer Network to create a new app and obtain credentials. The Neato Developer Network is no longer available, so new credentials can no longer be created. The steps below are kept for reference for users who already have existing credentials.
 
 {% important %}
 

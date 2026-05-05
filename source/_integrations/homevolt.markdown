@@ -45,7 +45,7 @@ The {% term integration %} creates sensors reported by the device, including:
 - Signal strength (dB)
 - Text, count, or schedule status values
 
-## Swtiches
+## Switches
 
 The {% term integration %} creates switches reported by the device, including:
 

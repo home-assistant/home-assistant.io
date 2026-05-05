@@ -62,7 +62,7 @@ The integration provides the following types of subentries:
 
 {% configuration_basic %}
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 Recommended settings:
@@ -76,8 +76,6 @@ Model:
   description: The model that will complete your prompt. See [models](https://docs.anthropic.com/en/docs/about-claude/models#model-names) for additional details and options.
 Maximum Tokens to Return in Response:
   description: The maximum number of tokens to generate before stopping. Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate. Different models have different maximum values for this parameter. See [models](https://docs.anthropic.com/en/docs/models-overview) for details.
-Temperature:
-  description: Amount of randomness injected into the response. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks. Note that even with `temperature` of `0.0`, the results will not be fully deterministic. This parameter is ignored if extended thinking is enabled (see below).
 Caching strategy:
   description: Optimize your API usage by allowing resuming from specific prefixes in your prompts. This significantly reduces processing time and costs in multi-turn conversations, but may increase cost for single-turn conversations. The cache duration is 5 minutes, the cache writes are [billed](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pricing) at 1.25 times the base input tokens price, and cache read tokens are 0.1 times the base input tokens price. This means that the cache can reduce your costs and latency if you are likely to either call a tool to control your home, which also counts as a multi-turn conversation, or reply to the model with a follow-up. There are 3 caching strategies available, `Disabled` (if you often ask general-knowledge questions without follow-up), `System prompt` (caches system prompt and tools, useful if you often have short conversations like asking time or turning on lights), and `Full` (caches every user message, useful if you often have long conversations).
 Thinking budget:
@@ -172,7 +170,6 @@ You can set the Claude AI Task entity as the default AI Task entity. To do this,
 You can use `conversation.process` and `ai_task.generate_data` actions in your scripts and automations.
 Here is a simple automation that implements a Claude Telegram chatbot using [Telegram bot integration](/integrations/telegram_bot):
 
-{% raw %}
 
 ```yaml
 triggers:
@@ -195,7 +192,6 @@ actions:
       config_entry_id: "{{ trigger.to_state.attributes.bot.config_entry_id }}"
 ```
 
-{% endraw %}
 
 ## Troubleshooting
 

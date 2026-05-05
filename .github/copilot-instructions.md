@@ -88,9 +88,8 @@ Some other rules:
     - Don’t use semicolons, commas, or conjunctions (like and or or) at the end
       of list items.
     - If at least one item in a list is a complete sentence, use periods at the end
-      of all items in that list.
-    - Don’t use a period at the end of list items if none of the items are complete
-      sentences.
+      of all items in that list, even if not all items are complete sentences.
+    - Don’t use a period at the end of list items if none of the items in the list are complete sentences.
 
 ## Terminology
 
@@ -161,7 +160,15 @@ This is the structure we use for integration pages:
 - Community notes
 - Removing the integration
 
-Here is an example template/page:
+#### Deprecated features or integrations
+
+When a feature is deprecated or an integration is removed from Home Assistant, remove its documentation.
+
+- If a feature is deprecated, remove the related section from the integration page.
+- Do not add a deprecation notice to the documentation.
+- If an entire integration is deprecated, follow the steps on [removing an integration page](https://developers.home-assistant.io/docs/documenting/remove-page).
+
+#### Example integration page
 
 ````markdown
 ---
@@ -245,24 +252,22 @@ Timeframe:
 
 ## Supported functionality
 
-### Entities
-
 The **My integration** integration provides the following entities.
 
-#### Buttons
+### Buttons
 
 - **Start backflush**
   - **Description**: Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation.
   - **Available for machines**: all
 
-#### Numbers
+### Numbers
 
 - **Dose**
   - **Description**: Dosage (in ticks) for each key
   - **Available for machines**: GS3 AV, Linea Mini.
   - **Remarks**: GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default.
 
-#### Sensors
+### Sensors
 
 - **Current coffee temperature**
   - **Description**: Current temperature of the coffee boiler.
@@ -274,7 +279,7 @@ The **My integration** integration provides the following entities.
   - **Available for machines**: Linea Micra, GS3 AV, GS3 MP.
   - **Remarks**: -
 
-#### Selects
+### Selects
 
 - **Prebrew/-infusion mode**
   - **Description**: Whether to use prebrew, preinfusion, or neither.
@@ -286,7 +291,7 @@ The **My integration** integration provides the following entities.
   - **Options**: 1, 2, 3
   - **Available for machines**: Linea Micra
 
-#### Updates
+### Updates
 
 - **Gateway firmware**
   - **Description**: Firmware status of the gateway.

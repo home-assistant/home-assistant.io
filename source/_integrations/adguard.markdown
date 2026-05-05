@@ -195,7 +195,6 @@ automation:
 
 Send a notification if DNS response time exceeds threshold:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -210,8 +209,6 @@ automation:
           title: "DNS Performance Alert"
           message: "AdGuard DNS response time is {{ states('sensor.adguard_average_processing_speed') }}ms"
 ```
-
-{% endraw %}
 
 
 ## Data updates

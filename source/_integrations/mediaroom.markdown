@@ -63,8 +63,6 @@ If the STB is on the same network segment as Home Assistant, it can determine wh
 
 The `play_media` function can be used in scripts to change channels:
 
-{% raw %}
-
 ```yaml
 # Example play_media script to change channel
 #
@@ -78,11 +76,7 @@ change_channel:
         media_content_type: "channel"
 ```
 
-{% endraw %}
-
 The `play_media` function can also be used to trigger actions on the set-up-box such opening the videoclub:
-
-{% raw %}
 
 ```yaml
 # Example play_media script to trigger an action
@@ -96,8 +90,6 @@ press_button:
         media_content_id: "{{ action }}"
         media_content_type: "mediaroom"
 ```
-
-{% endraw %}
 
 Check [here](https://github.com/dgomes/pymediaroom) for the list of possible media_content_id's
 

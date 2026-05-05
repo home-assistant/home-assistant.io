@@ -25,7 +25,7 @@ The to-do list card allows you to add, edit, check-off, and clear items from you
 Screenshot of the to-do list card.
 </p>
 
-## Adding a to-do list card
+## Adding the to-do list card to a dashboard
 
 1. [Add the card using the **Add card** button](/dashboards/cards/#adding-cards-to-your-dashboard).
    - In the **By card** dialog, select the **To-do list** card.

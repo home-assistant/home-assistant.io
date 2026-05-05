@@ -32,7 +32,7 @@ The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
 
-Select at a minimum the following scopes: **read:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
+Select at a minimum the following scopes: **read:accounts**, **write:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
 
 Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
@@ -135,6 +135,10 @@ The `mastodon.post` action posts a status to your Mastodon account.
   - **Description**: If not used, will default to account setting. `public`: post will be public. `unlisted`: post will be public but not appear on the public timeline. `private`: post will only be visible to followers. `direct`: post will only be visible to mentioned users.
   - **Optional**: Yes
 
+- **Data attribute**: `quote_approval_policy`
+  - **Description**: If not used, will default to account setting. If `visibility` is `private` or `direct` this attribute is ignored. `public`: anyone can quote this post. `followers`: only accounts that follow you can quote this post. `nobody`: no one but you can quote this post.
+  - **Optional**: Yes
+
 - **Data attribute**: `idempotency_key`
   - **Description**: A unique key to prevent duplicate posts for up to one hour. Common strategies include using a hash of the status text or a static string.
   - **Optional**: Yes
@@ -207,8 +211,6 @@ The `mastodon.update_profile` action allows you to update information and pictur
 
 Example post action that will post a status using your account's default visibility:
 
-{% raw %}
-
 ```yaml
 - action: mastodon.post
   data:
@@ -216,15 +218,11 @@ Example post action that will post a status using your account's default visibil
     status: "A toot from Home Assistant"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example private post action" %}
 
 This will post a status to Mastodon, but visibility is marked as `private` so only followers will see it.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -234,15 +232,11 @@ This will post a status to Mastodon, but visibility is marked as `private` so on
     visibility: private
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example status post action avoiding recent duplication" %}
 
 Example post action that will post a status, but ensure that the same status is not posted more than once within one hour. This check is performed by your Mastodon instance.
-
-{% raw %}
 
 ```yaml
 actions:
@@ -255,15 +249,11 @@ actions:
       idempotency_key: {{ toot | md5 }}
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example media post action" %}
 
 This will post a status to Mastodon that includes an image.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -273,15 +263,11 @@ This will post a status to Mastodon that includes an image.
     media: /config/www/funny_meme.png
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example post with media and a content warning that will not be visible in the public timeline" %}
 
 This will post a status to Mastodon that includes an image, with a description, a content warning, and a visibility of `unlisted`, so it doesn't show in the public timeline.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -294,15 +280,11 @@ This will post a status to Mastodon that includes an image, with a description, 
     content_warning: "This might not be funny enough"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example of muting an account you follow while you are on holiday" %}
 
 This automation will look for an event in your calendar and mute the specified account while the event is active, and unmute at the end of the event.
-
-{% raw %}
 
 ```yaml
 alias: Mastodon mute example
@@ -337,8 +319,6 @@ actions:
               config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
               account_name: "@commute-news@mytown.online"
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

@@ -29,10 +29,12 @@ Actions can be enabled on the following cards:
 - [Gauge](/dashboards/gauge/)
 - [Glance](/dashboards/glance/)
 - [Light](/dashboards/light/)
+- [Markdown](/dashboards/markdown/)
 - [Picture](/dashboards/picture/)
 - [Picture element](/dashboards/picture-elements/)
 - [Picture entity](/dashboards/picture-entity/)
 - [Picture glance](/dashboards/picture-glance/)
+- [Shortcut](/dashboards/shortcut/)
 - [Tile](/dashboards/tile/)
 - [Weather forecast](/dashboards/weather-forecast/)
 
