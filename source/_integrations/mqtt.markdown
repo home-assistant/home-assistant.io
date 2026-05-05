@@ -220,7 +220,7 @@ If the server certificate does not match the hostname then validation will fail.
 
 #### MQTT Protocol
 
-The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker supports MQTT version 5 you can set the protocol setting to `5`.
+Home Assistant requires that your broker supports MQTT protocol version `5`. Most MQTT brokers, like the official "Mosquitto broker" App will support MQTT protocol version `5`.
 
 #### Securing the connection
 
