@@ -50,6 +50,7 @@ There is currently support for the following device types within Home Assistant:
 - **Scene** - Elk-M1 tasks are represented as `scene` entities
 - **Sensor** - Elk-M1 counters, keypads, panel status, settings, and zones are represented as `sensor` entities
 - **Switch** - Elk-M1 outputs are represented as `switch` entities
+- **Time** - Elk-M1 number and duration settings are represented as `time` entities
 
 The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface Specification, Revision 1.84" document. This document can be found on the Internet.
 
