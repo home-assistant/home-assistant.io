@@ -84,7 +84,7 @@ for:
 
 ### Automation: start a bedtime routine when the alarm is armed for the night
 
-When you arm the alarm in night mode, the house prepares for sleep. Downstairs lights turn off, the thermostat lowers to a comfortable sleeping temperature, and you get a quick confirmation on your phone.
+When you arm the alarm in night mode, the house prepares for sleep. Downstairs lights turn off, and the thermostat lowers to a comfortable sleeping temperature.
 
 - **Trigger**: Alarm armed night
 - **Target**: Home alarm panel
