@@ -123,6 +123,16 @@ Notes:
     readyAtTime: 'T12:00Z'
 ```
 
+### Action: Start charge
+
+The `renault.charge_start` action starts charging on a vehicle.
+
+  | Data attribute | Required | Description | Example |
+  | ---------------------- | -------- | ----------- | ------- |
+  | `vehicle`| yes | device_id of the vehicle | 
+  | `when` | no | Timestamp for charging to start, defaults to now | `2020-05-01T17:45:00` |
+
+
 ### Action: Set charge schedules
 
 The `renault.charge_set_schedules` action updates charge schedules on a vehicle.

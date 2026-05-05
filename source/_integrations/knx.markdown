@@ -609,7 +609,9 @@ type:
 
 ### Entity exposures
 
-Expose Home Assistant entities to share their state or attributes with the KNX bus. Home Assistant automatically sends the current value whenever it changes and responds to read requests on the KNX bus.
+Expose Home Assistant entities to share their state or attributes with the KNX bus. Home Assistant automatically sends the current value whenever it changes and responds to read requests on the KNX bus. This can be configured from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of entity exposures via YAML" %}
 
 ```yaml
 knx:
@@ -697,6 +699,8 @@ respond_to_read:
   type: boolean
   default: true
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Entity platforms
 

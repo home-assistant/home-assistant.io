@@ -114,6 +114,7 @@ You can use the `schlage.add_code` action to add a new code to your lock. The co
 | `entity_id` | no | Lock entity to use (one or more) | `lock.front_door` |
 | `name` | no | Name for the code | `Example Person` |
 | `code` | no | Code to add (4-8 digits) | `3333` |
+| `notify_on_use` | yes | Whether the native Schlage notification should be sent when this PIN is used | `true` |
 
 ```yaml
 # Example action
@@ -123,6 +124,7 @@ data:
     - lock.front_door
   name: Example Person
   code: "3333"
+  notify_on_use: true
 ```
 
 {% enddetails %}
