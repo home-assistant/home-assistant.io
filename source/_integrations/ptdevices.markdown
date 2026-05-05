@@ -92,7 +92,7 @@ Some sensors are disabled by default because they provide information that is on
   - **Description**: The current temperature measured by the external temperature probe.
   - **Available for models**: PTLevel Wired Wifi With Temperature Probe
 - **Status**:
-  - **Description**: The current status of the device. e.g. Working or Not Connected.
+  - **Description**: The current status of the device. For example, **Working** or **Not connected**.
   - **Available for models**: All
 - **Battery voltage**:
   - **Description**: The current voltage reading of the onboard batteries.
