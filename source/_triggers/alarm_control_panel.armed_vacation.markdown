@@ -84,7 +84,7 @@ for:
 
 ### Automation: simulate occupancy when vacation mode is armed
 
-When you arm the alarm in vacation mode, turn on a helper that your other automations use to cycle lights on a random schedule. The house looks lived in even when you are hundreds of miles away.
+When you arm the alarm in vacation mode, turn on a helper that your other automations use for vacation-mode behavior. The house looks lived in even when you are hundreds of miles away.
 
 - **Trigger**: Alarm armed vacation
 - **Target**: Home alarm panel
