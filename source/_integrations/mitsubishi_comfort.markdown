@@ -35,6 +35,12 @@ This integration supports indoor units (full climate control) and Kumo Station o
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+  description: The email address for your Kumo Cloud account.
+Password:
+  description: The password for your Kumo Cloud account.
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
