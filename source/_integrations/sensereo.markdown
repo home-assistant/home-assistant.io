@@ -17,6 +17,6 @@ ha_brand: true
 
 Sensereo Matter devices work locally and integrate seamlessly with the Matter integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
 
-{% my add_matter_device badge brand=page.ha_domain %}
+ {% my add_matter_device badge domain=page.ha_domain %}
 
 [Learn more about Matter in Home Assistant.](/integrations/matter/)
