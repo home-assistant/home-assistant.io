@@ -50,7 +50,8 @@ to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/ap
 User with API Key requires privileges for Type:
 
 - GUI Name: Diagnostics: ARP Table
-- GUI Name: Diagnostics: Network Insight
+- GUI Name: Status: Interfaces
+- GUI Name: System: Firmware
 
 ## Presence detection
 
