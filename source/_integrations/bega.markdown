@@ -19,4 +19,4 @@ ha_brand: true
 
 ## Supported devices
 
-For the full list of certified BEGA devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand=BEGA" target="_blank" rel="noopener">filtered device list</a>.
+{% include integrations/device_list.html brand="bega" hide_list="true" %}
