@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Event
   - Fan
   - Hub
   - Light
@@ -27,6 +28,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - event
   - fan
   - light
   - lock
@@ -48,6 +50,7 @@ There is currently support for the following platforms within Home Assistant:
 - Button
 - Climate
 - Cover
+- Event
 - Light
 - Fan
 - Lock
@@ -84,6 +87,22 @@ If your leak or door/window sensor supports heartbeats, a new binary_sensor devi
 ### ISY/IoX Variables
 
 Integer and State Variables from the ISY are imported as `number` entities. You can choose which variables are enabled by default by setting the "Variable Sensor String" Config Option and using it as part of the variable name in the ISY Admin Console (e.g., `HA.` in options and `HA.Variable Name` on the ISY) or you can manually enable the entities you need from the ISY Variables device in Home Assistant.
+
+### Button events
+
+Insteon switches and dimmers (such as SwitchLinc and KeypadLinc) and KeypadLinc secondary buttons are exposed as `event` entities with the device class `button`. Each entity represents a physical button and fires when the ISY reports a control event for that button. The supported event types are `on`, `off`, `fast_on`, `fast_off`, `fade_up`, `fade_down`, and `fade_stop`.
+
+Primary load buttons are enabled by default. KeypadLinc secondary buttons are disabled by default to avoid creating unused entities. To use them, enable the entity from the device page.
+
+You can use these entities directly as triggers in automations without needing to write event listeners. For example:
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: event.hallway_keypad_b
+    attribute: event_type
+    to: "fast_on"
+```
 
 ### Handling Insteon or Other ISY Control Events
 
