@@ -19,4 +19,4 @@ ha_brand: true
 
 ## Supported devices
 
-{% include integrations/device_list.html brand="bega" hide_list="true" %}
+{% include integrations/device_list.html brand="BEGA" hide_list="true" %}
