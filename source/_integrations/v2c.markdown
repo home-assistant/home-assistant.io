@@ -25,6 +25,7 @@ There is currently support for the following platforms within Home Assistant:
 - [Sensor](#sensor)
 - [Binary sensor](#binary-sensor)
 - [Number](#number)
+- [Select](#select)
 - [Switch](#switch)
 
 ## Prerequisites
@@ -58,6 +59,12 @@ The V2C integration currently exposes the following sensors:
 The V2C integration currently exposes the following number entity:
 
 - intensity: current used to charge your vehicle
+
+## Select
+
+The V2C integration currently exposes the following select entity:
+
+- charge_mode: Sets the charger mode to either Mono-phase or Tri-phase.
 
 ## Switch
 
