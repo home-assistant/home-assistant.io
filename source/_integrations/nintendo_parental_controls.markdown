@@ -103,9 +103,6 @@ The integration provides the following actions.
 
 The `nintendo_parental_controls.add_bonus_time` action adds additional bonus screen time to a specified device, which is granted outside of the maximum allowed screentime.
 
-- **Data attribute**: `config_entry_id`
-  - **Description**: The ID of the config entry containing the device to grant bonus time.
-  - **Optional**: No
 - **Data attribute**: `device_id`
   - **Description**: The ID of the device to grant bonus time.
   - **Optional**: No
@@ -113,13 +110,23 @@ The `nintendo_parental_controls.add_bonus_time` action adds additional bonus scr
   - **Description**: The amount of time in minutes to grant (minimum of 5, maximum of 30).
   - **Optional**: No
 
+### Action: Update pin code
+
+The `nintendo_parental_controls.update_pin_code` action allows you to change the parental controls override PIN of a specified device. When entering this PIN on the switch, all parental control restrictions can be bypassed.
+
+- **Data attribute**: `device_id`
+  - **Description**: The ID of the device to change the PIN on.
+  - **Optional**: No
+- **Data attribute**: `pin`
+  - **Description**: The new PIN to set between 1000 and 99999999
+  - **Optional**: No
+
 ## Known limitations
 
-The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
-
-Further, this integration relies on the cloud and cannot make a local connection to your Switch.
-
-The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
+- A cloud connection is required as it is not possible to make a local connection to your Switch.
+- The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- When changing the PIN, Nintendo will send you an email automatically, this cannot be disabled in the integration. The email does not contain the PIN itself.
 
 ## Troubleshooting
 
