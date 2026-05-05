@@ -32,7 +32,7 @@ BEGA: putting the smart into smart home lighting.
 
 ## Beyond beautiful design
 
-BEGA's premium positioning isn't only about aesthetics. Their commitment to repairability also aligns well with the <a href="https://www.openhomefoundation.org/" target="_blank" rel="noopener">Open Home Foundation</a>'s sustainability principles. Rather than treating a luminaire as a disposable unit, BEGA designs the majority of their components to be replaceable. Crack a glass panel? You can order that specific spare via their website's search function and replace it, rather than throwing out the whole fixture.
+BEGA's premium positioning isn't only about aesthetics. Their commitment to repairability also aligns well with the <a href="https://www.openhomefoundation.org/" target="_blank" rel="noopener">Open Home Foundation</a>&rsquo;s sustainability principles. Rather than treating a luminaire as a disposable unit, BEGA designs the majority of their components to be replaceable. Crack a glass panel? You can order that specific spare via their website's search function and replace it, rather than throwing out the whole fixture.
 
 This also makes BEGA an interesting choice if you're thinking about illuminating your outdoor spaces. We have relatively few outdoor lighting options in the program, and BEGA fills that gap in style – just in time if you're looking to get your garden or terrace ready for summer 😎.
 
