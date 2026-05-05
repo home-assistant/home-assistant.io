@@ -46,6 +46,7 @@ There is currently support for the following device types within Home Assistant:
 - **Binary sensor** - Elk-M1 zones with 4 states (non-analog zones) are represented as `binary_sensor` entities. `Normal` state is `off` and any other state is `on`
 - **Climate** - Elk-M1 thermostats are represented as `climate` entities
 - **Light** - Elk-M1 lights (X10, Insteon, UPB) are represented as `light` entities
+- **Number** - Elk-M1 number and duration settings are represented as `number` entities
 - **Scene** - Elk-M1 tasks are represented as `scene` entities
 - **Sensor** - Elk-M1 counters, keypads, panel status, settings, and zones are represented as `sensor` entities
 - **Switch** - Elk-M1 outputs are represented as `switch` entities
@@ -498,36 +499,24 @@ The panel does not automatically send counter value updates under certain condit
 | `entity_id`    | No       | ElkM1 counter to refresh or set             |
 | `value`        | Yes (for `sensor_counter_set`) | Value to set the counter to (0-65536) |
 
-#### Custom settings
-
-These settings are configurable values stored on your Elk-M1 panel, such as integer, timer, and time-based settings.
-
-- `elkm1.sensor_setting_set` - Update an Elk-M1 panel setting
-| Data attribute | Required | Description                                                  |
-| -------------- | -------- | ------------------------------------------------------------ |
-| `entity_id`    | No       | ElkM1 setting to set                                          |
-| `value`        | Yes      | Value can be an integer (0-65536) for integer and timer settings, or a 24-hour time for time settings (HH:MM) |
-
-
 #### Output management
 
-- `elkm1.switch_output_turn_on` - Turn on the output for a specified duration
+- `elkm1.switch_output_turn_on_for` - Turn on the output for a specified duration
 
-| Data attribute | Required | Description                                                                 |
-| -------------- | -------- | --------------------------------------------------------------------------- |
-| `entity_id`    | No       | ElkM1 output to turn on                                                     |
-| `value`        | Yes      | Duration to keep the output on, as an ElkM1 integer value from 0 to 65536   |
+| Data attribute | Required | Description                                                               |
+| -------------- | -------- | ------------------------------------------------------------------------- |
+| `entity_id`    | No       | ElkM1 output to turn on                                                   |
+| `duration`     | Yes      | Duration to keep the output on, as an ElkM1 integer value from 0 to 65535 |
 
 #### Zone management
 
 - `elkm1.sensor_zone_bypass` - Bypass a zone
 - `elkm1.sensor_zone_trigger` - Trigger a zone virtually
-- `elkm1.sensor_zone_update_voltage` - Update the voltage for a sensor of type zone
 
-| Data attribute | Required | Description                                      |
-| -------------- | -------- | ------------------------------------------------ |
-| `entity_id`    | No       | ElkM1 zone to bypass, trigger, or update voltage |
-| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits)          |
+| Data attribute | Required | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `entity_id`    | No       | ElkM1 zone to bypass or trigger         |
+| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits) |
 
 {% note %}
 The only mechanism ElkM1 offers to clear zone bypass is to clear all bypassed zones in a given alarm panel (area).
