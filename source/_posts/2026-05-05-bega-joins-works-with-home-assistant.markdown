@@ -55,7 +55,18 @@ Because the list of certified BEGA devices is so long, we've included a condense
 
 BEGA Smart covers a swathe of indoor and outdoor luminaires, with wall or ceiling mounted options, as well as freestanding garden path lighting to illuminate those balmy summer evenings.
 
-{% include integrations/device_list.html brand="bega" %}
+- BEGA Smart Outdoor Ceiling luminaire (two variants)
+- BEGA Smart Indoor Ceiling luminaire (nine variants)
+- BEGA Smart Wall Outdoor Luminaire (10 variants)
+- BEGA Smart Outdoor Garden and pathway luminaire (79 variants)
+- BEGA Smart Indoor Ceiling and wall luminaire (two variants)
+- BEGA Smart Indoor table lamp (three variants)
+- BEGA Smart Outdoor Ceiling and wall luminaire (35 variants)
+- BEGA Smart Outdoor PRIMA wall luminaire (eight variants)
+- BEGA Smart Outdoor PRIMA ceiling and wall luminaire (eight variants)
+- BEGA Smart Outdoor PRIMA ceiling mounted downlight (eight variants)
+
+For the full list of certified BEGA devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand=BEGA" target="_blank" rel="noopener">filtered device list</a>.
 
 ## Dazzled by choice
 
