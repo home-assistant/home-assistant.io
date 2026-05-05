@@ -47,7 +47,7 @@ target:
 
 ## Good to know
 
-- The locate function’s effects (sound, lights) depend on your vacuum model.
+- The locate function's effects (sound, lights) depend on your vacuum model.
 
 {% include actions/try_it.md %}
 

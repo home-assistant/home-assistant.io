@@ -31,7 +31,7 @@ action: |
 
 This sets `vacuum.cleaner` to `turbo`.
 
-The `fan_speed` value (label or number) is platform-dependent. Allowed values are typically found in your vacuum’s manual or entity attributes.
+The `fan_speed` value (label or number) is platform-dependent. Allowed values are typically found in your vacuum's manual or entity attributes.
 
 ### Options in YAML
 
