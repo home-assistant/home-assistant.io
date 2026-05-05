@@ -112,7 +112,7 @@ The `nintendo_parental_controls.add_bonus_time` action adds additional bonus scr
 
 ### Action: Update pin code
 
-The `nintendo_parental_controls.update_pin_code` action allows you to change the parental controls override PIN of a specified device. When entering this PIN on the switch, all parental control restrictions can be bypassed.
+The `nintendo_parental_controls.update_pin_code` action allows you to change the parental controls override PIN of a specified device. When entering this PIN on the Switch, all parental control restrictions can be bypassed.
 
 - **Data attribute**: `device_id`
   - **Description**: The ID of the device to change the PIN on.
