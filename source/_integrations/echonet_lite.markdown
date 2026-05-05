@@ -6,6 +6,11 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@sayurin'
 ha_domain: echonet_lite
+ha_config_flow: true
+ha_platforms:
+   - switch
+ha_category:   
+  - Switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 related:
