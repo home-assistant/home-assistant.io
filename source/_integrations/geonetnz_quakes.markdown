@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 
+The **GeoNet NZ Quakes** {% term integration %} lets you use a GeoJSON feed provided by 
 New Zealand's [GeoNet](https://www.geonet.org.nz/) with information 
 about quakes in the New Zealand region that happened within the last 7 days. 
 It retrieves incidents from a feed and 

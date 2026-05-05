@@ -36,7 +36,7 @@ To change basic settings such as location, unit system, and language, refer to [
 
 ## Creating a backup
 
-You can back up your Home Assistant, add-on data, and configuration. Backups are used to restore the system (or parts of the system) if a rollback is needed. Backups are also used or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
+You can back up your Home Assistant configuration and Home Assistant app data. Backups are used to restore the system (or parts of the system) if a rollback is needed. Backups are also used to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
 
 To learn how to create a backup of your Home Assistant installation, refer to the documentation on [creating a backup](/common-tasks/general/#backups).
 

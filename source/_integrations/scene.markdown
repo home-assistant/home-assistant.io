@@ -1,6 +1,6 @@
 ---
 title: Scenes
-description: Instructions on how to setup scenes within Home Assistant.
+description: Instructions on how to set up scenes within Home Assistant.
 ha_category:
   - Organization
 ha_release: 0.15
@@ -11,19 +11,16 @@ ha_domain: scene
 ha_integration_type: entity
 ---
 
-A scene entity is an entity that can restore the state of a group of entities.
-Scenes can be user-defined or can be provided through an integration.
+A scene entity can restore the state of a group of entities.
+You can define scenes yourself, or they can be provided by an integration.
 
 {% include integrations/building_block_integration.md %}
 
 ## The state of a scene
 
-The scene entity is stateless, as in, it cannot have a state like the `on` or
-`off` state that, for example, a normal switch entity has.
+The scene entity is stateless. Unlike a normal switch entity, it does not have an `on` or `off` state.
 
-Every scene entity does keep track of the timestamp of when the last time
-the scene entity was called via the Home Assistant UI or called via
-an action.
+Every scene entity keeps track of the timestamp of when it was last called, either via the Home Assistant UI or via an action.
 
 <p class='img'>
 <img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the developer tools' />
@@ -37,13 +34,13 @@ In addition, the entity can have the following states:
 
 ## Scenes created by integrations
 
-Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mqtt), and [KNX](/integrations/knx) provide scenes. You can activate them from the Home Assistant UI or via as an action. In this case, the integration provides the preferred states to restore.
+Some integrations such as [Philips Hue](/integrations/hue/), [MQTT](/integrations/mqtt/), and [KNX](/integrations/knx/) provide scenes. You can activate them from the Home Assistant UI or via an action. In this case, the integration provides the preferred states to restore.
 
 ## Creating a scene
 
-You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
+You can create scenes that capture the states you want for certain entities. For example, a scene can specify that light A should be turned on and light B should be bright red.
 
-Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be manually configured via {% term "`configuration.yaml`" %}. Note that entity data is not an action parameter; it's a representation of the wanted state:
+You can create and manage scenes via the user interface using the [scene editor](/docs/scene/editor/). You can also configure them manually via {% term "`configuration.yaml`" %}. Note that entity data is not an action parameter; it's a representation of the desired state:
 
 ```yaml
 # Example configuration.yaml entry
@@ -65,7 +62,7 @@ scene:
       light.ceiling: "off"
       media_player.sony_bravia_tv:
         state: "on"
-        source: HDMI 1
+        source: "HDMI 1"
   - name: Standard
     entities:
       light.tv_back_light:
@@ -78,7 +75,7 @@ scene:
 
 {% configuration %}
 name:
-  description: Friendly name of scene.
+  description: Friendly name of the scene.
   required: true
   type: string
 icon:
@@ -86,15 +83,15 @@ icon:
   required: false
   type: string
 entities:
-  description: Entities to control and their desired state.
+  description: Entities to control and their desired states.
   required: true
   type: list
 {% endconfiguration %}
 
-As you can see, there are two ways to define the states of each `entity_id`:
+There are two ways to define the states of each `entity_id`:
 
-- Define the `state` directly with the entity. Be aware, that `state` needs to be defined.
-- Define a complex state with its attributes. You can see all attributes available for a particular entity under `developer-tools -> state`.
+- Define the `state` directly with the entity. The `state` is required.
+- Define a complex state with its attributes. You can see all attributes available for a particular entity under **Developer tools** > **States**.
 
 Scenes can be activated using the `scene.turn_on` action (there is no `scene.turn_off` action).
 
@@ -114,7 +111,7 @@ automation:
 
 ## Applying a scene without defining it
 
-With the `scene.apply` action you are able to apply a scene without first defining it via configuration. Instead, you pass the states as part of the action data. The format of the data is the same as the `entities` field in a configuration.
+With the `scene.apply` action, you can apply a scene without first defining it via configuration. Instead, you pass the states as part of the action data. The format of the data is the same as the `entities` field in a configuration.
 
 ```yaml
 # Example automation
@@ -131,19 +128,17 @@ automation:
           light.tv_back_light:
             state: "on"
             brightness: 100
-          light.ceiling: off
+          light.ceiling: "off"
           media_player.sony_bravia_tv:
             state: "on"
-            source: HDMI 1
+            source: "HDMI 1"
 ```
 
 ## Using scene transitions
 
-Both the `scene.apply` and `scene.turn_on` actions support setting a transition,
-which enables you to smoothen the transition to the scene.
+Both the `scene.apply` and `scene.turn_on` actions support setting a transition to smooth the change into the scene.
 
-This is an example of an automation that sets a romantic scene, in which the
-light will transition to the scene in 2.5 seconds.
+Here's an example automation that activates a romantic scene with a 2.5 second transition.
 
 ```yaml
 # Example automation
@@ -161,9 +156,7 @@ automation:
         transition: 2.5
 ```
 
-Transitions are currently only support by lights, which in their turn, have
-to support it as well. However, the scene itself does not have to consist of
-only lights to have a transition set.
+Transitions are currently only supported by lights, and the lights themselves must also support them. However, the scene does not need to consist only of lights to have a transition set.
 
 ## Reloading scenes
 
@@ -173,12 +166,13 @@ Whenever you make a change to your scene configuration, you can call the `scene.
 
 Create a new scene without having to configure it by calling the `scene.create` action. This scene will be discarded after reloading the configuration.
 
-You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You also may want to specify the entities in the same format as when configuring the scene. You can also take a snapshot of the current state by using the `snapshot_entities` parameter. In this case, you have to specify the `entity_id` of all entities you want to take a snapshot of. `entities` and `snapshot_entities` can be combined but you have to use at least one of them.
+You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You may also want to specify the entities in the same format as when configuring the scene. You can also take a snapshot of the current state by using the `snapshot_entities` parameter. In this case, you have to specify the `entity_id` of all entities you want to take a snapshot of. `entities` and `snapshot_entities` can be combined, but you have to use at least one of them.
 
-If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens but a warning in your log files.
+If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens and a warning appears in your log files.
 
 ### Video tutorial
-This video tutorial explains how scenes work and how you can utilize scenes on the fly.
+
+This video tutorial explains how scenes work and how you can use scenes on the fly.
 
 <lite-youtube videoid="JW9PC6ptXcM" videotitle="Scenes on Steroids in Home Assistant - How To - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
@@ -196,10 +190,10 @@ automation:
           light.tv_back_light:
             state: "on"
             brightness: 100
-          light.ceiling: off
+          light.ceiling: "off"
           media_player.sony_bravia_tv:
             state: "on"
-            source: HDMI 1
+            source: "HDMI 1"
 ```
 
 ## Deleting dynamically created scenes
@@ -233,7 +227,6 @@ The following example turns off some entities as soon as a window opens. The sta
     entity_id: binary_sensor.window
     from: "off"
     to: "on"
-  conditions: []
   actions:
   - action: scene.create
     data:
@@ -255,7 +248,6 @@ The following example turns off some entities as soon as a window opens. The sta
     entity_id: binary_sensor.window
     from: "on"
     to: "off"
-  conditions: []
   actions:
   - action: scene.turn_on
     target:

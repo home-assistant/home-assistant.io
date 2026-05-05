@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The history graph card allows you to display a graph for each of up to eight entities.
@@ -22,9 +24,9 @@ Screenshot of the history graph card, when the sensor has no `unit_of_measuremen
 Screenshot of the history graph card, when the sensor has a `unit_of_measurement` defined.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 Only the y-axis and logarithmic scale settings can be configured via the user interface. To configure the other options for this card, you need to edit the YAML configuration.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -89,8 +91,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 {% endconfiguration %}
 
 ### Long term statistics

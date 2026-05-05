@@ -8,11 +8,12 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
   - '@synesthesiam'
+  - '@arturpragacz'
 ha_domain: conversation
-ha_integration_type: system
+ha_integration_type: entity
 ---
 
-The **Conversation** {% term integration %} allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` action with the transcribed text.
+The **Conversation** {% term integration %} allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation.process` action with the transcribed text.
 
 <p class='img'>
   <img src="/images/screenshots/voice-commands.png" />
@@ -38,7 +39,6 @@ To get started, create a `custom_sentences/<language>` directory in your Home As
 
 For an English example, create the file `config/custom_sentences/en/temperature.yaml` and add:
 
-{% raw %}
 
 ```yaml
 # Example temperature.yaml entry
@@ -50,11 +50,9 @@ intents:
           - "What is the humidity outside"
 ```
 
-{% endraw %}
 
 To teach Home Assistant how to handle the custom `CustomOutsideHumidity` {% term intent %}, create an `intent_script` entry in your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -64,7 +62,6 @@ intent_script:
       text: "It is currently {{ states('sensor.outside_humidity') }} percent humidity outside."
 ```
 
-{% endraw %}
 
 More complex [actions](/docs/scripts/) can be done in `intent_script`, such as performing actions and firing events.
 
@@ -74,7 +71,6 @@ Extending the built-in {% term intents %}, such as `HassTurnOn` and `HassTurnOff
 
 For example, create the file `config/custom_sentences/en/on_off.yaml` and add:
 
-{% raw %}
 
 ```yaml
 # Example on_off.yaml entry
@@ -94,7 +90,6 @@ intents:
           name: "kitchen lights"
 ```
 
-{% endraw %}
 
 Now when you say "engage the kitchen lights", it will turn on a light named "kitchen lights". Saying "disengage kitchen lights" will turn it off.
 
@@ -102,7 +97,6 @@ Let's generalize this to other entities. The built-in `{name}` and `{area}` list
 
 Adding `{name}` to `config/custom_sentences/en/on_off.yaml`:
 
-{% raw %}
 
 ```yaml
 # Example on_off.yaml entry
@@ -118,13 +112,11 @@ intents:
           - "disengage [the] {name}"
 ```
 
-{% endraw %}
 
 You can now "engage" or "disengage" any entity.
 
 Lastly, let's add sentences for turning lights on and off in specific areas:
 
-{% raw %}
 
 ```yaml
 # Example on_off.yaml entry
@@ -150,7 +142,6 @@ intents:
           domain: "light"
 ```
 
-{% endraw %}
 
 It's now possible to say "engage all lights in the bedroom", which will turn on every light in the area named "bedroom".
 

@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `qld_bushfire` platform lets you integrate a 
+The **Queensland Bushfire Alert** {% term integration %} lets you integrate a 
 GeoRSS feed containing [bushfire alerts](https://www.qfes.qld.gov.au/Current-Incidents) for Queensland. It retrieves alerts from a feed 
 and shows information of those alerts filtered by distance to Home Assistant's 
 location.

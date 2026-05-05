@@ -14,7 +14,7 @@ ha_domain: nordpool
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: hub
+ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
@@ -149,8 +149,6 @@ You can get your `config_entry` by using actions within the [developer tools](/d
 
 #### Example action with data
 
-{% raw %}
-
 ```yaml
 action: nordpool.get_prices_for_date
 data:
@@ -161,8 +159,6 @@ data:
     - SE4
   currency: SEK
 ```
-
-{% endraw %}
 
 ### Get price indices for date
 
@@ -199,8 +195,6 @@ You can get your `config_entry` by using actions within the [developer tools](/d
 
 #### Example action with data
 
-{% raw %}
-
 ```yaml
 action: nordpool.get_prices_for_date
 data:
@@ -212,8 +206,6 @@ data:
   currency: SEK
 ```
 
-{% endraw %}
-
 ## Examples
 
 A template sensor to add VAT and fixed cost is useful to get the actual energy cost in the energy dashboard.
@@ -222,7 +214,7 @@ A template sensor to add VAT and fixed cost is useful to get the actual energy c
 
 Create a helper using the UI.
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and at the top, choose the **Helpers** tab.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and at the top, choose the **Helpers** tab.
 2. In the bottom right corner, select **Create helper**.
 3. Select **Template** and **Template a sensor**.
 4. Enter the fields as shown below.
@@ -236,8 +228,6 @@ The template below takes the current price attributes, adds 0.1293 EUR as fixed 
 ### YAML Template
 
 A template sensor to add VAT and a fixed cost from an helper entity `input_number.add_fixed_cost`.
-
-{% raw %}
 
 ```yaml
 template:
@@ -254,8 +244,6 @@ template:
           {{ ((cost + add_cost) * 1.25) | round(2, default=0) }}
 ```
 
-{% endraw %}
-
 ### Tomorrow's lowest price
 
 Using a trigger template, you can create a template sensor to calculate tomorrow's lowest price which also puts the list of all prices in the attributes of the sensor. All prices are returned in [Currency]/MWh.
@@ -269,8 +257,6 @@ Below example will convert the action call response to kWh prices in the selecte
 {% tip %}
 You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
 {% endtip %}
-
-{% raw %}
 
 ```yaml
 template:
@@ -304,8 +290,6 @@ template:
             {% endfor %}
             {{data.prices}}
 ```
-
-{% endraw %}
 
 <p class='img'>
   <img src='/images/integrations/nordpool/nordpool_tomorrow_lowest_price.png' alt='Screenshot: Trigger template: Tomorrow lowest price'>

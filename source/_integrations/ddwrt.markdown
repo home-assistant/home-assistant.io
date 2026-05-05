@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ddwrt` {% term integration %} offers presence detection by looking at connected devices to a [DD-WRT](https://dd-wrt.com/) based router.
+The **DD-WRT** {% term integration %} offers presence detection by looking at connected devices to a [DD-WRT](https://dd-wrt.com/) based router.
 
 To use a DD-WRT router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -31,7 +31,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your router, e.g., `192.168.1.1`.
+  description: The IP address of your router, for example, `192.168.1.1`.
   required: true
   type: string
 username:
@@ -48,7 +48,7 @@ ssl:
   type: boolean
   default: false
 verify_ssl:
-  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)
+  description: Disables SSL/TLS verification for HTTPS resources, for example, for self-signed certificates.
   required: false
   type: boolean
   default: true

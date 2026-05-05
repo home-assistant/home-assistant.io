@@ -1,0 +1,80 @@
+blueprint:
+  name: "Turn on Casper Glow and pause at nightlight level"
+  description: "Turns on the Casper Glow at a set time, then pauses the dimming sequence when a specified number of minutes remain, holding the light at a dim nightlight level. Requires the Dimming End Time sensor to be enabled."
+  domain: automation
+  input:
+    bedtime:
+      name: Turn-on time
+      selector:
+        time:
+    glow_device:
+      name: Casper Glow
+      selector:
+        device:
+          filter:
+            - integration: casper_glow
+    dimming_minutes:
+      name: Dimming duration
+      default: "15"
+      selector:
+        select:
+          options:
+            - "15"
+            - "30"
+            - "45"
+            - "60"
+            - "90"
+    pause_at_remaining:
+      name: Pause when this many minutes remain
+      default: 10
+      selector:
+        number:
+          min: 1
+          max: 89
+          unit_of_measurement: min
+mode: restart
+variables:
+  glow_device: !input glow_device
+  dimming_minutes: !input dimming_minutes
+  pause_at_remaining: !input pause_at_remaining
+  light_entity: >
+    {{ device_entities(glow_device) | select('match', 'light\\.') | first }}
+  select_entity: >
+    {{ device_entities(glow_device) | select('match', 'select\\.') | first }}
+  pause_button: >
+    {{ device_entities(glow_device)
+        | select('match', 'button\\.')
+        | select('search', 'pause')
+        | first }}
+  sensor_entity: >
+    {{ device_entities(glow_device)
+        | select('match', 'sensor\\.')
+        | select('search', 'dimming_end_time')
+        | first }}
+triggers:
+  - trigger: time
+    at: !input bedtime
+actions:
+  - action: select.select_option
+    target:
+      entity_id: "{{ select_entity }}"
+    data:
+      option: !input dimming_minutes
+  - action: light.turn_on
+    target:
+      entity_id: "{{ light_entity }}"
+  - wait_for_trigger:
+      - trigger: template
+        value_template: >-
+          {% set end = states(sensor_entity) | as_datetime %}
+          {% if end is not none %}
+            {{ ((end - now()).total_seconds() / 60) | round(0) <= pause_at_remaining | int }}
+          {% else %}
+            false
+          {% endif %}
+    timeout:
+      minutes: "{{ dimming_minutes | int }}"
+    continue_on_timeout: false
+  - action: button.press
+    target:
+      entity_id: "{{ pause_button }}"

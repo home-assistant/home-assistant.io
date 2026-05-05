@@ -1,4 +1,36 @@
 <header>
+  {% unless index %}
+  <div class="breadcrumbs">
+    <a href="/">Home</a> ▸ <a href="/blog/">Blog</a>
+  </div>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "{{ site.url }}/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ page.title | jsonify }},
+        "item": "{{ site.url }}{{ page.url }}"
+      }
+    ]
+  }
+  </script>
+  {% endunless %}
+
   {% if index %}
   <h1>
     <a href="{{ post.url }}">{{ post.title }}</a>
@@ -31,4 +63,9 @@
   </div>
 {% else %}
   {{ post.content | replace: site.excerpt_separator, '<a name="read-more"></a>' }}
+  {% if post.categories contains 'Works-with-Home-Assistant' %}
+    <div class="wwha-footer-mobile">
+      {% include blog/post/wwha_blurb.html %}
+    </div>
+  {% endif %}
 {% endif %}

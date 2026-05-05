@@ -95,7 +95,7 @@ Configuration variables (interface):
 
 {% configuration %}
 host:
-  description: IP address or hostname of CCU/Homegear device or Home Assistant add-on.
+  description: IP address or hostname of CCU/Homegear device or app for Home Assistant.
   required: true
   type: string
 port:
@@ -204,7 +204,7 @@ homematic:
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won't include non-ASCII characters in entity-names.
 
 1. `json`: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work, you need to add valid credentials to your integration configuration. Guest-access is sufficient to query for device names.
-2. `xml`: If you use a CCU, there is an add-on called the "XML-API". With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method. The `json` method should be preferred over `xml`. Support for the XML-API is only available for downwards compatibility and may be disabled in a future release.
+2. `xml`: If you use a CCU, there is a Home Assistant app called the "XML-API". With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method. The `json` method should be preferred over `xml`. Support for the XML-API is only available for downwards compatibility and may be disabled in a future release.
 3. `metadata`: Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.
 
 Resolving names can take some time. So when you start Home Assistant you won't see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.
@@ -219,16 +219,12 @@ This does *not* affect the entities in Home Assistant. They all use their own co
 
 Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) integration. Here's an example of a template sensor that exposes the valve position of a thermostat.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
     - name: "Bedroom valve"
       state: "{{ state_attr('climate.leq123456', 'level') }}"
 ```
-
-{% endraw %}
 
 ### Variables
 
@@ -446,8 +442,6 @@ actions:
 There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current `pyhomematic` implementation.
 A workaround is to define a template lock in your configuration:
 
-{% raw %}
-
 ```yaml
 lock:
   - platform: template
@@ -470,15 +464,11 @@ lock:
         value: 1
 ```
 
-{% endraw %}
-
 #### Detecting lost connections
 
 When the connection to your Homematic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your Homematic integrations are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
 
 - If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor, voltage sensor or light sensor) you could set up a helper binary sensor and an automation like this:
-
-{% raw %}
 
 ```yaml
 template:
@@ -498,8 +488,6 @@ automation:
       - action: homematic.reconnect
 ```
 
-{% endraw %}
-
   The important part is the `sensor.time` entity (from time_date integration). This will update the binary sensor on every change of the sensor and every minute. If the Homematic sensor does not send any updates anymore, the `sensor.time` will set the binary sensor to `off` 10 minutes after the last sensor update. This will trigger the automation.
 
 - If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot) this is another option to call *homematic.reconnect*. Even though this option might look preferable to many since it does not rely on a sensor, **it is less fail-safe** than checking for updates of a sensor. Since the variable on the CCU is only changed on boot, any problem that causes the connection between Home Assistant and the CCU to break but will not result in a reboot will not be detected (eg. in case of networking issues). This is how this can be done:
@@ -518,8 +506,6 @@ automation:
 
   3. Set up a template sensor in Home Assistant, which contains the value of the system variable:
 
-     {% raw %}
-
      ```yaml
      template:
        - sensor:
@@ -528,7 +514,6 @@ automation:
            icon: "mdi:clock"
      ```
 
-     {% endraw %}
 
   4. Set up an automation which calls *homematic.reconnect* whenever the sensor variable changes:
 
@@ -617,8 +602,6 @@ It is possible to provide a template in order to compute the value:
 
 You can also specify the event payload using a group notification (instead of specifying the value for the notify itself):
 
-{% raw %}
-
 ```yaml
 notify:
   - name: my_hm
@@ -641,7 +624,5 @@ alert:
     notifiers:
       - group_hm
 ```
-
-{% endraw %}
 
 Please note that the first `data` element belongs to the `my_hm` action, while the second one belongs to the event payload.

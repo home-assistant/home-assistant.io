@@ -45,6 +45,7 @@ pre[class*="language-"]>code {
 	background-size: 3em 3em;
 	background-origin: content-box;
 	background-attachment: local;
+	padding: 0.8em 1em;
 }
 
 code[class*="language"] {
@@ -64,6 +65,7 @@ pre[class*="language-"] {
 	box-sizing: border-box;
 	margin-bottom: 1em;
 }
+
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {

@@ -78,8 +78,6 @@ forecast:
 
 Example template sensors containing the Stookwijzer forecast for 6 and 12 hours from now.
 
-{% raw %}
-
 ```yaml
 template:
   - trigger:
@@ -105,7 +103,4 @@ template:
           timestamp: "{{ advice_forecast['forecast'][1]['datetime'] }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
-

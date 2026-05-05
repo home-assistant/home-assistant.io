@@ -1,7 +1,8 @@
 ---
-title: Google Generative AI
-description: Instructions on how to integrate Google Generative AI as a conversation agent
+title: Google Gemini
+description: Instructions on how to integrate Google Gemini as a conversation agent
 ha_category:
+  - AI
   - Speech-to-text
   - Text-to-speech
   - Voice
@@ -24,12 +25,12 @@ related:
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
   - url: https://aistudio.google.com/app/apikey
-    title: Google Generative AI API key
+    title: Google Gemini API key
   - url: https://ai.google.dev/
-    title: Google Generative AI
+    title: Google AI
 ---
 
-The Google Generative AI integration adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Generative AI](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
+The **Google Gemini** {% term integration %} adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Gemini](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
@@ -41,7 +42,7 @@ This integration requires an API key to use, [which you can generate here](https
 
 ## Generate an API Key
 
-The Google Generative AI API key is used to authenticate requests to the Google Generative AI API. To generate an API key take the following steps:
+The API key is used to authenticate requests to the Google Gemini API. To generate an API key take the following steps:
 
 - Visit the [API Keys page](https://aistudio.google.com/app/apikey) to retrieve the API key you'll use to configure the integration.
 
@@ -52,7 +53,7 @@ Comparison of the plans is available [at this pricing page](https://ai.google.de
 
 {% configuration_basic %}
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 Recommended settings:
@@ -81,11 +82,11 @@ Enable Google Search tool:
 ## Google Search
 
 Due to an API limitation we cannot have the [Google Search tool](https://ai.google.dev/gemini-api/docs/grounding) together with other tools. Request fails with `400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Tool use with function calling is unsupported', 'status': 'INVALID_ARGUMENT'}}`.
-But you can do the following workaround that exposes a script to voice assistants. The script calls a Google Generative AI Conversation that only has the Google Search tool enabled.
+But you can do the following workaround that exposes a script to voice assistants. The script calls a Google Gemini Conversation that only has the Google Search tool enabled.
 
 {% details "Workaround for Google Search tool" %}
 
-1. Add a second Google Generative AI service.
+1. Add a second Google Gemini conversation agent.
 2. Select **Configure**
 3. In the **Control Home Assistant** section, uncheck **Assist** and any other options.
 4. Uncheck **Recommended model settings**
@@ -95,8 +96,6 @@ But you can do the following workaround that exposes a script to voice assistant
 8. Select **Submit**
 9. Create a script (**Settings** > **Automations & scenes** > **Scripts** > **Create script**)
 10. Select 3 dots > **Edit in YAML** and enter the following (edit the `conversation.google_generative_ai_2` to match the entity created from the 1st step):
-
-{% raw %}
 
 ```yaml
 sequence:
@@ -126,8 +125,6 @@ fields:
     required: true
 ```
 
-{% endraw %}
-
 11. Select **Save script**
 12. Select 3 dots > **Settings** > **Voice assistants**
 13. Check **Expose** **Assist**
@@ -138,7 +135,7 @@ fields:
 
 You can use this integration to [talk to Super Mario and, if you want, have him control devices in your home](/voice_control/assist_create_open_ai_personality/).
 
-The tutorial is using OpenAI, but this could also be done with the Google Generative AI integration.
+The tutorial is using OpenAI, but this could also be done with the Google Gemini integration.
 
 ## Actions
 
@@ -156,8 +153,6 @@ This action populates [response data](/docs/scripts/perform-actions#use-template
 | `prompt`       | no       | The prompt for generating the content.               | Describe this image |
 | `filenames`    | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
 
-{% raw %}
-
 ```yaml
 action: google_generative_ai_conversation.generate_content
 data:
@@ -169,13 +164,9 @@ data:
 response_variable: generated_content
 ```
 
-{% endraw %}
-
 The response data field `text` will contain the generated content.
 
 Another example with multiple images:
-
-{% raw %}
 
 ```yaml
 action: google_generative_ai_conversation.generate_content
@@ -191,19 +182,15 @@ data:
 response_variable: generated_content
 ```
 
-{% endraw %}
-
 ### Speak
 
-The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the Google Generative AI TTS entity, select the media player entity or group to send the TTS audio to, and enter the message to speak.
+The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the Google Gemini TTS entity, select the media player entity or group to send the TTS audio to, and enter the message to speak.
 
 Text-to-speech (TTS) generation is controllable, meaning you can use natural language to structure interactions and guide the style, accent, pace, and tone of the audio. You can change the way the text is spoken directly in the message by, e.g. entering "Say cheerfully: Have a wonderful day" instead of just "Have a wonderful day".
 
 For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#service-speak) building block page.
 
 In YAML, your action will look like this:
-
-{% raw %}
 
 ```yaml
 action: tts.speak
@@ -216,8 +203,6 @@ data:
     voice: <voice-name>
 ```
 
-{% endraw %}
-
 You can configure the following options:
 
 | Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
@@ -228,7 +213,7 @@ The input language is detected automatically. Check the [Google AI documentation
 
 ## Video tutorial
 
-This video tutorial explains how Google Generative AI can be set up, how you can send an AI-generated message to your smart speaker when you arrive home, and how you can analyze an image taken from your doorbell camera as soon as someone rings the doorbell.
+This video tutorial explains how Google Gemini can be set up, how you can send an AI-generated message to your smart speaker when you arrive home, and how you can analyze an image taken from your doorbell camera as soon as someone rings the doorbell.
 
 <lite-youtube videoid="ivoYNd2vMR0" videotitle="AI in Home Assistant - A Complete Guide!" posterquality="maxresdefault"></lite-youtube>
 

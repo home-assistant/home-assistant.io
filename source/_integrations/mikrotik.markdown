@@ -12,10 +12,10 @@ ha_domain: mikrotik
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
+The **MikroTik** {% term integration %} offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -36,12 +36,38 @@ set api disabled=no port=8728
 
 Web Frontend:
 
-Go to **IP** -> **Services** -> **API** and enable it.
+Go to **IP** > **Services** > **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your MikroTik router."
+Username:
+  description: "The username used to authenticate with the RouterOS API."
+Password:
+  description: "The password for the username above."
+Port:
+  description: "The port the RouterOS API listens on. The default is `8728`. If you use SSL, the default `api-ssl` port is `8729`."
+Verify SSL certificate:
+  description: "When enabled, the SSL certificate presented by the router is verified. Disable this if you use a self-signed certificate."
+{% endconfiguration_basic %}
+
+## Configuration options
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Force scanning using DHCP:
+  description: "When disabled (default), the integration detects devices from the wireless registration table (CAPSman, wireless, wifiwave2, or wifi). When enabled, it uses the DHCP lease table instead. Enable this if you also want to detect wired (non-wireless) devices connected to your router."
+Enable ARP ping:
+  description: "When enabled, the integration sends an ARP ping to each non-wireless device that has an active DHCP address to verify that the device is actually reachable on the network. This prevents stale DHCP leases from keeping a device marked as home after it has left."
+Consider home interval:
+  description: "The time in seconds a device must be unseen before it is considered away. The default is 300 seconds (5 minutes)."
+{% endconfiguration_basic %}
 
 ## Use a certificate
 

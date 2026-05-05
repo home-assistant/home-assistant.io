@@ -12,7 +12,7 @@ ha_domain: input_datetime
 ha_integration_type: helper
 ---
 
-The `input_datetime` integration allows the user to define date and time values
+The **Input Datetime** {% term integration %} allows you to define date and time values
 that can be controlled via the frontend and can be used within automations and
 templates.
 
@@ -128,9 +128,7 @@ automation:
 
 To dynamically set the `input_datetime` you can call
 `input_datetime.set_datetime`. The values for `date`, `time` and/or `datetime` must be in a certain format for the call to be successful. (See action description above.)
-If you have a `datetime` object you can use its `timestamp` method. Of if you have a timestamp you can just use it directly.
-
-{% raw %}
+If you have a `datetime` object, you can use its `timestamp` method. Or, if you have a timestamp, you can just use it directly.
 
 ```yaml
 # Sets time to 05:30:00
@@ -178,5 +176,3 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
   data:
     timestamp: "{{ now().timestamp() }}"
 ```
-
-{% endraw %}

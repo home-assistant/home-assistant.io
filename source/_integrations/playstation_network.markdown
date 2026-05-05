@@ -11,14 +11,16 @@ ha_domain: playstation_network
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - image
   - media_player
+  - notify
   - sensor
 ha_codeowners:
   - '@jackjpowell'
   - '@tr4nt0r'
 ha_config_flow: true
 ha_quality_scale: bronze
-ha_integration_type: service
+ha_integration_type: hub
 related:
   - url: https://playstation.com/
     title: Playstation
@@ -39,6 +41,15 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 
 - To set up the PlayStation Network integration, you must first have an active PlayStation Network account. You can register for an account at the [Official PlayStation® Site](https://playstation.com/).
 - During the setup process in Home Assistant, you will be asked to provide your NPSSO token. You will need to be logged into [playstation.com](https://playstation.com/) to access the token in your browser. You will find a link to retrieve the token in the config flow.
+- The NPSSO token is valid for two months. Once it expires, the integration will automatically prompt you to re-authenticate.
+
+{% note %}
+
+After retrieving the NPSSO token, do not log out of the PlayStation website. Logging out will invalidate the token and re-authentication is required on the next Home Assistant reboot or after up to 7 days.
+
+It is recommended, especially if you have configured multiple PlayStation accounts in Home Assistant, to retrieve the token using an incognito or private browser window and close it afterward.
+
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -82,8 +93,8 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 
 ### Notifiers
 
-The **PlayStation Network** integration creates a notify entity for each group you are a member of.  
-You can send messages to a group using the `notify.send_message` {% term action %}.
+The **PlayStation Network** integration creates a notify entity for every friend in your friend list and for each group you are a member of.  
+You can send messages to a friend or group using the `notify.send_message` {% term action %}.
 
 For more information on using notifications, refer to the [Getting Started with Automation](/getting-started/automation/) page.
 
@@ -99,15 +110,14 @@ After adding a friend, a new device will be created with the following entities:
 - **Online status**: Indicates the friend's current availability on the PlayStation Network.
 - **Last online**: Displays the time the friend was last seen online.
 - **Now playing**: Shows the title of the game the friend is currently playing.
+- **Trophy level**: Your friend's current PlayStation trophy level.
+- **Next Level**: Your friend's progress towards the next PlayStation trophy level.
+- **Platinum, gold, silver, and bronze trophies**: The total number of trophies your friend has earned.
 
 ### Image
 
 - **Avatar**: Displays the friend's current avatar.
 - **Now playing**: Displays the current game title image if the friend is playing a game.
-
-### Notifier
-
-- **Direct message**: Sends a private message to your friend through the PlayStation Network.
 
 ## Data updates
 

@@ -10,9 +10,11 @@ related:
     title: Card header and footer
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
+The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, and more.
 
 {% include dashboard/edit_dashboard.md %}
 
@@ -76,8 +78,8 @@ type:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites icon or entity picture.
@@ -88,7 +90,7 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
+  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `area`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
   type: string
 format:
   required: false
@@ -123,7 +125,7 @@ confirmation:
 
 ## Special row elements
 
-Rather than only displaying an entity's state as a text output, the entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
+Rather than only displaying an entity's state as a text output, the entities card supports multiple special rows for buttons, attributes, web links, dividers, sections, and more.
 
 ### Attribute
 
@@ -150,8 +152,8 @@ suffix:
   type: string
 name:
   required: false
-  description: Overwrites friendly entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Icon to use. Defaults to icon of entity.
@@ -231,8 +233,8 @@ entities:
       type: string
     name:
       required: false
-      description: Override the friendly entity name.
-      type: string
+      description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+      type: [string, map, list]
       default: Entity name
     show_name:
       required: false
@@ -347,7 +349,7 @@ type:
   type: string
 url:
   required: true
-  description: "Website URL (or internal URL e.g., `/hassio/dashboard` or `/panel_custom_name`)."
+  description: "Website URL, or internal URL such as `/hassio/dashboard` or `/panel_custom_name`."
   type: string
 name:
   required: false
@@ -356,7 +358,7 @@ name:
   default: URL path
 icon:
   required: false
-  description: "Icon to display (e.g., `mdi:home`)."
+  description: "Icon to display, for example `mdi:home`."
   type: string
   default: "`mdi:link`"
 new_tab:

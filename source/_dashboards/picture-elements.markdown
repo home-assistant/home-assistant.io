@@ -34,7 +34,7 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 image_entity:
   required: false
@@ -67,7 +67,7 @@ theme:
   type: string
 dark_mode_image:
   required: false
-  description: "This image is used when the dark mode is activated and no state image is set."
+  description: This image is used when the dark mode is activated and no state image is set.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 dark_mode_filter:
   required: false
@@ -77,7 +77,7 @@ dark_mode_filter:
 
 ## Elements
 
-Elements are the active components (icons, badges, buttons, text, etc.) that overlay the image.
+Elements are the active components (icons, badges, buttons, text, and more) that overlay the image.
 
 There are several different element types that can be added to a Picture Elements card:
 
@@ -108,9 +108,13 @@ style:
   description: '[Position and style the element](#how-to-use-the-style-object) using CSS.'
   type: map
   default: "position: absolute, transform: translate(-50%, -50%)"
+name:
+  required: false
+  description: An optional alternative name displayed below the state badge. Defaults to the entity name if not provided. Set to null to hide.
+  type: string
 title:
   required: false
-  description: State badge tooltip. Set to null to hide.
+  description: State badge tooltip. Defaults to the entity name if not provided. Set to null to hide.
   type: string
 tap_action:
   required: false
@@ -262,7 +266,7 @@ type:
   type: string
 icon:
   required: true
-  description: "Icon to display (e.g., `mdi:home`)."
+  description: "Icon to display, for example `mdi:home`."
   type: string
 title:
   required: false
@@ -322,7 +326,7 @@ double_tap_action:
   type: map
 image:
   required: false
-  description: The image to display.
+  description: The image to display.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 camera_image:
   required: false
@@ -398,7 +402,7 @@ for more information.
 {% configuration %}
 type:
   required: true
-  description: 'Card name with `custom:` prefix (e.g., `custom:my-custom-card`).'
+  description: 'Card name with `custom:` prefix, for example `custom:my-custom-card`.'
   type: string
 style:
   required: true
@@ -423,12 +427,13 @@ style:
 
 ### How to use state_image
 
-Specify a different image to display based on the state of the entity.
+Specify a different image to display based on the state of the entity (supports local, web, or `media-source://` URLs):
 
 ```yaml
 state_image:
-  "on": /local/living_room_on.jpg
-  "off": /local/living_room_off.jpg
+  "on": /local/bed_light_on.png
+  "off": https://demo.home-assistant.io/stub_config/bedroom.png
+  "unavailable": media-source://image_upload/123456789
 ```
 
 ### How to use state_filter

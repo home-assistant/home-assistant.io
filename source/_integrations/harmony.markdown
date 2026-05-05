@@ -16,10 +16,10 @@ ha_ssdp: true
 ha_platforms:
   - remote
   - select
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `harmony` integration allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
+The **Logitech Harmony Hub** {% term integration %} allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
 
 Supported units:
 
@@ -33,7 +33,7 @@ Supported units:
 
 **Note:** Depending on the firmware, you may need to enable XMPP for this integration to work. From your Harmony app, go to: **Menu** > **Harmony Setup** > **Add/Edit Devices & Activities** > **Remote & Hub** > **Enable XMPP**.
 
-Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Settings** -> **Devices & services** >> **Your Logitech Harmony Hub**
+Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via {% my integrations title="**Settings** > **Devices & services**" %} > **Your Logitech Harmony Hub**
 
 ### Configuration file
 
@@ -153,9 +153,9 @@ data:
   delay_secs: 0.6
 ```
 
-### Action `harmony.change_channel`
+### Action: Change channel
 
-Sends the change channel command to the Harmony HUB
+The `harmony.change_channel` action sends the change channel command to the Harmony Hub.
 
 | Data attribute | Optional | Description                 |
 | ---------------------- | -------- | --------------------------- |
@@ -172,9 +172,9 @@ data:
   channel: 200
 ```
 
-### Action `harmony.sync`
+### Action: Sync
 
-Force synchronization between the Harmony device and the Harmony cloud.
+The `harmony.sync` action forces synchronization between the Harmony device and the Harmony cloud.
 
 | Data attribute | Optional | Description          |
 | ---------------------- | -------- | -------------------- |
@@ -183,8 +183,6 @@ Force synchronization between the Harmony device and the Harmony cloud.
 ### Examples
 
 Template sensors can be utilized to display current activity in the frontend.
-
-{% raw %}
 
 ```yaml
 template:
@@ -197,11 +195,7 @@ template:
         {{ state_attr('remote.bedroom', 'current_activity') }}
 ```
 
-{% endraw %}
-
 The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is "PowerOff".
-
-{% raw %}
 
 ```yaml
 automation:
@@ -228,5 +222,3 @@ automation:
         target:
           entity_id: input_boolean.notify
 ```
-
-{% endraw %}

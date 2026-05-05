@@ -21,7 +21,6 @@ ha_integration_type: virtual
 ha_supporting_domain: shelly
 ha_supporting_integration: Shelly
 ha_codeowners:
-  - '@balloob'
   - '@bieniu'
   - '@thecode'
   - '@chemelli74'

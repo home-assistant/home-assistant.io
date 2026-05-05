@@ -1,26 +1,27 @@
 ---
-title: ToGrill Bluetooth BBQ thermometers
+title: ToGrill
 description: Control and monitor your ToGrill compatible BBQ thermometers.
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_release: '2025.9'
 ha_category:
   - Event
-  - Sensor
   - Number
+  - Sensor
 ha_domain: togrill
 ha_bluetooth: true
 ha_platforms:
   - event
-  - sensor
   - number
+  - select
+  - sensor
 ha_integration_type: device
 ha_codeowners:
   - '@elupus'
 ha_quality_scale: bronze
 ---
 
-The ToGrill {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer.
+The **ToGrill** {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer.
 
 {% tip %}
 
@@ -46,17 +47,43 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 ## Events
 
-**Probe X**: The most recently triggered alarm or event on the probe. The following event types are expected: `alarm`, `acknowledge`, `disconnected`.
+**Event**: The most recently triggered alarm or event on the probe. The following event types are expected:
+
+- `ambient_cool_down` - The ambient temperature returned to normal.
+- `ambient_low_temp` - The ambient temperature is too low.
+- `ambient_over_heat` - The ambient temperature is too high.
+- `device_high_temp` - Internal temperature too high.
+- `device_low_power` - Power is low.
+- `ignition_failure` - Ignition failed.
+- `probe_above_maximum` - Temperature is above the allowed range.
+- `probe_acknowledge` - Temperature probe alarm was acknowledged by user.
+- `probe_alarm` - Temperature has reached it's set temperature target.
+- `probe_below_minimum` - Temperature is below the allowed range.
+- `probe_disconnected` - Probe disconnected from device.
+- `probe_timer_alarm` - Timer alarm triggered (Note. some device will instead trigger `probe_alarm`).
 
 ## Sensors
 
-**Probe X**: The current temperature of the given temperature probe
+**Temperature**: The current temperature of the given temperature probe
 **Battery**: The current battery level of the device.
+
+## Select
+
+**Grill type**: The meat that is currently being measured.
+**Taste**: The taste wanted when finished.
 
 ## Numbers
 
-**Target X**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
+**Target temperature**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
+**Minimum temperature**: The minimum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
+**Maximum temperature**: The maximum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
 **Alarm interval**: The interval in minutes between successive alarms.
+
+{% tip %}
+
+**Target temperature** and the **Minimum temperature** / **Maximum temperature** are exclusive, and will disable the other setting when set on same probe.
+
+{% endtip %}
 
 ## Removing the integration
 

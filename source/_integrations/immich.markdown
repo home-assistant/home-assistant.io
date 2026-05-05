@@ -16,11 +16,11 @@ ha_platforms:
   - update
 ha_codeowners:
   - '@mib1185'
-ha_integration_type: integration
-ha_quality_scale: silver
+ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
-This integration allows adding an [Immich](https://immich.app/) user account to Home Assistant.
+This {% term integration %} allows adding an [Immich](https://immich.app/) user account to Home Assistant.
 
 ## Prerequisites
 
@@ -28,7 +28,24 @@ You need to [obtain the API key](https://immich.app/docs/features/command-line-i
 
 ### API key permissions
 
-For full functionality, enable the `album.read` and the `asset.upload` permission when creating your API key. Without this permission, the media source integration will not work, but all monitoring sensors will continue to function normally.
+Enable the following permissions when creating your API key. Without these permissions, the integration may not work properly. The "admin-only" permissions are only available when your API key belongs to an administrative user.
+
+- `asset.download`
+- `asset.upload`
+- `asset.view`
+- `album.read`
+- `albumAsset.create`
+- `person.read`
+- `server.about`
+- `server.statistics` (_admin-only_)
+- `server.storage`
+- `server.versionCheck`
+- `tag.read`
+- `user.read`
+
+{% important %}
+Prior to immich server version 1.138.0 the `all` permission is necessary for your API key.
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -92,8 +109,6 @@ Album ID:
 
 Take a snapshot of a camera entity via the [`camera.snapshot`](/integrations/camera/#action-snapshot) action, use the [local media](/integrations/media_source/#local-media) path to store the snapshot and upload it to the Immich instance in a specific album.
 
-{% raw %}
-
 ```yaml
 sequence:
   - variables:
@@ -107,16 +122,18 @@ sequence:
     data:
       config_entry_id: 01JVJ0RA387MWA938VE8HGXBMJ
       file:
-        media_content_id: "media-source://media_source/local/{{ file_name }}",
-        media_content_type: "image/jpeg",
+        media_content_id: "media-source://media_source/local/{{ file_name }}"
+        media_content_type: "image/jpeg"
       album_id: f2de0ede-d7d4-4db3-afe3-7288f4e65bb1
 ```
-
-{% endraw %}
 
 ## Troubleshooting
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics/) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+## Known limitations
+
+There are no known limitations.
 
 ## Remove the integration
 

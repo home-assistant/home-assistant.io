@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Fan
   - Hub
+  - Humidifier
   - Light
   - Lock
   - Plug
@@ -20,14 +21,17 @@ ha_codeowners:
   - '@SeraphicRav'
   - '@laurence-presland'
   - '@Gigatrappeur'
+  - '@XiaoLing-git'
 ha_domain: switchbot_cloud
 ha_platforms:
   - binary_sensor
   - button
-  - cover
   - climate
-  - light
+  - cover
   - fan
+  - humidifier
+  - image
+  - light
   - lock
   - sensor
   - switch
@@ -36,11 +40,11 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The SwitchBot Cloud integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
+The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
 
 ## Prerequisites
 
-In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **Developer Options**. If **Developer Options** is not present in preferences, tap the App Version (e.g. 6.24) several times (5~15 times) in succession to open the **Developer Options**. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
+In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **About** > **Developer Options**. If you don't see developer options, tap the version number 10 times. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
 
 Please note, device names configured in the SwitchBot app are transferred into Home Assistant.
 
@@ -52,10 +56,12 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Plugs and switches
 
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
+- [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
+- [Plug Mini (EU)](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
 - Plug (Wi-Fi only, only available in Japan)
 
 ### Cover
@@ -72,11 +78,22 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
+- [Ceiling Light / Ceiling Light Pro](https://www.switchbot.jp/pages/switchbot-ceiling-light) (Japan only)
+- [RGBIC Neon Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-rope-light)
+- [RGBIC Neon Wire Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-wire-rope-light)
+- [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- Lock Pro Wifi
+- Lock Lite
+- [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- Lock Vision
+- Lock Vision Pro
 
 ### Sensors
 
@@ -85,19 +102,32 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
 - [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
 - [Meter Pro CO2 Monitor](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
+- [Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
+- [Motion Sensor](https://www.switch-bot.com/products/motion-sensor)
+- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel)
+- [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- Weather Station
 
 ### Hubs
 
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
+- [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3) (currently only supports retrieving sensor data, does not yet support device control)
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types except for *Others*
   - Change temperature and mode for *Air Conditioner*
+  
+### Humidifiers
+
+- [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
+- [Evaporative Humidifier](https://www.switch-bot.com/products/switchbot-evaporative-humidifier-auto-refill)
 
 ### Vacuums
 
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
 - [K20+ Pro](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
@@ -107,6 +137,17 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Standing Fan](https://www.switch-bot.com/products/switchbot-standing-circulator-fan)
+- [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+
+### Water heater
+
+- [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Image
+
+- [AI Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
 ## Supported functionality
 
@@ -125,6 +166,16 @@ Features:
 Features:
 - turn on or off
 - get power consumption readings
+
+#### Relay Switch 2PM
+
+Features:
+displayed as two switches with the following properties or actions individually,
+- turn on or off
+- get power
+- get voltage
+- get current
+- get daily used electricity or power consumption
 
 #### Relay Switch 1
 
@@ -228,6 +279,49 @@ Features:
 - get carbon dioxide
 - get battery level
 
+#### Contact Sensor
+
+Features:
+- get motion detection state
+- get light state
+- get open state
+- get battery level
+
+#### Motion Sensor
+
+Features:
+- get motion detection state
+- get battery level
+
+#### Presence Sensor
+
+Features:
+- get motion detection state
+- get light level
+- get battery level
+
+#### Water Leak Detector
+
+Features:
+- get leak state
+- get battery level
+
+#### Climate Panel
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+- light detect
+- motion detect
+
+#### Weather Station
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
 ### Lights
 
 #### LED Strip Light 3
@@ -262,6 +356,34 @@ Features:
 - change brightness
 - change color
 
+#### Ceiling Light / Ceiling Light Pro
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+
+#### RGBICWW Floor Lamp / RGBICWW Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+- change color temperature
+
+#### RGBIC Neon Rope Light / RGBIC Neon Wire Rope Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+
+#### Candle Warmer Lamp
+
+Features:
+- turn on or off
+- change brightness
+
 ### Locks
 
 #### Lock
@@ -290,21 +412,70 @@ Features:
 - get temperature
 - get humidity
 
+#### Hub 3
+
+Features:
+- get motion detection state
+- get temperature
+- get humidity
+- get light level
+
+### Humidifiers
+
+Humidifier entities are added for Humidifier and  Evaporative Humidifier.
+
+#### Humidifier
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
+#### Evaporative Humidifier
+
+Note: Not all modes support unless you bind the temperature and humidity sensor.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
 ### Fans
 
-#### Battery Circulator Fan/Circulator Fan
+#### Battery Circulator Fan/Circulator Fan/Standing Fan
 
 Features:
 - turn on
 - turn off
 - set speed, only applicable for [direct mode]
 - set mode
-- get battery, only applicable for [Battery Circulator Fan]
+- get battery, only applicable for [Battery Circulator Fan / Standing Fan]
+
+
+#### Air Purifier
+
+Features:
+- get states
+- turn on
+- turn off
+- set mode
+
+#### Air Purifier Table
+
+Features:
+- get states
+- turn on
+- turn off
+- set mode
 
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20+ Pro, S10, S20.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K11+, K20+ Pro, S10, S20.
 
 Features:
 - get states
@@ -313,6 +484,29 @@ Features:
 - set cleaning mode
 - return to base
 - get battery
+
+
+### Water Heater
+
+#### Smart Radiator Thermostat
+
+Features:
+- turn on
+- turn off
+- set temperature
+- get temperature
+- set mode
+- get battery
+
+
+### Image
+
+#### AI Art Frame
+
+Features:
+- get battery
+- switch picture
+- display current picture
 
 ## Important considerations
 

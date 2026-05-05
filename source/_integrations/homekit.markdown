@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HomeKit Bridge integration allows you to make your Home Assistant entities available in Apple HomeKit,
+The **HomeKit Bridge** {% term integration %} allows you to make your Home Assistant entities available in Apple HomeKit,
 so they can be controlled from Apple's Home app and Siri; even if those devices do not natively support HomeKit.
 
 Please make sure that you have read the [considerations](#considerations) listed below to save you
@@ -195,11 +195,11 @@ homekit:
               required: false
               type: string
             linked_valve_duration:
-              description: The `entity_id` of an `input_number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. Minimum value `300` seconds. Maximum value `3600` seconds. Step size `300` seconds. Changes in HomeKit will change the sensor state (and vice versa).
+              description: The `entity_id` of an `input_number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. Minimum value, maximum value, and step size are set based on the linked `input_number` entity.
               required: false
               type: string
             linked_valve_end_time:
-              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor.
+              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the `input_number` of `linked_valve_duration`, or uses a default of 48 hours.
               required: false
               type: string
             low_battery_threshold:

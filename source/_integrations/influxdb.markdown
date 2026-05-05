@@ -8,6 +8,7 @@ ha_release: 0.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@mdegat01'
+  - '@Robbie1221'
 ha_domain: influxdb
 ha_platforms:
   - sensor
@@ -16,92 +17,68 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
-The `influxdb` {% term integration %} makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database.
+The **InfluxDB** {% term integration %} lets you transfer all state changes to an external [InfluxDB](https://influxdata.com/) database. This integration supports:
 
-Additionally, you can now make use of an InfluxDB 2.0 installation with this {% term integration %}. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
+- [InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core/) and [InfluxDB 3 Enterprise](https://docs.influxdata.com/influxdb3/enterprise/) – The latest InfluxDB with v1 and v2 write API compatibility. Sensors query using InfluxQL. Use external tools for SQL.
+- [InfluxDB 2.x](https://docs.influxdata.com/influxdb/v2/) – Including [InfluxDB Cloud](https://cloud2.influxdata.com/signup). Sensors query using Flux.
+- [InfluxDB 1.x](https://docs.influxdata.com/influxdb/v1/) – Sensors query using InfluxQL.
 
-There is currently support for the following device types within Home Assistant:
+For more information on configuration of InfluxDB, refer to the [InfluxDB configuration](#influxdb-configuration) section below.
 
-- [Sensor](#sensor)
+The integration can export state changes for all entity types to InfluxDB, not just sensors. In addition, it can create [Sensor](#sensor) entities in Home Assistant that query data back from InfluxDB.
 
 {% note %}
-The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
+The `influxdb` integration runs parallel to the Home Assistant database. It does not replace it.
 {% endnote %}
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-The default InfluxDB configuration doesn't enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven't made any configuration changes, add the following to your {% term "`configuration.yaml`" %} file.
+If you have an existing YAML configuration, it will be imported automatically as a config entry. Additional options such as entity filters, tags, and measurement attributes are configured via YAML. For details, refer to the [options](#additional-options) section below.
+
+### InfluxDB 1.x configuration options
+
+{% configuration_basic %}
+URL:
+    description: "The URL of your InfluxDB host."
+Username:
+    description: "Database username with read/write privileges."
+Password:
+    description: "Password for the database user."
+Database:
+    description: "Database name. You must create the database before you can write to it."
+Verify SSL:
+    description: "Verify SSL certificate for HTTPS requests."
+SSL CA Certificate:
+    description: "Upload an optional CA certificate to use for SSL verification. Accepted formats: `.pem`, `.crt`, `.cer`, `.der`."
+{% endconfiguration_basic %}
+
+### InfluxDB 2.x and 3.x configuration options
+
+{% configuration_basic %}
+URL:
+    description: "The URL of your InfluxDB host."
+Organization:
+    description: "Organization ID. For InfluxDB 2.x, find this in your installation URL after `/orgs`. For InfluxDB 3, this value is required but not validated—use any value."
+Bucket:
+    description: "For InfluxDB 2.x, the bucket name. For InfluxDB 3, this maps to the database name."
+Token:
+    description: "Authentication token with write access."
+Verify SSL:
+    description: "Verify SSL certificate for HTTPS requests."
+SSL CA Certificate:
+    description: "Upload an optional CA certificate to use for SSL verification. Accepted formats: `.pem`, `.crt`, `.cer`, `.der`."
+{% endconfiguration_basic %}
+
+### Additional options
+
+Additional options can be configured via YAML.
+
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-```yaml
-# Example configuration.yaml entry
-influxdb:
-```
-
-You will still need (not for version 2) to create a database named `home_assistant` via InfluxDB's command-line interface. For instructions on how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
-
 {% configuration %}
-api_version:
-  type: string
-  description: API version to use. Valid values are `1` or `2`.
-  default: "1"
-ssl:
-  type: boolean
-  description: Use HTTPS instead of HTTP to connect. 2.xx - Defaults to `true` for 2.xx, false otherwise `false`.
-  required: false
-  default: false
-host:
-  type: string
-  description: IP address or domain of your database host, e.g., 192.168.1.10. 2.xx - Defaults to 'us-west-2-1.aws.cloud2.influxdata.com' for 2.xx, not 'localhost'.
-  required: false
-  default: localhost
-port:
-  type: integer
-  description: Port to use. 2.xx - Must specify port for 2.xx, otherwise 8086.
-  required: false
-  default: 8086
-path:
-  type: string
-  description: Path to use if your InfluxDB is running behind a reverse proxy.
-  required: false
-username:
-  type: string
-  description: 1.xx only - The username of the database user. The user needs read/write privileges on the database.
-  required: inclusive
-password:
-  type: string
-  description: 1.xx only - The password for the database user account. Needed with `username` configuration variable.
-  required: inclusive
-database:
-  type: string
-  description: 1.xx only - Name of the database to use. The database must already exist.
-  required: false
-  default: home_assistant
-verify_ssl:
-  type: boolean
-  description: Verify SSL certificate for HTTPS request. This can take on boolean values `false` or `true`.
-  required: false
-  default: true
-ssl_ca_cert:
-  type: string
-  description: Optional path of a CA certificate to be used during SSL verification.
-  required: false
-  default: None
-token:
-  type: string
-  description: 2.xx only - Auth token with WRITE access to your chosen Organization and Bucket. Needed with `organization` configuration variable.
-  required: inclusive
-organization:
-  type: string
-  description: "2.xx only - Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `token` configuration variable."
-  required: inclusive
-bucket:
-  type: string
-  description: 2.xx only - Name of the bucket (not the generated bucket ID) within your Organization to write to.
-  required: false
-  default: Home Assistant
 max_retries:
   type: integer
   description: Set this to allow the integration to retry if there was a network error when transmitting data.
@@ -214,9 +191,9 @@ component_config_glob:
       required: false
 {% endconfiguration %}
 
-## Configure filter
+### Configure filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `InfluxDB`, you can use the `include` and `exclude` parameters.
+By default, no entity will be excluded. To limit which entities are being exposed to InfluxDB, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -234,47 +211,33 @@ influxdb:
 
 {% include common-tasks/filters.md %}
 
-## Examples
+### Examples
 
-### Full configuration for 1.xx installations
+#### Example 1
 
 ```yaml
 influxdb:
-  host: 192.168.1.190
-  port: 20000
-  database: DB_TO_STORE_EVENTS
-  username: MY_USERNAME
-  password: MY_PASSWORD
-  ssl: true
-  verify_ssl: true
   max_retries: 3
   default_measurement: state
   exclude:
     entities:
-       - entity.id1
-       - entity.id2
+      - entity.id1
+      - entity.id2
     domains:
-       - automation
+      - automation
   include:
     entities:
-       - entity.id3
-       - entity.id4
+      - entity.id3
+      - entity.id4
   tags:
     instance: prod
     source: hass
 ```
 
-### Full configuration for 2.xx installations
+#### Example 2
 
 ```yaml
 influxdb:
-  api_version: 2
-  ssl: false
-  host: localhost
-  port: 9999
-  token: GENERATED_AUTH_TOKEN
-  organization: RANDOM_16_DIGIT_HEX_ID
-  bucket: BUCKET_NAME
   tags:
     source: HA
   tags_attributes:
@@ -295,13 +258,49 @@ influxdb:
       - weather.home
 ```
 
+### InfluxDB configuration
+
+#### Authentication
+
+- **InfluxDB 3**: Authentication optional (enabled by default). Token can be generated via InfluxDB.
+- **InfluxDB 2.x**: Requires authentication. Token can be generated via InfluxDB.
+- **InfluxDB 1.x**: Authentication optional (disabled by default). If running on the same host with default settings, leave user and password empty.
+
+For InfluxDB 1.x, you must first [create a database](https://docs.influxdata.com/influxdb/v1/introduction/get-started/#creating-a-database) named `home_assistant`. InfluxDB 2.x and 3.x create buckets/databases automatically.
+
+#### InfluxDB 3 (Core and Enterprise)
+
+See how to get started using InfluxDB 3:
+
+- **[InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core/get-started/)**: Free, open-source, optimized for recent data queries.
+- **[InfluxDB 3 Enterprise](https://docs.influxdata.com/influxdb3/enterprise/get-started/)**: Adds compaction for historical queries. Includes a free [At-Home license](https://docs.influxdata.com/influxdb3/enterprise/admin/license/) for non-commercial use.
+
+##### Write API compatibility
+
+InfluxDB 3 Core and Enterprise provide [InfluxDB v1 and v2 write API compatibility](https://docs.influxdata.com/influxdb3/core/write-data/http-api/compatibility-apis/), allowing you to write data using `api_version: 2`.
+
+##### Query API compatibility
+
+InfluxDB 3 supports the [v1 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v1-api/) (InfluxQL) and [v3 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v3-api/) (SQL and InfluxQL). The v2 query API (Flux) is not supported.
+
+{% note %}
+**Tools for querying:** Query InfluxDB 3 using SQL or InfluxQL with external tools such as [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/get-started/) or [Grafana](https://docs.influxdata.com/influxdb3/core/visualize-data/grafana/).
+{% endnote %}
+
+Generate tokens using the [`influxdb3` CLI](https://docs.influxdata.com/influxdb3/core/admin/tokens/create/) or [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/).
+
 ## Sensor
 
-The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be used to present statistics as Home Assistant sensors, if used with the `influxdb` history integration. It can also be used with an external data source.
+The `influxdb` sensor lets you query values from an InfluxDB database to populate a sensor state. Use this to present statistics as Home Assistant sensors from the `influxdb` history integration or an external data source.
+
+{% note %}
+**InfluxDB 3 sensor support:** InfluxDB 3 supports the [v1 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v1-api/) (InfluxQL), so 1.x sensors using `queries:` may work. The v2 query API (Flux) is not supported—`queries_flux:` sensors don't work with InfluxDB 3.
+
+**Tools for querying:** Query InfluxDB 3 using SQL or InfluxQL with external tools such as [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/get-started/) or [Grafana](https://docs.influxdata.com/influxdb3/core/visualize-data/grafana/).
+{% endnote %}
 
 {% important %}
-
-  You must configure the `influxdb` history integration in order to create `influxdb` sensors. If you just want to create sensors for an external InfluxDB database and you don't want Home Assistant to write any data to it you can exclude all entities like this:
+You must configure the `influxdb` history integration to create `influxdb` sensors. To create sensors for an external InfluxDB database without writing data to it, exclude all entities:
 
 ```yaml
 influxdb:
@@ -311,12 +310,13 @@ influxdb:
 
 {% endimportant %}
 
-### Configuration
+### Sensor configuration
 
-To configure this sensor, you need to define the sensor connection variables and a list of queries to your {% term "`configuration.yaml`" %} file. A sensor will be created for each query:
+Define the sensor connection variables and queries in your {% term "`configuration.yaml`" %} file. A sensor is created for each query.
+
+#### InfluxDB 1.x sensors (InfluxQL)
 
 ```yaml
-# Example configuration.yaml entry
 sensor:
   - platform: influxdb
     queries:
@@ -325,20 +325,19 @@ sensor:
         measurement: '"°C"'
 ```
 
-Note that 2.xx installations of InfluxDB only support queries in their Flux language. While this language was available in 1.xx installations, it was not the default and not used in the API so you may not be aware of it. You can learn more about it from their [documentation](https://v2.docs.influxdata.com/v2.0/reference/flux/) or by using the query builder in the UI. 
+#### InfluxDB 2.x sensors (Flux)
 
-You will need to construct your queries in this language in sensors for 2.xx installations, it looks like this:
+InfluxDB 2.x requires queries in [Flux](https://docs.influxdata.com/flux/v0/). Use the query builder in the InfluxDB UI to construct queries:
 
 ```yaml
-# Example configuration.yaml entry
-sensor: 
+sensor:
   - platform: influxdb
     api_version: 2
     organization: RANDOM_16_DIGIT_HEX_ID
     token: GENERATED_AUTH_TOKEN
-    queries_flux: 
+    queries_flux:
       - group_function: mean
-        imports: 
+        imports:
           - strings
         name: "Mean humidity reported from past day"
         query: >
@@ -347,6 +346,8 @@ sensor:
         range_start: "-1d"
 ```
 
+### Sensor configuration variables
+
 {% configuration %}
 api_version:
   type: string
@@ -354,57 +355,57 @@ api_version:
   default: "1"
 ssl:
   type: boolean
-  description: Use HTTPS instead of HTTP to connect. 2.xx - Defaults to `true` for 2.xx, otherwise `false`.
+  description: Use HTTPS instead of HTTP. Defaults to `true` for 2.x, `false` for 1.x.
   required: false
   default: false
 host:
   type: string
-  description: IP address or domain of your database host, e.g., 192.168.1.10. 2.xx - Defaults to 'us-west-2-1.aws.cloud2.influxdata.com' for 2.xx, not 'localhost'.
+  description: IP address or domain of your database host. For InfluxDB Cloud, defaults to `us-west-2-1.aws.cloud2.influxdata.com`.
   required: false
   default: localhost
 port:
   type: integer
-  description: Port to use. 2.xx - No default port for 2.xx, otherwise 8086.
+  description: Port to use.
   required: false
   default: 8086
 path:
   type: string
-  description: Path to use if your InfluxDB is running behind a reverse proxy.
+  description: Path to use if InfluxDB is behind a reverse proxy.
   required: false
 username:
   type: string
-  description: 1.xx only - The username of the database user. The user needs read/write privileges on the database.
+  description: 1.x only - Database username with read privileges.
   required: inclusive
 password:
   type: string
-  description: 1.xx only - The password for the database user account. Needed with `username` configuration variable.
+  description: 1.x only - Password for the database user. Required with `username`.
   required: inclusive
 database:
   type: string
-  description: 1.xx only - Name of the database to use. The database must already exist. Sets the default database for sensors, individual sensors can also read from a different database.
+  description: 1.x only - Database name. Individual sensors can override this.
   required: false
   default: home_assistant
 verify_ssl:
   type: boolean
-  description: 1.xx only - Verify SSL certificate for HTTPS request. For 2.xx SSL verification is required, library provides no way to disable it.
+  description: 1.x only - Verify SSL certificate. For 2.x, SSL verification is always enabled.
   required: false
   default: true
 token:
   type: string
-  description: 2.xx only - Auth token with READ access to your chosen Organization and Bucket. Needed with `organization` configuration variable.
+  description: 2.x only - Auth token with read access to your Organization and Bucket.
   required: inclusive
 organization:
   type: string
-  description: "2.xx only - Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `token` configuration variable."
+  description: 2.x only - Organization ID. Find this in your InfluxDB URL after `/orgs`.
   required: inclusive
 bucket:
   type: string
-  description: 2.xx only - Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket.
+  description: 2.x only - Bucket name. Individual sensors can override this.
   required: false
   default: Home Assistant
 queries:
   type: list
-  description: 1.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query.
+  description: 1.x only - List of sensors using InfluxQL queries.
   required: true
   keys:
     name:
@@ -425,11 +426,11 @@ queries:
       required: true
     where:
       type: template
-      description: Defines the data selection clause (the where clause of the query). This supports [templates](/docs/configuration/templating/#building-templates).
+      description: Defines the data selection clause (the where clause of the query). This supports [templates](/docs/templating/syntax/).
       required: true
     value_template:
       type: template
-      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+      description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload.
       required: false
     database:
       type: string
@@ -448,7 +449,7 @@ queries:
       default: value
 queries_flux:
   type: list
-  description: 2.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring a Flux query.
+  description: 2.x only - List of sensors using Flux queries.
   required: true
   keys:
     name:
@@ -475,15 +476,15 @@ queries_flux:
       default: now()
     query:
       type: template
-      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates)."
+      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/templating/syntax/)."
       required: true
     group_function:
       type: string
-      description: "The group function to be used. If provided, this will add a filter to the end of your query like this `{group_function}(column: \"_value\")`. Note that unlike the 1.xx queries, this **does not** default to mean. You can omit if you wish to use your own aggregator, which takes additional/different parameters or want to act on a different column. If omitted, then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table."
+      description: "The group function to be used. If provided, adds `{group_function}(column: \"_value\")` to your query. Unlike 1.x queries, this does not default to mean. If omitted, `limit(n: 1)` is added instead."
       required: false
     value_template:
       type: template
-      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Note that `value` will be set to the value of the `_value` field in your query output.
+      description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload. Note that `value` will be set to the value of the `_value` field in your query output.
       required: false
     bucket:
       type: string
@@ -498,14 +499,12 @@ queries_flux:
 
 ## Examples
 
-### Full configuration for 1.xx installations
+### Full configuration for InfluxDB 1.x
 
-The example configuration entry below create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
+The example configuration entry below creates two requests to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
 
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`
-
-{% raw %}
 
 ```yaml
 sensor:
@@ -532,11 +531,7 @@ sensor:
         database: db2
 ```
 
-{% endraw %}
-
-### Full configuration for 2.xx installations
-
-{% raw %}
+### Full configuration for InfluxDB 2.x
 
 ```yaml
 sensor:
@@ -568,17 +563,15 @@ sensor:
         group_function: mean
 ```
 
-{% endraw %}
+Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history integration, this means by default, you will have a table for each entity and each attribute of each entity (other than `unit_of_measurement` and any others you promoted to tags).
 
-Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history integration, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
-
-This is a lot more tables compared to 1.xx queries, where you essentially had one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors though. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
+This is more tables compared to 1.x queries, where you have one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors. As shown above, use the [keep](https://docs.influxdata.com/flux/v0/stdlib/universe/keep/) or [drop](https://docs.influxdata.com/flux/v0/stdlib/universe/drop/) filters. When you remove key columns, InfluxDB merges tables that share a schema for `_value` into one.
 
 ## Querying your data in Influx
 
 ### Sensors
 
-For sensors with a unit of measurement defined the unit of measurement is used as the measurement name and entries are tagged with the second part of the `entity_id`. Therefore you need to add a WHERE clause to the query to filter out values. 
+For sensors with a unit of measurement defined, the unit of measurement is used as the measurement name and entries are tagged with the second part of the `entity_id`. Therefore you need to add a WHERE clause to the query to filter out values. 
 
 For example a query on a `%` battery for `sensor.multi_sensor_battery_level`:
 

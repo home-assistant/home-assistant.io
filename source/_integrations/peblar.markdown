@@ -25,7 +25,7 @@ ha_zeroconf: true
 ha_quality_scale: platinum
 ---
 
-The Peblar {% term integration %} integrates the [Peblar Rocksolid EV Charger] into your smart home ecosystem. It enables real-time monitoring of charging status, tracking energy consumption, controlling charging behavior, and integrating EV charging data into the Home Assistant energy dashboard.
+The **Peblar** {% term integration %} integrates the [Peblar Rocksolid EV Charger] into your smart home ecosystem. It enables real-time monitoring of charging status, tracking energy consumption, controlling charging behavior, and integrating EV charging data into the Home Assistant energy dashboard.
 
 [Peblar Rocksolid EV Charger]: https://peblar.com/
 
@@ -127,7 +127,7 @@ The following options are available:
 - **Default** ({% term state %}: `default`): The charger will charge the electric vehicle as soon as it is connected.
 - **Fast solar** ({% term state %}: `fast_solar`): The charger will fast charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Smart solar** ({% term state %}: `smart_solar`): The charger will charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
-- **Pure solar** ({% term state %}: `solar_only`): The charger will only charge the electric vehicle with the overproduction of solar energy.
+- **Pure solar** ({% term state %}: `pure_solar`): The charger will only charge the electric vehicle with the overproduction of solar energy.
 - **Scheduled** ({% term state %}: `scheduled`): The charger will charge the electric vehicle according to the schedule configured on the charger.
 
 ### Sensors
