@@ -15,7 +15,7 @@ ha_brand: true
 
 [Zunzunbee](https://www.zunzunbee.com/) is committed to making sure their products are up-to-date and ready to use in Home Assistant.
 
- [Zunzunbee](https://www.zunzunbee.com/) Zigbee devices work locally and integrate seamlessly with the Zigbee integration in Home Assistant. Since all connectivity happens locally, status updates and device control occur instantly in Home Assistant.
+ Zunzunbee Zigbee devices work locally and integrate seamlessly with the Zigbee integration in Home Assistant. Since all connectivity happens locally, status updates and device control occur instantly in Home Assistant.
 
 {% my add_zigbee_device badge brand=page.ha_domain %}
 
