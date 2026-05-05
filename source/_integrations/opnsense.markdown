@@ -26,28 +26,22 @@ within Home Assistant:
 
 {% configuration_basic %}
 URL:
-  description: "The full URL for the router API. Ex. `https://router.local:443/api`"
+  description: "The full URL for the router API. For example, `https://router.local:443/api`"
 API key:
   description: "The API key."
 API secret:
-  description: "The API key secret."
+  description: "The secret that pairs with your API key and is required for authentication."
 Verify SSL:
-  description: "Whether the SSL certificate should be verified."
+  description: "Whether to verify the router's SSL certificate. Keep this enabled unless your router uses a self-signed certificate in a trusted environment. Disabling certificate verification reduces security, because Home Assistant can no longer confirm that it is connecting to the correct router."
 Tracker interfaces:
   description: "Optionally restrict the interfaces used for device scanning."
 {% endconfiguration_basic %}
-
-You can update the verify SSL and tracker interfaces settings after installation. To do so,
-reconfigure the device via
-{% my integrations title="**Settings** > **Devices & services**" %},
-select {% icon "mdi:dots-vertical" %} for the device you wish to update,
-and select **Reconfigure**.
 
 The API key and API secret values are acquired from your OPNsense
 router using the web interface. For more information on this procedure, refer
 to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
 
-User with API Key requires privileges for Type:
+The API user requires the following privileges:
 
 - GUI Name: Diagnostics: ARP Table
 - GUI Name: Status: Interfaces
