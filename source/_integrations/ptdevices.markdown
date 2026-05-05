@@ -79,30 +79,30 @@ Some sensors are disabled by default because they provide information that is on
 
 ### Sensors
 
-- **Level Depth**:
+- **Level depth**:
   - **Description**: The depth of the remaining fluid.
   - **Available for models**: All
-- **Level Percent**:
+- **Level percent**:
   - **Description**: The remaining level in percent.
   - **Available for models**: All
-- **Level Volume**:
+- **Level volume**:
   - **Description**: The volume of remaining fluid.
   - **Available for models**: All
-- **Probe Temperature**:
+- **Probe temperature**:
   - **Description**: The current temperature measured by the external temperature probe.
   - **Available for models**: PTLevel Wired Wifi With Temperature Probe
 - **Status**:
   - **Description**: The current status of the device. e.g. Working or Not Connected.
   - **Available for models**: All
-- **Battery Voltage**:
+- **Battery voltage**:
   - **Description**: The current voltage reading of the onboard batteries.
   - **Available for models**: All battery powered models
   - **Remarks**: Disabled by default for advanced uses.
-- **WiFi Signal Strength**:
+- **Wi-Fi signal strength**:
   - **Description**: The signal strength of the WiFi at the receiver/WiFI device.
   - **Available for models**: All
   - **Remarks**: Disabled by default for advanced uses.
-- **LoRa Signal Strength**:
+- **LoRa signal strength**:
   - **Description**: The signal strength between the receiver and transmitter.
   - **Available for models**: PTLevel Long Range Wireless Only
   - **Remarks**: Disabled by default for advanced uses.
