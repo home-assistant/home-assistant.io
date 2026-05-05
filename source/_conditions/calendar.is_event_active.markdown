@@ -65,7 +65,7 @@ for:
 
 {% include conditions/try_it.md %}
 
-{% include triggers/more_examples.md %}
+{% include conditions/more_examples.md %}
 
 ### Automation: send reminder for a sunset run if no calendar event is active
 
