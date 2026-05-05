@@ -23,6 +23,15 @@ Use cases include:
 - Setup Automations to turn off pumps when running low.
 - Setup Automations to run appliances after water has been delivered.
 
+## Supported devices
+
+- PTLevel Long Range Wireless
+- PTLevel Long Range Wireless - Septic
+- PTLevel Long Range Wireless - Deep Well
+- PTLevel Wired Wifi
+- PTLevel Wired Wifi - Septic
+- PTLevel Wired Wifi - Temperature Probe
+
 ## Prerequisites
 
 You will need to create a token for your PTDevices account if you haven't done so already. If you have already generated a Token API token, you don't need to generate another one.
@@ -34,15 +43,6 @@ You will need to create a token for your PTDevices account if you haven't done s
 5. Copy the generated API token to a safe location. This API token will be used when setting up the PTDevices integration in Home Assistant.
 
 {% include integrations/config_flow.md %}
-
-## Supported Devices
-
-- PTLevel Long Range Wireless
-- PTLevel Long Range Wireless - Septic
-- PTLevel Long Range Wireless - Deep Well
-- PTLevel Wired Wifi
-- PTLevel Wired Wifi - Septic
-- PTLevel Wired Wifi - Temperature Probe
 
 ## Examples
 
