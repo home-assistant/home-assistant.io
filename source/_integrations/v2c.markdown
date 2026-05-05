@@ -64,8 +64,8 @@ The V2C integration currently exposes the following number entity:
 
 The V2C integration currently exposes the following lights:
 
-- Logo LED: Light behind the V2C logo
-- Light LED: Light of the charger
+- Logo LED: Indicates the light behind the V2C logo.
+- Light LED: Indicates the light of the charger.
 
 ## Switch
 
