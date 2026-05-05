@@ -25,6 +25,7 @@ There is currently support for the following platforms within Home Assistant:
 - [Sensor](#sensor)
 - [Binary sensor](#binary-sensor)
 - [Number](#number)
+- [Light](#light)
 - [Switch](#switch)
 
 ## Prerequisites
@@ -58,6 +59,13 @@ The V2C integration currently exposes the following sensors:
 The V2C integration currently exposes the following number entity:
 
 - intensity: current used to charge your vehicle
+
+## Light
+
+The V2C integration currently exposes the following lights:
+
+- Logo LED: Light behind the V2C logo
+- Light LED: Light of the charger
 
 ## Switch
 
