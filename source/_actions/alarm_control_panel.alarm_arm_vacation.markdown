@@ -82,7 +82,7 @@ code:
 
 ### Action: switch to vacation mode from a script
 
-Create a "leaving for vacation" script that arms the alarm in vacation mode along with other departure tasks like turning off lights and adjusting the thermostat.
+Create a "leaving for vacation" script that arms the alarm in vacation mode. You can add other departure tasks to the same script separately.
 
 - **Action**: Alarm control panel: Arm alarm vacation
 - **Target**: Home alarm

@@ -84,16 +84,16 @@ for:
 
 {% include triggers/more_examples.md %}
 
-### Automation: lock the front door and turn off all lights when the alarm is armed
+### Automation: lock the front door and turn off the living room lights when the alarm is armed
 
-When someone arms the alarm in any mode, the house locks down. The front door locks, all lights turn off, and you get a quick confirmation that everything is secured.
+When someone arms the alarm in any mode, the house locks down. The front door locks, the living room lights turn off, and you get a quick confirmation that everything is secured.
 
 - **Trigger**: Alarm armed
 - **Target**: Home alarm panel
 - **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Lock the front door
-- **Action**: Turn off all lights
+- **Action**: Turn off the living room lights
 
 {% details "YAML example for locking down on arm" %}
 

@@ -22,13 +22,17 @@ To use this condition in an automation:
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your alarm panel is in (like your hallway or entryway). You can also select a floor, a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Alarm is armed**.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple alarm panels are targeted.
-7. Select **Save**.
+7. Under **For at least**, set how long the alarm must have been armed before the condition passes. Leave it at zero to pass immediately.
+8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Condition passes if:
   description: When multiple alarm panels are targeted, controls how results combine. Pick **Any** to pass if at least one targeted alarm is armed, or **All** to pass only when every targeted alarm is armed.
+  required: true
+For at least:
+  description: How long the alarm must have been armed before the condition passes. Set to zero to pass immediately.
   required: true
 {% endoptions_ui %}
 
@@ -56,6 +60,12 @@ behavior:
   required: true
   type: string
   default: any
+for:
+  description: >
+    Duration the alarm must have been armed before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
+  required: true
+  type: string
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}

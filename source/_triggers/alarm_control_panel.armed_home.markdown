@@ -112,15 +112,15 @@ automation: |
 
 {% enddetails %}
 
-### Automation: dim the porch lights when the perimeter is armed
+### Automation: dim the porch light when the perimeter is armed
 
-When you arm the alarm in home mode, dim the porch lights to a gentle glow. They stay on enough to light the walkway but signal that the house is locked up for the evening.
+When you arm the alarm in home mode, dim the porch light to a gentle glow. It stays on enough to light the walkway, but signals that the house is locked up for the evening.
 
 - **Trigger**: Alarm armed home
 - **Target**: Home alarm panel
 - **Trigger when**: Each
 - **For at least**: 00:00:00
-- **Action**: Dim porch lights to 20%
+- **Action**: Dim porch light to 20%
 
 {% details "YAML example for dimming porch lights" %}
 

@@ -124,10 +124,10 @@ automation: |
 
 ### Automation: trigger the alarm on smoke detection
 
-If a smoke sensor goes off while the alarm is armed, trigger the alarm to sound the siren and alert you immediately.
+If a smoke sensor goes off while the alarm is not disarmed, trigger the alarm to sound the siren and alert you immediately.
 
 - **Trigger**: Smoke sensor detects smoke
-- **Condition**: Alarm is armed
+- **Condition**: Alarm is not disarmed
 - **Action**: Alarm control panel: Trigger alarm
 - **Target**: Home alarm
 
