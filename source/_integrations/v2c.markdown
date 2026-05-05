@@ -64,7 +64,7 @@ The V2C integration currently exposes the following number entity:
 
 The V2C integration currently exposes the following select entity:
 
-- charge_mode: Sets the charger mode to either Mono-phase or Tri-phase.
+- charge_mode: Sets the charger mode to either single-phase or three-phase.
 
 ## Switch
 
