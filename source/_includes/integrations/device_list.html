@@ -1,9 +1,13 @@
 {%- for company in site.data.wwha_devices -%}
 {%- if company.brand == include.brand -%}
+{%- if include.hide_list -%}
+For the full list of {{ company.devices | size }} certified {{ include.brand | upcase }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include.brand | upcase | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
+{%- else -%}
 <ul>
 {%- for device in company.devices %}
 <li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a></li>
 {%- endfor %}
 </ul>
+{%- endif -%}
 {%- endif -%}
 {%- endfor -%}
