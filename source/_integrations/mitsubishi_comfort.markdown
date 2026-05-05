@@ -19,6 +19,14 @@ The **Mitsubishi Comfort** {% term integration %} connects Mitsubishi Electric d
 
 This integration supports indoor units (full climate control) and Kumo Station outdoor units (temperature monitoring only).
 
+## Supported devices
+
+- **Indoor unit** (ductless, ducted)
+  - Controls: mode, temperature, fan speed, vane direction
+  - Sensors: temperature, humidity, filter status, Wi-Fi signal
+- **Kumo Station** (outdoor unit, read-only)
+  - Sensors: outdoor temperature, Wi-Fi signal
+
 ## Prerequisites
 
 - A [Kumo Cloud](https://app.kumocloud.com) account with your Mitsubishi devices registered
@@ -27,13 +35,6 @@ This integration supports indoor units (full climate control) and Kumo Station o
 
 {% include integrations/config_flow.md %}
 
-## Supported devices
-
-- **Indoor unit** (ductless, ducted)
-  - Controls: mode, temperature, fan speed, vane direction
-  - Sensors: temperature, humidity, filter status, Wi-Fi signal
-- **Kumo Station** (outdoor unit, read-only)
-  - Sensors: outdoor temperature, Wi-Fi signal
 
 ## Supported functionality
 
