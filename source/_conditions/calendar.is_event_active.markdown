@@ -17,7 +17,7 @@ To use this condition in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Calendar event is active**.
-5. Under **Targets**, select the light entity, an area, a floor, or a label.
+5. Under **Targets**, select a calendar entity, an area, a floor, or a label.
 6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
 7. Select **Save**.
 
@@ -73,6 +73,7 @@ Before sunset, if there is not an active event in the calendar, this automation 
 
 - **Trigger**: Sun
 - **Condition**: Calendar event is active
+- **Blocks**: Not
 - **Action**: Send notification via mobile_app_phone
 
 {% details "YAML example for sending reminder for sunset run if no calendar event is active" %}
@@ -85,14 +86,15 @@ automation: |
       event: sunset
       offset: 0
   conditions:
-    - condition: calendar.is_event_active
-      target:
-        entity_id: calendar.my_calendar
+    - condition: not
+      conditions:
+        - condition: calendar.is_event_active
+          target:
+            entity_id: calendar.my_calendar
   actions:
     - action: notify.mobile_app_phone
       data:
-        message: Let´s go for a sunset run!
-  mode: single
+        message: Let's go for a sunset run!
 {% endexample %}
 
 {% enddetails %}

@@ -82,7 +82,7 @@ offset_type:
 ## Good to know
 
 - Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your {% term trigger %} might not fire.
-- You can create an automation based on the state of a calendar {% term entity %}. However, there are limitations and attributes only represent the next event.
+- You can also create an automation based on the state of a calendar {% term entity %}.
 - A calendar trigger should not generally use automation mode `single` to ensure the trigger can fire when multiple events end at the same time. For example, use `queued` or `parallel` instead.
 - In YAML, you can also set up other variables for calendar triggers. See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) to check the available trigger data.
 
@@ -101,15 +101,15 @@ After a scheduled family gathering takes place at home, this automation turns of
 
 {% example %}
 automation: |
-  - alias: "Turn off lights after a family gathering"
-    triggers:
-      - trigger: calendar.event_ended
-        target:
-          entity_id: calendar.my_family_events
-    actions:
-      - action: light.turn_off
-        target:
-          label_id: cozy_lights_living_room
+  alias: "Turn off lights after a family gathering"
+  triggers:
+    - trigger: calendar.event_ended
+      target:
+        entity_id: calendar.my_family_events
+  actions:
+    - action: light.turn_off
+      target:
+        label_id: cozy_lights_living_room
 {% endexample %}
 
 {% enddetails %}
