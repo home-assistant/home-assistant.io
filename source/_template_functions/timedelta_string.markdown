@@ -69,7 +69,7 @@ By default, `timedelta_string` returns only the largest time component. Increase
 {% example %}
 template: '{{ timedelta_string(timedelta(hours=2, minutes=30), 1) }}'
 type: string
-output: "2 hours"
+output: "3 hours"
 {% endexample %}
 
 {% example %}
