@@ -20,7 +20,7 @@ related:
 
 The **HEMS Echonet Lite** {% term integration %} allows you to integrate ECHONET Lite compatible devices into Home Assistant. [ECHONET Lite](https://echonet.jp/) is a communication protocol standard widely used in Japan for smart home appliances, including air conditioners, solar power systems, storage batteries, and more.
 
-This integration automatically discovers ECHONET Lite devices on your local network using multicast communication (224.0.23.0:3610) and creates entities based on the device capabilities.
+This integration automatically discovers ECHONET Lite devices on your local network using multicast communication and creates entities based on the device's capabilities.
 
 ## Supported devices
 
