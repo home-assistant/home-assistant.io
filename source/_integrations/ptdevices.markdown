@@ -82,15 +82,19 @@ Some sensors are disabled by default because they provide information that is on
 - **Level depth**:
   - **Description**: The depth of the remaining fluid.
   - **Available for models**: All
+  - **Unit**: Meters
 - **Level percent**:
   - **Description**: The remaining level in percent.
   - **Available for models**: All
+  - **Unit**: %
 - **Level volume**:
   - **Description**: The volume of remaining fluid.
   - **Available for models**: All
+  - **Unit**: Liters
 - **Probe temperature**:
   - **Description**: The current temperature measured by the external temperature probe.
   - **Available for models**: PTLevel Wired Wifi With Temperature Probe
+  - **Unit**: °C
 - **Status**:
   - **Description**: The current status of the device. For example, **Working** or **Not connected**.
   - **Available for models**: All
@@ -98,14 +102,17 @@ Some sensors are disabled by default because they provide information that is on
   - **Description**: The current voltage reading of the onboard batteries.
   - **Available for models**: All battery powered models
   - **Remarks**: Disabled by default for advanced uses.
+  - **Unit**: Volts
 - **Wi-Fi signal strength**:
   - **Description**: The signal strength of the WiFi at the receiver/WiFI device.
   - **Available for models**: All
   - **Remarks**: Disabled by default for advanced uses.
+  - **Unit**: dBm
 - **LoRa signal strength**:
   - **Description**: The signal strength between the receiver and transmitter.
   - **Available for models**: PTLevel Long Range Wireless Only
   - **Remarks**: Disabled by default for advanced uses.
+  - **Unit**: dBm
 
 ## Data updates
 
