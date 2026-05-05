@@ -94,15 +94,7 @@ Insteon switches and dimmers (such as SwitchLinc and KeypadLinc) and KeypadLinc 
 
 Primary load buttons are enabled by default. KeypadLinc secondary buttons are disabled by default to avoid creating unused entities. To use them, enable the entity from the device page.
 
-You can use these entities directly as triggers in automations without needing to write event listeners. For example:
-
-```yaml
-triggers:
-  - trigger: state
-    entity_id: event.hallway_keypad_b
-    attribute: event_type
-    to: "fast_on"
-```
+You can use these entities directly as triggers in automations without needing to write event listeners. For details on automating on event entities and matching specific event types, see the [Event entity documentation](/integrations/event/).
 
 ### Handling Insteon or Other ISY Control Events
 
