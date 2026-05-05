@@ -1,8 +1,9 @@
 ---
 title: PTDevices
-description: Instructions on how to integrate you PTLevel into Home Assistant.
-ha_release: 2026.5.0
-ha_category: Sensor
+description: Instructions on how to integrate your PTLevel into Home Assistant.
+ha_release: 2026.6
+ha_category: 
+  - Sensor
 ha_platforms:
   - sensor
 ha_iot_class: Cloud Polling
@@ -15,7 +16,7 @@ ha_domain: ptdevices
 ha_integration_type: hub
 ---
 
-The `PTDevices` integration allows you to integrate your PTDevice cistern monitor into Home Assistant.
+The **PTDevices** {% term integration %} allows you to integrate your [PTLevel](https://paremtech.com/wireless-ptlevel/) into Home Assistant.
 Use cases include:
 
 - Send notifications for low level or excessive usage.
@@ -24,12 +25,12 @@ Use cases include:
 
 ## Prerequisites
 
-You will need to create a token for your PTDevices account if your haven't done so already. If your have already generated a Token API token, you don't need to generate another one.
+You will need to create a token for your PTDevices account if you haven't done so already. If you have already generated a Token API token, you don't need to generate another one.
 
-1. Login to your PTDevices account that contains the devices your wish to integrate.
-2. Go to **My Account** page from the left hand side menu or [https://www.ptdevices.com/profile](https://www.ptdevices.com/profile)
+1. Log in to your PTDevices account that contains the devices you wish to integrate.
+2. Go to the **My Account** page from the left hand side menu or [https://www.ptdevices.com/profile](https://www.ptdevices.com/profile).
 3. Go to the **Settings** page from the top menu.
-4. At the bottom of this page, click the **Regenerate API Token** button.
+4. At the bottom of this page, select the **Regenerate API Token** button.
 5. Copy the generated API token to a safe location. This API token will be used when setting up the PTDevices integration in Home Assistant.
 
 {% include integrations/config_flow.md %}
