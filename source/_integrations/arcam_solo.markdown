@@ -123,7 +123,7 @@ automation:
           
 ## Data updates
 
-The **Arcam Solo** integration is classified as {% term local polling %}.  
+The **Arcam Solo** integration is classified as {% term polling polls %}.  
 It communicates locally over the configured serial port and does not use a cloud connection.
 
 ## Known limitations
