@@ -22,17 +22,17 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Calendar event ended**.
 5. Under **Targets** (see [Targets](#targets)), select **Add target** and pick what to watch. Select the calendar entity with the event that you want to watch. You can also select a device or a label, for example.
-6. Under **Offset**, you can enter the time from the start of the event when the trigger will fire. If you want the trigger to fire at the starting time of the event, skip this and the next option and select **Save**.
+6. Under **Offset**, you can enter the time from the end of the event when the trigger will fire. If you want the trigger to fire at the ending time of the event, skip this step and the next one.
 7. If you entered an offset, under **Offset type**, select one of the following:
-   - **Before** if you want the trigger to fire before the start of the event.
-   - **After** if you want the trigger to fire after the start of the event.
+   - **Before** if you want the trigger to fire before the end of the event.
+   - **After** if you want the trigger to fire after the end of the event.
 8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Offset:
-  description: Time from the end of the event.
+  description: The length of time from the end of the event.
   required: false
 Offset type:
   description: Whether to trigger before or after the end of the event, if an offset is defined.
@@ -46,7 +46,7 @@ In YAML, refer to this trigger as `calendar.event_ended`. A basic example looks 
 
 {% example %}
 trigger: |
-  trigger: calendar.event_started
+  trigger: calendar.event_ended
   target:
     entity_id: calendar.personal
   options:
@@ -58,19 +58,23 @@ trigger: |
     offset_type: before
 {% endexample %}
 
-This fires at the end of the event.
+This fires at the end of an event of `calendar.personal`.
 
 ### Options in YAML
 
-{% options_ui %}
+{% options_yaml %}
 offset:
-  description: Time from the end of the event.
+  description: >
+    The length of time from the end of the event.
   required: false
+  type: time
 offset_type:
-  description: Whether to trigger before or after the end of the event, if an offset is defined.
+  description: >
+    Whether to trigger before or after the end of the event, if an offset is defined.
   required: false
   default: before
-{% endoptions_ui %}
+  type: string
+{% endoptions_yaml %}
 
 <!-- Keep the "include" below if your integration supports targets -->
 {% include triggers/targets.md %}
@@ -79,7 +83,7 @@ offset_type:
 
 - Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your {% term trigger %} might not fire.
 - You can create an automation based on the state of a calendar {% term entity %}. However, there are limitations and attributes only represent the next event.
-- A calendar trigger should not generally use automation mode `single` to ensure the trigger can fire when multiple events start at the same time. For example, use `queued` or `parallel` instead.
+- A calendar trigger should not generally use automation mode `single` to ensure the trigger can fire when multiple events end at the same time. For example, use `queued` or `parallel` instead.
 - In YAML, you can also set up other variables for calendar triggers. See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) to check the available trigger data.
 
 {% include triggers/try_it.md %}
@@ -91,7 +95,7 @@ offset_type:
 After a scheduled family gathering takes place at home, this automation turns off specific lights in the living room.
 
 - **Trigger**: Calendar event ended
-- **Action**: Light: Turn off light
+- **Action**: Turn off light
 
 {% details "YAML example for turning off specific lights after a family gathering" %}
 

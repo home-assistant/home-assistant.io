@@ -19,7 +19,7 @@ To use this condition in an automation:
 4. From the search box, search for and select **Calendar event is active**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
-1. Select **Save**.
+7. Select **Save**.
 
 ### Options in the UI
 
@@ -40,7 +40,7 @@ condition: |
     entity_id: calendar.my_calendar
 {% endexample %}
 
-This passes when an event of my_calendar is active.
+This passes when an event of `calendar.my_calendar` is active.
 
 ### Options in YAML
 
@@ -53,6 +53,12 @@ behavior:
   required: true
   type: string
   default: any
+for:
+  description: >
+    The time the event must be active before the condition passes.
+  required: true
+  type: time
+  default: 00:00:00
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -67,7 +73,7 @@ Before sunset, if there is not an active event in the calendar, this automation 
 
 - **Trigger**: Sun
 - **Condition**: Calendar event is active
-- **Action**: Notifications: Send notification via mobile_app
+- **Action**: Send notification via mobile_app_phone
 
 {% details "YAML example for sending reminder for sunset run if no calendar event is active" %}
 
@@ -76,17 +82,17 @@ automation: |
   alias: "Send reminder for a sunset run if no calendar event is active"
   triggers:
     - trigger: sun
-    event: sunset
-    offset: 0
+      event: sunset
+      offset: 0
   conditions:
     - condition: calendar.is_event_active
-    target:
-      entity_id: calendar.my_calendar
+      target:
+        entity_id: calendar.my_calendar
   actions:
-    - action: notify.mobile_app
-    data:
-      message: Let´s go for a sunset run!
-mode: single
+    - action: notify.mobile_app_phone
+      data:
+        message: Let´s go for a sunset run!
+  mode: single
 {% endexample %}
 
 {% enddetails %}

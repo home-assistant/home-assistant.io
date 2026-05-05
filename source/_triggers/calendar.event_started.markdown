@@ -58,19 +58,23 @@ trigger: |
     offset_type: after
 {% endexample %}
 
-This fires 15 minutes after the start of the event.
+This fires 15 minutes after the start of an event in `calendar.personal`.
 
 ### Options in YAML
 
-{% options_ui %}
+{% options_yaml %}
 offset:
-  description: Offset from the start of the event.
+  description: >
+    The length of time from the start of the event.
   required: false
+  type: time
 offset_type:
-  description: Whether to trigger before or after the start of the event, if an offset is defined.
+  description: >
+    Whether to trigger before or after the start of the event, if an offset is defined.
   required: false
+  type: string
   default: before
-{% endoptions_ui %}
+{% endoptions_yaml %}
 
 <!-- Keep the "include" below if your integration supports targets -->
 {% include triggers/targets.md %}
@@ -91,7 +95,7 @@ offset_type:
 For the calendar entity `calendar.personal`, at the start of any calendar event, this automation sends a notification, that is visible in the notification panel of Home Assistant. This automation allows the start of multiple events at the same time.
 
 - **Trigger**: Calendar event started
-- **Action**: Notifications: Send a persistent notification
+- **Action**: Send a persistent notification
 
 {% details "YAML example for sending a calendar event notification" %}
 
