@@ -108,7 +108,7 @@ This integration will expose the following sensors:
 - **Lightning last strike**
   - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
 
-### Solar & Light sensors
+### Solar and Light sensors
 
 - **Illuminance**
   - **Description**: Amount of visible light received, measured in lux.
@@ -137,7 +137,7 @@ Additionally the following diagnostic sensors are available:
 
 ## Event entities
 
-The WeatherFlow Tempest station also sends out event triggers when it starts raining and when there is a lightning strike near by.
+The WeatherFlow Tempest station also sends event triggers when it starts raining and when there is a lightning strike nearby.
 This {% term integration %} will expose these {% term event %} {% term entities %} and can be used for automations. The following entities will be exposed:
 
 - **Lightning strike**
