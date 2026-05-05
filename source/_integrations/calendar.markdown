@@ -11,9 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The **Calendar** {% term integration %} provides calendar {% term entities %}, allowing other integrations
-to integrate calendars into Home Assistant. Calendars are shown on the calendar
-dashboard and can be used with automations.
+The **Calendar** {% term integration %} provides calendar {% term entities %}, allowing other integrations to integrate calendars into Home Assistant. Calendars are shown on the calendar dashboard and can be used with automations.
 
 {% include integrations/building_block_integration.md %}
 
@@ -50,122 +48,19 @@ Also see [Actions](#actions) below.
 ## Calendar card
 
 To display calendar events directly on your dashboards, Home Assistant includes the [calendar card](/dashboards/calendar/).
-The card shows upcoming events from one or more calendar entities and provides a quick,glanceable view of your schedule.
+The card shows upcoming events from one or more calendar entities and provides a quick, glanceable view of your schedule.
 
 ## The state of a calendar entity
 
 The state shows whether or not there is an active event:
 
-- On: The calendar has an active event.
-- Off: The calendar does not have an active event.
+- `on`: The calendar has an active event.
+- `off`: The calendar does not have an active event.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
-
-## Automation
-
-Calendar [Triggers](/docs/automation/trigger) enable {% term automation %} based on an
-event's start or end. Review the [Automating Home Assistant](/getting-started/automation/)
-getting started guide on automations or the [Automation](/docs/automation/)
-documentation for full details.
-
-Calendar {% term triggers %} are the best way to automate based on calendar events.
-A calendar {% term entity %} can also be used to automate based on its state, but these are limited and attributes only represent the next event.
-
-{% my automations badge %}
-
-![Screenshot Trigger](/images/integrations/calendar/trigger.png)
-
-An example of a calendar {% term trigger %} in YAML:
-
-```yaml
-automation:
-  - triggers:
-    - trigger: calendar
-      # Possible values: start, end
-      event: start
-      # The calendar entity_id
-      entity_id: calendar.personal
-      # Optional time offset to fire a set time before or after event start/end
-      offset: -00:15:00
-```
-
-Calendar triggers should not generally use automation mode `single` to ensure
-the trigger can fire when multiple events start at the same time. For example,
-use `queued` or `parallel` instead. Note that calendars are read once every 15
-minutes. When testing, make sure you do not plan events less than 15 minutes
-away from the current time, or your {% term trigger %} might not fire.
-
-See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) 
-for additional trigger data available for conditions or actions.
-
-### Automation recipes
-
-Below are a few example ways you can use Calendar triggers.
-
-{% details "Example: Calendar Event Notification " %}
-
-This example automation consists of:
-
-- For the calendar entity `calendar.personal`.
-- At the start of any calendar event.
-- Send a notification with the title and start time of the event.
-- Allowing multiple events starting at the same time.
-
-```yaml
-automation:
-  - alias: "Calendar notification"
-    triggers:
-      - trigger: calendar
-        event: start
-        entity_id: calendar.personal
-    actions:
-      - action: persistent_notification.create
-        data:
-          message: >-
-            Event {{ trigger.calendar_event.summary }} @
-            {{ trigger.calendar_event.start }}
-```
-
-{% enddetails %}
-
-{% details "Example: Calendar Event Light Schedule " %}
-
-This example consists of:
-
-- For the calendar entity ` calendar.device_automation`.
-- When event summary contains `Front Lights`.
-- Turn on and off light named `light.front` when the event starts and ends.
-
-```yaml
-automation:
-  - alias: "Front Light Schedule"
-    triggers:
-      - trigger: calendar
-        event: start
-        entity_id: calendar.device_automation
-      - trigger: calendar
-        event: end
-        entity_id: calendar.device_automation
-    conditions:
-      - condition: template
-        value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
-    actions:
-      - if:
-          - "{{ trigger.event == 'start' }}"
-        then:
-          - action: light.turn_on
-            target:
-              entity_id: light.front
-        else:
-          - action: light.turn_off
-            target:
-              entity_id: light.front
-```
-
-{% enddetails %}
+- `unavailable`: The entity is currently unavailable.
+- `unknown`: The state is not yet known.
 
 ## Actions
 
@@ -270,3 +165,5 @@ data:
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
 ```
+
+{% include integrations/triggers_conditions_actions.md %}
