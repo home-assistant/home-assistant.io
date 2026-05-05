@@ -82,8 +82,8 @@ Some sensors are disabled by default because they provide information that is on
 ### Binary sensors
 
 - **Battery status**:
-  - **Description**: The current status of the onboard batteries. For example, **Normal** or **Low**
-  - **Available for models**: All battery powered models
+  - **Description**: Indicates whether the onboard battery is low.
+  - **Available for models**: All battery-powered models
 
 ### Sensors
 
