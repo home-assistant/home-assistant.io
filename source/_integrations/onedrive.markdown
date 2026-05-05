@@ -110,6 +110,7 @@ action: onedrive.upload
 data:
   filename: /media/image.jpg
   destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
 
 # Upload multiple files
 action: onedrive.upload
@@ -118,6 +119,7 @@ data:
     - /media/image_1.jpg
     - /media/image_2.jpg
   destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
 ```
 
 
