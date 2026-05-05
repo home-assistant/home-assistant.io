@@ -1,7 +1,7 @@
 ---
 title: HEMS Echonet Lite
 description: Instructions on how to integrate ECHONET Lite devices using the HEMS Echonet Lite integration.
-ha_release: 2026.2
+ha_release: 2026.6
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@sayurin'
