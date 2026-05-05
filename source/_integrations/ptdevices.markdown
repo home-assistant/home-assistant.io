@@ -22,7 +22,7 @@ Use cases include:
 - Setup Automations to turn off pumps when running low.
 - Setup Automations to run appliances after water has been delivered.
 
-## Token API key
+## Prerequisites
 
 You will need to create a token for your PTDevices account if your haven't done so already. If your have already generated a Token API token, you don't need to generate another one.
 
@@ -68,17 +68,15 @@ Replace TARGET_PTDEVICE and TARGET_MOBILE_DEVICE with your actual devices.
 
 ## Supported functionality
 
-### ENTITIES
-
 The PTDevices integration provides the following entities.
 
 {% note %}
 
-Some sensors are disabled by default, since they provide information that is only useful for advanced users. You can manually enable them in **{% my entities title="Settings -> Devices & Services -> Entities" %}** -> the sensor entity you want to enable -> Advanced settings -> Enabled.
+Some sensors are disabled by default because they provide information that is only useful to advanced users. You can manually enable them in {% my entities title="**Settings** > **Devices & Services** > **Entities**" %}> the sensor entity you want to enable > **Advanced settings** > **Enabled**.
 
 {% endnote %}
 
-#### Sensors
+### Sensors
 
 - **Level Depth**:
   - **Description**: The depth of the remaining fluid.
@@ -108,11 +106,11 @@ Some sensors are disabled by default, since they provide information that is onl
   - **Available for models**: PTLevel Long Range Wireless Only
   - **Remarks**: Disabled by default for advanced uses.
 
-## Data Updates
+## Data updates
 
 The integration {% term polling polls %} data from PTDevices every 60 seconds by default.
 
-## Known Limitations
+## Known limitations
 
 - This integration does not allow you to change the settings of the device. You must go to [PTDevices.com](https://ptdevices.com) to change device settings.
 
