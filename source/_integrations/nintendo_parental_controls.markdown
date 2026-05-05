@@ -126,7 +126,7 @@ The `nintendo_parental_controls.update_pin_code` action allows you to change the
 - The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
 - A cloud connection is required as it is not possible to make a local connection to your Switch.
 - The range used for bonus time is set by Nintendo and therefore cannot be changed.
-- When changing the PIN, Nintendo will send you an email automatically, this cannot be disabled in the integration. The email does not contain the PIN itself.
+- When changing the PIN, Nintendo will send you an email automatically. This cannot be disabled in the integration. The email does not contain the PIN itself.
 
 ## Troubleshooting
 
