@@ -1,51 +1,52 @@
 cards:
+  - href: "https://www.youtube.com/watch?v=k02P5nghmfs"
+    text: 'How to Automate Your Home Using Home Assistant'
+    author: "NetworkChuck"
+    link_icon: "/images/community-cards/play-icon.png"
+    video: /video/frontpage/nc-card.webm
+    video_poster: /images/frontpage/nc-card.webp
+  - href: "https://www.reddit.com/r/homeassistant/comments/1h3hqfr/home_assistant_saved_my_house_thanks/"
+    text: "Home Assistant saved my house. Thanks!"
+    author_image: "/images/community-cards/reddit-logo.png"
+    author_image_alt: "Reddit logo"
+    author: "ightfoot_labs on Reddit"
+    link_icon: "/images/community-cards/document-icon.png"
   - href: "https://www.wired.com/story/heres-how-i-ditched-alexa-and-upgraded-my-smart-home/"
     text: '"I Ditched the Cloud and Upgraded My Smart Home"'
     author_image: "/images/community-cards/wired-logo.jpg"
     author_image_alt: "Wired logo"
     author: "WIRED"
+    quote: true
     link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
-  - href: "https://www.youtube.com/watch?v=k02P5nghmfs"
-    text: '"How to Automate Your Home Using Home Assistant"'
-    author: "NetworkChuck"
-    link_icon: "/images/community-cards/play-icon.png"
-    theme: "light"
-    video: /video/frontpage/nc-card.webm
-    video_poster: /images/frontpage/nc-card.webp
-  - href: "https://www.youtube.com/watch?v=Z4gvkmJ8q48"
-    text: '"Ultimate Home Assistant Beginner’s Guide!"'
-    author: "Smart Home Solver"
-    link_icon: "/images/community-cards/play-icon.png"
-    theme: "light"
-    video: /video/frontpage/shs-card.webm
-    video_poster: /images/frontpage/shs-card.webp
+  - href: "https://www.producthunt.com/products/home-assistant?launch=home-assistant"
+    text: '"Control and monitor your home from anywhere in the world."'
+    author_image: "/images/community-cards/product-hunt-logo.png"
+    author_image_alt: "Product Hunt logo"
+    author: "Product Hunt"
+    quote: true
+    link_icon: "/images/community-cards/document-icon.png"
   - href: "https://6monthslater.net/2024/06/home-assistant-green-review-6-months-later/"
     text: 'Home Assistant Green Review'
     author_image: "/images/community-cards/6-months-later-logo.png"
     author_image_alt: "6 Months Later logo"
     author: "6 Months Later"
     link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
   - href: "https://www.theverge.com/23875557/home-assistant-green-announcement-price-specs-ten-year-anniversary"
     text: 'The Home Assistant Green is here to make the most powerful smart home platform more accessible'
     author_image: "/images/community-cards/the-verge-logo.jpg"
     author_image_alt: "The Verge logo"
     author: "The Verge"
     link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
   - href: "https://www.theverge.com/23875557/home-assistant-green-announcement-price-specs-ten-year-anniversary"
     text: 'Home Assistant gives you tons of freedom to arrange your devices in practically any way you see fit'
     author_image: "/images/community-cards/pc-world-logo.jpg"
     author_image_alt: "PC World logo"
     author: "PC World"
     link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
   - href: "https://www.youtube.com/watch?v=uh9A4LvuGHM&t=727s"
     text: 'Home Assistant at GitHub Universe 2024'
     author: "GitHub"
     link_icon: "/images/community-cards/play-icon.png"
-    theme: "light"
     video: /video/frontpage/gu-card.webm
     video_poster: /images/frontpage/gu-card.webp
   - href: "https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/"
@@ -53,45 +54,22 @@ cards:
     author_image: "/images/community-cards/ars-technica-logo.png"
     author_image_alt: "Ars Technica logo"
     author: "Ars Technica"
+    quote: true
     link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
   - href: "https://tweakers.net/reviews/8704/paulus-schoutsen-home-assistant-concurreert-met-alles-wat-via-de-cloud-gaat.html"
     text: '"We want privacy and local control to be the standard."'
     author_image: "/images/community-cards/tweakers-logo.png"
     author_image_alt: "Tweakers logo"
     author: "Tweakers"
-    link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
-  - href: "https://www.producthunt.com/products/home-assistant?launch=home-assistant"
-    text: '"Control and monitor your home from anywhere in the world."'
-    author_image: "/images/community-cards/product-hunt-logo.png"
-    author_image_alt: "Product Hunt logo"
-    author: "Product Hunt"
-    link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
-  - href: "https://www.reddit.com/r/homeassistant/comments/1h3hqfr/home_assistant_saved_my_house_thanks/"
-    text: "Home Assistant saved my house. Thanks!"
-    author_image: "/images/community-cards/reddit-logo.png"
-    author_image_alt: "Reddit logo"
-    author: "ightfoot_labs on Reddit"
-    link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
-  - href: ""
     quote: true
-    text: '"If simplicity is the goal, the team achieved it."'
-    author_image: "/images/community-cards/the-verge-logo.jpg"
-    author_image_alt: "The Verge logo"
-    author: "The Verge"
     link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
-  - href: "https://www.reddit.com/r/homeassistant/comments/1h3hqfr/home_assistant_saved_my_house_thanks/"
-    text: "Home Assistant saved my house. Thanks!"
-    author_image: "/images/community-cards/reddit-logo.png"
-    author_image_alt: "Reddit logo"
-    author: "ightfoot_labs on Reddit"
-    link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
-  - href: ""
+  - href: "https://www.youtube.com/watch?v=Z4gvkmJ8q48"
+    text: 'Ultimate Home Assistant Beginner’s Guide!'
+    author: "Smart Home Solver"
+    link_icon: "/images/community-cards/play-icon.png"
+    video: /video/frontpage/shs-card.webm
+    video_poster: /images/frontpage/shs-card.webp
+  - href: "https://www.theverge.com/23875557/home-assistant-green-announcement-price-specs-ten-year-anniversary"
     quote: true
     blue: true
     text: '"If simplicity is the goal, the team achieved it."'
@@ -99,11 +77,9 @@ cards:
     author_image_alt: "The Verge logo"
     author: "The Verge"
     link_icon: "/images/community-cards/document-icon.png"
-    theme: "light"
-  - href: ""
-    text: '"Home Assistant has never been this EASY!"'
-    author: "Everything Smart Home"
-    link_icon: "/images/community-cards/play-icon.png"
-    theme: "light"
-    background_image: "/images/voice-pe/features/right-mobile.webp"
-    background_image_alt: ""
+  - href: "https://www.reddit.com/r/homeassistant/comments/1t0q8wb/how_home_assistant_saved_my_car/"
+    text: "How Home Assistant saved my car"
+    author_image: "/images/community-cards/reddit-logo.png"
+    author_image_alt: "Reddit logo"
+    author: "RDUKE7777777 on Reddit"
+    link_icon: "/images/community-cards/document-icon.png"

@@ -2018,8 +2018,7 @@ h6 {
     flex-wrap: wrap;
     align-content: flex-start;
     align-items: flex-start;
-    justify-content: center;
-    height: clamp(340px, 95vw, 400px);
+    height: 416px;
     gap: 1rem;
     overflow-x: auto;
     overflow-y: hidden;
@@ -2029,8 +2028,22 @@ h6 {
     margin-right: -24px;
     padding-right: 24px;
 
-    @media only screen and (min-width: 640px) {
+    @media only screen and (min-width: 640px) and (max-width: #{$menu-collapse - 1px}) {
+      display: block;
+      column-count: 2;
+      column-gap: 1rem;
+      height: auto;
+      overflow: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    @media only screen and (min-width: $menu-collapse) {
+      display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       align-content: stretch;
       align-items: stretch;
       height: auto;
@@ -2044,14 +2057,10 @@ h6 {
     &__col {
       display: contents;
 
-      @media only screen and (min-width: 640px) {
+      @media only screen and (min-width: $menu-collapse) {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        flex-basis: calc(50% - 0.5rem);
-      }
-
-      @media only screen and (min-width: $menu-collapse) {
         flex-basis: calc(25% - 1rem);
       }
     }
@@ -2105,13 +2114,18 @@ h6 {
         scroll-snap-align: center;
       }
 
-      &:has(.community-card__image) {
-        height: 100%;
+      @media only screen and (min-width: 640px) and (max-width: #{$menu-collapse - 1px}) {
+        display: block;
+        break-inside: avoid;
+        margin-bottom: 1rem;
+        width: 100%;
       }
-    }
 
-    &--dark {
-      --text-color: #fff;
+      @media only screen and (min-width: $menu-collapse) {
+        &:has(.community-card__image) {
+          height: 100%;
+        }
+      }
     }
 
     &--image, &--video {
