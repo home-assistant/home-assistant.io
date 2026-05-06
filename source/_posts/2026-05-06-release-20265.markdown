@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026.5: We're on the same frequency now 📡"
-description: "Radio frequency joins the smart home, a brand new Maintenance dashboard for your batteries, serial ports proxied over the network with ESPHome, new tile card features for media players, durations for purpose-specific automation triggers and conditions, redesigned more-info dialogs for vacuums and lawn mowers, autocomplete in the code editors, and 12 new integrations!"
+description: "Radio frequency joins the smart home, a new Maintenance dashboard for your batteries, serial ports proxied over the network with ESPHome, new tile card features for media players, durations for purpose-specific automation triggers and conditions, redesigned more-info dialogs for vacuums and lawn mowers, autocomplete in the code editors, and 12 new integrations!"
 date: 2026-05-06 00:00:00
 date_formatted: "May 6, 2026"
 author: Franck Nijhof
@@ -10,7 +10,7 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2026-04/social.png
+og_image: /images/blog/2026-05/social.png
 ---
 
 <lite-youtube videoid="g9F3mn2SYGg" videotitle="Home Assistant 2026.5 Release Party"></lite-youtube>
@@ -23,11 +23,11 @@ Building in the open isn't just about source code on GitHub. It's about doing th
 
 A great first step in that direction also went live this month: **[our roadmap is now public](https://github.com/orgs/OpenHomeFoundation/projects/8)**. You can go browse it, see what we're working on, what's next, and (most importantly) comment on it, share your thoughts, and help shape it. We talked about all of this, and a lot more, on stage. So if you weren't able to join us live, please [go watch the recording](https://www.youtube.com/watch?v=XyAL1to3Lm4). It is genuinely worth your time, and it's the best invitation I can give you to come build the Open Home with us. 🗺️
 
-Now, on to this release. My personal favorite this month is maybe a bit unexpected, considering it sits all the way at the end of this post: the [completely reworked templating documentation](#the-templating-documentation-youve-always-wanted). I know, I know, "documentation" doesn't exactly scream headline feature. But hear me out: making Home Assistant more approachable is one of our biggest missions this year, and darn good documentation is a huge part of that. We've expanded our documentation team and are investing heavily in this, and the new templating docs are the very first taste of what's to come. I'm really proud of where this is heading. 📚
+Now, on to this release. My personal favorite this month is maybe a bit unexpected, considering it sits all the way at the end of this post: the [completely reworked templating documentation](#the-templating-documentation-youve-always-wanted). I know, I know, "documentation" doesn't exactly scream headline feature. But hear me out: making Home Assistant more approachable is one of our biggest missions this year, and darn good documentation is a big part of that. We've expanded our documentation team and are investing heavily in this, and the new templating docs are the very first taste of what's to come. I'm really proud of where this is heading. 📚
 
 That said, I'd be lying if I said I wasn't also _super_ stoked about [radio frequency (RF) support](#radio-frequency-joins-infrared-as-a-first-class-citizen) landing this release. Just like last month's [infrared (IR) release](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant), this brings a _massive_ category of devices into Home Assistant natively: blinds, garage doors, ceiling fans, RF outlets, doorbells… you name it. Sure, there have always been clever workarounds and custom integrations to bridge some of these, but having it built right into the platform changes the game completely. There is so much cool stuff going on around this, and we're only getting started. 📡
 
-And there's plenty more: a brand new [Maintenance dashboard](#stay-on-top-of-your-batteries-with-the-new-maintenance-dashboard) for your batteries, [serial ports proxied over the network](#serial-ports-over-the-network-with-esphome) with ESPHome, [new tile card features](#new-tile-card-features-for-media-players) for media players, [durations for purpose-specific automation triggers and conditions](#automations-that-finally-understand-for-a-while), redesigned [more-info dialogs for vacuums and lawn mowers](#a-modern-more-info-dialog-for-vacuums-and-lawn-mowers), [autocomplete in the code editors](#smarter-code-editors-with-autocomplete), and 12 new integrations! 🚀
+And there's plenty more: a new [Maintenance dashboard](#stay-on-top-of-your-batteries-with-the-new-maintenance-dashboard) for your batteries, [serial ports proxied over the network](#serial-ports-over-the-network-with-esphome) with ESPHome, [new tile card features](#new-tile-card-features-for-media-players) for media players, [durations for purpose-specific automation triggers and conditions](#automations-that-finally-understand-for-a-while), redesigned [more-info dialogs for vacuums and lawn mowers](#a-modern-more-info-dialog-for-vacuums-and-lawn-mowers), [autocomplete in the code editors](#smarter-code-editors-with-autocomplete), and 12 new integrations! 🚀
 
 Enjoy the release!
 
@@ -102,7 +102,7 @@ On the other side, device-specific integrations use the platform to actually do 
 
 ### Why this is a big deal
 
-Like infrared, this is about more than a single new feature. A huge chunk of perfectly good RF-controlled hardware out there has no smart home story at all. By giving Home Assistant a standard way to talk to RF devices, every new consumer integration built on top instantly works with every transmitter integration. Add a new ESPHome RF proxy somewhere in the house, and your blinds, your fan, and your string lights all just work. ✨
+Like infrared, this is about more than a single new feature. A large chunk of perfectly good RF-controlled hardware out there has no smart home story at all. By giving Home Assistant a standard way to talk to RF devices, every new consumer integration built on top instantly works with every transmitter integration. Add a new ESPHome RF proxy somewhere in the house, and your blinds, your fan, and your string lights all just work. ✨
 
 This is a great fit with the values of the [Open Home Foundation](https://www.openhomefoundation.org/), and especially _sustainability_. 🌱 Instead of throwing out a working motorized blind because it's "dumb", you can integrate it. Instead of replacing your RF outlets with new Wi-Fi ones, you can keep using them. It's another way to extend the life of devices you already own, and to reduce electronic waste. ♻️
 
@@ -142,8 +142,8 @@ Like our existing Bluetooth, infrared, and radio frequency proxies, this is also
 Behind the scenes, this release rewires Home Assistant's serial-port handling top to bottom to make serial proxies a natural part of the system. Some highlights for the curious:
 
 - All of Home Assistant has been migrated to a modern, async-first serial driver called **serialx**, replacing the older `pyserial` library that Home Assistant has used for years. It's designed for the way Home Assistant works today and adds support for new connection types, including ESPHome serial proxies, transparently.
-- Integrations that need a serial port now get a brand new, polished serial port selector in the UI. It lists local USB serial ports _and_ remote ESPHome serial proxies side by side, with friendly names. The list even updates live, so a USB device you plug in while the dropdown is open shows up right away.
-- Common integrations that talk over serial pick up serial proxies for free. The brand new [Denon RS232] integration uses it from day one, and the existing [Russound RIO](/integrations/russound_rio/) integration has been migrated to serialx as well, so it can now talk to your multi-room audio gear over an ESPHome serial proxy too.
+- Integrations that need a serial port now get a new, polished serial port selector in the UI. It lists local USB serial ports _and_ remote ESPHome serial proxies side by side, with friendly names. The list even updates live, so a USB device you plug in while the dropdown is open shows up right away.
+- Common integrations that talk over serial pick up serial proxies for free. The new [Denon RS232] integration uses it from day one, and the existing [Russound RIO](/integrations/russound_rio/) integration has been migrated to serialx as well, so it can now talk to your multi-room audio gear over an ESPHome serial proxy too.
 
 If you're an integration developer (or maintain a custom component) talking over serial, head over to the [migrating from pyserial to serialx](https://developers.home-assistant.io/blog/2026/04/27/pyserial-to-serialx) developer blog post to read all about how to take advantage of this. 🛠️
 
@@ -157,17 +157,17 @@ This work is part of [an Open Home Foundation roadmap opportunity](https://githu
 
 ## More from your built-in dashboards
 
-Over the past few releases, Home Assistant has been quietly growing a family of **built-in dashboards** that you don't have to build yourself. It [started with the Home dashboard back in 2025.9](/blog/2025/09/03/release-20259/#introducing-the-home-dashboard), and [grew with dedicated Lights, Climate, and Security dashboards in 2025.11](/blog/2025/11/05/release-202511/#the-new-home-dashboard-keeps-getting-smarter). This release adds a brand new one and upgrades an existing one. 🏠
+Over the past few releases, Home Assistant has been quietly growing a family of **built-in dashboards** that you don't have to build yourself. It [started with the Home dashboard back in 2025.9](/blog/2025/09/03/release-20259/#introducing-the-home-dashboard), and [grew with dedicated Lights, Climate, and Security dashboards in 2025.11](/blog/2025/11/05/release-202511/#the-new-home-dashboard-keeps-getting-smarter). This release adds a new one and upgrades an existing one. 🏠
 
 ### Stay on top of your batteries with the new Maintenance dashboard
 
-Keeping your smart home _running_ smoothly is a side of home automation that doesn't always get the spotlight. We've all been there: that motion sensor in the hallway that suddenly stops triggering the lights one evening, only to discover days later that its battery had died. 🪫 Wouldn't it be nice to spot that _before_ it becomes a problem? The brand new built-in **Maintenance** dashboard gives questions like that a home of their own. 🧰
+Keeping your smart home _running_ smoothly is a side of home automation that doesn't always get the spotlight. We've all been there: that motion sensor in the hallway that suddenly stops triggering the lights one evening, only to discover days later that its battery had died. 🪫 Wouldn't it be nice to spot that _before_ it becomes a problem? The new built-in **Maintenance** dashboard gives questions like that a home of their own. 🧰
 
 <img src='/images/blog/2026-05/maintenance-dashboard.png' alt='Screenshot of the new Maintenance dashboard showing battery entities grouped by area.' class='no-shadow' />
 
 The dashboard focuses on what is probably the most-requested view of all: your **batteries**. It automatically discovers every battery {% term entity %} in your home and lays them out grouped by area, with low ones highlighted so you can spot the ones that need swapping at a glance. No more digging through entity lists or building your own dashboard for it. 🔋
 
-This is a community contribution from [@Brookke], who built it from the ground up. A huge thanks for adding such a useful new dashboard to Home Assistant! 👏
+This is a community contribution from [@Brookke], who built it from the ground up. Big thanks for adding such a useful new dashboard to Home Assistant! 👏
 
 {% tip %}
 Are you a developer? Each one of these built-in dashboards is powered by a **dashboard strategy**: a piece of code that generates a complete dashboard on the fly, tailored to your home. Starting with this release, you can [register your own custom dashboard strategies](https://developers.home-assistant.io/blog/2026/04/21/registering-custom-dashboard-strategies) from a custom integration or frontend module, and share them with the community.
@@ -177,9 +177,9 @@ Imagine a strategy that builds the perfect dashboard for your plants, your 3D pr
 
 ### Activity log on the Security dashboard
 
-The built-in **Security** dashboard also gets a nice upgrade this release: a brand new **Activity** sidebar that shows you a live, 24-hour log of everything happening with your security-related entities. Cameras, locks, alarm panels, motorized covers, door and window sensors, and the comings and goings of the people in your home, all in one place. 🔓
+The built-in **Security** dashboard also gets a nice upgrade this release: a new **Activity** sidebar that shows you a live, 24-hour log of everything happening with your security-related entities. Cameras, locks, alarm panels, motorized covers, door and window sensors, and the comings and goings of the people in your home, all in one place. 🔓
 
-It's a small change with a big impact: at a glance, you can see if a door was opened, if someone arrived home, or if the front camera spotted motion, without having to dig through the logbook or build a dashboard for it yourself. The sidebar appears automatically on wider screens whenever the [Logbook](/integrations/logbook/) integration is enabled (it is, by default).
+It's a quiet upgrade you'll feel every day: at a glance, you can see if a door was opened, if someone arrived home, or if the front camera spotted motion, without having to dig through the logbook or build a dashboard for it yourself. The sidebar appears automatically on wider screens whenever the [Logbook](/integrations/logbook/) integration is enabled (it is, by default).
 
 <img src='/images/blog/2026-05/security-activity-log.png' alt='Screenshot of the Security dashboard with the new Activity sidebar showing recent events.' class='no-shadow' />
 
@@ -189,7 +189,7 @@ It's a small change with a big impact: at a glance, you can see if a door was op
 
 Building your own dashboard is one of the most rewarding parts of Home Assistant. The best part: you can build the entire thing right in the UI, by dragging and dropping cards into place. You don't need to be technical, you don't need to know YAML, and you don't need to touch a single line of code to make something that looks great and works exactly the way you want.
 
-Of course, the dashboards you craft yourself get plenty of love this release too. A brand new card for one-tap shortcuts and fresh tile card features for your media players. 🎨
+Of course, the dashboards you craft yourself get plenty of love this release too. A new card for one-tap shortcuts and fresh tile card features for your media players. 🎨
 
 ### Introducing the shortcut card
 
@@ -212,7 +212,7 @@ The shortcut also comes as a **badge**, so you can drop the same one-tap actions
 
 ### New tile card features for media players
 
-The [tile card](/dashboards/tile/) is one of the most flexible building blocks in Home Assistant dashboards, and this release expands what it can do for **media players**. Two brand new card features and a more flexible playback feature give you a lot more choice in how your media player tiles look and behave. 🎶
+The [tile card](/dashboards/tile/) is one of the most flexible building blocks in Home Assistant dashboards, and this release expands what it can do for **media players**. Two new card features and a more flexible playback feature give you a lot more choice in how your media player tiles look and behave. 🎶
 
 <img src='/images/blog/2026-05/media-player-features.png' alt='Screenshot of two media player tile cards showing the new playback and source features.' class='no-shadow' />
 
@@ -230,11 +230,11 @@ The journey to make {% term automation %} building feel _natural_ continues. Eve
 
 Reading back the feedback we've received in the months this has been in [Home Assistant Labs](/blog/2025/12/03/release-202512/#introducing-home-assistant-labs), one request stood out above all others: durations. Almost every "when motion is detected" automation in the wild secretly wishes it could say "when motion has _not_ been detected for the last 5 minutes". And almost every "if a door is open" condition really wants to be "if a door has been open for at least 10 minutes". 🚪
 
-Now they can. On the **trigger** side, a brand new **for** field has landed across a wide range of state-based purpose-specific triggers, from motion and occupancy to doors, windows, lights, switches, climate, covers, and many more. Pick a trigger, set how long the situation has to hold, and you're done. No more wrestling with template helpers or YAML `for:` keys hidden in code views to express something this fundamental.
+Now they can. On the **trigger** side, a new **for** field has landed across a wide range of state-based purpose-specific triggers, from motion and occupancy to doors, windows, lights, switches, climate, covers, and many more. Pick a trigger, set how long the situation has to hold, and you're done. No more wrestling with template helpers or YAML `for:` keys hidden in code views to express something this fundamental.
 
 <img src='/images/blog/2026-05/purpose-specific-trigger-duration.png' alt='Screenshot of a purpose-specific trigger in the automation editor with the new for duration field.' class='no-shadow' />
 
-On the **condition** side, duration is now available across the **entire family** of entity conditions in Labs. Whether you're checking on motion, a door, a light, a switch, a climate, a media player, or anything else, you can now ask for the state to have held for a given amount of time before the condition is considered true.
+On the **condition** side, duration is now available across the **entire family** of entity conditions in Labs. Whether you're checking on motion, a door, a light, a switch, a climate, a media player, or anything else, you can now ask for the state to have held for a given amount of time before the condition is considered true. Same story: no template helpers, no YAML detour.
 
 <img src='/images/blog/2026-05/purpose-specific-condition-duration.png' alt='Screenshot of a purpose-specific condition in the automation editor with the new duration field.' class='no-shadow' />
 
@@ -245,7 +245,7 @@ A few examples of what this unlocks:
 - "If the bedroom window has been closed for at least an hour" → only then start the air purifier. 🌬️
 - "When a garage door has been open for more than 30 minutes after sunset" → send a notification. 🌙
 
-It's a small-looking addition with an outsized impact: a huge category of "almost possible" automations just became easy to put together.
+It's a small-looking addition with an outsized impact: a whole category of "almost possible" automations just became easy to put together.
 
 ### A few more triggers and conditions to play with
 
@@ -253,17 +253,17 @@ Beyond the new sense of time, this release sprinkles a few more handy purpose-sp
 
 If you keep an eye on **updates** waiting to be installed, two new {% term conditions %}, _is available_ and _is not available_, let an automation branch on whether something is pending, without templating the answer yourself.
 
-Your **media players** got chatty: triggers fire when something _starts playing_, _pauses_, _turns on_, or _turns off_, and now also when a player is _muted_ or _unmuted_, when its _volume changes_, or when the volume _crosses a threshold_ you set. Conditions follow the same beat with _is muted_, _is unmuted_, and a numeric _volume_ check. Perfect fuel for "dim the lights when the movie starts", "pause the music when the doorbell rings", or "only send the loud TTS announcement if the speaker is below 30%". 🎬🔇
+Your **media players** got chatty: triggers fire when something _starts playing_, _pauses_, _turns on_, or _turns off_, and now also when a player is _muted_ or _unmuted_, when its _volume changes_, or when the volume _crosses a threshold_ you set. Conditions follow the same beat with _is muted_, _is unmuted_, and a numeric _volume_ check. Perfect fuel for "dim the lights when the movie starts", "pause the music when the doorbell rings", or "only send the loud {% term TTS %} announcement if the speaker is below 30%". 🎬🔇
 
 Your **remotes** picked up matching _is on_ and _is off_ conditions, finishing what last release's triggers started. And your **to-do lists** can now answer two questions an automation might have: are _all items completed_, or are there _still incomplete items_ on the list? Great for end-of-day check-ins or those "did I forget to feed the cat" moments. 🐱
 
 Your **timers** got a whole lifecycle of new {% term triggers %}: _started_, _paused_, _restarted_, _cancelled_, and _finished_. So that 20-minute "tea is ready" timer can now actually _tell_ your kitchen lights to flash, and your "kids screen time" timer can announce when it's running, paused, or up. There's also a new **time remaining** trigger that fires when a running timer reaches a remaining duration you pick: think a gentle "five minutes left" warning before the screen time timer runs out. ⏲️
 
-And finally, a small but lovely addition: a brand new **doorbell rang** trigger. Doorbell event entities now speak a shared language, so a single trigger lights up regardless of which brand sits at your front door. 🔔
+And finally, a new **doorbell rang** trigger. Doorbell event entities now speak a shared language, so a single trigger lights up regardless of which brand sits at your front door. 🔔
 
 ### Try it out!
 
-Purpose-specific triggers and conditions are still a preview feature in {% my labs title="**Home Assistant Labs**" %}, but with each release the rough edges get smoother, and we're closing in on having it feature complete. If you haven't given it a spin yet, head over to {% my labs title="**Settings** > **System** > **Labs**" %}, switch it on, and let us know what you think. Your feedback is genuinely shaping where this lands. 💚
+Purpose-specific triggers and conditions are still a preview feature in {% my labs title="**Home Assistant Labs**" %}, but with each release the rough edges get smoother, and we're closing in on having it feature complete. If you haven't given it a spin yet, head over to {% my labs title="**Settings** > **System** > **Labs**" %}, switch it on, and let us know what you think. Your feedback is genuinely shaping where this lands; building in the open at work. 💚
 
 ## Integrations
 
@@ -548,7 +548,7 @@ The biggest functional addition is a brand new **Clean by area** view. Many mode
 
 <img src='/images/blog/2026-05/lawn-mower-more-info.png' alt='Screenshot of the redesigned lawn mower more-info dialog with the new illustration and action buttons.' class='no-shadow' />
 
-This work delivers on two Open Home Foundation roadmap opportunities: [refined more info screen for vacuum cleaners](https://github.com/OpenHomeFoundation/roadmap/issues/35) and [refining the more info screen for lawn mowers](https://github.com/OpenHomeFoundation/roadmap/issues/92). Two birds, one redesign. 🐦
+This work delivers on two Open Home Foundation roadmap opportunities: [refined more info screen for vacuum cleaners](https://github.com/OpenHomeFoundation/roadmap/issues/35) and [refining the more info screen for lawn mowers](https://github.com/OpenHomeFoundation/roadmap/issues/92). Two roadmap items, one redesign. ✅
 
 ### New styling for toggles
 
@@ -573,8 +573,8 @@ If you decide to learn templating, we are now confident we have everything in pl
 
 - 14 brand new learning pages walk you through templating step by step, from [what is a template?](/docs/templating/introduction/) and [where to use templates](/docs/templating/where-to-use/), through [syntax](/docs/templating/syntax/), [loops and conditions](/docs/templating/loops-and-conditions/), [working with states](/docs/templating/states/), [types and conversion](/docs/templating/types/), [dates and times](/docs/templating/dates-and-times/), [common patterns](/docs/templating/patterns/), and [debugging](/docs/templating/debugging/), all the way to writing your own [custom templates and macros](/docs/templating/custom-templates/).
 - Two full tutorials build something real you can use: a daily [low-battery notification](/docs/templating/tutorial-battery-alerts/), and an [average home temperature sensor](/docs/templating/tutorial-average-temperature/) you can drop straight onto your dashboard.
-- Every one of the 200+ template functions, filters, and tests has its own page, with a plain-language intro, parameters, examples that show the exact output they produce, common gotchas, and links to related functions. All searchable through a single [template functions reference](/template-functions/) that lists them all.
-- A dedicated [error messages page](/docs/templating/errors/) lists common template errors verbatim, so when something breaks at 11pm you can paste the error into a search engine and land somewhere that actually helps.
+- Every one of the 200+ {% term "template function" "template functions" %}, {% term "template filter" "filters" %}, and {% term "template test" "tests" %} has its own page, with a plain-language intro, parameters, examples that show the exact output they produce, common gotchas, and links to related functions. All searchable through a single [template functions reference](/template-functions/) that lists them all.
+- A dedicated [error messages page](/docs/templating/errors/) lists common template errors verbatim, so when something breaks late at night you can paste the error into a search engine and land somewhere that actually helps.
 
 There's a quality-of-life upgrade across the entire website too: templates in code blocks are now interactive. Hover over a function name to see its description, select it to jump to the [reference page](/template-functions/), hover over a parameter for a quick reminder of what it does. Examples render with the input on top and the actual output right below, so you never have to guess what a template will produce.
 
