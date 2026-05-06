@@ -310,6 +310,10 @@ Your **timers** got a whole lifecycle of new {% term triggers %}: _started_, _pa
 
 And finally, a small but lovely addition: a brand new **doorbell rang** trigger. Doorbell event entities now speak a shared language, so a single trigger lights up regardless of which brand sits at your front door. 🔔
 
+### Changes to existing triggers and conditions
+
+As some of the very first, we've added purpose-specific triggers and conditions for Person entities and Device Tracker entities separately. More recently, we've decided we want to go for a more ergonomic cross-domain approach. Those the triggers `entered_home` and `left_home` as also the conditions `is_home` and `is_not_home` got removed from the Person and Device Tracker. They will get successor in one of the upcoming releases.
+
 ### Try it out!
 
 Purpose-specific triggers and conditions are still a preview feature in {% my labs title="**Home Assistant Labs**" %}, but with each release the rough edges get smoother, and we're closing in on having it feature complete. If you haven't given it a spin yet, head over to {% my labs title="**Settings** > **System** > **Labs**" %}, switch it on, and let us know what you think. Your feedback is genuinely shaping where this lands. 💚
