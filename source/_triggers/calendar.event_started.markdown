@@ -33,10 +33,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Offset:
   description: The length of time from the start of the event.
-  required: false
+  required: true
 Offset type:
   description: Whether to trigger before or after the start of the event, if an offset is defined.
-  required: false
+  required: true
   default: before
 {% endoptions_ui %}
 
@@ -62,16 +62,19 @@ This fires 1 day, 1 hour, 15 minutes and 5 seconds before the start of an event 
 
 ### Options in YAML
 
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
 {% options_yaml %}
 offset:
   description: >
-    The length of time from the start of the event.
-  required: false
-  type: time
+    The length of time from the start of the event. Accepts a duration string in `HH:MM:SS` format, for example.
+  required: true
+  default: "00:00:00"
+  type: string
 offset_type:
   description: >
     Whether to trigger before or after the start of the event, if an offset is defined.
-  required: false
+  required: true
   type: string
   default: before
 {% endoptions_yaml %}
