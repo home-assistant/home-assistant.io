@@ -53,7 +53,7 @@ Password:
   description: "Password for your my-PV device."
 {% endconfiguration_basic %}
 
-Older versions of the my-PV hardware do not require a password, this will be added by upcomming firmware updates. You can find the initial password on the ... menu of your my-PV device. For the HEA•THOR IoT you can find the initial password on the device label. You can update the password trought the web interface of your my-PV device.
+Older firmware versions of the my-PV hardware do not require a password, this will be added by upcomming firmware updates. You can find the initial password on the ... menu of your my-PV device. For the HEA•THOR IoT you can find the initial password on the device label. You can update the password through the web interface of your my-PV device.
 
 ### Login to my-PV (Cloud API)
 
