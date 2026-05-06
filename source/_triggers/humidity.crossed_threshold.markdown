@@ -114,9 +114,9 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires. Accepts:
 
-    - `any`(**Each** in the UI): fire every time any targeted entity crosses the threshold.
-    - `first` (**First** in the UI): fire only on the first crossing.
-    - `last` (**All** in the UI): fire only after every targeted entity crosses the threshold.
+    - `any`: fire every time any targeted entity crosses the threshold.
+    - `first`: fire only on the first crossing.
+    - `last`: fire only after every targeted entity crosses the threshold.
   required: true
   type: string
   default: any
