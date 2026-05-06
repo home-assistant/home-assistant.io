@@ -103,10 +103,8 @@ If OpenAQ starts reporting a supported parameter after the monitoring location w
 
 ## Removing the integration
 
-To remove OpenAQ from Home Assistant:
+This integration follows standard integration removal.
 
-1. Under **Settings** > **Devices & services**, select the **OpenAQ** integration.
-2. Select the three-dot menu.
-3. Select **Delete**.
+{% include integrations/remove_device_service.md %}
 
 Removing the integration removes the OpenAQ integration entry and its monitoring location sensors from Home Assistant. It does not delete your OpenAQ account or API key.
