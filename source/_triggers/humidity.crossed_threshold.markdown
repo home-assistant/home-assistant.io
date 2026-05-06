@@ -185,7 +185,7 @@ Keep your basement at a healthy humidity level by sending a notification wheneve
 - **Threshold type**: Above 60%
 - **Trigger when**: Each
 - **For at least**: 00:10:00
-- **Action**: Send a mobile notification
+- **Action**: Notifications: Send a notification via mobile_app_phone
 
 {% details "YAML example for a basement humidity alert" %}
 
