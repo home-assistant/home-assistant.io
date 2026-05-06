@@ -185,19 +185,13 @@ Here is a gotcha that catches everyone at least once. The `|` symbol binds tight
 
 {% example %}
 template: |
-  {{ 10 / 10 | round(2) }}
-output: "1"
+  {{ 10 / 3 | round(2) }}
+output: "3.3333333333333335"
 {% endexample %}
 
-You might read that as "ten divided by ten, rounded to two decimals", which should be `1.0`. But because filters take priority, it actually runs as "ten divided by (ten rounded to two decimals)", which is `10 / 10.0 = 1.0`... Wait, that's also `1.0`. Let me try a clearer example:
+You might read that as "ten divided by three, rounded to two decimals", which should be `3.33`. But because filters take priority, it actually runs as "ten divided by (three rounded to two decimals)", which is `10 / 3.0 = 3.3333333333333335`.
 
-{% example %}
-template: |
-  {{ 20 - 5 | round(0) }}
-output: "15"
-{% endexample %}
-
-This one also happens to work. The gotcha bites hardest when the filter changes the value meaningfully. When in doubt, add parentheses so the order you want is clear:
+The gotcha bites hardest when the filter changes the value meaningfully. When in doubt, add parentheses so the order you want is clear:
 
 {% example %}
 template: |
