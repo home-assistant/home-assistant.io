@@ -476,20 +476,23 @@ The configuration consists of two steps:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select the **Create automation** button.
 
-   <img src="/images/integrations/blebox/automation_create_button.png" alt="Automations page with Create automation button" style="max-width: 800px;">
+   ![Automations page with Create automation button](/images/integrations/blebox/automation_create_button.png)
 2. Select **Create new automation**.
 
-   <img src="/images/integrations/blebox/automation_creation.png" alt="Create automation dialog" style="max-width: 800px;">
-3. Choose **Webhook** as the trigger type. Note the webhook ID — you will need it later.
+   ![Create automation dialog](/images/integrations/blebox/automation_creation.png)
 
-   <img src="/images/integrations/blebox/webhook_trigger.png" alt="New automation with webhook trigger" style="max-width: 800px;">
+3. Choose **Webhook** as the trigger type. Note the webhook ID. You will need it later.
+
+   ![New automation with webhook trigger](/images/integrations/blebox/webhook_trigger.png)
+
 4. Next to the webhook ID, select the {% icon "mdi:cog" %} cog icon and make sure the **GET** method is enabled.
 
-   <img src="/images/integrations/blebox/webhook_get_method.png" alt="Webhook settings with GET method enabled" style="max-width: 800px;">
+   ![Webhook settings with GET method enabled](/images/integrations/blebox/webhook_get_method.png)
+
 5. Copy the webhook URL to the clipboard by selecting the copy icon next to the webhook ID. Save it for later.
 6. If applicable, add any desired conditions (the **And if** section) and actions (the **Then do** section).
 
-   <img src="/images/integrations/blebox/automation_action.png" alt="Automation with action configured" style="max-width: 800px;">
+   ![Automation with action configured](/images/integrations/blebox/automation_action.png)
 
 Note: The webhook ID will be later needed in phase two and will have to be entered
 into the wBox mobile app. You may decide to use a more convenient text value. However, remember
@@ -501,13 +504,11 @@ this ID like a password.
 1. Configure the device by adding the action of
    type "send URL".
 
-   <img src="/images/integrations/blebox/wbox_add_action.jpg" alt="wBox app Actions screen with Add action button" style="max-width: 350px;">
+   ![wBox app Actions screen with Add action button](/images/integrations/blebox/wbox_add_action.jpg)
+
 2. Enter the webhook URL that you copied when generating the webhook. It is the URL address for the action.
 
-   <img src="/images/integrations/blebox/wbox_action_when.jpg" alt="wBox app Add action - When tab showing trigger type and input" style="max-width: 350px;">
-   <img src="/images/integrations/blebox/wbox_action_execute.jpg" alt="wBox app Add action - Execute tab showing Invoke URL (GET) with webhook URL" style="max-width: 350px;">
-   <img src="/images/integrations/blebox/wbox_action_webhook_summary.jpg" alt="wBox app action summary showing Invoke URL (GET) configured" style="max-width: 350px;">
-   <img src="/images/integrations/blebox/wbox_invoke_url_action.jpg" alt="wBox app Actions list with configured webhook action" style="max-width: 350px;">
+   ![wBox app steps: setting trigger, entering webhook URL, summary, and actions list](/images/integrations/blebox/wbox_webhook_action_steps.jpg)
 
 Note: in order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
@@ -538,15 +539,17 @@ The configuration consists of three steps:
 1. Pair the remote with the actionBox according to the remote's pairing instructions available on the [Blebox manuals page](https://blebox.eu/en/manuals/).
 2. In the wBox app, go to the actionBox settings and select the **Remote controls** tab.
 
-   <img src="/images/integrations/blebox/wbox_remote_controls.jpg" alt="wBox app Remote controls tab showing paired remote" style="max-width: 350px;">
+   ![wBox app Remote controls tab showing paired remote](/images/integrations/blebox/wbox_remote_controls.jpg)
+
 3. Select the paired remote and then select **Actions**.
 
-   <img src="/images/integrations/blebox/wbox_remote.jpg" alt="wBox app paired remote detail with Actions option" style="max-width: 350px;">
+   ![wBox app paired remote detail with Actions option](/images/integrations/blebox/wbox_remote.jpg)
+
 4. Edit the remote actions:
    - Select the trigger the remote button should simulate, for example "short press".
    - Select the actionBox input the remote button should simulate, for example input 1.
-    <br>
-    <img src="/images/integrations/blebox/wbox_remote_actions.jpg" alt="wBox app remote actions editor showing button gesture and input number" style="max-width: 350px;">
+
+   ![wBox app remote actions editor showing button gesture and input number](/images/integrations/blebox/wbox_remote_actions.jpg)
 
 5. Once configured, pressing a button on the remote triggers the actionBox, which calls the webhook URL you set up in the [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant) section.
 
