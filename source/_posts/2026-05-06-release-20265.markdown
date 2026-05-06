@@ -744,9 +744,12 @@ If you are a custom integration developer and want to learn about changes and ne
 
 - [Deprecation of legacy device tracker platform API](https://developers.home-assistant.io/blog/2026/04/20/legacy-device-tracker-deprecation)
 - [Entity IDs with mismatched domains are deprecated](https://developers.home-assistant.io/blog/2026/04/07/entity-id-mismatched-domain-deprecated)
+- [Frontend component updates in 2026.5](https://developers.home-assistant.io/blog/2026/05/04/frontend-component-updates-2026.5/)
+- [Frontend context groups, new context decorators and deprecated contexts](https://developers.home-assistant.io/blog/2026/05/04/frontend-context-groups-decorators)
 - [Migrating app builds to Docker BuildKit](https://developers.home-assistant.io/blog/2026/04/02/builder-migration)
 - [New radio frequency entity platform for RF device integrations](https://developers.home-assistant.io/blog/2026/04/24/radio-frequency-entity-platform)
 - [Registering custom dashboard strategies](https://developers.home-assistant.io/blog/2026/04/21/registering-custom-dashboard-strategies)
+- [Serious about serial: migrating from pyserial to serialx](https://developers.home-assistant.io/blog/2026/04/27/pyserial-to-serialx)
 - [Standard event type for doorbell event entities](https://developers.home-assistant.io/blog/2026/04/15/doorbell-standard-event-type)
 
 [devblog]: https://developers.home-assistant.io/blog/
