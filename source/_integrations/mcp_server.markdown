@@ -123,7 +123,7 @@ When using a remote custom connector in Claude for Desktop, the connection is br
 If your Home Assistant instance is only accessible on your local network (for example, `http://homeassistant.local:8123` or `http://192.168.1.10:8123`) or behind a VPN, you can use a local MCP proxy. This allows Claude Desktop to connect directly from your computer without routing through Anthropic's cloud.
 
 1. Make sure you have a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
-2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy). For example: `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
+2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy). For example: `uv tool install git+https://github.com/sparfenyuk/mcp-proxy` or `brew install mcp-proxy` on macOS.
 3. Locate your Claude Desktop configuration file (for example, `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS or `%APPDATA%\Claude\claude_desktop_config.json` on Windows).
 4. Add the following to your `mcpServers` configuration:
 
@@ -135,6 +135,7 @@ If your Home Assistant instance is only accessible on your local network (for ex
          "args": [
            "--transport=streamablehttp",
            "--stateless",
+           "--pass-environment",
            "http://<your_local_home_assistant_ip_or_url>:8123/api/mcp"
          ],
          "env": {
