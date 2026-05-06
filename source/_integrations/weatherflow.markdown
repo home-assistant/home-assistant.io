@@ -108,7 +108,7 @@ This {% term integration %} will expose the following sensors:
 - **Lightning last strike**
   - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
 
-### Solar and Light sensors
+### Solar and light sensors
 
 - **Illuminance**
   - **Description**: Amount of visible light received, measured in lux.
