@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - number
+  - select  
   - sensor
   - switch
 ha_integration_type: device
