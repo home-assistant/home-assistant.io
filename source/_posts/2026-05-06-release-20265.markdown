@@ -413,6 +413,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[UniFi Protect]** is turning into your alarm hub: it gains an alarm control panel, [UniFi PoE Siren] / [UniFi SuperLink Siren] sirens, and switches for the new [UniFi SuperLink Relay] — a device that reaches up to 2 km over <abbr title="Low-power wide-area wireless technology">LoRa</abbr>. All of these new features require UniFi Protect 7.1 or later. Thanks to [Ubiquiti] for the public API improvements, and to [@RaHehl] for bringing it all to Home Assistant!
 - **[WaterFurnace]** geothermal systems now expose a climate entity, alongside new energy statistics so you can track your system's energy use over time. Thanks, [@masterkoppa]!
 - **[OpenDisplay]** Flex e-paper devices now expose new diagnostic sensors driven by passive Bluetooth Low Energy advertisements: a battery percentage and battery voltage sensor for battery- and solar-powered devices, and a chip temperature sensor. Thanks, [@g4bri3lDev]!
+- **[Satel Integra]** now supports encrypted connections, keeping your alarm panel communications secure over the network. Thanks, [@Tommatheussen]!
 
 [@andrew-codechimp]: https://github.com/andrew-codechimp
 [@arsenicks]: https://github.com/arsenicks
@@ -436,6 +437,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [@Shulyaka]: https://github.com/Shulyaka
 [@tgechev]: https://github.com/tgechev
 [@tl-sl]: https://github.com/tl-sl
+[@Tommatheussen]: https://github.com/Tommatheussen
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tronikos]: https://github.com/tronikos
 [@YuvalWS]: https://github.com/YuvalWS
@@ -456,6 +458,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [OpenDisplay]: /integrations/opendisplay
 [Portainer]: /integrations/portainer
 [Roborock]: /integrations/roborock
+[Satel Integra]: /integrations/satel_integra
 [Shelly]: /integrations/shelly
 [SMLIGHT SLZB]: /integrations/smlight
 [SolarEdge]: /integrations/solaredge
