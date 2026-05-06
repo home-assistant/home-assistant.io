@@ -441,6 +441,20 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of illuminance (unit: lx)
 
+### openSensor
+
+This integration adds the Blebox device as a sensor entity and a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of open status (2 or 3 statuses depending on configuration)
+- Periodic read of open/closed state (binary sensor)
+
+#### Additional features
+
+- Option to change the detection mode is available in the wBox app.
+- After a settings change, the device needs to be reloaded.
+
 ### actionBox, actionBoxS, and proxiBox
 
 This integration does not add direct support for actionBox, actionBoxS, and proxiBox
@@ -769,3 +783,16 @@ This integration adds the Wikęd device ("blebox inside") as a cover entity to H
 - Open
 - Door state (open, close, unknown)
 
+### DrutexSmart
+
+This integration adds the Drutex device ("blebox inside") as a sensor entity and a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of open status (from 2 to 5 statuses depending on configuration)
+- Periodic read of open/closed state (binary sensor)
+
+#### Additional features
+
+- Option to change the detection mode is available in the wBox app.
+- After a settings change, the device needs to be reloaded.
