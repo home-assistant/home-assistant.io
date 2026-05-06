@@ -30,7 +30,10 @@ OpenAQ collects public air quality data from many providers around the world. In
 
 {% include integrations/config_flow.md %}
 
-During setup, enter your OpenAQ API key. Home Assistant validates the key before creating the integration entry.
+{% configuration_basic %}
+API key:
+  description: Your OpenAQ API key. You can find it in your [OpenAQ Explorer account settings](https://explore.openaq.org/account). Home Assistant validates the key before creating the integration entry.
+{% endconfiguration_basic %}
 
 After the integration is added, add at least one monitoring location:
 
