@@ -277,7 +277,7 @@ We welcome the following new integrations in this release:
   Control your Denon receiver locally over its RS232 serial port. Connect your receiver using a serial cable or a USB-to-serial adapter for push-based state updates, without depending on the network or the cloud.
 
 - **[Duco]**, added by [@ronaldvdmeer] — launching at 🏆 platinum quality  
-  Monitor and control your [Duco](https://www.duco.eu/) demand-controlled ventilation system locally from Home Assistant. Track CO₂, humidity, and other sensor data, and adjust ventilation per zone, all over your local network.
+  Monitor and control your [Duco](https://www.duco.eu/) demand-controlled ventilation system locally from Home Assistant. Track CO₂, humidity, and other sensor data, and adjust ventilation, all over your local network.
 
 - **[EARN-E P1 Meter]**, added by [@Miggets7]  
   Connect your [EARN-E energy monitor](https://earn-e.com/product/energiemonitor/) to Home Assistant for real-time insights into your smart meter's energy and gas data. The device pushes its readings over your local network, so no cloud or polling is involved.
