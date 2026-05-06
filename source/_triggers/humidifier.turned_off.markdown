@@ -11,7 +11,7 @@ related_triggers:
 
 The **Humidifier turned off** trigger fires after a humidifier {% term entity %} turns off. Use it to react the moment the device shuts down, whether it was switched off manually, by a schedule, or because the target humidity was met and the device powered down automatically.
 
-When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns off, the last time the final targeted humidifier turns off, or every single time any of them turn off.
+When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns off, only after all targeted humidifiers have turned off, or every single time any of them turn off.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -73,8 +73,8 @@ behavior:
   type: string
   default: any
 for:
-  description: >
-    Duration the humidifier must stay off before the trigger fires.
+  description: |
+    How long the humidifier must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has stayed off for 5 minutes.
   required: true
   type: string
   default: "00:00:00"

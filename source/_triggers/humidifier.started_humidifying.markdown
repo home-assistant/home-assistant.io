@@ -72,8 +72,8 @@ behavior:
   type: string
   default: any
 for:
-  description: >
-    Duration the humidifier must be actively humidifying before the trigger fires.
+  description: |
+    How long the humidifier must be actively humidifying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has been actively humidifying for 5 minutes.
   required: true
   type: string
   default: "00:00:00"

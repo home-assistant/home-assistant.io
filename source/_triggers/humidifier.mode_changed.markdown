@@ -93,8 +93,8 @@ behavior:
   type: string
   default: any
 for:
-  description: >
-    Duration the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup.
+  description: |
+    How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup.
   required: true
   type: string
   default: "00:00:00"

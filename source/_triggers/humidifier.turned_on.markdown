@@ -11,7 +11,7 @@ related_triggers:
 
 The **Humidifier turned on** trigger fires after a humidifier {% term entity %} turns on. Use it to start an automation the moment the device powers up, whether you turned it on manually, through the app, or via another automation.
 
-When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns on, the last time the final targeted humidifier turns on, or every single time any of them turn on.
+When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns on, only after all targeted humidifiers have turned on, or every single time any of them turn on.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -73,8 +73,8 @@ behavior:
   type: string
   default: any
 for:
-  description: >
-    Duration the humidifier must stay on before the trigger fires.
+  description: |
+    How long the humidifier must stay on before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has stayed on for 5 minutes.
   required: true
   type: string
   default: "00:00:00"
