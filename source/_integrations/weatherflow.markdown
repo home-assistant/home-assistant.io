@@ -35,7 +35,7 @@ There are two integrations for WeatherFlow devices, and you are not limited to s
 
 ## Sensors
 
-This integration will expose the following sensors:
+This {% term integration %} will expose the following sensors:
 
 ### Atmospheric sensors
 
