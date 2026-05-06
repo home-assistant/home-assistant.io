@@ -261,10 +261,6 @@ Your **timers** got a whole lifecycle of new {% term triggers %}: _started_, _pa
 
 And finally, a small but lovely addition: a brand new **doorbell rang** trigger. Doorbell event entities now speak a shared language, so a single trigger lights up regardless of which brand sits at your front door. 🔔
 
-### Changes to existing triggers and conditions
-
-As some of the very first, we've added purpose-specific triggers and conditions for Person entities and Device Tracker entities separately. More recently, we've decided we want to go for a more ergonomic cross-domain approach. Those the triggers `entered_home` and `left_home` as also the conditions `is_home` and `is_not_home` got removed from the Person and Device Tracker. They will get successor in one of the upcoming releases.
-
 ### Try it out!
 
 Purpose-specific triggers and conditions are still a preview feature in {% my labs title="**Home Assistant Labs**" %}, but with each release the rough edges get smoother, and we're closing in on having it feature complete. If you haven't given it a spin yet, head over to {% my labs title="**Settings** > **System** > **Labs**" %}, switch it on, and let us know what you think. Your feedback is genuinely shaping where this lands. 💚
@@ -623,6 +619,21 @@ Are you more into email? [Sign up for the Open Home Foundation Newsletter](/news
 We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes it is inevitable.
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
+
+{% details "Purpose-specific triggers and conditions" %}
+
+When we first introduced purpose-specific triggers and conditions, we added separate ones for Person entities and Device Tracker entities. Since then, we've decided to take a more ergonomic, cross-domain approach instead.
+
+As a result, the **entered home** and **left home** triggers, and the **is home** and **is not home** conditions, have been removed from Person and Device Tracker. Replacements that work across both will land in an upcoming release.
+
+If you have automations that use these triggers or conditions on a person or device tracker, switch them back to a regular state trigger or state condition (for example, _state changed to `home`_) until the cross-domain replacements arrive.
+
+([@emontnemery] - [#168406])
+
+[@emontnemery]: https://github.com/emontnemery
+[#168406]: https://github.com/home-assistant/core/pull/168406
+
+{% enddetails %}
 
 {% details "Gardena Bluetooth" %}
 
