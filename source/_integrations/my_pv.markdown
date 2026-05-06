@@ -28,7 +28,11 @@ The integration uses the [my-PV](https://pypi.org/project/my-PV/) library.
 
 ### Supported devices
 
-The AC ELWA 2, AC•THOR range and SOL•THOR are supported by this integration.
+The following devices are supported by this integration:
+
+- AC ELWA 2
+- AC•THOR range
+- SOL•THOR
 
 {% important %}
 
