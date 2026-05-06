@@ -36,9 +36,9 @@ The ELWA immersion heater and my-PV WiFi Meter are not supported by this integra
 
 {% endimportant %}
 
-{% include integrations/config_flow.md %}
+The my-PV integration supports both the local API and the my-PV cloud API.
 
-The my-PV integration supports both the my-PV cloud API and the local API.
+{% include integrations/config_flow.md %}
 
 ### Login to my-PV (Local API)
 
