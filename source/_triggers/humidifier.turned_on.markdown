@@ -11,7 +11,7 @@ related_triggers:
 
 The **Humidifier turned on** trigger fires after a humidifier {% term entity %} turns on. Use it to start an automation the moment the device powers up, whether you turned it on manually, through the app, or via another automation.
 
-When you target more than one humidifier, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted humidifier turns on, the last time the final targeted humidifier turns on, or every single time any of them turn on.
+When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns on, the last time the final targeted humidifier turns on, or every single time any of them turn on.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -77,7 +77,7 @@ for:
 
 ## Good to know
 
-- The trigger only fires when a humidifier transitions from a known, valid state. If a humidifier comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
+- The trigger only fires when a humidifier transitions from a known, valid state. If a humidifier comes back from the **Unavailable** or **Unknown** state, the trigger does not fire for that recovery.
 - Turning on a humidifier does not necessarily mean it starts actively humidifying immediately. To react when humidification actually begins, use [Humidifier started humidifying](/triggers/humidifier.started_humidifying/) instead.
 - To react to the opposite transition, use [Humidifier turned off](/triggers/humidifier.turned_off/).
 

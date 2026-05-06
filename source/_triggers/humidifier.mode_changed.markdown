@@ -8,11 +8,11 @@ related_triggers:
   - humidifier.turned_off
 ---
 
-The **Humidifier mode changed** trigger fires after the operating mode of a humidifier {% term entity %} changes. Modes are device-specific and typically include options like `normal`, `eco`, `sleep`, `auto`, or `baby`, though the exact modes available depend on your device. Use **Humidifier mode changed** to react when the mode changes, for example to automatically lower the target humidity on all your humidifiers when one of them switches to `eco` mode, keeping your whole home in sync with a single mode change.
+The **Humidifier mode changed** trigger fires after the operating mode of a humidifier {% term entity %} changes. Modes are device-specific and typically include options like **Normal**, **Eco**, **Sleep**, **Auto**, or **Baby**, though the exact modes available depend on your device. Use **Humidifier mode changed** to react when the mode changes, for example to automatically lower the target humidity on all your humidifiers when one of them switches to **Eco** mode, keeping your whole home in sync with a single mode change.
 
 You can optionally filter the trigger to fire only when the humidifier switches to a specific mode. Leave the mode option empty to fire on any mode change.
 
-When you target more than one humidifier, the trigger's **behavior** option controls when it fires.
+When you target more than one humidifier, the **Trigger when** option controls when it fires.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -34,7 +34,7 @@ To use **Humidifier mode changed** in an automation, follow these steps:
 
 {% options_ui %}
 Mode:
-  description: The mode or modes the humidifier must switch to for the trigger to fire. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device. Default is empty, which fires on any mode change.
+  description: The mode or modes the humidifier must switch to for the trigger to fire. Typical modes include **Normal**, **Eco**, **Away**, **Boost**, **Comfort**, **Home**, **Sleep**, **Auto**, and **Baby**, though the exact modes available depend on your device. Default is empty, which fires on any mode change.
   required: false
 Trigger when:
   description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier changes mode, **First** to fire only on the first change, or **Last** to fire only after every targeted humidifier changes mode. This corresponds to the `behavior` field in YAML. Default is **Any**.

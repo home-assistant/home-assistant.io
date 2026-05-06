@@ -11,7 +11,7 @@ related_triggers:
 
 The **Humidifier turned off** trigger fires after a humidifier {% term entity %} turns off. Use it to react the moment the device shuts down, whether it was switched off manually, by a schedule, or because the target humidity was met and the device powered down automatically.
 
-When you target more than one humidifier, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted humidifier turns off, the last time the final targeted humidifier turns off, or every single time any of them turn off.
+When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns off, the last time the final targeted humidifier turns off, or every single time any of them turn off.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -77,7 +77,7 @@ for:
 
 ## Good to know
 
-- The trigger only fires when a humidifier transitions from a known, valid state. Transitions from being unavailable (`unavailable`) or having an unknown state (`unknown`) to off do not count.
+- The trigger only fires when a humidifier transitions from a known, valid state. Transitions from the **Unavailable** or **Unknown** state to off do not count.
 - To react to the opposite transition, use [Humidifier turned on](/triggers/humidifier.turned_on/).
 - Pair **Humidifier turned off** with the `last` behavior to run something only once every humidifier in an area has stopped, like sending a single notification when all humidifiers in the house are off.
 
