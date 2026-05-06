@@ -132,6 +132,16 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 - Bypass socket: Enable or disable the bypass socket (switch)
 - LED indicator: Enable or disable the LED indicator (switch)
 
+## Examples
+
+### Setting emergency SOC based on forecasted minimum temperatures
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_manage_auto_emergency_soc.yml" %}
+
+### Dynamically control battery discharge based on battery state, grid import/export and solar production
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_smart_discharge.yml" %}
+
 ## Data updates
 
 The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. If an update fails, the integration will retry again at the set interval (self-recovery).
