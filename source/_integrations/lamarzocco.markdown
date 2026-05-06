@@ -167,8 +167,6 @@ I often drink milk beverages in the morning and espresso in the afternoon, but f
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: Turn steamboiler on when machine is turned on
 description: Ensure the steamboiler is on, when the machine gets turned on
@@ -190,7 +188,6 @@ actions:
 mode: single
 
 ```
-{% endraw %}
 {% enddetails %}
   
 ## Known Limitations

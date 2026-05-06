@@ -437,4 +437,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /integrations/hassio/
 [media_player.volumio docs]: /integrations/volumio
 [telegram_bot docs]: /integrations/telegram_bot/
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

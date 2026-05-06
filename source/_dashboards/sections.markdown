@@ -51,7 +51,7 @@ You can group cards without using horizontal or vertical stack cards.
   Editing the header
 </p>
 
-1. To add a title, select the **Add title** button. The title supports [Markdown](https://commonmark.org/help/) and [templating](/docs/configuration/templating/).
+1. To add a title, select the **Add title** button. The title supports [Markdown](https://commonmark.org/help/) and [templating](/docs/templating/).
 2. To add badges, select the **Add badge** button. Follow [steps on adding badges](/dashboards/badges) to see the different possible options.
 3. To change the title and badges disposition, select the edit {% icon "mdi:edit" %} button to access header settings.
 
@@ -76,6 +76,17 @@ The view comes with one section to which you can directly add a card.
    - Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
+
+## Adding a section background
+
+You can add a colored background to individual sections. This is a great way to visually group related cards or highlight important sections on your dashboard.
+
+1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
+2. Select the edit {% icon "mdi:edit" %} button on the section you want to customize.
+3. Enable the **Background** toggle.
+4. To change the background color and opacity, expand **Background options**.
+   - Pick a color from the predefined list, or enter a custom hex color code.
+   - Use the **Opacity** slider to adjust the transparency of the background.
 
 ## Deleting a section
 
@@ -116,7 +127,6 @@ The footer lets you choose one card to show at the bottom of the view. This card
 2. Select a card type to be used as the footer.
 3. To change the maximum width of the footer, select the edit {% icon "mdi:edit" %} button to access footer settings.
 
-
 ## Check out the demo
 
 Check out the demo from the March live stream on dashboards.
@@ -154,6 +164,40 @@ card:
   description: Card to be used as title. If you are configuring the view using the visual editor, the configuration of the [Markdown card](/dashboards/markdown) is used.
   type: map
 {% endconfiguration %}
+
+## Section YAML configuration
+
+{% configuration %}
+background:
+  required: false
+  description: "Adds a colored background behind the section. Use `true` for the default color and opacity, or provide a map with `color` and `opacity` options."
+  type: [boolean, map]
+  default: false
+  keys:
+    color:
+      required: false
+      description: "The background color. Accepts a predefined color name or a hex color code."
+      type: string
+    opacity:
+      required: false
+      description: "The opacity of the background, from fully transparent to fully opaque."
+      type: integer
+      default: 50
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+# Section with default background
+background: true
+```
+
+```yaml
+# Section with custom background color and opacity
+background:
+  color: "red"
+  opacity: 80
+```
 
 ## Footer YAML configuration
 

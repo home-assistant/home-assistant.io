@@ -64,6 +64,8 @@
 {% else %}
   {{ post.content | replace: site.excerpt_separator, '<a name="read-more"></a>' }}
   {% if post.categories contains 'Works-with-Home-Assistant' %}
-    {% include blog/post/wwha_footer.html %}
+    <div class="wwha-footer-mobile">
+      {% include blog/post/wwha_blurb.html %}
+    </div>
   {% endif %}
 {% endif %}

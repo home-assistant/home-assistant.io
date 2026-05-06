@@ -7,8 +7,10 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@xirtnl'
+  - '@xirt'
 ha_platforms:
+  - button
+  - diagnostics
   - number
   - select
   - sensor
@@ -19,11 +21,19 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
-The Indevolt {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
+The **Indevolt** {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status, and configure power limits and other battery protection settings.
+With this integration, you can monitor energy production, consumption, and battery status in real time.
+
+Beyond basic monitoring, the Indevolt integration enables advanced energy management automations within Home Assistant. For example, you can:
+
+- Optimize battery charging and discharging based on solar production forecasts
+- Automatically adjust energy modes to take advantage of variable electricity pricing
+- Prevent grid feed-in during peak tariff periods by dynamically limiting output power
+- Maintain a minimum battery charge for backup scenarios by adjusting discharge limits when applicable
+- Coordinate battery behavior with other Home Assistant energy devices for whole-home optimization
 
 ## Supported devices
 
@@ -54,6 +64,12 @@ The Indevolt integration communicates with your device over its standard TCP por
 ## Supported functionality
 
 The Indevolt integration provides sensors for monitoring your device (read only).
+
+### Buttons
+
+The following button entity allows triggering device actions directly from Home Assistant.
+
+- **Enable standby mode**: Puts the battery in standby mode which pauses battery charging and discharging. Change the energy mode to resume normal battery activity.
 
 ### Sensors
 
@@ -116,13 +132,24 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 - Bypass socket: Enable or disable the bypass socket (switch)
 - LED indicator: Enable or disable the LED indicator (switch)
 
+## Examples
+
+### Setting emergency SOC based on forecasted minimum temperatures
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_manage_auto_emergency_soc.yml" %}
+
+### Dynamically control battery discharge based on battery state, grid import/export and solar production
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_smart_discharge.yml" %}
+
 ## Data updates
 
 The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. If an update fails, the integration will retry again at the set interval (self-recovery).
 
 ## Known limitations
 
-- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode
+- Real-time configuration changes may appear with a small delay in Home Assistant and the Indevolt app.
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode.
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
 
@@ -133,7 +160,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 1. Ensure the device is powered on and functioning normally.
 2. Confirm both the device and Home Assistant are connected to the same local network.
 3. Ensure the device's IP address is correct and hasn't changed.
-4. Check the device's settings in the Indevolt app to ensure that the API is enabled.
+4. Check the device's settings in the Indevolt app to ensure that the API is enabled in "HTTP" mode.
 
 Check the Home Assistant logs for more information.
 

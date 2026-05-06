@@ -89,8 +89,6 @@ These examples are just a starting point, and you can use them as inspiration to
 
 The following example will turn on the Perfume Genie at 18:00.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Start fragrance in evening"
@@ -103,8 +101,6 @@ automation:
         target:
           entity_id: switch.rituals_perfume_genie_diffuser
 ```
-
-{% endraw %}
 
 ## Removing the integration
 

@@ -427,13 +427,20 @@ ul#toc {
     display: inline-block;
   }
 
-  #integration-sidebar #toc-module {
+  #integration-sidebar #toc-module,
+  #integration-sidebar #learn-more-module {
     display: none;
   }
 
   .documentation-page #sidebar #toc-module {
     background: none;
     padding: 0;
+  }
+}
+
+@media only screen and (max-width: $desk-wide-start) {
+  #toc-bar-learn-more {
+    display: none;
   }
 }
 
@@ -643,14 +650,35 @@ header .breadcrumbs {
     .socials {
       .icons {
         margin: -16px 0 16px 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        li {
+          padding: 0;
+        }
+
+        a {
+          color: $grayDarker;
+
+          display: flex;
+
+          &:hover {
+            color: $blueDark;
+          }
+        }
 
         iconify-icon {
-          font-size: 2em;
-          margin-top: 12px;
-          padding-right: 8px;
+          font-size: 1.25em;
         }
       }
+    }
 
+    .social-media {
       @media only screen and (min-width: $desk-start) {
         .web-notice {
           text-align: right;
@@ -1101,6 +1129,18 @@ a.material-card:hover {
       display: flex;
       align-items: center;
       gap: 12px;
+      transform: translateY(0);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.4s ease-out;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+      &--visible {
+        transform: translateY(0);
+      }
 
       div {
         flex-grow: 1;
@@ -1138,7 +1178,18 @@ a.material-card:hover {
         display: block;
         width: 44px;
         height: 32px;
+        background-size: contain;
+        background-repeat: no-repeat;
         align-self: flex-end;
+
+        @media only screen and (max-width: $palm-end) {
+          width: 37px;
+          height: 27px;
+        }
+      }
+
+      @media only screen and (max-width: $palm-end) {
+        padding: 10px 12px;
       }
 
     }
@@ -1366,15 +1417,56 @@ a.material-card:hover {
 
   }
 
+  .sponsor {
+    margin-top: 5rem;
+  }
+
   .sponsored-by {
     text-align: center;
 
     img {
+      width: 100%;
+      max-width: 180px;
+      max-height: 160px;
       border: 0;
       border-radius: 0;
       box-shadow: none;
-      margin: 24px;
-      max-height: 160px;
+    }
+
+    &-title {
+      max-width: 800px;
+      margin: 0 auto 24px;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      font-weight: 600;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1.6rem;
+        line-height: 1.6;
+      }
+    }
+
+    &-subtitle {
+      font-size: 1rem;
+      margin-bottom: 0;
+      font-weight: 400;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+
+      @media screen and (min-width: 768px) {
+        gap: 4rem;
+      }
     }
   }
 }
@@ -1940,7 +2032,7 @@ pre[class*="language-"]:after {
   #not_found {
     .page {
       text-align: center;
-      margin-bottom: 300px;
+      margin-bottom: 10px;
 
       .search404-container {
         margin-bottom: 32px;
@@ -1951,12 +2043,6 @@ pre[class*="language-"]:after {
           justify-self: center;
         }
       }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
     }
   }
 }
@@ -1999,8 +2085,6 @@ h6 {
   width: 100%;
   z-index: 999;
 }
-
-
 
 .community-cards {
   padding-left: 24px;

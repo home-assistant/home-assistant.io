@@ -226,4 +226,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [websocket-api]: /developers/websocket_api/
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

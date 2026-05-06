@@ -58,7 +58,7 @@ api_key:
   required: true
   type: string
 recipient:
-  description: "A single or multiple phone numbers. This is where you want to send your SMS notification messages, e.g., `09171234567` or `[09171234567, 09177654321]`."
+  description: "A single or multiple phone numbers. This is where you want to send your SMS notification messages, for example, `09171234567` or `[09171234567, 09177654321]`."
   required: true
   type: [string, list]
 sender:
