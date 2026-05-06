@@ -128,7 +128,7 @@ Find out if you already have Thread networks:
 - If you do not see a **Thread** integration, add it.
 - Then, select **Configure** and check if you see any Thread networks on the overview page.
 - Case 1: If you do not have any Thread networks yet, follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network)
-- Case 2: If you have existing networks, follow [Case 2: Create a HA border router when there is an existing network](#case-2-creating-a-ha-border-router-when-there-is-an-existing-network)
+- Case 2: If you have existing networks, follow [Case 2: Create a Home Assistant border router when there is an existing network](#case-2-creating-a-home-assistant-border-router-when-there-is-an-existing-network)
 
 ### Case 1: Making Home Assistant your first Thread network
 
@@ -167,7 +167,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
      - At the bottom of the preferred network box, select **Send credentials to phone**.
 4. To add Matter-based Thread devices, follow the steps on [Adding a matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
-### Case 2: Creating a HA border router when there is an existing network
+### Case 2: Creating a Home Assistant border router when there is an existing network
 
 Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, or another compatible radio but you already have third-party Thread networks present. These steps will join the Home Assistant Thread border router with the existing Thread network.
 
@@ -181,7 +181,7 @@ If you have both Google and Apple Thread networks present, decide which one you 
 - Third-party Thread network listed
 - Android phone if you have a Google Thread network, iPhone if you have an Apple Thread network
 
-#### To create a HA border router when there is an existing network
+#### To create a Home Assistant border router when there is an existing network
 
 Note: the steps and images here show the process with a Google Thread network. But the process is very similar if you have an Apple Thread network with an iPhone.
 
