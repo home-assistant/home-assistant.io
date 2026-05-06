@@ -466,7 +466,7 @@ automations via webhooks and wBox mobile app.
 - With actionBox and its 4 inputs, you can configure up to 8 automations in Home Assistant (short and long press for each button).
 - With actionBoxS and proxiBox, each with a single input, you can configure up to 2 automations in Home Assistant (short and long press / touch)
 
-The configuration consists of two steps:
+Integrating actionBox, actionBoxS, or proxiBox with Home Assistant using webhooks consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
@@ -528,7 +528,7 @@ Up to 20 different remotes can be paired with a single actionBox. The actionBox 
 
 When a μWiFi remote is paired with an actionBox, pressing a button on the remote simulates a trigger on a specific input of the actionBox. For example, pressing button 1 on a μRemote paired with an actionBox fires all actions configured with the trigger "short press on input 1" on that actionBox.
 
-The configuration consists of three steps:
+Integrating a μWiFi remote via actionBox consists of three steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
@@ -700,7 +700,7 @@ This integration does not add direct support for Simon 54 GO Control and Simon 5
 Control devices. It is however possible to integrate these devices with Home Assistant
 using automations via webhooks and wBox mobile app.
 
-- With simon GO 55 / 54 control and its 4 buttons, you can configure up to 8 automations in Home Assistant (short and long press for each button).
+- With Simon 55 / 54 GO control and its 4 buttons, you can configure up to 8 automations in Home Assistant (short and long press for each button).
 
 The configuration consists of two steps:
 
