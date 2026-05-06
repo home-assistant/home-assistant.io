@@ -212,7 +212,7 @@ Add a sample utterance:
 ActivateSceneIntent activate {Scene}
 ```
 
-Then add the intent to your `intent_script` section in your HA configuration file:
+Then add the intent to your `intent_script` section in your Home Assistant configuration file:
 
 
 ```yaml
@@ -264,7 +264,7 @@ Add a sample utterance:
 RunScriptIntent run {Script}
 ```
 
-Then add the intent to your intent_script section in your HA configuration file:
+Then add the intent to your intent_script section in your Home Assistant configuration file:
 
 
 ```yaml
