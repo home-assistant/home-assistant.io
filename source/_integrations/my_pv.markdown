@@ -50,10 +50,12 @@ Using the local API is the preferred way to connect to your my-PV device.
 
 {% configuration_basic %}
 Password:
-  description: "Password for your my-PV device."
+  description: "Password or devicekey of your my-PV device."
 {% endconfiguration_basic %}
 
-Older firmware versions of the my-PV hardware do not require a password, this will be added by upcoming firmware updates. You can find the initial password on the ... menu of your my-PV device. For the HEA•THOR IoT you can find the initial password on the device label. You can update the password through the web interface of your my-PV device.
+Older firmware versions of the my-PV hardware do not require a password, this will be added by upcoming firmware updates. When no custom password is set you have to use the **devicekey** which can be found under the ⓘ info menu of your my-PV device. For the HEA•THOR IoT you can find the **devicekey** on the device label.
+
+You can update the password through the web interface of your my-PV device.
 
 ### Login to my-PV (Cloud API)
 
@@ -64,7 +66,7 @@ Token:
   description: "The API token"
 {% endconfiguration_basic %}
 
-To generate an API token go to your [my-PV Cloud](https://live.my-pv.com/) and navigate to **Device Setup** > ***API***. Then generate a token and use this when setting up the my-PV integration.
+To generate an API token go to your [my-PV Cloud](https://live.my-pv.com/) and navigate to ⚙️ > **Device Setup**. Enable **Advanced Settings**, navigate to **API** and **Generate API Access Token**. Use this when setting up the my-PV integration.
 
 ## Data updates
 
