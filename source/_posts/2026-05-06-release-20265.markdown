@@ -10,7 +10,7 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2026-04/beta-social.png
+og_image: /images/blog/2026-04/social.png
 ---
 
 <lite-youtube videoid="g9F3mn2SYGg" videotitle="Home Assistant 2026.5 Release Party"></lite-youtube>
@@ -29,7 +29,7 @@ That said, I'd be lying if I said I wasn't also _super_ stoked about [radio freq
 
 And there's plenty more: a brand new [Maintenance dashboard](#stay-on-top-of-your-batteries-with-the-new-maintenance-dashboard) for your batteries, [serial ports proxied over the network](#serial-ports-over-the-network-with-esphome) with ESPHome, [new tile card features](#new-tile-card-features-for-media-players) for media players, [durations for purpose-specific automation triggers and conditions](#automations-that-finally-understand-for-a-while), redesigned [more-info dialogs for vacuums and lawn mowers](#a-modern-more-info-dialog-for-vacuums-and-lawn-mowers), [autocomplete in the code editors](#smarter-code-editors-with-autocomplete), and 12 new integrations! 🚀
 
-Enjoy the (beta) release!
+Enjoy the release!
 
 ../Frenck
 
