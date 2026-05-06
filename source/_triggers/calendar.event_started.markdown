@@ -20,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Calendar: Calendar event started**.
+4. From the search box, search for and select **Calendar event started**.
 5. Under **Targets** (see [Targets](#targets)), select **Add target** and pick what to watch. Select the calendar entity with the event that you want to watch. You can also select a device or a label, for example.
 6. Under **Offset**, you can enter the time from the start of the event when the trigger will fire. If you want the trigger to fire at the starting time of the event, skip this and the next option and select **Save**.
 7. If you entered an offset, under **Offset type**, select one of the following:
