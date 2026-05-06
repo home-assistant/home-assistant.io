@@ -606,6 +606,8 @@ It gets even better inside the string arguments of those functions. The editor k
 
 No more copy-pasting entity IDs from the developer tools, and no more typos sneaking into your templates. Less friction, fewer mistakes. 🎯
 
+And it's not just autocomplete. Hover over anything in your template and the editor has something useful to say. Functions, filters, and tests get a small tooltip with their signature, what they do, and a direct link to the full documentation page. Entity IDs and attributes show their current value right where you're typing, so you instantly see whether your template is reading what you _think_ it is. 🔍
+
 ## Need help? Join the community
 
 Home Assistant has a great community of users who are all more than willing to help each other out. So, join us!
