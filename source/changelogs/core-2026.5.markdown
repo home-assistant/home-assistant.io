@@ -1355,6 +1355,97 @@ For a summary in a more readable format
 - Update frontend to 20260429.0 ([@piitaya] - [#169475])
 - Include errors in script trace when continue_on_error is set ([@emontnemery] - [#168676])
 - Move finish watering to sensor ([@elupus] - [#169476])
+- Check device registration before completing Hive reauth flow ([@KJonline] - [#168035])
+- Fix reasoning summary handling for OpenAI o-models ([@jftkcs] - [#168093])
+- Victron GX: bug fix for missing translation key ([@tomer-w] - [#168461])
+- Add Broadlink infrared emitter support ([@YuvalWS] - [#168889])
+- fix: incorrect position inversion for blebox gateBox cover ([@bkobus-bbx] - [#168893])
+- Bump weatherflow4py to 1.5.4 ([@jeeftor] - [#168994])
+- Storage problem management for Comelit Serial Bridge ([@chemelli74] - [#169297])
+- Implement current setpoint method in actron air integration ([@kclif9] - [#169358])
+- Remove scripts from DATA_SCRIPTS on unload ([@emontnemery] - [#169415])
+- Re-interview ZHA device on websocket reconfigure ([@TheJulianJES] - [#169483])
+- Correct wake_on_lan entity behavior when entity_id changes ([@emontnemery] - [#169486])
+- Fix uptime sensor for Synology DSM ([@chemelli74] - [#169512])
+- Fix KeyError in telegram_bot media group download debug log ([@Bolshem] - [#169519])
+- Fix: Migrate also device entries to subentry in GitHub integration ([@tr4nt0r] - [#169523])
+- Victron GX: Bug fix: parent device is mapped to the wrong device ([@tomer-w] - [#169525])
+- Update knx-frontend to 2026.4.30.60856 ([@farmio] - [#169529])
+- Enable duration support in all entity conditions ([@emontnemery] - [#169532])
+- Bump blebox_uniapi to 2.5.2 ([@bkobus-bbx] - [#169534])
+- Use the correct schema for triggers/conditions "for" option ([@abmantis] - [#169539])
+- Bump ohme to 1.9.0 ([@dan-r] - [#169556])
+- Update frontend to 20260429.1 ([@piitaya] - [#169565])
+- Bump aioshelly to 13.25.0 ([@thecode] - [#169569])
+- Bump pyuptimerobot to 25.0.0 ([@chemelli74] - [#169572])
+- Fix grammar and clarity in samsungtv/strings.json ([@SeifEddineMezned] - [#169574])
+- Fix possessive apostrophe errors in mqtt/strings.json ([@SeifEddineMezned] - [#169576])
+- Fix Duco unknown node type not re-evaluated after becoming known ([@ronaldvdmeer] - [#169579])
+- Bump opower to 0.18.2 ([@tronikos] - [#169588])
+- Decrease WebDAV client timeout ([@jpbede] - [#169591])
+- Change vacuum template config names for clean area ([@Petro31] - [#169599])
+- Fix detection of CPU temperature sensor support on olde FRITZ!Box models ([@mib1185] - [#169620])
+- Pass `None` config entry to schluter coordinator ([@mib1185] - [#169621])
+- Fix M1S-T500 update error ([@kmod-midori] - [#169651])
+- Fix grammar in mqtt/strings.json: "Minimal one" → "At least one" ([@SeifEddineMezned] - [#169666])
+- Bump satel_integra to 1.3.0 ([@Tommatheussen] - [#169668])
+- Updated prowlpy to 1.1.5 ([@OMEGARAZER] - [#169671])
+- Bump python-duco-client to 0.3.10 ([@ronaldvdmeer] - [#169677])
+- Improve ProxmoxVE config flow preparing bug fixing ([@CoMPaTech] - [#169682])
+- Update Nest doorbell event to use standard DoorbellEventType.RING ([@allenporter] - [#169691])
+- Use uptime device_class for Uptime sensor ([@karwosts] - [#169692])
+- Ignore location FORBIDDEN response for the Volvo integration ([@thomasddn] - [#169713])
+- Bump bring-api to 1.1.2 ([@tr4nt0r] - [#169729])
+- Update frontend to 20260429.2 ([@piitaya] - [#169748])
+- Add trigger media_player.muted ([@emontnemery] - [#156736])
+- Use all_devices in ViCare diagnostics for completeness ([@lackas] - [#169429])
+- Improve template reload ([@emontnemery] - [#169480])
+- Fix async_unload teardown race in scripts ([@arturpragacz] - [#169562])
+- Add precipitation device class to WeatherFlow Cloud accumulation sensors ([@shbatm] - [#169638])
+- Bump pylitterbot to 2025.4.0 ([@natekspencer] - [#169652])
+- Limit power status binary sensor to non-LR5 devices ([@natekspencer] - [#169659])
+- Add Celsius and Fahrenheit to Smartthings UNITS mapping ([@kernelpanic85] - [#169686])
+- Add missing initialization charging power status option to Volvo ([@thomasddn] - [#169727])
+- Bump victron-ble-ha-parser to 0.7.0 ([@rajlaud] - [#169736])
+- Bump pytrydan to 1.0.0 ([@dgomes] - [#169742])
+- Fix uptime template sensor ([@Petro31] - [#169743])
+- Fix config flow validation in Nord Pool ([@gjohansson-ST] - [#169751])
+- Bump Insteon-panel to 0.6.2 ([@ssyrell] - [#169757])
+- bump sense-energy to 0.14.1 ([@kbickar] - [#169761])
+- Bump pyTibber to 0.37.3 ([@Danielhiversen] - [#169762])
+- Update xknxproject to 3.9.0 ([@farmio] - [#169775])
+- Add missing code for miele washing machine ([@astrandb] - [#169795])
+- Add Sensereo matter brand ([@joostlek] - [#169836])
+- Add Zunzunbee Zigbee brand ([@joostlek] - [#169838])
+- Return the requested format for OpenAI TTS ([@Shulyaka] - [#169839])
+- Catch additional errors as potentially retryable errors during energy data updates ([@masterkoppa] - [#169646])
+- Expose SET_SPEED for all fans via PercentSetting in Matter ([@lboue] - [#169696])
+- Add trigger timer.time_remaining ([@emontnemery] - [#169763])
+- Record notification from legacy notify action in Mobile App ([@tr4nt0r] - [#169749])
+- Improve mobile_app device tracker tests ([@emontnemery] - [#169724])
+- Add trigger media_player.unmuted ([@emontnemery] - [#169797])
+- Validate yaml matches implementation in automation options_supported tests ([@emontnemery] - [#169798])
+- Bump intents to 2026.5.5 ([@synesthesiam] - [#169855])
+- Bump serialx to 1.7.0 ([@puddly] - [#169867])
+- Improve trigger test helper docstrings ([@emontnemery] - [#169869])
+- Improve condition test helper docstrings ([@emontnemery] - [#169871])
+- Add method _should_include to EntityTriggerBase ([@emontnemery] - [#169837])
+- Improve entity trigger tests ([@emontnemery] - [#169881])
+- Add method _should_include to EntityConditionBase ([@emontnemery] - [#169884])
+- Add media_player volume triggers ([@emontnemery] - [#169885])
+- Fix Zinvolt select options ([@joostlek] - [#169886])
+- Bump satel_integra to 1.3.1 ([@Tommatheussen] - [#169889])
+- Add media_player muted conditions ([@emontnemery] - [#169892])
+- Update frontend to 20260429.3 ([@bramkragten] - [#169893])
+- Add media_player volume condition ([@emontnemery] - [#169897])
+- Exclude incompatible entities from humidity automations ([@emontnemery] - [#169898])
+- Exclude incompatible entities from temperature automations ([@emontnemery] - [#169901])
+- Unload scripts and conditions created by template entities ([@emontnemery] - [#169366])
+- Exclude incompatible climate entities from climate automations ([@emontnemery] - [#169903])
+- Exclude incompatible water_heater entities from water_heater automations ([@emontnemery] - [#169904])
+- Exclude incompatible humidifier entities from humidifier automations ([@emontnemery] - [#169905])
+- Remove _get_tracked_value method from EntityConditionBase ([@emontnemery] - [#169906])
+- Bump pyTibber to 0.37.4 ([@Danielhiversen] - [#169907])
 
 [#141330]: https://github.com/home-assistant/core/pull/141330
 [#141389]: https://github.com/home-assistant/core/pull/141389
@@ -1362,6 +1453,7 @@ For a summary in a more readable format
 [#155016]: https://github.com/home-assistant/core/pull/155016
 [#156090]: https://github.com/home-assistant/core/pull/156090
 [#156340]: https://github.com/home-assistant/core/pull/156340
+[#156736]: https://github.com/home-assistant/core/pull/156736
 [#156927]: https://github.com/home-assistant/core/pull/156927
 [#159096]: https://github.com/home-assistant/core/pull/159096
 [#159564]: https://github.com/home-assistant/core/pull/159564
@@ -2032,6 +2124,7 @@ For a summary in a more readable format
 [#168030]: https://github.com/home-assistant/core/pull/168030
 [#168031]: https://github.com/home-assistant/core/pull/168031
 [#168033]: https://github.com/home-assistant/core/pull/168033
+[#168035]: https://github.com/home-assistant/core/pull/168035
 [#168036]: https://github.com/home-assistant/core/pull/168036
 [#168038]: https://github.com/home-assistant/core/pull/168038
 [#168039]: https://github.com/home-assistant/core/pull/168039
@@ -2058,6 +2151,7 @@ For a summary in a more readable format
 [#168085]: https://github.com/home-assistant/core/pull/168085
 [#168086]: https://github.com/home-assistant/core/pull/168086
 [#168092]: https://github.com/home-assistant/core/pull/168092
+[#168093]: https://github.com/home-assistant/core/pull/168093
 [#168094]: https://github.com/home-assistant/core/pull/168094
 [#168100]: https://github.com/home-assistant/core/pull/168100
 [#168103]: https://github.com/home-assistant/core/pull/168103
@@ -2227,6 +2321,7 @@ For a summary in a more readable format
 [#168457]: https://github.com/home-assistant/core/pull/168457
 [#168459]: https://github.com/home-assistant/core/pull/168459
 [#168460]: https://github.com/home-assistant/core/pull/168460
+[#168461]: https://github.com/home-assistant/core/pull/168461
 [#168462]: https://github.com/home-assistant/core/pull/168462
 [#168464]: https://github.com/home-assistant/core/pull/168464
 [#168466]: https://github.com/home-assistant/core/pull/168466
@@ -2430,7 +2525,9 @@ For a summary in a more readable format
 [#168882]: https://github.com/home-assistant/core/pull/168882
 [#168884]: https://github.com/home-assistant/core/pull/168884
 [#168885]: https://github.com/home-assistant/core/pull/168885
+[#168889]: https://github.com/home-assistant/core/pull/168889
 [#168892]: https://github.com/home-assistant/core/pull/168892
+[#168893]: https://github.com/home-assistant/core/pull/168893
 [#168894]: https://github.com/home-assistant/core/pull/168894
 [#168897]: https://github.com/home-assistant/core/pull/168897
 [#168898]: https://github.com/home-assistant/core/pull/168898
@@ -2447,6 +2544,7 @@ For a summary in a more readable format
 [#168988]: https://github.com/home-assistant/core/pull/168988
 [#168989]: https://github.com/home-assistant/core/pull/168989
 [#168992]: https://github.com/home-assistant/core/pull/168992
+[#168994]: https://github.com/home-assistant/core/pull/168994
 [#168995]: https://github.com/home-assistant/core/pull/168995
 [#168997]: https://github.com/home-assistant/core/pull/168997
 [#168998]: https://github.com/home-assistant/core/pull/168998
@@ -2592,6 +2690,7 @@ For a summary in a more readable format
 [#169292]: https://github.com/home-assistant/core/pull/169292
 [#169293]: https://github.com/home-assistant/core/pull/169293
 [#169296]: https://github.com/home-assistant/core/pull/169296
+[#169297]: https://github.com/home-assistant/core/pull/169297
 [#169299]: https://github.com/home-assistant/core/pull/169299
 [#169300]: https://github.com/home-assistant/core/pull/169300
 [#169301]: https://github.com/home-assistant/core/pull/169301
@@ -2627,12 +2726,14 @@ For a summary in a more readable format
 [#169354]: https://github.com/home-assistant/core/pull/169354
 [#169355]: https://github.com/home-assistant/core/pull/169355
 [#169357]: https://github.com/home-assistant/core/pull/169357
+[#169358]: https://github.com/home-assistant/core/pull/169358
 [#169359]: https://github.com/home-assistant/core/pull/169359
 [#169361]: https://github.com/home-assistant/core/pull/169361
 [#169362]: https://github.com/home-assistant/core/pull/169362
 [#169363]: https://github.com/home-assistant/core/pull/169363
 [#169364]: https://github.com/home-assistant/core/pull/169364
 [#169365]: https://github.com/home-assistant/core/pull/169365
+[#169366]: https://github.com/home-assistant/core/pull/169366
 [#169367]: https://github.com/home-assistant/core/pull/169367
 [#169368]: https://github.com/home-assistant/core/pull/169368
 [#169370]: https://github.com/home-assistant/core/pull/169370
@@ -2657,6 +2758,7 @@ For a summary in a more readable format
 [#169411]: https://github.com/home-assistant/core/pull/169411
 [#169412]: https://github.com/home-assistant/core/pull/169412
 [#169413]: https://github.com/home-assistant/core/pull/169413
+[#169415]: https://github.com/home-assistant/core/pull/169415
 [#169420]: https://github.com/home-assistant/core/pull/169420
 [#169421]: https://github.com/home-assistant/core/pull/169421
 [#169422]: https://github.com/home-assistant/core/pull/169422
@@ -2664,6 +2766,7 @@ For a summary in a more readable format
 [#169425]: https://github.com/home-assistant/core/pull/169425
 [#169426]: https://github.com/home-assistant/core/pull/169426
 [#169427]: https://github.com/home-assistant/core/pull/169427
+[#169429]: https://github.com/home-assistant/core/pull/169429
 [#169430]: https://github.com/home-assistant/core/pull/169430
 [#169432]: https://github.com/home-assistant/core/pull/169432
 [#169433]: https://github.com/home-assistant/core/pull/169433
@@ -2697,9 +2800,89 @@ For a summary in a more readable format
 [#169474]: https://github.com/home-assistant/core/pull/169474
 [#169475]: https://github.com/home-assistant/core/pull/169475
 [#169476]: https://github.com/home-assistant/core/pull/169476
+[#169480]: https://github.com/home-assistant/core/pull/169480
+[#169483]: https://github.com/home-assistant/core/pull/169483
+[#169486]: https://github.com/home-assistant/core/pull/169486
+[#169512]: https://github.com/home-assistant/core/pull/169512
+[#169519]: https://github.com/home-assistant/core/pull/169519
+[#169523]: https://github.com/home-assistant/core/pull/169523
+[#169525]: https://github.com/home-assistant/core/pull/169525
+[#169529]: https://github.com/home-assistant/core/pull/169529
+[#169532]: https://github.com/home-assistant/core/pull/169532
+[#169534]: https://github.com/home-assistant/core/pull/169534
+[#169539]: https://github.com/home-assistant/core/pull/169539
+[#169556]: https://github.com/home-assistant/core/pull/169556
+[#169562]: https://github.com/home-assistant/core/pull/169562
+[#169565]: https://github.com/home-assistant/core/pull/169565
+[#169569]: https://github.com/home-assistant/core/pull/169569
+[#169572]: https://github.com/home-assistant/core/pull/169572
+[#169574]: https://github.com/home-assistant/core/pull/169574
+[#169576]: https://github.com/home-assistant/core/pull/169576
+[#169579]: https://github.com/home-assistant/core/pull/169579
+[#169588]: https://github.com/home-assistant/core/pull/169588
+[#169591]: https://github.com/home-assistant/core/pull/169591
+[#169599]: https://github.com/home-assistant/core/pull/169599
+[#169620]: https://github.com/home-assistant/core/pull/169620
+[#169621]: https://github.com/home-assistant/core/pull/169621
+[#169638]: https://github.com/home-assistant/core/pull/169638
+[#169646]: https://github.com/home-assistant/core/pull/169646
+[#169651]: https://github.com/home-assistant/core/pull/169651
+[#169652]: https://github.com/home-assistant/core/pull/169652
+[#169659]: https://github.com/home-assistant/core/pull/169659
+[#169666]: https://github.com/home-assistant/core/pull/169666
+[#169668]: https://github.com/home-assistant/core/pull/169668
+[#169671]: https://github.com/home-assistant/core/pull/169671
+[#169677]: https://github.com/home-assistant/core/pull/169677
+[#169682]: https://github.com/home-assistant/core/pull/169682
+[#169686]: https://github.com/home-assistant/core/pull/169686
+[#169691]: https://github.com/home-assistant/core/pull/169691
+[#169692]: https://github.com/home-assistant/core/pull/169692
+[#169696]: https://github.com/home-assistant/core/pull/169696
+[#169713]: https://github.com/home-assistant/core/pull/169713
+[#169724]: https://github.com/home-assistant/core/pull/169724
+[#169727]: https://github.com/home-assistant/core/pull/169727
+[#169729]: https://github.com/home-assistant/core/pull/169729
+[#169736]: https://github.com/home-assistant/core/pull/169736
+[#169742]: https://github.com/home-assistant/core/pull/169742
+[#169743]: https://github.com/home-assistant/core/pull/169743
+[#169748]: https://github.com/home-assistant/core/pull/169748
+[#169749]: https://github.com/home-assistant/core/pull/169749
+[#169751]: https://github.com/home-assistant/core/pull/169751
+[#169757]: https://github.com/home-assistant/core/pull/169757
+[#169761]: https://github.com/home-assistant/core/pull/169761
+[#169762]: https://github.com/home-assistant/core/pull/169762
+[#169763]: https://github.com/home-assistant/core/pull/169763
+[#169775]: https://github.com/home-assistant/core/pull/169775
+[#169795]: https://github.com/home-assistant/core/pull/169795
+[#169797]: https://github.com/home-assistant/core/pull/169797
+[#169798]: https://github.com/home-assistant/core/pull/169798
+[#169836]: https://github.com/home-assistant/core/pull/169836
+[#169837]: https://github.com/home-assistant/core/pull/169837
+[#169838]: https://github.com/home-assistant/core/pull/169838
+[#169839]: https://github.com/home-assistant/core/pull/169839
+[#169855]: https://github.com/home-assistant/core/pull/169855
+[#169867]: https://github.com/home-assistant/core/pull/169867
+[#169869]: https://github.com/home-assistant/core/pull/169869
+[#169871]: https://github.com/home-assistant/core/pull/169871
+[#169881]: https://github.com/home-assistant/core/pull/169881
+[#169884]: https://github.com/home-assistant/core/pull/169884
+[#169885]: https://github.com/home-assistant/core/pull/169885
+[#169886]: https://github.com/home-assistant/core/pull/169886
+[#169889]: https://github.com/home-assistant/core/pull/169889
+[#169892]: https://github.com/home-assistant/core/pull/169892
+[#169893]: https://github.com/home-assistant/core/pull/169893
+[#169897]: https://github.com/home-assistant/core/pull/169897
+[#169898]: https://github.com/home-assistant/core/pull/169898
+[#169901]: https://github.com/home-assistant/core/pull/169901
+[#169903]: https://github.com/home-assistant/core/pull/169903
+[#169904]: https://github.com/home-assistant/core/pull/169904
+[#169905]: https://github.com/home-assistant/core/pull/169905
+[#169906]: https://github.com/home-assistant/core/pull/169906
+[#169907]: https://github.com/home-assistant/core/pull/169907
 [@32u-nd]: https://github.com/32u-nd
 [@AlCalzone]: https://github.com/AlCalzone
 [@Amousibrahim]: https://github.com/Amousibrahim
+[@Bolshem]: https://github.com/Bolshem
 [@Bre77]: https://github.com/Bre77
 [@Brookke]: https://github.com/Brookke
 [@CFenner]: https://github.com/CFenner
@@ -2720,6 +2903,7 @@ For a summary in a more readable format
 [@Hugo1380]: https://github.com/Hugo1380
 [@JamieMagee]: https://github.com/JamieMagee
 [@Jordi1990]: https://github.com/Jordi1990
+[@KJonline]: https://github.com/KJonline
 [@Kane610]: https://github.com/Kane610
 [@LG-ThinQ-Integration]: https://github.com/LG-ThinQ-Integration
 [@Lamarqe]: https://github.com/Lamarqe
@@ -2736,6 +2920,7 @@ For a summary in a more readable format
 [@Moustachauve]: https://github.com/Moustachauve
 [@NickM-27]: https://github.com/NickM-27
 [@NoRi2909]: https://github.com/NoRi2909
+[@OMEGARAZER]: https://github.com/OMEGARAZER
 [@Oluwatobi-Mustapha]: https://github.com/Oluwatobi-Mustapha
 [@PeteRager]: https://github.com/PeteRager
 [@Petro31]: https://github.com/Petro31
@@ -2775,6 +2960,7 @@ For a summary in a more readable format
 [@arsenicks]: https://github.com/arsenicks
 [@artspb]: https://github.com/artspb
 [@arturpragacz]: https://github.com/arturpragacz
+[@astrandb]: https://github.com/astrandb
 [@ayn]: https://github.com/ayn
 [@bahoo]: https://github.com/bahoo
 [@balloob-travel]: https://github.com/balloob-travel
@@ -2797,8 +2983,10 @@ For a summary in a more readable format
 [@codesalatdev]: https://github.com/codesalatdev
 [@cyberhuman]: https://github.com/cyberhuman
 [@daily063]: https://github.com/daily063
+[@dan-r]: https://github.com/dan-r
 [@davidyen1124]: https://github.com/davidyen1124
 [@devsnek]: https://github.com/devsnek
+[@dgomes]: https://github.com/dgomes
 [@djcode]: https://github.com/djcode
 [@dknowles2]: https://github.com/dknowles2
 [@dnicoara]: https://github.com/dnicoara
@@ -2830,18 +3018,23 @@ For a summary in a more readable format
 [@jbouwh]: https://github.com/jbouwh
 [@jcisio]: https://github.com/jcisio
 [@jeeftor]: https://github.com/jeeftor
+[@jftkcs]: https://github.com/jftkcs
 [@jhenkens]: https://github.com/jhenkens
 [@johanzander]: https://github.com/johanzander
 [@johnmph]: https://github.com/johnmph
 [@jonilala796]: https://github.com/jonilala796
 [@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
 [@jterrace]: https://github.com/jterrace
 [@jtjart]: https://github.com/jtjart
 [@juergenschorb]: https://github.com/juergenschorb
 [@justanotherariel]: https://github.com/justanotherariel
 [@karwosts]: https://github.com/karwosts
+[@kbickar]: https://github.com/kbickar
 [@kclif9]: https://github.com/kclif9
+[@kernelpanic85]: https://github.com/kernelpanic85
 [@klaasnicolaas]: https://github.com/klaasnicolaas
+[@kmod-midori]: https://github.com/kmod-midori
 [@konradstrack]: https://github.com/konradstrack
 [@kostavelikov]: https://github.com/kostavelikov
 [@kroehre]: https://github.com/kroehre
@@ -2870,6 +3063,7 @@ For a summary in a more readable format
 [@mnaggatz]: https://github.com/mnaggatz
 [@mtheli]: https://github.com/mtheli
 [@mxr]: https://github.com/mxr
+[@natekspencer]: https://github.com/natekspencer
 [@nberardi]: https://github.com/nberardi
 [@niracler]: https://github.com/niracler
 [@noahhusby]: https://github.com/noahhusby
@@ -2883,6 +3077,7 @@ For a summary in a more readable format
 [@potelux]: https://github.com/potelux
 [@prpr19xx]: https://github.com/prpr19xx
 [@puddly]: https://github.com/puddly
+[@rajlaud]: https://github.com/rajlaud
 [@raman325]: https://github.com/raman325
 [@renaudallard]: https://github.com/renaudallard
 [@reneboer]: https://github.com/reneboer
@@ -2896,11 +3091,13 @@ For a summary in a more readable format
 [@shaiu]: https://github.com/shaiu
 [@shbatm]: https://github.com/shbatm
 [@smarthome-10]: https://github.com/smarthome-10
+[@ssyrell]: https://github.com/ssyrell
 [@superdingo101]: https://github.com/superdingo101
 [@synesthesiam]: https://github.com/synesthesiam
 [@teancom]: https://github.com/teancom
 [@tgechev]: https://github.com/tgechev
 [@thecode]: https://github.com/thecode
+[@thomasddn]: https://github.com/thomasddn
 [@tl-sl]: https://github.com/tl-sl
 [@tomer-w]: https://github.com/tomer-w
 [@tomwilkie]: https://github.com/tomwilkie
