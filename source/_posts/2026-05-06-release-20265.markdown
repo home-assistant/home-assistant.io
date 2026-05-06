@@ -234,7 +234,7 @@ Now they can. On the **trigger** side, a brand new **for** field has landed acro
 
 <img src='/images/blog/2026-05/purpose-specific-trigger-duration.png' alt='Screenshot of a purpose-specific trigger in the automation editor with the new for duration field.' class='no-shadow' />
 
-On the **condition** side, this release introduces duration support for **motion** conditions and the entire family of **cover-based** conditions (doors, windows, gates, and garage doors). More conditions will follow in upcoming releases as the underlying machinery rolls out.
+On the **condition** side, duration is now available across the **entire family** of entity conditions in Labs. Whether you're checking on motion, a door, a light, a switch, a climate, a media player, or anything else, you can now ask for the state to have held for a given amount of time before the condition is considered true.
 
 <img src='/images/blog/2026-05/purpose-specific-condition-duration.png' alt='Screenshot of a purpose-specific condition in the automation editor with the new duration field.' class='no-shadow' />
 
@@ -253,11 +253,11 @@ Beyond the new sense of time, this release sprinkles a few more handy purpose-sp
 
 If you keep an eye on **updates** waiting to be installed, two new {% term conditions %}, _is available_ and _is not available_, let an automation branch on whether something is pending, without templating the answer yourself.
 
-Your **media players** got chatty: four brand new {% term triggers %} fire when something _starts playing_, _pauses_, _turns on_, or _turns off_. Perfect fuel for "dim the lights when the movie starts" or "pause the music when the doorbell rings". 🎬
+Your **media players** got chatty: triggers fire when something _starts playing_, _pauses_, _turns on_, or _turns off_, and now also when a player is _muted_ or _unmuted_, when its _volume changes_, or when the volume _crosses a threshold_ you set. Conditions follow the same beat with _is muted_, _is unmuted_, and a numeric _volume_ check. Perfect fuel for "dim the lights when the movie starts", "pause the music when the doorbell rings", or "only send the loud TTS announcement if the speaker is below 30%". 🎬🔇
 
 Your **remotes** picked up matching _is on_ and _is off_ conditions, finishing what last release's triggers started. And your **to-do lists** can now answer two questions an automation might have: are _all items completed_, or are there _still incomplete items_ on the list? Great for end-of-day check-ins or those "did I forget to feed the cat" moments. 🐱
 
-Your **timers** got a whole lifecycle of new {% term triggers %}: _started_, _paused_, _restarted_, _cancelled_, and _finished_. So that 20-minute "tea is ready" timer can now actually _tell_ your kitchen lights to flash, and your "kids screen time" timer can announce when it's running, paused, or up. ⏲️
+Your **timers** got a whole lifecycle of new {% term triggers %}: _started_, _paused_, _restarted_, _cancelled_, and _finished_. So that 20-minute "tea is ready" timer can now actually _tell_ your kitchen lights to flash, and your "kids screen time" timer can announce when it's running, paused, or up. There's also a new **time remaining** trigger that fires when a running timer reaches a remaining duration you pick: think a gentle "five minutes left" warning before the screen time timer runs out. ⏲️
 
 And finally, a small but lovely addition: a brand new **doorbell rang** trigger. Doorbell event entities now speak a shared language, so a single trigger lights up regardless of which brand sits at your front door. 🔔
 
