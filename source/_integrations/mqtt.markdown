@@ -199,7 +199,7 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 ### Advanced broker configuration
 
-Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication, and enabling TLS validation of the broker's certificate for secure connection. To access the advanced options, open the MQTT broker settings, select **Advanced options**, and click **Next**. Advanced broker options are shown by default when default advanced broker settings were changed.
+Advanced broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access the advanced options, open the MQTT broker settings, select **Advanced options**, and select **Next**. Advanced broker options are shown by default when the default advanced broker settings are changed.
 
 #### Alternative client ID
 
