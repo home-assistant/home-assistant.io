@@ -552,7 +552,7 @@ This work delivers on two Open Home Foundation roadmap opportunities: [refined m
 
 ### New styling for toggles
 
-The trusty toggle on entities cards got a small but lovely makeover this release. The old switch has been replaced with the same modern, pill-shaped control switch you already know from the more-info dialogs and tile cards, so the look stays consistent no matter where you reach for it. 🎨
+Toggles across Home Assistant got a small but lovely makeover this release. Every toggle in the app has been updated with a fresh new design. 🎨
 
 <p class='img'>
 <img src='/images/blog/2026-05/new-toggle-styling.png' alt='Screenshot of an entities card showing the refreshed toggle styling.' />
@@ -603,6 +603,8 @@ It gets even better inside the string arguments of those functions. The editor k
 No more copy-pasting entity IDs from the developer tools, and no more typos sneaking into your templates. Less friction, fewer mistakes. 🎯
 
 And it's not just autocomplete. Hover over anything in your template and the editor has something useful to say. Functions, filters, and tests get a small tooltip with their signature, what they do, and a direct link to the full documentation page. Entity IDs and attributes show their current value right where you're typing, so you instantly see whether your template is reading what you _think_ it is. 🔍
+
+<img src='/images/blog/2026-05/template-editor-tooltip.png' alt='Screenshot of the template editor showing a hover tooltip on a template function.' class='no-shadow' />
 
 ## Need help? Join the community
 
@@ -700,7 +702,7 @@ If you have webhooks configured in YAML with non-boolean `local_only` values, up
 
 [@edenhaus]: https://github.com/edenhaus
 [#169296]: https://github.com/home-assistant/core/pull/169296
-[Webhook documentation]: /integrations/webhook/
+[Webhook documentation]: /docs/automation/trigger/#webhook-trigger
 
 {% enddetails %}
 
