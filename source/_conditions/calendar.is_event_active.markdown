@@ -5,7 +5,7 @@ domain: calendar
 description: "Tests if one or more calendars have an active event."
 ---
 
-The **Calendar event is active** condition passes when a calendar {% term entity %} has an active event. Use it to gate an automation so it only runs when a specific calendar event has started.
+The **Calendar event is active** condition passes when a calendar {% term entity %} has an active event. Use it to gate an automation so it only runs when a specific calendar event has started and not yet ended.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -16,7 +16,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Calendar event is active**.
+4. From the search box, search for and select **Calendar: Calendar event is active**.
 5. Under **Targets**, select a calendar entity, an area, a floor, or a label.
 6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
 7. Select **Save**.
@@ -69,7 +69,7 @@ for:
 
 ### Automation: send reminder for a sunset run if no calendar event is active
 
-Before sunset, if there is not an active event in the calendar, this automation sends a notification to the mobile phone with a reminder to go for a sunset run.
+Half an hour before sunset, if there is not an active event in the calendar, this automation sends a notification to the mobile phone with a reminder to go for a sunset run.
 
 - **Trigger**: Sun
 - **Condition**: Calendar event is active
@@ -84,7 +84,7 @@ automation: |
   triggers:
     - trigger: sun
       event: sunset
-      offset: 0
+      offset: "-00:30:00"
   conditions:
     - condition: not
       conditions:

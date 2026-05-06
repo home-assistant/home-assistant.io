@@ -20,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Calendar event ended**.
+4. From the search box, search for and select **Calendar: Calendar event ended**.
 5. Under **Targets** (see [Targets](#targets)), select **Add target** and pick what to watch. Select the calendar entity with the event that you want to watch. You can also select a device or a label, for example.
 6. Under **Offset**, you can enter the time from the end of the event when the trigger will fire. If you want the trigger to fire at the ending time of the event, skip this step and the next one.
 7. If you entered an offset, under **Offset type**, select one of the following:
@@ -51,14 +51,11 @@ trigger: |
     entity_id: calendar.personal
   options:
     offset:
-      hours: 0
-      minutes: 0
-      seconds: 0
-      days: 0
-    offset_type: before
+      minutes: 30
+    offset_type: after
 {% endexample %}
 
-This fires at the end of an event of `calendar.personal`.
+This fires 30 minutes after the end of an event in `calendar.personal`.
 
 ### Options in YAML
 
