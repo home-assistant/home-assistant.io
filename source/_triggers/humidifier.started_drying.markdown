@@ -25,7 +25,7 @@ To use **Humidifier started drying** in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your dehumidifier is in (like your basement or bathroom). You can also select a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Humidifier started drying**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple devices are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple devices are targeted.
 7. Under **For at least**, set how long the device must be actively drying before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -33,7 +33,12 @@ To use **Humidifier started drying** in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple devices are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted device starts drying, **First** to fire only on the first, or **Last** to fire only after every targeted device starts drying. This corresponds to the `behavior` field in YAML. Default is **Any**.
+  description: |
+    When multiple devices are targeted, controls when the trigger fires:
+
+    - **Each** (`any` in YAML, default): fire every time any targeted device starts drying.
+    - **First** (`first` in YAML): fire only on the first device that starts drying.
+    - **All** (`last` in YAML): fire only after every targeted device starts drying.
   required: true
 For at least:
   description: How long the device must be actively drying before the trigger fires. Default is `0` (fires immediately).
@@ -59,8 +64,12 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 behavior:
-  description: >
-    When multiple devices are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  description: |
+    When multiple devices are targeted, controls when the trigger fires:
+
+    - `any` (**Each** in the UI, default): fire every time any targeted device starts drying.
+    - `first` (**First** in the UI): fire only on the first device that starts drying.
+    - `last` (**All** in the UI): fire only after every targeted device starts drying.
   required: true
   type: string
   default: any
@@ -91,7 +100,7 @@ When the basement dehumidifier starts running again, it means the air has become
 
 - **Trigger**: Humidifier started drying
 - **Target**: Basement dehumidifier
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:05:00
 - **Action**: Send a mobile notification
 
@@ -121,7 +130,7 @@ When the dehumidifier starts drying, close any open motorized windows automatica
 
 - **Trigger**: Humidifier started drying
 - **Target**: Basement dehumidifier
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Cover: Close cover
 

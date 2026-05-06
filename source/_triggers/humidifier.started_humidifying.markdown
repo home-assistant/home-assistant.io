@@ -23,7 +23,7 @@ To use **Humidifier started humidifying** in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Humidifier started humidifying**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple humidifiers are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple humidifiers are targeted.
 7. Under **For at least**, set how long the humidifier must be actively humidifying before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -31,7 +31,12 @@ To use **Humidifier started humidifying** in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier starts humidifying, **First** to fire only on the first, or **Last** to fire only after every targeted humidifier starts humidifying. This corresponds to the `behavior` field in YAML. Default is **Any**.
+  description: |
+    When multiple humidifiers are targeted, controls when the trigger fires:
+
+    - **Each** (`any` in YAML, default): fire every time any targeted humidifier starts humidifying.
+    - **First** (`first` in YAML): fire only on the first humidifier that starts humidifying.
+    - **All** (`last` in YAML): fire only after every targeted humidifier starts humidifying.
   required: true
 For at least:
   description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
@@ -57,8 +62,12 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 behavior:
-  description: >
-    When multiple humidifiers are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  description: |
+    When multiple humidifiers are targeted, controls when the trigger fires:
+
+    - `any` (**Each** in the UI, default): fire every time any targeted humidifier starts humidifying.
+    - `first` (**First** in the UI): fire only on the first humidifier that starts humidifying.
+    - `last` (**All** in the UI): fire only after every targeted humidifier starts humidifying.
   required: true
   type: string
   default: any
@@ -90,7 +99,7 @@ When the nursery humidifier starts humidifying again after a pause, it means the
 
 - **Trigger**: Humidifier started humidifying
 - **Target**: Nursery humidifier
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Condition**: Time is between 22:00 and 07:00
 - **Action**: Send a mobile notification
 
@@ -124,7 +133,7 @@ When the bedroom humidifier starts humidifying, turn on a low-speed fan to distr
 
 - **Trigger**: Humidifier started humidifying
 - **Target**: Bedroom humidifier
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Action**: Fan: Turn on
 

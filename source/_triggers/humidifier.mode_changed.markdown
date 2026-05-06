@@ -12,8 +12,6 @@ The **Humidifier mode changed** trigger fires after the operating mode of a humi
 
 You can optionally filter the trigger to fire only when the humidifier switches to a specific mode. Leave the mode option empty to fire on any mode change.
 
-When you target more than one humidifier, the **Trigger when** option controls when it fires.
-
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
@@ -26,7 +24,7 @@ To use **Humidifier mode changed** in an automation, follow these steps:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Humidifier mode changed**.
 6. Optionally, under **Mode**, select one or more modes you want to watch for. Leave it empty to trigger on any mode change.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple humidifiers are targeted.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple humidifiers are targeted.
 8. Under **For at least**, set how long the humidifier must remain in the new mode before the trigger fires. Leave it at zero to fire immediately.
 9. Select **Save**.
 
@@ -37,7 +35,12 @@ Mode:
   description: The mode or modes the humidifier must switch to for the trigger to fire. Typical modes include **Normal**, **Eco**, **Away**, **Boost**, **Comfort**, **Home**, **Sleep**, **Auto**, and **Baby**, though the exact modes available depend on your device. Default is empty, which fires on any mode change.
   required: false
 Trigger when:
-  description: When multiple humidifiers are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted humidifier changes mode, **First** to fire only on the first change, or **Last** to fire only after every targeted humidifier changes mode. This corresponds to the `behavior` field in YAML. Default is **Any**.
+  description: |
+    When multiple humidifiers are targeted, controls when the trigger fires:
+
+    - **Each** (`any` in YAML, default): fire every time any targeted humidifier changes mode.
+    - **First** (`first` in YAML): fire only on the first mode change.
+    - **All** (`last` in YAML): fire only after every targeted humidifier changes mode.
   required: true
 For at least:
   description: How long the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup. If you set a short delay of a few seconds, it prevents your automation from firing on that momentary blip. Default is `0` (fires immediately).
@@ -80,8 +83,12 @@ mode:
   type: string
   default: (empty, fires on any mode change)
 behavior:
-  description: >
-    When multiple humidifiers are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  description: |
+    When multiple humidifiers are targeted, controls when the trigger fires:
+
+    - `any` (**Each** in the UI, default): fire every time any targeted humidifier changes mode.
+    - `first` (**First** in the UI): fire only on the first mode change.
+    - `last` (**All** in the UI): fire only after every targeted humidifier changes mode.
   required: true
   type: string
   default: any
@@ -114,7 +121,7 @@ When the bedroom humidifier switches to sleep mode, dim the lights and activate 
 - **Trigger**: Humidifier mode changed
 - **Target**: Bedroom humidifier
 - **Mode**: sleep
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Action**: Light: Turn on (night scene)
 
 {% details "YAML example for a sleep-mode scene" %}
@@ -144,7 +151,7 @@ When a humidifier in the house switches to eco mode, send a notification confirm
 - **Trigger**: Humidifier mode changed
 - **Target**: All humidifiers (by label)
 - **Mode**: eco
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Action**: Send a mobile notification
 
 {% details "YAML example for an eco-mode notification" %}
