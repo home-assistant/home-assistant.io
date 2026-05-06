@@ -5,6 +5,7 @@ ha_release: 2026.4
 ha_category:
   - Binary sensor
   - Sensor
+  - Water heater
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -13,6 +14,7 @@ ha_domain: hr_energy_qube
 ha_platforms:
   - binary_sensor
   - sensor
+  - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -47,6 +49,14 @@ Host:
 - **Demand signals**: thermostat demand, plant demand, and external demand
 - **System status**: keypad, day mode, summer mode, anti-legionella, dewpoint, booster security, source flow, and photovoltaic (PV) surplus
 - **Sensor status** (disabled by default): room sensor enabled, plant sensor enabled, buffer sensor enabled, and DHW controller enabled
+
+### Water heater
+
+The integration provides a water heater entity for domestic hot water (DHW) control:
+
+- **Current temperature**: the measured DHW temperature
+- **Target temperature**: the user-defined DHW setpoint (adjustable)
+- **Operation modes**: heat pump (normal operation) and performance (DHW boost, forces an immediate heating cycle)
 
 ### Sensors
 
