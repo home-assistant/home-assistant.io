@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2026.5 Beta: We're on the same frequency now 📡"
+title: "2026.5: We're on the same frequency now 📡"
 description: "Radio frequency joins the smart home, a brand new Maintenance dashboard for your batteries, serial ports proxied over the network with ESPHome, new tile card features for media players, durations for purpose-specific automation triggers and conditions, redesigned more-info dialogs for vacuums and lawn mowers, autocomplete in the code editors, and 12 new integrations!"
-date: 2026-04-29 00:00:00
+date: 2026-05-06 00:00:00
 date_formatted: "May 6, 2026"
 author: Franck Nijhof
 author_twitter: frenck
@@ -14,57 +14,6 @@ og_image: /images/blog/2026-04/beta-social.png
 ---
 
 <lite-youtube videoid="g9F3mn2SYGg" videotitle="Home Assistant 2026.5 Release Party"></lite-youtube>
-
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2026.5** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/143)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/807)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/150)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=g9F3mn2SYGg) on May 6, 2026, at 20:00 GMT / 12:00 PT / 21:00 CET!
-
-{% endtip %}
 
 Home Assistant 2026.5! 🎉
 
