@@ -1,6 +1,6 @@
 ---
 title: OpenAQ
-description: Instructions on how to integrate OpenAQ air quality data within Home Assistant.
+description: Monitor real-time air quality data from public monitoring stations around the world using OpenAQ.
 ha_category:
   - Environment
   - Health
