@@ -32,7 +32,7 @@ During setup, enter your OpenAQ API key. Home Assistant validates the key before
 
 After the integration is added, add at least one monitoring location:
 
-1. Under **Settings** > **Devices & services**, select the **OpenAQ** integration.
+1. Under {% my integrations title="**Settings** > **Devices & services**" %}, select the **OpenAQ** integration.
 2. Select **Add monitoring location**.
 3. Select a point on the map, set a maximum search radius, and choose one of the suggested monitoring locations. The default radius is 10000 meters (10 km), and the maximum radius is 25000 meters (25 km).
 4. Select the monitoring location to add.
