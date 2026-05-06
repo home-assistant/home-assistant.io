@@ -133,7 +133,7 @@ At bedtime, this automation arms the house only if the front door, back door, an
 automation: |
   alias: "Arm house only when all doors are closed"
   triggers:
-    - trigger: state
+    - trigger: time
       at: "23:00:00"
   conditions:
     - condition: door.is_closed
