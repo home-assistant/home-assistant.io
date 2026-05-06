@@ -69,7 +69,7 @@ OpenAQ measurements can include many decimal places. Home Assistant suggests a s
 
 OpenAQ data is polled every 10 minutes.
 
-Each update fetches the selected monitoring location, the latest measurements for that location, and the sensors available at that location. If Home Assistant cannot reach OpenAQ during an update, the entities for that monitoring location become unavailable until a later update succeeds.
+When the integration loads, Home Assistant fetches the location details, its available sensors, and the latest measurements in parallel. On every subsequent poll, only the latest measurements are fetched. Location and sensor metadata are cached until the integration reloads. If Home Assistant cannot reach OpenAQ during a poll, the entities for that monitoring location become unavailable until the next successful poll.
 
 ## Known limitations
 
