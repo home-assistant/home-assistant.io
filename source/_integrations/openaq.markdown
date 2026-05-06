@@ -22,7 +22,9 @@ OpenAQ collects public air quality data from many providers around the world. In
 
 ## Prerequisites
 
-You need an OpenAQ API key. Sign up for an API key from the [OpenAQ Explorer registration page](https://explore.openaq.org/register). You can manage your API key from your [OpenAQ Explorer account settings](https://explore.openaq.org/account).
+- You need an OpenAQ API key. 
+   - Sign up for an API key from the [OpenAQ Explorer registration page](https://explore.openaq.org/register). 
+   - You can manage your API key from your [OpenAQ Explorer account settings](https://explore.openaq.org/account).
 
 Treat your API key like a password. Do not share it or publish it in screenshots, logs, or public configuration examples.
 
