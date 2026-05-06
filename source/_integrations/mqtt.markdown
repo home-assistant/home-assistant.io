@@ -20,6 +20,8 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - date
+  - datetime
   - device_tracker
   - diagnostics
   - event
@@ -37,7 +39,9 @@ ha_platforms:
   - siren
   - switch
   - tag
+  - tag
   - text
+  - time
   - update
   - vacuum
   - valve
@@ -61,6 +65,8 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date Time](/integrations/datetime.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
@@ -80,6 +86,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Update](/integrations/update.mqtt/)
 - [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
@@ -95,6 +102,8 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Camera](/integrations/camera.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date Time](/integrations/datetime.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
@@ -111,6 +120,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
@@ -970,6 +980,7 @@ support_url:
     'tilt_status_tpl':     'tilt_status_template',
     'tit':                 'title',
     'trns':                'transition',
+    'tz':                  'timezone',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'url_t':               'url_topic',

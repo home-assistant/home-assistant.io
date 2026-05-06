@@ -15,6 +15,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bbx-a'
   - '@swistakm'
+  - '@bkobus-bbx'
 ha_domain: blebox
 ha_platforms:
   - binary_sensor

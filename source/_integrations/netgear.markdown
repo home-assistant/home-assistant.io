@@ -15,7 +15,6 @@ ha_platforms:
   - update
 ha_config_flow: true
 ha_codeowners:
-  - '@hacf-fr'
   - '@Quentame'
   - '@starkillerOG'
 ha_ssdp: true

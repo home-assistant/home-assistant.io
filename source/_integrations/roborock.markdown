@@ -105,6 +105,10 @@ Zones:
   description: Show zones on the map.
 Show background:
   description: Show a blue background behind the map instead of a transparent background.
+Show walls:
+  description: Show the walls on the map.
+Show rooms:
+  description: Show the rooms on the map.
 {% endconfiguration_basic %}
 
 ## Data Updates

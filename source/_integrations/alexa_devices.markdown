@@ -3,6 +3,7 @@ title: Alexa Devices
 description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Notify
   - Sensor
   - Switch
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_iot_class: Cloud Polling
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - notify
   - sensor
@@ -143,6 +145,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 
 In addition to sensors, you can use the following entities:
 
+- **Button** - Execute Alexa routines
 - **Notify** - Speak and Announce notifications
 - **Switch** - Do not disturb
 
