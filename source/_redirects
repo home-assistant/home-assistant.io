@@ -36,7 +36,7 @@ layout: null
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Design & User research
-/join-chat-design https://discord.gg/7FcRFq575z
+/join-chat-design https://discord.com/channels/330944238910963714/1475553148847526123
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -294,6 +294,12 @@ layout: null
 /docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
 /docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
 /docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
+/android https://companion.home-assistant.io/
+/ios https://companion.home-assistant.io/
+/ios/nfc https://companion.home-assistant.io/
+/ios/beta https://companion.home-assistant.io/app/ios/beta
+/ios/beta-auth /docs/ecosystem/ios
+/ios/dev-auth /docs/ecosystem/ios
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -352,6 +358,7 @@ layout: null
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /integrations/imap_email_content /integrations/imap/#using-events
+/integrations/webhook /docs/automation/trigger/#webhook-trigger
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
@@ -414,6 +421,7 @@ layout: null
 /common-tasks/os/#backups /common-tasks/general/#backups
 /common-tasks/supervised/#snapshots /common-tasks/general/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/more-info/system-health/   /more-info/system-information/
 /integrations/zigbee /integrations/zha
 /examples /
 
@@ -588,6 +596,7 @@ layout: null
 /integrations/iota /more-info/removed-integration 301
 /integrations/juicenet /more-info/removed-integration 301
 /integrations/keyboard /more-info/removed-integration 301
+/integrations/lannouncer /more-info/removed-integration 301
 /integrations/lirc /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301
@@ -665,6 +674,7 @@ layout: null
 /integrations/tesla /more-info/removed-integration 301
 /integrations/tfiac /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
+/integrations/tplink_lte /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
@@ -688,6 +698,7 @@ layout: null
 /integrations/yweather /more-info/removed-integration 301
 /integrations/zengge /integrations/led_ble 301
 /integrations/google_gemini /integrations/google_generative_ai_conversation 301
+/integrations/qube_heatpump /integrations/hr_energy_qube 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images
@@ -700,3 +711,81 @@ layout: null
 /blog/2025/12/17/music-assistant-2-7/ https://www.music-assistant.io/blog/2025/12/17/music-assistant-2-7/ 301!
 /blog/2025/03/05/music-assistants-next-big-hit/ https://www.music-assistant.io/blog/2025/03/05/music-assistants-next-big-hit/ 301!
 /blog/2024/05/09/music-assistant-2/ https://www.music-assistant.io/blog/2024/05/09/music-assistant-2/ 301!
+
+# Other blog redirects
+/blog/2017/02/22/home-assistant-tshirts-have-arrived/ /blog/2026/02/19/open-home-foundation-merch-store-announcement/ 301!
+
+# Templating documentation reorganization
+/docs/configuration/templating/ /docs/templating/
+/docs/configuration/templating/#building-templates /docs/templating/syntax/
+/docs/configuration/templating/#important-template-rules /docs/templating/yaml/
+/docs/configuration/templating/#enabled-jinja-extensions /docs/templating/loops-and-conditions/
+/docs/configuration/templating/#reusing-templates /docs/templating/syntax/
+/docs/configuration/templating/#home-assistant-template-extensions /docs/templating/
+/docs/configuration/templating/#limited-templates /docs/templating/where-to-use/#limited-templates
+/docs/configuration/templating/#this /docs/templating/states/
+/docs/configuration/templating/#states /docs/templating/states/
+/docs/configuration/templating/#attributes /docs/templating/states/
+/docs/configuration/templating/#state-translated /template-functions/state_translated/
+/docs/configuration/templating/#state-attribute-translated /template-functions/state_attr_translated/
+/docs/configuration/templating/#working-with-groups /docs/templating/states/
+/docs/configuration/templating/#entities /template-functions/
+/docs/configuration/templating/#devices /template-functions/
+/docs/configuration/templating/#config-entries /template-functions/config_entry_attr/
+/docs/configuration/templating/#floors /template-functions/
+/docs/configuration/templating/#areas /template-functions/
+/docs/configuration/templating/#entities-for-an-integration /template-functions/integration_entities/
+/docs/configuration/templating/#labels /template-functions/
+/docs/configuration/templating/#issues /template-functions/
+/docs/configuration/templating/#immediate-if-iif /template-functions/iif/
+/docs/configuration/templating/#time /template-functions/now/
+/docs/configuration/templating/#tofrom-json /template-functions/from_json/
+/docs/configuration/templating/#is-defined /template-functions/is_defined/
+/docs/configuration/templating/#version /docs/templating/
+/docs/configuration/templating/#distance /template-functions/distance/
+/docs/configuration/templating/#closest /template-functions/closest/
+/docs/configuration/templating/#contains /template-functions/contains/
+/docs/configuration/templating/#numeric-functions-and-filters /docs/templating/patterns/
+/docs/configuration/templating/#complex-type-checking /docs/templating/patterns/
+/docs/configuration/templating/#type-conversions /docs/templating/patterns/
+/docs/configuration/templating/#iterating-multiple-objects /docs/templating/loops-and-conditions/
+/docs/configuration/templating/#functions-and-filters-to-process-raw-data /docs/templating/patterns/
+/docs/configuration/templating/#string-filters /docs/templating/patterns/
+/docs/configuration/templating/#hashing /docs/templating/patterns/
+/docs/configuration/templating/#regular-expressions /docs/templating/patterns/
+/docs/configuration/templating/#shuffling /template-functions/shuffle/
+/docs/configuration/templating/#flatten-a-list-of-lists /template-functions/flatten/
+/docs/configuration/templating/#find-common-elements-between-lists /template-functions/intersect/
+/docs/configuration/templating/#find-elements-in-first-list-not-in-second-list /template-functions/difference/
+/docs/configuration/templating/#find-elements-that-are-in-either-list-but-not-in-both /template-functions/symmetric_difference/
+/docs/configuration/templating/#combine-all-unique-elements-from-two-lists /template-functions/union/
+/docs/configuration/templating/#combining-dictionaries /template-functions/combine/
+/docs/configuration/templating/#working-with-macros /docs/templating/syntax/
+/docs/configuration/templating/#merge-action-responses /docs/templating/patterns/
+/docs/configuration/templating/#processing-incoming-data /docs/templating/patterns/
+/docs/configuration/templating/#using-templates-with-the-mqtt-integration /docs/templating/where-to-use/#mqtt
+/docs/configuration/templating/#using-value-templates-with-mqtt /docs/templating/where-to-use/#mqtt
+/docs/configuration/templating/#using-command-templates-with-mqtt /docs/templating/where-to-use/#mqtt
+/docs/configuration/templating/#formatting-sensor-states /docs/templating/patterns/
+/docs/configuration/templating/#determining-types /docs/templating/patterns/
+/docs/configuration/templating/#inspecting-attributes /docs/templating/debugging/
+/docs/configuration/templating/#comparing-numbers /docs/templating/patterns/
+/docs/configuration/templating/#best-practices /docs/templating/debugging/
+
+# Template function category pages merged into index
+/template-functions/category/area/ /template-functions/#area
+/template-functions/category/collection/ /template-functions/#collection
+/template-functions/category/comparison/ /template-functions/#comparison
+/template-functions/category/datetime/ /template-functions/#datetime
+/template-functions/category/device/ /template-functions/#device
+/template-functions/category/encoding/ /template-functions/#encoding
+/template-functions/category/entity/ /template-functions/#entity
+/template-functions/category/floor/ /template-functions/#floor
+/template-functions/category/functional/ /template-functions/#functional
+/template-functions/category/label/ /template-functions/#label
+/template-functions/category/math/ /template-functions/#math
+/template-functions/category/regex/ /template-functions/#regex
+/template-functions/category/repairs/ /template-functions/#repairs
+/template-functions/category/state/ /template-functions/#state
+/template-functions/category/strings/ /template-functions/#strings
+/template-functions/category/type/ /template-functions/#type

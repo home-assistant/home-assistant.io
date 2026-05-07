@@ -62,7 +62,7 @@ stopbits:
   required: false
   default: 1
   type: float
-xonxoff: 
+xonxoff:
   description: Enable software flow control.
   required: false
   default: False
@@ -78,7 +78,7 @@ dsrdtr:
   default: False
   type: boolean
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the serial line."
+  description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the serial line."
   required: false
   type: template
 {% endconfiguration %}
@@ -87,19 +87,15 @@ value_template:
 
 ### TMP36
 
-{% raw %}
-
 ```yaml
 "{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
 ```
-
-{% endraw %}
 
 ## Examples
 
 ### Arduino
 
-For controllers of the Arduino family, a possible sketch to read the temperature and the humidity could look like the sample below.The returned data is in JSON format and can be split into the individual sensor values using a [template](/docs/configuration/templating/#processing-incoming-data).
+For controllers of the Arduino family, a possible sketch to read the temperature and the humidity could look like the sample below.The returned data is in JSON format and can be split into the individual sensor values using a [template](/docs/templating/where-to-use/#processing-incoming-data).
 
 ```c
 #include <ArduinoJson.h>
@@ -132,8 +128,6 @@ $,24.3,51,12.8,1029.76,0.0,0.00,*
 
 To parse this into individual sensors, split using the comma delimiter and then create a template sensor for each item of interest.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -153,8 +147,6 @@ template:
       unit_of_measurement: "mbar"
       state: "{{ states('sensor.serial_sensor').split(',')[4] | float(default=0) }}"
 ```
-
-{% endraw %}
 
 ### Digispark USB Development Board
 

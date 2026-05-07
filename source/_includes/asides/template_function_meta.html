@@ -1,0 +1,66 @@
+{%- assign category_label = "" -%}
+{%- for cat in site.data.template_function_categories -%}
+  {%- if cat.key == page.category -%}
+    {%- assign category_label = cat.label -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h2 class="h1 title epsilon">{% icon "mdi:code-braces" %} Function: <code>{{ page.function_name }}</code></h2>
+
+    <div class='section'>
+      {% icon "mdi:format-list-bulleted-type" %}&nbsp;Available as:
+      <ul>
+        {%- for type in page.available_as -%}
+        <li>{% include template_functions/available_type.html type=type %}</li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- if page.aliases -%}
+    <div class='section'>
+      {% icon "mdi:alpha-a-box-outline" %}&nbsp;Also known as:
+      <ul>
+        {%- for alias in page.aliases -%}
+        <li><code>{{ alias }}</code></li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    {%- endif -%}
+
+    <div class='section'>
+      {%- if page.limited -%}
+        {% icon "mdi:check-circle-outline" %}&nbsp;Available in <a href="/docs/templating/where-to-use/#limited-templates">limited templates</a>
+      {%- else -%}
+        {% icon "mdi:close-circle-outline" %}&nbsp;Not available in <a href="/docs/templating/where-to-use/#limited-templates">limited templates</a>
+      {%- endif -%}
+    </div>
+
+    {%- if page.return_type -%}
+    <div class='section'>
+      {% icon "mdi:keyboard-return" %}&nbsp;Returns: {% include template_functions/return_type.html type=page.return_type %}
+    </div>
+    {%- endif -%}
+
+    {%- if page.since -%}
+    <div class='section'>
+      {% icon "mdi:history" %}&nbsp;Since Home Assistant {{ page.since }}
+    </div>
+    {%- endif -%}
+
+    {%- if page.deprecated_in_favor_of -%}
+    <div class='section'>
+      {% icon "mdi:alert" %}&nbsp;<strong>Deprecated.</strong> Use <a href="/template-functions/{{ page.deprecated_in_favor_of }}/"><code>{{ page.deprecated_in_favor_of }}</code></a> instead.
+    </div>
+    {%- endif -%}
+
+    <div class='section'>
+      {% icon "mdi:category" %}&nbsp;Category: <a href='/template-functions/#{{ page.category }}'>{{ category_label }}</a>
+    </div>
+
+    <div class='section'>
+      {% my developer_template badge %}
+    </div>
+  </div>
+</section>

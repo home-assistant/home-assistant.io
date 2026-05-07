@@ -19,15 +19,6 @@ works_with:
 
 {% include integrations/wwha.md url="https://www.evehome.com/" %}
 
-The following devices are supported:
+## Supported devices
 
-- [Eve Door & Window](https://www.evehome.com/en/eve-door-window)
-- [Eve Energy Outlet](https://www.evehome.com/en/eve-energy-outlet)
-- [Eve Energy Outdoor](https://www.evehome.com/en/eve-energy-outdoor)
-- [Eve Energy](https://www.evehome.com/en/eve-energy)
-- [Eve Light Switch](https://www.evehome.com/en/eve-light-switch)
-- [Eve Dimmer Switch](https://www.evehome.com/en/eve-dimmer-switch)
-- [Eve Motion](https://www.evehome.com/en/eve-motion)
-- [Eve MotionBlinds](https://www.evehome.com/en/eve-blinds-collection)
-- [Eve Thermo](https://www.evehome.com/en/eve-thermo)
-- [Eve Weather](https://www.evehome.com/en/eve-weather)
+{% include integrations/device_list.html brand="eve" %}

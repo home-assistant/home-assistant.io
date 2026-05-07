@@ -419,13 +419,13 @@ Widget that displays a button to select a date using the date picker dialog for 
 
 ```yaml
 features:
-  - type: "date"
+  - type: "date-set"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`date`"
+  description: "`date-set`"
   type: string
 {% endconfiguration %}
 
@@ -736,6 +736,48 @@ features:
 type:
   required: true
   description: "`media-player-playback`"
+  type: string
+{% endconfiguration %}
+
+## Media player sound mode
+
+Widget that displays a dropdown to select the sound mode for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_sound_mode.png' alt='Screenshot of the tile card with media player sound mode feature'>
+  Screenshot of the tile card with media player sound mode feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-sound-mode"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-sound-mode`"
+  type: string
+{% endconfiguration %}
+
+## Media player source
+
+Widget that displays a dropdown to select the source for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_source.png' alt='Screenshot of the tile card with media player source feature'>
+  Screenshot of the tile card with media player source feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-source"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-source`"
   type: string
 {% endconfiguration %}
 

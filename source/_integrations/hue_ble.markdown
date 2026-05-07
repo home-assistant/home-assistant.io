@@ -42,10 +42,12 @@ This {% term integration %} is tested to work with the following models:
 
 | Model number | Product name                                     |
 |--------------|--------------------------------------------------|
+| LCA004       | Hue White and Color 800                          |
 | LCA006       | Hue White and Color 1100                         |
 | LCA011       | Hue White and Color ambiance 1100                |
 | LCL009       | Hue Solo Lightstrip                              |
 | LCX029       | Hue Festavia globe bulb string lights            |
+| LWA021       | Hue Filament Bulb White                          |
 | LWA031       | Hue White 1600                                   |
 | LTO002       | Hue White ambiance filament globe bulb           |
 | Unknown      | Hue White and Color Ambiance Go portable accent light  |

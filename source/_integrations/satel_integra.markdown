@@ -18,6 +18,7 @@ ha_platforms:
   - diagnostics
   - switch
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Satel Integra** {% term integration %} allows you to connect your [Satel Integra alarm system](https://www.satel.pl/en/product-category/intruder-alarms/integra/) to Home Assistant to control and monitor your alarm system.
@@ -41,7 +42,10 @@ The integration only supports the **ETHM-1 Plus**, with firmware version 2.00 or
 3. Open the **System and hardware structure** tab.
 4. Navigate to the **Hardware** section, expand the tree and select the **ETHM-1 Plus** module.
 5. Select the **Integration** checkbox.
-6. Clear the **Encrypted integration** checkbox. Encrypted connection is currently not supported.
+6. Configure encryption:
+    - If you want to use an unencrypted connection, clear the **Encrypted integration** checkbox.
+    - If you want to use an encrypted connection, select the **Encrypted integration** checkbox and note the
+     integration encryption key you configured in the **Keypads** module from the navigation tree.
 
 {% note %}
 If you do not have access to the DLOADX program or your project file, ask your installer to adjust the settings for you.
@@ -54,6 +58,9 @@ Host:
   description: The IP address of the Satel Integra ETHM module.
 Port:
   description: The port on which the ETHM module listens for clients using the integration protocol.
+Integration encryption key:
+  description: Encryption key to use if an encrypted connection is used, as configured in DLOADX
+    for the ETHM-1 Plus module. Leave empty if not using an encrypted connection.
 Code:
   description: Optional code that will be used to toggle switchable outputs.
 {% endconfiguration_basic %}

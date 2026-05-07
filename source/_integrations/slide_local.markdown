@@ -74,7 +74,7 @@ The integration fetches data from the device every 15 seconds.
 
 ## Known limitations
 
-The integration only provides connection with Slide devices via the local API. The cloud API is no longer available. 
+The integration only provides connection with Slide devices via the local API. The cloud API is no longer available.
 
 
 ## Removing the integration

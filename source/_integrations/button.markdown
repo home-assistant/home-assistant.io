@@ -16,20 +16,17 @@ related:
     title: Dashboard
 ---
 
-A button {% term entity %} is an entity that can fire an {% term event %} / trigger an {% term action %} towards
-a {% term device %} or {% term service %} but remains stateless from the Home Assistant perspective.
+A button {% term entity %} is an entity that can fire an {% term event %} or trigger an {% term action %} towards a {% term device %} or {% term service %}, but remains stateless from the Home Assistant perspective.
 
-It can be compared to a real live momentary switch, push-button, or some other
-form of a stateless switch.
+It can be compared to a momentary switch, push-button, or other form of stateless switch.
 
 {% include integrations/building_block_integration.md %}
 
 ## The state of a button
 
-The button {% term entity %} is stateless, as in, it cannot have a state like the `on` or
-`off` state that, for example, a normal switch entity has.
+The button {% term entity %} is stateless. Unlike a normal switch entity, it does not have an `on` or `off` state.
 
-The state of a button is a timestamp showing the date and time of the last time the button had been pressed in the Home Assistant UI or via an action.
+The state of a button is a timestamp showing when the button was last pressed via the Home Assistant UI or an action.
 
 <p class='img'>
 <img src='/images/integrations/button/state_button.png' alt='Screenshot showing the state of a button entity in the developer tools' />
@@ -41,16 +38,20 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-Because the {% term state %} of a button entity in Home Assistant is a timestamp, it
-changes every time the button is pressed. This means we can trigger automations on
-any state change of the button entity, which effectively captures when the button
-is pressed. We don't need to use the actual timestamp value; we only care that the
-state changed, indicating a button press:
+Because the {% term state %} of a button entity in Home Assistant is a timestamp, it changes every time the button is pressed. You can trigger an automation on any state change of the button entity, which effectively captures when the button is pressed. You don't need to use the actual timestamp value; you only care that the state changed, indicating a button press.
+
+Make sure to exclude transitions to and from `unavailable` and `unknown`, so the automation doesn't fire when the button becomes temporarily unavailable (for example, due to a network interruption) and then returns to its previous state:
 
 ```yaml
 triggers:
   - trigger: state
     entity_id: button.my_button
+    not_from:
+      - unavailable
+      - unknown
+    not_to:
+      - unavailable
+      - unknown
 actions:
   - action: notify.frenck
     data:
@@ -59,7 +60,7 @@ actions:
 
 ## Actions
 
-The button entities exposes a single {% term action %}: {% my developer_call_service service="button.press" %}
+The button entity exposes a single {% term action %}: {% my developer_call_service service="button.press" %}
 
 This action can be called to trigger a button press for that entity.
 
@@ -76,7 +77,7 @@ This action can be called to trigger a button press for that entity.
 The screenshot shows different icons representing different device classes for buttons:
 
 <p class='img'>
-<img src='/images/screenshots/button_classes_icons.png' />
+<img src='/images/screenshots/button_classes_icons.png' alt='Screenshot showing different button icons for the identify, restart, and update device classes.' />
 Example of device class icons.
 </p>
 

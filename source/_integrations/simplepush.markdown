@@ -38,7 +38,7 @@ Attachments can be images, GIFs or video files that are accessible by a URL.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-## Examples 
+## Examples
 
 Send a notification with a title and event.
 

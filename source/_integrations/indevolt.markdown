@@ -9,7 +9,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@xirt'
 ha_platforms:
+  - binary_sensor
   - button
+  - diagnostics
   - number
   - select
   - sensor
@@ -20,11 +22,11 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
-The Indevolt {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
+The **Indevolt** {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status, and configure power limits and other battery protection settings.
+With this integration, you can monitor energy production and consumption as well as battery status. You can also manage battery working modes and control real-time charging/discharging behavior, and configure power limits and other battery protection settings.
 
 ## Supported devices
 
@@ -35,9 +37,11 @@ The integration supports the following devices:
 
 ## Prerequisites
 
+<!-- textlint-disable capitalize -->
 1. Connect your Indevolt device and Home Assistant to the same local network.
 2. Ensure the Indevolt device is powered on and has acquired a network IP address. You can get the IP from the app or from your router.
-3. Enable the device's API through the app.
+3. In the Indevolt app, enable the **Local API** and set the protocol to `http`.
+<!-- textlint-disable capitalize -->
 
 {% include integrations/config_flow.md %}
 
@@ -46,6 +50,7 @@ Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
 
 {% endconfiguration_basic %}
+
 
 The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
 
@@ -61,10 +66,11 @@ The following button entity allows triggering device actions directly from Home 
 
 ### Sensors
 
-#### BK1600/BK1600Ultra (Generation 1)
+#### All generations
 
-- Device mode (overal setup of the device, for example standalone/cluster)
-- Energy mode (battery and energy management strategy, for example Self-Consumped Prioritized/Price-Based Strategy)
+- Device mode (overall setup of the device, for example standalone/cluster)
+- Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
+- Device heating state (Gen-1 specific, on/off)
 - DC input power (2 channels, W)
 - Daily production (kWh)
 - Cumulative production (kWh)
@@ -74,7 +80,7 @@ The following button entity allows triggering device actions directly from Home 
 - Total DC output power (W)
 - Battery power (W)
 - Battery charge/discharge state
-- Battery SOC (%)
+- Battery <abbr title="State of Charge">SOC</abbr> (%)
 - Battery daily charging energy (kWh)
 - Battery daily discharging energy (kWh)
 - Battery total charging energy (kWh)
@@ -82,9 +88,12 @@ The following button entity allows triggering device actions directly from Home 
 - Meter connection status
 - Meter power (W)
 
-#### SolidFlex2000/PowerFlex2000 (Generation 2)
+#### BK1600/BK1600Ultra (Generation 1)
 
-All Generation 1 sensors, plus:
+- Inverter temperature (°C)
+- Battery pack 1-3 temperature (°C)
+
+#### SolidFlex2000/PowerFlex2000 (Generation 2)
 
 - Rated capacity (kWh)
 - DC input voltage (4 channels, V)
@@ -106,6 +115,7 @@ All Generation 1 sensors, plus:
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
+- Battery pack 1-5 heating state (on/off)
 
 ### Configurable entities (Generation 2 only)
 
@@ -119,6 +129,56 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 - Allow grid charging: Enable or disable charging from the grid (switch)
 - Bypass socket: Enable or disable the bypass socket (switch)
 - LED indicator: Enable or disable the LED indicator (switch)
+
+## Actions
+
+### Action: Charge the battery (real-time control mode)
+
+The `indevolt.change_energy_mode` action configures the battery to start charging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
+
+- **Data attribute**: `device_id`
+  - **Description**: The `device_id` of the Indevolt device(s)
+  - **Optional**: No
+- **Data attribute**: `power`
+  - **Description**: The maximum charging power (0 - 2400W)
+  - **Optional**: No
+- **Data attribute**: `target_soc`
+  - **Description**: The target SOC (%): charging will stop when reached
+  - **Optional**: No
+
+#### Example
+
+```yaml
+action: indevolt.charge
+data:
+  device_id: YOUR_DEVICE_ID
+  power: 1000
+  target_soc: 100
+```
+
+### Action: Discharge the battery (real-time control mode)
+
+The `indevolt.change_energy_mode` action configure the battery to start discharging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
+
+- **Data attribute**: `device_id`
+  - **Description**: The `device_id` of the Indevolt device(s)
+  - **Optional**: No
+- **Data attribute**: `power`
+  - **Description**: The maximum charging power (0 - 2400W), keeping network limitations in mind
+  - **Optional**: No
+- **Data attribute**: `target_soc`
+  - **Description**: The target SOC (%): discharging will stop when reached
+  - **Optional**: No
+
+#### Example
+
+```yaml
+action: indevolt.discharge
+data:
+  device_id: YOUR_DEVICE_ID
+  power: 800
+  target_soc: 10
+```
 
 ## Data updates
 
