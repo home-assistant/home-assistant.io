@@ -1,7 +1,7 @@
 ---
 title: Data Grand Lyon
 description: Instructions on how to integrate Grand Lyon open data into Home Assistant.
-ha_release: 2026.5
+ha_release: 2026.6
 ha_category:
   - Sensor
   - Transport
