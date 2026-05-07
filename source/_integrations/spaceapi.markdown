@@ -32,7 +32,7 @@ Logo URL:
 Website URL:
   description: The URL of your hackerspace's website.
 State entity:
-  description: The entity that represents whether your space is currently open or closed. Binary sensors, switches, locks, and covers are supported. If the entity is unavailable, the endpoint reports the space as closed.
+  description: The entity that represents whether your space is currently open or closed. Binary sensors, input booleans, switches, locks, and covers are supported. If the entity is unavailable, the endpoint reports the space as closed.
 Contact email:
   description: The primary contact email address for your space.
 {% endconfiguration_basic %}
