@@ -26,7 +26,8 @@ To use **Relative humidity** in an automation:
      - [Number helper](/integrations/input_number/): You can adjust the threshold without editing the automation.
        - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
      - Humidity sensor: Its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two humidity readings, for example to check whether indoor humidity is higher than outdoor humidity.
-   - Then pick whether the reading must be above, below, or within a range of the threshold.
+
+   Then pick whether the reading must be above, below, or within a range of the threshold.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 8. Select **Save**.
 
@@ -47,7 +48,7 @@ Threshold type:
 Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
-    
+
     - **Any**: Pass if at least one targeted entity meets the threshold (default)
     - **All**: Pass only when every targeted entity meets the threshold
   required: true
@@ -115,15 +116,16 @@ threshold:
     Accepts:
     
     - A fixed number between 0 and 100
-    - A reference to a sensor entity or [number helper](/integrations/input_number/) entity
-      - Number helper: You can change the threshold without editing the automation
-      - Sensor: Its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two humidity readings dynamically (for example, checking whether indoor humidity is above outdoor humidity)
+    - A reference to an `input_number`, `number`, or `sensor` entity
+      - `input_number`: Lets you change the threshold without editing the automation. To create one, see [Number helper](/integrations/input_number/).
+      - `number`: Uses the current value of a number entity as the threshold
+      - `sensor`: Uses the current reading as the threshold when the condition is evaluated, which lets you compare two humidity readings dynamically, for example, checking whether indoor humidity is above outdoor humidity
   required: true
   type: any
 behavior:
   description: |
     When multiple entities are targeted, controls how results combine:
-    
+
     - `any`: Pass if at least one targeted entity meets the threshold
     - `all`: Pass only when every targeted entity meets the threshold
   required: true

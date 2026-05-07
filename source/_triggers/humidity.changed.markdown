@@ -211,7 +211,9 @@ automation: |
   actions:
     - action: notify.mobile_app_phone
       data:
-        message: "Bedroom humidity is now {{ trigger.to_state.state }}%, above your comfort threshold."
+        message: >-
+          Bedroom humidity is now {{ trigger.to_state.state }}%, above
+          your comfort threshold.
 {% endexample %}
 
 {% enddetails %}
