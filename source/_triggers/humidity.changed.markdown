@@ -29,7 +29,8 @@ To use **Relative humidity changed** in an automation:
    - Select **Above** or **Below** and enter a value to fire only when the new reading is above or below that value.
    - Select **In range** and enter a lower and upper bound to fire only when the new reading falls inside the range.
    - Select **Outside range** and enter a lower and upper bound to fire only when the new reading is outside the range.
-   For each option, you can enter a fixed percentage or use an `input_number`, `number`, or `sensor` entity as the threshold.
+   - For each option, you can enter a fixed percentage or pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
+     - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -44,7 +45,7 @@ Threshold type:
     - **In range**: enter a lower and upper bound to fire only when the new reading falls between them.
     - **Outside range**: enter a lower and upper bound to fire only when the new reading is below the lower bound or above the upper bound.
 
-    For each mode you can enter a fixed percentage or reference an `input_number`, `number`, or `sensor` entity.
+    For each mode you can enter a fixed percentage or reference a sensor entity or [number helper](/integrations/input_number/) entity.
   required: true
 {% endoptions_ui %}
 

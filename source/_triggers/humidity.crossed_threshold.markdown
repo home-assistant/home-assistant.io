@@ -28,7 +28,8 @@ To use **Relative humidity crossed threshold** in an automation:
    - Select **Above** or **Below** and enter a value to fire when the reading crosses that level.
    - Select **In range** and enter a lower and upper bound to fire when the reading enters the range from outside.
    - Select **Outside range** and enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
-   For each option, you can enter a fixed percentage or use an `input_number`, `number`, or `sensor` entity as the threshold.
+   - For each option, you can enter a fixed percentage or pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
+     - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple entities are targeted.
 8. Under **For at least**, set how long the reading must stay past the threshold before the trigger fires. Leave it at zero to fire immediately.
 9. Select **Save**.
@@ -44,7 +45,7 @@ Threshold type:
     - **In range**: enter a lower and upper bound to fire when the reading enters the range from outside.
     - **Outside range**: enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
 
-    For each mode you can enter a fixed percentage or reference an `input_number`, `number`, or `sensor` entity.
+    For each mode you can enter a fixed percentage or reference a sensor entity or [number helper](/integrations/input_number/) entity.
   required: true
 Trigger when:
   description: |

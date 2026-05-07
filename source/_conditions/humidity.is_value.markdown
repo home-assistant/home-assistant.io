@@ -22,8 +22,11 @@ To use **Relative humidity** in an automation:
 5. From the conditions shown for that target, select **Relative humidity**.
 6. Under **Threshold type**, set the humidity level the condition checks against:
    - Select **Number** to enter a fixed percentage directly, for example `65` for 65%.
-   - Select **Entity** to use a helper or sensor as the threshold. When you pick an `input_number` or `number` helper, you can adjust the threshold without editing the automation. When you pick a humidity sensor, its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two humidity readings, for example to check whether indoor humidity is higher than outdoor humidity.
-   Then pick whether the reading must be above, below, or within a range of the threshold.
+   - Select **Entity** to use a sensor entity or a number helper entity as the threshold:
+     - [Number helper](/integrations/input_number/): You can adjust the threshold without editing the automation.
+       - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
+     - Humidity sensor: Its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two humidity readings, for example to check whether indoor humidity is higher than outdoor humidity.
+   - Then pick whether the reading must be above, below, or within a range of the threshold.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 8. Select **Save**.
 
@@ -31,11 +34,22 @@ To use **Relative humidity** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: >
-    The humidity level the entity has to meet for the condition to pass. You can enter a fixed percentage between 0 and 100 (select **Number**), or pick an entity as a dynamic threshold (select **Entity**). When you pick an `input_number` or `number` helper, you can change the threshold without editing the automation. When you pick a humidity sensor, its live reading becomes the threshold, which is useful for comparing two humidity values, for example indoor versus outdoor. In both cases, also pick whether the reading must be above, below, or within a range of that value.
+  description: |
+    The humidity level the entity has to meet for the condition to pass:
+
+    - **Number**: Enter a fixed percentage between 0 and 100.
+    - **Entity**: Pick an entity as a dynamic threshold.
+      - [Number helper](/integrations/input_number/): You can change the threshold without editing the automation.
+      - Humidity sensor: Its live reading becomes the threshold, which is useful for comparing two humidity values (for example, indoor versus outdoor).
+    
+    In both cases, also pick whether the reading must be above, below, or within a range of that value.
   required: true
 Condition passes if:
-  description: When multiple entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does. Default is **Any**.
+  description: |
+    When multiple entities are targeted, controls how results combine:
+    
+    - **Any**: Pass if at least one targeted entity meets the threshold (default)
+    - **All**: Pass only when every targeted entity meets the threshold
   required: true
 {% endoptions_ui %}
 
@@ -91,13 +105,27 @@ This passes when the bedroom humidity sensor reads between 40% and 60%.
 
 {% options_yaml %}
 threshold:
-  description: >
-    The humidity level the entity has to meet for the condition to pass. Use `above` to set a minimum, `below` to set a maximum, or both to define a range. Accepts a fixed number between 0 and 100, or a reference to an `input_number`, `number`, or `sensor` entity. When you reference a sensor, its current reading is used as the threshold at the moment the condition is evaluated. This lets you compare two humidity readings dynamically, for example checking whether indoor humidity is above outdoor humidity.
+  description: |
+    The humidity level the entity has to meet for the condition to pass:
+
+    - Use `above` to set a minimum
+    - Use `below` to set a maximum
+    - Use both to define a range
+    
+    Accepts:
+    
+    - A fixed number between 0 and 100
+    - A reference to a sensor entity or [number helper](/integrations/input_number/) entity
+      - When you reference a sensor, its current reading is used as the threshold at the moment the condition is evaluated
+      - This lets you compare two humidity readings dynamically (for example, checking whether indoor humidity is above outdoor humidity)
   required: true
   type: any
 behavior:
-  description: >
-    When multiple entities are targeted, controls how results combine. Accepts `all` or `any`.
+  description: |
+    When multiple entities are targeted, controls how results combine:
+    
+    - `any`: Pass if at least one targeted entity meets the threshold
+    - `all`: Pass only when every targeted entity meets the threshold
   required: true
   type: string
   default: any
