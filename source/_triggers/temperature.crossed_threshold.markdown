@@ -264,3 +264,37 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+### Automation: trigger heating based on adjustable comfort temperature
+
+Trigger the heating when temperature crosses below your personal comfort threshold. Use a number helper as the threshold so you can easily adjust it through the UI without editing the automation.
+
+- **Trigger**: Temperature crossed threshold
+- **Target**: Living room temperature sensor
+- **Threshold type**: Below (entity: comfort temperature threshold)
+- **Action**: Climate: Set HVAC mode
+
+{% details "YAML example for using a number helper as threshold" %}
+
+{% example %}
+automation: |
+  alias: "Turn on heating when crossing below comfort threshold"
+  triggers:
+    - trigger: temperature.crossed_threshold
+      target:
+        entity_id: sensor.living_room_temperature
+      options:
+        threshold:
+          type: below
+          value:
+            entity: input_number.comfort_temperature_threshold
+        unit: "°C"
+  actions:
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.living_room
+      data:
+        hvac_mode: heat
+{% endexample %}
+
+{% enddetails %}

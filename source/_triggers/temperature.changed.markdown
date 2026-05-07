@@ -206,3 +206,35 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+### Automation: alert when temperature changes above comfort level
+
+Send a notification whenever the bedroom temperature changes to a level above your personal comfort threshold. Use a number helper as the threshold so you can easily adjust your preferred temperature through the UI.
+
+- **Trigger**: Temperature changed
+- **Target**: Bedroom temperature sensor
+- **Threshold type**: Above (entity: comfort temperature threshold)
+- **Action**: Notify: Send notification
+
+{% details "YAML example for using a number helper as threshold" %}
+
+{% example %}
+automation: |
+  alias: "Alert when temperature changes above comfort level"
+  triggers:
+    - trigger: temperature.changed
+      target:
+        entity_id: sensor.bedroom_temperature
+      options:
+        threshold:
+          type: above
+          value:
+            entity: input_number.comfort_temperature_threshold
+        unit: "°C"
+  actions:
+    - action: notify.mobile_app
+      data:
+        message: "Bedroom temperature is now {{ trigger.to_state.state }}°C, above your comfort threshold."
+{% endexample %}
+
+{% enddetails %}

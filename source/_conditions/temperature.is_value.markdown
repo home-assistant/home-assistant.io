@@ -136,43 +136,6 @@ behavior:
 
 {% include conditions/more_examples.md %}
 
-### Automation: run heating when the room is cold
-
-When the living room temperature sensor reads below 18°C, turn on the heating to bring the room to a comfortable temperature. The condition prevents the heating from running when the room is already warm enough.
-
-- **Trigger**: Time pattern: Every 15 minutes
-- **Condition**: Temperature (below 18°C)
-- **Target**: Living room temperature sensor
-- **Condition passes if**: Any
-- **Action**: Climate: Set HVAC mode
-
-{% details "YAML example for running heating when cold" %}
-
-{% example %}
-automation: |
-  alias: "Run heating when living room is cold"
-  triggers:
-    - trigger: time_pattern
-      minutes: "/15"
-  conditions:
-    - condition: temperature.is_value
-      target:
-        entity_id: sensor.living_room_temperature
-      options:
-        threshold:
-          below: 18
-        unit: "°C"
-        behavior: any
-  actions:
-    - action: climate.set_hvac_mode
-      target:
-        entity_id: climate.living_room
-      data:
-        hvac_mode: heat
-{% endexample %}
-
-{% enddetails %}
-
 ### Automation: cool only when temperature is high
 
 This automation runs a fan only when the bedroom temperature is above 24°C, helping you save energy by avoiding unnecessary cooling.
@@ -252,6 +215,61 @@ automation: |
         message: >
           Living room temperature is
           {{ states('sensor.living_room_temperature') }}°C
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: adjust climate when entering bedroom at night
+
+When presence is detected in the bedroom between 9pm and 7am, check the temperature against your comfort thresholds and automatically heat if too cold or cool if too hot. Use number helpers to set your preferred temperature range, so you can easily adjust it without editing the automation.
+
+- **Trigger**: Binary sensor: Bedroom presence detected
+- **Condition**: Time (21:00-07:00)
+- **Action**: Check temperature and heat if below lower threshold or cool if above upper threshold
+
+{% details "YAML example for nighttime climate control with number helpers" %}
+
+{% example %}
+automation: |
+  alias: "Adjust bedroom climate when occupied at night"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.bedroom_presence
+      to: "on"
+  conditions:
+    - condition: time
+      after: "21:00:00"
+      before: "07:00:00"
+  actions:
+    - choose:
+        - conditions:
+            - condition: temperature.is_value
+              target:
+                entity_id: sensor.bedroom_temperature
+              options:
+                threshold:
+                  below: input_number.comfort_temperature_min
+                unit: "°C"
+          sequence:
+            - action: climate.set_hvac_mode
+              target:
+                entity_id: climate.bedroom
+              data:
+                hvac_mode: heat
+        - conditions:
+            - condition: temperature.is_value
+              target:
+                entity_id: sensor.bedroom_temperature
+              options:
+                threshold:
+                  above: input_number.comfort_temperature_max
+                unit: "°C"
+          sequence:
+            - action: climate.set_hvac_mode
+              target:
+                entity_id: climate.bedroom
+              data:
+                hvac_mode: cool
 {% endexample %}
 
 {% enddetails %}
