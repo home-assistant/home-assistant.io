@@ -56,7 +56,7 @@ Many features will work with lower versions of the Elk E27 firmware.
 
 ## Actions
 
-### Service Calls for Special Arming Modes
+### Actions for special arming modes
 
 - `elke27.alarm_arm_custom_bypass` - Arms the area in "away" mode bypassing all faulted zones
 - `elke27.alarm_arm_automatic` - Arms the area in "away" mode with option to ignore the "stay no exit" setting and skip the exit delay
