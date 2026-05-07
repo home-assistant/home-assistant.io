@@ -131,7 +131,6 @@ unit:
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when temperature first crosses a specific level, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) instead.
 - The trigger works with [climate](/integrations/climate/) entities, [water heater](/integrations/water_heater/) entities, [weather](/integrations/weather/) entities, and sensors with the temperature device class.
-- The trigger works with climate entities, water heater entities, weather entities, and sensors with the temperature device class.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.
 
 {% include triggers/try_it.md %}
@@ -201,7 +200,9 @@ automation: |
   actions:
     - action: notify.mobile_app
       data:
-        message: "Temperature in {{ trigger.to_state.name }} is {{ trigger.to_state.state }}°C"
+        message: >
+          Temperature in {{ trigger.to_state.name }} is {{
+          trigger.to_state.state }}°C
 {% endexample %}
 
 {% enddetails %}

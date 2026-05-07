@@ -222,7 +222,9 @@ automation: |
   actions:
     - action: notify.mobile_app
       data:
-        message: "Bedroom temperature is now comfortable at {{ trigger.to_state.state }}°C"
+        message: >-
+          Bedroom temperature is now comfortable at
+          {{ trigger.to_state.state }}°C
 {% endexample %}
 
 {% enddetails %}

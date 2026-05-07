@@ -249,7 +249,9 @@ automation: |
   actions:
     - action: notify.mobile_app
       data:
-        message: "Living room temperature is {{ states('sensor.living_room_temperature') }}°C"
+        message: >
+          Living room temperature is
+          {{ states('sensor.living_room_temperature') }}°C
 {% endexample %}
 
 {% enddetails %}
