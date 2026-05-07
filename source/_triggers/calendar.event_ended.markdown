@@ -32,11 +32,11 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Offset:
-  description: The length of time from the end of the event.
-  required: false
+  description: The length of time from the end of the event in days, hours, minutes, and seconds.
+  required: true
 Offset type:
   description: Whether to trigger before or after the end of the event, if an offset is defined.
-  required: false
+  required: true
   default: before
 {% endoptions_ui %}
 
@@ -59,16 +59,18 @@ This fires 30 minutes after the end of an event in `calendar.personal`.
 
 ### Options in YAML
 
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+
 {% options_yaml %}
 offset:
   description: >
-    The length of time from the end of the event.
-  required: false
+    The length of time from the end of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format, for example.
+  required: true
   type: time
 offset_type:
   description: >
     Whether to trigger before or after the end of the event, if an offset is defined.
-  required: false
+  required: true
   default: before
   type: string
 {% endoptions_yaml %}

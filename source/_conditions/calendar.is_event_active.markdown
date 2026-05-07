@@ -55,10 +55,10 @@ behavior:
   default: any
 for:
   description: >
-    The time the event must be active before the condition passes.
+    How long the event must be active before the condition passes. Accepts a duration string in `HH:MM:SS` format.
   required: true
-  type: time
-  default: 00:00:00
+  type: string
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
