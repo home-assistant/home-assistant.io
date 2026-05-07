@@ -32,6 +32,7 @@ The following devices are supported by this integration:
 
 - AC ELWA 2
 - AC•THOR range
+- HEA•THOR IoT
 - SOL•THOR
 
 {% important %}
