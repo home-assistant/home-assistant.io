@@ -161,7 +161,7 @@ At midnight, check the living room humidity. If it has dropped below 30%, send a
 - **Condition**: Relative humidity (below 30%)
 - **Target**: Living room humidity sensor
 - **Condition passes if**: Any
-- **Action**: Notify mobile app
+- **Action**: Notifications: Send a notification via mobile_app_phone
 
 {% details "YAML example for a low humidity alert" %}
 
