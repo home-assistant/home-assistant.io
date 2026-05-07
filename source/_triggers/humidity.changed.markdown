@@ -185,6 +185,37 @@ automation: |
 
 {% enddetails %}
 
+### Automation: alert when humidity changes above comfort level
+
+Send a notification whenever the bedroom humidity changes to a level above your personal comfort threshold. Use a number helper as the threshold so you can easily adjust your preferred level through the UI.
+
+- **Trigger**: Relative humidity changed
+- **Target**: Bedroom humidity sensor
+- **Threshold type**: Above (entity: comfort humidity threshold)
+- **Action**: Notifications: Send a notification via mobile_app_phone
+
+{% details "YAML example for using a number helper as threshold" %}
+
+{% example %}
+automation: |
+  alias: "Alert when humidity changes above comfort level"
+  triggers:
+    - trigger: humidity.changed
+      target:
+        entity_id: sensor.bedroom_humidity
+      options:
+        threshold:
+          type: above
+          value:
+            entity: input_number.comfort_humidity_threshold
+  actions:
+    - action: notify.mobile_app_phone
+      data:
+        message: "Bedroom humidity is now {{ trigger.to_state.state }}%, above your comfort threshold."
+{% endexample %}
+
+{% enddetails %}
+
 {% include triggers/stuck.md %}
 
 {% include triggers/related.md %}

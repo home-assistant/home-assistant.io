@@ -116,8 +116,8 @@ threshold:
     
     - A fixed number between 0 and 100
     - A reference to a sensor entity or [number helper](/integrations/input_number/) entity
-      - When you reference a sensor, its current reading is used as the threshold at the moment the condition is evaluated
-      - This lets you compare two humidity readings dynamically (for example, checking whether indoor humidity is above outdoor humidity)
+      - Number helper: You can change the threshold without editing the automation
+      - Sensor: Its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two humidity readings dynamically (for example, checking whether indoor humidity is above outdoor humidity)
   required: true
   type: any
 behavior:
@@ -214,6 +214,40 @@ automation: |
         message: >
           The living room humidity is below 30%.
           Consider switching on the humidifier.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: adjust humidifier based on comfort threshold
+
+Check every 15 minutes whether the bedroom humidity is below your personal comfort threshold. Use a number helper to set the threshold, so you can easily adjust it through the UI without editing the automation.
+
+- **Trigger**: Time pattern: Every 15 minutes
+- **Condition**: Relative humidity (below, entity: comfort humidity threshold)
+- **Target**: Bedroom humidity sensor
+- **Condition passes if**: Any
+- **Action**: Switch: Turn on
+
+{% details "YAML example for using a number helper as threshold" %}
+
+{% example %}
+automation: |
+  alias: "Turn on humidifier when below comfort threshold"
+  triggers:
+    - trigger: time_pattern
+      minutes: "/15"
+  conditions:
+    - condition: humidity.is_value
+      target:
+        entity_id: sensor.bedroom_humidity
+      options:
+        threshold:
+          below: input_number.comfort_humidity_threshold
+        behavior: any
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.bedroom_humidifier
 {% endexample %}
 
 {% enddetails %}

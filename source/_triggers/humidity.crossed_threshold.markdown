@@ -212,6 +212,37 @@ automation: |
 
 {% enddetails %}
 
+### Automation: trigger humidifier based on adjustable comfort level
+
+Trigger the humidifier when humidity crosses below your personal comfort threshold. Use a number helper as the threshold so you can easily adjust it through the UI without editing the automation.
+
+- **Trigger**: Relative humidity crossed threshold
+- **Target**: Bedroom humidity sensor
+- **Threshold type**: Below (entity: comfort humidity threshold)
+- **Action**: Switch: Turn on
+
+{% details "YAML example for using a number helper as threshold" %}
+
+{% example %}
+automation: |
+  alias: "Turn on humidifier when crossing below comfort threshold"
+  triggers:
+    - trigger: humidity.crossed_threshold
+      target:
+        entity_id: sensor.bedroom_humidity
+      options:
+        threshold:
+          type: below
+          value:
+            entity: input_number.comfort_humidity_threshold
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.bedroom_humidifier
+{% endexample %}
+
+{% enddetails %}
+
 {% include triggers/stuck.md %}
 
 {% include triggers/related.md %}
