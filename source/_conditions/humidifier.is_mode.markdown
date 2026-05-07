@@ -109,7 +109,7 @@ for:
 
 ### Automation: skip the night scene if sleep mode is already active
 
-When you press the bedtime button, activate the night scene. But if the bedroom humidifier is already in sleep mode, skip the scene because the room is clearly already set up for rest.
+When you press the bedtime button, activate the night  {% term scene %}. But if the bedroom humidifier is already in sleep mode, skip the scene because the room is clearly already set up for rest.
 
 - **Trigger**: State: Bedtime button pressed
 - **Condition**: Humidifier is in mode (negated: not in sleep mode)
