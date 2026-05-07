@@ -24,6 +24,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - light
+  - number
   - scene
   - sensor
   - switch
