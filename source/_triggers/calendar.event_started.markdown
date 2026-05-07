@@ -67,7 +67,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 offset:
   description: >
-    The length of time from the start of the event. Accepts time in hours, minutes, seconds, and days. Also accepts a duration string in `HH:MM:SS` format, for example.
+    The length of time from the start of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format, for example.
   required: true
   type: time
 offset_type:
