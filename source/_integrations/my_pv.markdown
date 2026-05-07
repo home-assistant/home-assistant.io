@@ -23,21 +23,21 @@ ha_zeroconf: true
 ha_quality_scale: bronze
 ---
 
-This {% term integration %} links Home Assistant with your my-PV device.
-The integration uses the [my-PV](https://pypi.org/project/my-PV/) library.
+The **my-PV** {% term integration %} is used to integrate with the devices of [my-PV](https://www.my-pv.com/). my-PV produces functional and innovative solutions for housing technology powered by solar electricity.
 
-### Supported devices
+## Supported devices
 
 The following devices are supported by this integration:
-
 - AC ELWA 2
 - AC•THOR range
 - HEA•THOR IoT
 - SOL•THOR
 
-{% important %}
+## Unsupported devices
 
-The ELWA immersion heater and my-PV WiFi Meter are not supported by this integration.
+The following devices are not supported by the integration:
+- ELWA immersion heater
+- WiFi Meter
 
 {% endimportant %}
 
@@ -71,7 +71,7 @@ To generate an API token go to your [my-PV Cloud](https://live.my-pv.com/) and n
 
 ## Data updates
 
-This integration retrieves data from the Local API every 5 seconds and my-PV Cloud every 30 seconds to ensure timely updates.
+The **my-PV** integration {% term polling polls %} data from the Local API every 5 seconds and my-PV Cloud every 30 seconds to ensure timely updates.
 
 ## Removing the integration
 
