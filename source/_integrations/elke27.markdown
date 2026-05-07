@@ -1,7 +1,7 @@
 ---
 title: Elk E27 Alarm Engine
 description: Instructions to set up the Elk E27 controller for home security and automation.
-ha_release: 0.81
+ha_release: 0.01
 ha_category:
   - Alarm
   - Binary sensor
@@ -9,9 +9,9 @@ ha_category:
   - Hub
   - Light
   - Lock
-  - Sensor
   - Switch
 ha_iot_class: Local Push
+ha_domain: elke27
 ha_config_flow: true
 ha_codeowners:
   - '@mitchmitchell'
@@ -43,31 +43,33 @@ There is currently support for the following device types within Home Assistant:
 - **Lock** - Elk E27 locks are represented as `lock` entities
 - **Switch** - Elk E27 outputs are represented as `switch` entities
 
-The implementation follows the Elk Products ElkE27 API specification.
+The implementation follows the Elk Products Elk E27 API specification.
 
 ## Prerequisites
 
 Before setting up the Elk E27 integration, ensure your system meets these requirements:
 
-### ElkE27 version
+### Elk E27 version
 
-ElkE27 should be running firmware version 0.0.6.4 or higher
+Elk E27 should be running firmware version 0.0.6.4 or higher
 
-Many features will work with lower versions of the ElkE27.
+Many features will work with lower versions of the Elk E27 firmware.
 
-## Arm modes
+## Actions
+
+### Service Calls for Special Arming Modes
 
 - `elke27.alarm_arm_custom_bypass` - Arms the area in "away" mode bypassing all faulted zones
 - `elke27.alarm_arm_automatic` - Arms the area in "away" mode with option to ignore the "stay no exit" setting and skip the exit delay
 
 | Data attribute | Optional | Description                                   |
 | -------------- | -------- | --------------------------------------------- |
-| `entity_id`    | yes      | ElkE27 area to arm                            |
+| `entity_id`    | yes      | Elk E27 area to arm                            |
 | `code`         | no       | Alarm code to arm the system (4 or 6 digits) |
 
 ## Debugging
 
-If you encounter issues with the ElkE27 integration, debug logs can help identify the problem. For detailed instructions on enabling debug logging, see [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
+If you encounter issues with the Elk E27 integration, debug logs can help identify the problem. For detailed instructions on enabling debug logging, see [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 
 Alternatively, you can manually enable debug logging in your {% term "`configuration.yaml`" %} file:
 
