@@ -422,6 +422,10 @@ This integration adds the Blebox device as 2 binary sensor entities to Home Assi
 
 - Periodic read of state of 2 input sensors
 
+{% note %}
+If you need an immediate response (without local polling delay), the device can also be integrated using webhooks and automation, in the same way as [actionBox, actionBoxS, and proxiBox](#actionbox-actionboxs-and-proxibox).
+{% endnote %}
+
 ### inputSensorQ
 
 This integration adds the Blebox device as 4 binary sensor entities to Home Assistant.
@@ -429,6 +433,10 @@ This integration adds the Blebox device as 4 binary sensor entities to Home Assi
 #### Key supported features
 
 - Periodic read of state of 4 input sensors
+
+{% note %}
+If you need an immediate response (without local polling delay), the device can also be integrated using webhooks and automation, in the same way as [actionBox, actionBoxS, and proxiBox](#actionbox-actionboxs-and-proxibox).
+{% endnote %}
 
 ### airSensor
 
@@ -467,7 +475,6 @@ The configuration consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
-
 
 #### Generating the compatible webhook in Home Assistant
 
@@ -624,6 +631,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Effects
 - Brightness
 - Color
+
 ### Simon 55 GO thermo
 
 This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
