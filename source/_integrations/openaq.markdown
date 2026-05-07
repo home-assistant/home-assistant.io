@@ -47,7 +47,9 @@ When you search by location, Home Assistant searches outward from the selected m
 You can add multiple OpenAQ monitoring locations to the same OpenAQ integration entry. The same OpenAQ location can only be added once, even across multiple OpenAQ integration entries.
 
 ## Supported functionality
+The **OpenAQ** integration provides the following entities.
 
+### Sensors
 The OpenAQ integration creates sensor entities for supported measurements that have a numeric latest value at the selected monitoring location.
 
 Supported sensor measurements:
