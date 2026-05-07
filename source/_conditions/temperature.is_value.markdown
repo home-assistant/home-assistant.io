@@ -20,7 +20,7 @@ To use **Temperature** in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your temperature sensor is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Temperature**.
-6. Under **Threshold type**, set the temperature level the condition checks against:
+6. Under **Threshold type**, set the temperature level the condition checks against. Select one of the following:
    - Select **Number** to enter a fixed temperature directly, for example `20` for 20°C.
    - Select **Entity** to use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold. When you pick a number helper, you can adjust the threshold without editing the automation. When you pick a temperature sensor, its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two temperature readings, for example to check whether indoor temperature is higher than outdoor temperature.
      - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
