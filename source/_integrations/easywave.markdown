@@ -119,7 +119,7 @@ For **individual** mode, each button event entity also appears as a **device tri
 
 The switch mode is only asked when **Group** grouping is selected. It controls whether the sensor resets to `released` after a button is released:
 
-| Mode | Behaviour |
+| Mode | Behavior |
 | ---- | --------- |
 | **Impulse** | State resets to `released` when the button is released; sensor states: `a` / `b` / `c` / `d` / `released` |
 | **Permanent** | State stays on the most recently pressed button; sensor states: `a` / `b` / `c` / `d` |
@@ -156,7 +156,7 @@ Type-2 transmitters treat pairs of buttons as a single channel (on/off or open/c
 
 ### Type 3 – Motor transmitters
 
-Type-3 transmitters are 3-button motor remotes with dedicated **Open**, **Stop** and **Close** buttons (for example, for motorised shutters or awnings). No additional configuration is required during setup.
+Type-3 transmitters are 3-button motor remotes with dedicated **Open**, **Stop** and **Close** buttons (for example, for motorized shutters or awnings). No additional configuration is required during setup.
 
 The integration creates a **Motor state** enum sensor that tracks the last action sent by the remote:
 
