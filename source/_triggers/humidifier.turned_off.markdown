@@ -88,7 +88,7 @@ for:
 
 - The trigger only fires when a humidifier transitions from a known, valid state. Transitions from the **Unavailable** or **Unknown** state to off do not count.
 - To react to the opposite transition, use [Humidifier turned on](/triggers/humidifier.turned_on/).
-- Pair **Humidifier turned off** with the `last` behavior to run something only once every humidifier in an area has stopped, like sending a single notification when all humidifiers in the house are off.
+- Pair **Humidifier turned off** with the `last` behavior to do something only after every humidifier in an area has stopped. For example, send a single notification when all humidifiers in the house are off.
 
 {% include triggers/try_it.md %}
 

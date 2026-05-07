@@ -144,21 +144,21 @@ automation: |
 
 {% enddetails %}
 
-### Automation: notify when any humidifier switches to eco mode
+### Automation: notify when any humidifier switches to Eco mode
 
-When a humidifier in the house switches to eco mode, send a notification confirming that energy-saving operation has started.
+When a humidifier in the house switches to Eco mode, send a notification confirming that energy-saving operation has started.
 
 - **Trigger**: Humidifier mode changed
 - **Target**: All humidifiers (by label)
-- **Mode**: eco
+- **Mode**: Eco
 - **Trigger when**: Each
 - **Action**: Send a mobile notification
 
-{% details "YAML example for an eco-mode notification" %}
+{% details "YAML example for an Eco mode notification" %}
 
 {% example %}
 automation: |
-  alias: "Notify on eco mode"
+  alias: "Notify on Eco mode"
   triggers:
     - trigger: humidifier.mode_changed
       target:
