@@ -20,11 +20,15 @@ To use **Temperature** in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your temperature sensor is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Temperature**.
-6. Under **Threshold type**, set the temperature level the condition checks against. Select one of the following:
-   - Select **Number** to enter a fixed temperature directly, for example `20` for 20°C.
-   - Select **Entity** to use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold. When you pick a number helper, you can adjust the threshold without editing the automation. When you pick a temperature sensor, its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two temperature readings, for example to check whether indoor temperature is higher than outdoor temperature.
-     - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-   - Then pick whether the reading must be above, below, or within a range of the threshold.
+6. Under **Threshold type**, set the temperature level the condition checks against:
+   1. Pick whether the reading must be **Above**, **Below**, **In range**, or **Outside range** of the threshold.
+   2. Select **Number** or **Entity**:
+      - **Number**: Enter a fixed temperature directly, for example `20` for 20°C. For **In range** or **Outside range**, enter both a lower and upper bound.
+      - **Entity**: Use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold:
+        - Number helper: You can adjust the threshold value without editing the automation. The sensor reading is compared against the number helper's current value.
+        - Sensor: Its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two temperature readings, for example to check whether indoor temperature is higher than outdoor temperature.
+        - For **In range** or **Outside range**, you need two entities: one for the lower bound and one for the upper bound (for example, two separate number helpers).
+        - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Under **Unit of measurement**, select the temperature unit (°C or °F) to use for the threshold comparison.
 8. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 9. Select **Save**.
@@ -33,8 +37,8 @@ To use **Temperature** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: >
-    The temperature level the entity has to meet for the condition to pass. You can enter a fixed temperature (select **Number**), or pick an entity as a dynamic threshold (select **Entity**). When you pick an `input_number` or `number` helper, you can change the threshold without editing the automation. When you pick a temperature sensor, its live reading becomes the threshold, which is useful for comparing two temperature values, for example indoor versus outdoor. In both cases, also pick whether the reading must be above, below, or within a range of that value.
+  description: |
+    The temperature level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed temperature value (or both a lower and upper bound for ranges). **Entity** uses a sensor or number helper as a dynamic threshold.
   required: true
 Unit of measurement:
   description: The temperature unit (°C or °F) to use for threshold comparison. All temperature values (from sensors and thresholds) are converted to this unit.
@@ -99,8 +103,15 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
 
 {% options_yaml %}
 threshold:
-  description: >
-    The temperature level the entity has to meet for the condition to pass. Use `above` to set a minimum, `below` to set a maximum, or both to define a range. Accepts a fixed temperature, or a reference to a [number helper](/integrations/input_number/) or sensor entity. When you reference a sensor, its current reading is used as the threshold at the moment the condition is evaluated. This lets you compare two temperature readings dynamically, for example checking whether indoor temperature is above outdoor temperature.
+  description: |
+    The temperature level the entity has to meet for the condition to pass:
+
+    - `above`: Sets a minimum
+    - `below`: Sets a maximum
+    - `between`: Defines a range (for example, `between: [20, 25]`)
+    - `outside`: Defines an outside-range (for example, `outside: [20, 25]`)
+
+    Accepts a `number`, a reference to an `input_number`, or a `sensor` entity. A `sensor` entity's current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two temperature readings dynamically (for example, checking whether indoor temperature is above outdoor temperature).
   required: true
   type: any
 unit:
@@ -124,7 +135,6 @@ behavior:
 
 - The condition works with temperature sensors, [climate](/integrations/climate/) entities (using the current temperature reading), [water heater](/integrations/water_heater/) entities (using the current temperature reading), and [weather](/integrations/weather/) entities.
 - Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
-- Indoor comfort is generally between 20 and 22°C (68 to 72°F). Below 18°C (64°F) often feels too cold. Above 24°C (75°F) can feel uncomfortably warm.
 - This condition checks the entity's current temperature reading, not its target setpoint. To check a climate device's target setpoint instead, use the [Climate target temperature](/conditions/climate.is_target_temperature/) condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the condition in Celsius, the conversion happens automatically.
