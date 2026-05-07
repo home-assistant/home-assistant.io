@@ -90,7 +90,7 @@ If a first alert was missed, a follow-up reminder can help you fix the problem b
 - **Target**: Front door lock
 - **Condition passes if**: Any
 - **For at least**: 00:01:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for repeated jammed lock reminders" %}
 

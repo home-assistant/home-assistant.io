@@ -80,7 +80,7 @@ code:
 
 {% include actions/more_examples.md %}
 
-### Automation: open the front gate when a person arrives home
+### Automation: open the front gate when you arrive home
 
 If you have a lockable gate that supports opening, Home Assistant can unlatch it when you arrive. This automation opens the front gate when your person entity changes to home.
 

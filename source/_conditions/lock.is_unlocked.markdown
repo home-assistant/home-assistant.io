@@ -90,7 +90,7 @@ If you sometimes forget to lock the door before bed, a gentle reminder can help.
 - **Target**: Front door lock
 - **Condition passes if**: Any
 - **For at least**: 00:10:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for a bedtime lock reminder" %}
 

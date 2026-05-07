@@ -124,7 +124,7 @@ If you want a simple reminder before bed, check whether any patio door is still 
 - **Target**: Patio door locks (by label)
 - **Condition passes if**: Any
 - **For at least**: 00:02:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for a patio door reminder" %}
 

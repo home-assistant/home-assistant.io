@@ -89,7 +89,7 @@ If the front door lock jams while someone is leaving, you want to know right awa
 - **Target**: Front door lock
 - **Trigger when**: Each
 - **For at least**: 00:00:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for a jammed lock alert" %}
 

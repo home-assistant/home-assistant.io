@@ -117,13 +117,13 @@ automation: |
 
 ### Automation: pause the alarm countdown when the patio door opens
 
-If you use a user-created script to handle alarm entry steps, opening the patio door can start a different response. This automation runs that script when the patio door lock reports open.
+If you have created a script to handle alarm entry steps, opening the patio door can start a different response. This automation runs that script when the patio door lock reports open.
 
 - **Trigger**: Lock opened
 - **Target**: Patio door lock
 - **Trigger when**: Each
 - **For at least**: 00:00:00
-- **Action**: Run a user-created entry script
+- **Action**: Script: Turn on script
 
 {% details "YAML example for running a user-created script" %}
 

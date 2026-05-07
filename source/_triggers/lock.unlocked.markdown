@@ -119,7 +119,7 @@ If several storage areas use smart locks, you may want a quick record when one o
 - **Target**: Storage locks (by label)
 - **Trigger when**: Each
 - **For at least**: 00:00:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for a storage lock notification" %}
 
