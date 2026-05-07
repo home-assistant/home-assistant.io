@@ -42,7 +42,7 @@ Threshold type:
     - **Entity**: Pick an entity as a dynamic threshold.
       - [Number helper](/integrations/input_number/): You can change the threshold without editing the automation.
       - Humidity sensor: Its live reading becomes the threshold, which is useful for comparing two humidity values (for example, indoor versus outdoor).
-    
+
     In both cases, also pick whether the reading must be above, below, or within a range of that value.
   required: true
 Condition passes if:
@@ -112,9 +112,9 @@ threshold:
     - Use `above` to set a minimum
     - Use `below` to set a maximum
     - Use both to define a range
-    
+
     Accepts:
-    
+
     - A fixed number between 0 and 100
     - A reference to an `input_number`, `number`, or `sensor` entity
       - `input_number`: Lets you change the threshold without editing the automation. To create one, see [Number helper](/integrations/input_number/).
