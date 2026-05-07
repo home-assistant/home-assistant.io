@@ -155,7 +155,6 @@ You can add the energy index sensors to the energy dashboard to track your elect
 
 ### Automation: tomorrow's Tempo color
 
-{% raw %}
 ```yaml
 - alias: "Notify tomorrow's Tempo color"
   triggers:
@@ -177,7 +176,6 @@ You can add the energy index sensors to the energy dashboard to track your elect
             'sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color'
           ) }} day
 ```
-{% endraw %}
 
 ## Data updates
 

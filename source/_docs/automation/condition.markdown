@@ -12,7 +12,6 @@ The available conditions for an automation are the same as for the script syntax
 
 Example of using condition:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -36,11 +35,9 @@ automation:
           entity_id: scene.office_lights
 ```
 
-{% endraw %}
 
 The `condition` option of an automation, also accepts a single condition template directly. For example:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -56,4 +53,3 @@ automation:
           entity_id: scene.office_lights
 ```
 
-{% endraw %}

@@ -11,7 +11,7 @@ ha_integration_type: system
 
 The **System Health** {% term integration %} provides an API to offer information on the system and its components. It also allows to run diagnostic tools to diagnose problems.
 
-System Health integration data can be viewed at {% my repairs title="**Settings** > **System** > **Repairs**" %} > **System information** in the three dots menu (top right).
+This data can be viewed at {% my repairs title="**Settings** > **System** > **Repairs**" %}. From the three dots {% icon "mdi:dots-vertical" %} menu (top right), select **System information**.
 
 {% my system_health badge %}
 

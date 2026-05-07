@@ -17,11 +17,13 @@ ha_integration_type: service
 The free Sentry account allows 5000 events per month. Depending on the amount of events sent to Sentry, you will either have to upgrade your Sentry account or have a period without data flowing from Home Assistant to Sentry.
 {% endimportant %}
 
-The **Sentry** {% term integration %} in Home Assistant integrates with [Sentry](https://sentry.io/) to capture both logged errors as well as unhandled exceptions in Home Assistant.
+The **Sentry** {% term integration %} connects Home Assistant to [Sentry](https://sentry.io/), an error tracking service that can be cloud-hosted or self-hosted. It captures logged errors and unhandled exceptions and sends them to your Sentry instance, where you can browse, search, and get alerted on them.
 
-## Preparation
+This is primarily useful if you are developing custom integrations or want deeper insight into errors happening inside your Home Assistant instance. Sentry groups repeated errors, shows stack traces, and can notify you when new issues appear, so you do not have to watch the logs manually.
 
-Before configuring the Sentry integration, you'll need to get Sentry account and a DSN.
+## Prerequisites
+
+Before setting up the integration, you need a Sentry account and a DSN (Data Source Name). The DSN tells Home Assistant where to send error events.
 
 Follow these steps to get the DSN:
 
