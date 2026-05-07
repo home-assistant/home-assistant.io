@@ -47,7 +47,7 @@ Threshold type:
     For each mode you can enter a fixed temperature or reference a sensor entity or [number helper](/integrations/input_number/) entity.
   required: true
 Unit of measurement:
-  description: The temperature unit (°C or °F) to use for threshold comparison. All temperature values (from sensors and thresholds) are converted to this unit.
+  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`.
   required: true
 {% endoptions_ui %}
 
@@ -115,14 +115,14 @@ threshold:
 
     - `type: any`: Fire on any change (no additional keys needed)
     - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, or `sensor` entity)
 
-    An `input_number` or `number` entity provides a threshold value that the sensor reading is compared against. A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
+     A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
   required: true
   type: map
 unit:
   description: >
-    The temperature unit (°C or °F) to use for threshold comparison. Accepts `°C` or `°F`.
+    The temperature unit to use for threshold comparison. Accepts `°C` or `°F`.
   required: true
   type: string
 {% endoptions_yaml %}

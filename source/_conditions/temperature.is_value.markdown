@@ -41,7 +41,7 @@ Threshold type:
     The temperature level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed temperature value (or both a lower and upper bound for ranges). **Entity** uses a sensor or number helper as a dynamic threshold.
   required: true
 Unit of measurement:
-  description: The temperature unit (°C or °F) to use for threshold comparison. All temperature values (from sensors and thresholds) are converted to this unit.
+  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`.
   required: true
 Condition passes if:
   description: When multiple entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does.
@@ -116,12 +116,12 @@ threshold:
   type: any
 unit:
   description: >
-    The temperature unit (°C or °F) to use for threshold comparison. Accepts `°C` or `°F`.
+    The temperature unit to use for threshold comparison. Accepts `°C` or `°F`.
   required: true
   type: string
 behavior:
   description: >
-    When multiple entities are targeted, controls how results combine. Accepts `all` or `any`.
+    Controls how results combine when multiple entities are targeted. Accepts `all` or `any`.
   required: true
   type: string
   default: any
