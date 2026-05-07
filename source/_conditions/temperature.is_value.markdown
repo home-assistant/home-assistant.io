@@ -134,7 +134,7 @@ behavior:
 ## Good to know
 
 - The condition works with temperature sensors, [climate](/integrations/climate/) entities (using the current temperature reading), [water heater](/integrations/water_heater/) entities (using the current temperature reading), and [weather](/integrations/weather/) entities.
-- Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- Entities that have an `unavailable` or `unknown` state are skipped for **Any** and fail for **All**.
 - This condition checks the entity's current temperature reading, not its target setpoint. To check a climate device's target setpoint instead, use the [Climate target temperature](/conditions/climate.is_target_temperature/) condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the condition in Celsius, the conversion happens automatically.
