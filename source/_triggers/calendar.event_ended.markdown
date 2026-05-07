@@ -32,7 +32,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Offset:
-  description: The length of time from the end of the event.
+  description: The length of time from the end of the event in days, hours, minutes, and seconds.
   required: true
 Offset type:
   description: Whether to trigger before or after the end of the event, if an offset is defined.
@@ -64,10 +64,9 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 offset:
   description: >
-    The length of time from the end of the event. Accepts a duration string in `HH:MM:SS` format, for example.
+    The length of time from the end of the event. Accepts time in hours, minutes, seconds, and days. Also accepts a duration string in `HH:MM:SS` format, for example.
   required: true
-  default: "00:00:00"
-  type: string
+  type: time
 offset_type:
   description: >
     Whether to trigger before or after the end of the event, if an offset is defined.
