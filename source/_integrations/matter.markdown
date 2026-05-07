@@ -14,6 +14,7 @@ ha_category:
   - Pump
   - Select
   - Sensor
+  - Siren
   - Switch
   - Update
   - Vacuum
@@ -39,6 +40,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - update
   - vacuum
