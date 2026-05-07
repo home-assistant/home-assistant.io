@@ -5,8 +5,6 @@ domain: temperature
 description: "Triggers after one or more temperature readings change."
 related_triggers:
   - temperature.crossed_threshold
-related_conditions:
-  - temperature.is_value
 ---
 
 The **Temperature changed** trigger fires after a temperature reading changes. Temperature shifts gradually as heating or cooling systems cycle, rises when the sun heats a room in the afternoon, or drops overnight. Use the threshold type to filter which changes matter to your automation.
@@ -238,3 +236,6 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include triggers/stuck.md %}
+{% include triggers/related.md %}

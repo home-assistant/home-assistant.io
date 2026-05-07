@@ -5,8 +5,6 @@ domain: temperature
 description: "Triggers after one or more temperature readings cross a threshold."
 related_triggers:
   - temperature.changed
-related_conditions:
-  - temperature.is_value
 ---
 
 The **Temperature crossed threshold** trigger fires when a temperature reading crosses into a zone you define. A bedroom sensor crossing below 18°C on a cold night, a living room sensor climbing above 24°C in summer, a reading entering a target comfort range, or a reading escaping that range are all supported.
@@ -298,3 +296,6 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include triggers/stuck.md %}
+{% include triggers/related.md %}

@@ -3,9 +3,6 @@ title: "Temperature"
 condition: temperature.is_value
 domain: temperature
 description: "Tests if a temperature value is above a threshold, below a threshold, or in a range of values."
-related_triggers:
-  - temperature.changed
-  - temperature.crossed_threshold
 ---
 
 The **Temperature** condition passes when a temperature reading meets a threshold you define. You can check that temperature is above, below, or within a specific range. The condition works with temperature sensors, climate devices, water heaters, and weather entities. Use it to run an automation only when the bedroom is too warm, or only when the temperature is low enough to need heating.
@@ -273,3 +270,6 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include conditions/stuck.md %}
+{% include conditions/related.md %}
