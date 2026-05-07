@@ -82,4 +82,3 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
         brightness_pct: 100
         transition: 5
 ```
-

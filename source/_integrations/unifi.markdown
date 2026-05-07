@@ -14,7 +14,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Kane610'
 ha_domain: unifi
-ha_ssdp: true
 ha_platforms:
   - button
   - device_tracker
@@ -25,6 +24,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.

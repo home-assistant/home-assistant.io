@@ -120,4 +120,3 @@ intent_script:
         target:
           entity_id: "switch.light_{{ Room | striptags | replace(' ', '_') }}"
 ```
-

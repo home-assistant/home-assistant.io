@@ -4,6 +4,7 @@ description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
   - Climate
   - Light
+  - Radio Frequency
   - Remote
   - Sensor
   - Switch
@@ -19,6 +20,7 @@ ha_config_flow: true
 ha_platforms:
   - climate
   - light
+  - radio_frequency
   - remote
   - select
   - sensor
@@ -53,9 +55,10 @@ There is no more need to set up platforms, except for custom IR/RF switches. Onc
 
 The {% term entities %} have the same name as the device by default. To change the name, icon or entity id, select the entity on the frontend and select the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to select **Update** to save your changes when you're done.
 
-The {% term entities %} are divided into four subdomains:
+The {% term entities %} are divided into the following subdomains:
 
 - [Climate](#climate)
+- [Radio frequency](#radio-frequency)
 - [Remote](#remote)
 - [Select](#select)
 - [Sensor](#sensor)
@@ -66,6 +69,14 @@ The {% term entities %} are divided into four subdomains:
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats.
+
+## Radio frequency
+
+The `radio_frequency` {% term entity %} allows other integrations to send RF commands through your Broadlink device. It is created automatically for `RM pro` and `RM4 pro` devices, which include an RF transmitter. The supported bands are 433 MHz (433.05–434.79 MHz) and 315 MHz (314.95–315.25 MHz).
+
+This entity is intended for use by device-specific integrations that control RF appliances, such as range hoods, garage doors, or smart blinds. When you set up such an integration, you can select your Broadlink RF entity as the transmitter. Refer to the [Radio Frequency](/integrations/radio_frequency/) integration for more information.
+
+The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned RF codes.
 
 ## Remote
 
