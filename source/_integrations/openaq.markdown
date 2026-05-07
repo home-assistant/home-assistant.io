@@ -90,7 +90,7 @@ Unsupported OpenAQ parameters are ignored.
 
 ### Invalid authentication
 
-If setup reports invalid authentication, confirm that your OpenAQ API key is correct. You can view or rotate your key from your [OpenAQ Explorer account settings](https://explore.openaq.org/account).
+If the setup reports invalid authentication, confirm that your OpenAQ API key is correct. You can view or rotate your key from your [OpenAQ Explorer account settings](https://explore.openaq.org/account).
 
 ### No monitoring locations found
 
