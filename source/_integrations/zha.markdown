@@ -715,7 +715,8 @@ If your Zigbee device pairs/joins successfully with the ZHA {% term integration 
 1. Try to re-pair/re-join the device several times.
 2. Review the troubleshooting sections.
 3. Search for similar situations in the Home Assistant [community forum or Discord chat server](https://www.home-assistant.io/help/).
-4. Still not working? You may need a new custom ZHA device handler. This device handler will add exception handling code to ZHA in order to work around device-specific issues. Read instructions below on now to submit a “device support request” for a new custom ZHA device handler if there are not already an open request for your specific device model.
+4. Still not working? You might need a new custom ZHA device handler. This device handler adds exception handling code to ZHA to work around device-specific issues.
+   To submit a device support request for a new custom ZHA device handler, see [ZHA device handlers](#zha-device-handlers).
 
 #### ZHA device handlers
 For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)".
