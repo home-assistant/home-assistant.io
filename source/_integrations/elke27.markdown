@@ -15,6 +15,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@mitchmitchell'
+ha_domain: elke27
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
