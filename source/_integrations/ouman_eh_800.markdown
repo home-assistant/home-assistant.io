@@ -59,18 +59,26 @@ Password:
 
 ## Supported functionality
 
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit (**H1** and **H2**). Sensors are assigned to the device they belong to.
+
 ### Sensors
 
-The integration exposes sensors for the values reported by the controller. The exact set of sensors depends on which features and circuits are active on your device, but typically include:
+The exact set of sensors depends on which features and circuits are active on your device. Sensors enabled by default include:
 
 - **Outside temperature**: The outside temperature measured by the controller.
 - **H1/H2 supply water temperature**: The current supply water temperature for the heating circuit.
 - **H1/H2 supply water temperature setpoint**: The target supply water temperature calculated by the controller.
 - **H1/H2 valve position**: The current position of the mixing valve, in percent.
-- **H1/H2 room temperature**: The room temperature measured by the room sensor (if installed).
+- **H1/H2 room temperature**: The room temperature measured by the room sensor (when installed).
 - **H1/H2 room temperature setpoint**: The target room temperature.
 
-Additional diagnostic sensors are exposed for circuit configuration and status. Some of these sensors are disabled by default; enable them from the entity settings if you want to use them. See [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) for details.
+Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) to enable them if needed:
+
+- **H1/H2 curve supply water temperature**: The supply water temperature derived from the heating curve.
+- **H1/H2 delayed room temperature**: A smoothed/delayed room temperature reading.
+- **H1 fine adjustment effect**: The temperature offset from the manual fine-adjustment.
+- **H1 room sensor potentiometer**: The room temperature offset from the room sensor's adjustment knob.
+- **H2 delayed outdoor temperature effect**: The delayed outdoor temperature effect applied to the H2 setpoint.
 
 ## Data updates
 
@@ -78,7 +86,7 @@ This integration uses local {% term polling %} to fetch data from the Ouman EH-8
 
 ## Known limitations
 
-- **Single device per entry**: Each integration entry connects to one Ouman EH-800 device. Add multiple entries to monitor multiple devices.
+- **Read-only**: The integration currently only reads values from the controller. Adjusting setpoints, changing operation mode, or controlling the relay is not yet supported.
 
 ## Removing the integration
 
