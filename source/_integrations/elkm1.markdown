@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Hub
   - Light
+  - Number
   - Scene
   - Sensor
   - Switch
@@ -50,7 +51,6 @@ There is currently support for the following device types within Home Assistant:
 - **Scene** - Elk-M1 tasks are represented as `scene` entities
 - **Sensor** - Elk-M1 counters, keypads, panel status, settings, and zones are represented as `sensor` entities
 - **Switch** - Elk-M1 outputs are represented as `switch` entities
-- **Time** - Elk-M1 number and duration settings are represented as `time` entities
 
 The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface Specification, Revision 1.84" document. This document can be found on the Internet.
 
@@ -499,15 +499,6 @@ The panel does not automatically send counter value updates under certain condit
 | -------------- | -------- | ------------------------------------------- |
 | `entity_id`    | No       | ElkM1 counter to refresh or set             |
 | `value`        | Yes (for `sensor_counter_set`) | Value to set the counter to (0-65536) |
-
-#### Output management
-
-- `elkm1.switch_output_turn_on_for` - Turn on the output for a specified duration
-
-| Data attribute | Required | Description                                                               |
-| -------------- | -------- | ------------------------------------------------------------------------- |
-| `entity_id`    | No       | ElkM1 output to turn on                                                   |
-| `duration`     | Yes      | Duration to keep the output on, as an ElkM1 integer value from 0 to 65535 |
 
 #### Zone management
 
