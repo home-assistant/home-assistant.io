@@ -421,6 +421,7 @@ layout: null
 /common-tasks/os/#backups /common-tasks/general/#backups
 /common-tasks/supervised/#snapshots /common-tasks/general/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/more-info/system-health/   /more-info/system-information/
 /integrations/zigbee /integrations/zha
 /examples /
 
@@ -595,6 +596,7 @@ layout: null
 /integrations/iota /more-info/removed-integration 301
 /integrations/juicenet /more-info/removed-integration 301
 /integrations/keyboard /more-info/removed-integration 301
+/integrations/lannouncer /more-info/removed-integration 301
 /integrations/lirc /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301

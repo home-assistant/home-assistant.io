@@ -387,6 +387,21 @@ The grid neutrality gauge card represents your energy dependency. If the needle 
 type: energy-grid-neutrality-gauge
 ```
 
+## Grid energy balance
+
+<p class='img'>
+  <img src='/images/dashboards/energy/grid-balance.png' alt='Screenshot of the grid energy balance card'>
+  Screenshot of the Grid energy balance card.
+</p>
+
+The grid energy balance card shows your net grid energy as an equation: imported energy minus exported energy. A positive value means you imported more energy from the grid than you exported. A negative value means you exported more energy to the grid than you imported. It includes a visual bar gauge that represents the ratio between imported and exported energy, with the bar filling from a center line toward the dominant direction.
+
+### Example
+
+```yaml
+type: energy-grid-balance
+```
+
 ## Solar consumed gauge
 
 <p class='img'>

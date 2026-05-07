@@ -141,7 +141,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true

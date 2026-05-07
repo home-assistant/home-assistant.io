@@ -17,6 +17,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+  - docs: /docs/backend/database/
+    title: Database schema
 ---
 
 The **SQL** {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
@@ -193,7 +195,7 @@ result:
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
 
-The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
+The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified. For a full overview of available tables, columns, and indexes in that database, see the [Database](/docs/backend/database/) documentation.
 
 There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
 

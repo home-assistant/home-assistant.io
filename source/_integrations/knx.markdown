@@ -176,7 +176,7 @@ Please see the dedicated platform sections below about how to configure them cor
 
 Group addresses are configured as strings or integers in the format "1/2/3" for 3-level GA-structure, "1/2" for 2-level GA-structure or "1" for free GA-structure.
 
-The HA KNX integration uses configured `state_address` or `*_state_address` to update the state of a function. These addresses are read by GroupValueRead requests on startup and when there was no incoming telegram for one hour (default `sync_state`).
+The Home Assistant KNX integration uses configured `state_address` or `*_state_address` to update the state of a function. These addresses are read by GroupValueRead requests on startup and when there was no incoming telegram for one hour (default `sync_state`).
 
 It is possible to configure passive/listening group addresses for all functions of every KNX platform (except `expose` and `notify`). This allows having multiple group addresses to update the state of its function (e.g., the brightness of a light). When group addresses are configured as a list of strings, the first item is the active sending or state-reading address and the rest is registered as passive addresses. This schema behaves like in ETS configuration where the first is the "sending" address and others are just for updating the group object.
 
@@ -609,7 +609,9 @@ type:
 
 ### Entity exposures
 
-Expose Home Assistant entities to share their state or attributes with the KNX bus. Home Assistant automatically sends the current value whenever it changes and responds to read requests on the KNX bus.
+Expose Home Assistant entities to share their state or attributes with the KNX bus. Home Assistant automatically sends the current value whenever it changes and responds to read requests on the KNX bus. This can be configured from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of entity exposures via YAML" %}
 
 ```yaml
 knx:
@@ -697,6 +699,8 @@ respond_to_read:
   type: boolean
   default: true
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Entity platforms
 

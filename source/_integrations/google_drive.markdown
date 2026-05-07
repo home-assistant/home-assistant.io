@@ -26,7 +26,11 @@ ha_platforms:
   - sensor
 ---
 
-This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. To open this folder, go to **Settings** > **Devices & services** > **Google Drive**, and select **Visit**. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with [Home Assistant Backups](/common-tasks/general/#backups).
+
+When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. A separate folder is created for each of your Home Assistant instances. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+
+To open the backup folder, go to **Settings** > **Devices & services** > **Google Drive**, and select **Visit**.
 
 For a video walkthrough of the setup instructions, see this video from 13:50 to 19:20
 <lite-youtube videoid="pZlYu9bN72U" videoStartAt="830" videotitle="Automate Your Home Assistant Backups Like A Pro!" posterquality="maxresdefault"></lite-youtube>
@@ -89,11 +93,11 @@ actions:
 
 {% include integrations/remove_device_service.md %}
 
-- If you remove the integration, the Home Assistant folder in Google Drive is not automatically deleted. You have to manually delete it in Google Drive.
+- If you remove the integration, the backup folder in Google Drive is not automatically deleted. You have to manually delete it in Google Drive.
 
 ## Known limitations
 
-- The integration can only access files that it creates in the Home Assistant folder. It cannot access or modify any other files in your Google Drive.
+- The integration can only access files that it creates in the backup folder. It cannot access or modify any other files in your Google Drive.
 
 ## Troubleshooting
 

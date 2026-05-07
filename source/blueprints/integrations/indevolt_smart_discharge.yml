@@ -1,0 +1,145 @@
+blueprint:
+  name: Battery Management (smart discharge)
+  description: Dynamically adjust battery discharge based on import/export and conditions
+  domain: automation
+
+  input:
+    net_power:
+      name: Meter - Netto power (W)
+      selector:
+        entity:
+          domain: sensor
+
+    production_remaining:
+      name: PV Forecast - Remaining production today (kWh)
+      selector:
+        entity:
+          domain: sensor
+
+    production_threshold:
+      name: PV Forecast - Threshold for night mode (kWh)
+      default: 0.25
+      selector:
+        number:
+          min: 0
+          max: 5
+          step: 0.05
+
+    battery_soc:
+      name: Battery - Current SOC
+      selector:
+        entity:
+          domain: sensor
+
+    ac_output_limit:
+      name: Battery - AC output limit
+      selector:
+        entity:
+          domain: number
+
+    import_threshold:
+      name: Import threshold for allowing discharge (W)
+      default: 500
+      selector:
+        number:
+          min: 0
+          max: 10000
+          step: 100
+          unit_of_measurement: W
+
+    export_threshold:
+      name: Export threshold for disallowing discharge (W)
+      default: 0
+      selector:
+        number:
+          min: -10000
+          max: 0
+          step: 100
+          unit_of_measurement: W
+
+    min_soc_threshold:
+      name: Minimum SOC for daytime discharge (%)
+      default: 75
+      selector:
+        number:
+          min: 0
+          max: 100
+          step: 1
+          unit_of_measurement: "%"
+
+    max_discharge_power:
+      name: Discharge power when importing (W)
+      default: 800
+      selector:
+        number:
+          min: 0
+          max: 2400
+          step: 100
+          unit_of_measurement: W
+
+trigger:
+  - platform: numeric_state
+    entity_id: !input net_power
+    above: !input import_threshold
+    for: "00:01:00"
+    id: import
+
+  - platform: numeric_state
+    entity_id: !input net_power
+    below: !input export_threshold
+    for: "00:01:00"
+    id: export
+
+condition: []
+
+action:
+  - variables:
+      current_limit: "{{ states(!input ac_output_limit) | float(0) }}"
+      max_power: "{{ !input max_discharge_power | float(0) }}"
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: import
+
+          - condition: template
+            value_template: >
+              {{ current_limit != max_power }}
+
+          - condition: or
+            conditions:
+              - condition: numeric_state
+                entity_id: !input production_remaining
+                below: !input production_threshold
+
+              - condition: and
+                conditions:
+                  - condition: numeric_state
+                    entity_id: !input production_remaining
+                    above: !input production_threshold
+                  - condition: numeric_state
+                    entity_id: !input battery_soc
+                    above: !input min_soc_threshold
+
+        sequence:
+          - service: number.set_value
+            target:
+              entity_id: !input ac_output_limit
+            data:
+              value: !input max_discharge_power
+
+      - conditions:
+          - condition: trigger
+            id: export
+
+          - condition: template
+            value_template: >
+              {{ current_limit != 0 }}
+
+        sequence:
+          - service: number.set_value
+            target:
+              entity_id: !input ac_output_limit
+            data:
+              value: 0
+
+mode: single
