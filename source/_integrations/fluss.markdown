@@ -28,7 +28,7 @@ The **Fluss+** {% term integration %} allows you to control [Fluss+](https://flu
 - _(Optional)_ [Remote access](/cloud/) to reach your Fluss+ device from anywhere.
 
 {% important %}
-Enabling remote access to your Home Assistant instance — via port forwarding, tunnels, DuckDNS, or any other method — exposes your system to the internet and increases the risk of unauthorized access, security breaches, or compromise of connected devices, including your Fluss+ controls.
+Enabling remote access to your Home Assistant instance—via port forwarding, tunnels, DuckDNS, or any other method—exposes your system to the internet. It increases the risk of unauthorized access, security breaches, or compromise of connected devices, including your Fluss+ controls.
 
 We are not responsible for any security issues, data loss, unauthorized control of your devices, property damage, personal injury, or other consequences that may result from improper configuration, vulnerabilities, weak credentials, or external attacks.
 
