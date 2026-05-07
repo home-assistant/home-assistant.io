@@ -27,6 +27,10 @@ To use this condition in an automation:
 Condition passes if:
   description: When multiple calendars are targeted, controls how results combine. Pick **Any** to pass if at least one targeted calendar has an active event, or **All** to pass only when every calendar has an active event.
   required: true
+For at least:
+  description: How long the event must be active before the condition passes.
+  required: true
+
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
