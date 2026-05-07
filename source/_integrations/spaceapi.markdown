@@ -11,7 +11,7 @@ ha_codeowners:
   - '@ximex'
 ha_domain: spaceapi
 ha_integration_type: service
-ha_quality_scale: platinum
+ha_quality_scale: legacy
 ---
 
 The **SpaceAPI** {% term integration %} allows hackerspaces and makerspaces to expose information to web apps and other applications using the [SpaceAPI](https://spaceapi.io/) standard. It hosts a JSON endpoint on your Home Assistant instance that complies with SpaceAPI version 15.
