@@ -494,10 +494,12 @@ Integrating actionBox, actionBoxS, or proxiBox with Home Assistant using webhook
 
    ![Automation with action configured](/images/integrations/blebox/automation_action.png)
 
-Note: The webhook ID will be later needed in phase two and will have to be entered
+{% note %}
+The webhook ID will be later needed in phase two and will have to be entered
 into the wBox mobile app. You may decide to use a more convenient text value. However, remember
 that this is the only thing that authenticates webhooks within your network. Treat
 this ID like a password.
+{% endnote %}
 
 #### Configuring the device in the wBox app
 
@@ -510,9 +512,11 @@ this ID like a password.
 
    ![wBox app steps: setting trigger, entering webhook URL, summary, and actions list](/images/integrations/blebox/wbox_webhook_action_steps.jpg)
 
-Note: in order for this integration flow to work, the webhook URL host must be
+{% note %}
+In order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
+{% endnote %}
 
 ### uWiFi remotes via actionBox
 
