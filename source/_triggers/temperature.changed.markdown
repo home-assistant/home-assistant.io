@@ -110,8 +110,14 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 threshold:
-  description: >
-    A mapping that defines which kind of change fires the trigger. Set `type` to one of `any`, `above`, `below`, `between`, or `outside`. For `above` and `below`, provide `value` with a `number` key or an `entity` key. For `between` and `outside`, provide `value_min` and `value_max`, each with a `number` key or an `entity` key. For `any`, no additional keys are needed.
+  description: |
+    A mapping that defines which kind of change fires the trigger:
+
+    - `type: any`: Fire on any change (no additional keys needed)
+    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+
+    An `input_number` or `number` entity provides a threshold value that the sensor reading is compared against. A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
   required: true
   type: map
 unit:

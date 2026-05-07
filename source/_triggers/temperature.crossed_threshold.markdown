@@ -111,10 +111,12 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 threshold:
   description: |
-    A mapping that defines the zone the reading must enter for the trigger to fire. Set `type` to one of:
+    A mapping that defines the zone the reading must enter for the trigger to fire:
 
-    - `above` or `below`: provide `value` with a `number` key or an `entity` key.
-    - `between` or `outside`: provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+
+    An `input_number` or `number` entity provides a threshold value that the sensor reading is compared against. A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
   required: true
   type: map
 unit:
