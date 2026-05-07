@@ -30,7 +30,6 @@ Condition passes if:
 For at least:
   description: How long the event must be active before the condition passes.
   required: true
-
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
