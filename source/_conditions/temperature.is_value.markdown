@@ -206,7 +206,7 @@ This automation sends a notification only when the living room temperature is ou
 - **Condition**: Temperature value (outside 20-22°C range)
 - **Target**: Living room temperature sensor
 - **Condition passes if**: Any
-- **Action**: Send notification
+- **Action**: Send a notification
 
 {% details "YAML example for temperature out of range alert" %}
 
