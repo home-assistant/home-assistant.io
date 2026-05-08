@@ -81,18 +81,18 @@ ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/z
 - **Zigbee Coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
 - **Zigbee Router device**: A hardware device that is always mains-powered (AC), such as outlets, fans, relays, or dimmer switches.
 - **Zigbee End Device**: A hardware device that is typically battery-powered (DC), such as buttons, door/window, or motion sensors.
-- **Zigbee group**: A collection of two or more grouped Zigbee devices of the same type, (works different from Home Assistant's [Groups](/integrations/group/)).
+- **Zigbee group**: A collection of two or more grouped Zigbee devices of the same type (this is different from Home Assistant's [Groups](/integrations/group/)).
 
 ### Zigbee fundamental concepts
 
 - A Zigbee network can have only one Zigbee Coordinator.
-  - Zigbee Coordinator can only belong to be member of a single Zigbee network.
+  - A Zigbee Coordinator can only be a member of a single Zigbee network.
 - A single Zigbee Coordinator adapter can have multiple **Zigbee Router devices** or **Zigbee End Devices** connected directly (direct children).
   - Zigbee devices can only be connected to a single Zigbee network.
 - Zigbee uses a mesh network of intermediate [Zigbee Router devices](#using-router-devices-to-add-more-devices) to extend range by passing messages along to reach distant devices.
-  - Each Zigbee Router devices can have multiple Zigbee devices connected to it (as indirect children, or indirectly connected devices).
-  - Mesh networking is strengthen by adding more Zigbee Router devices which pass messages to nearby devices within the Zigbee network mesh, offloading the Zigbee Coordinator and thereby increasing the total number of devices you can add to the network.
-  - Zigbee networks therefore depend heavily on having multiple Zigbee Router devices to expand coverage and improving range.
+  - Each Zigbee Router device can have multiple Zigbee devices connected to it (as indirect children, or indirectly connected devices).
+  - Mesh networking is strengthened by adding more Zigbee Router devices which pass messages to nearby devices within the Zigbee network mesh, offloading the Zigbee Coordinator and thereby increasing the total number of devices you can add to the network.
+  - Zigbee networks therefore depend heavily on having multiple Zigbee Router devices to expand coverage and improve range.
 
 ## Compatible hardware
 
