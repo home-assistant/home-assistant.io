@@ -76,8 +76,6 @@ for:
 ## Good to know
 
 - Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted lock is open.
-- With **All**, the condition passes only if every available targeted lock is open. If every targeted lock is `unavailable` or `unknown`, **All** passes and **Any** fails.
 - Not every lock reports an open state. Use this condition only with locks that support open-state reporting.
 - To check for the secure state instead, use [Lock is locked](/conditions/lock.is_locked/).
 
