@@ -91,8 +91,11 @@ condition: |
     entity_id: sensor.living_room_temperature
   options:
     threshold:
-      above: 20
-      below: 22
+      type: between
+      value_min:
+        number: 20
+      value_max:
+        number: 22
     unit: "°C"
     behavior: any
 {% endexample %}
