@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-Keeps track which locks are in your environment, their state and allows you to control them.
+Keeps track of the locks in your environment, their state, and lets you control them.
 
 - Maintains a state per lock and a combined state `all_locks`.
 - Lets you use lock states in automations with built-in triggers, conditions, and actions.
