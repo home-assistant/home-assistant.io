@@ -59,7 +59,7 @@ You can update the password through the web interface of your my-PV device.
 Serial number:
   description: "The serial number of your my-PV device."
 Token:
-  description: "The API token"
+  description: "The my-PV Cloud API access token."
 {% endconfiguration_basic %}
 
 To generate an API token go to your [my-PV Cloud](https://live.my-pv.com/) and navigate to ⚙️ > **Device Setup**. Enable **Advanced Settings**, navigate to **API** and **Generate API Access Token**. Use this when setting up the my-PV integration.
