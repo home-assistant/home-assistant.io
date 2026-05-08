@@ -27,7 +27,7 @@ To use **Temperature changed** in an automation:
    - Select **Above** or **Below** and enter a value to fire only when the new reading is above or below that value.
    - Select **In range** and enter a lower and upper bound to fire only when the new reading falls inside the range.
    - Select **Outside range** and enter a lower and upper bound to fire only when the new reading is outside the range.
-   - For each option, you can enter a fixed temperature or pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
+   - For each option, you can enter a fixed temperature, pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
      - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
 8. Select **Save**.
@@ -39,12 +39,12 @@ Threshold type:
   description: |
     Controls which changes fire the trigger:
 
-    - **Any change**: fire on any change, regardless of direction or new value.
+    - **Any change**: fires on any change, regardless of direction or new value.
     - **Above** or **Below**: enter a value to fire only when the new reading is above or below that value.
     - **In range**: enter a lower and upper bound to fire only when the new reading falls between them.
     - **Outside range**: enter a lower and upper bound to fire only when the new reading is below the lower bound or above the upper bound.
 
-    For each mode you can enter a fixed temperature or reference a sensor entity or [number helper](/integrations/input_number/) entity.
+    For each mode you can enter a fixed temperature, reference a sensor entity or a [number helper](/integrations/input_number/) entity.
   required: true
 Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references). Default is `°C`.
@@ -115,9 +115,9 @@ threshold:
   description: |
     A mapping that defines which kind of change fires the trigger:
 
-    - `type: any`: Fire on any change (no additional keys needed)
-    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+    - `type: any`: Fires on any change (no additional keys needed).
+    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself.
 
@@ -160,7 +160,7 @@ When the living room temperature changes to a value outside the comfort range (2
 - **Trigger**: Temperature changed
 - **Target**: Living room temperature sensor
 - **Threshold type**: Outside range (20-22°C)
-- **Action**: Climate: Set HVAC mode
+- **Action**: Set thermostat HVAC mode (state: cool)
 
 {% details "YAML example for climate control when outside comfort range" %}
 
@@ -207,7 +207,7 @@ This automation sends a notification when any room temperature drifts outside th
 - **Trigger**: Temperature changed
 - **Target**: All temperature sensors (label)
 - **Threshold type**: Outside range (20-22°C)
-- **Action**: Notify: Send notification
+- **Action**: Send a notification
 
 {% details "YAML example for comfort range alert" %}
 
@@ -244,7 +244,7 @@ Send a notification whenever the bedroom temperature changes to a level within y
 - **Trigger**: Temperature changed
 - **Target**: Bedroom temperature sensor
 - **Threshold type**: In range (entity: comfort temperature min and max)
-- **Action**: Notify: Send notification
+- **Action**: Send a notification
 
 {% details "YAML example for using number helpers as threshold" %}
 

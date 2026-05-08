@@ -55,9 +55,9 @@ Trigger when:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
 
-    - **Each**: fire every time any targeted entity crosses the threshold.
-    - **First**: fire only on the first crossing.
-    - **All**: fire only after every targeted entity crosses the threshold.
+    - **Each**: fires every time any targeted entity crosses the threshold.
+    - **First**: fires only on the first crossing.
+    - **All**: fires only after every targeted entity crosses the threshold.
 
     This corresponds to the `behavior` field in YAML. Default is **Each**.
   required: false
@@ -139,9 +139,9 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires. Accepts:
 
-    - `any`: fire every time any targeted entity crosses the threshold.
-    - `first`: fire only on the first crossing.
-    - `last`: fire only after every targeted entity crosses the threshold.
+    - `any`: fires every time any targeted entity crosses the threshold.
+    - `first`: fires only on the first crossing.
+    - `last`: fires only after every targeted entity crosses the threshold.
   required: false
   type: string
   default: any
@@ -178,7 +178,7 @@ This automation turns off the living room climate system the moment the temperat
 - **Trigger**: Temperature crossed threshold
 - **Target**: Living room temperature sensor
 - **Threshold type**: In range (20-22°C)
-- **Action**: Climate: Set HVAC mode
+- **Action**: Set thermostat HVAC mode (state: off)
 
 {% details "YAML example for turning off climate when comfortable" %}
 
@@ -215,7 +215,7 @@ After opening windows to cool down a stuffy bedroom, this automation alerts you 
 - **Trigger**: Temperature crossed threshold
 - **Target**: Bedroom temperature sensor
 - **Threshold type**: In range (20-22°C)
-- **Action**: Notify: Send notification
+- **Action**: Send a notification
 
 {% details "YAML example for comfort range entry alert" %}
 
@@ -251,9 +251,9 @@ To avoid false triggers from brief temperature fluctuations when opening a door 
 
 - **Trigger**: Temperature crossed threshold
 - **Target**: Living room temperature sensor
-- **Threshold type**: Below 18°C
+- **Threshold type**: Below (18°C)
 - **For at least**: 5 minutes
-- **Action**: Climate: Set HVAC mode
+- **Action**: Set thermostat HVAC mode (state: heat)
 
 {% details "YAML example with delay to prevent false triggers" %}
 
@@ -288,7 +288,7 @@ Trigger the heating when temperature crosses below your personal comfort thresho
 - **Trigger**: Temperature crossed threshold
 - **Target**: Living room temperature sensor
 - **Threshold type**: Below (entity: comfort temperature threshold)
-- **Action**: Climate: Set HVAC mode
+- **Action**: Set thermostat HVAC mode (state: heat)
 
 {% details "YAML example for using a number helper as threshold" %}
 

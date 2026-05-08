@@ -1,11 +1,11 @@
 ---
-title: "Temperature"
+title: "Temperature value"
 condition: temperature.is_value
 domain: temperature
 description: "Tests if a temperature value is above a threshold, below a threshold, or in a range of values."
 ---
 
-The **Temperature** condition passes when a temperature reading meets a threshold you define. You can check that temperature is above, below, or within a specific range. The condition works with temperature sensors, climate devices, water heaters, and weather entities. Use it to run an automation only when the bedroom is too warm, or only when the temperature is low enough to need heating.
+The **Temperature value** condition passes when a temperature reading meets a threshold you define. You can check that the temperature is above, below, or within a specific range. The condition works with temperature sensors, climate devices, water heaters, and weather entities. Use it to run an automation only when the bedroom is too warm, or only when the temperature is low enough to need heating.
 
 When you target more than one entity, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted entity to meet the threshold, or demand that all of them do.
 
@@ -19,7 +19,7 @@ To use **Temperature** in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your temperature sensor is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Temperature**.
+5. From the conditions shown for that target, select **Temperature value**.
 6. Under **Threshold type**, set the temperature level the condition checks against:
    1. Pick whether the reading must be **Above**, **Below**, **In range**, or **Outside range** of the threshold.
    2. Select **Number** or **Entity**:
@@ -202,11 +202,11 @@ automation: |
 
 This automation sends a notification only when the living room temperature is outside the comfort range of 20 to 22°C, helping you maintain consistent conditions.
 
-- **Trigger**: Time pattern: Every hour
-- **Condition**: Temperature (outside 20-22°C range)
+- **Trigger**: Time pattern (every hour)
+- **Condition**: Temperature value (outside 20-22°C range)
 - **Target**: Living room temperature sensor
 - **Condition passes if**: Any
-- **Action**: Notify: Send notification
+- **Action**: Send notification
 
 {% details "YAML example for temperature out of range alert" %}
 
@@ -244,11 +244,11 @@ automation: |
 
 When the bedroom temperature is already within your comfort range, this automation turns off the climate system to save energy. Use number helpers to define your preferred temperature range so you can easily adjust it without editing the automation.
 
-- **Trigger**: Time pattern: Every 30 minutes
+- **Trigger**: Time pattern (every 30 minutes)
 - **Condition**: Temperature (in range, using number helpers)
 - **Target**: Bedroom temperature sensor
 - **Condition passes if**: Any
-- **Action**: Climate: Set HVAC mode to off
+- **Action**: Set thermostat HVAC mode (state: off)
 
 {% details "YAML example for turning off climate when comfortable" %}
 
