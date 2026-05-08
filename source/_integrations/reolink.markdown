@@ -868,3 +868,7 @@ Therefore, ensure no Global SSL certificate is configured in the [`configuration
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
 
 To see if a Reolink integration is currently using `TCP push`, `ONVIF push`, `ONVIF long polling` or `Fast polling`, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"event connection": "TCP push"\"ONVIF push"\"ONVIF long polling"\"Fast polling"` in the txt file.
+
+## Supported devices
+
+{% include integrations/device_list.html brand="Reolink" %}
