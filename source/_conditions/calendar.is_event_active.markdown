@@ -19,13 +19,17 @@ To use this condition in an automation:
 4. From the search box, search for and select **Calendar event is active**.
 5. Under **Targets**, select a calendar entity, an area, a floor, or a label.
 6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
-7. Select **Save**.
+7. Under **For at least**, set how long the event must be active before the condition passes.
+8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Condition passes if:
   description: When multiple calendars are targeted, controls how results combine. Pick **Any** to pass if at least one targeted calendar has an active event, or **All** to pass only when every calendar has an active event.
+  required: true
+For at least:
+  description: How long the event must be active before the condition passes. The default is `0` hours, `00` minutes and `00` seconds.
   required: true
 {% endoptions_ui %}
 
