@@ -265,8 +265,12 @@ layout: null
 /integrations/zwave /integrations/zwave_js/
 
 # Moved documentation
-/details/database /docs/backend/database
-/details/updater /docs/backend/updater
+/details/database /integrations/recorder
+/details/updater /integrations/analytics
+/docs/backend/database /integrations/recorder
+/docs/backend/database/ /integrations/recorder
+/docs/backend /docs/
+/docs/backend/ /docs/
 /docs/assist/ /voice_control/
 /docs/assist/android/ /voice_control/android/
 /docs/assist/apple/ /voice_control/apple/

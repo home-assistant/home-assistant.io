@@ -256,16 +256,6 @@
 </li>
 
 <li>
-  {% icon "mdi:database" %} {% active_link /docs/backend/ Backend %}
-  {% if doc == 'backend' or include.docs_index %}
-  <ul>
-    <li>{% active_link /docs/frontend/ User interface %}</li>
-    <li>{% active_link /docs/backend/database/ Database %}</li>
-  </ul>
-  {% endif %}
-</li>
-
-<li>
   {% icon "mdi:palette" %} {% active_link /docs/tools/ Tools and helpers %}
   {% if doc == 'tools' or include.docs_index %}
   <ul>
