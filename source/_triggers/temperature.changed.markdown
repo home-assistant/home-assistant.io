@@ -117,7 +117,7 @@ threshold:
 
     - `type: any`: Fire on any change (no additional keys needed)
     - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, or `sensor` entity)
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
 
     When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself.
 
