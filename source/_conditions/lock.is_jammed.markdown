@@ -75,7 +75,9 @@ for:
 
 ## Good to know
 
-- Locks that are `unavailable` or `unknown` are ignored for this condition. Home Assistant evaluates the remaining targeted locks.
+- Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+- With **Any**, the condition passes if at least one available targeted lock is jammed.
+- With **All**, the condition passes only if every available targeted lock is jammed. If every targeted lock is `unavailable` or `unknown`, **All** passes and **Any** fails.
 - Use **For at least** if you want to wait for a lasting problem instead of a brief status report.
 - To check for the normal secure state instead, use [Lock is locked](/conditions/lock.is_locked/).
 
