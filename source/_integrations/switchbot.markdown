@@ -942,3 +942,7 @@ You can create all sort of automations using sensors as triggers and switches, s
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Supported devices
+
+{% include integrations/device_list.html brand="SwitchBot" hide_list="true" %}
