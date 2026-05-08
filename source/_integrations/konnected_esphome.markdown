@@ -57,6 +57,4 @@ Konnected devices work locally and integrate seamlessly with the [ESPHome](/inte
 
 The following devices are known to be supported by the integration. They are certified under the [Works with Home Assistant](https://partner.home-assistant.io/) program.
 
-- [Konnected Smart Garage Door Opener blaQ](https://konnected.io/products/smart-garage-door-opener-blaq-myq-alternative)
-- [Konnected Smart Garage Door Opener White (v2)](https://konnected.io/products/smart-garage-door-opener)
-- [Konnected Alarm Panel Pro](https://konnected.io/collections/smart-alarm-panels)
+{% include integrations/device_list.html brand="Konnected" %}
