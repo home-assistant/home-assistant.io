@@ -134,11 +134,6 @@ threshold:
     When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two temperature readings dynamically.
   required: true
   type: map
-unit:
-  description: >
-    The temperature unit to use for threshold comparison. Accepts `°C` or `°F`.
-  required: true
-  type: string
 behavior:
   description: >
     Controls how results combine when multiple entities are targeted. Accepts `all` or `any`.
