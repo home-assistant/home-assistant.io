@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Hub
   - Light
+  - Number
   - Scene
   - Sensor
   - Switch
@@ -24,6 +25,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - light
+  - number
   - scene
   - sensor
   - switch
@@ -48,6 +50,7 @@ There is currently support for the following device types within Home Assistant:
 - **Binary sensor** - Elk-M1 zones with 4 states (non-analog zones) are represented as `binary_sensor` entities. `Normal` state is `off` and any other state is `on`
 - **Climate** - Elk-M1 thermostats are represented as `climate` entities
 - **Light** - Elk-M1 lights (X10, Insteon, UPB) are represented as `light` entities
+- **Number** - Elk-M1 number and duration settings are represented as `number` entities
 - **Scene** - Elk-M1 tasks are represented as `scene` entities
 - **Sensor** - Elk-M1 counters, keypads, panel status, settings, and zones are represented as `sensor` entities
 - **Switch** - Elk-M1 outputs are represented as `switch` entities
@@ -506,10 +509,10 @@ The panel does not automatically send counter value updates under certain condit
 - `elkm1.sensor_zone_bypass` - Bypass a zone
 - `elkm1.sensor_zone_trigger` - Trigger a zone virtually
 
-| Data attribute | Required | Description                                     |
-| -------------- | -------- | ----------------------------------------------- |
-| `entity_id`    | No       | ElkM1 zone to bypass or trigger                |
-| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits)                |
+| Data attribute | Required | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `entity_id`    | No       | ElkM1 zone to bypass or trigger         |
+| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits) |
 
 {% note %}
 The only mechanism ElkM1 offers to clear zone bypass is to clear all bypassed zones in a given alarm panel (area).
