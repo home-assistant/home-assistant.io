@@ -35,7 +35,7 @@ Threshold type:
     The humidity level the entity has to meet for the condition to pass. You can enter a fixed percentage between 0 and 100 (select **Number**), or pick an entity as a dynamic threshold (select **Entity**). When you pick an `input_number` or `number` helper, you can change the threshold without editing the automation. When you pick a humidity sensor, its live reading becomes the threshold, which is useful for comparing two humidity values, for example indoor versus outdoor. In both cases, also pick whether the reading must be above, below, or within a range of that value.
   required: true
 Condition passes if:
-  description: When multiple entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does. Default is **Any**.
+  description: When multiple entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does.
   required: true
 {% endoptions_ui %}
 
@@ -114,7 +114,6 @@ behavior:
 - Humidity is expressed as a percentage. Indoor comfort is generally between 40% and 60%. Below 30% often feels dry and can irritate airways. Above 65% can encourage mold and dust mites.
 - This condition checks the entity's _current_ humidity reading, not its target setpoint. To check a humidifier's target setpoint instead, use the [Humidifier target humidity](/conditions/humidifier.is_target_humidity/) condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
-- Pair with [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/) as a matching trigger when you need the automation to run the moment humidity crosses a specific level.
 
 {% include conditions/try_it.md %}
 
@@ -162,7 +161,7 @@ At midnight, check the living room humidity. If it has dropped below 30%, send a
 - **Condition**: Relative humidity (below 30%)
 - **Target**: Living room humidity sensor
 - **Condition passes if**: Any
-- **Action**: Notifications: Send a notification via mobile_app_phone
+- **Action**: Notify mobile app
 
 {% details "YAML example for a low humidity alert" %}
 
