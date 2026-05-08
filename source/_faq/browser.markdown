@@ -8,7 +8,7 @@ If buttons, cards, or whole pages start to look or behave strangely, it is almos
 
 This typically happens after:
 
-- Installing, updating, or removing a custom card or custom {% term dashboard %} element from outside the official integration store, such as through HACS.
+- Installing, updating, or removing a custom card or custom dashboard element from outside the official integration store, such as through HACS.
 - In rare cases, after a Home Assistant update.
 
 To fix it:
