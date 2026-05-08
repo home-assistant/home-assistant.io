@@ -20,3 +20,7 @@ To add Ultraloq Z-Wave products, pair them as Z-Wave devices:
 {% my add_zwave_device badge domain=page.ha_domain %}
 
 [Learn more about Z-Wave in Home Assistant.](/integrations/zwave_js/)
+
+## Supported devices
+
+{% include integrations/device_list.html brand="Ultraloq" %}
