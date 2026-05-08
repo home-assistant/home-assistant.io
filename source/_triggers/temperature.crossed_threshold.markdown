@@ -115,7 +115,8 @@ threshold:
 
     - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
     - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
-     A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
+
+    A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
   required: true
   type: map
 unit:
