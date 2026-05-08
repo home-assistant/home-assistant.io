@@ -58,10 +58,6 @@ Stop ID:
   description: "The stop identifier. You can find the stop identifier on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info). Zoom on the map and click on a stop. The ID will be displayed on the panel on the right, at the bottom. The field is called `id`."
   required: true
   type: integer
-Name:
-  description: "An optional custom name for this stop. If left empty, a default name is generated from the line and stop ID."
-  required: false
-  type: string
 {% endconfiguration_basic %}
 
 ## Supported functionality
