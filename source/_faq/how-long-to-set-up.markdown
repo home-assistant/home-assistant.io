@@ -8,7 +8,7 @@ The fastest way to get started is with [Home Assistant Green](/green/), the offi
 
 If you have read older guides that describe Home Assistant as a weekend project, that used to be a fair description. Setting it up meant flashing an SD card, installing an operating system, and working through the initial configuration by hand. Home Assistant Green and the modern installers have removed almost all of that.
 
-Adding your first {% term integrations %} and building a {% term dashboard %} typically takes another 30 to 60 minutes. Custom installations on a Raspberry Pi, mini PC, or virtual machine usually take 1 to 2 hours.
+Adding your first {% term integrations %} and building a dashboard typically takes another 30 to 60 minutes. Custom installations on a Raspberry Pi, mini PC, or virtual machine usually take 1 to 2 hours.
 
 Home Assistant is designed to grow with you, so you can start with a few devices and a simple dashboard, and add more capabilities as you get comfortable.
 

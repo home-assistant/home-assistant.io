@@ -4,7 +4,7 @@ description: "Yes. Home Assistant is free and open source. There is no subscript
 ha_category: About Home Assistant
 ---
 
-Yes. Home Assistant is free and open source. There is no subscription to use it, and no features are locked behind a paywall. You can install it, connect any number of devices, and build as many {% term automations %} and {% term dashboards %} as you like, without paying for the software itself.
+Yes. Home Assistant is free and open source. There is no subscription to use it, and no features are locked behind a paywall. You can install it, connect any number of devices, and build as many {% term automations %} and dashboards as you like, without paying for the software itself.
 
 The Home Assistant project is run by the [Open Home Foundation](https://www.openhomefoundation.org), a non-profit dedicated to keeping smart home technology private, secure, and open.
 
