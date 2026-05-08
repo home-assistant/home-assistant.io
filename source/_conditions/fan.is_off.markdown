@@ -60,9 +60,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the fan must have been off for the condition to pass.
+  description: How long the fan must have been off for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
   required: true
-  type: duration
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 

@@ -60,9 +60,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the fan must stay off before the trigger fires.
+  description: How long the fan must stay off before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
   required: true
-  type: duration
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 
