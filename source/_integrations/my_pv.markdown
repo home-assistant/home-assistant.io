@@ -2,8 +2,6 @@
 title: my-PV
 description: Instructions on how to integrate my-PV devices into Home Assistant.
 ha_category:
-  - Binary sensor
-  - Sensor
   - Water heater
 ha_release: 2026.6
 ha_iot_class: Local Polling
