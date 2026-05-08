@@ -49,8 +49,8 @@ Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - **Any**: Pass if at least one targeted entity meets the threshold (default)
-    - **All**: Pass only when every targeted entity meets the threshold
+    - **Any**: Pass if at least one targeted entity meets the threshold (default).
+    - **All**: Pass only when every targeted entity meets the threshold.
   required: true
 {% endoptions_ui %}
 
@@ -109,25 +109,25 @@ threshold:
   description: |
     The humidity level the entity has to meet for the condition to pass:
 
-    - Use `above` to set a minimum
-    - Use `below` to set a maximum
-    - Use both to define a range
+    - Use `above` to set a minimum.
+    - Use `below` to set a maximum.
+    - Use both to define a range.
 
     Accepts:
 
-    - A fixed number between 0 and 100
-    - A reference to an `input_number`, `number`, or `sensor` entity
+    - A fixed number between 0 and 100.
+    - A reference to an `input_number`, `number`, or `sensor` entity.
       - `input_number`: Lets you change the threshold without editing the automation. To create one, see [Number helper](/integrations/input_number/).
-      - `number`: Uses the current value of a number entity as the threshold
-      - `sensor`: Uses the current reading as the threshold when the condition is evaluated, which lets you compare two humidity readings dynamically, for example, checking whether indoor humidity is above outdoor humidity
+      - `number`: Uses the current value of a number entity as the threshold.
+      - `sensor`: Uses the current reading as the threshold when the condition is evaluated, which lets you compare two humidity readings dynamically, for example, checking whether indoor humidity is above outdoor humidity.
   required: true
   type: any
 behavior:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - `any`: Pass if at least one targeted entity meets the threshold
-    - `all`: Pass only when every targeted entity meets the threshold
+    - `any`: Pass if at least one targeted entity meets the threshold.
+    - `all`: Pass only when every targeted entity meets the threshold.
   required: true
   type: string
   default: any
