@@ -12,8 +12,6 @@ The **Unlock** action lets you release a lock from an automation or script. Use 
 
 The difference between **Unlock** and [Open](/actions/lock.open/) is that **Unlock** only changes the lock to the unlocked state, while **Open** unlatches the door on locks that support that feature. If you want to unlock the door but not unlatch it, use **Unlock**. If you want the door ready to push open right away, use [Open](/actions/lock.open/).
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
