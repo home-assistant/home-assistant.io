@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Data Grand Lyon** {% term integration %} lets you monitor data from the [Grand Lyon open data platform](https://data.grandlyon.com/) (city of Lyon, France).
