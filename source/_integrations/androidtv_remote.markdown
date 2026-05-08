@@ -248,11 +248,9 @@ Other:
 
 {% enddetails %}
 
-To send text as keyboard input use the `remote.send_command` and prefix the text to send with `text:`, e.g. `command: text:hello world` to type "hello world" in the selected input field.
+### Sending key commands
 
-If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
-
-Example actions:
+Pass any of the keys above as `command` in the `remote.send_command` action.
 
 ```yaml
 # Open the currently selected item on the Android TV
@@ -262,6 +260,8 @@ data:
 target:
   entity_id: remote.living_room_tv
 ```
+
+To trigger the long-press behavior of a key, supply `hold_secs`. The integration will press the key, wait the given duration, and then release it as a single atomic call.
 
 ```yaml
 # Long press on the currently selected item on the Android TV
@@ -273,6 +273,34 @@ target:
   entity_id: remote.living_room_tv
 ```
 
+### Press and release as separate events
+
+When a button, controller, or frontend card already emits separate press and release events, you can forward each one to the TV as its own service call by prefixing the command with a direction. Each call sends exactly one event, so the release fires when your source event fires — not when a fixed `hold_secs` timer ends.
+
+The accepted prefixes are `start_long:` (press down), `end_long:` (release up), and `short:` (the default). Prefixes are case-insensitive. Plain commands without a prefix continue to send a short tap. When both a prefix and `hold_secs` are supplied, `hold_secs` takes precedence.
+
+```yaml
+# Press down on DPAD_DOWN. Returns immediately, the key stays "held".
+action: remote.send_command
+data:
+  command: "start_long:DPAD_DOWN"
+target:
+  entity_id: remote.living_room_tv
+```
+
+```yaml
+# Release DPAD_DOWN. Sent later, when the user lets go.
+action: remote.send_command
+data:
+  command: "end_long:DPAD_DOWN"
+target:
+  entity_id: remote.living_room_tv
+```
+
+### Sending text input
+
+To send text as keyboard input, prefix the value of `command` with `text:`. The text after the prefix is delivered to whichever input field is currently focused on the Android TV.
+
 ```yaml
 # Send "Never Gonna Give You Up" as keyboard input text to the selected input field
 action: remote.send_command
@@ -281,6 +309,10 @@ data:
 target:
   entity_id: remote.living_room_tv
 ```
+
+### Launching apps and activities
+
+Use `remote.turn_on` with the `activity` field to launch an app or open a specific deep link. The value can be either an application ID (see the [Launching apps section](#launching-apps)) or a URL or scheme supported by the target app.
 
 ```yaml
 # Launch YouTube
@@ -292,7 +324,7 @@ target:
 ```
 
 ```yaml
-# Open a specific YouTube video:
+# Open a specific YouTube video
 action: remote.turn_on
 data:
   activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
