@@ -119,6 +119,8 @@ threshold:
     - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
     - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, or `sensor` entity)
 
+    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself.
+
     For example:
 
     ```yaml
@@ -134,11 +136,6 @@ threshold:
     A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
   required: true
   type: map
-unit:
-  description: >
-    The temperature unit to use for threshold comparison. Accepts `°C` or `°F`.
-  required: true
-  type: string
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
