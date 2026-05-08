@@ -38,8 +38,7 @@ AirGradient creates indoor and outdoor air quality monitors that enable you to k
 
 ## Supported devices
 
-- [AirGradient Indoor Air Quality Monitor](https://www.airgradient.com/indoor/)
-- [AirGradient Outdoor Air Quality Monitor](https://www.airgradient.com/outdoor/)
+{% include integrations/device_list.html brand="AirGradient" %}
 
 {% important %}
 In order for the device to be set up or discovered by Home Assistant, the [firmware](https://www.airgradient.com/documentation/firmwares) version should be at least 3.1.1.
