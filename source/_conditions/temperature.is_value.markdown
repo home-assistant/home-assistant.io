@@ -29,7 +29,7 @@ To use **Temperature** in an automation:
         - Sensor: Its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two temperature readings, for example to check whether indoor temperature is higher than outdoor temperature.
         - For **In range** or **Outside range**, you need two entities: one for the lower bound and one for the upper bound (for example, two separate number helpers).
         - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Unit of measurement**, select the temperature unit (°C or °F) to use for the threshold comparison.
+7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
 8. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 9. Select **Save**.
 
@@ -40,7 +40,7 @@ Threshold type:
   description: |
     The temperature level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed temperature value (or both a lower and upper bound for ranges). **Entity** uses a sensor or number helper as a dynamic threshold.
   required: true
-Unit of measurement:
+Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
   required: true
 Condition passes if:

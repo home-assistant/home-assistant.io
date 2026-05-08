@@ -30,7 +30,7 @@ To use **Temperature crossed threshold** in an automation:
    - Select **Outside range** and enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
    - For each option, you can enter a fixed temperature or pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
      - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Unit of measurement**, select the temperature unit (°C or °F) to use for the threshold comparison.
+7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
 8. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple entities are targeted.
 9. Under **For at least**, set how long the reading must stay past the threshold before the trigger fires. Leave it at zero to fire immediately.
 10. Select **Save**.
@@ -48,7 +48,7 @@ Threshold type:
 
     For each mode you can enter a fixed temperature or reference a sensor entity or [number helper](/integrations/input_number/) entity.
   required: true
-Unit of measurement:
+Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
   required: true
 Trigger when:

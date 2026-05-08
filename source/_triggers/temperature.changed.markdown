@@ -29,7 +29,7 @@ To use **Temperature changed** in an automation:
    - Select **Outside range** and enter a lower and upper bound to fire only when the new reading is outside the range.
    - For each option, you can enter a fixed temperature or pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
      - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Unit of measurement**, select the temperature unit (°C or °F) to use for the threshold comparison.
+7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
 8. Select **Save**.
 
 ### Options in the UI
@@ -46,7 +46,7 @@ Threshold type:
 
     For each mode you can enter a fixed temperature or reference a sensor entity or [number helper](/integrations/input_number/) entity.
   required: true
-Unit of measurement:
+Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
   required: true
 {% endoptions_ui %}
