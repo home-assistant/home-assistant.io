@@ -141,36 +141,48 @@ unit:
 
 {% include triggers/more_examples.md %}
 
-### Automation: turn on heating when it gets cold
+### Automation: turn on heating or cooling when temperature leaves comfort range
 
-When the living room temperature drops below 18°C, this automation turns on the heating to keep the room comfortable.
+When the living room temperature changes to a value outside the comfort range (20 to 22°C), this automation turns on heating or cooling to restore comfortable conditions.
 
 - **Trigger**: Temperature changed
 - **Target**: Living room temperature sensor
-- **Threshold type**: Below 18°C
+- **Threshold type**: Outside range (20-22°C)
 - **Action**: Climate: Set HVAC mode
 
-{% details "YAML example for turning on heating when cold" %}
+{% details "YAML example for climate control when outside comfort range" %}
 
 {% example %}
 automation: |
-  alias: "Turn on heating when living room is cold"
+  alias: "Adjust climate when living room is uncomfortable"
   triggers:
     - trigger: temperature.changed
       target:
         entity_id: sensor.living_room_temperature
       options:
         threshold:
-          type: below
-          value:
-            number: 18
+          type: outside
+          value_min:
+            number: 20
+          value_max:
+            number: 22
         unit: "°C"
   actions:
-    - action: climate.set_hvac_mode
-      target:
-        entity_id: climate.living_room
-      data:
-        hvac_mode: heat
+    - if:
+        - condition: template
+          value_template: "{{ trigger.to_state.state | float < 20 }}"
+      then:
+        - action: climate.set_hvac_mode
+          target:
+            entity_id: climate.living_room
+          data:
+            hvac_mode: heat
+      else:
+        - action: climate.set_hvac_mode
+          target:
+            entity_id: climate.living_room
+          data:
+            hvac_mode: cool
 {% endexample %}
 
 {% enddetails %}
@@ -211,34 +223,36 @@ automation: |
 
 {% enddetails %}
 
-### Automation: alert when temperature changes above comfort level
+### Automation: alert when temperature enters comfort range
 
-Send a notification whenever the bedroom temperature changes to a level above your personal comfort threshold. Use a number helper as the threshold so you can easily adjust your preferred temperature through the UI.
+Send a notification whenever the bedroom temperature changes to a level within your personal comfort range. Use number helpers for the range bounds so you can easily adjust your preferred temperatures through the UI.
 
 - **Trigger**: Temperature changed
 - **Target**: Bedroom temperature sensor
-- **Threshold type**: Above (entity: comfort temperature threshold)
+- **Threshold type**: In range (entity: comfort temperature min and max)
 - **Action**: Notify: Send notification
 
-{% details "YAML example for using a number helper as threshold" %}
+{% details "YAML example for using number helpers as threshold" %}
 
 {% example %}
 automation: |
-  alias: "Alert when temperature changes above comfort level"
+  alias: "Alert when temperature enters comfort range"
   triggers:
     - trigger: temperature.changed
       target:
         entity_id: sensor.bedroom_temperature
       options:
         threshold:
-          type: above
-          value:
-            entity: input_number.comfort_temperature_threshold
+          type: between
+          value_min:
+            entity: input_number.comfort_temperature_min
+          value_max:
+            entity: input_number.comfort_temperature_max
         unit: "°C"
   actions:
     - action: notify.mobile_app
       data:
-        message: "Bedroom temperature is now {{ trigger.to_state.state }}°C, above your comfort threshold."
+        message: "Bedroom temperature is now {{ trigger.to_state.state }}°C, within your comfort range."
 {% endexample %}
 
 {% enddetails %}

@@ -130,13 +130,13 @@ behavior:
     - `any`: fire every time any targeted entity crosses the threshold.
     - `first`: fire only on the first crossing.
     - `last`: fire only after every targeted entity crosses the threshold.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: |
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
@@ -158,36 +158,38 @@ for:
 
 {% include triggers/more_examples.md %}
 
-### Automation: turn on heating when it gets cold
+### Automation: turn off climate when temperature enters comfort range
 
-This automation turns on the living room heating the moment the temperature crosses below 18°C.
+This automation turns off the living room climate system the moment the temperature crosses into the comfort range (20 to 22°C), saving energy once comfortable conditions are achieved.
 
 - **Trigger**: Temperature crossed threshold
 - **Target**: Living room temperature sensor
-- **Threshold type**: Below 18°C
+- **Threshold type**: In range (20-22°C)
 - **Action**: Climate: Set HVAC mode
 
-{% details "YAML example for turning on heating when cold" %}
+{% details "YAML example for turning off climate when comfortable" %}
 
 {% example %}
 automation: |
-  alias: "Turn on heating when living room gets cold"
+  alias: "Turn off climate when living room is comfortable"
   triggers:
     - trigger: temperature.crossed_threshold
       target:
         entity_id: sensor.living_room_temperature
       options:
         threshold:
-          type: below
-          value:
-            number: 18
+          type: between
+          value_min:
+            number: 20
+          value_max:
+            number: 22
         unit: "°C"
   actions:
     - action: climate.set_hvac_mode
       target:
         entity_id: climate.living_room
       data:
-        hvac_mode: heat
+        hvac_mode: "off"
 {% endexample %}
 
 {% enddetails %}

@@ -122,7 +122,7 @@ unit:
 behavior:
   description: >
     Controls how results combine when multiple entities are targeted. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 {% endoptions_yaml %}
@@ -184,7 +184,7 @@ automation: |
 This automation sends a notification only when the living room temperature is outside the comfort range of 20 to 22°C, helping you maintain consistent conditions.
 
 - **Trigger**: Time pattern: Every hour
-- **Condition**: Temperature (below 20°C or above 22°C)
+- **Condition**: Temperature (outside 20-22°C range)
 - **Target**: Living room temperature sensor
 - **Condition passes if**: Any
 - **Action**: Notify: Send notification
@@ -198,24 +198,18 @@ automation: |
     - trigger: time_pattern
       hours: "/1"
   conditions:
-    - condition: or
-      conditions:
-        - condition: temperature.is_value
-          target:
-            entity_id: sensor.living_room_temperature
-          options:
-            threshold:
-              below: 20
-            unit: "°C"
-            behavior: any
-        - condition: temperature.is_value
-          target:
-            entity_id: sensor.living_room_temperature
-          options:
-            threshold:
-              above: 22
-            unit: "°C"
-            behavior: any
+    - condition: temperature.is_value
+      target:
+        entity_id: sensor.living_room_temperature
+      options:
+        threshold:
+          type: outside
+          value_min:
+            number: 20
+          value_max:
+            number: 22
+        unit: "°C"
+        behavior: any
   actions:
     - action: notify.mobile_app
       data:
@@ -226,57 +220,43 @@ automation: |
 
 {% enddetails %}
 
-### Automation: adjust climate when entering bedroom at night
+### Automation: turn off climate when temperature is comfortable
 
-When presence is detected in the bedroom between 9pm and 7am, check the temperature against your comfort thresholds and automatically heat if too cold or cool if too hot. Use number helpers to set your preferred temperature range, so you can easily adjust it without editing the automation.
+When the bedroom temperature is already within your comfort range, this automation turns off the climate system to save energy. Use number helpers to define your preferred temperature range so you can easily adjust it without editing the automation.
 
-- **Trigger**: Binary sensor: Bedroom presence detected
-- **Condition**: Time (21:00-07:00)
-- **Action**: Check temperature and heat if below lower threshold or cool if above upper threshold
+- **Trigger**: Time pattern: Every 30 minutes
+- **Condition**: Temperature (in range, using number helpers)
+- **Target**: Bedroom temperature sensor
+- **Condition passes if**: Any
+- **Action**: Climate: Set HVAC mode to off
 
-{% details "YAML example for nighttime climate control with number helpers" %}
+{% details "YAML example for turning off climate when comfortable" %}
 
 {% example %}
 automation: |
-  alias: "Adjust bedroom climate when occupied at night"
+  alias: "Turn off climate when bedroom is comfortable"
   triggers:
-    - trigger: state
-      entity_id: binary_sensor.bedroom_presence
-      to: "on"
+    - trigger: time_pattern
+      minutes: "/30"
   conditions:
-    - condition: time
-      after: "21:00:00"
-      before: "07:00:00"
+    - condition: temperature.is_value
+      target:
+        entity_id: sensor.bedroom_temperature
+      options:
+        threshold:
+          type: between
+          value_min:
+            entity: input_number.comfort_temperature_min
+          value_max:
+            entity: input_number.comfort_temperature_max
+        unit: "°C"
+        behavior: any
   actions:
-    - choose:
-        - conditions:
-            - condition: temperature.is_value
-              target:
-                entity_id: sensor.bedroom_temperature
-              options:
-                threshold:
-                  below: input_number.comfort_temperature_min
-                unit: "°C"
-          sequence:
-            - action: climate.set_hvac_mode
-              target:
-                entity_id: climate.bedroom
-              data:
-                hvac_mode: heat
-        - conditions:
-            - condition: temperature.is_value
-              target:
-                entity_id: sensor.bedroom_temperature
-              options:
-                threshold:
-                  above: input_number.comfort_temperature_max
-                unit: "°C"
-          sequence:
-            - action: climate.set_hvac_mode
-              target:
-                entity_id: climate.bedroom
-              data:
-                hvac_mode: cool
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.bedroom
+      data:
+        hvac_mode: "off"
 {% endexample %}
 
 {% enddetails %}
