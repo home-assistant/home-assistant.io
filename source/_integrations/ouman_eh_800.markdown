@@ -59,7 +59,7 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit (**H1** and **H2**). Sensors are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named with the **H1**/**H2** prefix followed by the circuit name configured on the controller (for example, `H1 Radiator heating`). Sensors are assigned to the device they belong to.
 
 ### Sensors
 
