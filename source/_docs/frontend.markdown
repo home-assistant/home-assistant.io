@@ -1,9 +1,9 @@
 ---
-title: "Frontend of Home Assistant"
-description: "Frontend of Home Assistant."
+title: "User interface and dashboards"
+description: "How the Home Assistant user interface works, and how to create and customize your own dashboards."
 ---
 
-The Home Assistant [frontend integration](/integrations/frontend/) provides the graphical user interface that allows you to browse and control the state of your house, manage automations, and configure integrations.
+The Home Assistant user interface is the screen you see in your browser or in the Home Assistant Companion app. It is where you control your devices, see what is happening in your home, and manage your {% term automations %} and {% term integrations %}.
 
 <p class='img'>
   <img src='/images/frontend/ui2022.png' />
