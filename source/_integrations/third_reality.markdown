@@ -29,3 +29,7 @@ ha_brand: true
 ---
 
 {% include integrations/wwha.md url="https://3reality.com/" %}
+
+## Supported devices
+
+{% include integrations/device_list.html brand="ThirdReality" hide_list="true" %}
