@@ -71,19 +71,19 @@ For at least:
 In YAML, **Temperature crossed threshold** is referred to as `temperature.crossed_threshold`. A basic example looks like this:
 
 {% example %}
-trigger:
-  - trigger: temperature.crossed_threshold
-    target:
-      entity_id: sensor.living_room_temperature
-    options:
-      threshold:
-        type: between
-        value_min:
-          number: 20
-          unit_of_measurement: "°C"
-        value_max:
-          number: 22
-          unit_of_measurement: "°C"
+trigger: |
+  trigger: temperature.crossed_threshold
+  target:
+    entity_id: sensor.living_room_temperature
+  options:
+    threshold:
+      type: between
+      value_min:
+        number: 20
+        unit_of_measurement: "°C"
+      value_max:
+        number: 22
+        unit_of_measurement: "°C"
 {% endexample %}
 
 This fires whenever the living room temperature sensor enters the comfort range (20 to 22°C).
@@ -91,19 +91,19 @@ This fires whenever the living room temperature sensor enters the comfort range 
 To fire when the reading leaves a comfort range (escapes above 22°C or below 20°C):
 
 {% example %}
-trigger:
-  - trigger: temperature.crossed_threshold
-    target:
-      entity_id: sensor.living_room_temperature
-    options:
-      threshold:
-        type: outside
-        value_min:
-          number: 20
-          unit_of_measurement: "°C"
-        value_max:
-          number: 22
-          unit_of_measurement: "°C"
+trigger: |
+  trigger: temperature.crossed_threshold
+  target:
+    entity_id: sensor.living_room_temperature
+  options:
+    threshold:
+      type: outside
+      value_min:
+        number: 20
+        unit_of_measurement: "°C"
+      value_max:
+        number: 22
+        unit_of_measurement: "°C"
 {% endexample %}
 
 ### Options in YAML
@@ -186,27 +186,27 @@ This automation turns off the living room climate system the moment the temperat
 {% details "YAML example for turning off climate when comfortable" %}
 
 {% example %}
-automation:
-  - alias: "Turn off climate when living room is comfortable"
-    triggers:
-      - trigger: temperature.crossed_threshold
-        target:
-          entity_id: sensor.living_room_temperature
-        options:
-          threshold:
-            type: between
-            value_min:
-              number: 20
-              unit_of_measurement: "°C"
-            value_max:
-              number: 22
-              unit_of_measurement: "°C"
-    actions:
-      - action: climate.set_hvac_mode
-        target:
-          entity_id: climate.living_room
-        data:
-          hvac_mode: "off"
+automation: |
+  alias: "Turn off climate when living room is comfortable"
+  triggers:
+    - trigger: temperature.crossed_threshold
+      target:
+        entity_id: sensor.living_room_temperature
+      options:
+        threshold:
+          type: between
+          value_min:
+            number: 20
+            unit_of_measurement: "°C"
+          value_max:
+            number: 22
+            unit_of_measurement: "°C"
+  actions:
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.living_room
+      data:
+        hvac_mode: "off"
 {% endexample %}
 
 {% enddetails %}
@@ -223,27 +223,27 @@ After opening windows to cool down a stuffy bedroom, this automation alerts you 
 {% details "YAML example for comfort range entry alert" %}
 
 {% example %}
-automation:
-  - alias: "Alert when bedroom temperature is comfortable"
-    triggers:
-      - trigger: temperature.crossed_threshold
-        target:
-          entity_id: sensor.bedroom_temperature
-        options:
-          threshold:
-            type: between
-            value_min:
-              number: 20
-              unit_of_measurement: "°C"
-            value_max:
-              number: 22
-              unit_of_measurement: "°C"
-    actions:
-      - action: notify.mobile_app
-        data:
-          message: >-
-            Bedroom temperature is now comfortable at
-            {{ trigger.to_state.state }}°C
+automation: |
+  alias: "Alert when bedroom temperature is comfortable"
+  triggers:
+    - trigger: temperature.crossed_threshold
+      target:
+        entity_id: sensor.bedroom_temperature
+      options:
+        threshold:
+          type: between
+          value_min:
+            number: 20
+            unit_of_measurement: "°C"
+          value_max:
+            number: 22
+            unit_of_measurement: "°C"
+  actions:
+    - action: notify.mobile_app
+      data:
+        message: >-
+          Bedroom temperature is now comfortable at
+          {{ trigger.to_state.state }}°C
 {% endexample %}
 
 {% enddetails %}
@@ -261,25 +261,25 @@ To avoid false triggers from brief temperature fluctuations when opening a door 
 {% details "YAML example with delay to prevent false triggers" %}
 
 {% example %}
-automation:
-  - alias: "Turn on heating when consistently cold"
-    triggers:
-      - trigger: temperature.crossed_threshold
-        target:
-          entity_id: sensor.living_room_temperature
-        options:
-          threshold:
-            type: below
-            value:
-              number: 18
-              unit_of_measurement: "°C"
-          for: "00:05:00"
-    actions:
-      - action: climate.set_hvac_mode
-        target:
-          entity_id: climate.living_room
-        data:
-          hvac_mode: heat
+automation: |
+  alias: "Turn on heating when consistently cold"
+  triggers:
+    - trigger: temperature.crossed_threshold
+      target:
+        entity_id: sensor.living_room_temperature
+      options:
+        threshold:
+          type: below
+          value:
+            number: 18
+            unit_of_measurement: "°C"
+        for: "00:05:00"
+  actions:
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.living_room
+      data:
+        hvac_mode: heat
 {% endexample %}
 
 {% enddetails %}
@@ -296,23 +296,23 @@ Trigger the heating when temperature crosses below your personal comfort thresho
 {% details "YAML example for using a number helper as threshold" %}
 
 {% example %}
-automation:
-  - alias: "Turn on heating when crossing below comfort threshold"
-    triggers:
-      - trigger: temperature.crossed_threshold
-        target:
-          entity_id: sensor.living_room_temperature
-        options:
-          threshold:
-            type: below
-            value:
-              entity: input_number.comfort_temperature_threshold
-    actions:
-      - action: climate.set_hvac_mode
-        target:
-          entity_id: climate.living_room
-        data:
-          hvac_mode: heat
+automation: |
+  alias: "Turn on heating when crossing below comfort threshold"
+  triggers:
+    - trigger: temperature.crossed_threshold
+      target:
+        entity_id: sensor.living_room_temperature
+      options:
+        threshold:
+          type: below
+          value:
+            entity: input_number.comfort_temperature_threshold
+  actions:
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.living_room
+      data:
+        hvac_mode: heat
 {% endexample %}
 
 {% enddetails %}

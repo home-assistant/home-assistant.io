@@ -53,17 +53,17 @@ Condition passes if:
 In YAML, refer to this condition as `temperature.is_value`. A basic example looks like this:
 
 {% example %}
-condition:
-  - condition: temperature.is_value
-    target:
-      entity_id: sensor.living_room_temperature
-    options:
-      threshold:
-        type: above
-        value:
-          number: 20
-          unit_of_measurement: "°C"
-      behavior: any
+condition: |
+  condition: temperature.is_value
+  target:
+    entity_id: sensor.living_room_temperature
+  options:
+    threshold:
+      type: above
+      value:
+        number: 20
+        unit_of_measurement: "°C"
+    behavior: any
 {% endexample %}
 
 This passes when the living room temperature sensor reads above 20°C.
@@ -71,17 +71,17 @@ This passes when the living room temperature sensor reads above 20°C.
 To check that temperature stays below a certain level:
 
 {% example %}
-condition:
-  - condition: temperature.is_value
-    target:
-      entity_id: sensor.living_room_temperature
-    options:
-      threshold:
-        type: below
-        value:
-          number: 24
-          unit_of_measurement: "°C"
-      behavior: any
+condition: |
+  condition: temperature.is_value
+  target:
+    entity_id: sensor.living_room_temperature
+  options:
+    threshold:
+      type: below
+      value:
+        number: 24
+        unit_of_measurement: "°C"
+    behavior: any
 {% endexample %}
 
 This passes when the living room temperature sensor reads below 24°C.
@@ -89,20 +89,20 @@ This passes when the living room temperature sensor reads below 24°C.
 To check that temperature stays within a comfortable range:
 
 {% example %}
-condition:
-  - condition: temperature.is_value
-    target:
-      entity_id: sensor.living_room_temperature
-    options:
-      threshold:
-        type: between
-        value_min:
-          number: 20
-          unit_of_measurement: "°C"
-        value_max:
-          number: 22
-          unit_of_measurement: "°C"
-      behavior: any
+condition: |
+  condition: temperature.is_value
+  target:
+    entity_id: sensor.living_room_temperature
+  options:
+    threshold:
+      type: between
+      value_min:
+        number: 20
+        unit_of_measurement: "°C"
+      value_max:
+        number: 22
+        unit_of_measurement: "°C"
+    behavior: any
 {% endexample %}
 
 This passes when the living room temperature sensor reads between 20 and 22°C.
@@ -177,27 +177,27 @@ This automation runs a fan only when the bedroom temperature is above 24°C, hel
 {% details "YAML example for cooling when warm" %}
 
 {% example %}
-automation:
-  - alias: "Run fan when bedroom is warm"
-    triggers:
-      - trigger: state
+automation: |
+  alias: "Run fan when bedroom is warm"
+  triggers:
+    - trigger: state
+      entity_id: fan.bedroom_fan
+      to: "off"
+  conditions:
+    - condition: temperature.is_value
+      target:
+        entity_id: sensor.bedroom_temperature
+      options:
+        threshold:
+          type: above
+          value:
+            number: 24
+            unit_of_measurement: "°C"
+        behavior: any
+  actions:
+    - action: fan.turn_on
+      target:
         entity_id: fan.bedroom_fan
-        to: "off"
-    conditions:
-      - condition: temperature.is_value
-        target:
-          entity_id: sensor.bedroom_temperature
-        options:
-          threshold:
-            type: above
-            value:
-              number: 24
-              unit_of_measurement: "°C"
-          behavior: any
-    actions:
-      - action: fan.turn_on
-        target:
-          entity_id: fan.bedroom_fan
 {% endexample %}
 
 {% enddetails %}
@@ -215,31 +215,31 @@ This automation sends a notification only when the living room temperature is ou
 {% details "YAML example for temperature out of range alert" %}
 
 {% example %}
-automation:
-  - alias: "Alert when temperature is uncomfortable"
-    triggers:
-      - trigger: time_pattern
-        hours: "/1"
-    conditions:
-      - condition: temperature.is_value
-        target:
-          entity_id: sensor.living_room_temperature
-        options:
-          threshold:
-            type: outside
-            value_min:
-              number: 20
-              unit_of_measurement: "°C"
-            value_max:
-              number: 22
-              unit_of_measurement: "°C"
-          behavior: any
-    actions:
-      - action: notify.mobile_app
-        data:
-          message: >
-            Living room temperature is
-            {{ states('sensor.living_room_temperature') }}°C
+automation: |
+  alias: "Alert when temperature is uncomfortable"
+  triggers:
+    - trigger: time_pattern
+      hours: "/1"
+  conditions:
+    - condition: temperature.is_value
+      target:
+        entity_id: sensor.living_room_temperature
+      options:
+        threshold:
+          type: outside
+          value_min:
+            number: 20
+            unit_of_measurement: "°C"
+          value_max:
+            number: 22
+            unit_of_measurement: "°C"
+        behavior: any
+  actions:
+    - action: notify.mobile_app
+      data:
+        message: >
+          Living room temperature is
+          {{ states('sensor.living_room_temperature') }}°C
 {% endexample %}
 
 {% enddetails %}
@@ -257,29 +257,29 @@ When the bedroom temperature is already within your comfort range, this automati
 {% details "YAML example for turning off climate when comfortable" %}
 
 {% example %}
-automation:
-  - alias: "Turn off climate when bedroom is comfortable"
-    triggers:
-      - trigger: time_pattern
-        minutes: "/30"
-    conditions:
-      - condition: temperature.is_value
-        target:
-          entity_id: sensor.bedroom_temperature
-        options:
-          threshold:
-            type: between
-            value_min:
-              entity: input_number.comfort_temperature_min
-            value_max:
-              entity: input_number.comfort_temperature_max
-          behavior: any
-    actions:
-      - action: climate.set_hvac_mode
-        target:
-          entity_id: climate.bedroom
-        data:
-          hvac_mode: "off"
+automation: |
+  alias: "Turn off climate when bedroom is comfortable"
+  triggers:
+    - trigger: time_pattern
+      minutes: "/30"
+  conditions:
+    - condition: temperature.is_value
+      target:
+        entity_id: sensor.bedroom_temperature
+      options:
+        threshold:
+          type: between
+          value_min:
+            entity: input_number.comfort_temperature_min
+          value_max:
+            entity: input_number.comfort_temperature_max
+        behavior: any
+  actions:
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.bedroom
+      data:
+        hvac_mode: "off"
 {% endexample %}
 
 {% enddetails %}
