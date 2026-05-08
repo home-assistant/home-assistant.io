@@ -47,9 +47,8 @@ Threshold type:
     For each mode you can enter a fixed temperature or reference a sensor entity or [number helper](/integrations/input_number/) entity.
   required: true
 Unit:
-  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
+  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references). Default is `°C`.
   required: false
-  default: °C
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
