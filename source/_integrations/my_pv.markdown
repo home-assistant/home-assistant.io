@@ -57,7 +57,7 @@ You can update the password through the web interface of your my-PV device.
 
 {% configuration_basic %}
 Serial number:
-  description: "The serial number of your my-PV device."
+  description: "The 16-digit serial number of your my-PV device. You can find it on the device label."
 Token:
   description: "The my-PV Cloud API access token."
 {% endconfiguration_basic %}
