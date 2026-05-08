@@ -18,6 +18,6 @@ Choosing devices that work with Home Assistant locally is the most reliable way 
 
 Learn more:
 
-- [Is Home Assistant reliable?](#is-home-assistant-reliable)
-- [Is my smart home data private with Home Assistant?](#is-my-smart-home-data-private-with-home-assistant)
+- [Is Home Assistant reliable?](/faq/is-home-assistant-reliable/)
+- [Is my smart home data private with Home Assistant?](/faq/is-my-smart-home-data-private-with-home-assistant/)
 - [Works with Home Assistant](https://works-with.home-assistant.io)

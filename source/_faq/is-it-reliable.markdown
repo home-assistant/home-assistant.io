@@ -1,6 +1,6 @@
 ---
 title: "Is Home Assistant reliable?"
-description: "Yes. Home Assistant runs locally on your own hardware and keeps working even when the internet or a vendor cloud goes down. Updates are released monthly with automatic backups."
+description: "Yes. Home Assistant runs locally on your own hardware and keeps working even when the internet or a vendor's cloud goes down. Updates are released monthly with automatic backups."
 ha_category: About Home Assistant
 ---
 
@@ -12,7 +12,7 @@ A new version of Home Assistant is released on the first Wednesday of every mont
 
 Learn more:
 
-- [Do Home Assistant updates break things?](#do-home-assistant-updates-break-things)
+- [Do Home Assistant updates break things?](/faq/do-home-assistant-updates-break-things/)
 - [Backups](/common-tasks/general/#backups)
 - [Repairs](/integrations/repairs/)
 - [Browse all integrations](/integrations/)

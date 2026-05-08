@@ -22,4 +22,4 @@ Learn more:
 - [Home Assistant Green](/green/)
 - [Getting started](/getting-started/)
 - [Browse all integrations](/integrations/)
-- [What hardware do I need to run Home Assistant?](#what-hardware-do-i-need-to-run-home-assistant)
+- [What hardware do I need to run Home Assistant?](/faq/what-hardware-do-i-need-to-run-home-assistant/)
