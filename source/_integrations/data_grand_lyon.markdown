@@ -33,12 +33,8 @@ You also need to know the stop IDs you want to monitor. You can find these on th
 {% configuration_basic %}
 Username:
   description: "Your username on data.grandlyon.com."
-  required: true
-  type: string
 Password:
   description: "Your password on data.grandlyon.com."
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 After setting up the integration, you can add transit stops as sub-entries from the integration's configuration page.
@@ -80,19 +76,19 @@ For each transit stop you add, the following sensor entities are created:
   - **Description**: Whether the departure time is _estimated_ (based on real-time vehicle tracking) or _theoretical_ (based on the scheduled timetable).
 
 - **Next departure 2**
-  - **Description**: The departure time of the second next vehicle at this stop.
+  - **Description**: The departure time of the second vehicle at this stop.
 
 - **Next departure 2 direction**
-  - **Description**: The direction (destination) of the second next vehicle at this stop.  Disabled by default.
+  - **Description**: The direction (destination) of the second vehicle at this stop.  Disabled by default.
 
 - **Next departure 2 type**
   - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.
 
 - **Next departure 3**
-  - **Description**: The departure time of the third next vehicle at this stop.
+  - **Description**: The departure time of the third vehicle at this stop.
 
 - **Next departure 3 direction**
-  - **Description**: The direction (destination) of the third next vehicle at this stop. Disabled by default.
+  - **Description**: The direction (destination) of the third vehicle at this stop. Disabled by default.
 
 - **Next departure 3 type**
   - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.
