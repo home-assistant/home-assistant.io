@@ -79,8 +79,8 @@ ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/z
 
 - **Zigbee network**: A mesh-network of Zigbee devices with low-power digital radios using a low-bandwidth communication protocol.
 - **Zigbee Coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
-- **Zigbee Router device**: A hardware device that is always mains-powered (AC), such as example outlets, fans, relays or dimmer switches.
-- **Zigbee End Device**: A hardware device that is typically battery-powered (DC), such as example buttons, door/window or motion sensors.
+- **Zigbee Router device**: A hardware device that is always mains-powered (AC), such as outlets, fans, relays, or dimmer switches.
+- **Zigbee End Device**: A hardware device that is typically battery-powered (DC), such as buttons, door/window, or motion sensors.
 - **Zigbee group**: A collection of two or more grouped Zigbee devices of the same type, (works different from Home Assistant's [Groups](/integrations/group/)).
 
 ### Zigbee fundamental concepts
