@@ -52,6 +52,7 @@ Enjoy the release!
 - [Purpose-specific automation triggers \& conditions](#purpose-specific-automation-triggers--conditions)
   - [Automations that finally understand "for a while"](#automations-that-finally-understand-for-a-while)
   - [A few more triggers and conditions to play with](#a-few-more-triggers-and-conditions-to-play-with)
+  - [Changes to existing triggers and conditions](#changes-to-existing-triggers-and-conditions)
   - [Try it out!](#try-it-out)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
@@ -67,6 +68,7 @@ Enjoy the release!
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Patch releases](#patch-releases)
+  - [2026.5.1 - May 8](#202651---may-8)
 - [All changes](#all-changes)
 
 _A huge thank you to all the contributors who made this release possible! And a special shout-out to [@piitaya] who helped write the release notes this release. Also, [@RaHehl], [@balloob], [@Tommatheussen], and [@mib1185] for putting effort into improving its contents. Thanks to them, these release notes are in great shape. ❤️_
