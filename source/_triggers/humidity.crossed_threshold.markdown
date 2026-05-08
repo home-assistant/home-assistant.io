@@ -109,6 +109,15 @@ threshold:
 
     - `above` or `below`: provide `value` with a `number` key or an `entity` key.
     - `between` or `outside`: provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+
+    For example:
+
+    ```yaml
+    threshold:
+      type: above
+      value:
+        number: 70
+    ```
   required: true
   type: map
 behavior:
@@ -118,13 +127,13 @@ behavior:
     - `any`: fire every time any targeted entity crosses the threshold.
     - `first`: fire only on the first crossing.
     - `last`: fire only after every targeted entity crosses the threshold.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: |
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}

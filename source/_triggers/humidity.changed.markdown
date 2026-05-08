@@ -105,8 +105,17 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 threshold:
-  description: >
-    A mapping that defines which kind of change fires the trigger. Set `type` to one of `any`, `above`, `below`, `between`, or `outside`. For `above` and `below`, provide `value` with a `number` key or an `entity` key. For `between` and `outside`, provide `value_min` and `value_max`, each with a `number` key or an `entity` key. For `any`, no additional keys are needed.
+  description: |
+    A mapping that defines which kind of change fires the trigger. Set `type` to one of `any`, `above`, `below`, `between`, or `outside`. For `above` and `below`, provide `value` with a `number` key or an `entity` key. For `between` and `outside`, provide `value_min` and `value_max`, each with a `number` key or an `entity` key. For `any`, no additional keys are needed. For example:
+
+    ```yaml
+    threshold:
+      type: between
+      value_min:
+        number: 40
+      value_max:
+        entity: input_number.max_comfort_humidity
+    ```
   required: true
   type: map
 {% endoptions_yaml %}
