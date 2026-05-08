@@ -17,8 +17,6 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-  - docs: /docs/backend/database/
-    title: Database schema
 ---
 
 The **SQL** {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
