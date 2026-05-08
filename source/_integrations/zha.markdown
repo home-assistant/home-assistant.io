@@ -998,9 +998,9 @@ A green light on the top left of the Philips Hue Dimmer Switch remote indicates 
 
 If you are unable to reset the bulb using a method above, remove it from the Hue Bridge (if it was re-discovered by the Hue Bridge) and try the procedure again.
 
-#### Philips HUE Bluetooth LED light are discovered in Home Assistant
+#### Philips Hue Bluetooth LED light are discovered in Home Assistant
 
-Some models of Philips Hue lights joined in ZHA (or another Zigbee gateway) can still show as discoverable by the Philips Hue BLE integration in Home Assistant. That is working-as-design as [Philips HUE Bluetooth LED light products](https://www.philips-hue.com/en-us/explore-hue/blog/bluetooth-led-lights) support dual-protocol connections, it just means you can choose to use those product with both Zigbee and Bluetooth at the same time. How to setup dual-protocol connections so is really off-topic here but in summery it can be done by pairing the light to a Zigbee network (or bind it directly to switch/remote/button) and then using the Philips Hue app on your mobile to connect to the light over Bluetooth using the QR code on the side of the light by following the Bluetooth pairing process they describe there.
+Some models of Philips Hue lights joined in ZHA (or another Zigbee gateway) can still show as discoverable by the Philips Hue BLE integration in Home Assistant. That is working-as-design as [Philips Hue Bluetooth LED light products](https://www.philips-hue.com/en-us/explore-hue/blog/bluetooth-led-lights) support dual-protocol connections, it just means you can choose to use those product with both Zigbee and Bluetooth at the same time. How to setup dual-protocol connections so is really off-topic here but in summery it can be done by pairing the light to a Zigbee network (or bind it directly to switch/remote/button) and then using the Philips Hue app on your mobile to connect to the light over Bluetooth using the QR code on the side of the light by following the Bluetooth pairing process they describe there.
 
 ### ZHA Start up issue with Home Assistant or Home Assistant Container
 
