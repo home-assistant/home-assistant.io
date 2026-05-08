@@ -20,7 +20,7 @@ If none of that applies to you, you can safely ignore YAML and still get a fully
 
 Learn more:
 
-- [Configuration.yaml](/docs/configuration/)
+- [`configuration.yaml`](/docs/configuration/)
 - [YAML syntax](/docs/configuration/yaml/)
 - [Adding integrations](/getting-started/integration/)
 - [Automating Home Assistant](/docs/automation/)
