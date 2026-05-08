@@ -49,7 +49,7 @@ ha_zeroconf: true
 ha_integration_type: hub
 ---
 
-The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect most off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called a _Zigbee Coordinator_.
+The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect most off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called a _Zigbee coordinator_.
 
 This {% term integration %} currently supports the following device types within Home Assistant:
 
@@ -77,7 +77,7 @@ ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/z
 
 ### Zigbee terminology
 
-- **Zigbee network**: A mesh-network of Zigbee devices with low-power digital radios using a low-bandwidth communication protocol.
+- **Zigbee network**: A mesh network of Zigbee devices with low-power digital radios using a low-bandwidth communication protocol.
 - **Zigbee Coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
 - **Zigbee Router device**: A hardware device that is always mains-powered (AC), such as outlets, fans, relays, or dimmer switches.
 - **Zigbee End Device**: A hardware device that is typically battery-powered (DC), such as buttons, door/window, or motion sensors.
