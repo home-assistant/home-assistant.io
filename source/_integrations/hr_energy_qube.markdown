@@ -106,14 +106,14 @@ Host:
   - **Description**: Indicates any active alarm on the heat pump.
 - **Compressor alarm**
   - **Description**: Indicates a compressor-related alarm condition.
-- **Room sensor enabled** (disabled by default)
-  - **Description**: Indicates whether the room temperature sensor is enabled.
-- **Plant sensor enabled** (disabled by default)
-  - **Description**: Indicates whether the plant temperature sensor is enabled.
-- **Buffer sensor enabled** (disabled by default)
-  - **Description**: Indicates whether the buffer temperature sensor is enabled.
-- **DHW controller enabled** (disabled by default)
-  - **Description**: Indicates whether the domestic hot water controller is enabled.
+- **Room sensor enabled**
+  - **Description**: Indicates whether the room temperature sensor is enabled. Disabled by default.
+- **Plant sensor enabled**
+  - **Description**: Indicates whether the plant temperature sensor is enabled. Disabled by default.
+- **Buffer sensor enabled**
+  - **Description**: Indicates whether the buffer temperature sensor is enabled. Disabled by default.
+- **DHW controller enabled**
+  - **Description**: Indicates whether the domestic hot water controller is enabled. Disabled by default.
 
 ### Sensors
 
