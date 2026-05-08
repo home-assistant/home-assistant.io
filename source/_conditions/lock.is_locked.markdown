@@ -32,7 +32,7 @@ Condition passes if:
   required: true
 For at least:
   description: How long the lock must stay locked before the condition passes.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -64,8 +64,8 @@ for:
   description: >
     How long the lock must stay locked before the condition passes. Accepts a
     duration like `00:05:00` for five minutes.
-  required: true
-  type: string
+  required: false
+  type: time
   default: "00:00:00"
 {% endoptions_yaml %}
 
