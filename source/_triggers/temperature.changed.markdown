@@ -48,7 +48,8 @@ Threshold type:
   required: true
 Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
-  required: true
+  required: false
+  default: °C
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
