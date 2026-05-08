@@ -47,7 +47,7 @@ Threshold type:
     For each mode you can enter a fixed temperature or reference a sensor entity or [number helper](/integrations/input_number/) entity.
   required: true
 Unit of measurement:
-  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`.
+  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
   required: true
 {% endoptions_ui %}
 
@@ -56,16 +56,16 @@ Unit of measurement:
 In YAML, **Temperature changed** is referred to as `temperature.changed`. A basic example looks like this:
 
 {% example %}
-trigger: |
-  trigger: temperature.changed
-  target:
-    entity_id: sensor.living_room_temperature
-  options:
-    threshold:
-      type: above
-      value:
-        number: 20
-        unit_of_measurement: "°C"
+trigger:
+  - trigger: temperature.changed
+    target:
+      entity_id: sensor.living_room_temperature
+    options:
+      threshold:
+        type: above
+        value:
+          number: 20
+          unit_of_measurement: "°C"
 {% endexample %}
 
 This fires whenever the living room temperature sensor reading moves to a value above 20°C. To fire on any change regardless of direction or value, use `type: any` and omit `value`.
@@ -73,37 +73,37 @@ This fires whenever the living room temperature sensor reading moves to a value 
 To fire only when the new reading is within a comfort range:
 
 {% example %}
-trigger: |
-  trigger: temperature.changed
-  target:
-    entity_id: sensor.living_room_temperature
-  options:
-    threshold:
-      type: between
-      value_min:
-        number: 20
-        unit_of_measurement: "°C"
-      value_max:
-        number: 22
-        unit_of_measurement: "°C"
+trigger:
+  - trigger: temperature.changed
+    target:
+      entity_id: sensor.living_room_temperature
+    options:
+      threshold:
+        type: between
+        value_min:
+          number: 20
+          unit_of_measurement: "°C"
+        value_max:
+          number: 22
+          unit_of_measurement: "°C"
 {% endexample %}
 
 To fire only when the new reading is outside a comfort range:
 
 {% example %}
-trigger: |
-  trigger: temperature.changed
-  target:
-    entity_id: sensor.living_room_temperature
-  options:
-    threshold:
-      type: outside
-      value_min:
-        number: 20
-        unit_of_measurement: "°C"
-      value_max:
-        number: 22
-        unit_of_measurement: "°C"
+trigger:
+  - trigger: temperature.changed
+    target:
+      entity_id: sensor.living_room_temperature
+    options:
+      threshold:
+        type: outside
+        value_min:
+          number: 20
+          unit_of_measurement: "°C"
+        value_max:
+          number: 22
+          unit_of_measurement: "°C"
 {% endexample %}
 
 ### Options in YAML
@@ -149,6 +149,7 @@ unit:
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when temperature first crosses a specific level, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) instead.
 - The trigger works with [climate](/integrations/climate/) entities, [water heater](/integrations/water_heater/) entities, [weather](/integrations/weather/) entities, and sensors with the temperature device class.
+- Climate, water heater, and weather entities that don't report a current temperature attribute are automatically excluded from the trigger. Only entities with a valid temperature value can fire the trigger.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.
 
 {% include triggers/try_it.md %}
@@ -167,37 +168,37 @@ When the living room temperature changes to a value outside the comfort range (2
 {% details "YAML example for climate control when outside comfort range" %}
 
 {% example %}
-automation: |
-  alias: "Adjust climate when living room is uncomfortable"
-  triggers:
-    - trigger: temperature.changed
-      target:
-        entity_id: sensor.living_room_temperature
-      options:
-        threshold:
-          type: outside
-          value_min:
-            number: 20
-            unit_of_measurement: "°C"
-          value_max:
-            number: 22
-            unit_of_measurement: "°C"
-  actions:
-    - if:
-        - condition: template
-          value_template: "{{ trigger.to_state.state | float < 20 }}"
-      then:
-        - action: climate.set_hvac_mode
-          target:
-            entity_id: climate.living_room
-          data:
-            hvac_mode: heat
-      else:
-        - action: climate.set_hvac_mode
-          target:
-            entity_id: climate.living_room
-          data:
-            hvac_mode: cool
+automation:
+  - alias: "Adjust climate when living room is uncomfortable"
+    triggers:
+      - trigger: temperature.changed
+        target:
+          entity_id: sensor.living_room_temperature
+        options:
+          threshold:
+            type: outside
+            value_min:
+              number: 20
+              unit_of_measurement: "°C"
+            value_max:
+              number: 22
+              unit_of_measurement: "°C"
+    actions:
+      - if:
+          - condition: template
+            value_template: "{{ trigger.to_state.state | float < 20 }}"
+        then:
+          - action: climate.set_hvac_mode
+            target:
+              entity_id: climate.living_room
+            data:
+              hvac_mode: heat
+        else:
+          - action: climate.set_hvac_mode
+            target:
+              entity_id: climate.living_room
+            data:
+              hvac_mode: cool
 {% endexample %}
 
 {% enddetails %}
@@ -214,27 +215,27 @@ This automation sends a notification when any room temperature drifts outside th
 {% details "YAML example for comfort range alert" %}
 
 {% example %}
-automation: |
-  alias: "Alert when temperature leaves comfort range"
-  triggers:
-    - trigger: temperature.changed
-      target:
-        label_id: temperature_sensors
-      options:
-        threshold:
-          type: outside
-          value_min:
-            number: 20
-            unit_of_measurement: "°C"
-          value_max:
-            number: 22
-            unit_of_measurement: "°C"
-  actions:
-    - action: notify.mobile_app
-      data:
-        message: >
-          Temperature in {{ trigger.to_state.name }} is {{
-          trigger.to_state.state }}°C
+automation:
+  - alias: "Alert when temperature leaves comfort range"
+    triggers:
+      - trigger: temperature.changed
+        target:
+          label_id: temperature_sensors
+        options:
+          threshold:
+            type: outside
+            value_min:
+              number: 20
+              unit_of_measurement: "°C"
+            value_max:
+              number: 22
+              unit_of_measurement: "°C"
+    actions:
+      - action: notify.mobile_app
+        data:
+          message: >
+            Temperature in {{ trigger.to_state.name }} is {{
+            trigger.to_state.state }}°C
 {% endexample %}
 
 {% enddetails %}
@@ -251,23 +252,23 @@ Send a notification whenever the bedroom temperature changes to a level within y
 {% details "YAML example for using number helpers as threshold" %}
 
 {% example %}
-automation: |
-  alias: "Alert when temperature enters comfort range"
-  triggers:
-    - trigger: temperature.changed
-      target:
-        entity_id: sensor.bedroom_temperature
-      options:
-        threshold:
-          type: between
-          value_min:
-            entity: input_number.comfort_temperature_min
-          value_max:
-            entity: input_number.comfort_temperature_max
-  actions:
-    - action: notify.mobile_app
-      data:
-        message: "Bedroom temperature is now {{ trigger.to_state.state }}°C, within your comfort range."
+automation:
+  - alias: "Alert when temperature enters comfort range"
+    triggers:
+      - trigger: temperature.changed
+        target:
+          entity_id: sensor.bedroom_temperature
+        options:
+          threshold:
+            type: between
+            value_min:
+              entity: input_number.comfort_temperature_min
+            value_max:
+              entity: input_number.comfort_temperature_max
+    actions:
+      - action: notify.mobile_app
+        data:
+          message: "Bedroom temperature is now {{ trigger.to_state.state }}°C, within your comfort range."
 {% endexample %}
 
 {% enddetails %}
