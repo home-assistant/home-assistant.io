@@ -65,7 +65,7 @@ trigger: |
       type: above
       value:
         number: 20
-    unit: "°C"
+        unit_of_measurement: "°C"
 {% endexample %}
 
 This fires whenever the living room temperature sensor reading moves to a value above 20°C. To fire on any change regardless of direction or value, use `type: any` and omit `value`.
@@ -82,9 +82,10 @@ trigger: |
       type: between
       value_min:
         number: 20
+        unit_of_measurement: "°C"
       value_max:
         number: 22
-    unit: "°C"
+        unit_of_measurement: "°C"
 {% endexample %}
 
 To fire only when the new reading is outside a comfort range:
@@ -99,9 +100,10 @@ trigger: |
       type: outside
       value_min:
         number: 20
+        unit_of_measurement: "°C"
       value_max:
         number: 22
-    unit: "°C"
+        unit_of_measurement: "°C"
 {% endexample %}
 
 ### Options in YAML
@@ -115,7 +117,19 @@ threshold:
 
     - `type: any`: Fire on any change (no additional keys needed)
     - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, or `sensor` entity)
+
+    For example:
+
+    ```yaml
+    threshold:
+      type: outside
+      value_min:
+        entity: input_number.comfort_temperature_min
+      value_max:
+        number: 24
+        unit_of_measurement: °C
+    ```
 
     A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
   required: true
@@ -164,9 +178,10 @@ automation: |
           type: outside
           value_min:
             number: 20
+            unit_of_measurement: "°C"
           value_max:
             number: 22
-        unit: "°C"
+            unit_of_measurement: "°C"
   actions:
     - if:
         - condition: template
@@ -210,9 +225,10 @@ automation: |
           type: outside
           value_min:
             number: 20
+            unit_of_measurement: "°C"
           value_max:
             number: 22
-        unit: "°C"
+            unit_of_measurement: "°C"
   actions:
     - action: notify.mobile_app
       data:
@@ -248,7 +264,6 @@ automation: |
             entity: input_number.comfort_temperature_min
           value_max:
             entity: input_number.comfort_temperature_max
-        unit: "°C"
   actions:
     - action: notify.mobile_app
       data:

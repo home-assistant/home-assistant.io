@@ -80,9 +80,10 @@ trigger: |
       type: between
       value_min:
         number: 20
+        unit_of_measurement: "°C"
       value_max:
         number: 22
-    unit: "°C"
+        unit_of_measurement: "°C"
 {% endexample %}
 
 This fires whenever the living room temperature sensor enters the comfort range (20 to 22°C).
@@ -99,9 +100,10 @@ trigger: |
       type: outside
       value_min:
         number: 20
+        unit_of_measurement: "°C"
       value_max:
         number: 22
-    unit: "°C"
+        unit_of_measurement: "°C"
 {% endexample %}
 
 ### Options in YAML
@@ -115,6 +117,18 @@ threshold:
 
     - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
     - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+
+    For example:
+
+    ```yaml
+    threshold:
+      type: between
+      value_min:
+        number: 18
+        unit_of_measurement: °C
+      value_max:
+        entity: input_number.max_comfort_temperature
+    ```
 
     A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
   required: true
@@ -182,9 +196,10 @@ automation: |
           type: between
           value_min:
             number: 20
+            unit_of_measurement: "°C"
           value_max:
             number: 22
-        unit: "°C"
+            unit_of_measurement: "°C"
   actions:
     - action: climate.set_hvac_mode
       target:
@@ -218,9 +233,10 @@ automation: |
           type: between
           value_min:
             number: 20
+            unit_of_measurement: "°C"
           value_max:
             number: 22
-        unit: "°C"
+            unit_of_measurement: "°C"
   actions:
     - action: notify.mobile_app
       data:
@@ -255,7 +271,7 @@ automation: |
           type: below
           value:
             number: 18
-        unit: "°C"
+            unit_of_measurement: "°C"
         for: "00:05:00"
   actions:
     - action: climate.set_hvac_mode
@@ -290,7 +306,6 @@ automation: |
           type: below
           value:
             entity: input_number.comfort_temperature_threshold
-        unit: "°C"
   actions:
     - action: climate.set_hvac_mode
       target:

@@ -59,8 +59,10 @@ condition: |
     entity_id: sensor.living_room_temperature
   options:
     threshold:
-      above: 20
-    unit: "°C"
+      type: above
+      value:
+        number: 20
+        unit_of_measurement: "°C"
     behavior: any
 {% endexample %}
 
@@ -75,8 +77,10 @@ condition: |
     entity_id: sensor.living_room_temperature
   options:
     threshold:
-      below: 24
-    unit: "°C"
+      type: below
+      value:
+        number: 24
+        unit_of_measurement: "°C"
     behavior: any
 {% endexample %}
 
@@ -94,9 +98,10 @@ condition: |
       type: between
       value_min:
         number: 20
+        unit_of_measurement: "°C"
       value_max:
         number: 22
-    unit: "°C"
+        unit_of_measurement: "°C"
     behavior: any
 {% endexample %}
 
@@ -111,12 +116,24 @@ threshold:
 
     - `above`: Sets a minimum
     - `below`: Sets a maximum
-    - `between`: Defines a range (for example, `between: [20, 25]`)
-    - `outside`: Defines an outside-range (for example, `outside: [20, 25]`)
+    - `between`: Defines a range
+    - `outside`: Defines an outside-range
 
-    Accepts a `number`, a reference to an `input_number`, or a `sensor` entity. A `sensor` entity's current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two temperature readings dynamically (for example, checking whether indoor temperature is above outdoor temperature).
+    For `above` and `below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `between` and `outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`. For example:
+
+    ```yaml
+    threshold:
+      type: between
+      value_min:
+        entity: input_number.comfort_temperature_min
+      value_max:
+        number: 22
+        unit_of_measurement: °C
+    ```
+
+    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two temperature readings dynamically.
   required: true
-  type: any
+  type: map
 unit:
   description: >
     The temperature unit to use for threshold comparison. Accepts `°C` or `°F`.
@@ -171,8 +188,10 @@ automation: |
         entity_id: sensor.bedroom_temperature
       options:
         threshold:
-          above: 24
-        unit: "°C"
+          type: above
+          value:
+            number: 24
+            unit_of_measurement: "°C"
         behavior: any
   actions:
     - action: fan.turn_on
@@ -209,9 +228,10 @@ automation: |
           type: outside
           value_min:
             number: 20
+            unit_of_measurement: "°C"
           value_max:
             number: 22
-        unit: "°C"
+            unit_of_measurement: "°C"
         behavior: any
   actions:
     - action: notify.mobile_app
@@ -252,7 +272,6 @@ automation: |
             entity: input_number.comfort_temperature_min
           value_max:
             entity: input_number.comfort_temperature_max
-        unit: "°C"
         behavior: any
   actions:
     - action: climate.set_hvac_mode
