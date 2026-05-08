@@ -1,6 +1,6 @@
 ---
 title: National Grid US
-description: Connect and control your National Grid US devices
+description: Monitor energy usage and costs from your National Grid US account
 ha_category:
   - Energy
   - Sensor
@@ -57,13 +57,13 @@ The integration provides the following sensors for each meter on your account.
 
 For electric meters:
 
-- **Monthly electric usage** — The current month's electricity usage to date.
-- **Monthly electric cost** — The current month's electricity cost to date.
+- **Monthly electric usage**: The current month's electricity usage to date.
+- **Monthly electric cost**: The current month's electricity cost to date.
 
 For gas meters:
 
-- **Monthly gas usage** — The current month's gas usage to date.
-- **Monthly gas cost** — The current month's gas cost to date.
+- **Monthly gas usage**: The current month's gas usage to date.
+- **Monthly gas cost**: The current month's gas cost to date.
 
 ## Data updates
 
