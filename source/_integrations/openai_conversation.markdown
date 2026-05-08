@@ -23,6 +23,8 @@ related:
   - url: https://www.openai.com
     title: OpenAI
 ha_quality_scale: bronze
+ha_codeowners:
+  - '@Shulyaka'
 ---
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
@@ -84,6 +86,8 @@ Temperature:
   description: A value that determines the level of creativity and risk-taking the model should use when generating text. A higher temperature means the model is more likely to generate unexpected results, while a lower temperature results in more deterministic results. See the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction) for more information.
 Top P:
   description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
+Store requests and responses in OpenAI:
+  description: If enabled, OpenAI stores requests and responses and you can view them in your OpenAI dashboard logs. Disabled by default.
 Service tier:
   description: The available service tiers are Auto, Standard, Flex, and Priority. Flex tier offers lower costs in exchange for slower response times, which can be useful for background automations. [Priority processing](https://openai.com/api-priority-processing/) delivers significantly lower and more consistent latency than the Standard tier at a higher price. Auto is the default value, which uses the [project settings](https://platform.openai.com/settings/organization/projects). See the [Pricing](https://developers.openai.com/api/docs/pricing) for details on the supported models. When the selected tier is unavailable due to capacity or ramp rate limits, the request is processed at the Standard tier, and you are charged the Standard tier price.
 Enable web search:

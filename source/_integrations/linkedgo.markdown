@@ -8,6 +8,7 @@ ha_category:
   - Energy
   - Event
   - Light
+  - Media player
   - Number
   - Select
   - Sensor
@@ -34,6 +35,7 @@ ha_platforms:
   - diagnostics
   - event
   - light
+  - media_player
   - number
   - select
   - sensor

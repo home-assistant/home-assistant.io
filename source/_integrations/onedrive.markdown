@@ -94,16 +94,35 @@ This integration provides the following actions:
 
 ### Action `onedrive.upload`
 
-You can use the `onedrive.upload` action to upload files from Home Assistant
-to OneDrive. For example, to upload `camera` snapshots.
+You can use the `onedrive.upload` action to upload one or more files from Home Assistant to OneDrive. For example, to upload `camera` snapshots.
 
 {% details "Upload action details" %}
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `filename` | no | Path to the file to upload. | /media/image.jpg |
-| `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded content. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
+| `filename` | no | One or more local file paths to upload. Accepts a single string or a list of strings. | /media/image.jpg |
+| `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded files. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
 | `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
+
+{% raw %}
+
+```yaml
+# Upload a single file
+action: onedrive.upload
+data:
+  filename: /media/image.jpg
+  destination_folder: Snapshots/2025
+
+# Upload multiple files
+action: onedrive.upload
+data:
+  filename:
+    - /media/image_1.jpg
+    - /media/image_2.jpg
+  destination_folder: Snapshots/2025
+```
+
+{% endraw %}
 
 {% enddetails %}
 
