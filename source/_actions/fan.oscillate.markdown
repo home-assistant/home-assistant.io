@@ -52,9 +52,9 @@ This turns oscillation on for `fan.living_room`.
 
 {% options_yaml %}
 oscillating:
-  description: Turns oscillation on or off.
+  description: Turns oscillation on or off. Accepts `true` or `false`.
   required: true
-  type: boolean
+  type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}
