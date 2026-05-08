@@ -261,7 +261,7 @@ target:
   entity_id: remote.living_room_tv
 ```
 
-To trigger the long-press behavior of a key, supply `hold_secs`. The integration will press the key, wait the given duration, and then release it as a single atomic call.
+To trigger the long-press behavior of a key, supply `hold_secs` in seconds. Fractional seconds, like `0.5` for half a second, are supported. The integration will press the key, wait the given duration, and then release it as a single atomic call.
 
 ```yaml
 # Long press on the currently selected item on the Android TV
