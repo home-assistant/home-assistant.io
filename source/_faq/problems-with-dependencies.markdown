@@ -12,4 +12,4 @@ For custom integrations, dependency issues can happen when the custom integratio
 
 - Check whether the custom integration has a newer version available, and update it.
 - Check the custom integration's issue tracker to see if others are seeing the same problem.
-- If the issue started right after a Home Assistant update, you can restore the [automatic backup](/common-tasks/general/#backups) that was taken before the update while you wait for the custom integration to be fixed.
+- If the issue started right after a Home Assistant update, you can restore an [automatic backup](/common-tasks/general/#backups) from before the update, if one is available, while you wait for the custom integration to be fixed.
