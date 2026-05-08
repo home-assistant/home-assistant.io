@@ -1,9 +1,9 @@
 {%- for company in site.data.wwha_devices -%}
 {%- assign company_brand_lower = company.brand | downcase -%}
-{%- assign include_brand_lower = include.brand | downcase -%}
-{%- if company_brand_lower == include_brand_lower -%}
+{%- assign include_brand_slug = include.brand | downcase | replace: ' ', '-' -%}
+{%- if company_brand_lower == include_brand_slug -%}
 {%- if include.hide_list -%}
-For the full list of {{ company.devices | size }} certified {{ include.brand }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include.brand | downcase | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
+For the full list of {{ company.devices | size }} certified {{ include.brand }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include_brand_slug | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
 {%- else -%}
 <ul>
 {%- for device in company.devices %}
