@@ -118,7 +118,7 @@ The `nintendo_parental_controls.update_pin_code` action allows you to change the
   - **Description**: The ID of the device to change the PIN on.
   - **Optional**: No
 - **Data attribute**: `pin`
-  - **Description**: The new PIN to set between 1000 and 99999999
+  - **Description**: The new PIN is to be set between 1000 and 99999999.
   - **Optional**: No
 
 ## Known limitations
