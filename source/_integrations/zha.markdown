@@ -930,7 +930,7 @@ To enable debug logging for the ZHA {% term integration %} and radio libraries, 
    ![Enable ZHA debug logging](/images/integrations/zha/zha-enable-debug.png)
 3. Reproduce the issue you're having. There are never too many debug logs, please don't worry about providing too much information.
 4. Once you're done, disable debug logging. Your browser will download a debug log file:
-   ![Disable ZHA debug logging](/images/integrations/zha/zha-enable-debug.png)
+   ![Disable ZHA debug logging](/images/integrations/zha/zha-disable-debug.png)
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
