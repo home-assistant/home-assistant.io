@@ -528,10 +528,10 @@ The `sensor_zone_trigger` action creates a virtual momentary open condition on t
 
 - `elkm1.switch_output_turn_on_for` - Turn on the output for a specified duration
 
-| Data attribute | Required | Description              |
-| -------------- | -------- | ------------------------ |
+| Data attribute | Required | Description |
+| -------------- | -------- | ----------- |
 | `entity_id`    | No       | Elk-M1 output to turn on |
-| `duration`     | Yes      | Duration in seconds to keep the output on, as an ElkM1 integer value from 0 to 65535; 0 turns on until changed again  |
+| `duration`     | Yes      | Duration in integer seconds (0-65535). Use `0` to keep the output on until you turn it off. |
 
 ### System actions
 
