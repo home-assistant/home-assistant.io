@@ -48,12 +48,8 @@ After setting up the integration, you can add transit stops as sub-entries from 
 {% configuration_basic %}
 Line:
   description: "The transit line identifier (for example, `C1` or `T2`)."
-  required: true
-  type: string
 Stop ID:
   description: "The stop identifier. You can find the stop identifier on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info). Zoom on the map and click on a stop. The ID will be displayed on the panel on the right, at the bottom. The field is called `id`."
-  required: true
-  type: integer
 {% endconfiguration_basic %}
 
 ## Supported functionality
