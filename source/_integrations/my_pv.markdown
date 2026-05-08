@@ -12,9 +12,6 @@ ha_codeowners:
   - '@rrooggiieerr'
 ha_domain: my_pv
 ha_platforms:
-  - binary_sensor
-  - sensor
-  - number
   - water_heater
 ha_integration_type: integration
 ha_config_flow: true
