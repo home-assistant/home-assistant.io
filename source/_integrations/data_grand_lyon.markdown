@@ -82,20 +82,20 @@ For each transit stop you add, the following sensor entities are created:
 - **Next departure 2**
   - **Description**: The departure time of the second next vehicle at this stop.
 
-- **Next departure 2 direction** (disabled by default)
-  - **Description**: The direction (destination) of the second next vehicle at this stop.
+- **Next departure 2 direction**
+  - **Description**: The direction (destination) of the second next vehicle at this stop.  Disabled by default.
 
-- **Next departure 2 type** (disabled by default)
-  - **Description**: Whether the departure time is _estimated_ or _theoretical_.
+- **Next departure 2 type**
+  - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.
 
 - **Next departure 3**
   - **Description**: The departure time of the third next vehicle at this stop.
 
-- **Next departure 3 direction** (disabled by default)
-  - **Description**: The direction (destination) of the third next vehicle at this stop.
+- **Next departure 3 direction**
+  - **Description**: The direction (destination) of the third next vehicle at this stop. Disabled by default.
 
-- **Next departure 3 type** (disabled by default)
-  - **Description**: Whether the departure time is _estimated_ or _theoretical_.
+- **Next departure 3 type**
+  - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.
 
 ## Data updates
 
