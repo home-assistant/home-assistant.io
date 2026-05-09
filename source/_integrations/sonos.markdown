@@ -40,7 +40,7 @@ Speaker-level controls are exposed as `number`, `select` or `switch` entities. A
 
 ### Controllable features
 
-- **All devices**: Alarms, Bass, Treble, Loudness, Crossfade, Status Light, Touch Controls
+- **All devices**: Alarms, Bass, Treble, Loudness, Crossfade, Group Volume, Status Light, Touch Controls
 - **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level, TV Autoplay, Ungroup on Autoplay
 - **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain, Subwoofer Crossover Frequency (Sonos Amp only)
 
@@ -61,6 +61,16 @@ The following select entities are created:
 ### TV Autoplay and Ungroup on Autoplay support notes
 
 Since the Sonos UPnP spec does not emit events for these, both entities rely on polling for state updates from external changes (for example, changes made in the Sonos app). That means those entities will always have some delay before updating, so changes made outside of Home Assistant will be reflected on the next device polling, which defaults to 30 seconds.
+
+### Group Volume notes
+
+Each Sonos speaker has a **Group Volume** `number` entity (`number.{speaker_name}_group_volume`) that controls the volume of the speaker's entire group.
+
+- When a speaker is the **group coordinator**, the entity is available and adjusting it changes the volume of all speakers in the group proportionally.
+- When a speaker is **ungrouped**, the entity is available and mirrors the speaker's individual volume.
+- When a speaker is a **non-coordinator group member**, the entity is **unavailable**. Use the coordinator's Group Volume entity to control the group.
+
+Group Volume entities update automatically when group membership changes or when any group member's volume changes.
 
 ### Battery support notes
 
