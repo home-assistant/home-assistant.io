@@ -37,15 +37,13 @@ To use **Relative humidity** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The humidity level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed percentage value between 0 and 100 (or both a lower and upper bound for ranges). **Entity** uses a sensor or number helper as a dynamic threshold.
-  required: true
+    The humidity level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed percentage (0-100%) or both a lower and upper bound for ranges. **Entity** uses a sensor or number helper as a dynamic threshold.
 Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
 
     - **Any**: Pass if at least one targeted entity meets the threshold (default).
     - **All**: Pass only when every targeted entity meets the threshold.
-  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -73,16 +71,16 @@ To check that humidity stays below a certain level:
 condition: |
   condition: humidity.is_value
   target:
-    entity_id: sensor.bedroom_humidity
+    area_id: basement
   options:
     threshold:
       type: below
       value:
         number: 40
-    behavior: any
+    behavior: all
 {% endexample %}
 
-This passes when the bedroom humidity sensor reads below 40%.
+This passes when all humidity sensors in the basement area read below 40%.
 
 To check that humidity stays within a comfortable range:
 
@@ -90,7 +88,9 @@ To check that humidity stays within a comfortable range:
 condition: |
   condition: humidity.is_value
   target:
-    entity_id: sensor.bedroom_humidity
+    entity_id:
+      - sensor.bedroom_humidity
+      - sensor.bathroom_humidity
   options:
     threshold:
       type: between
@@ -101,7 +101,40 @@ condition: |
     behavior: any
 {% endexample %}
 
-This passes when the bedroom humidity sensor reads between 40% and 60%.
+This passes when at least one of the humidity sensors reads between 40% and 60%.
+
+To check that humidity stays outside a range:
+
+{% example %}
+condition: |
+  condition: humidity.is_value
+  target:
+    entity_id: sensor.bedroom_humidity
+  options:
+    threshold:
+      type: outside
+      value_min:
+        number: 40
+      value_max:
+        number: 60
+{% endexample %}
+
+This passes when the bedroom humidity sensor reads below 40% or above 60%.
+
+To use a number helper as a dynamic threshold that you can adjust without editing the automation:
+
+{% example %}
+condition: |
+  condition: humidity.is_value
+  target:
+    entity_id: sensor.bedroom_humidity
+  options:
+    threshold:
+      type: above
+      value:
+        entity: input_number.humidity_alert_threshold
+    behavior: any
+{% endexample %}
 
 ### Options in YAML
 
@@ -157,9 +190,10 @@ When the bedroom humidity sensor reads above 65%, turn on the dehumidifier to br
 
 - **Trigger**: Time pattern: Every 15 minutes
 - **Condition**: Relative humidity (above 65%)
-- **Target**: Bedroom humidity sensor
-- **Condition passes if**: Any
-- **Action**: Switch: Turn on
+  - **Target**: Bedroom humidity sensor
+  - **Condition passes if**: Any
+- **Action**: Turn on switch
+  - **Target**: switch.bedroom_dehumidifier
 
 {% details "YAML example for running a dehumidifier when humidity is high" %}
 
@@ -172,7 +206,9 @@ automation: |
   conditions:
     - condition: humidity.is_value
       target:
-        entity_id: sensor.bedroom_humidity
+        entity_id:
+          - sensor.bedroom_humidity
+          - sensor.closet_humidity
       options:
         threshold:
           type: above
@@ -193,9 +229,10 @@ At midnight, check the living room humidity. If it has dropped below 30%, send a
 
 - **Trigger**: Time: 00:00
 - **Condition**: Relative humidity (below 30%)
-- **Target**: Living room humidity sensor
-- **Condition passes if**: Any
-- **Action**: Notify mobile app
+  - **Target**: Living room humidity sensor
+  - **Condition passes if**: Any
+- **Action**: Send a notification
+  - **Target**: notify.mobile_app_phone
 
 {% details "YAML example for a low humidity alert" %}
 
@@ -208,15 +245,17 @@ automation: |
   conditions:
     - condition: humidity.is_value
       target:
-        entity_id: sensor.living_room_humidity
+        area_id: living_room
       options:
         threshold:
           type: below
           value:
             number: 30
-        behavior: any
+        behavior: all
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app_phone
       data:
         message: >
           The living room humidity is below 30%.
@@ -231,9 +270,10 @@ Check every 15 minutes whether the bedroom humidity is outside your personal com
 
 - **Trigger**: Time pattern: Every 15 minutes
 - **Condition**: Relative humidity (outside range, using number helpers)
-- **Target**: Bedroom humidity sensor
-- **Condition passes if**: Any
-- **Action**: Switch: Turn on humidifier
+  - **Target**: Bedroom humidity sensor
+  - **Condition passes if**: Any
+- **Action**: Turn on switch
+  - **Target**: switch.bedroom_humidifier
 
 {% details "YAML example for using number helpers as threshold" %}
 
@@ -254,7 +294,6 @@ automation: |
             entity: input_number.comfort_humidity_min
           value_max:
             entity: input_number.comfort_humidity_max
-        behavior: any
   actions:
     - action: switch.turn_on
       target:
@@ -269,9 +308,10 @@ Every 15 minutes, check whether the living room is more humid than the outside a
 
 - **Trigger**: Time pattern: Every 15 minutes
 - **Condition**: Relative humidity (above, entity: outdoor humidity sensor)
-- **Target**: Living room humidity sensor
-- **Condition passes if**: Any
-- **Action**: Switch: Turn on ventilation fan
+  - **Target**: Living room humidity sensor
+  - **Condition passes if**: Any
+- **Action**: Turn on switch
+  - **Target**: switch.ventilation_fan
 
 {% details "YAML example for comparing indoor to outdoor humidity" %}
 
@@ -290,7 +330,6 @@ automation: |
           type: above
           value:
             entity: sensor.outdoor_humidity
-        behavior: any
   actions:
     - action: switch.turn_on
       target:
