@@ -165,6 +165,71 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 [fritz_smart_gateway]: https://fritz.com/en/products/fritz-smart-gateway-20003012
 [rademacher_rollotron_dect_1213]: https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213
 
+## Automation examples
+
+### Control heating by presence
+
+This will run the `script.turn_heating_on` when any person enters the `zone.home` and run `script.turn_heating_off` when the last person left the `zone.home`.
+
+```yaml
+description: "Enable heating when any person enters the home zone."
+mode: single
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - zone.home
+conditions:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: zone.home
+        state:
+          - unavailable
+          - unknown
+actions:
+  - if:
+      - condition: numeric_state
+        entity_id: zone.home
+        above: 0
+    then:
+      - action: script.turn_heating_on
+    else:
+      - action: script.turn_heating_off
+```
+
+### Control lights based on sun state
+
+This will turn on the `light.outdoor` at sunset and turn it off at sunrise.
+
+```yaml
+description: "Turn on the outdoor lights when the sun goes down."
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - sun.sun
+conditions:
+  - condition: state
+    entity_id: sun.sun
+    state:
+      - above_horizon
+      - below_horizon
+actions:
+  - if:
+      - condition: state
+        entity_id: sun.sun
+        state:
+          - below_horizon
+    then:
+      - action: light.turn_on
+        target:
+          entity_id: light.outdoor
+    else:
+      - action: light.turn_off
+        target:
+          entity_id: light.outdoor
+```
+
 ## Troubleshooting
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
