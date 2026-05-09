@@ -175,7 +175,7 @@ This will apply the **comfort** preset to the òn the `climate.livingroom` when 
 description: "Enable heating when any person enters the home zone."
 mode: single
 triggers:
-  - trigger: numeric_state
+  - trigger: state
     entity_id:
       - zone.home
 conditions:
@@ -217,11 +217,13 @@ triggers:
     entity_id:
       - sun.sun
 conditions:
-  - condition: state
-    entity_id: sun.sun
-    state:
-      - above_horizon
-      - below_horizon
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state:
+          - unavailable
+          - unknown
 actions:
   - if:
       - condition: state
