@@ -169,10 +169,12 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 
 ### Control heating by presence
 
-This will apply the **comfort** preset to the òn the `climate.livingroom` when any person enters the `zone.home` and apply **eco** when the last person left the zone.
+This will apply the **comfort** preset to `climate.livingroom` when at
+least one person is in `zone.home`, and apply **eco** when nobody is in
+the zone.
 
 ```yaml
-description: "Enable heating when any person enters the home zone."
+description: "Set comfort when at least one person is home, otherwise set eco."
 mode: single
 triggers:
   - trigger: state
