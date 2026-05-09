@@ -169,7 +169,7 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 
 ### Control heating by presence
 
-This will run the `script.turn_heating_on` when any person enters the `zone.home` and run `script.turn_heating_off` when the last person left the `zone.home`.
+This will apply the **comfort** preset to the òn the `climate.livingroom` when any person enters the `zone.home` and apply **eco** when the last person left the zone.
 
 ```yaml
 description: "Enable heating when any person enters the home zone."
@@ -192,9 +192,17 @@ actions:
         entity_id: zone.home
         above: 0
     then:
-      - action: script.turn_heating_on
+      - action: climate.set_preset_mode
+        target:
+          entity_id: climate.livingroom
+        data:
+          preset_mode: comfort
     else:
-      - action: script.turn_heating_off
+      - action: climate.set_preset_mode
+        target:
+          entity_id: climate.livingroom
+        data:
+          preset_mode: eco
 ```
 
 ### Control lights based on sun state
