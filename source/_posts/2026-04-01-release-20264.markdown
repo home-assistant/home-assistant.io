@@ -76,7 +76,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## Infrared becoming a first-class citizen of Home Assistant
 
-This release introduces native infrared support in Home Assistant, opening the door to controlling a _massive_ range of devices that were previously out of reach. Think about all those TVs, air conditioners, fans, sound bars, and other appliances sitting in your home that still rely on their little infrared remote. With this update, Home Assistant can now talk to them. 📡
+This release introduces native infrared support in Home Assistant, from opening the door to controlling a _massive_ range of devices that were previously out of reach. Think about all those TVs, air conditioners, fans, sound bars, and other appliances sitting in your home that still rely on their little infrared remote. With this update, Home Assistant can now talk to them. 📡
 
 You might already be familiar with how [Bluetooth proxies](/integrations/bluetooth/) transformed Bluetooth in Home Assistant, making it possible to reach Bluetooth devices anywhere in your home through relatively inexpensive [ESPHome](https://esphome.io) devices. We're doing the same thing for infrared. With the new [Infrared](/integrations/infrared/) integration, Home Assistant now supports infrared proxies: small ESPHome-powered devices with an [IR transmitter](https://esphome.io/components/ir_rf_proxy/) that can send infrared commands on behalf of Home Assistant. This means Home Assistant can now control any device that responds to an infrared remote, as long as there's an {% term integration %} that knows how to speak that device's protocol.
 
