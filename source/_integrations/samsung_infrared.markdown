@@ -6,13 +6,13 @@ ha_category:
 ha_release: 2026.6
 ha_iot_class: Assumed State
 ha_codeowners:
-  - '@home-assistant/core'
+  - '@lmaertin'
 ha_domain: samsung_infrared
 ha_config_flow: true
 ha_platforms:
   - button
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
 The **Samsung Infrared** {% term integration %} lets you control a Samsung TV using any infrared transmitter previously configured in Home Assistant.
