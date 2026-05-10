@@ -120,8 +120,6 @@ The `opendisplay.upload_image` action allows you to upload an image to a display
 
 {% details "Upload an image from local media" %}
 
-{% raw %}
-
 ```yaml
 action: opendisplay.upload_image
 data:
@@ -131,8 +129,6 @@ data:
     media_content_type: "image/png"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 ### Updating the display on a schedule
@@ -140,8 +136,6 @@ data:
 You can use an {% term automation %} to refresh the display at a set time each day.
 
 {% details "Update display daily at 8:00 AM" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -155,8 +149,6 @@ actions:
         media_content_id: "media-source://media_source/local/daily.png"
         media_content_type: "image/png"
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

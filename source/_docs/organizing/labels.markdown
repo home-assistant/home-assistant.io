@@ -8,7 +8,7 @@ related:
     title: Floors
   - docs: /docs/organizing/categories/
     title: Categories
-  - docs: /docs/configuration/templating/#labels
+  - docs: /template-functions/#label
     title: Using labels in templates
 ---
 

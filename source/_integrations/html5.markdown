@@ -62,8 +62,6 @@ The **HTML5 Push Notifications** {% term integration %} will add a notify {% ter
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
@@ -71,8 +69,6 @@ data:
   message: "Have you considered frogs?"
   entity_id: notify.my-desktop
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -158,8 +154,6 @@ Keep in mind that support for the features described below can vary depending on
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: html5.send_message
 data:
@@ -203,7 +197,6 @@ target:
   entity_id: notify.my_desktop
 ```
 
-{% endraw %}
 
 {% enddetails %}
 
@@ -223,8 +216,6 @@ You can dismiss notifications using the `html5.dismiss_message` action.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: html5.dismiss_message
 data:
@@ -233,7 +224,6 @@ target:
   entity_id: notify.my_desktop
 ```
 
-{% endraw %}
 
 {% enddetails %}
 

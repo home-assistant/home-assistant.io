@@ -48,7 +48,6 @@ This {% term action %} is very similar to the URL action above, except it proces
 
 Example usage in an {% term automation %}, taking the album art present on a Chromecast and supplying it to `light.shelf_leds` whenever it changes:
 
-{% raw %}
 
 ```yaml
 #automation.yaml
@@ -84,4 +83,3 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
         transition: 5
 ```
 
-{% endraw %}

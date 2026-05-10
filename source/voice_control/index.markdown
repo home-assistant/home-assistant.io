@@ -522,9 +522,7 @@ function updateLanguageSupports(locale = null) {
 </script>
 
 
-
 Assist already supports a wide range of [languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages). Use the [built-in sentences](/voice_control/builtin_sentences) to control entities and areas, or [create your own sentences](/voice_control/custom_sentences/).
-
 
 
 Did Assist not understand your sentence? [Contribute them](/voice_control/contribute-voice).
