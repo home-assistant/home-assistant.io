@@ -17,11 +17,11 @@ ha_quality_scale: bronze
 
 The **Samsung Infrared** {% term integration %} lets you control a Samsung TV using any infrared transmitter previously configured in Home Assistant.
 
-Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the TV but there is no feedback channel to confirm the current state of the TV. The integration therefore uses assumed states.
+Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion. Commands are sent to the TV, but there is no feedback channel to confirm the current state of the TV. The integration therefore uses assumed states.
 
 ## Prerequisites
 
-Before setting up the Samsung Infrared integration, you need a working infrared transmitter set up in Home Assistant that exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your Samsung TV.
+ Before setting up the Samsung Infrared integration, you need a working infrared transmitter that is already configured in Home Assistant and exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your Samsung TV.
 
 {% include integrations/config_flow.md %}
 
