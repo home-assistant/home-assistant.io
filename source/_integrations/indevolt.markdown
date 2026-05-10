@@ -8,7 +8,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@xirt'
-  - '@karlbeecken'
 ha_platforms:
   - binary_sensor
   - button
