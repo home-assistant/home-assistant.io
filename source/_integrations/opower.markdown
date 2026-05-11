@@ -198,7 +198,7 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 ## Troubleshooting
 
 - If your usage or cost sensors are completely missing or showing `0`, this may be expected behavior; see **Known limitations** above.
-- If the account number shown in Home Assistant doesn't match the one on your bill, this is normal and it is not someone else's account; see **Known limitations** above.
+- If the account number shown in Home Assistant doesn't match the one on your bill, this is normal and does not mean you are connected to someone else's account; see **Known limitations** above.
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - When configuring the Energy dashboard in Home Assistant, use the statistics as described in **Known limitations** above.
 
