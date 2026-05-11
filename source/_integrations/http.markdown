@@ -149,7 +149,7 @@ The JSON payload must contain the new state and can have a friendly name. The fr
 For a quick test, `curl` can be useful to simulate a device.
 
 ```bash
-curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+$ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     -H "Content-Type: application/json" \
     -d '{"state": "off", "attributes": {"friendly_name": "Radio"}}' \
     http://localhost:8123/api/states/binary_sensor.radio
@@ -158,16 +158,25 @@ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 To check if the sensor is working, use `curl` again to retrieve the [current state](https://developers.home-assistant.io/docs/api/rest/).
 
 ```bash
-curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
-    -H "Content-Type: application/json" \
-    http://localhost:8123/api/states/binary_sensor.radio
+$ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/states/binary_sensor.radio
+{
+    "attributes": {
+        "friendly_name": "Radio"
+    },
+    "entity_id": "binary_sensor.radio",
+    "last_changed": "16:45:51 05-02-2016",
+    "last_updated": "16:45:51 05-02-2016",
+    "state": "off"
+}
 ```
 
 To delete the sensor, send a DELETE request with `curl`:
 
 ```bash
-curl -X DELETE -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
-    http://localhost:8123/api/states/binary_sensor.radio
+$ curl -X DELETE -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+       http://localhost:8123/api/states/binary_sensor.radio
 ```
 
 ### Examples
