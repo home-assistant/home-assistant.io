@@ -117,8 +117,6 @@ Send an alert when the drive usage is close to the storage limit and needs clean
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: Alert when OneDrive is close to storage limit
 description: Send notification to phone when drive needs cleanup.
@@ -142,8 +140,6 @@ actions:
         states('sensor.my_drive_total_available') }}GB.  Only {{ states('sensor.my_drive_remaining_storage') }}GB remaining.
 mode: single
 ```
-
-{% endraw %}
 {% enddetails %}
 
 

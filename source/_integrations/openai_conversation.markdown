@@ -66,7 +66,7 @@ The Conversation and AI Task subentries have the following configuration options
 
 {% configuration_basic %}
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 Recommended settings:
@@ -84,6 +84,8 @@ Temperature:
   description: A value that determines the level of creativity and risk-taking the model should use when generating text. A higher temperature means the model is more likely to generate unexpected results, while a lower temperature results in more deterministic results. See the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction) for more information.
 Top P:
   description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
+Service tier:
+  description: The available service tiers are Auto, Standard, Flex, and Priority. Flex tier offers lower costs in exchange for slower response times, which can be useful for background automations. [Priority processing](https://openai.com/api-priority-processing/) delivers significantly lower and more consistent latency than the Standard tier at a higher price. Auto is the default value, which uses the [project settings](https://platform.openai.com/settings/organization/projects). See the [Pricing](https://developers.openai.com/api/docs/pricing) for details on the supported models. When the selected tier is unavailable due to capacity or ramp rate limits, the request is processed at the Standard tier, and you are charged the Standard tier price.
 Enable web search:
   description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and newer models.
 Search context size:
@@ -137,7 +139,6 @@ with the requested image.
 | `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. | standard         |
 | `style`                | yes      | The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. | vivid            |
 
-{% raw %}
 ```yaml
 action: openai_conversation.generate_image
 data:
@@ -148,7 +149,6 @@ data:
   style: vivid
 response_variable: generated_image
 ```
-{% endraw %}
 
 The response data field `url` will contain a URL to the generated image and `revised_prompt` will contain the updated prompt used.
 
@@ -169,7 +169,6 @@ Select **YAML Mode** to reveal the *config_entry* value to be used in the below 
 
 ![Open AI Conversation YAML Mode](/images/integrations/openai_conversation/openai_developer_tools_yaml.png)
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Update image when weather changes"
@@ -201,8 +200,6 @@ template:
         url: "{{ trigger.event.data.url }}"
 ```
 
-{% endraw %}
-
 ### Action: Generate content
 
 The `openai_conversation.generate_content` action allows you to ask OpenAI to generate a content based on a prompt. This action
@@ -224,8 +221,6 @@ with the response from OpenAI.
   - **Example**: /tmp/image.jpg
   - **Optional**: yes
 
-{% raw %}
-
 ```yaml
 action: openai_conversation.generate_content
 data:
@@ -239,13 +234,9 @@ data:
 response_variable: generated_content
 ```
 
-{% endraw %}
-
 The response data field `text` will contain the generated content.
 
 Another example with multiple images:
-
-{% raw %}
 
 ```yaml
 action: openai_conversation.generate_content
@@ -260,8 +251,6 @@ data:
     - /tmp/driveway_snapshot4.jpg
 response_variable: generated_content
 ```
-
-{% endraw %}
 
 ## Known Limitations
 

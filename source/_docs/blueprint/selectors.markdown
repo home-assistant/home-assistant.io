@@ -202,6 +202,12 @@ multiple:
   type: boolean
   default: false
   required: false
+reorder:
+  description: >
+    Allows reordering of areas (only applies if `multiple` is set to `true`).
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of this selector is the area ID, or (in case `multiple` is set to
@@ -354,13 +360,11 @@ choose:
 
 Following this example, if the user entered a value in both selectors, but submitted with 'Icon' option selected, the output might be:
 
-{% raw %}
 ```yaml
 active_choice: Icon
 Icon: mdi:light
 Template: "{{ something else }}"
 ```
-{% endraw %}
 
 ## Color temperature selector
 

@@ -219,16 +219,12 @@ This does *not* affect the entities in Home Assistant. They all use their own co
 
 Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) integration. Here's an example of a template sensor that exposes the valve position of a thermostat.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
     - name: "Bedroom valve"
       state: "{{ state_attr('climate.leq123456', 'level') }}"
 ```
-
-{% endraw %}
 
 ### Variables
 
@@ -446,8 +442,6 @@ actions:
 There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current `pyhomematic` implementation.
 A workaround is to define a template lock in your configuration:
 
-{% raw %}
-
 ```yaml
 lock:
   - platform: template
@@ -470,15 +464,11 @@ lock:
         value: 1
 ```
 
-{% endraw %}
-
 #### Detecting lost connections
 
 When the connection to your Homematic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your Homematic integrations are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
 
 - If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor, voltage sensor or light sensor) you could set up a helper binary sensor and an automation like this:
-
-{% raw %}
 
 ```yaml
 template:
@@ -497,8 +487,6 @@ automation:
       # Reconnect, if sensor has not been updated for over 10 minutes
       - action: homematic.reconnect
 ```
-
-{% endraw %}
 
   The important part is the `sensor.time` entity (from time_date integration). This will update the binary sensor on every change of the sensor and every minute. If the Homematic sensor does not send any updates anymore, the `sensor.time` will set the binary sensor to `off` 10 minutes after the last sensor update. This will trigger the automation.
 
@@ -617,8 +605,6 @@ It is possible to provide a template in order to compute the value:
 
 You can also specify the event payload using a group notification (instead of specifying the value for the notify itself):
 
-{% raw %}
-
 ```yaml
 notify:
   - name: my_hm
@@ -641,7 +627,5 @@ alert:
     notifiers:
       - group_hm
 ```
-
-{% endraw %}
 
 Please note that the first `data` element belongs to the `my_hm` action, while the second one belongs to the event payload.

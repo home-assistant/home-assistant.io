@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: aladdin_connect
 ha_platforms:
   - cover
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ha_codeowners:
@@ -64,7 +65,6 @@ If someone leaves the garage door open for more than 10 minutes, this automation
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 alias: "Notify when garage left open"
@@ -84,7 +84,6 @@ actions:
       message: "The garage door has been open for 10 minutes."
 ```
 
-{% endraw %}
 {% enddetails %}
 
 ### Close the garage door at night
@@ -93,7 +92,6 @@ This automation closes the garage door automatically at 10 PM if it happens to b
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 alias: "Close garage door at night"
@@ -112,7 +110,6 @@ actions:
       entity_id: cover.garage_door
 ```
 
-{% endraw %}
 {% enddetails %}
 
 ## Data updates

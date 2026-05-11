@@ -13,6 +13,7 @@ ha_codeowners:
   - '@tronikos'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_iot_class: Cloud Polling
 ---

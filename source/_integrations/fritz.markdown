@@ -29,7 +29,7 @@ ha_integration_type: hub
 related:
   - docs: /common-tasks/general/#enabling-or-disabling-entities
     title: Enabling or disabling entities
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **FRITZ!Box Tools** {% term integration %} allows you to control your [FRITZ!Box](https://en.fritz.com/products/fritzbox/) router (by FRITZ!, formerly AVM) and have presence detection for connected network devices.
@@ -58,6 +58,8 @@ It is recommended to create a separate user to connect Home Assistant to your FR
 
 {% note %}
 If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Before FRITZ!OS 7.24, the default username was `admin`.
+
+FRITZ!Powerline devices do not validate the **Username** value. Only the **Password** value is checked, so you can enter any value in **Username**.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
