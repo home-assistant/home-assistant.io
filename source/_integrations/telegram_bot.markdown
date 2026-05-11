@@ -241,7 +241,7 @@ Send a notification.
 | `one_time_keyboard`        | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`                 | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`              | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `message_tag`              | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                       |
 | `reply_to_message_id`      | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                           |
 | `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
@@ -1176,8 +1176,6 @@ actions:
 
 ## Example: automation to send a message and delete after a delay
 
-{% raw %}
-
 ```yaml
 alias: telegram send message and delete
 actions:
@@ -1196,11 +1194,7 @@ actions:
       for_each: "{{ response.chats }}"
 ```
 
-{% endraw %}
-
 ## Example: Multi-step automation that reports progress using draft messages
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -1239,8 +1233,6 @@ actions:
       chat_id: "{{ trigger.to_state.attributes.chat_id }}"
       message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
 ```
-
-{% endraw %}
 
 ## Known limitations
 

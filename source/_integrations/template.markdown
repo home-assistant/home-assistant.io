@@ -2189,11 +2189,11 @@ template:
 template:
   - vacuum:
       - name: Living Room Vacuum
-        clean_area:
+        clean_segments:
           action: script.vacuum_start
           data:
             segment_ids: "{{ segment_ids }}"
-        segments_template: >-
+        segments: >-
           {{ [
             {'id': '1', 'name': 'Kitchen'},
             {'id': '2', 'name': 'Living room', 'group': 'Upstairs'},
@@ -2223,8 +2223,8 @@ vacuum:
       description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
       required: false
       type: template
-    clean_area:
-      description: Defines an action to run when the vacuum is given a clean area command. The action receives the `segment_ids` variable, which contains the list of selected area segment IDs. Requires `unique_id` and `segments_template`.
+    clean_segments:
+      description: Defines an action to run when the vacuum is given a clean area command. The action receives the `segment_ids` variable, which contains the list of selected area segment IDs. Requires `unique_id` and `segments`.
       required: inclusive
       type: action
     clean_spot:
@@ -2256,8 +2256,8 @@ vacuum:
       description: Defines an action to run when the vacuum is given a return to base command.
       required: false
       type: action
-    segments_template:
-      description: Defines a template to get the segments of the vacuum. Expects a list of dictionaries with keys `id`, `name`, and optional `group`. Requires `unique_id` and `clean_area`.
+    segments:
+      description: Defines a template to get the segments of the vacuum. Expects a list of dictionaries with keys `id`, `name`, and optional `group`. Requires `unique_id` and `clean_segments`.
       required: inclusive
       type: template
     set_fan_speed:
@@ -2732,7 +2732,6 @@ To get started with the migration:
 
     Delete the following YAML from `configuration.yaml` file.
 
-{% raw %}
     ```yaml
     # Legacy template configuration
     - platform: template
@@ -2742,7 +2741,6 @@ To get started with the migration:
           unique_id: sa892hfa9sdf8
           value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
       ```
-{% endraw %}
 
       Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
 
@@ -2755,11 +2753,10 @@ To get started with the migration:
       baseoid: 1.3.6.1.4.1.2021.10.1.3.1
     ```
 
-1. Add the modern syntax provided by the repair.
+2. Add the modern syntax provided by the repair.
 
     The repair would provide the following YAML.
 
-  {% raw %}
     ```yaml
     template:
     - sensor:
@@ -2768,11 +2765,9 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
-   {% endraw %}
 
     This YAML should be added to the `template:` section inside `configuration.yaml`.
 
-{% raw %}
     ```yaml
     # configuration.yaml
     sensor:
@@ -2789,11 +2784,9 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
-    {% endraw %}
 
     If you are migrating multiple template entities, ensure there is only 1 `template:` section.  Do not keep duplicate `template:` sections.
 
-{% raw %}
     ```yaml
     # configuration.yaml
     sensor:
@@ -2823,9 +2816,8 @@ To get started with the migration:
         name: Skylight
         state: '{{ is_state(''binary_sensor.crank'', ''on'') }}'
     ```
-{% endraw %}
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
+3. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
 
 ### Migrating a legacy sensor into an existing template section
 
@@ -2862,7 +2854,6 @@ To get started with the migration:
 
     Delete the following YAML from `configuration.yaml` file.
 
-{% raw %}
     ```yaml
     # Legacy template configuration
     - platform: template
@@ -2872,11 +2863,9 @@ To get started with the migration:
           unique_id: sa892hfa9sdf8
           value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
       ```
-{% endraw %}
 
       Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
 
-{% raw %}
     ```yaml
     # configuration.yaml
     sensor:
@@ -2891,13 +2880,11 @@ To get started with the migration:
       - name: Bright Outside
         state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
     ```
-{% endraw %}
 
-1. Add the modern syntax provided by the repair.
+2. Add the modern syntax provided by the repair.
 
     The repair would provide the following YAML.
 
-  {% raw %}
     ```yaml
     template:
     - sensor:
@@ -2906,11 +2893,9 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
-{% endraw %}
 
     This YAML should be added to the `template:` section inside `configuration.yaml`.
 
-{% raw %}
     ```yaml
     # configuration.yaml
     sensor:
@@ -2932,11 +2917,10 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
-{% endraw %}
 
     In this example, `configuration.yaml` already had a `template:` section.  When copying the YAML, make sure to avoid adding double `template:` sections.
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
+3. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
 
 ### Migrating a sensor from an included file to an included file
 
@@ -2982,7 +2966,6 @@ To get started with the migration:
 
     Delete the following YAML from `sensors.yaml` file.
 
-{% raw %}
     ```yaml
     # Legacy template configuration
     - platform: template
@@ -2993,7 +2976,6 @@ To get started with the migration:
           value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
       ```
 
-{% endraw %}
       Make sure to keep all the other platforms in the sensor file. Your `sensors.yaml` file would look like this after the change:
 
     ```yaml
@@ -3009,7 +2991,6 @@ To get started with the migration:
 
     The repair would provide the following YAML.
 
-  {% raw %}
     ```yaml
     template:
     - sensor:
@@ -3019,10 +3000,8 @@ To get started with the migration:
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
 
-  {% endraw %}
     This YAML should be added to the `templates.yaml` file.
 
-{% raw %}
     ```yaml
     # templates.yaml
 
@@ -3039,8 +3018,6 @@ To get started with the migration:
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
 
-{% endraw %}
-
     In this example, `configuration.yaml` already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
+3. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.

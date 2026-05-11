@@ -12,6 +12,7 @@ ha_domain: kiosker
 ha_platforms:
   - sensor
   - binary_sensor
+  - switch
 ha_integration_type: integration
 ha_zeroconf: true
 ha_quality_scale: bronze
@@ -47,15 +48,7 @@ Verify certificate:
 Due to Apple's restrictive approach to device control, it's not possible to control any physical features like the screen or device sleep through this integration.
 {% endnote %}
 
-Available sensors:
-
-- Battery level
-- Charging state
-- Last interaction
-- Last motion (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
-- Ambient light (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
-- Screensaver state
-- Blackout state
+This integration exposes all Kiosker API functionality to Home Assistant.
 
 ## Supported functionality
 
@@ -80,6 +73,11 @@ The **Kiosker** integration provides the following entities.
   - Shows whether the screensaver is currently active.
 - **Blackout state**
   - Shows whether the screen is currently blacked out. Has extra attributes with the blackout data when active.
+
+### Switches
+
+- **Disable screensaver**
+  - Disables the currently active screensaver
 
 ## Data updates
 This integration fetches data from the device every 15 seconds.
