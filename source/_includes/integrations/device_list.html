@@ -2,24 +2,45 @@
 {%- assign company_brand_lower = company.brand | downcase -%}
 {%- assign include_brand_slug = include.brand | downcase | replace: ' ', '-' -%}
 {%- if company_brand_lower == include_brand_slug -%}
+{%- if include.protocol -%}
+{%- assign filter_protocol = include.protocol | downcase | replace: ' ', '-' -%}
+{%- endif -%}
 {%- if include.hide_list -%}
+{%- if include.protocol -%}
+{%- assign filtered_count = 0 -%}
+{%- for device in company.devices -%}
+{%- assign device_protos = device.protocol | join: "||" | downcase | replace: ' ', '-' | split: "||" -%}
+{%- if device_protos contains filter_protocol -%}{%- assign filtered_count = filtered_count | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+For the full list of {{ filtered_count }} certified {{ include.brand }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include_brand_slug | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
+{%- else -%}
 For the full list of {{ company.devices | size }} certified {{ include.brand }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include_brand_slug | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
+{%- endif -%}
 {%- elsif include.group_by_type -%}
 {%- assign grouped = company.devices | group_by: "deviceType" -%}
-{%- for group in grouped %}
-<h3>{{ group.name }}</h3>
-<ul>
-{%- for device in group.items %}
+{%- for group in grouped -%}
+{%- assign group_started = false -%}
+{%- for device in group.items -%}
+{%- if include.protocol -%}
+{%- assign device_protos = device.protocol | join: "||" | downcase | replace: ' ', '-' | split: "||" -%}
+{%- unless device_protos contains filter_protocol -%}{%- continue -%}{%- endunless -%}
+{%- endif -%}
+{%- unless group_started %}<h3>{{ group.name }}</h3><ul>{%- assign group_started = true -%}{% endunless %}
 <li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a></li>
-{%- endfor %}
-</ul>
+{%- endfor -%}
+{%- if group_started %}</ul>{% endif -%}
 {%- endfor -%}
 {%- else -%}
-<ul>
-{%- for device in company.devices %}
+{%- assign list_started = false -%}
+{%- for device in company.devices -%}
+{%- if include.protocol -%}
+{%- assign device_protos = device.protocol | join: "||" | downcase | replace: ' ', '-' | split: "||" -%}
+{%- unless device_protos contains filter_protocol -%}{%- continue -%}{%- endunless -%}
+{%- endif -%}
+{%- unless list_started %}<ul>{%- assign list_started = true -%}{% endunless %}
 <li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a></li>
-{%- endfor %}
-</ul>
+{%- endfor -%}
+{%- if list_started %}</ul>{% endif -%}
 {%- endif -%}
 {%- endif -%}
 {%- endfor -%}
