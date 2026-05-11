@@ -195,9 +195,9 @@ print(response.text)
 [`httpie`](https://github.com/httpie/httpie) is a user-friendly CLI HTTP client.
 
 ```bash
-http -v POST http://localhost:8123/api/states/binary_sensor.radio \
-    'Authorization:Bearer LONG_LIVED_ACCESS_TOKEN' content-type:application/json state=off \
-    attributes:='{"friendly_name": "Radio"}'
+$ http -v POST http://localhost:8123/api/states/binary_sensor.radio \
+      'Authorization:Bearer LONG_LIVED_ACCESS_TOKEN' content-type:application/json state=off \
+      attributes:='{"friendly_name": "Radio"}'
 ```
 
 ## Sensor
@@ -225,18 +225,28 @@ The JSON payload must contain the new state and should include the unit of measu
 For a quick test, `curl` can be useful to simulate a device.
 
 ```bash
-curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
-    -H "Content-Type: application/json" \
-    -d '{"state": "20", "attributes": {"unit_of_measurement": "°C", "friendly_name": "Bathroom Temp"}}' \
-    http://localhost:8123/api/states/sensor.bathroom_temperature
+$ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+       -H "Content-Type: application/json" \
+       -d '{"state": "20", "attributes": {"unit_of_measurement": "°C", "friendly_name": "Bathroom Temp"}}' \
+       http://localhost:8123/api/states/sensor.bathroom_temperature
 ```
 
 You can then use `curl` again to retrieve the [current sensor state](https://developers.home-assistant.io/docs/api/rest/) and verify the sensor is working.
 
 ```bash
-curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
-    -H "Content-Type: application/json" \
-    http://localhost:8123/api/states/sensor.bathroom_temperature
+$ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/states/sensor.bathroom_temperature
+{
+    "attributes": {
+        "friendly_name": "Bathroom Temp",
+        "unit_of_measurement": "\u00b0C"
+    },
+    "entity_id": "sensor.bathroom_temperature",
+    "last_changed": "09:46:17 06-02-2016",
+    "last_updated": "09:48:46 06-02-2016",
+    "state": "20"
+}
 ```
 
 For more examples, see the [HTTP binary sensor](#examples) section.
