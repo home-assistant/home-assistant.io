@@ -31,7 +31,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one targeted light is off, or **All** to pass only when every targeted light is off.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -55,7 +54,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 {% endoptions_yaml %}

@@ -35,13 +35,10 @@ To use **Humidifier target humidity** in an automation:
 {% options_ui %}
 Threshold type:
   description: Controls how the target humidity is compared and where the threshold value comes from. Use **Above**, **Below**, **In range**, or **Outside range** to set the comparison direction. Then choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
-  required: true
 Condition passes if:
   description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier meets the threshold, or **All** to pass only when every targeted humidifier does. Default is **Any**.
-  required: true
 For at least:
   description: How long the humidifier must have continuously met the threshold before the condition passes. Default is `0` (passes immediately).
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -66,18 +63,18 @@ This passes when the bedroom humidifier's target humidity is set above 50%.
 threshold:
   description: >
     The threshold to check the target humidity against. Accepts a mapping with the comparison direction as the key and the humidity percentage (0–100) as the value. Use `above`, `below`, or both (`above` and `below` together for a range) as keys. Instead of a fixed number, you can reference a `sensor`, `input_number`, or `number` entity as the value.
-  required: true
+  required: false
   type: map
 behavior:
   description: >
     When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: >
     How long the humidifier must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}

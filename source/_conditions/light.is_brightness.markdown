@@ -35,7 +35,6 @@ Threshold type:
   required: true
 Condition passes if:
   description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one light meets the threshold, or **All** to pass only when every targeted light does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -62,12 +61,12 @@ YAML sometimes provides additional options for more complex use cases that are n
 threshold:
   description: >
     The brightness percentage the light has to meet or exceed for the condition to pass. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
+  required: false
   type: any
 behavior:
   description: >
     When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 {% endoptions_yaml %}

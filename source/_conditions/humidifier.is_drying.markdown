@@ -33,10 +33,8 @@ To use **Humidifier is drying** in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted device is actively drying, or **All** to pass only when every targeted device is actively drying. Default is **Any**.
-  required: true
 For at least:
   description: How long the humidifier must have been continuously drying before the condition passes. Default is `0` (passes immediately).
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -58,13 +56,13 @@ This passes when the basement dehumidifier is actively removing moisture from th
 behavior:
   description: >
     When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: >
     How long the humidifier must have been continuously drying before the condition passes. Accepts a duration string in `HH:MM:SS` format.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}

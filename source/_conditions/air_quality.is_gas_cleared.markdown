@@ -28,7 +28,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is cleared, or **All** to pass only when every targeted sensor is cleared.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

@@ -45,10 +45,8 @@ Threshold type:
     - **Outside range**: enter a lower and upper bound to fire only when the new reading is below the lower bound or above the upper bound.
 
     For each mode you can enter a fixed temperature, reference a sensor entity or a [number helper](/integrations/input_number/) entity.
-  required: true
 Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references). Default is `°C`.
-  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
