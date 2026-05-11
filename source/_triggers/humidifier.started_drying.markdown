@@ -39,10 +39,8 @@ Trigger when:
     - **Each** (`any` in YAML, default): fire every time any targeted device starts drying.
     - **First** (`first` in YAML): fire only on the first device that starts drying.
     - **All** (`last` in YAML): fire only after every targeted device starts drying.
-  required: true
 For at least:
   description: How long the device must be actively drying before the trigger fires. Default is `0` (fires immediately).
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -70,13 +68,13 @@ behavior:
     - `any` (**Each** in the UI, default): fire every time any targeted device starts drying.
     - `first` (**First** in the UI): fire only on the first device that starts drying.
     - `last` (**All** in the UI): fire only after every targeted device starts drying.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: |
     How long the device must be actively drying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the device has been actively drying for 5 minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
