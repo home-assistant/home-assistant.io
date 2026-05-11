@@ -125,7 +125,7 @@ This work is part of [an Open Home Foundation roadmap opportunity](https://githu
 
 We have a bit of a theme going on. Last release, [infrared became a first-class citizen of Home Assistant](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant). This release, [radio frequency joined the party](#radio-frequency-joins-infrared-as-a-first-class-citizen). And now, there's _another_ way you can put an ESPHome device somewhere in your home and let Home Assistant talk to things through it: **serial ports**. 🔌
 
-If you've ever set up a [Bluetooth proxy](/integrations/bluetooth/), the idea will feel familiar. Plenty of smart home gear talks over a serial connection, like energy meters with a P1 port, or that classic Denon receiver with the [new Denon RS232 integration](#new-integrations) shipping in this release. Until now, the device producing those serial signals had to be physically plugged into the same machine running Home Assistant, or wired up over a long, unwieldy cable. Not anymore. ✨
+If you've ever set up a [Bluetooth proxy](/integrations/bluetooth/), the idea will feel familiar. Plenty of smart home gear talks over a serial connection, like energy meters with a P1 port, or that classic Denon receiver with the [new Denon RS-232 integration](#new-integrations) shipping in this release. Until now, the device producing those serial signals had to be physically plugged into the same machine running Home Assistant, or wired up over a long, unwieldy cable. Not anymore. ✨
 
 With the new [serial proxy](https://esphome.io/components/serial_proxy/) support in [ESPHome](https://esphome.io), any serial port plugged into (or built into) an ESPHome device can now be exposed over your network and used by Home Assistant as if it were sitting right next to it. Drop an ESP somewhere convenient, plug your serial device into it, and Home Assistant takes care of the rest. 🪄
 
@@ -146,7 +146,7 @@ Behind the scenes, this release rewires Home Assistant's serial-port handling to
 
 - All of Home Assistant has been migrated to a modern, async-first serial driver called **serialx**, replacing the older `pyserial` library that Home Assistant has used for years. It's designed for the way Home Assistant works today and adds support for new connection types, including ESPHome serial proxies, transparently.
 - Integrations that need a serial port now get a new, polished serial port selector in the UI. It lists local USB serial ports _and_ remote ESPHome serial proxies side by side, with friendly names. The list even updates live, so a USB device you plug in while the dropdown is open shows up right away.
-- Common integrations that talk over serial pick up serial proxies for free. The new [Denon RS232] integration uses it from day one, and the existing [Russound RIO](/integrations/russound_rio/) integration has been migrated to serialx as well, so it can now talk to your multi-room audio gear over an ESPHome serial proxy too.
+- Common integrations that talk over serial pick up serial proxies for free. The new [Denon RS-232] integration uses it from day one, and the existing [Russound RIO](/integrations/russound_rio/) integration has been migrated to serialx as well, so it can now talk to your multi-room audio gear over an ESPHome serial proxy too.
 
 If you're an integration developer (or maintain a custom component) talking over serial, head over to the [migrating from pyserial to serialx](https://developers.home-assistant.io/blog/2026/04/27/pyserial-to-serialx) developer blog post to read all about how to take advantage of this. 🛠️
 
@@ -280,8 +280,8 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 
 We welcome the following new integrations in this release:
 
-- **[Denon RS232]**, added by [@balloob]  
-  Control your Denon receiver locally over its RS232 serial port. Connect your receiver using a serial cable or a USB-to-serial adapter for push-based state updates, without depending on the network or the cloud.
+- **[Denon RS-232]**, added by [@balloob]  
+  Control your Denon receiver locally over its RS-232 serial port. Connect your receiver using a serial cable or a USB-to-serial adapter for push-based state updates, without depending on the network or the cloud.
 
 - **[Duco]**, added by [@ronaldvdmeer] — launching at 🏆 platinum quality  
   Monitor and control your [Duco](https://www.duco.eu/) demand-controlled ventilation system locally from Home Assistant. Track CO₂, humidity, and other sensor data, and adjust ventilation, all over your local network.
@@ -326,7 +326,7 @@ We welcome the following new integrations in this release:
 [@rikroe]: https://github.com/rikroe
 [@ronaldvdmeer]: https://github.com/ronaldvdmeer
 [@tomer-w]: https://github.com/tomer-w
-[Denon RS232]: /integrations/denon_rs232
+[Denon RS-232]: /integrations/denon_rs232
 [Duco]: /integrations/duco
 [EARN-E P1 Meter]: /integrations/earn_e_p1
 [Eurotronic Comet Blue]: /integrations/eurotronic_cometblue
