@@ -31,29 +31,29 @@ The HTTP integration provides the following options:
 
 {% configuration_basic %}
 Server port:
-  description: "The TCP port the HTTP server listens on. The default is `8123`."
+  description: "<a id='server_port'></a>The TCP port the HTTP server listens on. The default is `8123`."
 Listen addresses:
-  description: "Only listen for incoming requests on specific IP addresses. By default, Home Assistant auto-detects IPv4 and IPv6 and listens on all interfaces. Set this to `0.0.0.0` to listen only on IPv4 addresses. This option is intended for Home Assistant Container installations."
+  description: "<a id='server_host'></a>Only listen for incoming requests on specific IP addresses. By default, Home Assistant auto-detects IPv4 and IPv6 and listens on all interfaces. Set this to `0.0.0.0` to listen only on IPv4 addresses. This option is intended for Home Assistant Container installations."
 SSL certificate path:
-  description: "Path on the Home Assistant host to your TLS/SSL certificate to serve Home Assistant over a secure connection. If you use the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt), this is `/ssl/fullchain.pem`. For most setups, the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) is recommended instead."
+  description: "<a id='ssl_certificate'></a>Path on the Home Assistant host to your TLS/SSL certificate to serve Home Assistant over a secure connection. If you use the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt), this is `/ssl/fullchain.pem`. For most setups, the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) is recommended instead."
 SSL key path:
-  description: "Path on the Home Assistant host to your TLS/SSL private key. If you use the Let's Encrypt add-on, this is `/ssl/privkey.pem`."
+  description: "<a id='ssl_key'></a>Path on the Home Assistant host to your TLS/SSL private key. If you use the Let's Encrypt add-on, this is `/ssl/privkey.pem`."
 SSL peer certificate path:
-  description: "Path on the Home Assistant host to a client certificate Home Assistant should require for secure connections."
+  description: "<a id='ssl_peer_certificate'></a>Path on the Home Assistant host to a client certificate Home Assistant should require for secure connections."
 SSL profile:
-  description: "The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Select **Intermediate** only if integrations cause SSL handshake errors. The default is **Modern**."
+  description: "<a id='ssl_profile'></a>The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Select **Intermediate** only if integrations cause SSL handshake errors. The default is **Modern**."
 CORS allowed origins:
-  description: "Origin domains that may make [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests. Provide the exact origin including the scheme, for example `https://www.home-assistant.io`. Enabling this sets the `Access-Control-Allow-Origin` header to the origin if it appears in the list."
+  description: "<a id='cors_allowed_origins'></a>Origin domains that may make [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests. Provide the exact origin including the scheme, for example `https://www.home-assistant.io`. Enabling this sets the `Access-Control-Allow-Origin` header to the origin if it appears in the list."
 Trust X-Forwarded-For:
-  description: "Trust the `X-Forwarded-For` header from a reverse proxy to receive the client's real IP address. Requires the **Trusted proxies** list to be populated. Requests carrying this header from non-trusted sources are treated as spoofing attempts, and the header is ignored."
+  description: "<a id='use_x_forwarded_for'></a>Trust the `X-Forwarded-For` header from a reverse proxy to receive the client's real IP address. Requires the **Trusted proxies** list to be populated. Requests carrying this header from non-trusted sources are treated as spoofing attempts, and the header is ignored."
 Trusted proxies:
-  description: "Reverse-proxy IP addresses or CIDR networks allowed to set the `X-Forwarded-For` header. Configure with care: if the immediate upstream proxy is not in the list, the request is rejected; if an intermediate proxy is not in the list, the first untrusted proxy is treated as the client. When using a network mask, use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`)."
+  description: "<a id='trusted_proxies'></a>Reverse-proxy IP addresses or CIDR networks allowed to set the `X-Forwarded-For` header. Configure with care: if the immediate upstream proxy is not in the list, the request is rejected; if an intermediate proxy is not in the list, the first untrusted proxy is treated as the client. When using a network mask, use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`)."
 Send X-Frame-Options:
-  description: "Set the `X-Frame-Options` header to help prevent [clickjacking](https://en.wikipedia.org/wiki/Clickjacking). Enabled by default."
+  description: "<a id='use_x_frame_options'></a>Set the `X-Frame-Options` header to help prevent [clickjacking](https://en.wikipedia.org/wiki/Clickjacking). Enabled by default."
 Enable IP banning:
-  description: "Automatically ban remote clients after repeated failed login attempts. Enabled by default."
+  description: "<a id='ip_ban_enabled'></a>Automatically ban remote clients after repeated failed login attempts. Enabled by default."
 Login attempts before ban:
-  description: "Failed login attempts from a single IP address before that address is banned, when **Enable IP banning** is on. Set to `-1` to disable adding new bans automatically. The default is `-1`."
+  description: "<a id='login_attempts_threshold'></a>Failed login attempts from a single IP address before that address is banned, when **Enable IP banning** is on. Set to `-1` to disable adding new bans automatically. The default is `-1`."
 {% endconfiguration_basic %}
 
 ## Migrating from YAML
