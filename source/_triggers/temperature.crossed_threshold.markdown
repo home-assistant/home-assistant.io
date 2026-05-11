@@ -47,10 +47,8 @@ Threshold type:
     - **Outside range**: enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
 
     For each mode you can enter a fixed temperature or reference a sensor entity or [number helper](/integrations/input_number/) entity.
-  required: true
 Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references). Default is `°C`.
-  required: false
 Trigger when:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
@@ -60,10 +58,8 @@ Trigger when:
     - **All**: fires only after every targeted entity crosses the threshold.
 
     This corresponds to the `behavior` field in YAML. Default is **Each**.
-  required: false
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief fluctuations. For example, set it to `0:05:00` to fire only after the reading has stayed past the threshold for 5 minutes. Default is `0` (fires immediately).
-  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
