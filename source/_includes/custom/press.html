@@ -16,7 +16,7 @@
             {% if card.blue %}{% assign card_classes = card_classes | append: ' community-card--blue' %}{% endif %}
             {% if card.background_image %}{% assign card_classes = card_classes | append: ' community-card--image' %}{% endif %}
             {% if card.video %}{% assign card_classes = card_classes | append: ' community-card--video' %}{% endif %}
-            <a href="{{ card.href }}" class="community-card__link" style="--source-order: {{ forloop.index0 }};">
+            <a href="{{ card.href }}" class="community-card__link" style="--source-order: {{ forloop.index0 }};" target="_blank" rel="noopener">
               <div class="{{ card_classes }}">
                 <div class="community-card__content">
                   <p>{{ card.text }}</p>
