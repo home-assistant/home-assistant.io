@@ -34,13 +34,10 @@ To use **Humidifier is in mode** in an automation:
 {% options_ui %}
 Mode:
   description: The mode or modes to check for. Only the modes available on the targeted device are shown. Typical modes include **Normal**, **Eco**, **Not home**, **Boost**, **Comfort**, **Home**, **Sleep**, **Auto**, and **Baby**, though the exact modes depend on your device.
-  required: true
 Condition passes if:
   description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier is in the selected mode, or **All** to pass only when every targeted humidifier is in the selected mode. Default is **Any**.
-  required: true
 For at least:
   description: How long the humidifier must have been continuously in the selected mode before the condition passes. Default is `0` (passes immediately).
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -77,18 +74,18 @@ condition: |
 mode:
   description: >
     The mode or modes to check for. Accepts a single mode string or a list of modes. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device.
-  required: true
+  required: false
   type: [string, list]
 behavior:
   description: >
     When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: >
     How long the humidifier must have been continuously in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
