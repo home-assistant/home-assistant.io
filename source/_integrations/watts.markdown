@@ -107,7 +107,6 @@ All Watts Vision + devices share common functionality:
 - **Device information**: Manufacturer (Watts), model information, and device identification
 - **Availability**: Entities show as unavailable when devices are offline or communication fails
 
-
 ## Data updates
 
 The Watts Vision + integration {% term polling polls %} data from the cloud API every 30 seconds. After sending commands (temperature changes, mode changes, or switch operations), the integration waits 7 seconds before refreshing to allow the device to process the change.
@@ -160,7 +159,9 @@ actions:
 
 {% enddetails %}
 
-### Action: Activate timer mode
+## Actions
+
+### Activate timer mode
 
 The `watts.activate_timer_mode` action sets the thermostat to **Timer** mode with a target temperature and duration. When the timer expires, the thermostat returns to its previous mode.
 
@@ -172,12 +173,13 @@ The `watts.activate_timer_mode` action sets the thermostat to **Timer** mode wit
 Example:
 
 ```yaml
-action: watts.activate_timer_mode
-target:
-  entity_id: climate.living_room_thermostat
-data:
-  temperature: 21
-  duration: 90
+actions:
+  - action: watts.activate_timer_mode
+    target:
+      entity_id: climate.living_room_thermostat
+    data:
+      temperature: 21
+      duration: 90
 ```
 
 ## Known limitations
