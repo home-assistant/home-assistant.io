@@ -1,6 +1,6 @@
 ---
 title: "Automation actions"
-description: "How to use the various automation actions."
+description: "Reference for the actions you can call from an automation, including how to pass data, target a specific entity, and chain multiple actions together."
 ---
 
 The automation integration has actions to control automations, like turning automations on and off. This can be useful if you want to disable an automation from another automation.

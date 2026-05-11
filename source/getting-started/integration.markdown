@@ -1,8 +1,10 @@
 ---
 title: "Adding integrations"
-description: "Instructions to add an integration."
+description: "Add your first integration to Home Assistant. Choose from over a thousand brands, with most setups handled by the user interface."
 ---
-Let's start by adding your first {% term integration %}. In this tutorial, we will use the **Workday** integration. It can be used to automate based on workdays, days off, or holidays. No smart device is needed for this tutorial.
+Let's start by adding your first {% term integration %}. Home Assistant works with devices and services from over a thousand brands, and most of them can be added through the user interface in just a few steps.
+
+In this tutorial, we will use the **Workday** integration. It can be used to automate based on workdays, days off, or holidays. No smart device is needed for this tutorial.
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 ---
-title: "Views"
-description: "A view is a tab inside a dashboard."
+title: "Dashboard views"
+description: "A view is a tab inside a dashboard that groups related cards together, such as a tab for the living room or one for energy."
 related:
   - docs: /dashboards/masonry/
     title: Masonry view

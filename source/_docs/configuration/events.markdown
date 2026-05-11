@@ -1,6 +1,6 @@
 ---
 title: "Events"
-description: "Describes all there is to know about events in Home Assistant."
+description: "Events are how integrations and parts of Home Assistant tell each other that something has happened, and how you can trigger automations based on them."
 related:
   - docs: /docs/automation/trigger/#event-trigger
     title: Event triggers

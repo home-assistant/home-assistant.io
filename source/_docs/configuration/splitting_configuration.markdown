@@ -1,6 +1,6 @@
 ---
 title: "Splitting up the configuration"
-description: "Splitting the configuration.yaml into several files."
+description: "Keep your configuration.yaml manageable by splitting it into smaller, focused files using the !include directive."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file

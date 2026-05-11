@@ -1,6 +1,6 @@
 ---
-title: "Setup basic information"
-description: "Setting up the basic info of Home Assistant."
+title: "Basic settings"
+description: "Set the basic information about your Home Assistant, such as your home's name, location, time zone, and units of measurement."
 related:
   - docs: /integrations/homeassistant/
   - docs: /docs/configuration/

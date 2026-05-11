@@ -1,5 +1,6 @@
 ---
-title: Talking with Home Assistant - get your system up & running
+title: "Assist - Talk to your smart home with Home Assistant"
+description: "Assist is the voice assistant built into Home Assistant. It can run fully on your own hardware, so your voice commands stay private."
 related:
   - docs: /voice_control/android/
     title: Assist on Android
@@ -15,18 +16,11 @@ related:
     title: Voice Preview Edition
 ---
 
-This section will help you set up Assist, which is Home Assistant's voice assistant.
+Assist is the voice assistant built into Home Assistant. It lets you control your smart home with natural language, and it can run fully on your own hardware, so your voice commands stay private. Assist works in the Home Assistant companion app, on dedicated voice hardware like the [Home Assistant Voice Preview Edition](/voice-pe/), and on devices you build yourself with [ESPHome](https://www.esphome.io/components/voice_assistant/).
 
-Assist allows you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
+Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> at the top right of your dashboard to try it out right away.
 
-The simplest way to try out Assist is inside our companion app. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> at the top right of your dashboard.
-
-The simplest way to get started with Assist is with our recommended voice assistant hardware, the [Home Assistant Voice Preview Edition](/voice-pe/).
-
-As for the rest of Home Assistant core functionalities, Assist can be personalized and extended to fit your needs.
-
-- It can work locally or leverage the greatest LLMs of the moment.
-- It can work on your phone or tablet or other custom voice devices.
+Assist is built on an open voice foundation and powered by knowledge contributed by our community. It can work locally or, if you prefer, use one of the latest large language models to handle more conversational requests.
 
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 

@@ -1,8 +1,8 @@
 ---
 title: "Concepts and terminology"
-description: "Explaining some Home Assistant basics"
+description: "The core concepts behind Home Assistant: integrations, devices, entities, areas, and automations."
 ---
-Now you're in Home Assistant, let's look at the most important concepts.
+Now that you are in Home Assistant, let's look at the most important concepts. Home Assistant is built around a small set of building blocks: integrations, devices, entities, areas, and automations. Once you understand how they fit together, the rest of the platform falls into place.
 
 ## Integrations
 

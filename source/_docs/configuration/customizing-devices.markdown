@@ -1,6 +1,6 @@
 ---
 title: "Customizing entities"
-description: "Simple customization for entities."
+description: "Override the name, icon, or other properties of an entity in YAML, useful for entities that cannot be customized through the user interface."
 related:
   - docs: /integrations/homeassistant/
   - docs: /docs/configuration/

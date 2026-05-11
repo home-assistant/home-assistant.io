@@ -1,5 +1,6 @@
 ---
 title: Best practices with Assist
+description: "Tips to get the most out of Assist: which devices to expose, how to name your areas and entities, and small tweaks that make voice commands feel natural."
 related:
   - docs: /voice_control/android
     title: Assist on Android devices
@@ -14,12 +15,9 @@ related:
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition
 ---
-There are a few things you should do to get the most out of the voice assistant experience.
+Voice control feels effortless when it is set up well, and frustrating when it is not. The good news is that getting Assist to feel natural mostly comes down to a few simple choices: which devices it can see, how things are named, and how your home is organized into areas. This page collects the small habits that make a big difference.
 
-Using Assist consists of saying supported commands while targeting exposed devices and entities. So essentially:
-
-- You control what data Assist has access to, and what it can control.
-- Every entity in Home Assistant can be exposed or not to Assist.
+In Home Assistant, you decide what Assist has access to. Every entity is opt-in: nothing is exposed to your voice assistant until you say so. That means you can give Assist exactly the devices and information you want it to handle, and nothing else.
 
 Some best practices we recommend to have an efficient setup are:
 

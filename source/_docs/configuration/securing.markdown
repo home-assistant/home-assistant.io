@@ -1,6 +1,6 @@
 ---
-title: "Securing"
-description: "Instructions on how to secure your Home Assistant installation."
+title: "Securing your Home Assistant"
+description: "Recommended settings and best practices for keeping your Home Assistant secure, from strong passwords to safe remote access."
 
 related:
   - docs: /docs/configuration/
@@ -12,15 +12,15 @@ related:
     title: Nabu Casa
 ---
 
-One major advantage of Home Assistant is that it is not dependent on cloud services. Even if you are only using Home Assistant on a local network, you should take steps to secure your instance.
+Home Assistant runs on your own hardware and does not depend on any cloud service to work, which already removes a large category of risks that come with internet-connected smart home platforms. Even so, there are a few simple steps you should take to keep your Home Assistant secure, especially if you plan to access it from outside your home network.
 
 ## Checklist
 
-Here's the summary of what you *must* do to secure your Home Assistant system:
+The most important things to do to keep your Home Assistant secure:
 
-- Centralize sensitive data in [secrets](/docs/configuration/secrets/) (but do remember to back them up).
+- Centralize sensitive data in [secrets](/docs/configuration/secrets/) (and remember to back them up).
   - **Note**: Storing secrets in `secrets.yaml` does not encrypt them.
-- Regularly keep the system up to date.
+- Keep your system up to date with each monthly release.
 
 ## Remote access
 

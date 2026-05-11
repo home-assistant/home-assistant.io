@@ -1,6 +1,6 @@
 ---
-title: "Common tasks - Operating System"
-description: "Common tasks for Home Assistant Operating System"
+title: "Common tasks - Home Assistant Operating System"
+description: "Tasks specific to Home Assistant Operating System installations, such as updating the OS, working with network storage, and accessing the underlying system."
 installation: os
 installation_name: "Operating System"
 related:

@@ -1,9 +1,9 @@
 ---
 title: "Introduction to dashboards"
-description: "Dashboards overview and instructions on editing the dashboard for the first time"
+description: "Dashboards are how you see and control your smart home in Home Assistant. Build them visually, no coding required."
 ---
 
-Dashboards are customizable pages that display information about your smart home devices.
+Dashboards are how you see and control your smart home in Home Assistant. They are made up of cards and views, and you can build them visually with drag and drop, so no coding is required.
 
 ## Types of dashboards
 

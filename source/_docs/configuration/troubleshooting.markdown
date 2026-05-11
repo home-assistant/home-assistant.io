@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting your configuration"
-description: "Common problems with tweaking your configuration and their solutions."
+description: "Common problems with your Home Assistant configuration and how to fix them, including how to read the logs and check your YAML before restarting."
 related:
   - docs: /docs/configuration/
   - docs: /docs/configuration/customizing-devices/

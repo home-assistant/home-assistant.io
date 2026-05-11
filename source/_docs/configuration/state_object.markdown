@@ -1,6 +1,6 @@
 ---
 title: "State and state object"
-description: "Describes all there is to know about state and the state object in Home Assistant."
+description: "Every entity in Home Assistant has a state, such as on, off, or a temperature reading. This page covers what the state object contains and how to use it."
 related:
   - docs: /docs/configuration/entities_domains/
     title: Entities and domains

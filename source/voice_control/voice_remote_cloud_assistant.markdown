@@ -1,5 +1,6 @@
 ---
-title: "Getting Started - Home Assistant Cloud"
+title: "Set up a voice assistant with Home Assistant Cloud"
+description: "The fastest way to get Assist running well: use the high-quality speech-to-text and text-to-speech voices included with a Home Assistant Cloud subscription."
 related:
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
@@ -13,12 +14,11 @@ related:
     title: Voice Preview Edition - Documentation
 ---
 
-Before being able to use Assist, you need to configure it.
+The fastest way to get a great-sounding voice assistant up and running is to use the speech-to-text and text-to-speech voices included with a [Home Assistant Cloud](https://www.nabucasa.com/config/) subscription. They handle the heavy parts (turning your speech into text and turning Home Assistant's reply into a natural-sounding voice) on Nabu Casa's servers, so you can use Assist without needing extra hardware.
 
-The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in Home Assistant Cloud.
-This page will detail how to do just that.
+Only the audio is sent to the cloud for processing. Everything Assist actually does in your home, opening lights, locking doors, running automations, still happens on your own Home Assistant.
 
-If you are interested in setting up a fully local voice assistant, follow the [guide to creating a local voice assistant](/voice_control/voice_remote_local_assistant/) instead.
+If you would prefer to keep absolutely everything local, see the [fully local voice assistant guide](/voice_control/voice_remote_local_assistant/) instead.
 
 
 ## Setting up a cloud Assist pipeline

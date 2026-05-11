@@ -1,6 +1,6 @@
 ---
-title: "Features for dashboard cards"
-description: "Decorate your dashboard cards with quick controls."
+title: "Card features"
+description: "Add quick controls to your dashboard cards, such as a brightness slider for a light, a fan speed selector, or a temperature setpoint."
 related:
   - docs: /dashboards/humidifier/
     title: Humidifier card
