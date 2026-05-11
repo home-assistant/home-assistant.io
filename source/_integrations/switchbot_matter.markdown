@@ -30,20 +30,8 @@ SwitchBot also has Matter devices that are certified for use via one of their Ma
 
 ### Via a Matter Hub
 
-- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock_ultra)
-- [SwitchBot Motion Sensor](https://www.switch-bot.com/products/motion-sensor)
-- [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)
-- [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
-- [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
-- [SwitchBot Indoor/Outdoor Thermo-Hygrometer](https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer)
-- [SwitchBot Curtain 3](https://www.switch-bot.com/products/switchbot-curtain-3)
-- [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
-- [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
-- [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
+{% include integrations/device_list.html brand="SwitchBot" protocol="matter-via-hub" %}
 
 ### Matter-Over-WiFi (standalone, without requiring a hub)
 
-- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
-- [SwitchBot Multitasking Robot K20+ Pro](https://www.switch-bot.com/products/switchbot-multitasking-household-robot-k20-pro)
-- [SwitchBot Multitasking Robot K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
+{% include integrations/device_list.html brand="SwitchBot" protocol="matter-over-wifi" %}
