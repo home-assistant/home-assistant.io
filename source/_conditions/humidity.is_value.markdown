@@ -152,7 +152,7 @@ threshold:
 
     For `above` and `below`, use `value` with either `number` (0 to 100) or `entity`. For `between` and `outside`, use `value_min` and `value_max`, each with either `number` (0 to 100) or `entity`. For example:
 
-    - A fixed number between 0 and 100.
+    - A fixed fixed percentage (0-100%).
     - A reference to an `input_number`, `number`, or `sensor` entity.
       - `input_number`: Lets you change the threshold without editing the automation. To create one, see [Number helper](/integrations/input_number/).
       - `number`: Uses the current value of a number entity as the threshold.
