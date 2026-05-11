@@ -39,14 +39,11 @@ To use **Temperature** in an automation:
 Threshold type:
   description: |
     The temperature level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed temperature value (or both a lower and upper bound for ranges). **Entity** uses a sensor or number helper as a dynamic threshold.
-  required: true
 Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
-  required: false
   default: °C
 Condition passes if:
   description: When multiple entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does. Default is **Any**.
-  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
