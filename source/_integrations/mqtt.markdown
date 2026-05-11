@@ -1523,6 +1523,7 @@ The `mqtt.publish` action publishes a message to an MQTT topic.
 | `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
+| `message_expiry_interval` | yes   | [Message Expiry Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901048) in seconds for the published message. (default: not set) |
 
 {% note %}
 When `payload` is rendered from [template](/docs/templating/where-to-use/#mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
