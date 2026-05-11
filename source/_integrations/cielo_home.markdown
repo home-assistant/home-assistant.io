@@ -4,7 +4,7 @@ description: Instructions on how to integrate Cielo smart thermostats in Home As
 ha_category:
   - Climate
 ha_iot_class: Cloud Polling
-ha_release: 2026.1
+ha_release: 2026.6
 ha_config_flow: true
 ha_codeowners:
   - '@cielo-connect'
