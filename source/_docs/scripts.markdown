@@ -4,7 +4,7 @@ description: "How to write Home Assistant scripts in YAML: the available actions
 toc: true
 ---
 
-A script is a sequence of steps that Home Assistant runs from top to bottom whenever you call it. Think of it as a small recipe: "turn on the porch light, wait 30 seconds, then send me a notification". Once you have written a script, you can run it from a button on your dashboard, from {% term Assist %}, from inside an {% term automation %}, or from anywhere else that calls actions.
+A script is a sequence of steps that Home Assistant runs from top to bottom whenever you call it. Think of it as a small recipe: "turn on the porch light, wait 30 seconds, then send me a notification". Once you have written a script, you can run it from a button on your dashboard, from Assist, from inside an {% term automation %}, or from anywhere else that calls actions.
 
 Scripts and automations are very closely related. The only real difference is that an automation runs by itself when something triggers it, and a script runs when you call it.
 

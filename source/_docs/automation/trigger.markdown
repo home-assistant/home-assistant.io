@@ -8,7 +8,7 @@ related:
 
 A trigger is what wakes an automation up. Until something triggers it, an automation just sits there quietly, waiting. The moment a trigger fires, Home Assistant checks any [conditions](/docs/automation/condition/) you set, and if they pass, it runs the [actions](/docs/automation/action/).
 
-Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to {% term Assist %}. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
+Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
 
 - [Trigger ID](#trigger-id)
 - [Trigger variables](#trigger-variables)
