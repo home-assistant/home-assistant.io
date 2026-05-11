@@ -80,7 +80,7 @@ The integration creates a climate entity for each thermostat device in your Watt
   - **Comfort**: Standard comfort temperature
   - **Eco**: Reduced setpoint to save energy
   - **Defrost**: Frost protection
-  - **Timer**: Temporary boost mode with a custom temperature and duration (see the [`watts.activate_timer_mode`](#action-activate-timer-mode) action)
+  - **Timer**: Temporary boost mode
 - **Temperature range**: The min/max temperature limits configured for the device
 
 #### Climate entity attributes
@@ -107,27 +107,6 @@ All Watts Vision + devices share common functionality:
 - **Device information**: Manufacturer (Watts), model information, and device identification
 - **Availability**: Entities show as unavailable when devices are offline or communication fails
 
-## Actions
-
-The integration provides the following action.
-
-### Action: Activate timer mode
-
-The `watts.activate_timer_mode` action sets the thermostat to **Timer** mode with a target temperature and duration. When the timer expires, the thermostat returns to its previous mode.
-
-- `temperature`: Target temperature to hold while the timer is active.
-- `duration`: Duration of the timer in minutes (1–1440).
-
-Example:
-
-```yaml
-action: watts.activate_timer_mode
-target:
-  entity_id: climate.living_room_thermostat
-data:
-  temperature: 21
-  duration: 90
-```
 
 ## Data updates
 
