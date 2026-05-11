@@ -41,8 +41,8 @@ cards:
   - href: "https://www.pcworld.com/article/2871781/im-tired-of-failing-smart-home-systems-so-im-building-my-own.html"
     text: 'Home Assistant gives you tons of freedom to arrange your devices in practically any way you see fit'
     author_image: "/images/community-cards/pc-world-logo.webp"
-    author_image_alt: "PC World logo"
-    author: "PC World"
+    author_image_alt: "PCWorld logo"
+    author: "PCWorld"
     link_icon: "/images/community-cards/document-icon.png"
   - href: "https://www.youtube.com/watch?v=uh9A4LvuGHM&t=727s"
     text: 'Home Assistant at GitHub Universe 2024'
