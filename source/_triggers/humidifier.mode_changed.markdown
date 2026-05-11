@@ -33,18 +33,15 @@ To use **Humidifier mode changed** in an automation, follow these steps:
 {% options_ui %}
 Mode:
   description: The mode or modes the humidifier must switch to for the trigger to fire. Typical modes include **Normal**, **Eco**, **Away**, **Boost**, **Comfort**, **Home**, **Sleep**, **Auto**, and **Baby**, though the exact modes available depend on your device. Default is empty, which fires on any mode change.
-  required: false
 Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
     - **Each** (`any` in YAML, default): fire every time any targeted humidifier changes mode.
     - **First** (`first` in YAML): fire only on the first mode change.
-    - **All** (`last` in YAML): fire only after every targeted humidifier changes mode.
-  required: true
+    - **All** (`last` in YAML): fire only after every targeted humidifier changes mode
 For at least:
   description: How long the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup. If you set a short delay of a few seconds, it prevents your automation from firing on that momentary blip. Default is `0` (fires immediately).
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -89,13 +86,13 @@ behavior:
     - `any` (**Each** in the UI, default): fire every time any targeted humidifier changes mode.
     - `first` (**First** in the UI): fire only on the first mode change.
     - `last` (**All** in the UI): fire only after every targeted humidifier changes mode.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: |
     How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}

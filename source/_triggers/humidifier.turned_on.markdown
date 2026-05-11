@@ -38,10 +38,8 @@ Trigger when:
     - **Each** (`any` in YAML, default): fire every time any targeted humidifier turns on.
     - **First** (`first` in YAML): fire only when the first of a group turns on.
     - **All** (`last` in YAML): fire only after every targeted humidifier is on.
-  required: true
 For at least:
   description: How long the humidifier must stay on before the trigger fires. Default is `0` (fires immediately).
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -69,13 +67,13 @@ behavior:
     - `any` (**Each** in the UI, default): fire every time any targeted humidifier turns on.
     - `first` (**First** in the UI): fire only when the first of a group turns on.
     - `last` (**All** in the UI): fire only after every targeted humidifier is on.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: |
     How long the humidifier must stay on before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has stayed on for 5 minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
