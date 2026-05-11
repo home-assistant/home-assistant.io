@@ -161,7 +161,7 @@ actions:
 
 ## Actions
 
-### Activate timer mode
+### Action: Activate timer mode
 
 The `watts.activate_timer_mode` action sets the thermostat to **Timer** mode with a target temperature and duration. When the timer expires, the thermostat returns to its previous mode.
 
