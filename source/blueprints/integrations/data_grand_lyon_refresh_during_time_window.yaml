@@ -1,22 +1,23 @@
 blueprint:
   name: "Data Grand Lyon: refresh more frequently during a time window"
   description: >
-    Refresh a Data Grand Lyon transit stop's sensors more frequently during a
-    configurable time window — by default, every minute between 8:00 and 9:00.
+    Refresh a Data Grand Lyon transit stop's or Vélo'v station sensors more
+    frequently during a configurable time window — by default, every minute
+    between 8:00 and 9:00.
 
 
     Useful to get fresher upcoming-departure data before your commute without
     raising the polling rate the rest of the day.
 
 
-    Tip: refreshing one sensor of a transit stop refreshes every sensor for
-    that stop, since they share the same data source. You only need to pick
-    one sensor per stop.
+    Tip: refreshing one sensor of a transit stop or Vélo'v station refreshes
+    every sensor for that stop or station, since they share the same data
+    source. You only need to pick one sensor per stop or station.
   domain: automation
   input:
     sensor:
       name: Sensor to refresh
-      description: A sensor from a Data Grand Lyon transit stop.
+      description: A sensor from a Data Grand Lyon transit stop or Vélo'v station.
       selector:
         entity:
           filter:
