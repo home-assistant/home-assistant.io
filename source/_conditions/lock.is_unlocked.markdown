@@ -29,7 +29,7 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple locks are targeted, controls how results combine. Pick **Any** to pass if at least one targeted lock is unlocked, or **All** to pass only when every targeted lock is unlocked.
-  required: true
+  required: false
 For at least:
   description: How long the lock must stay unlocked before the condition passes.
   required: false
@@ -57,7 +57,7 @@ behavior:
   description: >
     When multiple locks are targeted, controls how results combine. Accepts
     `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 for:

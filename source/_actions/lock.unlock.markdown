@@ -10,7 +10,7 @@ related_actions:
 
 The **Unlock lock** action lets you release a lock from an automation or script. Use it when you want Home Assistant to let someone in, prepare for an arrival, or remove one step from an emergency exit path.
 
-The difference between **Unlock** and [Open](/actions/lock.open/) is that **Unlock** only changes the lock to the unlocked state, while **Open** unlatches the door on locks that support that feature. If you want to unlock the door but not unlatch it, use **Unlock**. If you want the door ready to push open right away, use [Open](/actions/lock.open/).
+The difference between **Unlock lock** and [Open lock](/actions/lock.open/) is that **Unlock lock** only changes the lock to the unlocked state, while **Open lock** unlatches the door on locks that support that feature. If you want to unlock the door but not unlatch it, use **Unlock lock**. If you want the door ready to push open right away, use [Open lock](/actions/lock.open/).
 
 {% include actions/ui_header.md %}
 
@@ -21,7 +21,7 @@ To use this action in an automation or script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your lock is in, like your front door or garage entry. You can also select a floor, a device, a specific entity, or a label.
-6. From the actions shown for that target, select **Unlock**.
+6. From the actions shown for that target, select **Unlock lock**.
 7. _Optional_: Enter **Code** if your lock requires one.
 8. Select **Save**.
 
@@ -84,7 +84,7 @@ code:
 If you want a smoother arrival, Home Assistant can unlock the front door when you get home. This automation unlocks the door when your person entity changes to home.
 
 - **Trigger**: Person changes to home
-- **Action**: Unlock
+- **Action**: Unlock lock
 - **Target**: Front door lock
 
 {% details "YAML example for unlocking the front door on arrival" %}
@@ -109,7 +109,7 @@ automation: |
 If you want to remove one step during an emergency, Home Assistant can unlock the front door when smoke is detected. This automation unlocks the door as soon as a smoke sensor reports smoke.
 
 - **Trigger**: Smoke detected
-- **Action**: Unlock
+- **Action**: Unlock lock
 - **Target**: Front door lock
 
 {% details "YAML example for unlocking a door during a smoke alarm" %}

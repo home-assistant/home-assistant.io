@@ -81,7 +81,7 @@ code:
 If you want a simple nightly routine, lock the front door at the same time each evening. This automation locks the door at 11 PM.
 
 - **Trigger**: Time: 23:00
-- **Action**: Lock
+- **Action**: Lock lock
 - **Target**: Front door lock
 
 {% details "YAML example for locking the front door every night" %}
@@ -108,7 +108,7 @@ If a back door is often left unlocked, you can have Home Assistant secure it for
 - **Target**: Back door lock
 - **Trigger when**: Each
 - **For at least**: 00:10:00
-- **Action**: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking a door after it stays unlocked" %}
 

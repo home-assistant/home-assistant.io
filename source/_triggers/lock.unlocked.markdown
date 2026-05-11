@@ -29,7 +29,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple locks are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted lock unlocks, **First** to fire only when the first targeted lock unlocks, or **All** to fire only after every targeted lock is unlocked.
-  required: true
+  required: false
 For at least:
   description: How long the lock must stay unlocked before the trigger fires. Set to zero to fire immediately.
   required: false
@@ -57,7 +57,7 @@ behavior:
   description: >
     When multiple locks are targeted, controls when the trigger fires.
     Accepts `any`, `first`, or `last`.
-  required: true
+  required: false
   type: string
   default: any
 for:

@@ -29,7 +29,7 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple locks are targeted, controls how results combine. Pick **Any** to pass if at least one targeted lock is jammed, or **All** to pass only when every targeted lock is jammed.
-  required: true
+  required: false
 For at least:
   description: How long the lock must stay jammed before the condition passes.
   required: false
