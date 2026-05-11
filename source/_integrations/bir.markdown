@@ -3,7 +3,7 @@ title: BIR
 description: Instructions on how to integrate BIR with Home Assistant.
 ha_category:
   - Environment
-ha_release: "2025.8"
+ha_release: "2026.7"
 ha_iot_class: Cloud Polling
 ha_quality_scale: bronze
 ha_domain: bir
