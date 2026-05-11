@@ -28,7 +28,7 @@ To use **Relative humidity crossed threshold** in an automation:
    - Select **Above** or **Below** and enter a value to fire when the reading crosses that level.
    - Select **In range** and enter a lower and upper bound to fire when the reading enters the range from outside.
    - Select **Outside range** and enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
-   For each option, you can enter a fixed percentage or use an `input_number`, `number`, or `sensor` entity as the threshold.
+For each option, you can enter a fixed percentage (0-100%), pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold. If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple entities are targeted.
 8. Under **For at least**, set how long the reading must stay past the threshold before the trigger fires. Leave it at zero to fire immediately.
 9. Select **Save**.
@@ -44,21 +44,18 @@ Threshold type:
     - **In range**: enter a lower and upper bound to fire when the reading enters the range from outside.
     - **Outside range**: enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
 
-    For each mode you can enter a fixed percentage or reference an `input_number`, `number`, or `sensor` entity.
-  required: true
+    For each mode you can enter a fixed percentage (0-100%), reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 Trigger when:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
 
-    - **Each**: fire every time any targeted entity crosses the threshold.
-    - **First**: fire only on the first crossing.
-    - **All**: fire only after every targeted entity crosses the threshold.
+    - **Each**: fires every time any targeted entity crosses the threshold.
+    - **First**: fires only on the first crossing.
+    - **All**: fires only after every targeted entity crosses the threshold.
 
     This corresponds to the `behavior` field in YAML. Default is **Each**.
-  required: true
 For at least:
-  description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief spikes. For example, set it to `0:05:00` to fire only after the reading has stayed past the threshold for 5 minutes. Default is `0` (fires immediately).
-  required: true
+  description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief fluctuations. For example, set it to `0:05:00` to fire only after the reading has stayed past the threshold for 5 minutes. Default is `0` (fires immediately).
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -87,7 +84,9 @@ To fire when the reading leaves a comfort range (escapes above 60% or below 40%)
 trigger: |
   trigger: humidity.crossed_threshold
   target:
-    entity_id: sensor.bedroom_humidity
+    entity_id:
+      - sensor.bedroom_humidity
+      - sensor.bathroom_humidity
   options:
     threshold:
       type: outside
@@ -95,7 +94,27 @@ trigger: |
         number: 40
       value_max:
         number: 60
+    behavior: any
 {% endexample %}
+
+This fires whenever any of the humidity sensors crosses outside the comfort range.
+
+To use a number helper as a dynamic threshold that you can adjust without editing the automation:
+
+{% example %}
+trigger: |
+  trigger: humidity.crossed_threshold
+  target:
+    label_id: humidity_sensors
+  options:
+    threshold:
+      type: above
+      value:
+        entity: input_number.humidity_alert_threshold
+    behavior: first
+{% endexample %}
+
+This fires when the first humidity sensor with the `humidity_sensors` label crosses above the threshold set in the number helper.
 
 ### Options in YAML
 
@@ -108,6 +127,15 @@ threshold:
 
     - `above` or `below`: provide `value` with a `number` key or an `entity` key.
     - `between` or `outside`: provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+
+    For example:
+
+    ```yaml
+    threshold:
+      type: above
+      value:
+        number: 70
+    ```
   required: true
   type: map
 behavior:
@@ -117,13 +145,13 @@ behavior:
     - `any`: fire every time any targeted entity crosses the threshold.
     - `first`: fire only on the first crossing.
     - `last`: fire only after every targeted entity crosses the threshold.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: |
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
@@ -150,10 +178,11 @@ for:
 After a shower, bathroom humidity can climb fast. This automation turns on the bathroom fan the moment humidity crosses 70%.
 
 - **Trigger**: Relative humidity crossed threshold
-- **Target**: Bathroom humidity sensor
-- **Threshold type**: Above 70%
-- **Trigger when**: Each
-- **Action**: Fan: Turn on
+  - **Target**: Bathroom humidity sensor
+  - **Threshold type**: Above 70%
+  - **Trigger when**: Each
+- **Action**: Turn on fan
+  - **Target**: fan.bathroom
 
 {% details "YAML example for bathroom humidity ventilation" %}
 
@@ -182,11 +211,12 @@ automation: |
 Keep your basement at a healthy humidity level by sending a notification whenever the sensor crosses a level that may indicate a moisture problem.
 
 - **Trigger**: Relative humidity crossed threshold
-- **Target**: Basement humidity sensor
-- **Threshold type**: Above 60%
-- **Trigger when**: Each
-- **For at least**: 00:10:00
-- **Action**: Notifications: Send a notification via mobile_app_phone
+  - **Target**: Basement humidity sensors
+  - **Threshold type**: Above 60%
+  - **Trigger when**: Each
+  - **For at least**: 00:10:00
+- **Action**: Send a notification
+  - **Target**: notify.mobile_app_phone
 
 {% details "YAML example for a basement humidity alert" %}
 
@@ -196,17 +226,52 @@ automation: |
   triggers:
     - trigger: humidity.crossed_threshold
       target:
-        entity_id: sensor.basement_humidity
+        area_id: basement
       options:
         threshold:
           type: above
           value:
             number: 60
+        behavior: any
         for: "00:10:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app_phone
       data:
         message: "Basement humidity crossed 60%."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: trigger humidifier based on adjustable comfort level
+
+Trigger the humidifier when humidity crosses below your personal comfort threshold. Use a number helper as the threshold so you can easily adjust it through the UI without editing the automation.
+
+- **Trigger**: Relative humidity crossed threshold
+  - **Target**: Bedroom humidity sensor
+  - **Threshold type**: Below (entity: comfort humidity threshold)
+- **Action**: Turn on switch
+  - **Target**: switch.bedroom_humidifier
+
+{% details "YAML example for using a number helper as threshold" %}
+
+{% example %}
+automation: |
+  alias: "Turn on humidifier when crossing below comfort threshold"
+  triggers:
+    - trigger: humidity.crossed_threshold
+      target:
+        entity_id: sensor.bedroom_humidity
+      options:
+        threshold:
+          type: below
+          value:
+            entity: input_number.comfort_humidity_threshold
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.bedroom_humidifier
 {% endexample %}
 
 {% enddetails %}
