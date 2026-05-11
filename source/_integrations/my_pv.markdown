@@ -34,13 +34,9 @@ The following devices are not supported by the integration:
 - ELWA immersion heater
 - WiFi Meter
 
-The my-PV integration supports both the local API and the my-PV cloud API.
-
 {% include integrations/config_flow.md %}
 
-### Login to my-PV (Local API)
-
-Using the local API is the preferred way to connect to your my-PV device.
+### Login to my-PV
 
 {% configuration_basic %}
 Host:
@@ -53,20 +49,9 @@ Older firmware versions of the my-PV hardware do not require a password, this wi
 
 You can update the password through the web interface of your my-PV device.
 
-### Login to my-PV (Cloud API)
-
-{% configuration_basic %}
-Serial number:
-  description: "The 16-digit serial number of your my-PV device. You can find it on the device label."
-Token:
-  description: "The my-PV Cloud API access token."
-{% endconfiguration_basic %}
-
-To generate an API token go to your [my-PV Cloud](https://live.my-pv.com/) and navigate to ⚙️ > **Device Setup**. Enable **Advanced Settings**, navigate to **API** and **Generate API Access Token**. Use this when setting up the my-PV integration.
-
 ## Data updates
 
-The **my-PV** integration {% term polling polls %} data from the Local API every 5 seconds and my-PV Cloud every 30 seconds to ensure timely updates.
+The **my-PV** integration {% term polling polls %} data every 5 seconds.
 
 ## Removing the integration
 
