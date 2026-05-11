@@ -57,7 +57,7 @@ behavior:
   description: >
     When multiple locks are targeted, controls how results combine. Accepts
     `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 for:

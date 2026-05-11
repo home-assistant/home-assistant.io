@@ -7,7 +7,7 @@ related_actions:
   - lock.unlock
 ---
 
-The **Lock** action lets you secure a door from an automation or script. Use it when you want Home Assistant to lock a door after a routine, like when everyone leaves, or after a door has been left unlocked for too long.
+The **Lock lock** action lets you secure a door from an automation or script. Use it when you want Home Assistant to lock a door after a routine, like when everyone leaves, or after a door has been left unlocked for too long.
 
 {% include actions/ui_header.md %}
 
@@ -18,7 +18,7 @@ To use this action in an automation or script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your lock is in, like your front door or garage entry. You can also select a floor, a device, a specific entity, or a label.
-6. From the actions shown for that target, select **Lock**.
+6. From the actions shown for that target, select **Lock lock**.
 7. _Optional_: Enter **Code** if your lock requires one.
 8. Select **Save**.
 
