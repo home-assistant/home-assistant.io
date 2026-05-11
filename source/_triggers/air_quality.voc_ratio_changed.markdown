@@ -30,7 +30,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the volatile organic compounds ratio has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
