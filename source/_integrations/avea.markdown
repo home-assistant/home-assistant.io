@@ -13,7 +13,6 @@ ha_config_flow: true
 ha_platforms:
   - light
 ha_integration_type: device
-ha_quality_scale: legacy
 ---
 
 The **Elgato Avea** {% term integration %} allows you to control Avea Bluetooth light bulbs with Home Assistant.
