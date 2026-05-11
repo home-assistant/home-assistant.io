@@ -29,10 +29,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor clears, **First** to fire only when the first sensor in a group clears, or **All** to fire only after every targeted sensor has cleared.
-  required: true
 For at least:
   description: How long the sensor must stay in the cleared state before the trigger fires. Set to zero to fire immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

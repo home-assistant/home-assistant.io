@@ -29,7 +29,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor detects carbon monoxide, or **All** to pass only when every targeted sensor detects carbon monoxide.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
