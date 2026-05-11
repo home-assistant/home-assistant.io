@@ -1,0 +1,124 @@
+---
+title: "List of available conditions"
+description: "Reference of all conditions available in Home Assistant, grouped by integration."
+feedback: false
+regenerate: false
+toc: true
+---
+
+{%- assign all_conditions = site.conditions | sort: 'condition' -%}
+
+<p>
+  Conditions gate an automation. After a trigger fires, Home Assistant checks every condition, and only runs the actions if they all pass. Use them to make sure an automation only runs when it should, like only dimming the lights after sunset, or only notifying you when you're home.
+</p>
+<p>
+  Browse the full list below, or use the search box to find a specific condition by name or description. Each condition has its own page with a step-by-step UI walkthrough, examples, and a complete field reference.
+</p>
+<p>
+  New to conditions? Read about <a href="/docs/automation/condition/">conditions in automations</a> to learn how they fit together with triggers and actions.
+</p>
+
+<div class="grid">
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div class="component-search">
+      <form onsubmit="event.preventDefault(); return false">
+        <input type="text" name="search" id="search" class="search text-input"
+          placeholder="Search conditions..." autofocus />
+      </form>
+    </div>
+  </div>
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div id="tf-container">
+      {%- assign domain_keys = all_conditions | map: 'domain' | uniq | sort -%}
+      {%- for domain_key in domain_keys -%}
+        {%- assign domain_conditions = all_conditions | where: 'domain', domain_key -%}
+        {%- assign domain_data = site.data.condition_domains | where: 'key', domain_key | first -%}
+        {%- if domain_data -%}
+          {%- assign domain_label = domain_data.label -%}
+          {%- assign domain_icon = domain_data.icon -%}
+          {%- assign domain_desc = domain_data.description -%}
+        {%- else -%}
+          {%- assign integration = site.integrations | where: 'ha_domain', domain_key | first -%}
+          {%- assign domain_label = integration.title | default: domain_key -%}
+          {%- assign domain_icon = 'mdi:puzzle-outline' -%}
+          {%- assign domain_desc = nil -%}
+        {%- endif -%}
+        {%- if domain_conditions.size > 0 -%}
+        <div class="tf-category" data-category="{{ domain_key }}">
+          <h3 id="{{ domain_key }}"><iconify-icon inline icon="{{ domain_icon }}"></iconify-icon> {{ domain_label }}</h3>
+          {%- if domain_desc -%}<p>{{ domain_desc }}</p>{%- endif -%}
+          <ul class="tf-list">
+            {%- for cnd in domain_conditions -%}
+            <li class="tf-item" data-title="{{ cnd.condition | downcase }} {{ cnd.title | downcase }}" data-desc="{{ cnd.description | downcase }}">
+              <a href="{{ cnd.url }}">
+                <span class="tf-title">{{ cnd.title }}</span>
+                <code class="tf-fn">{{ cnd.condition }}</code>
+              </a>
+              <span class="tf-desc">{{ cnd.description }}</span>
+            </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        {%- endif -%}
+      {%- endfor -%}
+      <div class="tf-no-results" style="display:none">
+        <div class="alert alert-note"><p class="alert-content">No conditions matching your search.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl = document.getElementById('search');
+  var categories = document.querySelectorAll('.tf-category');
+  var noResults = document.querySelector('.tf-no-results');
+
+  function applyFilter() {
+    var search = searchEl.value.toLowerCase().trim();
+    var visibleCount = 0;
+
+    categories.forEach(function (cat) {
+      var catVisible = false;
+
+      cat.querySelectorAll('.tf-item').forEach(function (row) {
+        var title = row.getAttribute('data-title');
+        var desc = row.getAttribute('data-desc');
+
+        if (!search || title.indexOf(search) !== -1 || desc.indexOf(search) !== -1) {
+          row.classList.remove('hidden');
+          catVisible = true;
+          visibleCount++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+
+      if (catVisible) {
+        cat.classList.remove('hidden');
+      } else {
+        cat.classList.add('hidden');
+      }
+    });
+
+    noResults.style.display = visibleCount === 0 ? '' : 'none';
+  }
+
+  var debounceTimer;
+  searchEl.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(applyFilter, 200);
+  });
+
+  setTimeout(function () { searchEl.focus(); }, 1);
+})();
+</script>
+
+<noscript>
+  <ul>
+    {%- for cnd in all_conditions -%}
+    <li><a href="{{ cnd.url }}"><code>{{ cnd.condition }}</code></a> - {{ cnd.description }}</li>
+    {%- endfor -%}
+  </ul>
+</noscript>

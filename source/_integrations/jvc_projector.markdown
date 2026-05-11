@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@SteveEasley'
-  - '@msavazzi'
 ha_domain: jvc_projector
 ha_platforms:
   - binary_sensor
@@ -115,14 +114,6 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Description**: The signal HDR mode.
   - **Available for models**: 2017-present
 
-- **HDR processing**
-  - **Description**: The signal HDR processing mode.
-  - **Available for models**: 2017-present
-
-- **Picture mode**
-  - **Description**: The signal picture mode.
-  - **Available for models**: all
-
 ## Select
 
 The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Some of these selects are disabled by default and may not be available for your model.
@@ -154,6 +145,16 @@ The JVC Projector select platform will create the following [Select](/integratio
 
 - **Anamorphic**
   - **Description**: The anamorphic setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **HDR processing**
+  - **Description**: The HDR processing mode setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: 2017-present
+
+- **Picture mode**
+  - **Description**: The picture mode setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 

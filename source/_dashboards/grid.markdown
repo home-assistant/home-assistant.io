@@ -17,9 +17,9 @@ The grid card allows you to show multiple cards in a grid. It will first fill th
   Screenshot of the grid card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

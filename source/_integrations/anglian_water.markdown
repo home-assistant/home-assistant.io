@@ -54,6 +54,24 @@ The **Anglian Water** integration provides the following entities.
 - **Yesterday consumption**
   - **Description**: Yesterday's total water consumption in litres (this may not update until after 12pm).
 
+## Long-term statistics
+
+The **Anglian Water** integration allows you to import all your historical consumption readings from your Anglian Water account into long-term statistic entities. These entities can be displayed in your Home Assistant energy dashboard, providing a comprehensive view of your consumption data over time.
+
+### Identifying Anglian Water statistic entities
+
+The statistic entities imported via this integration have an `anglian_water:` prefix. This prefix helps you identify and distinguish these entities from other sensor statistics when setting up the long-term statistics in the energy dashboard.
+
+### Setting up long-term statistics in the energy dashboard
+
+To set up the **Anglian Water** long-term statistics in your Home Assistant energy dashboard, follow these steps:
+
+1. Go to the energy configuration panel of your Home Assistant instance.
+   [![Open your Home Assistant instance and show your energy configuration panel.](https://my.home-assistant.io/badges/config_energy.svg)](https://my.home-assistant.io/redirect/config_energy/)
+2. Go to **Water consumption**.
+3. Select **Add water source**.
+4. Choose the **Water** entity, for example, `anglian_water:account_meter_usage`.
+
 ## Data updates
 
 The **Anglian Water** integration {% term polling polls %} data from the service every 60 minutes by default.

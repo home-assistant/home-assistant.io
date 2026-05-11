@@ -1,46 +1,64 @@
-@import "variables";
-@import "mixins";
+@use 'variables' as *;
+@use 'mixins' as *;
 
-@import "../inuitcss/_inuit";
+// Configure inuitcss defaults before loading the framework so all
+// partials that @use 'defaults' receive the already-configured instance.
+@use '../inuitcss/defaults' with (
+  $use-grids:   true,
+  $h1-size:     40px,
+  $h2-size:     28px,
+  $h3-size:     22px,
+  $h4-size:     19px,
+  $h5-size:     16px,
+  $h6-size:     14px,
+  $brand-round: 16px,
+  $brand-face:  $heading-font,
+  $brand-color: $primary-color,
+);
 
-@import "base/global";
-@import "base/grid";
-@import "base/header";
-@import "base/navigation";
-@import "base/footer";
-@import "base/syntax";
-@import "base/post";
-@import "base/archive_list";
-@import "base/print";
-@import "base/collaboration_badge";
+@use '../inuitcss/_inuit' as *;
 
-@import "plugins/alert";
-@import "plugins/details";
-@import "plugins/tabbed_block";
-@import "plugins/terminology_tooltip";
-@import "plugins/integration_alert";
+@use 'base/global' as *;
+@use 'base/grid' as *;
+@use 'base/header' as *;
+@use 'base/navigation' as *;
+@use 'base/footer' as *;
+@use 'base/syntax' as *;
+@use 'base/post' as *;
+@use 'base/archive_list' as *;
+@use 'base/print' as *;
+@use 'base/collaboration_badge' as *;
+@use 'base/back_to_top' as *;
 
-@import "base/sidebar";
-@import "aside/buy_dialog";
-@import "aside/recent_posts";
-@import "aside/github";
-@import "aside/pinboard";
-@import "aside/social";
+@use 'plugins/alert' as *;
+@use 'plugins/details' as *;
+@use 'plugins/tabbed_block' as *;
+@use 'plugins/terminology_tooltip' as *;
+@use 'plugins/integration_alert' as *;
+@use 'plugins/template_functions' as *;
 
-@import "homepage/home";
-@import "homepage/hero_unit";
-@import "homepage/features";
+@use 'base/sidebar' as *;
+@use 'aside/buy_dialog' as *;
+@use 'aside/recent_posts' as *;
+@use 'aside/github' as *;
+@use 'aside/pinboard' as *;
+@use 'aside/social' as *;
 
-@import "pages/landingpage";
-@import "pages/component_page";
-@import "pages/getting_started";
+@use 'homepage/home' as *;
+@use 'homepage/hero_unit' as *;
+@use 'homepage/features' as *;
 
-@import "helpers/classes";
-@import "helpers/grid-fix";
+@use 'pages/landingpage' as *;
+@use 'pages/component_page' as *;
+@use 'pages/getting_started' as *;
+@use 'pages/social-media' as *;
 
-@import "external/search";
+@use 'helpers/classes' as *;
+@use 'helpers/grid-fix' as *;
+
+@use 'external/search' as *;
 
 // This file overrides all kinds of stuff, it is the old "paulus.scss" file
 // Most of what is in here should be moved to the correct file and remoted
 // from here.
-@import "overrides";
+@use 'overrides' as *;

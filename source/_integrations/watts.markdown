@@ -75,6 +75,12 @@ The integration creates a climate entity for each thermostat device in your Watt
   - **Heat**: Manual comfort or eco mode
   - **Off**: Turn off heating for the zone
   - **Auto**: Follow programmed schedule
+- **HVAC action**: Reports the current activity of the thermostat (heating, cooling, idle, or off)
+- **Preset modes**: Switch between the native Watts Vision + thermostat modes:
+  - **Comfort**: Standard comfort temperature
+  - **Eco**: Reduced setpoint to save energy
+  - **Defrost**: Frost protection
+  - **Timer**: Temporary boost mode
 - **Temperature range**: The min/max temperature limits configured for the device
 
 #### Climate entity attributes
@@ -101,6 +107,7 @@ All Watts Vision + devices share common functionality:
 - **Device information**: Manufacturer (Watts), model information, and device identification
 - **Availability**: Entities show as unavailable when devices are offline or communication fails
 
+
 ## Data updates
 
 The Watts Vision + integration {% term polling polls %} data from the cloud API every 30 seconds. After sending commands (temperature changes, mode changes, or switch operations), the integration waits 7 seconds before refreshing to allow the device to process the change.
@@ -121,8 +128,6 @@ This integration enables you to:
 ## Example automations
 
 {% details "Lower temperature when nobody is home" %}
-
-{% raw %}
 
 ```yaml
 alias: "Eco mode when away"
@@ -153,9 +158,14 @@ actions:
       temperature: 18
 ```
 
-{% endraw %}
-
 {% enddetails %}
+
+## Known limitations
+
+- **BRT-WR02-RF devices paired as heaters** are not exposed as separate switch entities in Home Assistant.
+- When a BRT-WR02-RF is paired as a heater on the gateway, the firmware merges it with the thermostat into a single heater entity. Only BRT-WR02-RF devices paired as standalone switches on the gateway appear as switch entities.
+
+Control these devices indirectly by adjusting the thermostat setpoint or mode through automations, for example, based on solar panel production or an external thermostat. The thermostat then manages the `on`/`off` state of the BRT-WR02-RF. This allows the built-in regulation algorithm to manage the temperature effectively.
 
 ## Troubleshooting
 

@@ -320,39 +320,27 @@ type:
   type: string
 {% endconfiguration %}
 
-## Cover position preset
+## Cover favorite positions
 
-Widget that displays a dropdown with preset positions for a [cover](/integrations/cover).
+Widget that displays a dropdown with favorite positions for a [cover](/integrations/cover).
+
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
 
 <p class='img'>
-  <img src='/images/dashboards/features/cover_position_preset.png' alt='Screenshot of the tile card with the cover position preset feature'>
-  Screenshot of the tile card with the cover position preset feature
+  <img src='/images/dashboards/features/cover_position_favorite.png' alt='Screenshot of the tile card with the cover favorite positions feature'>
+  Screenshot of the tile card with the cover favorite positions feature
 </p>
 
 ```yaml
 features:
-  - type: "cover-position-preset"
-    positions:
-      - 0
-      - 25
-      - 75
-      - 100
+  - type: "cover-position-favorite"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`cover-position-preset`"
+  description: "`cover-position-favorite`"
   type: string
-positions:
-  required: false
-  description: List of preset positions to show on the card. Values are percentages from 0 to 100, and you can configure up to 6 positions.
-  type: list
-  default:
-    - 0
-    - 25
-    - 75
-    - 100
 {% endconfiguration %}
 
 ## Cover tilt
@@ -376,39 +364,27 @@ type:
   type: string
 {% endconfiguration %}
 
-## Cover tilt preset
+## Cover favorite tilt positions
 
-Widget that displays a dropdown with preset tilt positions for a [cover](/integrations/cover).
+Widget that displays a dropdown with favorite tilt positions for a [cover](/integrations/cover).
+
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
 
 <p class='img'>
-  <img src='/images/dashboards/features/cover_tilt_preset.png' alt='Screenshot of the tile card with the cover tilt preset feature'>
-  Screenshot of the tile card with the cover tilt preset feature
+  <img src='/images/dashboards/features/cover_tilt_favorite.png' alt='Screenshot of the tile card with the cover favorite tilt positions feature'>
+  Screenshot of the tile card with the cover favorite tilt positions feature
 </p>
 
 ```yaml
 features:
-  - type: "cover-tilt-preset"
-    positions:
-      - 0
-      - 25
-      - 75
-      - 100
+  - type: "cover-tilt-favorite"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`cover-tilt-preset`"
+  description: "`cover-tilt-favorite`"
   type: string
-positions:
-  required: false
-  description: List of preset tilt positions to show on the card. Values are percentages from 0 to 100, and you can configure up to 6 positions.
-  type: list
-  default:
-    - 0
-    - 25
-    - 75
-    - 100
 {% endconfiguration %}
 
 ## Cover tilt position
@@ -443,13 +419,13 @@ Widget that displays a button to select a date using the date picker dialog for 
 
 ```yaml
 features:
-  - type: "date"
+  - type: "date-set"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`date`"
+  description: "`date-set`"
   type: string
 {% endconfiguration %}
 
@@ -656,6 +632,29 @@ type:
   type: string
 {% endconfiguration %}
 
+## Light color favorites
+
+Widget that displays a set of buttons to select a color for a [light](/integrations/light) from a list of favorites.
+
+You can customize favorites in a light's more-info dialog. The feature shows as many favorites as fit in the available width, following the favorites' sort order.
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_color_favorites.png' alt='Screenshot of the tile card with the light color favorites feature'>
+  Screenshot of the tile card with the light color favorites feature
+</p>
+
+```yaml
+features:
+  - type: "light-color-favorites"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color-favorites`"
+  type: string
+{% endconfiguration %}
+
 ## Light color temp
 
 Widget that displays a slider to select the color temperature for a [light](/integrations/light).
@@ -737,6 +736,48 @@ features:
 type:
   required: true
   description: "`media-player-playback`"
+  type: string
+{% endconfiguration %}
+
+## Media player sound mode
+
+Widget that displays a dropdown to select the sound mode for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_sound_mode.png' alt='Screenshot of the tile card with media player sound mode feature'>
+  Screenshot of the tile card with media player sound mode feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-sound-mode"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-sound-mode`"
+  type: string
+{% endconfiguration %}
+
+## Media player source
+
+Widget that displays a dropdown to select the source for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_source.png' alt='Screenshot of the tile card with media player source feature'>
+  Screenshot of the tile card with media player source feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-source"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-source`"
   type: string
 {% endconfiguration %}
 
@@ -1011,6 +1052,29 @@ features:
 type:
   required: true
   description: "`valve-position`"
+  type: string
+{% endconfiguration %}
+
+## Valve favorite positions
+
+Widget that displays a dropdown with favorite positions for a [valve](/integrations/valve).
+
+You can customize favorites in a valve's **More info** dialog. To edit them, press and hold a favorite.
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position_favorite.png' alt='Screenshot of the tile card with the valve favorite positions feature'>
+  Screenshot of the tile card with the valve favorite positions feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position-favorite`"
   type: string
 {% endconfiguration %}
 

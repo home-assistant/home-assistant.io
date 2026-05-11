@@ -86,7 +86,6 @@ The integration creates two sensors for each configured location:
 
 You can create a gauge card to visualize the carbon intensity of your electricity:
 
-{% raw %}
 ```yaml
 type: gauge
 entity: sensor.electricity_maps_carbon_intensity
@@ -98,13 +97,11 @@ severity:
   yellow: 150
   red: 300
 ```
-{% endraw %}
 
 ### Automation example: Run appliances when carbon intensity is low
 
 This automation starts your dishwasher when the carbon intensity drops below a specific threshold:
 
-{% raw %}
 ```yaml
 alias: "Run Dishwasher at Low Carbon Intensity"
 description: "Starts the dishwasher when carbon intensity is low"
@@ -130,13 +127,11 @@ actions:
       message: "Dishwasher started during low carbon intensity period ({{ states('sensor.electricity_maps_carbon_intensity') }} gCO2eq/kWh)"
 ```
 
-{% endraw %}
 
 ### Creating a history graph to track changes
 
 Add this to your dashboard to track how carbon intensity changes throughout the day:
 
-{% raw %}
 ```yaml
 type: history-graph
 entities:
@@ -145,7 +140,6 @@ entities:
 hours_to_show: 24
 refresh_interval: 60
 ```
-{% endraw %}
 
 ### Energy Dashboard integration
 

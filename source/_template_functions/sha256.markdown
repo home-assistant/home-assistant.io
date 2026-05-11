@@ -1,0 +1,76 @@
+---
+title: "SHA256 hash: sha256"
+function_name: "sha256"
+description: "Calculates the SHA256 hash of a string."
+available_as:
+  - function
+  - filter
+category: encoding
+return_type: string
+limited: false
+since: "0.117"
+related_functions:
+  - md5
+  - sha1
+  - sha512
+---
+
+The `sha256` template function calculates the SHA256 hash of a string and returns the result as a hexadecimal string. SHA256 produces a 256-bit (64-character hex) hash value and is part of the SHA-2 family of cryptographic hash functions.
+
+This is a good general-purpose hash function suitable for generating secure identifiers, verifying data integrity, or creating unique keys. SHA256 is widely used and considered secure for most applications. For an even longer hash, use [`sha512`](/template-functions/sha512/). For shorter (but less secure) hashes, see [`md5`](/template-functions/md5/) or [`sha1`](/template-functions/sha1/).
+
+{% include template_functions/usage.md %}
+
+{% template_function_usage %}
+function: '{{ sha256("Hello, World!") }}'
+type: string
+output: "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f"
+
+---
+filter: '{{ "Hello, World!" | sha256 }}'
+type: string
+output: "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f"
+{% endtemplate_function_usage %}
+
+{% include template_functions/signatures.md %}
+
+```signature
+sha256(
+    value: str,
+) -> str
+```
+
+### Function parameters
+
+The following parameters can be provided to this function.
+
+{% function_parameters %}
+value:
+  description: >
+    The string to hash. The string is encoded to UTF-8 before hashing.
+  required: true
+  type: string
+{% endfunction_parameters %}
+
+## Good to know
+
+- The result is always a 64-character lowercase hexadecimal string.
+- The input is encoded as UTF-8 before hashing. Identical strings always produce the same hash.
+
+{% include template_functions/try_it.md %}
+
+{% include template_functions/more_examples.md %}
+
+### Create a verification hash
+
+Generate a hash to verify that a message has not been tampered with.
+
+{% example %}
+template: '{{ sha256("important_data_" ~ states("sensor.temperature")) }}'
+type: string
+output: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+{% endexample %}
+
+{% include template_functions/stuck.md %}
+
+{% include template_functions/related.md %}

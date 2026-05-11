@@ -36,6 +36,8 @@ module Jekyll
           icon = "mdi:alert-outline"
         elsif @type == 'caution'
           icon = "mdi:alert-circle-outline"
+        elsif @type == 'labs'
+          icon = "mdi:flask-outline"
         else
           icon = "mdi:information-outline"
         end
@@ -81,3 +83,4 @@ Liquid::Template.register_tag('tip', Jekyll::HomeAssistant::AlertBlock)
 Liquid::Template.register_tag('important', Jekyll::HomeAssistant::AlertBlock)
 Liquid::Template.register_tag('warning', Jekyll::HomeAssistant::AlertBlock)
 Liquid::Template.register_tag('caution', Jekyll::HomeAssistant::AlertBlock)
+Liquid::Template.register_tag('labs', Jekyll::HomeAssistant::AlertBlock)
