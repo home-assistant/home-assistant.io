@@ -160,6 +160,26 @@ actions:
 
 {% enddetails %}
 
+## Actions
+
+### Action: Activate timer mode
+
+The `watts.activate_timer_mode` action sets the thermostat to **Timer** mode with a target temperature and duration. When the timer expires, the thermostat returns to its previous mode.
+
+- `temperature`: Target temperature to hold while the timer is active.
+- `duration`: Duration of the timer in minutes (1–1440).
+
+Example:
+
+```yaml
+action: watts.activate_timer_mode
+target:
+  entity_id: climate.living_room_thermostat
+data:
+  temperature: 21
+  duration: 90
+```
+
 ## Known limitations
 
 - **BRT-WR02-RF devices paired as heaters** are not exposed as separate switch entities in Home Assistant.
