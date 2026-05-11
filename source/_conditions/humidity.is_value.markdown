@@ -42,8 +42,8 @@ Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - **Any**: Pass if at least one targeted entity meets the threshold (default).
-    - **All**: Pass only when every targeted entity meets the threshold.
+    - **Any**: The condition passes if at least one targeted entity meets the threshold (default).
+    - **All**: The condition passes only when every targeted entity meets the threshold.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -134,7 +134,7 @@ condition: |
       value:
         entity: input_number.humidity_alert_threshold
     behavior: any
-{% endexample %}
+This passes when the bedroom humidity sensor reads above the number helper´s value.
 
 ### Options in YAML
 
@@ -161,8 +161,8 @@ behavior:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - `any`: Pass if at least one targeted entity meets the threshold.
-    - `all`: Pass only when every targeted entity meets the threshold.
+    - `any`: The condition passes if at least one targeted entity meets the threshold.
+    - `all`: The condition passes only when every targeted entity meets the threshold.
   required: false
   type: string
   default: any
