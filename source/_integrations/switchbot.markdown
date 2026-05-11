@@ -945,4 +945,4 @@ This integration follows standard integration removal. No extra steps are requir
 
 ### Supported devices
 
-{% include integrations/device_list.html brand="SwitchBot" protocol="bluetooth" %}
+{% include integrations/device_list.html brand="SwitchBot" protocol="Bluetooth" %}
