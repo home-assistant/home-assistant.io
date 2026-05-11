@@ -31,7 +31,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: The VOC ratio the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
+  description: The VOC ratio the reading has to cross for the trigger to fire. You must enter a fixed number, or reference a helper entity that provides the value.
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 For at least:
