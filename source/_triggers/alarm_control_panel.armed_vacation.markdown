@@ -30,10 +30,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms vacation, **First** to fire only when the first panel in a group arms vacation, or **All** to fire only after every targeted panel is armed vacation.
-  required: true
 For at least:
   description: How long the alarm must stay armed vacation before the trigger fires. Set to zero to fire immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -57,13 +55,13 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple alarm panels are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
