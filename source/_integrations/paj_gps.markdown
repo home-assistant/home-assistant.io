@@ -3,22 +3,27 @@ title: PAJ GPS
 description: Instructions on how to integrate PAJ GPS devices into Home Assistant.
 ha_category:
   - Device tracker
-ha_release: 2026.3
-ha_iot_class: Hub
+ha_release: 2026.6
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@skipperro'
 ha_domain: paj_gps
-ha_zeroconf: true
+ha_zeroconf: false
 ha_platforms:
   - device_tracker
 ha_integration_type: hub
-ha_quality_scale: platinum
+ha_quality_scale: bronze
 ---
 
 The **PAJ GPS** {% term integration %} allows you to incorporate PAJ GPS devices from <www.paj-gps.de> into your Home Assistant.
 
 It provides entities for tracking the location of your PAJ GPS devices.
+
+## Possible use cases
+
+- Track the location of your PAJ GPS devices on a map in Home Assistant.
+- Create automations based on the location or status of your PAJ GPS devices (for example, open garage door when car is near).
 
 ## Supported devices
 
@@ -44,16 +49,9 @@ Password:
 
 The PAJ GPS integration provides the following entities.
 
-### Device Tracker
+### Device tracker
 
-- Location (latitude and longitude)
-
-## Possible use cases
-
-- Track the location of your PAJ GPS devices on a map in Home Assistant.
-- Create automations based on the location or status of your PAJ GPS devices (for example, open garage door when car is near).
-- Track the location of your PAJ GPS devices on a map in Home Assistant.
-- Create automations based on the location or status of your PAJ GPS devices (e.g., open garage door when car is near).
+The PAJ GPS {% term integration %} will track the location of each device registered to your account. The integration provides real-time GPS coordinates (latitude and longitude) for your PAJ GPS devices.
 
 ## Examples
 
@@ -77,11 +75,14 @@ actions:
 
 {% endraw %}
 
+## Data updates
+
+- The location updates are not real-time and depend on the polling intervals, so there may be a small delay (up to 30 seconds) in receiving updates about the device's location or status.
+
 ## Known limitations
 
 - The integration relies on the PAJ GPS cloud API, so if there are any issues with the API or your internet connection, the integration may not work properly.
 - PAJ GPS devices also rely on GPS and cellular signals, so if the device is in an area with poor signal, the location updates may be inaccurate or delayed.
-- The location updates are not real-time and depend on the polling intervals, so there may be a small delay (up to 30 seconds) in receiving updates about the device's location or status.
 
 ## Troubleshooting
 
