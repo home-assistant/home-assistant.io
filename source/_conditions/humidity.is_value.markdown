@@ -134,6 +134,8 @@ condition: |
       value:
         entity: input_number.humidity_alert_threshold
     behavior: any
+{% endexample %}
+
 This passes when the bedroom humidity sensor reads above the number helper´s value.
 
 ### Options in YAML
