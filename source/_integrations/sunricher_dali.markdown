@@ -14,6 +14,7 @@ ha_domain: sunricher_dali
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - scene
   - sensor

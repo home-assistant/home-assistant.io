@@ -30,10 +30,8 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple alarm panels are targeted, controls how results combine. Pick **Any** to pass if at least one targeted alarm is armed home, or **All** to pass only when every targeted alarm is armed home.
-  required: true
 For at least:
   description: How long the alarm must have been armed in home mode before the condition passes. Set to zero to pass immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -57,13 +55,13 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple alarm panels are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: >
     Duration the alarm must have been armed in home mode before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}

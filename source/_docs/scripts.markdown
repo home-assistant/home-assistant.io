@@ -305,7 +305,7 @@ This can be used to take different actions based on whether or not the condition
 
 ## Fire an event
 
-This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
+This {% term action %} allows you to fire an event. In the GUI (Graphical User Interface) for actions it is found under "Fire Manual Event". Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
 
 ```yaml
 - alias: "Fire LOGBOOK_ENTRY event"

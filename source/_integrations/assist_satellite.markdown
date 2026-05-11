@@ -241,4 +241,3 @@ actions:
     target:
       entity_id: assist_satellite.my_entity
 ```
-
