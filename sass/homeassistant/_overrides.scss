@@ -2122,6 +2122,7 @@ h6 {
         width: clamp(220px, 75vw, 280px);
         order: var(--source-order, 0);
         scroll-snap-align: center;
+        scroll-snap-stop: always;
       }
 
       @media only screen and (min-width: 640px) and (max-width: #{$menu-collapse - 1px}) {
@@ -2170,6 +2171,16 @@ h6 {
         border: unset;
       }
 
+      .community-card__content p{
+        max-width: 90%;
+      }
+      
+      .community-card__meta .meta-link{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      
       video{
         position: absolute;
         inset: 0;

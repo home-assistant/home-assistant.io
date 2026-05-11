@@ -9,7 +9,7 @@ cards:
     text: "Home Assistant saved my house. Thanks!"
     author_image: "/images/community-cards/reddit-logo.png"
     author_image_alt: "Reddit logo"
-    author: "ightfoot_labs on Reddit"
+    author: "ightfoot_labs"
     link_icon: "/images/community-cards/document-icon.png"
   - href: "https://www.wired.com/story/heres-how-i-ditched-alexa-and-upgraded-my-smart-home/"
     text: '"I Ditched the Cloud and Upgraded My Smart Home"'
@@ -33,6 +33,7 @@ cards:
     link_icon: "/images/community-cards/document-icon.png"
   - href: "https://www.theverge.com/23875557/home-assistant-green-announcement-price-specs-ten-year-anniversary"
     text: 'The Home Assistant Green is here to make the most powerful smart home platform more accessible'
+    blue: true
     author_image: "/images/community-cards/the-verge-logo.jpg"
     author_image_alt: "The Verge logo"
     author: "The Verge"
@@ -81,5 +82,11 @@ cards:
     text: "How Home Assistant saved my car"
     author_image: "/images/community-cards/reddit-logo.png"
     author_image_alt: "Reddit logo"
-    author: "RDUKE7777777 on Reddit"
+    author: "RDUKE7777777"
+    link_icon: "/images/community-cards/document-icon.png"
+  - href: "https://community.home-assistant.io/t/20-things-i-wished-i-knew-when-i-started-with-home-assistant/576359"
+    text: "20 things I wished I knew when I started with Home Assistant"
+    author_image: "/images/community-cards/forum.png"
+    author_image_alt: "Home Assistant Community Forum logo"
+    author: "kameo4242"
     link_icon: "/images/community-cards/document-icon.png"
