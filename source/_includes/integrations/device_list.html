@@ -4,6 +4,16 @@
 {%- if company_brand_lower == include_brand_slug -%}
 {%- if include.hide_list -%}
 For the full list of {{ company.devices | size }} certified {{ include.brand }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include_brand_slug | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
+{%- elsif include.group_by_type -%}
+{%- assign grouped = company.devices | group_by: "deviceType" -%}
+{%- for group in grouped %}
+<h3>{{ group.name }}</h3>
+<ul>
+{%- for device in group.items %}
+<li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a></li>
+{%- endfor %}
+</ul>
+{%- endfor -%}
 {%- else -%}
 <ul>
 {%- for device in company.devices %}

@@ -26,4 +26,4 @@ ha_brand: true
 
 ## Supported devices
 
-{% include integrations/device_list.html brand="Zooz" %}
+{% include integrations/device_list.html brand="Zooz" group_by_type="true" %}
