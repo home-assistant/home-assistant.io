@@ -78,13 +78,17 @@ When Home Assistant runs behind a reverse proxy such as NGINX, Caddy, Traefik, o
 
 ## APIs
 
-The HTTP integration powers the [REST API](https://developers.home-assistant.io/docs/api/rest/), the [Python API](https://developers.home-assistant.io/docs/api_lib_index/), and the [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) used to send and receive messages over HTTP.
+On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
+
+The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
 ## HTTP sensors
 
-The HTTP integration also accepts state updates pushed to its REST API and exposes them as [sensors](#sensor) or [binary sensors](#binary-sensor). No configuration is required in Home Assistant; the entity is created the first time a message arrives, all configuration is done on the device side.
+To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-To push state from a device, create a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) under {% my profile title="**User profile**" %} in the **Security** section, then send a [POST request](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) to the corresponding endpoint.
+If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
+
+All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
 ## IP filtering and banning
 
@@ -246,7 +250,3 @@ If a stored value prevents the HTTP server from starting, for example an SSL cer
 ### Repair issue: the HTTP YAML configuration is deprecated
 
 This issue appears when an `http:` block is still present in {% term "`configuration.yaml`" %} after the values were imported into the UI. Verify your settings under {% my network title="**Settings** > **System** > **Network**" %}, remove the `http:` block, and restart Home Assistant.
-
-## Removing the integration
-
-The HTTP integration is a core part of Home Assistant and cannot be removed. To reset the settings to their defaults, clear the corresponding fields under {% my network title="**Settings** > **System** > **Network**" %} and restart Home Assistant.
