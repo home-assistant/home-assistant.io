@@ -22,14 +22,15 @@ To use **Relative humidity changed** in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidity sensor is in (like your bathroom or bedroom). You can also select a device, a specific entity, or a label.
+4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidity sensor is in (like your bathroom or bedroom). You can also select a device, a specific entity, or a label. When you target multiple entities (via area, label, or multiple entity selections), the trigger fires whenever any of them changes.
 5. From the triggers shown for that target, select **Relative humidity changed**.
 6. Under **Threshold type**, configure what kind of change fires the trigger:
    - Select **Any change** to fire on any change, regardless of direction or new value.
    - Select **Above** or **Below** and enter a value to fire only when the new reading is above or below that value.
    - Select **In range** and enter a lower and upper bound to fire only when the new reading falls inside the range.
    - Select **Outside range** and enter a lower and upper bound to fire only when the new reading is outside the range.
-   For each option, you can enter a fixed percentage or use an `input_number`, `number`, or `sensor` entity as the threshold.
+   - For each option, you can enter a fixed percentage (0-100%), pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
+     - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -39,13 +40,12 @@ Threshold type:
   description: |
     Controls which changes fire the trigger:
 
-    - **Any change**: fire on any change, regardless of direction or new value.
+    - **Any change**: fires on any change, regardless of direction or new value.
     - **Above** or **Below**: enter a value to fire only when the new reading is above or below that value.
     - **In range**: enter a lower and upper bound to fire only when the new reading falls between them.
     - **Outside range**: enter a lower and upper bound to fire only when the new reading is below the lower bound or above the upper bound.
 
-    For each mode you can enter a fixed percentage or reference an `input_number`, `number`, or `sensor` entity.
-  required: true
+    For each mode you can enter a fixed percentage (0-100%), reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -72,7 +72,9 @@ To fire only when the new reading is within a comfort range:
 trigger: |
   trigger: humidity.changed
   target:
-    entity_id: sensor.bedroom_humidity
+    entity_id:
+      - sensor.bedroom_humidity
+      - sensor.bathroom_humidity
   options:
     threshold:
       type: between
@@ -81,6 +83,8 @@ trigger: |
       value_max:
         number: 60
 {% endexample %}
+
+This fires whenever any of the humidity sensors changes to a value within the comfort range (40-60%).
 
 To fire only when the new reading is outside a comfort range:
 
@@ -98,14 +102,50 @@ trigger: |
         number: 60
 {% endexample %}
 
+To use a number helper as a dynamic threshold that you can adjust without editing the automation:
+
+{% example %}
+trigger: |
+  trigger: humidity.changed
+  target:
+    entity_id: sensor.bedroom_humidity
+  options:
+    threshold:
+      type: above
+      value:
+        entity: input_number.humidity_alert_threshold
+{% endexample %}
+
+To monitor all humidity sensors in an area and trigger when any changes outside the comfort range:
+
+{% example %}
+trigger: |
+  trigger: humidity.changed
+  target:
+    area_id: basement
+  options:
+    threshold:
+      type: outside
+      value_min:
+        number: 40
+      value_max:
+        number: 60
+{% endexample %}
+
+This fires whenever any humidity sensor in the basement area changes to a value outside the 40-60% range.
+
 ### Options in YAML
 
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 threshold:
-  description: >
-    A mapping that defines which kind of change fires the trigger. Set `type` to one of `any`, `above`, `below`, `between`, or `outside`. For `above` and `below`, provide `value` with a `number` key or an `entity` key. For `between` and `outside`, provide `value_min` and `value_max`, each with a `number` key or an `entity` key. For `any`, no additional keys are needed.
+  description: |
+    A mapping that defines which kind of change fires the trigger:
+
+    - `type: any`: Fires on any change (no additional keys needed).
+    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
   required: true
   type: map
 {% endoptions_yaml %}
@@ -126,12 +166,13 @@ threshold:
 
 ### Automation: run the bathroom fan after a shower
 
-After a shower, humidity in a bathroom can spike quickly. This automation turns on the bathroom fan whenever the humidity reading rises above 70%, keeping the room from getting damp.
+After a shower, humidity in a bathroom can spike quickly. This automation turns on the bathroom fan whenever either bathroom humidity sensor rises above 70%, keeping the room from getting damp.
 
 - **Trigger**: Relative humidity changed
-- **Target**: Bathroom humidity sensor
-- **Threshold type**: Above 70%
-- **Action**: Fan: Turn on
+  - **Target**: Bathroom and shower humidity sensors
+  - **Threshold type**: Above 70%
+- **Action**: Turn on fan
+  - **Target**: fan.bathroom
 
 {% details "YAML example for a post-shower bathroom fan" %}
 
@@ -141,7 +182,9 @@ automation: |
   triggers:
     - trigger: humidity.changed
       target:
-        entity_id: sensor.bathroom_humidity
+        entity_id:
+          - sensor.bathroom_humidity
+          - sensor.shower_humidity
       options:
         threshold:
           type: above
@@ -160,9 +203,10 @@ automation: |
 Track how much the humidity in your greenhouse shifts throughout the day by sending a notification whenever the reading changes.
 
 - **Trigger**: Relative humidity changed
-- **Target**: Greenhouse humidity sensor
-- **Threshold type**: Any change
-- **Action**: Notifications: Send a notification via mobile_app_phone
+  - **Target**: Greenhouse humidity sensor
+  - **Threshold type**: Any change
+- **Action**: Send a notification
+  - **Target**: notify.mobile_app_phone
 
 {% details "YAML example for greenhouse humidity logging" %}
 
@@ -177,9 +221,47 @@ automation: |
         threshold:
           type: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app_phone
       data:
         message: "Greenhouse humidity changed significantly."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: alert when humidity changes above comfort level
+
+Send a notification whenever the bedroom humidity changes to a level above your personal comfort threshold. Use a number helper as the threshold so you can easily adjust your preferred level through the UI.
+
+- **Trigger**: Relative humidity changed
+  - **Target**: Bedroom humidity sensor
+  - **Threshold type**: Above (entity: comfort humidity threshold)
+- **Action**: Send a notification
+  - **Target**: notify.mobile_app_phone
+
+{% details "YAML example for using a number helper as threshold" %}
+
+{% example %}
+automation: |
+  alias: "Alert when humidity changes above comfort level"
+  triggers:
+    - trigger: humidity.changed
+      target:
+        entity_id: sensor.bedroom_humidity
+      options:
+        threshold:
+          type: above
+          value:
+            entity: input_number.comfort_humidity_threshold
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app_phone
+      data:
+        message: >-
+          Bedroom humidity is now {{ trigger.to_state.state }}%, above
+          your comfort threshold.
 {% endexample %}
 
 {% enddetails %}

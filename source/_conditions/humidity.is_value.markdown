@@ -21,9 +21,14 @@ To use **Relative humidity** in an automation:
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your humidity sensor is in (like your bedroom or bathroom). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Relative humidity**.
 6. Under **Threshold type**, set the humidity level the condition checks against:
-   - Select **Number** to enter a fixed percentage directly, for example `65` for 65%.
-   - Select **Entity** to use a helper or sensor as the threshold. When you pick an `input_number` or `number` helper, you can adjust the threshold without editing the automation. When you pick a humidity sensor, its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two humidity readings, for example to check whether indoor humidity is higher than outdoor humidity.
-   Then pick whether the reading must be above, below, or within a range of the threshold.
+   1. Pick whether the reading must be **Above**, **Below**, **In range**, or **Outside range** of the threshold.
+   2. Select **Number** or **Entity**:
+      - **Number**: Enter a fixed percentage directly, for example `65` for 65%. For **In range** or **Outside range**, enter both a lower and upper bound.
+      - **Entity**: Use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold:
+        - Number helper: You can adjust the threshold value without editing the automation. The sensor reading is compared against the number helper's current value.
+        - Sensor: Its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two humidity readings, for example to check whether indoor humidity is higher than outdoor humidity.
+        - For **In range** or **Outside range**, you need two entities: one for the lower bound and one for the upper bound (for example, two separate number helpers).
+        - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 8. Select **Save**.
 
@@ -31,12 +36,14 @@ To use **Relative humidity** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: >
-    The humidity level the entity has to meet for the condition to pass. You can enter a fixed percentage between 0 and 100 (select **Number**), or pick an entity as a dynamic threshold (select **Entity**). When you pick an `input_number` or `number` helper, you can change the threshold without editing the automation. When you pick a humidity sensor, its live reading becomes the threshold, which is useful for comparing two humidity values, for example indoor versus outdoor. In both cases, also pick whether the reading must be above, below, or within a range of that value.
-  required: true
+  description: |
+    The humidity level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed percentage (0-100%) or both a lower and upper bound for ranges. **Entity** uses a sensor or number helper as a dynamic threshold.
 Condition passes if:
-  description: When multiple entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does. Default is **Any**.
-  required: true
+  description: |
+    When multiple entities are targeted, controls how results combine:
+
+    - **Any**: The condition passes if at least one targeted entity meets the threshold (default).
+    - **All**: The condition passes only when every targeted entity meets the threshold.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -50,7 +57,9 @@ condition: |
     entity_id: sensor.bedroom_humidity
   options:
     threshold:
-      above: 60
+      type: above
+      value:
+        number: 60
     behavior: any
 {% endexample %}
 
@@ -62,16 +71,39 @@ To check that humidity stays below a certain level:
 condition: |
   condition: humidity.is_value
   target:
-    entity_id: sensor.bedroom_humidity
+    area_id: basement
   options:
     threshold:
-      below: 40
+      type: below
+      value:
+        number: 40
+    behavior: all
+{% endexample %}
+
+This passes when all humidity sensors in the basement area read below 40%.
+
+To check that humidity stays within a comfortable range:
+
+{% example %}
+condition: |
+  condition: humidity.is_value
+  target:
+    entity_id:
+      - sensor.bedroom_humidity
+      - sensor.bathroom_humidity
+  options:
+    threshold:
+      type: between
+      value_min:
+        number: 40
+      value_max:
+        number: 60
     behavior: any
 {% endexample %}
 
-This passes when the bedroom humidity sensor reads below 40%.
+This passes when at least one of the humidity sensors reads between 40% and 60%.
 
-To check that humidity stays within a comfortable range:
+To check that humidity stays outside a range:
 
 {% example %}
 condition: |
@@ -80,25 +112,60 @@ condition: |
     entity_id: sensor.bedroom_humidity
   options:
     threshold:
-      above: 40
-      below: 60
+      type: outside
+      value_min:
+        number: 40
+      value_max:
+        number: 60
+{% endexample %}
+
+This passes when the bedroom humidity sensor reads below 40% or above 60%.
+
+To use a number helper as a dynamic threshold that you can adjust without editing the automation:
+
+{% example %}
+condition: |
+  condition: humidity.is_value
+  target:
+    entity_id: sensor.bedroom_humidity
+  options:
+    threshold:
+      type: above
+      value:
+        entity: input_number.humidity_alert_threshold
     behavior: any
 {% endexample %}
 
-This passes when the bedroom humidity sensor reads between 40% and 60%.
+This passes when the bedroom humidity sensor reads above the number helper´s value.
 
 ### Options in YAML
 
 {% options_yaml %}
 threshold:
-  description: >
-    The humidity level the entity has to meet for the condition to pass. Use `above` to set a minimum, `below` to set a maximum, or both to define a range. Accepts a fixed number between 0 and 100, or a reference to an `input_number`, `number`, or `sensor` entity. When you reference a sensor, its current reading is used as the threshold at the moment the condition is evaluated. This lets you compare two humidity readings dynamically, for example checking whether indoor humidity is above outdoor humidity.
-  required: true
-  type: any
+  description: |
+    The humidity level the entity has to meet for the condition to pass:
+
+    - `above`: Sets a minimum
+    - `below`: Sets a maximum
+    - `between`: Defines a range
+    - `outside`: Defines an outside-range
+
+    For `above` and `below`, use `value` with either `number` (0 to 100) or `entity`. For `between` and `outside`, use `value_min` and `value_max`, each with either `number` (0 to 100) or `entity`. For example:
+
+    - A fixed percentage (0-100%).
+    - A reference to an `input_number`, `number`, or `sensor` entity.
+      - `input_number`: Lets you change the threshold without editing the automation. To create one, see [Number helper](/integrations/input_number/).
+      - `number`: Uses the current value of a number entity as the threshold.
+      - `sensor`: Uses the current reading as the threshold when the condition is evaluated, which lets you compare two humidity readings dynamically, for example, checking whether indoor humidity is above outdoor humidity.
+  required: false
+  type: map
 behavior:
-  description: >
-    When multiple entities are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  description: |
+    When multiple entities are targeted, controls how results combine:
+
+    - `any`: The condition passes if at least one targeted entity meets the threshold.
+    - `all`: The condition passes only when every targeted entity meets the threshold.
+  required: false
   type: string
   default: any
 {% endoptions_yaml %}
@@ -114,7 +181,6 @@ behavior:
 - Humidity is expressed as a percentage. Indoor comfort is generally between 40% and 60%. Below 30% often feels dry and can irritate airways. Above 65% can encourage mold and dust mites.
 - This condition checks the entity's _current_ humidity reading, not its target setpoint. To check a humidifier's target setpoint instead, use the [Humidifier target humidity](/conditions/humidifier.is_target_humidity/) condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
-- Pair with [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/) as a matching trigger when you need the automation to run the moment humidity crosses a specific level.
 
 {% include conditions/try_it.md %}
 
@@ -126,9 +192,10 @@ When the bedroom humidity sensor reads above 65%, turn on the dehumidifier to br
 
 - **Trigger**: Time pattern: Every 15 minutes
 - **Condition**: Relative humidity (above 65%)
-- **Target**: Bedroom humidity sensor
-- **Condition passes if**: Any
-- **Action**: Switch: Turn on
+  - **Target**: Bedroom humidity sensor
+  - **Condition passes if**: Any
+- **Action**: Turn on switch
+  - **Target**: switch.bedroom_dehumidifier
 
 {% details "YAML example for running a dehumidifier when humidity is high" %}
 
@@ -141,10 +208,14 @@ automation: |
   conditions:
     - condition: humidity.is_value
       target:
-        entity_id: sensor.bedroom_humidity
+        entity_id:
+          - sensor.bedroom_humidity
+          - sensor.closet_humidity
       options:
         threshold:
-          above: 65
+          type: above
+          value:
+            number: 65
         behavior: any
   actions:
     - action: switch.turn_on
@@ -160,9 +231,10 @@ At midnight, check the living room humidity. If it has dropped below 30%, send a
 
 - **Trigger**: Time: 00:00
 - **Condition**: Relative humidity (below 30%)
-- **Target**: Living room humidity sensor
-- **Condition passes if**: Any
-- **Action**: Notifications: Send a notification via mobile_app_phone
+  - **Target**: Living room humidity sensor
+  - **Condition passes if**: Any
+- **Action**: Send a notification
+  - **Target**: notify.mobile_app_phone
 
 {% details "YAML example for a low humidity alert" %}
 
@@ -175,17 +247,59 @@ automation: |
   conditions:
     - condition: humidity.is_value
       target:
-        entity_id: sensor.living_room_humidity
+        area_id: living_room
       options:
         threshold:
-          below: 30
-        behavior: any
+          type: below
+          value:
+            number: 30
+        behavior: all
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app_phone
       data:
         message: >
           The living room humidity is below 30%.
           Consider switching on the humidifier.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: adjust humidifier based on comfort range
+
+Check every 15 minutes whether the bedroom humidity is outside your personal comfort range. Use number helpers to set the range, so you can easily adjust it through the UI without editing the automation.
+
+- **Trigger**: Time pattern: Every 15 minutes
+- **Condition**: Relative humidity (outside range, using number helpers)
+  - **Target**: Bedroom humidity sensor
+  - **Condition passes if**: Any
+- **Action**: Turn on switch
+  - **Target**: switch.bedroom_humidifier
+
+{% details "YAML example for using number helpers as threshold" %}
+
+{% example %}
+automation: |
+  alias: "Turn on humidifier when outside comfort range"
+  triggers:
+    - trigger: time_pattern
+      minutes: "/15"
+  conditions:
+    - condition: humidity.is_value
+      target:
+        entity_id: sensor.bedroom_humidity
+      options:
+        threshold:
+          type: outside
+          value_min:
+            entity: input_number.comfort_humidity_min
+          value_max:
+            entity: input_number.comfort_humidity_max
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.bedroom_humidifier
 {% endexample %}
 
 {% enddetails %}
@@ -196,9 +310,10 @@ Every 15 minutes, check whether the living room is more humid than the outside a
 
 - **Trigger**: Time pattern: Every 15 minutes
 - **Condition**: Relative humidity (above, entity: outdoor humidity sensor)
-- **Target**: Living room humidity sensor
-- **Condition passes if**: Any
-- **Action**: Switch: Turn on ventilation fan
+  - **Target**: Living room humidity sensor
+  - **Condition passes if**: Any
+- **Action**: Turn on switch
+  - **Target**: switch.ventilation_fan
 
 {% details "YAML example for comparing indoor to outdoor humidity" %}
 
@@ -214,8 +329,9 @@ automation: |
         entity_id: sensor.living_room_humidity
       options:
         threshold:
-          above: sensor.outdoor_humidity
-        behavior: any
+          type: above
+          value:
+            entity: sensor.outdoor_humidity
   actions:
     - action: switch.turn_on
       target:
