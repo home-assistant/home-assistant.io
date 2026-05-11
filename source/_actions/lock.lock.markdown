@@ -1,5 +1,5 @@
 ---
-title: "Lock"
+title: "Lock lock"
 action: lock.lock
 domain: lock
 description: "Locks one or more locks."

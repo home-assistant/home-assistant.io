@@ -1,5 +1,5 @@
 ---
-title: "Open"
+title: "Open lock"
 action: lock.open
 domain: lock
 description: "Unlatches one or more locks that support opening."
