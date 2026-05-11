@@ -105,6 +105,10 @@ Zones:
   description: Show zones on the map.
 Show background:
   description: Show a blue background behind the map instead of a transparent background.
+Show walls:
+  description: Show the walls on the map.
+Show rooms:
+  description: Show the rooms on the map.
 {% endconfiguration_basic %}
 
 ## Data Updates
@@ -425,23 +429,25 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
               "17": Living room
       ```
 
-3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Settings** > **Developer tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+3. You can then apply [Mapping your vacuum areas to Home Assistant areas](/integrations/vacuum/#mapping-your-vacuum-areas-to-home-assistant-areas) to the Roborock vacuum entity linked to your Roborock device.
 
-Example:
+   Alternatively, go back to {% my developer_call_service service="vacuum.send_command" title="**Settings** > **Developer tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
-```yaml
-action: vacuum.send_command
-data:
-  command: app_segment_clean
-  params:
-    - segments:
-        - 22
-        - 23
-      repeat: 2
-target:
-  entity_id: vacuum.s7_roborock
+   Example:
 
-```
+   ```yaml
+   action: vacuum.send_command
+   data:
+     command: app_segment_clean
+     params:
+       - segments:
+           - 22
+           - 23
+         repeat: 2
+   target:
+     entity_id: vacuum.s7_roborock
+
+   ```
 
 ## Troubleshooting
 

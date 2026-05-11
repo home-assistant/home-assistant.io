@@ -4,6 +4,8 @@ description: The SMLIGHT SLZB integration allows users to monitor and manage the
 ha_category:
   - Binary sensor
   - Button
+  - Infrared
+  - Light
   - Sensor
   - Switch
   - Update
@@ -16,6 +18,8 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - infrared
+  - light
   - sensor
   - switch
   - update
@@ -79,7 +83,8 @@ The following sensors will be created:
 - **Zigbee temperature** - Temperature of Zigbee CC2652 or EFR32 chip
 - **Core uptime** - Uptime of Core device
 - **Zigbee uptime** - Uptime of Zigbee connection to ZHA/Z2M
-- **RAM usage** - Monitor RAM Usage
+- **RAM usage** - Monitor RAM usage
+- **PSRAM usage** - Monitor PSRAM usage (U-devices only)
 - **FS usage** - Monitor filesystem usage
 - **Connection mode** -  Connection mode - Ethernet, Wi-Fi, or USB
 - **Ethernet** - Ethernet connection status
@@ -117,6 +122,18 @@ The following update entities will be created:
 - **Zigbee firmware** - Firmware updates of Zigbee chip
 
 The updates offered in Home Assistant will match your currently installed firmware. This is based on the firmware channel (dev, release) and for Zigbee also on the firmware type (coordinator, router, Thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
+
+### Peripherals
+
+SLZB-Ultima devices support additional peripherals not found on other SLZB adapters, including an Ambilight LED strip, an infrared remote controller, and a buzzer. Support for these peripherals is being added progressively. The following entities are currently available.
+
+#### Lights
+
+- **Ambilight** - Controls the LED strip on the front of the Ultima device, including selecting built-in effects. The `color2`, `speed`, and `direction` properties used by some effects are not yet supported.
+
+#### Infrared
+
+- **IR Emitter**: This entity can be used by other integrations as an [Infrared](/integrations/infrared/) proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity type to control your TV.
 
 ## Removing the integration
 

@@ -10,6 +10,9 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: system
+related:
+  - docs: /integrations/sql/
+    title: SQL integration
 ---
 
 The **Recorder** {% term integration %} is by default enabled as dependency of the [`history`](/integrations/history/) integration.
@@ -28,7 +31,7 @@ The supported database solutions are:
 
 Although SQLAlchemy supports database solutions in addition to the ones supported by Home Assistant, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
-The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
+The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`. For details on the database structure, including available tables and columns, see the [Database](/docs/backend/database/) documentation.
 
 {% caution %}
 Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
@@ -315,7 +318,7 @@ MariaDB (omit pymysql):
     `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
 MariaDB (omit pymysql, using TLS encryption):
   description: >
-    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4&ssl_mode=REQUIRED`
 MariaDB (omit pymysql, Socket):
   description: >
     `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
@@ -324,7 +327,7 @@ MySQL:
     `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
 MySQL (using TLS encryption):
   description: >
-    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4&ssl_mode=REQUIRED`
 MySQL (Socket):
   description: >
     `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`

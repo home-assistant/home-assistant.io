@@ -34,6 +34,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Tessie** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
@@ -218,7 +219,6 @@ The integration will create sensor entities for a variety of metrics related to 
 - Battery module temperature min
 - Battery pack current
 - Battery pack voltage
-- Energy remaining
 - Lifetime energy used
 - Phantom drain
 
@@ -451,7 +451,6 @@ automation:
 
 This automation sends a notification when your vehicle has finished charging:
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Notify when Tesla charging complete"
@@ -469,7 +468,6 @@ automation:
         data:
           message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%"
 ```
-{% endraw %}
 
 ## Troubleshooting
 

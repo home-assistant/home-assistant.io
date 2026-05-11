@@ -70,7 +70,6 @@ File Naming Convention:
 
 ### Template entity counting items on a camera
 
-{% raw %}
 
 ```yaml
 template:
@@ -100,13 +99,11 @@ template:
         state_class: total
 ```
 
-{% endraw %}
 
 Alternative ideas: detect number of parking spots available, count people in a room, or detect if a door is open.
 
 ### Structured output example
 
-{% raw %}
 
 ```yaml
 # Example: Generate weather and indoor comfort report
@@ -147,11 +144,9 @@ script:
           {{ comfort_report.data.indoor_comfort }}
 ```
 
-{% endraw %}
 
 ### Simple text generation example
 
-{% raw %}
 
 ```yaml
 # Example: Generate a notification when garage door is left open
@@ -174,11 +169,9 @@ automation:
         message: "{{ generated_text.data }}"
 ```
 
-{% endraw %}
 
 ### Weather visualization example
 
-{% raw %}
 
 ```yaml
 # Example: Up-to date weather image
@@ -210,5 +203,3 @@ template:
       - name: "AI generated image of New York"
         url: "http://localhost:8123{{ trigger.event.data.url }}"
 ```
-
-{% endraw %}

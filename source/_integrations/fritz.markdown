@@ -29,20 +29,17 @@ ha_integration_type: hub
 related:
   - docs: /common-tasks/general/#enabling-or-disabling-entities
     title: Enabling or disabling entities
-ha_quality_scale: bronze
+ha_quality_scale: gold
 ---
 
 The **FRITZ!Box Tools** {% term integration %} allows you to control your [FRITZ!Box](https://en.fritz.com/products/fritzbox/) router (by FRITZ!, formerly AVM) and have presence detection for connected network devices.
 
-There is support for the following platform types within Home Assistant:
+## Supported devices
 
-- **{% term "Device tracker" %}** - presence detection by looking at connected devices.
-- **{% term "Binary sensor" %}** - connectivity status.
-- **{% term Image %}** - QR code for Guest Wi-Fi.
-- **{% term Button %}** - reboot, reconnect, firmware update.
-- **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
-- **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
-- **{% term Update %}** - firmware status of the device.
+There is support for the following device families within Home Assistant:
+
+- **FRITZ!Box routers** (4xx0, 5xx0, 6xx0, 7xx0)
+- **FRITZ!Repeater** (600, 1200/AX, 2400, 3000/AX)
 
 ## Prerequisites
 
@@ -58,6 +55,8 @@ It is recommended to create a separate user to connect Home Assistant to your FR
 
 {% note %}
 If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Before FRITZ!OS 7.24, the default username was `admin`.
+
+FRITZ!Powerline devices do not validate the **Username** value. Only the **Password** value is checked, so you can enter any value in **Username**.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -87,6 +86,18 @@ Enable old discovery method:
 Enable network device tracking:
     description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
 {% endconfiguration_basic %}
+
+## Supported functionality
+
+The FRITZ!Box Tools integration provides the following main features:
+
+- **{% term "Device tracker" %}** - presence detection by looking at connected devices.
+- **{% term "Binary sensor" %}** - connectivity status.
+- **{% term Image %}** - QR code for Guest Wi-Fi.
+- **{% term Button %}** - reboot, reconnect, firmware update.
+- **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
+- **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
+- **{% term Update %}** - firmware status of the device.
 
 ## Data updates
 
@@ -146,6 +157,19 @@ WiFi {% term switches %} are created for each SSID the FRITZ!Box is serving. Wit
 **Note 2**: For mesh repeaters, these switches are disabled by default, but can be enabled. When your mesh is based on a WiFi connection between the mesh master and the mesh repeater, the WiFi switches won't be created for the mesh repeater either.
 
 ## Example Automations and Scripts
+
+## Use cases
+
+You can use the FRITZ!Box Tools integration for a variety of smart home scenarios, such as:
+
+- _Automatically reconnect your internet connection at night_: Schedule a reconnect or reboot of your FRITZ!Box to refresh your external IP address or resolve connectivity issues.
+- _Send Wi-Fi credentials to your phone when guest Wi-Fi is enabled_: Automate notifications with the guest Wi-Fi password when you turn on the guest network.
+- _Control internet access for your kids' devices_: Use parental control switches to enable or disable internet access for specific devices at set times.
+- _Monitor who is home_: Track presence based on connected devices, and trigger automations when people arrive or leave.
+- _Monitor your network health_: Get alerts if your FRITZ!Box goes offline, or monitor network statistics and device status.
+- _Automate port forwarding_: Enable or disable port forwarding rules for your Home Assistant host as needed for remote access or security.
+
+Below are some example automations and scripts to help you get started:
 
 ### Script: Reconnect / get new IP
 

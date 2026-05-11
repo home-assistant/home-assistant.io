@@ -18,6 +18,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
   - Update
   - Vacuum
   - Valve
@@ -42,6 +43,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
   - vacuum
   - valve
@@ -344,6 +346,10 @@ The SmartThings Switch lets you control devices that have the [`switch`](https:/
 | `samsungce.steamClosetSanitizeMode`    |
 | `samsungce.washerBubbleSoak`           |
 
+### Time
+
+The SmartThings time platform lets you control the start and end time for the do not disturb mode on supported devices.
+
 ### Update
 
 The SmartThings update platform lets you update the firmware of devices that have the [`firmwareUpdate`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#firmwareUpdate) capability.
@@ -397,6 +403,10 @@ The SmartThings integration does not support all SmartThings capabilities. Only 
 3. If the capability is available in the SmartThings API but not yet supported by this integration, you can request support by creating a [GitHub Discussion](https://github.com/orgs/home-assistant/discussions?discussions_q=is%3Aopen+label%3A%22integration%3A+smartthings%22).
    - Do not create a GitHub Issue for feature requests, as issues are intended for bug reports.
    - When creating a feature request, attach the [device diagnostics](#viewing-device-diagnostics) for the device that is missing functionality. This helps identify which capabilities your device exposes and speeds up the implementation.
+
+## SmartThings community
+
+The SmartThings integration is complex due to the breadth of devices and capabilities it supports. If you need community support or want to discuss device integration topics with other SmartThings users, you can join the [SmartThings Integration community on Discord](https://discord.gg/EJYdwMCz7K).
 
 ## Removing the integration
 

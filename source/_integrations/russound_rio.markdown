@@ -10,6 +10,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - number
+  - select
   - switch
 ha_codeowners:
   - '@noahhusby'
@@ -49,6 +50,10 @@ Host:
     description: The IP address of your device can be found by navigating to the device on the [Russound app](https://www.russound.com/russound-app) and selecting `Settings`. If you are using a third-party RS232 to IP adapter, refer to the user manual about finding the IP address.
 Port:
     description: The port of your device. This is `9621` on all devices except for the XZone4, which uses ports 9621-9624. The port may be different if a RS232 to IP adapter is used.
+Path:
+    description: The path of your device if connected by a USB-to-serial adapter. The available devices will be automatically found by Home Assistant and listed for selection.
+Baud Rate:
+    description: The speed of the serial bus. The default for Russound RIO is `19200`. The available speeds are `19200`, `38400`, `57600`, `115200` and depends on your controller's configuration.
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -69,6 +74,7 @@ The integration provides a few entities to configure the device settings. The fo
 - Balance
 - Loudness
 - Turn on volume
+- Party mode
 
 ## Playing media
 

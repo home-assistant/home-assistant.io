@@ -12,8 +12,6 @@ ha_category:
 ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@boswelja'
 ha_domain: starlink
 ha_platforms:
   - binary_sensor

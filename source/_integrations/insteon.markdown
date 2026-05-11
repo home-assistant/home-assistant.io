@@ -80,7 +80,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 
 ### Managing Insteon scenes
 
-Insteon scenes can be created, changed or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To trigger an Insteon scene see [Triggering Insteon Scenes](#triggering-insteon-scenes) below.
+Insteon scenes can be created, changed, or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To control an Insteon scene, see [Controlling Insteon scenes](#controlling-insteon-scenes) below.
 
 ### Device properties
 
@@ -120,9 +120,9 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 - **Configure device overrides**: Add or remove device overrides. See [Device overrides](#device-overrides) below.
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
 
-## Triggering Insteon scenes
+## Controlling Insteon scenes
 
-Triggering an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
+Controlling an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
 
 - **insteon.scene_on**
   - **group**: (required) The Insteon scene number to trigger.
@@ -131,11 +131,12 @@ Triggering an Insteon scene on or off is done via automations. Two actions are p
 
 ```yaml
 automation:
-  # Trigger an Insteon scene 25
+  # Control an Insteon scene 25
   - alias: "Turn on scene 25"
     actions:
       - action: insteon.scene_on
-        group: 25
+        data:
+          group: 25
 ```
 
 ## Events and Mini-Remotes

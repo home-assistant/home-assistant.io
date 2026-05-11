@@ -25,6 +25,9 @@ related:
 The **My integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.
 
+<!-- Keep the "include" below if your integration is a building block integration -->
+{% include integrations/building_block_integration.md %}
+
 ## Supported devices
 
 The following devices are known to be supported by the integration:
@@ -132,27 +135,26 @@ The **My integration** integration provides the following entities.
   - **Description**: Firmware status of the gateway.
   - **Available for machines**: all
 
-## Actions
+<!--
+The "include" below adds sections (heading 2) for triggers, conditions, and actions for this integration.
+Create separate files for each:
+- trigger, in source/_triggers/
+- condition, in source/_conditions/
+- action, in source/_actions/
+-->
+{% include integrations/triggers_conditions_actions.md %}
 
-The integration provides the following actions.
+## My-integration automation examples
 
-### Action: Get schedule
+The real power of this integration is...
+Here are a few ideas to get you started.
 
-The `my_integration.get_schedule` action allows you to fetch a schedule from the integration.
+{% include docs/paste_yaml_tip.md %}
 
-- **Data attribute**: `config_entry_id`
-  - **Description**: The ID of the config entry to get the schedule from.
-  - **Optional**: No
-
-## Examples
-
-### Turning off the LEDs during the night
+### Automation: Turning off the LEDs during the night
 
 The status LEDs on the device can be quite bright.
 To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
-
-link to the blueprint on the [blueprints
-    exchange](https://community.home-assistant.io/c/53)
 
 ## Data updates
 
