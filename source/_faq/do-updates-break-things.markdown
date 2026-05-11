@@ -10,7 +10,7 @@ A lot of the older articles and forum posts you may run into describe a time whe
 
 A new version of Home Assistant is released on the first Wednesday of every month, with smaller fix releases in between. A few things make the update process safe by default:
 
-- An [automatic {% term backup %}](/common-tasks/general/#backups) is taken before each update, so you can roll back if something does not work for you.
+- An [automatic backup](/common-tasks/general/#backups) is taken before each update, so you can roll back if something does not work for you.
 - Every release is preceded by a public beta period, so issues are usually found and fixed before the stable release.
 - Breaking changes are documented in advance in the [release notes](/blog/categories/core/), so you know what to look for.
 - The built-in [repair system](/integrations/repairs/) proactively flags any issues after an update and walks you through how to resolve them.
