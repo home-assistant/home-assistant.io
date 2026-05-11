@@ -17,7 +17,7 @@ The **Increase fan speed** action is useful when you want more airflow without c
 To use this action in an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation or script, or select **Create** to start a new one.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're creating an automation, add a trigger in the **When** section.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the fan you want to control. You can also select an area, a floor, a device, or a label.
