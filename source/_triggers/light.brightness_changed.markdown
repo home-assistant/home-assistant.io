@@ -31,7 +31,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the brightness has to change before the trigger fires, as a percentage of full brightness. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -57,7 +56,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 threshold:
   description: >
     The minimum amount (in percent) the brightness must change before the trigger fires. Accepts a number, or a reference to an `input_number`, `number`, or `sensor` entity with a percent unit.
-  required: true
+  required: false
   type: any
 {% endoptions_yaml %}
 
