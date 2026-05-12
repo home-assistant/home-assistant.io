@@ -21,7 +21,7 @@ To use this trigger in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Motion cleared**.
-5. Select **Add target** (see [Targets](#targets)) and pick the motion sensor that you want to watch . You can also select an area, a floor, a device, or a label.
+5. Select **Add target** (see [Targets](#targets)) and pick the motion sensor that you want to watch. You can also select an area, a floor, a device, or a label.
 6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple sensors are targeted.
 7. Under **For at least**, you can set how long the sensor must remain without detecting motion before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
@@ -31,11 +31,11 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: |
-    When multiple sensors are targeted, controls when the trigger fires:
+    When multiple motion sensors are targeted, controls when the trigger fires:
 
     - **Each** (default): fires every time any targeted sensor stops detecting motion.
     - **First**: fires only when the first sensor stops detecting motion.
-    - **All**: fires only after every targeted sensors stop detecting motion.
+    - **All**: fires only after every targeted sensor stops detecting motion.
   required: false
 For at least:
   description: How long the sensor or sensors must remain without detecting motion before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
@@ -67,11 +67,11 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: |
-    When multiple humidifiers are targeted, controls when the trigger fires:
+    When multiple motion sensors are targeted, controls when the trigger fires:
 
     - `any`: fires every time any targeted sensor stops detecting motion.
     - `first`: fires only when the first sensor stops detecting motion.
-    - `last`: fires only after every targeted sensors stop detecting motion.
+    - `last`: fires only after every targeted sensor stops detecting motion.
   required: false
   type: string
   default: any
@@ -92,7 +92,7 @@ for:
 
 - Use single sensors for motion detection in areas of passage, such as hallways or entrances, or very specific spots like an office desk.
 - Add the **For at least** option to your automation to avoid turning off devices too quickly if someone is still in the room.
-- For a reliable motion detection in larger areas, you can use grouped motion sensors and [input boolean](/integrations/input_boolean/) helpers.
+- For reliable motion detection in larger areas, you can use grouped motion sensors and [input boolean](/integrations/input_boolean/) helpers.
 
 {% include triggers/try_it.md %}
 

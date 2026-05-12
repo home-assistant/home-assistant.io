@@ -31,11 +31,11 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: |
-    When multiple sensors are targeted, controls when the trigger fires:
+    When multiple motion sensors are targeted, controls when the trigger fires:
 
     - **Each** (default): fires every time any targeted sensor starts detecting motion.
-    - **First** : fires only when the first sensor starts detecting motion.
-    - **All**: fires only after every targeted sensors starts detecting motion.
+    - **First**: fires only when the first sensor starts detecting motion.
+    - **All**: fires only after every targeted sensor starts detecting motion.
   required: false
 For at least:
   description: How long the sensor or sensors must remain detecting motion before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
@@ -67,11 +67,11 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: |
-    When multiple humidifiers are targeted, controls when the trigger fires:
+    When multiple motion sensors are targeted, controls when the trigger fires:
 
     - `any`: fires every time any targeted sensor starts detecting motion.
     - `first`: fires only when the first sensor starts detecting motion.
-    - `last`: fires only after every targeted sensors start detecting motion.
+    - `last`: fires only after every targeted sensor starts detecting motion.
   required: false
   type: string
   default: any
@@ -92,8 +92,8 @@ for:
 
 - Use single sensors for motion detection in areas of passage, such as hallways or entrances, or very specific spots like an office desk.
 - Add the **For at least** option to your automation to avoid turning off devices too quickly if someone is still in the room.
-- For a reliable motion detection in larger areas, you can use grouped motion sensors and [input boolean](/integrations/input_boolean/) helpers.
-- When automating lights turn on, combine motion with ambient light sensors, or time conditions, and only turn on lights if the room is dark enough. This avoids unnecessary activations.
+- For reliable motion detection in larger areas, you can use grouped motion sensors and [input boolean](/integrations/input_boolean/) helpers.
+- When you automate lights turning on, combine motion with ambient light sensors, or time conditions, and only turn on lights if the room is dark enough. This avoids unnecessary activations.
 
 {% include triggers/try_it.md %}
 
