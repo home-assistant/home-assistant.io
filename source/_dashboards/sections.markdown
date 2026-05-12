@@ -162,30 +162,30 @@ Section themes use CSS cascade to provide flexible theming:
 
 This example shows a dashboard with a blue theme for general information and an amber/orange theme for system alerts.
 
-First, define the themes in your `themes.yaml` or `configuration.yaml`:
+First, define the themes in your `configuration.yaml`:
 
 ```yaml
 frontend:
-    themes:
-        # Main view theme (blue/info tones)
-        main_view:
-          primary-color: "#2196f3"
-          card-background-color: "#f0f8ff"
-          primary-text-color: "#1565c0"
-          modes:
-            dark:
-              card-background-color: "#1a2332"
-              primary-text-color: "#90caf9"
+  themes:
+    # Main view theme (blue/info tones)
+    main_view:
+      primary-color: "#2196f3"
+      card-background-color: "#f0f8ff"
+      primary-text-color: "#1565c0"
+      modes:
+        dark:
+          card-background-color: "#1a2332"
+          primary-text-color: "#90caf9"
 
-        # Alert section theme (amber/orange tones)
-        alert_section:
-          primary-color: "#ff9800"
-          card-background-color: "#fff8f0"
-          primary-text-color: "#d84315"
-          modes:
-            dark:
-              card-background-color: "#2d1f1a"
-              primary-text-color: "#ffab91"
+    # Alert section theme (amber/orange tones)
+    alert_section:
+      primary-color: "#ff9800"
+      card-background-color: "#fff8f0"
+      primary-text-color: "#d84315"
+      modes:
+        dark:
+          card-background-color: "#2d1f1a"
+          primary-text-color: "#ffab91"
 ```
 
 Then create your dashboard:
