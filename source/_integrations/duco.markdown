@@ -42,10 +42,10 @@ Compatible DucoBox models:
 
 The following sensor module types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, mode end time, Wi-Fi signal strength, and temperature (measured inside the housing; disabled by default).
-- **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration, CO₂ air quality index, and temperature.
-- **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity, humidity air quality index, and temperature.
-- **UCRH**: Wireless humidity sensor module; provides relative humidity, humidity air quality index, and temperature.
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, mode end time, and Wi-Fi signal strength.
+- **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
+- **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
+- **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
 
 ### Unsupported sensor modules
 
@@ -147,12 +147,6 @@ Indoor air quality ranges for humidity:
 - 35–50%: Temporarily acceptable
 - 5–20%: Poor
 
-#### Temperature
-
-Available for the external sensor modules (UCCO2, BSRH, and UCRH). Shows the current air temperature in degrees Celsius measured by the sensor module.
-
-The main ventilation box (BOX) also provides a temperature reading. This entity is disabled by default because it reflects the temperature inside the box housing, which is typically not representative of the room temperature.
-
 #### Wi-Fi signal strength
 
 Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
@@ -163,7 +157,6 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 - Return to auto mode when everyone leaves home using a presence-based automation.
 - Monitor ventilation activity over time via the logbook.
 - Trigger automations based on CO₂ levels or humidity reported by connected Duco modules.
-- Use temperature readings from sensor modules to detect rooms that are too hot or too cold and adjust ventilation accordingly.
 
 ## Examples
 
