@@ -111,7 +111,7 @@ The example below uses the common [gauge card](/dashboards/gauge/) in the {% ter
 type: gauge
 entity: sensor.my_propane_tank_level
 name: Tank Level
-unit: '%'
+unit: "%"
 needle: true
 severity:
   green: 30
@@ -132,7 +132,7 @@ This integration exposes all the data provided in the API but not all data about
 ## Troubleshooting
 
 Before reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration.
-As soon as the issue re-occurs, stop the debug logging again (_a download of the debug log file will start automatically_).
+As soon as the issue recurs, stop the debug logging again (_a download of the debug log file will start automatically_).
 Additionally, download the {% term diagnostics %} data. Once you have collected the debug log and the diagnostics data, include them in the issue report.
 
 ## Removing the integration
