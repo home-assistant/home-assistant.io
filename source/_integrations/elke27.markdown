@@ -1,15 +1,10 @@
 ---
 title: Elk E27 Alarm Engine
-description: Instructions to set up the Elk E27 controller for home security and automation.
-ha_release: 0.01
+description: Instructions to set up the Elk E27 Alarm Engine integration.
+ha_release: 2026.6
 ha_category:
   - Alarm
-  - Binary sensor
-  - Climate
   - Hub
-  - Light
-  - Lock
-  - Switch
 ha_iot_class: Local Push
 ha_domain: elke27
 ha_config_flow: true
@@ -17,15 +12,10 @@ ha_codeowners:
   - '@mitchmitchell'
 ha_platforms:
   - alarm_control_panel
-  - binary_sensor
-  - climate
-  - light
-  - lock
-  - switch
 ha_integration_type: hub
 ---
 
-The **Elk E27 Alarm Engine** {% term integration %} lets you connect your Elk E27 Alarm Engine to Home Assistant. This advanced home security and automation controller offers robust alarm control panel capabilities, along with a wide range of automation features to help you manage and protect your home.
+The **Elk E27 Alarm Engine** {% term integration %} lets you connect your Elk E27 Alarm Engine panel to Home Assistant.
 
 The Elk E27 Alarm Engine is manufactured by [Elk Products](https://www.elkproducts.com).
 
@@ -33,38 +23,31 @@ The Elk E27 Alarm Engine is manufactured by [Elk Products](https://www.elkproduc
 
 ## Supported functionality
 
-There is currently support for the following device types within Home Assistant:
+This integration represents Elk E27 areas, also known as partitions, as {% term "`alarm_control_panel`" %} entities.
 
-- **Alarm control panel** - Elk E27 areas (also known as partitions) are represented as `alarm_control_panel` entities
-- **Binary sensor** - Elk E27 zones are represented as `binary_sensor` entities. `Normal` state is `off` and any other state is `on`
-- **Climate** - Elk E27 thermostats are represented as `climate` entities
-- **Light** - Elk E27 lights are represented as `light` entities
-- **Lock** - Elk E27 locks are represented as `lock` entities
-- **Switch** - Elk E27 outputs are represented as `switch` entities
+Alarm control panel entities support:
 
-The implementation follows the Elk Products Elk E27 API specification.
+- Arm away
+- Arm home
+- Arm night
+- Arm custom bypass
+- Disarm
 
 ## Prerequisites
 
-Before setting up the Elk E27 integration, ensure your system meets these requirements:
+Before setting up the Elk E27 integration, make sure the panel is reachable from the Home Assistant network.
 
-### Elk E27 version
-
-Elk E27 should be running firmware version 0.0.6.4 or higher
-
-Many features will work with lower versions of the Elk E27 firmware.
+Elk E27 panels should be running firmware version 0.0.6.4 or later.
 
 ## Actions
 
-### Actions for special arming modes
+The integration provides the `elke27.alarm_arm_automatic` action for arming an Elk E27 area using the panel's automatic stay and exit-delay behavior.
 
-- `elke27.alarm_arm_custom_bypass` - Arms the area in "away" mode bypassing all faulted zones
-- `elke27.alarm_arm_automatic` - Arms the area in "away" mode with option to ignore the "stay no exit" setting and skip the exit delay
+The action requires:
 
-| Data attribute | Optional | Description                                   |
-| -------------- | -------- | --------------------------------------------- |
-| `entity_id`    | yes      | Elk E27 area to arm                            |
-| `code`         | no       | Alarm code to arm the system (4 or 6 digits) |
+- An Elk E27 `alarm_control_panel` entity as the target.
+- A `mode` value of `away` or `home`.
+- A `code` value with the alarm code used to arm the system.
 
 ## Debugging
 
@@ -72,17 +55,14 @@ If you encounter issues with the Elk E27 integration, debug logs can help identi
 
 Alternatively, you can manually enable debug logging in your {% term "`configuration.yaml`" %} file:
 
-1. Add the following to your {% term "`configuration.yaml`" %} file:
+```yaml
+logger:
+  logs:
+    elke27_lib: debug
+    homeassistant.components.elke27: debug
+```
 
-   ```yaml
-   logger:
-     logs:
-       elke27_lib: debug
-       homeassistant.components.elke27: debug
-   ```
-
-2. Restart Home Assistant.
-3. Check the debug logs in the `homeassistant.log` file in your Home Assistant `config` directory.
+Restart Home Assistant, then check the debug logs in the `homeassistant.log` file in your Home Assistant `config` directory.
 
 ## Removing the integration
 
