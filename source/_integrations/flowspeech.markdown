@@ -4,6 +4,7 @@ description: Instructions on how to set up the FlowSpeech integration with Home 
 ha_category:
   - Text-to-speech
 ha_iot_class: Cloud Polling
+ha_release: 2026.6
 ha_domain: flowspeech
 ha_platforms:
   - tts
