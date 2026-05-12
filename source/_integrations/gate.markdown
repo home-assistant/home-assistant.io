@@ -70,7 +70,7 @@ At the end of the day, this automation checks whether the gate is still open bef
   - **Target**: Driveway gate
   - **Condition passes if**: Any
 - **Action**: Send a notification message
-  - **Target**: notify.mobile_app
+  - **Target**: Mobile app
 
 {% details "YAML example for a bedtime gate reminder" %}
 
@@ -89,7 +89,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.gabrielas_android
+        entity_id: notify.my_mobile_app
       data:
         title: "Gate still open"
         message: "The driveway gate is still open. Close it before bed."

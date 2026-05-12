@@ -91,7 +91,7 @@ At sunset, this automation checks whether the driveway gate is still open. If it
   - **Target**: Driveway gate
   - **Condition passes if**: Any
 - **Action**: Send a notification message
-  - **Target**: notify.mobile_app
+  - **Target**: Mobile app
 
 {% details "YAML example for an open-gate reminder at sunset" %}
 
@@ -110,7 +110,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.gabrielas_android
+        entity_id: notify.my_mobile_app
       data:
         title: "Driveway gate is open"
         message: "The driveway gate is still open after sunset."
@@ -127,7 +127,7 @@ When you leave home, this automation checks whether any targeted gate is still o
   - **Target**: Driveway gate and courtyard gate
   - **Condition passes if**: Any
 - **Action**: Send a notification message
-  - **Target**: notify.mobile_app
+  - **Target**: Mobile app
 
 {% details "YAML example for checking gates when you leave home" %}
 
@@ -150,7 +150,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.gabrielas_android
+        entity_id: notify.my_mobile_app
       data:
         title: "A gate is still open"
         message: "The driveway gate or courtyard gate is still open."

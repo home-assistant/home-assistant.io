@@ -117,7 +117,7 @@ If the gate opens after everyone has left home, this automation sends a notifica
   - **Target**: Driveway gate
   - **For at least**: 00:00:10
 - **Action**: Send a notification message
-  - **Target**: notify.mobile_app
+  - **Target**: Mobile app
 
 {% details "YAML example for a gate-opened alert while away" %}
 
@@ -137,7 +137,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.gabrielas_android
+        entity_id: notify.my_mobile_app
       data:
         title: "Gate opened"
         message: "The driveway gate opened while you were away."
