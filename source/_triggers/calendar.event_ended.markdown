@@ -80,7 +80,7 @@ offset_type:
 
 - Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your {% term trigger %} might not fire.
 - You can also create an automation based on the state of a calendar {% term entity %}.
-- A calendar trigger should not generally use automation mode `single` to ensure the trigger can fire when multiple events end at the same time. For example, use `queued` or `parallel` instead.
+- A calendar trigger should not generally use automation mode `single` to ensure the trigger can fire when multiple events end at the same time. For example, use `queued` or `parallel` instead. For details about these modes, refer to the [Automation modes](/docs/automation/modes) page.
 - In YAML, you can also set up other variables for calendar triggers. See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) to check the available trigger data.
 
 {% include triggers/try_it.md %}
