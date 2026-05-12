@@ -40,8 +40,8 @@ To use this integration, you need to register your tank monitor with CentriConne
 {% configuration_basic %}
 Device ID:
     description: "The unique identifier for your tank monitor. You can find it on the back of the device or on the setup card."
-Device Authorization Code:
-    description: "The secret authorization code for the device. It is only located on the setup card."
+Device Authentication Code:
+    description: "The secret authentication code for the device. It is only located on the setup card."
 User ID:
     description: "The unique identifier for your CentriConnect/MyPropane account. You can find it in the Account settings in the app."
 {% endconfiguration_basic %}
