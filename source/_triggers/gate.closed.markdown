@@ -88,7 +88,7 @@ If your driveway lights turn on when the gate opens, this automation turns them 
 - **Trigger**: Gate closed
 - **Target**: Driveway gate
 - **For at least**: 00:02:00
-- **Action**: Light: Turn off
+- **Action**: Light: Turn off light
 
 {% details "YAML example for turning off driveway lights after the gate closes" %}
 
@@ -111,11 +111,11 @@ automation: |
 
 ### Automation: lock the side door after the courtyard gate closes
 
-If you use the courtyard gate as your usual way in, you may want the side door to lock only after the gate is shut again. This automation waits for the gate to close, then locks the door.
+If you use the courtyard gate as your usual way in, you might want the side door to lock only after the gate is shut again. This automation waits for the gate to close, then locks the door.
 
 - **Trigger**: Gate closed
 - **Target**: Courtyard gate
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the side door after the gate closes" %}
 

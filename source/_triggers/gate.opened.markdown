@@ -87,7 +87,7 @@ If you come home after sunset, this automation turns on the driveway lights as s
 
 - **Trigger**: Gate opened
 - **Target**: Driveway gate
-- **Action**: Light: Turn on
+- **Action**: Light: Turn on light
 
 {% details "YAML example for driveway lights when the gate opens" %}
 
