@@ -31,10 +31,8 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple doors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted door is open, or **All** to pass only when every targeted door is open.
-  required: true
 For at least:
   description: How long the door must have stayed open before the condition passes.
-  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -58,7 +56,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple doors are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 for:

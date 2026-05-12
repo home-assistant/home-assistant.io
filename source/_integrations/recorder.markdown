@@ -11,8 +11,6 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: system
 related:
-  - docs: /docs/backend/database/
-    title: Database schema
   - docs: /integrations/sql/
     title: SQL integration
 ---

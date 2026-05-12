@@ -3118,3 +3118,76 @@ For a summary in a more readable format
 [@ximex]: https://github.com/ximex
 [@zerzhang]: https://github.com/zerzhang
 [@zxdavb]: https://github.com/zxdavb
+
+## Release 2026.5.1 - May 8
+
+- Added wfsens as a occupancy source in wiz ([@th3spis] - [#166799])
+- Fix WiZ Light config flow timeout by properly closing UDP connections ([@robwasripped] - [#168456])
+- Fix IntelliFire setup recovery ([@jeeftor] - [#169739])
+- Fix hassio auth IndexError on Supervisor Unix socket requests ([@agners] - [#169911])
+- Update gardena ble to 2.8.1 ([@elupus] - [#169914])
+- Bump serialx to 1.7.1 ([@puddly] - [#169928])
+- Bump holidays to 0.96 ([@gjohansson-ST] - [#169939])
+- Add support for options to todo triggers ([@emontnemery] - [#169947])
+- Bump pyTibber to 0.37.5 ([@Danielhiversen] - [#169981])
+- Bump python-duco-client to 0.4.0 ([@ronaldvdmeer] - [#169776])
+- Bump python-duco-client to 0.4.1 ([@ronaldvdmeer] - [#169991])
+- Proper handling of malformed data during FRITZ!Box Tools setup ([@mib1185] - [#170030])
+- Fix websocket certificate verification Bump axis to v70 ([@Kane610] - [#170038])
+- Fix `is_closed` state for DynamicGarageDoor in Overkiz ([@iMicknl] - [#170052])
+- Fix tilt controls for TiltOnlyVenetianBlind in Overkiz ([@iMicknl] - [#170055])
+- Fix cover controls for UpDownBioclimaticPergola in Overkiz ([@iMicknl] - [#170058])
+- Bump pyOverkiz to 1.20.3 ([@iMicknl] - [#170060])
+- Bump deebot-client to 18.3.0 ([@edenhaus] - [#170066])
+- Set `is_closed` state to `None` when a cover state returns "unknown" in Overkiz ([@iMicknl] - [#170081])
+- Fix sensors getting wrong unit from MeasuredValueType attribute in Overkiz ([@iMicknl] - [#170088])
+- Fix Z-Wave discovery crash with unknown node firmware version ([@TheJulianJES] - [#170090])
+- Bump ZHA to 1.3.1 ([@TheJulianJES] - [#170095])
+- Bump python-bsblan to 5.2.1 ([@liudger] - [#170100])
+- Bump blebox_uniapi to v2.5.3 ([@bkobus-bbx] - [#170115])
+- Fix is_closed state for DynamicGate covers in Overkiz ([@iMicknl] - [#170130])
+- Fix tilt support for UpDownVenetianBlind (rts:VenetianBlindRTSComponent) in Overkiz ([@iMicknl] - [#170047])
+
+[#166799]: https://github.com/home-assistant/core/pull/166799
+[#168456]: https://github.com/home-assistant/core/pull/168456
+[#169739]: https://github.com/home-assistant/core/pull/169739
+[#169776]: https://github.com/home-assistant/core/pull/169776
+[#169911]: https://github.com/home-assistant/core/pull/169911
+[#169914]: https://github.com/home-assistant/core/pull/169914
+[#169928]: https://github.com/home-assistant/core/pull/169928
+[#169939]: https://github.com/home-assistant/core/pull/169939
+[#169947]: https://github.com/home-assistant/core/pull/169947
+[#169981]: https://github.com/home-assistant/core/pull/169981
+[#169991]: https://github.com/home-assistant/core/pull/169991
+[#170030]: https://github.com/home-assistant/core/pull/170030
+[#170038]: https://github.com/home-assistant/core/pull/170038
+[#170047]: https://github.com/home-assistant/core/pull/170047
+[#170052]: https://github.com/home-assistant/core/pull/170052
+[#170055]: https://github.com/home-assistant/core/pull/170055
+[#170058]: https://github.com/home-assistant/core/pull/170058
+[#170060]: https://github.com/home-assistant/core/pull/170060
+[#170066]: https://github.com/home-assistant/core/pull/170066
+[#170081]: https://github.com/home-assistant/core/pull/170081
+[#170088]: https://github.com/home-assistant/core/pull/170088
+[#170090]: https://github.com/home-assistant/core/pull/170090
+[#170095]: https://github.com/home-assistant/core/pull/170095
+[#170100]: https://github.com/home-assistant/core/pull/170100
+[#170115]: https://github.com/home-assistant/core/pull/170115
+[#170130]: https://github.com/home-assistant/core/pull/170130
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Kane610]: https://github.com/Kane610
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@agners]: https://github.com/agners
+[@bkobus-bbx]: https://github.com/bkobus-bbx
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@iMicknl]: https://github.com/iMicknl
+[@jeeftor]: https://github.com/jeeftor
+[@liudger]: https://github.com/liudger
+[@mib1185]: https://github.com/mib1185
+[@puddly]: https://github.com/puddly
+[@robwasripped]: https://github.com/robwasripped
+[@ronaldvdmeer]: https://github.com/ronaldvdmeer
+[@th3spis]: https://github.com/th3spis

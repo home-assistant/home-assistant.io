@@ -35,7 +35,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **All** to fire only after every targeted light is off.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -59,7 +58,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
-  required: true
+  required: false
   type: string
   default: any
 {% endoptions_yaml %}

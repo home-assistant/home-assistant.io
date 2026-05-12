@@ -1,12 +1,14 @@
 ---
-title: "Script Syntax"
-description: "Documentation for the Home Assistant Script Syntax."
+title: "Script syntax"
+description: "How to write Home Assistant scripts in YAML: the available actions, their structure, and how to use them inside automations."
 toc: true
 ---
 
-Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
+A script is a sequence of steps that Home Assistant runs from top to bottom whenever you call it. Think of it as a small recipe: "turn on the porch light, wait 30 seconds, then send me a notification". Once you have written a script, you can run it from a button on your dashboard, from Assist, from inside an {% term automation %}, or from anywhere else that calls actions.
 
-When the script is executed within an {% term automation %}, the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+Scripts and automations are very closely related. The only real difference is that an automation runs by itself when something triggers it, and a script runs when you call it.
+
+When the script runs as part of an {% term automation %}, the `trigger` variable is also available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
 ## Script syntax
 
@@ -305,7 +307,7 @@ This can be used to take different actions based on whether or not the condition
 
 ## Fire an event
 
-This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
+This {% term action %} allows you to fire an event. In the GUI (Graphical User Interface) for actions it is found under "Fire Manual Event". Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
 
 ```yaml
 - alias: "Fire LOGBOOK_ENTRY event"

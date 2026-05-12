@@ -32,10 +32,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: The brightness level the light has to cross for the trigger to fire. Expressed as a percentage of full brightness.
-  required: true
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted lights have crossed the threshold.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -62,12 +60,12 @@ YAML sometimes provides additional options for more complex use cases that are n
 threshold:
   description: >
     The brightness percentage the light has to cross for the trigger to fire. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
+  required: false
   type: any
 behavior:
   description: >
     When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
-  required: true
+  required: false
   type: string
   default: any
 {% endoptions_yaml %}

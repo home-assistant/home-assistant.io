@@ -33,10 +33,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Offset:
   description: The length of time from the end of the event in days, hours, minutes, and seconds.
-  required: true
 Offset type:
   description: Whether to trigger before or after the end of the event, if an offset is defined.
-  required: true
   default: before
 {% endoptions_ui %}
 
@@ -70,7 +68,7 @@ offset:
 offset_type:
   description: >
     Whether to trigger before or after the end of the event, if an offset is defined.
-  required: true
+  required: false
   default: before
   type: string
 {% endoptions_yaml %}
