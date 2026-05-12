@@ -1,9 +1,11 @@
 ---
 title: "Troubleshooting automations"
-description: "Tips on how to troubleshoot your automations."
+description: "How to find out why an automation did not run, using the trace timeline, the logs, and the test buttons in the automation editor."
 ---
 
-Automations and {% term scripts %} can be debugged in a few different ways. You can [test run](#testing-your-automation) the full sequence of actions, or test each condition and action separately. [Traces](#traces) let you see details of every step after an automation is run. For complicated automations with {% term templates %}, see the section [testing templates](#testing-templates).
+Sometimes an automation does not do what you expect. Maybe it does not run at all, maybe it runs at the wrong moment, or maybe one of the actions in the middle quietly fails. Home Assistant has built-in tools to help you find out exactly what happened, without having to dig through log files.
+
+The most useful tool is the **trace**. Every time an automation runs, Home Assistant records a step-by-step timeline of what was triggered, which conditions were checked, and what each action did. You can also test parts of an automation directly from the editor, without waiting for a real trigger.
 
 ## Testing your automation
 
