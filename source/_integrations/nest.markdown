@@ -311,7 +311,7 @@ This feature is enabled by the following permissions:
 
 ### Action: Set fan timer
 
-The `nest.set_fan_timer` action sets the fan to run for a specific duration. The SDM API supports a maximum duration of 15 hours.
+The `nest.set_fan_timer` action sets the fan to run for a specific duration. The SDM API supports a maximum duration of 12 hours.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
