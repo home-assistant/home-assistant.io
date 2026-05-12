@@ -40,7 +40,9 @@ In addition, the entity can have the following states:
 
 You can use button entities in automations to react when a button is pressed or to press a button from an automation.
 
-{% include integrations/triggers_conditions_actions.md %}
+{% include integrations/triggers.md %}
+
+{% include integrations/actions.md %}
 
 ## Device class
 
