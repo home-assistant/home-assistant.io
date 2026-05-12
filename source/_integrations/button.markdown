@@ -68,14 +68,16 @@ The following examples show how you can use button entities in automations.
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: Send a notification when a button is pressed
+### Automation: send a notification when a button is pressed
 
 Use the button trigger to react when you press a button entity, like a reset or maintenance button.
 
-- Feature used: Button pressed trigger
-- Result: Sends a notification when the button is pressed
+- **Trigger**: Button pressed
+- **Target**: Air purifier filter reset button
+- **Action**: Send a notification message
+  - **Target**: Mobile app
 
-{% details "Show example YAML" %}
+{% details "YAML example for a button-press notification" %}
 
 {% example %}
 automation: |
@@ -85,21 +87,24 @@ automation: |
         target:
           entity_id: button.air_purifier_reset_filter
     actions:
-      - action: notify.mobile_app_phone
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_mobile_app
         data:
           message: "The air purifier filter reset button was pressed."
 {% endexample %}
 
 {% enddetails %}
 
-### Automation: Restart a device with a button action
+### Automation: restart a device with a button action
 
 Use the button action when an integration exposes a restart or update button that you want to run from an automation.
 
-- Feature used: Press button action
-- Result: Restarts a router after the internet connection has been down for 10 minutes
+- **Trigger**: Internet connection turns off for 10 minutes
+- **Action**: Press button
+- **Target**: Router restart button
 
-{% details "Show example YAML" %}
+{% details "YAML example for restarting a device with a button action" %}
 
 {% example %}
 automation: |

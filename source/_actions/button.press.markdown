@@ -53,7 +53,12 @@ This action has no additional YAML options beyond the target.
 {% include actions/more_examples.md %}
 
 ### Automation: restart a router when the internet is down
+
 Use this automation to press a restart button after the internet connection has been down for a while.
+
+- **Trigger**: Internet connection turns off for 10 minutes
+- **Action**: Press button
+- **Target**: Router restart button
 
 {% details "Show example YAML" %}
 
@@ -76,6 +81,11 @@ automation: |
 ### Automation: run a firmware update overnight
 
 Use this automation when a device exposes an update button and you want to run it at a quiet time.
+
+- **Trigger**: Time: 03:00
+- **Condition**: Garden controller firmware update is available
+- **Action**: Press button
+- **Target**: Garden controller update button
 
 {% details "Show example YAML" %}
 

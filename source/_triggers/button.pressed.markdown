@@ -57,7 +57,12 @@ This trigger has no additional YAML options beyond the target.
 
 Use this automation to keep a record of when a maintenance button was pressed.
 
-{% details "Show example YAML" %}
+- **Trigger**: Button pressed
+- **Target**: Air purifier filter reset button
+- **Action**: Send a notification message
+  - **Target**: Mobile app
+
+{% details "YAML example for a filter reset button notification" %}
 
 {% example %}
 automation: |
@@ -67,7 +72,9 @@ automation: |
         target:
           entity_id: button.air_purifier_reset_filter
     actions:
-      - action: notify.mobile_app_phone
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_mobile_app
         data:
           message: "The air purifier filter reset button was pressed."
 {% endexample %}
@@ -78,7 +85,11 @@ automation: |
 
 Use this automation when a button helps you locate a device and you want a nearby light to turn on at the same time.
 
-{% details "Show example YAML" %}
+- **Trigger**: Button pressed
+- **Target**: Front door camera identify button
+- **Action**: Light: Turn on
+
+{% details "YAML example for turning on a light from an identify button" %}
 
 {% example %}
 automation: |
