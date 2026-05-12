@@ -97,7 +97,6 @@ for:
 If the bedroom humidifier turns off during the night, send a notification so you can check whether it ran out of water or was switched off by accident.
 
 - **Trigger**: Humidifier turned off
-- **Trigger**: Humidifier turned off
   - **Target**: Bedroom humidifier
   - **Trigger when**: Each
   - **For at least**: 00:00:00
