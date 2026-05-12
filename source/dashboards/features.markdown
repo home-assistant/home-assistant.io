@@ -70,8 +70,8 @@ type:
   description: "`alarm-modes`"
   type: string
 modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`.
+  required: false
+  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`. If not set, all modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -172,8 +172,8 @@ style:
   type: string
   default: dropdown
 fan_modes:
-  required: true
-  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode.
+  required: false
+  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode. If not set, all fan modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -210,8 +210,8 @@ style:
   type: string
   default: icons
 hvac_modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`.
+  required: false
+  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`. If not set, all HVAC modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -244,8 +244,76 @@ style:
   type: string
   default: dropdown
 preset_modes:
+  required: false
+  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode. If not set, all preset modes supported by the entity are shown.
+  type: list
+{% endconfiguration %}
+
+## Climate swing modes
+
+Widget that displays a dropdown or icons to control the swing mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_swing_modes.png' alt='Screenshot of the tile card with the climate swing modes feature'>
+  Screenshot of the tile card with the climate swing modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-swing-modes"
+    style: "icons"
+    swing_modes:
+      - "on"
+      - "off"
+```
+
+{% configuration features %}
+type:
   required: true
-  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode.
+  description: "`climate-swing-modes`"
+  type: string
+style:
+  required: false
+  description: "How the swing modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+swing_modes:
+  required: false
+  description: List of swing modes to show on the card. The list can contain `on`, `off`, or any other custom swing mode supported by your climate device. If not set, all swing modes supported by the entity are shown.
+  type: list
+{% endconfiguration %}
+
+## Climate swing horizontal modes
+
+Widget that displays a dropdown or icons to control the horizontal swing mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_swing_horizontal_modes.png' alt='Screenshot of the tile card with the climate swing horizontal modes feature'>
+  Screenshot of the tile card with the climate swing horizontal modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-swing-horizontal-modes"
+    style: "dropdown"
+    swing_horizontal_modes:
+      - "on"
+      - "off"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-swing-horizontal-modes`"
+  type: string
+style:
+  required: false
+  description: "How the horizontal swing modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+swing_horizontal_modes:
+  required: false
+  description: List of horizontal swing modes to show on the card. The list can contain `on`, `off`, or any other custom horizontal swing mode supported by your climate device. If not set, all horizontal swing modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -273,8 +341,8 @@ type:
   description: "`counter-actions`"
   type: string
 actions:
-  required: true
-  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`.
+  required: false
+  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`. If not set, all actions supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -502,8 +570,8 @@ style:
   type: string
   default: dropdown
 preset_modes:
-  required: true
-  description: List of preset modes to show on the card. The list can contain any supported preset modes.
+  required: false
+  description: List of preset modes to show on the card. The list can contain any supported preset modes. If not set, all preset modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -557,8 +625,8 @@ style:
   type: string
   default: dropdown
 modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode.
+  required: false
+  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode. If not set, all modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -855,6 +923,31 @@ style:
   default: slider
 {% endconfiguration %}
 
+## Select options
+
+Widget that displays a dropdown to select an option for a [select](/integrations/select) or [input select](/integrations/input_select).
+
+<p class='img'>
+  <img src='/images/dashboards/features/select_options.png' alt='Screenshot of the tile card with the select options feature'>
+  Screenshot of the tile card with the select options feature
+</p>
+
+```yaml
+features:
+  - type: "select-options"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`select-options`"
+  type: string
+options:
+  required: false
+  description: List of options to show on the card. If not specified, all available options from the entity are displayed.
+  type: list
+{% endconfiguration %}
+
 ## Target humidity
 
 Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier).
@@ -1106,8 +1199,8 @@ type:
   description: "`water-heater-operation-modes`"
   type: string
 operation_modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
+  required: false
+  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`. If not set, all operation modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -1136,7 +1229,7 @@ type:
   description: "`area-controls`"
   type: string
 controls:
-  required: true
-  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
+  required: false
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above. If not set, the default set of controls supported in the area is shown.
   type: list
 {% endconfiguration %}
