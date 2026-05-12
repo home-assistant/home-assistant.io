@@ -159,28 +159,7 @@ actions:
 
 {% enddetails %}
 
-## Actions
-
-### Action: Activate timer mode
-
-The `watts.activate_timer_mode` action sets the thermostat to **Timer** mode with a target temperature and duration. When the timer expires, the thermostat returns to its previous mode.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `temperature`  | No       | Target temperature to hold while the timer is active |
-| `duration`     | No       | Duration of the timer in minutes (1–1440) |
-
-Example:
-
-```yaml
-actions:
-  - action: watts.activate_timer_mode
-    target:
-      entity_id: climate.living_room_thermostat
-    data:
-      temperature: 21
-      duration: 90
-```
+{% include integrations/actions.md %}
 
 ## Known limitations
 
