@@ -96,5 +96,5 @@ Your account must have at least **Smart Access** rights on the access points
 you want to control. Contact your Glutz system administrator to verify your
 permissions.
   
-## Removing the integration                                                                                           
+## Removing the integration
 {% include integrations/remove_device_service.md %}
