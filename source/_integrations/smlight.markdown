@@ -4,6 +4,8 @@ description: The SMLIGHT SLZB integration allows users to monitor and manage the
 ha_category:
   - Binary sensor
   - Button
+  - Infrared
+  - Light
   - Sensor
   - Switch
   - Update
@@ -16,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - infrared
   - light
   - sensor
   - switch
@@ -124,9 +127,13 @@ The updates offered in Home Assistant will match your currently installed firmwa
 
 SLZB-Ultima devices support additional peripherals not found on other SLZB adapters, including an Ambilight LED strip, an infrared remote controller, and a buzzer. Support for these peripherals is being added progressively. The following entities are currently available.
 
-### Lights
+#### Lights
 
 - **Ambilight** - Controls the LED strip on the front of the Ultima device, including selecting built-in effects. The `color2`, `speed`, and `direction` properties used by some effects are not yet supported.
+
+#### Infrared
+
+- **IR Emitter**: This entity can be used by other integrations as an [Infrared](/integrations/infrared/) proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity type to control your TV.
 
 ## Removing the integration
 

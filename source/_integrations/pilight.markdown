@@ -61,7 +61,7 @@ send_delay:
   default: 0.0
   type: float
 whitelist:
-  description: You can define a whitelist to prevent that too many unwanted RF codes (e.g., the neighbors weather station) are put on your HA event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
+  description: You can define a whitelist to prevent that too many unwanted RF codes (e.g., the neighbors weather station) are put on your Home Assistant event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
   required: false
   type: string
 {% endconfiguration %}

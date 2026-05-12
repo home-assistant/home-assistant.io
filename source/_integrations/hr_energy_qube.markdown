@@ -1,8 +1,9 @@
 ---
-title: HR-Energy Qube heat pump
+title: Qube heat pump
 description: Instructions on how to integrate your Qube heat pump with Home Assistant.
 ha_release: 2026.4
 ha_category:
+  - Binary sensor
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@MattieGit'
 ha_domain: hr_energy_qube
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -37,6 +39,14 @@ Host:
 {% endconfiguration_basic %}
 
 ## Supported functionality
+
+### Binary sensors
+
+- **Outputs**: source pump, user pump, buffer pump, four-way valve, three-way valve, cooling output, and heater steps 1-3
+- **Alarms**: global alarm, plus specific alarms for anti-legionella timeout, domestic hot water (DHW) timeout, dewpoint, supply too hot, flow, central heating, cooling, heating, source, compressor, and working hours
+- **Demand signals**: thermostat demand, plant demand, and external demand
+- **System status**: keypad, day mode, summer mode, anti-legionella, dewpoint, booster security, source flow, and photovoltaic (PV) surplus
+- **Sensor status** (disabled by default): room sensor enabled, plant sensor enabled, buffer sensor enabled, and DHW controller enabled
 
 ### Sensors
 

@@ -6,12 +6,13 @@ ha_category:
   - Presence detection
 ha_release: 0.105
 ha_codeowners:
-  - '@mtreinish'
+  - '@HarlemSquirrel'
+  - '@Snuffy2'
 ha_domain: opnsense
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: legacy
 ---
 

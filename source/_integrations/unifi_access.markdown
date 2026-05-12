@@ -8,7 +8,7 @@ ha_category:
 ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@imhotep'
@@ -16,6 +16,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - event
   - image
   - select
@@ -49,7 +50,7 @@ Before setting up this integration, make sure you have the following:
   1. Open the UniFi Access web interface.
   2. Navigate to **Settings** > **Advanced**.
   3. Under **API Token**, select **Create Token**.
-  4. Give the token a descriptive name (for example, *Home Assistant*) and save it.
+  4. Give the token a descriptive name (for example, _Home Assistant_) and save it.
   5. Copy the generated token — you will need it during setup.
 - Your Home Assistant instance must be able to reach the UniFi Access controller on your local network.
 
@@ -91,7 +92,6 @@ Each door provides two **event** entities:
   - `access_denied`: The access attempt was denied (API result: `BLOCKED` or any other non-`ACCESS` value).
 
   The event includes the following additional attributes when available:
-
   - `actor`: The name of the person who attempted access.
   - `authentication`: The authentication method used (for example, NFC, PIN code, Face).
   - `result`: The raw result from the UniFi Access controller (for example, `ACCESS`, `BLOCKED`).
@@ -112,7 +112,7 @@ Each door registered in your UniFi Access controller is represented by a **binar
 The integration provides two switch entities for controlling the emergency modes of your UniFi Access controller.
 
 {% important %}
-These switches affect *all* doors managed by the controller at once and have direct physical security and safety implications. Make sure to restrict access to these switches in your dashboards and avoid triggering them accidentally in automations.
+These switches affect _all_ doors managed by the controller at once and have direct physical security and safety implications. Make sure to restrict access to these switches in your dashboards and avoid triggering them accidentally in automations.
 {% endimportant %}
 
 - **Evacuation**
@@ -131,6 +131,31 @@ For controllers that support temporary lock rules, each door exposes the followi
 For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entity:
 
 - **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
+
+### Actions
+
+For controllers that support temporary lock rules, the integration also provides the `unifi_access.set_lock_rule` action.
+
+Use this action to apply a temporary lock rule to a specific door from an automation or script. It complements the existing **Door Lock Rule** select entity and adds support for setting the interval directly. In the automation editor, select the UniFi Access door device you want to target.
+
+| Data attribute | Optional | Description                                                                                                   |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       | The UniFi Access door device to update.                                                                       |
+| `rule`         | no       | The lock rule to apply. Supported values are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, and `reset`. |
+| `interval`     | yes      | How long the rule stays active, as a duration (for example, `"00:30:00"` for 30 minutes). Defaults to 10 minutes when omitted. |
+
+Example action:
+
+```yaml
+action: unifi_access.set_lock_rule
+data:
+  device_id: 0123456789abcdef0123456789abcdef
+  rule: keep_lock
+  interval:
+    hours: 0
+    minutes: 30
+    seconds: 0
+```
 
 ## Data updates
 

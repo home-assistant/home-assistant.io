@@ -1,14 +1,14 @@
 ---
-title: "Automation Trigger"
-description: "All the different ways how automations can be triggered."
+title: "Automation triggers"
+description: "Triggers are the events that start an automation, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
 ---
 
-Triggers are what starts the processing of an {% term automation %} rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
+A trigger is what wakes an automation up. Until something triggers it, an automation just sits there quietly, waiting. The moment a trigger fires, Home Assistant checks any [conditions](/docs/automation/condition/) you set, and if they pass, it runs the [actions](/docs/automation/action/).
 
-An {% term automation %} can be triggered by an {% term event %}, a certain {% term entity %} {% term state %}, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
 
 - [Trigger ID](#trigger-id)
 - [Trigger variables](#trigger-variables)

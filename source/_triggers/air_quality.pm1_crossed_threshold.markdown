@@ -23,7 +23,7 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **PM1 level crossed threshold**.
 6. Under **Threshold type**, set the PM1 level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
 8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
 9. Select **Save**.
 
@@ -32,13 +32,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: The PM1 concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -102,7 +99,7 @@ Candles, cooking, and fireplaces all release ultrafine particles that are invisi
 - **Trigger**: PM1 level crossed threshold
 - **Target**: Living room PM1 sensor
 - **Threshold type**: 25
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Action**: Turn on switch (air purifier)
 
 {% details "YAML example for PM1-based air purifier" %}

@@ -3,10 +3,13 @@ title: Gardena Bluetooth
 description: Instructions on how to integrate Gardena Bluetooth devices within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Number
   - Select
   - Sensor
   - Switch
+  - Text
+  - Valve
 ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -20,6 +23,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - valve
 ha_integration_type: device
 ---

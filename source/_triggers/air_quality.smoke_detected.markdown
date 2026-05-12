@@ -20,7 +20,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your smoke sensor is in (like your kitchen or garage). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Smoke detected**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple sensors are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple sensors are targeted.
 7. Under **For at least**, set how long the sensor must stay in the detected state before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -28,11 +28,9 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor detects smoke, **First** to fire only when the first sensor in a group detects smoke, or **Last** to fire only after every targeted sensor detects smoke.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor detects smoke, **First** to fire only when the first sensor in a group detects smoke, or **All** to fire only after every targeted sensor detects smoke.
 For at least:
   description: How long the sensor must stay in the detected state before the trigger fires. Set to zero to fire immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -87,9 +85,9 @@ Picture this: it is the middle of the night and a smoke sensor activates in the 
 
 - **Trigger**: Smoke detected
 - **Target**: All smoke sensors (by label)
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:00
-- **Action**: Light: Turn on (flash)
+- **Action**: Light: Turn on light (flash)
 - **Action**: Send a mobile notification
 
 {% details "YAML example for a smoke detection alert" %}
@@ -124,7 +122,7 @@ In a fire, fumbling with a lock in the dark costs precious seconds. This automat
 
 - **Trigger**: Smoke detected
 - **Target**: All smoke sensors (by label)
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:30
 - **Action**: Lock: Unlock
 

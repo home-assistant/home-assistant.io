@@ -1,6 +1,6 @@
 ---
-title: "Cards"
-description: "Introduction to the role of cards on the dashboard and how to add a card."
+title: "Dashboard cards"
+description: "Cards are the building blocks of a Home Assistant dashboard. Each card shows information from your home or lets you control a device, and you add them with a single tap."
 related:
   - docs: /dashboards/actions/
     title: Card tap actions
@@ -29,7 +29,7 @@ There are several different card types, each with their own configuration option
 - **Grouping other cards**: [vertical stack](/dashboards/vertical-stack/), [horizontal stack](/dashboards/horizontal-stack/), [grid](/dashboards/grid/)
 - **Logic function**: [conditional](/dashboards/conditional/), [entity filter](/dashboards/entity-filter/)
 - **Display generic data**: [sensor](/dashboards/sensor/), [history graph](/dashboards/history-graph/), [statistic](/dashboards/statistic/), [statistics graph](/dashboards/statistics-graph/), [energy](/dashboards/energy/), [gauge](/dashboards/gauge/), [clock](/dashboards/clock/), [Markdown](/dashboards/markdown/), [webpage](/dashboards/iframe/)
-- **Control devices and entities**: [button](/dashboards/button/), [entity](/dashboards/entity/)
+- **Control devices and entities**: [button](/dashboards/button/), [entity](/dashboards/entity/), [shortcut](/dashboards/shortcut/)
 - **Display data and control entities**: [tile](/dashboards/tile/), [heading](/dashboards/heading/), [entities](/dashboards/entities/), [glance](/dashboards/glance/), [area](/dashboards/area/), [picture](/dashboards/picture/), [picture entity](/dashboards/picture-entity/), [picture elements](/dashboards/picture-elements/), [picture glance](/dashboards/picture-glance/)
 
 ## Adding cards to your dashboard

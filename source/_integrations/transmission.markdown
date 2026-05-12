@@ -14,6 +14,7 @@ ha_codeowners:
   - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
+  - event
   - sensor
   - switch
 ha_integration_type: service
@@ -73,6 +74,55 @@ The **Transmission** integration provides the following sensors and switches.
 
 - A switch to start/stop all torrents.
 - A switch to enable turtle mode (a.k.a. alternative speed limits).
+
+## Event entity
+
+The **Transmission** {% term integration %} provides an {% term "Event entity" %} that records the last torrent event. The entity state stores the time of that event, and several event attributes provide more details that you can use in automations.
+
+- **State attribute**: `event_type`
+  - **Description**: The type of the last torrent event. Possible states are Started, Downloaded, and Removed.
+
+- **State attribute**: `name`
+  - **Description**: The filename of the torrent.
+
+- **State attribute**: `id`
+  - **Description**: The ID of the torrent within **Transmission**.
+
+- **State attribute**: `download_path`
+  - **Description**: The path where the torrent content is downloaded.
+
+- **State attribute**: `labels`
+  - **Description**: The list of labels added to the torrent.
+
+### Usage examples
+
+Create a persistent notification when a torrent is downloaded.
+
+{% raw %}
+
+```yaml
+alias: Transmission torrent downloaded event
+description: "Notify when a torrent is downloaded"
+triggers:
+  - trigger: state
+    entity_id:
+      - event.transmission_torrent
+    not_from:
+      - unavailable
+conditions:
+  - condition: state
+    entity_id: event.transmission_torrent
+    attribute: event_type
+    state: "downloaded"
+actions:
+  - action: persistent_notification.create
+    data:
+      message: >
+        {{ state_attr(trigger.entity_id, 'name') }} was downloaded
+mode: single
+```
+
+{% endraw %}
 
 ## Event automation
 

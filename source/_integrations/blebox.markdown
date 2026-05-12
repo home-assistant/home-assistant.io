@@ -2,13 +2,20 @@
 title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
+  - Climate
   - Cover
+  - Light
+  - Sensor
+  - Switch
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bbx-a'
   - '@swistakm'
+  - '@bkobus-bbx'
 ha_domain: blebox
 ha_platforms:
   - binary_sensor
@@ -435,6 +442,22 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of illuminance (unit: lx)
 
+### smartMeter DIN
+
+This integration adds the Blebox device as multiple sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of energy consumption (forward and reverse)
+- Periodic read of power (active, reactive, and apparent)
+- Periodic read of voltage, current, and frequency
+
+#### Additional features
+
+- Option to configure the number of phases (1 or 3) is available in the wBox app.
+- Option to enable/disable reverse energy measurement is available in the wBox app.
+- After a settings change, the device needs to be reloaded.
+
 ### actionBox, actionBoxS, and proxiBox
 
 This integration does not add direct support for actionBox, actionBoxS, and proxiBox
@@ -763,3 +786,18 @@ This integration adds the Wikęd device ("blebox inside") as a cover entity to H
 - Open
 - Door state (open, close, unknown)
 
+### Pstryk smartEnergyMeter
+
+This integration adds the Pstryk device ("blebox inside") as multiple sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of energy consumption (forward and reverse)
+- Periodic read of power (active, reactive, and apparent)
+- Periodic read of voltage, current, and frequency
+
+#### Additional features
+
+- Option to configure the number of phases (1 or 3) is available in the wBox app.
+- Option to enable/disable reverse energy measurement is available in the wBox app.
+- After a settings change, the device needs to be reloaded.

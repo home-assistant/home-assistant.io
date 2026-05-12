@@ -2,7 +2,7 @@
 title: "Setting up local media sources"
 description: "Learn how to configure local media sources in Home Assistant so your audio and video files are available in the media browser."
 related:
-  - docs: /more-info/local-media/add-media
+  - docs: /more-info/local-media/add-media/
     title: Adding your media to Home Assistant
   - docs: /integrations/homeassistant/#media_dirs
     title: Media directories configuration

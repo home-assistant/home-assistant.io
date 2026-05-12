@@ -11,7 +11,6 @@ ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
 ha_codeowners:
-  - '@hacf-fr'
   - '@Quentame'
   - '@mib1185'
 ha_config_flow: true
