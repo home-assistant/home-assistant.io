@@ -3,7 +3,7 @@ title: Glutz eAccess
 description: Instructions on how to integrate Glutz eAccess into Home Assistant.
 ha_category:
   - Lock
-ha_release: "2026.XX"
+ha_release: "2026.6"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -63,3 +63,38 @@ Each Glutz access point is exposed as a **lock** entity. The following actions a
 {% note %}
 Glutz eAccess doors do not provide real-time state feedback. The lock state in Home Assistant is simulated: after an unlock command the entity shows *unlocked* briefly before reverting to *locked*. The **Open** action keeps the entity in the *unlocked* state until explicitly locked.
 {% endnote %}
+
+## Data updates
+
+The integration polls the Glutz eAccess server every 5 minutes to refresh
+the list of access points. The lock state cannot be retrieved from the API
+and is simulated locally.
+
+## Use cases
+
+- Automate door access based on time schedules (e.g., unlock the office
+  entrance every weekday morning).
+- Trigger automations when a door is unlocked (e.g., turn on lights when
+  the front door opens).
+- Control and monitor all your Glutz access points from a single dashboard.
+
+## Troubleshooting
+
+### Cannot connect to the server
+
+Verify that the host URL is correct and reachable from your Home Assistant
+instance. Make sure to include the protocol (e.g., `https://`).
+
+### Invalid credentials
+
+Ensure your username and password are correct. If you recently changed your
+password, use the re-authentication flow to update your stored credentials.
+
+### Access points are not appearing
+
+Your account must have at least **Smart Access** rights on the access points
+you want to control. Contact your Glutz system administrator to verify your
+permissions.
+  
+## Removing the integration                                                                                           
+{% include integrations/remove_device_service.md %}
