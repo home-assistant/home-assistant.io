@@ -52,8 +52,7 @@ This action has no additional YAML options beyond the target.
 
 {% include actions/more_examples.md %}
 
-### Automation: Restart a router when the internet is down
-
+### Automation: restart a router when the internet is down
 Use this automation to press a restart button after the internet connection has been down for a while.
 
 {% details "Show example YAML" %}
@@ -74,7 +73,7 @@ automation: |
 
 {% enddetails %}
 
-### Automation: Run a firmware update overnight
+### Automation: run a firmware update overnight
 
 Use this automation when a device exposes an update button and you want to run it at a quiet time.
 
@@ -99,3 +98,5 @@ automation: |
 {% enddetails %}
 
 {% include actions/stuck.md %}
+
+{% include actions/related.md %}
