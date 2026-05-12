@@ -29,11 +29,11 @@ The following devices are known to be supported by the integration:
 
 To use this integration, you need to register your tank monitor with CentriConnect and create an account.
 
-1. Make note of the full "Device ID" and "Device Authentication Code" printed on the setup card.
+1. Make note of the full **Device ID** and **Device Authentication Code** printed on the setup card.
 1. Download the **MyPropane** app and connect by scanning the QR code on the back of your tank monitor.
 1. Follow the steps to create an account and register the device.
-1. Select "Account" from the main menu.
-1. Copy or write down your "User ID".
+1. Select **Account** from the main menu.
+1. Copy or write down your **User ID**.
 
 {% include integrations/config_flow.md %}
 
@@ -61,7 +61,7 @@ The **CentriConnect/MyPropane** integration provides the following entities:
   - **Description**: Current altitude of the device in meters above sea level.
   - **Remarks**: Disabled by default.
 
-- **Battery Level**
+- **Battery**
   - **Description**: Current battery percentage of the device.
   - **Remarks**: Battery is charged by the solar panel, if the battery is low, check to make sure the solar panel is clean and the device is oriented towards the sun.
 
@@ -73,18 +73,6 @@ The **CentriConnect/MyPropane** integration provides the following entities:
   - **Description**: Current temperature measured by the device in °F
   - **Remarks**: Disabled by default. Not particularly useful as a thermometer since the value updates 2-3 times per day.
 
-- **Last Post Time**
-  - **Description**: Timestamp of the last device update
-  - **Remarks**: Disabled by default.
-
-- **Latitude**
-  - **Description**: Latitude of the GPS coordinate of the device
-  - **Remarks**: Disabled by default.
-
-- **Longitude**
-  - **Description**: Longitude of the GPS coordinate of the device
-  - **Remarks**: Disabled by default.
-
 - **LTE Signal Level**
   - **Description**: Current cellular signal level as a percentage
   - **Remarks**: -
@@ -92,10 +80,6 @@ The **CentriConnect/MyPropane** integration provides the following entities:
 - **LTE Signal Strength**
   - **Description**: Current cellular signal strength in dBm
   - **Remarks**: Disabled by default. Usually between -140 dBm and -70 dBm.
-
-- **Next Post Time**
-  - **Description**: Timestamp of the estimated next device update
-  - **Remarks**: Disabled by default.
 
 - **Solar Level**
   - **Description**: Current solar power level as a percentage
@@ -111,10 +95,10 @@ The **CentriConnect/MyPropane** integration provides the following entities:
 
 - **Tank Remaining Volume**
   - **Description**: Estimated remaining volume of fluid/gas in the tank
-  - **Remarks**: Tank Level x Tank Size. The units of this sensor reflect the units provided for the tank size during device registration.
+  - **Remarks**: Tank Level multiplied by Tank Size. The units of this sensor reflect the units provided for the tank size during device registration.
 
 - **Tank Size**
-  - **Description**: The volume of the tank. Provided during device registration.
+  - **Description**: The total volume of the tank. Provided during device registration.
   - **Remarks**: The units of this sensor reflect the units provided during device registration.
 
 ## Examples
