@@ -226,7 +226,9 @@ automation: |
             number: 22
             unit_of_measurement: "°C"
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app
       data:
         message: >
           Temperature in {{ trigger.to_state.name }} is {{
@@ -261,7 +263,9 @@ automation: |
           value_max:
             entity: input_number.comfort_temperature_max
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app
       data:
         message: "Bedroom temperature is now {{ trigger.to_state.state }}°C, within your comfort range."
 {% endexample %}

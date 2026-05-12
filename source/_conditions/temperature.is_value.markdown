@@ -228,7 +228,9 @@ automation: |
             unit_of_measurement: "°C"
         behavior: any
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app
       data:
         message: >
           Living room temperature is

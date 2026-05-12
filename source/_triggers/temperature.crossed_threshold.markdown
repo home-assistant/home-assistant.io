@@ -232,7 +232,9 @@ automation: |
             number: 22
             unit_of_measurement: "°C"
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app
       data:
         message: >-
           Bedroom temperature is now comfortable at
