@@ -264,4 +264,6 @@ data:
     {% endfor %}
 ```
 
-{% include integrations/triggers_conditions_actions.md %}
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
