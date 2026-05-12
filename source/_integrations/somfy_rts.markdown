@@ -80,6 +80,22 @@ Because Somfy RTS is a one-way radio protocol, Home Assistant cannot receive any
 - **No position feedback**: The cover does not report its actual position. The state is an optimistic assumption based on the last command sent.
 - **Pairing after setup**: Once the integration is set up, there is currently no way to send a PROG command from Home Assistant to pair or unpair this virtual remote from a motor. If you need to pair the remote after setup, you can do so by reconfiguring the integration entry. Full support for sending PROG at any time will be added in a future update.
 
+## Troubleshooting
+
+### Commands are not received by the motor
+
+The motor does not respond to commands sent from Home Assistant. Because Somfy RTS is a one-way protocol, there is no error feedback — commands are either received or silently ignored.
+
+Things to check:
+
+- Make sure the transmitter is powered and reachable from Home Assistant.
+- Verify that the virtual remote is paired with the motor. If you skipped the PROG step during setup, reconfigure the integration entry to send the PROG command.
+- Check that the transmitter is within range of the motor. Walls and other obstructions can reduce the effective range significantly.
+
+### Broadlink RM4 Pro: commands may not reach the motor
+
+The Broadlink RM4 Pro does not support the 433.42 MHz frequency that Somfy RTS requires. Commands may still reach the motor if you place the Broadlink device within 30–50 cm of the motor, but reliable operation at normal distances is not expected. For best results, use a transmitter that fully supports 433.42 MHz <abbr title="On-Off Keying">OOK</abbr> transmissions.
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
@@ -87,3 +103,4 @@ Because Somfy RTS is a one-way radio protocol, Home Assistant cannot receive any
 {% caution %}
 Removing the integration does not unpair the virtual remote from your Somfy motor. The remote slot on the motor remains occupied. If you want to free up that slot, you will need to factory reset the motor, which removes all paired remotes at once.
 {% endcaution %}
+
