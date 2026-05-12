@@ -54,11 +54,9 @@ The password must be at least 8 characters and include uppercase letters, lowerc
 
 Each Glutz access point is exposed as a **lock** entity. The following actions are supported:
 
-| Action | Description |
-|--------|-------------|
-| Lock | Sends a close command to the access point. |
-| Unlock | Sends an open command; the door re-locks automatically after a few seconds. |
-| Open | Holds the door open indefinitely until a lock command is issued. |
+- **Lock**: Sends a close command to the access point.
+- **Unlock**: Sends an open command; the door re-locks automatically after a few seconds.
+- **Open**: Holds the door open indefinitely until a lock command is issued.
 
 {% note %}
 Glutz eAccess doors do not provide real-time state feedback. The lock state in Home Assistant is simulated: after an unlock command the entity shows *unlocked* briefly before reverting to *locked*. The **Open** action keeps the entity in the *unlocked* state until explicitly locked.
@@ -74,8 +72,7 @@ and is simulated locally.
 
 - Automate door access based on time schedules (e.g., unlock the office
   entrance every weekday morning).
-- Trigger automations when a door is unlocked (e.g., turn on lights when
-  the front door opens).
+- Trigger automations when a lock or unlock action is sent from Home Assistant (for example, turn on lights when you unlock the front door via an automation or the dashboard).
 - Control and monitor all your Glutz access points from a single dashboard.
 
 ## Troubleshooting
@@ -83,7 +80,7 @@ and is simulated locally.
 ### Cannot connect to the server
 
 Verify that the host URL is correct and reachable from your Home Assistant
-instance. Make sure to include the protocol (e.g., `https://`).
+instance. Make sure to include the protocol (for example, `https://`).
 
 ### Invalid credentials
 
@@ -95,6 +92,6 @@ password, use the re-authentication flow to update your stored credentials.
 Your account must have at least **Smart Access** rights on the access points
 you want to control. Contact your Glutz system administrator to verify your
 permissions.
-  
+
 ## Removing the integration
 {% include integrations/remove_device_service.md %}
