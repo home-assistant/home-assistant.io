@@ -48,7 +48,7 @@ More options:
     Limit refetch to URL change:
       description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
     Use wallclock as timestamps:
-      description: Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ).
+      description: Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (for example, EZVIZ).
 {% endconfiguration_basic %}
 
 <p class='img'>
