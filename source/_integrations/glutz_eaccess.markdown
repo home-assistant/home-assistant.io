@@ -12,7 +12,7 @@ ha_domain: glutz_eaccess
 ha_integration_type: hub
 ---
 
-The Glutz eAccess integration connects Home Assistant to the [Glutz eAccess](https://www.glutz.com/) access control system, allowing you to control all your Glutz access points directly from Home Assistant.
+The **Glutz eAccess** {% term integration %} connects Home Assistant to the [Glutz eAccess](https://www.glutz.com/) access control system, allowing you to control all your Glutz access points directly from Home Assistant.
 
 Glutz eAccess can be deployed as a cloud service (hosted by Glutz) or as a self-hosted server (eAccess Desktop or Server with the RPC interface enabled).
 
