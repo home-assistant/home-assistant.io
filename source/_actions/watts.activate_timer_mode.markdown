@@ -41,11 +41,11 @@ action: |
   target:
     entity_id: climate.living_room_thermostat
   data:
-    temperature: 21
+    temperature: 21.5
     duration: 90
 {% endexample %}
 
-This sets the living room thermostat to 21°C for 90 minutes, then returns to its previous mode.
+This sets the living room thermostat to 21.5°C for 90 minutes, then returns to its previous mode.
 
 ### Options in YAML
 
@@ -81,9 +81,9 @@ Every weekday morning, boost the bathroom thermostat to a comfortable temperatur
 
 - **Trigger**: Time: 06:30 on weekdays
 - **Action**: Watts Vision +: Activate timer mode
-- **Target**: Bathroom thermostat
-- **Temperature**: 23
-- **Duration**: 30
+   - **Target**: Bathroom thermostat
+   - **Temperature**: 23
+   - **Duration**: 30
 
 {% details "YAML example for a morning bathroom warm-up" %}
 
