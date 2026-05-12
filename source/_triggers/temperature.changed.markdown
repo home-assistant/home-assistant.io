@@ -203,9 +203,10 @@ automation: |
 This automation sends a notification when any room temperature drifts outside the comfort range of 20 to 22°C, helping you maintain consistent conditions throughout your home.
 
 - **Trigger**: Temperature changed
-- **Target**: All temperature sensors (label)
-- **Threshold type**: Outside range (20-22°C)
-- **Action**: Send a notification
+  - **Target**: All temperature sensors (label)
+  - **Threshold type**: Outside range (20-22°C)
+- **Action**: Send a notification message
+  - **Target**: notify.mobile_app
 
 {% details "YAML example for comfort range alert" %}
 
@@ -228,7 +229,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app
+        entity_id: notify.gabrielas_android
       data:
         message: >
           Temperature in {{ trigger.to_state.name }} is {{
@@ -242,9 +243,10 @@ automation: |
 Send a notification whenever the bedroom temperature changes to a level within your personal comfort range. Use number helpers for the range bounds so you can easily adjust your preferred temperatures through the UI.
 
 - **Trigger**: Temperature changed
-- **Target**: Bedroom temperature sensor
-- **Threshold type**: In range (entity: comfort temperature min and max)
-- **Action**: Send a notification
+  - **Target**: Bedroom temperature sensor
+  - **Threshold type**: In range (entity: comfort temperature min and max)
+- **Action**: Send a notification message
+  - **Target**: notify.mobile_app
 
 {% details "YAML example for using number helpers as threshold" %}
 
@@ -265,7 +267,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app
+        entity_id: notify.gabrielas_android
       data:
         message: "Bedroom temperature is now {{ trigger.to_state.state }}°C, within your comfort range."
 {% endexample %}

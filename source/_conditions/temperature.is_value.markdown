@@ -201,9 +201,10 @@ This automation sends a notification only when the living room temperature is ou
 
 - **Trigger**: Time pattern (every hour)
 - **Condition**: Temperature value (outside 20-22°C range)
-- **Target**: Living room temperature sensor
-- **Condition passes if**: Any
-- **Action**: Send a notification
+  - **Target**: Living room temperature sensor
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: notify.mobile_app
 
 {% details "YAML example for temperature out of range alert" %}
 
@@ -230,7 +231,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app
+        entity_id: notify.gabrielas_android
       data:
         message: >
           Living room temperature is

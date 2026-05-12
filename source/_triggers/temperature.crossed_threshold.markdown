@@ -209,9 +209,10 @@ automation: |
 After opening windows to cool down a stuffy bedroom, this automation alerts you the moment the temperature enters your preferred comfort range so you can close the windows.
 
 - **Trigger**: Temperature crossed threshold
-- **Target**: Bedroom temperature sensor
-- **Threshold type**: In range (20-22°C)
-- **Action**: Send a notification
+  - **Target**: Bedroom temperature sensor
+  - **Threshold type**: In range (20-22°C)
+- **Action**: Send a notification message
+  - **Target**: notify.gabrielas_android
 
 {% details "YAML example for comfort range entry alert" %}
 
@@ -234,7 +235,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app
+        entity_id: notify.gabrielas_android
       data:
         message: >-
           Bedroom temperature is now comfortable at
