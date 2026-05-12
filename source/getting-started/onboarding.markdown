@@ -4,7 +4,7 @@ description: "Set up Home Assistant for the first time. Create your account, res
 toc: false
 ---
 
-After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to complete setting up Home Assistant. The whole onboarding takes only a few minutes and is done entirely in your browser, so no command line or coding is required.
+After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to complete setting up Home Assistant. The entire onboarding takes only a few minutes and is done in your browser, so no command-line or coding is required.
 
 1. Enter the following URL into the browser's address bar: [http://homeassistant.local:8123/](http://homeassistant.local:8123/).
    - Result: You now see the **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
