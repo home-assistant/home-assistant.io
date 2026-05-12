@@ -29,10 +29,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple fans are targeted, controls whether the trigger fires for **Each** fan, only the **First** fan, or after **All** targeted fans are off.
-  required: true
+  required: false
 For at least:
   description: How long the fan must stay off before the trigger fires.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -56,12 +56,12 @@ This fires when `fan.kitchen` has been off for 10 minutes.
 {% options_yaml %}
 behavior:
   description: When multiple fans are targeted, controls whether the trigger fires for `any`, `first`, or `last`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: How long the fan must stay off before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
@@ -120,7 +120,7 @@ If you rely on airflow for comfort at night, a notification can tell you when th
 - **Target**: Nursery fan
 - **Trigger when**: Each
 - **For at least**: 00:05:00
-- **Action**: Notify mobile app
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for a nursery fan alert" %}
 

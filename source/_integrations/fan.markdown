@@ -28,12 +28,12 @@ In addition, the entity can have the following states:
 
 The **Fan** integration provides fan entities with these common features:
 
-- Turning a fan on and off
-- Setting the speed as a percentage
-- Setting a preset mode
-- Turning oscillation on or off
-- Changing the rotation direction
-- Increasing or decreasing the speed in steps
+- Turning a fan on and off.
+- Setting the speed as a percentage.
+- Setting a preset mode.
+- Turning oscillation on or off.
+- Changing the rotation direction.
+- Increasing or decreasing the speed in steps.
 
 Not every fan supports every action. The actions available for a specific fan depend on the features exposed by that device.
 

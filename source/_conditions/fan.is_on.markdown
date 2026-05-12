@@ -29,10 +29,10 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple fans are targeted, controls whether **Any** targeted fan must be on or **All** targeted fans must be on.
-  required: true
+  required: false
 For at least:
   description: How long the fan must have been on for the condition to pass.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -56,12 +56,12 @@ This passes when `fan.office` has been on for 15 minutes.
 {% options_yaml %}
 behavior:
   description: When multiple fans are targeted, controls whether `any` or `all` targeted fans must be on.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: How long the fan must have been on for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
@@ -89,7 +89,7 @@ If a window opens while the bedroom fan is running, you may want a reminder so y
 - **Target**: Bedroom fan
 - **Condition passes if**: Any
 - **For at least**: 00:00:00
-- **Action**: Notify mobile app
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for a window and fan reminder" %}
 

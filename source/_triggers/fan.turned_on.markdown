@@ -29,10 +29,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple fans are targeted, controls whether the trigger fires for **Each** fan, only the **First** fan, or after **All** targeted fans are on.
-  required: true
+  required: false
 For at least:
   description: How long the fan must stay on before the trigger fires.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -56,12 +56,12 @@ This fires when `fan.bedroom` has been on for 5 minutes.
 {% options_yaml %}
 behavior:
   description: When multiple fans are targeted, controls whether the trigger fires for `any`, `first`, or `last`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: How long the fan must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
@@ -88,7 +88,7 @@ If the bathroom fan has been running for a while, you may want a reminder to tur
 - **Target**: Bathroom fan
 - **Trigger when**: Each
 - **For at least**: 00:20:00
-- **Action**: Notify mobile app
+- **Action**: Send a notification via mobile_app_phone
 
 {% details "YAML example for a bathroom fan reminder" %}
 

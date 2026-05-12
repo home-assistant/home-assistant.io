@@ -29,10 +29,10 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple fans are targeted, controls whether **Any** targeted fan must be off or **All** targeted fans must be off.
-  required: true
+  required: false
 For at least:
   description: How long the fan must have been off for the condition to pass.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -56,12 +56,12 @@ This passes when `fan.living_room` has been off for 30 minutes.
 {% options_yaml %}
 behavior:
   description: When multiple fans are targeted, controls whether `any` or `all` targeted fans must be off.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: How long the fan must have been off for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
