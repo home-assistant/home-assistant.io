@@ -129,10 +129,11 @@ automation: |
 If the nursery humidifier turns on during the night, send a quiet notification to your phone so you know air quality is being maintained without having to check the app.
 
 - **Trigger**: Humidifier turned on
-- **Target**: Nursery humidifier
-- **Trigger when**: Each
+  - **Target**: Nursery humidifier
+  - **Trigger when**: Each
 - **Condition**: Time is between 22:00 and 07:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: notify.mobile_app_phone
 
 {% details "YAML example for a nighttime nursery humidifier notification" %}
 
@@ -151,7 +152,9 @@ automation: |
       after: "22:00:00"
       before: "07:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.andres_android
       data:
         message: "Nursery humidifier turned on."
 {% endexample %}

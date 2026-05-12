@@ -97,11 +97,13 @@ for:
 If the bedroom humidifier turns off during the night, send a notification so you can check whether it ran out of water or was switched off by accident.
 
 - **Trigger**: Humidifier turned off
-- **Target**: Bedroom humidifier
-- **Trigger when**: Each
-- **For at least**: 00:00:00
+- **Trigger**: Humidifier turned off
+  - **Target**: Bedroom humidifier
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Condition**: Time is between 22:00 and 07:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: notify.mobile_app_phone
 
 {% details "YAML example for an overnight humidifier-off alert" %}
 
@@ -120,7 +122,9 @@ automation: |
       after: "22:00:00"
       before: "07:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.andres_android
       data:
         message: "Bedroom humidifier turned off."
 {% endexample %}

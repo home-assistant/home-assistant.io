@@ -97,10 +97,11 @@ for:
 When the basement dehumidifier starts running again, it means the air has become too humid. Send a notification so you can check whether there is a moisture problem that needs attention.
 
 - **Trigger**: Humidifier started drying
-- **Target**: Basement dehumidifier
-- **Trigger when**: Each
-- **For at least**: 00:05:00
-- **Action**: Send a mobile notification
+  - **Target**: Basement dehumidifier
+  - **Trigger when**: Each
+  - **For at least**: 00:05:00
+- **Action**: Send a notification message
+  - **Target**: notify.mobile_app_phone
 
 {% details "YAML example for a basement humidity alert" %}
 
@@ -115,7 +116,9 @@ automation: |
         behavior: any
         for: "00:05:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.andres_android
       data:
         message: "Basement dehumidifier started drying. Humidity may be high."
 {% endexample %}
