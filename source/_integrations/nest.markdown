@@ -309,14 +309,14 @@ This feature is enabled by the following permissions:
 
 {% endnote %}
 
-### Action set_fan_timer
+### Action: Set fan timer
 
-Sets the fan to run for a specific duration. The SDM API supports a maximum duration of 15 hours.
+The `nest.set_fan_timer` action sets the fan to run for a specific duration. The SDM API supports a maximum duration of 15 hours.
 
-| Action data field | Optional | Description |
-| ----------------- | -------- | ----------- |
-| `entity_id`       | No       | Name of the climate entity to set the fan timer on. |
-| `duration`        | No       | The duration the fan should run for (e.g., `00:15:00`). |
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `entity_id`    | No       | Name of the climate entity to set the fan timer on. |
+| `duration`     | No       | The duration the fan should run for, for example, `00:15:00`. |
 
 ## Sensor
 
