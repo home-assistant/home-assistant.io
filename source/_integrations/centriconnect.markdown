@@ -11,13 +11,12 @@ ha_codeowners:
   - '@gresrun'
 ha_domain: centriconnect
 ha_platforms:
-  - diagnostics
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-**CentriConnect/MyPropane** {% term integration %} allows you to monitor the level and status of propane tanks equipped with [centriconnect.com](https://www.centriconnect.com/) monitoring devices from within Home Assistant and setup automations based on the information.
+**CentriConnect/MyPropane** {% term integration %} allows you to monitor the level and status of propane tanks equipped with [centriconnect.com](https://www.centriconnect.com/) monitoring devices from within Home Assistant. You can then set up automations based on that information.
 
 ## Supported devices
 
