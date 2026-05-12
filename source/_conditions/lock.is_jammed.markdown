@@ -110,7 +110,9 @@ automation: |
         behavior: any
         for: "00:01:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.mobile_app_phone
       data:
         title: "Front door lock still jammed"
         message: "Check the front door lock and clear the obstruction."
