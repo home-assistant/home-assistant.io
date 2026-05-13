@@ -22,27 +22,31 @@ OpenAQ collects public air quality data from many providers around the world. In
 
 ## Prerequisites
 
-- You need an OpenAQ API key. 
-   - Sign up for an API key from the [OpenAQ Explorer registration page](https://explore.openaq.org/register). 
+- You need an OpenAQ API key.
+   - Sign up for an API key from the [OpenAQ Explorer registration page](https://explore.openaq.org/register).
    - You can manage your API key from your [OpenAQ Explorer account settings](https://explore.openaq.org/account).
-- Treat your API key like a password. 
+- Treat your API key like a password.
    - Do not share it or publish it in screenshots, logs, or public configuration examples.
 
 {% include integrations/config_flow.md %}
+
+OpenAQ setup has two parts. First, add the OpenAQ service with your API key. Then, add one or more monitoring locations.
 
 {% configuration_basic %}
 API key:
   description: Your OpenAQ API key. You can find it in your [OpenAQ Explorer account settings](https://explore.openaq.org/account). Home Assistant validates the key before creating the integration entry.
 {% endconfiguration_basic %}
 
-After the integration is added, add at least one monitoring location:
+### Add monitoring locations
+
+After the OpenAQ integration is added, add at least one monitoring location:
 
 1. Under {% my integrations title="**Settings** > **Devices & services**" %}, select the **OpenAQ** integration.
 2. Select **Add monitoring location**.
-3. Select a point on the map, set a maximum search radius, and choose one of the suggested monitoring locations. The default radius is 10000 meters (10 km), and the maximum radius is 25000 meters (25 km).
-4. Select the monitoring location to add.
+3. Select a point on the map, set a maximum search radius, and select **Submit**. The default radius is 25,000 meters (25 km), which is also the maximum.
+4. Choose one of the suggested monitoring locations.
 
-When you search by location, Home Assistant searches outward from the selected map point and shows up to five suggested monitoring locations. The suggestions are ranked by the number of supported sensor measurements first, then by distance. The list shows the supported measurement names and distance for each suggestion. Monitoring locations that do not report any supported measurements are not shown. To add another suggested monitoring location, run **Add monitoring location** again.
+The radius field uses meters because OpenAQ searches by radius in meters. Home Assistant searches outward from the selected map point and shows up to 10 suggested monitoring locations. The suggestions are ranked by distance first. If multiple locations have the same distance, locations with more supported sensor measurements are shown first. The list shows the supported measurement names and distance for each suggestion. Monitoring locations that do not report any supported measurements are not shown. Monitoring locations that you already added are also not shown. To add another suggested monitoring location, run **Add monitoring location** again.
 
 You can add multiple OpenAQ monitoring locations to the same OpenAQ integration entry. The same OpenAQ location can only be added once, even across multiple OpenAQ integration entries.
 
@@ -94,9 +98,7 @@ If the setup reports invalid authentication, confirm that your OpenAQ API key is
 
 ### No monitoring locations found
 
-If the location search does not find a monitoring location, try a larger radius or move the map point closer to a known monitoring station. The maximum search radius is 25000 meters.
-
-You can also add a monitoring location by entering its OpenAQ location ID directly.
+If the location search does not find a monitoring location, try a larger radius or move the map point closer to a known monitoring location. The maximum search radius is 25,000 meters.
 
 ### Rate limit exceeded
 
