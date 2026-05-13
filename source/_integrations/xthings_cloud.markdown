@@ -97,7 +97,7 @@ After successful setup, some or all devices are missing.
 #### Resolution
 
 1. Make sure the devices are added and online in the Xthings mobile app.
-2. Go to **Settings** > **Devices & services** > **Xthings Cloud** > **⋮** > **Reload** to refresh.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} > **Xthings Cloud** > **⋮** > **Reload** to refresh.
 3. Check the Home Assistant logs for any error messages from `xthings_cloud`.
 
 ## Removing the integration
