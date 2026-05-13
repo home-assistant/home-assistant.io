@@ -3,6 +3,8 @@ title: "Set fan timer"
 action: nest.set_fan_timer
 domain: nest
 description: "Sets the Nest thermostat fan to run for a specific duration."
+related_actions:
+  - climate.set_fan_mode
 ---
 
 The **Set fan timer** action sets the fan to run for a specific duration. The SDM API supports a maximum duration of 12 hours.
@@ -45,11 +47,10 @@ This sets the upstairs thermostat fan to run for 15 minutes.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 duration:
-  description: "The duration the fan should run for, for example, `minutes: 15`. The SDM API supports a maximum duration of 12 hours."
+  description: >
+    How long the fan should run. Accepts a Home Assistant duration object with `hours`, `minutes`, and `seconds` keys, or an ISO 8601 duration string such as `"00:15:00"`. Maximum value is 12 hours (the SDM API limit).
   required: true
   type: time
 {% endoptions_yaml %}
@@ -63,6 +64,35 @@ duration:
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
+
+### Automation: ventilate when CO2 levels are high
+
+When a CO2 sensor crosses a threshold, run the fan to bring in fresh air until levels drop back to normal.
+
+- **Trigger**: Numeric state: CO2 sensor above 1000 ppm
+- **Action**: Nest: Set fan timer
+- **Target**: Living room thermostat
+- **Duration**: 30 minutes
+
+{% details "YAML example for CO2-triggered ventilation" %}
+
+{% example %}
+automation: |
+  alias: "Run fan when CO2 is high"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.living_room_co2
+      above: 1000
+  actions:
+    - action: nest.set_fan_timer
+      target:
+        entity_id: climate.living_room
+      data:
+        duration:
+          minutes: 30
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
