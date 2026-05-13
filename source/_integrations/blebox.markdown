@@ -518,15 +518,15 @@ resolvable and accessible within the device network. If in doubt, please refer t
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
 {% endnote %}
 
-### uWiFi remotes via actionBox
+### uRemote, sRemote, inBox via actionBox
 
 μWiFi remotes can be integrated with Home Assistant indirectly, using an actionBox as a bridge (hub) between the remote and Home Assistant. 
 
-Remotes simulate a specific trigger. Unlike physical buttons, only a single defined trigger is activated, not all matching patterns. For example, the “rising edge” trigger does not activate together with a “short press”, as would happen when pressing a physical button connected to a controller input. This allows for a higher number of available control actions when actionBox is a hub for uWiFi remotes.
+Remotes simulate a specific trigger. Unlike physical buttons, only a single defined trigger is activated, not all matching patterns. For example, the “rising edge” trigger does not activate together with a “short press”, as would happen when pressing a physical button connected to a controller input. This allows for a higher number of available control actions when actionBox is a hub for μWiFi remotes.
 
-Up to 20 different remotes can be paired with a single actionBox. The actionBox provides 5 types of triggers and 4 inputs, allowing up to 20 different automations through a single actionBox controller acting as a hub. The following µWiFi remotes are supported:
+Up to 20 different remotes can be paired with a single actionBox. The actionBox provides 5 types of triggers and 4 inputs, allowing up to 20 different automations through a single actionBox controller acting as a hub. The following μWiFi remotes are supported:
 
-- µRemote (4 channels, 3 buttons per channel = 12 automations)
+- μRemote (4 channels, 3 buttons per channel = 12 automations)
 - sRemote (1 channel, 4 buttons = 4 automations)
 - inBox (4 channels, each supporting short and long press = 8 automations)
 
