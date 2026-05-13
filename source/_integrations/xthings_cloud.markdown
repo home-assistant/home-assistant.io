@@ -23,7 +23,7 @@ Use case: Control your Xthings smart lights from a single Home Assistant dashboa
 
 The following device types are supported:
 
-- **Smart lights** — on/off, brightness, HS color, color temperature
+- **Smart lights**: on/off, brightness, HS color, color temperature
 
 ## Prerequisites
 
