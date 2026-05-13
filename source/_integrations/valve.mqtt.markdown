@@ -12,7 +12,7 @@ The **MQTT Valve** {% term integration %} allows you to control an MQTT valve (s
 
 ## Configuration
 
-A valve entity can have the following states: `open`, `opening`, `closed` or `closing`.
+A valve entity can have the following states: `open`, `opening`, `closed`, or `closing`.
 
 ### Valve controlled by states
 
