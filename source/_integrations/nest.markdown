@@ -309,15 +309,6 @@ This feature is enabled by the following permissions:
 
 {% endnote %}
 
-### Action: Set fan timer
-
-The `nest.set_fan_timer` action sets the fan to run for a specific duration. The SDM API supports a maximum duration of 12 hours.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | No       | Name of the climate entity to set the fan timer on. |
-| `duration`     | No       | The duration the fan should run for, for example, `minutes: 15`. |
-
 ## Sensor
 
 All Google Nest Thermostat models have traits exposed from the SDM API. The initial values of the sensors are fetched on startup, then updated regularly using the Cloud Pubsub subscriber. The following traits are supported with sensors:
@@ -378,6 +369,10 @@ There are two classes of event entities that are available based on the above ca
 
 Nest event entities are updated immediately when an event message is received
 without waiting for any media to be fetched. See Device Triggers for media support.
+
+## Actions
+
+{% include integrations/actions.md %}
 
 ## Device Triggers
 
