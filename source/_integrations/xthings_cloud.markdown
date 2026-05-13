@@ -71,7 +71,7 @@ The **Xthings Cloud** integration uses a combination of push and {% term polling
 
 #### Symptom: "Unable to connect to Xthings Cloud"
 
-The setup form shows the error "Unable to connect to Xthings Cloud."
+The setup form shows the error "Unable to connect to Xthings Cloud".
 
 #### Resolution
 
