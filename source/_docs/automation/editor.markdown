@@ -47,7 +47,7 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
     ![New automation editor](/images/docs/automation-editor/new-automation.png)
 
-    - **Result**: Automations created or edited via the user interface are activated immediately after saving the automation.
+    - Result: Automations created or edited via the user interface are activated immediately after saving the automation.
     - To learn more about automations, read the documentation for [Automating Home Assistant](/getting-started/automation/).
 
 ## Troubleshooting missing automations

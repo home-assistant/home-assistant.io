@@ -4,6 +4,7 @@ description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
   - Event
   - Notifications
+  - Update
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - event
   - notify
   - sensor
+  - update
 ha_quality_scale: platinum
 ---
 
@@ -91,16 +93,12 @@ The **ntfy** integration will add a {% term device %} with an associated notify 
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
   message: "Reminder: Have you considered frogs?"
   entity_id: notify.mytopic
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -111,8 +109,6 @@ An {% term event %} {% term entity %} is created for each configured topic. Thes
 You can use {% term event %} {% term entities %} in automations. For example, to trigger actions in Home Assistant, or to forward notifications to other devices for further processing or alerting.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -127,9 +123,16 @@ actions:
       message: "Received new ntfy notification"
 ```
 
-{% endraw %}
-
 {% enddetails %}
+
+## Updates
+
+For self-hosted **ntfy** instances, Home Assistant creates an update entity that shows when a new version of **ntfy** is available for download. To perform an update, refer to the official [documentation](https://docs.ntfy.sh/).
+
+### Prerequisites
+
+- **ntfy** version 2.17.0 or later
+- Configured user with **administrator** privileges on the instance
 
 ## Actions
 
@@ -156,8 +159,6 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 - `sequence_id`: Enter a message or sequence ID to update an existing notification, or specify a sequence ID to reference later when updating, clearing (mark as read and dismiss), or deleting a notification. See [**Updating + deleting notifications**](https://docs.ntfy.sh/publish/#updating-deleting-notifications)
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 action: ntfy.publish
@@ -187,8 +188,6 @@ data:
 target:
   entity_id: notify.mytopic
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -258,8 +257,6 @@ The `ntfy.clear` action dismisses a previously sent message from a ntfy topic by
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: ntfy.clear
 target:
@@ -267,8 +264,6 @@ target:
 data:
   sequence_id: my-download-123
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -282,8 +277,6 @@ The `ntfy.delete` action deletes a message from a ntfy topic.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: ntfy.delete
 target:
@@ -291,8 +284,6 @@ target:
 data:
   sequence_id: my-download-123
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

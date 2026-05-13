@@ -365,10 +365,12 @@ All doorbells and cameras support event entities. See the [Event](https://www.ho
 There are two classes of event entities that are available based on the above camera features:
 
 - `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
-- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+- `doorbell` for all cameras that are doorbells and support `ring` events. In the camera feature table above, this capability is listed as “Chime”.
 
 Nest event entities are updated immediately when an event message is received
 without waiting for any media to be fetched. See Device Triggers for media support.
+
+{% include integrations/actions.md %}
 
 ## Device Triggers
 
@@ -384,6 +386,8 @@ event entity for immediate notifications without media.
 {% details "Example Device Trigger / Event payload" %}
 
 This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
+
+Doorbell device trigger payloads use the `doorbell_chime` event, not `ring`.
 
 ```json
 {
@@ -470,8 +474,6 @@ You can use the Nest Device Trigger payload fields `attachment.image` or `attach
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
-{% raw %}
-
 ```yaml
 action: notify.mobile_app_iphone
 data:
@@ -482,15 +484,11 @@ data:
     video: "{{ trigger.event.data.attachment.video }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS" %}
 
 Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
-
-{% raw %}
 
 ```yaml
 action: notify.mobile_app_android
@@ -501,15 +499,11 @@ data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS" %}
 
 Example for cameras that support Snapshot (jpg) on either Android or iOS.
-
-{% raw %}
 
 ```yaml
 action: notify.mobile_app
@@ -519,8 +513,6 @@ data:
   data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

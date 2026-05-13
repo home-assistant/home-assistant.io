@@ -24,16 +24,19 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - event
   - light
   - lock
   - sensor
+  - siren
   - switch
   - valve
   - weather
 ha_integration_type: hub
 ha_codeowners:
   - '@hahn-th'
+  - '@lackas'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.

@@ -14,8 +14,10 @@ ha_platforms:
   - button
   - diagnostics
   - sensor
+  - update
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 Ubiquiti <abbr title="Ubiquity Internet Service Provider">UISP</abbr>-range of [wireless](https://techspecs.ui.com/uisp/wireless) products offer a comprehensive suite of devices specifically designed for interconnecting various locations. As long as these airOS devices can 'see' each other without any (or limited) obstructions like buildings or trees, a stable and high-bandwidth "beam" can be established. Even their most cost-effective devices can achieve up to 450 Mbps real TCP/IP throughput and maintain reliable links up 10km range!
@@ -27,6 +29,7 @@ There is currently support for the following platforms within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Sensor](#sensor)
+- [Update](#update)
 
 This integration allows users to pull network metrics and statuses directly into their Home Assistant dashboards, enabling advanced automation, notifications, and comprehensive network oversight within their smart home ecosystem.
 
@@ -36,21 +39,29 @@ Ubiquiti UISP products cannot be managed from their popular [UniFi](/integration
 
 ## Prerequisites
 
-This integration only supports devices running airOS 8 and already configured using your browser or the UISP app.
+This integration only supports devices running airOS 6 or 8 and already configured using your browser or the UISP app.
 
 {% include integrations/config_flow.md %}
 
 ## Supported devices
 
+While there is no known limitation to which devices running airOS firmware versions 6 or 8 are supported, success has been reported on the devices listed below.
+
+Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
+
+### airOS firmware 6
+
+- NanoStation M5 (NSM5)
+- NanoStation M5 loco (LocoM5)
+
 ### airOS firmware 8
 
-While there is no known limitation to which devices running airOS firmware version 8 are supported, success has been reported on:
-
+- LiteAP GPS (LAP-GPS)
+- LiteBeam 5AC (LBE-5AC-GEN2)
 - NanoBeam 5AC (NBE-5AC-Gen2)
 - NanoStation 5AC Loco (Loco5AC)
 - PowerBeam 5AC: 620 (PBE-5AC-620) and Gen2 (PBE-5AC-Gen2)
 
-Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
 
 ## Operating roles
 
@@ -102,9 +113,18 @@ These sensors show the actual data transfer rate (receive and transmit) for this
 
 Performance in <abbr title="decibels">dB</abbr> for the device antenna. See [Gain](https://en.wikipedia.org/wiki/Gain_(antenna)) on Wikipedia.
 
+## Update
+
+Firmware updates are supported for devices running firmware v8. A link to the release notes is provided, and we strongly recommend reviewing them to avoid unforeseen consequences. Starting an update from Home Assistant will download the available firmware and begin installation on the device.
+
+{% important %}
+Updating firmware will interrupt connectivity. Always review the release notes to confirm compatibility and follow any upgrade order that Ubiquiti recommends for your local and remote devices.
+Update the correct side first to avoid losing access to a remote device, especially when it is physically far away or difficult to troubleshoot on-site.
+{% endimportant %}
+
 ## Data updates
 
-Data is polled from devices every 60 seconds.
+Device data is polled every 60 seconds. Firmware availability is checked once per day.
 
 ## Examples
 

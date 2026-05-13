@@ -9,11 +9,13 @@ ha_release: 0.13
 ha_domain: splunk
 ha_codeowners:
   - '@Bre77'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_quality_scale: bronze
+ha_platforms:
+  - diagnostics
 ---
 
 [Splunk](https://www.splunk.com/) is a data platform for searching, monitoring, and analyzing machine-generated data. The **Splunk** {% term integration %} sends all Home Assistant state changes to a Splunk instance using the [HTTP Event Collector (HEC)](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) feature.

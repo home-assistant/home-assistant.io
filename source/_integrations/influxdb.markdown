@@ -8,6 +8,7 @@ ha_release: 0.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@mdegat01'
+  - '@Robbie1221'
 ha_domain: influxdb
 ha_platforms:
   - sensor
@@ -16,6 +17,7 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **InfluxDB** {% term integration %} lets you transfer all state changes to an external [InfluxDB](https://influxdata.com/) database. This integration supports:
@@ -26,12 +28,10 @@ The **InfluxDB** {% term integration %} lets you transfer all state changes to a
 
 For more information on configuration of InfluxDB, refer to the [InfluxDB configuration](#influxdb-configuration) section below.
 
-There is currently support for the following device types within Home Assistant:
-
-- [Sensor](#sensor)
+The integration can export state changes for all entity types to InfluxDB, not just sensors. In addition, it can create [Sensor](#sensor) entities in Home Assistant that query data back from InfluxDB.
 
 {% note %}
-The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
+The `influxdb` integration runs parallel to the Home Assistant database. It does not replace it.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -426,11 +426,11 @@ queries:
       required: true
     where:
       type: template
-      description: Defines the data selection clause (the where clause of the query). This supports [templates](/docs/configuration/templating/#building-templates).
+      description: Defines the data selection clause (the where clause of the query). This supports [templates](/docs/templating/syntax/).
       required: true
     value_template:
       type: template
-      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+      description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload.
       required: false
     database:
       type: string
@@ -476,7 +476,7 @@ queries_flux:
       default: now()
     query:
       type: template
-      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates)."
+      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/templating/syntax/)."
       required: true
     group_function:
       type: string
@@ -484,7 +484,7 @@ queries_flux:
       required: false
     value_template:
       type: template
-      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Note that `value` will be set to the value of the `_value` field in your query output.
+      description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload. Note that `value` will be set to the value of the `_value` field in your query output.
       required: false
     bucket:
       type: string
@@ -505,8 +505,6 @@ The example configuration entry below creates two requests to your local InfluxD
 
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`
-
-{% raw %}
 
 ```yaml
 sensor:
@@ -533,11 +531,7 @@ sensor:
         database: db2
 ```
 
-{% endraw %}
-
 ### Full configuration for InfluxDB 2.x
-
-{% raw %}
 
 ```yaml
 sensor:
@@ -568,8 +562,6 @@ sensor:
         query: "filter(fn: (r) => r._field == \"value\" and r.entity_id == \"glances_cpu_temperature\")"
         group_function: mean
 ```
-
-{% endraw %}
 
 Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history integration, this means by default, you will have a table for each entity and each attribute of each entity (other than `unit_of_measurement` and any others you promoted to tags).
 

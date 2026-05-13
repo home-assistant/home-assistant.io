@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: hypontech
 ha_platforms:
   - sensor
-ha_integration_type: device
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
@@ -62,8 +62,7 @@ This integration provides no additional actions.
 
 ## Known limitations
 
-- The integration currently displays aggregated data for all inverters in your account as a single "Overview" device.
-- Individual inverter data is not yet available.
+- There is no support for batteries yet.
 
 ## Removing the integration
 

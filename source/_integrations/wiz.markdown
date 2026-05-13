@@ -24,7 +24,7 @@ ha_platforms:
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **WiZ** {% term integration %} allows you to control your WiZ lights and smart sockets.

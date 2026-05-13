@@ -10,7 +10,6 @@ ha_domain: dwd_weather_warnings
 ha_codeowners:
   - '@runningman84'
   - '@stephan192'
-  - '@andarotajo'
 ha_platforms:
   - sensor
 ha_integration_type: service
@@ -55,7 +54,6 @@ In the attribute name `x` is the counter of the warning starting from `1`.
 
 The following example reads out the headline and its description of the DWD warnings above 2 to your local media player.
 
-{% raw %}
 ```yaml
 alias: DWD-Warning at level 3
 description: DWD-Warnings at level 3
@@ -101,6 +99,5 @@ actions:
     enabled: true
 mode: single
 ```
-{% endraw %}
 
 Substitute `<your_city>`, your `<your_device_id>` and `<your_mediaplayer>` with your entity-names.

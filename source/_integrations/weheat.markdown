@@ -14,7 +14,7 @@ ha_domain: weheat
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Weheat** {% term integration %} allows you to display your [Weheat](https://www.weheat.nl/) devices through Home Assistant.
@@ -54,6 +54,7 @@ The Weheat integration provides the following sensors:
 - **Electricity used DHW**: Total electricity used in kWh during DHW mode (optional)
 - **Electricity used cooling**: Total electricity used in kWh during cooling mode
 - **Electricity used defrost**: Total electricity used in kWh during defrost mode
+- **Electricity used standby**: Total electricity used in kWh during standby mode
 - **Electricity used**: Total electricity used in kWh
 - **Energy output heating**: Total output generated in kWh during central heating mode
 - **Energy output DHW**: Total output generated in kWh during DHW mode (optional)

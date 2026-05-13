@@ -11,6 +11,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
+  - '@mik-laj'
 ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
@@ -23,6 +24,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich
@@ -57,7 +59,18 @@ Host:
     description: "Hostname or IP address of your WLED device."
 {% endconfiguration_basic %}
 
-## Lights
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Keep Master Light:
+  description: Keep the master light (the main light entity that controls the entire WLED device), even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to be added and removed dynamically.
+{% endconfiguration_basic %}
+
+## Supported functionality
+
+The **WLED** integration provides the following entities.
+
+### Lights
 
 This {% term integration %} adds the WLED device as a light in Home Assistant.
 Home Assistant treats every segment of the LED strip as a separate light
@@ -66,7 +79,7 @@ Home Assistant treats every segment of the LED strip as a separate light
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
 
-### Using WLED segments
+#### Using WLED segments
 
 WLED can split a single LED strip into multiple segments. These segments can be
 controlled separately in WLED and in Home Assistant as well.
@@ -79,18 +92,19 @@ If WLED has 2 or more segments, each segment gets its own light {% term entity %
 Home Assistant. Additionally, a master light {% term entity %} is created. This master
 {% term entity %} controls the strip power and overall brightness applied to all segments.
 
-Additionally, select and number entities described below will be created for each segment.
+Additionally, select, number, and switch entities described below will be created for each segment.
 
-## Select entities
+### Selects
 
 This {% term integration %} provides [select entities](/integrations/select)
 for the following information from WLED:
 
-- Playlist
-- Preset
-- Color palette (per segment, disabled by default).
+- Live override: Controls how WLED handles incoming real-time data (off, on, or until device restarts).
+- Playlist: Activates a playlist configured on the WLED device.
+- Preset: Activates a preset configured on the WLED device.
+- Color palette (per segment): Selects the color palette used by the current effect.
 
-## Number entities
+### Numbers
 
 This {% term integration %} provides [number entities](/integrations/number)
 to control the following, segment-specific settings:
@@ -98,12 +112,14 @@ to control the following, segment-specific settings:
 - Intensity
 - Speed
 
-## Sensor entities
+### Sensors
 
 This {% term integration %} provides [sensor entities](/integrations/sensor)
 for the following information from WLED:
 
-- Estimated current (in mA)
+- Estimated current (in mA, only when a automatic brightness limiter is configured on the device)
+- Max current (in mA, only when a automatic brightness limiter is configured on the device)
+- LED count
 - Uptime (disabled by default)
 - Free memory (in bytes, disabled by default)
 - Wi-Fi Signal Strength (in %, disabled by default)
@@ -112,26 +128,40 @@ for the following information from WLED:
 - Wi-Fi BSSID (disabled by default)
 - IP Address
 
-## Switches
+### Switches
 
 The {% term integration %} will also create a number of
 [switch entities](/integrations/switch).
 
-### Nightlight
+#### Nightlight
 
-Toggles the WLED Timer.
+Toggles the WLED nightlight feature, which gradually dims the lights over a configurable duration.
+
 Can be configured on the WLED itself under
 **Settings** > **LED Preferences** > **Timed light**.
 
-### Sync receive and sync send
+#### Sync receive and sync send
 
 Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under 
 **Settings** > **Sync Interfaces** > **WLED Broadcast**.
 
-[WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
+[WLED Sync documentation](https://kno.wled.ge/interfaces/udp-notifier/)
 
-## Firmware updates
+#### Reverse
+
+Reverses the direction of the LED effect on a segment. One switch is created per segment.
+
+#### Freeze
+
+Freezes the LED effect on a segment. One switch is created per segment.
+
+### Buttons
+
+This {% term integration %} provides a [button entity](/integrations/button)
+to restart the WLED device.
+
+### Updates
 
 The {% term integration %} has an [update entity](/integrations/update/)
 that provides information on the latest available version of WLED
@@ -143,13 +173,6 @@ directly from Home Assistant.
 The update {% term entity %} will only provide updates to stable versions,
 unless you are using a beta version of WLED. In that case, the update
 {% term entity %} will also provide updates to newer beta versions.
-
-{% include integrations/option_flow.md %}
-
-{% configuration_basic %}
-Keep Master Light:
-  description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
-{% endconfiguration_basic %}
 
 ## Data updates
 
@@ -169,7 +192,15 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - Real-time effects that depend on **sound-reactive** or **2D matrix** features appear in the effect list, but may not behave correctly if the WLED instance was not compiled with those capabilities.
 
-- The integration does not provide direct control for WLED's user-created **presets or playlists stored on the filesystem** (JSON files in `/presets.json`).
+- [Custom palettes](https://kno.wled.ge/features/palettes/#custom-palettes) uploaded to the WLED device (JSON files named `palette0.json` through `palette9.json`) are not supported by the integration. Only the built-in palettes are available in the color palette select entity.
+
+- Custom segment names configured in WLED are not used by the integration. Segments are always named using their index (for example, "Segment 1", "Segment 2"), regardless of any names assigned in the WLED interface.
+
+- The integration does not support controlling WLED usermods, such as the AudioReactive usermod. Features like toggling the microphone on or off are not available.
+
+- There is no segment master control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
+
+- Only the primary color of a segment can be set through the integration. The secondary and tertiary colors that many WLED effects use cannot be controlled directly from Home Assistant. The workaround is to configure those colors in the WLED app or web interface, save the configuration as a preset, and then activate that preset from Home Assistant — the preset restores all colors, including secondary and tertiary.
 
 ## Supported devices
 
@@ -189,8 +220,6 @@ Home Assistant can only manage one color model at a time.
 
 You can automate changing the effect using an action like this:
 
-{% raw %}
-
 ```yaml
 action: light.turn_on
 target:
@@ -199,13 +228,9 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
 ```
 
-{% endraw %}
-
 It is recommended to select an effect that matches the capabilities of your WLED device (e.g., 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
 
 Below is an example of how to select a random effect with an ID between 1 and 117, excluding retired effects:
-
-{% raw %}
 
 ```yaml
 action: light.turn_on
@@ -215,25 +240,19 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list')[1:118] | reject('equalto', 'RSVD') | list | random }}"
 ```
 
-{% endraw %}
-
 ### Activating random palette
 
 Activating a random palette is very similar to the above random effect,
 and can be done by selecting a random one from the available palette select
 {% term entity %}.
 
-{% raw %}
-
 ```yaml
 action: select.select_option
 target:
-  entity_id: select.wled_palette
+  entity_id: select.wled_color_palette
 data:
-  option: "{{ state_attr('select.wled_palette', 'options') | random }}"
+  option: "{{ state_attr('select.wled_color_palette', 'options') | random }}"
 ```
-
-{% endraw %}
 
 ### Activating a preset
 
@@ -252,10 +271,12 @@ to a preset called My Preset:
     option: "My Preset"
 ```
 
-When a preset is activated and the light state is modified afterward 
-(e.g. with a `light.turn_on` action), the preset may be reset to an empty value. 
-This can affect services such as `select.select_next`, which will start again 
+When a preset is activated and the light state is modified afterward
+(for example, with a `light.turn_on` action), the preset may be reset to an empty value.
+This can affect services such as `select.select_next`, which will start again
 from the first option instead of continuing the cycle.
+
+If you want to pick presets directly from the effects list in a light card, you can use a [template light](/integrations/template/#wrapping-wled-presets-as-light-effects) to wrap the WLED device and expose its presets as effects.
 
 ### Automation using specific palette name
 
@@ -346,4 +367,3 @@ If the error persists, reconfiguring the integration with the correct IP address
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-

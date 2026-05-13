@@ -315,7 +315,7 @@ MariaDB (omit pymysql):
     `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
 MariaDB (omit pymysql, using TLS encryption):
   description: >
-    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4&ssl_mode=REQUIRED`
 MariaDB (omit pymysql, Socket):
   description: >
     `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
@@ -324,7 +324,7 @@ MySQL:
     `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
 MySQL (using TLS encryption):
   description: >
-    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4&ssl_mode=REQUIRED`
 MySQL (Socket):
   description: >
     `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`

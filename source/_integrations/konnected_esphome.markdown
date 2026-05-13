@@ -41,6 +41,7 @@ ha_platforms:
   - time
   - update
   - valve
+  - water_heater
 ha_iot_class: Local Push
 ha_dhcp: true
 ha_zeroconf: true

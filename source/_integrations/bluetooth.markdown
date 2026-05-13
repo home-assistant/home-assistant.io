@@ -292,7 +292,12 @@ Passive Scanning on Linux can be enabled in the options flow per adapter if the 
 
 Many integrations require active scanning and may not function when scanning is passive.
 
-{% include integrations/option_flow.md %}
+## Options
+
+1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+2. Select **Adapters**.
+3. On the adapter of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select your options.
+   - Not all adapters have options. If you don't see a cogwheel icon, your adapter does not support options.
 
 ## Remote adapters (Bluetooth proxies)
 

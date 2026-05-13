@@ -87,8 +87,6 @@ In this mode, the controller entity reports:
 
 You can configure sensors to read these values (in {% term "`configuration.yaml`" %}), along with the supply temperature (use the ID of your unit):
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry to create sensors
 # from the izone controller state attributes
@@ -103,8 +101,6 @@ template:
       state: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
       unit_of_measurement: "°C"
 ```
-
-{% endraw %}
 
 And then graph them on a dashboard, along with the standard values such as the current temperature. Either add the sensor entities via the visual editor, or cut and paste this
 snippet into the code editor:

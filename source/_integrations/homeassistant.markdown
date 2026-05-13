@@ -119,7 +119,7 @@ customize_glob:
   required: false
   type: string
 allowlist_external_dirs:
-  description: List of folders that can be used as sources for sending files.
+  description: "Extra folders that integrations are allowed to read from or write to, on top of the defaults. By default, the `www` folder inside your configuration directory and every folder listed under `media_dirs` are already allowed, and you do not need to repeat them here. Only add directories outside of those defaults."
   required: false
   type: list
 allowlist_external_urls:

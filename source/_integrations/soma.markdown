@@ -13,7 +13,7 @@ ha_domain: soma
 ha_platforms:
   - cover
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Soma Connect** {% term integration %} will allow users to integrate their Soma Smarthome devices into Home Assistant using the Soma Connect hub.

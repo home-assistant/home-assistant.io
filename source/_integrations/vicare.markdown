@@ -4,6 +4,7 @@ description: Instructions how to integrate Viessmann heating devices with Home A
 ha_category:
   - Climate
   - Fan
+  - Select
   - Water heater
 ha_release: 0.99
 ha_iot_class: Cloud Polling
@@ -16,6 +17,7 @@ ha_platforms:
   - diagnostics
   - fan
   - number
+  - select
   - sensor
   - water_heater
 ha_dhcp: true
@@ -102,6 +104,10 @@ Button entities are available for triggering like a one-time charge of the water
 ### Number
 
 Number entities are available to adjust values like the predefined temperature for different heating programs or the heating curve shift and slope.
+
+### Select
+
+Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include `balanced`, `economical`, or `off` modes.
 
 ## Actions
 

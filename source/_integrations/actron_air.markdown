@@ -14,7 +14,7 @@ ha_platforms:
   - climate
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_dhcp: true
 ---
 

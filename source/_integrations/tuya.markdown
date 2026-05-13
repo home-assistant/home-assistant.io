@@ -93,6 +93,49 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
+## Actions
+
+The **Tuya** integration provide actions to manage the meal plan for feeders. 
+
+### Action: Get feeder meal plan
+
+The `tuya.get_feeder_meal_plan` action retrieves the meal plan data from a Tuya feeder device.
+- **Data attribute**: `device_id`
+  - **Description**: The device ID of the Tuya feeder to retrieve the meal plan from.
+  - **Optional**: No
+
+### Action: Set feeder meal plan
+
+The `tuya.set_feeder_meal_plan` action set the mealplan data from a Tuya feeder device.
+- **Data attribute**: `device_id`
+  - **Description**: The device ID of the Tuya feeder to retrieve the meal plan from.
+  - **Optional**: No
+- **Data attribute**: `meal_plan`
+  - **Description**: The decoded data to update the feeder's meal plan. Take a list of dictionary of attributes.
+  - **Optional**: No
+  - **Attributes**:
+    - days: List[String] with monday-sunday. Indexed with monday as first day of week.
+    - time: String with HH:MM format
+    - portion: Numeric with number of portions
+    - enabled: Enable or disable the schedule.
+
+This action returns [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) containing the meal plan for the specified feeder device.
+
+#### Example
+
+```yaml
+action: tuya.set_feeder_meal_plan
+data:
+  device_id: "1234567890abcdef"
+  meal_plan:
+    - days:
+        - Monday
+        - Tuesday
+      time: 10:00
+      portions: 2
+      enabled: true
+```
+
 ## Troubleshooting
 
 ### Unsupported device or missing device functionality
@@ -119,3 +162,19 @@ To fix this:
 1. Login to [iot.tuya.com](https://iot.tuya.com), and accept the terms and conditions.
 2. Restart Home Assistant.
 3. Reconfigure the Tuya integration.
+
+### Feeder meal plan not supported
+
+
+#### Symptom: "Feeder not supported" warning
+
+Home Assistant shows a warning that this particular feeder is not supported.
+
+#### Description
+
+Feeders are dependent on [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) to be integrated based on feeders `product_id`. 
+
+#### Resolution
+
+Open a issue to [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) with information provided from QueryThingsDataModel API result from iot.tuya.com (under Cloud / API Explorer / Device Control). 
+

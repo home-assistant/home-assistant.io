@@ -259,8 +259,6 @@ automation:
 
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status
 
-{% raw %}
-
 ```yaml
 - alias: 'Send notification when alarm is Disarmed'
   triggers:
@@ -310,5 +308,3 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
         message: >
           ALARM! The alarm is armed in Home mode {{ states('sensor.date_time') }}
 ```
-
-{% endraw %}

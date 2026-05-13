@@ -3,9 +3,13 @@ title: Gardena Bluetooth
 description: Instructions on how to integrate Gardena Bluetooth devices within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Number
+  - Select
   - Sensor
   - Switch
+  - Text
+  - Valve
 ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -16,15 +20,17 @@ ha_platforms:
   - binary_sensor
   - button
   - number
+  - select
   - sensor
   - switch
+  - text
   - valve
 ha_integration_type: device
 ---
 
 The **Gardena Bluetooth** {% term integration %} allows users to integrate their Gardena Bluetooth devices into Home Assistant.
 
-See device section for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps)
+See device section for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps), [aqua contours](#aqua-contours).
 
 {% include integrations/config_flow.md %}
 
@@ -63,9 +69,14 @@ Gardena Bluetooth lawn mowers are currently not supported due to custom protocol
 
 ## Gard Pumps
 
-- Garden Pump ([9058-61](https://www.gardena.com/de/produkte/bewasserung/pumpen/gartenpumpe-6300-silentcomfort/970645401/))
-- Garden Pump ([9059-61](https://www.gardena.com/de/produkte/bewasserung/pumpen/gartenpumpe-6500-silentcomfort/970645601/))
+- Garden Pump ([9058-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6300-silentcomfort/970645301.html))
+- Garden Pump ([9059-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6500-silentcomfort/970645501.html))
+
+## Aqua Contours
+
+- Aqua Precise Overground ([16000-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-irrigation-system/970746801.html))
+- Aqua Precise Underground ([16001-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-pipeline-irrigation-system/970746901.html))
 
 ### Limitations
 
-Irrigation valves are currently untested, but expected to work.
+Configuration of contours is not supported and must be set up using the official application.

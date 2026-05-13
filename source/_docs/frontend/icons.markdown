@@ -63,14 +63,14 @@ The Pictogrammers website will always show the latest release of the material de
 Being open-source like Home Assistant, the material design icons library is always accepting suggestions and contributions to expand the library.
 
 {% note %}
-Before suggesting or creating a new icon, it is very important that you [search the current library](https://pictogrammers.com/library/mdi/) and [search all issues](https://github.com/Templarian/MaterialDesign/issues?q=is%3Aissue), open and closed, on their GitHub. Try searching with different terms that might mean the same thing. (e.g. "user", "person", "account")
+Before suggesting or creating a new icon, it is very important that you [search the current library](https://pictogrammers.com/library/mdi/) and [search all issues](https://github.com/Templarian/MaterialDesign/issues?q=is%3Aissue), open and closed, on their GitHub. Try searching with different terms that might mean the same thing. For example: "user", "person", or "account".
 {% endnote %}
 
 ### Suggesting a new icon
 
 If you have an idea for an icon that isn't currently in the library, but are not interested in creating it yourself, [open a new icon suggestion](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Icon+Request&template=1_icon_request.yml).
 
-### Contributing a New Icon
+### Contributing a new icon
 
 If you want to contribute a new icon to the library, familiarize yourself with the [System icons guidelines](https://material.io/design/iconography/system-icons.html#design-principles) in the Material Design system. Then create your icon and [submit it to the Pictogrammers team for review](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Icon+Request%2CContribution&template=2_contribution.yml).
 

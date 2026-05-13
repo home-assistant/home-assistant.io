@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: swiss_public_transport
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Swiss public transport** {% term integration %} will give you the next three departure times from a given location to another one in Switzerland.

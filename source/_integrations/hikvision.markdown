@@ -14,7 +14,6 @@ ha_platforms:
   - binary_sensor
   - camera
 ha_integration_type: device
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 

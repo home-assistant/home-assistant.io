@@ -143,14 +143,14 @@ Suggested recipe for letting the `turn_off` script suspend a Linux computer (the
 from Home Assistant running on another Linux computer (the **server**).
 
 1. On the **server**, log in as the user account Home Assistant is running under. In this example it's `hass`.
-2. On the **server**, create SSH keys by running `ssh-keygen`. Just press enter on all questions.
-3. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. It's recommended using the same username as on the server. If you do, you can leave out `hass@` in the SSH commands below.
-4. On the **server**, transfer your public SSH key by `ssh-copy-id hass@TARGET` where TARGET is your target machine's name or IP address. Enter the password you created in step 3.
-5. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
-6. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here is it `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
-7. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
-8. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
-
+2. On the **server**, create a `.ssh` directory in `/config`. This is necessary to avoid a 255 error that prevents the SSH command from executing.
+3. On the **server**, create SSH keys by running `ssh-keygen`. Just press enter on all questions.
+4. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. It's recommended using the same username as on the server. If you do, you can leave out `hass@` in the SSH commands below.
+5. On the **server**, transfer your public SSH key by `ssh-copy-id hass@TARGET` where TARGET is your target machine's name or IP address. Enter the password you created in step 4.
+6. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
+7. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here it is `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
+8. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
+9. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
 ```yaml
 switch:
   - platform: wake_on_lan
