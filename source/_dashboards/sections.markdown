@@ -123,7 +123,7 @@ Before setting a section theme, you must (create your custom themes in YAML conf
 
 ### Setting a section theme via the UI
 
-1. Open your dashboard in edit mode.
+1. Open your dashboard in edit mode: in the top right of the screen, select the edit {% icon "mdi:edit" %} button.
 2. On the section you want to theme, select the edit {% icon "mdi:edit" %} button.
 3. Select **Edit Section**.
 4. Go to the **Settings** tab.
