@@ -151,40 +151,58 @@ Go to {% my developer_services title="**Settings** > **Developer tools** > **Act
 
 Use a timer to keep the fan running for a fixed amount of time after a shower.
 
-```yaml
-automation:
-  - alias: "Turn off bathroom fan when the timer finishes"
-    triggers:
-      - trigger: timer.finished
-        target:
-          entity_id: timer.bathroom_fan
-        options:
-          behavior: any
-          for: "00:00:00"
-    actions:
-      - action: fan.turn_off
-        target:
-          entity_id: fan.bathroom
-```
+- **Trigger**: Timer finished
+- **Target**: Bathroom fan timer
+- **Trigger when**: Each
+- **Action**: Turn off fan
+
+{% details "YAML example for a bathroom fan timer" %}
+
+{% example %}
+automation: |
+  alias: "Turn off bathroom fan when the timer finishes"
+  triggers:
+    - trigger: timer.finished
+      target:
+        entity_id: timer.bathroom_fan
+      options:
+        behavior: any
+        for: "00:00:00"
+  actions:
+    - action: fan.turn_off
+      target:
+        entity_id: fan.bathroom
+{% endexample %}
+
+{% enddetails %}
 
 ### Automation: send a reminder when only five minutes remain
 
 Get a reminder shortly before a timer finishes, like when laundry or cooking time is almost done.
 
-```yaml
-automation:
-  - alias: "Notify when five minutes remain on the laundry timer"
-    triggers:
-      - trigger: timer.time_remaining
-        target:
-          entity_id: timer.laundry
-        options:
-          remaining: "00:05:00"
-    actions:
-      - action: notify.mobile_app_phone
-        data:
-          message: "The laundry timer has five minutes left."
-```
+- **Trigger**: Timer time remaining
+- **Target**: Laundry timer
+- **Time remaining**: 00:05:00
+- **Action**: Send notification
+
+{% details "YAML example for a laundry timer reminder" %}
+
+{% example %}
+automation: |
+  alias: "Notify when five minutes remain on the laundry timer"
+  triggers:
+    - trigger: timer.time_remaining
+      target:
+        entity_id: timer.laundry
+      options:
+        remaining: "00:05:00"
+  actions:
+    - action: notify.mobile_app_phone
+      data:
+        message: "The laundry timer has five minutes left."
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
