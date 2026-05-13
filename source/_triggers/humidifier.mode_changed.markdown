@@ -116,9 +116,9 @@ for:
 When the bedroom humidifier switches to sleep mode, dim the lights and activate the night scene so the room feels ready for rest.
 
 - **Trigger**: Humidifier mode changed
-- **Target**: Bedroom humidifier
-- **Mode**: sleep
-- **Trigger when**: Each
+  - **Target**: Bedroom humidifier
+  - **Mode**: sleep
+  - **Trigger when**: Each
 - **Action**: Light: Turn on (night scene)
 
 {% details "YAML example for a sleep-mode scene" %}
@@ -146,10 +146,11 @@ automation: |
 When a humidifier in the house switches to Eco mode, send a notification confirming that energy-saving operation has started.
 
 - **Trigger**: Humidifier mode changed
-- **Target**: All humidifiers (by label)
-- **Mode**: Eco
-- **Trigger when**: Each
-- **Action**: Send a mobile notification
+  - **Target**: All humidifiers (by label)
+  - **Mode**: Eco
+  - **Trigger when**: Each
+- **Action**: Send a notification message
+  - **Target**: My device (`notify.my_device`)
 
 {% details "YAML example for an Eco mode notification" %}
 
@@ -164,7 +165,9 @@ automation: |
         mode: "eco"
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "A humidifier switched to eco mode."
 {% endexample %}
