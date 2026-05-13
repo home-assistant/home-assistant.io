@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@xirt'
 ha_platforms:
+  - binary_sensor
   - button
   - diagnostics
   - number
@@ -65,17 +66,24 @@ The following button entity allows triggering device actions directly from Home 
 
 ### Sensors
 
-#### BK1600/BK1600Ultra (Generation 1)
+#### All generations
 
-- Device mode (overal setup of the device, for example standalone/cluster)
-- Energy mode (battery and energy management strategy, for example Self-Consumped Prioritized/Price-Based Strategy)
+- Device mode (overall setup of the device, for example standalone/cluster)
+- Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
+- Device heating state (Gen-1 specific, on/off)
+- DC input voltage (2 channels, V)
+- DC input current (2 channels, A)
 - DC input power (2 channels, W)
 - Daily production (kWh)
 - Cumulative production (kWh)
 - Total AC input power (W)
 - Total AC input energy (kWh)
 - Total AC output power (W)
+- Total AC output energy (kWh)
 - Total DC output power (W)
+- Off-grid output energy (kWh)
+- Bypass power (W)
+- Bypass input energy (Wh)
 - Battery power (W)
 - Battery charge/discharge state
 - Battery <abbr title="State of Charge">SOC</abbr> (%)
@@ -86,9 +94,12 @@ The following button entity allows triggering device actions directly from Home 
 - Meter connection status
 - Meter power (W)
 
-#### SolidFlex2000/PowerFlex2000 (Generation 2)
+#### BK1600/BK1600Ultra (Generation 1)
 
-All Generation 1 sensors, plus:
+- Inverter temperature (°C)
+- Battery pack 1-3 temperature (°C)
+
+#### SolidFlex2000/PowerFlex2000 (Generation 2)
 
 - Rated capacity (kWh)
 - DC input voltage (4 channels, V)
@@ -96,10 +107,6 @@ All Generation 1 sensors, plus:
 - DC input power (4 channels, W)
 - Grid voltage (V)
 - Grid frequency (Hz)
-- Bypass power (W)
-- Bypass input energy (Wh)
-- Off-grid output energy (kWh)
-- Total AC output energy (kWh)
 - Main battery serial number
 - Main battery SOC (%)
 - Main battery temperature (°C)
@@ -110,6 +117,7 @@ All Generation 1 sensors, plus:
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
+- Battery pack 1-5 heating state (on/off)
 
 ### Configurable entities (Generation 2 only)
 

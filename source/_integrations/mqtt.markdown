@@ -199,11 +199,7 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 ### Advanced broker configuration
 
-Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication, and enabling TLS validation of the broker's certificate for secure connection. To access the advanced settings, open the MQTT broker settings, switch on **Advanced options**, and select **Next**. The advanced options will be shown by default if there are advanced settings active already.
-
-{% tip %}
-Advanced broker options are accessible only when advanced mode is enabled (see user settings), or when advanced broker settings are configured already.
-{% endtip %}
+Advanced broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access the advanced options, open the MQTT broker settings, select **Advanced options**, and select **Next**. Advanced broker options are shown by default when the default advanced broker settings are changed.
 
 #### Alternative client ID
 
@@ -220,7 +216,7 @@ If the server certificate does not match the hostname then validation will fail.
 
 #### MQTT Protocol
 
-The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker supports MQTT version 5 you can set the protocol setting to `5`.
+Home Assistant requires that your broker supports MQTT protocol version `5`. Most MQTT brokers, like the official "Mosquitto broker" App will support MQTT protocol version `5`.
 
 #### Securing the connection
 
@@ -343,8 +339,8 @@ group:
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic, and the device configuration as payload.
 
-MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
-See the [MQTT Options sections](#configure-mqtt-options)
+MQTT discovery is enabled by default and the subscriptions to perform the discovery are done at Quality of Service level 0 by default. The default prefix for the discovery topic is `homeassistant`.
+To disable discovery, or change the discovery QoS or prefix, see the [MQTT Options sections](#configure-mqtt-options).
 
 {% note %}
 Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
@@ -1527,6 +1523,7 @@ The `mqtt.publish` action publishes a message to an MQTT topic.
 | `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
+| `message_expiry_interval` | yes   | [Message Expiry Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901048) in seconds for the published message. (default: not set) |
 
 {% note %}
 When `payload` is rendered from [template](/docs/templating/where-to-use/#mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
