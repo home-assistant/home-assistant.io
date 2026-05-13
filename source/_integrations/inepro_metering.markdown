@@ -103,8 +103,8 @@ Use manual TCP setup when:
   multicast discovery is limited.
 - You know the meter IP address and port.
 
-Enter the host, port, slave address, timeout, and polling interval. Home
-Assistant validates the live meter identity before creating the entry.
+Enter the host, port, slave address, and timeout. Home Assistant validates the
+live meter identity before creating the entry.
 
 ### Ambition Gateway setup and scan
 
