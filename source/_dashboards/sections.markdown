@@ -154,7 +154,7 @@ views:
             entity: sensor.temperature
 ```
 
-### How section themes work
+### How settings of section themes work
 
 Section themes use CSS cascade to provide flexible theming:
 
