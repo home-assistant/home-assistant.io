@@ -78,7 +78,7 @@ This automation turns on the living room lights at sunset, but only if Ada or St
 - **Condition**: Person is home
   - **Target**: Ada and Stacey
 - **Condition passes if**: Any
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for turning on lights when someone is home" %}
 
@@ -112,7 +112,7 @@ This automation opens the living room blinds in the morning only if someone is a
 - **Condition**: Person is home
   - **Target**: Ada and Stacey
 - **Condition passes if**: Any
-- **Action**: Cover: Open cover
+- **Action**: Open cover
 
 {% details "YAML example for opening blinds when someone is home" %}
 

@@ -78,7 +78,7 @@ This automation lowers the thermostat at 8:30 AM only when both Ada and Stacey a
 - **Condition**: Person is not home
   - **Target**: Ada and Stacey
 - **Condition passes if**: All
-- **Action**: Climate: Set preset mode
+- **Action**: Set preset mode
 
 {% details "YAML example for lowering the thermostat when everyone is marked not home" %}
 
@@ -114,7 +114,7 @@ This automation locks the side door at night only if Ada is already in the `not_
 - **Condition**: Person is not home
   - **Target**: Ada
 - **Condition passes if**: Any
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the side door when you are not home" %}
 

@@ -141,7 +141,7 @@ This automation turns on the porch light when Ada gets home after sunset.
 - **Trigger**: Entered home
   - **Target**: Ada
 - **Condition**: Sun after sunset
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for turning on the porch light" %}
 
@@ -170,7 +170,7 @@ This automation arms the alarm after both Ada and Stacey have left home.
 - **Trigger**: Left home
   - **Target**: Ada and Stacey
 - **Trigger when**: Last
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
 
 {% details "YAML example for arming the alarm when everyone leaves" %}
 
