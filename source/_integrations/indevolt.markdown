@@ -74,7 +74,7 @@ The following button entity allows triggering device actions directly from Home 
 
 ### Sensors
 
-#### BK1600/BK1600Ultra (Generation 1)
+#### BK1600 / BK1600 Ultra (Generation 1)
 
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
@@ -96,7 +96,7 @@ The following button entity allows triggering device actions directly from Home 
 - Meter connection status
 - Meter power (W)
 
-#### SolidFlex2000/PowerFlex2000 (Generation 2)
+#### SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000 (Generation 2)
 
 All Generation 1 sensors, plus:
 
