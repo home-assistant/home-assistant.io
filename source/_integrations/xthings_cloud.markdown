@@ -83,7 +83,7 @@ The setup form shows the error "Unable to connect to Xthings Cloud".
 
 #### Symptom: "Incorrect password"
 
-The setup form shows the error "Incorrect password."
+The setup form shows the error "Incorrect password".
 
 #### Resolution
 
