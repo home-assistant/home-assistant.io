@@ -119,7 +119,7 @@ You can apply different themes to individual sections within a view. This allows
 
 ### Prerequisites
 
-Before setting a section theme, you must (create your custom themes in YAML configuration file[(/integrations/frontend/#defining-themes)].
+Before setting a section theme, you must [create your custom themes in YAML configuration](/integrations/frontend/#defining-themes).
 
 ### Setting a section theme via the UI
 
