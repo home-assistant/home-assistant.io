@@ -370,8 +370,6 @@ There are two classes of event entities that are available based on the above ca
 Nest event entities are updated immediately when an event message is received
 without waiting for any media to be fetched. See Device Triggers for media support.
 
-## Actions
-
 {% include integrations/actions.md %}
 
 ## Device Triggers
