@@ -143,12 +143,15 @@ Create separate files for each:
 - action, in source/_actions/
 -->
 {% include integrations/actions.md %}
+
 {% include integrations/conditions.md %}
+
 {% include integrations/triggers.md %}
 
-<!--- If the integration has all three components (triggers, conditions, and actions), use the combined include instead. -->
-
+<!--
+If the integration has all three components (triggers, conditions, and actions), use the combined include instead. 
 {% include integrations/triggers_conditions_actions.md %}
+-->
 
 ## My-integration automation examples
 
