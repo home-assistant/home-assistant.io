@@ -173,8 +173,6 @@ Configurable time-of-day settings, such as:
 
 You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_soc` with your actual battery charge entity.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Notify when battery is low"
@@ -191,7 +189,6 @@ automation:
             {{ states('sensor.battery_soc') }}%.
 ```
 
-{% endraw %}
 ## Troubleshooting
 
 ### Cannot connect

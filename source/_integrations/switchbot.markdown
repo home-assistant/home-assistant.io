@@ -474,11 +474,18 @@ Features:
 - get carbon dioxide
 - get battery level
 - set display time format (12h/24h)
+- set display time offset
 - sync the device date and time with Home Assistant
+
+{% details "Setting display time offset" %} 
+
+**Display time offset** entity shifts the time shown on the device display without altering the device's internal timekeeping. The offset can be negative and it is applied independently: for example, pressing the **Sync date and time** button will update the internal clock to match Home Assistant but will not change or reset your custom offset. This allows you to maintain a specific time offset while still using automations to prevent hardware time drift.
+
+{% enddetails %}
 
 {% details "Syncing the device date and time with Home Assistant automatically" %} 
 
-The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. Here's a simple example for `configuration.yaml`:
+The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. That helps to mitigate the time drift on the device. Here's a simple example for `configuration.yaml`:
 
 ```yaml
 automation:
