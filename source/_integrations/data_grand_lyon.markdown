@@ -119,12 +119,6 @@ For each Vélo'v station you add, the following sensor entities are created:
 - **Available stands**
   - **Description**: The number of free docking stands available at the station.
 
-- **Station status**
-  - **Description**: Whether the station is currently open or closed. Disabled by default.
-
-- **Availability level**
-  - **Description**: The overall availability level of the station (green, orange, blue, or gray). Disabled by default.
-
 - **Capacity**
   - **Description**: The total number of docking stands at the station. Disabled by default.
 
@@ -133,9 +127,6 @@ For each Vélo'v station you add, the following sensor entities are created:
 
 - **Electrical removable battery bikes**
   - **Description**: The number of electrical bikes with a removable battery available at the station. Disabled by default.
-
-- **Last update**
-  - **Description**: The timestamp of the last data update from the station. Disabled by default.
 
 ## Examples
 
