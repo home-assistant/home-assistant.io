@@ -71,8 +71,8 @@ When a CO2 sensor crosses a threshold, run the fan to bring in fresh air until l
 
 - **Trigger**: Numeric state: CO2 sensor above 1000 ppm
 - **Action**: Nest: Set fan timer
-- **Target**: Living room thermostat
-- **Duration**: 30 minutes
+   - **Target**: Living room thermostat
+   - **Duration**: 30 minutes
 
 {% details "YAML example for CO2-triggered ventilation" %}
 
