@@ -163,8 +163,8 @@ This automation runs a fan only when the bedroom temperature is above 24°C, hel
 
 - **Trigger**: State: Fan is off
 - **Condition**: Temperature (above 24°C)
-- **Target**: Bedroom temperature sensor
-- **Condition passes if**: Any
+  - **Target**: Bedroom temperature sensor
+  - **Condition passes if**: Any
 - **Action**: Fan: Turn on
 
 {% details "YAML example for cooling when warm" %}
@@ -204,7 +204,7 @@ This automation sends a notification only when the living room temperature is ou
   - **Target**: Living room temperature sensor
   - **Condition passes if**: Any
 - **Action**: Send a notification message
-  - **Target**: notify.mobile_app
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for temperature out of range alert" %}
 
@@ -231,11 +231,11 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.gabrielas_android
+        entity_id: notify.my_device
       data:
         message: >
-          Living room temperature is
-          {{ states('sensor.living_room_temperature') }}°C
+          Living room temperature is {{ states('sensor.living_room_temperature') }}°C.
+          Comfortable range is 20-22°C.
 {% endexample %}
 
 {% enddetails %}
@@ -246,8 +246,8 @@ When the bedroom temperature is already within your comfort range, this automati
 
 - **Trigger**: Time pattern (every 30 minutes)
 - **Condition**: Temperature (in range, using number helpers)
-- **Target**: Bedroom temperature sensor
-- **Condition passes if**: Any
+  - **Target**: Bedroom temperature sensor
+  - **Condition passes if**: Any
 - **Action**: Set thermostat HVAC mode (state: off)
 
 {% details "YAML example for turning off climate when comfortable" %}
