@@ -158,9 +158,10 @@ views:
 
 Section themes use CSS cascade to provide flexible theming:
 
-- **Override**: Variables defined in a section theme override the view theme for that section.
-- **Inheritance**: Variables not defined in the section theme inherit from the view theme.
-- **Dark mode**: If a section theme defines its own dark mode settings, those are used. Otherwise, the view's dark mode settings apply.
+- Override of variables: Variables defined in a section theme override the view theme for that section.
+- Inheritance of variables: Variables not defined in the section theme inherit from the view theme.
+- Override of dark mode settings: If a section theme defines its own dark mode settings, those are used.
+- Inheritance of dark mode settings: If a section theme does not define its own dark mode settings, the view's dark mode settings apply.
 
 ### Example: Status dashboard with themed sections
 
