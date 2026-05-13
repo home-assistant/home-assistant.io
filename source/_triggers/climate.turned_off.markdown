@@ -2,13 +2,15 @@
 title: "Thermostat turned off"
 trigger: climate.turned_off
 domain: climate
-description: "Triggers after one or more thermostats turn off."
+description: "Triggers after one or more climate devices turn off."
 related_triggers:
   - climate.turned_on
   - climate.hvac_mode_changed
 ---
 
-The **Thermostat turned off** trigger fires after a thermostat {% term entity %} turns off. Use it to react the moment the thermostat is shut down, whether it was switched off manually, by a schedule, through a {% term automation %}, or by a voice command.
+The **Thermostat turned off** trigger fires after a climate {% term entity %} turns off. Climate entities include thermostats, air conditioners, heat pumps, and evaporative coolers. Use it to react the moment the device is shut down, whether it was switched off manually, by a schedule, through a {% term automation %}, or by a voice command.
+
+Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
