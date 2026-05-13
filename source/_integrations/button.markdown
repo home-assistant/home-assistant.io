@@ -73,7 +73,7 @@ The following examples show how you can use button entities in automations.
 Use the button trigger to react when you press a button entity, like a reset or maintenance button.
 
 - **Trigger**: Button pressed
-- **Target**: Air purifier filter reset button
+  - **Target**: Air purifier filter reset button
 - **Action**: Send a notification message
   - **Target**: Mobile app
 
@@ -102,7 +102,7 @@ Use the button action when an integration exposes a restart or update button tha
 
 - **Trigger**: Internet connection turns off for 10 minutes
 - **Action**: Press button
-- **Target**: Router restart button
+   - **Target**: Router restart button
 
 {% details "YAML example for restarting a device with a button action" %}
 
