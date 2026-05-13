@@ -86,7 +86,7 @@ This automation locks the front door when Ada leaves home.
 - **Trigger**: Left home
   - **Target**: Ada
 - **Trigger when**: Any
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the front door" %}
 
@@ -112,7 +112,7 @@ This automation waits until both Ada and Stacey have left home before it arms th
 - **Trigger**: Left home
   - **Target**: Ada and Stacey
 - **Trigger when**: Last
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
 
 {% details "YAML example for arming the alarm when everyone leaves" %}
 

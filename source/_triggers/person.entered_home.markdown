@@ -86,7 +86,7 @@ This automation turns on the porch light when Ada gets home after sunset.
 - **Trigger**: Entered home
   - **Target**: Ada
 - **Trigger when**: Any
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for turning on the porch light" %}
 
@@ -115,7 +115,7 @@ If your vacuum runs while the house is empty, this automation sends it back to t
 - **Trigger**: Entered home
   - **Target**: Ada and Stacey
 - **Trigger when**: First
-- **Action**: Vacuum: Return to base
+- **Action**: Return vacuum cleaner to dock
 
 {% details "YAML example for pausing the robot vacuum on arrival" %}
 
