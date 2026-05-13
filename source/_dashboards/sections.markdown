@@ -115,7 +115,11 @@ In the sections view, you can rearrange sections and cards by dragging them to a
 
 ## Setup of custom themes in specific sections of a view
 
-You can apply different [themes](/integrations/frontend/#defining-themes) to individual sections within a view. This allows you to visually distinguish different areas of your dashboard, such as using warm colors for alerts or cool colors for general information.
+You can apply different themes to individual sections within a view. This allows you to visually distinguish different areas of your dashboard, such as using warm colors for alerts or cool colors for general information.
+
+### Prerequisites
+
+Before setting a section theme, you must (create your custom themes in YAML configuration file[(/integrations/frontend/#defining-themes)].
 
 ### Setting a section theme via the UI
 
