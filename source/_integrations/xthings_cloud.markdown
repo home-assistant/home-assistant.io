@@ -15,7 +15,7 @@ ha_platforms:
 ha_quality_scale: bronze
 ---
 
-The **Xthings Cloud** {% term integration %} allows you to control and monitor your [Xthings](https://xthings.com) smart home devices through the Xthings Cloud service. Xthings provides a range of smart home products including smart lights under the **U-tec** brand.
+The **Xthings Cloud** {% term integration %} allows you to control and monitor your [Xthings](https://xthings.com) smart home devices through the Xthings Cloud service. This integration currently supports the **U-tec Bright A19 Color** smart light bulb.
 
 Use case: Control your Xthings smart lights from a single Home Assistant dashboard with real-time status updates via WebSocket push.
 
@@ -23,7 +23,7 @@ Use case: Control your Xthings smart lights from a single Home Assistant dashboa
 
 The following device types are supported:
 
-- **Smart lights**: on/off, brightness, HS color, color temperature
+- **U-tec Bright A19 Color light bulb (Xthings Cloud)**: on/off, brightness, HS color, color temperature
 
 ## Prerequisites
 
