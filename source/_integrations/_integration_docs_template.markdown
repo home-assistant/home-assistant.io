@@ -136,13 +136,22 @@ The **My integration** integration provides the following entities.
   - **Available for machines**: all
 
 <!--
-The "include" below adds sections (heading 2) for triggers, conditions, and actions for this integration.
+The "include" elements below add sections (heading 2) for triggers, conditions, or actions for this integration. Use the one that applies to what you are adding.
 Create separate files for each:
 - trigger, in source/_triggers/
 - condition, in source/_conditions/
 - action, in source/_actions/
 -->
+{% include integrations/actions.md %}
+
+{% include integrations/conditions.md %}
+
+{% include integrations/triggers.md %}
+
+<!--
+If the integration has all three components (triggers, conditions, and actions), use the combined include instead. 
 {% include integrations/triggers_conditions_actions.md %}
+-->
 
 ## My-integration automation examples
 
