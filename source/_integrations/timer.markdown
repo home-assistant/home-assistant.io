@@ -152,7 +152,7 @@ Go to {% my developer_services title="**Settings** > **Developer tools** > **Act
 Use a timer to keep the fan running for a fixed amount of time after a shower.
 
 - **Trigger**: Timer finished
-- **Target**: Bathroom fan timer
+  - **Target**: Bathroom fan timer
 - **Trigger when**: Each
 - **Action**: Turn off fan
 
@@ -181,8 +181,8 @@ automation: |
 Get a reminder shortly before a timer finishes, like when laundry or cooking time is almost done.
 
 - **Trigger**: Timer time remaining
-- **Target**: Laundry timer
-- **Time remaining**: 00:05:00
+  - **Target**: Laundry timer
+  - **Time remaining**: 00:05:00
 - **Action**: Send notification
 
 {% details "YAML example for a laundry timer reminder" %}
