@@ -1,7 +1,7 @@
 ---
 title: Xthings Cloud
 description: Connect and control Xthings Cloud smart home devices with Home Assistant.
-ha_release: "2026.3"
+ha_release: "2026.6"
 ha_category:
   - Light
 ha_iot_class: Cloud Push
