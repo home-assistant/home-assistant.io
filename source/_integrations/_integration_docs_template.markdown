@@ -136,7 +136,7 @@ The **My integration** integration provides the following entities.
   - **Available for machines**: all
 
 <!--
-The "includes" elements below add sections (heading 2) for triggers, conditions, or actions for this integration. Uee the one that applies to what you are adding.
+The "include" elements below add sections (heading 2) for triggers, conditions, or actions for this integration. Use the one that applies to what you are adding.
 Create separate files for each:
 - trigger, in source/_triggers/
 - condition, in source/_conditions/
