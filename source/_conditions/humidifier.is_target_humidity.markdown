@@ -99,8 +99,8 @@ When the bedroom humidifier's target humidity is set to 70% or above, turn on th
 
 - **Trigger**: State change of the bedroom humidifier's `humidity` attribute
 - **Condition**: Humidifier target humidity (70% or above)
-- **Target**: Bedroom humidifier
-- **Condition passes if**: Any
+  - **Target**: Bedroom humidifier
+  - **Condition passes if**: Any
 - **Action**: Switch: Turn on ventilation fan
 
 {% details "YAML example for turning on the ventilation fan when the target is high" %}

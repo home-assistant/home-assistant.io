@@ -102,7 +102,7 @@ If the bedroom humidifier turns off during the night, send a notification so you
   - **For at least**: 00:00:00
 - **Condition**: Time is between 22:00 and 07:00
 - **Action**: Send a notification message
-  - **Target**: notify.mobile_app_phone
+  - **Target**: My device (`notify.my_device`)
 
 {% details "YAML example for an overnight humidifier-off alert" %}
 
@@ -123,7 +123,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.andres_android
+        entity_id: notify.my_device
       data:
         message: "Bedroom humidifier turned off."
 {% endexample %}
@@ -135,9 +135,9 @@ automation: |
 When all humidifiers in the house turn off, turn off the ventilation fan as well, since there is nothing left to support.
 
 - **Trigger**: Humidifier turned off
-- **Target**: All humidifiers (by label)
-- **Trigger when**: All
-- **For at least**: 00:00:00
+  - **Target**: All humidifiers (by label)
+  - **Trigger when**: All
+  - **For at least**: 00:00:00
 - **Action**: Fan: Turn off
 
 {% details "YAML example for turning off the fan when all humidifiers stop" %}

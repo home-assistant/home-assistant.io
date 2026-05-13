@@ -90,7 +90,7 @@ At 22:30 on weeknights, check whether the bedroom humidifier has been left off. 
   - **Target**: Bedroom humidifier
   - **Condition passes if**: Any
 - **Action**: Send a notification message
-  - **Target**: notify.mobile_app_phone
+  - **Target**: My device (`notify.my_device`)
 
 {% details "YAML example for a bedtime humidifier reminder" %}
 
@@ -116,7 +116,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.andres_android
+        entity_id: notify.my_device
       data:
         message: >
           The bedroom humidifier is off.

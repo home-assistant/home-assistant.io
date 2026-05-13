@@ -101,7 +101,7 @@ When the basement dehumidifier starts running again, it means the air has become
   - **Trigger when**: Each
   - **For at least**: 00:05:00
 - **Action**: Send a notification message
-  - **Target**: notify.mobile_app_phone
+  - **Target**: My device (`notify.my_device`)
 
 {% details "YAML example for a basement humidity alert" %}
 
@@ -118,7 +118,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.andres_android
+        entity_id: notify.my_device
       data:
         message: "Basement dehumidifier started drying. Humidity may be high."
 {% endexample %}
@@ -130,9 +130,9 @@ automation: |
 When the dehumidifier starts drying, close any open motorized windows automatically to prevent more humid air from coming in and making the device work harder. Motorized windows are supported in Home Assistant through integrations like [Velux](/integrations/velux/), [Somfy](/integrations/somfy/), and [KNX](/integrations/knx/).
 
 - **Trigger**: Humidifier started drying
-- **Target**: Basement dehumidifier
-- **Trigger when**: Each
-- **For at least**: 00:00:00
+  - **Target**: Basement dehumidifier
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Action**: Cover: Close cover
 
 {% details "YAML example for closing windows on dehumidification start" %}
