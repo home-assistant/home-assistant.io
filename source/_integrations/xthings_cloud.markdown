@@ -56,7 +56,7 @@ The **Xthings Cloud** integration provides the following entities.
 
 ## Data updates
 
-The **Xthings Cloud** integration uses a combination of push and polling for data updates:
+The **Xthings Cloud** integration uses a combination of push and {% term polling %} for data updates:
 
 - **WebSocket push** (primary): The integration maintains a persistent WebSocket connection to the Xthings Cloud. Device status changes and online/offline events are pushed in real-time, typically within 1–2 seconds.
 - **Polling** (fallback): As a safety net, the integration polls the cloud API every 30 minutes to ensure data consistency in case of missed WebSocket messages.
