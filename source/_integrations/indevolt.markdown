@@ -40,8 +40,8 @@ Beyond basic monitoring, the Indevolt integration enables advanced energy manage
 
 The integration supports the following devices:
 
-- BK1600/BK1600Ultra
-- SolidFlex/PowerFlex2000
+- BK1600 / BK1600 Ultra
+- SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000
 
 ## Prerequisites
 
@@ -205,6 +205,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 - Energy mode can only be set when the device is not in "Outdoor / Portable"-mode.
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
+- The SolidFlex 1200 identifies itself as a SolidFlex 2000 device.
 
 ## Troubleshooting
 
