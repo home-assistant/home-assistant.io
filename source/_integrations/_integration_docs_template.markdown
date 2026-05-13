@@ -146,7 +146,7 @@ Create separate files for each:
 {% include integrations/conditions.md %}
 {% include integrations/triggers.md %}
 
-<!--- If the integration has triggers, conditions, and actions, use the combined include. -->
+<!--- If the integration has all three components (triggers, conditions, and actions), use the combined include. -->
 
 {% include integrations/triggers_conditions_actions.md %}
 
