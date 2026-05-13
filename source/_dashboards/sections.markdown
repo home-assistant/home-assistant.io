@@ -163,7 +163,7 @@ Section themes use CSS cascade to provide flexible theming:
 - Override of dark mode settings: If a section theme defines its own dark mode settings, those are used.
 - Inheritance of dark mode settings: If a section theme does not define its own dark mode settings, the view's dark mode settings apply.
 
-### Example: Status dashboard with themed sections
+### YAML example: Add custom themes to a new dashboard
 
 This example shows a dashboard with a blue theme for general information and an amber/orange theme for system alerts.
 
