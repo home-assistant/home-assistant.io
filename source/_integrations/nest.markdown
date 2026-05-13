@@ -316,7 +316,7 @@ The `nest.set_fan_timer` action sets the fan to run for a specific duration. The
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
 | `entity_id`    | No       | Name of the climate entity to set the fan timer on. |
-| `duration`     | No       | The duration the fan should run for, for example, `00:15:00`. |
+| `duration`     | No       | The duration the fan should run for, for example, `minutes: 15`. |
 
 ## Sensor
 
