@@ -23,7 +23,7 @@ The Elk E27 Alarm Engine is manufactured by [Elk Products](https://www.elkproduc
 
 ## Supported functionality
 
-This integration represents Elk E27 areas, also known as partitions, as {% term "`alarm_control_panel`" %} entities.
+This integration represents Elk E27 areas, also known as partitions, as `alarm_control_panel` entities.
 
 Alarm control panel entities support:
 
