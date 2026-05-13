@@ -46,7 +46,7 @@ If your device is set up with password, use the password. If it has an API key, 
 
 {% note %}
   
-If your Daikin unit does not reside in the same network as your Home Assistant instance, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
+If your Daikin unit does not reside in the same network as your Home Assistant instance (that is, your network is segmented), note that a couple of UDP connections are made during discovery:
 
 - From Home Assistant to the Daikin controller: `UDP:30000` => `30050`
 - From the Daikin controller to Home Assistant: `UDP:<random port>` => `30000`
@@ -163,4 +163,4 @@ Currently known region codes:
 - US
 - TH
 
-If you experience problems with certain apps like the Daikin ONECTA try setting a lower-case region code (e.g. 'eu').
+If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).

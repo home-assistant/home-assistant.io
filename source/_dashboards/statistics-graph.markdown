@@ -33,9 +33,9 @@ Statistics are gathered every 5 minutes and also hourly for sensors with a state
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -123,6 +123,10 @@ name:
   required: false
   description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
+color:
+  required: false
+  description: Custom color. Can be defined as `red` (named color), `'#ff0000'` (hex format), `rgb(255, 0, 0)` (RGB format).
+  type: string
 {% endconfiguration %}
 
 ### Example

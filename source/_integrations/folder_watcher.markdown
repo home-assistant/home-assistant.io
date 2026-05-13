@@ -47,8 +47,6 @@ When the `event_type` is `moved`, the file details are for the source file and d
 
 Automations can be triggered on file system events data using a template. The following automation will send a notification with the name and folder of new files added to that folder:
 
-{% raw %}
-
 ```yaml
 #Send notification for new image (including the image itself)
 automation:
@@ -64,5 +62,3 @@ automation:
         data:
           file: "{{ trigger.to_state.attributes.file }}"
 ```
-
-{% endraw %}

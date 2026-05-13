@@ -16,8 +16,6 @@ The **RSS feed template** {% term integration %} can export any information from
 
 For example, on Android, the app "Simple RSS Widget" can be used to display temperatures on the home screen.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 rss_feed_template:
@@ -31,8 +29,6 @@ rss_feed_template:
       description: "{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states('sensor.temp_outside')}} °C{% endif %}"
 ```
 
-{% endraw %}
-
 {% configuration %}
 requires_api_password:
   description: If true and an API password is set, the password must be passed via '?api_password=...' parameter.
@@ -44,7 +40,7 @@ feed_id:
   required: true
   type: string
 title:
-  description: The title of the feed, which is parsed as [template](/docs/configuration/templating/).
+  description: The title of the feed, which is parsed as [template](/docs/templating/).
   required: false
   type: template
 items:
@@ -53,11 +49,11 @@ items:
   type: list
   keys:
     title:
-      description: The title of the item, which is parsed as [template](/docs/configuration/templating/).
+      description: The title of the item, which is parsed as [template](/docs/templating/).
       required: false
       type: template
     description:
-      description: The description of the item, which is parsed as [template](/docs/configuration/templating/).
+      description: The description of the item, which is parsed as [template](/docs/templating/).
       required: false
       type: template
 {% endconfiguration %}

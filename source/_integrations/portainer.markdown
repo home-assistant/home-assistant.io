@@ -105,8 +105,6 @@ The following examples show how to use the Portainer integration in Home Assista
 
 The following example sends a notification to your mobile device when a container went down.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Container went down"
@@ -123,8 +121,6 @@ automation:
           title: "Container alert"
           message: "Container went down!"
 ```
-
-{% endraw %}
 
 ## Actions
 

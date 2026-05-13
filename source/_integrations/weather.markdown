@@ -110,21 +110,18 @@ The response data field is a mapping of called target entities, each containing 
 | `wind_gust_speed`           | The wind gust speed in the unit indicated by the `wind_speed_unit` state attribute.                                                             | 34.41                     |
 | `wind_speed`                | The wind speed in the unit indicated by the `wind_speed_unit` state attribute.                                                                  | 24.41                     |
 
-
 ## Examples
 
 {% details "Example template sensor using get_forecasts" %}
 
 Example [template sensor](/integrations/template#yaml-configuration) that contains the hourly forecast
 
-{% raw %}
-
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - trigger: time_pattern
         hours: /1
-    action:
+    actions:
       - action: weather.get_forecasts
         data:
           type: hourly
@@ -134,15 +131,14 @@ template:
     sensor:
       - name: Temperature forecast next hour
         unique_id: temperature_forecast_next_hour
-        state: "{{ hourly['weather.home'].forecast[0].temperature }}"
-        unit_of_measurement: °C
-
+        state: >
+          {{
+            hourly['weather.home'].forecast[0].temperature
+          }}
+        unit_of_measurement: "°C"
 ```
 
-{% endraw %}
-
 {% enddetails %}
-
 
 {% details "Example action response" %}
 

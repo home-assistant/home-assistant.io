@@ -120,8 +120,6 @@ Using the flexible option to set a sensor value to the `Destination`, you can se
 
 In the following example, the `Input Select` is converted into an address which is used to modify the destination for the Waze route calculation from the `device_tracker.myphone` location. It takes a few minutes for the value to update due to the interval of Waze data fetching.
 
-{% raw %}
-
 ```yaml
 input_select:
   destination:
@@ -146,8 +144,6 @@ template:
           {%- endif %}
 
 ```
-
-{% endraw %}
 
 ### Various configurations that are supported
 

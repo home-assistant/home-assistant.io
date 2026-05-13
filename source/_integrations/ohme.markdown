@@ -68,6 +68,10 @@ The Ohme integration provides the following entities.
 - **Preconditioning duration**
   - **Description**: Defines how long to precondition your vehicle before the target time. `0` means preconditioning is disabled.
   - **Available for devices**: all
+- **State of charge input**
+  - **Description**: Used to set the current state of charge for non-API connected vehicles. This will only function when a vehicle is connected. For more information, refer to the related [Ohme documentation](https://ohme-ev.com/support/how-to-set-your-battery-level-when-you-plug-in).
+  - **Available for devices**: all
+  - **Note**: This input is disabled by default.
 
 #### Selects
 
@@ -162,7 +166,6 @@ If you have a home battery system:
 
 To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
 
-{% raw %}
 ```yaml
 # Example automation
 triggers:
@@ -175,8 +178,6 @@ actions:
     data:
       message: "Vehicle plugged in"
 ```
-{% endraw %}
-
 
 ## Troubleshooting
 

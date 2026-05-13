@@ -62,7 +62,7 @@ The integration provides the following types of subentries:
 
 {% configuration_basic %}
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 Recommended settings:
@@ -170,7 +170,6 @@ You can set the Claude AI Task entity as the default AI Task entity. To do this,
 You can use `conversation.process` and `ai_task.generate_data` actions in your scripts and automations.
 Here is a simple automation that implements a Claude Telegram chatbot using [Telegram bot integration](/integrations/telegram_bot):
 
-{% raw %}
 
 ```yaml
 triggers:
@@ -193,7 +192,6 @@ actions:
       config_entry_id: "{{ trigger.to_state.attributes.bot.config_entry_id }}"
 ```
 
-{% endraw %}
 
 ## Troubleshooting
 

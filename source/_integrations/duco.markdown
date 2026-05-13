@@ -38,15 +38,30 @@ Compatible DucoBox models:
 - DucoBox Energy Comfort / Energy Comfort Plus
 - DucoBox Energy Premium
 
+### Supported sensor modules
+
+The following sensor module types are supported:
+
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, mode end time, and Wi-Fi signal strength.
+- **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
+- **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
+- **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
+
+### Unsupported sensor modules
+
+The following sensor module types are discovered but not yet supported:
+
+- **UC**: Universal control unit (no sensor data exposed)
+- **UCBAT**: Battery-powered sensor module
+- **VLV**: Valve actuator
+
+When Home Assistant discovers a node with an unsupported type, it logs a warning and skips that node. All other nodes continue to work normally.
+
 ## Prerequisites
 
 - A Duco ventilation box with a DUCO Connectivity Board connected to your local network.
 
 {% include integrations/config_flow.md %}
-
-Your Duco ventilation box can be automatically discovered on your network when the device is connected and powered on. When Home Assistant discovers a new Duco device, it appears as a notification in the UI. Select the notification to complete the setup.
-
-If automatic discovery does not work, you can manually add the integration by providing the IP address or hostname.
 
 {% configuration_basic %}
 Host:
@@ -57,29 +72,38 @@ Host:
 
 The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
 
-- **BOX** — the main DucoBox (fan control, ventilation state)
-- **UCCO2** — a wireless CO₂ sensor module
-- **BSRH** — a humidity sensor module installed inside the DucoBox
+- **BOX**: The main DucoBox (fan control, ventilation state, target flow level, mode end time)
+- **UCCO2**: A wall-mounted control unit with a built-in CO₂ sensor
+- **BSRH**: A humidity sensor module installed in the duct inlet of the DucoBox
+- **UCRH**: A wireless humidity sensor module
 
 ### Fan
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
 
-The fan is always on. Setting the speed to 0% returns control to Duco (automatic mode), after which the firmware automatically resumes ventilation.
+The fan is always on. Turning off the fan is not supported.
 
-The following actions are available:
+Setting a speed percentage to 33%, 66%, or 100% activates a continuous override with no time limit. Setting it to 0% clears the override and hands control back to Duco:
 
-- **Speed 0%**: Hands control back to Duco (automatic mode).
-- **Speed 33%**: Low speed manual override.
-- **Speed 66%**: Medium speed manual override.
-- **Speed 100%**: High speed manual override.
+- **Speed 0%**: Clears the override and returns to automatic mode.
+- **Speed 33%**: Continuous low speed override.
+- **Speed 66%**: Continuous medium speed override.
+- **Speed 100%**: Continuous high speed override.
 - **Auto preset**: Same as speed 0%; hands control back to Duco.
 
-When an external device (for example a CO₂ sensor or an RF wall switch) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
+When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
+
+{% note %}
+The percentages 33%, 66%, and 100% are abstract speed levels used in the Home Assistant fan UI and do not match the actual airflow percentages configured in the Duco firmware. To see the real airflow target, use the **Target flow level** sensor.
+{% endnote %}
 
 ### Sensors
 
 The following sensor entities are created per node, depending on the node type:
+
+#### Target flow level
+
+Available for the main ventilation box (BOX). Shows the actual airflow target as reported by the Duco box, as a percentage (0–100%). This value reflects the real airflow configured in the Duco firmware and differs from the abstract speed levels (33%, 66%, or 100%) shown in the fan entity. For example, if your Duco system is configured with manual speed levels of 15%, 30%, and 100%, this sensor shows those values.
 
 #### Ventilation state
 
@@ -89,13 +113,17 @@ Available for the main ventilation box (BOX). Shows the current ventilation stat
 - Continuous high speed
 - Manual low speed (15 min)
 
+#### Mode end time
+
+Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation mode ends. When no timer is active, this sensor is unavailable.
+
 #### CO₂ concentration
 
 Available for CO₂ sensor modules. Shows the current CO₂ concentration in parts per million (ppm).
 
 #### Humidity
 
-Available for humidity sensor modules (BSRH). Shows the current relative humidity in percent.
+Available for humidity sensor modules (BSRH, UCRH). Shows the current relative humidity in percent.
 
 #### CO₂ air quality index
 
@@ -110,7 +138,7 @@ Indoor air quality ranges for CO₂:
 
 #### Humidity air quality index
 
-Available for humidity sensor modules (BSRH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for humidity sensor modules (BSRH, UCRH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
 
 Indoor air quality ranges for humidity:
 
@@ -132,6 +160,8 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 
 ## Examples
 
+The example entity IDs below use the default naming that Home Assistant assigns on a new Home Assistant installation. Replace them with the entity IDs from your own system.
+
 ### Activate high ventilation while cooking
 
 This automation switches the ventilation to high speed when the kitchen hood is turned on, and returns it to automatic mode five minutes after the hood is switched off.
@@ -145,7 +175,7 @@ This automation switches the ventilation to high speed when the kitchen hood is 
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 100
 
@@ -158,7 +188,7 @@ This automation switches the ventilation to high speed when the kitchen hood is 
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 0
 ```
@@ -176,7 +206,7 @@ When the last person leaves home, the ventilation hands control back to Duco (au
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 0
 
@@ -188,37 +218,67 @@ When the last person leaves home, the ventilation hands control back to Duco (au
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 66
 ```
 
 ### Boost ventilation when CO₂ is high
 
-This automation switches to high speed when the CO₂ level in the office rises above 1000 ppm, and returns to automatic mode when it drops back below 800 ppm.
+This automation switches to high speed when the CO₂ level rises above 1000 ppm on a UCCO2 sensor module, and returns to automatic mode when it drops back below 800 ppm.
 
 ```yaml
 - alias: "Boost ventilation on high CO2"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.office_co2_carbon_dioxide
+      entity_id: sensor.node_2_carbon_dioxide
       above: 1000
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
       data:
         percentage: 100
 
 - alias: "Return to auto when CO2 is low"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.office_co2_carbon_dioxide
+      entity_id: sensor.node_2_carbon_dioxide
       below: 800
   actions:
     - action: fan.set_percentage
       target:
-        entity_id: fan.living_ventilation
+        entity_id: fan.node_1
+      data:
+        percentage: 0
+```
+
+### Boost ventilation when humidity is high
+
+This automation switches to medium speed when relative humidity rises above 70% on a UCRH or BSRH sensor module, and returns to automatic mode when it drops back below 60%.
+
+```yaml
+- alias: "Boost ventilation on high humidity"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.node_113_humidity
+      above: 70
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.node_1
+      data:
+        percentage: 66
+
+- alias: "Return to auto when humidity is normal"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.node_113_humidity
+      below: 60
+  actions:
+    - action: fan.set_percentage
+      target:
+        entity_id: fan.node_1
       data:
         percentage: 0
 ```
@@ -229,8 +289,8 @@ The integration {% term polling polls %} the Duco box every 30 seconds. If you a
 
 ## Known limitations
 
-- The Duco box enforces a rate limit of approximately 200 write requests per day (HTTP 429, error code 18). The integration handles this gracefully, and the firmware resets the quota automatically around midnight.
-- Timed speed overrides set by external devices (such as an RF wall switch or a CO₂ sensor) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
+- The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
+- Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
@@ -265,15 +325,13 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 
 #### Symptom
 
-Setting the fan speed or preset mode fails with an error like:
+Setting the fan speed or preset mode fails with a notification in the Home Assistant UI:
 
-```text
-Failed to set ventilation state: DucoError('Duco API error (429): {"Code":18,"Result":"FAILED"}')
-```
+> The Duco device has reached its daily write limit. Try again tomorrow.
 
 #### Description
 
-The Duco box enforces a write rate limit of 200 write requests per day. When the limit is reached, the box rejects further write requests with a 429 error until the quota resets around midnight.
+The Duco box enforces a write rate limit of 200 write requests per day. When the limit is reached, the box rejects further write requests until the quota resets around midnight.
 
 #### Resolution
 

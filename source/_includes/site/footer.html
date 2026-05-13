@@ -75,64 +75,18 @@
 
           <h3>Follow us</h3>
           <p><a class="external-link" href='https://newsletter.openhomefoundation.org/#/portal'>Sign up for our newsletter</a></p>
-          <div class="icons">
-            <a
-              rel="me"
-              href="https://youtube.com/@home_assistant"
-              title="YouTube"
-              target="_blank"
-              ><iconify-icon icon="simple-icons:youtube"></iconify-icon></a>
-            <a
-              rel="me"
-              href="https://reddit.com/r/homeassistant"
-              title="Reddit"
-              target="_blank"
-              ><iconify-icon icon="simple-icons:reddit"></iconify-icon></a>
-            <a
-              rel="me"
-              href="https://github.com/home-assistant"
-              title="GitHub"
-              target="_blank"
-              ><iconify-icon icon="simple-icons:github"></iconify-icon></a>
-            <br />
-            <a
-              rel="me"
-              href="https://fosstodon.org/@homeassistant"
-              title="Mastodon"
-              target="_blank"
-              ><iconify-icon icon="simple-icons:mastodon"></iconify-icon></a>
-            <a
-              rel="me"
-              href="https://bsky.app/profile/home-assistant.io"
-              title="Bluesky"
-              target="_blank"
-             ><iconify-icon icon="simple-icons:bluesky"></iconify-icon></a>
-            <a
-              rel="me"
-              href="https://x.com/home_assistant"
-              title="X"
-              target="_blank"
-             ><iconify-icon icon="simple-icons:x"></iconify-icon></a>
-            <br />
-            <a
-              rel="me"
-              href="https://www.facebook.com/homeassistantio"
-              title="Facebook"
-              target="_blank"
-              ><iconify-icon icon="simple-icons:facebook"></iconify-icon></a>
-            <a
-              rel="me"
-              href="https://www.instagram.com/homeassistant/"
-              title="Instagram"
-              target="_blank"
-              ><iconify-icon icon="simple-icons:instagram"></iconify-icon></a>
-            <a
-              rel="me"
-              href="https://www.linkedin.com/company/home-assistant"
-              title="LinkedIn"
-              target="_blank"
-              ><iconify-icon icon="simple-icons:linkedin"></iconify-icon></a>
-          </div>
+          <ul class="icons">
+            {% for social in site.data.social_media %}
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="{{ social.url }}"
+                title="{{ social.title }}"
+                target="_blank"
+              ><iconify-icon icon="{{ social.icon }}"></iconify-icon></a>
+            </li>
+            {% endfor %}
+          </ul>
 
           <div class="web-notice">
             <p>

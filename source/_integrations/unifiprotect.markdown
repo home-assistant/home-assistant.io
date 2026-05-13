@@ -2,6 +2,7 @@
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
+  - Alarm
   - Binary sensor
   - Button
   - Camera
@@ -15,6 +16,7 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Siren
   - Switch
 ha_dhcp: true
 ha_ssdp: true
@@ -23,6 +25,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: unifiprotect
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
@@ -34,6 +37,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - text
 ha_integration_type: hub
@@ -52,7 +56,11 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 
 ### Software support
 
-The **absolute minimum** software version is `v6.0.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. 
+The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
+
+### Public API features {#public-api-features}
+
+Some entities depend on features that were added to the UniFi Protect public API in a specific version. If your UniFi Protect version is older than the version that introduced a given feature, the corresponding entity will not be available. You can look up which features were introduced in which version on the [UniFi Protect developer portal](https://developer.ui.com/protect/).
 
 ### No EA support
 {% important %}
@@ -73,8 +81,8 @@ but it is not required. The entities that are created will automatically adjust 
 use has.
 
 1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
-**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (e.g. _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
-2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (e.g. _192.168.1.1/admins/_).
+**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
+2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (for example _192.168.1.1/admins/_).
 3. Click on **+** in the top right corner and select **Add Admin**.
 4. Select **Restrict to local access only** and enter a new _username_ and _password_.
 5. Select **Full Management** for the _Protect_ role.
@@ -85,7 +93,7 @@ use has.
 In addition to the username and password, you now need to create an API key for Home Assistant.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations**.
+2. Go to **Settings** > **Control Plane** > **Integrations** or go to [IP address]/network/default/integrations/ (for example _192.168.1.1/network/default/integrations/_).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
@@ -201,11 +209,29 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
 - **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
 
+### UniFi Protect relays
+
+Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. This requires a UniFi Protect version that includes **Relay information & management** in the public API. See [Public API features](#public-api-features).
+
+- **Switch**: A switch entity is added for each relay output channel to turn the output on or off.
+
+{% note %}
+Relay input channels are not yet supported.
+{% endnote %}
+
+### UniFi Protect sirens
+
+Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the NVR. This requires a UniFi Protect version that includes **Siren information & management** in the public API. See [Public API features](#public-api-features).
+
+- **Siren**: A siren entity to trigger and stop the siren. You can also set the volume level and the duration before triggering. The default duration is 5 seconds. Running the siren indefinitely is not supported.
+
 ### NVR
 
-Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
+Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
 
-- **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
+- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. This requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+- **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+- **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
 ## Media source
@@ -458,7 +484,7 @@ The condition ensures the notification is only sent for actual doorbell rings an
   - **event_type**: `scanned`
   - **event_id**: A unique ID that identifies the NFC card scan event.
   - **nfc_id**: The ID of the scanned NFC card.
-- **Description**: This event is triggered when an NFC card is scanned at a compatible device (e.g., a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
+- **Description**: This event is triggered when an NFC card is scanned at a compatible device (for example, a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
 
 #### Example G4 Doorbell NFC Scanned Automation
 

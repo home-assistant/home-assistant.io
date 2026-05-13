@@ -373,33 +373,21 @@ If you need to generate codes for switches and lights, you can use a template (u
 
 ### Switch: ARC
 
-{% raw %}
-
 ```yaml
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
 ```
 
-{% endraw %}
-
 ### Light: ARC
-
-{% raw %}
 
 ```yaml
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}020f70
 ```
 
-{% endraw %}
-
 ### Light: Lightwave RF
-
-{% raw %}
 
 ```yaml
 0a14000{{ range(100,700) | random | int }}bc0cf{{ range(0,10) | random | int }}100f70
 ```
-
-{% endraw %}
 
 - Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.
