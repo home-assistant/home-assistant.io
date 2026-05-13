@@ -60,7 +60,7 @@ Use this automation to keep a record of when a maintenance button was pressed.
 - **Trigger**: Button pressed
   - **Target**: Air purifier filter reset button
 - **Action**: Send a notification message
-  - **Target**: Mobile app
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a filter reset button notification" %}
 
@@ -74,7 +74,7 @@ automation: |
     actions:
       - action: notify.send_message
         target:
-          entity_id: notify.my_mobile_app
+          entity_id: notify.my_device
         data:
           message: "The air purifier filter reset button was pressed."
 {% endexample %}

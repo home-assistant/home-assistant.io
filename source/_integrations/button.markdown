@@ -75,7 +75,7 @@ Use the button trigger to react when you press a button entity, like a reset or 
 - **Trigger**: Button pressed
   - **Target**: Air purifier filter reset button
 - **Action**: Send a notification message
-  - **Target**: Mobile app
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a button-press notification" %}
 
@@ -89,7 +89,7 @@ automation: |
     actions:
       - action: notify.send_message
         target:
-          entity_id: notify.my_mobile_app
+          entity_id: notify.my_device
         data:
           message: "The air purifier filter reset button was pressed."
 {% endexample %}
