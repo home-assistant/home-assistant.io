@@ -88,8 +88,8 @@ At bedtime, this automation arms your home only if the driveway gate and courtya
 
 - **Trigger**: Time
 - **Condition**: Gate is closed
-- **Target**: Driveway gate and courtyard gate
-- **Condition passes if**: All
+   - **Target**: Driveway gate and courtyard gate
+   - **Condition passes if**: All
 - **Action**: Alarm control panel: Arm away
 
 {% details "YAML example for arming only after all gates are closed" %}
@@ -122,8 +122,8 @@ If people often walk through the side gate in the morning, this automation waits
 
 - **Trigger**: Time
 - **Condition**: Gate is closed
-- **Target**: Side gate
-- **For at least**: 00:05:00
+   - **Target**: Side gate
+   - **For at least**: 00:05:00
 - **Action**: Switch: Turn on
 
 {% details "YAML example for waiting to start irrigation" %}

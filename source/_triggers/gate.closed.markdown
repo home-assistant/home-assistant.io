@@ -86,8 +86,8 @@ for:
 If your driveway lights turn on when the gate opens, this automation turns them back off after the gate has stayed closed for 2 minutes. That gives you enough time to park and walk inside.
 
 - **Trigger**: Gate closed
-- **Target**: Driveway gate
-- **For at least**: 00:02:00
+   - **Target**: Driveway gate
+   - **For at least**: 00:02:00
 - **Action**: Light: Turn off light
 
 {% details "YAML example for turning off driveway lights after the gate closes" %}
@@ -114,7 +114,7 @@ automation: |
 If you use the courtyard gate as your usual way in, you might want the side door to lock only after the gate is shut again. This automation waits for the gate to close, then locks the door.
 
 - **Trigger**: Gate closed
-- **Target**: Courtyard gate
+   - **Target**: Courtyard gate
 - **Action**: Lock lock
 
 {% details "YAML example for locking the side door after the gate closes" %}
