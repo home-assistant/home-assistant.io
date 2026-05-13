@@ -55,7 +55,7 @@ For more details, see the [Yoto Developers documentation](https://yoto.dev/get-s
 
 {% include integrations/config_flow.md %}
 
-During setup, Home Assistant asks for your Yoto **Client ID** and **Client secret** through the [Application Credentials](/integrations/application_credentials/) flow, then opens the Yoto authorization page so you can grant access. After you approve, Home Assistant creates one device and one media player entity for every Yoto player in your family.
+During setup, Home Assistant asks for your Yoto **Client ID** and **Client secret** through the [Application Credentials](/integrations/application_credentials/) flow, then opens the Yoto authorization page so you can grant access. After you approve, Home Assistant creates one {% term device %} and one media player {% term entity %} for every Yoto player in your family.
 
 ## Supported functionality
 
@@ -72,7 +72,7 @@ Yoto players cannot be powered on remotely. Home Assistant reports the player as
 
 ### Play media
 
-The `media_player.play_media` action accepts two forms of `media_id`:
+The [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action accepts two forms of `media_id`:
 
 - A bare card ID. Playback starts from the beginning of the card.
 - A structured ID in the form `<card_id>+<chapter_key>+<track_key>+<seconds_in>`. Each segment after the card ID is optional. Leave a segment empty to keep its default.
@@ -81,13 +81,13 @@ The `media_player.play_media` action accepts two forms of `media_id`:
 
 The integration receives real-time playback updates from each Yoto player over MQTT. To keep the reported status fresh even when the player has not changed state, the integration also asks every player to push a status snapshot every 60 seconds.
 
-The player's online or offline state comes from the Yoto cloud REST API, which the integration polls every 5 minutes. A player that loses power or network can take up to that long to show as _off_ in Home Assistant.
+The player's online or offline state comes from the Yoto cloud REST API, which the integration {% term polling polls %} every 5 minutes. A player that loses power or network can take up to that long to show as _off_ in Home Assistant.
 
 ## Known limitations
 
 - The online and offline state of a player can lag by up to 5 minutes because the Yoto cloud only exposes this through polling.
 - Yoto players cannot be powered on or off from Home Assistant.
-- Browsing your card library from the media player UI is not supported yet. You need to know the card ID to start playback through the `media_player.play_media` action.
+- Browsing your card library from the media player UI is not supported yet. You need to know the card ID to start playback through the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action.
 
 ## Removing the integration
 
