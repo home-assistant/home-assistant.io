@@ -805,6 +805,11 @@ step:
   description: "The step size of the volume. The default is 5%."
   type: integer
   default: 5
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Media player volume slider
