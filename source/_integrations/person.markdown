@@ -138,53 +138,78 @@ You can use person triggers and conditions to react when someone arrives or leav
 
 This automation turns on the porch light when Ada gets home after sunset.
 
-```yaml
-automation:
-  - alias: "Turn on the porch light when Ada gets home"
-    triggers:
-      - trigger: person.entered_home
-        target:
-          entity_id: person.ada
-    conditions:
-      - condition: sun
-        after: sunset
-    actions:
-      - action: light.turn_on
-        target:
-          entity_id: light.porch
-```
+- **Trigger**: Entered home
+  - **Target**: Ada
+- **Condition**: Sun after sunset
+- **Action**: Light: Turn on
+
+{% details "YAML example for turning on the porch light" %}
+
+{% example %}
+automation: |
+  alias: "Turn on the porch light when Ada gets home"
+  triggers:
+    - trigger: person.entered_home
+      target:
+        entity_id: person.ada
+  conditions:
+    - condition: sun
+      after: sunset
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.porch
+{% endexample %}
+
+{% enddetails %}
 
 ### Automation: arm the alarm when the last person leaves home
 
 This automation arms the alarm after both Ada and Stacey have left home.
 
-```yaml
-automation:
-  - alias: "Arm the alarm when everyone leaves"
-    triggers:
-      - trigger: person.left_home
-        target:
-          entity_id:
-            - person.ada
-            - person.stacey
-        options:
-          behavior: last
-    actions:
-      - action: alarm_control_panel.alarm_arm_away
-        target:
-          entity_id: alarm_control_panel.home
-```
+- **Trigger**: Left home
+  - **Target**: Ada and Stacey
+- **Trigger when**: Last
+- **Action**: Alarm control panel: Arm away
+
+{% details "YAML example for arming the alarm when everyone leaves" %}
+
+{% example %}
+automation: |
+  alias: "Arm the alarm when everyone leaves"
+  triggers:
+    - trigger: person.left_home
+      target:
+        entity_id:
+          - person.ada
+          - person.stacey
+      options:
+        behavior: last
+  actions:
+    - action: alarm_control_panel.alarm_arm_away
+      target:
+        entity_id: alarm_control_panel.home
+{% endexample %}
+
+{% enddetails %}
 
 ### Automation: reload YAML-defined persons after a scheduled sync
 
 If another process updates your person YAML before a set time, you can schedule a reload so Home Assistant picks up those changes automatically.
 
-```yaml
-automation:
-  - alias: "Reload persons after nightly YAML sync"
-    triggers:
-      - trigger: time
-        at: "03:05:00"
-    actions:
-      - action: person.reload
-```
+- **Trigger**: A scheduled time
+- **Action**: Reload persons
+
+{% details "YAML example for reloading persons after a scheduled sync" %}
+
+{% example %}
+automation: |
+  alias: "Reload persons after nightly YAML sync"
+  triggers:
+    - trigger: time
+      at: "03:05:00"
+  actions:
+    - action: person.reload
+{% endexample %}
+
+{% enddetails %}
