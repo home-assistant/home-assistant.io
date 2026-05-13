@@ -110,8 +110,8 @@ When you press the bedtime button, activate the night  {% term scene %}. But if 
 
 - **Trigger**: State: Bedtime button pressed
 - **Condition**: Humidifier is in mode (negated: not in sleep mode)
-- **Target**: Bedroom humidifier
-- **Condition passes if**: Any
+  - **Target**: Bedroom humidifier
+  - **Condition passes if**: Any
 - **Action**: Scene: Activate night scene
 
 {% details "YAML example for skipping the night scene in sleep mode" %}

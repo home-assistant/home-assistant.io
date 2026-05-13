@@ -172,8 +172,8 @@ for:
 This automation turns off the living room climate system the moment the temperature crosses into the comfort range (20 to 22°C), saving energy once comfortable conditions are achieved.
 
 - **Trigger**: Temperature crossed threshold
-- **Target**: Living room temperature sensor
-- **Threshold type**: In range (20-22°C)
+  - **Target**: Living room temperature sensor
+  - **Threshold type**: In range (20-22°C)
 - **Action**: Set thermostat HVAC mode (state: off)
 
 {% details "YAML example for turning off climate when comfortable" %}
@@ -209,9 +209,10 @@ automation: |
 After opening windows to cool down a stuffy bedroom, this automation alerts you the moment the temperature enters your preferred comfort range so you can close the windows.
 
 - **Trigger**: Temperature crossed threshold
-- **Target**: Bedroom temperature sensor
-- **Threshold type**: In range (20-22°C)
-- **Action**: Send a notification
+  - **Target**: Bedroom temperature sensor
+  - **Threshold type**: In range (20-22°C)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for comfort range entry alert" %}
 
@@ -232,11 +233,14 @@ automation: |
             number: 22
             unit_of_measurement: "°C"
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
+        title: "Temperature Alert"
         message: >-
-          Bedroom temperature is now comfortable at
-          {{ trigger.to_state.state }}°C
+          Bedroom temperature reached {{ trigger.to_state.state }}°C.
+          You can now close the windows.
 {% endexample %}
 
 {% enddetails %}
@@ -246,9 +250,9 @@ automation: |
 To avoid false triggers from brief temperature fluctuations when opening a door or window, add a **For at least** delay. This automation only fires after the temperature has been below 18°C for 5 minutes.
 
 - **Trigger**: Temperature crossed threshold
-- **Target**: Living room temperature sensor
-- **Threshold type**: Below (18°C)
-- **For at least**: 5 minutes
+  - **Target**: Living room temperature sensor
+  - **Threshold type**: Below (18°C)
+  - **For at least**: 5 minutes
 - **Action**: Set thermostat HVAC mode (state: heat)
 
 {% details "YAML example with delay to prevent false triggers" %}
@@ -282,8 +286,8 @@ automation: |
 Trigger the heating when temperature crosses below your personal comfort threshold. Use a number helper as the threshold so you can easily adjust it through the UI without editing the automation.
 
 - **Trigger**: Temperature crossed threshold
-- **Target**: Living room temperature sensor
-- **Threshold type**: Below (entity: comfort temperature threshold)
+  - **Target**: Living room temperature sensor
+  - **Threshold type**: Below (entity: comfort temperature threshold)
 - **Action**: Set thermostat HVAC mode (state: heat)
 
 {% details "YAML example for using a number helper as threshold" %}

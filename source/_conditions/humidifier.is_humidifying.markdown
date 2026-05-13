@@ -87,8 +87,8 @@ When the bedroom humidifier is confirmed to be in an active humidification cycle
 
 - **Trigger**: Time pattern: Every 5 minutes
 - **Condition**: Humidifier is humidifying
-- **Target**: Bedroom humidifier
-- **Condition passes if**: Any
+  - **Target**: Bedroom humidifier
+  - **Condition passes if**: Any
 - **Action**: Fan: Turn on
 
 {% details "YAML example for running a purifier alongside the humidifier" %}
