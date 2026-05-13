@@ -108,6 +108,9 @@ The Ohme integration provides the following entities.
 - **Price cap**
   - **Description**: Prevents charging when the electricity price exceeds a defined threshold. The threshold can be set by the service `ohme.set_price_cap`. ***Not available with some energy providers and tariffs.***
   - **Available for devices**: all
+- **Solar boost**
+  - **Description**: Uses excess solar power when available.
+  - **Available for devices**: Home Pro (CT clamp required)
 - **Lock buttons**
   - **Description**: Disable the controls on the device.
   - **Available for devices**: all
