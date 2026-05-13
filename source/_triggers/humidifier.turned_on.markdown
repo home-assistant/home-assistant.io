@@ -97,9 +97,9 @@ for:
 When the bedroom humidifier turns on, start a low-speed fan to help distribute the moisture more evenly throughout the room.
 
 - **Trigger**: Humidifier turned on
-- **Target**: Bedroom humidifier
-- **Trigger when**: Each
-- **For at least**: 00:00:00
+  - **Target**: Bedroom humidifier
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Action**: Fan: Turn on
 
 {% details "YAML example for running a fan when the humidifier turns on" %}
@@ -129,10 +129,11 @@ automation: |
 If the nursery humidifier turns on during the night, send a quiet notification to your phone so you know air quality is being maintained without having to check the app.
 
 - **Trigger**: Humidifier turned on
-- **Target**: Nursery humidifier
-- **Trigger when**: Each
+  - **Target**: Nursery humidifier
+  - **Trigger when**: Each
 - **Condition**: Time is between 22:00 and 07:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My device (`notify.my_device`)
 
 {% details "YAML example for a nighttime nursery humidifier notification" %}
 
@@ -151,7 +152,9 @@ automation: |
       after: "22:00:00"
       before: "07:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Nursery humidifier turned on."
 {% endexample %}
