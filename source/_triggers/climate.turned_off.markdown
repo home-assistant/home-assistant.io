@@ -81,8 +81,9 @@ for:
 
 ## Good to know
 
-- Use this trigger to save energy by turning off lights or adjusting other systems when the thermostat is no longer needed.
-- Thermostats turn off when their HVAC mode is set to **Off**, which is different from the thermostat being idle while in another mode.
+- Climate entities include thermostats, air conditioners, heat pumps, evaporative coolers, and other HVAC devices.
+- This trigger fires when the HVAC mode changes to **Off**. It does not fire when the device is idle (for example, when a thermostat is in heat mode but not actively heating).
+- Use this trigger to save energy by turning off supplementary systems like fans or space heaters when climate control stops.
 
 {% include triggers/try_it.md %}
 

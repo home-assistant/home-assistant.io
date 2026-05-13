@@ -81,9 +81,9 @@ for:
 
 ## Good to know
 
-- This trigger fires when the thermostat enters any operational mode from **Off**, including **Heat**, **Cool**, **Auto**, **Dry**, **Fan only**, and **Heat/Cool**.
-- The trigger does not fire when the thermostat switches between active modes (for example, from **Heat** to **Cool**). For mode-specific triggers, use **Thermostat mode changed** instead.
-- To react to specific modes, use **Thermostat mode changed** with mode filtering.
+- This trigger fires when the device transitions from **Off** to any operational mode (**Heat**, **Cool**, **Auto**, **Dry**, **Fan only**, or **Heat/Cool**).
+- The trigger does not fire when switching between active modes. For example, changing from **Heat** to **Cool** will not fire this trigger.
+- To react to specific mode changes or when the device switches between modes, use **Thermostat mode changed** instead.
 
 {% include triggers/try_it.md %}
 
