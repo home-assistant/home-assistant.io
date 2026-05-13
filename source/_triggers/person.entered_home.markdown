@@ -84,7 +84,7 @@ for:
 This automation turns on the porch light when Ada gets home after sunset.
 
 - **Trigger**: Entered home
-- **Target**: Ada
+  - **Target**: Ada
 - **Trigger when**: Any
 - **Action**: Light: Turn on
 
@@ -113,7 +113,7 @@ automation: |
 If your vacuum runs while the house is empty, this automation sends it back to the dock as soon as the first person gets home.
 
 - **Trigger**: Entered home
-- **Target**: Ada and Stacey
+  - **Target**: Ada and Stacey
 - **Trigger when**: First
 - **Action**: Vacuum: Return to base
 

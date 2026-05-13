@@ -76,7 +76,7 @@ This automation turns on the living room lights at sunset, but only if Ada or St
 
 - **Trigger**: Time: Sunset
 - **Condition**: Person is home
-- **Target**: Ada and Stacey
+  - **Target**: Ada and Stacey
 - **Condition passes if**: Any
 - **Action**: Light: Turn on
 
@@ -110,7 +110,7 @@ This automation opens the living room blinds in the morning only if someone is a
 
 - **Trigger**: A scheduled time
 - **Condition**: Person is home
-- **Target**: Ada and Stacey
+  - **Target**: Ada and Stacey
 - **Condition passes if**: Any
 - **Action**: Cover: Open cover
 

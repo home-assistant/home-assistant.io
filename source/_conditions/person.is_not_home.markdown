@@ -76,7 +76,7 @@ This automation lowers the thermostat at 8:30 AM only when both Ada and Stacey a
 
 - **Trigger**: A scheduled time
 - **Condition**: Person is not home
-- **Target**: Ada and Stacey
+  - **Target**: Ada and Stacey
 - **Condition passes if**: All
 - **Action**: Climate: Set preset mode
 
@@ -112,7 +112,7 @@ This automation locks the side door at night only if Ada is already in the `not_
 
 - **Trigger**: A scheduled time
 - **Condition**: Person is not home
-- **Target**: Ada
+  - **Target**: Ada
 - **Condition passes if**: Any
 - **Action**: Lock: Lock
 

@@ -84,7 +84,7 @@ for:
 This automation locks the front door when Ada leaves home.
 
 - **Trigger**: Left home
-- **Target**: Ada
+  - **Target**: Ada
 - **Trigger when**: Any
 - **Action**: Lock: Lock
 
@@ -110,7 +110,7 @@ automation: |
 This automation waits until both Ada and Stacey have left home before it arms the alarm.
 
 - **Trigger**: Left home
-- **Target**: Ada and Stacey
+  - **Target**: Ada and Stacey
 - **Trigger when**: Last
 - **Action**: Alarm control panel: Arm away
 
