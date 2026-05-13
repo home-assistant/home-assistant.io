@@ -156,8 +156,8 @@ threshold:
 When the living room temperature changes to a value outside the comfort range (20 to 22°C), this automation turns on heating or cooling to restore comfortable conditions.
 
 - **Trigger**: Temperature changed
-- **Target**: Living room temperature sensor
-- **Threshold type**: Outside range (20-22°C)
+  - **Target**: Living room temperature sensor
+  - **Threshold type**: Outside range (20-22°C)
 - **Action**: Set thermostat HVAC mode (state: cool)
 
 {% details "YAML example for climate control when outside comfort range" %}
@@ -203,9 +203,10 @@ automation: |
 This automation sends a notification when any room temperature drifts outside the comfort range of 20 to 22°C, helping you maintain consistent conditions throughout your home.
 
 - **Trigger**: Temperature changed
-- **Target**: All temperature sensors (label)
-- **Threshold type**: Outside range (20-22°C)
-- **Action**: Send a notification
+  - **Target**: All temperature sensors (label)
+  - **Threshold type**: Outside range (20-22°C)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for comfort range alert" %}
 
@@ -226,11 +227,13 @@ automation: |
             number: 22
             unit_of_measurement: "°C"
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: >
-          Temperature in {{ trigger.to_state.name }} is {{
-          trigger.to_state.state }}°C
+          Temperature in {{ trigger.to_state.name }} is {{ trigger.to_state.state }}°C.
+          Comfortable range is 20-22°C.
 {% endexample %}
 
 {% enddetails %}
@@ -240,9 +243,10 @@ automation: |
 Send a notification whenever the bedroom temperature changes to a level within your personal comfort range. Use number helpers for the range bounds so you can easily adjust your preferred temperatures through the UI.
 
 - **Trigger**: Temperature changed
-- **Target**: Bedroom temperature sensor
-- **Threshold type**: In range (entity: comfort temperature min and max)
-- **Action**: Send a notification
+  - **Target**: Bedroom temperature sensor
+  - **Threshold type**: In range (entity: comfort temperature min and max)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for using number helpers as threshold" %}
 
@@ -261,7 +265,9 @@ automation: |
           value_max:
             entity: input_number.comfort_temperature_max
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Bedroom temperature is now {{ trigger.to_state.state }}°C, within your comfort range."
 {% endexample %}
