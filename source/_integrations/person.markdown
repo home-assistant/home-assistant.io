@@ -65,9 +65,9 @@ To upload a picture in the frontend, open a person's page, select an image file 
 
 See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder.
 
-## Configuring the `person` integration via the Home Assistant configuration panel
+## Enabling the `person` integration
 
-This integration is enabled by default, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, enable it manually by adding the following to your configuration:
+The `person` integration is enabled by default. If you removed [`default_config:`](/integrations/default_config/) from your configuration, add the following to enable it again:
 
 ```yaml
 person:
@@ -123,3 +123,68 @@ person:
 ```
 
 If you change the YAML, you can reload it by calling the `person.reload` action.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
+## Person automation examples
+
+You can use person triggers and conditions to react when someone arrives or leaves, and you can use the `person.reload` action if you keep person definitions in YAML.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: turn on the porch light when someone gets home after dark
+
+This automation turns on the porch light when Ada gets home after sunset.
+
+```yaml
+automation:
+  - alias: "Turn on the porch light when Ada gets home"
+    triggers:
+      - trigger: person.entered_home
+        target:
+          entity_id: person.ada
+    conditions:
+      - condition: sun
+        after: sunset
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.porch
+```
+
+### Automation: arm the alarm when the last person leaves home
+
+This automation arms the alarm after both Ada and Stacey have left home.
+
+```yaml
+automation:
+  - alias: "Arm the alarm when everyone leaves"
+    triggers:
+      - trigger: person.left_home
+        target:
+          entity_id:
+            - person.ada
+            - person.stacey
+        options:
+          behavior: last
+    actions:
+      - action: alarm_control_panel.alarm_arm_away
+        target:
+          entity_id: alarm_control_panel.home
+```
+
+### Automation: reload YAML-defined persons after a scheduled sync
+
+If another process updates your person YAML before a set time, you can schedule a reload so Home Assistant picks up those changes automatically.
+
+```yaml
+automation:
+  - alias: "Reload persons after nightly YAML sync"
+    triggers:
+      - trigger: time
+        at: "03:05:00"
+    actions:
+      - action: person.reload
+```
