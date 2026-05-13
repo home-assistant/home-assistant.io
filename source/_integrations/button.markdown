@@ -102,7 +102,7 @@ Use the button action when an integration exposes a restart or update button tha
 
 - **Trigger**: Internet connection turns off for 10 minutes
 - **Action**: Press button
-   - **Target**: Router restart button
+  - **Target**: Router restart button
 
 {% details "YAML example for restarting a device with a button action" %}
 

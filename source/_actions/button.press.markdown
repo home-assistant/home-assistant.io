@@ -58,7 +58,7 @@ Use this automation to press a restart button after the internet connection has 
 
 - **Trigger**: Internet connection turns off for 10 minutes
 - **Action**: Press button
-   - **Target**: Router restart button
+  - **Target**: Router restart button
 
 {% details "Show example YAML" %}
 
@@ -85,7 +85,7 @@ Use this automation when a device exposes an update button and you want to run i
 - **Trigger**: Time: 03:00
 - **Condition**: Garden controller firmware update is available
 - **Action**: Press button
-   - **Target**: Garden controller update button
+  - **Target**: Garden controller update button
 
 {% details "Show example YAML" %}
 
