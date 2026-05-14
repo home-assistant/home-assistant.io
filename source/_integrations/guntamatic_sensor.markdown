@@ -15,7 +15,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The Guntamatic integration allows you to monitor your [Guntamatic](https://www.guntamatic.com) wood or pellet heater from Home Assistant.
+The **Guntamatic** {% term integration %} allows you to monitor your [Guntamatic](https://www.guntamatic.com) wood or pellet heater from Home Assistant.
 
 ## Supported devices
 
@@ -35,7 +35,7 @@ Host:
 
 ## Data updates
 
-The integration polls the Guntamatic heater every 30 seconds. The heater does not support push updates.
+The integration {% term polling polls %} the Guntamatic heater every 30 seconds. The heater does not support push updates.
 
 ## Removing the integration
 
