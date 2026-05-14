@@ -19,8 +19,15 @@ This is a presence detection scanner for OpenWrt using [luci](https://openwrt.or
 Before this scanner can be used you have to install the luci RPC package on OpenWrt:
 
 ```bash
-# opkg update
-# opkg install luci-mod-rpc
+opkg update
+opkg install luci-mod-rpc
+```
+
+Or, in newer versions:
+
+```bash
+apk update
+apk add luci-mod-rpc
 ```
 
 To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
