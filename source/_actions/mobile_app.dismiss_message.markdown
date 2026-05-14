@@ -3,7 +3,7 @@ title: "Dismiss a message"
 action: mobile_app.dismiss_message
 domain: mobile_app
 description: "Dismisses a previously sent message via the Mobile App."
-since: "0.7"
+since: "2026.5"
 related_actions:
   - notify.send_message
 ---
