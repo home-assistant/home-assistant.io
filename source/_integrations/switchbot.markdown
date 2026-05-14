@@ -153,6 +153,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 
 ### Locks
 
