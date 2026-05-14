@@ -42,7 +42,8 @@ condition: |
   condition: motion.is_not_detected
   target:
     entity_id: motion.sensor_backyard
-  for: "01:10:05"
+  options:
+    for: "01:10:05"
 {% endexample %}
 
 This passes when the sensor `motion.sensor_backyard` has not detected any motion for 1 hour, 10 minutes and 5 seconds.
