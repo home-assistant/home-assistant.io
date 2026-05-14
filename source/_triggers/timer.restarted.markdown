@@ -85,7 +85,7 @@ for:
 If you pause a bedtime timer during story time, you can brighten the lamp again when the timer resumes.
 
 - **Trigger**: Timer restarted
-- **Target**: Bedtime story timer
+  - **Target**: Bedtime story timer
 - **Trigger when**: Each
 - **Action**: Turn on light
 
@@ -116,9 +116,10 @@ automation: |
 Let the household know the laundry timer is running again after it was paused.
 
 - **Trigger**: Timer restarted
-- **Target**: Laundry timer
+  - **Target**: Laundry timer
 - **Trigger when**: Each
-- **Action**: Send notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a restarted laundry timer notification" %}
 
@@ -133,7 +134,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The laundry timer has restarted."
 {% endexample %}

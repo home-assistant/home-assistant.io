@@ -85,7 +85,7 @@ for:
 If you pause an entry timer while carrying groceries or helping someone at the door, you can dim the hallway light instead of turning it off.
 
 - **Trigger**: Timer paused
-- **Target**: Entry timer
+  - **Target**: Entry timer
 - **Trigger when**: Each
 - **Action**: Turn on light
 
@@ -116,9 +116,10 @@ automation: |
 Send a reminder if someone pauses a laundry timer, so the load does not get forgotten.
 
 - **Trigger**: Timer paused
-- **Target**: Laundry timer
+  - **Target**: Laundry timer
 - **Trigger when**: Each
-- **Action**: Send notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a paused laundry timer notification" %}
 
@@ -133,7 +134,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The laundry timer is paused."
 {% endexample %}

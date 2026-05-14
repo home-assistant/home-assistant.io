@@ -86,9 +86,10 @@ If you paused a bedtime timer during reading time, this reminder checks that the
 
 - **Trigger**: Time: 20:30
 - **Condition**: Timer is paused
-- **Target**: Bedtime timer
+  - **Target**: Bedtime timer
 - **Condition passes if**: Any
-- **Action**: Send notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for checking that a bedtime timer is paused" %}
 
@@ -106,7 +107,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The bedtime timer is still paused."
 {% endexample %}
@@ -119,7 +122,7 @@ If a study timer is paused, you can use that state to bring the lamp back on at 
 
 - **Trigger**: Sun: after sunset
 - **Condition**: Timer is paused
-- **Target**: Study timer
+  - **Target**: Study timer
 - **Condition passes if**: Any
 - **Action**: Turn on light
 

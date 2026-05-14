@@ -85,7 +85,7 @@ for:
 Start a short entry timer when someone arrives home, and switch on the porch light at the same time.
 
 - **Trigger**: Timer started
-- **Target**: Entryway timer
+  - **Target**: Entryway timer
 - **Trigger when**: Each
 - **Action**: Turn on light
 
@@ -114,9 +114,10 @@ automation: |
 Send a message when someone starts the laundry timer so everyone knows the cycle has begun.
 
 - **Trigger**: Timer started
-- **Target**: Laundry timer
+  - **Target**: Laundry timer
 - **Trigger when**: Each
-- **Action**: Send notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a started laundry timer notification" %}
 
@@ -131,7 +132,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The laundry timer has started."
 {% endexample %}

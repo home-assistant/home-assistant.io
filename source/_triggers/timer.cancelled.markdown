@@ -84,10 +84,11 @@ for:
 
 If you cancel a kitchen timer because plans change, you can send a quick reminder so nobody waits for an alert that will never come.
 
-- **Trigger**: Timer cancelled
-- **Target**: Tea timer
+- **Trigger**: Timer canceled
+  - **Target**: Tea timer
 - **Trigger when**: Each
-- **Action**: Send notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a canceled tea timer notification" %}
 
@@ -102,7 +103,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The tea timer was canceled."
 {% endexample %}
@@ -114,7 +117,7 @@ automation: |
 If you stop a shower timer early, you may also want the fan to stop instead of running for the full original time.
 
 - **Trigger**: Timer cancelled
-- **Target**: Shower timer
+  - **Target**: Shower timer
 - **Trigger when**: Each
 - **Action**: Turn off fan
 

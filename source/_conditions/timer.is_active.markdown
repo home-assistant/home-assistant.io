@@ -86,9 +86,10 @@ If you use a short entry timer while gathering your things, this automation send
 
 - **Trigger**: Time: 08:00
 - **Condition**: Timer is active
-- **Target**: Entryway timer
+  - **Target**: Entryway timer
 - **Condition passes if**: Any
-- **Action**: Send notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for an active entryway timer reminder" %}
 
@@ -106,7 +107,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Your entry timer is still running."
 {% endexample %}
@@ -119,7 +122,7 @@ Run this automation after sunset so the porch light turns on only if your arriva
 
 - **Trigger**: Sun: after sunset
 - **Condition**: Timer is active
-- **Target**: Arrival timer
+  - **Target**: Arrival timer
 - **Condition passes if**: Any
 - **Action**: Turn on light
 

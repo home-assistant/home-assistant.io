@@ -86,7 +86,7 @@ If the guest room timer is not already running, you can safely start a new timed
 
 - **Trigger**: Time: 19:00
 - **Condition**: Timer is idle
-- **Target**: Guest room timer
+  - **Target**: Guest room timer
 - **Condition passes if**: Any
 - **Action**: Turn on light
 
@@ -119,7 +119,7 @@ Use this condition to avoid arming the alarm while a departure timer is still ru
 
 - **Trigger**: Person leaves home zone
 - **Condition**: Timer is idle
-- **Target**: Departure timer
+  - **Target**: Departure timer
 - **Condition passes if**: Any
 - **Action**: Arm away
 

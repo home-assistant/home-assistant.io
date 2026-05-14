@@ -184,7 +184,8 @@ Get a reminder shortly before a timer finishes, like when laundry or cooking tim
 - **Trigger**: Timer time remaining
   - **Target**: Laundry timer
   - **Time remaining**: 00:05:00
-- **Action**: Send notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a laundry timer reminder" %}
 
@@ -198,7 +199,9 @@ automation: |
       options:
         remaining: "00:05:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The laundry timer has five minutes left."
 {% endexample %}

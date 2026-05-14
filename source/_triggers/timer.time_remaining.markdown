@@ -71,9 +71,10 @@ remaining:
 Get a reminder before the cycle finishes so you can be ready to empty the machine.
 
 - **Trigger**: Timer time remaining
-- **Target**: Laundry timer
+  - **Target**: Laundry timer
 - **Time remaining**: 00:05:00
-- **Action**: Send notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a laundry timer reminder" %}
 
@@ -87,7 +88,9 @@ automation: |
       options:
         remaining: "00:05:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The laundry timer has five minutes left."
 {% endexample %}
@@ -99,7 +102,7 @@ automation: |
 Use a short visual warning before a timed hallway light is about to turn off.
 
 - **Trigger**: Timer time remaining
-- **Target**: Entry timer
+  - **Target**: Entry timer
 - **Time remaining**: 00:01:00
 - **Action**: Turn on light
 

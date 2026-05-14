@@ -87,7 +87,7 @@ for:
 Use a timer to keep the fan running for a fixed amount of time after a shower.
 
 - **Trigger**: Timer finished
-- **Target**: Bathroom fan timer
+  - **Target**: Bathroom fan timer
 - **Trigger when**: Each
 - **Action**: Turn off fan
 
@@ -116,7 +116,7 @@ automation: |
 Start a short timer when you open the patio door, and lock it automatically if nobody needs it anymore.
 
 - **Trigger**: Timer finished
-- **Target**: Patio door timer
+  - **Target**: Patio door timer
 - **Trigger when**: Each
 - **Action**: Lock
 
