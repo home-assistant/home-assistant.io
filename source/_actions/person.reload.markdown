@@ -20,7 +20,7 @@ To use this action in an automation or script:
 5. From the search box, search for and select **Reload persons**.
 6. Select **Save**.
 
-Select what you want to control. Under **By target**, there is nothing to select for this action because it reloads the `person` integration itself.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
 ### Options in the UI
 
