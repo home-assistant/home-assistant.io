@@ -6,7 +6,7 @@ ha_category:
 ha_release: 2026.4
 ha_iot_class: Assumed State
 ha_codeowners:
-  - '@home-assistant/core'
+  - '@abmantis'
 ha_domain: lg_infrared
 ha_config_flow: true
 ha_platforms:
