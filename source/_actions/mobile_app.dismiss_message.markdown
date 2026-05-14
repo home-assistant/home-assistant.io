@@ -47,7 +47,7 @@ action: |
   target:
     entity_id: notify.my_device
   data:
-    tag: backyard-motion-detected
+    tag: "backyard-motion-detected"
 {% endexample %}
 
 ### Options in YAML
