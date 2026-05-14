@@ -105,9 +105,6 @@ The **Kiosker** integration provides the following entities.
   - Clears all cookies on the device.
 - **Dismiss screensaver**
   - Dismisses the currently active screensaver.
-- **Update**
-  - Triggers an immediate data refresh from the device without waiting for the
-  next poll interval.
 
 ## Data updates
 
