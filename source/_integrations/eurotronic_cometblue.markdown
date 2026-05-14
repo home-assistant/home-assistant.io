@@ -24,7 +24,7 @@ ha_platforms:
 
 The **Eurotronic Comet Blue** {% term integration %} allows you to integrate Eurotronic Comet Blue (and similar) thermostats.
 
-You can use this integration to read thermostat status and adjust temperatures in Home Assistant.
+You can use this integration to read thermostat status, adjust temperatures, and manage schedule-related settings in Home Assistant.
 
 ## Supported devices
 
@@ -58,6 +58,8 @@ This integration provides climate control and thermostat configuration entities.
 Comet Blue devices run on an internal schedule and can be manually controlled temporarily. When the schedule is active, the thermostat switches between low and high target temperatures based on that schedule.
 
 If you manually change the target temperature or use presets, the thermostat returns to its programmed schedule on the next schedule change.
+
+You can read and adjust the schedule from Home Assistant via the provided {% term actions %}.
 
 ### Climate
 
@@ -93,13 +95,148 @@ Number entities provide specific settings that affect automatic thermostat behav
 
 The device reports its current battery level, but the reading may not be very accurate.
 
+## Actions
+
+The integration provides the following actions.
+
+### Action: Get schedule
+
+The `eurotronic_cometblue.get_schedule` action reads the current schedule from the thermostat.
+
+- **Target**: `entity_id`
+  - **Description**: Climate entity from the Eurotronic Comet Blue integration.
+  - **Required**: Yes.
+- **Response**: This action returns the current weekly schedule for the targeted climate entity.
+  - **Shortened example**:
+
+    ```yaml
+    climate.cometblue_climate:
+      monday:
+        start1: "07:00"
+        end1: "22:00"
+      tuesday:
+        start1: "07:00"
+        end1: "22:00"
+      sunday:
+        start1: "09:00"
+        end1: "22:30"
+    ```
+
+### Action: Set schedule
+
+The `eurotronic_cometblue.set_schedule` action writes a weekly schedule to the thermostat.
+
+- **Target**: `entity_id`
+  - **Description**: Climate entity from the Eurotronic Comet Blue integration.
+  - **Required**: Yes.
+- **Data attributes**:
+  - **`monday`** to **`sunday`**
+    - **Description**: Days schedule as an object with `start` and `end` pairs (from 1 to 4).
+    - **Optional**: Yes.
+    - **Example**:
+
+      ```yaml
+      start1: "07:00:00"
+      end1: "09:00:00"
+      start2: "10:00:00"
+      end2: "12:00:00"
+      start3: "13:00:00"
+      end3: "17:00:00"
+      start4: "20:00:00"
+      end4: "23:00:00"
+      ```
+
+### Action: Set holiday
+
+The `eurotronic_cometblue.set_holiday` action enables holiday mode on the thermostat. Enabling holiday mode will activate the **Away** climate preset.
+
+{% important %}
+
+If the device is in holiday mode, you cannot reset it from Home Assistant. To reset it, press the `MENU` button on the device until it resets.
+
+{% endimportant %}
+
+- **Target**: `entity_id`
+  - **Description**: Climate entity from the Eurotronic Comet Blue integration.
+  - **Required**: Yes.
+- **Data attributes**:
+  - **`start`**
+    - **Description**: Start date and time for holiday mode. Must be a full hour and in the future.
+    - **Required**: Yes
+    - **Example**: `2023-12-24 07:00:00`
+  - **`end`**
+    - **Description**: End date and time for holiday mode. Must be after **start** time (or, if start is not given, at least 2 hours in the future).
+    - **Required**: Yes.
+    - **Example**: `2023-12-31 11:00:00`
+  - **`temperature`**
+    - **Description**: Holiday temperature in °C.
+    - **Required**: Yes.
+    - **Example**: `20`
+    - **Range**: 8 to 28
+    - **Step**: 0.5
+
+## Examples
+
+The following examples show how to use Eurotronic Comet Blue actions in automations and scripts.
+
+### Read the schedule from a thermostat
+
+```yaml
+action: eurotronic_cometblue.get_schedule
+target:
+  entity_id: climate.living_room_radiator
+```
+
+This action returns the weekly schedule in the response data.
+
+### Set a weekly schedule
+
+```yaml
+action: eurotronic_cometblue.set_schedule
+target:
+  entity_id: climate.living_room_radiator
+data:
+  monday:
+    start1: "07:00:00"
+    end1: "09:00:00"
+    start2: "17:00:00"
+    end2: "22:00:00"
+  tuesday:
+    start1: "07:00:00"
+    end1: "09:00:00"
+    start2: "17:00:00"
+    end2: "22:00:00"
+  wednesday: {}
+  thursday: {}
+  friday:
+    start1: "07:00:00"
+    end1: "09:00:00"
+  saturday:
+    start1: "09:00:00"
+    end1: "12:00:00"
+  sunday:
+    start1: "09:00:00"
+    end1: "12:00:00"
+```
+
+### Enable holiday mode
+
+```yaml
+action: eurotronic_cometblue.set_holiday
+target:
+  entity_id: climate.living_room_radiator
+data:
+  start: "2026-12-24 00:00:00"
+  end: "2026-12-31 23:59:00"
+  temperature: 17
+```
+
 ## Data updates
 
 The integration {% term polling polls %} data from the thermostat every 5 minutes by default.
 
 ## Known limitations
 
-- Holiday mode/away preset can only be set on the device itself.
 - The devices only support temperature steps of 0.5°C and time steps of 15 minutes.
 - If you manually change the target temperature or use presets, the thermostat returns to its programmed schedule at the next schedule change.
 - If the thermostat is in holiday mode, you cannot reset it from Home Assistant. To reset it, press the `MENU` button on the thermostat until it resets.
