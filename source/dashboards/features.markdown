@@ -840,6 +840,11 @@ type:
   required: true
   description: "`media-player-volume-slider`"
   type: string
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Numeric input
