@@ -10,8 +10,9 @@ ha_domain: timer
 ha_integration_type: helper
 ---
 
-The **Timer** {% term integration %} lets you create countdown timers in Home Assistant.
-Use case: You can use a timer to keep a bathroom fan running for 20 minutes, remind yourself when laundry is nearly done, or turn lights off after motion has stopped.
+The **Timer** {% term integration %} lets you create and manage countdown timers in Home Assistant.
+
+You can use timers in automations and scripts to keep a bathroom fan running for 20 minutes, remind yourself when laundry is nearly done, or turn lights off after motion has stopped.
 
 {% note %}
 Timers will be restored to their correct state and time on Home Assistant startup and restarts when configured with the `restore` option.
