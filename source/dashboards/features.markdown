@@ -781,6 +781,10 @@ Widget that displays a dropdown to select the source for a [media player](/integ
 ```yaml
 features:
   - type: "media-player-source"
+    sources:
+      - "AirPlay"
+      - "SHIELD"
+      - "NET RADIO"
 ```
 
 {% configuration features %}
@@ -788,6 +792,10 @@ type:
   required: true
   description: "`media-player-source`"
   type: string
+sources:
+  required: false
+  description: "List of sources to show in the dropdown. Use this to filter or reorder the available sources. The source names depend on your device. When not specified, all available sources are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player volume buttons
