@@ -3,6 +3,9 @@ title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
 ha_category:
   - Sensor
+  - Binary sensor
+  - Switch
+  - Button
 ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -13,6 +16,7 @@ ha_platforms:
   - sensor
   - binary_sensor
   - switch
+  - button
 ha_integration_type: integration
 ha_zeroconf: true
 ha_quality_scale: bronze
@@ -27,6 +31,7 @@ This integration requires that you have bought Kiosker Pro or have a valid Kiosk
 You need to enable the API server in Kiosker settings. You also need to generate an access token, and find the IP address of the device. Please refer to the [Kiosker documentation](https://docs.kiosker.io/#/api) for further information on how to configure the Kiosker App.
 
 ## Supported devices
+
 You need to run version 26.4.1 or later for this integration to be fully functional.
 
 {% include integrations/config_flow.md %}
@@ -68,7 +73,7 @@ The **Kiosker** integration provides the following entities.
 ### Binary sensors
 
 - **Charging state**
-  - Shows whether the device is connected to a charger
+  - Shows whether the device is connected to a charger.
 - **Screensaver state**
   - Shows whether the screensaver is currently active.
 - **Blackout state**
@@ -77,9 +82,35 @@ The **Kiosker** integration provides the following entities.
 ### Switches
 
 - **Disable screensaver**
-  - Disables the currently active screensaver
+  - Disables the currently active screensaver.
+
+### Buttons
+
+- **Ping**
+  - Sends a ping to the device to verify it is reachable. A logbook entry is
+  created when the device responds.
+- **Refresh page**
+  - Reloads the current page displayed on the device.
+- **Go home**
+  - Navigates the device to its configured home URL.
+- **Go forward**
+  - Navigates forward in the browser history.
+- **Go back**
+  - Navigates backward in the browser history.
+- **Print page**
+  - Triggers a print of the current page.
+- **Clear cache**
+  - Clears the browser cache on the device.
+- **Clear cookies**
+  - Clears all cookies on the device.
+- **Dismiss screensaver**
+  - Dismisses the currently active screensaver.
+- **Update**
+  - Triggers an immediate data refresh from the device without waiting for the
+  next poll interval.
 
 ## Data updates
+
 This integration fetches data from the device every 15 seconds.
 
 ## Troubleshooting
@@ -87,9 +118,11 @@ This integration fetches data from the device every 15 seconds.
 ### Can’t set up the device
 
 #### Symptom
+
 When trying to set up the integration, the form shows an error message.
 
 ##### Description
+
 This means that Home Assistant can't connect to the Kiosker App.
 
 ##### Resolution
@@ -105,9 +138,11 @@ This means that Home Assistant can't connect to the Kiosker App.
 ### Device went unavailable
 
 #### Symptom
+
 The device and entities are greyed out.
 
 ##### Description
+
 This means that Home Assistant can't connect to the Kiosker App.
 
 ##### Resolution
@@ -119,7 +154,6 @@ This means that Home Assistant can't connect to the Kiosker App.
 5. If you have enabled IP-filtering, make sure that your host IP is in the whitelist.
 6. If you have enabled TLS, make sure that you have installed a valid certificate in the Kiosker App, typically a self-signed certificate.
 7. If you have enabled `Verify certificate`, make sure that the certificate is valid and that the root certificate is marked as trusted on the host.
-
 
 ## Removing the integration
 
