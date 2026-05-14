@@ -4,6 +4,7 @@ description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
   - Event
   - Notifications
+  - Update
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - event
   - notify
   - sensor
+  - update
 ha_quality_scale: platinum
 ---
 
@@ -91,16 +93,12 @@ The **ntfy** integration will add a {% term device %} with an associated notify 
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
   message: "Reminder: Have you considered frogs?"
   entity_id: notify.mytopic
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -111,8 +109,6 @@ An {% term event %} {% term entity %} is created for each configured topic. Thes
 You can use {% term event %} {% term entities %} in automations. For example, to trigger actions in Home Assistant, or to forward notifications to other devices for further processing or alerting.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -127,9 +123,16 @@ actions:
       message: "Received new ntfy notification"
 ```
 
-{% endraw %}
-
 {% enddetails %}
+
+## Updates
+
+For self-hosted **ntfy** instances, Home Assistant creates an update entity that shows when a new version of **ntfy** is available for download. To perform an update, refer to the official [documentation](https://docs.ntfy.sh/).
+
+### Prerequisites
+
+- **ntfy** version 2.17.0 or later
+- Configured user with **administrator** privileges on the instance
 
 ## Actions
 
@@ -147,13 +150,15 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 - `click`: URL that is opened when the notification is clicked.
 - `delay`: Set a delay for message delivery. The minimum delay is 10 seconds, and the maximum delay is 3 days.
 - `attach`: Attach images or other files by URL.
+- `attach_file`: Attach images or other files by uploading from a local file or camera media source. When selecting a camera, the current snapshot will be uploaded and attached to the notification.
+- `filename`: Specify a custom filename for the attachment, including the file extension (for example, attachment.jpg). If not provided, the original filename from local file will be used.
 - `email`: Specify the address to forward the notification to, for example `mail@example.com`.
 - `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
 - `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.
+- `action`: Up to three **action buttons** can be added below the notifications. **Ntfy** supports the following types: [**Open website/app**](#open-a-website-or-app), [**Send HTTP request**](#send-http-request), [**Send Android broadcast**](#send-android-broadcast), and [**Copy to clipboard**](#copy-to-clipboard).
+- `sequence_id`: Enter a message or sequence ID to update an existing notification, or specify a sequence ID to reference later when updating, clearing (mark as read and dismiss), or deleting a notification. See [**Updating + deleting notifications**](https://docs.ntfy.sh/publish/#updating-deleting-notifications)
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 action: ntfy.publish
@@ -164,11 +169,25 @@ data:
   click: "https://homeassistant.local"
   tags:
     - rotating_light
+  actions:
+    - action: http
+      label: 🚪 Close door
+      url: https://api.mygarage.lan/
+      headers:
+        - Authorization: Bearer zAzsx1sk..
+      body: "{\"action\": \"close\"}"
+      method: PUT
+    - action: broadcast
+      label: 📸 Take picture
+      extras:
+        - cmd: pic
+        - camera: front
+    - action: copy
+      label: 📋️ Copy code
+      value: "123456"
 target:
   entity_id: notify.mytopic
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -183,6 +202,90 @@ All parameters are optional. If `message` is left empty, the notification will u
 Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of supported emoji shortcodes.
 
 {% endtip %}
+
+#### Action button parameters
+
+Depending on the selected type the following required and optional parameters are supported:
+
+##### Open a website or app.
+
+| Parameter | Required | Description |
+| :-------- | :------: | :---------- |
+| `action` | ✔️ | Select `view` to open a website or app when the button is clicked or tapped. |
+| `label` | ✔️ | Label of the action button in the notification. |
+| `url` | ✔️ | URL to open when action is tapped. |
+| `clear` | | Clear notification after action button is tapped. |
+
+##### Send HTTP request
+
+| Parameter | Required | Description |
+| :-------- | :------: | :---------- |
+| `action` | ✔️ | Select `http` to send an HTTP request when the button is clicked or tapped. |
+| `label` | ✔️ | Label of the action button in the notification. |
+| `url` | ✔️ | URL to which the HTTP request will be sent. |
+| `method` | | HTTP method to use for request, default is `POST`. |
+| `headers` | | HTTP headers to pass in request (key-value pairs). |
+| `body` | | Payload to send in the HTTP body. |
+| `clear` | | Clear notification after action button is tapped. |
+
+##### Send Android broadcast
+
+| Parameter | Required | Description |
+| :-------- | :------: | :---------- |
+| `action` | ✔️ | Select `broadcast` to send an Android broadcast intent when the button is clicked or tapped. |
+| `label` | ✔️ | Label of the action button in the notification. |
+| `intent` | | Android intent name, default is `io.heckel.ntfy.USER_ACTION`. |
+| `extras` | | Android intent extras (key-value pairs). |
+| `clear` | | Clear notification after action button is tapped. |
+
+##### Copy to clipboard
+
+| Parameter | Required | Description |
+| :-------- | :------: | :---------- |
+| `action` | ✔️ | Select `copy` to copy a given value to the clipboard when the button is clicked or tapped. |
+| `label` | ✔️ | Label of the action button in the notification. |
+| `value` | ✔️ | Value to copy to the clipboard. |
+| `clear` | | Clear notification after action button is tapped. |
+
+### Dismiss notification
+
+The `ntfy.clear` action dismisses a previously sent message from a ntfy topic by marking it as read.
+
+#### Parameters
+
+- `sequence_id`: The message ID or sequence ID of the notification to dismiss.
+
+{% details "Example YAML configuration" %}
+
+```yaml
+action: ntfy.clear
+target:
+  entity_id: notify.mytopic
+data:
+  sequence_id: my-download-123
+```
+
+{% enddetails %}
+
+### Delete notification
+
+The `ntfy.delete` action deletes a message from a ntfy topic.
+
+#### Parameters
+
+- `sequence_id`: The message ID or sequence ID of the notification to delete.
+
+{% details "Example YAML configuration" %}
+
+```yaml
+action: ntfy.delete
+target:
+  entity_id: notify.mytopic
+data:
+  sequence_id: my-download-123
+```
+
+{% enddetails %}
 
 ## Sensors
 

@@ -24,19 +24,22 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - event
   - light
   - lock
   - sensor
+  - siren
   - switch
   - valve
   - weather
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@hahn-th'
+  - '@lackas'
 ---
 
-The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
+The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -222,8 +225,8 @@ Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. En
 
 In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/hahn-th/homematicip-rest-api) GitHub repository.
 
-1. Create a dump of your access point configuration in Home Assistant: 
-  **Developer Tools** -> **Actions** -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
+1. Create a dump of your access point configuration in Home Assistant:
+  {% my developer_call_service title="**Settings** > **Developer tools** > **Actions**" %} > Select `homematicip_cloud.dump_hap_config` > **Execute**. 
   The default dump is anonymized and is written to your configuration directory (`hmip_config_XXXX.json`).
 2. Create a [new issue](https://github.com/hahn-th/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
 

@@ -25,7 +25,7 @@ ha_dhcp: true
 ha_integration_type: device
 ---
 
-The `guardian` integration integrates
+The **Elexa Guardian** {% term integration %} integrates
 [Elexa Guardian water valve controllers](https://getguardian.com) into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
@@ -33,32 +33,32 @@ There is currently support for the following device types within Home Assistant:
 - **Binary sensor**: reports the status of the onboard leak detector and access point
 - **Button**: add various configuration controls
 - **Sensor**: reports on the device's detected temperature and uptime
-- **Switch**: allows the user to enable and disable the onboard access point
-- **Valve**: allows the user to open and close the valve
+- **Switch**: allows you to enable and disable the onboard access point
+- **Valve**: allows you to open and close the valve
 
 {% include integrations/config_flow.md %}
 
 ## Actions
 
-### `guardian.pair_sensor`
+### Action: Pair sensor
 
-Add a new paired sensor to the valve controller.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### `guardian.unpair_sensor`
-
-Remove a paired sensor from the valve controller.
+The `guardian.pair_sensor` action adds a new paired sensor to the valve controller.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
 
-### `guardian.upgrade_firmware`
+### Action: Unpair sensor
 
-Upgrade the device firmware.
+The `guardian.unpair_sensor` action removes a paired sensor from the valve controller.
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
+
+### Action: Upgrade firmware
+
+The `guardian.upgrade_firmware` action upgrades the device firmware.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |

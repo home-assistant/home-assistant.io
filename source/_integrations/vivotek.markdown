@@ -10,11 +10,11 @@ ha_codeowners:
 ha_domain: vivotek
 ha_platforms:
   - camera
-ha_integration_type: integration
+ha_integration_type: device
 ha_config_flow: true
 ---
 
-The **VIVOTEK** camera {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
+The **VIVOTEK** {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
@@ -51,9 +51,9 @@ Once loaded, the `camera` platform will expose actions that can be called to per
 
 Available actions: `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
 
-#### Action `play_stream`
+#### Action: Play stream
 
-Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) {% term integration %} to be set up.
+The `play_stream` action plays a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) {% term integration %} to be set up.
 
 | Data attribute | Optional | Description                                                                                            |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
@@ -101,8 +101,6 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 
 For example, the following action is an automation that would take a snapshot from "front_door_camera" and save it to /tmp with a timestamped filename.
 
-{% raw %}
-
 ```yaml
 actions:
   - action: camera.snapshot
@@ -111,5 +109,3 @@ actions:
     data:
       filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
-
-{% endraw %}

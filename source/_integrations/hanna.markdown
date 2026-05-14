@@ -8,7 +8,7 @@ ha_codeowners:
   - '@bestycame'
 ha_quality_scale: bronze
 ha_domain: hanna
-ha_integration_type: integration
+ha_integration_type: hub
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_platforms:

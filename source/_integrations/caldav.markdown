@@ -10,7 +10,7 @@ ha_domain: caldav
 ha_platforms:
   - calendar
   - todo
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 related:
   - docs: /integrations/todo
@@ -25,7 +25,7 @@ related:
     title: Configuration file
 ---
 
-The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
+The **CalDAV** {% term integration %} allows you to connect your WebDAV calendar to Home Assistant
 as one of these entity types:
 
 - A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the start or end of an event using criteria such as the event name or description.
@@ -129,7 +129,7 @@ password:
   type: string
 calendars:
   required: false
-  description: List of the calendars to filter. Empty or absent means no filtering, i.e., all calendars will be added. It cannot be used if `custom_calender` option is used.
+  description: List of the calendars to filter. Empty or absent means no filtering; that is, all calendars will be added. It cannot be used if the `custom_calendars` option is used.
   type: list
 custom_calendars:
   required: false

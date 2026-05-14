@@ -14,20 +14,18 @@ The Heading card structures your dashboard by providing title, icon and navigati
 
 <p class='img'>
   <img src='/images/dashboards/heading_card.png' alt='Screenshot of heading cards'>
-  Screenshot of a heading card with a title, badges, and a subtitle.
+  Screenshot of heading cards with entity badges and a button badge.
 </p>
 
 ```yaml
 type: heading
-heading: Living room
-icon: mdi:sofa
+heading: Kitchen
+icon: mdi:fridge
 badges:
   - type: entity
-    entity: sensor.living_room_sensor_temperature
-    color: red
+    entity: sensor.kitchen_temperature
   - type: entity
-    entity: sensor.living_room_sensor_humidity
-    color: deep-purple
+    entity: sensor.kitchen_humidity
 ```
 
 {% configuration entity %}
@@ -60,7 +58,13 @@ badges:
 
 ## Heading badges
 
-In addition to the heading text, each heading card can show small badges. They are smaller than regular [badges](/dashboards/badges/) and don't have a background. The heading badges can display sensor information in a compact and minimal style. Heading badges also support [actions](/dashboards/actions/).
+In addition to the heading text, each heading card can show small badges. They are smaller than regular [badges](/dashboards/badges/) and don't have a background. The heading badges can display sensor information or action buttons in a compact and minimal style. Heading badges also support [actions](/dashboards/actions/).
+
+The following badge types are available for heading cards:
+
+### Entity badge
+
+The Entity badge allows you to display the state of an entity in the heading card.
 
 ```yaml
 type: entity
@@ -104,6 +108,60 @@ state_content:
   description: >
     Content to display for the state. Can be `state`, `name`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will do nothing.
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card hold. See [action documentation](/dashboards/actions/#hold-action). By default, it will do nothing.
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action). By default, it will do nothing.
+  type: map
+{% endconfiguration %}
+
+### Button badge
+
+The Button badge allows you to display a customizable button with an icon and/or text. This is useful for quick actions like turning off lights, triggering automations, or opening dashboards.
+
+```yaml
+type: button
+icon: mdi:lightbulb-off
+text: Turn off lights
+color: yellow
+```
+
+You can also create icon-only buttons or text-only buttons:
+
+```yaml
+badges:
+  - type: button
+    icon: mdi:play
+    color: green
+  - type: button
+    text: Run automation
+    color: blue
+```
+
+{% configuration entity %}
+type:
+  required: true
+  description: "`button`"
+  type: string
+icon:
+  required: false
+  description: Icon to display.
+  type: string
+text:
+  required: false
+  description: Text label to display on the button.
+  type: string
+color:
+  required: false
+  description: Color of the badge. It accepts [color token](/dashboards/tile/#available-colors) or hex color code.
+  type: string
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will do nothing.

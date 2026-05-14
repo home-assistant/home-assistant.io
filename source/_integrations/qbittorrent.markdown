@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
+The **qBittorrent** {% term integration %} allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
 You can control the alternative speed via the `Alternative speed` switch.
 
 ## Setup
@@ -52,9 +52,9 @@ The qBittorrent integration adds the following switch:
 
 ## Actions
 
-### Action `qbittorrent.get_torrents`
+### Action: Get torrents
 
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
+The `qbittorrent.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a dictionary of torrents based on the provided filter.
 
 | Data attribute | Optional | Description                                    | Example                                             |
@@ -71,9 +71,9 @@ response_variable: torrents
 
 The response data contains the field `torrents` which contains a dictionary of torrents. The names of the torrents are the keys.
 
-### Action `qbittorrent.get_all_torrents`
+### Action: Get all torrents
 
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
+The `qbittorrent.get_all_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a dictionary of torrents based on the provided filter.
 
 | Data attribute | Optional | Description                                   | Example                                             |

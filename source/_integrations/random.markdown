@@ -19,7 +19,7 @@ ha_integration_type: helper
 ha_config_flow: true
 ---
 
-The `random` integration simply creates random values or state. This can be useful if you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.
+The **Random** {% term integration %} simply creates random values or state. This can be useful if you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.
 
 
 ## Configuration

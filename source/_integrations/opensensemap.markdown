@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `opensensemap` air quality {% term integration %} will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
+The **openSenseMap** {% term integration %} will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
 
 ## Setup
 

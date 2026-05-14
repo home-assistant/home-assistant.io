@@ -4,7 +4,7 @@ description: "Home Assistant release schedule"
 ha_category: Common
 ---
 
-New versions of Home Assistant are released on the first Wednesday of every month. The exact dates can be seen in the upcoming events calendar on the [Home Assistant Developers](https://developers.home-assistant.io/) website. 
+New versions of Home Assistant are released on the first Wednesday of every month. The exact dates can be seen in the upcoming events calendar on the [Home Assistant Developers](https://developers.home-assistant.io/) website.
 
 A list of all releases in our history and their announcement blog posts
 can be found [here](/blog/categories/core/).

@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The CPU Speed integration allows you to monitor the current CPU speed.
+The **CPU Speed** {% term integration %} allows you to monitor the current CPU speed.
 
 {% include integrations/config_flow.md %}
 

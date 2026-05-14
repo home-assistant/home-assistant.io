@@ -12,7 +12,7 @@ ha_domain: http
 ha_integration_type: system
 ---
 
-The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The **HTTP** {% term integration %} serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -20,7 +20,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 {% warning %}
-The option `server_host` should only be used on a Home Assistant Core installation!
+The option `server_host` should only be used on a Home Assistant Container installation!
 {% endwarning %}
 
 ```yaml
@@ -40,7 +40,7 @@ server_port:
   type: integer
   default: 8123
 ssl_certificate:
-  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
+  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If you are using the [Let's Encrypt app for Home Assistant](https://github.com/home-assistant/addons/tree/master/letsencrypt) (formerly known as Let's Encrypt add-on), this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX app for Home Assistant](https://github.com/home-assistant/addons/tree/master/nginx_proxy) (formerly known as NGINX add-on) instead of using this option.
   required: false
   type: string
 ssl_peer_certificate:
@@ -48,7 +48,7 @@ ssl_peer_certificate:
   required: false
   type: string
 ssl_key:
-  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
+  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If you are using the [Let's Encrypt app](https://github.com/home-assistant/addons/tree/master/letsencrypt), this will be at `/ssl/privkey.pem`.
   required: false
   type: string
 cors_allowed_origins:
@@ -119,6 +119,16 @@ http:
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
 
+{% important %}
+When a network mask is provided, you must use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`).
+{% endimportant %}
+
+{% note %}
+
+The `use_x_forwarded_for` and `trusted_proxies` settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel without `X-Forwarded-*` headers containing the original client IP address. For cloud connections, these settings have no effect, and all requests appear as coming from `127.0.0.1`.
+
+{% endnote %}
+
 ## APIs
 
 On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
@@ -136,6 +146,12 @@ All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistates
 ## IP filtering and banning
 
 If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
+
+{% note %}
+
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Banning `127.0.0.1` would block _all_ cloud connections.
+
+{% endnote %}
 
 ```yaml
 127.0.0.1:

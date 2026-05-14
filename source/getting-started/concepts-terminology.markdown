@@ -36,14 +36,14 @@ Devices and entities are used throughout Home Assistant. To name a few examples:
 
 ## Entities
 
-Entities are the basic building blocks to hold data in Home Assistant. An {% term entity %} represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other {% term entities %}. An {% term entity %} is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
+Entities are the basic building blocks to hold data in Home Assistant. An {% term entity %} represents a {% term sensor %}, {% term actor %}, or function in Home Assistant. Entities are used to monitor physical properties or to control other {% term entities %}. An {% term entity %} is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
 
 <p class='img'><img src='/images/getting-started/entities.png' style='border: 0;box-shadow: none;' alt="Screenshot showing the Entities table">Screenshot of the Entities table. Each line represents an entity.</p>
 
 ## Areas
 
 An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target service calls at an entire group of devices. For example, turning off all the lights in the living room.
-Locations within your home such as living room, dance floor, etc. Areas can be assigned to {% term floors %}.
+These are locations within your home, such as the living room or the dance floor. Areas can be assigned to {% term floors %}.
 Areas can also be used for automatically generated cards, such as the [Area card](/dashboards/area/).
 
 ## Automations
@@ -60,7 +60,7 @@ To learn the basics about {% term automations %}, refer to the [automation basic
 
 ## Scripts
 
-Similar to {% term automations %}, scripts are repeatable {% term actions %} that can be run. The difference between {% term scripts %} and {% term automations %} is that {% term scripts %} do not have triggers. This means that {% term scripts %} cannot automatically run unless they are used in an {% term automations %}. Scripts are particularly useful if you perform the same {% term actions %} in different {% term automations %} or trigger them from a dashboard. For information on how to create {% term scripts %}, refer to the [scripts](/integrations/script/) documentation.
+Similar to {% term automations %}, scripts are repeatable {% term actions %} that can be run. The difference between {% term scripts %} and {% term automations %} is that {% term scripts %} do not have triggers. This means that {% term scripts %} cannot automatically run unless they are used in {% term automations %}. Scripts are particularly useful if you perform the same {% term actions %} in different {% term automations %} or trigger them from a dashboard. For information on how to create {% term scripts %}, refer to the [scripts](/integrations/script/) documentation.
 
 ![Scripts](/images/getting-started/script_01.png)
 
@@ -72,14 +72,14 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ![Scenes](/images/getting-started/scene_02.png)
 
-## Add-ons
+## Apps
 
-Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only supported when using {% term "Home Assistant Operating System" %}.
+Apps are third-party applications that provide additional functionality in Home Assistant. Apps run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
 
-Add-ons are installed from the add-on store under {% my supervisor title="**Settings** > **Add-ons**" %}. If you are curious now and feel like installing every add-on that looks interesting: beware that add-ons can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
+Apps are installed from the app store under {% my supervisor title="**Settings** > **Apps**" %}. If you are curious now and feel like installing every app that looks interesting: beware that apps can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
 
-Among the most used add-ons are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
+Among the most used apps are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
 
-<p class='img'><img src='/images/getting-started/add-ons.png' style='border: 0;box-shadow: none;' alt="Screenshot of the add-on page">Screenshot of the add-on page, showing all the installed add-ons on a test system.</p>
+<p class='img'><img src='/images/getting-started/app-store.png' style='border: 0;box-shadow: none;' alt="Screenshot of the app store, showing all the installable apps">Screenshot of the app store, showing all the installable apps.</p>
 
 {% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}

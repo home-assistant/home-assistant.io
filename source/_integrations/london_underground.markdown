@@ -14,11 +14,10 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 
-The `london_underground` {% term integration %} will display the status of London underground lines, as well as the overground lines and the DLR.
+The **London Underground** {% term integration %} will display the status of London underground lines, as well as the overground lines and the DLR.
 
 There 20 possible values that the line can report:
 - `Special Service`
@@ -55,8 +54,6 @@ line:
 ### Automation example:
 
 This automation triggers when the status of the Victoria line changes to something significant, and just before commutes are likely to begin. To avoid spam, it only runs if the commuter is at home in the morning or away from home in the evening.
-
-{% raw %}
 
 ```yaml
 alias: Notify Paulus if there are issues on the Victoria line
@@ -115,7 +112,5 @@ actions:
     action: notify.mobile_app_pixel_7
 
 ```
-
-{% endraw %}
 
 Powered by TfL Open Data [TFL](https://api.tfl.gov.uk/).

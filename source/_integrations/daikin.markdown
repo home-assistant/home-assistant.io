@@ -17,7 +17,7 @@ ha_platforms:
   - climate
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
@@ -46,7 +46,7 @@ If your device is set up with password, use the password. If it has an API key, 
 
 {% note %}
   
-If your Daikin unit does not reside in the same network as your Home Assistant instance, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
+If your Daikin unit does not reside in the same network as your Home Assistant instance (that is, your network is segmented), note that a couple of UDP connections are made during discovery:
 
 - From Home Assistant to the Daikin controller: `UDP:30000` => `30050`
 - From the Daikin controller to Home Assistant: `UDP:<random port>` => `30000`
@@ -67,6 +67,17 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 - [**set_preset_mode**](/integrations/climate#action-climateset_preset_mode) (away, none)
 
 Current inside temperature is displayed.
+
+When your controller supports zone temperature control (AirBase/SKYFi), the integration also exposes one climate entity per zone.
+
+### Zone climate entities
+
+- Each zone climate entity can set the temperature within a ±2 °C window around the system set point.
+- Turning a zone on or off continues to rely on the existing zone switch entities. The zone climate entity is exclusively for temperature management.
+- Even when a zone is switched off you can adjust its target temperature; Daikin applies the stored set point as soon as the zone is re-enabled.
+- Only controllers that advertise Linear Zone Control and expose the zone temperature tables (for example AirHub Touch Zone Controller, AirBase/SKYFi models with Linear Zone Control) create these extra climate entities.
+
+The primary Daikin climate continues to provide the `zone_temps` attribute for a quick overview of all zone targets.
 
 {% note %}
   
@@ -152,4 +163,4 @@ Currently known region codes:
 - US
 - TH
 
-If you experience problems with certain apps like the Daikin ONECTA try setting a lower-case region code (e.g. 'eu').
+If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).

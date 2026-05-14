@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
+The **Alpha Vantage** {% term integration %} uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
 
 To enable the `alpha_vantage` platform, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

@@ -22,7 +22,7 @@ If you decide to use `trusted_networks` as your `auth_provider` there won't be a
 
 {% endwarning %}
 
-Authentication providers are configured in your {% term "`configuration.yaml`" %} file under the `homeassistant:` block. 
+Authentication providers are configured in your {% term "`configuration.yaml`" %} file under the `homeassistant:` block.
 If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
 
 
@@ -45,7 +45,7 @@ This is the default auth provider. The first user created is designated as the _
 
 User details are stored in the `[your config]/.storage`  directory. All passwords are stored hashed and with a salt, making it almost impossible for an attacker to figure out the password even if they have access to the file.
 
-Users can be managed in Home Assistant by the owner. Go to the configuration panel and click on _{% my users %}_.
+Users can be managed in Home Assistant by the owner. Select {% my users title="**Settings** > **People**" %} and open the **Users** tab.
 
 This is the entry in {% term "`configuration.yaml`" %} for Home Assistant auth:
 
@@ -138,7 +138,7 @@ Specially, you can use `group: GROUP_ID` to assign all users in certain `user gr
 
 #### Skip login page examples
 
-This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form. 
+This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form.
 
 If you allow bypass login then your cookie will not be stored and every time you refresh the page in Home Assistant a new login will be created. This is because bypassing the login does not give you the option to save the login.
 
@@ -156,6 +156,11 @@ homeassistant:
 ```
 
 Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
+
+{% note %}
+The order of `auth_providers` is critical as providers are evaluated top to bottom.
+To enable skip login as intended, the `trusted_networks` provider must be listed before the `homeassistant` provider. If `type: homeassistant` is configured first, Home Assistant will immediately present the login page and the skip login logic will never be reached, even if the client is on a trusted network.
+{% endnote %}
 
 ### Command line
 

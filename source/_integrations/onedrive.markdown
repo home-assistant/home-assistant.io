@@ -19,7 +19,7 @@ ha_platforms:
   - sensor
 ---
 
-This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups) as well as uploading generic files to your OneDrive.
+This {% term integration %} allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups) as well as uploading generic files to your OneDrive.
 
 Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups).
 
@@ -94,18 +94,73 @@ This integration provides the following actions:
 
 ### Action `onedrive.upload`
 
-You can use the `onedrive.upload` action to upload files from Home Assistant
-to OneDrive. For example, to upload `camera` snapshots.
+You can use the `onedrive.upload` action to upload one or more files from Home Assistant to OneDrive. For example, to upload `camera` snapshots.
 
 {% details "Upload action details" %}
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `filename` | no | Path to the file to upload. | /media/image.jpg |
-| `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded content. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
+| `filename` | no | One or more local file paths to upload. Accepts a single string or a list of strings. | /media/image.jpg |
+| `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded files. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
 | `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
 
+```yaml
+# Upload a single file
+action: onedrive.upload
+data:
+  filename: /media/image.jpg
+  destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+
+# Upload multiple files
+action: onedrive.upload
+data:
+  filename:
+    - /media/image_1.jpg
+    - /media/image_2.jpg
+  destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+```
+
+
 {% enddetails %}
+
+The path part of `filename` must be in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+
+The `destination_folder` must comply with [OneDrive naming restrictions](https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa). Folder names cannot contain the following characters: `" * : < > ? / \ |`.
+
+### Action `onedrive.delete`
+
+You can use the `onedrive.delete` action to delete one or more files from your OneDrive app folder.
+
+{% details "Delete action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `destination_path` | no | One or more paths to files inside your `Apps/Home Assistant` app folder to delete. Supports subfolders. | Snapshots/2025/image.jpg |
+| `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to delete from). | a1bee602deade2b09bc522749bbce48e |
+
+```yaml
+# Delete a single file
+action: onedrive.delete
+data:
+  destination_path: Snapshots/2025/image.jpg
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+
+# Delete multiple files
+action: onedrive.delete
+data:
+  destination_path:
+    - Snapshots/2025/image.jpg
+    - Snapshots/2025/image2.jpg
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+```
+
+{% enddetails %}
+
+{% note %}
+The `onedrive.delete` action removes only files, not the folders that were created during upload. Whether the deleted file is moved to the Recycle Bin or permanently removed depends on the **Delete files permanently** option in the integration settings.
+{% endnote %}
 
 ## Automations
 
@@ -116,8 +171,6 @@ Get started with these automation examples.
 Send an alert when the drive usage is close to the storage limit and needs cleanup.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: Alert when OneDrive is close to storage limit
@@ -142,8 +195,6 @@ actions:
         states('sensor.my_drive_total_available') }}GB.  Only {{ states('sensor.my_drive_remaining_storage') }}GB remaining.
 mode: single
 ```
-
-{% endraw %}
 {% enddetails %}
 
 

@@ -22,10 +22,10 @@ ha_platforms:
   - diagnostics
   - event
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `nest` integration allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
+The **Google Nest** {% term integration %} allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -43,6 +43,7 @@ You are in control of the information and capabilities exposed to Home Assistant
 - The Nest Device Access Console Pub/Sub setup process has changed as of January 23rd 2025. **Please make sure you are using the latest version of Home Assistant.**
 
 - The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+- The SDM API is also incompatible with some Google Account types or Security settings, including Google Workspace and the Advanced Protection Program. See [Known limitations](#known-limitations) below.
 
 ## Configuration
 
@@ -364,10 +365,12 @@ All doorbells and cameras support event entities. See the [Event](https://www.ho
 There are two classes of event entities that are available based on the above camera features:
 
 - `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
-- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+- `doorbell` for all cameras that are doorbells and support `ring` events. In the camera feature table above, this capability is listed as “Chime”.
 
 Nest event entities are updated immediately when an event message is received
 without waiting for any media to be fetched. See Device Triggers for media support.
+
+{% include integrations/actions.md %}
 
 ## Device Triggers
 
@@ -383,6 +386,8 @@ event entity for immediate notifications without media.
 {% details "Example Device Trigger / Event payload" %}
 
 This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
+
+Doorbell device trigger payloads use the `doorbell_chime` event, not `ring`.
 
 ```json
 {
@@ -469,8 +474,6 @@ You can use the Nest Device Trigger payload fields `attachment.image` or `attach
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
-{% raw %}
-
 ```yaml
 action: notify.mobile_app_iphone
 data:
@@ -481,15 +484,11 @@ data:
     video: "{{ trigger.event.data.attachment.video }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS" %}
 
 Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
-
-{% raw %}
 
 ```yaml
 action: notify.mobile_app_android
@@ -500,15 +499,11 @@ data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS" %}
 
 Example for cameras that support Snapshot (jpg) on either Android or iOS.
-
-{% raw %}
 
 ```yaml
 action: notify.mobile_app
@@ -518,8 +513,6 @@ data:
   data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -545,6 +538,26 @@ The primary limitations are the following:
 - Once a Google Account is associated with your Device Access Project, it cannot be changed. Be sure you are signed in to the correct Google Account before continuing.
 
 Keep in mind, the US$5 registration fee is non-refundable.
+
+### Google Advanced Protection Program
+
+The "Restricted" API scopes required for device control are automatically blocked for [Google Advanced Protection Program](https://landing.google.com/intl/en_in/advancedprotection/) users.
+
+{% important %}
+Workaround: If you have enabled AP, create and use a secondary, standard Google Account (non-AP) to host the devices:
+
+1. Create a new Google Account *without* Advanced Protection (if you don't have one already).
+
+2. Create a new **Home** in the Google Home app using this new account.
+
+3. Remove your Nest devices from your main account and re-add them to this new **Home**. Note that this may delete saved video history or settings for some devices.
+
+4. Invite your main account (the one with AP) as a **Family Member** to the new **Home**. This allows you to retain control in the Google Home app on your phone.
+
+5. Connect Home Assistant using the new standard account credentials.
+{% endimportant %}
+
+*[AP]: Advanced Protection Program
 
 ### Google Home App migration and cameras
 

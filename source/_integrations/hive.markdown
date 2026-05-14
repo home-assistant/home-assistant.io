@@ -23,11 +23,11 @@ ha_platforms:
   - switch
   - water_heater
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_homekit: true
 ---
 
-The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
+The **Hive** {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by
 [hivehome.com](https://www.hivehome.com)
 
 This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant. 2FA authentication must be enabled to use this integration. Once configured, Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
@@ -46,9 +46,9 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
   
 ## Actions
 
-### Action `hive.boost_heating_on`
+### Action: Boost heating on
 
-You can use the action `hive.boost_heating_on` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this action.
+The `hive.boost_heating_on` action sets your heating to boost for a period of time at a certain target temperature. Individual TRVs can also be boosted in the same way, using this action.
 
 | Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -71,9 +71,9 @@ script:
           temperature: "20.5"
 ```
 
-### Action `hive.boost_heating_off`
+### Action: Boost heating off
 
-You can use the `hive.boost_heating_off` action to turn your heating boost off.
+The `hive.boost_heating_off` action turns your heating boost off.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
@@ -91,9 +91,9 @@ script:
           entity_id: "climate.heating"
 ```
 
-### Action `hive.boost_hot_water`
+### Action: Boost hot water
 
-You can use the `hive.boost_hot_water` action to set your hot water to boost for a period of time.
+The `hive.boost_hot_water` action sets your hot water to boost for a period of time.
 
 | Data attribute | Optional | Description                                                             |
 | ---------------------- | -------- | ----------------------------------------------------------------------- |
@@ -184,3 +184,11 @@ The `hive` water heater platform integrates your Hive hot water into Home Assist
 The platform supports the following Hive products:
 
 - Hot Water Control
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+{% note %}
+Removing the integration will also deregister this Home Assistant instance from your Hive account. If you set up the integration again, you will need to register a new device during the configuration process.
+{% endnote %}

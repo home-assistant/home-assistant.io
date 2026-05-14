@@ -7,7 +7,7 @@ After changing configuration or automation files, check if the configuration is 
 ### Running a configuration check from the UI
 
 1. Go to {% my profile title="your user profile" %} and enable **Advanced Mode**.
-2. Go to {% my server_controls title="**Developer tools** > **YAML**" %} and in the **Configuration validation** section, select the **Check configuration** button.
+2. Go to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and in the **Configuration validation** section, select the **Check configuration** button.
    - This is to make sure there are no syntax errors before restarting Home Assistant.
    - It checks for valid {% term YAML %} and valid config structures.
 3. If you need to do a more comprehensive configuration check, [run the check from the CLI](#to-run-a-configuration-check-from-the-cli).

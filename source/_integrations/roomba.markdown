@@ -17,7 +17,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - vacuum
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 

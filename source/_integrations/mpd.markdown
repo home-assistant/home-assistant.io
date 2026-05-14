@@ -8,14 +8,14 @@ ha_iot_class: Local Polling
 ha_domain: mpd
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_config_flow: true
 ---
 
-The Music Player Daemon {% term integration %} allows you to control a [Music Player Daemon](https://www.musicpd.org/) from Home Assistant. Unfortunately, it does not allow you to manipulate the playlist (add or delete songs) or add transitions between the songs.
+The **Music Player Daemon** {% term integration %} allows you to control a [Music Player Daemon](https://www.musicpd.org/) from Home Assistant. Unfortunately, it does not allow you to manipulate the playlist (add or delete songs) or add transitions between the songs.
 
 Even though no playlist manipulation is possible, it is possible to use the `play_media` action to load an existing saved playlist as part of an automation or scene.
 

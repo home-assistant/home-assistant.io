@@ -25,9 +25,9 @@ The file path must be added to [allowlist_external_dirs](/integrations/homeassis
 
 {% include integrations/config_flow.md %}
 
-### Action `local_file.update_file_path`
+### Action: Update file path
 
-Use this action to change the file displayed by the camera.
+The `local_file.update_file_path` action changes the file displayed by the camera.
 
 | Data attribute | Description                                          |
 | ---------------------- | ---------------------------------------------------- |

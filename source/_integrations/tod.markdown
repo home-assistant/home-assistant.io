@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The Times of the Day integration provides a binary sensor that gets its values by checking if the current time is within defined time ranges.
+The **Times of the Day** {% term integration %} provides a binary sensor that gets its values by checking if the current time is within defined time ranges.
 
 {% include integrations/config_flow.md %}
 

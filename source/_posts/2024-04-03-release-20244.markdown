@@ -420,7 +420,7 @@ could push other integrations to be slow too; that should no longer be the case,
 making this a more accurate representation of the actual startup time.
 
 Want to learn about the individual startup times of your integrations? You can
-find them in the {% my repairs title="**Settings** -> **System** -> **Repairs**" %}
+find them in the {% my repairs title="**Settings** > **System** > **Repairs**" %}
 page by selecting the three-dotted menu in the top right and selecting the
 **Integration startup time** item.
 

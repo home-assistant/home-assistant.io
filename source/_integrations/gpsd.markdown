@@ -15,6 +15,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `gpsd` integration is using the GPS information collected by [gpsd](https://gpsd.gitlab.io/gpsd/index.html) and a GPS receiver.
+The **GPSD** {% term integration %} is using the GPS information collected by [gpsd](https://gpsd.gitlab.io/gpsd/index.html) and a GPS receiver.
 
 {% include integrations/config_flow.md %}

@@ -18,7 +18,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `upc_connect` {% term integration %} offers presence detection by looking at connected devices to a [Connect Box](https://www.upc.ch/en/internet/learn-about-internet/) from [Liberty Global](https://www.libertyglobal.com) (also known as UPC Cablecom in Switzerland) which is an Internet provider in Switzerland, Austria, the Netherlands (under Ziggo), Hungary (under Vodafone) and Poland (under PLAY).
+The **UPC Connect Box** {% term integration %} offers presence detection by looking at connected devices to a [Connect Box](https://www.upc.ch/en/internet/learn-about-internet/) from [Liberty Global](https://www.libertyglobal.com) (also known as UPC Cablecom in Switzerland) which is an Internet provider in Switzerland, Austria, the Netherlands (under Ziggo), Hungary (under Vodafone) and Poland (under PLAY).
 
 {% important %}
 This integration works by logging into the router with a password. The router can only have one active session at any time, so if you want to access your router settings then stop Home Assistant first.

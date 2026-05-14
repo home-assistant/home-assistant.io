@@ -15,9 +15,9 @@ The Clock card shows the current time in a variety of formats, sizes and time zo
 Screenshot of the clock card
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## Card settings
 
@@ -67,7 +67,7 @@ time_zone:
   type: string
   required: false
 analog_options:
-  description: When using the analog clock style, this allows the user to configure the appearance of the clock.
+  description: When using the analog clock style, this allows you to configure the appearance of the clock.
   type: map
   required: false
   keys:

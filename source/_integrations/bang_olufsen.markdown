@@ -5,13 +5,16 @@ ha_category:
   - Event
   - Media Player
   - Multimedia
+  - Sensor
 ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - event
   - media_player
+  - sensor
 ha_codeowners:
   - '@mj23000'
 ha_config_flow: true
@@ -19,7 +22,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The Bang & Olufsen integration enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
+The **Bang & Olufsen** {% term integration %} enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
 
 ## Compatible devices
 
@@ -51,7 +54,7 @@ Device model:
 
 ## Data updates
 
-The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.github.io/mozart-open-api), which is a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume etc. The only exception to this is the repeat and shuffle controls which are polled every 30 seconds.
+The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.github.io/mozart-open-api), which is a local REST API with a WebSocket notification channel for immediate state information such as media metadata, playback progress, and volume. The only exception is that the repeat and shuffle controls are polled every 30 seconds.
 
 ## Supported features
 
@@ -61,7 +64,7 @@ Currently, for each added physical device, a single device is created that inclu
 
 A number of features are available through the media player entity:
 
-- See current metadata, progress, volume, etc.
+- See current metadata, progress, volume, and more.
 - Control next/previous, play/pause, shuffle/repeat settings, volume, sound mode, audio and video sources, and more.
 - Play various media through [play_media actions](#play_media-actions).
 - Control multiroom audio through [Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom):
@@ -147,6 +150,22 @@ Only a subset of these functions are enabled by default. Change settings for the
   - Use the **Move** setting to reorder the visible functions.
 
 The function names are not available to the Mozart device, so enable [debug logging](#diagnostics-and-troubleshooting) and trigger functions to see what function IDs are associated with which functions on the remote.
+
+### Sensor
+
+#### Mozart battery level
+
+Mozart devices that have a built-in battery, such as the [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5) and [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level), will have a battery level sensor.
+
+#### Beoremote One battery level
+
+Any paired Beoremote One remotes will have an associated battery level sensor. Battery level reporting from the remote is currently not very accurate, but can still be useful.
+
+### Binary sensor
+
+#### Mozart battery charging
+
+Mozart devices that have a built-in battery, such as the [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5) and [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level), have a battery charging binary sensor.
 
 ## Limitations
 
@@ -607,9 +626,12 @@ Where all received WebSocket events are provided through debug logs and the foll
   - WebSocket connection state
   - Media player state
   - Button Event states (if available)
+  - Battery level sensor (if available)
+  - Battery charging binary sensor (if available)
 - Beoremote One remotes (if available)
   - Key Event states (if available)
   - Overall status
+  - Battery level sensor (if available)
 
 ## Removing the integration
 

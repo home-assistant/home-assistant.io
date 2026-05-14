@@ -1,5 +1,5 @@
 ---
-title: Network configuration
+title: Network Configuration
 description: Network configuration for Home Assistant
 ha_category:
   - Other

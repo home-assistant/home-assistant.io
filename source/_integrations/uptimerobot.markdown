@@ -15,8 +15,8 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
-ha_integration_type: integration
-ha_quality_scale: bronze
+ha_integration_type: service
+ha_quality_scale: gold
 ---
 
 The **UptimeRobot** {% term integration %} provides entities to get the status for all of your monitors from your account on [UptimeRobot]( https://uptimerobot.com).

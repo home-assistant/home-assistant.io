@@ -68,7 +68,7 @@ The following {% term entities %} are provided:
 ### Alarm Control Panel
 
 This integration adds an Alarm Control Panel device for each configured area, with the ability to issue arm/disarm commands.
-This entity reports state (_disarmed_, _armed_away_, etc.).
+This entity reports state, such as _disarmed_ or _armed_away_.
  
 ### Binary Sensor
 
@@ -123,16 +123,15 @@ The `bosch_alarm.set_date_time` action is used to update the date and time on th
   - **Description**: The date and time to set. Defaults to the current date and time if it is not set.
   - **Optional**: Yes
 
-{% raw %}
 
 ```yaml
 # Example: Update the panel’s date and time
-service: bosch_alarm.set_date_time
+action: bosch_alarm.set_date_time
 data:
   config_entry_id: "YOUR_CONFIG_ENTRY_ID"
   datetime: "2025-05-01T12:00:00"
 ```
-{% endraw %}
+
 
 ## Authentication
 
@@ -162,7 +161,6 @@ At startup, the integration checks whether your panel supports push data updates
 
 ### Turning on lights when walking into a room
 
-{% raw %}
 
 ```yaml
 automation:
@@ -180,7 +178,6 @@ automation:
 
 ```
 
-{% endraw %}
 
 ## Reconfiguration
 

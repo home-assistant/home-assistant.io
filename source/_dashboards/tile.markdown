@@ -14,7 +14,7 @@ related:
     title: Dashboard cards
 ---
 
-The tile card gives you a quick overview of an {% term entity %}. The card allows you to add tap actions, and features to control the entity. You can also select the {% term entity %} to open the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
+The tile card gives you a quick overview of an {% term entity %}. The card allows you to add tap actions, and features to control the entity. You can also select the {% term entity %} to open the **More info** dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
 
 <p class='img'>
   <img src='/images/dashboards/tile_card_tap_action.webp' alt='Screenshot of tile cards'>
@@ -153,5 +153,3 @@ features:
 ## Available colors
 
 The following colors are available to colorize the tile card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).
-
-

@@ -4,6 +4,7 @@ description: Instructions on how to integrate Whirlpool appliances with Home Ass
 ha_category:
   - Climate
   - Hub
+  - Select
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -15,12 +16,13 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - select
   - sensor
 ha_integration_type: hub
 ha_quality_scale: silver
 ---
 
-The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool and Maytag appliances to Home Assistant.
+The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool, Maytag, KitchenAid, and Consul appliances to Home Assistant.
 
 ## Supported devices
 
@@ -57,7 +59,7 @@ Password:
 Region:
     description: "The region in which your account is registered."
 Brand:
-    description: "The brand of the mobile app. It may not be the same brand as the appliances."
+    description: "The brand of the mobile app. It may or may not be the same brand as the appliances."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -66,6 +68,7 @@ This {% term integration %} maps appliances to entities in Home Assistant. A sin
 
 - [Binary Sensor](#binary_sensor)
 - [Climate](#climate)
+- [Select](#select)
 - [Sensor](#sensor)
 
 ### Binary Sensor
@@ -85,6 +88,12 @@ The following actions are also available:
 - [**turn on/off**](/integrations/climate#action-climateturn_on)
 - [**fan mode**](/integrations/climate#action-climateset_fan_mode) (`low`, `medium`, `high`)
 - [**swing mode**](/integrations/climate#action-climateset_swing_mode) (`off`, `horizontal`)
+
+### Select
+
+The select platform provides the following entity for refrigerators:
+
+- **Temperature level**: Sets the temperature level of the refrigerator. The available options are `-4 °C`, `-2 °C`, `0 °C`, `3 °C`, and `5 °C`.
 
 ### Sensor
 

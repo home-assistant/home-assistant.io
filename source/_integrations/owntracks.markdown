@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: owntracks
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 [OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allows you to track your location and send it directly to Home Assistant. OwnTracks can be set up via  **{% my integrations title="Settings > Devices & services" %}**.
@@ -50,6 +50,28 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
    - **URL**: `<URL given to you when setting up the integration>`
    - Turn on authentication
    - **User ID**: `<Your name>`. You can make one up for OwnTracks.
+
+## Device tracker state attributes
+
+When Home Assistant receives a location update from OwnTracks, the device tracker entity includes the following state attributes.
+
+{% details "Example state attributes" %}
+
+```yaml
+source_type: gps
+latitude: 12.345678
+longitude: 12.345678
+gps_accuracy: 60
+battery_level: 92
+tid: ab
+velocity: 0
+course: 248
+update_timestamp: "2026-03-09T12:18:40+00:00"
+```
+
+{% enddetails %}
+
+The `update_timestamp` attribute is populated from the OwnTracks `tst` field and represents the original update time reported by the device. It is only present when the location message includes a `tst value, which is always the case for standard location messages.
 
 ## Advanced configuration
 

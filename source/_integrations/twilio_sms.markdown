@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `twilio_sms` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
+The **Twilio SMS** {% term integration %} enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
 
 The requirement is that you have setup [Twilio](/integrations/twilio/).
 

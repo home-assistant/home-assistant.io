@@ -14,19 +14,20 @@ ha_platforms:
   - climate
   - event
   - fan
+  - humidifier
   - number
   - select
   - sensor
   - switch
   - vacuum
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@LG-ThinQ-Integration'
 ha_dhcp: true
 ---
 
-The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
+The **LG ThinQ** {% term integration %} allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
 
 - Control LG appliances as Home Assistant entities through the LG ThinQ Connect API.
 
@@ -117,11 +118,13 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Climate](#climate)
 - [Event](#event)
 - [Fan](#fan)
+- [Humidifier](#humidifier)
 - [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Vacuum](#vacuum)
+- [Water heater](#water-heater)
 
 ### Binary sensor
 
@@ -186,6 +189,15 @@ The properties for controlling the wind strength of the appliance are represente
 | Device | Property |
 | ------ | -------- |
 | Ceiling Fan | Power<br>Speed |
+
+### Humidifier
+
+The properties for controlling the target humidity of the appliance are represented as a humidifier platform.
+
+| Device | Property |
+| ------ | -------- |
+| Dehumidifier | Power<br>Mode<br>Target humidity |
+| Humidifier | Power<br>Mode<br>Target humidity |
 
 ### Number
 
@@ -292,8 +304,6 @@ A read-only property which has states is represented as a sensor platform.
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
 
-{% raw %}
-
 ```yaml
 alias: lack of water example
 description: Toggle switch when air purifier's lack_of_water
@@ -311,8 +321,6 @@ actions:
     entity_id: xxxxxxxx
     domain: switch
 ```
-
-{% endraw %}
 
 ## Troubleshooting
 

@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Google Cloud integration allows you to use [Google Cloud Platform](https://cloud.google.com/) APIs and integrate them into Home Assistant.
+The **Google Cloud** {% term integration %} allows you to use [Google Cloud Platform](https://cloud.google.com/) APIs and integrate them into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -119,7 +119,7 @@ For more options about `speak`, see the Speak section on the main [TTS](/integra
 A `tts.speak` service call can look like:
 
 ```yaml
-service: tts.speak
+action: tts.speak
 target:
   entity_id: tts.google_cloud
 data:

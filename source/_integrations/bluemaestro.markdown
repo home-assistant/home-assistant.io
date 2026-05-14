@@ -12,7 +12,7 @@ ha_domain: bluemaestro
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [BlueMaestro](https://www.sigmawit.com/) devices into Home Assistant.

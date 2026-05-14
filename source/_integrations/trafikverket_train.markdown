@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: trafikverket_train
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 Retrieve train departure information from [Trafikverket](https://www.trafikverket.se/).

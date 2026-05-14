@@ -16,7 +16,7 @@ related:
     title: Configuration file
 ---
 
-The `manual` alarm control panel {% term integration %} enables you to create an alarm system in Home Assistant.
+The **Manual Alarm control panel** {% term integration %} enables you to create an alarm system in Home Assistant.
 
 ## Configuration
 
@@ -119,8 +119,8 @@ automation:
     trigger:
       - platform: event
         event_type: manual_alarm_bad_code_attempt
-    action:
-      - service: notify.your_notification_service # Replace with your actual notification service
+    actions:
+      - action: notify.your_notification_service # Replace with your actual notification service
         data:
           message: >
             Invalid alarm code attempt for {{ trigger.event.data.entity_id }}
@@ -259,8 +259,6 @@ automation:
 
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status
 
-{% raw %}
-
 ```yaml
 - alias: 'Send notification when alarm is Disarmed'
   triggers:
@@ -310,5 +308,3 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
         message: >
           ALARM! The alarm is armed in Home mode {{ states('sensor.date_time') }}
 ```
-
-{% endraw %}

@@ -12,12 +12,12 @@ ha_domain: counter
 ha_integration_type: helper
 ---
 
-The Counter integration allows one to count occurrences fired by automations.
+The **Counter** {% term integration %} allows one to count occurrences fired by automations.
 
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button;
+**{% my helpers title="Settings > Devices & services > Helpers" %}** and click the add button;
 next choose the **{% my config_flow_start domain=page.ha_domain title=page.title %}** option.
 
 To be able to add **Helpers** via the user interface you should have
@@ -87,42 +87,42 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 Available actions: `increment`, `decrement`, `reset`, and `set_value`.
 
-### Action `counter.increment`
+### Action: Increment
 
-Increments the counter with 1 or the given value for the steps.
-
-| Data attribute | Optional | Description                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
-
-### Action `counter.decrement`
-
-Decrements the counter with 1 or the given value for the steps.
+The `counter.increment` action allows you to increment the counter with 1 or the given value for the steps.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 
-### Action `counter.reset`
+### Action: Decrement
 
-With this action the counter is reset to its initial value.
-
-| Data attribute | Optional | Description                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
-
-### Action `counter.set_value`
-
-This action allows setting the counter to a specific value.
+The `counter.decrement` action allows you to decrement the counter with 1 or the given value for the steps.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
+
+### Action: Reset
+
+The `counter.reset` action allows you to reset the counter to its initial value.
+
+| Data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
+
+### Action: Set value
+
+The `counter.set_value` action allows you to set the counter to a specific value.
+
+| Data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 | `value`                | yes      | Set the counter to the given value.                                   |
 
 ### Use the action
 
-Select the **Actions** tab from within **Developer Tools**. Choose **counter** from the list of **Domains**, select the **Actions**, enter something like the sample below into the **data** field, and select **Perform action**.
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Choose **counter** from the list of **Domains**, select the **Actions**, enter something like the sample below into the **data** field, and select **Perform action**.
 
 ```json
 {

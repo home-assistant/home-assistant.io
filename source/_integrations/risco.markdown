@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration connects with Risco Alarms, in one of two ways:
+This {% term integration %} connects with Risco Alarms, in one of two ways:
 
 ## Risco cloud (recommended)
 

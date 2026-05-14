@@ -16,12 +16,13 @@ blueprint easier to use from the UI.
 The following selectors are currently available:
 
 - [Action selector](#action-selector)
-- [Add-on selector](#add-on-selector)
+- [App selector](#app-selector)
 - [Area selector](#area-selector)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
 - [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
+- [Choose selector](#choose-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Condition selector](#condition-selector)
 - [Config entry selector](#config-entry-selector)
@@ -60,7 +61,7 @@ If no selector is defined, a text input for a single line will be shown.
 
 ## Action selector
 
-The action selector allows the user to input one or more sequences of actions.
+The action selector allows you to input one or more sequences of actions.
 On the user interface, the action part of the automation editor will be shown.
 The value of the input will contain a list of actions to perform.
 
@@ -82,24 +83,24 @@ The output of this selector is a list of actions. For example:
   metadata: {}
 ```
 
-## Add-on selector
+## App selector
 
 This can only be used on a {% term "Home Assistant Operating System" %} installation. For {% term "Home Assistant Container" %} installations, an error will be displayed.
 
-The add-on selector allows the user to input an add-on slug.
-On the user interface, it will list all installed add-ons and use the slug of the
-selected add-on.
+The app selector (formerly known as add-on selector) allows you to input an app slug.
+On the user interface, it will list all installed Home Assistant apps and use the slug of the
+selected app.
 
-![Screenshot of an add-on selector](/images/blueprints/selector-addon.png)
+![Screenshot of an app selector](/images/blueprints/selector-apps.png)
 
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
-# Example add-on selector
-addon:
+# Example app selector
+app:
 ```
 
-The output of this selector is the slug of the selected add-on.
+The output of this selector is the slug of the selected app.
 For example: `core_ssh`.
 
 ## Area selector
@@ -127,7 +128,7 @@ device:
   description: >
     When device options are provided, the list of areas is filtered by areas
     that at least provide one device that matches the given conditions. Can be
-    either a object or a list of object.
+    either an object or a list of objects.
   type: list
   required: false
   keys:
@@ -201,6 +202,12 @@ multiple:
   type: boolean
   default: false
   required: false
+reorder:
+  description: >
+    Allows reordering of areas (only applies if `multiple` is set to `true`).
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of this selector is the area ID, or (in case `multiple` is set to
@@ -247,14 +254,14 @@ area:
 The attributes selector shows a list of state attributes from a provided entity
 of which one can be selected.
 
-This allows for selecting, e.g., the "Effect" attribute from a light entity, or the
+This allows for selecting, for example, the "Effect" attribute from a light entity, or the
 "Next dawn" attribute from the `sun` entity.
 
 ![Screenshot of an attribute selector](/images/blueprints/selector-attribute.png)
 
 {% configuration attribute %}
 entity_id:
-  description: The entity ID of which an state attribute can be selected from.
+  description: The entity ID of which a state attribute can be selected from.
   type: string
   required: true
 {% endconfiguration %}
@@ -296,7 +303,7 @@ backup_location:
 
 ## Boolean selector
 
-The boolean selector shows a toggle that allows the user to turn on or off
+The boolean selector shows a toggle that allows you to turn on or off
 the selected option.
 
 ![Screenshot of a boolean selector](/images/blueprints/selector-boolean.png)
@@ -311,6 +318,53 @@ boolean:
 ```
 
 The output of this selector is `true` when the toggle is on, `false` otherwise.
+
+## Choose selector
+
+The choose selector allows you to present multiple selectors to the user for a
+single field, and the user can pick a desired selector and enter a value using that selection.
+
+![Screenshot of a choose selector](/images/blueprints/selector-choose.png)
+
+```yaml
+choose:
+```
+{% configuration choose %}
+choices:
+  description: >
+    A dictionary of choices for the choose option. Each key in the
+    dictionary represents one selector choice, and the string value of the
+    key will be displayed in the selector picker. Each entry is itself
+    another dictionary, with one mandatory key of "selector", and the value
+    of that key is any other valid selector definition.
+  type: map
+  required: true
+{% endconfiguration %}
+
+The output of a choose selector is an object with one key called 'active_choice' representing which selector was chosen, and one key per selector choice representing the value entered for that choice.
+
+### Example choose selector <!-- omit from toc -->
+
+An example choose selector that allows user to either select an icon from a dropdown, or enter an arbitrary template.
+
+```yaml
+choose:
+  choices:
+    Icon:
+      selector:
+        icon: {}
+    Template:
+      selector:
+        template: {}
+```
+
+Following this example, if the user entered a value in both selectors, but submitted with 'Icon' option selected, the output might be:
+
+```yaml
+active_choice: Icon
+Icon: mdi:light
+Template: "{{ something else }}"
+```
 
 ## Color temperature selector
 
@@ -344,7 +398,7 @@ The output of this selector is the number representing the chosen color temperat
 
 ## Condition selector
 
-The condition selector allows the user to input one or more conditions.
+The condition selector allows you to input one or more conditions.
 On the user interface, the condition part of the automation editor will be shown.
 The value of the input will contain a list of conditions.
 
@@ -367,7 +421,7 @@ The output of this selector is a list of conditions. For example:
 
 ## Config entry selector
 
-The config entry selector allows the user to select an integration
+The config entry selector allows you to select an integration
 configuration entry. The selector returns the entry ID of the selected
 integration configuration entry.
 
@@ -388,9 +442,16 @@ The output of this selector is the entry ID of the config entry, for example, `6
 
 ## Constant selector
 
-The constant selector shows a toggle that allows the user to enable the selected option.
+The constant selector, when used in an optional setting, shows a toggle that allows
+you to enable the selected option.
 This is similar to the [boolean selector](#boolean-selector), the difference
 is that the constant selector has no value when it's not enabled.
+
+{% note %}
+A constant selector is only useful in a context where selectors may be designated as
+optional, such as in an action schema or script field. It is not recommended for blueprints
+because they do not have optional inputs, so the selector cannot be toggled.
+{% endnote %}
 
 ![Screenshot of a constant selector](/images/blueprints/selector-constant.png)
 
@@ -455,7 +516,7 @@ The output of this selector is an ISO 3166 country code.
 
 ## Date selector
 
-The date selector shows a date input that allows the user to specify a date.
+The date selector shows a date input that allows you to specify a date.
 
 ![Screenshot of the Date selector](/images/blueprints/selector-date.png)
 
@@ -470,7 +531,7 @@ The output of this selector will contain the date in Year-Month-Day
 
 ## Date & time selector
 
-The date selector shows a date and time input that allows the user to specify a
+The date selector shows a date and time input that allows you to specify a
 date with a specific time.
 
 ![Screenshot of the Date & time selector](/images/blueprints/selector-datetime.png)
@@ -509,7 +570,7 @@ entity:
   description: >
     When entity options are provided, the list of devices is filtered by devices
     that at least provide one entity that matches the given conditions. Can be
-    either a object or a list of object.
+    either an object or a list of objects.
   type: list
   required: false
   keys:
@@ -548,7 +609,7 @@ filter:
   description: >
     When filter options are provided, the list of devices is filtered by devices
     that at least provide one entity that matches the given conditions. Can be either
-    a object or a list of object.
+    an object or a list of objects.
   type: list
   required: false
   keys:
@@ -618,8 +679,8 @@ device:
 
 ## Duration selector
 
-The duration select allow the user to select a time duration. This can be
-helpful for, e.g., delays or offsets.
+The duration selector lets you select a time duration.
+This can be helpful, for example, for delays or offsets.
 
 ![Screenshot of the Duration selector](/images/blueprints/selector-duration.png)
 
@@ -633,8 +694,18 @@ enable_day:
   type: boolean
   default: false
   required: false
+enable_second:
+  description: When `true`, the duration selector will allow selecting seconds.
+  type: boolean
+  default: true
+  required: false
 enable_millisecond:
   description: When `true`, the duration selector will allow selecting milliseconds.
+  type: boolean
+  default: false
+  required: false
+allow_negative:
+  description: When `true`, the duration selector will allow for selecting positive or negative values.
   type: boolean
   default: false
   required: false
@@ -644,10 +715,10 @@ The output of this selector is a mapping of the time values the user selected.
 For example:
 
 ```yaml
-days: 1 # Only when enable_day was set to true
+days: 1 # Only when enable_day is set to true
 hours: 12
 minutes: 30
-seconds: 15
+seconds: 15 # Only when enable_second is set to true (default)
 milliseconds: 500 # Only when enable_millisecond was set to true
 ```
 
@@ -906,7 +977,7 @@ floor:
 
 ## Icon selector
 
-The icon selector shows an icon picker that allows the user to select an icon.
+The icon selector shows an icon picker that allows you to select an icon.
 
 ```yaml
 icon:
@@ -989,7 +1060,7 @@ no_sort:
   required: false
 {% endconfiguration %}
 
-The output of this selector is a RFC 5646 language code.
+The output of this selector is an RFC 5646 language code.
 
 ## Location selector
 
@@ -1059,9 +1130,16 @@ accept:
     List of media types the user is allowed to select.
   type: list
   required: false
+multiple:
+  description: >
+    Allows selecting multiple media items. If set to `true`, the resulting value of
+    this selector will be a list instead of a single object.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
-The output of the media selector, is an mapping with information about
+The output of the media selector is a mapping with information about
 the selected media device and the selected media to play. There is also
 metadata, which is used by the frontend and should not be used in the
 backend.
@@ -1103,6 +1181,19 @@ metadata:
     - media_content_type: provider
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+```
+
+Example output when `multiple` is set to `true` (a list of media objects):
+
+```yaml
+- media_content_id: media-source://media_source/local/image1.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image1.jpg
+- media_content_id: media-source://media_source/local/image2.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image2.jpg
 ```
 
 ## Number selector
@@ -1156,7 +1247,7 @@ translation_key:
     [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
     for more information.
   type: string
-  required: false    
+  required: false
 {% endconfiguration %}
 
 The output of this selector is a number, for example: `42`
@@ -1189,7 +1280,7 @@ number:
 
 ## Object selector
 
-The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
+The object selector can be used to input arbitrary data in YAML form. This is useful for lists and dictionaries containing data for actions, for example. The value of the input will contain the provided data.
 
 When used without options, the selector will accept any valid YAML content, such as objects, arrays, strings, or other YAML types. The input box is displayed as an editor with syntax highlighting.
 
@@ -1304,7 +1395,7 @@ qr_code:
 
 ## RGB color selector
 
-The RGB color selector allows the user to select an color from a color picker
+The RGB color selector allows you to select a color from a color picker
 from the user interface, and returns the RGB color value.
 
 ![Screenshot of the RGB Color selector](/images/blueprints/selector-color-rgb.png)
@@ -1423,7 +1514,7 @@ would return ["Green"] and in the last example it returns ["g"].
 The state selector shows a list of states for a provided entity of which
 one or more can be selected.
 
-![Screenshot of an state selector](/images/blueprints/selector-state.png)
+![Screenshot of a state selector](/images/blueprints/selector-state.png)
 
 {% configuration state %}
 entity_id:
@@ -1491,8 +1582,8 @@ target:
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
-    that at least match the given conditions. Can be either a object or a list
-    of object.
+    that at least match the given conditions. Can be either an object or a list
+    of objects.
   type: list
   required: false
   keys:
@@ -1644,7 +1735,7 @@ The output of this selector will contain the selected theme, for example:
 
 ## Time selector
 
-The time selector shows a time input that allows the user to specify a time
+The time selector shows a time input that allows you to specify a time
 of the day.
 
 ![Screenshot of a time selector](/images/blueprints/selector-time.png)
@@ -1660,7 +1751,7 @@ for example, `23:59:59`.
 
 ## Trigger selector
 
-The triggers selector allows the user to input one or more triggers.
+The triggers selector allows you to input one or more triggers.
 On the user interface, the trigger part of the automation editor is shown.
 The value of the input contains a list of triggers.
 

@@ -34,36 +34,36 @@ The following devices are certified for Works with Home Assistant:
 
 ### Leak Protection
 
-[ZAC36 Titan Water Valve Actuator](https://www.getzooz.com/zooz-zac36-titan-water-valve-actuator/)
+- [ZAC36 Titan Water Valve Actuator](https://www.getzooz.com/zooz-zac36-titan-water-valve-actuator/)
 
 ### Plugs
 
-[ZEN04 Smart Plug](https://www.getzooz.com/zooz-zen04-smart-plug/)
-[ZEN05 Outdoor Plug](https://www.getzooz.com/zooz-zen05-outdoor-smart-plug/%20)
+- [ZEN04 Smart Plug](https://www.getzooz.com/zooz-zen04-smart-plug/)
+- [ZEN05 Outdoor Plug](https://www.getzooz.com/zooz-zen05-outdoor-smart-plug/)
 
 ### Relays
 
-[ZEN16 Multi Relay](https://www.getzooz.com/zooz-zen16-multirelay/)
-[ZEN51 Dry Contact Relay](https://www.getzooz.com/zooz-zen51-dry-contact-relay/)
-[ZEN52 Double Relay](https://www.getzooz.com/zooz-zen52-double-relay/)
-[ZEN52 DC Motor Controller](https://www.getzooz.com/zooz-zen53-dc-motor-controller/)
+- [ZEN16 Multi Relay](https://www.getzooz.com/zooz-zen16-multirelay/)
+- [ZEN51 Dry Contact Relay](https://www.getzooz.com/zooz-zen51-dry-contact-relay/)
+- [ZEN52 Double Relay](https://www.getzooz.com/zooz-zen52-double-relay/)
+- [ZEN53 DC Motor Controller](https://www.getzooz.com/zooz-zen53-dc-motor-controller/)
 
 ### Lighting Switches
 
-[ZEN30 Double Switch](https://www.getzooz.com/zooz-zen30-double-switch/)
-[ZEN32 Scene Controller](https://www.getzooz.com/zooz-zen32-scene-controller/)
-[ZEN71 On Off Switch](https://www.getzooz.com/zooz-zen71-on-off-switch/)
-[ZEN72 Dimmer](https://www.getzooz.com/zooz-zen72-dimmer/)
-[ZEN74 Toggle Dimmer](https://www.getzooz.com/zooz-zen74-s2-toggle-dimmer/)
-[ZEN76 S2 On Off Switch](https://www.getzooz.com/zooz-zen76-s2-700-series-switch/)
-[ZEN77 S2 Dimmer](https://www.getzooz.com/zooz-zen77-s2-dimmer/)
+- [ZEN30 Double Switch](https://www.getzooz.com/zooz-zen30-double-switch/)
+- [ZEN32 Scene Controller](https://www.getzooz.com/zooz-zen32-scene-controller/)
+- [ZEN71 On Off Switch](https://www.getzooz.com/zooz-zen71-on-off-switch/)
+- [ZEN72 Dimmer](https://www.getzooz.com/zooz-zen72-dimmer/)
+- [ZEN74 Toggle Dimmer](https://www.getzooz.com/zooz-zen74-s2-toggle-dimmer/)
+- [ZEN76 S2 On Off Switch](https://www.getzooz.com/zooz-zen76-s2-700-series-switch/)
+- [ZEN77 S2 Dimmer](https://www.getzooz.com/zooz-zen77-s2-dimmer/)
 
 ### Sensors
 
-[ZSE11 Q Sensor (4in1)](https://www.getzooz.com/zooz-zse11-q-sensor/)
-[ZSE18 Motion Sensor](https://www.getzooz.com/zooz-zse18-s2-motion-sensor/)
-[ZSE41 Open / Close XS Sensor](https://www.getzooz.com/zooz-zse41-open-close-xs-sensor/)
-[ZSE42 Water Leak XS Sensor](https://www.getzooz.com/zooz-zse42-water-leak-xs-sensor/)
-[ZSE43 Tilt Shock XS Sensor](https://www.getzooz.com/zooz-zse43-tilt-shock-xs-sensor/)
-[ZSE44 Temperature Humidity XS Sensor](https://www.getzooz.com/zooz-zse44-temperature-humidity-xs-sensor/)
-[ZSE70 Outdoor Motion Sensor](https://www.getzooz.com/zse70-outdoor-motion-sensor/)
+- [ZSE11 Q Sensor (4in1)](https://www.getzooz.com/zooz-zse11-q-sensor/)
+- [ZSE18 Motion Sensor](https://www.getzooz.com/zooz-zse18-s2-motion-sensor/)
+- [ZSE41 Open / Close XS Sensor](https://www.getzooz.com/zooz-zse41-open-close-xs-sensor/)
+- [ZSE42 Water Leak XS Sensor](https://www.getzooz.com/zooz-zse42-water-leak-xs-sensor/)
+- [ZSE43 Tilt Shock XS Sensor](https://www.getzooz.com/zooz-zse43-tilt-shock-xs-sensor/)
+- [ZSE44 Temperature Humidity XS Sensor](https://www.getzooz.com/zooz-zse44-temperature-humidity-xs-sensor/)
+- [ZSE70 Outdoor Motion Sensor](https://www.getzooz.com/zse70-outdoor-motion-sensor/)

@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `nad` {% term integration %} allows you to control an [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.
+The **NAD** {% term integration %} allows you to control an [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.
 
 Please note that the RS232 interface is only tested with the NAD T748v2, but it should work with other NAD receivers.
 The Telnet interface has been tested with the NAD T787 and the NAD C658.

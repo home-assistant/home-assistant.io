@@ -17,7 +17,7 @@ ha_platforms:
   - button
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [Blue Current](https://www.bluecurrent.nl/) is an Dutch company that makes electric car chargers.
@@ -83,9 +83,9 @@ The Blue Current integration provides the following buttons:
 ## Actions
 The following actions are provided by the Blue Current integration:
 
-### Action start_charge_session
+### Action: Start charge session
 
-Starts a new charge session. When no charging card ID is provided, no charging card will be used.
+The `blue_current.start_charge_session` action allows you to start a new charge session. When no charging card ID is provided, no charging card will be used.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |

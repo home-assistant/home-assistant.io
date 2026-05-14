@@ -13,7 +13,7 @@ ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
-This integration allows you to use [Azure storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for use with Home Assistant Backups.
+This {% term integration %} allows you to use [Azure storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for use with Home Assistant Backups.
 
 {% include integrations/config_flow.md %}
 

@@ -16,10 +16,11 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - climate
+  - select
   - sensor
   - switch
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **EcoNet** {% term integration %} is consuming the information provided by a [EcoNet enabled Rheem water heater or thermostat](https://www.rheem.com/econet).

@@ -17,7 +17,7 @@ ha_codeowners:
   - '@noahhusby'
 ---
 
-The `russound_rnet` {% term integration %} allows you to control Russound devices that make use of the RNET protocol.
+The **Russound RNET** {% term integration %} allows you to control Russound devices that make use of the RNET protocol.
 
 This has initially been tested against a Russound CAV6.6 unit with six zones and six sources. It will also work with a Russound CAA66, but be sure to use a null-modem cable. If you have mutiple controllers connected via the RNET link ports, every increment of 6 zones maps to the corresponding controller ID.
 

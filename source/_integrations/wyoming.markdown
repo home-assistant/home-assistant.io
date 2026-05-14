@@ -32,7 +32,7 @@ The **Wyoming** {% term integration %} connects external voice services to Home 
 
 ### Installing a local voice pipeline
 
-The Wyoming, Piper, and Whisper add-ons are used to create a fully local voice pipeline. To learn how to do this, follow the procedure on [installing a local voice pipeline](/voice_control/voice_remote_local_assistant/).
+The Wyoming, Piper, and Whisper apps for Home Assistant (formerly known as add-ons) are used to create a fully local voice pipeline. To learn how to do this, follow the procedure on [installing a local voice pipeline](/voice_control/voice_remote_local_assistant/).
 
 {% include integrations/config_flow.md %}
 

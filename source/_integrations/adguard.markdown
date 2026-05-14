@@ -85,7 +85,7 @@ Turning off **Query log** stops all sensor updates. AdGuard requires query loggi
 The integration provides an {% term update %} entity to check for and install AdGuard Home software updates.
 
 {% note %}
-The update entity is not available for Docker-based installations of AdGuard Home (_those also not for the [AdGuard Home add-on](https://github.com/hassio-addons/addon-adguard-home), but for the add-on its own update entity is created by the supervisor_).
+For Docker-based installations of AdGuard Home, no update entity is available for the AdGuard Home software. If you have installed the [AdGuard Home app for Home Assistant](https://github.com/hassio-addons/addon-adguard-home) (formerly known as AdGuard Home add-on) on {% term "Home Assistant Operating System" %}, Home Assistant provides an update entity for the AdGuard Home app for Home Assistant.
 {% endnote %}
 
 ## Actions
@@ -98,42 +98,42 @@ For example, you could create automations that:
 - Enable strict filtering when guests connect to your network
 - Temporarily disable filtering for specific downloads
 
-### Action `adguard.add_url`
+### Action: Add URL
 
-Adds a new filter subscription to AdGuard Home.
+The `adguard.add_url` action is used to add a new filter subscription to AdGuard Home.
 
 | Data attribute | Optional | Description                                   |
 | -------------- | -------- | --------------------------------------------- |
 | `name`         | No       | The name of the filter subscription           |
 | `url`          | No       | The filter list URL containing blocking rules |
 
-### Action `adguard.remove_url`
+### Action: Remove URL
 
-Removes a filter subscription from AdGuard Home.
+The `adguard.remove_url` action is used to remove a filter subscription from AdGuard Home.
 
 | Data attribute | Optional | Description                           |
 | -------------- | -------- | ------------------------------------- |
 | `url`          | No       | The filter subscription URL to remove |
 
-### Action `adguard.enable_url`
+### Action: Enable URL
 
-Enables a previously disabled filter subscription.
+The `adguard.enable_url` action is used to enable a previously disabled filter subscription.
 
 | Data attribute | Optional | Description                           |
 | -------------- | -------- | ------------------------------------- |
 | `url`          | No       | The filter subscription URL to enable |
 
-### Action `adguard.disable_url`
+### Action: Disable URL
 
-Temporarily disables a filter subscription without removing it.
+The `adguard.disable_url` action is used to temporarily disable a filter subscription without removing it.
 
 | Data attribute | Optional | Description                            |
 | -------------- | -------- | -------------------------------------- |
 | `url`          | No       | The filter subscription URL to disable |
 
-### Action `adguard.refresh`
+### Action: Refresh
 
-Refreshes all filter subscriptions to get the latest blocking rules.
+The `adguard.refresh` action is used to refresh all filter subscriptions to get the latest blocking rules.
 
 | Data attribute | Optional | Description                                     |
 | -------------- | -------- | ----------------------------------------------- |
@@ -195,7 +195,6 @@ automation:
 
 Send a notification if DNS response time exceeds threshold:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -210,8 +209,6 @@ automation:
           title: "DNS Performance Alert"
           message: "AdGuard DNS response time is {{ states('sensor.adguard_average_processing_speed') }}ms"
 ```
-
-{% endraw %}
 
 
 ## Data updates

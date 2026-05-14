@@ -52,7 +52,7 @@ toc: true
               %}</a
             >
             <a
-              href="https://support.nabucasa.com/hc/en-us/articles/24737667232413"
+              href="https://support.nabucasa.com/hc/articles/24737667232413"
               class="button"
               target="_blank"
               >View tutorial {% include assets/chevron_right.html %}</a
@@ -95,13 +95,13 @@ toc: true
               <b>TOOLS REQUIRED</b>
               <ul>
                 <li>Raspberry Pi 4 or 5 with power supply (minimum 2 GB RAM)</li>
-                <li>MicroSD card</li>
+                <li>microSD memory card</li>
                 <li>Ethernet connection</li>
               </ul>
             </div>
           </div>
           <div class="buttons">
-            <a href="https://amzn.to/3UH6TcD" class="button accent"
+            <a href="https://www.amazon.com/dp/B0CRSPKPNG" class="button accent"
               >Get Raspberry Pi {% include assets/chevron_right.html %}</a
             >
             <a href="/installation/raspberrypi" class="button"
@@ -124,13 +124,13 @@ toc: true
     minimalistic operating system designed to run the Home Assistant ecosystem
     on single board computers (like the Home Assistant Green or a Raspberry Pi) or Virtual Machines. It
     is the most convenient option in terms of installation and maintenance and it supports
-    {% term "add-ons" %}. Home Assistant Operating System is
+    {% term "apps" %}. Home Assistant Operating System is
     the recommended installation type for most users.</li>
     <li>
-      <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "add-ons" %}.
+      <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "apps" %}.
       <ul>
         <li>
-          <b>Note</b>: Some integrations, such as <b>Thread</b> and <b>Z-Wave</b>, are controlled by {% term "add-ons" %}. There is no out-of-the-box support for these on Container installations.
+          <b>Note</b>: Some integrations, such as <b>Thread</b> and <b>Z-Wave</b>, are controlled by {% term "apps" %}. There is no out-of-the-box support for these on Container installations.
         </li>
       </ul>
     </li>
@@ -162,7 +162,7 @@ toc: true
         <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
       <tr>
-        <td><a href="/addons" target="_blank">Add-ons</a></td>
+        <td><a href="/apps" target="_blank">Apps</a></td>
         <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:cross-mark" %}</td>
       </tr>
@@ -238,7 +238,7 @@ toc: true
               %}</a
             >
             <a
-              href="https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow"
+              href="https://support.nabucasa.com/hc/categories/24734575925149"
               class="button"
               target="_blank"
               >View tutorial {% include assets/chevron_right.html %}</a
@@ -281,7 +281,7 @@ toc: true
               <b>TOOLS REQUIRED</b>
               <ul>
                 <li>An Odroid device</li>
-                <li>MicroSD card or eMMC</li>
+                <li>microSD memory card or eMMC</li>
                 <li>Ethernet connection</li>
               </ul>
             </div>
@@ -360,13 +360,13 @@ toc: true
               <b>TOOLS REQUIRED</b>
               <ul>
                 <li>Raspberry Pi 3, 4 or 5 with power supply</li>
-                <li>MicroSD card</li>
+                <li>microSD memory card</li>
                 <li>Ethernet connection</li>
               </ul>
             </div>
           </div>
           <div class="buttons">
-            <a href="https://amzn.to/3UH6TcD" class="button accent"
+            <a href="https://www.amazon.com/dp/B0CRSPKPNG" class="button accent"
               >Get Raspberry Pi {% include assets/chevron_right.html %}</a
             >
             <a href="/installation/raspberrypi-other" class="button"
@@ -460,9 +460,8 @@ toc: true
             <div>
               <b>SKILLS REQUIRED</b>
               <ul>
-                 <li>Know how to find an IP address on your router</li>
                 <li>Advanced knowledge of Windows</li>
-                <li>Using Linux command line</li>
+                <li>Using Windows command line</li>
               </ul>
             </div>
             <div>
@@ -518,17 +517,3 @@ toc: true
     </div>
   </div>
 </div>
-
-  <h3>Deprecated installation types</h3>
-  <p>
-    Home Assistant used to offer two additional installation types for advanced users: <b>{% term "Home Assistant Core" %}</b> and <b>{% term "Home Assistant Supervised" %}</b>. These two methods are now <a href="https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/">deprecated and no longer recommended for new users</a>.
-  </p>
-  <ul>
-    <li>
-      <b>Home Assistant Supervised:</b> Manual installation of the Supervisor.
-    </li>
-    <li>
-      <b>Home Assistant Core:</b> Manual installation using Python virtual
-      environment.
-    </li>
-  </ul>

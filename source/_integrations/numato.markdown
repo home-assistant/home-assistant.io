@@ -19,7 +19,7 @@ ha_integration_type: hub
 ha_quality_scale: legacy
 ---
 
-The `numato` integration is the base for all related GPIO platforms of the
+The **Numato USB GPIO Expander** {% term integration %} is the base for all related GPIO platforms of the
 [Numato 32 Port USB GPIO expander](https://numato.com/product/32-channel-usb-gpio-module-with-analog-inputs):
 
 - [Binary sensor](#binary-sensor)

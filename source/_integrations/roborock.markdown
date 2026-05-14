@@ -29,12 +29,12 @@ ha_platforms:
   - switch
   - time
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_dhcp: true
 ---
 
-The Roborock {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
+The **Roborock** {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
 intelligent home cleaning robots and, depending on the specific device, may have features
 like mopping capabilities, laser navigation, and options for changing cleaning
 performance or location in the home. This integration enables you to control and
@@ -46,7 +46,7 @@ pause the vacuum when a media player starts playing music.
 
 ## Note about compatibility
 
-The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol. Most Q-Series devices should have partial support via the [Matter](/integrations/matter/) integration.
+The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not fully supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol. Most Q-Series devices should have partial support via the [Matter](/integrations/matter/) integration.
 
 ## Prerequisites
 
@@ -59,6 +59,8 @@ The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Ser
 {% configuration_basic %}
 Email address:
     description: "The email address used to sign in to the Roborock app. A verification code will be sent to this email address when adding the Roborock integration."
+Roborock server Region:
+    description: "The region that your Roborock account was created in. Leave this set to **Auto** unless you are having issues. See troubleshooting steps below."
 Verification code:
     description: "The verification code that is sent to your email address when adding the Roborock integration."
 {% endconfiguration_basic %}
@@ -103,6 +105,10 @@ Zones:
   description: Show zones on the map.
 Show background:
   description: Show a blue background behind the map instead of a transparent background.
+Show walls:
+  description: Show the walls on the map.
+Show rooms:
+  description: Show the rooms on the map.
 {% endconfiguration_basic %}
 
 ## Data Updates
@@ -167,6 +173,15 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 - **Water shortage**
   - **Description**: States if the water box is low on water - 'Ok' if it has not detected a water shortage.
+
+- **Cleaning fluid**
+  - **Description**: Only available on docks with cleaning fluid capabilities - States if the dock is low on cleaning fluid, or the cleaning fluid container is not installed.
+
+- **Clean water box**
+  - **Description**: Only available on docks with water tanks built-in. States if the dock is out of clean water, or if the clean water box is not installed.
+
+- **Dirty water box**
+  - **Description**: Only available on docks with dirty water tanks built-in. States if the dirty water tank is full, or if the dirty water box is not installed.
 
 
 #### Sensor
@@ -392,7 +407,7 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Actions** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
+2. Go to {% my developer_call_service service="roborock.get_maps" title="**Settings** > **Developer tools** > **Actions** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
 
    - **Request**: Your request should look like:
 
@@ -414,7 +429,7 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
               "17": Living room
       ```
 
-3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Settings** > **Developer tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
 
@@ -468,3 +483,11 @@ Some devices are not supported yet as they use a different protocol than other d
 There is rate limiting built into the Python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban. Best practice is to disable the integration for 24 hours. 
 
 It's also important to try to determine what caused this error in your setup. A common cause some users have is that they have a script that automatically reloads the integration if it goes unavailable. Then, if the device gets stuck and runs out of battery, you are frequently reloading and that causes rate limits.
+
+### When I try to add the integration - it says my region is incorrect
+
+We recommend using the "Auto" setting for your region. If that doesn't work because you have accounts in multiple regions, try the following steps:
+
+1. If you ever accidentally created a Roborock account in the wrong roborock server region, delete it using the Roborock App.
+2. The Roborock server region for your account may not always be associated with your actual country.  While setting up the integration, you may select the Roborock server region that you want to sign in with, with four available options: US, EU, RU, or CN, and you may need to try a different region than the one you expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
+3. Please note that the "Region" that is shown in the app is actually the country your account is registered to. It does not always match the region the integration is looking for.

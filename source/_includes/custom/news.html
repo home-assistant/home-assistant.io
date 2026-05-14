@@ -1,15 +1,15 @@
 <!--  Left column begins -->
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
-  {% assign video_id = "HSRvso6cbf0" %}
+  {% assign video_id = "XyAL1to3Lm4" %}
   {% assign show_livestream = false %}
 
   {% if show_livestream %}
-  <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" style="
-      background-image: url(/images/frontpage/zbt-2-livestream.webp);
+  <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" rel="noopener noreferrer" style="
+      background-image: url(/images/frontpage/sotoh-2026-stream.webp);
       aspect-ratio: 16/9;
-    " aria-label="State of the Open Home - Saturday April 12th 2025">
-    <div
+    " aria-label="Watch the State of the Open Home 2026 livestream on YouTube">
+    <div class="livestream-card-embed"
       style="position: absolute; pointer-events: none; inset: 0; opacity: 0; transition: opacity 1s; overflow: hidden; border-style: none;">
       <iframe
         style="aspect-ratio: 16/9; position: absolute; top:0; left: 50%; transform: translateX(-50%); height: 100%; border: 0; object-fit: cover;"
@@ -17,17 +17,27 @@
     </div>
     <div class="livestream-card-banner">
       <div>
-        <strong>We're live!</strong> Join the stream
+        <strong class="livestream-card-status">Live soon!</strong> <span class="livestream-card-subtitle">Join the stream</span>
       </div>
     </div>
   </a>
   {% endif %}
 
+    <!-- SOTOH 2026 - To move on/after event -->
+  <a href="https://sotoh.openhomefoundation.org/" class="material-card picture-promo" style="
+        background-image: url(/images/frontpage/sotoh-2026.webp);
+        background-size: cover;
+        padding-top: 55%;
+        aspect-ratio: 1200/600;
+        width: 100%;
+      " aria-label="Join us in Utrecht on April 8 for State of the Open Home 2026.">
+  </a>
+
   {% assign releases_post_limit = 2 %}
   {% assign blog_post_limit = 4 %}
   <!-- Home Assistant updates posts -->
   <div class="recent-posts material-card text">
-    <h1>{% icon "mdi:new-box" %} Release Notes</h1>
+    <h2 class="h1">{% icon "mdi:new-box" %} Release Notes</h2>
 
     <ol>
       {% assign current = 0 %}
@@ -54,7 +64,7 @@
 
   <!-- Recent blog posts -->
   <div class="recent-posts material-card text">
-    <h1>{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h1>
+    <h2 class="h1">{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h2>
 
     <ol>
       {% assign current = 0 %}
@@ -103,7 +113,7 @@
   </a>
 
   <div class="join-community material-card text">
-    <h1>{% icon "simple-icons:amazonalexa" %} Alexa, turn on the lights</h1>
+    <h2 class="h1">{% icon "simple-icons:amazonalexa" %} Alexa, turn on the lights</h2>
 
     Use Alexa to control Home Assistant.
 
@@ -113,7 +123,7 @@
   </div>
 
   <div class="join-community material-card text">
-    <h1>{% icon "simple-icons:googleassistant" %} Ok Google, turn off the AC</h1>
+    <h2 class="h1">{% icon "simple-icons:googleassistant" %} Ok Google, turn off the AC</h2>
 
     Use Google Assistant to control Home Assistant.
 
@@ -123,7 +133,7 @@
   </div>
 
   <div class="join-community material-card text">
-    <h1>{% icon "mdi:people-group-outline" %} Join The Community</h1>
+    <h2 class="h1">{% icon "mdi:people-group-outline" %} Join The Community</h2>
 
     Our vibrant community is very active and super friendly. We love to talk and share our passion for home automation.
 
@@ -187,6 +197,27 @@
     </div>
   </a>
 
+  <!-- Merch store -->
+  <a class="material-card picture-promo" href="https://store.openhomefoundation.org/" target="_blank"
+    release="noopener noreferrer" aria-label="Shop our merch store"
+    style="
+      background-image: url(/images/frontpage/merch-store.webp);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    ">
+    <div class="caption">
+      <div>
+        <div class="title">
+          Shop our merch store!
+        </div>
+        <div class="subtitle">
+          Grab some swag while supporting the Open Home Foundation
+        </div>
+      </div>
+    </div>
+  </a>
+
   <!-- Assist -->
   <a class="material-card picture-promo picture-top" href="/voice_control/" style="
       background-image: url(/images/frontpage/feature-voice.jpg);
@@ -222,6 +253,7 @@
     </div>
   </a>
 </div>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

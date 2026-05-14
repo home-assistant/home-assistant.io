@@ -16,7 +16,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `seven_segments` image processing {% term integration %} allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
+The **Seven Segments OCR** {% term integration %} allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
 
 ## Configuration
 
@@ -124,8 +124,6 @@ image_processing:
 
 With the help of a [template sensor](/integrations/template), the value can be shown as badge.
 
-{% raw %}
-
 ```yaml
 sensor:
   - platform: template
@@ -135,5 +133,3 @@ sensor:
         friendly_name: "Ampere"
         unit_of_measurement: "A"
 ```
-
-{% endraw %}

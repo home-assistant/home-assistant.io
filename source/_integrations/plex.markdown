@@ -19,10 +19,10 @@ ha_platforms:
   - sensor
   - update
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [media players](/integrations/media_player/) and report playback status and library sizes via [sensors](/integrations/sensor/) in Home Assistant. Media players will allow you to control media playback and see the current playing item.
+The **Plex Media Server** {% term integration %} allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [media players](/integrations/media_player/) and report playback status and library sizes via [sensors](/integrations/sensor/) in Home Assistant. Media players will allow you to control media playback and see the current playing item.
 
 Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available in the [Sonos playback](#sonos-playback) section.
 
@@ -43,7 +43,7 @@ If your router enforces DNS rebind protection, connections to the local `plex.di
 
 ### Integration options
 
-Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
+Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** > **Options** on the Integrations page.
 
 **Use episode art**: Display TV episode art instead of TV show art.
 
@@ -77,8 +77,6 @@ In addition to the item count, the last added media item (movie, album, or episo
 
 Example automation to use the `last_added_item` attribute on library sensors to notify when new media has been added:
 
-{% raw %}
-
 ```yaml
 alias: "Plex - New media added"
 triggers:
@@ -99,8 +97,6 @@ actions:
       message: "{{ trigger.to_state.attributes.last_added_item }}"
 ```
 
-{% endraw %}
-
 {% important %}
 The library sensors are disabled by default, but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
 {% endimportant %}
@@ -110,8 +106,6 @@ The library sensors are disabled by default, but can be enabled via the Plex int
 A `button.scan_clients` entity is available to discover new controllable Plex clients. This may be necessary in scripts or automations which control a Plex client app, but where the underlying device must be turned on first. This button is preferred over the legacy `plex.scan_for_clients` action.
 
 Example script:
-
-{% raw %}
 
 ```yaml
 play_plex_on_tv:
@@ -141,8 +135,6 @@ play_plex_on_tv:
         media_content_type: movie
 ```
 
-{% endraw %}
-
 ## Update
 
 Notifications of new releases of Plex Media Server are shown using an Update entity. Detailed release notes are provided.
@@ -155,9 +147,9 @@ The Plex media player platform will create media player entities for each connec
 
 By default, the Plex integration will create media player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
-### Action `media_player.play_media`
+### Action: Play media
 
-Play media hosted on a Plex server on a Plex client or other supported device.
+The `media_player.play_media` action plays media hosted on a Plex server on a Plex client or other supported device.
 
 Required fields within the `media_content_id` payloads are marked as such, others are optional. There are special parameters that can be added to any query:
 
@@ -382,9 +374,9 @@ media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 
 ## Additional actions
 
-### Action `plex.refresh_library`
+### Action: Refresh library
 
-Refresh a Plex library to scan for new and updated media.
+The `plex.refresh_library` action refreshes a Plex library to scan for new and updated media.
 
 | Data attribute | Required | Description                                                | Example          |
 | ---------------------- | -------- | ---------------------------------------------------------- | ---------------- |
@@ -394,5 +386,5 @@ Refresh a Plex library to scan for new and updated media.
 
 ## Notes
 
-- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Settings** -> **Devices & services**.
+- The Plex integration supports multiple Plex servers. Additional connections can be configured under {% my integrations title="**Settings** > **Devices & services**" %}.
 - Movies must be located under the 'Movies' section in a Plex library to properly view the 'playing' state.

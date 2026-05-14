@@ -20,7 +20,7 @@ If the path is not absolute, it’s assumed to be relative to the Home Assistant
 
 ### Use the action
 
-Go to the "Developer Tools", then to "Actions", and choose `downloader.download_file` from the list of available actions. Fill the "data" field as shown in the example below and select "Perform action".
+Go to the "Developer tools", then to "Actions", and choose `downloader.download_file` from the list of available actions. Fill the "data" field as shown in the example below and select "Perform action".
 
 ```json
 {"url":"http://domain.tld/path/to/file"}
@@ -34,6 +34,7 @@ This will download the file from the given URL.
 | `subdir`               |      yes | Download into subdirectory of **download_dir** |
 | `filename`             |      yes | Determine the filename.                        |
 | `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
+| `headers`              |      yes | Dictionary of custom HTTP headers to add to the request.  |
 
 ### Download status events
 

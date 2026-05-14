@@ -119,7 +119,6 @@ Using a combination of the available {% term actions %} and attributes, you can 
 
 ### Chime status and control
 
-{% raw %}
 
 ```yaml
 - platform: template
@@ -155,7 +154,6 @@ Using a combination of the available {% term actions %} and attributes, you can 
         {% endif %}
 ```
 
-{% endraw %}
 
 ## Arming key sequences
 

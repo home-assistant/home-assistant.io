@@ -39,7 +39,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The group integration lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
+The **Group** {% term integration %} lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
 
 This can be useful, for example, in cases where you want to control multiple bulbs in a light fixture as a single light in Home Assistant. You also have the option of hiding the individual member entities in a group.
 
@@ -150,21 +150,21 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 
 ### Sensor, number, and input_number groups
 
-- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product, standard deviation, or sum of the collected states.
+- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), first available, mean, median, range, product, standard deviation, or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
-- States which are missing from the state machine do not make the state `unavailable` or `unknown`.
-- The group state is `unavailable` if no group member has a numeric state.
+- The group state is `unavailable` if all group members are either `unavailable` or missing
 - The configuration variable `ignore_non_numeric` controls the behavior of the group when the group is not `unavailable`:
    - When set to `false` (the default), the group state is calculated as follows:
-      - if all members have a numeric state: calculated according to the `type` 
+      - if all members are in the state machine and have a numeric state: calculated according to the `type` 
       - otherwise: set to `unknown` 
    - When set to `true`, the group state is calculated as follows:
       - if at least one member has a numeric state: calculated according to the `type`
-      - otherwise:  and set to `unknown`
+      - otherwise: set to `unknown`
+- The variable `ignore_non_numeric` can be combined with the type `first_available` to always take the first available numeric state from a group.
 
 ## Managing groups
 
-To edit a group, **{% my helpers title="Settings -> Devices & services -> Helpers" %}**. Find and select the group from the list.
+To edit a group, **{% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}**. Find and select the group from the list.
 
 ![Group members](/images/integrations/group/Group_settings.png)
 
@@ -343,7 +343,7 @@ all:
   type: boolean
   default: false
 type:
-  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `first_available`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
   type: string
   required: true
 ignore_non_numeric:
@@ -499,7 +499,7 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
+These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
 
 ### Attributes
 

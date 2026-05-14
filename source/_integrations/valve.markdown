@@ -66,9 +66,9 @@ automation:
         entity_id: valve.demo
 ```
 
-### Action `valve.set_valve_position`
+### Action: Set valve position
 
-Set the position of one or multiple valves if they support setting a specific position.
+The `valve.set_valve_position` action sets the position of one or multiple valves if they support setting a specific position.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

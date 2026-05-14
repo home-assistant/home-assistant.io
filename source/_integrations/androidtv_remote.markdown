@@ -68,8 +68,9 @@ Example:
 # Launch the YouTube app
 action: media_player.play_media
 data:
-  media_content_type: app
-  media_content_id: com.google.android.youtube.tv
+  media:
+    media_content_type: app
+    media_content_id: com.google.android.youtube.tv
 target:
   entity_id: media_player.living_room_tv
 ```
@@ -95,8 +96,9 @@ Example:
 # Open a specific YouTube video:
 action: media_player.play_media
 data:
-  media_content_type: url
-  media_content_id: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+  media:
+    media_content_type: url
+    media_content_id: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 target:
   entity_id: media_player.living_room_tv
 ```
@@ -111,8 +113,9 @@ Example:
 # Change channel to number 15:
 action: media_player.play_media
 data:
-  media_content_type: channel
-  media_content_id: 15
+  media:
+    media_content_type: channel
+    media_content_id: 15
 target:
   entity_id: media_player.living_room_tv
 ```

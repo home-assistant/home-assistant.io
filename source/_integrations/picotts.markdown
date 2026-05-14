@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `picotts` text-to-speech {% term integration %} uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.
+The **Pico TTS** {% term integration %} uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.
 Pico TTS is a powerful open-source engine that runs locally (cloudless) so it can work even without an internet connection.
 
 ## Configuration

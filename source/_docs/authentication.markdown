@@ -36,13 +36,13 @@ You can:
 
 - Change your password.
 - Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
-- Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
-- Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts can securely interact with Home Assistant.
+- Delete **Refresh tokens**. These are created when you log in from a device. Delete them if you want to force the device to log out.
+- Create [Long-lived access tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts can securely interact with Home Assistant.
 - Define language and other locale settings.
 - Log out of Home Assistant.
 
 {% note %}
-Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days. If you need a permanent token, then we recommend using [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days. If you need a permanent token, then we recommend using [Long-lived access tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
 {% endnote %}
 
 ### Securing your login
@@ -97,7 +97,7 @@ If you lose the password associated with the owner account, you need to [start a
 
 You have to use a domain name, not IP address, to remote access Home Assistant otherwise you will get `Error: invalid client id or redirect url` error on the login form. However, you can use the IP address to access Home Assistant in your home network.
 
-This is because we only allow an IP address as a client ID when your IP address is an internal network address (e.g., `192.168.0.1`) or loopback address (e.g., `127.0.0.1`).
+This is because we only allow an IP address as a client ID when your IP address is an internal network address (such as `192.168.0.1`) or loopback address (such as `127.0.0.1`).
 
 If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one.
 On Linux edit the `/etc/hosts` file, and add following entry:

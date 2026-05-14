@@ -21,7 +21,7 @@ ha_codeowners:
   - '@slovdahl'
   - '@viiru-'
   - '@yozik04'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Vallox** {% term integration %} lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
@@ -68,33 +68,33 @@ The four standard Vallox profiles are supported:
 
 ## Fan actions
 
-### Action `vallox.set_profile_fan_speed_home`
+### Action: Set profile fan speed home
 
-Set the fan speed of the `Home` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action `vallox.set_profile_fan_speed_away`
-
-Set the fan speed of the `Away` profile.
+The `vallox.set_profile_fan_speed_home` action sets the fan speed of the `Home` profile.
 
 | Data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### Action `vallox.set_profile_fan_speed_boost`
+### Action: Set profile fan speed away
 
-Set the fan speed of the `Boost` profile.
+The `vallox.set_profile_fan_speed_away` action sets the fan speed of the `Away` profile.
 
 | Data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### Action `vallox.set_profile` 
+### Action: Set profile fan speed boost
 
-Set the profile, and optionally a duration for the profile to be active.
+The `vallox.set_profile_fan_speed_boost` action sets the fan speed of the `Boost` profile.
+
+| Data attribute | Optional | Description                                     |
+|------------------------|----------|-------------------------------------------------|
+| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
+
+### Action: Set profile
+
+The `vallox.set_profile` action sets the profile, and optionally a duration for the profile to be active.
 
 | Data attribute | Optional | Description                                                                                                                                                                           |
 |----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

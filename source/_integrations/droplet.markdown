@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: droplet
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ha_quality_scale: bronze
 ---

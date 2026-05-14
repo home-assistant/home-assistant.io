@@ -26,7 +26,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Roku integration allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (such as sticks, streaming boxes, and televisions). All other smart home products (such as light bulbs and cameras) are part of a different ecosystem.
+The **Roku** {% term integration %} allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (such as sticks, streaming boxes, and televisions). All other smart home products (such as light bulbs and cameras) are part of a different ecosystem.
 
 {% include integrations/config_flow.md %}
 
@@ -96,7 +96,6 @@ The following commands are currently supported depending on device type and manu
 - input_hdmi4
 - input_tuner
 - left
-- literal
 - play
 - power 
 - replay
@@ -108,6 +107,8 @@ The following commands are currently supported depending on device type and manu
 - volume_down
 - volume_mute
 - volume_up
+
+Strings can be be typed by using the command `Lit_STRING` (e.g. `Lit_example` will type "example"). Punctuation and spaces are allowed in the string.
 
 ##### Example
 

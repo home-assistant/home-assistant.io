@@ -4,6 +4,7 @@ description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Calendar
   - Car
   - Climate
   - Cover
@@ -24,6 +25,7 @@ ha_domain: teslemetry
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - climate
   - cover
   - device_tracker
@@ -35,14 +37,15 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
-The Teslemetry integration exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
+The **Teslemetry** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
 
 ## Prerequisites
 
-You must have a [Teslemetry](https://teslemetry.com) account, active subscription, and [access token](https://teslemetry.com/console).
+You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
 Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured in order to run certain commands.
 
@@ -255,6 +258,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Grid services enabled|Yes|
 |Binary sensor|Grid status|Yes|
 |Binary sensor|Storm watch active|Yes|
+|Calendar|Buy tariff|Yes|
+|Calendar|Sell tariff|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
 |Select|Allow export|Yes|
@@ -381,3 +386,147 @@ The Tesla Fleet API only provides power data for Powerwall and Solar products. T
 Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
 The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
 which then can be used within the energy dashboard.
+
+## Data updates
+
+The Teslemetry integration uses a combination of streaming and polling to fetch data, depending on the vehicle type and configuration.
+
+### Streaming
+
+For most modern vehicles (excluding pre-2021 Model S/X), data is streamed in real-time from the vehicle to Teslemetry, and then streamed to Home Assistant via Server-Sent Events (SSE). This provides low-latency updates for sensors and states. To enable streaming, specific configuration is required on the vehicle, which can be managed in the [Teslemetry Console](https://teslemetry.com/console).
+
+### Polling
+
+Legacy vehicles (pre-2021 Model S/X) and Energy sites use cloud polling.
+
+-   **Legacy Vehicles:** Polled every 60 seconds.
+-   **Energy Sites:** Polled every 30 seconds.
+
+The integration is designed to not wake the vehicle to poll for data. Updates for sleeping vehicles will pause until the vehicle wakes up naturally or is interacted with.
+
+## Known limitations
+
+-   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
+-   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
+-   **Virtual Key:** Modern vehicles require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to operate. Please follow the instructions on the [Teslemetry Console](https://teslemetry.com/console) to set this up.
+
+## Troubleshooting
+
+### Invalid tokens
+
+If your Teslemetry authentication token becomes invalid or expires, Home Assistant will prompt you to re-authenticate. This typically involves signing in again via the integration's configuration flow.
+
+### Timeouts
+
+Timeouts can occur due to connection issues between Home Assistant, Teslemetry, Tesla, or the vehicle itself (e.g., the vehicle is in an area with poor cellular reception). These are often temporary. If timeouts persist, please contact `support@teslemetry.com`.
+
+## Examples
+
+### Common use cases
+
+-   **Solar Charging:** Automate your vehicle's charging current or state based on excess solar production to maximize renewable energy usage.
+-   **Smart Preconditioning:** Use calendar events or time-based triggers to precondition your vehicle's cabin temperature before you depart.
+-   **Automatic Garage Door:** Automatically open your garage door when you approach your home while navigating.
+
+### Automations
+
+**Automate charging based on solar production**
+
+```yaml
+automation:
+  - alias: "Charge Tesla from Solar"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.home_solar_power
+        above: 3000
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.my_tesla_charge
+      - action: number.set_value
+        target:
+          entity_id: number.my_tesla_charge_current
+        data:
+          value: 16
+```
+
+**Precondition vehicle before calendar events**
+
+```yaml
+automation:
+  - alias: "Precondition for Work"
+    trigger:
+      - platform: calendar
+        event: start
+        offset: "-00:15:00"
+        entity_id: calendar.work
+    actions:
+      - action: climate.turn_on
+        target:
+          entity_id: climate.my_tesla_climate
+```
+
+### Blueprints
+
+**Open Garage Door based on Navigation**
+
+Uses the distance to arrival sensor to accurately know when you're close to a specific location (such as your home), and open a garage door, or other cover entity. Requires you to be navigating to your intended destination, even if you don't need the directions.
+
+```yaml
+blueprint:
+  name: Teslemetry Garage Door Opener
+  author: Brett Adams
+  description: Opens a garage door when your Tesla is approaching
+  domain: automation
+  input:
+    distance_to_arrival_entity:
+      name: Distance to arrival entity
+      selector:
+        entity:
+          filter:
+            - integration: teslemetry
+              domain: sensor
+              device_class: distance
+    distance_to_arrival:
+      name: Distance to arrival value to trigger open
+      selector:
+        number:
+          min: 0
+          max: 100
+          step: any
+          mode: box
+    route_entity:
+      name: Route entity
+      selector:
+        entity:
+          filter:
+            - integration: teslemetry
+              domain: device_tracker
+    route_zone:
+      name: Route destination
+      selector:
+        entity:
+          filter:
+            - domain: zone
+    cover_entity:
+      name: Garage door entity
+      selector:
+        entity:
+          filter:
+            - domain: cover
+trigger:
+  - platform: numeric_state
+    entity_id:
+      - !input distance_to_arrival_entity
+    below: !input distance_to_arrival
+    above: 0
+condition:
+  - condition: zone
+    entity_id: !input route_entity
+    zone: !input route_zone
+actions:
+  - action: cover.open_cover
+    target:
+      entity_id: !input cover_entity
+mode: restart
+```

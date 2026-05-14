@@ -8,6 +8,7 @@ ha_category:
   - Energy
   - Event
   - Light
+  - Media player
   - Number
   - Select
   - Sensor
@@ -34,6 +35,7 @@ ha_platforms:
   - diagnostics
   - event
   - light
+  - media_player
   - number
   - select
   - sensor
@@ -214,6 +216,43 @@ Depending on how a device's button type is configured, the integration will crea
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
 
+## Media player entities
+
+Wall Display devices with firmware 2.2 or newer can function as media players. The integration creates media player entities for them.
+
+The Wall Display media player can play the following audio formats:
+
+- Local audio files uploaded to the Wall Display media library
+- Internet radio stations added to your favorites
+
+These audio files and your favorite radio stations are visible in the Home Assistant media browser.
+
+### Play media using the `media_player.play_media` action
+
+This action will start playing your favorite radio station with ID `2`:
+
+```yaml
+action: media_player.play_media
+data:
+  media:
+    media_content_id: 2
+    media_content_type: radio
+target:
+  entity_id: media_player.shelly_wall_display
+```
+
+This action will start playing your audio file with ID `15`:
+
+```yaml
+action: media_player.play_media
+data:
+  media:
+    media_content_id: 15
+    media_content_type: audio
+target:
+  entity_id: media_player.shelly_wall_display
+```
+
 ## Event entities
 
 ### Event entities (generation 1)
@@ -258,7 +297,7 @@ Also, some devices do not add an entity for the button/switch. For example, the 
 
 ### Listening for events
 
-You can subscribe to the `shelly.click` event type in [Developer Tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
+You can subscribe to the `shelly.click` event type in [Developer tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
 
 ```json
 Event 0 fired 9:53 AM:

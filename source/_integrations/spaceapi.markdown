@@ -1,28 +1,25 @@
 ---
-title: Space API
+title: SpaceAPI
 description: Instructions on how to configure the SpaceAPI for Home Assistant.
 ha_category:
   - Social
-ha_iot_class: Cloud Polling
+ha_iot_class: Calculated
 ha_release: '0.70'
 ha_codeowners:
   - '@fabaff'
 ha_domain: spaceapi
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-  - docs: /integrations/http/
-    title: HTTP integration
 ha_quality_scale: legacy
 ---
 
-The `spaceapi` {% term integration %} allow Hackerspaces and Makerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).  It does this by exposing an API on Home Assistant that hosts the JSON payload that SpaceAPI uses.
+The **Space API** {% term integration %} allow Hackerspaces and Makerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/). It does this by exposing an API on Home Assistant that hosts the JSON payload that SpaceAPI uses.
 
 ## Configuration
 
-To configure connectivity and authentication to the API that this {% term integration %} exposes, refer to the HTTP {% term integration %} documentation.
-To setup the `spaceapi` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To set up the `spaceapi` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -284,6 +281,34 @@ sensors:
 {% endconfiguration %}
 
 Although SpaceAPI supports many other sensors, this {% term integration %} only supports temperature or humidity.
+
+## Accessing the API
+
+Once configured, the SpaceAPI endpoint is available at:
+
+```text
+https://[DOMAIN_OR_IP_WITH_PORT]/api/spaceapi
+```
+
+Replace `[DOMAIN_OR_IP_WITH_PORT]` with your Home Assistant instance's domain or IP address and port (for example: `http://192.168.1.100:8123/api/spaceapi` or `https://homeassistant.local:8123/api/spaceapi`).
+
+### API version
+
+This {% term integration %} implements SpaceAPI **version 13** (v0.13).
+
+### Public access and CORS
+
+The SpaceAPI endpoint is publicly accessible without authentication. This is intentional, as SpaceAPI is a standard for sharing hackerspace status information with the public. Cross-origin requests (<abbr title="Cross-Origin Resource Sharing">CORS</abbr>) are also allowed, so web apps can query the endpoint directly from a browser.
+
+### Testing the endpoint
+
+You can test your SpaceAPI endpoint using curl:
+
+```bash
+curl http://YOUR_HOME_ASSISTANT_URL:8123/api/spaceapi
+```
+
+The response will be a JSON payload conforming to the SpaceAPI v0.13 specification, containing information about your hackerspace including status, location, contact details, and sensor data.
 
 ## Examples
 

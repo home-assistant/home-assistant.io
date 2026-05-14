@@ -6,17 +6,16 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.45
 ha_domain: datadog
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 
 The **Datadog** {% term integration %} sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).
 
-Datadog allows you to analyze, monitor, cross-reference and alert upon your data. You can use it to detect statistical anomalies, see graphs across multiple sources in real-time, send critical alerts to Slack, etc.
+Datadog allows you to analyze, monitor, cross-reference, and alert on your data. You can use it to detect statistical anomalies, see graphs across multiple sources in real time, and send critical alerts to Slack.
 
 <p class='img'>
   <img src='/images/screenshots/datadog-board-example.png' />
@@ -40,7 +39,7 @@ In the [Datadog Agent configuration](https://github.com/DataDog/datadog-agent/bl
 
 {% configuration_basic %}
 host:
-  description: The IP address or hostname of your Datadog host, e.g., 192.168.1.23.
+  description: The IP address or hostname of your Datadog host, for example, `192.168.1.23`.
 port:
   description: Port to use.
 prefix:

@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The SMTP platform allows you to deliver notifications from Home Assistant to an email recipient.
+The **SMTP** {% term integration %} allows you to deliver notifications from Home Assistant to an email recipient.
 
 To enable notification by email in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 

@@ -11,13 +11,13 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The Panasonic Viera {% term integration %} allows you to control a Panasonic Viera TV.
+The **Panasonic Viera** {% term integration %} allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -159,7 +159,9 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-65CX800E
 - TX-65EXW784
 - TX-65FX720W
+- TX-65GZ1000E
 - TX-L42ET50
+- TX-L42EW6 (can't power on)
 - TX-L47ET60E (can't power on)
 - TX LF37E30 (can't power on)
 - TX-P42STW50

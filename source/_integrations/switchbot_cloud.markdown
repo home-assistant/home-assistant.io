@@ -30,6 +30,7 @@ ha_platforms:
   - cover
   - fan
   - humidifier
+  - image
   - light
   - lock
   - sensor
@@ -39,11 +40,11 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The SwitchBot Cloud integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
+The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
 
 ## Prerequisites
 
-In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **Developer Options**. If **Developer Options** is not present in preferences, tap the App Version (e.g. 6.24) several times (5~15 times) in succession to open the **Developer Options**. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
+In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **About** > **Developer Options**. If you don't see developer options, tap the version number 10 times. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
 
 Please note, device names configured in the SwitchBot app are transferred into Home Assistant.
 
@@ -77,13 +78,22 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
-- RGBICWW Floor Lamp
-- RGBICWW Strip Light
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
+- [Ceiling Light / Ceiling Light Pro](https://www.switchbot.jp/pages/switchbot-ceiling-light) (Japan only)
+- [RGBIC Neon Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-rope-light)
+- [RGBIC Neon Wire Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-wire-rope-light)
+- [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- Lock Pro Wifi
+- Lock Lite
+- [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- Lock Vision
+- Lock Vision Pro
 
 ### Sensors
 
@@ -97,6 +107,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- Weather Station
 
 ### Hubs
 
@@ -126,12 +137,17 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Standing Fan](https://www.switch-bot.com/products/switchbot-standing-circulator-fan)
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
 ### Water heater
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Image
+
+- [AI Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
 ## Supported functionality
 
@@ -299,6 +315,13 @@ Features:
 - light detect
 - motion detect
 
+#### Weather Station
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
 ### Lights
 
 #### LED Strip Light 3
@@ -332,6 +355,34 @@ Features:
 - turn on or off
 - change brightness
 - change color
+
+#### Ceiling Light / Ceiling Light Pro
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+
+#### RGBICWW Floor Lamp / RGBICWW Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+- change color temperature
+
+#### RGBIC Neon Rope Light / RGBIC Neon Wire Rope Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+
+#### Candle Warmer Lamp
+
+Features:
+- turn on or off
+- change brightness
 
 ### Locks
 
@@ -395,14 +446,14 @@ Features:
 
 ### Fans
 
-#### Battery Circulator Fan/Circulator Fan
+#### Battery Circulator Fan/Circulator Fan/Standing Fan
 
 Features:
 - turn on
 - turn off
 - set speed, only applicable for [direct mode]
 - set mode
-- get battery, only applicable for [Battery Circulator Fan]
+- get battery, only applicable for [Battery Circulator Fan / Standing Fan]
 
 
 #### Air Purifier
@@ -446,6 +497,16 @@ Features:
 - get temperature
 - set mode
 - get battery
+
+
+### Image
+
+#### AI Art Frame
+
+Features:
+- get battery
+- switch picture
+- display current picture
 
 ## Important considerations
 

@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: cert_expiry
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Certificate Expiry** {% term integration %} fetches the certificate from a configured host and displays its expiration in a timestamp sensor.

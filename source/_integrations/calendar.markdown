@@ -93,8 +93,8 @@ automation:
 ```
 
 Calendar triggers should not generally use automation mode `single` to ensure
-the trigger can fire when multiple events start at the same time (e.g., use
-`queued` or `parallel` instead). Note that calendars are read once every 15
+the trigger can fire when multiple events start at the same time. For example,
+use `queued` or `parallel` instead. Note that calendars are read once every 15
 minutes. When testing, make sure you do not plan events less than 15 minutes
 away from the current time, or your {% term trigger %} might not fire.
 
@@ -114,7 +114,6 @@ This example automation consists of:
 - Send a notification with the title and start time of the event.
 - Allowing multiple events starting at the same time.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Calendar notification"
@@ -129,7 +128,6 @@ automation:
             Event {{ trigger.calendar_event.summary }} @
             {{ trigger.calendar_event.start }}
 ```
-{% endraw %}
 
 {% enddetails %}
 
@@ -141,7 +139,6 @@ This example consists of:
 - When event summary contains `Front Lights`.
 - Turn on and off light named `light.front` when the event starts and ends.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Front Light Schedule"
@@ -167,7 +164,6 @@ automation:
             target:
               entity_id: light.front
 ```
-{% endraw %}
 
 {% enddetails %}
 
@@ -176,9 +172,9 @@ automation:
 Some calendar {% term integrations %} allow Home Assistant to manage your calendars
 directly using {% term actions %}. The actions provided by some calendar {% term entity %} are described below or you can read more about [actions](/docs/scripts/perform-actions/).
 
-### Action `calendar.create_event`
+### Action: Create event
 
-Add a new calendar event. A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+The `calendar.create_event` action allows you to add a new calendar event. A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
 | Data attribute    | Optional | Description                                          | Example             |
 | ----------------- | -------- | ---------------------------------------------------- | ------------------- |
@@ -210,7 +206,6 @@ data:
 
 Home Assistant Calendars do not allow zero duration Calendar events. The following would create a one minute long event starting "now". This could be used to record an external event in a Calendar.
 
-{% raw %}
 ```yaml
 action: calendar.create_event
 target:
@@ -220,13 +215,11 @@ data:
   start_date_time: "{{ now() }}"
   end_date_time: "{{ now() + timedelta(minutes=1) }}"
 ```
-{% endraw %}
 
 
-### Action `calendar.get_events`
+### Action: Get events
 
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-with calendar events within a date range. It can return events from multiple calendars.
+The `calendar.get_events` action allows you to populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with calendar events within a date range. It can return events from multiple calendars.
 
 | Data attribute    | Optional | Description                                                                                                                                                           | Example             |
 | ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -250,7 +243,7 @@ data:
 response_variable: agenda
 ```
 
-The response data contains a field for every calendar entity (e.g. `calendar.school` and `calendar.work` in this case).
+The response data contains a field for every calendar entity, for example, `calendar.school` and `calendar.work` in this case.
 Every calendar entity has a field `events` containing a list of events with these fields:
 
 | Response data | Description                                       | Example             |
@@ -263,7 +256,6 @@ Every calendar entity has a field `events` containing a list of events with thes
 
 This example uses a template with response data in another action:
 
-{% raw %}
 ```yaml
 action: notify.nina
 data:
@@ -278,4 +270,3 @@ data:
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
 ```
-{% endraw %}

@@ -1,6 +1,6 @@
 ---
-title: HomeWizard Energy
-description: Instructions on how to integrate HomeWizard Energy into Home Assistant.
+title: HomeWizard
+description: Instructions on how to integrate HomeWizard into Home Assistant.
 ha_release: 2022.2
 ha_category:
   - Energy
@@ -17,26 +17,27 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: platinum
 works_with:
   - local
 ha_dhcp: true
 ---
 
-Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
+Integration for the [HomeWizard](https://www.homewizard.com/) platform. It can collect data locally from HomeWizard products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas, and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
 
 ## Supported devices
 
-- [Wi-Fi P1 Meter](https://www.homewizard.com/p1-meter): Sensors for power import/export, energy consumption (single or three phases), and information about your smart meter and gas (model: `HWE-P1`).
-- [Wi-Fi Energy Socket](https://www.homewizard.com/energy-socket): Sensors for power import/export and energy consumption, and switches for controlling the outlet (model: `HWE-SKT`).
-- [Wi-Fi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`).
-- [Wi-Fi kWh Meter](https://www.homewizard.com/kwh-meter): Sensors for power import/export and energy consumption (models: `HWE-KWH1`, `HWE-KWH3`, `SDM230-wifi`, and `SDM630-wifi`.).
-- [Plug-In Battery](https://www.homewizard.com/nl/plug-in-battery/): Sensors for power import/export, energy consumption, production, and state of charge (model: `HWE-BAT`).
+- [P1 Meter](https://www.homewizard.com/p1-meter/): Sensors for power import/export, energy consumption (single or three phases), and information about your smart meter and gas (model: `HWE-P1`).
+- [Energy Socket](https://www.homewizard.com/energy-socket/): Sensors for power import/export and energy consumption, and switches for controlling the outlet (model: `HWE-SKT`).
+- [Watermeter](https://www.homewizard.com/watermeter/): Sensors for active and total water usage (model: `HWE-WTR`).
+- [kWh Meter 1-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (model: `HWE-KWH1`, `SDM230-wifi`)..
+- [kWh Meter 3-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (models: `HWE-KWH3`, `SDM630-wifi`).
+- [Plug-In Battery](https://www.homewizard.com/plug-in-battery/): Sensors for power import/export, energy consumption, production, and state of charge (model: `HWE-BAT`).
 
 ## Enable the API
 
-You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
+You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard app:
 
 {% tip %}
 You can skip this step if you are configuring one of the following devices:
@@ -69,14 +70,14 @@ The HomeWizard integration provides sensors about what your device is measuring 
 _Not all sensors are provided by all Smart Meters, only the available sensors are shown in the integration._
 
 - **Energy import/export (kWh)**: Total energy imported or exported since installation of your smart meter. Each tariff has its own sensor (e.g., T1, T2) and a sensor for the combined value.
-- **Power (W)**: Active power measured, each phase has its own sensor.
+- **Power (W)**: Active consumed power measured, each phase has its own sensor. The sensors reading will negative if the power is generated.
 - **Voltage (V)**: Active voltage measured, each phase has its own sensor.
 - **Current (A)**: Active current measured, each phase has its own sensor.
 - **Tariff**: Current tariff that is used. Can be used to keep consumption as low as possible during peak hours.
-- **Frequency (Hz)**: Net frequency.
+- **Frequency (Hz)**: Grid frequency.
 - **Voltage sags and swells**: Number of times a voltage sag or swell has been detected.
 - **Power failures**: Two sensors indicate the number of power failures detected by the smart meter. One for all power failures and another for 'long' power failures.
-- **Peak demand**: Belgium users are starting to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: one shows the current quarterly average, and another shows the peak measured this month. Both sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
+- **Peak demand**: Belgium users are charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: one shows the current quarterly average, and another shows the peak measured this month. Both sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
 - **Status light brightness**: Controls the brightness of the green status light. Error statuses are always visualized, even when the brightness is set to 0.
 
 External meters, like a gas or water meter, can be connected to your Smart meter. Each device is exposed as a separate {% term device %} with its own measurement.
@@ -84,20 +85,22 @@ External meters, like a gas or water meter, can be connected to your Smart meter
 ### kWh Meter
 
 - **Energy import/export (kWh)**: Total energy imported or exported measured by kWh meter.
-- **Power (W)**: Active power that is measured, each phase has its own sensor.
+- **Power (W)**: Active consumed power that is measured, each phase has its own sensor. The sensors reading will negative if the power is generated.
+- **Production power (W)**: Active production power measured. The reading will negative if the power is consumed. This sensor can be used in the energy dashboard as solar production power sensor.
 - **Voltage (V)**: Active voltage measured, each phase has its own sensor.
 - **Current (A)**: Active current measured, each phase has its own sensor.
-- **Frequency (Hz)**: Net frequency.
+- **Frequency (Hz)**: Grid frequency.
 - **Reactive power (VAR)**: Active reactive power measurement, each phase has its own sensor.
 - **Apparent power (VA)**: Active apparent power measurement, each phase has its own sensor.
 
 ### Energy Socket
 
 - **Energy import/export (kWh)**: Total energy imported or exported measured by Energy Socket.
-- **Power (W)**: Active power that is measured.
+- **Power (W)**: Active power that is measured. The sensors reading will negative if the power is generated.
+- **Production power (W)**: Active production power measured. The reading will negative if the power is consumed. This sensor can be used in the energy dashboard as solar production power sensor.
 - **Voltage (V)**: Active voltage measured.
 - **Current (A)**: Active current measured.
-- **Frequency (Hz)**: Net frequency.
+- **Frequency (Hz)**: Grid frequency.
 - **Reactive power (VAR)***: Active reactive power measurement.
 - **Apparent power (VA)***: Active apparent power measurement.
 
@@ -114,22 +117,23 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 ### Watermeter
 
 - **Water usage (L/min)**: Flow of water measured at that time.
-- **Total water usage (m³)**: Total water usage since the installation of the HomeWizard Water meter.
+- **Total water usage (m³)**: Total water usage since the installation of the Watermeter.
 
 ### Plug-In Battery
 
 - **Energy import/export (kWh)**: Total energy imported or exported by the battery.
-- **Power (W)**: Active power consumed or produced by the battery.
+- **Power (W)**: Active power consumed or produced by the battery. The sensors reading will negative if the power is generated.
+- **Production power (W)**: Active production power measured. The sensors reading will negative if the power is consumed. This sensor is to be used in the energy dashboard as battery power sensor.
 - **Voltage (V)**: Active voltage measured.
 - **Current (A)**: Active current consumed or produced by the battery.
-- **Frequency (Hz)**: Net frequency.
+- **Frequency (Hz)**: Grid frequency.
 - **Cycles**: Number of charge cycles the battery has gone through.
 - **State of charge (%)**: The current state of charge of the battery.
 - **Status light brightness**: Controls the brightness of the LED strip. Error statuses are always visualized, even when the brightness is set to 0.
 
 #### Battery group mode
 
-The group of connected batteries can be controlled in three different modes using the **Battery group mode** select entity:
+The group of connected Plug-In Batteries can be controlled in three different modes using the **Battery group mode** select entity:
 
 - **Zero mode**: In this mode, the Plug-In Battery works to keep your home's net power consumption or production as close to zero as possible. The battery will automatically charge or discharge to maintain a balanced power flow. This is the default setting and helps you maximize self-consumption and minimize grid interaction.
 - **Zero mode (charge only)**: The Plug-In Battery will only charge to absorb excess solar production, aiming to keep your home's power production at zero. Discharging is disabled in this mode. This is useful if you want to store solar energy for later use, such as during the evening or when energy prices are higher.
@@ -165,7 +169,7 @@ This feature is not available for the Plug-In Battery. Cloud communication is re
 
 If you know the energy characteristics of your washing machine, you can create an automation that sends a notification when the energy usage drops below a certain threshold. This can notify you when your washing machine is done. You can use the following blueprint for this:
 
-- [Appliance Power Monitor Blueprint With Elapsed Time and Energy Used Variables](https://community.home-assistant.io/t/appliance-power-monitor-blueprint-with-elapsed-time-and-energy-used-variables/549073), created by [@Jhonattan-Souza](https://community.home-assistant.io/u/jhonattan-souza)
+- [Appliance Power Monitor Blueprint With Elapsed Time and Energy Used Variables](https://community.home-assistant.io/t/549073), created by [@Jhonattan-Souza](https://community.home-assistant.io/u/jhonattan-souza)
 
 ### Add your Energy data to the Energy dashboard
 
@@ -181,7 +185,7 @@ The integration is {% term polling %} new data every 5 seconds. There is no limi
 
 ### Watermeter cannot be used with batteries
 
-The Water meter can be powered via a USB-C cable and with batteries. When using batteries, it only connects to Wi-Fi every couple of hours. Because of this, the API can only be used when powered via the USB-C cable. It is not possible to use this integration when the water meter is powered by batteries.
+The Watermeter can be powered via a USB-C cable and with batteries. When using batteries, it only connects to Wi-Fi every couple of hours. Because of this, the API can only be used when powered via the USB-C cable. It is not possible to use this integration when the Watermeter is powered by batteries.
 
 ### P1 Meter may update slowly
 
@@ -204,7 +208,7 @@ It may happen that you can't find your devices or they won't show up in the inte
     - **P1 Meter**: Press the white button on the front of the P1 Meter.  
     - **Plug-In Battery**: Press the black touch button on the front of the device. You will hear a beep.
     - **kWh Meter**: Press and hold the button with the Wi‑Fi icon for two seconds. Release the button before the display shows "AP".
-    - **Energy Socket** and **Water Meter**: they do not require this step.
+    - **Energy Socket** and **Watermeter**: they do not require this step.
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
     
@@ -218,4 +222,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the HomeWizard Energy app and disable the local API if no other integrations are using it.
+After deleting the integration, go to the HomeWizard app and disable the local API if no other integrations are using it.

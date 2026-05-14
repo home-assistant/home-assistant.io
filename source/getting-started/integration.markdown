@@ -47,34 +47,24 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
 
    ![Screenshot of the workday integration on the integrations page](/images/getting-started/workday_select_integration.png)
 
-   - This opens the integration details page.
-   - We see that this integration has one {% term service %} and one {% term entity %}.
-   - **Documentation** opens the documentation page of this integration.
-   - **Known issues** opens the GitHub issue tracker, filtered for issues related to this integration.
-     - This allows you to see if other users reported issues related to that integration.
-   - **Enable debug logging** lets you [activate the debug logs for that integration](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+   - This opens the integration entity page.
+
+2. Select an entity.
+
+   ![Screenshot of the workday integration entity list](/images/getting-started/workday_entity_list.png)
+
+   - We see that this integration has two {% term entities %}.
+   - A list of related automations, script and scenes.
+   - Activity of updates/changes related to the entity.
 
    ![Screenshot of the workday integration details page](/images/getting-started/workday_sensor_details.png)
 
-2. Select **Service**, to open the service info page.
-   - Under **Activity**, you can see the timeline of that {% term sensor %}.
-   - Under **Sensors**, you can see all the sensors an integration provides. Here, we have only one, but if you have a climate device, for example, you might see temperature, humidity, and battery status here.
-   - You can also see that **Workday** is not used (yet) in any {% term automations %}, {% term scripts %}, or {% term scenes %}.
-
-   ![Screenshot of the workday sensor info page](/images/getting-started/workday_service_info.png)
-3. Select the back button {% icon "mdi:arrow-back" %}. Then, select **Entity** to open the list of {% term entities %}.
-   - Although your Home Assistant already has many entities, you see only 1 entry in the entities table.
-   - This is because it is [filtered](/docs/organizing/tables#filtering-items-in-a-table).
-   - You see the entity ID, which consist of the domain (a technical term for device type) and the entity name, in the following format: `domain.entity_name`.
-
-   ![Screenshot of the entities list, filtered for workday](/images/getting-started/workday_entities_list.png)
-
 ## Modifying the integration
 
-1. To change the name, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Rename**.
+1. To change the name, select the pencil {% icon "mdi:pencil" %} on the top right.
 
-   ![Screenshot of the entities list, filtered for workday](/images/getting-started/workday_three_dots.png)
 2. You can also add another Workday {% term sensor %}. For example, if you want to know when your colleagues have a holiday.
+   - Go back to the integration entity page.
    - Select **Add entry**, give it a name and define your options.
    - Select the country of interest.
 3. That's it! {% icon "mdi:party-popper" %}

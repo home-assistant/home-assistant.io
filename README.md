@@ -7,6 +7,16 @@
 
 This is the source for the [Home-Assistant.io website](https://home-assistant.io).
 
+## Access
+
+You can access the site at the following URLs, depending on the target branch:
+
+- **Production** (`current` branch): https://www.home-assistant.io
+- **Beta** (`rc` branch): https://rc.home-assistant.io
+- **Development** (`next` branch): https://next.home-assistant.io
+
+Additionally, Netlify provides a preview deployment for every pull request, linked in the first PR comment.
+
 ## Setup
 
 Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting/).

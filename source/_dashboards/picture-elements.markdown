@@ -77,7 +77,7 @@ dark_mode_filter:
 
 ## Elements
 
-Elements are the active components (icons, badges, buttons, text, etc.) that overlay the image.
+Elements are the active components (icons, badges, buttons, text, and more) that overlay the image.
 
 There are several different element types that can be added to a Picture Elements card:
 
@@ -108,9 +108,13 @@ style:
   description: '[Position and style the element](#how-to-use-the-style-object) using CSS.'
   type: map
   default: "position: absolute, transform: translate(-50%, -50%)"
+name:
+  required: false
+  description: An optional alternative name displayed below the state badge. Defaults to the entity name if not provided. Set to null to hide.
+  type: string
 title:
   required: false
-  description: State badge tooltip. Set to null to hide.
+  description: State badge tooltip. Defaults to the entity name if not provided. Set to null to hide.
   type: string
 tap_action:
   required: false
@@ -262,7 +266,7 @@ type:
   type: string
 icon:
   required: true
-  description: "Icon to display (e.g., `mdi:home`)."
+  description: "Icon to display, for example `mdi:home`."
   type: string
 title:
   required: false
@@ -398,7 +402,7 @@ for more information.
 {% configuration %}
 type:
   required: true
-  description: 'Card name with `custom:` prefix (e.g., `custom:my-custom-card`).'
+  description: 'Card name with `custom:` prefix, for example `custom:my-custom-card`.'
   type: string
 style:
   required: true
