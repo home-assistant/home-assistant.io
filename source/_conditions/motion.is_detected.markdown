@@ -42,7 +42,8 @@ condition: |
   condition: motion.is_detected
   target:
     entity_id: motion.entrance_motion_sensor
-  for: "00:05:00"
+  options:
+    for: "00:05:00"
 {% endexample %}
 
 This passes when the entity `motion.entrance_motion_sensor` has been continuously detecting motion for 5 minutes.
