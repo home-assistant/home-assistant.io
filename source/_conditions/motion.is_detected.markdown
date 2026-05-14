@@ -66,7 +66,6 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-<!-- Keep the "include" below if your integration supports targets -->
 {% include triggers/targets.md %}
 
 {% include triggers/behavior.md %}
@@ -95,7 +94,7 @@ When it gets warm, if there is someone working at the office desk, this automati
 
 {% example %}
 automation: |
-  alias: "Set the office fan to medium in warm days if motion is detected"
+  alias: "Set the office fan to medium on warm days if motion is detected"
   triggers:
     - trigger: temperature.crossed_threshold
       target:
@@ -109,8 +108,7 @@ automation: |
   conditions:
     - condition: motion.is_detected
       target:
-        target:
-            entity_id: binary_sensor.movement_office
+        entity_id: binary_sensor.movement_office
   actions:
     - action: fan.set_preset_mode
       target:
