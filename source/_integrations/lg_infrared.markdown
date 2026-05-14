@@ -1,6 +1,6 @@
 ---
 title: LG Infrared
-description: Integration to control LG TVs using an infrared emitter, and to receive commands from an LG remote using an infrared receiver.
+description: Integration to control LG TVs using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
 ha_category:
   - Event
   - Media player
