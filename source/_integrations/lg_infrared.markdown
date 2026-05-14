@@ -67,7 +67,16 @@ An event entity is created when an infrared receiver is configured. It fires an 
 
 - **Received command**
   - **Description**: Fires when a command from an LG TV remote is decoded from the infrared receiver. The fired event type matches the button pressed on the remote.
-  - **Event types**: `aspect`, `back`, `blue`, `channel_down`, `channel_up`, `exit`, `ez_adjust`, `fast_forward`, `green`, `guide`, `hdmi_1`, `hdmi_2`, `hdmi_3`, `hdmi_4`, `home`, `info`, `input`, `in_start`, `list`, `menu`, `mute`, `nav_down`, `nav_left`, `nav_right`, `nav_up`, `num_0` through `num_9`, `ok`, `pause`, `play`, `power`, `power_off`, `power_on`, `red`, `rewind`, `sap`, `settings`, `stop`, `subtitle`, `text`, `volume_down`, `volume_up`, `yellow`, and `unknown` for any LG command that is not recognized.
+  - **Event types**:
+    - Navigation: `back`, `exit`, `guide`, `home`, `info`, `list`, `menu`, `nav_down`, `nav_left`, `nav_right`, `nav_up`, `ok`, `settings`
+    - Inputs and channels: `channel_down`, `channel_up`, `hdmi_1`, `hdmi_2`, `hdmi_3`, `hdmi_4`, `input`
+    - Playback: `fast_forward`, `pause`, `play`, `rewind`, `stop`
+    - Volume and audio: `mute`, `sap`, `subtitle`, `text`, `volume_down`, `volume_up`
+    - Power: `power`, `power_off`, `power_on`
+    - Number keys: `num_0` through `num_9`
+    - Color buttons: `blue`, `green`, `red`, `yellow`
+    - Other LG commands: `aspect`, `ez_adjust`, `in_start`
+    - `unknown` for any LG command that is not recognized
   - **Remarks**: Only commands using the LG infrared address are processed. Signals from other remotes are ignored.
 
 #### Media player
