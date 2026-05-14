@@ -152,7 +152,7 @@ The `eurotronic_cometblue.set_holiday` action enables holiday mode on the thermo
 
 {% important %}
 
-If the device is in holiday mode, you cannot reset it from Home Assistant. To reset it, press the `MENU` button on the device until it resets.
+If the device is in holiday mode, you cannot control it from Home Assistant. Press and hold the `MENU` button on the device until it resets.
 
 {% endimportant %}
 
