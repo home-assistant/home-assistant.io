@@ -730,6 +730,11 @@ Widget that displays playback controls for a [media player](/integrations/media_
 ```yaml
 features:
   - type: "media-player-playback"
+    controls:
+      - media_play_pause
+      - media_previous_track
+      - media_next_track
+      - volume_mute
 ```
 
 {% configuration features %}
@@ -737,6 +742,10 @@ type:
   required: true
   description: "`media-player-playback`"
   type: string
+controls:
+  required: false
+  description: "List of controls to show on the card. The list can contain `turn_on`, `turn_off`, `media_play`, `media_pause`, `media_play_pause`, `media_stop`, `media_previous_track`, `media_next_track`, `volume_down`, `volume_up`, and `volume_mute`. When not specified, the controls are determined automatically based on the capabilities of the media player entity."
+  type: list
 {% endconfiguration %}
 
 ## Media player sound mode
