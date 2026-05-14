@@ -32,7 +32,7 @@ Or, in newer versions:
 
 ```bash
 apk update
-apk install rpcd-mod-file uhttpd-mod-ubus
+apk add rpcd-mod-file uhttpd-mod-ubus
 ```
 
 Add a new system user `hass` (or do it in any other way that you prefer):
