@@ -4,7 +4,7 @@ description: Guntamatic wood/pellet heater integration.
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
-ha_release: "2026.6"
+ha_release: 2026.6
 ha_codeowners:
   - '@JensTimmerman'
 ha_config_flow: true
