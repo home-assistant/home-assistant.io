@@ -71,6 +71,9 @@ The following button entity allows triggering device actions directly from Home 
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
 - Device heating state (Gen-1 specific, on/off)
+- Real-time mode
+- Real-time power limit (W)
+- Real-time target SOC (%)
 - DC input voltage (2 channels, V)
 - DC input current (2 channels, A)
 - DC input power (2 channels, W)
