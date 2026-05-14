@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_domain: guntamatic_sensor
 ha_platforms:
   - sensor
+ha_dhcp: true
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -19,7 +20,7 @@ The Guntamatic integration allows you to monitor your [Guntamatic](https://www.g
 
 ## Supported devices
 
-This integration has been tested with the Guntamatic BMK 20 kW running firmware 32a. It should work with other Guntamatic heaters that support the same web interface. (http://<ip>/daqdata.cgi)
+This integration has been tested with the Guntamatic BMK 20 kW running firmware 32a. It should work with other Guntamatic heaters that support the same web interface. (http://`<ip>`/daqdata.cgi)
 
 ## Prerequisites
 
