@@ -80,38 +80,36 @@ for:
 
 {% include conditions/more_examples.md %}
 
-### Automation: remind yourself to leave only if the entry timer is still running
+### Automation: turn off the bathroom fan if the post-shower timer is still running
 
-If you use a short entry timer while gathering your things, this automation sends a reminder only while that timer is still active.
+If you start a timer to keep the bathroom fan running after a shower, this automation turns the fan off when you open the bathroom window, but only if that timer is still active. If the timer already finished or was canceled, the condition fails and the fan is left alone.
 
-- **Trigger**: Time: 08:00
+- **Trigger**: Window opens
 - **Condition**: Timer is active
-  - **Target**: Entryway timer
+  - **Target**: Bathroom fan timer
 - **Condition passes if**: Any
-- **Action**: Send a notification message
-  - **Target**: My Device (`notify.my_device`)
+- **Action**: Turn off fan
 
-{% details "YAML example for an active entryway timer reminder" %}
+{% details "YAML example for turning off the bathroom fan while the timer is active" %}
 
 {% example %}
 automation: |
-  alias: "Remind yourself to leave only if the entry timer is active"
+  alias: "Turn off the bathroom fan if the post-shower timer is still running"
   triggers:
-    - trigger: time
-      at: "08:00:00"
+    - trigger: state
+      entity_id: binary_sensor.bathroom_window
+      to: "on"
   conditions:
     - condition: timer.is_active
       target:
-        entity_id: timer.entryway
+        entity_id: timer.bathroom_fan
       options:
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.send_message
+    - action: fan.turn_off
       target:
-        entity_id: notify.my_device
-      data:
-        message: "Your entry timer is still running."
+        entity_id: fan.bathroom
 {% endexample %}
 
 {% enddetails %}
