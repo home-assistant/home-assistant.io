@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **RFM Gateway** {% term integration %} connects an RFM Gateway device to Home Assistant and exposes it as a {% term "Radio Frequency" %} transmitter.
+The **RFM Gateway** {% term integration %} connects an RFM Gateway device to Home Assistant and exposes it as a radio frequency transmitter.
 
 This lets other integrations send RF commands through the gateway. The integration uses the gateway HTTP API and supports auto-discovery through Zeroconf.
 
