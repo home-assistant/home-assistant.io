@@ -93,13 +93,13 @@ Each topic provides the following optional configuration options to allow narrow
 
 {% configuration_basic %}
 "Filter by priority":
-    description: "Include messages that match any of the selected priority levels. If no priority is selected, all messages are included by default"
+    description: "Include messages that match any of the selected priority levels. If no priority is selected, all messages are included by default."
 "Filter by tags":
-    description: "Only include messages that have all selected tags"
+    description: "Only include messages that have all selected tags."
 "Filter by title":
-    description: "Include messages with a title that exactly matches the specified text"
+    description: "Include messages with a title that exactly matches the specified text."
 "Filter by message content":
-    description: "Include messages with content that exactly matches the specified text"
+    description: "Include messages with content that exactly matches the specified text."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -115,6 +115,7 @@ action: |
   action: notify.send_message
   data:
     message: "Reminder: Have you considered frogs?"
+  target:
     entity_id: notify.mytopic
 {% endexample %}
 
@@ -180,7 +181,7 @@ The **ntfy** integration adds a device representing the service, along with vari
 - **Phone calls made**
   - **Description**: The total phone call alerts made today.
 - **Phone calls remaining**
-  - *Description: The number of phone call alerts that can still be made today.
+  - **Description**: The number of phone call alerts that can still be made today.
   - **Remarks**: Disabled by default
 - **Phone calls usage limit**
   - **Description**: The maximum number of phone call alerts allowed per day on the account.

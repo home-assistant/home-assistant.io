@@ -11,7 +11,7 @@ related_actions:
 
 The **Dismiss notification** action marks a previously sent message in a **ntfy** topic as read without deleting it. This is useful when the notification no longer requires attention but should remain available for later review or reference.
 
-To dismiss a notification, you must provide it's message ID or sequence ID. The sequence ID can be specified when sending a notification.
+To dismiss a notification, you must provide its message ID or sequence ID. The sequence ID can be specified when sending a notification.
 
 {% include actions/ui_header.md %}
 
@@ -63,24 +63,24 @@ sequence_id:
 
 {% include actions/more_examples.md %}
 
-### Automation: delete notification when motion is cleared
+### Automation: dismiss notification when motion is cleared
 
 When motion in the backyard is cleared, a previously sent motion-detected notification is automatically dismissed. The notification remains available for later review.
 
 - **Trigger**: Motion cleared
   - **Target**: Backyard area
-- **Action**: ntfy: Delete notification
+- **Action**: ntfy: Dismiss notification
   - **Target**: ntfy topic `mytopic`
 
-{% details "YAML example for deleting a notification when motion is cleared" %}
+{% details "YAML example for dismissing a notification when motion is cleared" %}
 {% example %}
 automation: |
-    triggers:
+  triggers:
     - trigger: motion.cleared
       target:
         area_id: backyard
-    actions:
-    - action: ntfy.delete
+  actions:
+    - action: ntfy.clear
       data:
         sequence_id: "motion-detected"
       target:

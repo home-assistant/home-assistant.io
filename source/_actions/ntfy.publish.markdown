@@ -101,7 +101,7 @@ Label:
   description: Label of the action button in the notification.
   required: true
 URL:
-  description: Label of the action button in the notification.
+  description: URL to open when action is tapped.
   required: true
 Clear:
   description: Clear notification after action button is tapped.
@@ -112,7 +112,7 @@ Clear:
 
 {% options_ui %}
 Action type:
-  description: Select **Send HTTP reques** to send an HTTP request when the button is clicked or tapped.
+  description: Select **Send HTTP request** to send an HTTP request when the button is clicked or tapped.
   required: true
 Label:
   description: Label of the action button in the notification.
@@ -121,13 +121,13 @@ URL:
   description: URL to which the HTTP request will be sent.
   required: true
 HTTP method:
-  description: HTTP method to use for request, default is POST.
+  description: HTTP method to use for request, default is `POST`.
   required: false
 HTTP headers:
-  description: Additional HTTP headers as key-value pairs to send with the HTTP request.
+  description: HTTP headers to pass in request (key-value pairs).
   required: false
 HTTP body:
-  description: The body of the HTTP.
+  description: Payload to send in the HTTP body.
   required: false
 Clear:
   description: Clear notification after action button is tapped.
@@ -144,10 +144,10 @@ Label:
   description: Label of the action button in the notification.
   required: true
 Intent:
-  description: Android intent to send when the **Send Android broadcast** action is triggered. Defaults to `io.heckel.ntfy.USER_ACTION`.
+  description: Android intent name. Defaults to `io.heckel.ntfy.USER_ACTION`.
   required: false
 Intent extras:
-  description: Extras to include in the intent as key-value pairs.
+  description: Android intent extras (key-value pairs).
   required: false
 Clear:
   description: Clear notification after action button is tapped.
@@ -259,7 +259,7 @@ action:
   description: >
     Up to three actions (**[`view`](#action-view)**, **[`broadcast`](#action-broadcast)**, **[`http`](#action-http)**, or **[`copy`](#action-copy)**) can be added as buttons below the notification. Actions are executed when the corresponding button is tapped or clicked.
   required: false
-  type: map
+  type: list
 sequence_id:
   description: >
     A message or sequence ID to update an existing notification, or to reference later when updating, clearing, or deleting a notification.
@@ -412,7 +412,7 @@ You can send a notification with a camera snapshot, for example when someone rin
 action: |
   action: ntfy.publish
   target:
-      entity_id: notify.mytopic
+    entity_id: notify.mytopic
   data:
     title: Someone is at the door
     attach_file:
@@ -427,7 +427,7 @@ action: |
 
 ### Action: send a dead man's switch notification
 
-This action sends a notification that will only be delivered after a specified delay, acting as a so called dead man's switch.
+This action sends a notification that will only be delivered after a specified delay, acting as a so-called dead man's switch.
 
 To reset the timer (for example, after a successful daily check-in), you must send the notification again. This cancels the previously scheduled notification and starts a new 24-hour countdown.
 
@@ -462,7 +462,7 @@ This action sends a notification with an action button that, when tapped, opens 
 - **Action**: ntfy: Publish notification
 - **Target**: ntfy topic
 
-{% details "YAML example for a notification with a button to open an URL" %}
+{% details "YAML example for a notification with a button to open a URL" %}
 
 {% example %}
 action: |

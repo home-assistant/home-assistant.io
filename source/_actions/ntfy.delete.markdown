@@ -11,7 +11,7 @@ related_actions:
 
 The **Delete notification** action deletes a notification from a ntfy topic.
 
-To delete a notification, you must provide it's message ID or sequence ID. The sequence ID can be specified when sending a notification.
+To delete a notification, you must provide its message ID or sequence ID. The sequence ID can be specified when sending a notification.
 
 {% include actions/ui_header.md %}
 
@@ -75,11 +75,11 @@ When motion in the backyard is cleared a previously sent motion-detected notific
 {% details "YAML example for deleting a notification when motion is cleared" %}
 {% example %}
 automation: |
-    triggers:
+  triggers:
     - trigger: motion.cleared
       target:
         area_id: backyard
-    actions:
+  actions:
     - action: ntfy.delete
       data:
         sequence_id: "motion-detected"
