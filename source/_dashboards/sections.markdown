@@ -113,7 +113,7 @@ In the sections view, you can rearrange sections and cards by dragging them to a
       Rearranging cards by dragging
     </p>
 
-## Setup of custom themes in specific sections of a view
+## Section themes
 
 You can apply different themes to individual sections within a view. This allows you to visually distinguish different areas of your dashboard, such as using warm colors for alerts or cool colors for general information.
 
@@ -154,46 +154,7 @@ views:
             entity: sensor.temperature
 ```
 
-### How settings of section themes work
-
-Section themes use CSS cascade to provide flexible theming:
-
-- Override of variables: Variables defined in a section theme override the view theme for that section.
-- Inheritance of variables: Variables not defined in the section theme inherit from the view theme.
-- Override of dark mode settings: If a section theme defines its own dark mode settings, those are used.
-- Inheritance of dark mode settings: If a section theme does not define its own dark mode settings, the view's dark mode settings apply.
-
-### YAML example: Add custom themes to a new dashboard
-
-This example shows a dashboard with a blue theme for general information and an amber/orange theme for system alerts.
-
-First, define the themes in your `configuration.yaml`:
-
-```yaml
-frontend:
-  themes:
-    # Main view theme (blue/info tones)
-    main_view:
-      primary-color: "#2196f3"
-      card-background-color: "#f0f8ff"
-      primary-text-color: "#1565c0"
-      modes:
-        dark:
-          card-background-color: "#1a2332"
-          primary-text-color: "#90caf9"
-
-    # Alert section theme (amber/orange tones)
-    alert_section:
-      primary-color: "#ff9800"
-      card-background-color: "#fff8f0"
-      primary-text-color: "#d84315"
-      modes:
-        dark:
-          card-background-color: "#2d1f1a"
-          primary-text-color: "#ffab91"
-```
-
-Then create your dashboard:
+### YAML example
 
 ```yaml
 views:
@@ -232,13 +193,6 @@ views:
     <img src="/images/dashboards/section-theme-dark.png" alt="Dashboard with themed sections in dark mode"/>
     Dashboard with section themes in dark mode
 </p>
-
-### Best practices for section themes
-
-- **Visual hierarchy**: Use different themes to highlight important sections like security alerts or system status.
-- **Consistency**: Limit yourself to 2-3 different themes per view to avoid visual clutter.
-- **Dark mode**: Either define dark mode colors in your section themes, or let them inherit from the view theme by not setting color variables.
-- **Testing**: Check how your themed sections look on mobile devices where sections stack vertically.
 
 ## Show or hide section conditionally
 
