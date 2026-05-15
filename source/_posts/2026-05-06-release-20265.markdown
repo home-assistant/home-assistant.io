@@ -69,6 +69,7 @@ Enjoy the release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Patch releases](#patch-releases)
   - [2026.5.1 - May 8](#202651---may-8)
+  - [2026.5.2 - May 15](#202652---may-15)
 - [All changes](#all-changes)
 
 _A huge thank you to all the contributors who made this release possible! And a special shout-out to [@piitaya] who helped write the release notes this release. Also, [@RaHehl], [@balloob], [@Tommatheussen], and [@mib1185] for putting effort into improving its contents. Thanks to them, these release notes are in great shape. ❤️_
@@ -805,6 +806,121 @@ release once a week, aiming for Friday.
 [@robwasripped]: https://github.com/robwasripped
 [@ronaldvdmeer]: https://github.com/ronaldvdmeer
 [@th3spis]: https://github.com/th3spis
+
+### 2026.5.2 - May 15
+
+- Fix ValueError for non-numeric value in LG ThinQ ([@LG-ThinQ-Integration] - [#166300])
+- Only use SmartThings switch for light if it should ([@r2xj] - [#166424])
+- Fix non unique_id for Comelit ([@chemelli74] - [#169756])
+- Migrate ZBT-1 and ZBT-2 to use serial number for unique_id ([@puddly] - [#169879])
+- Update afsapi to 1.0.1 ([@wlcrs] - [#170073])
+- Fix local API incorrectly marking devices as unavailable in Overkiz ([@iMicknl] - [#170118])
+- Fix homematicip_cloud config entry setup crash after migration to 2026.5.0 ([@lackas] - [#170156])
+- homematicip_cloud: fix HmIP-FLC lock state polarity ([@lackas] - [#170159])
+- Set serial port description from `description`, not `product` ([@puddly] - [#170160])
+- Reinit API on stale session for Vodafone Station ([@chemelli74] - [#170190])
+- Fix MQTT device discovery not using shared QoS and encoding options ([@jbouwh] - [#170195])
+- Fix entities refresh for UptimeRobot ([@chemelli74] - [#170217])
+- Add target flow level and mode end time sensors to Duco integration ([@ronaldvdmeer] - [#169298])
+- Add system health platform for Duco integration ([@ronaldvdmeer] - [#169517])
+- Add API version to Duco diagnostics for support triage ([@ronaldvdmeer] - [#169802])
+- Bump python-duco-client to 0.4.2 ([@ronaldvdmeer] - [#170027])
+- Bump python-duco-client to 0.5.0 ([@ronaldvdmeer] - [#170065])
+- Handle empty BSB-LAN heating circuits ([@liudger] - [#170249])
+- Fix: Do not forget segments from state when a new config arrives ([@Hypfer] - [#170265])
+- Bump imgw-pib to 2.1.2 ([@bieniu] - [#170274])
+- iaqualink: set system specific polling interval ([@flz] - [#170279])
+- Bump renault-api to 0.5.8 ([@thargy] - [#170309])
+- Fix hassio.backup_partial AttributeError when folders are specified ([@agners] - [#170312])
+- Fix Shelly media player availability ([@bieniu] - [#170319])
+- Cancel previous Debouncer timer handle in _schedule_timer ([@raman325] - [#170339])
+- Bump axis to v71 ([@Kane610] - [#170347])
+- Fix duplicate doorbell events when entity becomes unavailable ([@jbouwh] - [#170354])
+- Bump serialx to 1.7.2 ([@PBrunot] - [#170272])
+- Bump serialx to 1.7.3 ([@puddly] - [#170368])
+- Bump pyintesishome to 1.8.7 ([@jnimmo] - [#170382])
+- Apply unit_of_measurement to energy combined power sensor ([@MindFreeze] - [#170404])
+- Bump pymiele version to 0.6.2 ([@astrandb] - [#170419])
+- Bump aioesphomeapi to 44.24.1 ([@bdraco] - [#170428])
+- Fix fractional setpoints in Matter climate not rounded ([@TheJulianJES] - [#170442])
+- Fix influxdb reconfigure for v1 configuration ([@RobBie1221] - [#170448])
+- Bump aioharmony to 1.0.3 ([@bdraco] - [#170459])
+- Increase WebDAV client timeout from 10 to 30 seconds ([@Croydon] - [#170476])
+- Fix MQTT settings in device subentry device settings are not recalled when reconfiguring the device ([@jbouwh] - [#170484])
+- Add missing optional category strings in workday ([@gjohansson-ST] - [#170505])
+- Update frontend to 20260429.4 ([@bramkragten] - [#170567])
+- Migrate Duco to python-duco-connectivity and remove temperature sensors ([@ronaldvdmeer] - [#170237])
+- Bump python-duco-connectivity to 0.4.0 ([@ronaldvdmeer] - [#170661])
+
+[#166300]: https://github.com/home-assistant/core/pull/166300
+[#166424]: https://github.com/home-assistant/core/pull/166424
+[#169298]: https://github.com/home-assistant/core/pull/169298
+[#169517]: https://github.com/home-assistant/core/pull/169517
+[#169756]: https://github.com/home-assistant/core/pull/169756
+[#169802]: https://github.com/home-assistant/core/pull/169802
+[#169879]: https://github.com/home-assistant/core/pull/169879
+[#170027]: https://github.com/home-assistant/core/pull/170027
+[#170065]: https://github.com/home-assistant/core/pull/170065
+[#170073]: https://github.com/home-assistant/core/pull/170073
+[#170118]: https://github.com/home-assistant/core/pull/170118
+[#170156]: https://github.com/home-assistant/core/pull/170156
+[#170159]: https://github.com/home-assistant/core/pull/170159
+[#170160]: https://github.com/home-assistant/core/pull/170160
+[#170190]: https://github.com/home-assistant/core/pull/170190
+[#170195]: https://github.com/home-assistant/core/pull/170195
+[#170217]: https://github.com/home-assistant/core/pull/170217
+[#170237]: https://github.com/home-assistant/core/pull/170237
+[#170249]: https://github.com/home-assistant/core/pull/170249
+[#170265]: https://github.com/home-assistant/core/pull/170265
+[#170272]: https://github.com/home-assistant/core/pull/170272
+[#170274]: https://github.com/home-assistant/core/pull/170274
+[#170279]: https://github.com/home-assistant/core/pull/170279
+[#170309]: https://github.com/home-assistant/core/pull/170309
+[#170312]: https://github.com/home-assistant/core/pull/170312
+[#170319]: https://github.com/home-assistant/core/pull/170319
+[#170339]: https://github.com/home-assistant/core/pull/170339
+[#170347]: https://github.com/home-assistant/core/pull/170347
+[#170354]: https://github.com/home-assistant/core/pull/170354
+[#170368]: https://github.com/home-assistant/core/pull/170368
+[#170382]: https://github.com/home-assistant/core/pull/170382
+[#170404]: https://github.com/home-assistant/core/pull/170404
+[#170419]: https://github.com/home-assistant/core/pull/170419
+[#170428]: https://github.com/home-assistant/core/pull/170428
+[#170442]: https://github.com/home-assistant/core/pull/170442
+[#170448]: https://github.com/home-assistant/core/pull/170448
+[#170459]: https://github.com/home-assistant/core/pull/170459
+[#170476]: https://github.com/home-assistant/core/pull/170476
+[#170484]: https://github.com/home-assistant/core/pull/170484
+[#170505]: https://github.com/home-assistant/core/pull/170505
+[#170567]: https://github.com/home-assistant/core/pull/170567
+[#170661]: https://github.com/home-assistant/core/pull/170661
+[@Croydon]: https://github.com/Croydon
+[@Hypfer]: https://github.com/Hypfer
+[@Kane610]: https://github.com/Kane610
+[@LG-ThinQ-Integration]: https://github.com/LG-ThinQ-Integration
+[@MindFreeze]: https://github.com/MindFreeze
+[@PBrunot]: https://github.com/PBrunot
+[@RobBie1221]: https://github.com/RobBie1221
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@agners]: https://github.com/agners
+[@astrandb]: https://github.com/astrandb
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@flz]: https://github.com/flz
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@iMicknl]: https://github.com/iMicknl
+[@jbouwh]: https://github.com/jbouwh
+[@jnimmo]: https://github.com/jnimmo
+[@lackas]: https://github.com/lackas
+[@liudger]: https://github.com/liudger
+[@puddly]: https://github.com/puddly
+[@r2xj]: https://github.com/r2xj
+[@raman325]: https://github.com/raman325
+[@ronaldvdmeer]: https://github.com/ronaldvdmeer
+[@thargy]: https://github.com/thargy
+[@wlcrs]: https://github.com/wlcrs
 
 ## All changes
 
