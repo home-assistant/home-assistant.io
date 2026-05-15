@@ -136,13 +136,22 @@ The **My integration** integration provides the following entities.
   - **Available for machines**: all
 
 <!--
-The "include" below adds sections (heading 2) for triggers, conditions, and actions for this integration.
+The "include" elements below add sections (heading 2) for triggers, conditions, or actions for this integration. Use the one that applies to what you are adding.
 Create separate files for each:
 - trigger, in source/_triggers/
 - condition, in source/_conditions/
 - action, in source/_actions/
 -->
+{% include integrations/actions.md %}
+
+{% include integrations/conditions.md %}
+
+{% include integrations/triggers.md %}
+
+<!--
+If the integration has all three components (triggers, conditions, and actions), use the combined include instead. 
 {% include integrations/triggers_conditions_actions.md %}
+-->
 
 ## My-integration automation examples
 
@@ -155,6 +164,27 @@ Here are a few ideas to get you started.
 
 The status LEDs on the device can be quite bright.
 To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
+
+- **Trigger**: Sun: after sunset
+  - **Target**: Optional trigger target if needed
+- **Condition**: Optional condition if needed
+- **Action**: Turn off light
+
+{% details "YAML example for turning off LEDs at night" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the LEDs during the night"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: light.turn_off
+      target:
+        entity_id: light.device_leds
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
