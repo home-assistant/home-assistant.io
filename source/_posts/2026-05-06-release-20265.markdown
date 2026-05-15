@@ -266,7 +266,7 @@ And finally, a new **doorbell rang** trigger. Doorbell event entities now speak 
 
 ### Changes to existing triggers and conditions
 
-As some of the very first, we've added purpose-specific triggers and conditions for Person entities and Device Tracker entities separately. More recently, we've decided we want to go for a more ergonomic cross-domain approach. Those the triggers `entered_home` and `left_home` as also the conditions `is_home` and `is_not_home` got removed from the Person and Device Tracker. They will get successor in one of the upcoming releases.
+As some of the very first, we've added purpose-specific triggers and conditions for Person entities and Device Tracker entities separately. More recently, we've decided we want to go for a more ergonomic cross-domain approach. Thus, the triggers `entered_home` and `left_home` and also the conditions `is_home` and `is_not_home` got removed from the Person and Device Tracker. They will get successors in one of the upcoming releases.
 
 ### Try it out!
 

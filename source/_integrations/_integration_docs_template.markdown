@@ -165,6 +165,27 @@ Here are a few ideas to get you started.
 The status LEDs on the device can be quite bright.
 To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
 
+- **Trigger**: Sun: after sunset
+  - **Target**: Optional trigger target if needed
+- **Condition**: Optional condition if needed
+- **Action**: Turn off light
+
+{% details "YAML example for turning off LEDs at night" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the LEDs during the night"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: light.turn_off
+      target:
+        entity_id: light.device_leds
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The **My integration** integration {% term polling polls %} data from the device every 5 minutes by default.
