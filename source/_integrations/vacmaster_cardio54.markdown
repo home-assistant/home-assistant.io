@@ -35,7 +35,7 @@ The **Vacmaster Cardio54** integration provides the following entity. State is a
 ### Fans
 
 - **Fan**
-  - **Description**: Controls the Cardio54 with three speeds (33&nbsp;%, 67&nbsp;%, 100&nbsp;%) and a power toggle.
+  - **Description**: Controls the Cardio54 with three speeds (33%, 67%, 100%) and a power toggle.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ Home Assistant generates a fresh 20-bit RF identity for the fan, then walks you 
 
 1. Switch the fan's power slider to **0** (off).
 2. Turn the speed dial to the **remote-control symbol** (between I and III).
-3. Switch the power slider back to **I** &mdash; this opens a 5&nbsp;second pairing window during which the fan's LED blinks red while listening for a transmitter.
+3. Switch the power slider back to **I** &mdash; this opens a 5-second pairing window during which the fan's LED blinks red while listening for a transmitter.
 4. **Immediately** select **Submit** in Home Assistant. The pairing burst lands inside the window and the fan learns the new identity.
 5. Home Assistant then sends speed I to verify the pairing took effect. Select **Finish** if the fan started spinning, or **Retry** to repeat the sequence.
 
@@ -65,7 +65,7 @@ Repeat the integration setup for each additional Cardio54 fan &mdash; every conf
 
 ### Start the fan when the treadmill draws power
 
-Use a smart plug measuring the treadmill's power draw to switch the Cardio54 on at full speed when you start a workout and back off a few minutes after it ends.
+Use a smart plug measuring the treadmill's power draw to switch the Cardio54 on at full speed when you start a workout, and off a few minutes after it ends.
 
 ```yaml
 - alias: "Cardio fan follows the treadmill"
@@ -116,11 +116,25 @@ Replace `sensor.treadmill_power` with your equipment's power-draw sensor and adj
       above: 25
       id: hot
   actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.vacmaster_cardio54
-      data:
-        percentage: "{{ 67 if trigger.id == 'warm' else 100 }}"
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: hot
+          sequence:
+            - action: fan.set_percentage
+              target:
+                entity_id: fan.vacmaster_cardio54
+              data:
+                percentage: 100
+        - conditions:
+            - condition: trigger
+              id: warm
+          sequence:
+            - action: fan.set_percentage
+              target:
+                entity_id: fan.vacmaster_cardio54
+              data:
+                percentage: 67
 ```
 
 ## Data updates
@@ -135,15 +149,15 @@ The Cardio54 does not report its state back. If you change the speed from the ph
 
 ### Power is a toggle, not an explicit on/off
 
-The Cardio54's POWER button toggles the running state. The integration only sends it when Home Assistant believes the fan is currently on, so it does not accidentally switch a stopped fan on. If the state has drifted (for example, somebody used the remote), sending **Turn off** could momentarily switch the fan on; send a speed command instead to re-synchronise &mdash; speed commands switch the fan on deterministically at the requested level.
+The Cardio54's POWER button toggles the running state. The integration only sends it when Home Assistant believes the fan is currently on, so it does not accidentally switch a stopped fan on. If the state has drifted (for example, somebody used the remote), sending **Turn off** could momentarily switch the fan on; send a speed command instead to resynchronize &mdash; speed commands switch the fan on deterministically at the requested level.
 
 ### Only one transmitter identity per fan
 
-The Cardio54 receiver stores a single transmitter identity. Re-pairing the fan to a new transmitter (or to a fresh Home Assistant config entry) overwrites the previous identity. Keep the OEM remote out of pairing range during the pairing burst so it does not re-claim the slot.
+The Cardio54 receiver stores a single transmitter identity. Re-pairing the fan to a new transmitter (or to a fresh Home Assistant config entry) overwrites the previous identity. Keep the original remote out of pairing range during the pairing burst so it does not reclaim the slot.
 
 ### Other 433&nbsp;MHz devices can interfere
 
-Weather stations, doorbells and garage door openers share the same frequency. Distance and walls between the transmitter and the fan also reduce reliability.
+Weather stations, doorbells, and garage door openers share the same frequency. Distance and walls between the transmitter and the fan also reduce reliability.
 
 ## Troubleshooting
 
@@ -151,7 +165,7 @@ Weather stations, doorbells and garage door openers share the same frequency. Di
 
 1. Check the RF transmitter entity is **available** under {% my integrations title="**Settings** > **Devices & services**" %}. If it is offline, get it back online before commanding the fan.
 2. Move the transmitter closer to the fan, or remove obstacles between them. Metal exercise equipment and dense walls attenuate 433&nbsp;MHz signals.
-3. The receiver may have lost the pairing (for example, somebody re-paired the OEM remote in range). Re-add the integration to assign a fresh identity and run the pairing sequence again.
+3. The receiver may have lost the pairing (for example, somebody re-paired the original remote in range). Re-add the integration to assign a fresh identity and run the pairing sequence again.
 
 ### The setup verification fails with "Could not send the test command"
 
@@ -159,11 +173,11 @@ The RF transmitter could not send the command. Check it is online and reachable,
 
 ### The pairing burst goes out but the fan never learns the new identity
 
-Pairing only succeeds while the fan's 5&nbsp;second pairing window is open. Either the speed dial is on the wrong position (it must be on the **remote-control symbol** between I and III), or Submit was selected after the window closed. Repeat the dial sequence and select Submit *immediately* on the third step.
+Pairing only succeeds while the fan's 5-second pairing window is open. Either the speed dial is in the wrong position (it must be on the **remote-control symbol** between I and III), or **Submit** was selected after the window closed. Repeat the dial sequence and select **Submit** *immediately* on the third step.
 
 ### The fan state in Home Assistant does not match reality
 
-Home Assistant has no way to read the fan's real state. To resynchronise, send a speed command from Home Assistant &mdash; speeds switch the fan on deterministically. To avoid future drift, prefer using Home Assistant or the remote consistently.
+Home Assistant has no way to read the fan's real state. To resynchronize, send a speed command from Home Assistant &mdash; speeds switch the fan on deterministically. To avoid future drift, prefer using Home Assistant or the remote consistently.
 
 ## Removing the integration
 
