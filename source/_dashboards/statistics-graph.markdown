@@ -24,13 +24,18 @@ Screenshot of the statistics graph card with no metered entities and `chart_type
 Screenshot of the statistics graph card with a metered entity and `chart_type` `bar`.
 </p>
 
+<p class='img'>
+<img src='/images/dashboards/statistics_graph_bar_stack.png' alt='Screenshot of the statistics graph card as a bar chart with stacked values'>
+Screenshot of the statistics graph card with values stacked using `chart_type` `bar-stack`.
+</p>
+
 Statistics are gathered every 5 minutes and also hourly for sensors with a state_class of measurement, total or total_increasing. The 5-minute statistics will be retained for the duration set in the [recorder configuration](/integrations/recorder/#purge_keep_days), and hourly statistics will be retained indefinitely. It will either keep the <abbr title="Minimum">`min`</abbr>, <abbr title="Maximum">`max`</abbr>, and <abbr title="Average">`mean`</abbr> of a sensor's value for a specific hour or the <abbr title="Total">`sum`</abbr> for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -52,11 +57,11 @@ days_to_show:
   default: 30
 chart_type:
   required: false
-  description: If the graph should be rendered as a `bar` or a `line` chart.
+  description: If the graph should be rendered as a `bar` or a `line` chart. Alternatively, using `bar-stack` or `line-stack` select stacked versions of the chart.
   type: string
 stat_types:
   required: false
-  description: The statistics types to render. `min`, `max`, `mean`, `sum`, `state`, `change`
+  description: The statistics types to render. `min`, `max`, `mean`, `sum`, `state`, `change`. When using stacked charts, it is recommended to select only one option.
   type: list
 title:
   required: false
@@ -64,7 +69,7 @@ title:
   type: string
 period:
   required: false
-  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week` or `month`. If `energy_date_selection` is true, and `period` is not defined, the chart period will auto-select between month/day/hour based on the selected date range.
+  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week`, `month` or `year`. If `energy_date_selection` is true, and `period` is not defined or set to `auto`, the chart period will auto-select between month/day/hour based on the selected date range.
   type: string  
 hide_legend:
   required: false

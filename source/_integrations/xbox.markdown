@@ -9,7 +9,6 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
-  - '@hunterjm'
   - '@tr4nt0r'
 ha_domain: xbox
 ha_config_flow: true
@@ -23,6 +22,7 @@ ha_platforms:
 ha_integration_type: hub
 ha_ssdp: true
 ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 The **Xbox** {% term integration %} allows you to connect Home Assistant to the **Xbox Network**.

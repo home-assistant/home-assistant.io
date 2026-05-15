@@ -2,19 +2,22 @@
 title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
 ha_category:
+  - Event
   - Notifications
 ha_release: 0.27
 ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: html5
 ha_platforms:
+  - event
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_codeowners:
   - '@alexyao2015'
+  - '@tr4nt0r'
 ---
 
 The **HTML5 Push Notifications** {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -23,7 +26,7 @@ The **HTML5 Push Notifications** {% term integration %} enables you to receive p
 HTML5 push notifications **do not** work on iOS versions below 16.4.
 {% endimportant %}
 
-### Requirements
+## Requirements
 
 The `html5` platform can only function if all of the following requirements are met:
 
@@ -54,143 +57,184 @@ Assuming you have already configured the platform:
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
-### Testing
+## Notifiers
 
-Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
+The **HTML5 Push Notifications** {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [`html5.send_message`](#send-message) action instead. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
 
-{% my developer_services badge %}
-
-1. Click on the My button above.
-2. From the **Actions** dropdown, search for your HTML5 notify action (`notify.html5`) and select it.
-3. In the data text box enter: `{"message":"hello world"}`, then select the **Perform action** button.
-4. If everything worked you should see a popup notification.
-
-### Usage
-
-The `html5` platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.
-
-
-#### Actions
-
-Chrome supports notification actions, which are configurable buttons that arrive with the notification and can cause actions on Home Assistant to happen when pressed. You can send up to 2 actions.
+{% details "Example YAML configuration" %}
 
 ```yaml
-message: Anne has arrived home
+action: notify.send_message
 data:
-  actions:
-    - action: open
-      icon: "/static/icons/favicon-192x192.png"
-      title: Open Home Assistant
-    - action: open_door
-      title: Open door
+  title: "Reminder"
+  message: "Have you considered frogs?"
+  entity_id: notify.my-desktop
 ```
 
-#### Data
+{% enddetails %}
 
-Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `priority`, `ttl`, `silent`) will be sent back to you in the [callback events](#automating-notification-events).
+### Events
 
-```yaml
-title: Front door
-message: The front door is open
-data:
-  my-custom-parameter: front-door-open
-```
+The **HTML5 Push Notifications** {% term integration %} creates an **event** {% term entity %} for each configured device. Home Assistant will update the event state whenever a notification is:
 
-#### Tag
+- `received`: The notification arrives on the device.
+- `clicked`: The recipient interacts with the notification.
+- `closed`: The notification is dismissed without interaction.
 
-By default, every notification sent has a randomly generated UUID (v4) set as its _tag_ or unique identifier. The tag is unique to the notification, _not_ to a specific target. If you pass your own tag in the notify payload you can replace the notification by sending another notification with the same tag. You can provide a `tag` like so:
+Each event includes **state attributes** that provide additional context:
 
-```yaml
-title: Front door
-message: The front door is open
-data:
-  tag: front-door-notification
-```
+- `tag`: The identifier of the notification.
+- `action`: The identifier of the action, if the recipient selected an action button in the notification.
+- Any extra data that was included in the payload of the notification.
 
-Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
+## Actions
+
+The integration provides the following actions.
+
+### Action: Send message
+
+For more customizable notifications, use the `html5.send_message` action instead of `notify.send_message`.
+
+Keep in mind that support for the features described below can vary depending on the browser and platform you are using. Refer to the [MDN Notifications API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility) for a detailed overview of compatibility across environments.
+
+- **Data attribute**: `title`
+  - **Description**: Title for your notification message.
+  - **Optional**: No
+- **Data attribute**: `message`
+  - **Description**: The message body of the notification.
+  - **Optional**: Yes
+- **Data attribute**: `icon`
+  - **Description**: URL or relative path of an image to display as the main icon in the notification. Maximum size is 320px by 320px.
+  - **Optional**: Yes
+- **Data attribute**: `badge`
+  - **Description**: URL or relative path of a small image to replace the browser icon on mobile platforms. Maximum size is 96px by 96px.
+  - **Optional**: Yes
+- **Data attribute**: `image`
+  - **Description**: URL or relative path of a larger image to display in the main body of the notification. Experimental support; may not be displayed on all platforms.
+  - **Optional**: Yes
+- **Data attribute**: `tag`
+  - **Description**: The identifier of the notification. Sending a new notification with the same tag replaces the existing one. If not specified, a unique tag is generated for each notification.
+  - **Optional**: Yes
+- **Data attribute**: `actions`
+  - **Description**: Adds action buttons to the notification. When the user clicks a button, an event is sent back to Home Assistant. The number of actions supported may vary between platforms.
+  - **Optional**: Yes
+  - **Keys**:
+    - **`action`**: The identifier of the action. This is sent back to Home Assistant when the user clicks the button. Required.
+    - **`title`**: The label of the button displayed to the user. Required.
+    - **`icon`**: URL or relative path of an image displayed as the icon for this button. Maximum size is 128px by 128px. Optional.
+- **Data attribute**: `dir`
+  - **Description**: The direction of the notification's text. Adopts the browser's language setting behavior by default.
+  - **Optional**: Yes
+- **Data attribute**: `renotify`
+  - **Description**: If enabled, the user is alerted again (sound/vibration) when a notification with the same tag replaces a previous one.
+  - **Optional**: Yes
+- **Data attribute**: `silent`
+  - **Description**: If enabled, the notification does not play sounds or trigger vibration, regardless of the device's settings.
+  - **Optional**: Yes
+- **Data attribute**: `require_interaction`
+  - **Description**: If enabled, the notification remains active until the user clicks or dismisses it, rather than automatically closing after a few seconds. This provides the same behavior on desktop as on mobile platforms.
+  - **Optional**: Yes
+- **Data attribute**: `vibrate`
+  - **Description**: A vibration pattern to run with the notification. An array of integers representing alternating periods of vibration and silence in milliseconds. For example, `[200, 100, 200]` vibrates for 200ms, pauses for 100ms, then vibrates for another 200ms.
+  - **Optional**: Yes
+- **Data attribute**: `lang`
+  - **Description**: The language of the notification's content.
+  - **Optional**: Yes
+- **Data attribute**: `timestamp`
+  - **Description**: The timestamp of the notification. By default, uses the time when the notification is sent.
+  - **Optional**: Yes
+- **Data attribute**: `ttl`
+  - **Description**: Specifies how long the push service retains the message if the user's browser or device is offline. After this period, the notification expires. A value of `0` means the notification is discarded immediately if the target is not connected. Defaults to 1 day.
+  - **Optional**: Yes
+- **Data attribute**: `urgency`
+  - **Description**: Whether the push service tries to deliver the notification immediately or defers it in accordance with the user's power-saving preferences.
+  - **Optional**: Yes
+- **Data attribute**: `data`
+  - **Description**: Additional custom key-value pairs to include in the payload of the push message. This can be used to include extra information that can be accessed in the notification click event.
+  - **Optional**: Yes
+
+{% details "Example YAML configuration" %}
 
 {% raw %}
 
 ```yaml
-  - alias: "Push/update notification of sensor state with tag"
-    triggers:
-      - trigger: state
-        entity_id: sensor.sensor
-    actions:
-      - action: notify.html5
-        data:
-          message: "Last known sensor state is {{ states('sensor.sensor') }}."
-          data:
-            tag: "notification-about-sensor"
+action: html5.send_message
+data:
+  title: Home Assistant
+  message: Hello World
+  icon: /static/icons/favicon-192x192.png
+  badge: /static/images/notification-badge.png
+  image: /static/images/image.jpg
+  tag: message-group-1
+  actions:
+    - action: test-action
+      title: 🆗 Click here!
+      icon: /images/action-1-128x128.png
+  dir: auto
+  renotify: true
+  silent: false
+  require_interaction: true
+  vibrate:
+    - 125
+    - 75
+    - 125
+    - 275
+    - 200
+    - 275
+    - 125
+    - 75
+    - 125
+    - 275
+    - 200
+    - 600
+    - 200
+    - 600
+  lang: es-419
+  timestamp: 1970-01-01 00:00:00
+  ttl:
+    days: 28
+  urgency: normal
+  data:
+    url: https://www.home-assistant.io/integrations/html5/
+target:
+  entity_id: notify.my_desktop
 ```
 
 {% endraw %}
 
-#### Targets
+{% enddetails %}
 
-If you do not provide a `target` parameter in the notify payload a notification will be sent to all registered targets as listed in `html5_push_registrations.conf`. You can provide a `target` parameter like so:
+{% note %}
+
+When using a relative path for an image or icon URL, the path is resolved relative to the base URL of your Home Assistant instance.
+
+{% endnote %}
+
+### Action: Dismiss message
+
+You can dismiss notifications using the `html5.dismiss_message` action.
+
+- **Data attribute**: `tag`
+  - **Description**: The tag of the notifications to dismiss. If not specified, all notifications to the selected devices will be dismissed.
+  - **Optional**: Yes
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
 
 ```yaml
-title: Front door
-message: The front door is open
-target: unnamed device
-```
-
-`target` can also be a string array of targets like so:
-
-```yaml
-title: Front door
-message: The front door is open
+action: html5.dismiss_message
+data:
+  tag: message-group-1
 target:
-  - unnamed device
-  - unnamed device 2
+  entity_id: notify.my_desktop
 ```
 
-#### Overrides
+{% endraw %}
 
-You can pass any of the parameters listed [here](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/showNotification#Parameters) in the `data` dictionary. Please note, Chrome specifies that the maximum size for an icon is 320px by 320px, the maximum `badge` size is 96px by 96px and the maximum icon size for an action button is 128px by 128px.
+{% enddetails %}
 
-#### URL
-
-You can provide a URL to open when the notification is clicked by putting `url` in the data dictionary like so:
-
-```yaml
-title: Front door
-message: The front door is open
-data:
-  url: https://google.com
-```
-
-If no URL or actions are provided, interacting with a notification will open your Home Assistant in the browser. You can use relative URLs to refer to Home Assistant, i.e., `/map` would turn into `https://192.168.1.2:8123/map`.
-
-#### TTL and Priority
-
-Newer Android versions introduced stronger battery optimization, so notifications by default are delivered only when phone is awake.
-Options TTL and priority tries to help users solve those problems. Default value of TTL is `86400s` and priority is `normal`.
-You can set priority to either `normal` or `high`. TTL is any integer value.
-
-```yaml
-title: Front door
-message: The front door is open
-data:
-  ttl: 86400
-  priority: high
-```
-
-### Dismiss
-
-You can dismiss notifications by using `html5.dismiss` action like so:
-
-```yaml
-target: ['my phone']
-data:
-  tag: notification_tag
-```
-
-If no target is provided, it dismisses for all.
-If no tag is provided, it dismisses all notifications.
-
-### Automating notification events
+## Automating notification events
 
 During the lifespan of a single push notification, Home Assistant will emit a few different events to the event bus which you can use to write automations against.
 
@@ -206,7 +250,7 @@ Common event payload parameters are:
 
 You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
 
-#### received event
+### Received event
 
 You will receive an event named `html5_notification.received` when the
 notification is received on the device.
@@ -218,7 +262,7 @@ notification is received on the device.
       event_type: html5_notification.received
 ```
 
-#### clicked event
+### Clicked event
 
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
@@ -240,7 +284,7 @@ or
         action: open_door
 ```
 
-#### closed event
+### Closed event
 
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
@@ -251,7 +295,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
       event_type: html5_notification.closed
 ```
 
-### Making notifications work with NGINX proxy
+## Making notifications work with NGINX proxy
 
 If you use NGINX as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of an authentication token that cannot be passed through the proxy.
 

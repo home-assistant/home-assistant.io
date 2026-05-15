@@ -86,7 +86,6 @@ This integration creates the following sensors to monitor your SABnzbd instance:
 
 This automation sends a notification when a download completes:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd download complete"
   triggers:
@@ -100,13 +99,11 @@ This automation sends a notification when a download completes:
         title: "Download Complete"
         message: "SABnzbd has finished downloading and extracting files"
 ```
-{% endraw %}
 
 ### Disk space warning
 
 Get notified when your download drive is running low on space:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd low disk space warning"
   triggers:
@@ -121,13 +118,11 @@ Get notified when your download drive is running low on space:
         data:
           priority: high
 ```
-{% endraw %}
 
 ### Bandwidth management during streaming
 
 Automatically pause downloads when your media players are active:
 
-{% raw %}
 ```yaml
 - alias: "Pause downloads during movie time"
   triggers:
@@ -161,13 +156,11 @@ Automatically pause downloads when your media players are active:
       target:
         entity_id: button.sabnzbd_resume
 ```
-{% endraw %}
 
 ### Smart scheduling with speed limits
 
 Reduce download speed during peak hours and increase it during off-peak hours:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd peak hours speed limit"
   triggers:
@@ -191,13 +184,11 @@ Reduce download speed during peak hours and increase it during off-peak hours:
       data:
         value: 100
 ```
-{% endraw %}
 
 ### Dashboard card example
 
 Create a comprehensive SABnzbd monitoring card for your dashboard:
 
-{% raw %}
 ```yaml
 type: entities
 title: SABnzbd Downloads
@@ -221,7 +212,6 @@ entities:
   - entity: number.sabnzbd_speed_limit
     name: Speed limit
 ```
-{% endraw %}
 
 ## Data updates
 

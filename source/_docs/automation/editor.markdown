@@ -1,12 +1,12 @@
 ---
 title: "Automation editor"
-description: "Instructions on how to use the automation editor."
+description: "Create and edit automations from the Home Assistant user interface. The visual editor walks you through choosing a trigger, conditions, and actions, no coding needed."
 related:
   - docs: /getting-started/automation/
     title: Automating Home Assistant
 ---
 
-The automation editor is an easy way of creating and editing automations from the UI.
+The automation editor lets you create and edit automations directly from the Home Assistant user interface, without writing any YAML. The editor walks you through choosing a trigger, optional conditions, and the actions to run.
 
 This tutorial uses the [Random sensor](/integrations/random#sensor) because it generates data (by default, values between 0 and 20). This enables us to walk through the example, even if you do not have any actual sensors connected yet. You could use any other sensor that outputs a numeric value.
 
@@ -47,7 +47,7 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
     ![New automation editor](/images/docs/automation-editor/new-automation.png)
 
-    - **Result**: Automations created or edited via the user interface are activated immediately after saving the automation.
+    - Result: Automations created or edited via the user interface are activated immediately after saving the automation.
     - To learn more about automations, read the documentation for [Automating Home Assistant](/getting-started/automation/).
 
 ## Troubleshooting missing automations

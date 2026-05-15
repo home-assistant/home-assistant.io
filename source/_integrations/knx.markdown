@@ -176,7 +176,7 @@ Please see the dedicated platform sections below about how to configure them cor
 
 Group addresses are configured as strings or integers in the format "1/2/3" for 3-level GA-structure, "1/2" for 2-level GA-structure or "1" for free GA-structure.
 
-The HA KNX integration uses configured `state_address` or `*_state_address` to update the state of a function. These addresses are read by GroupValueRead requests on startup and when there was no incoming telegram for one hour (default `sync_state`).
+The Home Assistant KNX integration uses configured `state_address` or `*_state_address` to update the state of a function. These addresses are read by GroupValueRead requests on startup and when there was no incoming telegram for one hour (default `sync_state`).
 
 It is possible to configure passive/listening group addresses for all functions of every KNX platform (except `expose` and `notify`). This allows having multiple group addresses to update the state of its function (e.g., the brightness of a light). When group addresses are configured as a list of strings, the first item is the active sending or state-reading address and the rest is registered as passive addresses. This schema behaves like in ETS configuration where the first is the "sending" address and others are just for updating the group object.
 
@@ -376,8 +376,6 @@ For values that require project data: if the information was not found, or if no
 
 Example automation configuration
 
-{% raw %}
-
 ```yaml
 - alias: "Single group address trigger"
   triggers:
@@ -388,8 +386,6 @@ Example automation configuration
   conditions: "{{ trigger.value == 0 }}"
   actions: []
 ```
-
-{% endraw %}
 
 Example trigger data
 
@@ -484,8 +480,6 @@ response:
   default: false
 {% endconfiguration %}
 
-{% raw %}
-
 ```yaml
 # Example script to send a fixed value and the state of an entity
 alias: "My Script"
@@ -508,8 +502,6 @@ sequence:
       payload: "{{ states('sensor.dew_point') }}"
       response: false
 ```
-
-{% endraw %}
 
 ### Read
 
@@ -587,47 +579,76 @@ remove:
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
-KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address.
-It is also possible to expose the current time and date. These are sent to the bus every hour.
+Expose Home Assistant entity states and attributes to the KNX bus so other KNX devices can react to changes or read the latest values. You can also broadcast current time and date.
 
-{% tip %}
-Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` action to send the value to the bus.
-{% endtip %}
+### Serve current time
 
-{% raw %}
+You can broadcast the current local time, date, or combined date and time to the KNX bus every hour. This can be configured from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of time exposures via YAML" %}
 
 ```yaml
-# Example configuration.yaml entry
 knx:
   expose:
-    # time and date exposures
     - type: time
       address: "0/0/1"
-    # entity exposures
-    - type: temperature
-      entity_id: sensor.owm_temperature
-      address: "0/0/2"
-      cooldown: 600
-    - type: string
-      address: "0/6/4"
-      entity_id: sensor.owm_weather
+```
+
+{% configuration %}
+address:
+  description: The KNX group address where the time information will be sent. Other KNX devices can read the current time from this address.
+  type: string
+  required: true
+type:
+  description: Choose `time` (DPT 10.001) for time only, `date` (DPT 11.001) for date only, or `datetime` (DPT 19.001) for both date and time combined.
+  type: string
+  required: true
+{% endconfiguration %}
+
+{% enddetails %}
+
+### Entity exposures
+
+Expose Home Assistant entities to share their state or attributes with the KNX bus. Home Assistant automatically sends the current value whenever it changes and responds to read requests on the KNX bus. This can be configured from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of entity exposures via YAML" %}
+
+```yaml
+knx:
+  expose:
     - type: binary
       entity_id: binary_sensor.kitchen_window
       address: "0/6/5"
+
+    # state of an entity with default value
     - type: binary
       entity_id: light.office
       address: "0/3/0"
       default: false
-    - type: percentU8
+
+    # attribute of an entity with default value
+    - type: percent
       entity_id: light.office
       attribute: brightness
       default: 0
       address: "0/3/1"
+
+    # limit updates and send periodically
+    - type: temperature
+      entity_id: sensor.kitchen_temperature
+      address: "0/0/2"
+      cooldown:
+        minutes: 10
+      periodic_send:
+        hours: 1
+
+    # value_template examples
     - type: percent
       address: "1/1/1"
       entity_id: cover.office
       attribute: current_position
       value_template: "{{ 100 - value }}"  # invert the value
+      cooldown: 2  # seconds
     - type: percent
       address: "2/2/2"
       entity_id: media_player.kitchen
@@ -635,49 +656,51 @@ knx:
       value_template: "{{ value * 100 }}"  # convert from 0..1 to percent
 ```
 
-{% endraw %}
-
 {% configuration %}
 address:
-  description: Group address state or attribute updates will be sent to. GroupValueRead requests will be answered. For types `time`, `date`, and `datetime`, `address` is the only valid configuration variable..
+  description: The KNX group address where state updates will be sent. Other devices can read the value from this address, and Home Assistant will respond to read requests here.
   type: string
   required: true
 type:
-  description: Type of the exposed value. Either `binary`, `time` *DPT 10.001*, `date` *DPT 11.001*, `datetime` *DPT 19.001* or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
+  description: The data type. Use `binary` for on/off states or boolean values (DPT 1), or any value type from [KNX Sensor](#sensor), like `temperature`, `humidity`, `percent`, or `string`.
   type: [string, integer]
   required: true
 entity_id:
-  description: Entity ID to be exposed. Shall not be used for types `time`, `date`, and `datetime`.
+  description: The entity ID to expose.
   type: string
   required: false
 attribute:
-  description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent.
-    For example for a light the state is either "on" or "off". With `attribute` you can expose its "brightness". Shall not be used for types `time`, `date`, and `datetime`.
+  description: Expose a specific entity attribute instead of the main state. For example, use `brightness` to expose a light's brightness level instead of whether it's on or off.
   type: string
   required: false
 default:
-  description: Default value to send to the bus if the state or attribute value is `None`.
-    For example a light with state "off" has no brightness attribute so a default value of `0` could be used.
-    If not set (or `None`) no value would be sent to the bus and a GroupReadRequest to the address would return the last known value. Shall not be used for types `time`, `date`, and `datetime`.
+  description: The value to send if the entity state is unavailable or unknown, or if the attribute is not set. If `default` is omitted, nothing is sent in these cases, but the last known value remains available for read requests.
   type: [boolean, string, integer, float]
   default: None
   required: false
 value_template:
-  description: A template to process the value before sending it to the KNX bus. The template has access to the entity state or attribute value as `value`. Shall not be used for types `time`, `date`, and `datetime`.
+  description: A Jinja2 template to transform the value before sending. Access the entity state or attribute value as `value` in the template.
   required: false
   default: None
   type: template
 cooldown:
-  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent. Shall not be used for types `time`, `date`, and `datetime`.
-  type: float
-  default: 0
+  description: Minimum time between consecutive sends (in seconds or as a time period). This can be used to prevent high traffic on the KNX bus when values change very frequently. Only the most recent value during the cooldown period is sent.
+  type: [time, float]
   required: false
+  default: 0
+periodic_send:
+  description: Time interval (in seconds or as a time period) to automatically resend the current value to the KNX bus, even if it hasn't changed. `0` disables periodic sending.
+  type: [time, float]
+  required: false
+  default: 0
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`. Shall not be used for types `time`, `date`, and `datetime`.
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
   required: false
   type: boolean
   default: true
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Entity platforms
 
@@ -1707,6 +1730,10 @@ Number entities without a `state_address` will restore their last known state af
 Numbers that have a `state_address` configured request their current state from the KNX bus.
 {% endnote %}
 
+Number entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX number entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -1765,7 +1792,17 @@ mode:
   required: false
   type: string
   default: auto
+device_class:
+  description: Overrides the DPT's default [device class](/integrations/number#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  required: false
+  type: string
 {% endconfiguration %}
+
+{% enddetails %}
 
 ### Scene
 
@@ -1963,11 +2000,15 @@ always_callback:
   type: boolean
   default: false
 state_class:
-  description: Sets the [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: Overrides the DPT's default [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes).
   required: false
   type: string
 device_class:
-  description: Overrides the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Overrides the DPT's default [device class](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
   required: false
   type: string
 {% endconfiguration %}

@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: stiebel_eltron
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file

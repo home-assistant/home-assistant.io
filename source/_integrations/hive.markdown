@@ -184,3 +184,11 @@ The `hive` water heater platform integrates your Hive hot water into Home Assist
 The platform supports the following Hive products:
 
 - Hot Water Control
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+{% note %}
+Removing the integration will also deregister this Home Assistant instance from your Hive account. If you set up the integration again, you will need to register a new device during the configuration process.
+{% endnote %}

@@ -3,6 +3,7 @@ title: Watts Vision +
 description: Instructions on how to set up Watts Vision + smart heating system in Home Assistant.
 ha_category:
   - Climate
+  - Switch
 ha_release: '2026.1'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -13,8 +14,10 @@ ha_domain: watts
 ha_config_flow: true
 ha_platforms:
   - climate
-ha_integration_type: integration
-ha_quality_scale: bronze
+  - diagnostics
+  - switch
+ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
 The **Watts Vision +** {% term integration %} enables seamless control of your heating zones directly from Home Assistant.
@@ -54,7 +57,9 @@ The integration supports the following Watts Vision + devices:
 - BT-A03-RF
 - BT-TH02-RF
 - PR03-RF
-- BT-WR03
+- PR03-RF16
+- BT-WR03-RF
+- BT-WR02-RF
 
 ## Supported functionality
 
@@ -82,6 +87,13 @@ Each climate entity exposes additional attributes:
 - **Temperature unit**: Temperature unit (°C or °F)
 - **Available thermostat modes**: List of supported modes for the device
 
+### Switch entities
+
+The integration creates a switch entity for each compatible switch device in your Watts Vision + system. Each switch entity provides:
+
+- On and off control: Toggle the device on or off
+- State reporting: View the current state of the device
+
 ### Shared functionality
 
 All Watts Vision + devices share common functionality:
@@ -92,10 +104,6 @@ All Watts Vision + devices share common functionality:
 ## Data updates
 
 The Watts Vision + integration {% term polling polls %} data from the cloud API every 30 seconds. After sending commands (temperature changes, mode changes, or switch operations), the integration waits 7 seconds before refreshing to allow the device to process the change.
-
-## Known limitations
-
-Support for switch devices is not yet available and may be added in a future release.
 
 ## Use cases
 
@@ -113,8 +121,6 @@ This integration enables you to:
 ## Example automations
 
 {% details "Lower temperature when nobody is home" %}
-
-{% raw %}
 
 ```yaml
 alias: "Eco mode when away"
@@ -144,8 +150,6 @@ actions:
     data:
       temperature: 18
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

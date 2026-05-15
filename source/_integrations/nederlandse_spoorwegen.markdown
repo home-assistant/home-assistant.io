@@ -43,11 +43,17 @@ The integration provides a station selector in the UI, so you don't need to manu
 
 ## Searching for a specific train vs. the next train
 
-The default behavior (without specifying a time) gives you information about the *next* train that fits the criteria (from, to, via stations).
+The default behavior (without specifying a time) gives you information about the next available train that fits your route criteria (from, to, via stations).
 
-When you specify a departure time during route configuration, you can search for a specific train. This is convenient when searching for the next train doesn't give you enough time to base an automation on. For example, when you normally take the 08:06 train and want to get information about this specific train, but there is another train departing just minutes before your train, your time window to warn you about a delay might be too small.
+When you specify a departure time during route configuration, the integration filters trips to show only those departing at or after your specified time. This time-based filter compares only the time component (for example, 17:00), ignoring the date, so it works continuously throughout the day.
 
-Using a specific time only updates the route sensor during a time window around the chosen time. Outside this window, the route sensor's state is `unknown`. The window is from half an hour before the chosen time until half an hour after the chosen time. In this way, you can have multiple routes with specific trains before hitting the API usage limits.
+This is useful when you want to focus on specific parts of your daily schedule. For example:
+
+- Set time to "08:00" for morning commute trains
+- Set time to "17:00" to only see evening trains home
+- Avoid seeing very early morning trains when you're interested in your regular departure
+
+The sensor automatically handles day transitions. If the current time is past your configured time, it will show tomorrow's first trip at or after that time. This ensures you always see relevant upcoming trips matching your schedule, without the sensor becoming unavailable.
 
 ## Data source
 

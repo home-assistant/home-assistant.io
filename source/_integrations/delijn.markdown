@@ -51,7 +51,7 @@ next_departure:
   type: list
   keys:
     stop_id:
-      description: "ID of the stop, e.g.,  `200552`."
+      description: "ID of the stop, for example, `200552`."
       required: true
       type: string
     number_of_departures:

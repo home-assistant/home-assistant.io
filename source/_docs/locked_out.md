@@ -1,6 +1,6 @@
 ---
 title: "I'm locked out!"
-description: "Options for regaining access"
+description: "Options for regaining access to your Home Assistant when you are locked out, including resetting the owner password and recovering your data."
 related:
   - docs: /common-tasks/os/#listing-all-users-from-the-command-line
     title: Listing all usernames via command line
@@ -80,7 +80,7 @@ Use this procedure only if the following conditions are met:
 3. Once you have opened the Home Assistant command line, enter the following command:
    - **Command**: `auth reset --interactive`
    - This will display a list of users. Select your user and enter a new password when prompted.
-   - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
+   - Troubleshooting: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 4. You can now log in to Home Assistant using this new password.
 
 #### To reset a user's password, via the container command line

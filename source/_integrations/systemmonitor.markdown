@@ -51,6 +51,27 @@ One sensor per discovered network interface will be created
 - **Network throughput in**: Current inbound network speed (bytes per second)
 - **Network throughput out**: Current outbound network speed (bytes per second)
 
+### Pressure Stall Information (PSI)
+
+PSI can tell you if your system is limited by CPU, memory or IO.
+Unlike memory utilization, PSI can actually tell you if your system doesn't have enough memory.
+
+The `some` line indicates the share of time in which at least some tasks are stalled on a given resource.
+The `full` line indicates the share of time in which all non-idle tasks are stalled on a given resource simultaneously.
+In this state, actual CPU cycles are wasted, and a workload that spends extended time in this state is considered to be thrashing.
+This has a severe impact on performance, and it’s useful to distinguish this situation from a state where some tasks are stalled, but the CPU is still doing productive work.
+As such, time spent in this subset of the stall state is tracked separately and exported in the `full` averages.
+
+- Memory Pressure Some/Full 10s, 60s, 300s Average in %
+- Memory Pressure Some/Full Total in accumlated us
+- IO Pressure Some/Full 10s, 60s, 300s Average in %
+- IO Pressure Some/Full Total in accumlated us
+- CPU Pressure Some 10s, 60s, 300s Average in %
+- CPU Pressure Some Total in accumlated us
+
+- https://docs.kernel.org/accounting/psi.html
+- https://facebookmicrosites.github.io/psi/docs/overview
+
 ### Other
 
 - **Battery**: Percentage of battery remaining

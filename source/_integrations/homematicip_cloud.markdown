@@ -24,16 +24,19 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - event
   - light
   - lock
   - sensor
+  - siren
   - switch
   - valve
   - weather
 ha_integration_type: hub
 ha_codeowners:
   - '@hahn-th'
+  - '@lackas'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
@@ -247,7 +250,7 @@ Executable by administrators or within the context of an automation:
 
 ### Action examples
 
-`accesspoint_id` (SGTIN) is optional for all actions and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, the action will be performed for all configured Homematic IP Access Points.
+`accesspoint_id` (SGTIN) is optional for all actions and only relevant if you have multiple Homematic IP Accesspoints connected to Home Assistant. If empty, the action will be performed for all configured Homematic IP Access Points.
 The `accesspoint_id` (SGTIN) can be found on top of the integration page, or on the back of your Homematic IP Accesspoint.
 
 Activate eco mode with duration. 

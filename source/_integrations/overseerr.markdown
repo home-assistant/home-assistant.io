@@ -1,6 +1,6 @@
 ---
-title: Overseerr
-description: Instructions on how to set up Overseerr with Home Assistant.
+title: Seerr
+description: Instructions on how to set up Seerr with Home Assistant.
 ha_category:
   - Event
   - Multimedia
@@ -20,33 +20,33 @@ ha_platforms:
 ha_quality_scale: platinum
 ---
 
-Overseerr is a service that allows you to manage media requests and to integrate these media requests with Plex, Radarr, and Sonarr. The **Overseerr** {% term integration %} allows you to integrate your [Overseerr](https://overseerr.dev/) instance.
+Seerr is a service that allows you to manage media requests and to integrate these media requests with Plex, Jellyfin, Radarr, and Sonarr. The **Seerr** {% term integration %} allows you to integrate your [Seerr](https://seerr.dev/) instance. The integration is backward compatible with [Overseerr](https://github.com/sct/overseerr).
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 URL:
-    description: "The URL of your overseerr instance."
+    description: "The URL of your Seerr instance."
     required: true
     type: string
 API key:
-    description: "The API key of your overseerr instance, which can be found in the Overseerr settings."
+    description: "The API key of your Seerr instance, which can be found in the Seerr settings."
     required: true
     type: string
 {% endconfiguration_basic %}
 
 ## Supported versions
 
-The latest version of Overseerr is supported by this integration.
+The latest version of Seerr is supported by this integration.
 
 ## Supported functionality
 
-The Overseerr integration provides a couple of entities to Home Assistant.
+The Seerr integration provides a couple of entities to Home Assistant.
 Below is an overview of these entities.
 
 ### Events
 
-Overseerr provides an event entity for updates around media.
+Seerr provides an event entity for updates around media.
 The possible events that this entity has are:
  - `pending`
  - `approved`
@@ -55,11 +55,11 @@ The possible events that this entity has are:
  - `declined`
  - `auto_approved`
 
-Relevant data about the request are stored in the attributes.
+Relevant data about the request is stored in the attributes.
 
 ### Sensors
 
-The integration provides statistics for both requests and issues stored in Overseerr.
+The integration provides statistics for both requests and issues stored in Seerr.
 
 #### Request sensors
 
@@ -84,17 +84,17 @@ There are sensors for:
 
 ## Actions
 
-The Overseerr integration has the following actions:
+The Seerr integration has the following actions:
 
 ### Request actions
 
-- `overseerr.get_requests` - Get a list of media requests
+- `seerr.get_requests` - Get a list of media requests
 
 ### Get requests
 
-Get a list of media requests using the `overseerr.get_requests` action.
+Get a list of media requests using the `seerr.get_requests` action.
 
-- **config_entry_id** (*Required*): The ID of the Overseerr config entry to get data from.
+- **config_entry_id** (*Required*): The ID of the Seerr config entry to get data from.
 - **status** (*Optional*): The status to filter the results on.
 - **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
 - **requested_by** (*Optional*): Filter the requests based on the user ID of the requester.
@@ -107,8 +107,6 @@ The integration can be used to build automations to help and notify you of new m
 ## Example automations
 
 {% details "Send me a push notification on a new request" %}
-
-{% raw %}
 
 ```yaml
 alias: "Overseerr push notification"
@@ -133,13 +131,9 @@ actions:
         {{ state_attr('event.overseerr_last_media_event', 'subject') }} has been
         requested
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Send notification when open issues exceed threshold" %}
-
-{% raw %}
 
 ```yaml
 alias: "Notify when too many open issues"
@@ -156,13 +150,9 @@ actions:
         Warning: {{ states('sensor.overseerr_open_issues') }} open issues in Overseerr!
       title: "High Issue Count"
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Track audio issues trend with statistics sensor" %}
-
-{% raw %}
 
 ```yaml
 alias: "Monitor audio issue trends"
@@ -176,13 +166,9 @@ sensor:
       days: 7
     sampling_size: 100
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Alert when video issues spike" %}
-
-{% raw %}
 
 ```yaml
 alias: "Video issues spike alert"
@@ -199,13 +185,9 @@ actions:
         Video issues are elevated: {{ states('sensor.overseerr_video_issues') }} issues detected
       title: "Video Quality Alert"
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Daily issue report" %}
-
-{% raw %}
 
 ```yaml
 alias: "Daily Overseerr issue summary"
@@ -229,13 +211,9 @@ actions:
         Audio: {{ states('sensor.overseerr_audio_issues') }}
         Subtitle: {{ states('sensor.overseerr_subtitle_issues') }}
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Create dashboard badge for subtitle issues" %}
-
-{% raw %}
 
 ```yaml
 type: entity
@@ -243,13 +221,11 @@ entity: sensor.overseerr_subtitle_issues
 name: Subtitle Issues
 icon: mdi:subtitles
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Data updates
 
-When loading the integration, it will try to configure the webhook in Overseerr to give updates to Home Assistant.
+When loading the integration, it will try to configure the webhook in Seerr to give updates to Home Assistant.
 This makes the integration a push-based integration.
 
 When the integration receives an update about the requests, it updates the statistics to make sure they are up to date.
@@ -258,8 +234,8 @@ In addition, the integration checks for updates every 5 minutes.
 ## Known limitations
 
 There are a few known limitations for using the integration:
-- Overseerr is only capable of having one webhook set up at a time.
-This means you can only have 1 Home Assistant instance connected to your Overseerr instance at a time.
+- Seerr is only capable of having one webhook set up at a time.
+This means you can only have one Home Assistant instance connected to your Seerr instance at a time.
 - The integration is not able to function with <abbr title="cross-site request forgery">CSRF</abbr> protection turned on. In Overseer, go to **Settings** and turn off the **CSRF Protection**.
 
 ## Removing the integration
@@ -270,7 +246,7 @@ This integration follows standard integration removal, no extra steps are requir
 
 ## Troubleshooting
 
-{% details "Failed to register Overseerr webhook" %}
+{% details "Failed to register Seerr webhook" %}
 
-Make sure your Overseerr instance is able to reach your Home Assistant instance.
+Make sure your Seerr instance is able to reach your Home Assistant instance.
 {% enddetails %}

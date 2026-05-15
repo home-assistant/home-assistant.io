@@ -58,7 +58,9 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
               <span class="large"><span class="f-in">Bring</span><br> <span class="f-in">choice</span></span>
               <span class="small"><span class="hero-c-in">to</span> <span class="hero-c-in">voice</span></span>
             </h1>
-            <div class="tagline">The best way to get started with voice</div>
+            <div class="tagline">
+              <span>The best way to get started with voice</span>
+            </div>
           </div>
 
           <div class="product">
@@ -68,7 +70,12 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
               alt="Top view of the Home Assistant Voice Preview Edition">
           </div>
         </div>
+
+        <div class="logos">
+          {% include collaboration/ohf-x-nabu-casa.html %}
+        </div>
       </div>
+      
     </div>
   </section>
   <section id="timeline" data-event="0">
@@ -213,19 +220,34 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
       </div>
       <div class="wrapper outer">
         <div class="image-overlay">
-          <img src="/images/voice-pe/vpe-overlay.webp" loading="lazy"
+          <img src="/images/voice-pe/vpe-overlay-bg.webp" loading="lazy"
             alt="Front view of the Voice Preview Edition showing the speaker holes">
           <div class="wrapper">
             <a class="button secondary buy">Buy now</a>
             <small>* Recommended MSRP. Prices differ between regions due to varying local market costs and conditions,
               and subject to individual retailers.</small>
-            <img src="/images/collaboration/mobile-on-light.png" class="nc-collaboration mobile">
-            <img src="/images/collaboration/desktop-on-light.png" class="nc-collaboration desktop">
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <section id="collaboration">
+    <div class="bg-none">
+      <div class="grid"></div>
+    </div>
+    <div class="container">
+        <div class="collaboration-card">
+            <div class="collaboration-card-inner">
+                <div class="partner">Brought to you by <img src="/images/collaboration/nabu-casa--dark.svg" alt="Nabu Casa Logo">
+                </div>
+                <h3>Every purchase supports the Open Home</h3>
+                <p class="body-medium">Nabu Casa designs and builds official Home Assistant hardware. As a commercial partner of the Open Home Foundation, Nabu Casa contributes the majority of its profits to the foundation. This means every purchase supports the development of projects like Home Assistant and ESPHome.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
   <section id="controls" data-index="0">
     <div class="wrapper-outer">
       <div class="bg-navy-gradient">

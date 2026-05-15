@@ -36,7 +36,7 @@ host:
 pin:
   description: The pin code for the mower.
   required: true
-  type: integer
+  type: string
 allow_unreachable:
   description: This will allow the mower to be outside of Wi-Fi range without raising an error.
   required: false

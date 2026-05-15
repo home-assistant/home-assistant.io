@@ -78,8 +78,6 @@ This automation will activate the **Watching TV** Qbus scene when turning on you
 
 Replace `media_player.my_tv` with your TV entity and `scene.ctd_000001_watching_tv` with your Qbus scene entity.
 
-{% raw %}
-
 ```yaml
 alias: Activate TV scene when turning on TV
 description: ""
@@ -100,8 +98,6 @@ actions:
     data: {}
 ```
 
-{% endraw %}
-
 ### Qbus scene triggers media player
 
 Automations can also be triggered by Qbus scenes. The following automation will play the **Home Assistant Homies** playlist on the media player in the living room.
@@ -109,8 +105,6 @@ Automations can also be triggered by Qbus scenes. The following automation will 
 An extra condition has been added to make sure the automation is not triggered when Home Assistant reboots or when the integration reloads.
 
 Replace `scene.ctd_111111_play_music` with your Qbus scene entity id, `media_player.living_room` with your media player entity id, and fill in the `data` element as desired.
-
-{% raw %}
 
 ```yaml
 alias: Play music in living room
@@ -138,8 +132,6 @@ actions:
       media_content_id: Home Assistant Homies
       media_content_type: playlist
 ```
-
-{% endraw %}
 
 ## Known limitations
 

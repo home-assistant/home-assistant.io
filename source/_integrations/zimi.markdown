@@ -25,7 +25,7 @@ integration_type: hub
 related:
   - url: https://zimi.life/
 ha_quality_scale: bronze
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Zimi Cloud Controller** {% term integration %} allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.
@@ -77,7 +77,7 @@ It is possible to add multiple Zimi Cloud Connect devices.
 
 The integration will support all Zimi devices. Note that the naming conventions and default integration types may not be what you expect.
 
-1. Zimi devices that are generic switches will be shown in the UI as a switch and not as a light. The **Identify as light for voice control** is not available in the API to pass the necessary information to HA to correctly classify. For more details on the concept and how to change your device to the correct type after the initial integration, see [Change device type of a switch](/integrations/switch_as_x/).
+1. Zimi devices that are generic switches will be shown in the UI as a switch and not as a light. The **Identify as light for voice control** is not available in the API to pass the necessary information to Home Assistant to correctly classify. For more details on the concept and how to change your device to the correct type after the initial integration, see [Change device type of a switch](/integrations/switch_as_x/).
 2. Zimi devices and names will be mapped per HA guidelines in the table below. The user may change these names to more friendly names - see [Customizing entities](/docs/configuration/customizing-devices/).
 
 When you add a supported device, the following entities will be created:

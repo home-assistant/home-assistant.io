@@ -74,10 +74,10 @@ _Not all sensors are provided by all Smart Meters, only the available sensors ar
 - **Voltage (V)**: Active voltage measured, each phase has its own sensor.
 - **Current (A)**: Active current measured, each phase has its own sensor.
 - **Tariff**: Current tariff that is used. Can be used to keep consumption as low as possible during peak hours.
-- **Frequency (Hz)**: Net frequency.
+- **Frequency (Hz)**: Grid frequency.
 - **Voltage sags and swells**: Number of times a voltage sag or swell has been detected.
 - **Power failures**: Two sensors indicate the number of power failures detected by the smart meter. One for all power failures and another for 'long' power failures.
-- **Peak demand**: Belgium users are starting to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: one shows the current quarterly average, and another shows the peak measured this month. Both sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
+- **Peak demand**: Belgium users are charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: one shows the current quarterly average, and another shows the peak measured this month. Both sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
 - **Status light brightness**: Controls the brightness of the green status light. Error statuses are always visualized, even when the brightness is set to 0.
 
 External meters, like a gas or water meter, can be connected to your Smart meter. Each device is exposed as a separate {% term device %} with its own measurement.
@@ -89,7 +89,7 @@ External meters, like a gas or water meter, can be connected to your Smart meter
 - **Production power (W)**: Active production power measured. The reading will negative if the power is consumed. This sensor can be used in the energy dashboard as solar production power sensor.
 - **Voltage (V)**: Active voltage measured, each phase has its own sensor.
 - **Current (A)**: Active current measured, each phase has its own sensor.
-- **Frequency (Hz)**: Net frequency.
+- **Frequency (Hz)**: Grid frequency.
 - **Reactive power (VAR)**: Active reactive power measurement, each phase has its own sensor.
 - **Apparent power (VA)**: Active apparent power measurement, each phase has its own sensor.
 
@@ -100,7 +100,7 @@ External meters, like a gas or water meter, can be connected to your Smart meter
 - **Production power (W)**: Active production power measured. The reading will negative if the power is consumed. This sensor can be used in the energy dashboard as solar production power sensor.
 - **Voltage (V)**: Active voltage measured.
 - **Current (A)**: Active current measured.
-- **Frequency (Hz)**: Net frequency.
+- **Frequency (Hz)**: Grid frequency.
 - **Reactive power (VAR)***: Active reactive power measurement.
 - **Apparent power (VA)***: Active apparent power measurement.
 
@@ -126,7 +126,7 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 - **Production power (W)**: Active production power measured. The sensors reading will negative if the power is consumed. This sensor is to be used in the energy dashboard as battery power sensor.
 - **Voltage (V)**: Active voltage measured.
 - **Current (A)**: Active current consumed or produced by the battery.
-- **Frequency (Hz)**: Net frequency.
+- **Frequency (Hz)**: Grid frequency.
 - **Cycles**: Number of charge cycles the battery has gone through.
 - **State of charge (%)**: The current state of charge of the battery.
 - **Status light brightness**: Controls the brightness of the LED strip. Error statuses are always visualized, even when the brightness is set to 0.

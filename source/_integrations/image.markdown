@@ -43,8 +43,6 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 
 For example, the following action in an automation would take a snapshot from "yourimage" and save it to /tmp with a timestamped filename.
 
-{% raw %}
-
 ```yaml
 actions:
   - variables:
@@ -55,5 +53,3 @@ actions:
     data:
       filename: '/tmp/{{ entity_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
-
-{% endraw %}
