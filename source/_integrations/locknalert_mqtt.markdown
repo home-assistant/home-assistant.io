@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@rainepretorius'
-  - 'LocknAlert-Pty-LTD'
+  - '@LocknAlert-Pty-LTD'
 ha_domain: locknalert_mqtt
 ha_zeroconf: true
 ha_platforms:
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: hub
 related:
   - docs: /integrations/locknalert_mqtt/
-    title: MQTT integration
+    title: LocknAlert MQTT integration
   - docs: /integrations/alarm_control_panel/
     title: Alarm control panel integration
 ---
