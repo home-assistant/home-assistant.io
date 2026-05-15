@@ -65,7 +65,7 @@ The **LocknAlert MQTT** integration provides the following entities.
 
 ## Data updates
 
-The **LocknAlert MQTT** integration uses {% term "Local Push" %} — the LocknAlert bridge pushes state changes from your Paradox alarm panel to Home Assistant over MQTT in real time. There is no polling delay.
+The **LocknAlert MQTT** integration uses Local Push" — the LocknAlert bridge pushes state changes from your Paradox alarm panel to Home Assistant over MQTT in real time. There is no polling delay.
 
 ## Removing the integration
 
