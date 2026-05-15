@@ -53,8 +53,8 @@ The IMGW-PIB integration provides the following entities.
 - **Emergent vegetation cover**
   - **Description**: Emergent vegetation cover indicates how much of the river cross-section is occupied by plants that grow above the water surface
   - **Remarks**: Not available for all hydrological stations, disabled by default
-- **Emergent vegetation cover**
-  - **Description**: Emergent vegetation cover indicates how much of the river cross-section is occupied by plants that grow above the water surface
+- **Floating vegetation cover**
+  - **Description**: Floating vegetation cover indicates how much of the river cross-section is covered by plants floating on the water surface
   - **Remarks**: Not available for all hydrological stations, disabled by default
 - **Submerged vegetation cover**
   - **Description**: Submerged vegetation cover indicates how much of the river cross-section is occupied by plants growing under the water surface
