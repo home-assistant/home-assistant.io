@@ -87,9 +87,10 @@ At 22:30 on weeknights, check whether the bedroom humidifier has been left off. 
 - **Trigger**: Time: 22:30
 - **Condition**: Day of the week is Monday to Friday
 - **Condition**: Humidifier is off
-- **Target**: Bedroom humidifier
-- **Condition passes if**: Any
-- **Action**: Notify mobile app
+  - **Target**: Bedroom humidifier
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My device (`notify.my_device`)
 
 {% details "YAML example for a bedtime humidifier reminder" %}
 
@@ -113,7 +114,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: >
           The bedroom humidifier is off.

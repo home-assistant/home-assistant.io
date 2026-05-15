@@ -96,10 +96,11 @@ for:
 When the nursery humidifier starts humidifying again after a pause, it means the air has dried out. Send a gentle notification so you're aware the cycle has restarted overnight.
 
 - **Trigger**: Humidifier started humidifying
-- **Target**: Nursery humidifier
-- **Trigger when**: Each
+  - **Target**: Nursery humidifier
+  - **Trigger when**: Each
 - **Condition**: Time is between 22:00 and 07:00
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My device (`notify.my_device`)
 
 {% details "YAML example for a nursery humidity cycle alert" %}
 
@@ -118,7 +119,9 @@ automation: |
       after: "22:00:00"
       before: "07:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Nursery humidifier started humidifying."
 {% endexample %}
@@ -130,9 +133,9 @@ automation: |
 When the bedroom humidifier starts humidifying, turn on a low-speed fan to distribute the moisture more evenly throughout the room.
 
 - **Trigger**: Humidifier started humidifying
-- **Target**: Bedroom humidifier
-- **Trigger when**: Each
-- **For at least**: 00:00:00
+  - **Target**: Bedroom humidifier
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Action**: Fan: Turn on
 
 {% details "YAML example for running a fan when humidifying starts" %}
