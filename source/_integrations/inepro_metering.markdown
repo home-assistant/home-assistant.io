@@ -168,7 +168,9 @@ Common enabled entities include:
 - Active power.
 - Reactive and apparent power where supported.
 - Power factor.
-- Forward and reverse energy counters.
+- Import and export active energy counters, including per-phase counters where
+  supported.
+- Per-tariff active energy counters where supported.
 
 Diagnostic entities can include:
 
@@ -186,7 +188,8 @@ Configuration entities can include supported writable meter settings such as:
 - Tariff display settings.
 
 Some diagnostic or specialized entities are disabled by default to keep the
-default entity list manageable.
+default entity list manageable. This includes advanced reactive, apparent,
+quadrant, and resettable energy counters where supported by the meter.
 
 ## Actions
 
