@@ -4,8 +4,8 @@ description: Integrate your Amcrest or Dahua IP camera or doorbell with Home Ass
 ha_category:
   - Binary sensor
   - Camera
-  - Hub
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.49
 ha_domain: amcrest
@@ -17,10 +17,10 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@flacjacket'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The **Amcrest** {% term integration %} connects your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell to Home Assistant. Once set up, you can watch a live video stream, receive motion and audio alerts, manage recording, control <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras, and toggle privacy mode — all without leaving Home Assistant.
+The **Amcrest** {% term integration %} connects your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell to Home Assistant. Once set up, you can watch a live video stream, receive motion and audio alerts, manage recording, control <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras, and toggle privacy mode.
 
 To check whether your specific camera model is supported, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) in the `python-amcrest` project.
 
@@ -36,9 +36,6 @@ Password:
 Port:
   description: The HTTP port of the camera's web interface.
   default: 80
-Camera name:
-  description: A friendly name for your camera, used as the device name and the prefix for all its entities.
-  default: Amcrest Camera
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -55,17 +52,17 @@ After setup, the following entities are created for each camera.
 
 #### Binary sensors
 
-- **Motion detected** — turns on when motion is detected. Make sure motion detection is enabled in your camera under **Settings** > **Events** > **Video Detection**.
-- **Audio detected** — turns on when audio is detected. Enable this in your camera under **Settings** > **Events** > **Audio Detection**.
-- **Crossline detected** — turns on when a virtual tripwire crossing is detected.
-- **Online** — reflects whether your camera is currently reachable. Updates approximately every minute.
+- **Motion detected**: turns on when motion is detected. Make sure motion detection is enabled in your camera under **Settings** > **Events** > **Video Detection**.
+- **Audio detected**: turns on when audio is detected. Enable this in your camera under **Settings** > **Events** > **Audio Detection**.
+- **Crossline detected**: turns on when a virtual tripwire crossing is detected.
+- **Online**: reflects whether your camera is currently reachable. Updates approximately every minute.
 
 The motion, audio, and crossline sensors are event-driven — they update instantly when the camera sends a notification rather than polling on a schedule. The online sensor actively tests connectivity.
 
 #### Sensors
 
-- **PTZ preset** — shows the number of <abbr title="pan, tilt, and zoom">PTZ</abbr> preset positions saved on your camera.
-- **SD used** — shows SD card usage as a percentage. Total and used space are available as extra attributes.
+- **PTZ preset**: Shows the number of <abbr title="pan, tilt, and zoom">PTZ</abbr> preset positions saved on your camera. Disabled by default.
+- **SD used**: Shows SD card usage as a percentage. Total and used space are available as extra attributes. Disabled by default.
 
 #### Switches
 
