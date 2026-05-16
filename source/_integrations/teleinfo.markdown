@@ -26,12 +26,18 @@ By connecting a Teleinfo USB adapter to your meter's TIC output, you can monitor
 
 ### USB adapters
 
-The integration auto-discovers the following USB adapters:
+Only the **Micro Teleinfo** USB dongle is auto-discovered. It uses an FTDI chip (USB VID:PID `0403:6015`) and exposes a distinctive USB serial number starting with `TINFO-`, which lets Home Assistant recognize it specifically.
 
-- **FTDI FT2232** (USB VID:PID `0403:6015`): GCE Electronics Teleinfo USB, Cartelectronic
-- **Silicon Labs CP2102** (USB VID:PID `10C4:EA60`): Various Teleinfo USB dongles
+All other adapters are **not** auto-discovered and must be added manually using the configuration flow:
 
-You can also manually configure any serial adapter connected to the meter's TIC output.
+- Cartelectronic dongles
+- Silicon Labs CP2102/CP2102N–based dongles
+- Generic FTDI adapters without a `TINFO-` serial number
+- GPIO/UART serial connections
+
+These adapters rely on generic USB-to-serial bridge chips that are also used by a wide range of unrelated hardware (for example, Zigbee and Z-Wave coordinators), so they cannot be reliably identified as Teleinfo devices. Home Assistant intentionally does not auto-discover them to avoid disturbing other integrations that own the same serial port.
+
+To add one of these adapters, start the integration setup manually and enter the serial port path connected to the meter's TIC output (for example, `/dev/ttyUSB0` or a `/dev/serial/by-id/` path).
 
 ## Prerequisites
 
@@ -218,7 +224,9 @@ This typically indicates corrupted data on the serial line. Check for electrical
 
 ### USB device not auto-detected
 
-Only FTDI FT2232 (`0403:6015`) and Silicon Labs CP2102 (`10C4:EA60`) adapters are auto-discovered. For other adapters, use the manual configuration flow and enter the serial port path directly.
+Only the **Micro Teleinfo** dongle (FTDI `0403:6015` with a USB serial number starting with `TINFO-`) is auto-discovered. All other adapters — including Cartelectronic, Silicon Labs CP2102/CP2102N, generic FTDI, and GPIO/UART connections — must be added manually: start the integration setup and enter the serial port path directly.
+
+Earlier releases also auto-discovered any FTDI `0403:6015` or Silicon Labs CP2102 (`10C4:EA60`) device. Because those USB IDs are shared with unrelated hardware such as Zigbee and Z-Wave coordinators, that broad discovery could open and disturb serial ports owned by other integrations, so it was narrowed to the Micro Teleinfo dongle only. Existing configured devices keep working and are not affected.
 
 ## Removing the integration
 
