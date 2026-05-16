@@ -44,7 +44,7 @@ integrations:
 logger:
   default: critical
   logs:
-    # log level for HA core
+    # log level for Home Assistant Core
     homeassistant.core: fatal
 
     # log level for MQTT integration
@@ -86,13 +86,20 @@ where **namespace** is the *<component_namespace>* currently logging.
     keys:
       '&lt;component_namespace&gt;':
         description: Logger namespace of the integration. See [log_level](#log-levels).
-        type: string
+        type: string 
+  ignore:
+    description: Regular Expression system wide logging filters.
+    required: false
+    type: list
+    keys:
+      '&lt;component_namespace&gt;':
+        description: List of Regular Expressions. See [Log Filters](#log-filters).
   filters:
     description: Regular Expression logging filters.
     required: false
     type: map
     keys:
-      '&lt;component_namespace&gt;':
+      '&lt;log-filter&gt;':
         description: Logger namespace of the integration and a list of Regular Expressions. See [Log Filters](#log-filters).
         type: list
 {% endconfiguration %}
@@ -135,6 +142,23 @@ logger:
       - "Request to .*unreliable.com.* Timed Out"
     homeassistant.components.nws:
       - "^Error handling request$"
+```
+
+### Log ingore
+
+System wide Regular Expression filters for logs. A message is omitted if it matches the Regular Expression.
+
+An example configuration might look like this:
+
+```yaml
+# Example configuration.yaml entry
+logger:
+  default: info
+  logs:
+    custom_components.my_integration: critical
+  ignore:
+    - "HTTP 429" # Filter all HTTP 429 errors
+    - "Timed Out"
 ```
 
 ## Actions
