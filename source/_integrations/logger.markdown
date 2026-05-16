@@ -86,7 +86,7 @@ where **namespace** is the *<component_namespace>* currently logging.
     keys:
       '&lt;component_namespace&gt;':
         description: Logger namespace of the integration. See [log_level](#log-levels).
-        type: string 
+        type: string
   ignore:
     description: Regular Expression system wide logging filters.
     required: false
