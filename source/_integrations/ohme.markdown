@@ -189,9 +189,7 @@ You may need to power cycle your charger. Please see the [manufactuer's guidance
 
 ## Data updates
 
-This integration fetches data every 30 seconds with the following exceptions:
-- CT readings are fetched every minute.
-- Device settings are fetched every 30 minutes.
+This integration fetches data every 30 seconds with the exception of device settings which are fetched every 30 minutes.
 
 ## Known limitations
 
