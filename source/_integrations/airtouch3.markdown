@@ -1,5 +1,5 @@
 ---
-title: AirTouch 3 Air Conditioner
+title: AirTouch 3
 description: Instructions on how to integrate AirTouch 3 air conditioning systems with Home Assistant.
 ha_category:
   - Climate
@@ -16,7 +16,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **AirTouch 3 Air Conditioner** {% term integration %} allows you to control AirTouch 3 ducted air conditioning systems from Home Assistant.
+The **AirTouch 3** {% term integration %} allows you to control AirTouch 3 ducted air conditioning systems from Home Assistant.
 
 The integration connects locally to the AirTouch 3 controller and creates climate entities for the air conditioner and its configured zones.
 
@@ -24,7 +24,7 @@ The integration connects locally to the AirTouch 3 controller and creates climat
 
 The AirTouch 3 controller must be connected to the same local network as Home Assistant and must be reachable from Home Assistant on TCP port `8899`.
 
-Before setting up the integration, make sure you know the IP address or hostname of the AirTouch 3 controller. It is recommended to configure a static IP address or DHCP reservation for the controller.
+Before setting up the integration, make sure you know the IP address or hostname of the AirTouch 3 controller. Set up a static IP address or DHCP reservation for the controller.
 
 {% include integrations/config_flow.md %}
 
