@@ -93,7 +93,7 @@ where **namespace** is the *<component_namespace>* currently logging.
     type: list
     keys:
       '&lt;component_namespace&gt;':
-        description: List of Regular Expressions. See [Log Filters](#log-filters).
+        description: System-wide regular expression filters. See [Log Ignore](#log-ignore)
   filters:
     description: Regular Expression logging filters.
     required: false
@@ -144,7 +144,7 @@ logger:
       - "^Error handling request$"
 ```
 
-### Log ingore
+### Log Ignore
 
 System wide Regular Expression filters for logs. A message is omitted if it matches the Regular Expression.
 
