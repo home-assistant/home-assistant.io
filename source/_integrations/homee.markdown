@@ -71,7 +71,7 @@ Password:
 {% endconfiguration_basic %}
 
 Available devices will automatically show up in your Home Assistant installation.
-New devices added to homee will be automatically added to Home Assistant as they are created. If a device is deleted in homee, it will also disappear from Home Assistant.
+Devices you add in homee appear automatically in Home Assistant. If you remove a device from homee, it is also removed from Home Assistant.
 
 ## Limitations
 
