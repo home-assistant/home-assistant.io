@@ -73,6 +73,11 @@ Password:
 Available devices will automatically show up in your Home Assistant installation.
 New devices added to homee will be automatically discovered after a restart of Home Assistant. This restart is only required when adding new devices, not for state updates of existing devices.
 
+## Homeegrams (automations)
+
+Homeegrams are {% term automations %} in homee. The Integration implements them as {% term switches %}, with which the user can trigger them and which momentarily turn on if the Homeegram is played in homee, so it can also be used as {% term trigger %} in Home Assistant.
+Only Homeegrams, that perform at least 2 actions are enabled by default, to prevent spamming your Home Assistant installation with lots of entities, that don't give added value.
+
 ## Limitations
 
 Changed values are reported from homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.
