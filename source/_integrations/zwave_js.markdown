@@ -85,7 +85,7 @@ Once you have set up the Z-Wave server, you can [add devices to the network](#ad
    - In the dialog, select **Recommended installation**.
      - This will install the Z-Wave JS app on the Home Assistant server.
    - Add the device to an {% term area %} and select **Finish**.
-   - **Troubleshooting**: If your adapter is not recognized, follow [these steps](#my-z-wave-adapter-isnt-recognized-automatically-during-setup).
+   - Troubleshooting: If your adapter is not recognized, follow [these steps](#my-z-wave-adapter-isnt-recognized-automatically-during-setup).
 
 3. Wait for the installation to complete.
 4. Depending on your Home Assistant version, you may be prompted for network security keys.
@@ -113,7 +113,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
    - **Option 1: your device supports SmartStart**:
      - Make sure the device is turned off.
      - Select **Scan QR code** and scan the QR code on your device.
-       - **Troubleshooting**: If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
+       - Troubleshooting: If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
      - If the device supports Z-Wave Long Range, you're prompted to choose the network type.
        - **Long Range**: If it is far away from other devices, or that spot has had connection issues in the past. It might also help preserve battery life.
        - **Mesh**: If you already have a mesh network. Adding it can enhance coverage and reliability of this network.
@@ -124,7 +124,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 5. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
-6. **Troubleshooting**: If the adapter fails to add/find your device, cancel the inclusion process.
+6. Troubleshooting: If the adapter fails to add/find your device, cancel the inclusion process.
    - In some cases, it might help to first [remove](#removing-a-device-from-a-foreign-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
@@ -204,7 +204,7 @@ There is no easy way to update that device.
    - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](https://www.home-assistant.io/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
 7. Select **Submit**.
    - The new adapter is now being paired with your existing Z-Wave network.
-   - **Troubleshooting**: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
+   - Troubleshooting: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
      - Once your old adapter is connected and the network is operational, repeat the migration steps.
      - Make sure to select the new controller this time (instead of **Use socket**).
 8. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.

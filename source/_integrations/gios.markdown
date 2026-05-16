@@ -68,8 +68,6 @@ The following examples show how to use the integration in Home Assistant automat
 
 The following example sends a notification to your mobile device when the PM10 level exceeds 100 µg/m³.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Notify when PM10 level is too high"
@@ -86,8 +84,6 @@ automation:
             The PM10 level is too high at {{ states('sensor.czerniawa_pm10') }} µg/m³.
             Avoid going outside.
 ```
-
-{% endraw %}
 
 ## Known limitations
 

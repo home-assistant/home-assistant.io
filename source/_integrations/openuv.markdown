@@ -97,7 +97,6 @@ configured via the config entry options within the UI. Two parameters are given:
 Update the UV index data every 20 minutes while the sun is at least 10 degrees above the
 horizon:
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Update OpenUV"
@@ -114,7 +113,6 @@ automation:
         target:
           entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
-{% endraw %}
 
 Update the protection window once a day at 12:00pm:
 
@@ -135,7 +133,6 @@ varies, you need to know the total hours of daylight on the longest day of the y
 for example, this is 17 hours, you can perform 2 calls around every 45 minutes without
 running into the 50 API call limit per day:
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Update OpenUV"
@@ -172,7 +169,6 @@ automation:
             - binary_sensor.LATITUDE_LONGITUDE_protection_window
             - sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
-{% endraw %}
 
 ## Expired API Keys and Re-authentication
 

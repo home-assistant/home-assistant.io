@@ -26,7 +26,7 @@ ha_platforms:
   - sensor
 ---
 
-This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. To open this folder, go to **Settings** > **Devices & services** > **Google Drive**, and select **Visit**. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
 
 For a video walkthrough of the setup instructions, see this video from 13:50 to 19:20
 <lite-youtube videoid="pZlYu9bN72U" videoStartAt="830" videotitle="Automate Your Home Assistant Backups Like A Pro!" posterquality="maxresdefault"></lite-youtube>
@@ -66,8 +66,6 @@ Send an alert when the drive usage is close to the storage limit and needs clean
 
 Create an automation with the following code. Remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & Services** > **Entities**) and replace `notify.mobile_app_your_device` with your actual notifier.
 
-{% raw %}
-
 ```yaml
 alias: Alert when Google Account is close to storage limit
 description: Send notification to phone when drive needs clean up.
@@ -85,8 +83,6 @@ actions:
         Google Account has used up {{ states('sensor.your_email_gmail_com_used_storage') }}GB of {{
         states('sensor.your_email_gmail_com_total_available_storage') | float }}GB.
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Removing the integration

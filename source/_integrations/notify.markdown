@@ -79,8 +79,6 @@ Under {% my developer_services title="**Settings** > **Developer tools** > **Act
 
 If you switch to view the YAML data under **Developer tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %}. The YAML will appear the same:
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
@@ -89,11 +87,7 @@ data:
   title: "Status changed"
 ```
 
-{% endraw %}
-
-The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
-
-{% raw %}
+The notify integration supports specifying [templates](/docs/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
 
 ```yaml
 actions:
@@ -103,15 +97,11 @@ actions:
     message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
 ```
 
-{% endraw %}
-
 ### Examples with the legacy notify action
 
 In the **Developer tools**, on the **Action** tab, select the **Notifications: Send a persistent notification** action. Enter a message and test sending it.
 
 If you switch to view the YAML data under **Developer tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %} actions, whose YAML will appear the same:
-
-{% raw %}
 
 ```yaml
 action: notify.persistent_notification
@@ -119,11 +109,7 @@ data:
   message: "Can you hear me now?"
 ```
 
-{% endraw %}
-
-The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
-
-{% raw %}
+The notify integration supports specifying [templates](/docs/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
 
 ```yaml
 actions:
@@ -132,15 +118,9 @@ actions:
       message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
 ```
 
-{% endraw %}
-
-{% raw %}
-
 ```yaml
 actions:
   - action: notify.persistent_notification
     data:
       message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```
-
-{% endraw %}

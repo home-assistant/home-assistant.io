@@ -28,8 +28,4 @@ For more information on setting up Matter with Nuki devices, refer to the [Nuki 
 
 ## Supported devices
 
-The following devices are supported:
-
-- [Nuki Smart Lock Go](https://nuki.io/en-uk/products/smart-lock-go)
-- [Nuki Smart Lock Pro](https://nuki.io/en-uk/products/smart-lock-pro-5th-gen)
-- [Nuki Smart Lock Ultra](https://nuki.io/en-uk/products/smart-lock-ultra)
+{% include integrations/device_list.html brand="nuki" %}

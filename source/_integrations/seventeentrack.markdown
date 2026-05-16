@@ -34,21 +34,6 @@ Although the 17track.net website states that account passwords cannot be longer 
 - Delivered
 - Returned
 
-## Package-level attributes
-
-Each package entry (for example, within a status sensor) contains the following attributes.
-
-- package.friendly_name
-- package.status
-- package.destination_country
-- package.info_text
-- package.timestamp
-- package.location
-- package.origin_country
-- package.package_type
-- package.tracking_info_language
-- package.tracking_number
-
 ## Examples
 
 ### Dashboard summary card
@@ -79,8 +64,6 @@ template:
 
 Then use a templated Markdown card to list all packages in transit along with their status:
 
-{% raw %}
-
 ```yaml
 type: markdown
 title: Packages in transit
@@ -92,8 +75,6 @@ content: >
 
   {% endfor %}
 ```
-
-{% endraw %}
 
 {% tip %}
 To find your `config_entry_id`, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the 17Track integration, click the three-dot menu, and select **Copy entry ID**.

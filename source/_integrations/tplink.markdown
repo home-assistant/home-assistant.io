@@ -91,7 +91,11 @@ The hub attached Tapo buttons S200B and S200D, which do not currently support al
 {% endnote %}
 
 {% note %}
-Some firmware versions of Tapo Cameras will not authenticate unless you enable **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app.
+Some firmware versions (e.g., for Tapo Cameras or KH100 hub) require explicit activation of third-party integrations before they will allow access from Home Assistant.
+If you encounter authentication issues, ensure that Third-Party Compatibility is enabled within the device settings of the official vendor app.
+The option can be found under **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app or **Settings** > **Third-Party Compatibility** in the Kasa app,
+depending on the device you are integrating.
+
 Alternatively, you can factory reset and then prevent the device from accessing the internet.
 {% endnote %}
 
@@ -105,7 +109,9 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 - **Hubs**: KH100[^1]
 - **Hub-Connected Devices[^3]**: KE100[^1]
 
-### Supported Tapo[^1] devices
+### Supported Tapo devices
+
+Tapo devices require authentication.
 
 - **Plugs**: P100, P105, P110, P110M, P115, P125M, P135, TP15
 - **Power Strips**: P210M, P300, P304M, P306, TP25

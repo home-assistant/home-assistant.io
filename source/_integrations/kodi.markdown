@@ -226,8 +226,6 @@ This example and the following requires to have the [script.json-cec](https://gi
 
 #### Simple script to turn on the PVR in some channel as a time function
 
-{% raw %}
-
 ```yaml
 script:
   play_kodi_pvr:
@@ -259,11 +257,7 @@ script:
             {% endif %}
 ```
 
-{% endraw %}
-
 #### Simple script to play a smart playlist
-
-{% raw %}
 
 ```yaml
 script:
@@ -281,8 +275,6 @@ script:
           media_content_type: DIRECTORY
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
-
-{% endraw %}
 
 #### Trigger a Kodi video library update
 
@@ -426,8 +418,6 @@ data:
 
 A example of a automation to turn up/down the volume of a receiver using the event:
 
-{% raw %}
-
 ```yaml
 alias: Kodi keypress
 mode: parallel
@@ -454,5 +444,3 @@ actions:
             target:
               entity_id: media_player.receiver
 ```
-
-{% endraw %}

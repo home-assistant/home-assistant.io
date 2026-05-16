@@ -23,19 +23,19 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 You must enter a URL in at least one of the fields **Still Image URL** or **Stream Source URL**, the others are optional.
 
-[Templates](/docs/configuration/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access are checked during the configuration steps.
+[Templates](/docs/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access are checked during the configuration steps.
 
 {% configuration_basic %}
 Still Image URL:
-  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/docs/configuration/templating/). Usernames and passwords are allowed in the URL, but if none are provided, the `Username` and `Password` settings will be used during authentication.  At least one of still_image_url or stream_source must be provided."
+  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/docs/templating/). Usernames and passwords are allowed in the URL, but if none are provided, the `Username` and `Password` settings will be used during authentication.  At least one of still_image_url or stream_source must be provided."
 Stream Source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/docs/configuration/templating/). Usernames and passwords are allowed in the URL, but if none are provided, the `Username` and `Password` settings will be used during authentication.  At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/docs/templating/). Usernames and passwords are allowed in the URL, but if none are provided, the `Username` and `Password` settings will be used during authentication.  At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured."
 Username:
   description: The username for accessing your camera. Note that this applies to both still_image_url and stream_source.
 Password:
   description: The password for accessing your camera. Note that this applies to both still_image_url and stream_source.
-Advanced settings:
-  description: Advanced settings are only needed for special cases. Leave them unchanged unless you know what you are doing.
+More options:
+  description: These options are only needed for special cases.
   keys:
     Frame Rate:
       description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
@@ -48,7 +48,7 @@ Advanced settings:
     Limit refetch to URL change:
       description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
     Use wallclock as timestamps:
-      description: ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ).
+      description: Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (for example, EZVIZ).
 {% endconfiguration_basic %}
 
 <p class='img'>

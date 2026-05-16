@@ -475,13 +475,9 @@ Every 4 hours, the actual firmware version in the Envoy is compared to the known
 
 The firmware version is not available as an entity, but rather as an attribute of the envoy. To use the firmware in automation, scripts or templates, use below example with any envoy entity.
 
-{% raw %}
-
 ```yaml
 {{device_attr(device_id('sensor.envoy_SN_current_power_production'),'sw_version')}}
 ```
-
-{% endraw %}
 
 ### Firmware update alert
 

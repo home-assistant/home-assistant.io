@@ -64,7 +64,6 @@ providing feedback if the date is a workday or not.
 | ---------------------- | -------- | ----------- | --------|
 | `check_date` | yes | Date to test if workday or not. | 2022-03-10
 
-{% raw %}
 ```yaml
 action: workday.check_date
 target:
@@ -73,7 +72,6 @@ data:
   check_date: "2023-12-25"
 response_variable: check_date
 ```
-{% endraw %}
 
 The response data field `check_date` is providing:
 

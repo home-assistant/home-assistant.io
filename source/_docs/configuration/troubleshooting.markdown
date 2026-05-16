@@ -118,19 +118,29 @@ To enable debug logging for a specific integration, follow these steps:
       <img src='/images/docs/configuration/enable-debug-logging.png' alt='Screenshot showing the Enable debug logging button on an integration detail page'>
       Screenshot showing the <b>Enable debug logging</b> menu item.
     </p>
-4. To see the error in the logs, you need to reproduce the error. Continue with the steps on [disabling debug logging and download logs](#disable-debug-logging-and-download-logs).
+4. To see the error in the logs, you need to reproduce the error.
+   - Run your automation, change up your device or whatever was giving you an error.
+5. Continue with the steps on [disabling debug logging and download logs](#disable-debug-logging-and-download-logs).
 
 ### Disable debug logging and download logs
 
-Once you enable debug logging, you ideally need to make the error happen. Run your automation, change up your device or whatever was giving you an error and then come back and disable the debug logging. Disabling the debug logging is the same as enabling, but now the menu option says **Disable debug logging**. After you disable it, you will be automatically prompted you to download your log file. Save this to a safe location to upload later.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the integration for which you want to disable debug logging.
+3. In the top right of the page, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable debug logging**.
+4. After you disable it, you will be prompted to download your log file.
+   - Save this to a safe location to upload later.
 
 ### Download diagnostics
 
-After you download logs, you will also want to download the diagnostics for the integration giving you trouble. If the integration provides diagnostics, it will appear in the three dots {% icon "mdi:dots-vertical" %} menu next to the integration configuration.
+After you download logs, you will also want to download the diagnostics for the integration giving you trouble. Not all integrations provide diagnostics, but if they do, you can download them by following these steps:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the integration.
+3. In the top right of the integration card, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Download diagnostics**.
 
 <p class='img'>
   <img src='/images/docs/configuration/download-diagnostics.png' alt='Example of Download Diagnostics'>
-  Example of Download Diagnostics.
+  Example showing the <b>Download diagnostics</b> button on the Zigbee integration card.
 </p>
 
 ### Handling unexpected restarts or crashes

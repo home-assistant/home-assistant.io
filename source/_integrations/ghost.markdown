@@ -10,16 +10,17 @@ ha_codeowners:
   - '@johnonolan'
 ha_domain: ghost
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: gold
 ---
 
 The **Ghost** {% term integration %} allows you to monitor your [Ghost](https://ghost.org) publication metrics in Home Assistant, including member counts, revenue, post statistics, and email newsletter performance.
 
 ## Prerequisites
 
-- A Ghost site running version 5.0 or later
+- A Ghost site running version 6.0 or later
 - A Ghost administrator staff user account
 
 ### Create a Ghost Admin API integration
@@ -93,7 +94,6 @@ The integration {% term polling polls %} your Ghost site every 5 minutes to upda
 
 ### Announce milestone member counts
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Member milestone celebration"
@@ -109,7 +109,6 @@ automation:
           title: "Milestone reached!"
           message: "You now have {{ trigger.to_state.state }} members!"
 ```
-{% endraw %}
 
 ## Known limitations
 

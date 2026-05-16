@@ -8,7 +8,7 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: telegram_bot
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: gold
 ha_codeowners:
   - '@hanwg'
 ha_platforms:
@@ -54,10 +54,8 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
    - BotFather will give you a link to your new bot and an HTTP **API token**.
    - Store the **API token** somewhere safe, it will be used for setting up the integration later.
 2. Get your **chat ID**:
-   - Send any message to the [GetIDs bot](https://t.me/getidsbot).
-   - Then, enter `/start`.
-   - The bot will return your **chat ID** and username.
-   - Note down your **chat ID**. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
+   - Send any message to [@id_bot](https://t.me/id_bot).
+   - Note down the value of the **ID** field in the bot's response. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
 3. Make the first contact with your new bot (bots are not allowed to initiate contact with users):
    - From the conversation with BotFather, select the link to open a chat.
    - In the chat, enter `/start`.
@@ -140,7 +138,11 @@ Proxy URL:
 ### Webhooks configuration
 
 {% note %}
-If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field as IP address of incoming requests are not forwarded to your Home Assistant.
+If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field because the IP address of incoming requests is not forwarded to your Home Assistant.
+{% endnote %}
+
+{% note %}
+If you are using a custom **API endpoint**, you must include the IP address or IP range of the server in CIDR notation, like `192.168.0.0/16`, in the **Trusted networks** field.
 {% endnote %}
 
 If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.
@@ -179,8 +181,6 @@ You can use the `notify.send_message` action to publish notifications.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
@@ -188,13 +188,32 @@ data:
   entity_id: notify.telegram_bot_chat
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+Available actions:
+
+- `answer_callback_query`
+- `delete_message`
+- `edit_caption`
+- `edit_message_media`
+- `edit_message`
+- `edit_replymarkup`
+- `leave_chat`
+- `send_animation`
+- `send_chat_action`
+- `send_document`
+- `send_location`
+- `send_media_group`
+- `send_message_draft`
+- `send_message`
+- `send_photo`
+- `send_poll`
+- `send_sticker`
+- `send_video`
+- `send_voice`
+- `set_message_reaction`
 
 Chat targets can be specified in any of the following ways:
 
@@ -222,7 +241,7 @@ Send a notification.
 | `one_time_keyboard`        | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`                 | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`              | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `message_tag`              | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                       |
 | `reply_to_message_id`      | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                           |
 | `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
@@ -393,6 +412,25 @@ Send a document.
 
 This action returns a [send message response](#send-message-response).
 
+### Action `telegram_bot.send_media_group`
+
+Sends a group of photos, videos, documents or audios as an album.
+Documents and audio files can be only grouped in an album with messages of the same type.
+
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the media. |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the media. Required if you have multiple Telegram bots. |
+| `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `media`                | no       | A list where each item contains the following:<br/><ul><li>`media_type`: Required. Valid media types: `animation`, `audio`, `document`, `photo`, or `video`.</li><li>`url`: Remote path to a document.</li><li>`file`: Local path to a document.</li><li>`caption`: The title of the media.</li><li>`authentication`: Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.</li><li>`username`: Username for a URL which requires HTTP `basic` or `digest` authentication.</li><li>`password`: Password (or bearer token) for a URL that requires authentication.</li><li>`verify_ssl`: True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.</li></ul> |
+| `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
+| `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
+| `protect_content`      | yes      | Protects the contents of the sent message from forwarding and saving. |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_location`
 
 Send a location.
@@ -446,6 +484,20 @@ Send a chat action. Use it to notify the user with the relevant "typing" action 
 | `chat_id`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
 | `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
+
+### Action `telegram_bot.send_message_draft`
+
+Send a temporary message to the chat. The message will disappear after a few seconds. You can use it to send partial messages while the full message is being generated or as an indication of an ongoing process.
+
+| Data attribute | Optional | Description                                                      |
+| ------------------- | -------- | ---------------------------------------------------------------- |
+| `entity_id`         | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the message. |
+| `config_entry_id`   | yes      | The configuration entry representing the Telegram bot to send the draft message. Required if you have multiple Telegram bots. |
+| `chat_id`           | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `message`           | no       | Text for the notification.                                       |
+| `parse_mode`        | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`. |
+| `draft_id`          | no       | Unique identifier of the message draft; must be a positive integer. Changes of drafts with the same identifier are animated. |
+| `message_thread_id` | yes      | Send the message to a specific topic or thread.                  |
 
 ### Action `telegram_bot.edit_message`
 
@@ -616,8 +668,10 @@ Example response:
 chats:
   - chat_id: 1234567890
     message_id: 100
+    entity_id: notify.telegram_bot_chat
   - chat_id: -1234567890
     message_id: 200
+    entity_id: notify.telegram_bot_chat
 ```
 
 ## Telegram notification platform
@@ -675,8 +729,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -697,8 +749,6 @@ actions:
         File ID     : {{ trigger.to_state.attributes.file_id }} 
         File name   : {{ trigger.to_state.attributes.file_name }}
 ```
-
-{% endraw %}
 
 ### Event: Callback query received
 
@@ -734,8 +784,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -754,8 +802,6 @@ actions:
         Callback ID   : {{ trigger.to_state.attributes.id }}
         Callback query: {{ trigger.to_state.attributes.data }}
 ```
-
-{% endraw %}
 
 ### Event: Command received
 
@@ -786,8 +832,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -806,8 +850,6 @@ actions:
         Command: {{ trigger.to_state.attributes.command }}
         Args   : {{ trigger.to_state.attributes.args }}
 ```
-
-{% endraw %}
 
 ### Event: Text received
 
@@ -836,8 +878,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -858,8 +898,6 @@ actions:
       Last name : {{ trigger.to_state.attributes.from_last }}
       Message   : {{ trigger.to_state.attributes.text }}
 ```
-
-{% endraw %}
 
 ### Event: Message sent
 
@@ -888,8 +926,6 @@ user_id: "<id of the sender>"
 
 Example automation:
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -910,8 +946,6 @@ actions:
         
 ```
 
-{% endraw %}
-
 ### Sample automations with inline keyboards and callback queries
 
 A quick example to show some of the callback capabilities of inline keyboards with a dumb automation consisting in a simple repeater of normal text that presents an inline keyboard with 3 buttons: 'EDIT', 'NO' and 'REMOVE BUTTON':
@@ -921,8 +955,6 @@ A quick example to show some of the callback capabilities of inline keyboards wi
 - Pressing 'REMOVE BUTTON' changes the inline keyboard removing that button.
 
 Text repeater:
-
-{% raw %}
 
 ```yaml
 alias: Telegram bot that repeats text
@@ -946,11 +978,7 @@ actions:
         - Remove this button:/remove_button
 ```
 
-{% endraw %}
-
 Message editor:
-
-{% raw %}
 
 ```yaml
 alias: Telegram bot that edits the last sent message
@@ -988,11 +1016,7 @@ actions:
         Data: {{ trigger.to_state.attributes.data|replace("_", "\_") }}
 ```
 
-{% endraw %}
-
 Keyboard editor:
-
-{% raw %}
 
 ```yaml
 alias: Telegram bot that edits the keyboard
@@ -1023,11 +1047,7 @@ actions:
       message_id: last
 ```
 
-{% endraw %}
-
 Only acknowledges the 'NO' answer:
-
-{% raw %}
 
 ```yaml
 alias: Telegram bot that simply acknowledges
@@ -1051,14 +1071,10 @@ actions:
       callback_query_id: "{{ trigger.to_state.attributes.id }}"
 ```
 
-{% endraw %}
-
 ### Sample automation to receive `chat_id` and `message_id` identifiers of sent messages
 
 The following sample automation stores the `chat_id` and `message_id` of the last sent message using input entities.
 These attributes can then be used in other **Telegram bot** actions.
-
-{% raw %}
 
 ```yaml
 alias: Notifications about messages sent by Telegram bot
@@ -1083,8 +1099,6 @@ actions:
     target:
       entity_id: input_number.message_id # Replace with your input entity
 ```
-
-{% endraw %}
 
 ## Example: send_message with formatted Text
 
@@ -1121,8 +1135,6 @@ actions:
 
 ## Example: send_message then edit it after a delay
 
-{% raw %}
-
 ```yaml
 actions:
   - action: telegram_bot.send_message
@@ -1138,8 +1150,6 @@ actions:
       message_id: "{{ response.chats[0].message_id }}"
 ```
 
-{% endraw %}
-
 ## Example: send_message to a topic within a group
 
 ```yaml
@@ -1150,9 +1160,21 @@ actions:
       message_thread_id: 123
 ```
 
-## Example: automation to send a message and delete after a delay
+## Example: send_media_group
 
-{% raw %}
+```yaml
+actions:
+  - action: telegram_bot.send_media_group
+    data:
+      media:
+        - url: https://example/image.jpg
+          caption: My album
+          media_type: photo
+        - url: https://example/video.mp4
+          media_type: video
+```
+
+## Example: automation to send a message and delete after a delay
 
 ```yaml
 alias: telegram send message and delete
@@ -1172,7 +1194,45 @@ actions:
       for_each: "{{ response.chats }}"
 ```
 
-{% endraw %}
+## Example: Multi-step automation that reports progress using draft messages
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your Telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your Telegram bot event entity
+    attribute: text
+    state: "Start morning routine"
+actions:
+  - action: telegram_bot.send_message_draft
+    data:
+      draft_id: 1
+      message: "_Opening shades..._"
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
+  - action: cover.open_cover
+    target:
+      entity_id: cover.bedroom
+  - action: telegram_bot.send_message_draft
+    data:
+      draft_id: 1
+      message: "_Adjusting thermostat..._"
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
+  - action: climate.set_temperature
+    target:
+      entity_id: climate.bedroom
+    data:
+      temperature: 24
+  - action: telegram_bot.send_message
+    data:
+      message: "Done!"
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
+```
 
 ## Known limitations
 
