@@ -46,9 +46,7 @@ After setup, the following entities are created for each camera.
 
 #### Camera
 
-- **Camera**
-  - Provides a live video stream, still image snapshots, and on/off control.
-  - Supports MJPEG streaming, snapshot-based streaming, and WebRTC (via go2rtc, if configured).
+- **Camera**: Provides a live video stream, still image snapshots, and on/off control. Supports MJPEG streaming, snapshot-based streaming, and WebRTC (via go2rtc, if configured).
 
 #### Binary sensors
 
@@ -90,49 +88,63 @@ The **Amcrest** integration provides the following {% term actions %}. Each acti
 
 ### Action: Enable audio / disable audio
 
-`amcrest.enable_audio` and `amcrest.disable_audio` — enable or disable the camera's audio stream.
+The `amcrest.enable_audio` and `amcrest.disable_audio` {% term actions %} allow you to enable or disable the camera's audio stream.
 
-- **`entity_id`** (required): The entity ID of the camera. May be a list of multiple entity IDs. Use `all` to target every Amcrest camera.
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
 ### Action: Enable motion recording / disable motion recording
 
-`amcrest.enable_motion_recording` and `amcrest.disable_motion_recording` — enable or disable motion-triggered recording to the camera's configured storage.
+The `amcrest.enable_motion_recording` and `amcrest.disable_motion_recording` {% term actions %} allow you to enable or disable motion-triggered recording from the camera to its configured storage.
 
-- **`entity_id`** (required): The entity ID of the camera. May be a list of multiple entity IDs. Use `all` to target every Amcrest camera.
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
 ### Action: Enable recording / disable recording
 
-`amcrest.enable_recording` and `amcrest.disable_recording` — enable or disable continuous recording to the camera's configured storage.
+The `amcrest.enable_recording` and `amcrest.disable_recording` {% term actions %} allow you to enable or disable continuous recording from the camera to its configured storage.
 
-- **`entity_id`** (required): The entity ID of the camera. May be a list of multiple entity IDs. Use `all` to target every Amcrest camera.
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
 ### Action: Go to preset
 
-`amcrest.goto_preset` — move a <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
+The `amcrest.goto_preset` action allows you to move a compatible <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
 
-- **`entity_id`** (required): The entity ID of the camera. May be a list of multiple entity IDs. Use `all` to target every Amcrest camera.
-- **`preset`** (required): The preset number, starting from 1.
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| `preset` | no | Preset number, starting from 1. |
 
 ### Action: Set color mode
 
-`amcrest.set_color_bw` — set the camera's day/night color mode.
+The `amcrest.set_color_bw` action allows you to choose the camera's day and night color mode.
 
-- **`entity_id`** (required): The entity ID of the camera. May be a list of multiple entity IDs. Use `all` to target every Amcrest camera.
-- **`color_bw`** (required): One of `auto`, `bw`, or `color`.
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| `color_bw` | no | One of `auto`, `bw`, or `color`. |
 
 ### Action: Start tour / stop tour
 
-`amcrest.start_tour` and `amcrest.stop_tour` — start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour.
+The `amcrest.start_tour` and `amcrest.stop_tour` {% term actions %} allow you to start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour.
 
-- **`entity_id`** (required): The entity ID of the camera. May be a list of multiple entity IDs. Use `all` to target every Amcrest camera.
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
 ### Action: PTZ control
 
-`amcrest.ptz_control` — pan, tilt, or zoom a compatible camera in real time.
+The `amcrest.ptz_control` action allows you to pan, tilt, or zoom an Amcrest or Dahua camera that supports <abbr title="pan, tilt, and zoom">PTZ</abbr>.
 
-- **`entity_id`** (required): The entity ID of the camera. May be a list of multiple entity IDs. Use `all` to target every Amcrest camera.
-- **`movement`** (required): Direction of movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`, `left_down`.
-- **`travel_time`** (optional): Duration of movement in fractional seconds, between `0` and `1`. Defaults to `0.2`.
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| `movement` | no | Movement direction: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`, or `left_down`. |
+| `travel_time` | yes | Travel time as a fraction between `0` and `1`. Default is `0.2`. |
 
 ## Examples
 
