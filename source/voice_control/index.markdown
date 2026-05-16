@@ -1,5 +1,6 @@
 ---
-title: Talking with Home Assistant - get your system up & running
+title: "Assist - Talk to your smart home with Home Assistant"
+description: "Assist is the voice assistant built into Home Assistant. It can run fully on your own hardware, so your voice commands stay private."
 related:
   - docs: /voice_control/android/
     title: Assist on Android
@@ -15,18 +16,11 @@ related:
     title: Voice Preview Edition
 ---
 
-This section will help you set up Assist, which is Home Assistant voice assistant.
+Assist is the voice assistant built into Home Assistant. It lets you control your smart home with natural language, and it can run fully on your own hardware, so your voice commands stay private. Assist works in the Home Assistant companion app, on dedicated voice hardware like the [Home Assistant Voice Preview Edition](/voice-pe/), and on devices you build yourself with [ESPHome](https://www.esphome.io/components/voice_assistant/).
 
-Assist allows you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
+Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> at the top right of your dashboard to try it out right away.
 
-The simplest way to try out Assist is inside our companion app. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> at the top right of your dashboard.
-
-The simplest way to get started with Assist is with our recommended voice assistant hardware, the [Home Assistant Voice Preview Edition](/voice-pe/).
-
-As for the rest of Home Assistant core functionalities, Assist can be personalized and extended to fit your needs.
-
-- It can work locally or leverage the greatest LLMs of the moment.
-- It can work on your phone or tablet or other custom voice devices.
+Assist is built on an open voice foundation and powered by knowledge contributed by our community. It can work locally or, if you prefer, use one of the latest large language models to handle more conversational requests.
 
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
@@ -45,16 +39,15 @@ In case your hardware does not support our wizard, do not worry. Here are two de
 
 Once your setup is up and running and you follow the [best practices](/voice_control/best_practices), check all the possibilities we found for [Expanding your Assist setup](/voice_control/expanding_assist), and further experiment with different setups like [wake words](/voice_control/about_wake_word/). Do you want to talk to Super Mario? Or another figure? If you want Assist to respond in a fun way, you can create an assistant with an [AI personality](/voice_control/assist_create_open_ai_personality/).
 
-Another things you can do to further push your setup:
-
-- Voice assistant devices allow you to add Assist to a room and respond to wake words. Follow our tutorial to [create your own for just $13.](/voice_control/thirteen-usd-voice-remote/)
+To further improve your setup, try building other voice assistant satellite devices that allow you to add Assist with wake words to all your rooms:
 
 - Enable [wake word detection on your Android phone](/voice_control/android/#using-wake-word-detection-on-android) to activate Assist hands-free by saying "Hey Jarvis" or "Hey Nabu", even when your phone is locked.
 
-- You can use [ESPHome](https://www.esphome.io/components/voice_assistant/) to create your own awesome voice assistant, like [@piitaya](https://github.com/piitaya) did with his 3D printed R5 droid.
+- You can use [ESPHome](https://www.esphome.io/components/voice_assistant/) to create your own awesome voice assistant satellites based on inexpensive ESP32 microcontrollers, like [@piitaya](https://github.com/piitaya) did with his 3D-printed R5 droid. Follow our tutorial to [create your own for just $13](/voice_control/thirteen-usd-voice-remote/).
+
+- Another alternative voice satellite solution is the experimental [Linux-Voice-Assistant](https://github.com/OHF-Voice/linux-voice-assistant) project. It allows you to build a Linux-based voice assistant smart speaker that runs on any x64 or ARM64 hardware capable of handling local, on-device audio processing. This approach provides greater flexibility for customization. Because it runs on a full Linux system, it also gives you access to significantly more local computing resources for additional features and other integrations on the same satellite.
 
 - If you are interested in a voice assistant that is not always listening, consider using Assist on an analog phone. It will only listen when you pick up the horn, and the responses are for your ears only. Follow our tutorial to create your own [analog phone voice assistant](/voice_control/worlds-most-private-voice-assistant/).
-
 
 ## Supported languages and sentences
 
@@ -523,9 +516,7 @@ function updateLanguageSupports(locale = null) {
 </script>
 
 
-
 Assist already supports a wide range of [languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages). Use the [built-in sentences](/voice_control/builtin_sentences) to control entities and areas, or [create your own sentences](/voice_control/custom_sentences/).
-
 
 
 Did Assist not understand your sentence? [Contribute them](/voice_control/contribute-voice).

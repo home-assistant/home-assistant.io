@@ -39,7 +39,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 ### Google Cloud Platform configuration
 
-1. Create a new project in the [Google Developer Console](https://console.home.google.com/projects).
+1. Create a new project in the [Google Home Developer Console](https://console.home.google.com/projects).
     1. Select **Create a Project**
     2. On the **Get started** page, select **Create project**.
        - Give your project a name and select **Create project**.
@@ -95,7 +95,7 @@ If you've added Home Assistant to your phone's home screen, you have to first re
 
 If you want to allow other household users to control the devices:
 
-1. Open the project you created in the [Google Developer Console](https://console.home.google.com/projects).
+1. Open the project you created in the [Google Home Developer Console](https://console.home.google.com/projects).
 2. Select **Members** on the top of the page. This redirects you to the Google Cloud Platform IAM permissions page.
 3. Select **Grant access** at the middle of the page.
     1. Enter the email address of the user you want to add.
@@ -131,10 +131,10 @@ This is because the Google Assistant device will connect directly to the IP of y
 For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} app (formerly known as NGINX SSL add-on) instead of directing external traffic straight to Home Assistant.
 {% endimportant %}
 
-1. Open the project you created in the [Google Developer Console](https://console.home.google.com/projects).
+1. Open the project you created in the [Google Home Developer Console](https://console.home.google.com/projects).
 2. Expand the **Cloud-to-cloud** menu on the left and select **Develop**, then select **Edit** next to your integration.
-3. Scroll down and enable **Local fulfillment** 
-4. Upload Javascript files
+3. Scroll down and enable **Local fulfillment**
+4. Upload JavaScript files
    1. Download `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest)
    2. Select **Upload your JavaScript targeting Node** and upload the `app.js` from step 4.1.
    3. Select **Upload your JavaScript targeting Chrome (browser)** and upload the same `app.js` from step 4.1.
@@ -178,7 +178,7 @@ google_assistant:
 
 {% configuration %}
 project_id:
-  description: Project ID from the Actions on Google console (looks like `words-2ab12`)
+  description: "Project ID from the Google Home Developer Console (looks like `words-2ab12`)."
   required: true
   type: string
 secure_devices_pin:
@@ -313,6 +313,12 @@ There is no TV channel object in Home Assistant. TV channel can only be changed 
 
 ### Troubleshooting
 
+{% note %}
+
+Some of the troubleshooting steps below reference the legacy [Actions on Google console](https://console.actions.google.com/). This console is separate from the [Google Home Developer Console](https://console.home.google.com/projects) used in the setup steps above. If you configured the integration following the current setup instructions, your project lives in the Google Home Developer Console and some of the legacy steps may not apply.
+
+{% endnote %}
+
 #### 404 errors on request sync
 
 Syncing from Google Assistant may fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is technically in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant" (or whatever you named your project), this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again. If regenerating the draft does not work, go back to the `Action` section and just hit the `enter` key for the URL to recreate the Preview.
@@ -341,7 +347,7 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
+Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
 
 #### 500 / 429 error on request sync
 

@@ -36,17 +36,7 @@ In case you didn't know, Works with Home Assistant differs from other certificat
 
 Eve has certified the following Matter-over-Thread enabled devices:
 
-- [Eve Door & Window](https://www.evehome.com/en/eve-door-window)
-- [Eve Energy Outlet](https://www.evehome.com/en/eve-energy-outlet)
-- [Eve Energy Outdoor](https://www.evehome.com/en/eve-energy-outdoor)
-- [Eve Energy](https://www.evehome.com/en/eve-energy)
-- [Eve Light Switch (U.S. & Canada)](https://www.evehome.com/en/eve-light-switch)
-- [Eve Dimmer Switch](https://www.evehome.com/en/eve-dimmer-switch)
-- [Eve Motion](https://www.evehome.com/en/eve-motion)
-- [Eve Custom Smart Blinds](https://www.evehome.com/en-us/eve-blinds-collection)
-- [Eve MotionBlinds Upgrade Kit](https://www.evehome.com/eve-motionblinds)
-- [Eve Thermo](https://www.evehome.com/en/eve-thermo)
-- [Eve Weather](https://www.evehome.com/en/eve-weather)
+{% include integrations/device_list.html brand="eve" %}
 
 ## Eve-rything You Need
 

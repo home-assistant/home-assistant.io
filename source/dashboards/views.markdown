@@ -1,6 +1,6 @@
 ---
-title: "Views"
-description: "A view is a tab inside a dashboard."
+title: "Dashboard views"
+description: "A view is a tab inside a dashboard that groups related cards together, such as a tab for the living room or one for energy."
 related:
   - docs: /dashboards/masonry/
     title: Masonry view
@@ -78,7 +78,7 @@ To migrate a view into a sections view type, follow these steps:
 3. If the new view type offers additional settings, define those settings.
    - For more information on those settings, refer to the documentation of that view type.
 4. In the top-right corner, select **Convert**.
-   - **Result**: A new, additional view is created.
+   - Result: A new, additional view is created.
    - Your current view will stay untouched.
    - A new tab opens, and all your cards are imported to the new view.
 5. In the **Imported cards** section, pick each of the cards, and drag them into the sections.
@@ -86,7 +86,7 @@ To migrate a view into a sections view type, follow these steps:
 
     ![Move cards from imported cards section onto your dashboard](/images/dashboards/imported-cards.png)
 6. To save your changes, select **Done**.
-    - **Result**: Your new dashboard is shown.
+    - Result: Your new dashboard is shown.
     - If you have cards that were not yet integrated, you can still add them later. They are still available in the Edit mode, in the **Imported cards** section.
 
 ## URL of a view

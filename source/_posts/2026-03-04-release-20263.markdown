@@ -72,6 +72,9 @@ Enjoy the release!
   - [Running on Python 3.14 🚀](#running-on-python-314-)
 - [Patch releases](#patch-releases)
   - [2026.3.1 - March 6](#202631---march-6)
+  - [2026.3.2 - March 16](#202632---march-16)
+  - [2026.3.3 - March 20](#202633---march-20)
+  - [2026.3.4 - March 24](#202634---march-24)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -88,7 +91,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## Send your vacuum to clean specific areas
 
-Got a robot vacuum? You can now tell it exactly which areas to clean! This release introduces the [clean area](/integrations/vacuum#action-clean-area) action, which lets you send your vacuum to clean one or more specific areas on demand, right from Home Assistant. In this release, it's supported by [Matter], [Ecovacs], and [Roborock].
+Got a robot vacuum? You can now tell it exactly which areas to clean! This release introduces the [clean area](/integrations/vacuum#action-clean-area) action, which lets you [send your vacuum to clean one or more specific areas on demand](/integrations/vacuum#sending-your-vacuum-to-clean-specific-areas), right from Home Assistant. In this release, it's supported by [Matter], [Ecovacs], and [Roborock].
 
 The best part? The action uses your existing Home Assistant areas, not some obscure vendor-specific identifiers. You simply map the segments your vacuum knows about to the areas you've already set up in Home Assistant, and that's all there is to it.
 
@@ -626,6 +629,228 @@ release once a week, aiming for Friday.
 [@thecode]: https://github.com/thecode
 [@tl-sl]: https://github.com/tl-sl
 [@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+
+### 2026.3.2 - March 16
+
+- Fix wifi switch status and add 100% coverage for Fritz ([@chemelli74] - [#164696])
+- Fix dnd switch status for Alexa Devices ([@chemelli74] - [#164953])
+- Fix cover state updates for legacy Multilevel Switch based Z-Wave covers ([@AlCalzone] - [#165003])
+- Bump yalexs-ble to 3.2.8 ([@bdraco] - [#165018])
+- Update pychromecast to 14.0.10 ([@elupus] - [#165069])
+- Fix forced VERIFY_SSL in Portainer ([@erwindouna] - [#165079])
+- Bump pyportainer 1.0.32 ([@erwindouna] - [#164803])
+- Bump pyportainer to 1.0.33 ([@erwindouna] - [#165080])
+- Make restore state resilient to extra_restore_state_data errors ([@arturpragacz] - [#165086])
+- Bump pyanglianwater to 3.1.1 ([@pantherale0] - [#165097])
+- Bump jvc_projector dependency to 2.0.2 ([@SteveEasley] - [#165099])
+- Add missing code for Miele dryer ([@astrandb] - [#165122])
+- Add reorder support to area selector ([@bramkragten] - [#165211])
+- Bump onedrive-personal-sdk to 0.1.6 ([@zweckj] - [#165219])
+- Fix switch set for Vodafone Station ([@chemelli74] - [#165273])
+- Bump python-otbr-api to 2.9.0 ([@TheJulianJES] - [#165298])
+- Bump ohme to 1.7.0 ([@dan-r] - [#165318])
+- Bump pyjvcprojector to 2.0.3 ([@SteveEasley] - [#165327])
+- August oauth2 exception migration ([@zachfeldman] - [#165397])
+- Bump onedrive-personal-sdk to 0.1.7 ([@zweckj] - [#165401])
+- Remove stateclass from timestamp entity in Intellifire ([@joostlek] - [#165403])
+- Update govee local api to 2.4.0 ([@Galorhallen] - [#165418])
+- Update frontend to 20260312.0 ([@bramkragten] - [#165420])
+- Bump ZHA to 1.0.2 ([@TheJulianJES] - [#165423])
+- Handle OAuth token request exceptions in Yale setup ([@bdraco] - [#165430])
+- Bump orjson to 3.11.7 ([@edenhaus] - [#165443])
+- Bump pySmartThings to 3.7.0 ([@joostlek] - [#165468])
+- Bump aioamazondevices to 13.0.1 ([@chemelli74] - [#165476])
+- Fix victron_ble warning sensor using duplicate alarm translation key ([@rajlaud] - [#165502])
+- Fix MQTT device tracker overrides via JSON state attributes without reset ([@jbouwh] - [#165529])
+- Upgrade ical dependency to 13.2.2. ([@allenporter] - [#165642])
+- Bump aiocomelit to 2.0.1 ([@chemelli74] - [#165663])
+
+[#164696]: https://github.com/home-assistant/core/pull/164696
+[#164757]: https://github.com/home-assistant/core/pull/164757
+[#164803]: https://github.com/home-assistant/core/pull/164803
+[#164953]: https://github.com/home-assistant/core/pull/164953
+[#165001]: https://github.com/home-assistant/core/pull/165001
+[#165003]: https://github.com/home-assistant/core/pull/165003
+[#165018]: https://github.com/home-assistant/core/pull/165018
+[#165069]: https://github.com/home-assistant/core/pull/165069
+[#165079]: https://github.com/home-assistant/core/pull/165079
+[#165080]: https://github.com/home-assistant/core/pull/165080
+[#165086]: https://github.com/home-assistant/core/pull/165086
+[#165097]: https://github.com/home-assistant/core/pull/165097
+[#165099]: https://github.com/home-assistant/core/pull/165099
+[#165122]: https://github.com/home-assistant/core/pull/165122
+[#165211]: https://github.com/home-assistant/core/pull/165211
+[#165219]: https://github.com/home-assistant/core/pull/165219
+[#165273]: https://github.com/home-assistant/core/pull/165273
+[#165298]: https://github.com/home-assistant/core/pull/165298
+[#165318]: https://github.com/home-assistant/core/pull/165318
+[#165327]: https://github.com/home-assistant/core/pull/165327
+[#165397]: https://github.com/home-assistant/core/pull/165397
+[#165401]: https://github.com/home-assistant/core/pull/165401
+[#165403]: https://github.com/home-assistant/core/pull/165403
+[#165418]: https://github.com/home-assistant/core/pull/165418
+[#165420]: https://github.com/home-assistant/core/pull/165420
+[#165423]: https://github.com/home-assistant/core/pull/165423
+[#165430]: https://github.com/home-assistant/core/pull/165430
+[#165443]: https://github.com/home-assistant/core/pull/165443
+[#165468]: https://github.com/home-assistant/core/pull/165468
+[#165476]: https://github.com/home-assistant/core/pull/165476
+[#165502]: https://github.com/home-assistant/core/pull/165502
+[#165529]: https://github.com/home-assistant/core/pull/165529
+[#165642]: https://github.com/home-assistant/core/pull/165642
+[#165663]: https://github.com/home-assistant/core/pull/165663
+[@AlCalzone]: https://github.com/AlCalzone
+[@Galorhallen]: https://github.com/Galorhallen
+[@SteveEasley]: https://github.com/SteveEasley
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@allenporter]: https://github.com/allenporter
+[@arturpragacz]: https://github.com/arturpragacz
+[@astrandb]: https://github.com/astrandb
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@dan-r]: https://github.com/dan-r
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@pantherale0]: https://github.com/pantherale0
+[@rajlaud]: https://github.com/rajlaud
+[@zachfeldman]: https://github.com/zachfeldman
+[@zweckj]: https://github.com/zweckj
+
+### 2026.3.3 - March 20
+
+- Fix Tibber update token ([@Danielhiversen] - [#164295])
+- Add correct speed fan mapping for Z-Wave GE/Jasco Enbrighten ZWA4013 ([@martinecker] - [#164500])
+- Improve ProxmoxVE permissions validation ([@CoMPaTech] - [#164770])
+- Start orphaned entries in normal mode only ([@erwindouna] - [#164815])
+- Skip unmapped and watchdog event types in Hikvision NVR event injection ([@ptarjan] - [#165009])
+- Snapcast: Fix incorrect identifier extraction in `async_join_players` ([@mill1000] - [#165020])
+- Hive: Fix bug in config flow for authentication and device registration ([@KJonline] - [#165061])
+- LG Soundbar: Fix incorrect state and outdated track information ([@alexmerkel] - [#165148])
+- Fix optional static values in bsblan ([@liudger] - [#165488])
+- Fix SmartLithium 8-cell support in victron_ble ([@rajlaud] - [#165496])
+- Fix Matter firmware update detection when version strings are identical ([@lboue] - [#165509])
+- Bump pyOpenSSL to 26.0.0 ([@edenhaus] - [#165770])
+- Bump pySmartThings to 3.7.2 ([@joostlek] - [#165810])
+- Bump axis to v67 ([@Kane610] - [#165840])
+- Fix Abort exception caught by wrong handler in backup encrypt/decrypt ([@agners] - [#165852])
+- Proxmox fix restart/reboot action ([@erwindouna] - [#165901])
+- Do not use moving states for Multilevel Switch CC v1-3 Z-Wave covers ([@AlCalzone] - [#165909])
+- Fix unit when plant power is above 1000W in Hypontech ([@jcisio] - [#165959])
+- Bump hyponcloud from 0.3.0 to 0.9.0 ([@jcisio] - [#166005])
+- Don't create fridge setpoint if no range in SmartThings ([@joostlek] - [#166018])
+- Fix enable/disable device tracking feature during setup of FRITZ!Box Tools ([@mib1185] - [#166027])
+- Bump opower to 0.17.1 ([@tronikos] - [#166044])
+- Properly handle buttons of SMLIGHT SLZB-MRxU devices ([@tl-sl] - [#166058])
+- Bump Pysmlight to 0.3.0 ([@tl-sl] - [#165658])
+- Bump Pysmlight 0.3.1 ([@tl-sl] - [#166060])
+
+[#164295]: https://github.com/home-assistant/core/pull/164295
+[#164500]: https://github.com/home-assistant/core/pull/164500
+[#164757]: https://github.com/home-assistant/core/pull/164757
+[#164770]: https://github.com/home-assistant/core/pull/164770
+[#164815]: https://github.com/home-assistant/core/pull/164815
+[#165001]: https://github.com/home-assistant/core/pull/165001
+[#165009]: https://github.com/home-assistant/core/pull/165009
+[#165020]: https://github.com/home-assistant/core/pull/165020
+[#165061]: https://github.com/home-assistant/core/pull/165061
+[#165148]: https://github.com/home-assistant/core/pull/165148
+[#165488]: https://github.com/home-assistant/core/pull/165488
+[#165496]: https://github.com/home-assistant/core/pull/165496
+[#165509]: https://github.com/home-assistant/core/pull/165509
+[#165658]: https://github.com/home-assistant/core/pull/165658
+[#165675]: https://github.com/home-assistant/core/pull/165675
+[#165770]: https://github.com/home-assistant/core/pull/165770
+[#165810]: https://github.com/home-assistant/core/pull/165810
+[#165840]: https://github.com/home-assistant/core/pull/165840
+[#165852]: https://github.com/home-assistant/core/pull/165852
+[#165901]: https://github.com/home-assistant/core/pull/165901
+[#165909]: https://github.com/home-assistant/core/pull/165909
+[#165959]: https://github.com/home-assistant/core/pull/165959
+[#166005]: https://github.com/home-assistant/core/pull/166005
+[#166018]: https://github.com/home-assistant/core/pull/166018
+[#166027]: https://github.com/home-assistant/core/pull/166027
+[#166044]: https://github.com/home-assistant/core/pull/166044
+[#166058]: https://github.com/home-assistant/core/pull/166058
+[#166060]: https://github.com/home-assistant/core/pull/166060
+[@AlCalzone]: https://github.com/AlCalzone
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@KJonline]: https://github.com/KJonline
+[@Kane610]: https://github.com/Kane610
+[@agners]: https://github.com/agners
+[@alexmerkel]: https://github.com/alexmerkel
+[@edenhaus]: https://github.com/edenhaus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@jcisio]: https://github.com/jcisio
+[@joostlek]: https://github.com/joostlek
+[@lboue]: https://github.com/lboue
+[@liudger]: https://github.com/liudger
+[@martinecker]: https://github.com/martinecker
+[@mib1185]: https://github.com/mib1185
+[@mill1000]: https://github.com/mill1000
+[@ptarjan]: https://github.com/ptarjan
+[@rajlaud]: https://github.com/rajlaud
+[@tl-sl]: https://github.com/tl-sl
+[@tronikos]: https://github.com/tronikos
+
+### 2026.3.4 - March 24
+
+- Correct validation of scripts in template entities ([@Petro31] - [#165226])
+- Update starlink-grpc-core to 1.2.4 ([@boswelja] - [#165882])
+- Bump python-google-weather-api to 0.0.6 ([@tronikos] - [#166085])
+- Bump xiaomi-ble to 1.10.0 ([@xuejuhui] - [#166099])
+- Add additional miele oven programs ([@sean797] - [#166100])
+- Bump aiotedee to 0.2.27 ([@zweckj] - [#166101])
+- Fix reload of FRITZ!Box Tools in case of connection issues ([@mib1185] - [#166111])
+- Bump wolf_comm to 0.0.48 ([@EnjoyingM] - [#166144])
+- Bump oralb-ble to 1.1.0 ([@bdraco] - [#166165])
+- Fix zwave_js fan speed mapping for GE/Jasco Enbrighten 55258 / ZW4002 ([@airdrummingfool] - [#166169])
+- Bump tplink-omada-client to fix breaking changes in Omada API ([@MarkGodwin] - [#166206])
+- Bump greenplanet-energy-api from 0.1.4 to 0.1.10 ([@petschni] - [#166217])
+- Bump yolink-api to 0.6.3 ([@matrixd2] - [#166232])
+- Update frontend to 20260312.1 ([@bramkragten] - [#166251])
+- Update template light test framework ([@Petro31] - [#164688])
+
+[#164688]: https://github.com/home-assistant/core/pull/164688
+[#164757]: https://github.com/home-assistant/core/pull/164757
+[#165001]: https://github.com/home-assistant/core/pull/165001
+[#165226]: https://github.com/home-assistant/core/pull/165226
+[#165675]: https://github.com/home-assistant/core/pull/165675
+[#165882]: https://github.com/home-assistant/core/pull/165882
+[#166076]: https://github.com/home-assistant/core/pull/166076
+[#166085]: https://github.com/home-assistant/core/pull/166085
+[#166099]: https://github.com/home-assistant/core/pull/166099
+[#166100]: https://github.com/home-assistant/core/pull/166100
+[#166101]: https://github.com/home-assistant/core/pull/166101
+[#166111]: https://github.com/home-assistant/core/pull/166111
+[#166144]: https://github.com/home-assistant/core/pull/166144
+[#166165]: https://github.com/home-assistant/core/pull/166165
+[#166169]: https://github.com/home-assistant/core/pull/166169
+[#166206]: https://github.com/home-assistant/core/pull/166206
+[#166217]: https://github.com/home-assistant/core/pull/166217
+[#166232]: https://github.com/home-assistant/core/pull/166232
+[#166251]: https://github.com/home-assistant/core/pull/166251
+[@EnjoyingM]: https://github.com/EnjoyingM
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@Petro31]: https://github.com/Petro31
+[@airdrummingfool]: https://github.com/airdrummingfool
+[@bdraco]: https://github.com/bdraco
+[@boswelja]: https://github.com/boswelja
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@matrixd2]: https://github.com/matrixd2
+[@mib1185]: https://github.com/mib1185
+[@petschni]: https://github.com/petschni
+[@sean797]: https://github.com/sean797
+[@tronikos]: https://github.com/tronikos
+[@xuejuhui]: https://github.com/xuejuhui
 [@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community

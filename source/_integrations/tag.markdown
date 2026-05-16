@@ -53,8 +53,6 @@ State shows the time when the card was last scanned in datetime string format. F
 
 One of the most fun applications of tags is to pick music in your living room. To make this super easy, you can use the below automation:
 
-{% raw %}
-
 ```yaml
 automation:
 - alias: "Handle Tag Scan"
@@ -92,8 +90,6 @@ automation:
         media_content_type: "{{ media_content_type }}"
     - delay: 2 # timeout before we allow processing next scan
 ```
-
-{% endraw %}
 
 To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
 Then scan a tag on the reader and note down the `device_id` from the `data` section.

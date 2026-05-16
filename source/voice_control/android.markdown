@@ -93,7 +93,7 @@ To enable wake word detection on your Android device, follow these steps:
    - Hey Nabu
    - Hey Jarvis
    - Hey Mycroft
-   **Result**:  Once enabled, wake word detection works even when your device is locked or the app is in the background.
+   Result: Once enabled, wake word detection works even when your device is locked or the app is in the background.
 6. To use Assist on Android, say your chosen wake word, wait for the listening prompt, and then speak your command.
 
 #### Controlling wake word detection from Home Assistant

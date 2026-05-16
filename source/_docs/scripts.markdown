@@ -1,12 +1,14 @@
 ---
-title: "Script Syntax"
-description: "Documentation for the Home Assistant Script Syntax."
+title: "Script syntax"
+description: "How to write Home Assistant scripts in YAML: the available actions, their structure, and how to use them inside automations."
 toc: true
 ---
 
-Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
+A script is a sequence of steps that Home Assistant runs from top to bottom whenever you call it. Think of it as a small recipe: "turn on the porch light, wait 30 seconds, then send me a notification". Once you have written a script, you can run it from a button on your dashboard, from Assist, from inside an {% term automation %}, or from anywhere else that calls actions.
 
-When the script is executed within an {% term automation %}, the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+Scripts and automations are very closely related. The only real difference is that an automation runs by itself when something triggers it, and a script runs when you call it.
+
+When the script runs as part of an {% term automation %}, the `trigger` variable is also available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
 ## Script syntax
 
@@ -57,7 +59,6 @@ Scripts may also use a shortcut syntax for activating {% term scenes %} instead 
 
 The variables {% term action %} allows you to set/override variables that will be accessible by templates in {% term action %} after it. See also [script variables] for how to define variables accessible in the entire script.
 
-{% raw %}
 
 ```yaml
 - alias: "Set variables"
@@ -74,11 +75,9 @@ The variables {% term action %} allows you to set/override variables that will b
     brightness: "{{ brightness }}"
 ```
 
-{% endraw %}
 
 Variables can be templated.
 
-{% raw %}
 
 ```yaml
 - alias: "Set a templated variable"
@@ -90,13 +89,11 @@ Variables can be templated.
     message: "{{ blind_state_message }}"
 ```
 
-{% endraw %}
 
 ### Scope of variables
 
 The `variables` {% term action %} assigns the values to previously defined variables with the same name. If a variable was not previously defined, it is assigned in the top-level (script run) scope.
 
-{% raw %}
 
 ```yaml
 sequence:
@@ -122,7 +119,6 @@ sequence:
       # "There are 1 people home (including Paulus)"
 ```
 
-{% endraw %}
 
 ## Test a condition
 
@@ -157,7 +153,6 @@ The `condition` {% term action %} only stops executing the current sequence bloc
 
 Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
-{% raw %}
 
 ```yaml
 # Seconds
@@ -187,18 +182,15 @@ Delays are useful for temporarily suspending your script and start it at a later
     minutes: 1
 ```
 
-{% endraw %}
 
 All forms accept templates.
 
-{% raw %}
 
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
 - delay: "{{ states('input_number.minute_delay') | multiply(60) | int }}"
 ```
 
-{% endraw %}
 
 ## Wait
 
@@ -208,9 +200,8 @@ These {% term actions %} allow a script to wait for entities in the system to be
 
 This {% term action %} evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like [`now()`](/template-functions/now/) in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
 
-{% raw %}
 
 ```yaml
 # Wait until media player is stopped
@@ -218,12 +209,10 @@ The template is re-evaluated whenever an entity ID that it references changes st
   wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
 
-{% endraw %}
 
 ### Wait for a trigger
 
 This {% term action %} can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger variables](/docs/automation/trigger#trigger-variables), [variables](#variables) and [script variables] are passed to the trigger.
-{% raw %}
 
 ```yaml
 # Wait for a custom event or light to turn on and stay on for 10 sec
@@ -237,13 +226,11 @@ This {% term action %} can use the same triggers that are available in an automa
       for: 10
 ```
 
-{% endraw %}
 
 ### Wait timeout
 
 With both types of waits it is possible to set a timeout after which the script will continue its execution if the condition/event is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
 
-{% raw %}
 
 ```yaml
 # Wait for sensor to change to 'on' up to 1 minute before continuing to execute.
@@ -251,11 +238,9 @@ With both types of waits it is possible to set a timeout after which the script 
   timeout: "00:01:00"
 ```
 
-{% endraw %}
 
 You can also get the script to abort after the timeout by using optional `continue_on_timeout: false`.
 
-{% raw %}
 
 ```yaml
 # Wait for IFTTT event or abort after specified timeout.
@@ -269,7 +254,6 @@ You can also get the script to abort after the timeout by using optional `contin
   continue_on_timeout: false
 ```
 
-{% endraw %}
 
 Without `continue_on_timeout: false` the script will always continue since the default for `continue_on_timeout` is `true`.
 
@@ -285,7 +269,6 @@ After each time a wait completes, either because the condition was met, the even
 
 This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
 
-{% raw %}
 
 ```yaml
 # Take different actions depending on if condition was met.
@@ -321,11 +304,10 @@ This can be used to take different actions based on whether or not the condition
     entity_id: switch.some_light
 ```
 
-{% endraw %}
 
 ## Fire an event
 
-This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
+This {% term action %} allows you to fire an event. In the GUI (Graphical User Interface) for actions it is found under "Fire Manual Event". Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
 
 ```yaml
 - alias: "Fire LOGBOOK_ENTRY event"
@@ -342,7 +324,6 @@ an event trigger.
 
 The `event_data` accepts templates.
 
-{% raw %}
 
 ```yaml
 - event: MY_EVENT
@@ -351,7 +332,6 @@ The `event_data` accepts templates.
     customData: "{{ myCustomVariable }}"
 ```
 
-{% endraw %}
 
 ### Raise and consume custom events
 
@@ -371,7 +351,6 @@ The following {% term automation %} example shows how to raise a custom event ca
 
 The following {% term automation %} example shows how to capture the custom event `event_light_state_changed` with an [Event Automation Trigger](/docs/automation/trigger#event-trigger), and retrieve corresponding `entity_id` that was passed as the event trigger data, see [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data) for more details.
 
-{% raw %}
 
 ```yaml
 - alias: "Capture Event"
@@ -384,7 +363,6 @@ The following {% term automation %} example shows how to capture the custom even
         message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
 
-{% endraw %}
 
 ## Repeat a group of actions
 
@@ -396,7 +374,6 @@ There are three ways to control how many times the sequence will be run.
 This form accepts a count value. The value may be specified by a template, in which case
 the template is rendered when the repeat step is reached.
 
-{% raw %}
 
 ```yaml
 script:
@@ -423,7 +400,6 @@ script:
           count: 3
 ```
 
-{% endraw %}
 
 ### For each
 
@@ -435,7 +411,6 @@ iteration is available as `repeat.item`.
 
 The following example will turn a list of lights:
 
-{% raw %}
 
 ```yaml
 repeat:
@@ -449,12 +424,10 @@ repeat:
         entity_id: "light.{{ repeat.item }}"
 ```
 
-{% endraw %}
 
 Other types are accepted as list items, for example, each item can be a
 template, or even a mapping of key/value pairs.
 
-{% raw %}
 
 ```yaml
 repeat:
@@ -470,14 +443,12 @@ repeat:
         message: "{{ repeat.item.message }}!"
 ```
 
-{% endraw %}
 
 ### While loop
 
 This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
 is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
 
-{% raw %}
 
 ```yaml
 script:
@@ -497,12 +468,10 @@ script:
             - action: script.something
 ```
 
-{% endraw %}
 
 The `while` also accepts a [shorthand notation of a template condition][shorthand-template].
 For example:
 
-{% raw %}
 
 ```yaml
 - repeat:
@@ -511,7 +480,6 @@ For example:
       - ...
 ```
 
-{% endraw %}
 
 ### Repeat until
 
@@ -519,7 +487,6 @@ This form accepts a list of conditions that are evaluated _after_ each time the 
 is run. Therefore the sequence will always run at least once. The sequence will be run
 _until_ the condition(s) evaluate to true.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -547,12 +514,10 @@ automation:
               state: "on"
 ```
 
-{% endraw %}
 
 `until` also accepts a [shorthand notation of a template condition][shorthand-template].
 For example:
 
-{% raw %}
 
 ```yaml
 - repeat:
@@ -561,7 +526,6 @@ For example:
       - ...
 ```
 
-{% endraw %}
 
 ### Repeat loop variable
 
@@ -614,7 +578,6 @@ An _optional_ `alias` can be added to each of the sequences, excluding the `defa
 
 The `choose` {% term action %} can be used like an "if/then/elseif/then.../else" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
-{% raw %}
 
 ```yaml
 # Example with "if", "elif" and "else"
@@ -653,12 +616,10 @@ automation:
               entity_id: all
 ```
 
-{% endraw %}
 
 `conditions` also accepts a [shorthand notation of a template condition][shorthand-template].
 For example:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -689,7 +650,6 @@ automation:
               - action: script.left_home
 ```
 
-{% endraw %}
 
 More `choose` can be used together. This is the case of an IF-IF.
 
@@ -697,7 +657,6 @@ The following example shows how a single {% term automation %} can control entit
 
 When the sun goes below the horizon, the `porch` and `garden` lights must turn on. If someone is watching the TV in the living room, there is a high chance that someone is in that room, therefore the living room lights have to turn on too. The same concept applies to the `studio` room.
 
-{% raw %}
 
 ```yaml
 # Example with "if" and "if"
@@ -746,7 +705,6 @@ automation:
                     entity_id: light.studio
 ```
 
-{% endraw %}
 
 ## Grouping actions
 
@@ -953,7 +911,6 @@ script:
 
 Actions can also be disabled based on limited templates or blueprint inputs.
 
-{% raw %}
 
 ```yaml
 blueprint:
@@ -968,7 +925,6 @@ blueprint:
       enabled: !input input_boolean
 ```
 
-{% endraw %}
 
 ## Respond to a conversation
 
@@ -976,7 +932,6 @@ The `set_conversation_response` script {% term action %} allows returning a cust
 when an {% term automation %} is triggered by a conversation engine, for example a voice
 assistant. The conversation response can be templated.
 
-{% raw %}
 
 ```yaml
 # Example of a templated conversation response resulting in "Testing 123"
@@ -985,7 +940,6 @@ assistant. The conversation response can be templated.
 - set_conversation_response: "{{ 'Testing ' ~ my_var }}"
 ```
 
-{% endraw %}
 
 The response is handed to the conversation engine when the {% term automation %} finishes. If
 the `set_conversation_response` is executed multiple times, the most recent
@@ -1006,4 +960,4 @@ will not be used by anything.
 [actions page]: /docs/scripts/perform-actions/
 [conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
-[script variables]: /integrations/script/#configuration-variables
+[script variables]: /integrations/script/#variables

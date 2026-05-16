@@ -192,7 +192,6 @@ Get notified when it's time to go grocery shopping. A notification is sent when 
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 triggers:
@@ -233,7 +232,6 @@ alias: "Bring!: Grocery shopping reminder 🛒"
 description: "Get notified when it's time to go grocery shopping. A notification is sent when your shopping list reaches a set threshold or when urgent items are added."
 ```
 
-{% endraw %}
 
 {% enddetails %}
 

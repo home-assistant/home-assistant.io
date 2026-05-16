@@ -3,6 +3,16 @@
 <script src="{{ '/javascripts/terminology_tooltip.js' | cache_buster }}" type="text/javascript" defer></script>
 
 <script src="{{ '/javascripts/prism.js' | cache_buster }}" type="text/javascript" defer></script>
+<script src="{{ '/javascripts/prism-signature.js' | cache_buster }}" type="text/javascript" defer></script>
+<script src="{{ '/javascripts/prism-jinja2.js' | cache_buster }}" type="text/javascript" defer></script>
+<script type="text/javascript">
+window.__templateFunctions = {{ site.data.template_functions_json }};
+window.__actions = {{ site.data.actions_json }};
+window.__triggers = {{ site.data.triggers_json }};
+window.__conditions = {{ site.data.conditions_json }};
+</script>
+<script src="{{ '/javascripts/prism-template-links.js' | cache_buster }}" type="text/javascript" defer></script>
+<script src="{{ '/javascripts/prism-doc-links.js' | cache_buster }}" type="text/javascript" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js" integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6" crossorigin="anonymous"></script>
 <script type="text/javascript">
   docsearch({
@@ -120,6 +130,105 @@
       window.addEventListener("scroll", handleScroll, { passive: true });
 
       handleScroll();
+    }
+  }
+</script>
+
+<script type="text/javascript">
+  // Re-scroll to the hash anchor after page layout has settled.
+  // Browsers attempt the initial scroll before fonts, icons, and deferred
+  // scripts finish loading, so the target position is often wrong.
+  if (window.location.hash) {
+    window.addEventListener("load", function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector(window.location.hash);
+        if (el) el.scrollIntoView();
+      });
+    });
+  }
+</script>
+
+<script type="text/javascript">
+  {
+    const tocCurrent = document.querySelector(".toc-current");
+    const blogTocList = document.querySelector("#toc-module #toc");
+
+    if (tocCurrent || blogTocList) {
+      const headings = Array.from(
+        document.querySelectorAll("article h2, article h3")
+      );
+
+      if (headings.length > 0) {
+        const getHeadingText = (heading) =>
+          heading.childNodes[0].textContent.trim();
+
+        if (tocCurrent) {
+          tocCurrent.textContent = getHeadingText(headings[0]);
+        }
+
+        const siteHeader = document.querySelector(".site-header");
+        const tocBar = document.getElementById("toc-bar");
+
+        const getScrollOffset = () => {
+          if (siteHeader && (window.innerWidth > 1280)) {
+            return siteHeader.offsetHeight + 58;
+          } else if (siteHeader && tocBar) {
+            return siteHeader.offsetHeight + tocBar.offsetHeight + 20;
+          }
+
+          return 140;
+        };
+
+        const updateTocCurrent = () => {
+          const scrollY = window.scrollY + getScrollOffset();
+          let current = headings[0];
+
+          for (const heading of headings) {
+            if (heading.offsetTop <= scrollY) {
+              current = heading;
+            } else {
+              break;
+            }
+          }
+
+          if (tocCurrent) {
+            tocCurrent.textContent = getHeadingText(current);
+          }
+
+          const titleLink = current.querySelector("a.title-link");
+          const slug = titleLink && titleLink.getAttribute("name");
+
+          const tocLists = [
+            document.querySelector("#toc-bar #toc"),
+            blogTocList,
+          ].filter(Boolean);
+
+          for (const tocList of tocLists) {
+            tocList.querySelectorAll("a[aria-current]").forEach((a) => {
+              a.removeAttribute("aria-current");
+            });
+            if (slug) {
+              const activeLink = tocList.querySelector(`a[href="#${slug}"]`);
+              if (activeLink) {
+                activeLink.setAttribute("aria-current", "true");
+              }
+            }
+          }
+        };
+
+        window.addEventListener("scroll", updateTocCurrent, { passive: true });
+        updateTocCurrent();
+      }
+
+      const tocToggle = document.getElementById("toc-toggle");
+      const tocList = document.getElementById("toc");
+      if (tocToggle && tocList) {
+        tocList.addEventListener("click", (e) => {
+          if (e.target.closest("a")) {
+            tocToggle.checked = false;
+          }
+        });
+      }
     }
   }
 </script>

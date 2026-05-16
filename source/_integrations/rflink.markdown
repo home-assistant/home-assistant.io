@@ -101,7 +101,7 @@ rflink:
 
 ### TCP mode
 
-TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
+TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the Home Assistant server is not optimal or desired (eg: bad reception).
 
 The following command can be used to expose the USB/serial interface over TCP on a different host (Linux). The arguments are separated by spaces, further info on all arguments can be found for example [on the Debian manpages](https://manpages.debian.org/stretch/socat/socat.1.en.html).
 
@@ -535,7 +535,7 @@ After configuring the RFLink hub, lights will be automatically discovered and ad
 
 RFLink binary_sensor/switch/light IDs are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group or configure a nice name.
+Once the ID of a light is known, it can be used to configure the light in Home Assistant, for example to add it to a different group or configure a nice name.
 
 Configuring devices as a light:
 
@@ -825,7 +825,7 @@ The RFLink integration does not know the difference between a `switch`, a `binar
 
 RFLink binary_sensor/switch/light IDs are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a switch is known, it can be used to configure it as a switch type in HA and, for example, to add it to a different group or configure a nice name.
+Once the ID of a switch is known, it can be used to configure it as a switch type in Home Assistant and, for example, to add it to a different group or configure a nice name.
 
 Configuring devices as switch :
 

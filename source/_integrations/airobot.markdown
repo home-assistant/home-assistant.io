@@ -183,7 +183,6 @@ Send a notification when the air quality exceeds a specified threshold.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 alias: "Airobot Air Quality Alert"
@@ -213,7 +212,6 @@ actions:
 
 ```
 
-{% endraw %}
 
 {% enddetails %}
 

@@ -2,15 +2,15 @@
 title: "Areas"
 description: "Group your devices and entities in areas and group areas in floors."
 related:
-  - docs: /docs/organizing/areas/
-    title: Areas
+  - docs: /dashboards/area/
+    title: Area card
   - docs: /docs/organizing/
   - docs: /docs/organizing/labels/
     title: Labels
   - docs: /docs/organizing/categories/
     title: Categories
-  - docs: /docs/configuration/templating/#areas
-    title: Using areas in template
+  - docs: /template-functions/#area
+    title: Using areas in templates
   - docs: /dashboards/dashboards/#home-dashboard
     title: Home dashboard
 ---
@@ -39,7 +39,7 @@ Follow these steps to create a new area from the **Areas** view.
     ![Create area dialog](/images/organizing/create_area_01.png)
 3. Select **Create**.
 
-   **Result**: A new area is created.
+   Result: A new area is created.
 
 ## Assigning areas to floors and adding labels
 
@@ -95,11 +95,15 @@ You can also edit the area details when you're on the area dashboard.
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Overview** (built-in) dashboard.
 2. Select the area.
 3. In the top-right corner, select the edit {% icon "mdi:edit" %} button.
-4. In the **Update area** dialog, [edit the area details](#editing-an-area).```
+4. In the **Update area** dialog, [edit the area details](#editing-an-area).
 
 ## Reordering areas on built-in dashboards
 
 {% include organizing/reorder-areas.md %}
+
+## Sending a vacuum to a dedicated area
+
+If you have a vacuum that supports area cleaning, you can [set up an automation to send the vacuum to a specific area](/integrations/vacuum/#creating-an-automation-to-send-the-vacuum-to-clean-specific-areas).
 
 ## Deleting an area
 

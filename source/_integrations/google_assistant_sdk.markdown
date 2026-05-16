@@ -140,6 +140,7 @@ The easiest way to check if the integration is working is to check [My Google Ac
 
 ## Limitations/known issues
 
+- **Text responses are no longer returned by the Google Assistant SDK API.** All responses are now delivered as audio. If you do not provide a `media_player` entity, you will not receive any feedback from the integration.
 - Multiple Google accounts are not supported.
 - If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
@@ -197,28 +198,6 @@ data:
   command:
     - "open the garage door"
     - "1234"
-```
-
-You can get responses. Example:
-
-```yaml
-action: google_assistant_sdk.send_text_command
-data:
-  command:
-    - "tell me a joke"
-    - "tell me another one"
-```
-
-returns:
-
-```yaml
-responses:
-  - text: |-
-      What do you call a belt made of watches?
-      A waist of time 👖 🕝
-  - text: |-
-      What's the most musical part of the turkey?
-      The drumsticks 🍗
 ```
 
 ### Action: Broadcast message

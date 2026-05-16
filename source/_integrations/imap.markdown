@@ -125,7 +125,7 @@ date:
 headers:
   description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once. `headers` will be included if it is explicitly selected in the option flow.
 custom:
-  description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
+  description: Holds the result of the custom event data [template](/docs/templating). All attributes are available as a variable in the template.
 initial:
   description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
 parts:
@@ -141,8 +141,6 @@ If the default maximum message size (2048 bytes) to be used in events is too sma
 {% warning %}
 Increasing the default maximum message size (2048 bytes) could have a negative impact on performance as event data is also logged by the `recorder`. If the total event data size exceeds the maximum event size (32168 bytes), the event will be skipped.
 {% endwarning %}
-
-{% raw %}
 
 ```yaml
 template:
@@ -170,8 +168,6 @@ template:
           Received-first: "{{ trigger.event.data['headers'].get('Received',['n/a'])[0] }}"
           Received-last: "{{ trigger.event.data['headers'].get('Received',['n/a'])[-1] }}"
 ```
-
-{% endraw %}
 
 ### Actions for post-processing
 
@@ -299,8 +295,6 @@ part:
 
 The example below filters the event trigger by `entry_id`, fetches the message and stores it in `message_text`. It then marks the message in the event as seen and finally, it adds a notification with the subject of the message. The `seen` action `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
 
-{% raw %}
-
 ```yaml
 alias: "imap fetch and seen example"
 description: "Fetch and mark an incoming message as seen"
@@ -327,11 +321,7 @@ actions:
       message: "{{ message_text['subject'] }}"
 ```
 
-{% endraw %}
-
 In case you want want to process a message part, use the `fetch_part` action, and specify the `part` option. 
-
-{% raw %}
 
 ```yaml
 alias: "imap fetch and seen example"
@@ -364,14 +354,10 @@ actions:
       message: "{{ message_text['part_data'] | base64_decode }}"
 ```
 
-{% endraw %}
-
 
 ## Example - keyword spotting
 
 The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service, which tells whether the UPS is running on battery or not.
-
-{% raw %}
 
 ```yaml
 template:
@@ -392,8 +378,6 @@ template:
           {% endif %}
 ```
 
-{% endraw %}
-
 ## Example - extracting formatted text from an email using template sensors
 
 This example shows how to extract numbers or other formatted data from an email to change the value of a template sensor to a value extracted from the email. In this example, we will be extracting energy use, cost, and billed amount from an email (from Georgia Power) and putting it into sensor values using a template sensor that runs against our IMAP email sensor already set up. A sample of the body of the email used is below:
@@ -408,8 +392,6 @@ To view your account for details about your energy use, please click here.
 ```
 
 Below is the template sensor which extracts the information from the body of the email in our IMAP email sensor (named sensor.energy_email) into 3 sensors for the energy use, daily cost, and billing cycle total.
-
-{% raw %}
 
 ```yaml
 template:
@@ -437,8 +419,6 @@ template:
             | regex_findall_index("\ days:\* \$([0-9.]+)") }}
 ```
 
-{% endraw %}
-
 By making small changes to the regular expressions defined above, a similar structure can parse other types of data out of the body text of other emails.
 
 ## Example - custom event data template
@@ -458,8 +438,6 @@ This will render to `True` if the sender is allowed. The result is added to the 
 
 The example below will only set the state to the subject of the email of template sensor, but only if the sender address matches.
 
-{% raw %}
-
 ```yaml
 template:
   - trigger:
@@ -472,8 +450,6 @@ template:
       - name: event filtered by template
         state: '{{ trigger.event.data["subject"] }}'
 ```
-
-{% endraw %}
 
 ## Remove an IMAP service
 

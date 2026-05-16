@@ -43,9 +43,7 @@ In case you’re new to [Works With Home Assistant](https://works-with.home-assi
 
 AirGradient has certified the following devices with us:  
 
-- [AirGradient One - Indoor Air Quality Monitor](https://www.airgradient.com/indoor/)
-
-- [AirGradient Open Air - Outdoor Air Quality Monitor](https://www.airgradient.com/outdoor/)
+{% include integrations/device_list.html brand="airgradient" %}
 
 <p class="img"><img src='/images/blog/2025-08-airgradient/kitchen-counter.webp' style='border: 0;box-shadow: none;' alt="An AirGradient One sitting on a kitchen counter">Finally, a metric to show precisely how badly you burned your dinner</p>
 

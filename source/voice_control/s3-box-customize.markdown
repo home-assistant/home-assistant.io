@@ -61,7 +61,7 @@ Before you can import new illustrations, you need to install the ESPHome app (fo
    ![Adopt the ESP32-S3-BOX-3 in the ESPHome app](/images/assist/esp32-adopt-s3.png)
 5. If you like, give it a new name. Then, select **Adopt**.
    - Adopting an ESPHome device allows us to customize the existing software.
-   - **Result**: The status will change to **Online**.
+   - Result: The status will change to **Online**.
 6. Now that you have set up the ESPHome app, continue with one of the 2 different methods to add custom images:
    - [Option 1: Using images from a community repository](#option-1-using-images-from-a-community-repository)
    - [Option 2: Using your own images](#option-2-using-your-own-illustrations)
@@ -74,7 +74,7 @@ If you want to use your own images, skip this procedure and go to [Option 2: Usi
 #### To use images from the community
 
 1. On the **ESP32-S3-BOX-3** app, select edit.
-   - **Result**: An editor opens, showing the configuration file.
+   - Result: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 2. For inspiration, we have prepared some images for you.
    - Check them out in this [repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main/frenck/illustrations).
@@ -144,7 +144,7 @@ If your images have transparency, you can define the background color in the con
 
 1. In Home Assistant, go to [**Settings** > **Apps** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
 2. On the **ESP32-S3-BOX-3** app, select edit.
-   - **Result**: An editor opens, showing the configuration file.
+   - Result: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
 3. To add your images, add the following lines into the `substitutions` block.
@@ -216,7 +216,7 @@ You can change the on-device wake word (microWakeWord) that is used on your S3-B
 1. If you haven't done so already, [adopt the device in the ESPHome app](#adopting-the-device-in-the-esphome-app).
 2. In Home Assistant, go to [**Settings** > **Apps** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
 3. On the **ESP32-S3-BOX-3** entry, select edit.
-   - **Result**: An editor opens, showing the configuration file.
+   - Result: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
 4. To change the wake word, add the following line into the `substitutions` block.
