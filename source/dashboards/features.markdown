@@ -773,7 +773,7 @@ type:
   type: string
 sound_modes:
   required: false
-  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in the [developer tools](/docs/tools/dev-tools/) state tab. When not specified, all available sound modes are shown."
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Developer tools** > **States**" %}. When not specified, all available sound modes are shown."
   type: list
 {% endconfiguration %}
 
