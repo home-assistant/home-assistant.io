@@ -221,6 +221,12 @@ automation:
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics data](/docs/configuration/troubleshooting/#download-diagnostics). If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
+### Authentication fails for a FRITZ!Repeater
+
+Some FRITZ!Repeater models with newer FRITZ!OS versions use their own users for app access. If Home Assistant reports an authentication error after a repeater firmware update, sign in to the repeater web interface and go to **System** > **FRITZ!Box Users** > **Users**.
+
+Create a dedicated user for Home Assistant on the repeater, or use an existing local repeater user in the integration. Make sure the user has the **FRITZ!Box Settings** permission. In a mesh setup, do not assume that a user from the main FRITZ!Box is also available on the repeater.
+
 ### Device presence detection is not working as expected
 
 Check if one of the following cases applies:
