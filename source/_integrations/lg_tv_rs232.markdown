@@ -18,7 +18,7 @@ related:
     title: Configuration file
 ---
 
-The **LG TV via Serial** {% term integration %} lets you control LG TVs by connecting to their RS-232 serial port. By connecting the TV to your Home Assistant server using a serial (RS-232) cable, ESPHome-based serial proxy or a USB-to-serial adapter, you get local control of the TV.
+The **LG TV via Serial** {% term integration %} lets you control LG TVs by connecting to their RS-232 serial port. By connecting the TV to your Home Assistant server using a serial (RS-232) cable, an ESPHome-based serial proxy, or a USB-to-serial adapter, you get local control of the TV.
 
 Controlling a TV via RS-232 is more reliable and responsive than using the TV's network or IR interfaces, and it works even when the TV is in standby. It also allows you to control TVs that do not have smart features or network connectivity.
 
@@ -46,7 +46,7 @@ Most LG TVs sold starting roughly 2008, as well as LG commercial signage display
 
 {% configuration_basic %}
 Port:
-    description: "The serial port the TV is connected to. This can be a local device path such as `/dev/ttyUSB0`, or a remote serial proxy URL such as `socket://host:port` or `esphome://host/?port_name=TTL`."
+    description: "The serial port the TV is connected to. This can be a local device path, or a remote serial proxy URL."
 Set ID:
     description: "The set ID configured on the TV (1-99). Leave this at the default of `1` for a single TV. When multiple TVs are daisy-chained on the same RS-232 bus, give each set a unique ID and add a separate entry for each."
 {% endconfiguration_basic %}
