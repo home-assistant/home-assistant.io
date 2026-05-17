@@ -282,7 +282,7 @@ This automation switches to medium speed when relative humidity rises above 70% 
 
 ## Data updates
 
-The integration {% term polling polls %} the Duco box every 30 seconds. If you add a new sensor module (such as a CO₂ or humidity sensor) to your Duco system after the integration is already set up, it will automatically appear in Home Assistant the next time the integration polls for data. No restart or reconfiguration required.
+The integration {% term polling polls %} the Duco box every 10 seconds. If you add a new sensor module (such as a CO₂ or humidity sensor) to your Duco system after the integration is already set up, it will automatically appear in Home Assistant the next time the integration polls for data. No restart or reconfiguration required.
 
 ## Known limitations
 
