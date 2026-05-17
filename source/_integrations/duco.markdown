@@ -285,7 +285,7 @@ The integration {% term polling polls %} the Duco box every 30 seconds. If you a
 
 ## Known limitations
 
-- This integration currently supports only DucoBox Silent Connect systems with a DUCO Connectivity Board that exposes public API 2.1 or later. Other Duco systems can be discovered on the network, but Home Assistant blocks setup and shows an unsupported-system error.
+- New setup currently supports only DucoBox Silent Connect systems with a DUCO Connectivity Board that exposes public API 2.1 or later.
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
 - Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
@@ -318,26 +318,26 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
 4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS/Bonjour (zeroconf). If that does not happen, see [Reconfiguring the integration](#reconfiguring-the-integration).
 
-### This Duco system is not supported
+### Setup says this Duco system is not supported
 
 #### Symptom
 
-Setup fails, reconfiguration fails, or an existing integration stops loading with this message:
+Manual setup stops with this message:
 
 > This Duco system is not supported by this integration. The integration currently supports Duco Silent Connect equipped with a Duco Connectivity Board running public API 2.1 or newer.
 
 #### Description
 
-Home Assistant could reach the Duco device, but the detected system does not match the currently supported hardware and firmware combination. At this time, the integration supports only DucoBox Silent Connect systems that expose public API 2.1 or later through the DUCO Connectivity Board.
+Home Assistant could reach the Duco device, but the detected system does not match the hardware and firmware combination currently supported for new setup. At this time, the integration supports new setup only for DucoBox Silent Connect systems that expose public API 2.1 or later through the DUCO Connectivity Board.
 
-This can happen when you try to set up a different Duco system, or when a system that was previously added does not meet the current support requirements.
+This can happen when you try to set up a different Duco system.
 
 #### Resolution
 
 1. Confirm that your installation is a DucoBox Silent Connect system.
 2. Confirm that your system uses a DUCO Connectivity Board.
 3. Check whether the board firmware exposes public API 2.1 or later.
-4. If your system does not meet these requirements, the integration cannot be used with that system at this time.
+4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system at this time.
 5. If your system should be supported, collect diagnostics and open an issue in Home Assistant Core with your Duco model, board details, and firmware information.
 
 ### Failed to set ventilation state (rate limit)
