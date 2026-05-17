@@ -76,6 +76,7 @@ New devices added to homee will be automatically discovered after a restart of H
 ## Homeegrams (automations)
 
 Homeegrams are {% term automations %} in homee. The Integration implements them as {% term switches %}, with which the user can trigger them and which momentarily turn on if the Homeegram is played in homee, so it can also be used as {% term trigger %} in Home Assistant.
+Although turning off a Homeegram in HA can be triggered by the user, it is not supported and will raise an error.
 Only Homeegrams, that perform at least 2 actions are enabled by default, to prevent spamming your Home Assistant installation with lots of entities, that don't give added value.
 
 ## Limitations
