@@ -761,9 +761,9 @@ Widget that displays a dropdown to select the sound mode for a [media player](/i
 features:
   - type: "media-player-sound-mode"
     sound_modes:
-      - movie
-      - music
-      - game
+      - "movie"
+      - "music"
+      - "game"
 ```
 
 {% configuration features %}
