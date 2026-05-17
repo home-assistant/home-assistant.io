@@ -11,6 +11,7 @@ ha_codeowners:
   - '@ronaldvdmeer'
 ha_domain: duco
 ha_platforms:
+  - diagnostics
   - fan
   - sensor
 ha_integration_type: hub
