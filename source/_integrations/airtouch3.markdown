@@ -13,12 +13,16 @@ ha_platforms:
   - climate
 ha_homekit: true
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: gold
 ---
 
 The **AirTouch 3** {% term integration %} allows you to control AirTouch 3 ducted air conditioning systems from Home Assistant.
 
 The integration connects locally to the AirTouch 3 controller and creates climate entities for the air conditioner and its configured zones.
+
+## Supported devices
+
+This integration supports Polyaire AirTouch 3 controllers that are reachable on the local network. AirTouch 4 and AirTouch 5 systems use different protocols and are supported by separate Home Assistant integrations.
 
 ## Prerequisites
 
@@ -32,6 +36,19 @@ Before setting up the integration, make sure you know the IP address or hostname
 Host:
   description: The IP address or hostname of the AirTouch 3 controller.
 {% endconfiguration_basic %}
+
+## Reconfiguring the host
+
+If the controller address changes, reconfigure the integration from **Settings** > **Devices & services** > **AirTouch 3** > **Configure** and enter the new host.
+
+## Use cases
+
+You can use AirTouch 3 climate entities to:
+
+- Control the whole ducted air conditioner from Home Assistant dashboards and automations.
+- Turn individual zones on or off.
+- Adjust target temperatures for individual zones.
+- Use reported room or zone temperatures in automations.
 
 ## Supported functionality
 
@@ -54,13 +71,41 @@ Zone climate entities support:
 
 - Turning the zone on and off.
 - Viewing and changing the zone target temperature.
-- Viewing the current temperature when a zone sensor or touchpad temperature is assigned to the zone.
+- Viewing the current temperature when an AirTouch zone sensor is assigned and available.
+
+This integration does not provide custom actions. Use the standard climate actions such as `climate.turn_on`, `climate.turn_off`, `climate.set_hvac_mode`, `climate.set_fan_mode`, and `climate.set_temperature`.
 
 ## Data updates
 
-The integration polls the AirTouch 3 controller locally.
+The integration polls the AirTouch 3 controller locally every 60 seconds.
 
 Commands are sent to the controller over the local network. When multiple commands are issued, they are queued and sent with a short delay between commands.
+
+## Examples
+
+The following example turns on cooling for the main air conditioner and sets a living zone target temperature. Replace the example entity IDs with the entity IDs from your installation.
+
+```yaml
+automation:
+  - alias: "Cool the living area in the afternoon"
+    triggers:
+      - trigger: time
+        at: "15:00:00"
+    actions:
+      - action: climate.set_hvac_mode
+        target:
+          entity_id: climate.airtouch_3_air_conditioner
+        data:
+          hvac_mode: cool
+      - action: climate.turn_on
+        target:
+          entity_id: climate.living_zone
+      - action: climate.set_temperature
+        target:
+          entity_id: climate.living_zone
+        data:
+          temperature: 23
+```
 
 ## Known limitations
 
