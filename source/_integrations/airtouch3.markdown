@@ -26,20 +26,28 @@ This integration supports Polyaire AirTouch 3 controllers that are reachable on 
 
 ## Prerequisites
 
-The AirTouch 3 controller must be connected to the same local network as Home Assistant and must be reachable from Home Assistant on TCP port `8899`.
+The AirTouch 3 controller must be connected to the local network and must be reachable from Home Assistant on TCP port `8899`.
 
-Before setting up the integration, make sure you know the IP address or hostname of the AirTouch 3 controller. Set up a static IP address or DHCP reservation for the controller.
+Home Assistant can discover AirTouch 3 controllers by using local UDP broadcast on port `49003`. Home Assistant can also use matching DHCP or router-provided device information when the controller hostname contains `airtouch3` or `aritouch3`.
+
+If your controller is on a different VLAN, subnet, or routed network, make sure broadcast traffic can pass between Home Assistant and the AirTouch 3 controller network. If broadcast traffic cannot cross the network boundary, automatic discovery may still work if Home Assistant receives matching DHCP or device tracker data from your router.
+
+For local UDP discovery on a VLAN, the Home Assistant host must have a network interface or VLAN interface in the same VLAN as the AirTouch 3 controller. That network must also be enabled in Home Assistant under **Settings** > **System** > **Network**.
+
+If discovery does not find your controller, make sure you know the IP address or hostname of the controller before setting up the integration. Set up a static IP address or DHCP reservation for the controller.
 
 {% include integrations/config_flow.md %}
 
+Home Assistant may show discovered AirTouch 3 controllers on the **Devices & services** page. If the controller is not shown automatically, add the integration manually. You can leave **Host** blank to search for controllers on the local network, or enter the controller IP address or hostname directly.
+
 {% configuration_basic %}
 Host:
-  description: The IP address or hostname of the AirTouch 3 controller.
+  description: The IP address or hostname of the AirTouch 3 controller. Leave this blank to search for controllers on the local network.
 {% endconfiguration_basic %}
 
 ## Reconfiguring the host
 
-If the controller address changes, reconfigure the integration from **Settings** > **Devices & services** > **AirTouch 3** > **Configure** and enter the new host.
+If the controller address changes and Home Assistant does not rediscover it automatically, reconfigure the integration from **Settings** > **Devices & services** > **AirTouch 3** > **Configure** and enter the new host.
 
 ## Use cases
 
@@ -111,7 +119,7 @@ automation:
 
 AirTouch 3 zone temperature reporting depends on the temperature sensors configured in the AirTouch system. Zones without an assigned or available temperature sensor may show the system room temperature instead of a zone-specific current temperature.
 
-The integration does not discover controllers automatically. You must enter the controller host manually during setup.
+Local discovery uses UDP broadcast on port `49003`. It may not work across VLANs, routed networks, or VPNs unless broadcast traffic is allowed between Home Assistant and the AirTouch 3 controller network. DHCP or router-provided discovery depends on the controller hostname being reported to Home Assistant. If discovery fails, enter the controller host manually.
 
 ## Troubleshooting
 
@@ -119,7 +127,9 @@ The integration does not discover controllers automatically. You must enter the 
 
 Make sure the AirTouch 3 controller is powered on, connected to the same local network as Home Assistant, and reachable at the configured host address.
 
-If your network uses VLANs or firewall rules, make sure Home Assistant can connect to the controller on TCP port `8899`.
+If your network uses VLANs or firewall rules, make sure Home Assistant can connect to the controller on TCP port `8899`. For local UDP discovery, Home Assistant also needs to send and receive UDP broadcast traffic on port `49003`.
+
+If the controller is on a VLAN, make sure the Home Assistant host has an interface in that VLAN and that the interface is enabled in Home Assistant network settings.
 
 ### Some zones do not show their own current temperature
 
