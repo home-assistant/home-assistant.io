@@ -262,7 +262,6 @@ This integration adds the Blebox device to Home Assistant as:
 - Brightness
 - Color (RGB, RGBW, RGBCCT mode only)
 - White temperature control (RGBCCT & CCT mode only)
-- Effects
 
 #### Additional features
 
@@ -287,7 +286,6 @@ This integration adds the Blebox device to Home Assistant as:
 - Brightness
 - Color (RGB, RGBW, RGBCCT mode only)
 - White temperature control (RGBCCT & CCT mode only)
-- Effects
 
 #### Additional features
 
@@ -519,15 +517,15 @@ resolvable and accessible within the device network. If in doubt, please refer t
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
 {% endnote %}
 
-### uWiFi remotes via actionBox
+### uRemote, sRemote, inBox via actionBox
 
 μWiFi remotes can be integrated with Home Assistant indirectly, using an actionBox as a bridge (hub) between the remote and Home Assistant. 
 
-Remotes simulate a specific trigger. Unlike physical buttons, only a single defined trigger is activated, not all matching patterns. For example, the “rising edge” trigger does not activate together with a “short press”, as would happen when pressing a physical button connected to a controller input. This allows for a higher number of available control actions when actionBox is a hub for uWiFi remotes.
+Remotes simulate a specific trigger. Unlike physical buttons, only a single defined trigger is activated, not all matching patterns. For example, the “rising edge” trigger does not activate together with a “short press”, as would happen when pressing a physical button connected to a controller input. This allows for a higher number of available control actions when actionBox is a hub for μWiFi remotes.
 
-Up to 20 different remotes can be paired with a single actionBox. The actionBox provides 5 types of triggers and 4 inputs, allowing up to 20 different automations through a single actionBox controller acting as a hub. The following µWiFi remotes are supported:
+Up to 20 different remotes can be paired with a single actionBox. The actionBox provides 5 types of triggers and 4 inputs, allowing up to 20 different automations through a single actionBox controller acting as a hub. The following μWiFi remotes are supported:
 
-- µRemote (4 channels, 3 buttons per channel = 12 automations)
+- μRemote (4 channels, 3 buttons per channel = 12 automations)
 - sRemote (1 channel, 4 buttons = 4 automations)
 - inBox (4 channels, each supporting short and long press = 8 automations)
 
@@ -560,11 +558,11 @@ Integrating a μWiFi remote via actionBox consists of three steps:
 
 ------
 
-## "BleBox inside" controllers
+## "BleBox inside" - Simon 24 GO
 
-### Simon 54 GO SHUTTER
+### Simon 24 GO SHUTTER (NEZ1W.01)
 
-This integration adds the Simon 54 GO device ("blebox inside")  as a cover entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -573,27 +571,36 @@ This integration adds the Simon 54 GO device ("blebox inside")  as a cover entit
 - Position
 - Tilt regulation
 
-### Simon 54 GO SWITCH
+### Simon 24 GO SWITCH (NEW1W.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
-
-#### Key supported features
-
-- On
-- Off
-
-### Simon 54 GO SWITCH D
-
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
 
-### Simon 54 GO LED 230V (dimmer)
+### Simon 24 GO SWITCH D (NEW2W.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 24 GO SWITCH Q (NEW4W.01)
+
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 24 GO DIMMER 230V (NESL1W.01)
+
+This integration adds the Simon 24 GO device ("blebox inside") as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -601,9 +608,9 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 - Off
 - Brightness
 
-### Simon 54 GO LED MONO
+### Simon 24 GO LED MONO
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -611,11 +618,14 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 - Off
 - Effects
 - Brightness
-- Color
 
-### Simon 54 GO RGBW
+### Simon 24 GO RGBW (NESRGB1W.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") to Home Assistant as:
+
+- multiple MONO lights entities,
+- 1 or 2 lights CCT entities,
+- 1 light RGB or RGBW entity.
 
 #### Key supported features
 
@@ -623,9 +633,122 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 - Off
 - Effects
 - Brightness
-- Color
+- Color (RGB, RGBW mode only)
+- White temperature control (CCT mode only)
 
-### Simon 55 GO SHUTTER
+#### Additional features
+
+- Option to change control mode (linear / gamma correction) is available in wBox app.
+- Option to change color mode (MONO/CCT) is available in wBox app.
+- You can create your own effects. Creator of effects is available in wBox app.
+- After a settings change, the device needs to be reloaded.
+
+### Simon 24 GO Control (NEK1W.01) and Simon 24 GO switchShutt
+
+This integration does not add direct support for Simon 24 GO Control and Simon 24 GO switchShutt devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
+
+The configuration consists of two steps:
+
+- [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
+- [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+## "BleBox inside" - Simon 54 GO
+
+### Simon 54 GO SHUTTER (DEZ1W.01)
+
+This integration adds the Simon 54 GO device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### Simon 54 GO SWITCH (DEW1WA.01)
+
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 54 GO SWITCH D (DEW2W.01)
+
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 54 GO SWITCH Q (DEW4W.01)
+
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 54 GO DIMMER 230V (DESL1W.01)
+
+This integration adds the Simon 54 GO device ("blebox inside") as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Brightness
+
+### Simon 54 GO LED MONO (DESW1W.01)
+
+This integration adds the Simon 54 GO device ("blebox inside") as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+
+### Simon 54 GO RGBW (DESRGB1W.01)
+
+This integration adds the Simon 54 GO device ("blebox inside") to Home Assistant as:
+
+- multiple MONO lights entities,
+- 1 or 2 lights CCT entities,
+- 1 light RGB or RGBW entity.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+- Color (RGB, RGBW mode only)
+- White temperature control (CCT mode only)
+
+#### Additional features
+
+- Option to change control mode (linear / gamma correction) is available in wBox app.
+- Option to change color mode (MONO/CCT) is available in wBox app.
+- You can create your own effects. Creator of effects is available in wBox app.
+- After a settings change, the device needs to be reloaded.
+
+### Simon 54 GO Control (DEK1W.01) and Simon 54 GO switchShutt
+
+This integration does not add direct support for Simon 54 GO Control and Simon 54 GO switchShutt devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
+
+The configuration consists of two steps:
+
+- [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
+- [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+## "BleBox inside" - Simon 55 GO
+
+### Simon 55 GO SHUTTER (TEZ1W.01)
 
 This integration adds the Simon 55 GO device ("blebox inside") as a cover entity to Home Assistant.
 
@@ -636,7 +759,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 - Position
 - Tilt regulation
 
-### Simon 55 GO SWITCH
+### Simon 55 GO Socket (TEGZ1W.02)
 
 This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
 
@@ -645,9 +768,36 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - On
 - Off
 
-### Simon 55 GO SWITCH D
+### Simon 55 GO SWITCH (TEW1W.01)
 
 This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 55 GO SWITCH D (TEW2W.01)
+
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 55 GO SWITCH Q (TEW4W.01)
+
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 55 GO DIMMER 230V (TESL1W.01)
+
+This integration adds the Simon 55 GO device ("blebox inside") as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -655,19 +805,9 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Off
 - Brightness
 
-### Simon 55 GO LED 230V (dimmer)
+### Simon 55 GO LED MONO (TESW1W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
-
-#### Key supported features
-
-- On
-- Off
-- Brightness
-
-### Simon 55 GO LED MONO
-
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -675,11 +815,14 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Off
 - Effects
 - Brightness
-- Color
 
-### Simon 55 GO RGBW
+### Simon 55 GO RGBW (TESRGB1W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") to Home Assistant as:
+
+- multiple MONO lights entities,
+- 1 or 2 lights CCT entities,
+- 1 light RGB or RGBW entity.
 
 #### Key supported features
 
@@ -687,8 +830,17 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Off
 - Effects
 - Brightness
-- Color
-### Simon 55 GO thermo
+- Color (RGB, RGBW mode only)
+- White temperature control (CCT mode only)
+
+#### Additional features
+
+- Option to change control mode (linear / gamma correction) is available in wBox app.
+- Option to change color mode (MONO/CCT) is available in wBox app.
+- You can create your own effects. Creator of effects is available in wBox app.
+- After a settings change, the device needs to be reloaded.
+
+### Simon 55 GO thermo (TETD2W.01)
 
 This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
 
@@ -699,11 +851,9 @@ This integration adds the Simon 55 GO device ("blebox inside") as a climate enti
 - Set target temperature
 - Read current temperature
 
-### Simon 54 GO Control and Simon 55 GO Control
+### Simon 55 GO Control (TEK1W.01) and Simon 55 GO switchShutt
 
-This integration does not add direct support for Simon 54 GO Control and Simon 55 GO
-Control devices. It is however possible to integrate these devices with Home Assistant
-using automations via webhooks and wBox mobile app.
+This integration does not add direct support for Simon 55 GO Control and Simon 55 GO switchShutt devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
 
 - With Simon 55 / 54 GO control and its 4 buttons, you can configure up to 8 automations in Home Assistant (short and long press for each button).
 
@@ -711,6 +861,8 @@ The configuration consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+## "BleBox inside" - other manufacturers
 
 ### FAKRO FTP-V/FTU-V WiFi
 
