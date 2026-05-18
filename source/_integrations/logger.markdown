@@ -11,7 +11,7 @@ ha_domain: logger
 ha_integration_type: system
 ---
 
-The **Logger** {% term integration %} lets you define the level and filter logging activities in Home Assistant.
+The **Logger** {% term integration %} lets you define logging levels and filters in Home Assistant.
 
 Each logging entry is in this form:
 
