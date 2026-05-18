@@ -94,20 +94,11 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 threshold:
   description: |
-    A map that defines when the trigger should fire based on how the target temperature changes. The threshold contains two keys: `type` and `value` (or `value_min` and `value_max` for range-based types).
+    A mapping that defines which kind of change fires the trigger:
 
-    The `type` key determines the kind of threshold:
-
-    - `any` fires on any target temperature change, regardless of the new value. When using `any`, you don't need to include `value`.
-    - `above` fires only when the new target temperature is above a specific value.
-    - `below` fires only when the new target temperature is below a specific value.
-    - `between` fires only when the new target temperature is inside a range (between `value_min` and `value_max`).
-    - `outside` fires only when the new target temperature is outside a range (below `value_min` or above `value_max`).
-
-    The `value` key is a map specifying the threshold temperature. You can use either:
-
-    - A `number` key with a numerical value and a `unit_of_measurement` key (`°C` or `°F`), or
-    - An `entity` key with the entity ID of a temperature sensor or a [number helper](/integrations/input_number/) whose value represents the threshold.
+    - `type: any`: Fires on any target temperature change (no additional keys needed).
+    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
 
@@ -132,6 +123,7 @@ threshold:
 
 ## Good to know
 
+- This trigger monitors the target temperature setpoint (what you want the thermostat to maintain), not the current room temperature (the actual measured temperature). To react to changes in measured room temperature, use [Temperature changed](/triggers/temperature.changed/) instead.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when the target temperature first crosses a specific level, use [Thermostat target temperature crossed threshold](/triggers/climate.target_temperature_crossed_threshold/) instead.

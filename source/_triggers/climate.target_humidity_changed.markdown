@@ -88,20 +88,11 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 threshold:
   description: |
-    A map that defines when the trigger should fire based on how the target humidity changes. The threshold contains two keys: `type` and `value` (or `value_min` and `value_max` for range-based types).
+    A mapping that defines which kind of change fires the trigger:
 
-    The `type` key determines the kind of threshold:
-
-    - `any` fires on any target humidity change, regardless of the new value. When using `any`, you don't need to include `value`.
-    - `above` fires only when the new target humidity is above a specific value (in %).
-    - `below` fires only when the new target humidity is below a specific value (in %).
-    - `between` fires only when the new target humidity is inside a range (between `value_min` and `value_max`).
-    - `outside` fires only when the new target humidity is outside a range (below `value_min` or above `value_max`).
-
-    The `value` key is a map specifying the threshold humidity. You can use either:
-
-    - A `number` key with a numerical value (percentage 0-100), or
-    - An `entity` key with the entity ID of a humidity sensor or a [number helper](/integrations/input_number/) whose value represents the threshold percentage.
+    - `type: any`: Fires on any target humidity change (no additional keys needed).
+    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal percentage 0-100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     For example:
 
@@ -123,6 +114,7 @@ threshold:
 
 ## Good to know
 
+- This trigger monitors the target humidity setpoint (what you want the thermostat to maintain), not the current room humidity (the actual measured humidity). To react to changes in measured room humidity, use [Relative humidity changed](/triggers/humidity.changed/) instead.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when the target humidity first crosses a specific level, use [Thermostat target humidity crossed threshold](/triggers/climate.target_humidity_crossed_threshold/) instead.

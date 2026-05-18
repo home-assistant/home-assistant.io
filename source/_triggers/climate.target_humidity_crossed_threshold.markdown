@@ -99,19 +99,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 threshold:
   description: |
-    A map that defines when the trigger should fire based on when the target humidity crosses a threshold. The threshold contains two keys: `type` and `value` (or `value_min` and `value_max` for range-based types).
+    A mapping that defines when the trigger should fire:
 
-    The `type` key determines the kind of threshold:
-
-    - `above` fires when the setpoint crosses from below to above a specific value.
-    - `below` fires when the setpoint crosses from above to below a specific value.
-    - `between` fires when the setpoint crosses from outside to inside a range (from below `value_min` or above `value_max` to between them).
-    - `outside` fires when the setpoint crosses from inside to outside a range (from between `value_min` and `value_max` to below or above them).
-
-    The `value` key is a map specifying the threshold humidity. You can use either:
-
-    - A `number` key with a numerical value (percentage 0-100), or
-    - An `entity` key with the entity ID of a humidity sensor or a [number helper](/integrations/input_number/) whose value represents the threshold percentage.
+    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal percentage 0-100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     For example:
 
@@ -151,6 +142,7 @@ for:
 
 ## Good to know
 
+- This trigger monitors the target humidity setpoint (what you want the thermostat to maintain), not the current room humidity (the actual measured humidity). To react to changes in measured room humidity, use [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/) instead.
 - The threshold type controls the direction of the crossing. **Above** and **Below** fire when crossing in one direction through a single value, while **In range** and **Outside range** fire when crossing the boundary of a range.
 - The trigger fires only at the moment of crossing, not while the setpoint stays beyond the threshold.
 - To react to any change that lands at a particular value, use [Thermostat target humidity changed](/triggers/climate.target_humidity_changed/) instead.
