@@ -11,8 +11,15 @@ ha_domain: logger
 ha_integration_type: system
 ---
 
-The **Logger** {% term integration %} lets you define the level of logging activities in Home
-Assistant.
+The **Logger** {% term integration %} lets you define the level and filter logging activities in Home Assistant.
+
+Each logging entry is in this form:
+
+```yaml
+[timestamp] [level] [thread] [namespace] [message]
+```
+
+## YAML configuration
 
 To enable the `logger` integration in your installation,
 add the following to your {% term "`configuration.yaml`" %} file:
@@ -22,22 +29,50 @@ add the following to your {% term "`configuration.yaml`" %} file:
 logger:
 ```
 
-The log severity level is `warning` if the logger integration is not enabled in {% term "`configuration.yaml`" %}.
+### Configuration reference
 
-To log all messages and ignore events lower than critical for specified
-integrations:
-
-```yaml
-# Example configuration.yaml entry
-logger:
-  default: info
+{% configuration %}
+  default:
+    description: Default log level. See [log_level](#log-levels).
+    required: false
+    type: string
   logs:
-    homeassistant.components.yamaha: critical
-    custom_components.my_integration: critical
-```
+    description: List of integrations and their log level. See [logs](#logs).
+    required: false
+    type: map
+    keys:
+      '&lt;component_namespace&gt;':
+        description: Logger namespace of the integration. See [log_level](#log-levels).
+        type: string
+  filters:
+    description: Regular Expression logging filters.
+    required: false
+    type: map
+    keys:
+      '&lt;component_namespace&gt;':
+        description: Logger namespace of the integration and a list of Regular Expressions. See [Log Filters](#log-filters).
+        type: list
+{% endconfiguration %}
 
-To ignore all messages lower than critical and log event for specified
-integrations:
+### Log levels
+
+Possible log severity levels, listed in order from most severe to least severe, are:
+
+- critical
+- fatal
+- error
+- warning
+- warn
+- info
+- debug
+- notset
+
+The standard log severity level is `warning` if the logger integration is not enabled in {% term "`configuration.yaml`" %}.
+All messages lower than the specified level will be ignored in the logs.
+
+### Logs
+
+It is possible to change logging severity for a specific component or integration:
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,33 +105,6 @@ logger:
     glances_api: fatal
 ```
 
-The log entries are in the form  
-*timestamp* *log-level* *thread* [**namespace**] *message*  
-where **namespace** is the *<component_namespace>* currently logging.
-
-{% configuration %}
-  default:
-    description: Default log level. See [log_level](#log-levels).
-    required: false
-    type: string
-  logs:
-    description: List of integrations and their log level.
-    required: false
-    type: map
-    keys:
-      '&lt;component_namespace&gt;':
-        description: Logger namespace of the integration. See [log_level](#log-levels).
-        type: string
-  filters:
-    description: Regular Expression logging filters.
-    required: false
-    type: map
-    keys:
-      '&lt;component_namespace&gt;':
-        description: Logger namespace of the integration and a list of Regular Expressions. See [Log Filters](#log-filters).
-        type: list
-{% endconfiguration %}
-
 In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces,
 both of which are at root. They are logged by different APIs.
 
@@ -104,18 +112,6 @@ If you want to know the namespaces in your own environment then check your log f
 You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`.
 Those are the namespaces available for you to set a `log level` against.
 
-### Log levels
-
-Possible log severity levels, listed in order from most severe to least severe, are:
-
-- critical
-- fatal
-- error
-- warning
-- warn
-- info
-- debug
-- notset
 
 ### Log filters
 
@@ -127,15 +123,19 @@ An example configuration might look like this:
 # Example configuration.yaml entry
 logger:
   default: info
-  logs:
-    custom_components.my_integration: critical
   filters:
+    # filters out all entries containing "unable to connect" system wide
+    "":
+      - "unable to connect"
+
+    # filters out all "HTTP 429" errors for my_integration
     custom_components.my_integration:
-      - "HTTP 429" # Filter all HTTP 429 errors
-      - "Request to .*unreliable.com.* Timed Out"
-    homeassistant.components.nws:
-      - "^Error handling request$"
+      - "HTTP 429"
 ```
+
+{% note %}
+To know more about Regular Expression see the [Python docs](https://docs.python.org/3/library/re.html)
+{% endnote %}
 
 ## Actions
 
