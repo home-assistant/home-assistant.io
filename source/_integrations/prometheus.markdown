@@ -172,7 +172,7 @@ Replace `your.longlived.token` with a Home Assistant [generated token](https://d
 The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
 
 ```yaml
-# Example Prometheus scrape_configs entry (For version 2.26+
+# Example Prometheus scrape_configs entry (For version 2.26+)
   - job_name: "hass"
     scrape_interval: 60s
     metrics_path: /api/prometheus
@@ -215,4 +215,4 @@ This use of `unless` (which can be slow to compute) is no longer necessary, but 
 
 Metrics are exported only for the following domains:
 
-`alarm_control_panel`, `automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `switch`, `update`
+`alarm_control_panel`, `automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `geo_location`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `switch`, `update`
