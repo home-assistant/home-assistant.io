@@ -97,11 +97,12 @@ for:
 On hot afternoons, ground-level ozone spikes without any visible sign. This automation sends a notification when your backyard ozone sensor crosses 100, giving you a friendly heads-up to take your workout inside.
 
 - **Trigger**: Ozone level crossed threshold
-- **Target**: Backyard ozone sensor
-- **Threshold type**: 100
-- **Trigger when**: Each
+  - **Target**: Backyard ozone sensor
+  - **Threshold type**: 100
+  - **Trigger when**: Each
 - **Condition**: Ozone is above 100
-- **Action**: Notify mobile app
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for ozone exercise advisory" %}
 
@@ -120,7 +121,9 @@ automation: |
       entity_id: sensor.backyard_ozone
       above: 100
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "High ozone outside"
         message: >

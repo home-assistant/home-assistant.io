@@ -117,10 +117,11 @@ automation: |
 If you rely on airflow for comfort at night, a notification can tell you when the nursery fan has stopped for a few minutes.
 
 - **Trigger**: Fan turned off
-- **Target**: Nursery fan
-- **Trigger when**: Each
-- **For at least**: 00:05:00
-- **Action**: Send a notification via mobile_app_phone
+  - **Target**: Nursery fan
+  - **Trigger when**: Each
+  - **For at least**: 00:05:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a nursery fan alert" %}
 
@@ -135,7 +136,9 @@ automation: |
         behavior: any
         for: "00:05:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The nursery fan has been off for 5 minutes."
 {% endexample %}

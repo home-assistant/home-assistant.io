@@ -97,11 +97,12 @@ for:
 Allergy season is tough enough without guessing whether the air outside is safe. This automation sends a notification to your phone when outdoor PM10 crosses 50, so you know to keep the windows shut and stay comfortable indoors.
 
 - **Trigger**: PM10 level crossed threshold
-- **Target**: Patio PM10 sensor
-- **Threshold type**: 50
-- **Trigger when**: Each
+  - **Target**: Patio PM10 sensor
+  - **Threshold type**: 50
+  - **Trigger when**: Each
 - **Condition**: PM10 is above 50
-- **Action**: Notify mobile app
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for PM10 pollen season alert" %}
 
@@ -120,7 +121,9 @@ automation: |
       entity_id: sensor.patio_pm10
       above: 50
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "High PM10 outside"
         message: >
