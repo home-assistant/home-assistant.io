@@ -851,8 +851,8 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 
 ### Slow startup
 
-- If using a NVR or Home Hub, check if there is a camera currently offline/unreachable. For instance a battery camera where the battery completely drained, a POE camera where the network cable is unplugged, a Wi-Fi camera with outdated network credentials or a camera for which the IP address changed. To speedup startup restore the offline camera to a online state, or remove it from the NVR/Home Hub.
-- Using a VLAN or other network restrictions between the Home Assistant device and the Reolink device is possible, but is also known to cause slow startup issues when not properly configured. Ensure HTTP (port 80), HTTPS (port 443), RTMP (port 1935), RTSP (port 554), ONVIF (port 8000) and TCP (port 9000) communication is not being blocked. When experiencing issues, please first test if moving the Reolink device to the same VLAN as the Home Assistant device and lifting all restrictions between them solves the issue.
+- If you are using an NVR or Home Hub, check whether a camera is currently offline or unreachable. For example, this can happen with a battery camera whose battery is completely drained, a PoE camera with an unplugged network cable, a Wi-Fi camera with outdated network credentials, or a camera whose IP address has changed. To speed up startup, bring the camera back online or remove it from the NVR or Home Hub.
+- If you are using a VLAN or other network restrictions between your Home Assistant device and the Reolink device, this can cause slow startup issues when it is not configured correctly. Make sure HTTP (port 80), HTTPS (port 443), RTMP (port 1935), RTSP (port 554), ONVIF (port 8000), and TCP (port 9000) traffic is not blocked. If you experience issues, first test whether moving the Reolink device to the same VLAN as the Home Assistant device and removing all restrictions between them resolves the issue.
 
 ### Streams or recordings not playing
 
