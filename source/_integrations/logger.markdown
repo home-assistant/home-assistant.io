@@ -15,7 +15,7 @@ The **Logger** {% term integration %} lets you define logging levels and filters
 
 Each logging entry is in this form:
 
-```yaml
+```txt
 [timestamp] [level] [thread] [namespace] [message]
 ```
 
