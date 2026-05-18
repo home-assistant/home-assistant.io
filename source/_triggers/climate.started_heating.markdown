@@ -9,11 +9,9 @@ related_triggers:
   - climate.hvac_mode_changed
 ---
 
-The **Thermostat started heating** trigger fires after a thermostat {% term entity %} begins actively heating. This trigger monitors the `hvac_action` attribute rather than the HVAC mode—a thermostat can be set to **Heat** mode but still be idle if the current temperature already meets the target. The trigger only fires when the thermostat actually starts producing heat.
+The **Thermostat started heating** trigger fires after a thermostat {% term entity %} begins actively heating. This trigger monitors the `hvac_action` attribute rather than the HVAC mode. A thermostat can be set to **Heat** mode but still be idle if the current temperature already meets the target. The trigger only fires when the thermostat actually starts producing heat.
 
 Use this trigger to react to the start of active heating, for example to turn on a fan to distribute warm air or to close window coverings to retain heat.
-
-When you target more than one thermostat, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted thermostat starts heating, only after all targeted thermostats have started heating, or every single time any of them start heating.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -37,9 +35,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted thermostat starts heating.
-    - **First** (`first` in YAML): fire only when the first of a group starts heating.
-    - **All** (`last` in YAML): fire only after every targeted thermostat is heating.
+    - **Each** (`any` in YAML, default): fires every time any targeted thermostat starts heating.
+    - **First** (`first` in YAML): fires only when the first of a group starts heating.
+    - **All** (`last` in YAML): fires only after every targeted thermostat is heating.
 For at least:
   description: How long the thermostat must stay in the heating state before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}

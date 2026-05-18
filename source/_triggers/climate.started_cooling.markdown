@@ -37,9 +37,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted thermostat starts cooling.
-    - **First** (`first` in YAML): fire only when the first of a group starts cooling.
-    - **All** (`last` in YAML): fire only after every targeted thermostat is cooling.
+    - **Each** (`any` in YAML, default): fires every time any targeted thermostat starts cooling.
+    - **First** (`first` in YAML): fires only when the first of a group starts cooling.
+    - **All** (`last` in YAML): fires only after every targeted thermostat is cooling.
 For at least:
   description: How long the thermostat must stay in the cooling state before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}

@@ -9,11 +9,9 @@ related_triggers:
   - climate.hvac_mode_changed
 ---
 
-The **Thermostat started drying** trigger fires after a thermostat {% term entity %} begins actively drying. This trigger monitors the `hvac_action` attribute rather than the HVAC mode—a thermostat can be set to **Dry** mode but still be idle if the current humidity already meets the target. The trigger only fires when the thermostat actually starts the drying process.
+The **Thermostat started drying** trigger fires after a thermostat {% term entity %} begins actively drying. This trigger monitors the `hvac_action` attribute rather than the HVAC mode. A thermostat can be set to **Dry** mode but still be idle if the current humidity already meets the target. The trigger only fires when the thermostat actually starts the drying process.
 
 Use this trigger to react to the start of active drying, for example to close windows to prevent more humid air from entering or to turn on additional ventilation to help remove moisture.
-
-When you target more than one thermostat, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted thermostat starts drying, only after all targeted thermostats have started drying, or every single time any of them start drying.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -37,9 +35,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted thermostat starts drying.
-    - **First** (`first` in YAML): fire only when the first of a group starts drying.
-    - **All** (`last` in YAML): fire only after every targeted thermostat is drying.
+    - **Each** (`any` in YAML, default): fires every time any targeted thermostat starts drying.
+    - **First** (`first` in YAML): fires only when the first of a group starts drying.
+    - **All** (`last` in YAML): fires only after every targeted thermostat is drying.
 For at least:
   description: How long the thermostat must stay in the drying state before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
