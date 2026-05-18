@@ -84,11 +84,12 @@ for:
 Picture this: it is the middle of the night and a smoke sensor activates in the hallway. A standard alarm beeps, but someone wearing earplugs or a heavy sleeper might not notice. This automation flashes every light in the living room and sends an urgent notification to your phone at the same time, making sure the alert reaches everyone through both sight and sound.
 
 - **Trigger**: Smoke detected
-- **Target**: All smoke sensors (by label)
-- **Trigger when**: Each
-- **For at least**: 00:00:00
+  - **Target**: All smoke sensors (by label)
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Action**: Light: Turn on light (flash)
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a smoke detection alert" %}
 
@@ -108,7 +109,9 @@ automation: |
         area_id: living_room
       data:
         flash: long
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Smoke detected in the house!"
         title: "Smoke alert"

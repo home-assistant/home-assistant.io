@@ -84,11 +84,12 @@ for:
 After a smoke event, your front door was unlocked to help everyone evacuate safely. Once every smoke sensor has been clear for fifteen minutes, this automation locks the door again and sends a reassuring notification to your phone. Your home goes back to being secure, and you know the situation is truly resolved without having to check every sensor yourself.
 
 - **Trigger**: Smoke cleared
-- **Target**: All smoke sensors (by label)
-- **Trigger when**: All
-- **For at least**: 00:15:00
+  - **Target**: All smoke sensors (by label)
+  - **Trigger when**: All
+  - **For at least**: 00:15:00
 - **Action**: Lock: Lock
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for re-locking after smoke clears" %}
 
@@ -106,7 +107,9 @@ automation: |
     - action: lock.lock
       target:
         entity_id: lock.front_door
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "All smoke sensors are clear."
         title: "Smoke all-clear"

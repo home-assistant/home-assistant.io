@@ -77,9 +77,10 @@ threshold:
 Maybe someone left the car idling or the workshop heater is acting up. This automation sends a notification to your phone whenever the carbon monoxide level in the garage shifts noticeably, so you know to open the garage door or investigate the source right away.
 
 - **Trigger**: Carbon monoxide level changed
-- **Target**: Garage CO sensor
-- **Threshold type**: 10
-- **Action**: Notify mobile app
+  - **Target**: Garage CO sensor
+  - **Threshold type**: 10
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a garage CO alert" %}
 
@@ -93,7 +94,9 @@ automation: |
       options:
         threshold: 10
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Carbon monoxide change"
         message: "CO level in the garage changed significantly. Check ventilation."

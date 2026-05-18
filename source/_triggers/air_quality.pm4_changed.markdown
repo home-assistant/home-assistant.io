@@ -76,9 +76,10 @@ threshold:
 Allergy season and dusty days make it hard to focus when you work from home. This automation sends a notification when PM4 levels in your home office change noticeably, so you know exactly when to turn on the air purifier or crack a window.
 
 - **Trigger**: PM4 level changed
-- **Target**: Office PM4 sensor
-- **Threshold type**: 10
-- **Action**: Notify mobile app
+  - **Target**: Office PM4 sensor
+  - **Threshold type**: 10
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for PM4 office notification" %}
 
@@ -92,7 +93,9 @@ automation: |
       options:
         threshold: 10
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "PM4 change detected"
         message: "PM4 levels in the office changed. Consider turning on the air purifier."
