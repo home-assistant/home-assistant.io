@@ -206,7 +206,7 @@ Track how much the humidity in your greenhouse shifts throughout the day by send
   - **Target**: Greenhouse humidity sensor
   - **Threshold type**: Any change
 - **Action**: Send a notification
-  - **Target**: My Device (`mobile.my_device`)
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for greenhouse humidity logging" %}
 

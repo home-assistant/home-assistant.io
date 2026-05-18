@@ -75,9 +75,10 @@ If a gas leak started while you were away, you want to know the moment you pull 
 
 - **Trigger**: Zone: Person enters home zone
 - **Condition**: Air Quality: Gas detected
-- **Target**: Kitchen gas sensor
-- **Condition passes if**: Any
-- **Action**: Notify: Send urgent notification
+  - **Target**: Kitchen gas sensor
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a gas alert on arrival home" %}
 
@@ -96,7 +97,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Gas detected at home"
         message: >

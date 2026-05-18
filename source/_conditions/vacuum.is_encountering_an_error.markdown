@@ -88,8 +88,9 @@ This automation checks every evening whether the upstairs vacuum is still in an 
 
 - **Trigger**: Time: 18:00
 - **Condition**: Vacuum is encountering an error
-- **Target**: Upstairs vacuum
-- **Action**: Send a notification via mobile_app_phone
+  - **Target**: Upstairs vacuum
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for an unresolved vacuum error reminder" %}
 
@@ -106,7 +107,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Vacuum still needs help"
         message: "The upstairs vacuum is still reporting an error."
