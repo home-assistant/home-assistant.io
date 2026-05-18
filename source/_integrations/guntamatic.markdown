@@ -81,12 +81,12 @@ The following sensors are available for a Guntamatic BMK 20 heater:
 - **Program**:
   - **Description**: Current global operating program mode
   - **Possible values**:
-    - Away Until Mode
+    - Away Mode
     - Domestic hot water
     - Domestic hot water boost
     - Heat
     - Off
-    - Reduce Mode
+    - Setback Mode
     - Timer
   - **Unit**: None
 
