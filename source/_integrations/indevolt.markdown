@@ -70,7 +70,6 @@ The following button entity allows triggering device actions directly from Home 
 
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
-- Device heating state (Gen-1 specific, on/off)
 - DC input voltage (2 channels, V)
 - DC input current (2 channels, A)
 - DC input power (2 channels, W)
@@ -97,7 +96,9 @@ The following button entity allows triggering device actions directly from Home 
 #### BK1600/BK1600Ultra (Generation 1)
 
 - Inverter temperature (°C)
+- MOS Temperature charge/discharge (°C)
 - Battery pack 1-3 temperature (°C)
+- Device heating state (on/off)
 
 #### SolidFlex2000/PowerFlex2000 (Generation 2)
 
@@ -107,6 +108,8 @@ The following button entity allows triggering device actions directly from Home 
 - DC input power (4 channels, W)
 - Grid voltage (V)
 - Grid frequency (Hz)
+- Battery cycle count
+- Transformer temperature (°C)
 - Main battery serial number
 - Main battery SOC (%)
 - Main battery temperature (°C)
@@ -115,6 +118,7 @@ The following button entity allows triggering device actions directly from Home 
 - Battery pack 1-5 serial number
 - Battery pack 1-5 SOC (%)
 - Battery pack 1-5 temperature (°C)
+- Battery pack 1-5 MOS temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
 - Battery pack 1-5 heating state (on/off)
