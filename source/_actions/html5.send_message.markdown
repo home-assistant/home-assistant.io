@@ -315,7 +315,7 @@ automation: |
           - clicked
   conditions:
     - condition: template
-      value_template: "{{ trigger.to_state.attributes.action == \"open-door\"}}"
+      value_template: "{{ trigger.to_state.attributes.action == 'open-door'}}"
   actions:
     - action: lock.open
       target:
