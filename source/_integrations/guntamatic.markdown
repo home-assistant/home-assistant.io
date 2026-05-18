@@ -4,7 +4,7 @@ description: Guntamatic wood/pellet heater integration.
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
-ha_release: "2026.6"
+ha_release: 2026.6
 ha_codeowners:
   - '@JensTimmerman'
 ha_config_flow: true
@@ -31,7 +31,7 @@ Check the screen on the Guntamatic: Customer Level, Detailed Display, scroll dow
 
 {% configuration_basic %}
 Host:
-  description: The IP address or resolvable hostname of your Guntamatic heater. e.g. `192.168.1.42` or `kessel001.internal`
+  description: The IP address or resolvable hostname of your Guntamatic heater. For example, `192.168.1.42` or `kessel001.internal`
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -40,7 +40,7 @@ The integration polls the Guntamatic heater every 30 seconds. The heater does no
 
 ## Sensors
 
-The integration creates a sensor for each data point provided by the heater. The available sensors depend on the heater model and firmware version. Example sensors include boiler temperature, outside temperature, buffer load, and heating circuit programs.
+The integration creates a sensor for each data point provided by the heater. The available sensors depend on the heater model and firmware version. Example sensors include boiler temperature, outside temperature, buffer load, and heating circuit programs. Note that sensors with a value of `-20.00 °C` or `-9.00 °C` are not returned.
 
 
 The following sensors are available for a Guntamatic BMK 20 heater:
@@ -110,7 +110,6 @@ The following sensors are available for a Guntamatic BMK 20 heater:
   - **Example value**: Service Ign.
   - **Unit**: None
 
-> Note: Sensors with a value of `-20.00 °C` or `-9.00 °C` are not returned.
 
 ## Removing the integration
 
