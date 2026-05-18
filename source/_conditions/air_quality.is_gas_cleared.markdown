@@ -79,6 +79,7 @@ After a gas event, pressing a button to silence the alarm too early is risky if 
   - **Condition passes if**: All
 - **Action**: Turn off siren
 - **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for silencing the alarm only after full all-clear" %}
 
