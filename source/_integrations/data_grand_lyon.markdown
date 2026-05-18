@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: data_grand_lyon
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -102,6 +103,13 @@ For each transit stop you add, the following sensor entities are created:
 
 - **Next departure 3 type**
   - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.
+
+#### Vélo'v station binary sensors
+
+For each Vélo'v station you add, the following binary sensor entity is created:
+
+- **Station open**
+  - **Description**: Whether the Vélo'v station is open. On means the station is open and available for use. Off means the station is closed.
 
 #### Vélo'v station sensors
 
