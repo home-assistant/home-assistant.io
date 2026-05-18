@@ -849,6 +849,11 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 - Some **Custom cards** that can be used to view the camera in a dashboard are known to keep a battery camera constantly awake, draining its battery.
 - Viewing a **dashboard** with a picture-entity card of a Reolink battery camera, will wake that camera to show the latest snapshot and/or stream. Therefore, it is recommended to place the picture-entity cards in a separate dashboard/tab, which is only accessed when actually wanting to view the battery camera streams.
 
+### Slow startup
+
+- If using a NVR or Home Hub, check if there is a camera currently offline/unreachable. For instance a battery camera where the battery completely drained, a POE camera where the network cable is unplugged, a Wi-Fi camera with outdated network credentials or a camera for which the IP address changed. To speedup startup restore the offline camera to a online state, or remove it from the NVR/Home Hub.
+- Using a VLAN or other network restrictions between the Home Assistant device and the Reolink device is possible, but is also known to cause slow startup issues when not properly configured. Ensure HTTP (port 80), HTTPS (port 443), RTMP (port 1935), RTSP (port 554), ONVIF (port 8000) and TCP (port 9000) communication is not being blocked. When experiencing issues, please first test if moving the Reolink device to the same VLAN as the Home Assistant device and lifting all restrictions between them solves the issue.
+
 ### Streams or recordings not playing
 
 - Most Reolink cameras use h265 encoding for the high resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you acces Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"encoding main": "h265"\"h264"` in the txt file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
