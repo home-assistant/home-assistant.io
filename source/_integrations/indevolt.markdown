@@ -68,6 +68,7 @@ The following button entity allows triggering device actions directly from Home 
 
 #### All generations
 
+- Rated capacity (kWh)
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
 - Device heating state (Gen-1 specific, on/off)
@@ -106,7 +107,6 @@ The following button entity allows triggering device actions directly from Home 
 
 #### SolidFlex2000/PowerFlex2000 (Generation 2)
 
-- Rated capacity (kWh)
 - DC input voltage (4 channels, V)
 - DC input current (4 channels, A)
 - DC input power (4 channels, W)
