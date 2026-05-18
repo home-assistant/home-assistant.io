@@ -79,7 +79,7 @@ automation: |
   actions:
     - action: html5.dismiss_message
       data:
-        sequence_id: "motion-detected"
+        tag: "motion-detected"
       target:
         entity_id: notify.my_desktop
 {% endexample %}

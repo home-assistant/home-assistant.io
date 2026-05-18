@@ -73,10 +73,11 @@ The **HTML5 Push Notifications** {% term integration %} will add a notify {% ter
 
 {% example %}
 action: |
-  action: notify.send_message
+  action: html5.send_message
   data:
     title: "Reminder"
     message: "Have you considered frogs?"
+  target:
     entity_id: notify.my_desktop
 {% endexample %}
 
@@ -118,11 +119,11 @@ You will receive an event named `html5_notification.received` when the
 notification is received on the device.
 
 {% example %}
-trigger: |
+automation: |
   alias: "HTML5 push notification received and displayed on device"
   triggers:
-    trigger: event
-    event_type: html5_notification.received
+    - trigger: event
+      event_type: html5_notification.received
 {% endexample %}
 
 ### Clicked event
@@ -130,23 +131,23 @@ trigger: |
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
 {% example %}
-trigger: |
+automation: |
   alias: "HTML5 push notification clicked"
   triggers:
-    trigger: event
-    event_type: html5_notification.clicked
+    - trigger: event
+      event_type: html5_notification.clicked
 {% endexample %}
 
 or
 
 {% example %}
-trigger: |
+automation: |
   alias: "HTML5 push notification action button clicked"
   triggers:
-    trigger: event
-    event_type: html5_notification.clicked
-    event_data:
-      action: open_door
+    - trigger: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: open_door
 {% endexample %}
 
 ### Closed event
@@ -154,11 +155,11 @@ trigger: |
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
 {% example %}
-trigger: |
+automation: |
   alias: "HTML5 push notification clicked"
   triggers:
-    trigger: event
-    event_type: html5_notification.closed
+    - trigger: event
+      event_type: html5_notification.closed
 {% endexample %}
 
 ## Enabling HTML5 Push Notifications behind an NGINX reverse proxy with authentication

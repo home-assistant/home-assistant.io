@@ -276,26 +276,26 @@ If the doorbell rings, receive an actionable notification with a camera snapshot
 
 {% example %}
 automation: |
-  alias: "Send doorbell-ran notification to my desktop"
+  alias: "Send doorbell-rang notification to my desktop"
   triggers:
-    trigger: doorbell.rang
-    target:
-      entity_id: event.doorbell
+    - trigger: doorbell.rang
+      target:
+        entity_id: event.doorbell
   actions:
-    action: html5.send_message
-    target:
-      entity_id: notify.my_desktop
-    data:
-      title: 🔔 The doorbell rang.
-      message: Someone is at the entrance door.
-      icon: https://homeassistant.example.com/www/entrancecamera_snapshot.jpg
-      actions:
-        - action: open-door
-          title: Open door
-      require_interaction: true
-      ttl:
-        minutes: 5
-      urgency: high
+    - action: html5.send_message
+      target:
+        entity_id: notify.my_desktop
+      data:
+        title: 🔔 The doorbell rang.
+        message: Someone is at the entrance door.
+        icon: https://homeassistant.example.com/www/entrancecamera_snapshot.jpg
+        actions:
+          - action: open-door
+            title: Open door
+        require_interaction: true
+        ttl:
+          minutes: 5
+        urgency: high
 {% endexample %}
 
 - **Trigger**: Event
@@ -307,12 +307,12 @@ automation: |
 automation: |
   alias: "Open entrance door when open-door action button is tapped"
   triggers:
-    trigger: event.received
-    target:
-      entity_id: event.pc
-    options:
-      event_type:
-        - clicked
+    - trigger: event.received
+      target:
+        entity_id: event.pc
+      options:
+        event_type:
+          - clicked
   conditions:
     - condition: template
       value_template: "{{ trigger.to_state.attributes.action == \"open-door\"}}"
