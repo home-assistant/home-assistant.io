@@ -10,13 +10,10 @@ ha_domain: opensensemap
 ha_platforms:
   - air_quality
 ha_integration_type: service
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_quality_scale: legacy
 ---
 
-The **openSenseMap** {% term integration %} queries the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor an air-quality sensor station.
+The **openSenseMap** {% term integration %} queries the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor an air quality sensor station.
 
 ## Setup
 
