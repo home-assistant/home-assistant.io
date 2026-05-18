@@ -224,7 +224,7 @@ This typically indicates corrupted data on the serial line. Check for electrical
 
 ### USB device not auto-detected
 
-Only the **Micro Teleinfo** dongle (FTDI `0403:6015` with a USB serial number starting with `TINFO-`) is auto-discovered. All other adapters — including Cartelectronic, Silicon Labs CP2102/CP2102N, generic FTDI, and GPIO/UART connections — must be added manually: start the integration setup and enter the serial port path directly.
+Only the **Micro Teleinfo** dongle (FTDI `0403:6015` with a USB serial number starting with `TINFO-`) is auto-discovered. All other adapters—including Cartelectronic, Silicon Labs CP2102/CP2102N, generic FTDI, and GPIO/UART connections—must be added manually: start the integration setup and enter the serial port path directly.
 
 Earlier releases also auto-discovered any FTDI `0403:6015` or Silicon Labs CP2102 (`10C4:EA60`) device. Because those USB IDs are shared with unrelated hardware such as Zigbee and Z-Wave coordinators, that broad discovery could open and disturb serial ports owned by other integrations, so it was narrowed to the Micro Teleinfo dongle only. Existing configured devices keep working and are not affected.
 
