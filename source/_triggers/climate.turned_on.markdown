@@ -8,7 +8,7 @@ related_triggers:
   - climate.hvac_mode_changed
 ---
 
-The **Thermostat turned on** trigger fires after a climate {% term entity %} turns on, entering any operational mode (such as Heat, Cool, or Auto). Climate entities include thermostats, air conditioners, heat pumps, and evaporative coolers. The trigger doesn't care which specific mode the device switches to—it only checks that it transitions from **Off** to any active mode. Use this trigger when you want to react as soon as the climate entity becomes active, regardless of whether it's heating, cooling, or in another mode.
+The **Thermostat turned on** trigger fires after a climate {% term entity %} turns on, entering any operational mode (such as Heat, Cool, or Auto). Climate entities include thermostats, air conditioners, heat pumps, and evaporative coolers. The trigger doesn't care which specific mode the device switches to. It only checks that it transitions from **Off** to any active mode. Use this trigger when you want to react as soon as the climate entity becomes active, regardless of whether it's heating, cooling, or in another mode.
 
 Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
 
@@ -34,9 +34,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted thermostat turns on.
-    - **First** (`first` in YAML): fire only when the first of a group turns on.
-    - **All** (`last` in YAML): fire only after every targeted thermostat is on.
+    - **Each** (`any` in YAML, default): fires every time any targeted thermostat turns on.
+    - **First** (`first` in YAML): fires only when the first of a group turns on.
+    - **All** (`last` in YAML): fires only after every targeted thermostat is on.
 For at least:
   description: How long the thermostat must stay on before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
