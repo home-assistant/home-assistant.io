@@ -87,10 +87,11 @@ When you pull into the driveway, you want to know if the air inside is safe befo
 
 - **Trigger**: Zone: Person enters home zone
 - **Condition**: Air Quality: Carbon monoxide value
-- **Target**: Hallway CO sensor
-- **Threshold type**: 20
-- **Condition passes if**: Any
-- **Action**: Notify: Send notification
+  - **Target**: Hallway CO sensor
+  - **Threshold type**: 20
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a CO check on arrival home" %}
 
@@ -110,7 +111,9 @@ automation: |
         threshold: 20
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "CO level elevated at home"
         message: >

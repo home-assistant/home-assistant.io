@@ -91,10 +91,12 @@ On spring mornings, pollen and dust push PM10 readings up before you even notice
 
 - **Trigger**: State: Bedroom window cover opened
 - **Condition**: Air Quality: PM10 value
-- **Target**: Outdoor PM10 sensor
-- **Threshold type**: 50
-- **Condition passes if**: Any
-- **Action**: Cover: Close cover, then notify
+  - **Target**: Outdoor PM10 sensor
+  - **Threshold type**: 50
+  - **Condition passes if**: Any
+- **Action**: Close cover
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for closing windows back on high PM10" %}
 
@@ -116,7 +118,9 @@ automation: |
     - action: cover.close_cover
       target:
         entity_id: cover.bedroom_window
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "PM10 is high outside"
         message: >
