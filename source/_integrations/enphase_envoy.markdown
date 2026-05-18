@@ -80,8 +80,6 @@ Collect test fixture data in diagnostics report:
   description: "No/Yes <br> When new features are requested or firmware is upgraded, it can happen that existing test fixtures no longer cover all test cases and new ones are needed. You may be requested to provide data for such test fixtures. If so, and you are willing to provide the data, setting this option enables the collection of test data as part of the [diagnostics report](#fixtures)."
 Always use a new connection when requesting data from the Envoy:
   description: "No/Yes <br> Some older Envoy firmware may exhibit connection issues when using the default keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R, but may apply to other older firmware versions as well."
-Number of data request attempts:
-  description: "Number of data request attempts before failure is signaled. Each request attempt waits 45 seconds for a reply. Increasing this value means Home Assistant waits longer before giving up on a request, which can also delay sensor updates while retries are in progress. Default is 4 attempts, and the configurable range is 2-10. For instance, increase this value when daily outages still occur around 11 PM, the time when the Envoy recycles internal tasks. (See [Data outage around 11 PM](#data-outage-around-11-pm) in [Known Issues](#known-issues-and-limitations))."
 {% endconfiguration_basic %}
 
 ## Reconfigure
@@ -781,8 +779,6 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 ### Data outage around 11 PM
 
 Shortly after 11 PM, data requests to the Envoy may fail. This has been reported for various firmware versions and at different times. The Envoy is reportedly recycling internal processes or performing cleanup tasks. While this activity is ongoing, data requests may fail. The issue is typically observed as log entries and gaps in historical data. These gaps may last until a new value comes in. For some entities, this may not happen until the next sunrise, when solar generation resumes.
-
-To help reduce this issue, use the option [**Number of data request attempts**](#number-of-data-request-attempts) to increase the number of request attempts. Keep the number of attempts as close as possible to the default setting of 4, while trying to reduce request failures and gaps in history.
 
 {% details "History example for Envoy Lifetime energy production with gaps at 11 PM" %}
 
