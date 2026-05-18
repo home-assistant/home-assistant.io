@@ -162,6 +162,27 @@ max:
   required: false
   type: float
   default: 100
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assisant persist at the broker for offline subscribers. This option prevents that the broker retains stale messages. The expected value for this option is a JSON mapping, for example `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 mode:
   description: Control how the number should be displayed in the UI. Can be set to `box` or `slider` to force a display mode.
   required: false
