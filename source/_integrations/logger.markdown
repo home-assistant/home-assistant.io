@@ -79,28 +79,28 @@ It is possible to change logging severity for a specific component or integratio
 logger:
   default: critical
   logs:
-    # log level for Home Assistant Core
+    # Log level for Home Assistant Core
     homeassistant.core: fatal
 
-    # log level for MQTT integration
+    # Log level for MQTT integration
     homeassistant.components.mqtt: warning
 
-    # log level for all python scripts
+    # Log level for all python scripts
     homeassistant.components.python_script: warning
 
-    # individual log level for this python script
+    # Individual log level for this python script
     homeassistant.components.python_script.my_new_script.py: debug
 
-    # log level for SmartThings lights
+    # Log level for SmartThings lights
     homeassistant.components.smartthings.light: info
 
-    # log level for a custom integration
+    # Log level for a custom integration
     custom_components.my_integration: debug
 
-    # log level for the `aiohttp` Python package
+    # Log level for the `aiohttp` Python package
     aiohttp: error
 
-    # log level for both 'glances_api' and 'glances' integration
+    # Log level for both 'glances_api' and 'glances' integration
     homeassistant.components.glances: fatal
     glances_api: fatal
 ```
@@ -124,17 +124,17 @@ An example configuration might look like this:
 logger:
   default: info
   filters:
-    # filters out all entries containing "unable to connect" system wide
+    # Filters out all entries containing "unable to connect" system wide
     "":
       - "unable to connect"
 
-    # filters out all "HTTP 429" errors for my_integration
+    # Filters out all "HTTP 429" errors for my_integration
     custom_components.my_integration:
       - "HTTP 429"
 ```
 
 {% note %}
-To know more about Regular Expression see the [Python docs](https://docs.python.org/3/library/re.html)
+To learn more about Regular Expression, see the [Python documentation](https://docs.python.org/3/library/re.html)
 {% endnote %}
 
 ## Actions
