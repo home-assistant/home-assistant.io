@@ -140,9 +140,9 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted thermostat crosses the threshold.
-    - `first` (**First** in the UI): fire only on the first threshold crossing.
-    - `last` (**All** in the UI): fire only after every targeted thermostat crosses the threshold.
+    - `any` (**Each** in the UI, default): fires every time any targeted thermostat crosses the threshold.
+    - `first` (**First** in the UI): fires only on the first threshold crossing.
+    - `last` (**All** in the UI): fires only after every targeted thermostat crosses the threshold.
   required: false
   type: string
   default: any
