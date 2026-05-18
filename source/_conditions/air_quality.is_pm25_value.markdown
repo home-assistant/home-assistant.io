@@ -92,10 +92,12 @@ During wildfire season, outdoor PM2.5 readings spike overnight while you sleep. 
 
 - **Trigger**: State: Living room window cover opened
 - **Condition**: Air Quality: PM2.5 value
-- **Target**: Outdoor PM2.5 sensor
-- **Threshold type**: 35
-- **Condition passes if**: Any
-- **Action**: Cover: Close cover, then notify
+  - **Target**: Outdoor PM2.5 sensor
+  - **Threshold type**: 35
+  - **Condition passes if**: Any
+- **Action**: Close cover
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for closing windows back on high outdoor PM2.5" %}
 
@@ -117,7 +119,9 @@ automation: |
     - action: cover.close_cover
       target:
         entity_id: cover.living_room_window
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "PM2.5 is high outside"
         message: >

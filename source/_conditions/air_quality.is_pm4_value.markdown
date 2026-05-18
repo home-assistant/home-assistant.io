@@ -91,10 +91,11 @@ If your indoor PM4 readings are consistently high, the air filters are likely ov
 
 - **Trigger**: Time: Every Sunday at 09:00
 - **Condition**: Air Quality: PM4 value
-- **Target**: Living room PM4 sensor
-- **Threshold type**: 50
-- **Condition passes if**: Any
-- **Action**: Notify: Send notification
+  - **Target**: Living room PM4 sensor
+  - **Threshold type**: 50
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a weekly PM4 filter reminder" %}
 
@@ -115,7 +116,9 @@ automation: |
         threshold: 50
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Time to check the air filters"
         message: >
