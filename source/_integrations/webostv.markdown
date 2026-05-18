@@ -106,7 +106,8 @@ The `webostv.button` action is used to simulate a button press.
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `IN_START`, `ADJ`, `IN_STOP`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+|`button`                | no       |Service buttons: `IN_START`, `ADJ`, `IN_STOP`
 
 ### Action: Generic command
 
@@ -172,6 +173,71 @@ The icon has to be a local file accessible by Home Assistant, not a web URL. The
 ## Data updates
 
 LG webOS TV devices are automatically pushing data to Home Assistant.
+
+## Switching picture mode with drop-down selection
+
+If you'd like to change the picture mode (eg.: `VIVID`, `STANDARD`, `GAME`, `CINEMA`, `FILMMAKER`) via a beautiful card, bellow you'll find an example.
+For more information visit the [Home Assistant Community](https://community.home-assistant.io/t/lg-webos-change-picture-setting-mode-with-scripts/262915/58).
+
+1. Create an `Input Select` in the helpers with the following values: `game`, `cinema`, `cinemaBright`, `filmMaker`.
+2. Then, create the following `automation`:
+```yml
+alias: Select Picture Mode (Automation)
+description: Sets LG WebOS Picture Mode with SDR/HDR/Dolby loop. Created by: kopiro
+triggers:
+  - entity_id: input_select.#YOUR_INPUT_SELECT
+    trigger: state
+conditions: []
+actions:
+  - variables:
+      modes_to_send: |
+        {% set incoming = trigger.to_state.state %} {% set map = {
+          'game': ['game', 'hdrGame', 'dolbyHdrGame'],
+          'cinema': ['cinema', 'hdrCinema', 'dolbyHdrCinema'],
+          'cinemaBright': ['cinemaBright', 'hdrCinemaBright', 'dolbyHdrCinemaBright'],
+          'filmMaker': ['filmMaker', 'hdrFilmMaker', 'dolbyHdrCinema']
+        } %} {{ map.get(incoming, [incoming]) }}
+  - repeat:
+      for_each: "{{ modes_to_send }}"
+      sequence:
+        - data:
+            entity_id: media_player.#YOUR_TV
+            command: settings/setSystemSettings
+            payload:
+              category: picture
+              settings:
+                pictureMode: "{{ repeat.item }}"
+          action: webostv.command
+          continue_on_error: true
+mode: single
+```
+3.Add card to your dashboard:
+
+```yml
+type: custom:bubble-card
+card_type: select
+entity: input_select.#YOUR_INPUT_SELECT
+name: LG TV Picture Mode
+icon: mdi:television-classic
+show_state: true
+grid_options:
+  columns: 6
+  rows: auto
+sub_button:
+  main: []
+  bottom: []
+force_icon: false
+show_name: true
+show_last_changed: false
+show_last_updated: false
+show_attribute: false
+tap_action:
+  action: none
+```
+An example of how the card looks like:
+
+<img width="606" height="511" alt="image" src="https://github.com/user-attachments/assets/ab3ea842-c5dc-421e-a374-44f0ff2a1899" />
+
 
 ## Switching source with automation
 
