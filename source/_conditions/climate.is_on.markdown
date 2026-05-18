@@ -62,6 +62,8 @@ behavior:
 
 {% include conditions/targets.md %}
 
+{% include conditions/behavior.md %}
+
 ## Good to know
 
 - This condition passes when the thermostat is in any active HVAC mode: heat, cool, heat/cool, auto, dry, or fan only. It does not pass when the thermostat is off.

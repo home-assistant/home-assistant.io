@@ -61,6 +61,8 @@ behavior:
 
 {% include conditions/targets.md %}
 
+{% include conditions/behavior.md %}
+
 ## Good to know
 
 - Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as off. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is unavailable.

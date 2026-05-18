@@ -10,7 +10,7 @@ related_conditions:
   - climate.is_cooling
 ---
 
-The **Thermostat is in HVAC mode** condition passes when a thermostat {% term entity %} is set to a specific HVAC mode. HVAC modes control the thermostat's operating mode and typically include **Off**, **Heat**, **Cool**, **Heat/cool** (also called auto), **Dry**, **Fan only**, and **Auto**, though the exact modes available depend on your device. Use **Thermostat is in HVAC mode** to have an automation run only when the thermostat is set to a specific mode, such as ensuring the blinds only close when cooling is active.
+The **Thermostat is in HVAC mode** condition passes when a thermostat {% term entity %} is set to a specific HVAC mode. HVAC modes control the thermostat's operating mode and typically include **Off**, **Heat**, **Cool**, **Heat/cool**, **Dry**, **Fan only**, and **Auto**, though the exact modes available depend on your device. Use **Thermostat is in HVAC mode** to have an automation run only when the thermostat is set to a specific mode, such as ensuring the blinds only close when cooling is active.
 
 When you target more than one thermostat, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted thermostat to be in the selected mode, or demand that all of them are.
 
@@ -34,7 +34,7 @@ To use **Thermostat is in HVAC mode** in an automation:
 
 {% options_ui %}
 HVAC mode:
-  description: The HVAC mode or modes to check for. Only the modes available on the targeted device are shown. Typical modes include **Off**, **Heat**, **Cool**, **Heat/cool** (auto), **Auto**, **Dry**, and **Fan only**, though the exact modes depend on your device.
+  description: The HVAC mode or modes to check for. Only the modes available on the targeted device are shown. Typical modes include **Off**, **Heat**, **Cool**, **Heat/cool**, **Auto**, **Dry**, and **Fan only**, though the exact modes depend on your device.
 Condition passes if:
   description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat is in the selected mode, or **All** to pass only when every targeted thermostat is in the selected mode. Default is **Any**.
 For at least:
@@ -98,7 +98,7 @@ for:
 ## Good to know
 
 - The available HVAC modes depend entirely on the device. Check your thermostat's documentation or the entity's attributes in Home Assistant to see which modes are supported.
-- This condition checks the mode the thermostat is _currently set to_, not whether it is actively heating or cooling. To check what action the thermostat is currently performing, use conditions like [Thermostat is heating](/conditions/climate.is_heating/) or [Thermostat is cooling](/conditions/climate.is_cooling/).
+- This condition checks the mode the thermostat is currently set to, not whether it is actively heating or cooling. To check what action the thermostat is currently performing, see the related conditions below.
 - To check if a thermostat is simply on (any active mode) or off, use [Thermostat is on](/conditions/climate.is_on/) or [Thermostat is off](/conditions/climate.is_off/).
 
 {% include conditions/try_it.md %}
