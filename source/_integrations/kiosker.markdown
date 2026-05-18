@@ -81,6 +81,8 @@ The **Kiosker** integration provides the following entities.
 
 ## Actions
 
+The **Kiosker** integration provides the following actions.
+
 ### Action: Navigate to URL
 
 The `navigate_url` action navigates the Kiosker device to a specific URL.
