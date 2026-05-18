@@ -8,7 +8,7 @@ ha_release: 2026.6
 ha_codeowners:
   - '@JensTimmerman'
 ha_config_flow: true
-ha_domain: guntamatic_sensor
+ha_domain: guntamatic
 ha_platforms:
   - sensor
 ha_dhcp: true
@@ -81,12 +81,12 @@ The following sensors are available for a Guntamatic BMK 20 heater:
 - **Program**:
   - **Description**: Current global operating program mode
   - **Possible values**:
+    - Away Until Mode
     - Domestic hot water
     - Domestic hot water boost
     - Heat
-    - Reduce
-    - Away Until
     - Off
+    - Reduce Mode
     - Timer
   - **Unit**: None
 
