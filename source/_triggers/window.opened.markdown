@@ -86,11 +86,12 @@ for:
 If a kitchen window opens after dark, a quick notification can help you notice it before you lock up for the night.
 
 - **Trigger**: Window opened
-- **Target**: Kitchen window sensor
-- **Trigger when**: Each
-- **For at least**: 00:00:00
+  - **Target**: Kitchen window sensor
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Condition**: Sun is below horizon
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a nighttime window-open notification" %}
 
@@ -108,7 +109,9 @@ automation: |
     - condition: sun
       after: sunset
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Kitchen window opened"
         message: "The kitchen window was opened after sunset."

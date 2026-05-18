@@ -97,10 +97,11 @@ for:
 Nobody wants to discover a CO problem too late. This automation sends an urgent notification straight to your phone the moment the garage sensor crosses 35 ppm, giving you time to open the door and check for running engines or faulty appliances.
 
 - **Trigger**: Carbon monoxide level crossed threshold
-- **Target**: Garage CO sensor
-- **Threshold type**: 35
-- **Trigger when**: Each
-- **Action**: Notify mobile app
+  - **Target**: Garage CO sensor
+  - **Threshold type**: 35
+  - **Trigger when**: Each
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a garage CO threshold alert" %}
 
@@ -115,7 +116,9 @@ automation: |
         threshold: 35
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Carbon monoxide warning"
         message: >

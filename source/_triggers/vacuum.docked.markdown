@@ -91,8 +91,9 @@ for:
 When the vacuum docks, the cleaning run is usually complete. This automation sends a quick message so you know the robot is done and back on the charger.
 
 - **Trigger**: Vacuum returned to dock
-- **Target**: Downstairs vacuum
-- **Action**: Notify mobile app
+  - **Target**: Downstairs vacuum
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a cleaning finished notification" %}
 
@@ -104,7 +105,9 @@ automation: |
       target:
         entity_id: vacuum.downstairs
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Vacuum finished"
         message: "The downstairs vacuum returned to its dock."
