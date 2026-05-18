@@ -89,7 +89,7 @@ When a panic button is pressed, send an urgent push notification with the alarm 
   - **Target**: Hallway alarm panel
   - **Condition passes if**: Any
 - **Action**: Send a notification message
-  - **Target**: My Device (`notify.my_device)
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for an emergency notification gated on triggered alarm" %}
 
