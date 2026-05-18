@@ -85,10 +85,11 @@ for:
 If the bathroom fan has been running for a while, you may want a reminder to turn it off after the room has cleared.
 
 - **Trigger**: Fan turned on
-- **Target**: Bathroom fan
-- **Trigger when**: Each
-- **For at least**: 00:20:00
-- **Action**: Send a notification via mobile_app_phone
+  - **Target**: Bathroom fan
+  - **Trigger when**: Each
+  - **For at least**: 00:20:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a bathroom fan reminder" %}
 
@@ -103,7 +104,9 @@ automation: |
         behavior: any
         for: "00:20:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The bathroom fan has been on for 20 minutes."
 {% endexample %}

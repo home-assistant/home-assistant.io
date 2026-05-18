@@ -116,9 +116,10 @@ automation: |
 If the garage door opens after you leave home, you probably want to know right away. This automation waits 30 seconds, then sends a notification so brief movement does not alert you unnecessarily.
 
 - **Trigger**: Door opened
-- **Target**: Garage door
-- **For at least**: 00:00:30
-- **Action**: Notifications: Send a notification via `mobile_app_<name>`
+  - **Target**: Garage door
+  - **For at least**: 00:00:30
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a garage-door alert after leaving home" %}
 
@@ -136,7 +137,9 @@ automation: |
       entity_id: person.frenck
       state: "not_home"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Garage door opened"
         message: "The garage door has been open for 30 seconds after you left home."

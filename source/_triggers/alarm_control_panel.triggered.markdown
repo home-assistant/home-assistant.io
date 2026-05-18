@@ -85,11 +85,12 @@ for:
 The alarm just went off. Every light in the house flashes red and your phone gets a critical notification that cuts through silent mode. Whether you are asleep upstairs or away at work, you know immediately that something triggered the alarm.
 
 - **Trigger**: Alarm triggered
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Action**: Flash all lights red
-- **Action**: Send a critical mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for alarm triggered alert" %}
 
@@ -110,7 +111,9 @@ automation: |
       data:
         color_name: red
         flash: long
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Alarm triggered!"
         message: >
