@@ -79,6 +79,75 @@ The **Kiosker** integration provides the following entities.
 - **Disable screensaver**
   - Disables the currently active screensaver
 
+## Actions
+
+### Action: Navigate to URL
+
+The `navigate_url` action navigates the Kiosker device to a specific URL.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | No | The Kiosker device to control. |
+| `url` | No | The URL to navigate to. |
+
+Example:
+
+```yaml
+action: kiosker.navigate_url
+data:
+  device_id: a1b2c3d4e5f6g7h8i9j0k1l2
+  url: "https://www.home-assistant.io"
+```
+
+### Action: Set blackout
+
+The `set_blackout` show a blackout overlay on the Kiosker device with an optional message, icon, and dismiss button.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | No | The Kiosker device to control. |
+| `visible` | No | Whether the blackout overlay is visible. Defaults to `true`. |
+| `text` | Yes | Text to display on the blackout screen. |
+| `background` | Yes | Background color of the overlay in RGB format. Defaults to `[0, 0, 0]`. |
+| `foreground` | Yes | Text color of the overlay in RGB format. Defaults to `[255, 255, 255]`. |
+| `icon` | Yes | Icon to display on the overlay (SF Symbols name). |
+| `expire` | Yes | Time in seconds before the blackout expires automatically. Use `0` for no expiry. Defaults to `60`. |
+| `dismissible` | Yes | Whether the user can dismiss the overlay by tapping a button. Defaults to `false`. |
+| `button_background` | Yes | Background color of the dismiss button in RGB format. Defaults to `[255, 255, 255]`. |
+| `button_foreground` | Yes | Text color of the dismiss button in RGB format. Defaults to `[0, 0, 0]`. |
+| `button_text` | Yes | Label of the dismiss button. |
+| `sound` | Yes | Sound to play when the overlay appears (SystemSoundID, for example `1007`). |
+
+Example — simple blackout with a message:
+
+```yaml
+action: kiosker.set_blackout
+data:
+  device_id: a1b2c3d4e5f6g7h8i9j0k1l2
+  text: "Be right back"
+  visible: true
+  expire: 300
+```
+
+Example — dismissible blackout with custom colors and button:
+
+```yaml
+action: kiosker.set_blackout
+data:
+  device_id: a1b2c3d4e5f6g7h8i9j0k1l2
+  visible: true
+  text: "Meeting in progress"
+  background: [10, 10, 60]
+  foreground: [255, 255, 255]
+  icon: "person.2.fill"
+  expire: 3600
+  dismissible: true
+  button_background: [255, 255, 255]
+  button_foreground: [10, 10, 60]
+  button_text: "Dismiss"
+  sound: "1007"
+```
+
 ## Data updates
 This integration fetches data from the device every 15 seconds.
 
