@@ -31,7 +31,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters reach their minimum value.
+  description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters reach their minimum value. Default is **Each**.
 For at least:
   description: How long the counter must stay at its minimum before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -45,9 +45,6 @@ trigger: |
   trigger: counter.minimum_reached
   target:
     entity_id: counter.items_left
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This fires when `counter.items_left` reaches its minimum.

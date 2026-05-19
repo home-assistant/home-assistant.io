@@ -32,7 +32,7 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters are reset.
+  description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters are reset. Default is **Each**.
 For at least:
   description: How long the counter must stay at its reset value before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -46,9 +46,6 @@ trigger: |
   trigger: counter.reset
   target:
     entity_id: counter.guest_visits
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This fires when `counter.guest_visits` returns to its initial value.

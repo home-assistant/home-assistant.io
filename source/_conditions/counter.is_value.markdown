@@ -39,9 +39,9 @@ Threshold type:
   description: |
     The value the counter has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** uses a fixed value. **Entity** uses the current value of a `counter`, `input_number`, or `number` entity.
 Condition passes if:
-  description: When multiple counters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted counter matches, or **All** to pass only when every targeted counter matches.
+  description: When multiple counters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted counter matches, or **All** to pass only when every targeted counter matches. Default is **Any**.
 For at least:
-  description: How long the counter must stay within the selected threshold before the condition passes.
+  description: How long the counter must stay within the selected threshold before the condition passes. Defaults to `00:00:00`, so the condition passes immediately.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -58,8 +58,6 @@ condition: |
       type: below
       value:
         number: 5
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This passes when `counter.exercise_breaks` is below `5`.
@@ -76,8 +74,6 @@ condition: |
       type: above
       value:
         entity: input_number.water_reminder_limit
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This passes when `counter.water_reminders` is above the current value of `input_number.water_reminder_limit`.
@@ -96,8 +92,6 @@ condition: |
         number: 2
       value_max:
         number: 4
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This passes when `counter.daily_check_ins` is between `2` and `4`.
