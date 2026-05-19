@@ -72,6 +72,7 @@ for:
 
 - Canceling a timer resets it to its configured starting duration.
 - A cancelled timer does not fire the **Timer finished** trigger.
+- The **For at least** option here adds extra delay after the timer is cancelled. It does not replace the timer's own countdown.
 
 {% include triggers/try_it.md %}
 

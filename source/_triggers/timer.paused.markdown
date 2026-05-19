@@ -72,6 +72,7 @@ for:
 
 - A timer keeps its remaining time when it is paused.
 - To continue a paused timer, use the [Start timer](/actions/timer.start/) action without a new duration.
+- The **For at least** option here waits until the timer has stayed paused for that long.
 
 {% include triggers/try_it.md %}
 

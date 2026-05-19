@@ -72,6 +72,7 @@ for:
 
 - This trigger fires when you start a timer that is already active or paused.
 - If you start a timer that is idle, use [Timer started](/triggers/timer.started/) instead.
+- The **For at least** option here adds extra delay after the timer is restarted.
 
 {% include triggers/try_it.md %}
 

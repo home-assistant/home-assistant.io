@@ -72,6 +72,7 @@ for:
 
 - This trigger is for timers that start from `idle`.
 - If you resume a paused timer, use [Timer restarted](/triggers/timer.restarted/) instead.
+- The **For at least** option here adds extra delay after the timer starts. It is separate from the timer's own countdown.
 
 {% include triggers/try_it.md %}
 
