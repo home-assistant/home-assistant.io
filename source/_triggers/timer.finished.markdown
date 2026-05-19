@@ -113,7 +113,7 @@ Start a short timer when you open the patio door, and lock it automatically if n
 - **Trigger**: Timer finished
   - **Target**: Patio door timer
 - **Trigger when**: Each
-- **Action**: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the patio door after a timer" %}
 
