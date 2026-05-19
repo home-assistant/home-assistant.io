@@ -70,7 +70,7 @@ A: It highlights the devices we know work well with Home Assistant and the brand
 
 Q: How were these devices tested?
 
-A: All devices in this list were tested using a standard [Home Assistant Green](/green/) as a hub with the [Home Assistant Connect ZBT-2](/connect/zbt-2/), and with ZHA, our [Zigbee integration](/integrations/zha/). If you have another hub/antennae set-up/integration that's not a problem, but we test against these as they are the most effective way for our team to certify within our ecosystem.
+A: All devices in this list were tested using a standard [Home Assistant Green](/green/) as a hub with the [Home Assistant Connect ZBT-2](/connect/zbt-2/), and with ZHA, our [Zigbee integration](/integrations/zha/). If you have another hub/adapter set-up/integration that's not a problem, but we test against these as they are the most effective way for our team to certify within our ecosystem.
 
 Q: Will you be adding more zunzunbee devices to the program?
 
