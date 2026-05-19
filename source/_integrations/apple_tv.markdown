@@ -311,3 +311,7 @@ logger:
 
 By providing logs directly when creating the issue, you will likely get help
 much faster.
+
+## "No devices found on the network" error during setup even when connecting by IP
+
+Ensure AirPlay is enabled. See Apple's docs [here](https://support.apple.com/guide/tv/adjust-settings-for-airplay-and-apple-home-atvb0342111f/tvos).
