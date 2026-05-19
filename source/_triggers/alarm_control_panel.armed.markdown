@@ -121,10 +121,11 @@ automation: |
 You want to know the alarm is set, especially when someone else in the household arms it. This automation sends a quick notification to your phone the instant any alarm panel in the house becomes armed.
 
 - **Trigger**: Alarm armed
-- **Target**: All alarm panels (by label)
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Send a mobile notification
+  - **Target**: All alarm panels (by label)
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for arm confirmation notification" %}
 
@@ -139,7 +140,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The alarm has been armed."
 {% endexample %}

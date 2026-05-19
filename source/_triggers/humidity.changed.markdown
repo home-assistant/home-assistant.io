@@ -206,7 +206,7 @@ Track how much the humidity in your greenhouse shifts throughout the day by send
   - **Target**: Greenhouse humidity sensor
   - **Threshold type**: Any change
 - **Action**: Send a notification
-  - **Target**: notify.mobile_app_phone
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for greenhouse humidity logging" %}
 
@@ -223,7 +223,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app_phone
+        entity_id: notify.my_device
       data:
         message: "Greenhouse humidity changed significantly."
 {% endexample %}
@@ -237,8 +237,8 @@ Send a notification whenever the bedroom humidity changes to a level above your 
 - **Trigger**: Relative humidity changed
   - **Target**: Bedroom humidity sensor
   - **Threshold type**: Above (entity: comfort humidity threshold)
-- **Action**: Send a notification
-  - **Target**: notify.mobile_app_phone
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for using a number helper as threshold" %}
 
@@ -257,7 +257,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app_phone
+        entity_id: notify.my_device
       data:
         message: >-
           Bedroom humidity is now {{ trigger.to_state.state }}%, above

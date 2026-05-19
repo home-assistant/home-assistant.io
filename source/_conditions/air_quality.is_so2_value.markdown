@@ -87,10 +87,11 @@ If you live near an industrial area, SO2 readings sometimes spike overnight. Thi
 
 - **Trigger**: Time: 07:00
 - **Condition**: Air Quality: Sulphur dioxide value
-- **Target**: Outdoor SO2 sensor
-- **Threshold type**: 40
-- **Condition passes if**: Any
-- **Action**: Notify: Send notification
+  - **Target**: Outdoor SO2 sensor
+  - **Threshold type**: 40
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a morning SO2 warning" %}
 
@@ -108,7 +109,9 @@ automation: |
         threshold: 40
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "SO2 is high outside"
         message: >

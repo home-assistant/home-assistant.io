@@ -849,6 +849,11 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 - Some **Custom cards** that can be used to view the camera in a dashboard are known to keep a battery camera constantly awake, draining its battery.
 - Viewing a **dashboard** with a picture-entity card of a Reolink battery camera, will wake that camera to show the latest snapshot and/or stream. Therefore, it is recommended to place the picture-entity cards in a separate dashboard/tab, which is only accessed when actually wanting to view the battery camera streams.
 
+### Slow startup
+
+- If you are using an NVR or Home Hub, check whether a camera is currently offline or unreachable. For example, this can happen with a battery camera whose battery is completely drained, a PoE camera with an unplugged or damaged network cable, a Wi-Fi camera with outdated network credentials or power which is unplugged, or a camera whose IP address has changed. To speed up startup, bring the camera back online or remove it from the NVR or Home Hub in the Reolink app (or using a mouse and screen for a NVR).
+- If your Home Assistant device and Reolink device are separated by a VLAN or other network restrictions, follow the guidance in the earlier **Can’t setup the integration** section. The same network restrictions can also cause slow startup issues.
+
 ### Streams or recordings not playing
 
 - Most Reolink cameras use h265 encoding for the high resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you acces Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"encoding main": "h265"\"h264"` in the txt file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
