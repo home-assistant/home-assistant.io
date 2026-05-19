@@ -3,7 +3,7 @@ title: AiDot
 description: Instructions on integrating AiDot Wi-Fi lights with Home Assistant.
 ha_category:
   - Light
-ha_release: 2025.5
+ha_release: 2026.5
 ha_iot_class: local_polling
 ha_config_flow: true
 ha_codeowners:
