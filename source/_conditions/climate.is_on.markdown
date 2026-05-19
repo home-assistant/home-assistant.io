@@ -22,7 +22,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Climate: Thermostat is on**.
+4. From the search box, search for and select **Thermostat is on**.
 5. Under **Targets**, select the thermostat entity, an area, a floor, or a label.
 6. Under **Condition passes if**, pick **Any** or **All** to control how the check behaves when multiple thermostats are targeted.
 7. Select **Save**.
@@ -82,7 +82,7 @@ When the outdoor temperature drops below 18°C, increase the target temperature 
 - **Trigger**: Numeric state: Temperature below 18°C
 - **Condition**: Thermostat is on
   - **Target**: Living room thermostat
-- **Action**: Climate: Set thermostat target temperature
+- **Action**: Set thermostat target temperature
 
 {% details "YAML example for boosting heat when cold" %}
 

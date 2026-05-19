@@ -38,7 +38,7 @@ HVAC mode:
 Condition passes if:
   description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat is in the selected mode, or **All** to pass only when every targeted thermostat is in the selected mode. Default is **Any**.
 For at least:
-  description: How long the thermostat must have been continuously in the selected mode before the condition passes. Default is `0` (passes immediately).
+  description: How long the thermostat must have been continuously in the selected mode before the condition passes. Default is zero (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -114,7 +114,7 @@ When the outdoor temperature rises above 28°C during the day, close the living 
 - **Condition**: Thermostat is in HVAC mode
   - **HVAC mode**: Cool
   - **Target**: Living room thermostat
-- **Action**: Cover: Close cover
+- **Action**: Close cover
 
 {% details "YAML example for closing blinds when cooling" %}
 
