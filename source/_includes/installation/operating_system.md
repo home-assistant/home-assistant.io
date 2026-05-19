@@ -347,6 +347,16 @@ Minimum recommended assignments:
     6. Find and select the `.vdi` file you previously downloaded and unzipped.
     7. Select **Choose** to confirm the file.
 
+   #### Troubleshooting boot error in VirtualBox
+
+   If VirtualBox shows a message like "The virtual machine failed to boot" and asks you to mount an ISO file, your Home Assistant disk is likely not attached correctly.
+
+   1. Open **Settings** > **Storage** for the Home Assistant VM.
+   2. Under **Controller: SATA**, make sure there is only one disk attached and that it is your Home Assistant `.vdi` file.
+   3. If an empty placeholder disk is still listed, remove it.
+   4. Confirm that **Enable EFI (special OSes only)** is enabled under **Settings** > **System** > **Motherboard**.
+   5. Start the VM again. You do not need to mount an ISO file.
+
     #### Configure network
 
     1. While still in the **Settings** window, go to the **Network** section.
