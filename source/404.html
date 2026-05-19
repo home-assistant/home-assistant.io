@@ -13,10 +13,18 @@ body_id: not_found
 
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js" integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6" crossorigin="anonymous"></script>
 <script type="text/javascript">
+{% include javascripts/docsearch_options.html %}
 docsearch({
   container: '#search404',
   appId: 'FBHBYS3J0U',
   indexName: 'home-assistant',
   apiKey: "{{ site.algolia.api_key }}",
+  transformItems(items) {
+    return items.map((item) => ({
+      ...item,
+      url: rewriteDocSearchPreviewUrl(item.url),
+      url_without_anchor: rewriteDocSearchPreviewUrl(item.url_without_anchor),
+    }));
+  },
 });
 </script>
