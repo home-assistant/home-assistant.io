@@ -314,4 +314,4 @@ much faster.
 
 ## "No devices found on the network" error during setup even when connecting by IP
 
-Ensure AirPlay is enabled. See Apple's docs [here](https://support.apple.com/guide/tv/adjust-settings-for-airplay-and-apple-home-atvb0342111f/tvos).
+Ensure AirPlay is enabled and configured properly. See [this FAQ entry](#when-adding-a-new-device-a-pin-code-is-requested-but-none-is-shown-on-the-screen).
