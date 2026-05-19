@@ -82,7 +82,7 @@ Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/
 
 The **Timer** integration provides timer entities that you can use in dashboards, scripts, and automations.
 
-Use a timer when you want a countdown that can be started, paused, changed, canceled, finished, or reused across multiple automations. If you only need to wait until another trigger or condition stays true for a while, using that automation's `for` option is often simpler.
+Use a timer when you want a countdown that can be started, paused, changed, canceled, finished, shown on a dashboard, or reused across multiple automations. Unlike an automation's `for` option, a timer is its own entity, so you can see it, manage it, and use the same countdown in more than one place. If you only need to wait until another trigger or condition stays true for a while, using that automation's `for` option is often simpler.
 
 - **Timer entity**
   - **Description**: Represents a countdown that you can start, pause, change, cancel, or finish.
