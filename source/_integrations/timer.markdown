@@ -142,6 +142,12 @@ The `timer.finish` action manually finishes a running or paused timer earlier th
 
 The `timer.reload` action reloads `timer`'s configuration without restarting Home Assistant itself. This action takes no data attributes.
 
+{% important %}
+The **Reload timers** action applies only to timers configured in YAML.
+When you run it, Home Assistant re-reads the timers from your YAML configuration and applies changes there.
+Timers created from the UI are stored in Home Assistant, so reload does not add, update, or remove them.
+{% endimportant %}
+
 ### Using the action
 
 Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} and select the `timer.start` action, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and select **Perform action** button.
@@ -210,7 +216,6 @@ automation: |
 ## Known limitations
 
 - If a timer finishes while Home Assistant is not running, automations that use the **Timer finished** trigger do not run after startup.
-- The **Reload timers** action applies only to timers configured in YAML.
 
 ## Removing the integration
 
