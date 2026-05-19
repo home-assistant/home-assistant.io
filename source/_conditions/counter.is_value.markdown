@@ -164,8 +164,6 @@ If you use a counter helper to track short exercise breaks, this condition can s
 - **Condition**: Counter value
   - **Target**: Exercise break counter
   - **Threshold type**: Below 5
-  - **Condition passes if**: Any
-  - **For at least**: 00:00:00
 - **Action**: Increment
 
 {% details "YAML example for limiting a daily break counter" %}
@@ -185,8 +183,6 @@ automation: |
           type: below
           value:
             number: 5
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: counter.increment
       target:
@@ -203,8 +199,6 @@ If you have created a script and a counter helper for evening tasks, you can run
 - **Condition**: Counter value
   - **Target**: Evening reminder counter
   - **Threshold type**: In range 1 to 3
-  - **Condition passes if**: Any
-  - **For at least**: 00:00:00
 - **Action**: Turn on script
 
 {% details "YAML example for a counter-based bedtime script" %}
@@ -226,8 +220,6 @@ automation: |
             number: 1
           value_max:
             number: 3
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: script.turn_on
       target:

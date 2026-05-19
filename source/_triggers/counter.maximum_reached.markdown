@@ -89,8 +89,6 @@ If you have created a counter helper to track missed laundry runs, you can send 
 
 - **Trigger**: Counter reached maximum
   - **Target**: Laundry reminder counter
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -103,9 +101,6 @@ automation: |
     - trigger: counter.maximum_reached
       target:
         entity_id: counter.laundry_reminders
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -122,7 +117,6 @@ If you use a counter helper to track a limited number of guest parking spots, yo
 
 - **Trigger**: Counter reached maximum
   - **Target**: Visitor parking counter
-  - **Trigger when**: Each
   - **For at least**: 00:30:00
 - **Action**: Reset
 
@@ -136,7 +130,6 @@ automation: |
       target:
         entity_id: counter.visitor_parking
       options:
-        behavior: any
         for: "00:30:00"
   actions:
     - action: counter.reset

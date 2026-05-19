@@ -89,8 +89,6 @@ If you have created a counter helper to track unfinished tasks, you can turn off
 
 - **Trigger**: Counter reached minimum
   - **Target**: Tasks left counter
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Turn off light
 
 {% details "YAML example for clearing a reminder light" %}
@@ -102,9 +100,6 @@ automation: |
     - trigger: counter.minimum_reached
       target:
         entity_id: counter.tasks_left
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: light.turn_off
       target:
@@ -119,7 +114,6 @@ If you use a counter helper to track a supply you refill yourself, you can send 
 
 - **Trigger**: Counter reached minimum
   - **Target**: Supply counter
-  - **Trigger when**: Each
   - **For at least**: 01:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -134,7 +128,6 @@ automation: |
       target:
         entity_id: counter.supplies_left
       options:
-        behavior: any
         for: "01:00:00"
   actions:
     - action: notify.send_message

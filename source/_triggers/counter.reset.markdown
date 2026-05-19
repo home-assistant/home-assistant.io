@@ -90,8 +90,6 @@ If you use a counter helper to track a repeating task, you can turn off a remind
 
 - **Trigger**: Counter reset
   - **Target**: Reminder counter
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Turn off light
 
 {% details "YAML example for clearing a light when a counter returns to its starting value" %}
@@ -103,9 +101,6 @@ automation: |
     - trigger: counter.reset
       target:
         entity_id: counter.reminders_today
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: light.turn_off
       target:
@@ -120,8 +115,6 @@ If you have created a counter helper for daily check-ins, you can start a fresh 
 
 - **Trigger**: Counter reset
   - **Target**: Daily check-in counter
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Increment
 
 {% details "YAML example for starting a new count from the starting value" %}
@@ -133,9 +126,6 @@ automation: |
     - trigger: counter.reset
       target:
         entity_id: counter.daily_check_ins
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: counter.increment
       target:
