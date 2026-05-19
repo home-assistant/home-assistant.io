@@ -63,7 +63,7 @@ If you use an evening checklist, this automation can lock the front door as soon
 - **Trigger**: To-do item completed
 - **Target**: Evening checklist
 - **Condition**: All to-do items completed
-- **Action**: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the front door after the evening checklist" %}
 

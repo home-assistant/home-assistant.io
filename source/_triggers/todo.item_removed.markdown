@@ -91,7 +91,7 @@ If you use a light as a reminder that errands are still pending, this automation
 
 - **Trigger**: To-do item removed
 - **Target**: Errands list
-- **Action**: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off a reminder light" %}
 

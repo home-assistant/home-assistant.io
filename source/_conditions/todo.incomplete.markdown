@@ -153,7 +153,7 @@ If you want a visual reminder before you leave, this automation turns on a light
 - **Condition**: Incomplete to-do items
   - **Target**: Errands list
 - **Threshold type**: In range 1 to 3
-- **Action**: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for an errands reminder light" %}
 

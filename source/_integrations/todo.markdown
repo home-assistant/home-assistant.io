@@ -215,7 +215,7 @@ If you keep an evening checklist in Home Assistant, this automation locks the fr
 - **Trigger**: To-do item completed
 - **Condition**: All to-do items completed
 - **Target**: Evening checklist
-- **Action**: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking up after the evening checklist is done" %}
 

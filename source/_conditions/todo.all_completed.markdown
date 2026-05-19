@@ -88,7 +88,7 @@ If you keep a checklist for the end of the day, this automation makes sure the f
 - **Trigger**: Time: 22:00
 - **Condition**: All to-do items completed
   - **Target**: Evening checklist
-- **Action**: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the front door when the checklist is done" %}
 
@@ -118,7 +118,7 @@ If you use a short checklist while cooking, this automation turns off a reminder
 - **Condition**: All to-do items completed
   - **Target**: Meal-prep checklist
 - **For at least**: 00:05:00
-- **Action**: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off a reminder light after meal prep" %}
 
