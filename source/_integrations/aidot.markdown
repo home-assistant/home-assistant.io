@@ -16,6 +16,11 @@ ha_integration_type: hub
 
 The [AiDot](https://www.aidot.com/) {% term integration %} allows you to control Wi-Fi lights with Home Assistant.
 
+## Supported devices
+
+- A19
+- BR30
+
 ## Prerequisites
 
 - Your devices need to be added to your account using the official AiDot app first.
@@ -37,15 +42,6 @@ Password:
 - After you sign in successfully, the integration retrieves the device list from AiDot Cloud.
 - After the initial device list is retrieved, the integration checks the cloud every 6 hours and processes any additions or deletions.
 - The integration maintains a persistent TCP connection to each device and receives real-time status updates when the device state changes.
-
-## Supported devices
-
-- A19
-- BR30
-
-## Troubleshooting
-
-There are no commonly known issues with this integration.
 
 ## Remove integration
 
