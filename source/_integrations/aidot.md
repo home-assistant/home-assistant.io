@@ -36,7 +36,7 @@ Password:
 
 - After you sign in successfully, the integration retrieves the device list from AiDot Cloud.
 - After the initial device list is retrieved, the integration checks the cloud every 6 hours and processes any additions or deletions.
-- The integration updates its lights by polling the AiDot Bridge every five seconds for new values.
+- The integration maintains a persistent TCP connection to each device and receives real-time status updates when the device state changes.
 
 ## Supported devices
 
