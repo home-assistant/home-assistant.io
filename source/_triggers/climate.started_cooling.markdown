@@ -9,7 +9,7 @@ related_triggers:
   - climate.hvac_mode_changed
 ---
 
-The **Thermostat started cooling** trigger fires after a thermostat {% term entity %} begins actively cooling. This trigger monitors the `hvac_action` attribute rather than the HVAC mode—a thermostat can be set to **Cool** mode but still be idle if the current temperature already meets the target. The trigger only fires when the thermostat actually starts producing cool air.
+The **Thermostat started cooling** trigger fires after a thermostat {% term entity %} begins actively cooling. This trigger monitors the `hvac_action` attribute rather than the HVAC mode. A thermostat can be set to **Cool** mode but still be idle if the current temperature already meets the target. The trigger only fires when the thermostat actually starts producing cool air.
 
 Use this trigger to react to the start of active cooling, for example to turn on a fan to distribute cool air or to close window coverings to block out heat.
 
@@ -66,9 +66,9 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted thermostat starts cooling.
-    - `first` (**First** in the UI): fire only when the first thermostat starts cooling.
-    - `last` (**All** in the UI): fire only after every targeted thermostat is cooling.
+    - `any` (**Each** in the UI, default): fires every time any targeted thermostat starts cooling.
+    - `first` (**First** in the UI): fires only when the first thermostat starts cooling.
+    - `last` (**All** in the UI): fires only after every targeted thermostat is cooling.
   required: false
   type: string
   default: any

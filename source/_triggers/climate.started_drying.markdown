@@ -64,9 +64,9 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted thermostat starts drying.
-    - `first` (**First** in the UI): fire only when the first thermostat starts drying.
-    - `last` (**All** in the UI): fire only after every targeted thermostat is drying.
+    - `any` (**Each** in the UI, default): fires every time any targeted thermostat starts drying.
+    - `first` (**First** in the UI): fires only when the first thermostat starts drying.
+    - `last` (**All** in the UI): fires only after every targeted thermostat is drying.
   required: false
   type: string
   default: any
