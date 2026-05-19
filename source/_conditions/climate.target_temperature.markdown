@@ -49,7 +49,7 @@ Unit:
 Condition passes if:
   description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat meets the threshold, or **All** to pass only when every targeted thermostat does. Default is **Any**.
 For at least:
-  description: How long the thermostat must have continuously met the threshold before the condition passes. Default is `0` (passes immediately).
+  description: How long the thermostat must have continuously met the threshold before the condition passes. Default is zero (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

@@ -14,8 +14,6 @@ related_conditions:
 
 The **Thermostat target humidity** condition passes when a thermostat {% term entity %}'s target humidity setting meets a threshold you define. The target humidity is the setpoint you configure on the device, not the actual current humidity reading. For example, you can use it to turn on a dehumidifier when the thermostat's humidity setpoint is above 60%.
 
-When you target more than one thermostat, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted thermostat to meet the threshold, or demand that all of them do.
-
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include conditions/ui_header.md %}
@@ -41,7 +39,7 @@ Threshold type:
 Condition passes if:
   description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat meets the threshold, or **All** to pass only when every targeted thermostat does. Default is **Any**.
 For at least:
-  description: How long the thermostat must have continuously met the threshold before the condition passes. Default is `0` (passes immediately).
+  description: How long the thermostat must have continuously met the threshold before the condition passes. Default is zero (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
