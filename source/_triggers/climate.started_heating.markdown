@@ -39,7 +39,7 @@ Trigger when:
     - **First** (`first` in YAML): fires only when the first of a group starts heating.
     - **All** (`last` in YAML): fires only after every targeted thermostat is heating.
 For at least:
-  description: How long the thermostat must stay in the heating state before the trigger fires. Default is `0` (fires immediately).
+  description: How long the thermostat must stay in the heating state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
