@@ -3313,6 +3313,7 @@ For a summary in a more readable format
 - Improve iaqualink 429 handling ([@flz] - [#170231])
 - Fix Apple TV keyboard focus binary_sensor missing on cold start ([@kroehre] - [#170360])
 - Add tilt controls for UpDownSheerScreen in Overkiz ([@dankarization] - [#170563])
+- Fix blebox light temperature scaling ([@bkobus-bbx] - [#170573])
 - Fix ValueError when turning on blebox light with brightness set to 0 ([@bkobus-bbx] - [#170769])
 - Bump aiodns to 4.0.3 ([@bdraco] - [#170865])
 - Populate uid and recurrence_id in CalDAV calendar events ([@frenck] - [#170910])
@@ -3351,6 +3352,7 @@ For a summary in a more readable format
 [#170231]: https://github.com/home-assistant/core/pull/170231
 [#170360]: https://github.com/home-assistant/core/pull/170360
 [#170563]: https://github.com/home-assistant/core/pull/170563
+[#170573]: https://github.com/home-assistant/core/pull/170573
 [#170769]: https://github.com/home-assistant/core/pull/170769
 [#170865]: https://github.com/home-assistant/core/pull/170865
 [#170910]: https://github.com/home-assistant/core/pull/170910
