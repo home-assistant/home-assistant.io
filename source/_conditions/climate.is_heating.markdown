@@ -12,8 +12,6 @@ related_conditions:
 
 The **Thermostat is heating** condition passes when a thermostat {% term entity %} is actively heating. A thermostat set to heat mode does not necessarily run continuously. It cycles on and off to maintain the target temperature. Use **Thermostat is heating** to confirm the system is in an active heating cycle, rather than just set to heat mode and idle.
 
-When you target more than one thermostat, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted thermostat to be actively heating, or demand that all of them are.
-
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include conditions/ui_header.md %}
@@ -35,7 +33,7 @@ To use **Thermostat is heating** in an automation:
 Condition passes if:
   description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat is actively heating, or **All** to pass only when every targeted thermostat is actively heating. Default is **Any**.
 For at least:
-  description: How long the thermostat must have been continuously heating before the condition passes. Default is `0` (passes immediately).
+  description: How long the thermostat must have been continuously heating before the condition passes. Default is zero (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
