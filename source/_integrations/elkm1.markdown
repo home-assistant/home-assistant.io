@@ -531,7 +531,7 @@ The `sensor_zone_trigger` action creates a virtual momentary open condition on t
 | Data attribute | Required | Description |
 | -------------- | -------- | ----------- |
 | `entity_id`    | No       | Elk-M1 output to turn on |
-| `duration`     | Yes      | Duration in integer seconds (0-65535). Use `0` to keep the output on until you turn it off. |
+| `duration`     | Yes      | Duration in integer seconds (1-65535). |
 
 ### System actions
 
