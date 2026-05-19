@@ -155,7 +155,7 @@ The RFLink integration does not know the difference between a binary sensor, a s
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -212,7 +212,7 @@ This configuration uses `0a0a0a` to control the inverted shutter (send UP to clo
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -289,7 +289,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -368,7 +368,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -449,7 +449,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -565,7 +565,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -670,7 +670,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -725,7 +725,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -906,7 +906,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -1056,7 +1056,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-This _legacy_ format will stop working on Home Assistant 2026.11.0.
+This _legacy_ format will stop working on Home Assistant 2026.12.0.
 {% endimportant %}
 
 ```yaml
@@ -1189,7 +1189,7 @@ rflink:
 
 ## Migrating from _legacy_ configuration format
 
-Legacy RFLink configuration format is deprecated and will be removed in Home Assistant 2026.11.0. The deprecated configuration will produce a repair that directs you to this section.
+Legacy RFLink configuration format is deprecated and will be removed in Home Assistant 2026.12.0. The deprecated configuration will produce a repair that directs you to this section.
 
 If you haven't yet updated your configuration, the change is quite simple.
 
