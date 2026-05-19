@@ -166,9 +166,6 @@ automation: |
     - trigger: timer.finished
       target:
         entity_id: timer.bathroom_fan
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: fan.turn_off
       target:

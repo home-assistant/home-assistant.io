@@ -43,9 +43,6 @@ trigger: |
   trigger: timer.finished
   target:
     entity_id: timer.bathroom_fan
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This fires when `timer.bathroom_fan` finishes.
@@ -100,9 +97,6 @@ automation: |
     - trigger: timer.finished
       target:
         entity_id: timer.bathroom_fan
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: fan.turn_off
       target:
@@ -129,9 +123,6 @@ automation: |
     - trigger: timer.finished
       target:
         entity_id: timer.patio_door
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: lock.lock
       target:

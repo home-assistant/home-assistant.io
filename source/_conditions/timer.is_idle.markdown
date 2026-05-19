@@ -43,9 +43,6 @@ condition: |
   condition: timer.is_idle
   target:
     entity_id: timer.guest_room
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This passes when `timer.guest_room` is idle.
@@ -102,9 +99,6 @@ automation: |
     - condition: timer.is_idle
       target:
         entity_id: timer.guest_room
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: light.turn_on
       target:
@@ -137,9 +131,6 @@ automation: |
     - condition: timer.is_idle
       target:
         entity_id: timer.departure
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: alarm_control_panel.alarm_arm_away
       target:

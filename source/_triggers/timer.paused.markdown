@@ -43,9 +43,6 @@ trigger: |
   trigger: timer.paused
   target:
     entity_id: timer.movie_break
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This fires when `timer.movie_break` is paused.
@@ -98,9 +95,6 @@ automation: |
     - trigger: timer.paused
       target:
         entity_id: timer.entry
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: light.turn_on
       target:
@@ -130,9 +124,6 @@ automation: |
     - trigger: timer.paused
       target:
         entity_id: timer.laundry
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:

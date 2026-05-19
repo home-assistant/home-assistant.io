@@ -43,9 +43,6 @@ condition: |
   condition: timer.is_paused
   target:
     entity_id: timer.movie_break
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This passes when `timer.movie_break` is paused.
@@ -103,9 +100,6 @@ automation: |
     - condition: timer.is_paused
       target:
         entity_id: timer.bedtime
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -138,9 +132,6 @@ automation: |
     - condition: timer.is_paused
       target:
         entity_id: timer.study
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: light.turn_on
       target:

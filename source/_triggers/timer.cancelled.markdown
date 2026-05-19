@@ -43,9 +43,6 @@ trigger: |
   trigger: timer.cancelled
   target:
     entity_id: timer.laundry
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This fires when `timer.laundry` is cancelled.
@@ -99,9 +96,6 @@ automation: |
     - trigger: timer.cancelled
       target:
         entity_id: timer.tea
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -130,9 +124,6 @@ automation: |
     - trigger: timer.cancelled
       target:
         entity_id: timer.shower
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: fan.turn_off
       target:

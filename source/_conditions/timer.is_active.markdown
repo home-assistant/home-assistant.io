@@ -43,9 +43,6 @@ condition: |
   condition: timer.is_active
   target:
     entity_id: timer.entryway
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This passes when `timer.entryway` is active.
@@ -103,9 +100,6 @@ automation: |
     - condition: timer.is_active
       target:
         entity_id: timer.bathroom_fan
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: fan.turn_off
       target:
@@ -136,9 +130,6 @@ automation: |
     - condition: timer.is_active
       target:
         entity_id: timer.arrival
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: light.turn_on
       target:

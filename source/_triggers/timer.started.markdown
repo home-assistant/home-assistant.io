@@ -43,9 +43,6 @@ trigger: |
   trigger: timer.started
   target:
     entity_id: timer.entryway
-  options:
-    behavior: any
-    for: "00:00:00"
 {% endexample %}
 
 This fires when `timer.entryway` starts.
@@ -98,9 +95,6 @@ automation: |
     - trigger: timer.started
       target:
         entity_id: timer.entryway
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: light.turn_on
       target:
@@ -128,9 +122,6 @@ automation: |
     - trigger: timer.started
       target:
         entity_id: timer.laundry
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
