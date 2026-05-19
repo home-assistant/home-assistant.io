@@ -22,7 +22,7 @@ The public timetables are coming from [Israel rail](https://www.rail.co.il).
 
 ## Sensors
 
-For each configured connection, the integration creates a set of sensors for the next three upcoming departures. The first departure is unsuffixed; the second and third are suffixed with `+1` and `+2`.
+For each configured connection, the integration creates a set of sensors for the next three upcoming departures. The first departure sensors have no `+N` suffix. The second and third are labeled with `+1` and `+2`.
 
 | Sensor | Description |
 | --- | --- |
