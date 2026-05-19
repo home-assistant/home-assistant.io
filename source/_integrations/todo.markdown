@@ -230,8 +230,6 @@ automation: |
     - condition: todo.all_completed
       target:
         entity_id: todo.evening_checklist
-      options:
-        behavior: any
   actions:
     - action: lock.lock
       target:

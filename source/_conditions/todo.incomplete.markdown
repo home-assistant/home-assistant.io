@@ -55,7 +55,6 @@ condition: |
       type: above
       value:
         number: 3
-    behavior: any
 {% endexample %}
 
 This passes when `todo.shopping_list` has more than 3 incomplete items.
@@ -113,10 +112,8 @@ If the shopping list keeps growing through the week, this automation sends a rem
 
 - **Trigger**: Time: 18:00
 - **Condition**: Incomplete to-do items
-- **Target**: Shopping list
+  - **Target**: Shopping list
 - **Threshold type**: Above 5
-- **Condition passes if**: Any
-- **For at least**: 00:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -137,7 +134,6 @@ automation: |
           type: above
           value:
             number: 5
-        behavior: any
   actions:
     - action: notify.send_message
       target:
@@ -155,10 +151,8 @@ If you want a visual reminder before you leave, this automation turns on a light
 
 - **Trigger**: Time: 07:00
 - **Condition**: Incomplete to-do items
-- **Target**: Errands list
+  - **Target**: Errands list
 - **Threshold type**: In range 1 to 3
-- **Condition passes if**: Any
-- **For at least**: 00:00:00
 - **Action**: Turn on
 
 {% details "YAML example for an errands reminder light" %}
@@ -180,7 +174,6 @@ automation: |
             number: 1
           value_max:
             number: 3
-        behavior: any
   actions:
     - action: light.turn_on
       target:

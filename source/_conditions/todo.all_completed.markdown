@@ -42,8 +42,6 @@ condition: |
   condition: todo.all_completed
   target:
     entity_id: todo.evening_checklist
-  options:
-    behavior: any
 {% endexample %}
 
 This passes when `todo.evening_checklist` has no incomplete items left.
@@ -89,9 +87,7 @@ If you keep a checklist for the end of the day, this automation makes sure the f
 
 - **Trigger**: Time: 22:00
 - **Condition**: All to-do items completed
-- **Target**: Evening checklist
-- **Condition passes if**: Any
-- **For at least**: 00:00:00
+  - **Target**: Evening checklist
 - **Action**: Lock
 
 {% details "YAML example for locking the front door when the checklist is done" %}
@@ -106,8 +102,6 @@ automation: |
     - condition: todo.all_completed
       target:
         entity_id: todo.evening_checklist
-      options:
-        behavior: any
   actions:
     - action: lock.lock
       target:
@@ -122,8 +116,7 @@ If you use a short checklist while cooking, this automation turns off a reminder
 
 - **Trigger**: Time pattern: Every 5 minutes
 - **Condition**: All to-do items completed
-- **Target**: Meal-prep checklist
-- **Condition passes if**: Any
+  - **Target**: Meal-prep checklist
 - **For at least**: 00:05:00
 - **Action**: Turn off
 
@@ -140,7 +133,6 @@ automation: |
       target:
         entity_id: todo.meal_prep_checklist
       options:
-        behavior: any
         for: "00:05:00"
   actions:
     - action: light.turn_off
