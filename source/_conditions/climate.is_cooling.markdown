@@ -88,7 +88,7 @@ When the living room thermostat is actively cooling and the sun is high in the s
 - **Condition**: Sun elevation above 30
 - **Condition**: Thermostat is cooling
   - **Target**: Living room thermostat
-- **Action**: Cover: Close cover
+- **Action**:  Close cover
 
 {% details "YAML example for closing blinds during cooling" %}
 
