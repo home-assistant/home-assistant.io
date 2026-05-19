@@ -73,22 +73,20 @@ behavior:
 
 {% include conditions/more_examples.md %}
 
-### Automation: alert if heating is unexpectedly off in winter
+### Automation: turn on heating when cold and thermostats are off
 
-When the outdoor temperature drops below 10°C during winter, send an alert if any thermostat is turned off. Helps catch situations where someone accidentally turned off the heating or a device lost power.
+When the outdoor temperature drops below 10°C during winter, automatically turn on any thermostats that are off and set them to heat mode. This prevents the home from getting too cold if heating was accidentally turned off.
 
 - **Trigger**: Numeric state: Temperature below 10°C
 - **Condition**: State: Season is winter
 - **Condition**: Thermostat is off
   - **Target**: All thermostats
-  - **Condition passes if**: All
-- **Action**: Notifications: Send a notification message
-
-{% details "YAML example for alerting when heating is unexpectedly off" %}
+  - **Condition passes if**: Any
+- **Action**: Turn on thermostats and set to heat mode
 
 {% example %}
 automation: |
-  alias: "Alert if all thermostats are off in cold weather"
+  alias: "Auto-enable heating in cold weather"
   triggers:
     - trigger: numeric_state
       entity_id: sensor.outdoor_temperature
@@ -103,15 +101,16 @@ automation: |
           - climate.living_room
           - climate.bedroom
           - climate.office
-      options:
-        behavior: all
   actions:
-    - action: notify.send_message
+    - action: climate.set_hvac_mode
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+          - climate.office
       data:
-        message: "Warning: All thermostats are off but outdoor temperature is {{ states('sensor.outdoor_temperature') }}°C"
+        hvac_mode: heat
 {% endexample %}
-
-{% enddetails %}
 
 {% include conditions/stuck.md %}
 
