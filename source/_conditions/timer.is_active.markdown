@@ -82,7 +82,7 @@ for:
 
 ### Automation: turn off the bathroom fan if the post-shower timer is still running
 
-If you start a timer to keep the bathroom fan running after a shower, this automation turns the fan off when you open the bathroom window, but only if that timer is still active. If the timer already finished or was canceled, the condition fails and the fan is left alone.
+If you start a timer to keep the bathroom fan running after a shower, this automation turns the fan off when you open the bathroom window, but only if that timer is still active. If the timer already finished or was cancelled, the condition fails and the fan is left alone.
 
 - **Trigger**: Window opens
 - **Condition**: Timer is active

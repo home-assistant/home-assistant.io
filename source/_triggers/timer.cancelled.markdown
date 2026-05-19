@@ -8,7 +8,7 @@ related_triggers:
   - timer.started
 ---
 
-The **Timer cancelled** trigger fires when a timer is canceled before it reaches zero. Use it when you want to react differently to a manual cancel than to a finished countdown.
+The **Timer cancelled** trigger fires when a timer is cancelled before it reaches zero. Use it when you want to react differently to a manual cancel than to a finished countdown.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -22,16 +22,16 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the timer you want to watch. You can also select an area, a floor, a device, or a label.
 5. From the triggers shown for that target, select **Timer cancelled**.
 6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All**.
-7. Under **For at least**, set how long ago the timer must have been canceled before the trigger fires. Leave the default to fire right away.
+7. Under **For at least**, set how long ago the timer must have been cancelled before the trigger fires. Leave the default to fire right away.
 8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Trigger when:
-  description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer is canceled, **First** to fire only for the first canceled timer, or **All** to fire only after all targeted timers are canceled.
+  description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer is cancelled, **First** to fire only for the first cancelled timer, or **All** to fire only after all targeted timers are cancelled.
 For at least:
-  description: How long ago the timer must have been canceled before the trigger fires. Defaults to firing immediately.
+  description: How long ago the timer must have been cancelled before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -48,7 +48,7 @@ trigger: |
     for: "00:00:00"
 {% endexample %}
 
-This fires when `timer.laundry` is canceled.
+This fires when `timer.laundry` is cancelled.
 
 ### Options in YAML
 
@@ -61,7 +61,7 @@ behavior:
   type: string
   default: any
 for:
-  description: How long ago the timer must have been canceled before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long ago the timer must have been cancelled before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false
   type: string
   default: "00:00:00"
@@ -74,27 +74,27 @@ for:
 ## Good to know
 
 - Canceling a timer resets it to its configured starting duration.
-- A canceled timer does not fire the **Timer finished** trigger.
+- A cancelled timer does not fire the **Timer finished** trigger.
 
 {% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
 
-### Automation: notify when the tea timer is canceled
+### Automation: notify when the tea timer is cancelled
 
 If you cancel a kitchen timer because plans change, you can send a quick reminder so nobody waits for an alert that will never come.
 
-- **Trigger**: Timer canceled
+- **Trigger**: Timer cancelled
   - **Target**: Tea timer
 - **Trigger when**: Each
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for a canceled tea timer notification" %}
+{% details "YAML example for a cancelled tea timer notification" %}
 
 {% example %}
 automation: |
-  alias: "Notify when the tea timer is canceled"
+  alias: "Notify when the tea timer is cancelled"
   triggers:
     - trigger: timer.cancelled
       target:
@@ -107,12 +107,12 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        message: "The tea timer was canceled."
+        message: "The tea timer was cancelled."
 {% endexample %}
 
 {% enddetails %}
 
-### Automation: turn off the bathroom fan when the shower timer is canceled
+### Automation: turn off the bathroom fan when the shower timer is cancelled
 
 If you stop a shower timer early, you may also want the fan to stop instead of running for the full original time.
 
@@ -121,11 +121,11 @@ If you stop a shower timer early, you may also want the fan to stop instead of r
 - **Trigger when**: Each
 - **Action**: Turn off fan
 
-{% details "YAML example for stopping the bathroom fan after a canceled timer" %}
+{% details "YAML example for stopping the bathroom fan after a cancelled timer" %}
 
 {% example %}
 automation: |
-  alias: "Turn off bathroom fan when the shower timer is canceled"
+  alias: "Turn off bathroom fan when the shower timer is cancelled"
   triggers:
     - trigger: timer.cancelled
       target:

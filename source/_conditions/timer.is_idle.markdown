@@ -8,7 +8,7 @@ related_conditions:
   - timer.is_paused
 ---
 
-The **Timer is idle** condition passes when the timer is not running. Use it when an automation should continue only if the timer has not started yet, has finished, or was canceled.
+The **Timer is idle** condition passes when the timer is not running. Use it when an automation should continue only if the timer has not started yet, has finished, or was cancelled.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -73,7 +73,7 @@ for:
 
 ## Good to know
 
-- A timer is idle when it has not started yet, has finished, or was canceled.
+- A timer is idle when it has not started yet, has finished, or was cancelled.
 - Timers that are `unavailable` or `unknown` are skipped for **Any** and cause **All** to fail.
 
 {% include conditions/try_it.md %}
