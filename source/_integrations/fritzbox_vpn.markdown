@@ -26,7 +26,7 @@ related:
     title: Enabling or disabling entities
 ---
 
-The **Fritz!Box VPN** {% term integration %} controls **WireGuard VPN** connections configured on an [AVM FRITZ!Box](https://en.fritz.com/products/fritzbox/) router. Each VPN connection appears as its own device with a switch, status sensors, and a connectivity binary sensor.
+The **FRITZ!Box VPN** {% term integration %} controls **WireGuard VPN** connections configured on an [AVM FRITZ!Box](https://en.fritz.com/products/fritzbox/) router. Each VPN connection appears as its own device with a switch, status sensors, and a connectivity binary sensor.
 
 {% important %}
 **TR-064** (_Permit access for apps_) must be enabled on the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network**. Without TR-064, login to the web UI API fails.
@@ -146,7 +146,7 @@ Removes entity (and device) registry entries for VPN connections that no longer 
 
 | Data attribute | Required | Description |
 | --- | --- | --- |
-| `config_entry_id` | no | Limit cleanup to this config entry; omit to process all Fritz!Box VPN entries |
+| `config_entry_id` | no | Limit cleanup to this config entry; omit to process all FRITZ!Box VPN entries |
 
 ### Action: Repair entity ID suffixes
 
@@ -172,6 +172,6 @@ Enable debug logging from the integration card (**⋮** → **Enable debug loggi
 
 {% include integrations/remove_device_service.md %}
 
-1. **Settings** > **Devices & services** > **Fritz!Box VPN** > delete the config entry
+1. **Settings** > **Devices & services** > **FRITZ!Box VPN** > delete the config entry
 2. Remove leftover entities under **Entities** (filter by `fritzbox_vpn`) if needed
 3. Restart Home Assistant if devices still appear
