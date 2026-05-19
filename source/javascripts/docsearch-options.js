@@ -16,4 +16,3 @@ function rewriteDocSearchPreviewUrl(url) {
     return url;
   }
 }
-
