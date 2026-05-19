@@ -72,7 +72,9 @@ Yoto players cannot be powered on remotely. Home Assistant reports the player as
 
 ### Play media
 
-The [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action accepts two forms of `media_id`:
+When you use the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action, pass the Yoto identifier in `media_content_id`. The action also requires `media_content_type`.
+
+The `media_content_id` value supports two formats:
 
 - A bare card ID. Playback starts from the beginning of the card.
 - A structured ID in the form `<card_id>+<chapter_key>+<track_key>+<seconds_in>`. Each segment after the card ID is optional. Leave a segment empty to keep its default.
