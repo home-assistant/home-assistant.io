@@ -91,7 +91,7 @@ If you keep a travel checklist in Home Assistant, this automation can start a sc
 
 - **Trigger**: To-do item added
 - **Target**: Travel checklist
-- **Action**: Turn on
+- **Action**: Turn on script
 
 {% details "YAML example for starting a packing review script" %}
 

@@ -108,7 +108,7 @@ for:
 
 ### Automation: send a reminder when the shopping list gets too long
 
-If the shopping list keeps growing through the week, this automation sends a reminder once there are more than five incomplete items.
+If the shopping list keeps growing through the week, this automation sends a reminder when there are more than five incomplete items.
 
 - **Trigger**: Time: 18:00
 - **Condition**: Incomplete to-do items
