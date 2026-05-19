@@ -583,129 +583,6 @@ type:
   type: string
 {% endconfiguration %}
 
-## Daily forecast
-
-Widget that displays a bar chart of daily forecast temperature ranges for a weather entity. Each bar shows the low-to-high temperature range for the day, colored by the forecasted weather condition. A thin horizontal line marks the current temperature across the bars.
-
-You can also overlay a precipitation forecast as translucent bars rising from the bottom, either as the forecasted amount or as the probability of precipitation. When you hide the temperature, dry periods are marked with a small dot so the cadence of days stays visible.
-
-<p class='img'>
-  <img src='/images/dashboards/features/daily_forecast.png' alt='Screenshot of the tile card with the daily forecast feature'>
-  Screenshot of the tile card with the daily forecast feature
-</p>
-
-<p class='img'>
-  <img src='/images/dashboards/features/daily_forecast_precipitation.png' alt='Screenshot of the daily forecast feature showing precipitation bars with the temperature hidden'>
-  Screenshot of the daily forecast feature showing precipitation bars with the temperature hidden
-</p>
-
-```yaml
-features:
-  - type: "daily-forecast"
-    days_to_show: 5
-    show_temperature: false
-    show_precipitation: true
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`daily-forecast`"
-  type: string
-forecast_type:
-  required: false
-  description: "Which forecast feed to use. One of `daily` or `twice_daily`. Only types supported by the weather entity are selectable. Defaults to `daily` when available, otherwise `twice_daily`."
-  type: string
-days_to_show:
-  required: false
-  description: Number of days of forecast data to show. Minimum is 1 day (showing the forecast for the current day). The available data depends on how far ahead your weather integration provides daily forecasts.
-  type: integer
-  default: 7
-show_temperature:
-  required: false
-  description: Whether to show the temperature range bars and the current-temperature line.
-  type: boolean
-  default: true
-show_current_temperature:
-  required: false
-  description: Whether to show a thin horizontal line marking the current temperature across the bars.
-  type: boolean
-  default: true
-show_precipitation:
-  required: false
-  description: Whether to overlay precipitation forecast as translucent bars.
-  type: boolean
-  default: false
-precipitation_type:
-  required: false
-  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the period's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
-  type: string
-  default: amount
-color:
-  required: false
-  description: "Color of the temperature bars and the current temperature line. When set to `state` or omitted, each bar is colored by its forecasted weather condition. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
-  type: string
-  default: state
-{% endconfiguration %}
-
-{% note %}
-This feature requires a weather integration that supports daily or twice-daily forecasts. If your weather entity provides neither, this feature will not be available.
-{% endnote %}
-
-## Hourly forecast
-
-Widget that displays a graph of hourly forecast temperatures for a [weather](/integrations/weather) entity. The graph line starts from the current temperature and shows forecast data points for the upcoming hours.
-
-You can also overlay a precipitation forecast as translucent bars rising from the bottom, either as the forecasted amount or as the probability of precipitation. When you hide the temperature, dry hours are marked with a small dot so the cadence stays visible.
-
-<p class='img'>
-  <img src='/images/dashboards/features/hourly_forecast.png' alt='Screenshot of the tile card with the hourly forecast feature'>
-  Screenshot of the tile card with the hourly forecast feature
-</p>
-
-```yaml
-features:
-  - type: "hourly-forecast"
-    hours_to_show: 24
-    show_precipitation: true
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`hourly-forecast`"
-  type: string
-hours_to_show:
-  required: false
-  description: Number of hours of forecast data to show. Minimum is 1 hour. The available data depends on how far ahead your weather integration provides hourly forecasts.
-  type: integer
-  default: 24
-show_temperature:
-  required: false
-  description: Whether to show the temperature graph.
-  type: boolean
-  default: true
-show_precipitation:
-  required: false
-  description: Whether to overlay precipitation forecast as translucent bars.
-  type: boolean
-  default: false
-precipitation_type:
-  required: false
-  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the visible window's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
-  type: string
-  default: amount
-color:
-  required: false
-  description: "Color of the temperature line. When set to `state` or omitted, the line uses the tile's feature color. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
-  type: string
-  default: state
-{% endconfiguration %}
-
-{% note %}
-This feature requires a weather integration that supports hourly forecasts. If your weather entity does not provide hourly forecast data, this feature will not be available.
-{% endnote %}
-
 ## Lawn mower commands
 
 Widget that displays buttons to control a [lawn mower](/integrations/lawn_mower).
@@ -853,6 +730,11 @@ Widget that displays playback controls for a [media player](/integrations/media_
 ```yaml
 features:
   - type: "media-player-playback"
+    controls:
+      - media_play_pause
+      - media_previous_track
+      - media_next_track
+      - volume_mute
 ```
 
 {% configuration features %}
@@ -860,6 +742,10 @@ type:
   required: true
   description: "`media-player-playback`"
   type: string
+controls:
+  required: false
+  description: "List of controls to show on the card. The list can contain `turn_on`, `turn_off`, `media_play`, `media_pause`, `media_play_pause`, `media_stop`, `media_previous_track`, `media_next_track`, `volume_down`, `volume_up`, `volume_mute`, `shuffle`, and `repeat`. When not specified, the controls are determined automatically based on the capabilities of the media player entity."
+  type: list
 {% endconfiguration %}
 
 ## Media player sound mode
@@ -874,6 +760,10 @@ Widget that displays a dropdown to select the sound mode for a [media player](/i
 ```yaml
 features:
   - type: "media-player-sound-mode"
+    sound_modes:
+      - "movie"
+      - "music"
+      - "game"
 ```
 
 {% configuration features %}
@@ -881,6 +771,10 @@ type:
   required: true
   description: "`media-player-sound-mode`"
   type: string
+sound_modes:
+  required: false
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Developer tools** > **States**" %}. When not specified, all available sound modes are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player source
@@ -895,6 +789,10 @@ Widget that displays a dropdown to select the source for a [media player](/integ
 ```yaml
 features:
   - type: "media-player-source"
+    sources:
+      - "AirPlay"
+      - "SHIELD"
+      - "NET RADIO"
 ```
 
 {% configuration features %}
@@ -902,6 +800,10 @@ type:
   required: true
   description: "`media-player-source`"
   type: string
+sources:
+  required: false
+  description: "List of sources to show in the dropdown. Use this to filter or reorder the available sources. The source names depend on your device. When not specified, all available sources are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player volume buttons
@@ -928,6 +830,11 @@ step:
   description: "The step size of the volume. The default is 5%."
   type: integer
   default: 5
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Media player volume slider
@@ -949,6 +856,11 @@ type:
   required: true
   description: "`media-player-volume-slider`"
   type: string
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Numeric input
