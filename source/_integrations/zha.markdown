@@ -62,7 +62,7 @@ This {% term integration %} currently supports the following device types within
 - [Fan](/integrations/fan/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
-- [Number](/integrations/number/) (i.e. analog input/output)
+- [Number](/integrations/number/) (analog input/output)
 - [Select](/integrations/select/)
 - [Sensor](/integrations/sensor/)
 - [Siren](/integrations/siren/)
@@ -85,10 +85,10 @@ ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/z
 
 ### Zigbee concepts
 
-- A Zigbee network can have **only one** Zigbee coordinator,
-- The Zigbee coordinator can have multiple **Zigbee router** or **Zigbee end devices** connected,
-- Each Zigbee router device can have multiple **Zigbee end devices** connected to it,
-- A Zigbee device can only be connected to a single Zigbee network,
+- A Zigbee network can have only one Zigbee coordinator.
+- The Zigbee coordinator can have multiple **Zigbee router devices** or **Zigbee end devices** connected.
+- Each Zigbee router device can have multiple **Zigbee end devices** connected to it.
+- A Zigbee device can only be connected to a single Zigbee network.
 - Zigbee networks depend heavily on having multiple [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand coverage and increase device capacity.
 - Router devices help pass messages to other nearby devices in the Zigbee network and therefore can improve range and increase the number of devices you can add.
 
@@ -118,7 +118,7 @@ The following hardware is supported, but _not recommended_. Specific models and 
 
 {% caution %}
 
-- It is **not recommended** to run a coordinator via **Serial-Proxy-Server** _(also called Serial-to-IP bridge or Ser2Net remote adapter)_ over:
+- It is _not recommended_ to run a coordinator via **Serial-Proxy-Server** _(also called Serial-to-IP bridge or Ser2Net remote adapter)_ over:
   
   - **Wi-Fi**,
   - **WAN**, or
@@ -135,7 +135,7 @@ The following hardware is supported, but _not recommended_. Specific models and 
 - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs-zigbee-shield.html)
   - It is suggested to [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility)
 - [ITead Sonoff ZBBridge](https://itead.cc/product/sonoff-zbbridge/)
-  - Note: [WiFi-based bridges are not recommended for ZHA with EZSP radios](https://github.com/home-assistant/home-assistant.io/issues/17170).
+  - Note: [Wi-Fi-based bridges are not recommended for ZHA with EZSP radios](https://github.com/home-assistant/home-assistant.io/issues/17170).
   - These first need to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware to use as Serial-to-IP adapter](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html)
 - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
   - It is suggested to [upgrade the EmberZNet NCP application firmware](https://github.com/walthowd/husbzb-firmware)
@@ -202,7 +202,7 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
         - **xbee**: Digi XBee ZB Coordinator Firmware protocol (for example, Digi XBee Series 2, 2C, 3)
     - Select **Submit** to proceed to the next step.
 5. Enter the **Serial device path**:
-    - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
+    - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use the device path from the `/dev/serial/by-id` folder (for example, `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
     - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
 6. Set the **Port speed** (not applicable for all radios).
 7. Set the **Data flow control** (not applicable for all radios).
@@ -219,8 +219,8 @@ If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration
 
 - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
 - PiZigate: `pizigate:/dev/ttyS0`
-- Wifi Zigate: `socket://[IP]:[PORT]` — for example `socket://192.168.1.10:9999`
-- Sonoff ZBBridge: `socket://[IP]:[PORT]` — for example `socket://192.168.1.11:8888`
+- Wi-Fi ZiGate: `socket://[IP]:[PORT]` (for example, `socket://192.168.1.10:9999`)
+- Sonoff ZBBridge: `socket://[IP]:[PORT]` (for example, `socket://192.168.1.11:8888`)
 
 {% enddetails %}
 
@@ -255,18 +255,18 @@ The network information page provides details about your Zigbee network and coor
 
 The following information is shown:
 
-- **Channel**: The Zigbee channel currently in use by the network. Valid channels are 11–26 (all in the 2.4&nbsp;GHz band). This is the only field you can change. To edit it, select the pencil {% icon "mdi:edit" %} icon.
+- **Channel**: The Zigbee channel currently in use by the network. Valid channels are 11 to 26 (all in the 2.4&nbsp;GHz band). This is the only field you can change. To edit it, select the pencil {% icon "mdi:edit" %} icon.
 - **PAN ID**: The 16-bit Personal Area Network identifier of your Zigbee network. This value uniquely identifies the network among nearby Zigbee networks.
 - **Extended PAN ID**: The 64-bit extended version of the PAN ID. This value is used to uniquely identify the network across longer distances and more devices.
 - **Coordinator IEEE**: The IEEE 802.15.4 hardware address (MAC address) of the Zigbee coordinator. This address is fixed and unique to the coordinator hardware.
 - **Radio type**: The Zigbee radio stack used by the coordinator. Common values are `ezsp` (Silicon Labs), `znp` (Texas Instruments), `deconz` (ConBee/RaspBee), `zigate`, and `xbee`.
-- **Serial port**: The path to the serial device the coordinator is connected to, for example `/dev/ttyUSB0` or a `socket://` URL for network-connected adapters.
+- **Serial port**: The path to the serial device the coordinator is connected to, for example, `/dev/ttyUSB0` or a `socket://` URL for network-connected adapters.
 - **Baudrate**: The communication speed of the serial connection in bits per second (for example, `115200`). This field is only shown for direct serial connections and is hidden for network/socket-based (Ethernet) adapters.
 
 ### Defining the Zigbee channel to use
 
 {% important %}
-The best practice is to **not change the Zigbee channel** from the ZHA default.
+The best practice is to _not change the Zigbee channel_ from the ZHA default.
 {% endimportant %}
 
 {% note %}
@@ -304,7 +304,7 @@ MetaGeek Support has a good reference article about channel selection for [Zigbe
 
 #### About Zigbee channels
 
-The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 16 Zigbee channels (i.e. distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (i.e. Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels. Channel support usually depends on the age of the hardware and firmware, as well as on the device's power ratings.
+The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 16 Zigbee channels (that is, distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (that is, the Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels. Channel support usually depends on the age of the hardware and firmware, as well as on the device's power ratings.
 
 The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices. Not only because there is less chance of Wi-Fi networks interfering too much with the Zigbee network on other channels, but also because not all Zigbee devices support all channels.
 
@@ -338,7 +338,7 @@ To see OTA updates for a device, it must support OTA updates and firmware images
 - Third Reality
 
 {% warning %}
-Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
+Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (for example, group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
 {% endwarning %}
 
 #### Advanced OTA configuration
@@ -362,14 +362,14 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
 2. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
-3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
+3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (for example, turn lights on and off up to 10 times; switches usually have a reset button or pin). It might take a few seconds for the devices to appear. You can select **Show logs** for more verbose output.
 4. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 ### Using router devices to add more devices
 
-Most mains-powered devices, e.g., many always-powered wall plugs or light bulbs in your Zigbee network will automatically act as a Zigbee router device (sometimes also referred to as a Zigbee "signal repeater" or "range extender").
+Most mains-powered devices, such as many always-powered wall plugs or light bulbs in your Zigbee network, will automatically act as a Zigbee router device (sometimes also referred to as a Zigbee "signal repeater" or "range extender").
 
-Because Zigbee should use a [wireless mesh network](https://en.wikipedia.org/wiki/Wireless_mesh_network) to be effective, you will need to add Zigbee router devices to increase the number of Zigbee devices that can be used in your Zigbee network, both in the total number of devices that can be added as well as the total range and coverage of the network. Some Zigbee router devices do a much better job at routing and repeating Zigbee signals and messages than some other devices. You should not have a setup where Zigbee router devices (e.g. light bulbs) are often powered-off.  Zigbee router devices are meant to be always available.
+Because Zigbee should use a [wireless mesh network](https://en.wikipedia.org/wiki/Wireless_mesh_network) to be effective, you will need to add Zigbee router devices to increase the number of Zigbee devices that can be used in your Zigbee network, both in the total number of devices that can be added as well as the total range and coverage of the network. Some Zigbee router devices do a much better job at routing and repeating Zigbee signals and messages than some other devices. You should not have a setup where Zigbee router devices (for example, light bulbs) are often powered off. Zigbee router devices are meant to be always available.
 
 All Zigbee coordinator firmware will only allow you to directly connect a certain amount of devices. That limit is set for two reasons; firstly, to not overload the Zigbee coordinator, and secondly, to encourage your Zigbee network to quickly begin to utilize a "[mesh networking](https://en.wikipedia.org/wiki/Mesh_networking)" topology instead of only a "[star network](https://en.wikipedia.org/wiki/Star_network)" topology.
 
@@ -458,7 +458,7 @@ Additional devices in the [Compatible hardware](#compatible-hardware) section ma
 
 The `zha.permit` action opens the network for joining new devices.
 
-To add new devices to the network, click the **Actions** tab in **Developer tools** and type `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning, or performing a factory reset.
+To add new devices to the network, select the **Actions** tab in **Developer tools** and type `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning, or performing a factory reset.
 
 | Data       | Optional | Description                                                                    |
 | ---------- | -------- | ------------------------------------------------------------------------------ |
@@ -496,8 +496,8 @@ The `zha.set_lock_user_code` action sets a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                                                                |
 | ----------- | -------- | -------------------------------------------------------------------------- |
-| `code_slot` | no       | Which lock code slot to store the code. Ex. 1-32 will work for Kwikset 954 |
-| `user_code` | no       | Code to set on the lock. Ex. Kwikset accepts numbers 4-8 digits in length  |
+| `code_slot` | no       | Which lock code slot to store the code. For example, 1-32 will work for Kwikset 954 |
+| `user_code` | no       | Code to set on the lock. For example, Kwikset accepts numbers 4-8 digits in length  |
 
 ### Action: Clear lock user code
 
@@ -562,7 +562,7 @@ Before binding devices, note the following:
 #### To manage bindings of a Zigbee device
 
 {% note %}
-**This section only outlines how to manage bindings in general. It will not cover all use cases.**
+This section only outlines how to manage bindings in general. It will not cover all use cases.
 
 Prerequisites and steps can vary depending on the device type, manufacturer, and your desired end result.
 {% endnote %}
@@ -603,7 +603,7 @@ Confirm you meet the following requirements before migrating:
 {% details "To migrate to a new Zigbee adapter inside ZHA:" %}
 
 {% important %}
-You will not be able to control your existing Zigbee devices until they join the network after the migration. **This can take a few minutes.**
+You will not be able to control your existing Zigbee devices until they join the network after the migration. This can take a few minutes.
 
 If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
 {% endimportant %}
@@ -626,7 +626,7 @@ If some existing devices do not resume normal functions after some time, try pow
    - **Option 2**: To restore a specific, older backup, select **Advanced migration** instead.
      - This will let you select a backup of your choice.
 8. In the rare event the new radio requires overwriting the IEEE address (the unique MAC address), you will see the prompt for **Overwrite Radio IEEE Address**.
-   - Check the **Permanently replace the radio IEEE address** box and click **Submit**.
+   - Check the **Permanently replace the radio IEEE address** box and select **Submit**.
    - Selecting this option is required for the migration process to complete successfully.
    - Overwriting the IEEE address may take a while.
    - Both the old and new Zigbee adapters now have the same Zigbee IEEE address.
@@ -666,8 +666,7 @@ The list of ZHA limitations may not be exhaustive.
 
 **Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the `zha.permit` action:**
 
-- This has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA.
-- Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
+- Home Assistant's user interface does not currently support scanning a QR code for Zigbee 3.0 secure provisioning for device pre-commissioning in ZHA's UI (instead, you currently need to use the `zha.permit` action with the qr_code parameter).
 
 **ZHA does _not_ currently support devices that can only use:**
 
@@ -682,7 +681,7 @@ The list of ZHA limitations may not be exhaustive.
 
 Home Assistant's ZHA {% term integration %} supports all standard Zigbee device types as defined by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/).
 
-**There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA {% term integration %}.**
+There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA {% term integration %}.
 
 {% tip %}
 Check out [blakadder's unofficial Zigbee Device Compatibility Repository](https://zigbee.blakadder.com).
@@ -701,7 +700,7 @@ Not all hardware manufacturers fully comply with the standard. This can include:
 Developers (or even advanced users) might be able to work around such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to [How to add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
 
 {% note %}
-**If a device will not join/pair** at all, review the following sections on this page:
+_If a device will not join or pair_ at all, review the following sections on this page:
 
 - [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
 - [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
@@ -716,7 +715,8 @@ If your Zigbee device pairs/joins successfully with the ZHA {% term integration 
 1. Try to re-pair/re-join the device several times.
 2. Review the troubleshooting sections.
 3. Search for similar situations in the Home Assistant [community forum or Discord chat server](https://www.home-assistant.io/help/).
-4. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
+4. Still not working? You might need a new custom ZHA device handler. This device handler adds exception handling code to ZHA to work around device-specific issues.
+   To submit a device support request for a new custom ZHA device handler, see [ZHA device handlers](#zha-device-handlers).
 
 #### ZHA device handlers
 For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)".
@@ -775,7 +775,7 @@ If you experience problems pairing a device, verify that you follow best practic
 
 ### Zigbee interference avoidance and network range/coverage optimization
 
-Sources of interference for radios can lead to connection problems, errors in sending and receiving Zigbee messages/signals, and significant degradation in performance. Implementing some good practicies can serve as a starting point to achieve better signal quality and reception, improved coverage, and extended range.
+Sources of interference for radios can lead to connection problems, errors in sending and receiving Zigbee messages or signals, and significant degradation in performance. Implementing some good practices can serve as a starting point to achieve better signal quality and reception, improved coverage, and extended range.
 
 It is important to understand the known limitations of low-power/low-bandwidth 2.4 GHz digital radios to avoid issues caused by interference or poor placement of your Zigbee radio adapter or devices.
 
@@ -787,7 +787,7 @@ Examples of real-world interference sources include:
 - Unshielded USB 3.x devices,
 - Non-shielded USB 3.x peripheral cables 
     - These are widely known to affect 2.4 GHz radio reception for low-power/low-bandwidth devices.
-    - You should always place your Zigbee adapter far away as possible from any potential sources of EMI/EMI/RMI, preferably by using an adequately long shielded USB extension cable connected to a USB 2.0 port.
+    - You should always place your Zigbee adapter as far away as possible from any potential sources of EMI/EMF/RMI, preferably by using an adequately long shielded USB extension cable connected to a USB 2.0 port.
 
 Zigbee relies on a concept of [mesh networking](https://en.wikipedia.org/wiki/Mesh_networking) with most mains-powered devices being "Zigbee Routers" that act as signal repeaters and range extenders. Collectively, they transmit data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. 
 
@@ -810,7 +810,7 @@ Common root causes of unreliable performance are often seen with outdated Zigbee
   - Try placing Zigbee Coordinator at some distance away from walls, ceilings, and floors.
   - Try different orientations of the Zigbee Coordinator adapter or its antenna.
 
-While using an older Zigbee Coordinator radio adapter hardware might work, using obsolete hardware and/or old firmware can prevent reliable operation. It is also generally a good idea to upgrade Zigbee Coordinator firmware before troubleshooting any further if and when run into problems with devices.
+While using an older Zigbee Coordinator radio adapter hardware might work, using obsolete hardware or old firmware can prevent reliable operation. It is also generally a good idea to upgrade Zigbee Coordinator firmware before troubleshooting any further if and when you run into problems with devices.
 
 #### Actions to avoid or workaround EMI/EMF/RMI interference
 
@@ -819,7 +819,7 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
 - Use a long USB extension cable and place Zigbee Coordinator away from interference and obstacles.
   - Ensure the USB extension cable is adequately shielded (thicker cables usually have better shielding).
   - Place Zigbee Coordinator away from electrical wires/cables, power supplies, and household appliances.
-  - Extension cables also makes it easier to try different orientations of the adapter/antenna.
+  - Extension cables also make it easier to try different orientations of the adapter or antenna.
 
 - Avoid USB 3.0 ports/computers/peripherals as they are known culprits of RFI/EMI/EMF disruption. (See Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [2](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)).
   - Make sure to only connect the Zigbee USB adapter to a USB 2.0 port (and not to a USB 3.x port).
@@ -830,14 +830,14 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
   - Be aware that metal casings can decrease the performance of an internal/built-in Zigbee Coordinator.
 
 - Avoid Wi-Fi Routers and Wi-Fi Access Points, alternatively change the Wi-Fi channel or Zigbee channel.
-  - Place your Zigbee Coordinator away from any Wi-Fi access points and all other sources of WiFi.
+  - Place your Zigbee Coordinator away from any Wi-Fi access points and all other sources of Wi-Fi.
   - Wi-Fi frequency ranges can overlap with Zigbee, see the section above on defining Zigbee channel use.
 
 ### Problems upgrading Zigbee device firmware via OTA
 
 Before upgrading any OTA firmware, it is recommended to install fresh batteries in the device. OTA firmware updates are power-intensive, and some devices check for a minimum battery level before starting the upgrade. These devices may refuse to initiate the update process if the battery level is too low. However, not all device firmware includes this check.
 
-If Zigbee firmware upgrades do not start on a Zigbee End Device (i.e. a battery-powered product), then note that you usually need to "wake up the device" (e.g. trigger state change or pressing a button if available) so that the device becomes awake and is thus able to receive commands to start the OTA upgrade. The reason for this is that battery-powered products are so called "sleepy devices," so they normally are asleep and only receive commands when the state of the device is changed.
+If Zigbee firmware upgrades do not start on a Zigbee End Device (that is, a battery-powered product), then note that you usually need to "wake up the device" (for example, trigger a state change or press a button if available) so that the device becomes awake and is thus able to receive commands to start the OTA upgrade. The reason for this is that battery-powered products are so-called "sleepy devices," so they normally are asleep and only receive commands when the state of the device is changed.
 
 If the upgrade still does not start, then try manually restarting the device by disconnecting the power/battery for a few seconds and try again; then again make sure to activate the device by triggering state change or pressing a button on it right before sending the update request. Sometimes, it also helps to try keeping the device awake by repeatedly pushing a button or triggering state change until you see the first "Updating... " message in the user interface.
 
@@ -877,8 +877,8 @@ RSSI values are negative numbers in -dBm format ranging from 0 to -100 power rat
 The value is a measurement between the endpoint device and the first hop from that device. It may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
 
 Generally:
-- Values -60 and above (meaning -50, -40, etc.) indicate a strong signal and very low risk of losing messages.
-- Values at -80 and below (meaning -85, -90, etc.) indicate a "noisy" environment and you may risk losing messages.
+- Values -60 and above (meaning -50, -40, and so on) indicate a strong signal and very low risk of losing messages.
+- Values at -80 and below (meaning -85, -90, and so on) indicate a "noisy" environment and you may risk losing messages.
 
 {% enddetails %}
 
@@ -945,10 +945,10 @@ logger:
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
-Philips Hue bulbs that have previously been paired to another bridge/gateway will not show up during search in ZHA to add a Zigbee device. **Bulbs must be restored back to their factory default settings**.
+Philips Hue bulbs that have previously been paired to another bridge or gateway will not show up during search in ZHA to add a Zigbee device. Bulbs must be restored to their factory default settings.
 
 {% important %}
-**You must factory-reset the device.**
+You must factory-reset the device.
 
 - Simply "removing" them from your old bridge/gateway is not sufficient.
 - Be sure there are no other Hue bulbs nearby that have just been powered-on when using this method or you will risk resetting them in this process.
@@ -980,7 +980,7 @@ Icons or button names may vary between generations of remotes. The remote used f
    - **Lutron Connected Bulb Remote:**
      - Use the **2nd (up arrow)** and **4th (light off)** buttons.
 2. Turn on the Hue bulb you want to reset.
-   - **It is important that the bulb has _just_ been powered on.**
+   - It is important that the bulb has _just_ been powered on.
 3. Hold the remote near your bulb, closer than 10cm (about 4 inches).
 4. Press-and-hold both buttons identified in the first step and continue holding them once the bulb begins to blink.
    - Expect to hold the buttons for about another 10 seconds while the bulb blinks.
@@ -1000,7 +1000,7 @@ If you are unable to reset the bulb using a method above, remove it from the Hue
 
 ### ZHA Start up issue with Home Assistant or Home Assistant Container
 
-On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanager on the host system.
+On Linux hosts, ZHA can fail to start during Home Assistant startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this, disable the modemmanager on the host system.
 
 To remove modemmanager from a Debian/Ubuntu host run this command:
 
@@ -1043,12 +1043,12 @@ services:
 
 When you see `NCP entered failed state. Requesting APP controller restart` in logs during normal operation, it indicates a drop in communication between ZHA and the serial interface of the Silabs EmberZNet Zigbee Coordinator.
 
-The EZSP (EmberZNet Serial Protocol) interface used by Silicon Labs EmberZNet Zigbee Coordinator adapters requires a stable connection to the serial port; therefore, it is not recommended to use a connection over Wi-Fi, WAN, VPN, etc.
+The EZSP (EmberZNet Serial Protocol) interface used by Silicon Labs EmberZNet Zigbee Coordinator adapters requires a stable connection to the serial port. Therefore, it is not recommended to use a connection over Wi-Fi, WAN, or VPN.
 
 ### Zigbee 3.0 support
 
 Some coordinators may not support firmware capable of Zigbee 3.0, but they can still be fully functional and feature-complete for your needs.
 
 {% note %}
-It is up to hardware manufacturers to make such firmware available to them. If your coordinator was shipped with an older firmware version, you be able to manually upgrade the firmware.
+It is up to hardware manufacturers to make such firmware available to them. If your coordinator was shipped with an older firmware version, you may be able to manually upgrade the firmware.
 {% endnote %}

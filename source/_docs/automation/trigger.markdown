@@ -1,14 +1,14 @@
 ---
-title: "Automation Trigger"
-description: "All the different ways how automations can be triggered."
+title: "Automation triggers"
+description: "Triggers are the events that start an automation, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
 ---
 
-Triggers are what starts the processing of an {% term automation %} rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
+A trigger is what wakes an automation up. Until something triggers it, an automation just sits there quietly, waiting. The moment a trigger fires, Home Assistant checks any [conditions](/docs/automation/condition/) you set, and if they pass, it runs the [actions](/docs/automation/action/).
 
-An {% term automation %} can be triggered by an {% term event %}, a certain {% term entity %} {% term state %}, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
 
 - [Trigger ID](#trigger-id)
 - [Trigger variables](#trigger-variables)
@@ -66,9 +66,8 @@ There are two different types of variables available for triggers. Both work lik
 
 The first variant allows you to define variables that will be set when the trigger fires. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/templating#available-trigger-data).
 
-The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/configuration/templating/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
+The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/templating/where-to-use/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -83,7 +82,6 @@ automation:
         name: "{{ trigger.event.data.name }}"
 ```
 
-{% endraw %}
 
 ## Event trigger
 
@@ -118,13 +116,12 @@ automation:
         - scene_reloaded
 ```
 
-It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `event_type`, `event_data` and `context` options.
+It's also possible to use [limited templates](/docs/templating/where-to-use/#limited-templates) in the `event_type`, `event_data` and `context` options.
 
 {% important %}
 The `event_type`, `event_data` and `context` templates are only evaluated when setting up the trigger, they will not be reevaluated for every event.
 {% endimportant %}
 
-{% raw %}
 
 ```yaml
 automation:
@@ -137,7 +134,6 @@ automation:
       event_type: "{{ 'MY_CUSTOM_EVENT_' ~ sub_event }}"
 ```
 
-{% endraw %}
 
 ## Home Assistant trigger
 
@@ -172,7 +168,6 @@ automation:
 The `payload` option can be combined with a `value_template` to process the message received on the given MQTT topic before matching it with the payload.
 The trigger in the example below will trigger only when the message received on `living_room/switch/ac` is valid JSON, with a key `state` which has the value `"on"`.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -183,15 +178,13 @@ automation:
       value_template: "{{ value_json.state }}"
 ```
 
-{% endraw %}
 
-It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
+It's also possible to use [limited templates](/docs/templating/where-to-use/#limited-templates) in the `topic` and `payload` options.
 
 {% note %}
 The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
 {% endnote %}
 
-{% raw %}
 
 ```yaml
 automation:
@@ -207,7 +200,6 @@ automation:
       encoding: "utf-8"
 ```
 
-{% endraw %}
 
 ## Numeric state trigger
 
@@ -218,7 +210,6 @@ Crossing the threshold means that the trigger only fires if the state wasn't pre
 If the current state of your entity is `50` and you set the threshold to `below: 75`, the trigger would not fire if the state changed to `49` or `72` because the threshold was never crossed. The state would first have to change to `76` and then to `74` for the trigger to fire.
 {% endnote %}
 
-{% raw %}
 
 ```yaml
 automation:
@@ -239,7 +230,6 @@ automation:
         seconds: 5
 ```
 
-{% endraw %}
 
 {% note %}
 Listing above and below together means the numeric_state has to be between the two values.
@@ -248,7 +238,6 @@ In the example above, the trigger would fire a single time if a numeric_state go
 
 When the `attribute` option is specified the trigger is compared to the given `attribute` instead of the state of the entity.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -259,13 +248,11 @@ automation:
       above: 23
 ```
 
-{% endraw %}
 
 More dynamic and complex calculations can be done with `value_template`. The variable 'state' is the [state object](/docs/configuration/state_object) of the entity specified by `entity_id`.
 
 The state of the entity can be referenced like this:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -276,11 +263,9 @@ automation:
       above: 70
 ```
 
-{% endraw %}
 
 Attributes of the entity can be referenced like this:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -291,7 +276,6 @@ automation:
       above: 3
 ```
 
-{% endraw %}
 
 Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
 that contain a numeric value, can be used in the `above` and `below` thresholds.
@@ -308,7 +292,6 @@ automation:
 
 The `for:` can also be specified as `HH:MM:SS` like this:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -323,11 +306,9 @@ automation:
       for: "01:10:05"
 ```
 
-{% endraw %}
 
 You can also use templates in the `for` option.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -347,7 +328,6 @@ automation:
           {{ trigger.to_state.name }} too high for {{ trigger.for }}!
 ```
 
-{% endraw %}
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
@@ -513,7 +493,6 @@ automation:
 
 You can also use templates in the `for` option.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -532,7 +511,6 @@ automation:
         entity_id: lock.my_place
 ```
 
-{% endraw %}
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
@@ -568,7 +546,6 @@ automation:
 
 Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most automations intended to run during dusk or dawn, a number between 0° and -6° is suitable; -4° is used in this example:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -585,7 +562,6 @@ automation:
           entity_id: switch.exterior_lighting
 ```
 
-{% endraw %}
 
 If you want to get more precise, you can use this [solar calculator](https://gml.noaa.gov/grad/solcalc/), which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
@@ -639,13 +615,12 @@ automation:
 
 ## Template trigger
 
-Template triggers work by evaluating a [template](/docs/configuration/templating/) when any of the recognized entities change state. The trigger will fire if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
+Template triggers work by evaluating a [template](/docs/templating/) when any of the recognized entities change state. The trigger will fire if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
 
-This is achieved by having the template result in a true boolean expression (for example `{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render `true` (example below).
+This is achieved by having the template result in a true boolean expression (for example `{{ is_state('device_tracker.paulus', 'home') }}`) or by having the template render `true` (example below).
 
-With template triggers you can also evaluate attribute changes by using is_state_attr (like `{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
+With template triggers you can also evaluate attribute changes by using is_state_attr (like `{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}`)
 
-{% raw %}
 
 ```yaml
 automation:
@@ -657,11 +632,9 @@ automation:
       for: "00:01:00"
 ```
 
-{% endraw %}
 
 You can also use templates in the `for` option.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -672,7 +645,6 @@ automation:
         minutes: "{{ states('input_number.minutes')|int(0) }}"
 ```
 
-{% endraw %}
 
 The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
 
@@ -710,7 +682,6 @@ The entity ID of an [input datetime](/integrations/input_datetime/).
 | `true`   | `false`  | Will fire at midnight on specified date. |
 | `false`  | `true`   | Will fire once a day at specified time.  |
 
-{% raw %}
 
 ```yaml
 automation:
@@ -738,7 +709,6 @@ automation:
           entity_id: climate.office
 ```
 
-{% endraw %}
 
 ### Sensors of datetime device class
 
@@ -795,9 +765,8 @@ automation:
 
 ### Limited templates
 
-It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) for times.
+It's also possible to use [limited templates](/docs/templating/where-to-use/#limited-templates) for times.
 
-{% raw %}
 
 ```yaml
 blueprint:
@@ -823,7 +792,6 @@ blueprint:
       - "{{ my_hour }}:30:00"
 ```
 
-{% endraw %}
 
 ### Weekday filtering
 
@@ -967,7 +935,7 @@ See the [Persistent Notification](/integrations/persistent_notification/) integr
 
 ## Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/configuration/templating/#limited-templates).
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/templating/where-to-use/#limited-templates).
 
 {% note %}
 The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
@@ -1123,12 +1091,10 @@ This allows you to match sentences with variable parts, such as album/artist nam
 
 For example, the sentence `play {album} by {artist}` will match "play the white album by the beatles" and have the following variables available in the action templates:
 
-{% raw %}
 
 - `{{ trigger.slots.album }}` - "the white album"
 - `{{ trigger.slots.artist }}` - "the beatles"
 
-{% endraw %}
 
 Wildcards will match as much text as possible, which may lead to surprises: "play day by day by taken by trees" will match `album` as "day" and `artist` as "day by taken by trees".
 Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match "play day by day by artist taken by trees".
@@ -1184,7 +1150,6 @@ automation:
 
 Triggers can also be disabled based on limited templates or blueprint inputs. These are only evaluated once when the automation is loaded.
 
-{% raw %}
 
 ```yaml
 blueprint:
@@ -1212,7 +1177,6 @@ blueprint:
       enabled: "{{ _enable_number < 50 }}"
 ```
 
-{% endraw %}
 
 ## Merging lists of triggers
 

@@ -69,8 +69,6 @@ Get started with this automation example to create an Uptime Kuma warning light 
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 actions:
   - choose:
@@ -120,8 +118,6 @@ triggers:
     entity_id:
       - sensor.uptime_kuma_my_service
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

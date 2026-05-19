@@ -162,7 +162,6 @@ If you have a home battery system:
 
 To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
 
-{% raw %}
 ```yaml
 # Example automation
 triggers:
@@ -175,8 +174,6 @@ actions:
     data:
       message: "Vehicle plugged in"
 ```
-{% endraw %}
-
 
 ## Troubleshooting
 
@@ -185,9 +182,7 @@ You may need to power cycle your charger. Please see the [manufactuer's guidance
 
 ## Data updates
 
-This integration fetches data every 30 seconds with the following exceptions:
-- CT readings are fetched every minute.
-- Device settings are fetched every 30 minutes.
+This integration fetches data every 30 seconds with the exception of device settings which are fetched every 30 minutes.
 
 ## Known limitations
 

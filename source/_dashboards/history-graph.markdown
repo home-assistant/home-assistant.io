@@ -24,9 +24,9 @@ Screenshot of the history graph card, when the sensor has no `unit_of_measuremen
 Screenshot of the history graph card, when the sensor has a `unit_of_measurement` defined.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 Only the y-axis and logarithmic scale settings can be configured via the user interface. To configure the other options for this card, you need to edit the YAML configuration.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

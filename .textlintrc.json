@@ -8,6 +8,7 @@
         "homeassistant:",
         "homekit:",
         "led:",
+        "mqtt:",
         "sms:",
         "sql:",
         "ssl:",

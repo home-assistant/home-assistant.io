@@ -671,13 +671,9 @@ Prerequisites:
 
   Select **Add Condition** again > **Other conditions** > **Template**. Then, under **Value template**, type the following:
 
-{% raw %}
-
 ```yaml
 {{as_timestamp(now()) - as_timestamp(state_attr('automation.reolink_push', 'last_triggered'), 0) > 30}}
 ```
-
-{% endraw %}
 
   The `automation.reolink_push` is the name of this automation, which will be set under step 7, and the `30` is the cooldown time in seconds.
 

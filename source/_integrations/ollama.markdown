@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: ollama
 ha_integration_type: service
 related:
-  - docs: /docs/configuration/templating/
+  - docs: /docs/templating/
     title: Home Assistant Templating
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -42,7 +42,7 @@ API Key:
 Model:
   description: Name of the [Ollama model](https://ollama.com/library) to use, such as `mistral` or `llama2:13b`. Models will be automatically downloaded during setup.
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it. This feature is considered experimental and see [Controlling Home Assistant](#controlling-home-assistant) below for details on model limitations.
 Context window size:

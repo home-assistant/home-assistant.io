@@ -475,13 +475,9 @@ Every 4 hours, the actual firmware version in the Envoy is compared to the known
 
 The firmware version is not available as an entity, but rather as an attribute of the envoy. To use the firmware in automation, scripts or templates, use below example with any envoy entity.
 
-{% raw %}
-
 ```yaml
 {{device_attr(device_id('sensor.envoy_SN_current_power_production'),'sw_version')}}
 ```
-
-{% endraw %}
 
 ### Firmware update alert
 
@@ -783,7 +779,7 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 If you experience authentication errors during the configuration of the Envoy, ensure if Multi Factor Authentication (MFA) is disabled for your Enlighten account. Currently, this integration does not support MFA for token retrieval. If any of the below errors show, verify if MFA is disabled.
 
 - Before HA version 2026.1.2: KeyError: 'is_consumer'
-- As of HA version 2026.1.2
+- As of Home Assistant version 2026.1.2
   - KeyError: 'session_id'
   - EnvoyAuthenticationError: No session id in Enlighten login reply, disable Multi Factor Authentication
 

@@ -122,8 +122,6 @@ This integration enables you to:
 
 {% details "Lower temperature when nobody is home" %}
 
-{% raw %}
-
 ```yaml
 alias: "Eco mode when away"
 description: "Set all thermostats to eco mode when house is empty"
@@ -152,8 +150,6 @@ actions:
     data:
       temperature: 18
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

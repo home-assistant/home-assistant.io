@@ -360,13 +360,11 @@ choose:
 
 Following this example, if the user entered a value in both selectors, but submitted with 'Icon' option selected, the output might be:
 
-{% raw %}
 ```yaml
 active_choice: Icon
 Icon: mdi:light
 Template: "{{ something else }}"
 ```
-{% endraw %}
 
 ## Color temperature selector
 

@@ -1,9 +1,11 @@
 ---
 title: "Troubleshooting automations"
-description: "Tips on how to troubleshoot your automations."
+description: "How to find out why an automation did not run, using the trace timeline, the logs, and the test buttons in the automation editor."
 ---
 
-Automations and {% term scripts %} can be debugged in a few different ways. You can [test run](#testing-your-automation) the full sequence of actions, or test each condition and action separately. [Traces](#traces) let you see details of every step after an automation is run. For complicated automations with {% term templates %}, see the section [testing templates](#testing-templates).
+Sometimes an automation does not do what you expect. Maybe it does not run at all, maybe it runs at the wrong moment, or maybe one of the actions in the middle quietly fails. Home Assistant has built-in tools to help you find out exactly what happened, without having to dig through log files.
+
+The most useful tool is the **trace**. Every time an automation runs, Home Assistant records a step-by-step timeline of what was triggered, which conditions were checked, and what each action did. You can also test parts of an automation directly from the editor, without waiting for a real trigger.
 
 ## Testing your automation
 
@@ -55,20 +57,18 @@ Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating
 
 The last 5 traces are recorded for all automations. It is possible to change this by adding the following code to your automation.
 
-{% raw %}
 
 ```yaml
 trace:
   stored_traces: 20
 ```
 
-{% endraw %}
 
 ## Testing templates
 
-If your automation uses [templates](/docs/configuration/templating/) in any part, you can do the following to make sure it works as expected:
+If your automation uses [templates](/docs/templating/) in any part, you can do the following to make sure it works as expected:
 
 1. Go to {% my developer_template title="**Settings** > **Developer tools** > **Template**" %} tab.
-2. Create all variables (sources) required for your template as described at the end of [this](https://www.home-assistant.io/docs/configuration/templating/#processing-incoming-data) paragraph.
+2. Create all variables (sources) required for your template as described at the end of [this](https://www.home-assistant.io/docs/templating/where-to-use/#processing-incoming-data) paragraph.
 3. Copy your template code and paste it in Template editor straight after your variables.
 4. If necessary, change your sources' value and check if the template works as you want and does not generate any errors.
