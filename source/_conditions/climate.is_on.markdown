@@ -67,7 +67,7 @@ behavior:
 ## Good to know
 
 - This condition passes when the thermostat is in any active HVAC mode: heat, cool, heat/cool, auto, dry, or fan only. It does not pass when the thermostat is off.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as on. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is unavailable.
+- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as on. With **Any** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition passes.
 - To gate an automation on a thermostat being off instead, use [Thermostat is off](/conditions/climate.is_off/).
 - To check for a specific HVAC mode, use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/).
 
