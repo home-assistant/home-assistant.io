@@ -157,7 +157,7 @@ json_attributes_topic:
   required: false
   type: string
 message_expiry_interval:
-  description: "Controls how long queued or retained messages sent from Home Assisant persist at the broker for offline subscribers. This option prevents that the broker retains stale messages. The expected value for this option is a JSON mapping, for example `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
   required: false
   type: map
   keys:
