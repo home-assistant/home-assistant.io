@@ -571,7 +571,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a cover entity
 - Position
 - Tilt regulation
 
-### Simon 24 GO SWITCHSHUTT (NEW1W.01)
+### Simon 24 GO SWITCHSHUTT
 
 This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
 
@@ -674,7 +674,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a cover entity
 - Position
 - Tilt regulation
 
-### Simon 54 GO SWITCHSHUTT (NEW1W.01)
+### Simon 54 GO SWITCHSHUTT
 
 This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
 
@@ -786,7 +786,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - On
 - Off
 
-### Simon 55 GO SWITCHSHUTT (NEW1W.01)
+### Simon 55 GO SWITCHSHUTT
 
 This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
 
