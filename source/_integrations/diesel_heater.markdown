@@ -27,15 +27,6 @@ This integration supports diesel heaters from multiple brands that use compatibl
 - **Sunster** heaters (TB10Pro WiFi and similar)
 - Generic Chinese diesel heaters using AirHeaterBLE, AirHeaterCC, or Sunster apps
 
-### Supported protocols
-
-- **AA55** (AirHeaterBLE app) - Original Vevor protocol
-- **AA55 Encrypted** (AirHeaterBLE app) - XOR encrypted variant
-- **AA66** (AirHeaterBLE app) - 20-byte variant
-- **AA66 Encrypted** (AirHeaterBLE app) - Encrypted, Fahrenheit internal
-- **ABBA** (AirHeaterCC app) - HeaterCC heaters
-- **CBFF** (Sunster app) - Double XOR encryption
-
 ## Prerequisites
 
 Before setting up this integration:
@@ -100,5 +91,7 @@ Temperature control only works in temperature mode. If available, check the runn
 3. For advanced troubleshooting, see [enable debug logging and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ## Removing the integration
+
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
