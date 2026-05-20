@@ -72,7 +72,9 @@ automation:
           behavior: any
           for: "00:20:00"
     actions:
-      - action: notify.mobile_app_phone
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "The bathroom fan has been on for 20 minutes."
 ```

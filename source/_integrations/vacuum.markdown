@@ -101,7 +101,9 @@ automation:
     - action: vacuum.pause
       target:
         entity_id: vacuum.office
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The office vacuum paused because a meeting started. Resume it when the call ends."
 ```

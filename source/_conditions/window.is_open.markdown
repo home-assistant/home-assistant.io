@@ -87,9 +87,10 @@ At bedtime, a reminder can help you notice an open window before you lock up for
 
 - **Trigger**: Time: 22:30
 - **Condition**: Window is open
-- **Target**: Downstairs windows label
-- **Condition passes if**: Any
-- **Action**: Send a mobile notification
+  - **Target**: Downstairs windows label
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a bedtime open-window reminder" %}
 
@@ -107,7 +108,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Window still open"
         message: "At least one downstairs window is still open."

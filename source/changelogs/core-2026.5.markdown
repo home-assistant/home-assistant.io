@@ -3306,3 +3306,94 @@ For a summary in a more readable format
 [@ronaldvdmeer]: https://github.com/ronaldvdmeer
 [@thargy]: https://github.com/thargy
 [@wlcrs]: https://github.com/wlcrs
+
+## Release 2026.5.3 - May 19
+
+- Bump qbittorrent-api to 2026.5.1 ([@lumatijev] - [#170181])
+- Improve iaqualink 429 handling ([@flz] - [#170231])
+- Fix Apple TV keyboard focus binary_sensor missing on cold start ([@kroehre] - [#170360])
+- Add tilt controls for UpDownSheerScreen in Overkiz ([@dankarization] - [#170563])
+- Fix blebox light temperature scaling ([@bkobus-bbx] - [#170573])
+- Fix ValueError when turning on blebox light with brightness set to 0 ([@bkobus-bbx] - [#170769])
+- Bump aiodns to 4.0.3 ([@bdraco] - [#170865])
+- Populate uid and recurrence_id in CalDAV calendar events ([@frenck] - [#170910])
+- Fix is_closed state for SlidingDiscreteGateWithPedestrianPosition covers in Overkiz ([@iMicknl] - [#170913])
+- Disable USB discovery for teleinfo ([@puddly] - [#170933])
+- Fix utility meter next_reset shifting forward on entity rename ([@frenck] - [#170957])
+- Use correct state_class for utility meters with device classes that don't support total_increasing ([@frenck] - [#170962])
+- Reduce GoodWe connect retries to avoid blocking startup ([@frenck] - [#170964])
+- Fix is_closed state for DiscretePositionableGarageDoor in Overkiz ([@iMicknl] - [#170981])
+- Fix controls for OpenCloseGate4T (rts:GateOpenerRTS4TComponent) in Overkiz ([@iMicknl] - [#170987])
+- Prevent Google Assistant entity sync from blocking startup ([@frenck] - [#170991])
+- Load template extensions by class to prevent import deadlock ([@frenck] - [#170995])
+- Use asyncio.get_running_loop() in emulated_hue UPnP responder ([@frenck] - [#171000])
+- Fix Netatmo valve KeyError when hvac_action state is unavailable in Overkiz ([@frenck] - [#171004])
+- Fix time trigger crash when using entity_id dict format without offset ([@frenck] - [#171006])
+- Fix threshold preview crash when hysteresis is not provided ([@frenck] - [#171009])
+- Fix Growatt mix device IndexError when chart data is empty ([@frenck] - [#171012])
+- Fix SleepIQ timer units: seconds should be minutes for core climate and foot warmer ([@frenck] - [#171013])
+- Fix Control4 climate crash when humidity is 'Undefined' ([@frenck] - [#171015])
+- Fix manual alarm panel crash on restore with invalid state ([@frenck] - [#171016])
+- Handle Daikin connection errors gracefully in coordinator ([@frenck] - [#171017])
+- Fix shorthand template conditions in choose blocks crashing all automations ([@frenck] - [#171018])
+- Add additional overrides to cover entity in Overkiz ([@iMicknl] - [#171019])
+- Fix Verisure alarm crash when cloud rejects arm/disarm command ([@frenck] - [#171024])
+- Add stop command to Overkiz pergola horizontal awning covers ([@frenck] - [#171034])
+- Fix WeatherFlow websocket crash when data payload is None ([@frenck] - [#171037])
+- Bump pyIntesishome to 1.8.8 ([@jnimmo] - [#171041])
+- Return media_content_id as string in forked_daapd ([@frenck] - [#171059])
+- Bump aioimmich to 0.14.1 ([@mib1185] - [#171138])
+- Fix controls for UpDownGarageDoor4T and additional 4T covers in Overkiz ([@iMicknl] - [#171144])
+- Fix ZHA config entries using a URI without a port ([@puddly] - [#171164])
+- Fix is_closed state and position for DynamicPergola covers in Overkiz ([@iMicknl] - [#170983])
+- Fix tilt and position support for VenetianBlind covers in Overkiz ([@iMicknl] - [#170974])
+
+[#170181]: https://github.com/home-assistant/core/pull/170181
+[#170231]: https://github.com/home-assistant/core/pull/170231
+[#170360]: https://github.com/home-assistant/core/pull/170360
+[#170563]: https://github.com/home-assistant/core/pull/170563
+[#170573]: https://github.com/home-assistant/core/pull/170573
+[#170769]: https://github.com/home-assistant/core/pull/170769
+[#170865]: https://github.com/home-assistant/core/pull/170865
+[#170910]: https://github.com/home-assistant/core/pull/170910
+[#170913]: https://github.com/home-assistant/core/pull/170913
+[#170933]: https://github.com/home-assistant/core/pull/170933
+[#170957]: https://github.com/home-assistant/core/pull/170957
+[#170962]: https://github.com/home-assistant/core/pull/170962
+[#170964]: https://github.com/home-assistant/core/pull/170964
+[#170974]: https://github.com/home-assistant/core/pull/170974
+[#170981]: https://github.com/home-assistant/core/pull/170981
+[#170983]: https://github.com/home-assistant/core/pull/170983
+[#170987]: https://github.com/home-assistant/core/pull/170987
+[#170991]: https://github.com/home-assistant/core/pull/170991
+[#170995]: https://github.com/home-assistant/core/pull/170995
+[#171000]: https://github.com/home-assistant/core/pull/171000
+[#171004]: https://github.com/home-assistant/core/pull/171004
+[#171006]: https://github.com/home-assistant/core/pull/171006
+[#171009]: https://github.com/home-assistant/core/pull/171009
+[#171012]: https://github.com/home-assistant/core/pull/171012
+[#171013]: https://github.com/home-assistant/core/pull/171013
+[#171015]: https://github.com/home-assistant/core/pull/171015
+[#171016]: https://github.com/home-assistant/core/pull/171016
+[#171017]: https://github.com/home-assistant/core/pull/171017
+[#171018]: https://github.com/home-assistant/core/pull/171018
+[#171019]: https://github.com/home-assistant/core/pull/171019
+[#171024]: https://github.com/home-assistant/core/pull/171024
+[#171034]: https://github.com/home-assistant/core/pull/171034
+[#171037]: https://github.com/home-assistant/core/pull/171037
+[#171041]: https://github.com/home-assistant/core/pull/171041
+[#171059]: https://github.com/home-assistant/core/pull/171059
+[#171138]: https://github.com/home-assistant/core/pull/171138
+[#171144]: https://github.com/home-assistant/core/pull/171144
+[#171164]: https://github.com/home-assistant/core/pull/171164
+[@bdraco]: https://github.com/bdraco
+[@bkobus-bbx]: https://github.com/bkobus-bbx
+[@dankarization]: https://github.com/dankarization
+[@flz]: https://github.com/flz
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@jnimmo]: https://github.com/jnimmo
+[@kroehre]: https://github.com/kroehre
+[@lumatijev]: https://github.com/lumatijev
+[@mib1185]: https://github.com/mib1185
+[@puddly]: https://github.com/puddly
