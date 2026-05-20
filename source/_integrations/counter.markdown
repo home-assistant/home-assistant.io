@@ -21,11 +21,11 @@ The preferred way to configure counter {% term helpers %} is through the user in
 To add one, go to **{% my helpers title="Settings > Devices & services > Helpers" %}** and select **Create helper**.
 Then, select **{% my config_flow_start domain=page.ha_domain title=page.title %}**.
 
-To add helpers from the user interface, `default_config:` must be present in your {% term "configuration.yaml" %} file.
+To add helpers from the user interface, `default_config:` must be present in your {% term "`configuration.yaml`" %} file.
 It is included by default unless you removed it.
-If you removed `default_config:`, add `counter:` to your {% term "configuration.yaml" %} file first.
+If you removed `default_config:`, add `counter:` to your {% term "`configuration.yaml`" %} file first.
 
-Counters can also be configured in {% term "configuration.yaml" %}:
+Counters can also be configured in {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

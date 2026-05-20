@@ -152,7 +152,7 @@ for:
 
 ### Automation: stop incrementing a break counter after the daily goal
 
-If you use a counter helper to track short exercise breaks, this condition can stop the count once the daily goal has been reached.
+If you use a counter helper to track short exercise breaks, this condition can stop the count after the daily goal has been reached.
 
 - **Trigger**: Input button pressed
 - **Condition**: Counter value
