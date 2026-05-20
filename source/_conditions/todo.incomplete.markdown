@@ -88,7 +88,7 @@ for:
     How long the incomplete item count must stay in the matching range before
     the condition passes. Accepts a duration like `00:10:00` for 10 minutes.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 
