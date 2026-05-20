@@ -21,7 +21,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Climate: Thermostat is off**.
+4. From the search box, search for and select **Thermostat is off**.
 5. Under **Targets**, select the thermostat entity, an area, a floor, or a label.
 6. Under **Condition passes if**, pick **Any** or **All**.
 7. Select **Save**.
