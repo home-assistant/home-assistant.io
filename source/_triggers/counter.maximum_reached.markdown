@@ -9,7 +9,7 @@ related_triggers:
   - counter.reset
 ---
 
-The **Counter reached maximum** trigger fires when a counter helper reaches its configured maximum value.
+The **Counter reached maximum** trigger fires when a counter {% term helper %} reaches its configured maximum value.
 Use it when you want Home Assistant to react when a running count has hit its limit, like sending a reminder, stopping a repeating task, or resetting a user-created counter for the next cycle.
 
 {% include integrations/labs_entity_triggers_note.md %}

@@ -8,7 +8,7 @@ related_triggers:
   - counter.maximum_reached
 ---
 
-The **Counter incremented** trigger fires when a counter helper increases by its configured step size.
+The **Counter incremented** trigger fires when a counter {% term helper %} increases by its configured step size.
 Use it when you want another automation to react every time a count goes up, like updating a light, sending a reminder, or starting a follow-up task after a button press or another event increments the counter.
 
 {% include integrations/labs_entity_triggers_note.md %}

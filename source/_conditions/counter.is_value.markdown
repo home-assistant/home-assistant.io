@@ -6,7 +6,7 @@ description: "Tests the value of one or more counters."
 related_conditions:
 ---
 
-The **Counter value** condition passes when a counter helper matches the threshold you define.
+The **Counter value** condition passes when a counter {% term helper %} matches the threshold you define.
 You can check whether a counter is above, below, within, or outside a range of values.
 Use it when you want an automation to continue only while a count stays under a limit, reaches a target, or falls within a range you set.
 

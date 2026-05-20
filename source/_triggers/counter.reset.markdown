@@ -10,7 +10,7 @@ related_triggers:
   - counter.minimum_reached
 ---
 
-The **Counter reset** trigger fires when a counter helper returns to its initial value.
+The **Counter reset** trigger fires when a counter {% term helper %} returns to its initial value.
 Use it when you want to restart a routine, clear a reminder, or react when a user-created counter has gone back to its starting point.
 
 {% include integrations/labs_entity_triggers_note.md %}
