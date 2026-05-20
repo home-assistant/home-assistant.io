@@ -654,7 +654,7 @@ This integration adds the Simon 24 GO device ("blebox inside") to Home Assistant
 
 ### Simon 24 GO CONTROL (NEK1W.01) and Simon 24 GO GROUPSHUTT
 
-This integration does not add direct support for Simon 24 GO CONTROL and Simon 24 GO GROUPSHUTT devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
+This integration does not add direct support for Simon 24 GO Control and Simon 24 GO groupShutt devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
 
 The configuration consists of two steps:
 
@@ -757,7 +757,7 @@ This integration adds the Simon 54 GO device ("blebox inside") to Home Assistant
 
 ### Simon 54 GO CONTROL (DEK1W.01) and Simon 54 GO GROUPSHUTT
 
-This integration does not add direct support for Simon 54 GO CONTROL and Simon 54 GO GROUPSHUTT devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
+This integration does not add direct support for Simon 54 GO Control and Simon 54 GO groupShutt devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
 
 The configuration consists of two steps:
 
@@ -880,9 +880,9 @@ This integration adds the Simon 55 GO device ("blebox inside") as a climate enti
 
 ### Simon 55 GO CONTROL (TEK1W.01) and Simon 55 GO GROUPSHUTT
 
-This integration does not add direct support for Simon 55 GO CONTROL and Simon 55 GO GROUPSHUTT devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
+This integration does not add direct support for Simon 55 GO Control and Simon 55 GO groupShutt devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
 
-- With Simon 55 / 54 GO CONTROL and its 4 buttons, you can configure up to 8 automations in Home Assistant (short and long press for each button).
+- With Simon 55 GO Control and its 4 buttons, you can configure up to 8 automations in Home Assistant (short and long press for each button).
 
 The configuration consists of two steps:
 
