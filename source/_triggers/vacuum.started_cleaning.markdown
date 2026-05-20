@@ -67,7 +67,7 @@ behavior:
 for:
   description: The time the vacuum must keep cleaning before the trigger fires.
   required: false
-  type: time
+  type: string
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}

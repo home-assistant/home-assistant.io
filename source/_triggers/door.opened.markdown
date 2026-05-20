@@ -63,7 +63,7 @@ for:
   description: >
     How long the door must stay open before the trigger fires.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 
