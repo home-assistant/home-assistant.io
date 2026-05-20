@@ -6,7 +6,7 @@ description: "Play a Ring Tone Text Transfer Language (RTTTL) tone on the built-
 since: "2026.6"
 ---
 
-With this action, you can play a melody on the built-in buzzer of SMLIGHT Ultima devices using <abbr title="Ring Tone Text Transfer Language">RTTTL</abbr> — a compact text format for encoding simple tunes. If you want to learn more about the format, refer to [Ring Tone Text Transfer Language](https://en.wikipedia.org/wiki/Ring_Tone_Text_Transfer_Language). You can find and preview example tones using the [RTTTL Player](https://1j01.github.io/rtttl.js/).
+With this action, you can play a melody on the built-in buzzer of SMLIGHT Ultima devices using <abbr title="Ring Tone Text Transfer Language">RTTTL</abbr>—a compact text format for encoding simple tunes. If you want to learn more about the format, refer to [Ring Tone Text Transfer Language](https://en.wikipedia.org/wiki/Ring_Tone_Text_Transfer_Language). You can find and preview example tones using the [RTTTL Player](https://1j01.github.io/rtttl.js/).
 
 Use it to add audible notifications to your automations, like a chime when someone arrives or an alert when a sensor triggers.
 
