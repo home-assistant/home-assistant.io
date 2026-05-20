@@ -133,7 +133,8 @@ automation: |
 If the alarm goes off, you want to know immediately, even if you are on the other side of town. This automation sends a critical notification to your phone the instant the alarm triggers.
 
 - **Trigger**: Alarm triggered
-- **Action**: Send a critical mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for an alarm trigger notification" %}
 
@@ -147,7 +148,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Alarm triggered"
         message: >
