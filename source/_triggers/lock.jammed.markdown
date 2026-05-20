@@ -65,7 +65,7 @@ for:
     How long the lock must stay jammed before the trigger fires. Accepts a
     duration like `00:01:00` for one minute.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 

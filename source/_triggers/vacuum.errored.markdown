@@ -68,9 +68,11 @@ behavior:
   type: string
   default: any
 for:
-  description: The time the vacuum must remain in the error state before the trigger fires.
+  description: >
+    The time the vacuum must remain in the error state before the trigger fires.
+    Accepts a duration like `00:00:10` for 10 seconds.
   required: false
-  type: time
+  type: string
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}

@@ -62,9 +62,11 @@ behavior:
   type: string
   default: any
 for:
-  description: The time the vacuum must stay docked before the condition passes.
+  description: >
+    The time the vacuum must stay docked before the condition passes.
+    Accepts a duration like `00:00:10` for 10 seconds.
   required: false
-  type: time
+  type: string
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
