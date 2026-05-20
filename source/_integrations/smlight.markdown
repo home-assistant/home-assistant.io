@@ -138,31 +138,6 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 
 {% include integrations/actions.md %}
 
-## Examples
-
-### Play chime when front door opens
-
-Uses the SMLIGHT Ultima buzzer to play a ding-dong doorbell chime when the front door is opened.
-
-```yaml
-alias: "Play chime when front door opens"
-description: >
-  Uses the SMLIGHT Ultima buzzer to play a
-  ding-dong doorbell chime when the front door is opened.
-triggers:
-  - trigger: state
-    entity_id: binary_sensor.front_door
-    to: "on"
-actions:
-  - action: smlight.play_rtttl
-    data:
-      device_id: 1234567890abcdef1234567890abcdef
-      duration: 4
-      octave: 5
-      bpm: 100
-      notes: "8e,c"
-```
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
