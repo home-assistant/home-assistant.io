@@ -22,8 +22,8 @@ To play a tone from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **SMLIGHT SLZB: Play RTTTL tone**.
 6. Select the SMLIGHT Ultima device to play the tone on.
-7. Set the **Notes** field to the note sequence you want to play.
-8. _Optional_: adjust the **Duration**, **Octave**, and **BPM** to control the default note length, pitch, and tempo.
+7. Set the **Notes** field to the note sequence you want to play, and set the default **Octave**.
+8. _Optional_: set **Duration** and **BPM** to control the default note length and tempo.
 9. Select **Save**.
 
 ### Options in the UI
