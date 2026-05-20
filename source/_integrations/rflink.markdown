@@ -152,23 +152,6 @@ rflink:
 
 The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore, all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group or configure a nice name.
 
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: rflink
-    automatic_add: true
-sensor:
-  - platform: rflink
-    automatic_add: true
-```
-{% enddetails %}
-
 ### Ignoring devices
 
 The RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.
@@ -208,26 +191,6 @@ rflink:
 ```
 
 This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
-
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry for inverted RTS cover
-cover:
-  - platform: rflink
-    devices:
-      # Rfloader created remote control which is used by Home Assistant
-      RTS_0a0a0a_1:
-        name: "Blind office"
-        aliases:
-          - rts_0f1f2f_01 # ID of the remote control (Somfy smove in this case)
-        type: inverted
-```
-{% enddetails %}
 
 ### Device Incorrectly Identified
 
@@ -285,21 +248,6 @@ rflink:
     devices:
       pt2262_00174754_0: {}
 ```
-
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: rflink
-    devices:
-      pt2262_00174754_0: {}
-```
-{% enddetails %}
 
 {% configuration %}
 devices:
@@ -365,28 +313,6 @@ rflink:
         off_delay: 5
 ```
 
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: rflink
-    devices:
-      pt2262_00174754_0:
-        name: PIR Entrance
-        device_class: motion
-        off_delay: 5
-      pt2262_00174758_0:
-        name: PIR Living Room
-        device_class: motion
-        off_delay: 5
-```
-{% enddetails %}
-
 ## Cover
 
 After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
@@ -445,22 +371,6 @@ rflink:
       RTS_0100F2_0: {}
       bofumotor_455201_0f: {}
 ```
-
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry
-cover:
-  - platform: rflink
-    devices:
-      RTS_0100F2_0: {}
-      bofumotor_455201_0f: {}
-```
-{% enddetails %}
 
 {% configuration %}
 device_defaults:
@@ -562,37 +472,6 @@ rflink:
         name: non_kaku_not_inverted_by_default
 ```
 
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry that shows how to
-# use the type property.
-cover:
-  - platform: rflink
-    devices:
-      newkaku_xxxxxxxx_x:
-        name: kaku_inverted_by_type
-        type: inverted
-      newkaku_xxxxxxxx_y:
-        name: kaku_not_inverted_by_type
-        type: standard
-      newkaku_xxxxxxxx_z:
-        name: kaku_inverted_by_default
-      nonkaku_yyyyyyyy_x:
-        name: non_kaku_inverted_by_type
-        type: inverted
-      nonkaku_yyyyyyyy_y:
-        name: non_kaku_not_inverted_by_type
-        type: standard
-      nonkaku_yyyyyyyy_z:
-        name: non_kaku_not_inverted_by_default
-```
-{% enddetails %}
-
 The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the integration will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
 
 ### Setting up a non-RTS cover
@@ -667,38 +546,6 @@ rflink:
         fire_event: true
 ```
 
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry
-cover:
-  - platform: rflink
-    devices:
-      RTS_0A8720_0:
-        name: enanos
-        aliases:
-          - rts_31e53f_01
-          - rts_32e53f_01
-      RTS_30E542_0:
-        name: comedor
-        aliases:
-          - rts_33e53f_01
-          - rts_fa872e_01
-      RTS_33E542_0:
-        name: dormitorio
-        aliases:
-          - rts_30e53f_01
-          - rts_32e53f_01
-      RTS_32E542_0:
-        name: habitaciones
-        fire_event: true
-```
-{% enddetails %}
-
 ## Light
 
 After configuring the RFLink hub, lights will be automatically discovered and added.
@@ -721,24 +568,6 @@ rflink:
       Ansluta_ce30_0: {}
       Maclean_0d82_01: {}
 ```
-
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: rflink
-    devices:
-      NewKaku_02a48800_0: {}
-      newkaku_0000c6c2_1: {}
-      Ansluta_ce30_0: {}
-      Maclean_0d82_01: {}
-```
-{% enddetails %}
 
 {% configuration %}
 device_defaults:
@@ -903,21 +732,6 @@ rflink:
       alectov1_0334_temp: {}
 ```
 
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: rflink
-    devices:
-      alectov1_0334_temp: {}
-```
-{% enddetails %}
-
 {% configuration %}
 automatic_add:
   description: Automatically add new/unconfigured devices to Home Assistant if detected.
@@ -1052,22 +866,6 @@ rflink:
       newkaku_0000c6c2_1: {}
       conrad_00785c_0a: {}
 ```
-
-{% details "Legacy configuration" %}
-
-{% important %}
-This _legacy_ format will stop working on Home Assistant 2026.12.0.
-{% endimportant %}
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: rflink
-    devices:
-      newkaku_0000c6c2_1: {}
-      conrad_00785c_0a: {}
-```
-{% enddetails %}
 
 {% configuration %}
 device_defaults:
