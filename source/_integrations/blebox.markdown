@@ -656,6 +656,8 @@ This integration adds the Simon 24 GO device ("blebox inside") to Home Assistant
 
 This integration does not add direct support for Simon 24 GO Control and Simon 24 GO groupShutt devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
 
+- With Simon 24 GO Control and its 4 buttons, you can configure up to 8 automations in Home Assistant (short and long press for each button).
+
 The configuration consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
@@ -758,6 +760,8 @@ This integration adds the Simon 54 GO device ("blebox inside") to Home Assistant
 ### Simon 54 GO CONTROL (DEK1W.01) and Simon 54 GO GROUPSHUTT
 
 This integration does not add direct support for Simon 54 GO Control and Simon 54 GO groupShutt devices. It is however possible to integrate these devices with Home Assistant using automations via webhooks and wBox mobile app.
+
+- With Simon 54 GO Control and its 4 buttons, you can configure up to 8 automations in Home Assistant (short and long press for each button).
 
 The configuration consists of two steps:
 
