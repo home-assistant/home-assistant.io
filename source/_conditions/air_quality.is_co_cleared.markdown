@@ -77,9 +77,11 @@ After a CO event, you want the alarm to keep sounding until every room is safe. 
 
 - **Trigger**: State: Silence alarm button pressed
 - **Condition**: Air Quality: Carbon monoxide cleared
-- **Target**: All CO sensors (hallway, basement)
-- **Condition passes if**: All
-- **Action**: Siren: Turn off, then notify the household
+  - **Target**: All CO sensors (hallway, basement)
+  - **Condition passes if**: All
+- **Action**: Turn off siren
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for silencing the alarm only after full CO all-clear" %}
 
@@ -101,7 +103,9 @@ automation: |
     - action: siren.turn_off
       target:
         entity_id: siren.house_alarm
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "CO all-clear"
         message: >

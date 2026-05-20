@@ -89,10 +89,11 @@ If a first alert was missed, a follow-up reminder can help you fix the problem b
 
 - **Trigger**: Time pattern: Every 10 minutes
 - **Condition**: Lock is jammed
-- **Target**: Front door lock
-- **Condition passes if**: Any
-- **For at least**: 00:01:00
-- **Action**: Send a notification via mobile_app_phone
+  - **Target**: Front door lock
+  - **Condition passes if**: Any
+  - **For at least**: 00:01:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for repeated jammed lock reminders" %}
 
@@ -112,7 +113,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app_phone
+        entity_id: notify.my_device
       data:
         title: "Front door lock still jammed"
         message: "Check the front door lock and clear the obstruction."

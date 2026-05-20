@@ -75,8 +75,9 @@ Half an hour before sunset, if there is not an active event in the calendar, thi
 
 - **Trigger**: Sun
 - **Condition**: Calendar event is active
-- **Blocks**: Not
-- **Action**: Send notification via mobile_app_phone
+  - **Blocks**: Not
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for sending reminder for sunset run if no calendar event is active" %}
 
@@ -94,7 +95,9 @@ automation: |
           target:
             entity_id: calendar.my_calendar
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: Let's go for a sunset run!
 {% endexample %}

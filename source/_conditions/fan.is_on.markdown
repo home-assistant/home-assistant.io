@@ -86,10 +86,11 @@ If a window opens while the bedroom fan is running, you may want a reminder so y
 
 - **Trigger**: State: Window changes to open
 - **Condition**: Fan is on
-- **Target**: Bedroom fan
-- **Condition passes if**: Any
-- **For at least**: 00:00:00
-- **Action**: Send a notification via mobile_app_phone
+  - **Target**: Bedroom fan
+  - **Condition passes if**: Any
+  - **For at least**: 00:00:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a window and fan reminder" %}
 
@@ -108,7 +109,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The bedroom window is open and the fan is still running."
 {% endexample %}

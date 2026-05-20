@@ -233,8 +233,8 @@ At midnight, check the living room humidity. If it has dropped below 30%, send a
 - **Condition**: Relative humidity (below 30%)
   - **Target**: Living room humidity sensor
   - **Condition passes if**: Any
-- **Action**: Send a notification
-  - **Target**: notify.mobile_app_phone
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a low humidity alert" %}
 
@@ -257,7 +257,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app_phone
+        entity_id: notify.my_device
       data:
         message: >
           The living room humidity is below 30%.

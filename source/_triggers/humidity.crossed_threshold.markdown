@@ -215,8 +215,8 @@ Keep your basement at a healthy humidity level by sending a notification wheneve
   - **Threshold type**: Above 60%
   - **Trigger when**: Each
   - **For at least**: 00:10:00
-- **Action**: Send a notification
-  - **Target**: notify.mobile_app_phone
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a basement humidity alert" %}
 
@@ -237,7 +237,7 @@ automation: |
   actions:
     - action: notify.send_message
       target:
-        entity_id: notify.mobile_app_phone
+        entity_id: notify.my_device
       data:
         message: "Basement humidity crossed 60%."
 {% endexample %}

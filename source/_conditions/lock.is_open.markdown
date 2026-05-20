@@ -123,10 +123,11 @@ If you want a simple reminder before bed, check whether any patio door is still 
 
 - **Trigger**: Time: 22:30
 - **Condition**: Lock is open
-- **Target**: Patio door locks (by label)
-- **Condition passes if**: Any
-- **For at least**: 00:02:00
-- **Action**: Send a notification via mobile_app_phone
+  - **Target**: Patio door locks (by label)
+  - **Condition passes if**: Any
+  - **For at least**: 00:02:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a patio door reminder" %}
 
@@ -144,7 +145,9 @@ automation: |
         behavior: any
         for: "00:02:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Patio door still open"
         message: "A patio door has remained open for at least 2 minutes."

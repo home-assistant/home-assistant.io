@@ -40,8 +40,8 @@ Beyond basic monitoring, the Indevolt integration enables advanced energy manage
 
 The integration supports the following devices:
 
-- BK1600/BK1600Ultra
-- SolidFlex/PowerFlex2000
+- BK1600 / BK1600 Ultra
+- SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ The following button entity allows triggering device actions directly from Home 
 
 ### Sensors
 
-#### BK1600/BK1600Ultra (Generation 1)
+#### BK1600 / BK1600 Ultra (Generation 1)
 
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
@@ -96,7 +96,7 @@ The following button entity allows triggering device actions directly from Home 
 - Meter connection status
 - Meter power (W)
 
-#### SolidFlex2000/PowerFlex2000 (Generation 2)
+#### SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000 (Generation 2)
 
 All Generation 1 sensors, plus:
 
@@ -205,6 +205,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 - Energy mode can only be set when the device is not in "Outdoor / Portable"-mode.
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
+- The SolidFlex 1200 identifies itself as a SolidFlex 2000 device.
 
 ## Troubleshooting
 

@@ -118,10 +118,11 @@ automation: |
 If several storage areas use smart locks, you may want a quick record when one of them is unlocked. This automation sends a phone notification when any targeted storage lock unlocks.
 
 - **Trigger**: Lock unlocked
-- **Target**: Storage locks (by label)
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Send a notification via mobile_app_phone
+  - **Target**: Storage locks (by label)
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a storage lock notification" %}
 
@@ -136,7 +137,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Storage door unlocked"
         message: "One of the storage door locks has been unlocked."
