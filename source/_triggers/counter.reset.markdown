@@ -112,7 +112,7 @@ If you have created a counter helper for daily check-ins, you can start a fresh 
 
 - **Trigger**: Counter reset
   - **Target**: Daily check-in counter
-- **Action**: Increment
+- **Action**: Increment counter
 
 {% details "YAML example for starting a new count from the starting value" %}
 

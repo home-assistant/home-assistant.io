@@ -103,7 +103,7 @@ If you have created a counter helper to track missed chores, you can send a remi
   - **Target**: Chore reminder counter
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-- **Action**: Reset
+- **Action**: Reset counter
 
 {% details "YAML example for a maximum reminder counter" %}
 
@@ -135,7 +135,7 @@ If you use a counter helper to track short exercise breaks, you can stop increme
 - **Condition**: Counter value
   - **Target**: Exercise break counter
   - **Threshold type**: Below 5
-- **Action**: Increment
+- **Action**: Increment counter
 
 {% details "YAML example for capping a daily counter" %}
 

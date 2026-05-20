@@ -115,7 +115,7 @@ If you use a counter helper to track a limited number of guest parking spots, yo
 - **Trigger**: Counter reached maximum
   - **Target**: Visitor parking counter
   - **For at least**: 00:30:00
-- **Action**: Reset
+- **Action**: Reset counter
 
 {% details "YAML example for resetting a counter after it stays full" %}
 

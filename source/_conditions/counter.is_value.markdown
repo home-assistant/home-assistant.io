@@ -158,7 +158,7 @@ If you use a counter helper to track short exercise breaks, this condition can s
 - **Condition**: Counter value
   - **Target**: Exercise break counter
   - **Threshold type**: Below 5
-- **Action**: Increment
+- **Action**: Increment counter
 
 {% details "YAML example for limiting a daily break counter" %}
 
