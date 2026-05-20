@@ -1013,6 +1013,25 @@ binary_sensor:
         device_class: motion
         off_delay: 5
 
+cover:
+  - platform: rflink
+    devices:
+      RTS_0a0a0a_1:
+        name: "Blind office"
+        aliases:
+          - rts_0f1f2f_01
+        type: inverted
+      dooya_v4_654321_0f:
+        name: "Room blinds"
+      RTS_32E542_0:
+        name: habitaciones
+        fire_event: true
+      RTS_33E542_0:
+        name: dormitorio
+        aliases:
+          - rts_30e53f_01
+          - rts_32e53f_01
+
 light:
   - platform: rflink
     device_defaults:
@@ -1087,6 +1106,23 @@ rflink:
         name: PIR Living Room
         device_class: motion
         off_delay: 5
+  cover:
+    devices:
+      RTS_0a0a0a_1:
+        name: "Blind office"
+        aliases:
+          - rts_0f1f2f_01
+        type: inverted
+      dooya_v4_654321_0f:
+        name: "Room blinds"
+      RTS_32E542_0:
+        name: habitaciones
+        fire_event: true
+      RTS_33E542_0:
+        name: dormitorio
+        aliases:
+          - rts_30e53f_01
+          - rts_32e53f_01
   light:
     device_defaults:
       fire_event: true
