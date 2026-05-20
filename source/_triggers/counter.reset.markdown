@@ -106,27 +106,30 @@ automation: |
 
 {% enddetails %}
 
-### Automation: start a fresh count when a counter returns to its starting value
+### Automation: send a message when a counter returns to its starting value
 
-If you have created a counter helper for daily check-ins, you can start a fresh tally by incrementing it when the counter returns to its starting value.
+If you use a counter helper to track a recurring task, you can send a message when the counter returns to its starting value so you know a new cycle has begun.
 
 - **Trigger**: Counter reset
-  - **Target**: Daily check-in counter
-- **Action**: Increment counter
+  - **Target**: Task counter
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for starting a new count from the starting value" %}
+{% details "YAML example for a notification when a counter returns to its starting value" %}
 
 {% example %}
 automation: |
-  alias: "Increment the daily check-in counter from its starting value"
+  alias: "Send a notification when the counter returns to its starting value"
   triggers:
     - trigger: counter.reset
       target:
-        entity_id: counter.daily_check_ins
+        entity_id: counter.tasks_today
   actions:
-    - action: counter.increment
+    - action: notify.send_message
       target:
-        entity_id: counter.daily_check_ins
+        entity_id: notify.my_device
+      data:
+        message: "The task counter returned to its starting value."
 {% endexample %}
 
 {% enddetails %}
