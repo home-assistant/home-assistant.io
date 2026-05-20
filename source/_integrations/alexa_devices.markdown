@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Notify
+  - Select
   - Sensor
   - Switch
 ha_release: '2025.6'
@@ -18,6 +19,7 @@ ha_platforms:
   - button
   - diagnostics
   - notify
+  - select
   - sensor
   - switch
 ha_integration_type: hub
@@ -147,6 +149,7 @@ In addition to sensors, you can use the following entities:
 
 - **Button** - Execute Alexa routines
 - **Notify** - Speak and Announce notifications
+- **Select** - Select default device
 - **Switch** - Do not disturb
 
 ## Examples
