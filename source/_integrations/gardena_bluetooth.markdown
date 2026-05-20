@@ -34,6 +34,12 @@ See device section for support information: [water control](#water-control), [ir
 
 {% include integrations/config_flow.md %}
 
+## Paring
+
+The gardena devices remember the previously paired bluetooth adapters (up to 10) and only allow connections from these. If you replace your adapter or have multiple bluetooth proxies, the connection request will be rejected if the device has not been paired with that proxy/adapter. This will be done as a silent ignore on connection, causing timeout errors to be seen from Home Assistant.
+
+If you have connection issues to your device, trigger the pairing mode on the device again for the device to learn of the new proxy and/or adapter.
+
 ## Water control
 
 - Water Control Bluetooth ([01889-20](https://www.gardena.com/int/products/watering/water-controls/water-control-bluetooth/970481101.html))
