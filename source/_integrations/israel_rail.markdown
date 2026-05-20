@@ -34,6 +34,6 @@ For each configured connection, the integration creates a set of sensors for the
 
 If the upstream API returns a route whose departure time has already passed, that route is skipped so the sensors only ever show upcoming departures.
 
-## Defining a custom polling interval
+### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
