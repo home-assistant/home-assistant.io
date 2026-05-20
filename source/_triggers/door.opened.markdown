@@ -62,6 +62,7 @@ behavior:
 for:
   description: >
     How long the door must stay open before the trigger fires.
+    Accepts a duration like `00:00:10` for 10 seconds.
   required: false
   type: string
   default: "00:00:00"
