@@ -59,6 +59,14 @@ If you still want to use the predefined user, please note that as of FRITZ!OS 7.
 FRITZ!Powerline devices do not validate the **Username** value. Only the **Password** value is checked, so you can enter any value in **Username**.
 {% endnote %}
 
+### WireGuard VPN
+
+To control WireGuard VPN connections from Home Assistant, configure at least one WireGuard connection on the FRITZ!Box under **Internet** > **Permit Access** > **VPN (WireGuard)**. The same FRITZ!Box user that you use for FRITZ!Box Tools must be allowed to sign in to the FRITZ!Box web interface (_FRITZ!Box Settings_ permission is sufficient).
+
+{% note %}
+Home Assistant uses the **Uses an SSL certificate** setting from your FRITZ!Box Tools configuration for the WireGuard web UI as well. If you change SSL in the integration configuration, reload FRITZ!Box Tools so VPN entities use the updated protocol.
+{% endnote %}
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -85,6 +93,8 @@ Enable old discovery method:
     description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
 Enable network device tracking:
     description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
+Enable WireGuard VPN:
+    description: Whether to enable or disable WireGuard VPN switches for connections configured on the FRITZ!Box. When disabled, all WireGuard VPN switch entities are removed after you reload the integration.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -96,7 +106,7 @@ The FRITZ!Box Tools integration provides the following main features:
 - **{% term Image %}** - QR code for Guest Wi-Fi.
 - **{% term Button %}** - reboot, reconnect, firmware update.
 - **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
-- **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
+- **{% term Switch %}** - call deflection, port forward, parental control, Wi-Fi networks, and WireGuard VPN connections (_on/off_).
 - **{% term Update %}** - firmware status of the device.
 
 ## Data updates
@@ -156,20 +166,19 @@ WiFi {% term switches %} are created for each SSID the FRITZ!Box is serving. Wit
 
 **Note 2**: For mesh repeaters, these switches are disabled by default, but can be enabled. When your mesh is based on a WiFi connection between the mesh master and the mesh repeater, the WiFi switches won't be created for the mesh repeater either.
 
+### WireGuard VPN switches
+
+When **Enable WireGuard VPN** is turned on (_default_), the integration creates one {% term switch %} per WireGuard connection configured on the FRITZ!Box. Each connection appears as its own device, linked to your FRITZ!Box router via `via_device`.
+
+The switch turns the VPN connection on or off. State attributes include the connection name, UID, whether the tunnel is active, whether it is connected, and a status string (`connected`, `enabled`, `disabled`, or `unknown`).
+
+{% note %}
+Only VPN **switches** are provided in Home Assistant Core. For status {% term sensors %} and connectivity {% term "binary sensors" %}, use the [FRITZ!Box VPN custom integration](https://github.com/rosch100/fritzbox-vpn) via HACS.
+{% endnote %}
+
+If VPN setup fails (_for example wrong credentials_), FRITZ!Box Tools continues to work and a reauthentication flow is started for the same config entry when the entry is already loaded.
+
 ## Example Automations and Scripts
-
-## Use cases
-
-You can use the FRITZ!Box Tools integration for a variety of smart home scenarios, such as:
-
-- _Automatically reconnect your internet connection at night_: Schedule a reconnect or reboot of your FRITZ!Box to refresh your external IP address or resolve connectivity issues.
-- _Send Wi-Fi credentials to your phone when guest Wi-Fi is enabled_: Automate notifications with the guest Wi-Fi password when you turn on the guest network.
-- _Control internet access for your kids' devices_: Use parental control switches to enable or disable internet access for specific devices at set times.
-- _Monitor who is home_: Track presence based on connected devices, and trigger automations when people arrive or leave.
-- _Monitor your network health_: Get alerts if your FRITZ!Box goes offline, or monitor network statistics and device status.
-- _Automate port forwarding_: Enable or disable port forwarding rules for your Home Assistant host as needed for remote access or security.
-
-Below are some example automations and scripts to help you get started:
 
 ### Script: Reconnect / get new IP
 
@@ -229,6 +238,17 @@ Check if one of the following cases applies:
 - You're using additional network equipment like a network switch or Wi-Fi access point other than a Fritz!Repeater or other FRITZ! components, but not configured as a [mesh](https://en.fritz.com/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
 
 If one of the above cases applies to your setup, try [enabling the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options). This might resolve the issue.
+
+### WireGuard VPN switches are missing or cannot be toggled
+
+Check the following:
+
+- At least one WireGuard connection exists on the FRITZ!Box under **Internet** > **Permit Access** > **VPN (WireGuard)**.
+- **Enable WireGuard VPN** is enabled in the [integration options](#integration-options), then reload FRITZ!Box Tools.
+- The FRITZ!Box user credentials in Home Assistant are valid. Update them via the reauthentication flow if needed.
+- **Uses an SSL certificate** matches how you open the FRITZ!Box web UI (_HTTPS_ vs _HTTP_).
+
+Enable debug logging for the `fritz` and `fritzboxvpn` loggers when reporting VPN issues.
 
 ## Remove the integration
 
