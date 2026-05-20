@@ -12,7 +12,7 @@ related_conditions:
   - climate.target_temperature
 ---
 
-The **Thermostat target humidity** condition passes when a thermostat {% term entity %}'s target humidity setting meets a threshold you define. The target humidity is the setpoint you configure on the device, not the actual current humidity reading. For example, you can use it to turn on a dehumidifier when the thermostat's humidity setpoint is above 60%.
+The **Thermostat target humidity** condition passes when a thermostat {% term entity %}'s target humidity setting meets a threshold you define. The target humidity is the setpoint you configure on the device, not the actual current humidity reading. For example, you can use this condition in an automation to turn on a dehumidifier only if the thermostat's humidity setpoint is above 60%.
 
 {% include integrations/labs_entity_triggers_note.md %}
 

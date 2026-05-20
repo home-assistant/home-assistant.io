@@ -12,7 +12,7 @@ related_conditions:
   - climate.target_humidity
 ---
 
-The **Thermostat target temperature** condition passes when a thermostat {% term entity %}'s target temperature setting meets a threshold you define. The target temperature is the setpoint you configure on the device, not the actual current temperature reading. For example, you can use it to send a notification when the thermostat is set to a temperature that's unusually high or low.
+The **Thermostat target temperature** condition passes when a thermostat {% term entity %}'s target temperature setting meets a threshold you define. The target temperature is the setpoint you configure on the device, not the actual current temperature reading. For example, you can use this condition in an automation to turn on a dehumidifier only if the thermostat is set to an unusually high or low temperature.
 
 When you target more than one thermostat, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted thermostat to meet the threshold, or demand that all of them do.
 
