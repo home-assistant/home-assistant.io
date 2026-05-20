@@ -1215,6 +1215,11 @@ color:
   required: false
   description: "Color to use for the bars or curve. Accepts any Home Assistant color token or CSS color value. When not specified, a temperature-aware gradient is used."
   type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Precipitation forecast
@@ -1262,4 +1267,9 @@ color:
   required: false
   description: "Color to use for the bars. Accepts any Home Assistant color token or CSS color value. Defaults to the rainy weather state color."
   type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
 {% endconfiguration %}
