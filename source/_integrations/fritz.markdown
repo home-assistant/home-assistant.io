@@ -85,6 +85,8 @@ Enable old discovery method:
     description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
 Enable network device tracking:
     description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
+Enable WireGuard VPN:
+    description: Enables switches to control WireGuard VPN connections configured on the FRITZ!Box.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -96,7 +98,7 @@ The FRITZ!Box Tools integration provides the following main features:
 - **{% term Image %}** - QR code for Guest Wi-Fi.
 - **{% term Button %}** - reboot, reconnect, firmware update.
 - **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
-- **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
+- **{% term Switch %}** - call deflection, port forward, parental control, Wi-Fi networks, and WireGuard VPN.
 - **{% term Update %}** - firmware status of the device.
 
 ## Data updates
@@ -155,6 +157,21 @@ WiFi {% term switches %} are created for each SSID the FRITZ!Box is serving. Wit
 **Note 1**: In a mesh setup, the WiFi settings are adopted by each mesh repeater (_**Home Network > Mesh > Mesh Settings > Automatically Adopting Settings from the Mesh**_)
 
 **Note 2**: For mesh repeaters, these switches are disabled by default, but can be enabled. When your mesh is based on a WiFi connection between the mesh master and the mesh repeater, the WiFi switches won't be created for the mesh repeater either.
+
+### WireGuard VPN switches
+
+WireGuard VPN {% term switches %} allow you to enable and disable WireGuard VPN connections configured on your FRITZ!Box. For each VPN connection, a switch is created that controls whether the connection is active (enabled) or inactive (disabled).
+
+**Prerequisites:**
+
+- FRITZ!OS version with WireGuard VPN support
+- WireGuard VPN connections must be configured in your FRITZ!Box under **Internet** > **VPN** > **WireGuard**
+- The **Enable WireGuard VPN** option must be enabled in the integration settings
+
+**Notes:**
+
+- The switch controls the _activation state_ of the VPN connection (enabled/disabled), not the connection status itself
+- To see VPN connection status sensors and binary sensors, use the [FRITZ!Box VPN custom integration](https://github.com/rosch100/fritzbox-vpn)
 
 ## Example Automations and Scripts
 
@@ -220,6 +237,15 @@ automation:
 ## Troubleshooting
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics data](/docs/configuration/troubleshooting/#download-diagnostics). If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+### WireGuard VPN switches are not created
+
+If WireGuard VPN switches are not appearing:
+
+- Verify your FRITZ!Box has WireGuard VPN support and it is configured under **Internet** > **VPN** > **WireGuard**
+- Enable the **Enable WireGuard VPN** option in the integration settings (_Settings_ > _Devices & Services_ > _FRITZ!Box Tools_ > _Configure_)
+- Reload the integration after enabling the option
+- Check if TR-064 protocol is enabled on your FRITZ!Box
 
 ### Device presence detection is not working as expected
 
