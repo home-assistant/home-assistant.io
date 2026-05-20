@@ -34,7 +34,7 @@ See device section for support information: [water control](#water-control), [ir
 
 {% include integrations/config_flow.md %}
 
-## Paring
+## Pairing
 
 Gardena devices remember previously paired Bluetooth adapters, up to 10, and only allow connections from those adapters. If you replace your adapter or use multiple Bluetooth proxies, the device must be paired with that proxy or adapter before it will connect. Otherwise, the device silently ignores the connection attempt. In Home Assistant, this usually appears as timeout errors.
 
