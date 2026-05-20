@@ -136,50 +136,7 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 - **IR Emitter**: This entity can be used by other integrations as an [Infrared](/integrations/infrared/) proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity type to control your TV.
 ## Actions
 
-The integration provides the following actions.
-
-### Action: Play RTTTL tone
-
-The `smlight.play_rtttl` action plays a Ring Tone Text Transfer Language (<abbr title="Ring Tone Text Transfer Language">RTTTL</abbr>) tone on the built-in buzzer of SMLIGHT Ultima devices. If you want to learn more about the tone format, refer to [Ring Tone Text Transfer Language](https://en.wikipedia.org/wiki/Ring_Tone_Text_Transfer_Language). You can find and preview example tones using the [RTTTL Player](https://1j01.github.io/rtttl.js/).
-
-If your source tone is a full RTTTL string like `Doorbell:d=4,o=5,b=100:e,c`, split it into this action as:
-
-- `duration: 4`
-- `octave: 5`
-- `bpm: 100`
-- `notes: "e,c"`
-
-- **Data attribute**: `device_id`
-  - **Description**: The SMLIGHT Ultima device to play the tone on. Supported models are SLZB-Ultima3 and SLZB-Ultima4.
-  - **Optional**: No
-
-- **Data attribute**: `duration`
-  - **Description**: Default note duration. Valid values are `1`, `2`, `4`, `8`, `16`, and `32`. If omitted, the default is `4`.
-  - **Optional**: Yes
-
-- **Data attribute**: `octave`
-  - **Description**: Default octave. Valid values are `4` to `7`.
-  - **Optional**: No
-
-- **Data attribute**: `bpm`
-  - **Description**: Tempo in beats per minute. If omitted, the default is `63`.
-  - **Optional**: Yes
-
-- **Data attribute**: `notes`
-  - **Description**: The note sequence in RTTTL format, for example `8d,8d#,8e,c6`. A leading number sets an individual note duration, so `8d` is an eighth note. Notes without a leading number use the set `duration`.
-  - **Optional**: No
-
-```yaml
-{% raw %}
-action: smlight.play_rtttl
-data:
-  device_id: "{{ device_id('SLZB-Ultima3') }}"
-  duration: 4
-  octave: 5
-  bpm: 100
-  notes: "8e,c"
-{% endraw %}
-```
+{% include integrations/actions.md %}
 
 ## Examples
 
