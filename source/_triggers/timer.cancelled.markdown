@@ -84,7 +84,7 @@ If you cancel a kitchen timer because plans change, you can send a quick reminde
 
 - **Trigger**: Timer cancelled
   - **Target**: Tea timer
-- **Trigger when**: Each
+  - **Trigger when**: Each
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -113,7 +113,7 @@ If you stop a shower timer early, you may also want the fan to stop instead of r
 
 - **Trigger**: Timer cancelled
   - **Target**: Shower timer
-- **Trigger when**: Each
+  - **Trigger when**: Each
 - **Action**: Turn off fan
 
 {% details "YAML example for stopping the bathroom fan after a cancelled timer" %}

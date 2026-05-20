@@ -84,7 +84,7 @@ If you pause an entry timer while carrying groceries or helping someone at the d
 
 - **Trigger**: Timer paused
   - **Target**: Entry timer
-- **Trigger when**: Each
+  - **Trigger when**: Each
 - **Action**: Turn on light
 
 {% details "YAML example for dimming a hallway light when a timer is paused" %}
@@ -112,7 +112,7 @@ Send a reminder if someone pauses a laundry timer, so the load does not get forg
 
 - **Trigger**: Timer paused
   - **Target**: Laundry timer
-- **Trigger when**: Each
+  - **Trigger when**: Each
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

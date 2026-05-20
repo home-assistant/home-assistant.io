@@ -84,7 +84,7 @@ Start a short entry timer when someone arrives home, and switch on the porch lig
 
 - **Trigger**: Timer started
   - **Target**: Entryway timer
-- **Trigger when**: Each
+  - **Trigger when**: Each
 - **Action**: Turn on light
 
 {% details "YAML example for turning on the porch light when a timer starts" %}
@@ -110,7 +110,7 @@ Send a message when someone starts the laundry timer so everyone knows the cycle
 
 - **Trigger**: Timer started
   - **Target**: Laundry timer
-- **Trigger when**: Each
+  - **Trigger when**: Each
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

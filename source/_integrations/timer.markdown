@@ -162,7 +162,7 @@ Use a timer to keep the fan running for a fixed amount of time after a shower.
 
 - **Trigger**: Timer finished
   - **Target**: Bathroom fan timer
-- **Trigger when**: Each
+  - **Trigger when**: Each
 - **Action**: Turn off fan
 
 {% details "YAML example for a bathroom fan timer" %}
