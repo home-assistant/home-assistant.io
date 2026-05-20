@@ -18,7 +18,7 @@ Use it when you want to count events over time, like how often a door opens, how
 ## Configuration
 
 The preferred way to configure counter {% term helpers %} is through the user interface.
-To add one, go to **{% my helpers title="Settings > Devices & services > Helpers" %}** and select **Create helper**.
+To add one, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
 Then, select **{% my config_flow_start domain=page.ha_domain title=page.title %}**.
 
 To add helpers from the user interface, `default_config:` must be present in your {% term "`configuration.yaml`" %} file.

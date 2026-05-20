@@ -3,7 +3,6 @@ title: "Counter value"
 condition: counter.is_value
 domain: counter
 description: "Tests the value of one or more counters."
-related_conditions:
 ---
 
 The **Counter value** condition passes when a counter {% term helper %} matches the threshold you define.
