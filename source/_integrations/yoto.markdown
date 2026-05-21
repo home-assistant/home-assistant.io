@@ -4,7 +4,7 @@ description: Instructions on how to integrate Yoto players with Home Assistant.
 ha_category:
   - Media Player
 ha_iot_class: Cloud Push
-ha_release: '2026.6'
+ha_release: 2026.6
 ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
@@ -72,7 +72,7 @@ Yoto players cannot be powered on remotely. Home Assistant reports the player as
 
 ### Play media
 
-When you use the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action, pass the Yoto identifier in `media_content_id`. The action also requires `media_content_type`.
+When you use the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action, pass the Yoto card identifier in `media_content_id` and set `media_content_type` to `music`. The action also requires `media_content_type`.
 
 The `media_content_id` value supports two formats:
 
@@ -81,7 +81,7 @@ The `media_content_id` value supports two formats:
 
 ## Data updates
 
-The integration receives real-time playback updates from each Yoto player over MQTT. To keep the reported status fresh even when the player has not changed state, the integration also asks every player to push a status snapshot every 60 seconds.
+The integration receives real-time playback updates from each Yoto player over MQTT. To keep the reported status fresh even when the player has not changed state, the integration also requests a status snapshot from each player every 60 seconds.
 
 The player's online or offline state comes from the Yoto cloud REST API, which the integration {% term polling polls %} every 5 minutes. A player that loses power or network can take up to that long to show as _off_ in Home Assistant.
 
