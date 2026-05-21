@@ -33,9 +33,9 @@ ha_zeroconf: true
 
 ## Prerequisites
 
-Before Home Assistant can discover your BleBox device, it must be connected to your WiFi network.
+Before Home Assistant can discover your BleBox device, it must be connected to your Wi-Fi network.
 
-1. Follow the [BleBox getting started guide](https://blebox.eu/start) to connect your device to your WiFi network using the wBox app.
+1. Follow the [BleBox getting started guide](https://blebox.eu/start) to connect your device to your Wi-Fi network using the wBox app.
 2. Once connected, Home Assistant can discover the device automatically. If your device is on a different network segment, you will need to add it manually using its IP address.
 
 {% note %}
