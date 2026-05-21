@@ -18,13 +18,17 @@ ha_zeroconf: true
 
 The **Kii Audio** {% term integration %} lets you control Kii Audio systems from Home Assistant over the local network. Home Assistant represents each Kii zone as a media player entity.
 
+## Supported devices
+
+The integration supports Kii Audio systems running device software version `1_1_1` or newer.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Host:
-  description: The hostname or IP address of your Kii system on the local network. If discovery does not work, you can usually find this in your router's client list or in the Kii app.
+  description: "The hostname or IP address of your Kii system on the local network. If discovery does not work, you can usually find this in your router's client list or in the Kii app."
 System ID:
-  description: The unique identifier of your Kii system. You can find it in the system information for your setup.
+  description: "The unique identifier of your Kii system. You can find it in the system information for your setup."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -42,14 +46,16 @@ The media player entity supports:
 
 ## Discovery
 
-Kii Audio systems are discovered on the local network using mDNS. If discovery is not available in your network setup, you can add the integration manually by entering the host and system ID.
-
-## Supported devices
-
-The integration supports Kii Audio systems running device software version `1_1_1` or newer.
+Kii Audio systems are discovered on the local network using <abbr title="multicast DNS">mDNS</abbr>. If discovery is not available in your network setup, you can add the integration manually by entering the host and system ID.
 
 ## Known limitations
 
 - Speaker-specific setup and calibration options are not exposed.
 - Parametric filter configuration is not supported.
 - Systems running device software versions older than `1_1_1` are not supported.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
