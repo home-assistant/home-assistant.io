@@ -1087,7 +1087,7 @@ switch:
 
 In the new configuration, all devices are defined within the RFLink integration block.
 
-All the references to `- platform: rflink` are removed, while everything else remains the same, with the format adjusted accordingly (the _platform_ key is now tabbed and inside the `rflink` block):
+All the references to `- platform: rflink` are removed, while everything else remains the same, with the format adjusted accordingly (the _platform_ key is now indented and inside the `rflink` block):
 
 ```yaml
 rflink:
