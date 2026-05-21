@@ -72,7 +72,7 @@ The **Samsung Infrared** integration provides the following entities.
 - **Previous channel**
   - **Description**: Switches to the previously viewed channel.
 - **HDMI 1**, **HDMI 2**, **HDMI 3**, **HDMI 4**
-  - **Description**: Directly switches to the respective HDMI input.
+  - **Description**: Directly switches to the respective HDMI input, if supported by your TV model.
 - **Number 0-9**
   - **Description**: Number keys for channel selection and text input.
 - **Fast forward**
