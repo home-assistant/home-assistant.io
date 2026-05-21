@@ -1057,3 +1057,9 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to configure the number of phases (1 or 3) is available in the wBox app.
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your BleBox devices.
+
+{% include integrations/remove_device_service.md %}
