@@ -17,6 +17,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -555,6 +556,18 @@ Number entities let you set **default** temperature setpoints and other configur
   - **Description**: Buffer tank operating mode.
   - **Options**: Schedule, Manual, Disabled
   - **Available for devices**: R480 (Heat pump controller)
+
+### Switches
+
+Switch entities let you turn device modes and features on or off.
+
+- **Device on/off**
+  - **Description**: Turns the device on or off.
+  - **Available for devices**: EL750 (Electric boiler controller)
+
+- **Force DHW**
+  - **Description**: Forces domestic hot water production.
+  - **Available for devices**: R900 (Heat pump controller)
 
 ### Water heaters
 
