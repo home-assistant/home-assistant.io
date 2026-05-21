@@ -85,8 +85,6 @@ If someone is about to let pets or children into the yard, a quick message can h
 
 - **Trigger**: Lawn mower started mowing
   - **Target**: Backyard mower
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -99,9 +97,6 @@ automation: |
     - trigger: lawn_mower.started_mowing
       target:
         entity_id: lawn_mower.backyard
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -118,7 +113,6 @@ If the mower and sprinklers should never run at the same time, turn off the spri
 
 - **Trigger**: Lawn mower started mowing
   - **Target**: Backyard mower
-  - **Trigger when**: Each
   - **For at least**: 00:02:00
 - **Action**: Turn off automation
 
@@ -132,7 +126,6 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
       options:
-        behavior: any
         for: "00:02:00"
   actions:
     - action: automation.turn_off

@@ -85,8 +85,6 @@ If the mower docks in a darker part of the yard, turn on a nearby light when it 
 
 - **Trigger**: Lawn mower started returning to dock
   - **Target**: Backyard mower
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Condition**: Sun: after sunset
 - **Action**: Turn on light
 
@@ -99,9 +97,6 @@ automation: |
     - trigger: lawn_mower.started_returning
       target:
         entity_id: lawn_mower.backyard
-      options:
-        behavior: any
-        for: "00:00:00"
   conditions:
     - condition: sun
       after: sunset
@@ -119,7 +114,6 @@ If someone is waiting to use the yard, send a short message when the mower start
 
 - **Trigger**: Lawn mower started returning to dock
   - **Target**: Backyard mower
-  - **Trigger when**: Each
   - **For at least**: 00:01:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -134,7 +128,6 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
       options:
-        behavior: any
         for: "00:01:00"
   actions:
     - action: notify.send_message

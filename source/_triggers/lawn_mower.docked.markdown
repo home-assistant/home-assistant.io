@@ -85,8 +85,6 @@ If you want a simple heads-up when yard work is done, use this trigger to send a
 
 - **Trigger**: Lawn mower returned to dock
   - **Target**: Backyard mower
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -99,9 +97,6 @@ automation: |
     - trigger: lawn_mower.docked
       target:
         entity_id: lawn_mower.backyard
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -118,7 +113,6 @@ If the mower returns after sunset, you can leave the patio light on for the trip
 
 - **Trigger**: Lawn mower returned to dock
   - **Target**: Backyard mower
-  - **Trigger when**: Each
   - **For at least**: 00:00:30
 - **Action**: Turn off light
 
@@ -132,7 +126,6 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
       options:
-        behavior: any
         for: "00:00:30"
   actions:
     - action: light.turn_off

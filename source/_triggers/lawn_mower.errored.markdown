@@ -85,8 +85,6 @@ If the mower gets stuck under a bush or reports another fault, send an alert rig
 
 - **Trigger**: Lawn mower encountered an error
   - **Target**: Backyard mower
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -99,9 +97,6 @@ automation: |
     - trigger: lawn_mower.errored
       target:
         entity_id: lawn_mower.backyard
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -121,7 +116,6 @@ If the mower reports an error after dark, turn on the porch light so you can see
 
 - **Trigger**: Lawn mower encountered an error
   - **Target**: Backyard mower
-  - **Trigger when**: Each
   - **For at least**: 00:00:15
 - **Condition**: Sun: after sunset
 - **Action**: Turn on light
@@ -136,7 +130,6 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
       options:
-        behavior: any
         for: "00:00:15"
   conditions:
     - condition: sun

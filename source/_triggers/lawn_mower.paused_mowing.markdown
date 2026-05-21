@@ -85,7 +85,6 @@ If the mower has been paused for 15 minutes, send a reminder so you can decide w
 
 - **Trigger**: Lawn mower paused mowing
   - **Target**: Backyard mower
-  - **Trigger when**: Each
   - **For at least**: 00:15:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -100,7 +99,6 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
       options:
-        behavior: any
         for: "00:15:00"
   actions:
     - action: notify.send_message
@@ -120,7 +118,6 @@ If the mower pauses because the yard is busy, you can also stop another outdoor 
 
 - **Trigger**: Lawn mower paused mowing
   - **Target**: Backyard mower
-  - **Trigger when**: Each
   - **For at least**: 00:05:00
 - **Action**: Turn off automation
 
@@ -134,7 +131,6 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
       options:
-        behavior: any
         for: "00:05:00"
   actions:
     - action: automation.turn_off
