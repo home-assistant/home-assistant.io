@@ -23,6 +23,13 @@ The **Kii Audio** {% term integration %} lets you control Kii Audio systems from
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of your Kii system on the local network. If discovery does not work, you can usually find this in your router's client list or in the Kii app.
+System ID:
+  description: The unique identifier of your Kii system. You can find it in the system information for your setup.
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 The integration creates entities for each discovered Kii zone.
@@ -42,7 +49,7 @@ Depending on the capabilities reported by the Kii system, Home Assistant can als
 
 - Bass and treble tone controls
 - Tone Control on or off
-- Analogue input sensitivity
+- Analog input sensitivity
 - Latency mode
 
 ## Discovery
