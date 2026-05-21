@@ -42,10 +42,10 @@ Threshold type:
   description: |
     Controls which threshold crossings fire the trigger:
 
-    - **Above**: fires when the setpoint crosses from below to above the threshold.
-    - **Below**: fires when the setpoint crosses from above to below the threshold.
-    - **In range**: fires when the setpoint crosses from outside to inside the range.
-    - **Outside range**: fires when the setpoint crosses from inside to outside the range.
+    - **Above** (exclusive): fires when the setpoint crosses to strictly above the threshold. A setpoint equal to the threshold does not trigger a crossing.
+    - **Below** (exclusive): fires when the setpoint crosses to strictly below the threshold. A setpoint equal to the threshold does not trigger a crossing.
+    - **In range** (exclusive): fires when the setpoint crosses into the range. A setpoint equal to either bound is not considered inside the range.
+    - **Outside range** (inclusive): fires when the setpoint crosses out of the range. A setpoint equal to either bound is considered outside the range.
 
     For each mode you can enter a fixed temperature or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 Unit:
@@ -107,8 +107,10 @@ threshold:
   description: |
     A mapping that defines when the trigger should fire:
 
-    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: above` (exclusive): Sets a minimum. Fires when the setpoint crosses to strictly above `value`. A setpoint equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: below` (exclusive): Sets a maximum. Fires when the setpoint crosses to strictly below `value`. A setpoint equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (exclusive): Defines a range. Fires when the setpoint crosses into the range. A setpoint equal to either bound is not inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (inclusive): Defines an outside-range. Fires when the setpoint crosses out of the range. A setpoint equal to either bound is outside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
 

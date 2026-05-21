@@ -35,7 +35,7 @@ To use **Thermostat target humidity** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: Controls how the target humidity is compared and where the threshold value comes from. Use **Above**, **Below**, **In range**, or **Outside range** to set the comparison direction. Then choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
+  description: Controls how the target humidity is compared and where the threshold value comes from. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a setpoint equal to either bound passes. Choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
 Condition passes if:
   description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat meets the threshold, or **All** to pass only when every targeted thermostat does. Default is **Any**.
 For at least:
@@ -75,7 +75,14 @@ This passes when the bedroom thermostat's target humidity is set above 55%.
 {% options_yaml %}
 threshold:
   description: >
-    The threshold to check the target humidity against. Accepts a mapping with the comparison direction as the key and the humidity percentage (0–100) as the value. Use `above`, `below`, or both (`above` and `below` together for a range) as keys. Instead of a fixed number, you can reference a `sensor`, `input_number`, or `number` entity as the value.
+    The threshold to check the target humidity against. Use `type` to set the comparison direction:
+
+    - `type: above` (exclusive): Sets a minimum. The setpoint must be strictly above the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
+    - `type: below` (exclusive): Sets a maximum. The setpoint must be strictly below the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
+    - `type: between` (exclusive): Defines a range. The setpoint must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: outside` (inclusive): Defines an outside-range. The setpoint must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+
+    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
   required: false
   type: map
 behavior:
