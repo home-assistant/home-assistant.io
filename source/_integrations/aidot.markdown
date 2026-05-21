@@ -3,15 +3,17 @@ title: AiDot
 description: Instructions on integrating AiDot Wi-Fi lights with Home Assistant.
 ha_category:
   - Light
-ha_release: 2026.5
-ha_iot_class: local_polling
+ha_release: 2026.6
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@s1eedz'
+  - '@HongBryan'  
 ha_domain: aidot
 ha_platforms:
   - light
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The [AiDot](https://www.aidot.com/) {% term integration %} allows you to control Wi-Fi lights with Home Assistant.
@@ -43,6 +45,6 @@ Password:
 - After the initial device list is retrieved, the integration checks the cloud every 6 hours and processes any additions or deletions.
 - The integration maintains a persistent TCP connection to each device and receives real-time status updates when the device state changes.
 
-## Remove integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
