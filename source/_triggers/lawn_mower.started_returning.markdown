@@ -5,7 +5,7 @@ domain: lawn_mower
 description: "Triggers after one or more lawn mowers start returning to dock."
 ---
 
-The **Lawn mower started returning to dock** trigger fires when a mower leaves the yard and starts heading back to its dock.
+The **Lawn mower started returning to dock** trigger fires when a mower stops mowing and starts returning to its dock.
 Use it when you want to react before the mower arrives, like turning on a path light, delaying another task, or sending a message that mowing is almost done.
 
 {% include integrations/labs_entity_triggers_note.md %}
