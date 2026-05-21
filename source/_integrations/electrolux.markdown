@@ -6,7 +6,7 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@electrolux-oss'
 ha_domain: electrolux
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ha_category:
   - Sensor
@@ -18,7 +18,7 @@ related:
     title: Electrolux Group for Developers documentation
 ---
 
-The **Electrolux** {% term integrations %} enables users to connect and control their home appliances via the [official third-party API](https://developer.electrolux.one).
+The **Electrolux** {% term integrations %} lets you connect and control your home appliances via the [official third-party API](https://developer.electrolux.one).
 
 [Electrolux Group](https://www.electroluxgroup.com/) is a global appliance manufacturer that designs and produces solutions for taste, care, and wellbeing experiences. The company develops and sells products under several consumer brands, including **Electrolux**, **AEG**, and **Frigidaire**.
 
@@ -44,7 +44,7 @@ The integration supports the following appliance types:
 3. Create a new **API key**.
 4. Generate the **Access Token** and **Refresh Token**.
 
-Once these credentials are obtained, you can use them to configure the Electrolux Group integration in Home Assistant.
+Once these credentials are obtained, you can use them to configure the Electrolux integration in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -90,7 +90,7 @@ Entity availability depends on the appliance type and model. Some entities may n
 
 ## Known limitations
 
-- The Electrolux Group third-party API does not provide full parity with the mobile app. Some options, or settings available in the app may be unavailable or limited when accessed through the API.
+- The Electrolux Group third-party API does not provide full parity with the mobile app. Some options, or settings available in the app may be unavailable or limited when from Home Assistant.
 
 ## Removing the integration
 
