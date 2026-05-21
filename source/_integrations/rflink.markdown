@@ -139,11 +139,12 @@ When pressing the button on the physical remote, RFLink detects the signal and t
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  light:
     automatic_add: true
-sensor:
-  - platform: rflink
+  sensor:
     automatic_add: true
 ```
 
@@ -176,26 +177,28 @@ Devices can be configure to work in inverted mode by adding option in {% term "`
 
 ```yaml
 # Example configuration.yaml entry for inverted RTS cover
-cover:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  cover:
     devices:
       # Rfloader created remote control which is used by Home Assistant
       RTS_0a0a0a_1:
         name: "Blind office"
-        aliases: 
+        aliases:
           - rts_0f1f2f_01 # ID of the remote control (Somfy smove in this case)
         type: inverted
- ```
+```
 
 This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
 
 ### Device Incorrectly Identified
 
-If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](https://www.rflink.nl/faq.php#RFFind)
+If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](https://www.rflink.nl/faq.php#RFFind)
 
 ### Technical Overview
 
-- The`rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
+- The `rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
 - This integration uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
 - The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet IDs.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
@@ -238,10 +241,12 @@ Configuring a device as a binary sensor:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-   - platform: rflink
-     devices:
-       pt2262_00174754_0: {}
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  binary_sensor:
+    devices:
+      pt2262_00174754_0: {}
 ```
 
 {% configuration %}
@@ -293,17 +298,19 @@ Multiple sensors with custom name and device class and set off_delay
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-   - platform: rflink
-     devices:
-       pt2262_00174754_0:
-         name: PIR Entrance
-         device_class: motion
-         off_delay: 5
-       pt2262_00174758_0:
-         name: PIR Living Room
-         device_class: motion
-         off_delay: 5
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  binary_sensor:
+    devices:
+      pt2262_00174754_0:
+        name: PIR Entrance
+        device_class: motion
+        off_delay: 5
+      pt2262_00174758_0:
+        name: PIR Living Room
+        device_class: motion
+        off_delay: 5
 ```
 
 ## Cover
@@ -356,8 +363,10 @@ Configuring devices as a cover:
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  cover:
     devices:
       RTS_0100F2_0: {}
       bofumotor_455201_0f: {}
@@ -440,8 +449,10 @@ The following configuration example shows how to use the `type` property:
 ```yaml
 # Example configuration.yaml entry that shows how to
 # use the type property.
-cover:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  cover:
     devices:
       newkaku_xxxxxxxx_x:
         name: kaku_inverted_by_type
@@ -465,11 +476,13 @@ The configuration above shows that the `type` property may be omitted. When the 
 
 ### Setting up a non-RTS cover
 
-Configure `automatic_add` for the light domain (yes, the light domain)
+Configure `automatic_add` for the **light** domain (yes, the light domain).
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  light:
     automatic_add: true
 ```
 
@@ -489,8 +502,10 @@ Once the `device_id` is known, the light domain configuration can be removed and
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  cover:
     devices:
       dooya_v4_654321_0f:
         name: "Room blinds"
@@ -506,8 +521,10 @@ Multiple covers with custom names and aliases
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  cover:
     devices:
       RTS_0A8720_0:
         name: enanos
@@ -541,8 +558,10 @@ Configuring devices as a light:
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  light:
     devices:
       NewKaku_02a48800_0: {}
       newkaku_0000c6c2_1: {}
@@ -624,12 +643,14 @@ devices:
 
 Initially the state of a light is unknown. When the light is turned on or off (via frontend or remote) the state is known and will be shown in the frontend.
 
-Sometimes a light is controlled by multiple remotes, each remote has its own code programmed in the light. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliases:
+Sometimes a light is controlled by multiple remotes, each remote has its own code programmed in the light. To allow tracking of the state when switched via other remotes add the corresponding remote codes as `aliases`:
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  light:
     devices:
       newkaku_0000c6c2_1:
         aliases:
@@ -637,16 +658,16 @@ light:
           - kaku_000001_a
 ```
 
-Any on/off command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
+Any `on`/`off` command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
 
 ### Light types
 
 Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The RFLink integration support three types of lights to make things work in every situation:
 
-- *Hybrid*: This type sends a `dim` followed by an `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
-- *Switchable*: Device type that sends only `on` and `off` commands. It works for both on/off and dimmable type switches. However, dimmable devices might have issues with signal repetition (see above).
-- *Dimmable*: Sends only `dim` and `off` commands. This does not work on on/off type devices as they don't understand the `dim` command. For dimmers this does not cause issues with signal repetitions.
-- *Toggle*: Device type that sends only `on` commands to turn on or off the device. Some switches like for example Livolo light switches use the same 'on' command to switch on and switch off the lights. If the light is on and 'on' gets sent, the light will turn off and if the light is off and 'on' gets sent, the light will turn on. If the device has an unknown state, it will assume it is off by default.
+- _Hybrid_: This type sends a `dim` followed by an `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
+- _Switchable_: Device type that sends only `on` and `off` commands. It works for both on/off and dimmable type switches. However, dimmable devices might have issues with signal repetition (see above).
+- _Dimmable_: Sends only `dim` and `off` commands. This does not work on on/off type devices as they don't understand the `dim` command. For dimmers this does not cause issues with signal repetitions.
+- _Toggle_: Device type that sends only `on` commands to turn on or off the device. Some switches like for example Livolo light switches use the same 'on' command to switch on and switch off the lights. If the light is on and 'on' gets sent, the light will turn off and if the light is off and 'on' gets sent, the light will turn on. If the device has an unknown state, it will assume it is off by default.
 
 By default new lights are assigned the `switchable` type. Protocol supporting dimming are assigned the `hybrid` type. Currently only `newkaku` protocol is detected as dimmable. Please refer to Device Support to get your dimmers supported.
 
@@ -668,8 +689,10 @@ Multiple lights with `signal_repetitions` and custom names
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  light:
     device_defaults:
       fire_event: true
       signal_repetitions: 2
@@ -701,8 +724,10 @@ Configuring a device as a sensor:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  sensor:
     devices:
       alectov1_0334_temp: {}
 ```
@@ -797,8 +822,10 @@ Multiple sensors with `automatic_add` disabled and `aliases`
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  sensor:
     automatic_add: false
     devices:
       oregontemp_0d93_temp:
@@ -831,8 +858,10 @@ Configuring devices as switch :
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  switch:
     devices:
       newkaku_0000c6c2_1: {}
       conrad_00785c_0a: {}
@@ -914,12 +943,14 @@ devices:
 
 Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend or wireless remote) the state is known and will be shown in the frontend.
 
-Sometimes a switch is controlled by multiple wireless remotes. Each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes, add the corresponding remote codes as aliases:
+Sometimes a switch is controlled by multiple wireless remotes. Each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes, add the corresponding remote codes as `aliases`:
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: rflink
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  switch:
     devices:
       newkaku_0000c6c2_1:
         name: Ceiling fan
@@ -940,8 +971,196 @@ Multiple switches with signal repetitions and custom names
 
 ```yaml
 # Example configuration.yaml entry
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  switch:
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    devices:
+      newkaku_0000c6c2_1:
+        name: Ceiling fan
+      conrad_00785c_0a:
+        name: Motion sensor kitchen
+```
+
+## Migrating from _legacy_ configuration format
+
+Legacy RFLink configuration format is deprecated and will be removed in Home Assistant 2026.12.0. The deprecated configuration will produce a repair that directs you to this section.
+
+If you haven't yet updated your configuration, the change is quite simple.
+
+The deprecated configuration consists of several blocks: one for the `rflink` integration and one block for each _platform_ integrated into RFLink, for example:
+
+```yaml
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  ignore_devices:
+    - newkaku_000001_01
+    - digitech_*
+
+binary_sensor:
+  - platform: rflink
+    devices:
+      pt2262_00174754_0:
+        name: PIR Entrance
+        device_class: motion
+        off_delay: 5
+      pt2262_00174758_0:
+        name: PIR Living Room
+        device_class: motion
+        off_delay: 5
+
+cover:
+  - platform: rflink
+    devices:
+      RTS_0a0a0a_1:
+        name: "Blind office"
+        aliases:
+          - rts_0f1f2f_01
+        type: inverted
+      dooya_v4_654321_0f:
+        name: "Room blinds"
+      RTS_32E542_0:
+        name: habitaciones
+        fire_event: true
+      RTS_33E542_0:
+        name: dormitorio
+        aliases:
+          - rts_30e53f_01
+          - rts_32e53f_01
+
+light:
+  - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    automatic_add: true
+    devices:
+      NewKaku_02a48800_0:
+        name: Kitchen
+        type: hybrid
+      newkaku_0000c6c2_1:
+        name: Living room
+        aliases:
+          - newkaku_000000001_2
+          - kaku_000001_a
+      Ansluta_ce30_0:
+        name: Kitchen Under Counter Lights
+      Maclean_0d82_01:
+        name: Bedroom Lamp
+
+sensor:
+  - platform: rflink
+    automatic_add: false
+    devices:
+      oregontemp_0d93_temp:
+        sensor_type: temperature
+      oregontemp_0d93_bat:
+        sensor_type: battery
+      tunex_c001_temp:
+        sensor_type: temperature
+        aliases:
+          - xiron_4001_temp
+      tunex_c001_hum:
+        sensor_type: humidity
+        aliases:
+          - xiron_4001_hum
+      tunex_c001_bat:
+        sensor_type: battery
+        aliases:
+          - xiron_4001_bat
+
 switch:
   - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    devices:
+      newkaku_0000c6c2_1:
+        name: Ceiling fan
+      conrad_00785c_0a:
+        name: Motion sensor kitchen
+```
+
+In the new configuration, all devices are defined within the RFLink integration block.
+
+All the references to `- platform: rflink` are removed, while everything else remains the same, with the format adjusted accordingly (the _platform_ key is now indented and inside the `rflink` block):
+
+```yaml
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: false
+  ignore_devices:
+    - newkaku_000001_01
+    - digitech_*
+  binary_sensor:
+    devices:
+      pt2262_00174754_0:
+        name: PIR Entrance
+        device_class: motion
+        off_delay: 5
+      pt2262_00174758_0:
+        name: PIR Living Room
+        device_class: motion
+        off_delay: 5
+  cover:
+    devices:
+      RTS_0a0a0a_1:
+        name: "Blind office"
+        aliases:
+          - rts_0f1f2f_01
+        type: inverted
+      dooya_v4_654321_0f:
+        name: "Room blinds"
+      RTS_32E542_0:
+        name: habitaciones
+        fire_event: true
+      RTS_33E542_0:
+        name: dormitorio
+        aliases:
+          - rts_30e53f_01
+          - rts_32e53f_01
+  light:
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    automatic_add: true
+    devices:
+      NewKaku_02a48800_0:
+        name: Kitchen
+        type: hybrid
+      newkaku_0000c6c2_1:
+        name: Living room
+        aliases:
+          - newkaku_000000001_2
+          - kaku_000001_a
+      Ansluta_ce30_0:
+        name: Kitchen Under Counter Lights
+      Maclean_0d82_01:
+        name: Bedroom Lamp
+  sensor:
+    automatic_add: false
+    devices:
+      oregontemp_0d93_temp:
+        sensor_type: temperature
+      oregontemp_0d93_bat:
+        sensor_type: battery
+      tunex_c001_temp:
+        sensor_type: temperature
+        aliases:
+          - xiron_4001_temp
+      tunex_c001_hum:
+        sensor_type: humidity
+        aliases:
+          - xiron_4001_hum
+      tunex_c001_bat:
+        sensor_type: battery
+        aliases:
+          - xiron_4001_bat
+  switch:
     device_defaults:
       fire_event: true
       signal_repetitions: 2
