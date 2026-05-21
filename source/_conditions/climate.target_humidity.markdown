@@ -75,7 +75,7 @@ This passes when the bedroom thermostat's target humidity is set above 55%.
 
 {% options_yaml %}
 threshold:
-  description: >
+  description: |
     The threshold to check the target humidity against. Use `type` to set the comparison direction:
 
     - `type: above` (exclusive): Sets a minimum. The setpoint must be strictly above the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
