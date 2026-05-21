@@ -257,7 +257,7 @@ Use one of these methods if your Matter device was added to Apple Home or Google
       - This will install the official Matter server app.
     - If you are running the Matter server in a custom container (not recommended):
       - Deselect the checkbox, then select **Submit**.
-      - In the next step, provide the URL to your Matter server.
+      - Make sure your Matter server URL is available.
 
 ### To share a device from another Matter controller (like Apple or Google Home)
 
