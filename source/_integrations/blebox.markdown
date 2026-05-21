@@ -29,7 +29,7 @@ ha_integration_type: device
 ha_zeroconf: true
 ---
 
-[BleBox](https://blebox.eu/) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
+[BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).
 
 {% include integrations/config_flow.md %}
 
@@ -560,6 +560,8 @@ Integrating a μWiFi remote via actionBox consists of three steps:
 
 ## "BleBox inside" - Simon 24 GO
 
+Simon 24 GO is a range of wall switches and accessories with integrated BleBox Wi-Fi modules. The full product range is available in the [Simon 24 GO catalog](https://www.kontakt-simon.com.pl/pl/Katalog/1426/).
+
 ### Simon 24 GO SHUTTER (NEZ1W.01)
 
 This integration adds the Simon 24 GO device ("blebox inside") as a cover entity to Home Assistant.
@@ -665,6 +667,8 @@ The configuration consists of two steps:
 
 ## "BleBox inside" - Simon 54 GO
 
+Simon 54 GO is a range of wall switches and accessories with integrated BleBox Wi-Fi modules. The full product range is available in the [Simon 54 GO catalog](https://www.kontakt-simon.com.pl/pl/Katalog/1252/).
+
 ### Simon 54 GO SHUTTER (DEZ1W.01)
 
 This integration adds the Simon 54 GO device ("blebox inside") as a cover entity to Home Assistant.
@@ -769,6 +773,8 @@ The configuration consists of two steps:
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
 ## "BleBox inside" - Simon 55 GO
+
+Simon 55 GO is a range of wall switches and accessories with integrated BleBox Wi-Fi modules. The full product range is available in the [Simon 55 GO catalog](https://www.kontakt-simon.com.pl/pl/Katalog/1257/).
 
 ### Simon 55 GO SHUTTER (TEZ1W.01)
 
@@ -894,6 +900,8 @@ The configuration consists of two steps:
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
 ## "BleBox inside" - other manufacturers
+
+The following devices use BleBox Wi-Fi modules embedded by other manufacturers. Each device is sold under its own brand.
 
 ### FAKRO FTP-V/FTU-V WiFi
 
