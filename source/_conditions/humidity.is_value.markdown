@@ -37,7 +37,7 @@ To use **Relative humidity** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The humidity level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed percentage (0-100%) or both a lower and upper bound for ranges. **Entity** uses a sensor or number helper as a dynamic threshold.
+    The humidity level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter a fixed percentage (0–100), or **Entity** to use a sensor or number helper as a dynamic threshold.
 Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
@@ -145,18 +145,12 @@ threshold:
   description: |
     The humidity level the entity has to meet for the condition to pass:
 
-    - `above`: Sets a minimum
-    - `below`: Sets a maximum
-    - `between`: Defines a range
-    - `outside`: Defines an outside-range
+    - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
+    - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
+    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
-    For `above` and `below`, use `value` with either `number` (0 to 100) or `entity`. For `between` and `outside`, use `value_min` and `value_max`, each with either `number` (0 to 100) or `entity`. For example:
-
-    - A fixed percentage (0-100%).
-    - A reference to an `input_number`, `number`, or `sensor` entity.
-      - `input_number`: Lets you change the threshold without editing the automation. To create one, see [Number helper](/integrations/input_number/).
-      - `number`: Uses the current value of a number entity as the threshold.
-      - `sensor`: Uses the current reading as the threshold when the condition is evaluated, which lets you compare two humidity readings dynamically, for example, checking whether indoor humidity is above outdoor humidity.
+    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
   required: false
   type: map
 behavior:
