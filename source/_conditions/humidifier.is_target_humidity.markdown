@@ -68,6 +68,8 @@ threshold:
     - `above` (exclusive): Sets a minimum. The target humidity must be strictly above this value to pass.
     - `below` (exclusive): Sets a maximum. The target humidity must be strictly below this value to pass.
 
+    If you provide both `above` and `below`, the target humidity must be between those two values to pass. This matches the UI option **In range**.
+
     Use a percentage value (0–100) or an `input_number`, `number`, or `sensor` entity as the value for each key.
   required: false
   type: map
