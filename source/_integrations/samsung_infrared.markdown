@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: samsung_infrared
 ha_config_flow: true
 ha_platforms:
+  - button
   - media_player
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -42,7 +43,56 @@ The integration supports Samsung TVs that can be controlled via the standard Sam
 
 The **Samsung Infrared** integration provides the following entities.
 
-#### Media player
+### Buttons
+
+- **Power**
+  - **Description**: Toggles the TV power state.
+- **Power on**
+  - **Description**: Explicitly turns on the TV.
+- **Power off**
+  - **Description**: Explicitly turns off the TV.
+- **Source**
+  - **Description**: Opens the input source selection menu.
+- **Settings**
+  - **Description**: Opens the TV settings menu.
+- **Info**
+  - **Description**: Displays program information.
+- **Exit**
+  - **Description**: Exits the current menu or app.
+- **Return**
+  - **Description**: Returns to the previous screen or menu.
+- **Home**
+  - **Description**: Opens the TV home screen.
+- **Red**, **Green**, **Yellow**, **Blue**
+  - **Description**: Color buttons for special functions (function depends on the current context).
+- **Up**, **Down**, **Left**, **Right**
+  - **Description**: Navigation buttons for menu navigation.
+- **OK**
+  - **Description**: Confirms selections in menus.
+- **Previous channel**
+  - **Description**: Switches to the previously viewed channel.
+- **HDMI 1**, **HDMI 2**, **HDMI 3**, **HDMI 4**
+  - **Description**: Directly switches to the respective HDMI input.
+- **Number 0-9**
+  - **Description**: Number keys for channel selection and text input.
+- **Fast forward**
+  - **Description**: Fast forwards playback.
+- **Rewind**
+  - **Description**: Rewinds playback.
+- **Record**
+  - **Description**: Starts recording (if supported by the TV).
+- **Tools**
+  - **Description**: Opens the tools menu.
+- **Browser**
+  - **Description**: Opens the web browser.
+- **TV**
+  - **Description**: Switches to TV mode.
+- **AD/Subtitle**
+  - **Description**: Toggles audio description or subtitles.
+- **E-Manual**
+  - **Description**: Opens the electronic manual.
+
+### Media player
 
 - **Samsung TV**
   - **Description**: Represents the Samsung TV and allows you to control it via IR commands.
