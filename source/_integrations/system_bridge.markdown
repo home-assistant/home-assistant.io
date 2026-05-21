@@ -112,7 +112,7 @@ action: |
     title: "Reminder"
     message: "Have you considered frogs?"
   target:
-    entity_id: notify.send_message
+    entity_id: notify.my_device
 {% endexample %}
 
 ## Actions
