@@ -40,11 +40,12 @@ To use **Temperature crossed threshold** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    Controls the zone the reading must enter for the trigger to fire:
+    Controls which threshold crossings fire the trigger:
 
-    - **Above** or **Below**: enter a value to fire when the reading crosses that level.
-    - **In range**: enter a lower and upper bound to fire when the reading enters the range from outside.
-    - **Outside range**: enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
+    - **Above** (exclusive): fires when the reading crosses to strictly above the threshold. A reading equal to the threshold does not trigger a crossing.
+    - **Below** (exclusive): fires when the reading crosses to strictly below the threshold. A reading equal to the threshold does not trigger a crossing.
+    - **In range** (exclusive): fires when the reading crosses into the range. A reading equal to either bound is not considered inside the range.
+    - **Outside range** (inclusive): fires when the reading crosses out of the range. A reading equal to either bound is considered outside the range.
 
     For each mode you can enter a fixed temperature or reference a sensor entity or [number helper](/integrations/input_number/) entity.
 Unit:
@@ -111,10 +112,12 @@ threshold:
   description: |
     A mapping that defines the zone the reading must enter for the trigger to fire:
 
-    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity)
+    - `type: above` (exclusive): Sets a minimum. Fires when the reading crosses to strictly above `value`. A reading equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: below` (exclusive): Sets a maximum. Fires when the reading crosses to strictly below `value`. A reading equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (exclusive): Defines a range. Fires when the reading crosses into the range. A reading equal to either bound is not inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading crosses out of the range. A reading equal to either bound is outside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself.
+    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
 
     For example:
 
@@ -128,16 +131,16 @@ threshold:
         entity: input_number.max_comfort_temperature
     ```
 
-    A `sensor` entity's current reading is used as the threshold, which lets you compare two temperature readings dynamically.
+    A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two temperature readings dynamically.
   required: true
   type: map
 behavior:
   description: |
-    When multiple entities are targeted, controls when the trigger fires. Accepts:
+    When multiple entities are targeted, controls when the trigger fires:
 
-    - `any`: fires every time any targeted entity crosses the threshold.
-    - `first`: fires only on the first crossing.
-    - `last`: fires only after every targeted entity crosses the threshold.
+    - `any` (**Each** in the UI, default): fires every time any targeted entity crosses the threshold.
+    - `first` (**First** in the UI): fires only on the first threshold crossing.
+    - `last` (**All** in the UI): fires only after every targeted entity crosses the threshold.
   required: false
   type: string
   default: any
