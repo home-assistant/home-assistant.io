@@ -11,15 +11,12 @@ ha_config_flow: true
 ha_domain: kii_audio
 ha_platforms:
   - media_player
-  - number
-  - select
-  - switch
 ha_integration_type: device
 ha_quality_scale: bronze
 ha_zeroconf: true
 ---
 
-The **Kii Audio** {% term integration %} lets you control Kii Audio systems from Home Assistant over the local network. Home Assistant represents each Kii zone as a device with entities for playback and zone configuration.
+The **Kii Audio** {% term integration %} lets you control Kii Audio systems from Home Assistant over the local network. Home Assistant represents each Kii zone as a media player entity.
 
 {% include integrations/config_flow.md %}
 
@@ -42,15 +39,6 @@ The media player entity supports:
 - Changing volume
 - Muting and unmuting
 - Selecting the active source
-
-### Configuration entities
-
-Depending on the capabilities reported by the Kii system, Home Assistant can also add entities for:
-
-- Bass and treble tone controls
-- Tone Control on or off
-- Analog input sensitivity
-- Latency mode
 
 ## Discovery
 
