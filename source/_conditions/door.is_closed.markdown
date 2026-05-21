@@ -63,7 +63,7 @@ for:
   description: >
     How long the door must have stayed closed before the condition passes.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 

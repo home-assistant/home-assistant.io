@@ -68,9 +68,11 @@ behavior:
   type: string
   default: any
 for:
-  description: The time the vacuum must remain docked before the trigger fires.
+  description: >
+    The time the vacuum must remain docked before the trigger fires.
+    Accepts a duration like `00:00:10` for 10 seconds.
   required: false
-  type: time
+  type: string
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -91,8 +93,9 @@ for:
 When the vacuum docks, the cleaning run is usually complete. This automation sends a quick message so you know the robot is done and back on the charger.
 
 - **Trigger**: Vacuum returned to dock
-- **Target**: Downstairs vacuum
-- **Action**: Notify mobile app
+  - **Target**: Downstairs vacuum
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a cleaning finished notification" %}
 
@@ -104,7 +107,9 @@ automation: |
       target:
         entity_id: vacuum.downstairs
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Vacuum finished"
         message: "The downstairs vacuum returned to its dock."

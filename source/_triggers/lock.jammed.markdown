@@ -65,7 +65,7 @@ for:
     How long the lock must stay jammed before the trigger fires. Accepts a
     duration like `00:01:00` for one minute.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -88,10 +88,11 @@ for:
 If the front door lock jams while someone is leaving, you want to know right away so the door is not left unsecured. This automation sends a phone notification as soon as the lock reports a jam.
 
 - **Trigger**: Lock jammed
-- **Target**: Front door lock
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Send a notification via mobile_app_phone
+  - **Target**: Front door lock
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a jammed lock alert" %}
 
@@ -106,7 +107,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Front door lock jammed"
         message: "Check the front door lock. It may be blocked."

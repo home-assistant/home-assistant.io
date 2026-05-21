@@ -121,7 +121,8 @@ The doorbell normally announces visitors through every speaker, but nobody wants
 
 - **Trigger**: State: Doorbell pressed
 - **Condition**: Alarm is armed night
-- **Action**: Send a quiet phone notification (skip the speaker announcement)
+- **Action**: Send a notification message (skip the speaker announcement)
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for silencing the doorbell at night" %}
 
@@ -139,7 +140,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Doorbell"
         message: "Someone is at the door."

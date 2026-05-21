@@ -80,10 +80,11 @@ behavior:
 When the hallway light turns on after sunset, send a phone notification so you know someone's moving around the house.
 
 - **Trigger**: Light turned on
-- **Target**: Hallway light
-- **Trigger when**: Each
+  - **Target**: Hallway light
+  - **Trigger when**: Each
 - **Condition**: Sun is below horizon
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a nighttime hallway notification" %}
 
@@ -100,7 +101,9 @@ automation: |
     - condition: sun
       after: sunset
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Hallway light just turned on."
 {% endexample %}

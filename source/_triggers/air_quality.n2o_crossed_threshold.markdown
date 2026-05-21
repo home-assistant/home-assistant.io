@@ -97,10 +97,11 @@ for:
 Keeping N2O in check helps you maintain healthy growing conditions and track environmental trends. This automation sends a notification to your phone when the greenhouse reading crosses 350, so you know right away when ventilation needs attention.
 
 - **Trigger**: Nitrous oxide level crossed threshold
-- **Target**: Greenhouse N2O sensor
-- **Threshold type**: 350
-- **Trigger when**: Each
-- **Action**: Notify mobile app
+  - **Target**: Greenhouse N2O sensor
+  - **Threshold type**: 350
+  - **Trigger when**: Each
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for greenhouse N2O alert" %}
 
@@ -115,7 +116,9 @@ automation: |
         threshold: 350
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "N2O threshold crossed"
         message: >

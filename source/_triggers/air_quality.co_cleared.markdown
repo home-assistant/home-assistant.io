@@ -84,11 +84,12 @@ for:
 After a carbon monoxide alarm, a blaring siren and anxious waiting are the last things your family needs once the danger is over. This automation waits until every CO sensor in the house has been clear for fifteen minutes, then silences the siren and sends a reassuring all-clear notification to your phone. No more wondering whether it is truly safe to go back to sleep or return home.
 
 - **Trigger**: Carbon monoxide cleared
-- **Target**: All CO sensors (by label)
-- **Trigger when**: All
-- **For at least**: 00:15:00
+  - **Target**: All CO sensors (by label)
+  - **Trigger when**: All
+  - **For at least**: 00:15:00
 - **Action**: Siren: Turn off
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for silencing the siren after CO clears" %}
 
@@ -106,7 +107,9 @@ automation: |
     - action: siren.turn_off
       target:
         entity_id: siren.home_alarm
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "All CO sensors are clear."
         title: "CO all-clear"

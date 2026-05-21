@@ -75,9 +75,11 @@ After a gas event, pressing a button to silence the alarm too early is risky if 
 
 - **Trigger**: State: Silence alarm button pressed
 - **Condition**: Air Quality: Gas cleared
-- **Target**: All gas sensors (kitchen, basement)
-- **Condition passes if**: All
-- **Action**: Siren: Turn off, then notify the household
+  - **Target**: All gas sensors (kitchen, basement)
+  - **Condition passes if**: All
+- **Action**: Turn off siren
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for silencing the alarm only after full all-clear" %}
 
@@ -99,7 +101,9 @@ automation: |
     - action: siren.turn_off
       target:
         entity_id: siren.house_alarm
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Gas all-clear"
         message: >

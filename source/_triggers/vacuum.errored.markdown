@@ -68,9 +68,11 @@ behavior:
   type: string
   default: any
 for:
-  description: The time the vacuum must remain in the error state before the trigger fires.
+  description: >
+    The time the vacuum must remain in the error state before the trigger fires.
+    Accepts a duration like `00:00:10` for 10 seconds.
   required: false
-  type: time
+  type: string
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -91,8 +93,9 @@ for:
 When the vacuum enters an error state, send a notification right away so you can clear the problem before the cleaning run is abandoned for the rest of the day.
 
 - **Trigger**: Vacuum encountered an error
-- **Target**: Upstairs vacuum
-- **Action**: Send notification via mobile_app_phone
+  - **Target**: Upstairs vacuum
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a vacuum error alert" %}
 
@@ -104,7 +107,9 @@ automation: |
       target:
         entity_id: vacuum.upstairs
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Vacuum error"
         message: "The upstairs vacuum reported an error."

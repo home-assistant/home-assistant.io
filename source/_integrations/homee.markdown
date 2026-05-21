@@ -71,7 +71,7 @@ Password:
 {% endconfiguration_basic %}
 
 Available devices will automatically show up in your Home Assistant installation.
-New devices added to homee will be automatically discovered after a restart of Home Assistant. This restart is only required when adding new devices, not for state updates of existing devices.
+Devices you add in homee appear automatically in Home Assistant. If you remove a device from homee, it is also removed from Home Assistant.
 
 ## Limitations
 
