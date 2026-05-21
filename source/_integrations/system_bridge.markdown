@@ -101,6 +101,20 @@ This integration is available as a media source to use with the media browser in
 
 The integration provides an update component, which will notify you when a new version of the app is available.
 
+## Notifiers
+
+The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on how to use **Notifiers** in automations, please see the [getting started with automation page](/getting-started/automation/).
+
+{% example %}
+action: |
+  action: notify.send_message
+  data:
+    title: "Reminder"
+    message: "Have you considered frogs?"
+  target:
+    entity_id: notify.send_message
+{% endexample %}
+
 ## Actions
 
 ### Notifications `notify.system_bridge_hostname`
