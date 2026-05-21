@@ -39,8 +39,6 @@ The integration supports Samsung TVs that can be controlled via the standard Sam
 
 ## Supported functionality
 
-### Entities
-
 The **Samsung Infrared** integration provides the following entities.
 
 ### Buttons
