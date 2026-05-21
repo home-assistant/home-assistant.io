@@ -38,12 +38,11 @@ To use **Battery level crossed threshold** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    Controls which threshold crossings fire the trigger:
+    Controls the zone the reading must enter for the trigger to fire:
 
-    - **Above** (exclusive): fires when the reading crosses to strictly above the threshold. A reading equal to the threshold does not trigger a crossing.
-    - **Below** (exclusive): fires when the reading crosses to strictly below the threshold. A reading equal to the threshold does not trigger a crossing.
-    - **In range** (exclusive): fires when the reading crosses into the range. A reading equal to either bound is not considered inside the range.
-    - **Outside range** (inclusive): fires when the reading crosses out of the range. A reading equal to either bound is considered outside the range.
+    - **Above** or **Below**: enter a value to fire when the reading crosses that level.
+    - **In range**: enter a lower and upper bound to fire when the reading enters the range from outside.
+    - **Outside range**: enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
 
     For each mode you can enter a fixed percentage (0–100%), reference a sensor entity, or a [number helper](/integrations/input_number/) entity.
 Trigger when:
