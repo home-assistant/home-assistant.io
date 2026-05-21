@@ -65,7 +65,7 @@ for:
     How long the lock must stay unlocked before the trigger fires. Accepts a
     duration like `00:00:10` for 10 seconds.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 
