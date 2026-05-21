@@ -12,6 +12,7 @@ ha_domain: paj_gps
 ha_zeroconf: false
 ha_platforms:
   - device_tracker
+  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -53,6 +54,10 @@ The PAJ GPS integration provides the following entities.
 
 The PAJ GPS {% term integration %} will track the location of each device registered to your account. The integration provides real-time GPS coordinates (latitude and longitude) for your PAJ GPS devices.
 
+### Speed sensor
+
+The **Speed** sensor provides the current speed of the PAJ GPS device in km/h, as reported by the GPS module.
+
 ## Examples
 
 Opening the garage door when a car with a PAJ GPS device is near using automations:
@@ -86,9 +91,9 @@ actions:
 
 ## Troubleshooting
 
-### No sensors other than GPS location available
+### No battery level sensor available
 
-Those will be available in the next release of this integration.
+This will be available in the next release of this integration.
 
 ## Removing the integration
 
