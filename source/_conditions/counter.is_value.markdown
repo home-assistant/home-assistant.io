@@ -36,7 +36,7 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The value the counter has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** uses a fixed value. **Entity** uses the current value of a `counter`, `input_number`, or `number` entity.
+    The value the counter has to meet for the condition to pass. **Above** and **Below** are exclusive: a counter value equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a counter value equal to either bound passes. Choose **Number** to use a fixed value, or **Entity** to use the current value of a `counter`, `input_number`, or `number` entity.
 Condition passes if:
   description: When multiple counters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted counter matches, or **All** to pass only when every targeted counter matches. Default is **Any**.
 For at least:
@@ -104,12 +104,12 @@ threshold:
   description: |
     The value the counter has to meet for the condition to pass:
 
-    - `above`: Sets a minimum
-    - `below`: Sets a maximum
-    - `between`: Defines a range
-    - `outside`: Defines an outside-range
+    - `type: above` (exclusive): Sets a minimum. The counter value must be strictly above the threshold to pass.
+    - `type: below` (exclusive): Sets a maximum. The counter value must be strictly below the threshold to pass.
+    - `type: between` (exclusive): Defines a range. The counter value must be strictly between both bounds to pass.
+    - `type: outside` (inclusive): Defines an outside-range. The counter value must be at or beyond either bound to pass.
 
-    For `above` and `below`, use `value` with either `number` or `entity`. For `between` and `outside`, use `value_min` and `value_max`, each with either `number` or `entity`. Entities can be from the `counter`, `input_number`, or `number` domains. For example:
+    For `type: above` and `type: below`, use `value` with either `number` or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` or `entity`. Entities can be from the `counter`, `input_number`, or `number` domains. For example:
 
     ```yaml
     threshold:
