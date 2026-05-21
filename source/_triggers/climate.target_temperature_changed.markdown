@@ -41,9 +41,9 @@ Threshold type:
     Controls which changes fire the trigger:
 
     - **Any change**: fires on any change, regardless of direction or new value.
-    - **Above** or **Below**: enter a value to fire only when the new setpoint is above or below that value.
-    - **In range**: enter a lower and upper bound to fire only when the new setpoint falls between them.
-    - **Outside range**: enter a lower and upper bound to fire only when the new setpoint is below the lower bound or above the upper bound.
+    - **Above** or **Below** (exclusive): fires only when the new setpoint is strictly above or below the threshold. A setpoint equal to the threshold does not fire the trigger.
+    - **In range** (exclusive): fires only when the new setpoint is strictly between the two bounds. A setpoint equal to either bound does not fire the trigger.
+    - **Outside range** (inclusive): fires when the new setpoint is at or below the lower bound, or at or above the upper bound. A setpoint equal to either bound fires the trigger.
 
     For each mode you can enter a fixed temperature or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 Unit:
@@ -97,8 +97,10 @@ threshold:
     A mapping that defines which kind of change fires the trigger:
 
     - `type: any`: Fires on any target temperature change (no additional keys needed).
-    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: above` (exclusive): Sets a minimum. Fires when the setpoint is strictly above `value`. A setpoint equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: below` (exclusive): Sets a maximum. Fires when the setpoint is strictly below `value`. A setpoint equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (exclusive): Defines a range. Fires when the setpoint is strictly between `value_min` and `value_max`. Setpoints equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (inclusive): Defines an outside-range. Fires when the setpoint is at or below `value_min`, or at or above `value_max`. Setpoints equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
 

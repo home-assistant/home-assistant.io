@@ -41,10 +41,10 @@ Threshold type:
   description: |
     Controls which threshold crossings fire the trigger:
 
-    - **Above**: fires when the setpoint crosses from below to above the threshold.
-    - **Below**: fires when the setpoint crosses from above to below the threshold.
-    - **In range**: fires when the setpoint crosses from outside to inside the range.
-    - **Outside range**: fires when the setpoint crosses from inside to outside the range.
+    - **Above** (exclusive): fires when the setpoint crosses to strictly above the threshold. A setpoint equal to the threshold does not trigger a crossing.
+    - **Below** (exclusive): fires when the setpoint crosses to strictly below the threshold. A setpoint equal to the threshold does not trigger a crossing.
+    - **In range** (exclusive): fires when the setpoint crosses into the range. A setpoint equal to either bound is not considered inside the range.
+    - **Outside range** (inclusive): fires when the setpoint crosses out of the range. A setpoint equal to either bound is considered outside the range.
 
     For each mode you can enter a fixed percentage or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 Trigger when:
@@ -101,8 +101,10 @@ threshold:
   description: |
     A mapping that defines when the trigger should fire:
 
-    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal percentage 0-100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: above` (exclusive): Sets a minimum. Fires when the setpoint crosses to strictly above `value`. A setpoint equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: below` (exclusive): Sets a maximum. Fires when the setpoint crosses to strictly below `value`. A setpoint equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (exclusive): Defines a range. Fires when the setpoint crosses into the range. A setpoint equal to either bound is not inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (inclusive): Defines an outside-range. Fires when the setpoint crosses out of the range. A setpoint equal to either bound is outside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     For example:
 
@@ -122,9 +124,9 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted thermostat crosses the threshold.
-    - `first` (**First** in the UI): fire only on the first threshold crossing.
-    - `last` (**All** in the UI): fire only after every targeted thermostat crosses the threshold.
+    - `any` (**Each** in the UI, default): fires every time any targeted thermostat crosses the threshold.
+    - `first` (**First** in the UI): fires only on the first threshold crossing.
+    - `last` (**All** in the UI): fires only after every targeted thermostat crosses the threshold.
   required: false
   type: string
   default: any
