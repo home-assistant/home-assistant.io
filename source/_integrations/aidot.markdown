@@ -39,6 +39,19 @@ Password:
   description: "The password you use to log into the AiDot app."
 {% endconfiguration_basic %}
 
+## Supported functionality
+
+The integration adds a light entity for each device.
+
+### Lights
+
+All lights support turning on and off, as well as adjusting brightness.
+
+Depending on the device, the following features may also be available:
+
+- **Color temperature**: Adjusts the white light warmth in Kelvin. The supported range varies per device (for example, 2700 K to 6500 K).
+- **RGBW color**: Adjusts the color using red, green, blue, and white channels. Devices with RGBW support also support color temperature control.
+
 ## Data updates
 
 - After you sign in successfully, the integration retrieves the device list from AiDot Cloud.
