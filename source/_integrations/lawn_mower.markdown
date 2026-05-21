@@ -104,7 +104,7 @@ If rain starts while the mower is active, you can stop the run early and send it
 - **Trigger**: State: Rain sensor turned on
 - **Condition**: Lawn mower is mowing
   - **Target**: Backyard mower
-- **Action**: Return to dock
+- **Action**: Return lawn mower to dock
 
 {% details "YAML example for docking the mower when rain starts" %}
 

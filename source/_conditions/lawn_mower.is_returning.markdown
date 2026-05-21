@@ -122,7 +122,7 @@ If you use a gate during the mowing run, only lock it after the mower is returni
 - **Condition**: Lawn mower is returning
   - **Target**: Backyard mower
   - **For at least**: 00:01:00
-- **Action**: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the side gate" %}
 

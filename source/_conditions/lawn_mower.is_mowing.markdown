@@ -86,7 +86,7 @@ If rain starts while the mower is active, check that it is really mowing before 
 - **Trigger**: State: Rain sensor turned on
 - **Condition**: Lawn mower is mowing
   - **Target**: Backyard mower
-- **Action**: Return to dock
+- **Action**: Return lawn mower to dock
 
 {% details "YAML example for docking the mower in rain" %}
 
