@@ -50,13 +50,12 @@ One notification integration is automatically included, the Persistent Notificat
 
 ## Notify action
 
-Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify action in time. There is an entity platform action `notify.send_message` which allows you to send notification messages to one or multiple notify entities, mobile phones or other devices. You just need to add them in the `target` data attribute. 
+Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify action in time. There is an entity platform action `notify.send_message` which allows you to send notification messages to one or multiple notify entities, mobile phones or other devices. You just need to add them in the `target` block. 
 
-| Data attribute | Optional | Description                                      |
-| -------------- | -------- | -------------------------------------------------|
-| `message`      | no       | Body of the notification.                        |
-| `title`        | yes      | Title of the notification.                       |
-| `target`       | no       | The recipient that will receive the notification.|
+| Data attribute | Optional | Description               |
+| -------------- | -------- | ------------------------  |
+| `message`      | no       | Body of the notification. |
+| `title`        | yes      | Title of the notification.|
 
 ## Companion app notifications
 
