@@ -35,7 +35,8 @@ To use **Thermostat target humidity** in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: Controls how the target humidity is compared and where the threshold value comes from. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a setpoint equal to either bound passes. Choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
+  description: |
+    Controls how the target humidity is compared and where the threshold value comes from. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a setpoint equal to either bound passes. Choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
 Condition passes if:
   description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat meets the threshold, or **All** to pass only when every targeted thermostat does. Default is **Any**.
 For at least:
