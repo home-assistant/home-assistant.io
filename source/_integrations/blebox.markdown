@@ -48,7 +48,7 @@ For the best experience, make sure your BleBox devices have the most recent avai
 Host:
   description: "The IP address or hostname of your BleBox device. You can find it in your router or in the wBox app."
 Port:
-  description: "The port used to communicate with your BleBox device. The default port is 80."
+  description: "The port used to communicate with your BleBox device. The default port is `80`."
 Username:
   description: "The username for your BleBox device, if you have set up access credentials. This is optional."
 Password:
