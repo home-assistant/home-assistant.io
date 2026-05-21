@@ -13,14 +13,13 @@ related:
 The calendar card displays your {% term calendar %} {% term entities %} in a month, day, and list view (7 days).
 
 <p class='img'>
-  <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the 
-  calendar card'>
+  <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the calendar card'>
   Screenshot of the calendar card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

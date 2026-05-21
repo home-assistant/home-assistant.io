@@ -1,28 +1,28 @@
-@import "homeassistant/pages/connect/mixins.scss";
-@import "homeassistant/pages/connect/variables.scss";
-@import "homeassistant/pages/connect/base.scss";
-@import "homeassistant/pages/connect/badge.scss";
-@import "homeassistant/pages/connect/header.scss";
-@import "homeassistant/pages/connect/buttons.scss";
+@use 'homeassistant/pages/connect/mixins.scss' as *;
+@use 'homeassistant/pages/connect/variables.scss' as *;
+@use 'homeassistant/pages/connect/base.scss' as *;
+@use 'homeassistant/pages/connect/badge.scss' as *;
+@use 'homeassistant/pages/connect/header.scss' as *;
+@use 'homeassistant/pages/connect/buttons.scss' as *;
 
 // ZWA-2 specific styles
-@import "homeassistant/pages/connect/zwa-2/variables.scss";
-@import "homeassistant/pages/connect/zwa-2/base.scss";
-@import "homeassistant/pages/connect/zwa-2/animations.scss";
-@import "homeassistant/pages/connect/zwa-2/debug.scss";
+@use 'homeassistant/pages/connect/zwa-2/variables.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/base.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/animations.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/debug.scss' as *;
 
-@import "homeassistant/pages/connect/zwa-2/components/light-section.scss";
+@use 'homeassistant/pages/connect/zwa-2/components/light-section.scss' as *;
 
-@import "homeassistant/pages/connect/zwa-2/components/hero.scss";
-@import "homeassistant/pages/connect/zwa-2/components/features.scss"; 
-@import "homeassistant/pages/connect/zwa-2/components/chipset.scss"; 
-@import "homeassistant/pages/connect/zwa-2/components/long-range.scss"; 
-@import "homeassistant/pages/connect/zwa-2/components/second-generation-platform.scss";
-@import "homeassistant/pages/connect/zwa-2/components/faq.scss";
-@import "homeassistant/pages/connect/zwa-2/components/buy.scss";
-@import "homeassistant/pages/connect/zwa-2/components/collaboration.scss"; 
-@import "homeassistant/pages/connect/zwa-2/components/zwave-range.scss";
-@import "homeassistant/pages/connect/zwa-2/components/built-for-home-assistant.scss";
-@import "homeassistant/pages/connect/zwa-2/components/built-for-the-home.scss";
-@import "homeassistant/pages/connect/zwa-2/components/plug-and-play.scss";
-@import "homeassistant/pages/connect/zwa-2/components/specs.scss";
+@use 'homeassistant/pages/connect/zwa-2/components/hero.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/components/features.scss' as *; 
+@use 'homeassistant/pages/connect/zwa-2/components/chipset.scss' as *; 
+@use 'homeassistant/pages/connect/zwa-2/components/long-range.scss' as *; 
+@use 'homeassistant/pages/connect/zwa-2/components/second-generation-platform.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/components/faq.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/components/buy.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/components/collaboration.scss' as *; 
+@use 'homeassistant/pages/connect/zwa-2/components/zwave-range.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/components/built-for-home-assistant.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/components/built-for-the-home.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/components/plug-and-play.scss' as *;
+@use 'homeassistant/pages/connect/zwa-2/components/specs.scss' as *;

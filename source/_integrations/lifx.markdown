@@ -42,7 +42,7 @@ The `lifx.set_state` action changes the light to a new state.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
 | `zones` | List of integers for the zone numbers to affect. See **Calculating zones to affect** below for more detail.
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
-| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#action-lightturn_on) to specify the new state.
+| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/actions/light.turn_on/) to specify the new state.
 
 #### Calculating zones to affect
 
@@ -106,7 +106,7 @@ If you provide a value for both `palette` and `theme`, then the palette will ove
 
 ## Light effects
 
-The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#action-lightturn_on) action, for example like this:
+The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/actions/light.turn_on/) action, for example like this:
 
 ```yaml
 automation:

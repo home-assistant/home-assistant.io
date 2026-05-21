@@ -31,8 +31,24 @@ IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to vario
 
 {% include integrations/config_flow.md %}
 
+## Configuration options
 
-## API Credentials
+After the integration is set up, you can configure how it communicates with your fireplace. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **IntelliFire** integration, and select **Configure**.
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Read data from:
+    description: "Select whether to read fireplace status data from the local network or from the cloud. Local reads directly from the fireplace on your network, while Cloud reads from IntelliFire's servers."
+Send commands to:
+    description: "Select whether to send control commands through the local network or through the cloud. Local sends commands directly to the fireplace on your network, while Cloud routes commands through IntelliFire's servers."
+{% endconfiguration_basic %}
+
+{% tip %}
+Some people find that their fireplace hardware prioritizes cloud communication and may experience timeouts with local control. If you encounter connectivity issues, try switching to Cloud for the affected endpoint.
+{% endtip %}
+
+## API credentials
 
 To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with the mobile app.
 

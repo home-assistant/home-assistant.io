@@ -43,7 +43,7 @@ Entities are the basic building blocks to hold data in Home Assistant. An {% ter
 ## Areas
 
 An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target service calls at an entire group of devices. For example, turning off all the lights in the living room.
-Locations within your home such as living room, dance floor, etc. Areas can be assigned to {% term floors %}.
+These are locations within your home, such as the living room or the dance floor. Areas can be assigned to {% term floors %}.
 Areas can also be used for automatically generated cards, such as the [Area card](/dashboards/area/).
 
 ## Automations

@@ -122,8 +122,6 @@ These examples are just a starting point, and you can use them as inspiration to
 
 The following example switches the HDFury input to the correct source when the media player powers on.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Switch HDFury input to Nvidia SHIELD when powered on"
@@ -143,8 +141,6 @@ automation:
         data:
           option: 1
 ```
-
-{% endraw %}
 
 ## Known limitations
 

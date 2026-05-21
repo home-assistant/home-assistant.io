@@ -85,7 +85,7 @@ The template editor provides a way to quickly test templates prior to placing th
 
 By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the **Reset to Demo Template** button beneath the code editor.
 
-For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/configuration/templating).
+For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/templating).
 
 ## Events tab
 
@@ -155,7 +155,7 @@ icon. Use date & time to search for the incorrect data point and adjust the valu
 
 The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
 
-If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*.
 
 - Assist found a matching intent: *HassGetState*.
 - It found entities matching the domain: *lights*.

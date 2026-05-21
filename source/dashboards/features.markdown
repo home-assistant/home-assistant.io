@@ -320,39 +320,27 @@ type:
   type: string
 {% endconfiguration %}
 
-## Cover position preset
+## Cover favorite positions
 
-Widget that displays a dropdown with preset positions for a [cover](/integrations/cover).
+Widget that displays a dropdown with favorite positions for a [cover](/integrations/cover).
+
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
 
 <p class='img'>
-  <img src='/images/dashboards/features/cover_position_preset.png' alt='Screenshot of the tile card with the cover position preset feature'>
-  Screenshot of the tile card with the cover position preset feature
+  <img src='/images/dashboards/features/cover_position_favorite.png' alt='Screenshot of the tile card with the cover favorite positions feature'>
+  Screenshot of the tile card with the cover favorite positions feature
 </p>
 
 ```yaml
 features:
-  - type: "cover-position-preset"
-    positions:
-      - 0
-      - 25
-      - 75
-      - 100
+  - type: "cover-position-favorite"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`cover-position-preset`"
+  description: "`cover-position-favorite`"
   type: string
-positions:
-  required: false
-  description: List of preset positions to show on the card. Values are percentages from 0 to 100, and you can configure up to 6 positions.
-  type: list
-  default:
-    - 0
-    - 25
-    - 75
-    - 100
 {% endconfiguration %}
 
 ## Cover tilt
@@ -376,39 +364,27 @@ type:
   type: string
 {% endconfiguration %}
 
-## Cover tilt preset
+## Cover favorite tilt positions
 
-Widget that displays a dropdown with preset tilt positions for a [cover](/integrations/cover).
+Widget that displays a dropdown with favorite tilt positions for a [cover](/integrations/cover).
+
+You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
 
 <p class='img'>
-  <img src='/images/dashboards/features/cover_tilt_preset.png' alt='Screenshot of the tile card with the cover tilt preset feature'>
-  Screenshot of the tile card with the cover tilt preset feature
+  <img src='/images/dashboards/features/cover_tilt_favorite.png' alt='Screenshot of the tile card with the cover favorite tilt positions feature'>
+  Screenshot of the tile card with the cover favorite tilt positions feature
 </p>
 
 ```yaml
 features:
-  - type: "cover-tilt-preset"
-    positions:
-      - 0
-      - 25
-      - 75
-      - 100
+  - type: "cover-tilt-favorite"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`cover-tilt-preset`"
+  description: "`cover-tilt-favorite`"
   type: string
-positions:
-  required: false
-  description: List of preset tilt positions to show on the card. Values are percentages from 0 to 100, and you can configure up to 6 positions.
-  type: list
-  default:
-    - 0
-    - 25
-    - 75
-    - 100
 {% endconfiguration %}
 
 ## Cover tilt position
@@ -443,13 +419,13 @@ Widget that displays a button to select a date using the date picker dialog for 
 
 ```yaml
 features:
-  - type: "date"
+  - type: "date-set"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`date`"
+  description: "`date-set`"
   type: string
 {% endconfiguration %}
 
@@ -656,6 +632,29 @@ type:
   type: string
 {% endconfiguration %}
 
+## Light color favorites
+
+Widget that displays a set of buttons to select a color for a [light](/integrations/light) from a list of favorites.
+
+You can customize favorites in a light's more-info dialog. The feature shows as many favorites as fit in the available width, following the favorites' sort order.
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_color_favorites.png' alt='Screenshot of the tile card with the light color favorites feature'>
+  Screenshot of the tile card with the light color favorites feature
+</p>
+
+```yaml
+features:
+  - type: "light-color-favorites"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color-favorites`"
+  type: string
+{% endconfiguration %}
+
 ## Light color temp
 
 Widget that displays a slider to select the color temperature for a [light](/integrations/light).
@@ -731,6 +730,11 @@ Widget that displays playback controls for a [media player](/integrations/media_
 ```yaml
 features:
   - type: "media-player-playback"
+    controls:
+      - media_play_pause
+      - media_previous_track
+      - media_next_track
+      - volume_mute
 ```
 
 {% configuration features %}
@@ -738,6 +742,68 @@ type:
   required: true
   description: "`media-player-playback`"
   type: string
+controls:
+  required: false
+  description: "List of controls to show on the card. The list can contain `turn_on`, `turn_off`, `media_play`, `media_pause`, `media_play_pause`, `media_stop`, `media_previous_track`, `media_next_track`, `volume_down`, `volume_up`, `volume_mute`, `shuffle`, and `repeat`. When not specified, the controls are determined automatically based on the capabilities of the media player entity."
+  type: list
+{% endconfiguration %}
+
+## Media player sound mode
+
+Widget that displays a dropdown to select the sound mode for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_sound_mode.png' alt='Screenshot of the tile card with media player sound mode feature'>
+  Screenshot of the tile card with media player sound mode feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-sound-mode"
+    sound_modes:
+      - "movie"
+      - "music"
+      - "game"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-sound-mode`"
+  type: string
+sound_modes:
+  required: false
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Developer tools** > **States**" %}. When not specified, all available sound modes are shown."
+  type: list
+{% endconfiguration %}
+
+## Media player source
+
+Widget that displays a dropdown to select the source for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_source.png' alt='Screenshot of the tile card with media player source feature'>
+  Screenshot of the tile card with media player source feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-source"
+    sources:
+      - "AirPlay"
+      - "SHIELD"
+      - "NET RADIO"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-source`"
+  type: string
+sources:
+  required: false
+  description: "List of sources to show in the dropdown. Use this to filter or reorder the available sources. The source names depend on your device. When not specified, all available sources are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player volume buttons
@@ -764,6 +830,11 @@ step:
   description: "The step size of the volume. The default is 5%."
   type: integer
   default: 5
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Media player volume slider
@@ -785,6 +856,11 @@ type:
   required: true
   description: "`media-player-volume-slider`"
   type: string
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Numeric input
@@ -1014,6 +1090,29 @@ type:
   type: string
 {% endconfiguration %}
 
+## Valve favorite positions
+
+Widget that displays a dropdown with favorite positions for a [valve](/integrations/valve).
+
+You can customize favorites in a valve's **More info** dialog. To edit them, press and hold a favorite.
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position_favorite.png' alt='Screenshot of the tile card with the valve favorite positions feature'>
+  Screenshot of the tile card with the valve favorite positions feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position-favorite"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position-favorite`"
+  type: string
+{% endconfiguration %}
+
 ## Water heater operation modes
 
 Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
@@ -1075,4 +1174,102 @@ controls:
   required: true
   description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
   type: list
+{% endconfiguration %}
+
+## Temperature forecast
+
+Widget that displays a bar chart of the upcoming high and low temperatures for a [weather](/integrations/weather) entity. When the forecast type is set to hourly, a filled curve is shown instead. By default, the bars use a temperature-aware gradient with cool blues for the lowest values and warm reds for the highest values.
+
+<p class='img'>
+  <img src='/images/dashboards/features/temperature_forecast.png' alt='Screenshot of the tile card with the temperature forecast feature'>
+  Screenshot of the tile card with the temperature forecast feature
+</p>
+
+```yaml
+features:
+  - type: "temperature-forecast"
+    forecast_type: daily
+    days_to_show: 7
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`temperature-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "The forecast resolution to display. The value can be `daily`, `twice_daily`, or `hourly`. When not specified, the best resolution supported by the entity is used, in this order: `daily`, `twice_daily`, `hourly`."
+  type: string
+days_to_show:
+  required: false
+  description: "Number of days to show in the chart. Used when `forecast_type` is `daily` or `twice_daily`."
+  type: integer
+  default: 7
+hours_to_show:
+  required: false
+  description: "Number of hours to show in the chart. Used when `forecast_type` is `hourly`."
+  type: integer
+  default: 24
+color:
+  required: false
+  description: "Color to use for the bars or curve. Accepts any Home Assistant color token or CSS color value. When not specified, a temperature-aware gradient is used."
+  type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+## Precipitation forecast
+
+Widget that displays a bar chart of the upcoming precipitation for a [weather](/integrations/weather) entity. You can choose between showing the precipitation amount or the precipitation probability. Empty slots are shown as a small dot to keep the timeline easy to read.
+
+<p class='img'>
+  <img src='/images/dashboards/features/precipitation_forecast.png' alt='Screenshot of the tile card with the precipitation forecast feature'>
+  Screenshot of the tile card with the precipitation forecast feature
+</p>
+
+```yaml
+features:
+  - type: "precipitation-forecast"
+    forecast_type: daily
+    days_to_show: 7
+    precipitation_type: amount
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`precipitation-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "The forecast resolution to display. The value can be `daily`, `twice_daily`, or `hourly`. When not specified, the best resolution supported by the entity is used, in this order: `daily`, `twice_daily`, `hourly`."
+  type: string
+days_to_show:
+  required: false
+  description: "Number of days to show in the chart. Used when `forecast_type` is `daily` or `twice_daily`."
+  type: integer
+  default: 7
+hours_to_show:
+  required: false
+  description: "Number of hours to show in the chart. Used when `forecast_type` is `hourly`."
+  type: integer
+  default: 24
+precipitation_type:
+  required: false
+  description: "What to display on the chart. The value can be `amount` to show the precipitation amount, or `probability` to show the chance of precipitation."
+  type: string
+  default: amount
+color:
+  required: false
+  description: "Color to use for the bars. Accepts any Home Assistant color token or CSS color value. Defaults to the rainy weather state color."
+  type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
 {% endconfiguration %}

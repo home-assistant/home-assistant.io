@@ -105,7 +105,7 @@ The `timer.change` action changes an active timer. This changes the duration of 
 
 ### Action: Pause
 
-The `timer.pause` action pauses a running timer. This will retain the remaining duration for later continuation. To resume a timer use the `timer.start` action without passing a duration. You can also use `entity_id: all` and all active timers will be paused. 
+The `timer.pause` action pauses a running timer. This will retain the remaining duration for later continuation. To resume a timer use the `timer.start` action without passing a duration. You can also use `entity_id: all` and all active timers will be paused.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

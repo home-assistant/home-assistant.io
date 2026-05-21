@@ -68,10 +68,14 @@ The Ohme integration provides the following entities.
 - **Preconditioning duration**
   - **Description**: Defines how long to precondition your vehicle before the target time. `0` means preconditioning is disabled.
   - **Available for devices**: all
+- **State of charge input**
+  - **Description**: Used to set the current state of charge for non-API connected vehicles. This will only function when a vehicle is connected. For more information, refer to the related [Ohme documentation](https://ohme-ev.com/support/how-to-set-your-battery-level-when-you-plug-in).
+  - **Available for devices**: all
+  - **Note**: This input is disabled by default.
 
 #### Selects
 
-- **Charger mode**
+- **Charge mode**
   - **Description**: Sets the mode of the charger. Possible options: `Smart charge`, `Max charge`, `Paused`. This is only available with a vehicle plugged in.
   - **Available for devices**: all
 - **Vehicle**
@@ -104,6 +108,9 @@ The Ohme integration provides the following entities.
 - **Price cap**
   - **Description**: Prevents charging when the electricity price exceeds a defined threshold. The threshold can be set by the service `ohme.set_price_cap`. ***Not available with some energy providers and tariffs.***
   - **Available for devices**: all
+- **Solar boost**
+  - **Description**: Uses excess solar power when available.
+  - **Available for devices**: Home Pro (CT clamp required)
 - **Lock buttons**
   - **Description**: Disable the controls on the device.
   - **Available for devices**: all
@@ -147,7 +154,7 @@ The `ohme.set_price_cap` action is used to set the price cap threshold. This can
 This integration enables several use cases to optimise efficiency of a solar and/or battery storage system.
 
 ### Solar charging
-Use the charger mode to maximize solar consumption:
+Use the charge mode to maximize solar consumption:
 - Set the charger to "Paused" when solar production is low
 - Switch to "Max charge" during peak solar hours
 
@@ -162,7 +169,6 @@ If you have a home battery system:
 
 To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
 
-{% raw %}
 ```yaml
 # Example automation
 triggers:
@@ -175,8 +181,6 @@ actions:
     data:
       message: "Vehicle plugged in"
 ```
-{% endraw %}
-
 
 ## Troubleshooting
 

@@ -93,16 +93,12 @@ The **ntfy** integration will add a {% term device %} with an associated notify 
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: notify.send_message
 data:
   message: "Reminder: Have you considered frogs?"
   entity_id: notify.mytopic
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -113,8 +109,6 @@ An {% term event %} {% term entity %} is created for each configured topic. Thes
 You can use {% term event %} {% term entities %} in automations. For example, to trigger actions in Home Assistant, or to forward notifications to other devices for further processing or alerting.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -128,8 +122,6 @@ actions:
     data:
       message: "Received new ntfy notification"
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -168,8 +160,6 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: ntfy.publish
 data:
@@ -198,8 +188,6 @@ data:
 target:
   entity_id: notify.mytopic
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -269,8 +257,6 @@ The `ntfy.clear` action dismisses a previously sent message from a ntfy topic by
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: ntfy.clear
 target:
@@ -278,8 +264,6 @@ target:
 data:
   sequence_id: my-download-123
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -293,8 +277,6 @@ The `ntfy.delete` action deletes a message from a ntfy topic.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: ntfy.delete
 target:
@@ -302,8 +284,6 @@ target:
 data:
   sequence_id: my-download-123
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

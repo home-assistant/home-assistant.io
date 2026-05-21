@@ -1,6 +1,7 @@
 ---
 title: "Join the Community"
 description: "Part of the Home Assistant experience is the large world-wide community of tinkerers. Join us."
+toc: false
 ---
 
 You made it here? Good job! You've been able to install Home Assistant and get a small taste of all the things that are possible.

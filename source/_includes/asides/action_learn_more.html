@@ -1,0 +1,10 @@
+<li>{% active_link /docs/scripts/service-calls/ About actions %}</li>
+<li>{% active_link /docs/automation/action/ Actions in automations %}</li>
+<li>{% active_link /docs/scripts/ Scripts %}</li>
+{%- assign current_domain = site.data.action_domains | where: "key", page.domain | first -%}
+{%- if current_domain.learn_more -%}
+  {%- for item in current_domain.learn_more -%}
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  {%- endfor -%}
+{%- endif -%}
+<li>{% active_link /actions/ All actions %}</li>

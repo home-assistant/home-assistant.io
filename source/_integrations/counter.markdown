@@ -93,7 +93,7 @@ The `counter.increment` action allows you to increment the counter with 1 or the
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 
 ### Action: Decrement
 
@@ -101,7 +101,7 @@ The `counter.decrement` action allows you to decrement the counter with 1 or the
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 
 ### Action: Reset
 
@@ -109,7 +109,7 @@ The `counter.reset` action allows you to reset the counter to its initial value.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 
 ### Action: Set value
 
@@ -117,7 +117,7 @@ The `counter.set_value` action allows you to set the counter to a specific value
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 | `value`                | yes      | Set the counter to the given value.                                   |
 
 ### Use the action

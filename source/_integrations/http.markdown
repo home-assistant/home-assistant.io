@@ -123,6 +123,12 @@ http:
 When a network mask is provided, you must use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`).
 {% endimportant %}
 
+{% note %}
+
+The `use_x_forwarded_for` and `trusted_proxies` settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel without `X-Forwarded-*` headers containing the original client IP address. For cloud connections, these settings have no effect, and all requests appear as coming from `127.0.0.1`.
+
+{% endnote %}
+
 ## APIs
 
 On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
@@ -140,6 +146,12 @@ All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistates
 ## IP filtering and banning
 
 If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
+
+{% note %}
+
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Banning `127.0.0.1` would block _all_ cloud connections.
+
+{% endnote %}
 
 ```yaml
 127.0.0.1:

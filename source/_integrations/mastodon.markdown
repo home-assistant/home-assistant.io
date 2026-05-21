@@ -16,16 +16,23 @@ ha_platforms:
   - sensor
 ha_integration_type: service
 ha_config_flow: true
-ha_quality_scale: silver
+ha_quality_scale: gold
 ---
 
-The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
+The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates, get account statistics, and mute accounts.
+
+## Use cases
+
+- Posting your local weather station details to your Mastodon account.
+- Displaying a count of your followers on your Home Assistant dashboard.
+- Receiving a notification when an account you follow publishes a new status.
+- Muting accounts when you are busy or away to reduce your timeline.
 
 ## Setup
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
 
-Select at a minimum the following scopes: **read:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
+Select at a minimum the following scopes: **read:accounts**, **write:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
 
 Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
@@ -128,6 +135,10 @@ The `mastodon.post` action posts a status to your Mastodon account.
   - **Description**: If not used, will default to account setting. `public`: post will be public. `unlisted`: post will be public but not appear on the public timeline. `private`: post will only be visible to followers. `direct`: post will only be visible to mentioned users.
   - **Optional**: Yes
 
+- **Data attribute**: `quote_approval_policy`
+  - **Description**: If not used, will default to account setting. If `visibility` is `private` or `direct` this attribute is ignored. `public`: anyone can quote this post. `followers`: only accounts that follow you can quote this post. `nobody`: no one but you can quote this post.
+  - **Optional**: Yes
+
 - **Data attribute**: `idempotency_key`
   - **Description**: A unique key to prevent duplicate posts for up to one hour. Common strategies include using a hash of the status text or a static string.
   - **Optional**: Yes
@@ -156,13 +167,49 @@ The `mastodon.post` action posts a status to your Mastodon account.
 Mastodon holds idempotency keys for up to one hour and subsequent posts using the same key will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant.
 {% endnote %}
 
+### Action: Update profile
+
+The `mastodon.update_profile` action allows you to update information and pictures of your Mastodon account.
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mastodon config entry.
+  - **Optional**: No
+- **Data attribute**: `display_name`
+  - **Description**: The display name to set on your profile.
+  - **Optional**: Yes
+- **Data attribute**: `note`
+  - **Description**: The bio to set on your profile. You can @mention other people or #hashtags.
+  - **Optional**: Yes
+- **Data attribute**: `avatar`
+  - **Description**: An image to set as your profile picture. WEBP, PNG, or JPG. At most 8 MB. Will be downscaled to 400x400px.
+  - **Optional**: Yes
+- **Data attribute**: `header`
+  - **Description**: An image to set as your profile header. WEBP, PNG, or JPG. At most 8 MB. Will be downscaled to 1500x500px.
+  - **Optional**: Yes
+- **Data attribute**: `locked`
+  - **Description**: Whether to lock your profile. A locked profile requires you to approve followers and hides your posts from non-followers.
+  - **Optional**: Yes
+- **Data attribute**: `bot`
+  - **Description**: Signal to others that the account mainly performs automated actions.
+  - **Optional**: Yes
+- **Data attribute**: `discoverable`
+  - **Description**: Whether your profile should be discoverable. Public posts and the profile may be featured or recommended across Mastodon.
+  - **Optional**: Yes
+- **Data attribute**: `fields`
+  - **Description**: Up to 4 additional profile fields as key-value pairs. Your homepage, pronouns, age, anything you want. Note that updating fields will replace all existing fields, not just the ones specified here.
+  - **Optional**: Yes
+  - **Keys**:
+    - `name`: The label for the field.
+    - `value`: The value for the field.
+- **Data attribute**: `attribution_domains`
+  - **Description**: Websites allowed to credit you. Protects from false attributions. Note that setting attribution domains will replace all existing attribution domains, not just the ones specified here.
+  - **Optional**: Yes
+
 ### Examples
 
 {% details "Example status post action" %}
 
 Example post action that will post a status using your account's default visibility:
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -171,15 +218,11 @@ Example post action that will post a status using your account's default visibil
     status: "A toot from Home Assistant"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example private post action" %}
 
 This will post a status to Mastodon, but visibility is marked as `private` so only followers will see it.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -189,15 +232,11 @@ This will post a status to Mastodon, but visibility is marked as `private` so on
     visibility: private
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example status post action avoiding recent duplication" %}
 
 Example post action that will post a status, but ensure that the same status is not posted more than once within one hour. This check is performed by your Mastodon instance.
-
-{% raw %}
 
 ```yaml
 actions:
@@ -210,15 +249,11 @@ actions:
       idempotency_key: {{ toot | md5 }}
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example media post action" %}
 
 This will post a status to Mastodon that includes an image.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -228,15 +263,11 @@ This will post a status to Mastodon that includes an image.
     media: /config/www/funny_meme.png
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example post with media and a content warning that will not be visible in the public timeline" %}
 
 This will post a status to Mastodon that includes an image, with a description, a content warning, and a visibility of `unlisted`, so it doesn't show in the public timeline.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -249,15 +280,11 @@ This will post a status to Mastodon that includes an image, with a description, 
     content_warning: "This might not be funny enough"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example of muting an account you follow while you are on holiday" %}
 
 This automation will look for an event in your calendar and mute the specified account while the event is active, and unmute at the end of the event.
-
-{% raw %}
 
 ```yaml
 alias: Mastodon mute example
@@ -293,8 +320,6 @@ actions:
               account_name: "@commute-news@mytown.online"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 For more on how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
@@ -302,6 +327,8 @@ For more on how to use notifications in your automations, please see the [gettin
 ## Known limitations
 
 The integration does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+
+Mastodon account details only show the date of the last status you posted, not the time. If you use the `mastodon.get_account` action to monitor new posts, you should instead watch the `statuses_count` field in the action response for changes.
 
 ## Troubleshooting
 

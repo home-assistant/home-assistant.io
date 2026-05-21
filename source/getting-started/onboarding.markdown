@@ -1,12 +1,13 @@
 ---
 title: "Onboarding Home Assistant"
 description: "Instructions to get Home Assistant configured."
+toc: false
 ---
 
 After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to complete setting up Home Assistant.
 
 1. Enter the following URL into the browser's address bar: [http://homeassistant.local:8123/](http://homeassistant.local:8123/).
-   - **Result**: You now see the **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
+   - Result: You now see the **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
      - Home Assistant downloads the latest version of {% term "Home Assistant Core" %} (about 700&nbsp;MB).
    - If you ran into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
    - Once preparation is finished, the welcome screen is shown.

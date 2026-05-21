@@ -34,7 +34,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP address of the device running Channels, e.g., 192.168.1.50.
+  description: The IP address of the device running Channels, for example, `192.168.1.50`.
   required: true
   type: string
 port:
@@ -43,7 +43,7 @@ port:
   default: 57000
   type: integer
 name:
-  description: The name of the Channels instance in Home Assistant, e.g., Family Room Channels.
+  description: The name of the Channels instance in Home Assistant, for example, `Family Room Channels`.
   required: false
   default: Channels
   type: string
