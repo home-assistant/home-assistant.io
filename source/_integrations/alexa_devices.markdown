@@ -4,7 +4,7 @@ description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
   - Button
-  - Notify
+  - Notifications
   - Sensor
   - Switch
 ha_release: '2025.6'
