@@ -147,12 +147,7 @@ Read more about the [HomeWizard charging strategies](https://helpdesk.homewizard
 You can find the **Battery group charging strategy** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, the **Battery group charging strategy** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
 
 {% tip %}
-"Net zero (charge only)" and "Net zero (discharge only)" are only available for the P1 Meter and kWh Meter with API version 2.2.0 or higher, which requires the following firmware versions:
-
-- P1 Meter with firmware version 6.0300 or higher
-- kWh Meter with firmware version 5.0100 or higher
-
-"Smart charging" is only available for the P1 Meter and kWh Meter with API version 2.3.0 or higher, which requires the following firmware versions:
+**Smart charging** is available for the P1 Meter and kWh Meter with API version 2.3.0 or higher, which requires the following firmware versions:
 
 - P1 Meter with firmware version 6.0400 or higher
 - kWh Meter with firmware version 5.0200 or higher
