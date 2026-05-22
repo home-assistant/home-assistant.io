@@ -16,7 +16,7 @@ ha_quality_scale: bronze
 ha_zeroconf: true
 ---
 
-The **Kii Audio** {% term integration %} lets you control Kii Audio systems from Home Assistant over the local network. Home Assistant represents each Kii zone as a media player entity.
+The **Kii Audio** {% term integration %} lets you control [Kii Audio systems](https://www.kiiaudio.com/) from Home Assistant over the local network. Home Assistant represents each Kii zone as a media player entity.
 
 ## Supported devices
 
@@ -26,7 +26,7 @@ The integration supports Kii Audio systems running device software version `1_1_
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your Kii system on the local network. If discovery does not work, you can usually find this in your router's client list or in the Kii app."
+  description: "The hostname or IP address of your Kii system on the local network, for example `192.168.1.25` or `kii-seven-88A6EF900414.local`. If discovery does not work, you can usually find this in your router's client list or in the Kii app."
 System ID:
   description: "The unique identifier of your Kii system. You can find it in the system information for your setup."
 {% endconfiguration_basic %}
