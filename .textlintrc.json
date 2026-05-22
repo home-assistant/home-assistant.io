@@ -5,6 +5,7 @@
       "allow": [
         "2fa:",
         "alexa:",
+        "homeassistant",
         "homeassistant:",
         "homekit:",
         "led:",
