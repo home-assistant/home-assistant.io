@@ -3397,3 +3397,73 @@ For a summary in a more readable format
 [@lumatijev]: https://github.com/lumatijev
 [@mib1185]: https://github.com/mib1185
 [@puddly]: https://github.com/puddly
+
+## Release 2026.5.4 - May 22
+
+- Apply web search citation stripping for GPT-5.x models in OpenAI conversation ([@frenck] - [#170956])
+- Bump aiolyric to 2.1.0 ([@yonib05] - [#171007])
+- Bump python-roborock to 5.12.0 ([@Lash-L] - [#171112])
+- Add missing Miele Dishwasher codes ([@astrandb] - [#171175])
+- Bump aiolyric to 2.1.1, Update OAuth URL for lyric ([@timmo001] - [#171181])
+- Fix ZHA blocking minor version downgrades ([@TheJulianJES] - [#171319])
+- Bump aiodns to 4.0.4 ([@bdraco] - [#171420])
+- Bump renault-api to 0.5.9 ([@epenet] - [#171428])
+- Fix SmartThings crash when timestamp attribute is None ([@frenck] - [#171467])
+- Fix habitica ignoring zero values for interval and streak ([@frenck] - [#171468])
+- Fix PowerView cover crash when shade position is unavailable ([@frenck] - [#171471])
+- Fix Wyoming satellite crash when TTS is not configured ([@frenck] - [#171513])
+- Fix string ref for tedee ([@zweckj] - [#171548])
+- Fix `media_image_hash` and validate the MIME type in the Shelly media player ([@bieniu] - [#171585])
+- Fix update error message key in solarlog ([@dontinelli] - [#171611])
+- Bump wled to 0.23.0 and remove backoff exception ([@mik-laj] - [#171622])
+- Bump renault-api to 0.5.10 ([@epenet] - [#171692])
+- Fix exception translation placeholder mismatches in comelit ([@chemelli74] - [#171748])
+- Add missing exception translation keys in alexa_devices ([@chemelli74] - [#171749])
+- Fix ZBT-2 hardware page crash when entry data is missing VID ([@frenck] - [#171828])
+- Fix Lutron Caseta battery sensor crash on unsupported devices ([@frenck] - [#171829])
+- Fix invalid MDI icon references ([@frenck] - [#171831])
+- Register Insteon modem device before platform setup ([@frenck] - [#171839])
+- Fix OpenHome config flow crash when UDN is a list ([@frenck] - [#171841])
+- Fix Hue device trigger crash for devices removed from bridge ([@frenck] - [#171844])
+- Fix dead link in System Bridge service action ([@tr4nt0r] - [#171855])
+
+[#170956]: https://github.com/home-assistant/core/pull/170956
+[#171007]: https://github.com/home-assistant/core/pull/171007
+[#171112]: https://github.com/home-assistant/core/pull/171112
+[#171175]: https://github.com/home-assistant/core/pull/171175
+[#171181]: https://github.com/home-assistant/core/pull/171181
+[#171319]: https://github.com/home-assistant/core/pull/171319
+[#171420]: https://github.com/home-assistant/core/pull/171420
+[#171428]: https://github.com/home-assistant/core/pull/171428
+[#171467]: https://github.com/home-assistant/core/pull/171467
+[#171468]: https://github.com/home-assistant/core/pull/171468
+[#171471]: https://github.com/home-assistant/core/pull/171471
+[#171513]: https://github.com/home-assistant/core/pull/171513
+[#171548]: https://github.com/home-assistant/core/pull/171548
+[#171585]: https://github.com/home-assistant/core/pull/171585
+[#171611]: https://github.com/home-assistant/core/pull/171611
+[#171622]: https://github.com/home-assistant/core/pull/171622
+[#171692]: https://github.com/home-assistant/core/pull/171692
+[#171748]: https://github.com/home-assistant/core/pull/171748
+[#171749]: https://github.com/home-assistant/core/pull/171749
+[#171828]: https://github.com/home-assistant/core/pull/171828
+[#171829]: https://github.com/home-assistant/core/pull/171829
+[#171831]: https://github.com/home-assistant/core/pull/171831
+[#171839]: https://github.com/home-assistant/core/pull/171839
+[#171841]: https://github.com/home-assistant/core/pull/171841
+[#171844]: https://github.com/home-assistant/core/pull/171844
+[#171855]: https://github.com/home-assistant/core/pull/171855
+[@Lash-L]: https://github.com/Lash-L
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@astrandb]: https://github.com/astrandb
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@chemelli74]: https://github.com/chemelli74
+[@dontinelli]: https://github.com/dontinelli
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@mik-laj]: https://github.com/mik-laj
+[@timmo001]: https://github.com/timmo001
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@yonib05]: https://github.com/yonib05
+[@zweckj]: https://github.com/zweckj
