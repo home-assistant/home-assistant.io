@@ -5,7 +5,7 @@ ha_category:
   - Media Player
 ha_iot_class: Cloud Push
 ha_release: 2026.6
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
   - '@cdnninja'
@@ -70,15 +70,6 @@ The integration provides one media player entity per Yoto player. Each entity su
 
 Yoto players cannot be powered on remotely. Home Assistant reports the player as _off_ when it is offline but cannot wake it up.
 
-### Play media
-
-When you use the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action, pass the Yoto card identifier in `media_content_id` and set `media_content_type` to `music`. The action also requires `media_content_type`.
-
-The `media_content_id` value supports two formats:
-
-- A bare card ID. Playback starts from the beginning of the card.
-- A structured ID in the form `<card_id>+<chapter_key>+<track_key>+<seconds_in>`. Each segment after the card ID is optional. Leave a segment empty to keep its default.
-
 ## Data updates
 
 The integration receives real-time playback updates from each Yoto player over MQTT. To keep the reported status fresh even when the player has not changed state, the integration also requests a status snapshot from each player every 60 seconds.
@@ -89,7 +80,7 @@ The player's online or offline state comes from the Yoto cloud REST API, which t
 
 - The online and offline state of a player can lag by up to 5 minutes because the Yoto cloud only exposes this through polling.
 - Yoto players cannot be powered on or off from Home Assistant.
-- Browsing your card library from the media player UI is not supported yet. You need to know the card ID to start playback through the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action.
+- Starting playback of a specific card from Home Assistant is not supported yet. You can control playback that is already running on the player, but you cannot tell the player which card to play.
 
 ## Removing the integration
 
