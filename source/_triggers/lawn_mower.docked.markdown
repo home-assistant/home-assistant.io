@@ -109,7 +109,7 @@ automation: |
 
 ### Automation: Turn off the patio light after the mower is back
 
-If the mower returns after sunset, you can leave the patio light on for the trip back, then turn it off once the mower has safely docked.
+If you turn on the patio light earlier in the mowing routine to help the mower reach the dock, this trigger is a good way to end that routine. Waiting 30 seconds after docking gives the mower time to settle before the automation runs.
 
 - **Trigger**: Lawn mower returned to dock
   - **Target**: Backyard mower
