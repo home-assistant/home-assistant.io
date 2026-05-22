@@ -103,16 +103,16 @@ The integration provides an update component, which will notify you when a new v
 
 ## Notifiers
 
-The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on how to use **Notifiers** in automations, please see the [getting started with automation page](/getting-started/automation/).
+The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
 
 {% example %}
 action: |
   action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     title: "Reminder"
     message: "Have you considered frogs?"
-  target:
-    entity_id: notify.my_device
 {% endexample %}
 
 ## Actions
