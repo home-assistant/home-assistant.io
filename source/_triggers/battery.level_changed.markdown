@@ -126,7 +126,7 @@ threshold:
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every reading update regardless of direction or where the new value lands.
 - To react only when a battery level first crosses a specific value, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
-- Pair this trigger with [Battery level](/conditions/battery.is_level/) in follow-up conditions to verify the reading meets a threshold before continuing the automation.
+- Pair this trigger with the Battery level condition to verify the reading meets a threshold before continuing the automation.
 - The trigger works with sensors that have the battery device class.
 
 {% include triggers/try_it.md %}

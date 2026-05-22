@@ -91,11 +91,11 @@ trigger: |
       value_min:
         number: 20
       value_max:
-        number: 100
+        number: 99
     behavior: last
 {% endexample %}
 
-This fires once both sensors have charged back into the 20–100% range.
+This fires once both sensors have charged back into the 20–99% range (effective zone: 21%–98%, because `between` is exclusive on both bounds).
 
 To use a number helper as a dynamic threshold you can adjust without editing the automation:
 
@@ -140,9 +140,9 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires. Accepts:
 
-    - `any`: fire every time any targeted entity crosses the threshold.
-    - `first`: fire only on the first crossing.
-    - `last`: fire only after every targeted entity crosses the threshold.
+    - `any`: fires every time any targeted entity crosses the threshold.
+    - `first`: fires only on the first crossing.
+    - `last`: fires only after every targeted entity crosses the threshold.
   required: false
   type: string
   default: any
@@ -162,8 +162,8 @@ for:
 
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
-- Pair this trigger with [Battery level changed](/triggers/battery.level_changed/) if you also want to react to smaller fluctuations between crossings.
-- Pair this trigger with [Battery level](/conditions/battery.is_level/) in follow-up conditions to double-check the final state.
+- Pair this trigger with the [Battery level changed](/triggers/battery.level_changed/) trigger if you also want to react to smaller fluctuations between crossings.
+- Pair this trigger with the Battery level condition to double-check the final state.
 - The trigger works with sensors that have the battery device class.
 
 {% include triggers/try_it.md %}
