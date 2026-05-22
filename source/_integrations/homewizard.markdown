@@ -42,17 +42,17 @@ You have to enable the local API to allow Home Assistant to communicate with you
 {% tip %}
 You can skip this step if you are configuring one of the following devices:
 
-- Wi-Fi P1 Meter with firmware version 6 or higher
-- Wi-Fi kWh Meter with firmware version 5 or higher
+- P1 Meter
+- kWh Meter
 - Plug-In Battery
 
 These products use a different authentication method that doesn't require enabling the local API.
 {% endtip %}
 
-  1. Go to Settings (gear icon in the upper-right).
-  2. Go to 'Meters'.
+  1. Go to **Settings** (gear icon in the upper-right).
+  2. Go to **Meters**.
   3. Select your device.
-  4. Scroll down and turn on 'Local API'.
+  4. Scroll down and turn on **Local API**.
 
 {% include integrations/config_flow.md %}
 
