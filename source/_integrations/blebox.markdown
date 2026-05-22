@@ -31,10 +31,29 @@ ha_zeroconf: true
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).
 
+## Prerequisites
+
+Before Home Assistant can discover your BleBox device, it must be connected to your Wi-Fi network.
+
+1. Follow the [BleBox getting started guide](https://blebox.eu/start) to connect your device to your Wi-Fi network using the wBox app.
+2. Once connected, Home Assistant can discover the device automatically. If your device is on a different network segment, you will need to add it manually using its IP address.
+
+{% note %}
+For the best experience, make sure your BleBox devices have the most recent available firmware installed.
+{% endnote %}
+
 {% include integrations/config_flow.md %}
 
-For the best experience, make sure your BleBox devices have the most recent available firmware installed.
-
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your BleBox device. You can find it in your router or in the wBox app."
+Port:
+  description: "The port used to communicate with your BleBox device. The default port is `80`."
+Username:
+  description: "The username for your BleBox device, if you have set up access credentials. This is optional."
+Password:
+  description: "The password for your BleBox device, if you have set up access credentials. This is optional."
+{% endconfiguration_basic %}
 
 ## BleBox controllers
 
@@ -469,7 +488,6 @@ Integrating actionBox, actionBoxS, or proxiBox with Home Assistant using webhook
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
-
 
 #### Generating the compatible webhook in Home Assistant
 
@@ -1057,3 +1075,9 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to configure the number of phases (1 or 3) is available in the wBox app.
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your BleBox devices.
+
+{% include integrations/remove_device_service.md %}
