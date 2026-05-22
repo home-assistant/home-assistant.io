@@ -93,7 +93,7 @@ actions:
 
 ### No battery level sensor available
 
-This will be available in the next release of this integration.
+The battery level sensor is not currently available in this integration.
 
 ## Removing the integration
 
