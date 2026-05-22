@@ -334,19 +334,17 @@ Because the action returns data, use `response_variable` to capture the results 
 
 ### Example: Search and add all matching tracks to the queue
 
-This example searches for all tracks matching "love"; clears the queue, adds the first 10 results to the queue and then plays the queue:
+This example searches for all tracks matching "love", clears the queue, adds the first 10 results to the queue, and then plays the queue:
 
 ```yaml
 actions:
   - action: media_player.search_media
     data:
-      search_query: love
+      search_query: "love"
       media_content_type: track
     response_variable: results
     target:
       entity_id: media_player.kitchen
-  - variables:
-      tracks: "{{ results['media_player.kitchen']['result'] }}"
   - action: media_player.clear_playlist
     target:
       entity_id: media_player.kitchen
@@ -364,7 +362,7 @@ actions:
                 1]['media_content_id'] }}
               media_content_type: >-
                 {{ results['media_player.kitchen']['result'][repeat.index -
-                1]['media_content_type']  }}
+                1]['media_content_type'] }}
   - action: sonos.play_queue
     target:
       entity_id: media_player.kitchen
