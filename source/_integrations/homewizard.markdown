@@ -159,7 +159,7 @@ _This feature is not available for the kWh Meter._
 
 ## Cloud communication
 
-The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
+The HomeWizard devices are designed to work with the HomeWizard app and require communication with the HomeWizard cloud to function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
 
 This feature is not available for the Plug-In Battery. Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
@@ -173,7 +173,7 @@ If you know the energy characteristics of your washing machine, you can create a
 
 ### Add your Energy data to the Energy dashboard
 
-The HomeWizard Energy integration provides data that can be used in the Energy dashboard. To add your data to the Energy dashboard, follow the steps in the [Energy dashboard documentation](/home-energy-management).
+The HomeWizard integration provides data that can be used in the Energy dashboard. To add your data to the Energy dashboard, follow the steps in the [Energy dashboard documentation](/home-energy-management).
 
 ## Data fetching interval
 
@@ -197,9 +197,9 @@ The P1 Meter is updated by the smart meter, which usually updates every 1 or 10 
 
 It may happen that you can't find your devices or they won't show up in the integration setup. This can be caused by the following:
 
-- The device is not connected to the network. You have to connect your new device to the network first via the HomeWizard Energy app.
+- The device is not connected to the network. You have to connect your new device to the network first via the HomeWizard app.
 - Make sure you have updated the device to the latest firmware. Follow this guide to learn how to update your device: [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
-- Make sure you have enabled the local API in device settings via the HomeWizard Energy app.
+- Make sure you have enabled the local API in device settings via the HomeWizard app.
 - Make sure both Home Assistant and the device are on the same network.
 
 ### Which button do I need to press to configure the device?
