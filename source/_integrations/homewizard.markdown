@@ -131,20 +131,20 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 - **State of charge (%)**: The current state of charge of the battery.
 - **Status light brightness**: Controls the brightness of the LED strip. Error statuses are always visualized, even when the brightness is set to 0.
 
-#### Battery group mode
+#### Battery group charging strategy
 
-The group of connected Plug-In Batteries can be controlled in three different modes using the **Battery group mode** select entity:
+The group of connected Plug-In Batteries can be controlled in different modes using the **Battery group charging strategy** select entity:
 
-- **Zero mode**: In this mode, the Plug-In Battery works to keep your home's net power consumption or production as close to zero as possible. The battery will automatically charge or discharge to maintain a balanced power flow. This is the default setting and helps you maximize self-consumption and minimize grid interaction.
-- **Zero mode (charge only)**: The Plug-In Battery will only charge to absorb excess solar production, aiming to keep your home's power production at zero. Discharging is disabled in this mode. This is useful if you want to store solar energy for later use, such as during the evening or when energy prices are higher.
-- **Zero mode (discharge only)**: The Plug-In Battery will only discharge to supply power when your home's consumption exceeds solar production, aiming to keep your home's power consumption at zero. Charging is disabled in this mode. This can be helpful when energy prices are high and you prefer to use stored energy or sell excess solar production to the grid.
-- **Manual charge mode**: All connected Plug-In Batteries will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
-- **Standby**: Batteries will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
+- **Net zero**: In this charging strategy, the Plug-In Battery works to keep your home's net power consumption or production as close to zero as possible. The battery will automatically charge or discharge to maintain a balanced power flow. This is the default setting and helps you maximize self-consumption and minimize grid interaction.
+- **Net zero (charge only)**: The Plug-In Battery will only charge to absorb excess solar production, aiming to keep your home's power production at zero. Discharging is disabled in this mode. This is useful if you want to store solar energy for later use, such as during the evening or when energy prices are higher.
+- **Net zero (discharge only)**: The Plug-In Battery will only discharge to supply power when your home's consumption exceeds solar production, aiming to keep your home's power consumption at zero. Charging is disabled in this mode. This can be helpful when energy prices are high and you prefer to use stored energy or sell excess solar production to the grid.
+- **One-time full charge**: All connected Plug-In Batteries will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
+- **Standby**: Plug-In Batteries will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
 
-You can find the **Battery group mode** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, the **Battery group mode** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for how to enable it.
+You can find the **Battery group charging strategy** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, the **Battery group charging strategy** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
 
 {% tip %}
-"Zero mode (charge only)" and "Zero mode (discharge only)" are only available for:
+"Net zero (charge only)" and "Net zero (discharge only)" are only available for:
 
 - P1 Meter with firmware version 6.0300 or higher
 - kWh Meter with firmware version 5.0100 or higher
@@ -212,7 +212,7 @@ It may happen that you can't find your devices or they won't show up in the inte
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
     
-## I can't find entities like voltage, current, or battery group mode
+## I can't find entities like voltage, current, or battery group charging strategy
 
 Some entities are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
 
