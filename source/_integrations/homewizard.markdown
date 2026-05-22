@@ -144,10 +144,7 @@ The group of connected Plug-In Batteries can be controlled in three different mo
 You can find the **Battery group mode** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, the **Battery group mode** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for how to enable it.
 
 {% tip %}
-"Zero mode (charge only)" and "Zero mode (discharge only)" are only available for:
-
-- P1 Meter with firmware version 6.0300 or higher
-- kWh Meter with firmware version 5.0100 or higher
+"Zero mode (charge only)" and "Zero mode (discharge only)" are only available for P1 Meter and kWh Meter with API version 2.2.0 or higher, see [API Version](#api-version).
 
 To learn how to update your device to the latest version, see [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
 {% endtip %}
@@ -162,6 +159,10 @@ _This feature is not available for the kWh Meter._
 The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
 
 This feature is not available for the Plug-In Battery. Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
+
+# API version
+
+Shows which HomeWizard API version is currently active on the device. Available devices, supported API versions, and capabilities can be found in the official [HomeWizard API documentation](https://api-documentation.homewizard.com/docs/introduction#devices)
 
 ## Examples
 
