@@ -923,14 +923,7 @@ For troubleshooting, read the following sections on this page. They provide info
 
 ### Debug logging
 
-To enable debug logging for the ZHA {% term integration %} and radio libraries, follow these instructions:
-
-1. [![Open your Home Assistant instance and show an integration.](https://my.home-assistant.io/badges/integration.svg)](https://my.home-assistant.io/redirect/integration/?domain=zha)
-2. Enable debug logging for the integration by selecting the three dots {% icon "mdi:dots-vertical" %} menu, then selecting **Enable debug logging**:
-   ![Enable ZHA debug logging](/images/integrations/zha/zha-enable-debug.png)
-3. Reproduce the issue you're having. There are never too many debug logs, please don't worry about providing too much information.
-4. Once you're done, disable debug logging. Your browser will download a debug log file:
-   ![Disable ZHA debug logging](/images/integrations/zha/zha-disable-debug.png)
+To enable debug logging, follow the steps on [Debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
