@@ -46,13 +46,13 @@ You can skip this step if you are configuring one of the following devices:
 - Wi-Fi kWh Meter with firmware version 5 or higher
 - Plug-In Battery
 
-These products use a different authentication method that doesn’t require enabling the local API.
+These products use a different authentication method that doesn't require enabling the local API.
 {% endtip %}
 
   1. Go to Settings (gear icon in the upper-right).
-  2. Go to ‘Meters’.
+  2. Go to 'Meters'.
   3. Select your device.
-  4. Scroll down and turn on ‘Local API’.
+  4. Scroll down and turn on 'Local API'.
 
 {% include integrations/config_flow.md %}
 
@@ -76,7 +76,7 @@ _Not all sensors are provided by all Smart Meters, only the available sensors ar
 - **Tariff**: Current tariff that is used. Can be used to keep consumption as low as possible during peak hours.
 - **Frequency (Hz)**: Grid frequency.
 - **Voltage sags and swells**: Number of times a voltage sag or swell has been detected.
-- **Power failures**: Two sensors indicate the number of power failures detected by the smart meter. One for all power failures and another for ‘long’ power failures.
+- **Power failures**: Two sensors indicate the number of power failures detected by the smart meter. One for all power failures and another for 'long' power failures.
 - **Peak demand**: Belgium users are charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: one shows the current quarterly average, and another shows the peak measured this month. Both sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
 - **Status light brightness**: Controls the brightness of the green status light. Error statuses are always visualized, even when the brightness is set to 0.
 
@@ -133,15 +133,15 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 
 #### Battery group charging strategy
 
-The group of connected Plug-In Battery’s can be controlled in different modes using the **Battery group charging strategy** select entity:
+The group of connected Plug-In Battery's can be controlled in different modes using the **Battery group charging strategy** select entity:
 
-- **Net zero**: In this charging strategy, the Plug-In Battery works to keep your home’s net power consumption or production as close to zero as possible. The battery will automatically charge or discharge to maintain a balanced power flow. This is the default setting and helps you maximize self-consumption and minimize grid interaction.
-- **Net zero (charge only)**: The Plug-In Battery will only charge to absorb excess solar production, aiming to keep your home’s power production at zero. Discharging is disabled in this mode. This is useful if you want to store solar energy for later use, such as during the evening or when energy prices are higher.
-- **Net zero (discharge only)**: The Plug-In Battery will only discharge to supply power when your home’s consumption exceeds solar production, aiming to keep your home’s power consumption at zero. Charging is disabled in this mode. This can be helpful when energy prices are high and you prefer to use stored energy or sell excess solar production to the grid.
-- **One-time full charge**: All connected Plug-In Battery’s will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
-- **Standby**: Plug-In Battery’s will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
+- **Net zero**: In this charging strategy, the Plug-In Battery works to keep your home's net power consumption or production as close to zero as possible. The battery will automatically charge or discharge to maintain a balanced power flow. This is the default setting and helps you maximize self-consumption and minimize grid interaction.
+- **Net zero (charge only)**: The Plug-In Battery will only charge to absorb excess solar production, aiming to keep your home's power production at zero. Discharging is disabled in this mode. This is useful if you want to store solar energy for later use, such as during the evening or when energy prices are higher.
+- **Net zero (discharge only)**: The Plug-In Battery will only discharge to supply power when your home's consumption exceeds solar production, aiming to keep your home's power consumption at zero. Charging is disabled in this mode. This can be helpful when energy prices are high and you prefer to use stored energy or sell excess solar production to the grid.
+- **One-time full charge**: All connected Plug-In Battery's will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
+- **Standby**: Plug-In Battery's will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
 
-You can find the **Battery group charging strategy** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Battery’s after your initial setup, the **Battery group charging strategy** entity may be disabled by default; see [I can’t find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
+You can find the **Battery group charging strategy** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Battery's after your initial setup, the **Battery group charging strategy** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
 
 {% tip %}
 "Net zero (charge only)" and "Net zero (discharge only)" are only available for:
@@ -159,7 +159,7 @@ _This feature is not available for the kWh Meter._
 
 ## Cloud communication
 
-The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won’t receive any future firmware updates.
+The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
 
 This feature is not available for the Plug-In Battery. Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
@@ -195,7 +195,7 @@ The P1 Meter is updated by the smart meter, which usually updates every 1 or 10 
 
 ### My device is not showing up
 
-It may happen that you can’t find your devices or they won’t show up in the integration setup. This can be caused by the following:
+It may happen that you can't find your devices or they won't show up in the integration setup. This can be caused by the following:
 
 - The device is not connected to the network. You have to connect your new device to the network first via the HomeWizard Energy app.
 - Make sure you have updated the device to the latest firmware. Follow this guide to learn how to update your device: [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
@@ -212,7 +212,7 @@ It may happen that you can’t find your devices or they won’t show up in the 
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
     
-## I can’t find entities like voltage, current, or battery group charging strategy
+## I can't find entities like voltage, current, or battery group charging strategy
 
 Some entities are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
 
