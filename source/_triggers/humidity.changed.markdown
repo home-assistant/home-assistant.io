@@ -41,11 +41,11 @@ Threshold type:
     Controls which changes fire the trigger:
 
     - **Any change**: fires on any change, regardless of direction or new value.
-    - **Above** or **Below**: enter a value to fire only when the new reading is above or below that value.
-    - **In range**: enter a lower and upper bound to fire only when the new reading falls between them.
-    - **Outside range**: enter a lower and upper bound to fire only when the new reading is below the lower bound or above the upper bound.
+    - **Above** or **Below** (exclusive): fires only when the new reading is strictly above or below the threshold. A reading equal to the threshold does not fire the trigger.
+    - **In range** (exclusive): fires only when the new reading is strictly between the two bounds. A reading equal to either bound does not fire the trigger.
+    - **Outside range** (inclusive): fires when the new reading is at or below the lower bound, or at or above the upper bound. A reading equal to either bound fires the trigger.
 
-    For each mode you can enter a fixed percentage (0-100%), reference a sensor entity or a [number helper](/integrations/input_number/) entity.
+    For each mode you can enter a fixed percentage (0–100%) or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -143,9 +143,11 @@ threshold:
   description: |
     A mapping that defines which kind of change fires the trigger:
 
-    - `type: any`: Fires on any change (no additional keys needed).
-    - `type: above` or `type: below`: Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` or `type: outside`: Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: any`: Fires on any humidity change (no additional keys needed).
+    - `type: above` (exclusive): Sets a minimum. Fires when the reading is strictly above `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: below` (exclusive): Sets a maximum. Fires when the reading is strictly below `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (exclusive): Defines a range. Fires when the reading is strictly between `value_min` and `value_max`. Readings equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading is at or below `value_min`, or at or above `value_max`. Readings equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
   required: true
   type: map
 {% endoptions_yaml %}
@@ -206,7 +208,7 @@ Track how much the humidity in your greenhouse shifts throughout the day by send
   - **Target**: Greenhouse humidity sensor
   - **Threshold type**: Any change
 - **Action**: Send a notification
-  - **Target**: My Device (`mobile.my_device`)
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for greenhouse humidity logging" %}
 

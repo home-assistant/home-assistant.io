@@ -77,9 +77,10 @@ If carbon monoxide built up while the family was out, the first person home need
 
 - **Trigger**: Zone: Person enters home zone
 - **Condition**: Air Quality: Carbon monoxide detected
-- **Target**: Hallway CO sensor
-- **Condition passes if**: Any
-- **Action**: Notify: Send urgent notification
+  - **Target**: Hallway CO sensor
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a CO warning on arrival home" %}
 
@@ -98,7 +99,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Carbon monoxide detected at home"
         message: >

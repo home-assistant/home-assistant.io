@@ -38,7 +38,7 @@ To use **Temperature** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The temperature level the entity has to meet for the condition to pass. Options are **Above**, **Below**, **In range**, or **Outside range**. **Number** provides a fixed temperature value (or both a lower and upper bound for ranges). **Entity** uses a sensor or number helper as a dynamic threshold.
+    The temperature level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter a fixed temperature value, or **Entity** to use a sensor or number helper as a dynamic threshold.
 Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
   default: °C
@@ -112,12 +112,12 @@ threshold:
   description: |
     The temperature level the entity has to meet for the condition to pass:
 
-    - `above`: Sets a minimum
-    - `below`: Sets a maximum
-    - `between`: Defines a range
-    - `outside`: Defines an outside-range
+    - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass.
+    - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass.
+    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass.
+    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass.
 
-    For `above` and `below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `between` and `outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`. For example:
+    For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`. For example:
 
     ```yaml
     threshold:

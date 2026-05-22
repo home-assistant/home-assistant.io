@@ -87,10 +87,11 @@ After a full night with the door closed, the bedroom VOC ratio creeps up from of
 
 - **Trigger**: Time: 07:00
 - **Condition**: Air Quality: Volatile organic compounds ratio value
-- **Target**: Bedroom VOC ratio sensor
-- **Threshold type**: 150
-- **Condition passes if**: Any
-- **Action**: Notify: Send notification
+  - **Target**: Bedroom VOC ratio sensor
+  - **Threshold type**: 150
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a morning VOC ratio reminder" %}
 
@@ -108,7 +109,9 @@ automation: |
         threshold: 150
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Time to air out the bedroom"
         message: >

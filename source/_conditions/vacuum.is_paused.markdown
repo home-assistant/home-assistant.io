@@ -62,9 +62,11 @@ behavior:
   type: string
   default: any
 for:
-  description: The time the vacuum must stay paused before the condition passes.
+  description: >
+    The time the vacuum must stay paused before the condition passes.
+    Accepts a duration like `00:00:10` for 10 seconds.
   required: false
-  type: time
+  type: string
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -88,8 +90,9 @@ This automation checks every 15 minutes whether the hallway vacuum is paused. If
 
 - **Trigger**: Every 15 minutes
 - **Condition**: Vacuum is paused
-- **Target**: Hallway vacuum
-- **Action**: Send notification via mobile_app_phone
+  - **Target**: Hallway vacuum
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a paused vacuum reminder" %}
 
@@ -106,7 +109,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Vacuum is paused"
         message: "The hallway vacuum is still paused."
