@@ -81,10 +81,10 @@ trigger: |
       value_min:
         number: 79
       value_max:
-        number: 100
+        number: 101
 {% endexample %}
 
-This fires whenever either device charges back to 80% or above (up to, but not including, 100%).
+This fires whenever either device charges back to 80% or above (up to and including 100%).
 
 To use a number helper as a dynamic threshold you can adjust without editing the automation:
 
