@@ -38,7 +38,7 @@ You can also manually configure any serial adapter connected to the meter's TIC 
 
 Before setting up this integration, make sure you have the following:
 
-1. A Linky meter (or compatible electronic meter) with the TIC output enabled.
+1. A Linky meter (or compatible electronic meter) with the TIC output enabled and set to historique mode. The newer standard mode is not supported. If your meter is in standard mode, you can ask Enedis to switch it back to historique mode.
 2. A Teleinfo USB adapter connected to the meter's TIC terminals (I1 and I2).
 3. The USB adapter plugged into your Home Assistant host.
 
