@@ -718,16 +718,16 @@ template:
   - triggers:
     - trigger: webhook
       webhook_id: my_car_location
-    event:
+    device_tracker:
       - name: Car Location
         latitude: "{{ trigger.json.latitude }}"
         longitude: "{{ trigger.json.longitude }}"
         location_accuracy: "{{ trigger.json.resolution }}"
 ```
 
-{% configuration event %}
-event:
-  description: List of events
+{% configuration device_tracker %}
+device_tracker:
+  description: List of device trackers
   required: true
   type: map
   keys:
