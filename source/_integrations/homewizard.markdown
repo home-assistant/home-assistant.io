@@ -141,7 +141,7 @@ The group of connected Plug-In Battery’s can be controlled in different modes 
 - **One-time full charge**: All connected Plug-In Battery’s will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
 - **Standby**: Plug-In Battery’s will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
 
-You can find the **Battery group charging strategy** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Battery’s after your initial setup, the **Battery group charging strategy** entity may be disabled by default; see [I can’t find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for how to enable it.
+You can find the **Battery group charging strategy** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Battery’s after your initial setup, the **Battery group charging strategy** entity may be disabled by default; see [I can’t find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
 
 {% tip %}
 "Net zero (charge only)" and "Net zero (discharge only)" are only available for:
@@ -212,7 +212,7 @@ It may happen that you can’t find your devices or they won’t show up in the 
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
     
-## I can’t find entities like voltage, current, or battery group mode
+## I can’t find entities like voltage, current, or battery group charging strategy
 
 Some entities are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
 
