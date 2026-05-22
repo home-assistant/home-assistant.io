@@ -62,7 +62,7 @@ for:
     How long the mower must stay in the error state before the trigger fires.
     Accepts a duration like `00:01:00` for one minute.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 

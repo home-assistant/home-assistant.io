@@ -62,7 +62,7 @@ for:
     How long the mower must stay docked before the trigger fires. Accepts a
     duration like `00:05:00` for five minutes.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 
