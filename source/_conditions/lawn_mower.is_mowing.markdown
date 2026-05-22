@@ -62,7 +62,7 @@ for:
     How long the mower must stay in the mowing state before the condition
     passes. Accepts a duration like `00:02:00` for two minutes.
   required: false
-  type: time
+  type: string
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -117,7 +117,7 @@ If guests are about to arrive in the backyard, only pause the mower if it is act
 - **Condition**: Lawn mower is mowing
   - **Target**: Backyard mower
   - **For at least**: 00:02:00
-- **Action**: Pause
+- **Action**: Pause lawn mower
 
 {% details "YAML example for pausing the mower for guests" %}
 
