@@ -160,9 +160,9 @@ The HomeWizard Energy devices are designed to work with the HomeWizard Energy ap
 
 This feature is not available for the Plug-In Battery. Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
-# API version
+## API version
 
-Shows which HomeWizard API version is currently active on the device. Available devices, supported API versions, and capabilities can be found in the official [HomeWizard API documentation](https://api-documentation.homewizard.com/docs/introduction#devices)
+Shows which HomeWizard API version is currently active on the device. Available devices, supported API versions, and capabilities can be found in the official [HomeWizard API documentation](https://api-documentation.homewizard.com/docs/introduction#devices).
 
 ## Examples
 
