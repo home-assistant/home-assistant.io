@@ -923,25 +923,7 @@ For troubleshooting, read the following sections on this page. They provide info
 
 ### Debug logging
 
-To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to {% term "`configuration.yaml`" %}:
-
-```yaml
-logger:
-  default: info
-  logs:
-    homeassistant.core: debug
-    homeassistant.components.zha: debug
-    bellows.zigbee.application: debug
-    bellows.ezsp: debug
-    zigpy: debug
-    zigpy_deconz.zigbee.application: debug
-    zigpy_deconz.api: debug
-    zigpy_xbee.zigbee.application: debug
-    zigpy_xbee.api: debug
-    zigpy_zigate: debug
-    zigpy_znp: debug
-    zhaquirks: debug
-```
+To enable debug logging, follow the steps on [Debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 

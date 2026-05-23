@@ -66,9 +66,11 @@ behavior:
   type: string
   default: any
 for:
-  description: The time the vacuum must remain paused before the trigger fires.
+  description: >
+    The time the vacuum must remain paused before the trigger fires.
+    Accepts a duration like `00:00:10` for 10 seconds.
   required: false
-  type: time
+  type: string
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -89,8 +91,9 @@ for:
 If the vacuum pauses unexpectedly, it may be stuck under furniture, wrapped in a cable, or waiting for you to empty the bin. This automation sends a phone alert so you can check on it.
 
 - **Trigger**: Vacuum paused cleaning
-- **Target**: Hallway vacuum
-- **Action**: Send notification via mobile_app_phone
+  - **Target**: Hallway vacuum
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a paused vacuum alert" %}
 
@@ -102,7 +105,9 @@ automation: |
       target:
         entity_id: vacuum.hallway
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Vacuum paused"
         message: "The hallway vacuum paused and may need attention."

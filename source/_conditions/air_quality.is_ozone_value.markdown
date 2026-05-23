@@ -87,10 +87,12 @@ On hot summer days, ozone builds up through the afternoon and peaks around 3 PM.
 
 - **Trigger**: Time: 15:00
 - **Condition**: Air Quality: Ozone value
-- **Target**: Outdoor ozone sensor
-- **Threshold type**: 100
-- **Condition passes if**: Any
-- **Action**: Cover: Close cover, then notify
+  - **Target**: Outdoor ozone sensor
+  - **Threshold type**: 100
+  - **Condition passes if**: Any
+- **Action**: Close cover
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for keeping windows shut on high ozone afternoons" %}
 
@@ -111,7 +113,9 @@ automation: |
     - action: cover.close_cover
       target:
         area_id: living_room
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Ozone is high outside"
         message: >

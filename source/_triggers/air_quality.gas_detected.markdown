@@ -84,10 +84,11 @@ for:
 Imagine you are upstairs or out running errands and a burner valve is leaking in the kitchen. This automation sends an urgent notification straight to your phone the instant your kitchen gas sensor picks something up, giving you the earliest possible warning to take action.
 
 - **Trigger**: Gas detected
-- **Target**: Kitchen gas sensor
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Send a mobile notification
+  - **Target**: Kitchen gas sensor
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a gas detection notification" %}
 
@@ -102,7 +103,9 @@ automation: |
         behavior: any
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Gas detected in the kitchen!"
         title: "Gas alert"

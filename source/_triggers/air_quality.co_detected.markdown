@@ -84,11 +84,12 @@ for:
 Imagine everyone in your home is fast asleep and carbon monoxide starts building up from a faulty furnace. This automation triggers every siren in the house and sends an urgent notification to your phone the instant any sensor picks up carbon monoxide. Those extra seconds of warning protect the people who matter most to you.
 
 - **Trigger**: Carbon monoxide detected
-- **Target**: All CO sensors (by label)
-- **Trigger when**: Each
-- **For at least**: 00:00:00
+  - **Target**: All CO sensors (by label)
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Action**: Siren: Turn on
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a carbon monoxide alarm" %}
 
@@ -106,7 +107,9 @@ automation: |
     - action: siren.turn_on
       target:
         entity_id: siren.home_alarm
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Carbon monoxide detected!"
         title: "CO alert"
