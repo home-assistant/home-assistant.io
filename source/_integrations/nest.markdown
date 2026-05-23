@@ -109,38 +109,26 @@ You now have a cloud project ready for the next section to configure authenticat
 
 By the end of this section you will have configured the OAuth consent screen, needed to give Home Assistant access to your cloud project.
 
-{% note %}
-Google has updated its Cloud Console UI. The OAuth consent screen is now part of **Google Auth Platform** and is split across several pages in the left sidebar.
-{% endnote %}
+1. Go to the [Branding page](https://console.cloud.google.com/auth/branding) in the Google Auth Platform Console.
 
-Go directly to the [Branding page](https://console.cloud.google.com/auth/branding), or open the [Google Auth Platform Console](https://console.cloud.google.com/auth) if you need to recover to the main entry point.
+2. If prompted to configure OAuth, click **Get started** and follow the setup wizard. When the wizard asks for user type, select **External**, and only continue once the OAuth consent configuration has been created.
 
-If prompted to configure OAuth, click **Get started** and follow the setup wizard. When the wizard asks for user type, select **External**, and only continue once the OAuth consent configuration has been created. Otherwise, use the left sidebar to configure each section below.
+3. Click **Branding** in the left sidebar. Fill in the required fields:
+   - **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
+   - **User support email**: Select your Google account email.
+   - **Developer contact email**: Enter your email address under Developer contact information.
+   
+   Leave all other fields (App logo, App domain, Authorized domains) empty to avoid triggering Google's verification process. Click **Save**.
 
-**Branding**
+4. Click **Audience** in the left sidebar.
+   - Under **User type**, confirm it shows **External**.
+   - Under **Test users**, click **+ Add users** and add your Google account email (e.g. your @gmail.com address). Click **Save**.
 
-Click **Branding** in the left sidebar. Fill in the required fields:
+5. Still on the **Audience** page, under **Publishing status**, click **Publish app** to set the status to **In production**.
 
-- **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
-- **User support email**: Select your Google account email.
-- **Developer contact email**: Enter your email address under Developer contact information.
+   Make sure the status is not **Testing**, or you will get logged out every 7 days.
 
-Leave all other fields (App logo, App domain, Authorized domains) empty to avoid triggering Google's verification process. Click **Save**.
-
-**Audience**
-
-Click **Audience** in the left sidebar.
-
-- Under **User type**, confirm it shows **External**.
-- Under **Test users**, click **+ Add users** and add your Google account email (e.g. your @gmail.com address). Click **Save**.
-
-**Publish the app**
-
-Still on the **Audience** page, under **Publishing status**, click **Publish app** to set the status to **In production**.
-
-Make sure the status is not **Testing**, or you will get logged out every 7 days.
-
-The warning says your app will be available to any user with a Google Account. This refers to the fields you entered on the Branding page if someone finds the URL. This does not expose your Google Account or Nest data.
+   The warning says your app will be available to any user with a Google Account. This refers to the fields you entered on the Branding page if someone finds the URL. This does not expose your Google Account or Nest data.
 
 {% enddetails %}
 
