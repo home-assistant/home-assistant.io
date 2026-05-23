@@ -15,8 +15,8 @@ ha_platforms:
   - alarm_control_panel
 ha_integration_type: hub
 related:
-  - docs: /integrations/locknalert_mqtt/
-    title: LocknAlert MQTT integration
+  - docs: /integrations/mqtt/
+    title: MQTT integration
   - docs: /integrations/alarm_control_panel/
     title: Alarm control panel integration
 ---
@@ -63,12 +63,39 @@ The **LocknAlert MQTT** integration provides the following entities.
   - **Description**: Represents your Paradox alarm panel connected via the LocknAlert bridge. Use this entity to arm or disarm your alarm system from Home Assistant.
   - **Supported states**: Disarmed, Armed away, Armed home, Armed night, Arming, Pending, Triggered
 
+## Actions
+
+### Action `locknalert_mqtt.publish`
+
+Publish a message to an MQTT topic.
+
+| Action data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `topic` | No | The MQTT topic to publish to. |
+| `payload` | Yes | The payload to publish. Supports templates. |
+| `evaluate_payload` | Yes | Set to `true` to interpret a quoted binary literal (e.g. `b'\x00'`) as raw bytes. Default: `false`. |
+| `qos` | Yes | Quality of service level: `0`, `1`, or `2`. Default: `0`. |
+| `retain` | Yes | Whether the broker should retain the message. Default: `false`. |
+
+### Action `locknalert_mqtt.dump`
+
+Capture all messages received on a topic for a period of time and write them to `mqtt_dump.txt` in the Home Assistant configuration directory.
+
+| Action data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `topic` | No | The MQTT topic to listen on. Supports wildcards (e.g. `OpenZWave/#`). |
+| `duration` | Yes | Duration in seconds to capture messages. Default: `5`. |
+
+### Action `locknalert_mqtt.reload`
+
+Reload manually configured MQTT entities from `configuration.yaml` without restarting Home Assistant.
+
 ## Data updates
 
-The **LocknAlert MQTT** integration uses "Local Push" — the LocknAlert bridge pushes state changes from your Paradox alarm panel to Home Assistant over MQTT in real time. There is no polling delay.
+The **LocknAlert MQTT** integration uses {% term "Local Push" %} — the LocknAlert bridge pushes state changes from your Paradox alarm panel to Home Assistant over MQTT in real time. There is no polling delay.
 
 ## Removing the integration
 
 {% include integrations/remove_device_service_steps.md %}
 
-After removing the integration, the provisioned MQTT credentials for the panel are also removed from the broker automatically.
+After removing the integration, the provisioned MQTT credentials for the bridge are also removed from the broker automatically.
