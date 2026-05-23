@@ -349,7 +349,7 @@ actions:
     target:
       entity_id: media_player.kitchen
   - variables:
-      search_length: '{{ results['media_player.kitchen']['result']|count }}'
+      search_length: "{{ results['media_player.kitchen']['result']|count }}"
   - repeat:
       sequence:
         - action: media_player.play_media
