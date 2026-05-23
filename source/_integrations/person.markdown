@@ -19,7 +19,7 @@ The **Person** {% term integration %} allows connecting [device tracker](/integr
 Let's say, for example, that you have three trackers: `tracker_gps`, `tracker_router`, and `tracker_ble`.
 
 1. You're at home, and all three devices show state `home`. The state of your Person entity will be `home` with source `tracker_router` or `tracker_ble`, whichever was most recently updated.
-2. You just left home. `tracker_gps` shows state `not_home`, but the other two trackers show state `home` (they may not have yet updated due to their `consider_home` setting, see [device_tracker](/integrations/device_tracker/#configuring-a-device_tracker-platform)). Since the stationary trackers have priority, you are considered `home`.
+2. You just left home. `tracker_gps` shows state `not_home`, but the other two trackers show state `home` (they may not have yet updated due to their `consider_home` setting, see [device_tracker](/integrations/device_tracker/)). Since the stationary trackers have priority, you are considered `home`.
 3. After some time, both stationary trackers show state `not_home`. Now your Person entity has state `not_home` with source `tracker_gps`.
 4. While you are away from home, your Home Assistant instance is restarted. Until the `tracker_gps` receives an update, your status will be determined by the stationary trackers, since they will have the most recent update after a restart. The state will be `not_home`.
 5. Then you're going into a zone you have defined as `zone1`, `tracker_gps` sends an update, and now your state is `zone1` with source `tracker_gps`.
@@ -29,7 +29,7 @@ Let's say, for example, that you have three trackers: `tracker_gps`, `tracker_ro
 In short, when you're at home, your position is determined first by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined first by GPS and then by stationary trackers.
 
 {% tip %}
-When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible (see [device_tracker](/integrations/device_tracker/#configuring-a-device_tracker-platform)).
+When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible (see [device_tracker](/integrations/device_tracker/)).
 {% endtip %}
 
 You can manage persons {% my people title="via the UI from the person page inside the configuration panel" %} or via YAML in your {% term "`configuration.yaml`" %} file.
@@ -123,3 +123,5 @@ person:
 ```
 
 If you change the YAML, you can reload it by calling the `person.reload` action.
+
+{% include integrations/actions.md %}

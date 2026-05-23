@@ -140,7 +140,7 @@ You want this to run once every morning.
 ### Add the action
 
 1. Under **Then do**, select **Add action**.
-2. Choose **Call service**, then pick your `notify` action (like `notify.mobile_app_your_phone`).
+2. Choose **Perform Action**, then pick your `notify` action (like `notify.mobile_app_your_phone`).
 3. Fill in the message field with the template you built in step 3.
 
 In YAML, the action looks like this:

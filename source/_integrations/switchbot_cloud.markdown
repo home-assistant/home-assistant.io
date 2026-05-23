@@ -107,6 +107,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- Weather Station
 
 ### Hubs
 
@@ -313,6 +314,13 @@ Features:
 - get battery level
 - light detect
 - motion detect
+
+#### Weather Station
+
+Features:
+- get temperature
+- get humidity
+- get battery level
 
 ### Lights
 

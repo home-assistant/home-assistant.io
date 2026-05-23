@@ -5,6 +5,8 @@ ha_category:
   - Binary Sensor
   - Button
   - Light
+  - Select
+  - Sensor
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Polling
@@ -15,7 +17,10 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
+  - select
+  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -52,6 +57,8 @@ The **Casper Glow** {% term integration %} provides the following entities.
 
 - **Dimming paused**
   - **Description**: Indicates whether the Glow's dimming sequence is currently paused.
+- **Charging**
+  - **Description**: Indicates whether the Glow is currently charging.
 
 #### Buttons
 
@@ -65,6 +72,19 @@ The **Casper Glow** {% term integration %} provides the following entities.
 
 - **Casper Glow**
   - **Description**: Controls the on/off state and brightness of the Glow light. Brightness is mapped to five levels.
+
+#### Sensors
+
+- **Battery**
+  - **Description**: Reports the current battery level of the Glow as a percentage.
+
+- **Dimming end time** (disabled by default)
+  - **Description**: Shows the projected time when the current dimming sequence will end. This value is a timestamp that updates only when there is a significant change during a poll interval. Such as pausing or resuming dimming, or manually adjusting the physical light.
+
+#### Selects
+
+- **Dimming time**
+  - **Description**: Configures how long the dimming sequence lasts before the light turns off. You can choose between 15, 30, 45, 60, or 90 minutes. The new dimming time takes effect the next time the light is turned on.
 
 ## Data updates
 

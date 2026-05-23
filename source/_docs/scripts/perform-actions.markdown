@@ -59,7 +59,7 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
-A full list of the parameters for an action can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [action](/integrations/light/#action-lightturn_on).
+A full list of the parameters for an action can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [action](/actions/light.turn_on/).
 
 ### Use templates to decide which action to perform
 

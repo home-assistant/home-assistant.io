@@ -265,8 +265,12 @@ layout: null
 /integrations/zwave /integrations/zwave_js/
 
 # Moved documentation
-/details/database /docs/backend/database
-/details/updater /docs/backend/updater
+/details/database /integrations/recorder
+/details/updater /integrations/analytics
+/docs/backend/database /integrations/recorder
+/docs/backend/database/ /integrations/recorder
+/docs/backend /docs/
+/docs/backend/ /docs/
 /docs/assist/ /voice_control/
 /docs/assist/android/ /voice_control/android/
 /docs/assist/apple/ /voice_control/apple/
@@ -421,6 +425,7 @@ layout: null
 /common-tasks/os/#backups /common-tasks/general/#backups
 /common-tasks/supervised/#snapshots /common-tasks/general/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/more-info/system-health/   /more-info/system-information/
 /integrations/zigbee /integrations/zha
 /examples /
 
@@ -595,6 +600,7 @@ layout: null
 /integrations/iota /more-info/removed-integration 301
 /integrations/juicenet /more-info/removed-integration 301
 /integrations/keyboard /more-info/removed-integration 301
+/integrations/lannouncer /more-info/removed-integration 301
 /integrations/lirc /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301

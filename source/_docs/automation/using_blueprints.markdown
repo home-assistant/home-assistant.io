@@ -1,9 +1,11 @@
 ---
 title: "Using automation blueprints"
-description: "How to create automations based off blueprints."
+description: "Blueprints are ready-made automations shared by the Home Assistant community. Install a blueprint and create your own automation by filling in a few fields, no YAML required."
 ---
 
-Automation blueprints are pre-made {% term automations %} that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
+Blueprints are the easiest way to add an automation to your Home Assistant. They are ready-made automations shared by the Home Assistant community: someone else has already done the thinking and the writing, and you just plug in your own devices.
+
+You can find blueprints for almost any common use case, from "turn the lights on when motion is detected" to "announce the weather every morning at 7" to "notify me when the laundry is done". You install a blueprint once and can use it as many times as you like, with different devices and settings each time.
 
 Quick links:
 

@@ -14,7 +14,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Kane610'
 ha_domain: unifi
-ha_ssdp: true
 ha_platforms:
   - button
   - device_tracker
@@ -25,9 +24,19 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
+
+With this {% term integration %}, you can bring your UniFi Network into Home Assistant to automate and monitor your network. Common use cases include:
+
+- Use connected clients as presence detection to trigger automations when family members arrive home or leave.
+- Control Wi-Fi availability on a schedule, for example to disable guest networks overnight or pause kids' Wi-Fi during homework time.
+- Monitor bandwidth usage and uptime of clients and network devices.
+- Control PoE power on individual switch ports to remotely restart connected devices like cameras or access points.
+- Toggle firewall rules, port forwarding, or traffic rules as part of broader home automations.
+- Get notified about firmware updates and install them from Home Assistant.
 
 ## Prerequisites
 
@@ -68,15 +77,55 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your UniFi Network application."
+Username:
+  description: "The username of the local UniFi Network user."
+Password:
+  description: "The password of the local UniFi Network user."
+Port:
+  description: "The port your UniFi Network application is running on. Defaults to `443`."
+Verify SSL:
+  description: "Whether to verify the SSL certificate of the UniFi Network application. Keep this enabled unless you are using a self-signed certificate in a trusted environment and understand the security risk of disabling certificate verification."
+Site ID:
+  description: "The site ID of the UniFi Network site to manage. Only shown if your UniFi Network application has more than one site."
+{% endconfiguration_basic %}
+
 {% note %}
 **Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
 write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
 and in many cases, get a read-only sensor instead of an editable switch {% term entity %}.
 {% endnote %}
 
-### Extra configuration of the integration
+## Configuration options
 
-All configuration options are offered from the front end. Enter what UniFi Network {% term integration %} you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
+All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**. Some advanced options are only available when **Advanced Mode** is enabled on your user profile page.
+
+{% configuration_basic %}
+Track network clients:
+  description: "Create device tracker entities for network clients for presence detection."
+Include wired network clients:
+  description: "Also track wired clients, not just wireless clients."
+Track network devices:
+  description: "Create device tracker entities for Ubiquiti network devices such as access points and switches."
+Select SSIDs to track wireless clients on:
+  description: "Only track wireless clients connected to the selected SSIDs. Leave empty to track clients on all SSIDs."
+Time in seconds from last seen until considered away:
+  description: "Number of seconds since last seen before a client is considered away. Defaults to `300` seconds."
+Disable UniFi Network wired bug logic:
+  description: "Disable the workaround for a UniFi Network bug that sometimes reports wired clients as wireless."
+Network access controlled clients:
+  description: "Select clients whose network access you want to control via switches by adding their MAC addresses."
+Allow control of DPI restriction groups:
+  description: "Enable switches to control DPI (Deep Packet Inspection) restriction groups."
+Bandwidth usage sensors for network clients:
+  description: "Create bandwidth usage sensors for network clients. Disabled by default."
+Uptime sensors for network clients:
+  description: "Create uptime sensors for network clients. Disabled by default."
+Create entities from network clients:
+  description: "Advanced option to select which network clients to create entities from. Only available when **Advanced Mode** is enabled."
+{% endconfiguration_basic %}
 
 ## Button
 
@@ -227,6 +276,25 @@ Changes may take over 5 seconds to apply as the device must adopt a new configur
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
+## Examples
+
+### Community blueprints
+
+The Home Assistant community has created blueprints that use the UniFi Network integration for common use cases like presence-based automations or Wi-Fi scheduling. You can browse them in the [blueprints exchange on the community forum](https://community.home-assistant.io/c/blueprints-exchange/53?tags=unifi).
+
+## Data updates
+
+The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}.
+
+If the WebSocket connection is lost, the integration automatically tries to reconnect. While disconnected, entities are marked as unavailable until the connection is restored.
+
+## Known limitations
+
+- **Ubiquiti SSO cloud users are not supported.** You must create a local user in your UniFi OS Console. See the [Local user](#local-user) section for instructions.
+- **Early Access and Release Candidate versions of UniFi Network and UniFi OS are not supported.** Only the official Stable Release channel is expected to work with this integration.
+- **Presence detection is not compatible with MAC Address Randomization**, which is enabled by default on most modern smartphones. This feature must be disabled per network on the client device.
+- **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
+- **Lingering entities**: In some edge cases, clients or devices removed from UniFi Network may remain in the Home Assistant device registry and need to be [removed manually](#removing-a-device-in-home-assistant).
 
 ## Removing a device in Home Assistant
 

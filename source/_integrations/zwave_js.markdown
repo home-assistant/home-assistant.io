@@ -1169,7 +1169,7 @@ Entities will be created only after the node is ready (the interview is complete
 
 If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the GitHub issue tracker.
 
-### My device doesn't automatically update its status in HA if I control it manually
+### My device doesn't automatically update its status in Home Assistant if I control it manually
 
 Your device might not send automatic status updates to the adapter. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status).
 

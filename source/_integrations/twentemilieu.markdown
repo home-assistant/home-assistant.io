@@ -16,7 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Twente Milieu** {% term integration %} enables you to monitor the upcoming waste collection schedules provided by [Twente Milieu](https://www.twentemilieu.nl/), a waste collection company serving municipalities in the Twente region of the Netherlands, including Enschede, Hengelo, Almelo, Borne, Hof van Twente, Oldenzaal, and Losser. This integration helps you stay informed about the next pickup dates for different types of waste (like organic, paper, plastic, and non-recyclable), ensuring you never miss a collection day.

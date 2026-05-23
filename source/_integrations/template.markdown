@@ -2101,7 +2101,7 @@ template:
           action: script.update_frigate
 ```
 
-{% configuration vacuum %}
+{% configuration update %}
 update:
   description: List of update entities
   required: true
@@ -2184,6 +2184,26 @@ template:
           action: script.vacuum_start
 ```
 
+```yaml
+# Example state-based configuration.yaml entry with segment cleaning
+template:
+  - vacuum:
+      - name: Living Room Vacuum
+        clean_segments:
+          action: script.vacuum_start
+          data:
+            segment_ids: "{{ segment_ids }}"
+        segments: >-
+          {{ [
+            {'id': '1', 'name': 'Kitchen'},
+            {'id': '2', 'name': 'Living room', 'group': 'Upstairs'},
+          ] }}
+        start:
+          action: script.vacuum_start
+        unique_id: living_room_vacuum
+
+```
+
 {% configuration vacuum %}
 vacuum:
   description: List of vacuum entities
@@ -2203,6 +2223,10 @@ vacuum:
       description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
       required: false
       type: template
+    clean_segments:
+      description: Defines an action to run when the vacuum is given a clean area command. The action receives the `segment_ids` variable, which contains the list of selected area segment IDs. Requires `unique_id` and `segments`.
+      required: inclusive
+      type: action
     clean_spot:
       description: Defines an action to run when the vacuum is given a clean spot command.
       required: false
@@ -2232,6 +2256,10 @@ vacuum:
       description: Defines an action to run when the vacuum is given a return to base command.
       required: false
       type: action
+    segments:
+      description: Defines a template to get the segments of the vacuum. Expects a list of dictionaries with keys `id`, `name`, and optional `group`. Requires `unique_id` and `clean_segments`.
+      required: inclusive
+      type: template
     set_fan_speed:
       description: Defines an action to run when the vacuum is given a command to set the fan speed.
       required: false

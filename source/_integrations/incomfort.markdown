@@ -30,6 +30,12 @@ The integration uses the [incomfort-client](https://pypi.org/project/incomfort-c
 
 The Intergas Gateway connects thermostats based on the OpenTherm standard. An example of such a thermostat is the [Comfort Touch Thermostat](https://www.intergas-verwarming.nl/en/consumer/products/comfort-touch-thermostat/). The thermostats and LAN2RF gateway are often sold as a set. The gateway is suitable for use with Intergas Kombi Kompakt HRE and HReco appliances from year of manufacture 2014. If the Comfort Touch thermostat is used together with the gateway, then this will work in combination with Intergas Kombi Kompakt HRE, HReco, or Xtreme devices from year of manufacture 2017.
 
+{% important %}
+
+The V3 version (EAN: 8718556040273) of the Intergas LAN2RF Gateway is not supported by this integration.
+
+{% endimportant %}
+
 ### Boiler
 
 The boiler is represented as a **Water heater** device. It will report the boiler's `state` and `current_temperature`. The gateway does not expose any means to directly control the boiler or change its configuration.

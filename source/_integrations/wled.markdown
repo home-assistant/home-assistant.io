@@ -152,6 +152,10 @@ Can be configured on the WLED itself under
 
 Reverses the direction of the LED effect on a segment. One switch is created per segment.
 
+#### Freeze
+
+Freezes the LED effect on a segment. One switch is created per segment.
+
 ### Buttons
 
 This {% term integration %} provides a [button entity](/integrations/button)
@@ -187,8 +191,6 @@ Information about new WLED releases is checked independently, once every 3 hours
   Custom WLED builds that disable or remove parts of the API, such as turning off the JSON interface in favor of HTTP + MQTT only, are not supported.
 
 - Real-time effects that depend on **sound-reactive** or **2D matrix** features appear in the effect list, but may not behave correctly if the WLED instance was not compiled with those capabilities.
-
-- [Custom palettes](https://kno.wled.ge/features/palettes/#custom-palettes) uploaded to the WLED device (JSON files named `palette0.json` through `palette9.json`) are not supported by the integration. Only the built-in palettes are available in the color palette select entity.
 
 - Custom segment names configured in WLED are not used by the integration. Segments are always named using their index (for example, "Segment 1", "Segment 2"), regardless of any names assigned in the WLED interface.
 

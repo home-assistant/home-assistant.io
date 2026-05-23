@@ -78,19 +78,6 @@
   "publisher": {{ home_assistant_publisher }}
 }
 </script>
-{%- elsif page_type == "faq" -%}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "name": {{ page.title | jsonify }},
-  "description": {{ page.description | jsonify }},
-  "url": "{{ canonical }}",
-  "inLanguage": "en",
-  "about": {{ about_home_assistant }},
-  "publisher": {{ home_assistant_publisher }}
-}
-</script>
 {%- elsif page_type == "templating_doc" -%}
 <script type="application/ld+json">
 {

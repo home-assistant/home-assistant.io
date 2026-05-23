@@ -53,6 +53,9 @@ There is currently support for the following device types within Home Assistant:
 ### Buttons
 
 - **Restart container**: Restarts the container.
+- **Pause container**: Pauses the container.
+- **Resume container**: Resumes the container.
+- **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
 
 ### Sensors

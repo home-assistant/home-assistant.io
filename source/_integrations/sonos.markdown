@@ -41,7 +41,7 @@ Speaker-level controls are exposed as `number`, `select` or `switch` entities. A
 ### Controllable features
 
 - **All devices**: Alarms, Bass, Treble, Loudness, Crossfade, Status Light, Touch Controls
-- **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level
+- **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level, TV Autoplay, Ungroup on Autoplay
 - **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain, Subwoofer Crossover Frequency (Sonos Amp only)
 
 ### Sensors
@@ -58,6 +58,9 @@ The following select entities are created:
 - **Dialog Level**  
   Lets you set the dialog mode on your **Sonos Arc Ultra** soundbar. You can choose from None, Low, Medium, High, or Max.
 
+### TV Autoplay and Ungroup on Autoplay support notes
+
+Since the Sonos UPnP spec does not emit events for these, both entities rely on polling for state updates from external changes (for example, changes made in the Sonos app). That means those entities will always have some delay before updating, so changes made outside of Home Assistant will be reflected on the next device polling, which defaults to 30 seconds.
 
 ### Battery support notes
 
