@@ -73,6 +73,17 @@ Password:
 Available devices will automatically show up in your Home Assistant installation.
 Devices you add in homee appear automatically in Home Assistant. If you remove a device from homee, it is also removed from Home Assistant.
 
+## Supported devices
+
+The integration basically supports all devices, that are working in homee. Since development relies on an unofficial and outdated description of the interface and reverse engineering, not all functions of a device might be working correctly.
+
+A list of known devices and their status can be found in the [old custom integration's wiki](https://github.com/Taraman17/hass-homee/wiki).
+If you think a device is not correctly supported, see [below](#homee-device-not-working-as-expected)
+
+## Unsupported devices
+
+There are no known unsupported devices.
+
 ## Limitations
 
 Changed values are reported from homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.
