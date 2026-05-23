@@ -107,15 +107,15 @@ You now have a cloud project ready for the next section to configure authenticat
 
 {% details "Configure OAuth Consent screen [Cloud Console]" %}
 
-By the end of this section you will have configured the OAuth consent screen, needed for giving Home Assistant access to your cloud project.
+By the end of this section you will have configured the OAuth consent screen, needed to give Home Assistant access to your cloud project.
 
 {% note %}
 Google has updated its Cloud Console UI. The OAuth consent screen is now part of **Google Auth Platform** and is split across several pages in the left sidebar.
 {% endnote %}
 
-Go to the [Google Auth Platform Console](https://console.cloud.google.com/auth).
+Go directly to the [Branding page](https://console.cloud.google.com/auth/branding), or open the [Google Auth Platform Console](https://console.cloud.google.com/auth) if you need to recover to the main entry point.
 
-If prompted to configure OAuth, click **Get started** and follow the setup wizard. Otherwise, use the left sidebar to configure each section below.
+If prompted to configure OAuth, click **Get started** and follow the setup wizard. When the wizard asks for user type, select **External**, and only continue once the OAuth consent configuration has been created. Otherwise, use the left sidebar to configure each section below.
 
 **Branding**
 
