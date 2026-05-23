@@ -25,6 +25,7 @@ Notes:
 - The `incl_filter`/`excl_filter` allow you to force the {% term integration %} to use a particular route or avoid a particular route in its time travel calculation. These inputs must be an exact match to the street name including casing, spaces, and special characters. Use the service [`waze_travel_time.get_travel_times`](#action-waze_travel_timeget_travel_times) to get the exact street names for each route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options, be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options. It is therefor best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 - When **Origin** or **Destination** is an address, Waze resolves it to coordinates. If the address matches multiple locations, Waze selects the result closest to the `base_coordinates`. By default, this is your home location.
+- By default, Waze is polled every five minutes for the travel time.  See below for how to poll using custom invervals.
 
 ## Action `waze_travel_time.get_travel_times`
 
