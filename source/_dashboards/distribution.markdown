@@ -21,7 +21,7 @@ Use this card to compare the current values of related entities, for example pow
 Screenshot of the distribution card.
 </p>
 
-Selecting a segment in the bar opens the more-info dialog for that entity. You can also click legend items to hide or show individual segments.
+Selecting a segment in the bar opens the more-info dialog for that entity. You can also select legend items to hide or show individual segments.
 
 {% include dashboard/edit_dashboard.md %}
 
