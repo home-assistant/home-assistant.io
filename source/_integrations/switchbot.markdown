@@ -656,6 +656,18 @@ Features:
 - change color
 - set effect
 
+#### Permanent Outdoor Light
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
 ### Locks
 
 Note: The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
