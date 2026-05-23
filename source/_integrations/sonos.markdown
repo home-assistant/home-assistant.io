@@ -334,7 +334,7 @@ Because the action returns data, use `response_variable` to capture the results 
 
 ### Example: Search and add all matching tracks to the queue
 
-This example searches for all tracks matching "love", clears the queue, adds the first 10 results to the queue, and then plays the queue:
+This example searches for all tracks matching "love", clears the queue, adds them to the queue, and then plays the queue:
 
 ```yaml
 actions:
@@ -348,8 +348,9 @@ actions:
   - action: media_player.clear_playlist
     target:
       entity_id: media_player.kitchen
+  - variables:
+      search_length: '{{ results['media_player.kitchen']['result']|count }}'
   - repeat:
-      count: 10
       sequence:
         - action: media_player.play_media
           target:
@@ -363,6 +364,9 @@ actions:
               media_content_type: >-
                 {{ results['media_player.kitchen']['result'][repeat.index -
                 1]['media_content_type'] }}
+      until:
+        - condition: template
+          value_template: '{{search_length == repeat.index}}'                
   - action: sonos.play_queue
     target:
       entity_id: media_player.kitchen
