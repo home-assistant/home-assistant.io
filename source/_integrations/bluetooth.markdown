@@ -294,7 +294,7 @@ Each Bluetooth adapter can be configured to use one of three scanning modes. **A
 - **Active**: Continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you.
 - **Passive**: Only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work.
 
-Auto and Passive both require an adapter that supports passive scanning. On Linux this needs BlueZ 5.63 or later with experimental features enabled (available with Home Assistant Operating System 9.4 and later). On adapters that do not support passive scanning, Auto falls back to Active automatically.
+Auto and Passive both require an adapter that supports passive scanning. On Linux, this needs BlueZ 5.63 or later with experimental features enabled (available with Home Assistant Operating System 9.4 and later). On adapters that do not support passive scanning, Auto falls back to Active automatically.
 
 ## Options
 
