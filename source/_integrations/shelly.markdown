@@ -62,7 +62,7 @@ Port:
 
 {% configuration_basic %}
 Bluetooth scanner mode:
-  description: "The scanner mode to use for Bluetooth scanning. Bluetooth scanning can be active or passive. With active, the Shelly requests data from nearby devices. With passive, the Shelly receives unsolicited data from nearby devices."
+  description: "Pick how the Shelly scans for Bluetooth devices. <br> **Auto** is recommended for most setups. The Shelly listens passively and only briefly switches to active scanning when needed, saving around 95 to 96 percent of the scan related battery drain on your Bluetooth devices while still discovering devices and updates quickly. <br> **Active** continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you. <br> **Passive** only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work. <br> **Disabled** turns the Shelly Bluetooth scanner off."
 {% endconfiguration_basic %}
 
 ## Shelly device generations
