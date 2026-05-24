@@ -18,7 +18,7 @@ ha_platforms:
   - switch
 ha_domain: indevolt
 ha_integration_type: device
-ha_dhcp: true
+ha_zeroconf: true
 ha_quality_scale: bronze
 ha_config_flow: true
 ---
