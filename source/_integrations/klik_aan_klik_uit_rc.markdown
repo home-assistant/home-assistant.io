@@ -10,9 +10,8 @@ ha_iot_class: Assumed State
 ha_config_flow: true
 ha_codeowners:
   - '@Phunkafizer'
-ha_domain: kaku_rc
+ha_domain: klik_aan_klik_uit_rc
 ha_platforms:
-  - button
   - light
   - switch
 ha_integration_type: device
@@ -36,7 +35,7 @@ You can use this integration to:
 
 The following devices are known to be compatible:
 
-**KlikAanKlikUit** self-learning devices, including but not limited to most plug-in and built-in KAK outlets and dimmers.
+**KlikAanKlikUit** self-learning devices, including but not limited to most plug-in and built-in KlikAanKlikUit outlets and dimmers.
 
 **Intertechno** self-learning devices:
 IT-1500, IT-2300, ITDL-1000, ITDM-250, ITL-1000, ITL-230, ITL-250, ITL-300, ITL-3500, ITL-500, ITLM-1000, ITLR-3500, ITR-1500, ITWR-3500, LBUR-100
