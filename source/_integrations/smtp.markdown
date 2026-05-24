@@ -14,80 +14,47 @@ ha_quality_scale: legacy
 
 The **SMTP** {% term integration %} allows you to deliver notifications from Home Assistant to an email recipient.
 
-To enable notification by email in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    sender: "YOUR_SENDER"
-    recipient: "YOUR_RECIPIENT"
-```
-
-Check your email provider configuration or help pages to get the correct SMTP settings. A restart of Home Assistant is required to pick up the configuration changes.
-
+Check your email provider configuration or help pages to get the correct SMTP settings.
 {% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
-  required: false
-  type: string
-  default: notify
-sender:
-  description: email address of the sender.
-  required: true
-  type: string
-recipient:
-  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your email notifications by default (when not specifying `target` in the action). Any email address(es) specified in the action's `target` field will override this recipient content.
-  required: true
-  type: [list, string]
-server:
-  description: SMTP server which is used to send the notifications.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port that the SMTP server is using.
-  required: false
-  type: integer
-  default: 587
-timeout:
-  description: The timeout in seconds that the SMTP server is using.
-  required: false
-  type: integer
-  default: 5
-username:
-  description: Username for the SMTP account.
-  required: false
-  type: string
-password:
-  description: Password for the SMTP server that belongs to the given username. Make sure to wrap it in double quotes; e.g., `"MY_PASSWORD"`.
-  required: false
-  type: string
-encryption:
-  description: Set mode for encryption, `starttls`, `tls` or `none`.
-  required: false
-  type: string
-  default: starttls
-sender_name:
-  description: "Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>)."
-  required: false
-  type: string
-debug:
-  description: Enables Debug, e.g., `true` or `false`.
-  required: false
-  type: boolean
-  default: false
-verify_ssl:
-  description: If the SSL certificate of the server needs to be verified.
-  required: false
-  type: boolean
-  default: true
+Sender email:
+    description: "Email address that will appear in the From field."
+    required: true
+    type: string
+Sender name:
+    description: "Display name shown as the email sender."
+    required: false
+    type: string
+Host:
+    description: "Hostname or IP address of the SMTP server."
+    required: true
+    type: string
+Port:
+    description: "SMTP server port number."
+    required: true
+    type: string
+Connection security:
+    description: "Encryption method used for the SMTP connection."
+    required: true
+    type: string
+Username:
+    description: "Username used to authenticate with the SMTP server."
+    required: false
+    type: string
+Password:
+    description: "Password or app-specific password for the SMTP account."
+    required: false
+    type: string
+Verify SSL certificate:
+    description: "Enable certificate verification for secure SSL/TLS connections."
+    required: true
+    type: string
 {% endconfiguration %}
 
 ### Usage
 
-A notify integration will be created using the name without spaces. In the above example, it will be called `notify.NOTIFIER_NAME`. To use the SMTP notification, refer to it in an automation or script like in this example:
+A notify integration will be created using the entry name without spaces. To use the SMTP notification, refer to it in an automation or script like in this example:
 
 ```yaml
 - alias: "Send E-Mail Every Morning"
@@ -103,7 +70,7 @@ A notify integration will be created using the name without spaces. In the above
             - "morning@example.com"
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific action. When `target` field is not used, this message will be sent to default recipient(s), specified in the `recipient` part of the smtp notifier in `configuration.yaml`. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`
+The optional `target` field is used to specify recipient(s) for this specific action. When `target` field is not used, this message will be sent to default recipient(s), specified as recipient subentries in integration. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`
 
 Another example attaching images stored locally in a script:
 
@@ -206,25 +173,17 @@ If you are in doubt about the SMTP settings required, check your email provider 
 
 ### Google Mail
 
-A sample configuration entry for Google Mail.
+Example configuration for Google Mail.
 
-```yaml
-# Example configuration.yaml entry for Google Mail.
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    server: "smtp.gmail.com"
-    port: 587
-    timeout: 15
-    sender: "YOUR_USERNAME@gmail.com"
-    encryption: starttls
-    username: "YOUR_USERNAME@gmail.com"
-    password: "YOUR_APP_PASSWORD"
-    recipient:
-      - "RECIPIENT_1@example.com"
-      - "RECIPIENT_N@example.com"
-    sender_name: "SENDER_NAME"
-```
+| **Parameter** | Value |
+| -------- | ------------- |
+| **Host** | smtp.gmail.com |
+| **Port** | 587 |
+| **Sender email** | YOUR_USERNAME@gmail.com |
+| **Sender name** | SENDER_NAME |
+| **Connection security** | STARTTLS |
+| **Username** | YOUR_USERNAME@gmail.com |
+| **Password** | YOUR_APP_PASSWORD |
 
 Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
 
