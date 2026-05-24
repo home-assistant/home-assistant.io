@@ -12,6 +12,7 @@ ha_domain: assist_pipeline
 ha_integration_type: system
 ha_quality_scale: internal
 ha_platforms:
+  - number
   - select
 related:
   - docs: /docs/configuration/
@@ -34,3 +35,7 @@ assist_pipeline:
 ```
 
 For more information, refer to the procedure on [configuring a pipeline](/voice_control/voice_remote_local_assistant/).
+
+## Voice activity detection
+
+Assist satellite devices can expose number entities for finished-speaking silence and command timeout. Increase these values if speech is cut off too early or commands need longer pauses.
