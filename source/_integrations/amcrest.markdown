@@ -46,7 +46,7 @@ After setup, the following entities are created for each camera.
 
 #### Camera
 
-- **Camera**: Provides a live video stream, still image snapshots, and on/off control. Supports MJPEG streaming, snapshot-based streaming, and WebRTC (via go2rtc, if configured).
+- **Camera**: Provides a live video stream and still image snapshots. Supports MJPEG streaming and snapshot-based streaming. WebRTC playback is also available through go2rtc, if configured.
 
 #### Binary sensors
 
@@ -301,9 +301,9 @@ elements:
 
 ## Known limitations
 
-- Camera settings such as resolution and stream source cannot be changed after initial setup. Support for editing these options will be added in a future update.
+- Camera settings such as resolution and stream source cannot be changed after initial setup. Editing these options is not currently supported.
 - If you need to change your camera's IP address or login credentials, you must remove and re-add the integration.
-- Only single-channel cameras are supported at this time. Multi-channel camera support will be added in a future update.
+- Only single-channel cameras are currently supported. Multi-channel camera support is not currently available.
 - On first startup, Home Assistant may log SSL initialization warnings related to the underlying camera library. These appear only once per startup and have no functional impact.
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> zoom control does not adjust varifocal lenses.
 - There can be a few seconds of lag before the video stream reflects camera movement.
