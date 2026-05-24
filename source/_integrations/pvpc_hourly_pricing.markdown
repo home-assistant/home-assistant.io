@@ -29,7 +29,7 @@ More information available at <https://www.cnmc.es/en/> and <https://www.omie.es
 
 To configure PVPC Hourly Pricing, set it up via the integrations panel in the configuration screen.
 
-Select one of the two available tariffs, according to your geographic position in Spain:
+During setup, select one of the two available tariffs, according to your geographic position in Spain:
 
 - `2.0TD`, for the Peninsula, the Balearic Islands and the Canary Islands.
 - `2.0TD (Ceuta/Melilla)`, for the cities of Ceuta and Melilla.
