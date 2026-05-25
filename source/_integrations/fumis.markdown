@@ -223,7 +223,9 @@ Never run out of pellets unexpectedly. This automation sends you a notification 
       entity_id: sensor.pellet_stove_fuel_level
       below: 20
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Pellet stove"
         message: "Fuel level is running low. Time to refill the hopper."
