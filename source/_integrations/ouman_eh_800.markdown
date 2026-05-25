@@ -69,7 +69,7 @@ The integration exposes select entities for the device's enum-based controls. Th
 
 - **Home/Away mode** (on the main device): Switch between **Home**, **Away**, and **Off**.
 - **H1/H2 Operation mode** (on each heating circuit): Switch between **Auto**, **Temperature drop**, **Big temperature drop**, **Normal temperature**, **Standby**, and **Manual valve control**.
-- **Relay control** (on the main device, when the relay is configured for temperature, temperature-difference, L1 valve position, or time-program modes): Switch between **Auto**, **On**, and **Off**.
+- **Relay control** (on the main device, when the relay is configured for temperature, temperature-difference, H1 valve position, or time-program modes): Switch between **Auto**, **On**, and **Off**.
 - **Pump summer stop** (on the main device, when the relay is configured for pump summer stop mode): Switch between **Auto**, **Stop**, and **Run**.
 
 ### Sensors
