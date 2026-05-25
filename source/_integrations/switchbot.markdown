@@ -193,6 +193,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Standing Fan](https://www.switch-bot.com/products/switchbot-tower-fan)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -802,7 +803,7 @@ Features:
 
 ### Fans
 
-Fan entities are added for Battery Circulator Fan/Circulator Fan
+Fan entities are added for Battery Circulator Fan/Circulator Fan and Standing Fan.
 
 #### Battery Circulator Fan/Circulator Fan
 
@@ -813,6 +814,19 @@ Features:
 - set mode
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
+
+#### Standing Fan
+
+Features:
+
+- turn on
+- turn off
+- set speed
+- set mode (Normal, Natural, Sleep, Baby, Custom Natural)
+- oscillate horizontally and vertically (separate switches)
+- set horizontal and vertical oscillation angle (30°, 60°, or 90°)
+- set night light level (Off, Level 1, or Level 2)
+- get battery level
 
 ### Air Purifiers
 
