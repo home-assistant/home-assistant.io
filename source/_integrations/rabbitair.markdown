@@ -24,7 +24,7 @@ The fan platform of this integration allows you to turn the unit on/off, select 
 
 ## Prerequisites
 
-To set up the integration, you need the **Thing ID** and **User key** from the **Rabbit Air 2** app. In Home Assistant, use the **Thing ID** for `host` and the **User key** for `access_token`.
+To set up the integration, you need the **Thing ID** and **User key** from the **Rabbit Air 2** app. In Home Assistant, use the **Thing ID** as part of the `host` and the **User key** for `access_token`.
 
 1. Open the **Rabbit Air 2** app. You will see a list of devices connected to your account.
 2. Tap your Rabbit Air device to open the device control page.
