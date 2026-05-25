@@ -20,13 +20,13 @@ blueprint:
     wind_speed_threshold:
       name: Wind speed threshold
       description: >
-        The wind speed in km/h above which the cover will be closed.
+        The wind speed above which the cover will be closed. Use the same unit
+        as your wind speed sensor.
       default: 40
       selector:
         number:
-          min: 10
-          max: 120
-          unit_of_measurement: km/h
+          min: 1
+          max: 200
 
     cover_entity:
       name: Cover
