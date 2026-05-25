@@ -1,5 +1,5 @@
 ---
-title: Aquarite
+title: VistaPool
 description: Monitor and control Hayward-branded pool controllers via the Hayward cloud API.
 ha_category:
   - Sensor
@@ -15,11 +15,10 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - "@fdebrus"
-ha_domain: aquarite
+ha_domain: vistapool
 ha_platforms:
   - binary_sensor
   - button
-  - device_tracker
   - light
   - number
   - select
@@ -29,7 +28,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Aquarite** integration connects Home Assistant to **Hayward-branded pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
+The **VistaPool** integration connects Home Assistant to **Hayward-branded pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
 
 It communicates with the official Hayward cloud API using real-time push updates (no polling), giving you instant visibility and control over your pool equipment.
 
@@ -121,7 +120,7 @@ The integration provides the following sensors:
 
 ## Actions
 
-### Action `aquarite.sync_pool_time`
+### Action `vistapool.sync_pool_time`
 
 Synchronize the pool controller's internal clock with Home Assistant's local time. Useful after power outages or controller restarts.
 
@@ -131,7 +130,7 @@ Synchronize the pool controller's internal clock with Home Assistant's local tim
 
 ## Configuration options
 
-After setup, you can adjust integration settings via **Settings → Devices & Services → Aquarite → Configure**:
+After setup, you can adjust integration settings via **Settings → Devices & Services → VistaPool → Configure**:
 
 | Option | Default | Range | Description |
 | ------ | ------- | ----- | ----------- |
