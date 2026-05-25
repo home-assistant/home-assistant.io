@@ -41,7 +41,7 @@ The API token is used to authenticate requests to the Lichess API. To generate a
 
 The integration creates sensors for your rating in bullet, blitz, rapid, and classical, and also the number of games played in each of these formats.
 
-Entities for number of games played and your rating in Ultra Bullet, Chess960, Crazyhouse, Antichess, Atomic, Horde, King of the Hill, Racing Kings and Three-check are also available but are disabled by default.
+Entities for number of games played and your rating in Puzzles, Ultra Bullet, Chess960, Crazyhouse, Antichess, Atomic, Horde, King of the Hill, Racing Kings and Three-check are also available but are disabled by default.
 
 
 ## Data updates
