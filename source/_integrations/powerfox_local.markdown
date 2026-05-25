@@ -79,7 +79,9 @@ triggers:
     for:
       minutes: 2
 actions:
-  - action: notify.mobile_app_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "High consumption detected"
       message: "Poweropti currently reports {{ states('sensor.poweropti_power') }} W."

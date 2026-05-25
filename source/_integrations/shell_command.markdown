@@ -122,12 +122,16 @@ automation:
         response_variable: todo_response
       - if: "{{ todo_response['returncode'] == 0 }}"
         then:
-          - action: notify.mobile_app_iphone
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
             data:
               title: "ToDo"
               message: "{{ todo_response['stdout'] }}"
         else:
-          - action: notify.mobile_app_iphone
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
             data:
               title: "ToDo file error"
               message: "{{ todo_response['stderr'] }}"

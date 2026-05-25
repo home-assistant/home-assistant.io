@@ -151,7 +151,9 @@ triggers:
     from: "nearing"
     to: "critical"
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: OneDrive is almost full!
       message: >
