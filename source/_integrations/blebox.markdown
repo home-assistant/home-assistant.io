@@ -452,8 +452,8 @@ This integration adds the Blebox device as a sensor entity and a binary sensor e
 
 #### Additional features
 
-- Option to change the detection mode is available in the wBox app.
-- After a settings change, the device needs to be reloaded.
+- An option to change the detection mode is available in the wBox app.
+- After changing settings, the device needs to be reloaded.
 
 ### actionBox, actionBoxS, and proxiBox
 
