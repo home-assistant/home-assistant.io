@@ -43,10 +43,7 @@ The **Samsung Infrared** integration provides the following entities.
 
 ### Buttons
 
-- **Power**: Toggles the TV power state.
-- **Power on**: Explicitly turns on the TV.
-- **Power off**: Explicitly turns off the TV.
-- **Source**: Opens the input source selection menu.
+- **Source**: Opens the input source selection menu
 - **Settings**: Opens the TV settings menu.
 - **Info**: Displays program information.
 - **Exit**: Exits the current menu or app.
@@ -56,14 +53,12 @@ The **Samsung Infrared** integration provides the following entities.
 - **Up**, **Down**, **Left**, **Right**: Navigation buttons for menu navigation.
 - **OK**: Confirms selections in menus.
 - **Previous channel**: Switches to the previously viewed channel.
-- **HDMI 1**, **HDMI 2**, **HDMI 3**, **HDMI 4**: Directly switches to the respective HDMI input, if supported by your TV model.
 - **Number 0-9**: Number keys for channel selection and text input.
 - **Fast forward**: Fast forwards playback.
 - **Rewind**: Rewinds playback.
 - **Record**: Starts recording (if supported by the TV).
 - **Tools**: Opens the tools menu.
 - **Browser**: Opens the web browser.
-- **TV**: Switches to TV mode.
 - **AD/Subtitle**: Toggles audio description or subtitles.
 - **E-Manual**: Opens the electronic manual.
 
