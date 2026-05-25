@@ -55,6 +55,13 @@ Password:
   description: "The password for your BleBox device, if you have set up access credentials. This is optional."
 {% endconfiguration_basic %}
 
+## Data updates
+
+This integration uses local polling to fetch the current state of your BleBox devices. The polling interval depends on the entity type:
+
+- Lights, sensors, switches, and climate entities are polled every 5 seconds.
+- Binary sensors, buttons, and covers are polled every 30 seconds (the Home Assistant default).
+
 ## BleBox controllers
 
 ### rollerGate
