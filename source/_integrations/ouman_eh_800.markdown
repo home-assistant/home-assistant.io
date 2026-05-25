@@ -2,6 +2,7 @@
 title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
 ha_category:
+  - Climate
   - Sensor
 ha_release: 2026.6
 ha_iot_class: Local Polling
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@Markus98'
 ha_domain: ouman_eh_800
 ha_platforms:
+  - climate
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -59,7 +61,19 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Sensors are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Climate and sensor entities are assigned to the device they belong to.
+
+### Climate entities
+
+The integration exposes one climate entity per active heating circuit that has a room sensor installed. The entity reports the room temperature and lets you adjust the room temperature setpoint.
+
+The HVAC mode shown on the climate card reflects the heating circuit's operation mode: **Heat** when the controller is running a mode that uses the room temperature setpoint, **Off** otherwise. The three heating sub-modes that use the setpoint (**Automatic**, **Temperature drop**, **Big temperature drop**) are exposed as **presets**. Switching the HVAC mode to **Heat** defaults the heating preset to **Automatic**.
+
+The HVAC action reflects the current heating status: **Heating** when the mixing valve is open, **Idle** when it is closed, **Off** when the circuit isn't using the setpoint.
+
+{% note %}
+Operation modes other than the three heat sub-modes (for example **Normal temperature** and **Manual valve control**) ignore the room temperature setpoint. The climate entity reports **Off** for those modes.
+{% endnote %}
 
 ### Sensors
 
@@ -86,7 +100,7 @@ This integration uses local {% term polling %} to fetch data from the Ouman EH-8
 
 ## Known limitations
 
-- **Read-only**: The integration currently only reads values from the controller. Adjusting setpoints, changing operation mode, or controlling the relay is not yet supported.
+- **Limited write support**: Apart from the room temperature setpoint and heat/off control exposed via the climate entity, adjusting other setpoints, changing the operation mode beyond the heat sub-modes, or controlling the relay is not yet supported.
 
 ## Removing the integration
 
