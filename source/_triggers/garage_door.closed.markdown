@@ -95,7 +95,7 @@ After you finish unloading the car, this automation gives you a little time to w
 
 {% example %}
 automation: |
-  alias: "Turn off the garage lights after the garage door closes"
+  alias: "Turn off the garage lights after the garage door has been closed for 2 minutes"
   triggers:
     - trigger: garage_door.closed
       target:
