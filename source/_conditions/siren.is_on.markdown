@@ -55,14 +55,14 @@ behavior:
   description: >
     When multiple sirens are targeted, controls how results combine.
     Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: >
     How long the siren must stay on before the condition passes.
     Accepts a duration string like `00:05:00`.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}

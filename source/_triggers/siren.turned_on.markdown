@@ -55,14 +55,14 @@ behavior:
   description: >
     When multiple sirens are targeted, controls when the trigger fires.
     Accepts `any`, `first`, or `last`.
-  required: true
+  required: false
   type: string
   default: any
 for:
   description: >
     How long the siren must stay on before the trigger fires.
     Accepts a duration string like `00:05:00`.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}
