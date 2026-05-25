@@ -226,4 +226,4 @@ or `SimpliSafe: Capture motion clip`. Both require a file name to write the medi
 file path should begin with `/config/www/`. For example:
 
 - Image: `/config/www/simplisafe/back_yard/latest.jpg`
-- Clip: `/config/www/simplisafe/back_yard/clips/{{ now().strftime('%Y%m%d%H%M%S') }}.mp4`
+- Clip: {% raw %}`/config/www/simplisafe/back_yard/clips/{{ now().strftime('%Y%m%d%H%M%S') }}.mp4`{% endraw %}
