@@ -43,6 +43,7 @@ The **Samsung Infrared** integration provides the following entities.
 
 ### Buttons
 
+- **Power**: Toggles the TV power state.
 - **Source**: Opens the input source selection menu
 - **Settings**: Opens the TV settings menu.
 - **Info**: Displays program information.
