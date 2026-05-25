@@ -794,5 +794,5 @@ This integration adds the Drutex device ("blebox inside") as a sensor entity and
 
 #### Additional features
 
-- Option to change the detection mode is available in the wBox app.
-- After a settings change, the device needs to be reloaded.
+- An option to change the detection mode is available in the wBox app.
+- After changing settings, the device needs to be reloaded.
