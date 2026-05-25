@@ -43,7 +43,6 @@ The integration creates sensors for your rating in bullet, blitz, rapid, and cla
 
 Entities for number of games played and your rating in puzzles, ultra bullet, chess960, crazyhouse, antichess, atomic, horde, king of the hill, racing kings, three-check are also available but are disabled by default.
 
-
 ## Data updates
 
 The integration {% term polling polls %} the Lichess API every hour to update sensor data.
