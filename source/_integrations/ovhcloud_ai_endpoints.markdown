@@ -34,7 +34,7 @@ This integration is useful if you want to keep your conversation data within a E
 
 ### Generating an API key
 
-The API key is used to authenticate requests to OVHcloud AI Endpoints. To generate an API key, follow the [official guide](https://help.ovhcloud.com/csm/en-public-cloud-ai-endpoints-getting-started?id=kb_article_view&sysparm_article=KB0065403).
+The API key is used to authenticate requests to OVHcloud AI Endpoints. To generate an API key, follow the [official guide](https://docs.ovhcloud.com/en/guides/public-cloud/ai-machine-learning/ai-endpoints-getting-started).
 
 The rough steps are outlined below:
 
