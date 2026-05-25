@@ -1,0 +1,51 @@
+blueprint:
+  name: Close covers when wind speed is too high
+  description: >
+    Automatically close a BleBox cover when a windSensor PRO reports wind speed
+    above a set threshold, protecting your blinds or awnings from damage.
+  domain: automation
+
+  input:
+    wind_speed_entity:
+      name: Wind speed sensor
+      description: >
+        Select the windSensor PRO wind speed sensor entity to monitor.
+      selector:
+        entity:
+          filter:
+            - integration: blebox
+              domain: sensor
+              device_class: wind_speed
+
+    wind_speed_threshold:
+      name: Wind speed threshold
+      description: >
+        The wind speed in km/h above which the cover will be closed.
+      default: 40
+      selector:
+        number:
+          min: 10
+          max: 120
+          unit_of_measurement: km/h
+
+    cover_entity:
+      name: Cover
+      description: >
+        Select the BleBox cover entity to close when wind speed is too high.
+      selector:
+        entity:
+          filter:
+            - integration: blebox
+              domain: cover
+
+mode: single
+
+trigger:
+  - trigger: numeric_state
+    entity_id: !input wind_speed_entity
+    above: !input wind_speed_threshold
+
+action:
+  - action: cover.close_cover
+    target:
+      entity_id: !input cover_entity

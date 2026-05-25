@@ -1083,6 +1083,26 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
 
+## Examples
+
+### Close shutters at sunset
+
+Leaving shutters open after dark can affect your privacy and home security. You can use this blueprint to automatically close your shutterBox blinds every day at sunset.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_shutters_at_sunset.yaml" %}
+
+### Close the gate when leaving home
+
+It is easy to forget to close the gate when leaving in a hurry. You can use this blueprint to automatically close your gateBox or rollerGate when the last person leaves home.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_gate_on_leave.yaml" %}
+
+### Close covers when wind speed is too high
+
+Strong winds can damage blinds and awnings left open outside. You can use this blueprint to automatically close your covers when the windSensor PRO detects wind speed above a safe threshold.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_covers_on_high_wind.yaml" %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required within Home Assistant or on your BleBox devices.

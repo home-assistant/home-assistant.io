@@ -1,0 +1,27 @@
+blueprint:
+  name: Close shutters at sunset
+  description: >
+    Automatically close a BleBox shutterBox cover every day at sunset.
+  domain: automation
+
+  input:
+    cover_entity:
+      name: Shutter
+      description: >
+        Select the shutterBox cover entity to close at sunset.
+      selector:
+        entity:
+          filter:
+            - integration: blebox
+              domain: cover
+
+mode: single
+
+trigger:
+  - trigger: sun
+    event: sunset
+
+action:
+  - action: cover.close_cover
+    target:
+      entity_id: !input cover_entity
