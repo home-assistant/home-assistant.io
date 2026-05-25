@@ -88,7 +88,6 @@ After you disarm an alarm, you may want a quick confirmation that the siren has 
 - **Trigger**: State changed: Home alarm to disarmed
 - **Condition**: Siren is off
   - **Target**: Entry siren
-  - **Condition passes if**: Any
   - **For at least**: 00:00:30
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -107,7 +106,6 @@ automation: |
       target:
         entity_id: siren.entry
       options:
-        behavior: any
         for: "00:00:30"
   actions:
     - action: notify.send_message
@@ -130,7 +128,6 @@ Testing a siren is useful, but not if a real alarm is already active. This autom
 - **Condition**: Siren is off
   - **Target**: All sirens (by label)
   - **Condition passes if**: All
-  - **For at least**: 00:00:00
 - **Action**: Turn on siren
 
 {% details "YAML example for a siren test" %}
@@ -147,7 +144,6 @@ automation: |
         label_id: house_sirens
       options:
         behavior: all
-        for: "00:00:00"
   actions:
     - action: siren.turn_on
       target:

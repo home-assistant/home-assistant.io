@@ -79,8 +79,6 @@ If a siren turns on while you are in another part of the building, you may want 
 
 - **Trigger**: Siren turned on
   - **Target**: Entry siren
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -93,9 +91,6 @@ automation: |
     - trigger: siren.turned_on
       target:
         entity_id: siren.entry
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -115,7 +110,6 @@ If you want a siren to stop after a set time, you can check whether it is still 
 - **Trigger**: Time pattern: Every minute
 - **Condition**: Siren is on
   - **Target**: Patio siren
-  - **Condition passes if**: Any
   - **For at least**: 00:05:00
 - **Action**: Turn off siren
 
@@ -132,7 +126,6 @@ automation: |
       target:
         entity_id: siren.patio
       options:
-        behavior: any
         for: "00:05:00"
   actions:
     - action: siren.turn_off

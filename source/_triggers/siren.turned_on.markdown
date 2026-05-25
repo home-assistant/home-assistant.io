@@ -87,8 +87,6 @@ If a siren turns on while you are outside or in another room, a phone alert help
 
 - **Trigger**: Siren turned on
   - **Target**: Entry siren
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -101,9 +99,6 @@ automation: |
     - trigger: siren.turned_on
       target:
         entity_id: siren.entry
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -122,7 +117,6 @@ At night, a siren can be easier to deal with if the area around your home is lit
 
 - **Trigger**: Siren turned on
   - **Target**: Outdoor siren
-  - **Trigger when**: Each
   - **For at least**: 00:00:05
 - **Action**: Turn on light
 
@@ -136,7 +130,6 @@ automation: |
       target:
         entity_id: siren.outdoor
       options:
-        behavior: any
         for: "00:00:05"
   actions:
     - action: light.turn_on

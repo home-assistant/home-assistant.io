@@ -87,8 +87,6 @@ When a siren stops, you may want to know the alarm state has settled down. This 
 
 - **Trigger**: Siren turned off
   - **Target**: Entry siren
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -101,9 +99,6 @@ automation: |
     - trigger: siren.turned_off
       target:
         entity_id: siren.entry
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -122,7 +117,6 @@ If you turn on extra lights while a siren is active, you can also turn them off 
 
 - **Trigger**: Siren turned off
   - **Target**: Outdoor siren
-  - **Trigger when**: Each
   - **For at least**: 00:00:30
 - **Action**: Turn off light
 
@@ -136,7 +130,6 @@ automation: |
       target:
         entity_id: siren.outdoor
       options:
-        behavior: any
         for: "00:00:30"
   actions:
     - action: light.turn_off

@@ -88,7 +88,6 @@ If a siren keeps sounding, it is easy to miss the first alert and forget to chec
 - **Trigger**: Time pattern: Every minute
 - **Condition**: Siren is on
   - **Target**: Patio siren
-  - **Condition passes if**: Any
   - **For at least**: 00:05:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -106,7 +105,6 @@ automation: |
       target:
         entity_id: siren.patio
       options:
-        behavior: any
         for: "00:05:00"
   actions:
     - action: notify.send_message
@@ -128,8 +126,6 @@ When you disarm your alarm, you usually want the noise to stop too. This automat
 - **Trigger**: State changed: Home alarm to disarmed
 - **Condition**: Siren is on
   - **Target**: Entry siren
-  - **Condition passes if**: Any
-  - **For at least**: 00:00:00
 - **Action**: Turn off siren
 
 {% details "YAML example for silencing the siren after disarming" %}
@@ -145,9 +141,6 @@ automation: |
     - condition: siren.is_on
       target:
         entity_id: siren.entry
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: siren.turn_off
       target:
