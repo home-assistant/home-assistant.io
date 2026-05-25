@@ -2,6 +2,7 @@
 title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
 ha_category:
+  - Number
   - Sensor
 ha_release: 2026.6
 ha_iot_class: Local Polling
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@Markus98'
 ha_domain: ouman_eh_800
 ha_platforms:
+  - number
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -59,7 +61,23 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Sensors are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Number and sensor entities are assigned to the device they belong to.
+
+### Number entities
+
+The integration exposes number entities for the device's configurable numeric setpoints. The exact set depends on which features and circuits are active on your device.
+
+Enabled by default (categorized as configuration):
+
+- **H1/H2 Water out minimum/maximum temperature**: Lower and upper limits for the supply water temperature.
+- **H1/H2 Curve -20°C / -10°C / 0°C / 10°C / 20°C temperature**: Supply water temperatures at each outside-temperature point on the heating curve. The set of points depends on whether the controller is configured for a 3-point or 5-point curve.
+- **H1/H2 Temperature drop**, **Big temperature drop**: Offsets applied to the target when an automatic reduction is active.
+- **H1/H2 Room temperature fine tuning**: Manual offset for the room temperature target.
+- **H1 Constant temperature setpoint** (only when the heating mode is constant-temperature controller): The target supply water temperature.
+
+Disabled by default (see [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)):
+
+- **Trend sampling interval** (on the main device): The polling interval used by the controller's trend recorder, in seconds.
 
 ### Sensors
 
@@ -86,7 +104,9 @@ This integration uses local {% term polling %} to fetch data from the Ouman EH-8
 
 ## Known limitations
 
-- **Read-only**: The integration currently only reads values from the controller. Adjusting setpoints, changing operation mode, or controlling the relay is not yet supported.
+- **No operation mode or relay control**: Switching the heating circuit operation mode or controlling the relay is not yet supported.
+- **No room temperature setpoint control**: Adjusting the room temperature setpoint is not yet supported.
+- **No manual valve position control**: Manually setting the mixing valve position is not yet supported.
 
 ## Removing the integration
 
