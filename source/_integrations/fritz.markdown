@@ -225,7 +225,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 Some FRITZ!Repeater models with newer FRITZ!OS versions use their own users for app access. If Home Assistant reports an authentication error after a repeater firmware update, sign in to the repeater web interface and go to **System** > **FRITZ!Box Users** > **Users**.
 
-Create a dedicated user for Home Assistant on the repeater, or use an existing local repeater user in the integration. Make sure the user has the **FRITZ!Box Settings** permission. In a mesh setup, do not assume that a user from the main FRITZ!Box is also available on the repeater.
+Create a dedicated user for Home Assistant on the repeater, or use an existing local repeater user in the integration (_see [username](#username) section above for details_). In a mesh setup, do not assume that a user from the main FRITZ!Box is also available on the repeater.
 
 ### Device presence detection is not working as expected
 
