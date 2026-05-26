@@ -73,7 +73,7 @@ The integration creates one **Ouman EH-800** device for the controller and one s
 
 The integration exposes one climate entity per active heating circuit that has a room sensor installed. The entity reports the room temperature and lets you adjust the room temperature setpoint.
 
-The HVAC mode shown on the climate card reflects the heating circuit's operation mode: **Heat** when the controller is running a mode that uses the room temperature setpoint, **Off** otherwise. The three heating sub-modes that use the setpoint (**Automatic**, **Temperature drop**, **Big temperature drop**) are exposed as **presets**. Switching the HVAC mode to **Heat** defaults the heating preset to **Automatic**.
+The HVAC mode shown on the climate card reflects the heating circuit's operation mode: **Heat** when the controller is running a mode that uses the room temperature setpoint, **Off** otherwise. The three heating sub-modes that use the setpoint (**Auto**, **Temperature drop**, **Big temperature drop**) are exposed as **Preset mode**. Switching the HVAC mode to **Heat** defaults the preset mode to **Auto**.
 
 The HVAC action reflects the current heating status: **Heating** when the mixing valve is open, **Idle** when it is closed, **Off** when the circuit isn't using the setpoint.
 
