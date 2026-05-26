@@ -70,11 +70,11 @@ State of pool equipment:
 
 Alarms and faults:
 
-- **pH pump**: pH pump fault (if pH module installed)
+- **pH pump alarm**: pH pump fault (if pH module installed)
 - **Hidro flow**: flow alarm on the cell (if hydrolysis/electrolysis module installed)
 - **Hidro FL2**: secondary flow alarm reported by the chlorine module (if chlorine module installed)
 - **Electrolysis low** / **Hydrolysis low**: production has dropped below the configured threshold. The name reflects which cell technology your controller reports (if hydrolysis/electrolysis module installed)
-- **Acid tank**: at least one installed dosing tank reports a low level
+- **Dosing tank**: at least one installed dosing tank reports a low level
 
 Diagnostic entities, disabled by default, which let you template against which modules are installed on the controller:
 
