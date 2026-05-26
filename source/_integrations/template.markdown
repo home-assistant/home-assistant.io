@@ -317,7 +317,7 @@ alarm_control_panel:
       type: boolean
       default: false
     state:
-      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, and `triggered` are used."
+      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming`, `pending`, and `triggered` are used."
       required: false
       type: template
     trigger:
