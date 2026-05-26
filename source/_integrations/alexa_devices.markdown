@@ -8,6 +8,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - To-do list
 ha_release: '2025.6'
 ha_domain: alexa_devices
 ha_config_flow: true
@@ -22,6 +23,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - todo
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -151,6 +153,7 @@ In addition to sensors, you can use the following entities:
 - **Notify** - Speak and Announce notifications
 - **Select** - Select default device
 - **Switch** - Do not disturb
+- **To-do** - Shopping and To-do lists
 
 ## Examples
 
@@ -259,6 +262,7 @@ This integration {% term polling polls %} data from the device every five minute
 - This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
 - [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
+- Only the latest 100 items on shopping and to-do lists are synced.
 
 ## Troubleshooting
 
