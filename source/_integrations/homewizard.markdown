@@ -137,7 +137,7 @@ The Plug-In Battery provides some special group-level entities to help you manag
 - **Battery group power**: Shows the total power consumed or produced by the group of connected Plug-In Batteries.
 - **Battery group target power**: Shows the target power the group is trying to achieve.
 
-You can find these entities on the device that manages your batteries—either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. These entities are not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, these entities may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable them.
+You can find these entities on the device that manages your batteries. This is either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. These entities are not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, these entities may be disabled by default. For information on how to enable them, see [I can't find entities like voltage, current, battery group charging strategy, or battery group target power](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy).
 
 #### Battery group charging strategy
 
@@ -163,7 +163,7 @@ To learn how to update your device to the latest version, see [How do I check if
 
 #### Battery group power and battery group target power
 
-The **Battery group power** entity shows the total power consumed or produced by the group of connected Plug-In Batteries. The **Battery group target power** entity can be used to get the target power determined by the current battery group charging strategy. This is the power the battery group aims to deliver during charging or discharging. The value is negative when the battery group is trying to produce power, and positive when it is trying to consume power.
+The **Battery group power** entity shows the total power consumed or produced by the group of connected Plug-In Batteries. The **Battery group target power** entity shows the target power for the battery group, as determined by the current battery group charging strategy. These values is expressed in watts (W). A negative value means the battery group is trying to produce power, while a positive value means the battery group is trying to consume power.
 
 ## Identify
 
