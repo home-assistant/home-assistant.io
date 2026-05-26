@@ -131,6 +131,13 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 - **State of charge (%)**: The current state of charge of the battery.
 - **Status light brightness**: Controls the brightness of the LED strip. Error statuses are always visualized, even when the brightness is set to 0.
 
+The Plug-In Battery provides two special group-level entities to help you manage your batteries:
+
+- **Battery group charging strategy**: Lets you control how your group of Plug-In Batteries charges and discharges.
+- **Battery group target power**: Shows the target power the group is trying to achieve.
+
+You can find these entities on the device that manages your batteries. This is either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. These entities are not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, these entities may be disabled by default. For information on how to enable them, see [I can't find entities like voltage, current, battery group charging strategy, or battery group target power](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy).
+
 #### Battery group charging strategy
 
 The group of connected Plug-In Batteries can be controlled in different modes using the **Battery group charging strategy** select entity:
@@ -140,17 +147,22 @@ The group of connected Plug-In Batteries can be controlled in different modes us
 - **Net zero (discharge only)**: The Plug-In Battery will only discharge to supply power when your home's consumption exceeds solar production, aiming to keep your home's power consumption at zero. Charging is disabled in this mode. This can be helpful when energy prices are high and you prefer to use stored energy or sell excess solar production to the grid.
 - **One-time full charge**: All connected Plug-In Batteries will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
 - **Standby**: Plug-In Batteries will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
+- **Smart charging**: With this strategy, the Plug-In Batteries continuously predict the best moments to charge and discharge based on your production, consumption, and the local weather. This helps keep the grid in your area more stable and sustainable, and lets you save extra with a dynamic energy contract. Note: Smart charging requires a [cloud connection](#cloud-communication) for requesting a prediction plan.
 
-You can find the **Battery group charging strategy** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, the **Battery group charging strategy** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
+Read more about the [HomeWizard charging strategies (Dutch)](https://helpdesk.homewizard.com/nl/articles/14209959-hoe-bepaalt-de-batterij-wanneer-hij-gaat-laden-en-ontladen).
 
 {% tip %}
-"Net zero (charge only)" and "Net zero (discharge only)" are only available for:
+**Smart charging** is available for the following devices:
 
-- P1 Meter with firmware version 6.0300 or higher
-- kWh Meter with firmware version 5.0100 or higher
+- P1 Meter with firmware version 6.0400 or higher
+- kWh Meter with firmware version 5.0200 or higher
 
 To learn how to update your device to the latest version, see [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
 {% endtip %}
+
+#### Battery group target power
+
+The **Battery group target power** entity shows the target power for the battery group, as determined by the current battery group charging strategy. This value is expressed in watts (W). A negative value means the battery group is trying to produce power, while a positive value means the battery group is trying to consume power.
 
 ## Identify
 

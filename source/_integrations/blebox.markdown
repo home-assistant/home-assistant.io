@@ -9,6 +9,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Update
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -24,6 +25,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - update
 ha_integration_type: device
 ha_zeroconf: true
 ---
