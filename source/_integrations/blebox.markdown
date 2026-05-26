@@ -1085,8 +1085,8 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 
 ## Known limitations
 
-- Some device settings can only be changed using the wBox app. After changing these settings, the affected device must be reloaded in Home Assistant.
-- Some devices are not directly supported as Home Assistant entities and can be integrated using webhook automations instead.
+- Some device settings can only be changed using the wBox app. After changing these settings, reload the affected device by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the device, and selecting **Reload**.
+- Some devices are not directly supported as Home Assistant entities and can be integrated using [webhook automations](#generating-the-compatible-webhook-in-home-assistant) instead.
 
 ## Removing the integration
 
