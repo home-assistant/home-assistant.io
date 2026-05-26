@@ -139,10 +139,6 @@ The valve setpoint only affects the device when the corresponding heating circui
 
 This integration uses local {% term polling %} to fetch data from the Ouman EH-800 controller every 60 seconds.
 
-## Known limitations
-
-- **Limited write support**: Apart from the room temperature setpoint and heat/off control exposed via the climate entity, adjusting other setpoints, changing the operation mode beyond the heat sub-modes, or controlling the relay is not yet supported.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
