@@ -183,6 +183,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- [Weather Station](https://www.switch-bot.com/products/switchbot-outdoor-weather-station) (currently only supports retrieving sensor data)
 
 ### Hubs
 
