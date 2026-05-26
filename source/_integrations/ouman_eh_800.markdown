@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Ouman EH-800 heating controlle
 ha_category:
   - Number
   - Sensor
+  - Valve
 ha_release: 2026.6
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_domain: ouman_eh_800
 ha_platforms:
   - number
   - sensor
+  - valve
 ha_integration_type: device
 ha_quality_scale: bronze
 related:
@@ -61,7 +63,7 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Number and sensor entities are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Number, sensor, and valve entities are assigned to the device they belong to.
 
 ### Number entities
 
@@ -98,6 +100,16 @@ Additional diagnostic sensors are exposed but disabled by default. See [enabling
 - **H1 room sensor potentiometer**: The room temperature offset from the room sensor's adjustment knob.
 - **H2 delayed outdoor temperature effect**: The delayed outdoor temperature effect applied to the H2 setpoint.
 
+### Valve entities
+
+The integration exposes one valve entity per active heating circuit for the mixing valve:
+
+- **H1/H2 Valve position setpoint**: The mixing valve position, in percent.
+
+{% note %}
+The valve setpoint only affects the device when the corresponding heating circuit is in **manual valve control** mode. In other operation modes, the controller calculates the valve position automatically and the setpoint has no effect.
+{% endnote %}
+
 ## Data updates
 
 This integration uses local {% term polling %} to fetch data from the Ouman EH-800 controller every 60 seconds.
@@ -106,7 +118,6 @@ This integration uses local {% term polling %} to fetch data from the Ouman EH-8
 
 - **No operation mode or relay control**: Switching the heating circuit operation mode or controlling the relay is not yet supported.
 - **No room temperature setpoint control**: Adjusting the room temperature setpoint is not yet supported.
-- **No manual valve position control**: Manually setting the mixing valve position is not yet supported.
 
 ## Removing the integration
 

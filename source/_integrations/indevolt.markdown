@@ -19,6 +19,7 @@ ha_platforms:
 ha_domain: indevolt
 ha_integration_type: device
 ha_dhcp: true
+ha_zeroconf: true
 ha_quality_scale: bronze
 ha_config_flow: true
 ---
@@ -115,6 +116,7 @@ The following button entity allows triggering device actions directly from Home 
 - Main battery serial number
 - Main battery SOC (%)
 - Main battery temperature (°C)
+- Main battery MOS temperature (°C)
 - Main battery voltage (V)
 - Main battery current (A)
 - Battery pack 1-5 serial number
