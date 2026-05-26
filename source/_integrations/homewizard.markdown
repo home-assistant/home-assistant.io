@@ -144,7 +144,10 @@ The group of connected Plug-In Batteries can be controlled in different modes us
 
 Read more about the [HomeWizard charging strategies (Dutch)](https://helpdesk.homewizard.com/nl/articles/14209959-hoe-bepaalt-de-batterij-wanneer-hij-gaat-laden-en-ontladen).
 
-You can find the **Battery group charging strategy** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, the **Battery group charging strategy** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
+#### Battery group target power
+The **Battery group target power** number entity can be used to get the target power determined by the current battery group charging strategy. This is the power that the battery will try to achieve by charging or discharging. The value is negative when the battery is trying to produce power, and positive when it is trying to consume power.
+
+You can find the **Battery group charging strategy** and **Battery group target power** entities on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. These entities are not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, these entities may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
 
 {% tip %}
 **Smart charging** is available for the following devices:
