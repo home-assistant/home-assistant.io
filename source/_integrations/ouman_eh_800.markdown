@@ -78,7 +78,7 @@ The HVAC mode shown on the climate card reflects the heating circuit's operation
 The HVAC action reflects the current heating status: **Heating** when the mixing valve is open, **Idle** when it is closed, **Off** when the circuit isn't using the setpoint.
 
 {% note %}
-Operation modes other than the three heat sub-modes (for example **Normal temperature** and **Manual valve control**) ignore the room temperature setpoint. The climate entity reports **Off** for those modes.
+Operation modes other than the three heat sub-modes (for example **Nominal temperature** and **Manual valve control**) ignore the room temperature setpoint. The climate entity reports **Off** for those modes. Use the operation mode select entity to switch the circuit into one of those modes.
 {% endnote %}
 
 ### Number entities
