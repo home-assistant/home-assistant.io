@@ -3,7 +3,7 @@ title: Vistapool
 description: Monitor and control Hayward-branded pool controllers via the Hayward cloud API.
 ha_category:
   - Sensor
-ha_release: "2026.6"
+ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
