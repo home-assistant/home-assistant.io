@@ -162,6 +162,7 @@ To learn how to update your device to the latest version, see [How do I check if
 
 #### Battery group target power
 
+
 The **Battery group target power** entity shows the target power for the battery group, as determined by the current battery group charging strategy. This value is expressed in watts (W). A negative value means the battery group is trying to produce power, while a positive value means the battery group is trying to consume power.
 
 ## Identify
