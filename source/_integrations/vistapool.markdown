@@ -3,7 +3,7 @@ title: Vistapool
 description: Monitor and control Hayward-branded pool controllers via the Hayward cloud API.
 ha_category:
   - Sensor
-ha_release: "2025.x"
+ha_release: "2026.6"
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: vistapool
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Vistapool** integration connects Home Assistant to **Hayward-branded pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
@@ -41,15 +41,15 @@ Any pool controller compatible with the Hayward / AquaRite cloud platform, inclu
 
 The integration provides the following sensors:
 
-- **Water temperature** — current pool water temperature
-- **pH** — current pH level (if pH module installed)
-- **ORP / Rx** — redox potential in mV (if Rx module installed)
-- **Chlorine (Cl)** — chlorine level (if Cl module installed)
-- **CD** — conductivity level (if CD module installed)
-- **UV** — UV module reading (if UV module installed)
-- **Electrolysis / Hydrolysis** — current production level in gr/h
-- **Filtration intel time** — daily runtime in Intel mode
-- **Wi-Fi signal strength** — controller RSSI (diagnostic, disabled by default)
+- **Water temperature**: current pool water temperature
+- **pH**: current pH level (if pH module installed)
+- **ORP / Rx**: redox potential in mV (if Rx module installed)
+- **Chlorine (Cl)**: chlorine level (if Cl module installed)
+- **CD**: conductivity level (if CD module installed)
+- **UV**: UV module reading (if UV module installed)
+- **Electrolysis / Hydrolysis**: current production level in gr/h
+- **Filtration intel time**: daily runtime in Intel mode
+- **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
 
 ## Configuration options
 
@@ -72,12 +72,14 @@ Check your internet connection and verify the controller is online in the Haywar
 
 ### Reauth notification appears
 
-Your credentials may have changed or expired. Click the notification to re-enter your Hayward username and password.
+Your credentials may have changed or expired. Select the notification to re-enter your Hayward username and password.
 
 ### Entities not updating
 
-The integration uses real-time cloud push. If updates stop, try reloading the integration from **Settings → Devices & Services**.
+The integration uses real-time cloud push. If updates stop, try reloading the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
 
 ## Removing the integration
+
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
