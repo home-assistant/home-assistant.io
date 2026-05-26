@@ -116,6 +116,7 @@ The following button entity allows triggering device actions directly from Home 
 - Main battery serial number
 - Main battery SOC (%)
 - Main battery temperature (°C)
+- Main battery MOS temperature (°C)
 - Main battery voltage (V)
 - Main battery current (A)
 - Battery pack 1-5 serial number
