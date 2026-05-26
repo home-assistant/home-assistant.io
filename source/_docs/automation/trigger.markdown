@@ -11,26 +11,47 @@ A trigger is what wakes an automation up. Until something triggers it, an automa
 Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
 
 - [Trigger ID](#trigger-id)
+  - [Video tutorial](#video-tutorial)
 - [Trigger variables](#trigger-variables)
 - [Event trigger](#event-trigger)
 - [Home Assistant trigger](#home-assistant-trigger)
 - [MQTT trigger](#mqtt-trigger)
 - [Numeric state trigger](#numeric-state-trigger)
 - [State trigger](#state-trigger)
+  - [Examples](#examples)
+  - [Triggering on attribute changes](#triggering-on-attribute-changes)
+  - [Holding a state or attribute](#holding-a-state-or-attribute)
 - [Sun trigger](#sun-trigger)
+  - [Sunset / Sunrise trigger](#sunset--sunrise-trigger)
+  - [Sun elevation trigger](#sun-elevation-trigger)
 - [Tag trigger](#tag-trigger)
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
+  - [Time string](#time-string)
+  - [Input datetime](#input-datetime)
+  - [Sensors of datetime device class](#sensors-of-datetime-device-class)
+  - [Sensors of datetime device class with offsets](#sensors-of-datetime-device-class-with-offsets)
+  - [Multiple times](#multiple-times)
+  - [Limited templates](#limited-templates)
+  - [Weekday filtering](#weekday-filtering)
+    - [Single weekday](#single-weekday)
+    - [Multiple weekdays](#multiple-weekdays)
+    - [Weekend example](#weekend-example)
+    - [Combined with input datetime](#combined-with-input-datetime)
 - [Time pattern trigger](#time-pattern-trigger)
 - [Persistent notification trigger](#persistent-notification-trigger)
 - [Webhook trigger](#webhook-trigger)
+  - [Webhook data](#webhook-data)
+  - [Webhook security](#webhook-security)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 - [Calendar trigger](#calendar-trigger)
 - [Sentence trigger](#sentence-trigger)
+  - [Related topic](#related-topic)
+  - [Sentence wildcards](#sentence-wildcards)
 - [Multiple triggers](#multiple-triggers)
-- [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
+- [Multiple entity IDs for the same trigger](#multiple-entity-ids-for-the-same-trigger)
 - [Disabling a trigger](#disabling-a-trigger)
 - [Merging lists of triggers](#merging-lists-of-triggers)
 
@@ -882,7 +903,9 @@ automation:
           - "thu"
           - "fri"
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Work Day!"
           message: "Time to start working"
