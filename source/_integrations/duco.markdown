@@ -117,10 +117,10 @@ Common values include:
 - `AUTO`: Automatic mode
 - `AUT1`, `AUT2`, `AUT3`: Automatic mode currently running at low, medium, or high airflow
 - `CNT1`, `CNT2`, `CNT3`: Continuous low, medium, or high speed override
-- `MAN1`, `MAN2`, `MAN3`: Manual low, medium, or high speed override
+- `MAN1`, `MAN2`, `MAN3`: Timed manual low, medium, or high speed override
 - `EMPT`: Empty house mode
 
-Some systems may also report compatibility values like `MAN1x2` or `MAN1x3`. These indicate a timed manual override, but the timer duration is not encoded in the raw state value itself. To see when a timed mode ends, use the **Mode end time** sensor.
+`CNT` states are continuous overrides. `MAN` states are timed overrides, but the timer duration is configured on the Duco system and is not encoded in the raw state value itself. Some systems may also report compatibility values like `MAN1x2` or `MAN1x3` for timed manual modes. To see when a timed mode ends, use the **Mode end time** sensor.
 
 #### Mode end time
 
