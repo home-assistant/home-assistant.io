@@ -85,7 +85,7 @@ Disabled by default (see [enabling or disabling entities](/common-tasks/general/
 
 ### Select entities
 
-The integration exposes select entities for the device's enum-based controls. The exact set depends on which features are active on your device:
+The integration exposes select entities for the device's mode controls. The exact set depends on which features are active on your device:
 
 - **Home/Away mode** (on the main device): Switch between **Home**, **Away**, and **Off**.
 - **H1/H2 Operation mode** (on each heating circuit): Switch between **Auto**, **Temperature drop**, **Big temperature drop**, **Normal temperature**, **Standby**, and **Manual valve control**.
