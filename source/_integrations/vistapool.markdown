@@ -70,7 +70,7 @@ The integration provides the following binary sensors, grouped by what they repo
 
 ### Alarms and faults
 
-- **pH pump alarm**: pH pump fault (if pH module installed)
+- **pH pump alarm**: pH pump dosing alarm (if pH module installed)
 - **Hidro flow**: flow alarm on the cell (if hydrolysis/electrolysis module installed)
 - **Hidro FL2**: secondary flow alarm reported by the chlorine module (if chlorine module installed)
 - **Electrolysis low** / **Hydrolysis low**: production has dropped below the configured threshold. The name reflects which cell technology your controller reports (if hydrolysis/electrolysis module installed)
