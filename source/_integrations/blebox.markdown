@@ -1083,6 +1083,11 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
 
+## Known limitations
+
+- Some device settings can only be changed using the wBox app. After changing these settings, reload the affected device by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the device, and selecting **Reload**.
+- Some devices are not directly supported as Home Assistant entities and can be integrated using [webhook automations](#generating-the-compatible-webhook-in-home-assistant) instead.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required within Home Assistant or on your BleBox devices.
