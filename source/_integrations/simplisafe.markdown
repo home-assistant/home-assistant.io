@@ -89,23 +89,6 @@ Set one or more system properties.
 | `light`                | yes      | Whether the light on the base station should display when armed              |
 | `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
 
-### `simplisafe.capture_motion_image`
-
-Capture a JPEG image from a motion event.
-
-| Service Data Attribute | Optional | Description                                                                |
-| ---------------------- | -------- | -------------------------------------------------------------------------- |
-| `width`                | yes      | Desired width in pixels of the captured image. Default is 720. 240-1080.   |
-| `filename`             | no       | A file name (or template) to save the image to.                            |
-
-### `simplisafe.capture_motion_clip`
-
-Capture an MP4 video clip from a motion event.
-
-| Service Data Attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `filename`             | no       | A file name (or template) to save the clip to.    |
-
 ## Events
 
 ### `SIMPLISAFE_EVENT`
@@ -160,21 +143,6 @@ For example, when someone rings the doorbell, a
 - `sensor_paired_and_named`
 - `user_initiated_test`
 
-When `last_event_type` is `camera_motion_detected`, `SIMPLISAFE_EVENT` includes a
-`media_urls` key whose value is a dictionary that looks like this:
-
-```python
-{
-    "image_url": "https://xxx.us-east-1.prd.cam.simplisafe.com/xxx",
-    "clip_url": "https://xxx.us-east-1.prd.cam.simplisafe.com/xxx"
-}
-```
-
-`image_url` is an absolute URL to a JPEG file and `clip_url` is an absolute URL to a
-short MP4 video clip; both refer to the motion detected by the camera. You can save
-these files locally using the `simplisafe.capture_motion_image` and
-`simplisafe.capture_motion_clip` services respectively.
-
 To build an automation using one of these, use `SIMPLISAFE_EVENT`
 as an event trigger, with `last_event_type` as the `event_data`.
 For example, the following will trigger when the doorbell rings:
@@ -202,28 +170,3 @@ Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fi
 again for any notifications still active in the SimpliSafe web and mobile apps. To
 prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
 `clear_notifications` button provided by the alarm control panel.
-
-## Camera motion event automations
-
-When a `camera_motion_detected` event occurs on a camera (currently only outdoor cameras
-are supported), you may want to capture the image and video clip associated with that
-event. To do this, go to **Settings** > **Automations & Scenes** and create a new automation.
-Add an **Event** trigger with event type `SIMPLISAFE_EVENT` and the following event data:
-
-```yaml
-last_event_type: camera_motion_detected
-last_event_sensor_type: OUTDOOR_CAMERA
-last_event_sensor_serial: xxxxxxxx
-```
-
-`last_event_sensor_serial` is the serial number of the specific camera you are targeting.
-One way to obtain it is to use **Developer Tools** to listen for `SIMPLISAFE_EVENT` events,
-then walk in front of your camera; `last_event_sensor_serial` in the resulting event will
-contain the serial number.
-
-Next, add an action. Search for "simplisafe" and choose either `SimpliSafe: Capture motion image`
-or `SimpliSafe: Capture motion clip`. Both require a file name to write the media to, and the
-file path should begin with `/config/www/`. For example:
-
-- Image: `/config/www/simplisafe/back_yard/latest.jpg`
-- Clip: {% raw %}`/config/www/simplisafe/back_yard/clips/{{ now().strftime('%Y%m%d%H%M%S') }}.mp4`{% endraw %}
