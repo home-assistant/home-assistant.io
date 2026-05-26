@@ -3,6 +3,7 @@ title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
 ha_category:
   - Number
+  - Select
   - Sensor
   - Valve
 ha_release: 2026.6
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: ouman_eh_800
 ha_platforms:
   - number
+  - select
   - sensor
   - valve
 ha_integration_type: device
@@ -63,7 +65,7 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Number, sensor, and valve entities are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Number, select, sensor, and valve entities are assigned to the device they belong to.
 
 ### Number entities
 
@@ -80,6 +82,15 @@ Enabled by default (categorized as configuration):
 Disabled by default (see [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)):
 
 - **Trend sampling interval** (on the main device): The polling interval used by the controller's trend recorder, in seconds.
+
+### Select entities
+
+The integration exposes select entities for the device's mode controls. The exact set depends on which features are active on your device:
+
+- **Home/Away mode** (on the main device): Switch between **Home**, **Away**, and **Off**.
+- **H1/H2 Operation mode** (on each heating circuit): Switch between **Auto**, **Temperature drop**, **Big temperature drop**, **Nominal temperature**, **Standby**, and **Manual valve control**.
+- **Relay control** (on the main device, when the relay is configured for temperature, temperature-difference, H1 valve position, or time-program modes): Switch between **Auto**, **On**, and **Off**.
+- **Pump summer stop** (on the main device, when the relay is configured for pump summer stop mode): Switch between **Auto**, **Stop**, and **Run**.
 
 ### Sensors
 
@@ -116,7 +127,6 @@ This integration uses local {% term polling %} to fetch data from the Ouman EH-8
 
 ## Known limitations
 
-- **No operation mode or relay control**: Switching the heating circuit operation mode or controlling the relay is not yet supported.
 - **No room temperature setpoint control**: Adjusting the room temperature setpoint is not yet supported.
 
 ## Removing the integration
