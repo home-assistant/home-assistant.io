@@ -162,7 +162,8 @@ To learn how to update your device to the latest version, see [How do I check if
 {% endtip %}
 
 #### Battery group power and battery group target power
-The **Battery group power** entity shows the total power consumed or produced by the group of connected Plug-In Batteries. The **Battery group target power** entity can be used to get the target power determined by the current battery group charging strategy. This is the power that the battery will try to achieve by charging or discharging. The value is negative when the battery is trying to produce power, and positive when it is trying to consume power.
+
+The **Battery group power** entity shows the total power consumed or produced by the group of connected Plug-In Batteries. The **Battery group target power** entity can be used to get the target power determined by the current battery group charging strategy. This is the power the battery group aims to deliver during charging or discharging. The value is negative when the battery group is trying to produce power, and positive when it is trying to consume power.
 
 ## Identify
 
