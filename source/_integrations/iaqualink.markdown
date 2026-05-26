@@ -150,7 +150,9 @@ triggers:
     entity_id: binary_sensor.freeze_protection
     to: "on"
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Pool freeze protection active"
       message: >
