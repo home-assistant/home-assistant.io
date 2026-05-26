@@ -2,6 +2,7 @@
 title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
 ha_category:
+  - Climate
   - Number
   - Select
   - Sensor
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@Markus98'
 ha_domain: ouman_eh_800
 ha_platforms:
+  - climate
   - number
   - select
   - sensor
@@ -65,7 +67,19 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Number, select, sensor, and valve entities are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Climate, number, select, sensor, and valve entities are assigned to the device they belong to.
+
+### Climate entities
+
+The integration exposes one climate entity per active heating circuit that has a room sensor installed. The entity reports the room temperature and lets you adjust the room temperature setpoint.
+
+The HVAC mode shown on the climate card reflects the heating circuit's operation mode: **Heat** when the controller is running a mode that uses the room temperature setpoint, **Off** otherwise. The three heating sub-modes that use the setpoint (**Auto**, **Temperature drop**, **Big temperature drop**) are exposed as **Preset mode**. Switching the HVAC mode to **Heat** defaults the preset mode to **Auto**.
+
+The HVAC action reflects the current heating status: **Heating** when the mixing valve is open, **Idle** when it is closed, **Off** when the circuit isn't using the setpoint.
+
+{% note %}
+Operation modes other than the three heat sub-modes (for example **Nominal temperature** and **Manual valve control**) ignore the room temperature setpoint. The climate entity reports **Off** for those modes. Use the operation mode select entity to switch the circuit into one of those modes.
+{% endnote %}
 
 ### Number entities
 
@@ -124,10 +138,6 @@ The valve setpoint only affects the device when the corresponding heating circui
 ## Data updates
 
 This integration uses local {% term polling %} to fetch data from the Ouman EH-800 controller every 60 seconds.
-
-## Known limitations
-
-- **No room temperature setpoint control**: Adjusting the room temperature setpoint is not yet supported.
 
 ## Removing the integration
 
