@@ -88,7 +88,7 @@ Disabled by default (see [enabling or disabling entities](/common-tasks/general/
 The integration exposes select entities for the device's mode controls. The exact set depends on which features are active on your device:
 
 - **Home/Away mode** (on the main device): Switch between **Home**, **Away**, and **Off**.
-- **H1/H2 Operation mode** (on each heating circuit): Switch between **Auto**, **Temperature drop**, **Big temperature drop**, **Normal temperature**, **Standby**, and **Manual valve control**.
+- **H1/H2 Operation mode** (on each heating circuit): Switch between **Auto**, **Temperature drop**, **Big temperature drop**, **Nominal temperature**, **Standby**, and **Manual valve control**.
 - **Relay control** (on the main device, when the relay is configured for temperature, temperature-difference, H1 valve position, or time-program modes): Switch between **Auto**, **On**, and **Off**.
 - **Pump summer stop** (on the main device, when the relay is configured for pump summer stop mode): Switch between **Auto**, **Stop**, and **Run**.
 
