@@ -51,13 +51,6 @@ The integration provides the following sensors:
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
 
-## Configuration options
-
-After setup, you can adjust integration settings via **Settings → Devices & Services → Vistapool → Configure**:
-
-| Option | Default | Range | Description |
-| ------ | ------- | ----- | ----------- |
-| Health check interval | 300 seconds | 60–3600 | How often to verify the cloud connection is alive |
 
 ## Known limitations
 
