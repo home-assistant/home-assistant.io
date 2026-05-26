@@ -17,6 +17,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -411,6 +412,18 @@ The available sensors depend on your specific Compit device configuration. Not a
   - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 Binary sensors provide status information about your Compit devices.
+
+### Switches
+
+Switch entities let you turn device modes and features on or off.
+
+- **Device on/off**
+  - **Description**: Turns the device on or off.
+  - **Available for devices**: EL750 (Electric boiler controller)
+
+- **Force domestic hot water**
+  - **Description**: Forces domestic hot water production.
+  - **Available for devices**: R900 (Heat pump controller)
 
 ### Climate
 

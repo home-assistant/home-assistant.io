@@ -769,6 +769,271 @@ The `zwave_js.get_lock_usercode` action retrieves [usercodes](/docs/scripts/perf
 
 {% enddetails %}
 
+### User and credential management
+
+The following actions let you manage users and their credentials (such as PIN codes and passwords) across a variety of legacy and modern Z-Wave locks. They supersede the older `set_lock_usercode` and `clear_lock_usercode` actions and let you store multiple credentials per user, assign user types, and require multiple credentials to unlock.
+
+{% note %}
+The exact set of supported features varies by lock. For example, some locks only support PIN codes, allow only one credential per user, or expose a limited set of user types. Use the `zwave_js.get_credential_capabilities` action to determine what your specific lock supports before calling other actions.
+{% endnote %}
+
+{% note %}
+Only `pin_code` and `password` credentials can be added or modified through these actions. Other credential types (such as RFID, NFC, or biometric) may appear in the lock's user list and capabilities, but must be enrolled directly on the device.
+{% endnote %}
+
+#### Action: Set user
+
+The `zwave_js.set_user` action creates or updates a user on the lock. If you omit `user_id`, the integration assigns the first available slot. The action returns the assigned `user_id`.
+
+| Data attribute    | Required | Description                                                                                                                                                                            |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`       | no       | Lock entity or list of entities to create or update the user on.                                                                                                                       |
+| `user_id`         | no       | User slot index (1-based). Defaults to the first available slot.                                                                                                                       |
+| `user_name`       | no       | Display name for the user. Maximum length is reported by `get_credential_capabilities`. When omitted, the existing name is preserved on update or left empty on create.                |
+| `user_type`       | no       | Type of user to create. See [user types](#user-types) below. Defaults to the existing value on update, or `general` on create.                                                         |
+| `credential_rule` | no       | How many credentials must be presented to unlock. One of `single`, `dual`, or `triple`. Defaults to the existing value on update, or the lock's default (typically `single`) on create. |
+| `active`          | no       | Whether the user is active. Inactive users exist on the lock but cannot unlock with their credentials until reactivated. Defaults to the existing value on update, or `true` on create. |
+
+##### User types
+
+| Value         | Description                                                                      |
+| ------------- | -------------------------------------------------------------------------------- |
+| `general`     | Can operate the lock.                                                            |
+| `programming` | Can program the device, manage users, and operate the lock.                      |
+| `non_access`  | Is recognized, but cannot open the lock (only sends events).                     |
+| `duress`      | Can open the lock, but sends an alarm to the hub.                                |
+| `disposable`  | Can open the lock once, disabled after first use.                                |
+| `expiring`    | Can operate the lock. Access gets disabled after a certain time when first used. |
+| `remote_only` | Can only operate the lock remotely.                                              |
+
+```yaml
+action: zwave_js.set_user
+target:
+  entity_id: lock.front_door
+data:
+  user_name: "Jane"
+  user_type: general
+  credential_rule: single
+response_variable: result
+```
+
+{% details "Example action response" %}
+
+```yaml
+lock.front_door:
+  user_id: 1
+```
+
+{% enddetails %}
+
+#### Action: Delete user
+
+The `zwave_js.delete_user` action deletes a user and all their associated credentials from the lock.
+
+| Data attribute | Required | Description                                          |
+| -------------- | -------- | ---------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to delete the user from. |
+| `user_id`      | yes      | User slot index (1-based) to delete.                 |
+
+```yaml
+action: zwave_js.delete_user
+target:
+  entity_id: lock.front_door
+data:
+  user_id: 3
+```
+
+#### Action: Delete all users
+
+The `zwave_js.delete_all_users` action removes every user (and all their credentials) from the lock.
+
+| Data attribute | Required | Description                                          |
+| -------------- | -------- | ---------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to delete all users from. |
+
+```yaml
+action: zwave_js.delete_all_users
+target:
+  entity_id: lock.front_door
+```
+
+#### Action: Get credential capabilities
+
+The `zwave_js.get_credential_capabilities` action returns the lock's user and credential management capabilities, including the maximum number of users, supported user types, supported credential rules, and per-credential-type limits (slot count and credential length range). It returns a response.
+
+| Data attribute | Required | Description                                                |
+| -------------- | -------- | ---------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to query the capabilities of. |
+
+```yaml
+action: zwave_js.get_credential_capabilities
+target:
+  entity_id: lock.front_door
+response_variable: capabilities
+```
+
+{% details "Example action response" %}
+
+```yaml
+lock.front_door:
+  supports_user_management: true
+  max_users: 20
+  supported_user_types:
+    - general
+    - programming
+  max_user_name_length: 16
+  supported_credential_rules:
+    - single
+    - dual
+  supported_credential_types:
+    pin_code:
+      num_slots: 20
+      min_length: 4
+      max_length: 10
+      supports_learn: false
+    password:
+      num_slots: 20
+      min_length: 4
+      max_length: 16
+      supports_learn: false
+```
+
+{% enddetails %}
+
+#### Action: Get users
+
+The `zwave_js.get_users` action lists all users configured on the lock. For each user, the response shows the `user_id`, `user_name`, active state, `user_type`, `credential_rule`, and a list of credential references (type and slot index). It returns a response.
+
+| Data attribute | Required | Description                                              |
+| -------------- | -------- | -------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to list the users of.    |
+
+```yaml
+action: zwave_js.get_users
+target:
+  entity_id: lock.front_door
+response_variable: users
+```
+
+{% details "Example action response" %}
+
+```yaml
+lock.front_door:
+  max_users: 20
+  users:
+    - user_id: 1
+      user_name: "Jane"
+      active: true
+      user_type: general
+      credential_rule: single
+      credentials:
+        - type: pin_code
+          slot: 1
+          data: "1234"
+    - user_id: 2
+      user_name: "Cleaner"
+      active: true
+      user_type: disposable
+      credential_rule: single
+      credentials:
+        - type: pin_code
+          slot: 2
+          data: "5678"
+```
+
+{% enddetails %}
+
+#### Action: Set credential
+
+The `zwave_js.set_credential` action adds or updates a credential for an existing user. The user must already exist - call `zwave_js.set_user` first if you need to create one. If you omit `credential_slot`, the integration assigns the first available slot for the given credential type. The action returns the assigned `credential_slot` and `user_id`.
+
+| Data attribute    | Required | Description                                                                                                                                                                                                                                                  |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`       | no       | Lock entity or list of entities to set the credential on.                                                                                                                                                                                                    |
+| `user_id`         | yes      | User slot index (1-based) that owns the credential. Must refer to an existing user.                                                                                                                                                                          |
+| `credential_type` | yes      | Type of credential. See [credential types](#credential-types) below.                                                                                                                                                                                         |
+| `credential_data` | yes      | The credential data to store. Always quote the value in YAML, for example, `"0123"`, to preserve leading zeros and prevent YAML from parsing the value as a number or boolean. For `pin_code`, use digits only. Accepted length range is reported by `get_credential_capabilities`. |
+| `credential_slot` | no       | Credential slot index (1-based). Defaults to the first available slot for the given credential type.                                                                                                                                                         |
+
+##### Credential types
+
+Only `pin_code` and `password` credentials can be added or modified through `zwave_js.set_credential` and `zwave_js.delete_credential`. Other credential types may appear in the response of `zwave_js.get_users` and `zwave_js.get_credential_capabilities`, but must be enrolled directly on the device.
+
+| Value                   | Writable | Description                                                                |
+| ----------------------- | -------- | -------------------------------------------------------------------------- |
+| `pin_code`              | yes      | Numeric PIN code entered on the lock's keypad.                             |
+| `password`              | yes      | Alphanumeric password entered on the lock's keypad.                        |
+| `rfid_code`             | no       | RFID tag or card tapped against the lock's reader.                         |
+| `nfc`                   | no       | NFC tag or device tapped against the lock's reader.                        |
+| `ble`                   | no       | Bluetooth Low Energy device.                                               |
+| `uwb`                   | no       | Ultra-wideband device.                                                     |
+| `desfire`               | no       | DESFire smart card.                                                        |
+| `finger_biometric`      | no       | Fingerprint registered on the lock's biometric sensor.                     |
+| `face_biometric`        | no       | Facial recognition profile registered on the lock.                         |
+| `eye_biometric`         | no       | Eye/iris pattern registered on the lock's biometric sensor.                |
+| `hand_biometric`        | no       | Hand geometry registered on the lock's biometric sensor.                   |
+| `unspecified_biometric` | no       | Biometric credential of an unspecified type.                               |
+
+```yaml
+# Add a PIN to an existing user
+action: zwave_js.set_credential
+target:
+  entity_id: lock.front_door
+data:
+  user_id: 1
+  credential_type: pin_code
+  credential_data: "1234"
+response_variable: result
+```
+
+{% details "Example action response" %}
+
+```yaml
+lock.front_door:
+  credential_slot: 1
+  user_id: 1
+```
+
+{% enddetails %}
+
+#### Action: Delete credential
+
+The `zwave_js.delete_credential` action removes a single credential from the lock. The user itself is not deleted. The credential is uniquely identified at the protocol level by the combination of `user_id`, `credential_type`, and `credential_slot`, all of which are required.
+
+| Data attribute    | Required | Description                                                                    |
+| ----------------- | -------- | ------------------------------------------------------------------------------ |
+| `entity_id`       | no       | Lock entity or list of entities to delete the credential from.                 |
+| `user_id`         | yes      | User slot index (1-based) that owns the credential.                            |
+| `credential_type` | yes      | Type of credential to remove. See [credential types](#credential-types) above. |
+| `credential_slot` | yes      | Credential slot index (1-based) to clear.                                      |
+
+```yaml
+action: zwave_js.delete_credential
+target:
+  entity_id: lock.front_door
+data:
+  user_id: 1
+  credential_type: pin_code
+  credential_slot: 1
+```
+
+#### Action: Delete all credentials
+
+The `zwave_js.delete_all_credentials` action removes every credential belonging to a single user. The user itself is not deleted and can have new credentials added later.
+
+| Data attribute | Required | Description                                                                  |
+| -------------- | -------- | ---------------------------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to delete all credentials from.              |
+| `user_id`      | yes      | User slot index (1-based) whose credentials should all be removed.           |
+
+```yaml
+action: zwave_js.delete_all_credentials
+target:
+  entity_id: lock.front_door
+data:
+  user_id: 1
+```
+
 ## Events
 
 There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.

@@ -135,6 +135,8 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Button](/integrations/button.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date/Time](/integrations/datetime.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
@@ -146,6 +148,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
@@ -834,6 +837,7 @@ support_url:
     'mode_stat_t':         'mode_state_topic',
     'mode_stat_tpl':       'mode_state_template',
     'modes':               'modes',
+    'msg_exp_int':         'message_expiry_interval',
     'name':                'name',
     'o':                   'origin',
     'off_dly':             'off_delay',
@@ -1049,7 +1053,7 @@ After the configs have been published, the state topics will need an update.
 #### Using retained state messages
 
 State updates also need to be re-published after a config as been processed.
-This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
+This can also be done by publishing "retained" messages. As soon as a config is received (or replayed from a retained message),
 the setup will subscribe any state topics. If a retained message is available at a state topic,
  this message will be replayed so that the state can be restored for this topic.
 
@@ -1060,6 +1064,10 @@ Retained messages can create ghost entities that keep coming back.
 <br><br>
 Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
 {% endwarning %}
+
+#### Using the Message Expiry Interval option
+
+To prevent "retained" messages being kept forever, the publisher can set the Message Expiry Interval option. This will tell the broker to keep messages for a limited time. Home Assistant can set the Message Expiry Interval for an MQTT device via the `message_expiry_interval` configuration option. This will set the Message Expiry Interval for command payloads published to control the device.
 
 ### Using Availability topics
 

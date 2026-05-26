@@ -90,6 +90,10 @@ Maximum web searches:
   description: Limits the number of web searches that can be performed per user request. Once the limit is reached, no additional searches will be executed during that conversation.
 Include home location:
   description: The parameter allows you to localize search results based on the Home Assistant location.
+Enable web fetch:
+  description: Enable the server-side [Web fetch tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool) to augment Claude's context with live web content. The tool allows Claude to retrieve full content from specified web pages and PDF documents. Note that for security reasons, the web fetch tool can only fetch URLs that have previously appeared in the conversation context. This includes URLs in user messages, URLs in client-side tool results, and URLs from previous web search or web fetch results. This tool has its own [pricing](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool#usage-and-pricing). With Claude Sonnet 4.5, Claude Opus 4.5, and newer, it is recommended to also enable **Code execution** to take advantage of [dynamic filtering](https://claude.com/blog/improved-web-search-with-dynamic-filtering).
+Maximum web fetches:
+  description: Limits the number of web fetches that can be performed per user request.
 Enable tool search tool:
   description: With [this tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool), instead of loading all tool definitions into the context window upfront, Claude searches the tool catalog and loads only the tools it needs. This may improve performance if you don't need to control devices every time, or if you have a long prompt or a large number of additional tools.
 {% endconfiguration_basic %}
@@ -124,7 +128,7 @@ The following table describes which [API features](https://platform.claude.com/d
 | Feature | Description | Status | Notes |
 |---|---|---|---|
 | [Code execution](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool) | Run code in a sandboxed environment for advanced data analysis, calculations, and file processing. | Supported | Use the **Code execution** parameter to enable |
-| [Web fetch](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool) | Retrieve full content from specified web pages and PDF documents for in-depth analysis. | Not supported | This is applicable but not implemented yet. |
+| [Web fetch](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool) | Retrieve full content from specified web pages and PDF documents for in-depth analysis. | Supported | Use the **Enable web fetch** parameter to enable |
 | [Web search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool) | Augment Claude's comprehensive knowledge with current, real-world data from across the web. | Supported | Use the **Enable web search** parameter to enable |
 | [Bash](https://platform.claude.com/docs/en/agents-and-tools/tool-use/bash-tool) | Execute bash commands and scripts to interact with the system shell and perform command-line operations. | Not supported | This is a client-side tool, the bash is implied to be on the Home Assistant side, this could compromise the security and provides no real benefit over Code execution feature that uses a sandboxed environment instead. |
 | [Computer use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) | Control computer interfaces by taking screenshots and issuing mouse and keyboard commands. | Not supported | This is probably not applicable to Home Assistant use cases |
