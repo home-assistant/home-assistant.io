@@ -136,7 +136,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Date](/integrations/date.mqtt/)
-- [Date Time](/integrations/datetime.mqtt/)
+- [Date/Time](/integrations/datetime.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
