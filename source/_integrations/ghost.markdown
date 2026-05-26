@@ -54,6 +54,7 @@ The **Ghost** integration provides the following entities.
 - **Paid Members**: Number of paying subscribers
 - **Free Members**: Number of free subscribers
 - **Comped Members**: Number of complimentary subscribers
+- **Gift Members**: Number of subscribers with a gift subscription
 
 ##### Revenue metrics
 
