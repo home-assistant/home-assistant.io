@@ -1,6 +1,6 @@
 ---
-title: "Cards"
-description: "Introduction to the role of cards on the dashboard and how to add a card."
+title: "Dashboard cards"
+description: "Cards are the building blocks of a Home Assistant dashboard. Each card shows information from your home or lets you control a device, and you add them with a single tap."
 related:
   - docs: /dashboards/actions/
     title: Card tap actions

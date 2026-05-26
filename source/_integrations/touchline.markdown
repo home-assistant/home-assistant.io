@@ -25,7 +25,7 @@ host:
 
 ## Entities
 
-The integration will present each Roth Touchline SL zone as a climate entity, which can:
+The integration will present each Roth Touchline thermostat as a climate entity, which can:
 
 - Display the current temperature
 - Set a target temperature

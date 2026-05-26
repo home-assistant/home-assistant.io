@@ -105,7 +105,9 @@ automation:
       - condition: template
         value_template: "{{ trigger.to_state.state | int % 100 == 0 }}"
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Milestone reached!"
           message: "You now have {{ trigger.to_state.state }} members!"

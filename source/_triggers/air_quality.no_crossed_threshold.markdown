@@ -23,7 +23,7 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Nitrogen monoxide level crossed threshold**.
 6. Under **Threshold type**, set the nitrogen monoxide level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when**, pick **Each** to fire every time a targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
 9. Select **Save**.
 
@@ -32,13 +32,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: The nitrogen monoxide concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -102,7 +99,7 @@ Cold starts produce a burst of combustion fumes that linger in an enclosed garag
 - **Trigger**: Nitrogen monoxide level crossed threshold
 - **Target**: Garage NO sensor
 - **Threshold type**: 50
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Action**: Turn on fan (garage exhaust)
 
 {% details "YAML example for garage NO ventilation" %}

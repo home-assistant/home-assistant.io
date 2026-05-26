@@ -23,6 +23,8 @@ related:
   - url: https://www.openai.com
     title: OpenAI
 ha_quality_scale: bronze
+ha_codeowners:
+  - '@Shulyaka'
 ---
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
