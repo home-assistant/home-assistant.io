@@ -51,7 +51,6 @@ The integration provides the following sensors:
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
 
-
 ## Known limitations
 
 - The integration requires an active internet connection as it communicates via the Hayward cloud API
