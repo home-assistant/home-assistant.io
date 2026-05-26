@@ -136,7 +136,7 @@ The Plug-In Battery provides two special group-level entities to help you manage
 - **Battery group charging strategy**: Lets you control how your group of Plug-In Batteries charges and discharges.
 - **Battery group target power**: Shows the target power the group is trying to achieve.
 
-You can find these entities on the device that manages your batteries. This is either your P1 meter or kWh meter, depending on which is set as your mains connection in the HomeWizard app. These entities are not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, these entities may be disabled by default; see [I can't find entities like voltage, current, battery group charging strategy, or battery group target power](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable them.
+You can find these entities on the device that manages your batteries. This is either your P1 meter or kWh meter, depending on which is set as your mains connection in the HomeWizard app. These entities are not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, these entities may be disabled by default.  For information on how to enable them, see [I can't find entities like voltage, current, battery group charging strategy, or battery group target power](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy).
 
 #### Battery group charging strategy
 
