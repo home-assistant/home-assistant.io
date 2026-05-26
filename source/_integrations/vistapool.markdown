@@ -78,7 +78,7 @@ The integration provides the following binary sensors, grouped by what they repo
 
 ### Diagnostic entities
 
-These are disabled by default and let you template against which modules are installed on the controller.
+These {% term entities %} are disabled by default and let you template against which modules are installed on the controller.
 
 - **Conductivity module**
 - **Chlorine module**
