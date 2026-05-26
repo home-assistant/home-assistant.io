@@ -11,10 +11,11 @@ ha_codeowners:
   - '@ronaldvdmeer'
 ha_domain: duco
 ha_platforms:
+  - diagnostics
   - fan
   - sensor
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_dhcp: true
 ha_zeroconf: true
 ---
@@ -33,10 +34,6 @@ Hardware revisions:
 Compatible DucoBox models:
 
 - DucoBox Silent Connect
-- DucoBox Focus (from firmware version 17xxxx)
-- DucoBox Hygro Plus
-- DucoBox Energy Comfort / Energy Comfort Plus
-- DucoBox Energy Premium
 
 ### Supported sensor modules
 
@@ -89,7 +86,7 @@ Setting a speed percentage to 33%, 66%, or 100% activates a continuous override 
 - **Speed 33%**: Continuous low speed override.
 - **Speed 66%**: Continuous medium speed override.
 - **Speed 100%**: Continuous high speed override.
-- **Auto preset**: Same as speed 0%; hands control back to Duco.
+- **Auto preset**: Same as speed 0%. Clears the override and returns to automatic mode.
 
 When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
@@ -285,7 +282,7 @@ This automation switches to medium speed when relative humidity rises above 70% 
 
 ## Data updates
 
-The integration {% term polling polls %} the Duco box every 30 seconds. If you add a new sensor module (such as a CO₂ or humidity sensor) to your Duco system after the integration is already set up, it will automatically appear in Home Assistant the next time the integration polls for data. No restart or reconfiguration required.
+The integration {% term polling polls %} the Duco box every 10 seconds. If you add a new sensor module (such as a CO₂ or humidity sensor) to your Duco system after the integration is already set up, it will automatically appear in Home Assistant the next time the integration polls for data. No restart or reconfiguration required.
 
 ## Known limitations
 

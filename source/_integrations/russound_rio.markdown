@@ -10,6 +10,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - number
+  - select
   - switch
 ha_codeowners:
   - '@noahhusby'

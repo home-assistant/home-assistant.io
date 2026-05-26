@@ -1,6 +1,6 @@
 ---
 title: "Entities and domains"
-description: "Describes what entities and domains are in Home Assistant."
+description: "Entities are the building blocks of Home Assistant: each device, sensor, or service appears as one or more entities, grouped by domain such as light, switch, or sensor."
 related:
   - docs: /docs/configuration/state_object/
     title: State object, entity state and attributes
