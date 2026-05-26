@@ -86,7 +86,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Time](/integrations/time.mqtt/)
-/- [Vacuum](/integrations/vacuum.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
