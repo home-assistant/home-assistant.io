@@ -108,9 +108,11 @@ automation:
       entity_id: device_tracker.appletv
       to: "not_home"
   actions:
-    -  action: notify.mobile_app_phone
-       data:
-         message: "TV lost network connection"
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "TV lost network connection"
 ```
 
 ### Automation: notify router CPU usage too high
@@ -123,9 +125,11 @@ automation:
       entity_id: sensor.vodafone_station_xxxx_cpu_usage
       above: 80
   actions:
-    - action: notify.mobile_app_phone
-       data:
-         message: "Router CPU above 80%."
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Router CPU above 80%."
 ```
 
 ## Data updates

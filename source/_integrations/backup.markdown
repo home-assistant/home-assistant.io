@@ -114,7 +114,9 @@ conditions:
     attribute: event_type
     state: failed
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Automatic backup failed"
       message: >-
