@@ -1087,7 +1087,15 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 
 ### Device is not discovered automatically
 
+#### Symptom
+
+The device does not appear in Home Assistant after being connected to the network.
+
+#### Description
+
 Home Assistant can only discover BleBox devices that are on the same network segment.
+
+#### Resolution
 
 1. Confirm that the device is connected to your Wi-Fi network using the wBox app.
 2. Confirm that the device is on the same network segment as your Home Assistant instance. If it is on a different subnet, add it manually by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting **Add integration**, searching for **BleBox**, and entering the device's IP address.
@@ -1095,7 +1103,15 @@ Home Assistant can only discover BleBox devices that are on the same network seg
 
 ### Integration shows as unavailable
 
-If the integration was working previously but the device now shows as unavailable, the device's IP address has likely changed.
+#### Symptom
+
+A previously working device shows as unavailable in Home Assistant.
+
+#### Description
+
+The device's IP address has likely changed due to a DHCP lease renewal.
+
+#### Resolution
 
 1. Check the current IP address of the device in your router's DHCP client list or in the wBox app.
 2. To prevent this from happening again, assign a static IP address or a DHCP reservation to the device in your router settings.
