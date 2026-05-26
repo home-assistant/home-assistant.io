@@ -84,7 +84,9 @@ Variables can be templated.
   variables:
     blind_state_message: "The blind is {{ states('cover.blind') }}."
 - alias: "Notify about the state of the blind"
-  action: notify.mobile_app_iphone
+  action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     message: "{{ blind_state_message }}"
 ```
