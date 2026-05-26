@@ -17,8 +17,8 @@ The **Garage door** {% term integration %} provides automation triggers and cond
 
 The **Garage door** integration supports the following entity types:
 
-- Binary sensors with device class `garage_door`
-- Covers with device class `garage`
+- Binary sensors with device class `garage_door`.
+- Covers with device class `garage`.
 
 ## Configuration
 
