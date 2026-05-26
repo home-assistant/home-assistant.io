@@ -57,7 +57,7 @@ The integration provides the following sensors:
 
 The integration provides the following binary sensors, grouped by what they report.
 
-State of pool equipment:
+### State of pool equipment
 
 - **Filtration**: whether the filtration pump is running
 - **Backwash**: whether a backwash cycle is in progress
@@ -68,7 +68,7 @@ State of pool equipment:
 - **Redox pump**: whether the redox dosing pump is currently active (if redox module installed)
 - **Hidro cover reduction**: whether the cell is running at reduced output because the cover is closed (if hydrolysis/electrolysis module installed)
 
-Alarms and faults:
+### Alarms and faults
 
 - **pH pump alarm**: pH pump fault (if pH module installed)
 - **Hidro flow**: flow alarm on the cell (if hydrolysis/electrolysis module installed)
@@ -76,7 +76,9 @@ Alarms and faults:
 - **Electrolysis low** / **Hydrolysis low**: production has dropped below the configured threshold. The name reflects which cell technology your controller reports (if hydrolysis/electrolysis module installed)
 - **Dosing tank**: at least one installed dosing tank reports a low level
 
-Diagnostic entities, disabled by default, which let you template against which modules are installed on the controller:
+### Diagnostic entities
+
+These are disabled by default and let you template against which modules are installed on the controller.
 
 - **Conductivity module**
 - **Chlorine module**
