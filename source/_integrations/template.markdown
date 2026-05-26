@@ -701,7 +701,7 @@ template:
 
 ## Device Tracker
 
-The template device_tracker platform allows you to create device_trackers with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`).  When the location is inside the Home zone, the state will be `home`.  When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
+The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`). When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -731,17 +731,21 @@ device_tracker:
   required: true
   type: map
   keys:
+    in_zone:
+      description: Defines a template for a list of zones for the device_tracker. The list must contain `zone` entity_ids. The list of zones has a lower priority than `latitude` and `longitude`. If the `in_zones` template is omitted, `latitude` and `longitude` are required.
+      required: false
+      type: template
     latitude:
-      description: Template for the device_trackers latitude. Legal values are numbers between `-90` and `90`. If the template produces a `None` value, the state is set to `unknown`.
-      required: true
+      description: Defines a template for the device_trackers latitude. Legal values are numbers between `-90` and `90`. If the template produces a `None` value, the state is set to `unknown`. If `latitude` and `longitude` are omitted, `in_zones` is required.
+      required: false
       type: template
     location_accuracy:
-      description: Template for the device_trackers location accuracy in meters.
+      description: Defines a template for the device_trackers location accuracy in meters.
       required: false
       type: template
     longitude:
-      description: Template for the device_trackers longitude. Legal values are numbers between `-180` and `180`. If the template produces a `None` value, the state is set to `unknown`.
-      required: true
+      description: Defines a template for the device_trackers longitude. Legal values are numbers between `-180` and `180`. If the template produces a `None` value, the state is set to `unknown`. If `latitude` and `longitude` are omitted, `in_zones` is required.
+      required: false
       type: template
 
 {% endconfiguration %}
