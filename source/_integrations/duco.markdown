@@ -15,7 +15,7 @@ ha_platforms:
   - fan
   - sensor
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_dhcp: true
 ha_zeroconf: true
 ---
@@ -92,7 +92,7 @@ Setting a speed percentage to 33%, 66%, or 100% activates a continuous override 
 - **Speed 33%**: Continuous low speed override.
 - **Speed 66%**: Continuous medium speed override.
 - **Speed 100%**: Continuous high speed override.
-- **Auto preset**: Same as speed 0%; hands control back to Duco.
+- **Auto preset**: Same as speed 0%. Clears the override and returns to automatic mode.
 
 When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 

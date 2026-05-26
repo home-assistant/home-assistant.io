@@ -11,7 +11,9 @@ For example, instead of a notification that always says "Someone is home", a tem
 
 {% example %}
 action: |
-  action: notify.mobile_app
+  action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     message: >
       {% if is_state('device_tracker.frenck', 'home') %}

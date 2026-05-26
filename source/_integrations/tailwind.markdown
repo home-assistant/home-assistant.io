@@ -97,7 +97,9 @@ triggers:
     for:
       minutes: 10
 actions:
-  - action: notify.mobile_app_my_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Garage door"
       message: "The garage door has been open for 10 minutes."

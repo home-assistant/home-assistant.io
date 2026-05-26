@@ -20,6 +20,8 @@ ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The **Elgato Light** {% term integration %} lets you control [Elgato](https://www.elgato.com/) LED lighting devices locally over your network. Elgato Lights are designed for streamers, content creators, and home studio setups, and are commonly used on platforms like YouTube and Twitch.
@@ -145,7 +147,9 @@ triggers:
     entity_id: sensor.elgato_key_light_mini_battery
     below: 20
 actions:
-  - action: notify.mobile_app_my_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Key Light Mini"
       message: "Battery is below 20%."
