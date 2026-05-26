@@ -36,7 +36,7 @@ ha_zeroconf: true
 Before Home Assistant can discover your BleBox device, it must be connected to your Wi-Fi network.
 
 1. Follow the [BleBox getting started guide](https://blebox.eu/start) to connect your device to your Wi-Fi network using the wBox app.
-2. Once connected, Home Assistant can discover the device automatically. If your device is on a different network segment, you will need to add it manually using its IP address.
+2. Once connected, Home Assistant will discover the device automatically.
 
 {% note %}
 For the best experience, make sure your BleBox devices have the most recent available firmware installed.
@@ -1082,6 +1082,24 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to configure the number of phases (1 or 3) is available in the wBox app.
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
+
+## Troubleshooting
+
+### Device is not discovered automatically
+
+Home Assistant can only discover BleBox devices that are on the same network segment.
+
+1. Confirm that the device is connected to your Wi-Fi network using the wBox app.
+2. Confirm that the device is on the same network segment as your Home Assistant instance. If it is on a different subnet, add it manually by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting **Add integration**, searching for **BleBox**, and entering the device's IP address.
+3. If the device is on the same network segment but still not discovered, restart Home Assistant.
+
+### Integration shows as unavailable
+
+If the integration was working previously but the device now shows as unavailable, the device's IP address has likely changed.
+
+1. Check the current IP address of the device in your router's DHCP client list or in the wBox app.
+2. To prevent this from happening again, assign a static IP address or a DHCP reservation to the device in your router settings.
+3. If the IP address has changed, remove the existing integration entry and add it again with the new IP address.
 
 ## Removing the integration
 
