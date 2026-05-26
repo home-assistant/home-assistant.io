@@ -131,6 +131,13 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 - **State of charge (%)**: The current state of charge of the battery.
 - **Status light brightness**: Controls the brightness of the LED strip. Error statuses are always visualized, even when the brightness is set to 0.
 
+The Plug-In Battery provides two special group-level entities to help you manage your batteries:
+
+- **Battery group charging strategy**: Lets you control how your group of Plug-In Batteries charges and discharges.
+- **Battery group target power**: Shows the target power the group is trying to achieve.
+
+You can find these entities on the device that manages your batteries—either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. These entities are not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, these entities may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable them.
+
 #### Battery group charging strategy
 
 The group of connected Plug-In Batteries can be controlled in different modes using the **Battery group charging strategy** select entity:
@@ -146,8 +153,6 @@ Read more about the [HomeWizard charging strategies (Dutch)](https://helpdesk.ho
 
 #### Battery group target power
 The **Battery group target power** number entity can be used to get the target power determined by the current battery group charging strategy. This is the power that the battery will try to achieve by charging or discharging. The value is negative when the battery is trying to produce power, and positive when it is trying to consume power.
-
-You can find the **Battery group charging strategy** and **Battery group target power** entities on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. These entities are not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, these entities may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-charging-strategy) for how to enable it.
 
 {% tip %}
 **Smart charging** is available for the following devices:
