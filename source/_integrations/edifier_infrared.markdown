@@ -26,15 +26,15 @@ Before setting up the Edifier Infrared integration, you need a working infrared 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Speaker model:
-  description: The Edifier speaker model to control. Pick the model that matches your hardware so the integration uses the right IR command set.
+Speaker model or remote profile:
+  description: The Edifier speaker model or remote profile to control. Pick the option that best matches your hardware so the integration uses the right IR command set. Some options correspond to shared remote profiles rather than exact speaker model names.
 IR transmitter:
   description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
 {% endconfiguration_basic %}
 
 ## Supported devices
 
-The integration supports the following Edifier speaker models:
+The integration supports the following Edifier speaker models and remote profiles:
 
 - R1280DB
 - R1280T
