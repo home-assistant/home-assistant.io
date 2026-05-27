@@ -565,7 +565,7 @@ Switch entities let you turn device modes and features on or off.
   - **Description**: Turns the device on or off.
   - **Available for devices**: EL750 (Electric boiler controller)
 
-- **Force DHW**
+- **Force domestic hot water**
   - **Description**: Forces domestic hot water production.
   - **Available for devices**: R900 (Heat pump controller)
 
