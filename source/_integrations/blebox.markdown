@@ -31,12 +31,21 @@ ha_zeroconf: true
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).
 
+## Use cases
+
+- Control your blinds, shutters, and garage or gate automatically. For example, close them at sunset or when wind speed exceeds a set threshold.
+- Manage your lights and dimmers from a single dashboard, and create automations that adjust brightness based on time of day or occupancy.
+- Monitor energy consumption with a smartMeter DIN device and use the data in the Home Assistant energy dashboard.
+- Automate your sauna or heating with a saunaBox or thermoBox by setting a target temperature so it is ready when you get home.
+- Trigger automations from wall buttons and remotes by using an actionBox as a bridge, without replacing your existing switches.
+- Get notified when a floodSensor detects water, or when air quality reported by an airSensor drops below an acceptable level.
+
 ## Prerequisites
 
 Before Home Assistant can discover your BleBox device, it must be connected to your Wi-Fi network.
 
 1. Follow the [BleBox getting started guide](https://blebox.eu/start) to connect your device to your Wi-Fi network using the wBox app.
-2. Once connected, Home Assistant can discover the device automatically. If your device is on a different network segment, you will need to add it manually using its IP address.
+2. Once connected, Home Assistant will discover the device automatically.
 
 {% note %}
 For the best experience, make sure your BleBox devices have the most recent available firmware installed.
@@ -1102,6 +1111,45 @@ It is easy to forget to close the gate when leaving in a hurry. You can use this
 Strong winds can damage blinds and awnings left open outside. You can use this blueprint to automatically close your covers when the windSensor PRO detects wind speed above a safe threshold.
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_covers_on_high_wind.yaml" %}
+
+## Troubleshooting
+
+### Device is not discovered automatically
+
+#### Symptom
+
+The device does not appear in Home Assistant after being connected to the network.
+
+#### Description
+
+Home Assistant can only discover BleBox devices that are on the same network segment.
+
+#### Resolution
+
+1. Confirm that the device is connected to your Wi-Fi network using the wBox app.
+2. Confirm that the device is on the same network segment as your Home Assistant instance. If it is on a different subnet, add it manually by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting **Add integration**, searching for **BleBox**, and entering the device's IP address.
+3. If the device is on the same network segment but still not discovered, restart Home Assistant.
+
+### Integration shows as unavailable
+
+#### Symptom
+
+A previously working device shows as unavailable in Home Assistant.
+
+#### Description
+
+The device's IP address has likely changed due to a DHCP lease renewal.
+
+#### Resolution
+
+1. Check the current IP address of the device in your router's DHCP client list or in the wBox app.
+2. To prevent this from happening again, assign a static IP address or a DHCP reservation to the device in your router settings.
+3. If the IP address has changed, remove the existing integration entry and add it again with the new IP address.
+
+## Known limitations
+
+- Some device settings can only be changed using the wBox app. After changing these settings, reload the affected device by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the device, and selecting **Reload**.
+- Some devices are not directly supported as Home Assistant entities and can be integrated using [webhook automations](#generating-the-compatible-webhook-in-home-assistant) instead.
 
 ## Removing the integration
 

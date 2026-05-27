@@ -99,7 +99,9 @@ automation:
         for:
           minutes: 5
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "High power consumption detected: {{ states('sensor.electricity_example_street_11_total_power') }} W"
 ```

@@ -91,11 +91,11 @@ trigger: |
       value_min:
         number: 20
       value_max:
-        number: 99
+        number: 101
     behavior: last
 {% endexample %}
 
-This fires once both sensors have charged back into the 20–99% range (effective zone: 21%–98%, because `between` is exclusive on both bounds).
+This fires once both sensors have charged back into the effective 21%–100% range. The `value_max` is set to `number: 101` deliberately so that 100% is included, because `between` is exclusive on both bounds.
 
 To use a number helper as a dynamic threshold you can adjust without editing the automation:
 

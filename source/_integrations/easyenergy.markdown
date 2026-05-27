@@ -46,7 +46,9 @@ automation:
         entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
         below: 0.15
     actions:
-      - action: notify.mobile_app_phone
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Low energy price"
           message: "The current energy price is {{ trigger.to_state.state }} €/kWh."

@@ -82,7 +82,9 @@ automation:
         # so you get notified the evening before the pickup day.
         offset: "-12:00:00"
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Garbage day!"
           message: >
@@ -105,7 +107,9 @@ automation:
         # so you get notified in the evening of the pickup day.
         offset: "-4:00:00"
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Bring in the bin!"
           message: >

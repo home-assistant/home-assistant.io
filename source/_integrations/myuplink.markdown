@@ -91,7 +91,9 @@ automation:
           - sensor.your_pump_hot_water_charging_bt6
         below: 42
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "Hot water reserve is getting low."
           title: "Water heater"

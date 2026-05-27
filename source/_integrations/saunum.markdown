@@ -316,7 +316,9 @@ actions:
   - action: light.turn_on
     target:
       entity_id: light.saunum_leil
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "{{ notification_title }}"
       message: >-
