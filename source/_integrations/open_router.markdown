@@ -39,6 +39,10 @@ The API key is used to authenticate requests to OpenRouter. To generate an API k
 
 The OpenRouter integration allows you to generate data using AI models available on OpenRouter. You can use this functionality in automations, scripts, or directly in the Home Assistant UI.
 
+### Attachments
+
+This integration supports image, PDF, and video attachments. Local video files are sent as base64-encoded data and non-local video sources are sent as signed public URLs. You must have an external URL configured in Home Assistant to attach non-local (proxied) video sources. See the [OpenRouter documentation](https://openrouter.ai/docs/guides/overview/multimodal/videos) for more information on video inputs and model support for video.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
