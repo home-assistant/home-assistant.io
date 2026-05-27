@@ -110,7 +110,7 @@ Available for the main ventilation box (BOX). Shows the actual airflow target as
 
 #### Ventilation state
 
-Available for the main ventilation box (BOX). Shows the raw ventilation state code reported by the Duco API.
+Available for the main ventilation box (BOX). Shows the ventilation state using the Duco state codes shown by the device and app, instead of friendly labels with fixed meanings.
 
 Common values include:
 
