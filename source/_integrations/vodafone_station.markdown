@@ -39,21 +39,21 @@ This {% term integration %} was tested against the following models:
 
 Homeware (custom OpenWrt):
 
-- Vodafone Ultra Hub Pro II (DGM4980VDF) - [United Kingdom]
-- Vodafone Vox30 WiFi Hub (THG3000) - [United Kingdom]
+- Vodafone Ultra Hub Pro II (DGM4980VDF) - United Kingdom
+- Vodafone Vox30 WiFi Hub (THG3000) - United Kingdom
 
 Sercomm:
 
-- Vodafone Power Station (SHG3000) - [Italy]
-- Vodafone Power Station WiFi 6 (SHG3060) - [Italy]
-- Vodafone WiFi 6 Station (RHG3006) - [Italy]
-- Vodafone Gigabox (SHG3000) - [Ireland]
-- Vodafone H300S - [Greece]
+- Vodafone Power Station (SHG3000) - Italy
+- Vodafone Power Station WiFi 6 (SHG3060) - Italy
+- Vodafone WiFi 6 Station (RHG3006) - Italy
+- Vodafone Gigabox (SHG3000) - Ireland (supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/))
+- Vodafone H300S - Greece
 
 Technicolor:
 
-- Vodafone Power Station (THG3000) - [Germany]
-- Vodafone WiFi 6 Station (CGA6444VF) - [Germany]
+- Vodafone Power Station (THG3000) - Germany
+- Vodafone WiFi 6 Station (CGA6444VF) - Germany
 
 UltraHub:
 
