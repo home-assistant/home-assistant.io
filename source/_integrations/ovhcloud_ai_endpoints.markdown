@@ -30,13 +30,13 @@ This integration is useful if you want to keep your conversation data within a E
 ## Prerequisites
 
 - You need an [OVHcloud account](https://www.ovhcloud.com/) with access to the AI Endpoints product.
-- This is a paid service. We advise you to monitor your usage and costs in the [OVHcloud Control Panel](https://manager.eu.ovhcloud.com/) to avoid unwanted charges.
+- This is a paid service. Monitor your usage and costs in the [OVHcloud Control Panel](https://manager.eu.ovhcloud.com/) to avoid unwanted charges.
 
 ### Generating an API key
 
 The API key is used to authenticate requests to OVHcloud AI Endpoints. To generate an API key, follow the [official guide](https://docs.ovhcloud.com/en/guides/public-cloud/ai-machine-learning/ai-endpoints-getting-started).
 
-The rough steps are outlined below:
+The guide includes the following steps:
 
 1. Log in to the [OVHcloud Control Panel](https://manager.eu.ovhcloud.com/#/hub/).
 2. Go to the **Public Cloud** section and select your project or create a new one.
@@ -52,8 +52,6 @@ API key:
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
-
-## Configuration options
 
 The integration supports adding one or more conversation agents as subentries. Each conversation agent is bound to a model from the OVHcloud AI Endpoints catalog. To add a conversation agent, go to {% my integrations title="**Settings** > **Devices & services**" %}, open the **OVHcloud AI Endpoints** integration, and select **Add conversation agent**.
 
