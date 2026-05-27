@@ -63,13 +63,21 @@ weekday:
 
 In YAML, `at` supports a fixed time string, an [`input_datetime`](/integrations/input_datetime/), a timestamp sensor, a mapping with `entity_id` and `offset`, a limited template, or a list that mixes those formats.
 
+For a fixed time string, use `HH:MM` or `HH:MM:SS`. If you omit seconds, Home Assistant uses `:00`.
+
 When you use an [`input_datetime`](/integrations/input_datetime/), the trigger behavior depends on how that helper is configured:
 
 - A time-only helper fires every day at that time.
 - A date-only helper fires once at midnight on that date.
 - A helper with both date and time fires once at that date and time.
 
-The `weekday` option accepts one weekday such as `mon` or a list of weekdays.
+When you use a timestamp sensor with `entity_id` and `offset`, Home Assistant adds the offset to that sensor time. Use a negative offset to run before the sensor time.
+
+You can also provide more than one value in `at`. A YAML list can combine fixed times, helpers, timestamp sensors, and entity-plus-offset mappings.
+
+Limited templates are also supported in `at`. Home Assistant evaluates them when the trigger is set up.
+
+The `weekday` option accepts one weekday such as `mon` or a list of weekdays. It works with all supported `at` formats, including `input_datetime` entities.
 
 ## Good to know
 
