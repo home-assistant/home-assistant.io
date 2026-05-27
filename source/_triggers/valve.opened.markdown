@@ -86,7 +86,7 @@ for:
 - Valves that report position (0 to 100%) are considered open as soon as their position is above 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental openings, such as a momentary network glitch that causes a valve to re-report its state.
 - This trigger works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
-- You can conserve water by pairing this trigger with a timer. Create an automation that, when an irrigation or garden valve opens, starts a countdown and automatically closes it after the intended duration. This prevents over-watering caused by forgotten open valve, that is one of the most common sources of household water waste.
+- You can conserve water by pairing this trigger with a timer. Create an automation that, when an irrigation or garden valve opens, starts a countdown and automatically closes it after the intended duration. This prevents over-watering caused by a valve left open, which is one of the most common sources of household water waste.
 - Combine this trigger with a water leak sensor condition to detect unexpected openings that may indicate a burst pipe or a faulty valve. Catching these events immediately can prevent significant water loss and structural damage.
 - Pair this trigger with a weather integration in an automation to water plants smarter, not harder. If rain is forecast or soil moisture sensors report sufficient levels, a condition can block the opening entirely, so your garden only gets watered when it actually needs it.
 
