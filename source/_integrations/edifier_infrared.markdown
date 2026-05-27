@@ -4,7 +4,7 @@ description: Integration to control Edifier speakers using an infrared transmitt
 ha_category:
   - Media player
 ha_release: 2026.7
-ha_iot_class: Local Push
+ha_iot_class: Assumed State
 ha_codeowners:
   - '@abmantis'
 ha_domain: edifier_infrared
