@@ -732,7 +732,7 @@ device_tracker:
   type: map
   keys:
     in_zones:
-      description: Defines a template for a list of zones for the device_tracker. The list must contain `zone` entity_ids. The list of zones has a lower priority than `latitude` and `longitude`. If the `in_zones` template is omitted, `latitude` and `longitude` are required.
+      description: Defines a template for a list of zones for the device_tracker. The list must contain `zone` entity IDs. The list of zones has a lower priority than `latitude` and `longitude`. If the `in_zones` template is omitted, `latitude` and `longitude` are required.
       required: false
       type: template
     latitude:
