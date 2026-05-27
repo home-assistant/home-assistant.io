@@ -55,9 +55,10 @@ The PAJ GPS integration provides the following entities.
 
 The PAJ GPS {% term integration %} will track the location of each device registered to your account. The integration provides real-time GPS coordinates (latitude and longitude) for your PAJ GPS devices.
 
-### Speed sensor
+### Sensors
 
-The **Speed** sensor provides the current speed of the PAJ GPS device in km/h, as reported by the GPS module.
+- **Speed**
+  - **Description**: The current speed of the PAJ GPS device in km/h, as reported by the GPS module.
 
 ## Examples
 
