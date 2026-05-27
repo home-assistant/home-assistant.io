@@ -62,15 +62,15 @@ The following select entities are created:
 
 Since the Sonos UPnP spec does not emit events for these, both entities rely on polling for state updates from external changes (for example, changes made in the Sonos app). That means those entities will always have some delay before updating, so changes made outside of Home Assistant will be reflected on the next device polling, which defaults to 30 seconds.
 
-### Group Volume notes
+### Group volume notes
 
-Each Sonos speaker has a **Group Volume** `number` entity that controls the volume of the speaker's entire group.
+Each Sonos speaker has a **Group volume** `number` entity that controls the volume of the speaker's entire group.
 
-- When a speaker is the **group coordinator**, the entity is available and adjusting it changes the volume of all speakers in the group proportionally.
-- When a speaker is **ungrouped**, the entity is available and mirrors the speaker's individual volume.
-- When a speaker is a **non-coordinator group member**, the entity is **unavailable**. Use the coordinator's Group Volume entity to control the group.
+- When a speaker is the group coordinator, the entity is available and adjusting it changes the volume of all speakers in the group proportionally.
+- When a speaker is ungrouped, the entity is available and mirrors the speaker's individual volume.
+- When a speaker is a non-coordinator group member, the entity is **unavailable**. Use the coordinator's **Group volume** entity to control the group.
 
-Group Volume entities update automatically when group membership changes or when any group member's volume changes.
+**Group volume** entities update automatically when group membership changes or when any group member's volume changes.
 
 ### Battery support notes
 
