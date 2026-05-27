@@ -77,9 +77,9 @@ To browse your Yoto card library, open the more-info dialog of the Yoto player a
 
 To start playback from a script or automation, call the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action with `media_content_type: music` and a `yoto://` URI:
 
-- `yoto://<card_id>` plays the card, honoring its own resume setting.
-- `yoto://<card_id>/<chapter_key>` plays the chapter from its first track.
-- `yoto://<card_id>/<chapter_key>/<track_key>` plays the track from the start.
+- `yoto://card/<card_id>` plays the card, honoring its own resume setting.
+- `yoto://card/<card_id>/<chapter_key>` plays the chapter from its first track.
+- `yoto://card/<card_id>/<chapter_key>/<track_key>` plays the track from the start.
 
 The URI is case-sensitive. When picking a card in the media browser, the corresponding URI is the value passed to `media_content_id`.
 
@@ -89,7 +89,7 @@ target:
   entity_id: media_player.yoto_player
 data:
   media_content_type: "music"
-  media_content_id: "yoto://abc123/01/02"
+  media_content_id: "yoto://card/abc123/01/02"
 ```
 
 ## Data updates
