@@ -31,7 +31,7 @@ To set up the integration, your Duco system must expose the DUCO Connectivity Bo
 Hardware revisions:
 
 - **DUCO Connectivity Board 1.0**: Supported
-- **DUCO Connectivity Board 2.0**: Not tested
+- **DUCO Connectivity Board 2.0**: Supported
 
 Validated DucoBox models:
 
@@ -49,14 +49,17 @@ The following sensor module types are supported:
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
+- **VLVCO2**: Valve actuator with a built-in CO₂ sensor; provides CO₂ concentration and CO₂ air quality index.
+- **VLVRH**: Valve actuator with a built-in humidity sensor; provides relative humidity and humidity air quality index.
+- **VLVCO2RH**: Valve actuator with built-in CO₂ and humidity sensors; provides CO₂ concentration, CO₂ air quality index, relative humidity, and humidity air quality index.
 
-### Unsupported sensor modules
+### Unsupported node types
 
-The following sensor module types are discovered but not yet supported:
+The following node types are discovered but not yet supported:
 
 - **UC**: Universal control unit (no sensor data exposed)
 - **UCBAT**: Battery-powered sensor module
-- **VLV**: Valve actuator
+- **VLV**: Valve actuator without exposed sensor data
 
 When Home Assistant discovers a node with an unsupported type, it logs a warning and skips that node. All other nodes continue to work normally.
 
@@ -73,12 +76,7 @@ Host:
 
 ## Supported functionality
 
-The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
-
-- **BOX**: The main DucoBox (fan control, ventilation state, target flow level, mode end time)
-- **UCCO2**: A wall-mounted control unit with a built-in CO₂ sensor
-- **BSRH**: A humidity sensor module installed in the duct inlet of the DucoBox
-- **UCRH**: A wireless humidity sensor module
+Each supported node appears as a separate device in Home Assistant, connected to the main ventilation box. The sections below describe which entities Home Assistant creates for those supported node types.
 
 ### Fan
 
@@ -132,15 +130,15 @@ Available for the main ventilation box (BOX). Shows the time at which the curren
 
 #### CO₂ concentration
 
-Available for CO₂ sensor modules. Shows the current CO₂ concentration in parts per million (ppm).
+Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the current CO₂ concentration in parts per million (ppm).
 
 #### Humidity
 
-Available for humidity sensor modules (BSRH, UCRH). Shows the current relative humidity in percent.
+Available for humidity sensor modules and valve actuators with a built-in humidity sensor (BSRH, UCRH, VLVRH, VLVCO2RH). Shows the current relative humidity in percent.
 
 #### CO₂ air quality index
 
-Available for CO₂ sensor modules. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
 
 Indoor air quality ranges for CO₂:
 
@@ -151,7 +149,7 @@ Indoor air quality ranges for CO₂:
 
 #### Humidity air quality index
 
-Available for humidity sensor modules (BSRH, UCRH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for humidity sensor modules and valve actuators with a built-in humidity sensor (BSRH, UCRH, VLVRH, VLVCO2RH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
 
 Indoor air quality ranges for humidity:
 
