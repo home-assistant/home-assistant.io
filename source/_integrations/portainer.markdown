@@ -116,7 +116,9 @@ automation:
           - exited
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Container alert"
           message: "Container went down!"

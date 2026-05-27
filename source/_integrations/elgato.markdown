@@ -147,7 +147,9 @@ triggers:
     entity_id: sensor.elgato_key_light_mini_battery
     below: 20
 actions:
-  - action: notify.mobile_app_my_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Key Light Mini"
       message: "Battery is below 20%."
