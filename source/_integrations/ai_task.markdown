@@ -203,4 +203,3 @@ template:
       - name: "AI generated image of New York"
         url: "http://localhost:8123{{ trigger.event.data.url }}"
 ```
-

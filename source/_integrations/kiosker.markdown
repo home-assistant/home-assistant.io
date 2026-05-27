@@ -10,13 +10,13 @@ ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@claeysson'
+  - '@Claeysson'
 ha_domain: kiosker
 ha_platforms:
-  - sensor
   - binary_sensor
-  - switch
   - button
+  - sensor
+  - switch
 ha_integration_type: integration
 ha_zeroconf: true
 ha_quality_scale: bronze
