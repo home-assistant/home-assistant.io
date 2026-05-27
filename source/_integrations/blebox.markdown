@@ -166,6 +166,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -177,6 +178,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -188,6 +190,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -604,6 +607,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a cover entity
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -711,6 +715,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a cover entity
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -818,6 +823,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
