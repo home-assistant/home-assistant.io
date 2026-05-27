@@ -9,8 +9,10 @@ ha_domain: electrolux
 ha_integration_type: hub
 ha_config_flow: true
 ha_category:
+  - Binary sensor
   - Sensor
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_quality_scale: bronze
 related:
@@ -65,6 +67,37 @@ The **Electrolux** integration provides the following entities.
 {% note %}
 Entity availability depends on the appliance type and model. Some entities may not be supported by certain appliances and could appear as unavailable or not appear at all.
 {% endnote %}
+
+### Binary sensors
+
+{% details "List of binary sensors" %}
+
+- **Connection state**
+  - **Description**: Reports if the appliance is connected to the network.
+  - **Available for appliance types**: All appliances.
+- **Drawer status**
+  - **Description**: Shows if the drawer of the appliance is open or closed.
+  - **Available for appliance types**: Hood.
+- **Auto switch off event**
+  - **Description**: The Auto Switch Off event indicates when the appliance can be automatically turned off.
+  - **Available for appliance types**: Hood.
+- **Filter charcoal enable**
+  - **Description**: Reports if charcoal filter is active.
+  - **Available for appliance types**: Hood.
+- **Human centric light state**
+  - **Description**: Reports status of adaptive lighting.
+  - **Available for appliance types**: Hood.
+- **Pot detected**
+  - **Description**: Detects pot presence on zone.
+  - **Available for appliance types**: Hob.
+- **Door state**
+  - **Description**: Reports whether the door is open or closed.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator.
+- **UI lock mode**
+  - **Description**: Reports if the user interface is locked.
+  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator, Hob.
+
+{% enddetails %}
 
 ### Sensors
 
