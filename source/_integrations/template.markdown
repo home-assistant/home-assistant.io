@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Button
   - Cover
+  - Device Tracker
   - Event
   - Fan
   - Helper
@@ -31,6 +32,7 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - device_tracker
   - event
   - fan
   - image
@@ -68,6 +70,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Cover](#cover)
+- [Device Tracker](#device-tracker)
 - [Event](#event)
 - [Fan](#fan)
 - [Image](#image)
@@ -695,6 +698,57 @@ template:
             target:
               entity_id: switch.garage_door
 ```
+
+## Device tracker
+
+The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`). When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - device_tracker:
+      - name: Car Location
+        latitude: "{{ states('sensor.latitude') }}"
+        longitude: "{{ states('sensor.longitude') }}"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+    - trigger: webhook
+      webhook_id: my_car_location
+    device_tracker:
+      - name: Car Location
+        latitude: "{{ trigger.json.latitude }}"
+        longitude: "{{ trigger.json.longitude }}"
+        location_accuracy: "{{ trigger.json.resolution }}"
+```
+
+{% configuration device_tracker %}
+device_tracker:
+  description: List of device trackers
+  required: true
+  type: map
+  keys:
+    in_zones:
+      description: Defines a template for a list of zones for the device_tracker. The list must contain `zone` entity IDs. The list of zones has a lower priority than `latitude` and `longitude`. If the `in_zones` template is omitted, `latitude` and `longitude` are required.
+      required: false
+      type: template
+    latitude:
+      description: Defines a template for the device_trackers latitude. Legal values are numbers between `-90` and `90`. If the template produces a `None` value, the state is set to `unknown`. If `latitude` and `longitude` are omitted, `in_zones` is required.
+      required: false
+      type: template
+    location_accuracy:
+      description: Defines a template for the device_trackers location accuracy in meters.
+      required: false
+      type: template
+    longitude:
+      description: Defines a template for the device_trackers longitude. Legal values are numbers between `-180` and `180`. If the template produces a `None` value, the state is set to `unknown`. If `latitude` and `longitude` are omitted, `in_zones` is required.
+      required: false
+      type: template
+
+{% endconfiguration %}
 
 ## Event
 
