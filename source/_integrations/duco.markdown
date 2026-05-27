@@ -41,9 +41,9 @@ Older Duco systems using the Communication Board V1 are not supported because th
 
 Other Duco systems that expose public API version 2.1 or newer can be set up, but some model-specific functionality may still be limited until it has been validated and implemented.
 
-### Supported sensor modules
+### Supported node types
 
-The following sensor module types are supported:
+The following node types are supported:
 
 - **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, mode end time, and Wi-Fi signal strength.
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
@@ -134,7 +134,7 @@ Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sen
 
 #### Humidity
 
-Available for humidity sensor modules and valve actuators with a built-in humidity sensor (BSRH, UCRH, VLVRH, VLVCO2RH). Shows the current relative humidity in percent.
+Available for humidity sensor modules and valve actuators with a built-in humidity sensor. Shows the current relative humidity in percent.
 
 #### CO₂ air quality index
 
@@ -149,7 +149,7 @@ Indoor air quality ranges for CO₂:
 
 #### Humidity air quality index
 
-Available for humidity sensor modules and valve actuators with a built-in humidity sensor (BSRH, UCRH, VLVRH, VLVCO2RH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for humidity sensor modules and valve actuators with a built-in humidity sensor. Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
 
 Indoor air quality ranges for humidity:
 
