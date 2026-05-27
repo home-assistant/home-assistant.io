@@ -54,11 +54,9 @@ Several of these models share the same IR command set, so other Edifier speakers
 
 ## Supported functionality
 
-### Entities
-
 The **Edifier Infrared** integration provides the following entities.
 
-#### Media player
+### Media player
 
 - **Edifier speaker**
   - **Description**: Represents the Edifier speaker and allows you to control it via IR commands.
