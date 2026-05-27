@@ -73,7 +73,7 @@ The integration provides one media player entity per Yoto player. Each entity su
 
 Yoto players cannot be powered on remotely. Home Assistant reports the player as _off_ when it is offline but cannot wake it up.
 
-You can browse your Yoto card library from the **Media** panel or the more-info dialog of the player, then select a card, chapter, or track to start playback.
+To browse your Yoto card library, open the more-info dialog of the Yoto player and select the browse media button. From there, you can select a card, chapter, or track to start playback.
 
 To start playback from a script or automation, call the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action with `media_content_type: music` and a `yoto://` URI:
 
@@ -81,7 +81,7 @@ To start playback from a script or automation, call the [`media_player.play_medi
 - `yoto://<card_id>/<chapter_key>` plays the chapter from its first track.
 - `yoto://<card_id>/<chapter_key>/<track_key>` plays the track from the start.
 
-You can get the URI for any card, chapter, or track by browsing your library in the **Media** panel and copying it from the selected item.
+The URI is case-sensitive. When picking a card in the media browser, the corresponding URI is the value passed to `media_content_id`.
 
 ```yaml
 action: media_player.play_media
