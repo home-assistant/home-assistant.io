@@ -113,7 +113,7 @@ In the sections view, you can rearrange sections and cards by dragging them to a
       Rearranging cards by dragging
     </p>
 
-## Section themes
+## Setting a section theme
 
 You can apply different themes to individual sections within a view. This allows you to visually distinguish different areas of your dashboard, such as using warm colors for alerts or cool colors for general information.
 
@@ -121,7 +121,7 @@ You can apply different themes to individual sections within a view. This allows
 
 Before setting a section theme, you must [create your custom themes in YAML configuration](/integrations/frontend/#defining-themes).
 
-### Setting a section theme via the UI
+### To set a section theme via the UI
 
 1. Open your dashboard in edit mode: in the top right of the screen, select the edit {% icon "mdi:edit" %} button.
 2. On the section you want to theme, select the edit {% icon "mdi:edit" %} button.
@@ -130,7 +130,7 @@ Before setting a section theme, you must [create your custom themes in YAML conf
 5. Use the **Theme** dropdown to select a theme for this section.
 6. Select **Save**.
 
-### Setting a section theme via YAML
+### To set a section theme via YAML
 
 Add the `theme` property to a section configuration:
 
