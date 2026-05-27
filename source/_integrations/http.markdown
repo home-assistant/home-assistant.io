@@ -19,7 +19,13 @@ The **HTTP** {% term integration %} serves the Home Assistant frontend and power
 
 ## Configuration
 
-The HTTP integration is set up automatically. To change the listening port, set up SSL, allow CORS origins, configure trusted reverse proxies, or tune IP banning, go to {% my network title="**Settings** > **System** > **Network**" %} and edit the **HTTP server** section. Changes take effect after a Home Assistant restart.
+The HTTP integration is set up automatically.
+
+To change the listening port, set up SSL, allow CORS origins, configure trusted reverse proxies, or tune IP banning:
+
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Edit the **HTTP server** section.
+3. Restart Home Assistant.
 
 {% important %}
 The **Listen addresses** option should only be used on a Home Assistant Container installation.
@@ -62,9 +68,10 @@ Before Home Assistant 2026.6, the HTTP integration was configured in {% term "`c
 
 To complete the migration:
 
-1. Go to {% my network title="**Settings** > **System** > **Network**" %} and verify that the **HTTP server** section shows your imported values.
-2. Remove the `http:` block from {% term "`configuration.yaml`" %}.
-3. Restart Home Assistant.
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}
+2. Verify that the **HTTP server** section shows your imported values.
+3. Remove the `http:` block from {% term "`configuration.yaml`" %}.
+4. Restart Home Assistant.
 
 The repair issue clears once the YAML block is gone. If the import fails, for example when a value is invalid or **Trust X-Forwarded-For** is enabled without trusted proxies, Home Assistant starts with default HTTP settings and the repair issue reports the cause. Review the values in the UI, save, and restart.
 
@@ -264,8 +271,12 @@ For more examples, see the [HTTP binary sensor](#examples) section.
 
 ### The HTTP server failed to start
 
-If a stored value prevents the HTTP server from starting, for example an SSL certificate path that no longer exists, Home Assistant falls back to default HTTP settings on port `8123` without SSL so you can recover access. A repair issue titled **HTTP configuration was rejected on startup** is raised under {% my repairs title="**Settings** > **System** > **Repairs**" %} with the underlying error. Open the **HTTP server** section in {% my network title="**Settings** > **System** > **Network**" %}, correct the values, save, and restart.
+If a stored value prevents the HTTP server from starting, for example an SSL certificate path that no longer exists, Home Assistant falls back to default HTTP settings on port `8123` without SSL so you can recover access. A repair issue titled **HTTP configuration was rejected on startup** is raised under {% my repairs title="**Settings** > **System** > **Repairs**" %} with the underlying error.
+
+To fix this, open the **HTTP server** section in {% my network title="**Settings** > **System** > **Network**" %}, correct the values, save, and restart.
 
 ### Repair issue: the HTTP YAML configuration is deprecated
 
-This issue appears when an `http:` block is still present in {% term "`configuration.yaml`" %} after the values were imported into the UI. Verify your settings under {% my network title="**Settings** > **System** > **Network**" %}, remove the `http:` block, and restart Home Assistant.
+This issue appears when an `http:` block is still present in {% term "`configuration.yaml`" %} after the values were imported into the UI.
+
+To fix this, verify your settings under {% my network title="**Settings** > **System** > **Network**" %}, remove the `http:` block, and restart Home Assistant.
