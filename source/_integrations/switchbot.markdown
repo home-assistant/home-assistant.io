@@ -38,6 +38,7 @@ ha_platforms:
   - humidifier
   - light
   - lock
+  - number
   - select
   - sensor
   - switch

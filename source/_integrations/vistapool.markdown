@@ -7,11 +7,12 @@ ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - "@fdebrus"
+  - '@fdebrus'
 ha_domain: vistapool
 ha_platforms:
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Vistapool** integration connects Home Assistant to **Hayward-branded pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.

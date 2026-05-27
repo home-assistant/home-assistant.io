@@ -14,6 +14,7 @@ ha_domain: yoto
 ha_platforms:
   - media_player
 ha_integration_type: hub
+ha_dhcp: true
 ---
 
 The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, and see what is currently playing.
