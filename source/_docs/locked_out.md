@@ -1,6 +1,6 @@
 ---
 title: "I'm locked out!"
-description: "Options for regaining access"
+description: "Options for regaining access to your Home Assistant when you are locked out, including resetting the owner password and recovering your data."
 related:
   - docs: /common-tasks/os/#listing-all-users-from-the-command-line
     title: Listing all usernames via command line

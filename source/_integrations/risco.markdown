@@ -1,6 +1,6 @@
 ---
 title: Risco
-description: Instructions on how to integrate Risco alarms into HA using Risco Cloud.
+description: Instructions on how to integrate Risco alarms into Home Assistant using Risco Cloud.
 ha_category:
   - Alarm
   - Binary sensor

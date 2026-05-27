@@ -1,36 +1,57 @@
 ---
-title: "Automation Trigger"
-description: "All the different ways how automations can be triggered."
+title: "Automation triggers"
+description: "Triggers are the events that start an automation, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
 ---
 
-Triggers are what starts the processing of an {% term automation %} rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
+A trigger is what wakes an automation up. Until something triggers it, an automation just sits there quietly, waiting. The moment a trigger fires, Home Assistant checks any [conditions](/docs/automation/condition/) you set, and if they pass, it runs the [actions](/docs/automation/action/).
 
-An {% term automation %} can be triggered by an {% term event %}, a certain {% term entity %} {% term state %}, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
 
 - [Trigger ID](#trigger-id)
+  - [Video tutorial](#video-tutorial)
 - [Trigger variables](#trigger-variables)
 - [Event trigger](#event-trigger)
 - [Home Assistant trigger](#home-assistant-trigger)
 - [MQTT trigger](#mqtt-trigger)
 - [Numeric state trigger](#numeric-state-trigger)
 - [State trigger](#state-trigger)
+  - [Examples](#examples)
+  - [Triggering on attribute changes](#triggering-on-attribute-changes)
+  - [Holding a state or attribute](#holding-a-state-or-attribute)
 - [Sun trigger](#sun-trigger)
+  - [Sunset / Sunrise trigger](#sunset--sunrise-trigger)
+  - [Sun elevation trigger](#sun-elevation-trigger)
 - [Tag trigger](#tag-trigger)
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
+  - [Time string](#time-string)
+  - [Input datetime](#input-datetime)
+  - [Sensors of datetime device class](#sensors-of-datetime-device-class)
+  - [Sensors of datetime device class with offsets](#sensors-of-datetime-device-class-with-offsets)
+  - [Multiple times](#multiple-times)
+  - [Limited templates](#limited-templates)
+  - [Weekday filtering](#weekday-filtering)
+    - [Single weekday](#single-weekday)
+    - [Multiple weekdays](#multiple-weekdays)
+    - [Weekend example](#weekend-example)
+    - [Combined with input datetime](#combined-with-input-datetime)
 - [Time pattern trigger](#time-pattern-trigger)
 - [Persistent notification trigger](#persistent-notification-trigger)
 - [Webhook trigger](#webhook-trigger)
+  - [Webhook data](#webhook-data)
+  - [Webhook security](#webhook-security)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 - [Calendar trigger](#calendar-trigger)
 - [Sentence trigger](#sentence-trigger)
+  - [Related topic](#related-topic)
+  - [Sentence wildcards](#sentence-wildcards)
 - [Multiple triggers](#multiple-triggers)
-- [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
+- [Multiple entity IDs for the same trigger](#multiple-entity-ids-for-the-same-trigger)
 - [Disabling a trigger](#disabling-a-trigger)
 - [Merging lists of triggers](#merging-lists-of-triggers)
 
@@ -882,7 +903,9 @@ automation:
           - "thu"
           - "fri"
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Work Day!"
           message: "Time to start working"

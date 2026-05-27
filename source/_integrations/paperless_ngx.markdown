@@ -105,7 +105,9 @@ conditions:
         false
       {% endif %}
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     metadata: {}
     data:
       message: A new document is available.

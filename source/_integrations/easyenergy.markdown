@@ -32,6 +32,45 @@ Companies that use the data from easyEnergy:
 
 With the [energy dashboard](/energy) you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour based on the prices from easyEnergy. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
 
+## Examples
+
+### Send a notification when the energy price is low
+
+Use the current hour price sensor to send a notification when the energy price drops below your chosen threshold. In this example, the threshold is `0.15 €/kWh`.
+
+```yaml
+automation:
+  - alias: "Notify when the energy price is low"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
+        below: 0.15
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          title: "Low energy price"
+          message: "The current energy price is {{ trigger.to_state.state }} €/kWh."
+```
+
+### Start a dishwasher when the energy price is low
+
+Use the current hour price sensor to start a dishwasher when the energy price drops below your chosen threshold. In this example, the threshold is `0.15 €/kWh`.
+
+```yaml
+automation:
+  - alias: "Start dishwasher when energy price is low"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
+        below: 0.15
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.dishwasher
+```
+
 ## Data updates
 
 The integration will poll the easyEnergy API every 10 minutes to update the data in Home Assistant.
@@ -253,6 +292,30 @@ template:
           {% set current_price = states('sensor.easyenergy_today_energy_usage_current_hour_price') | float(0) %}
           {{ (current_price + energy_tax + purch_costs) | round(2) }}
 ```
+
+## Troubleshooting
+
+{% details "Prices for tomorrow are unavailable" %}
+
+**Symptom:** The next-day price entities are unavailable or do not show tomorrow's prices.
+
+**Description:** The electricity prices for the next day are usually published around **14:00 UTC time**. Gas prices are published every morning around **05:00 UTC time**.
+
+**Resolution:**
+Wait until the prices have been published by easyEnergy and then wait for the next integration update. The integration polls the API every 10 minutes.
+
+{% enddetails %}
+
+{% details "The prices do not match my energy bill" %}
+
+**Symptom:** The price shown by Home Assistant is lower than the price charged by the energy company.
+
+**Description:** The prices retrieved from the easyEnergy API are bare prices including VAT. Energy companies can charge additional costs, such as energy tax and purchase costs.
+
+**Resolution:**
+Create a template sensor that adds these extra costs to the current price. See the [all-in price sensor](#all-in-price-sensor) example.
+
+{% enddetails %}
 
 ## Removing the integration
 

@@ -522,6 +522,17 @@ The only mechanism ElkM1 offers to clear zone bypass is to clear all bypassed zo
 The `sensor_zone_trigger` action creates a virtual momentary open condition on the zone as if the EOL hardwired loop had been physically opened.
 {% endnote %}
 
+### Switch actions
+
+#### Elk-M1 Output control
+
+- `elkm1.switch_output_turn_on_for` - Turn on the output for a specified duration
+
+| Data attribute | Required | Description |
+| -------------- | -------- | ----------- |
+| `entity_id`    | No       | Elk-M1 output to turn on |
+| `duration`     | Yes      | Duration in integer seconds (1-65535). |
+
 ### System actions
 
 #### Time synchronization
