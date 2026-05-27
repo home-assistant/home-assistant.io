@@ -114,11 +114,11 @@ Available for the main ventilation box (BOX). Shows the ventilation state using 
 
 Common values include:
 
-- `AUTO`: Automatic mode
-- `AUT1`, `AUT2`, `AUT3`: Automatic mode currently running at low, medium, or high airflow
-- `CNT1`, `CNT2`, `CNT3`: Continuous low, medium, or high speed override
-- `MAN1`, `MAN2`, `MAN3`: Timed manual low, medium, or high speed override
-- `EMPT`: Empty house mode
+- `AUTO`: Automatic mode.
+- `AUT1`, `AUT2`, `AUT3`: Automatic mode currently running at low, medium, or high airflow.
+- `CNT1`, `CNT2`, `CNT3`: Continuous low, medium, or high speed override.
+- `MAN1`, `MAN2`, `MAN3`: Timed manual low, medium, or high speed override.
+- `EMPT`: Empty house mode.
 
 `CNT` states are continuous overrides.
 
