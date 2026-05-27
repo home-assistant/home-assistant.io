@@ -19,6 +19,12 @@ The **Elk E27 Alarm Engine** {% term integration %} lets you connect your Elk E2
 
 The Elk E27 Alarm Engine is manufactured by [Elk Products](https://www.elkproducts.com).
 
+## Prerequisites
+
+Before setting up the Elk E27 integration, make sure the panel is reachable from the Home Assistant network.
+
+Elk E27 panels should be running firmware version 0.0.6.4 or later.
+
 {% include integrations/config_flow.md %}
 
 ## Supported functionality
@@ -33,25 +39,11 @@ Alarm control panel entities support:
 - Arm custom bypass
 - Disarm
 
-## Prerequisites
+## Troubleshooting
 
-Before setting up the Elk E27 integration, make sure the panel is reachable from the Home Assistant network.
+### Debug logs and diagnostics
 
-Elk E27 panels should be running firmware version 0.0.6.4 or later.
-
-## Actions
-
-The integration provides the `elke27.alarm_arm_automatic` action for arming an Elk E27 area using the panel's automatic stay and exit-delay behavior.
-
-The action requires:
-
-- An Elk E27 `alarm_control_panel` entity as the target.
-- A `mode` value of `away` or `home`.
-- A `code` value with the alarm code used to arm the system.
-
-## Debugging
-
-If you encounter issues with the Elk E27 integration, debug logs can help identify the problem. For detailed instructions on enabling debug logging, see [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
+If you encounter issues with the Elk E27 integration, debug logs can help identify the problem. For detailed instructions, see [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 Alternatively, you can manually enable debug logging in your {% term "`configuration.yaml`" %} file:
 
