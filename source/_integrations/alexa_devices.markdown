@@ -8,7 +8,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
-  - Todo
+  - To-do list
 ha_release: '2025.6'
 ha_domain: alexa_devices
 ha_config_flow: true
@@ -150,10 +150,10 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 In addition to sensors, you can use the following entities:
 
 - **Button** - Execute Alexa routines
-- **Notify** - Speak and Announce notifications
+- **Notify** - Speak and announce notifications
 - **Select** - Select default device
 - **Switch** - Do not disturb
-- **Todo**   - Shopping, To-do and custom lists
+- **To-do list** - Shopping, to-do, and custom lists.
 
 ## Examples
 
