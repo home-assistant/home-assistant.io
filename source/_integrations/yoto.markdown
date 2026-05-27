@@ -57,7 +57,7 @@ For more details, see the [Yoto Developers documentation](https://yoto.dev/get-s
 
 During setup, Home Assistant asks for your Yoto **Client ID** and **Client secret** through the [Application Credentials](/integrations/application_credentials/) flow, then opens the Yoto authorization page so you can grant access. After you approve, Home Assistant creates one {% term device %} and one media player {% term entity %} for every Yoto player in your family.
 
-If a Yoto player is connected to your local network, Home Assistant detects it through DHCP and offers to start the setup flow automatically.
+If a Yoto player is connected to your local network, Home Assistant detects it through <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> and offers to start the setup flow automatically.
 
 ## Supported functionality
 
@@ -80,6 +80,8 @@ To start playback from a script or automation, call the [`media_player.play_medi
 - `yoto://<card_id>` plays the card, honoring its own resume setting.
 - `yoto://<card_id>/<chapter_key>` plays the chapter from its first track.
 - `yoto://<card_id>/<chapter_key>/<track_key>` plays the track from the start.
+
+You can get the URI for any card, chapter, or track by browsing your library in the **Media** panel and copying it from the selected item.
 
 ```yaml
 action: media_player.play_media
