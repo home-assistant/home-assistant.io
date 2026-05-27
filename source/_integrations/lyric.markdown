@@ -50,16 +50,12 @@ You can then add the integration in the frontend via the steps below.
 
 The integration configuration will ask for the **Client ID** and **Client Secret**, which correspond to the **Consumer** values in the app you created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-## Room priority
+## Selects
 
-For thermostats with wireless room sensors (such as the T9 and T10), a **Room priority** select entity is created. This lets you choose which room sensor the thermostat uses for its temperature reading.
-
-Available options:
-
-- **Follow me** — The thermostat automatically switches to the room where motion is detected.
-- The names of all rooms with sensors paired to the thermostat appear as individual options (for example, "Bedroom", "Office"). Selecting one tells the thermostat to use that room's sensor for its temperature reading.
-
-This entity only appears for thermostats that support room sensors and have room sensor accessories paired.
+- **Room priority**
+  - **Description**: Controls which room sensor the thermostat uses for its temperature reading.
+  - **Options**: **Follow me**, and the name of each paired room sensor (such as "Bedroom" or "Office").
+  - **Available for**: T9 and T10 thermostats with at least one paired room sensor.
 
 ## Sensors
 
