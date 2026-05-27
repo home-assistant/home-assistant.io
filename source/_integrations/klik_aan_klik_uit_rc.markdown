@@ -1,24 +1,21 @@
 ---
-title: KlikAanKlikUit RC
-description: Instructions on how to integrate KlikAanKlikUit RC and compatible devices into Home Assistant.
+title: KlikAanKlikUit
+description: Instructions on how to integrate KlikAanKlikUit and compatible devices into Home Assistant.
 ha_category:
-  - Button
-  - Light
   - Switch
-ha_release: 2026.5
+ha_release: 2026.6
 ha_iot_class: Assumed State
 ha_config_flow: true
 ha_codeowners:
   - '@Phunkafizer'
-ha_domain: klik_aan_klik_uit_rc
+ha_domain: klik_aan_klik_uit
 ha_platforms:
-  - light
   - switch
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **KlikAanKlikUit RC** {% term integration %} lets you control self-learning KlikAanKlikUit 433.92 MHz RF devices from Home Assistant.
+The **KlikAanKlikUit** {% term integration %} lets you control self-learning KlikAanKlikUit 433.92 MHz RF devices from Home Assistant.
 
 The integration uses the [Radio Frequency](/integrations/radio_frequency/) {% term entity %} platform to send RF commands. That means you first need a compatible RF transmitter in Home Assistant, such as an ESPHome device with 433.92 MHz OOK transmit support.
 
@@ -57,40 +54,17 @@ Before adding the integration, make sure:
 
 ## Configuration options
 
-After setup, you can reconfigure the entry from {% my integrations title="**Settings** > **Devices & services**" %}.
-
-The reconfigure flow lets you update:
-
-- Radio frequency transmitter
-- Device ID
-- Channel
-- Group
-- Dimming
+{% include integrations/config_flow.md %}
 
 ## Supported functionality
 
-The **KlikAanKlikUit RC** integration provides the following entities.
+The **KlikAanKlikUit** integration provides the following entities.
 
 ### Switches
 
 - **Power switch**
   - **Description**: Turns the device on or off.
   - **Available when**: Always.
-
-### Lights
-
-- **Brightness**
-  - **Description**: Controls device's brightness.
-  - **Available when**: You enabled **Dimming** during setup.
-
-### Buttons
-
-- **Learn**
-  - **Description**: Sends a learning signal to pair a compatible device.
-  - **Available when**: Group is disabled.
-- **Unlearn**
-  - **Description**: Sends an unlearning signal to unpair a compatible device.
-  - **Available when**: Group is disabled.
 
 ## Data updates
 
@@ -105,7 +79,7 @@ Because KlikAanKlikUit RF control is one-way, Home Assistant cannot confirm whet
 - Dimming support depends on your device's model.
 
 ## Pairing devices
-- how to pair a device depends on it's design. Most of them have a learn-button. Push it > 2s until it's LED is flashing, then within 30s issue the integration's learn function. Some devices go into learning-mode after repowering.
+- how to pair a device depends on it's design. Most of them have a learn-button. Push it > 2s until it's LED is flashing, then within 30s issue the integration's pairing function during configuration. Some devices go into learning-mode after repowering.
 
 ## Troubleshooting
 
