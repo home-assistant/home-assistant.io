@@ -142,11 +142,11 @@ Create separate files for each:
 - condition, in source/_conditions/
 - action, in source/_actions/
 -->
-{% include integrations/actions.md %}
+{% include integrations/triggers.md %}
 
 {% include integrations/conditions.md %}
 
-{% include integrations/triggers.md %}
+{% include integrations/actions.md %}
 
 <!--
 If the integration has all three components (triggers, conditions, and actions), use the combined include instead. 
