@@ -699,7 +699,7 @@ template:
               entity_id: switch.garage_door
 ```
 
-## Device Tracker
+## Device tracker
 
 The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`). When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
 
