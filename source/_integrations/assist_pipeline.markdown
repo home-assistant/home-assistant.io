@@ -12,6 +12,7 @@ ha_domain: assist_pipeline
 ha_integration_type: system
 ha_quality_scale: internal
 ha_platforms:
+  - number
   - select
 related:
   - docs: /docs/configuration/
@@ -34,3 +35,7 @@ assist_pipeline:
 ```
 
 For more information, refer to the procedure on [configuring a pipeline](/voice_control/voice_remote_local_assistant/).
+
+## Command timeout
+
+Assist satellite devices can expose a command timeout number entity. Increase this value if longer voice requests are cut off after the default 15 seconds.
