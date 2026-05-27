@@ -110,11 +110,21 @@ Available for the main ventilation box (BOX). Shows the actual airflow target as
 
 #### Ventilation state
 
-Available for the main ventilation box (BOX). Shows the current ventilation state, for example:
+Available for the main ventilation box (BOX). Shows the ventilation state using the Duco state codes shown by the device and app, instead of friendly labels with fixed meanings.
 
-- Automatic
-- Continuous high speed
-- Manual low speed (15 min)
+Common values include:
+
+- `AUTO`: Automatic mode.
+- `AUT1`, `AUT2`, `AUT3`: Automatic mode currently running at low, medium, or high airflow.
+- `CNT1`, `CNT2`, `CNT3`: Continuous low, medium, or high speed override.
+- `MAN1`, `MAN2`, `MAN3`: Timed manual low, medium, or high speed override.
+- `EMPT`: Empty house mode.
+
+`CNT` states are continuous overrides.
+
+`MAN` states are timed overrides, but the timer duration is configured on the Duco system and is not encoded in the raw state value itself. Some systems may also report compatibility values like `MAN1x2` or `MAN1x3` for timed manual modes.
+
+To see when a timed mode ends, use the [Mode end time](#mode-end-time) sensor.
 
 #### Mode end time
 
