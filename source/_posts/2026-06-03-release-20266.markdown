@@ -265,6 +265,9 @@ We welcome the following new integrations in this release:
 - **[Guntamatic]**, added by [@JensTimmerman] — launching at 🥈 silver quality  
   Monitor your [Guntamatic](https://www.guntamatic.com) wood or pellet heater locally from Home Assistant. The integration reads sensor data directly from the heater's web interface over your local network, with no cloud account needed.
 
+- **[LG TV via Serial]**, added by [@balloob] — launching at 🥈 silver quality  
+  Control your LG TV locally from Home Assistant over its built-in RS-232 serial port. Works through a direct serial cable, a USB-to-serial adapter, or an [ESPHome]-based serial proxy, giving you a reliable connection that even works while the TV is in standby. Great for older sets without smart features and for commercial signage displays.
+
 - **[Marantz Infrared]**, added by [@balloob] — launching at 🥈 silver quality  
   Control your Marantz amplifier with any infrared transmitter you already have set up in Home Assistant. Built on top of the [Infrared] entity platform, so you can pair it with an ESPHome device with an IR LED, or any other supported IR emitter, and operate your amplifier without depending on the network or cloud.
 
@@ -273,6 +276,9 @@ We welcome the following new integrations in this release:
 
 - **[Ouman EH-800]**, added by [@Markus98]  
   Connect your [Ouman EH-800](https://ouman.fi/en/product/ouman-eh-800-and-eh-800b/) heating controller to Home Assistant. Monitor and control your heating system locally with climate, number, select, sensor, and valve entities, perfect for automating your home's heat distribution.
+
+- **[OVHcloud AI Endpoints]**, added by [@Crocmagnon] — launching at 🥉 bronze quality  
+  Add a conversation agent powered by [OVHcloud AI Endpoints](https://endpoints.ai.cloud.ovh.net/) to Home Assistant. Pick from a curated catalog of open-weight large language models hosted in Europe, and use them with [Assist](/voice_control/) to control your home and answer questions.
 
 - **[PAJ GPS]**, added by [@skipperro]  
   Track the location of your [PAJ GPS](https://www.paj-gps.de) devices on the map in Home Assistant. The integration creates a device tracker entity for each tracker in your PAJ account, so you can build automations around their location, like notifications when a tracker arrives home or leaves a zone.
@@ -312,9 +318,11 @@ We welcome the following new integrations in this release:
 [Data Grand Lyon]: /integrations/data_grand_lyon
 [Guntamatic]: /integrations/guntamatic
 [Infrared]: /integrations/infrared
+[LG TV via Serial]: /integrations/lg_tv_rs232
 [Marantz Infrared]: /integrations/marantz_infrared
 [Mitsubishi Comfort]: /integrations/mitsubishi_comfort
 [Ouman EH-800]: /integrations/ouman_eh_800
+[OVHcloud AI Endpoints]: /integrations/ovhcloud_ai_endpoints
 [PAJ GPS]: /integrations/paj_gps
 [PTDevices]: /integrations/ptdevices
 [Samsung Infrared]: /integrations/samsung_infrared
@@ -447,9 +455,8 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **5 integrations reached platinum** 🏆
+- **4 integrations reached platinum** 🏆
   - [Casper Glow][casper_glow], thanks to [@mikeodr]
-  - [Data Grand Lyon], thanks to [@Crocmagnon]
   - [Indevolt], thanks to [@Xirt]
   - [Tailwind], thanks to [@frenck]
   - [UptimeRobot], thanks to [@chemelli74]
@@ -457,13 +464,11 @@ This release, we celebrate several {% term integrations %} that have improved th
 - **1 integration reached gold** 🥇
   - [Novy Cooker Hood], thanks to [@piitaya]
 
-- **2 integrations reached silver** 🥈
-  - [Guntamatic], thanks to [@JensTimmerman]
+- **1 integration reached silver** 🥈
   - [Jandy iAquaLink][iaqualink], thanks to [@flz]
 
-- **3 integrations reached bronze** 🥉
+- **2 integrations reached bronze** 🥉
   - [Nobø Ecohub][nobo_hub], thanks to [@oyvindwe]
-  - [Vistapool], thanks to [@fdebrus]
   - [Zeversolar], thanks to [@mhuiskes]
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
@@ -494,9 +499,15 @@ While most {% term integrations %} can be set up directly from the Home Assistan
 The following integrations are now available via the Home Assistant UI:
 
 - **[Elgato Avea]**, done by [@pattyland]
+- **[openSenseMap]**, done by [@AlCalzone]
+- **[OPNsense]**, done by [@HarlemSquirrel]
 
+[@AlCalzone]: https://github.com/AlCalzone
+[@HarlemSquirrel]: https://github.com/HarlemSquirrel
 [@pattyland]: https://github.com/pattyland
 [Elgato Avea]: /integrations/avea
+[openSenseMap]: /integrations/opensensemap
+[OPNsense]: /integrations/opnsense
 
 ### Farewell to the following
 
@@ -576,6 +587,19 @@ Are you more into email? [Sign up for the Open Home Foundation Newsletter](/news
 We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes it is inevitable.
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
+
+{% details "Purpose-specific triggers (Labs)" %}
+
+The behavior options for the Labs purpose-specific triggers have been renamed to better match what they do: `any` is now `each`, and `last` is now `all`. The default is now `each`.
+
+If you have automations that use these triggers from the Labs preview at {% my labs title="**Settings** > **System** > **Labs**" %}, open them in the automation editor and re-pick the behavior option. Any YAML you wrote against the old keys needs to be updated to the new names.
+
+([@emontnemery] - [#172348])
+
+[@emontnemery]: https://github.com/emontnemery
+[#172348]: https://github.com/home-assistant/core/pull/172348
+
+{% enddetails %}
 
 {% details "Bluetooth" %}
 
