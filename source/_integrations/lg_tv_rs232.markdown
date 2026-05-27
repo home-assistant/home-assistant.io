@@ -43,7 +43,7 @@ Most LG TVs sold starting roughly 2008, as well as LG commercial signage display
 
 {% configuration_basic %}
 Port:
-    description: "The serial port the TV is connected to. This can be a local device path or a remote serial proxy URL. Examples: `/dev/ttyUSB0` (USB adapter), `socket://192.168.1.100:2000` (network proxy), or `socket://esphome-device.local:6638` (ESPHome).""
+    description: "The serial port the TV is connected to. This can be a local device path or a remote serial proxy URL. For example, `/dev/ttyUSB0` (USB adapter), `socket://192.168.1.100:2000` (network proxy), or `socket://esphome-device.local:6638` (ESPHome)."
 Set ID:
     description: "The set ID configured on the TV (1-99). Leave this at the default of `1` for a single TV. When multiple TVs are daisy-chained on the same RS-232 bus, give each set a unique ID and add a separate entry for each."
 {% endconfiguration_basic %}
