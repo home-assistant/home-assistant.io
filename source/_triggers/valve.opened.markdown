@@ -32,7 +32,7 @@ To use this trigger in an automation:
 Trigger when:
   description: |
     When multiple valves are targeted, controls when the trigger fires:
-  
+    
     - **Each** (default) fires every time any targeted valve opens.
     - **First** fires only when the first of a group opens.
     - **All** fires only after every targeted valve is open.
@@ -53,13 +53,15 @@ trigger: |
 
 This fires every time `valve.garden_irrigation` transitions to the **Open** state.
 
+### Options in YAML
+
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:
   description: |
     When multiple valves are targeted, controls when the trigger fires:
-
+    
     - `any`: fires every time any targeted valve opens.
     - `first`: fires only when the first valve in the group opens.
     - `last`: fires only after every targeted valve is open.
@@ -86,7 +88,7 @@ for:
 - This trigger works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
 - You can conserve water by pairing this trigger with a timer. Create an automation that, when an irrigation or garden valve opens, starts a countdown and automatically closes it after the intended duration. This prevents over-watering caused by forgotten open valve, that is one of the most common sources of household water waste.
 - Combine this trigger with a water leak sensor condition to detect unexpected openings that may indicate a burst pipe or a faulty valve. Catching these events immediately can prevent significant water loss and structural damage.
-- Water plants smarter, not harder by pairing this trigger with a weather integration. If rain is forecast or soil moisture sensors report sufficient levels, a condition can block the opening entirely, so your garden only gets watered when it actually needs it.
+- Pair this trigger with a weather integration in an automation to water plants smarter, not harder. If rain is forecast or soil moisture sensors report sufficient levels, a condition can block the opening entirely, so your garden only gets watered when it actually needs it.
 
 {% include triggers/try_it.md %}
 
