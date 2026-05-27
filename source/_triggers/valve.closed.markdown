@@ -111,7 +111,12 @@ automation: |
   actions:
     - variables:
         duration_min: >
-          {{ ((trigger.to_state.last_changed - trigger.from_state.last_changed).total_seconds() / 60) | round(1) }}
+          {{
+            (
+              (trigger.to_state.last_changed
+              - trigger.from_state.last_changed).total_seconds() / 60
+            ) | round(1)
+          }} 
         liters_used: >
           {{ (duration_min * 12) | round(0) }}
     - action: notify.send_message
@@ -121,12 +126,12 @@ automation: |
         title: "🌿 Irrigation finished"
         message: >
           Valve closed after {{ duration_min }} min.
-          Estimated water used: {{ litres_used }} L.
+          Estimated water used: {{ liters_used }} L.
           Consider adjusting the schedule if the garden looks saturated.
     - action: logbook.log
       data:
         name: "Irrigation"
-        message: "Valve open for {{ duration_min }} min — ~{{ litres_used }} L used."
+        message: "Valve open for {{ duration_min }} min — ~{{ liters_used }} L used."
         entity_id: valve.garden_irrigation
 {% endexample %}
 
