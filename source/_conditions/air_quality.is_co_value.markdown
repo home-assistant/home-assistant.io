@@ -30,10 +30,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The carbon monoxide level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -89,10 +87,11 @@ When you pull into the driveway, you want to know if the air inside is safe befo
 
 - **Trigger**: Zone: Person enters home zone
 - **Condition**: Air Quality: Carbon monoxide value
-- **Target**: Hallway CO sensor
-- **Threshold type**: 20
-- **Condition passes if**: Any
-- **Action**: Notify: Send notification
+  - **Target**: Hallway CO sensor
+  - **Threshold type**: 20
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a CO check on arrival home" %}
 
@@ -112,7 +111,9 @@ automation: |
         threshold: 20
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "CO level elevated at home"
         message: >

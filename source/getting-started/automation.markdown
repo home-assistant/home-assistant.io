@@ -1,11 +1,11 @@
 ---
 title: "Automating Home Assistant"
-description: "A quick intro on getting your first automation going."
+description: "Build your first Home Assistant automations using the visual editor, no code required."
 ---
 
-Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}.
+Now that your devices are connected, you can put them to work. {% term Automations %} let your home react to things on its own: turn the lights on when the sun goes down, lower the heat when everyone leaves, or remind you to close the garage door at bedtime. You build them with the visual automation editor, so you can follow this tutorial without writing a single line of code.
 
-We're going to create two automations: One, to turn on the lights when the sun sets. And a second one to dim the light at a certain time in the evening before a workday.
+We are going to create two automations together: one that turns the lights on as the sun sets, and a second that dims them later in the evening on workdays.
 
 ## Turning on the lights before sunset
 
