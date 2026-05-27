@@ -62,7 +62,7 @@ password:
 
 When signing in with your ecobee username and password, if your ecobee account has multi-factor authentication (MFA) enabled with a time-based one-time password (TOTP) from an authenticator app, Home Assistant will prompt you for the 6-digit code after you submit your credentials. The integration captures a refresh token after the initial login, so subsequent token refreshes happen without prompting you for the code again.
 
-If the refresh token is ever invalidated (for example, after a password change on ecobee.com), Home Assistant will start a reauthentication flow and ask you for your password — and the MFA code, if your account still has MFA enabled.
+If the refresh token is ever invalidated (for example, after a password change on ecobee.com), Home Assistant will start a reauthentication flow. It will ask you for your password and the MFA code, if your account still has MFA enabled.
 
 Other MFA methods (push, SMS, email) are not currently supported.
 
