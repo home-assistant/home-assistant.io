@@ -119,15 +119,17 @@ The following button entity allows triggering device actions directly from Home 
 - DC input power (4 channels, W)
 - Grid voltage (V)
 - Grid frequency (Hz)
-- Battery cycle count
+- Equivalent full cycles
 - Transformer temperature (°C)
 - Main battery serial number
+- Main battery cycle count
 - Main battery SOC (%)
 - Main battery temperature (°C)
 - Main battery MOS temperature (°C)
 - Main battery voltage (V)
 - Main battery current (A)
 - Battery pack 1-5 serial number
+- Battery pack 1-5 cycle count
 - Battery pack 1-5 SOC (%)
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 MOS temperature (°C)
