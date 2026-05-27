@@ -75,6 +75,7 @@ The following button entity allows triggering device actions directly from Home 
 
 #### All generations
 
+- Rated capacity (kWh)
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
 - Device heating state (Gen-1 specific, on/off)
@@ -113,21 +114,22 @@ The following button entity allows triggering device actions directly from Home 
 
 #### SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000 (Generation 2)
 
-- Rated capacity (kWh)
 - DC input voltage (4 channels, V)
 - DC input current (4 channels, A)
 - DC input power (4 channels, W)
 - Grid voltage (V)
 - Grid frequency (Hz)
-- Battery cycle count
+- Equivalent full cycles
 - Transformer temperature (°C)
 - Main battery serial number
+- Main battery cycle count
 - Main battery SOC (%)
 - Main battery temperature (°C)
 - Main battery MOS temperature (°C)
 - Main battery voltage (V)
 - Main battery current (A)
 - Battery pack 1-5 serial number
+- Battery pack 1-5 cycle count
 - Battery pack 1-5 SOC (%)
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 MOS temperature (°C)

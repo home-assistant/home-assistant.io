@@ -26,14 +26,20 @@ The **Duco** {% term integration %} allows you to monitor and control [Duco](htt
 
 This integration communicates with the **DUCO Connectivity Board** (article 0000-4810) via its local REST API over Wi-Fi or Ethernet.
 
+To set up the integration, your Duco system must expose the DUCO Connectivity Board API with public API version 2.1 or newer.
+
 Hardware revisions:
 
 - **DUCO Connectivity Board 1.0**: Supported
 - **DUCO Connectivity Board 2.0**: Not tested
 
-Compatible DucoBox models:
+Validated DucoBox models:
 
 - DucoBox Silent Connect
+
+Older Duco systems using the Communication Board V1 are not supported because they do not expose the required API surface.
+
+Other Duco systems that expose public API version 2.1 or newer can be set up, but some model-specific functionality may still be limited until it has been validated and implemented.
 
 ### Supported sensor modules
 
@@ -286,6 +292,7 @@ The integration {% term polling polls %} the Duco box every 10 seconds. If you a
 
 ## Known limitations
 
+- New setup requires a DUCO Connectivity Board that exposes public API 2.1 or later. Older systems using the Communication Board V1 are not supported. Other systems on the same API surface can be set up, but some model-specific functionality may still be limited until it has been validated and implemented.
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
 - Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
@@ -317,6 +324,28 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 2. Confirm the IP address or hostname is correct by opening `http://<host>` in a browser on your local network.
 3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
 4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS/Bonjour (zeroconf). If that does not happen, see [Reconfiguring the integration](#reconfiguring-the-integration).
+
+### Setup says this Duco system is not supported
+
+#### Symptom
+
+Manual setup stops with this message:
+
+> This Duco system is not supported by this integration. The integration requires a Duco Connectivity Board running public API 2.1 or newer.
+
+#### Description
+
+Home Assistant could reach the Duco device, but the detected system does not expose the required API surface for setup. The integration requires a DUCO Connectivity Board with public API version 2.1 or later.
+
+This can happen when your system uses an older Communication Board V1, or when the board firmware does not expose public API 2.1 or later.
+
+#### Resolution
+
+1. Confirm that your system uses a DUCO Connectivity Board.
+2. Check whether the board firmware exposes public API 2.1 or later.
+3. If your system uses the older Communication Board V1, Home Assistant cannot set up the integration for that system.
+4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system at this time.
+5. If your system should be supported, collect diagnostics and open an issue in Home Assistant Core with your Duco model, board details, and firmware information.
 
 ### Failed to set ventilation state (rate limit)
 
