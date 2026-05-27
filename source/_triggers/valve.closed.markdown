@@ -48,12 +48,14 @@ trigger: |
 
 This fires every time `valve.garden_irrigation` transitions to the **Closed** state.
 
+### Options in YAML
+
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:
   description: |
-    When multiple valves are targeted, controls when the trigger fires.
+    When multiple valves are targeted, controls when the trigger fires:
 
     - `any`: fires every time any targeted valve closes.
     - `first`: fires only when the first valve in the group closes.
@@ -109,9 +111,9 @@ automation: |
   actions:
     - variables:
         duration_min: >
-        {{ ((now() - states.valve.garden_irrigation.last_changed).total_seconds() / 60) | round(1) }}
-        litres_used: >
-        {{ (duration_min * 12) | round(0) }}
+          {{ ((trigger.to_state.last_changed - trigger.from_state.last_changed).total_seconds() / 60) | round(1) }}
+        liters_used: >
+          {{ (duration_min * 12) | round(0) }}
     - action: notify.send_message
       target:
         entity_id: notify.my_device
