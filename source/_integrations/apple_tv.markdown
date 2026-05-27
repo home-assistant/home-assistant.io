@@ -297,6 +297,10 @@ TV or soundbar directly.
 The Apple TV is quite picky when it comes to which formats it plays. The best bet is MP4. If it doesn't
 work, it's likely because of the media format.
 
+### "No devices found on the network" error during setup even when connecting by IP
+
+Ensure AirPlay is enabled and configured properly. See [this FAQ entry](#when-adding-a-new-device-a-pin-code-is-requested-but-none-is-shown-on-the-screen).
+
 ## Debugging
 
 If you have any problems and intend to write an issue, make sure you have the
