@@ -134,7 +134,7 @@ Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sen
 
 #### Humidity
 
-Available for humidity sensor modules and valve actuators with a built-in humidity sensor. Shows the current relative humidity in percent.
+Available for the supported node types with a built-in humidity sensor listed in [Supported node types](#supported-node-types). Shows the current relative humidity in percent.
 
 #### CO₂ air quality index
 
@@ -149,7 +149,7 @@ Indoor air quality ranges for CO₂:
 
 #### Humidity air quality index
 
-Available for humidity sensor modules and valve actuators with a built-in humidity sensor. Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for the supported node types with a built-in humidity sensor listed in [Supported node types](#supported-node-types). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
 
 Indoor air quality ranges for humidity:
 
