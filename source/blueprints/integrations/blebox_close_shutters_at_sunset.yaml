@@ -3,6 +3,7 @@ blueprint:
   description: >
     Automatically close a BleBox shutterBox cover every day at sunset.
   domain: automation
+  author: bkobus-bbx
 
   input:
     cover_entity:

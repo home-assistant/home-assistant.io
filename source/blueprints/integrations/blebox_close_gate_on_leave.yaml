@@ -4,6 +4,7 @@ blueprint:
     Automatically close a BleBox gateBox or rollerGate cover when the last
     person leaves home.
   domain: automation
+  author: bkobus-bbx
 
   input:
     cover_entity:

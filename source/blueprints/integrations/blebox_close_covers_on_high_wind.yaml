@@ -4,7 +4,7 @@ blueprint:
     Automatically close a BleBox cover when a windSensor PRO reports wind speed
     above a set threshold, protecting your blinds or awnings from damage.
   domain: automation
-
+  author: bkobus-bbx
   input:
     wind_speed_entity:
       name: Wind speed sensor
