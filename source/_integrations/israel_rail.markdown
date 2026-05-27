@@ -33,9 +33,9 @@ For each configured connection, the integration creates a set of sensors for the
 - **Trains / Trains +1 / Trains +2**
   - **Description**: Number of trains involved in the connection (1 for a direct connection, more when a transfer is required).
 - **Departure delay / Departure delay +1 / Departure delay +2**
-  - **Description**: Delay of the departure in minutes, as reported by the upstream API.
+  - **Description**: Delay of the departure in minutes, based on real-time data from Israel Rail.
 
-If the upstream API returns a route whose departure time has already passed, that route is skipped so the sensors only ever show upcoming departures.
+If a departure time has already passed, that route is skipped. The sensors only ever show upcoming departures.
 
 ### Defining a custom polling interval
 
