@@ -369,7 +369,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[V2C]** EV chargers now expose their LED lights. Thanks, [@dgomes]!
 - **[Lunatone]** DALI lighting controllers now expose their device status as sensors. Thanks, [@MoonDevLT]!
 - **[Satel Integra]** alarm zones now expose temperature sensors. Thanks, [@Tommatheussen]!
-- **[Template entities]** now support the device_tracker platform. Thanks, [@Petro31]!
+- **[Template entities]** now support the device tracker platform. Thanks, [@Petro31]!
 
 [@bieniu]: https://github.com/bieniu
 [@bkobus-bbx]: https://github.com/bkobus-bbx
