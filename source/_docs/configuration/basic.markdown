@@ -33,7 +33,7 @@ To change the general settings that were defined during onboarding, follow these
 
     ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)
 
-5. To apply the changes, follow the steps on [reloading the configuration](/docs/configuration/#reloading-configuration-changes).
+4. To apply the changes, follow the steps on [reloading the configuration](/docs/configuration/#reloading-configuration-changes).
 
 ## Changing a person's display name
 
