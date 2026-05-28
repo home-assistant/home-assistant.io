@@ -98,7 +98,7 @@ for:
 
 {% include conditions/more_examples.md %}
 
-### Automation: install an update during the evening if it is still available
+### Automation: install an update in the evening if it is still available
 
 If you prefer to install updates at a quieter time, this automation checks each
 evening whether an update is still available and starts the installation.
