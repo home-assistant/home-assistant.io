@@ -100,8 +100,8 @@ A safety automation that alerts you whenever your main water shutoff valve opens
 
 - **Trigger**: Valve opened
   - **Target**: `valve.main_water_shutoff`
-- **Condition**: Time (after 06:00 AM and before 08:00 AM)
-  - **Blocks**: Not
+- **Condition**: Not
+  - **Condition**: Time (after 06:00 AM and before 08:00 AM)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
