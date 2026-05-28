@@ -1,7 +1,7 @@
 ---
 title: Somfy RTS
 description: Control Somfy RTS motorized covers via a 433.42 MHz radio frequency transmitter.
-ha_release: "2026.6"
+ha_release: 2026.7
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@l-henke'
@@ -20,13 +20,13 @@ related:
     title: ESPHome integration
 ---
 
-The **Somfy RTS** {% term integration %} lets you control Somfy RTS motorized covers — such as roller blinds and shutters — directly from Home Assistant. Commands are sent wirelessly over 433.42 MHz using a compatible radio frequency transmitter, with no cloud or internet connection required.
+The **Somfy RTS** {% term integration %} lets you control Somfy RTS motorized covers, such as roller blinds and shutters, directly from Home Assistant. Commands are sent wirelessly over 433.42 MHz via a compatible radio-frequency transmitter. No cloud or internet connection required.
 
 ## Supported devices
 
 Roller blinds and shutters with a Somfy RTS motor have been tested and are known to work.
 
-Other Somfy RTS motorized covers — such as awnings, garage doors, and pergolas — may also work, as they all use the same Somfy RTS protocol. However, these have not been tested.
+Other Somfy RTS motorized covers—such as awnings, garage doors, and pergolas—may also work, as they all use the same Somfy RTS protocol. However, these have not been tested.
 
 ## Unsupported devices
 
@@ -42,14 +42,14 @@ A Texas Instruments CC1101-based module connected via [ESPHome](/integrations/es
 
 {% configuration_basic %}
 Remote address:
-  description: "A unique 24-bit hexadecimal address for this virtual remote, between `000001` and `FFFFFF`. You can choose any value freely — just make sure no other remote already paired to the same Somfy motor uses the same address. Each remote maintains its own rolling code counter, so two remotes sharing an address would quickly fall out of sync with the rolling code the motor expects, causing commands to be ignored."
+  description: "A unique 24-bit hexadecimal address for this virtual remote, between `000001` and `FFFFFF`. You can choose any value freely. Make sure no other remote already paired to the same Somfy motor uses the same address. Each remote maintains its own rolling code counter, so two remotes sharing an address would quickly fall out of sync with the rolling code the motor expects, causing commands to be ignored."
 Radio frequency transmitter:
   description: "The radio frequency transmitter to use for sending Somfy RTS commands. Only transmitters that support 433.42 MHz OOK transmissions appear in this list."
 {% endconfiguration_basic %}
 
 ### Pairing with your Somfy motor
 
-After entering the address and transmitter, the setup continues with a pairing step. This step is optional — you can skip it and pair later by reconfiguring the integration — but it is required before Home Assistant can control the motor.
+After entering the address and transmitter, the setup continues with a pairing step. This step is optional. You can skip it and pair later by reconfiguring the integration. However, it is required before Home Assistant can control the motor.
 
 To pair the virtual remote with your Somfy motor:
 
@@ -57,10 +57,10 @@ To pair the virtual remote with your Somfy motor:
 2. In the Home Assistant setup dialog, check the **Send PROG** box and select **Submit**.
 3. The motor should jog again to confirm that the pairing was successful.
 
-If you need to send PROG more than once, check the box and submit again — the step repeats until you leave **Send PROG** unchecked and submit to finish.
+If you need to send PROG more than once, check the box and submit again. The step repeats until you leave **Send PROG** unchecked and submit to finish.
 
 {% important %}
-Each Somfy motor can only store a limited number of paired remotes — typically around 12. Once a remote is registered, it occupies a slot even if you do not finish the setup in Home Assistant. The only way to clear slots for addresses you no longer know is to factory reset the motor, which removes *all* paired remotes at once. Only send PROG when you are ready to complete and save the setup.
+Each Somfy motor can only store a limited number of paired remotes; typically around 12. Once a remote is registered, it occupies a slot even if you do not finish the setup in Home Assistant. The only way to clear slots for addresses you no longer know is to factory reset the motor, which removes *all* paired remotes at once. Only send PROG when you are ready to complete and save the setup.
 {% endimportant %}
 
 ## Supported functionality
@@ -69,11 +69,11 @@ Each Somfy motor can only store a limited number of paired remotes — typically
 
 The integration provides a cover entity for each configured Somfy RTS remote address. The cover supports the following actions:
 
-- **Open** — sends the Up command to the motor.
-- **Close** — sends the Down command to the motor.
-- **Stop** — sends the My command to the motor. Depending on your motor's settings, this either stops movement mid-way or moves the cover to a preset favorite position.
+- **Open**: sends the Up command to the motor.
+- **Close**: sends the Down command to the motor.
+- **Stop**: sends the My command to the motor. Depending on your motor's settings, this either stops movement mid-way or moves the cover to a preset favorite position.
 
-Because Somfy RTS is a one-way radio protocol, Home Assistant cannot receive any feedback from the motor. The cover state shown in Home Assistant is therefore *assumed* — it reflects the last command sent, not the motor's actual position.
+Because Somfy RTS is a one-way radio protocol, Home Assistant cannot receive any feedback from the motor. The cover state shown in Home Assistant is therefore *assumed*. It reflects the last command sent, not the motor's actual position.
 
 ## Known limitations
 
@@ -84,7 +84,7 @@ Because Somfy RTS is a one-way radio protocol, Home Assistant cannot receive any
 
 ### Commands are not received by the motor
 
-The motor does not respond to commands sent from Home Assistant. Because Somfy RTS is a one-way protocol, there is no error feedback — commands are either received or silently ignored.
+The motor does not respond to commands sent from Home Assistant. Because Somfy RTS is a one-way protocol, there is no error feedback. Commands are either received or silently ignored.
 
 Things to check:
 
@@ -100,7 +100,7 @@ The Broadlink RM4 Pro does not support the 433.42 MHz frequency that Somfy RTS r
 
 {% include integrations/remove_device_service.md %}
 
-{% caution %}
+{% note %}
 Removing the integration does not unpair the virtual remote from your Somfy motor. The remote slot on the motor remains occupied. If you want to free up that slot, you will need to factory reset the motor, which removes all paired remotes at once.
-{% endcaution %}
+{% endnote %}
 
