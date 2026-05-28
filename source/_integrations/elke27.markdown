@@ -1,7 +1,7 @@
 ---
 title: Elk E27 Alarm Engine
 description: Instructions to set up the Elk E27 Alarm Engine integration.
-ha_release: 2026.6
+ha_release: 2026.7
 ha_category:
   - Alarm
   - Hub
@@ -13,6 +13,7 @@ ha_codeowners:
 ha_platforms:
   - alarm_control_panel
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Elk E27 Alarm Engine** {% term integration %} lets you connect your Elk E27 Alarm Engine panel to Home Assistant.
@@ -27,6 +28,15 @@ Elk E27 panels should be running firmware version 0.0.6.4 or later.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of your Elk E27 panel. For example, `192.168.1.100` or `elk-panel.local`.
+Access code:
+  description: The access code used to link Home Assistant to the panel. This is a linking credential, not the PIN you use to arm or disarm the panel.
+Passphrase:
+  description: The passphrase used during linking.
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 This integration represents Elk E27 areas, also known as partitions, as `alarm_control_panel` entities.
@@ -36,7 +46,7 @@ Alarm control panel entities support:
 - Arm away
 - Arm home
 - Arm night
-- Arm custom bypass
+- Arm custom bypass, which arms away and automatically bypasses faulted zones
 - Disarm
 
 ## Troubleshooting
