@@ -65,7 +65,7 @@ The following device classes are supported for update entities:
 ## Actions
 
 The update {% term entity %} exposes three actions that can be used to install,
-skip, or restore an offered software update.
+skip, or restore (clear previously skipped) an offered software update.
 
 ### Action: Install
 

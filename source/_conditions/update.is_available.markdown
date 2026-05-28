@@ -8,7 +8,7 @@ related_conditions:
 ---
 
 The **Update is available** condition passes when one or more targeted update
-entities are currently available. Use it when an automation should continue
+entities currently have an update available. Use it when an automation should continue
 only if a device or service still has an update ready to install.
 
 This condition is useful for scheduled maintenance automations, reminders, and
