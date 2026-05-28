@@ -36,7 +36,7 @@ That peace of mind is central to how Sensereo thinks about their products, and h
 Most of us want our smoke alarms to be "reasonably annoying", and Sensereo clearly agrees, because they printed this very description on the MS-1's packaging. Which, as we love to see, has been designed sustainably – signaling the company's commitment to one of the Open Home Foundation's three core principles before you've even opened the box.
 
 <p class='img'><img src="/images/blog/2026-05-sensereo/image2.webp" alt="Sensereo MSC-1 smoke and carbon monoxide detector with a digital display, mounted on a wall in a modern living room.">
-Sensereo MSC-1 smoke and carbon monoxide detector with a digital display, mounted on a wall in a modern living room.
+Sensereo MSC-1 smoke and carbon monoxide detector
 </p>
 
 The MSC-1 goes a step further with a nifty, built-in digital display showing real-time carbon monoxide levels. Since CO is odorless and invisible, being able to accurately check levels at a glance lets you know if there is a rise and act *before* it becomes an emergency – not just after an alarm sounds.
