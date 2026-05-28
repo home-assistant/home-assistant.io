@@ -49,11 +49,11 @@ Trigger when:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML): Fire every time any targeted water heater crosses the threshold.
-    - **First** (`first` in YAML): Fire only on the first threshold crossing.
-    - **All** (`last` in YAML): Fire only after all targeted water heaters cross the threshold.
+    - **Each** (default): Fire every time any targeted water heater crosses the threshold.
+    - **First**: Fire only on the first threshold crossing.
+    - **All**: Fire only after all targeted water heaters cross the threshold.
 For at least:
-  description: How long the setpoint must stay beyond the threshold before the trigger fires.
+  description: How long the setpoint must stay beyond the threshold before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

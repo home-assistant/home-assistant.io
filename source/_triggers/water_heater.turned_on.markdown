@@ -34,11 +34,11 @@ Trigger when:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML): Fire every time any targeted water heater turns on.
-    - **First** (`first` in YAML): Fire only when the first targeted water heater turns on.
-    - **All** (`last` in YAML): Fire only after all targeted water heaters are on.
+    - **Each** (default): Fire every time any targeted water heater turns on.
+    - **First**: Fire only when the first targeted water heater turns on.
+    - **All**: Fire only after all targeted water heaters are on.
 For at least:
-  description: How long the water heater must stay on before the trigger fires.
+  description: How long the water heater must stay on before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

@@ -37,11 +37,11 @@ Trigger when:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML): Fire every time any targeted water heater changes to one of the selected modes.
-    - **First** (`first` in YAML): Fire only when the first targeted water heater changes to one of the selected modes.
-    - **All** (`last` in YAML): Fire only after all targeted water heaters have changed to one of the selected modes.
+    - **Each** (default): Fire every time any targeted water heater changes to one of the selected modes.
+    - **First**: Fire only when the first targeted water heater changes to one of the selected modes.
+    - **All**: Fire only after all targeted water heaters have changed to one of the selected modes.
 For at least:
-  description: How long the water heater must stay in the selected mode before the trigger fires.
+  description: How long the water heater must stay in the selected mode before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
