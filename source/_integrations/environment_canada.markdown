@@ -165,7 +165,7 @@ The configuration snippet below adds a template sensor containing the current fo
 
 ### Action: Get alerts
 
-The `environment_canada.get_alerts` action allows you to get the weather alert data from Environment Canada. For each of the alert categories (warnings, 
+The `environment_canada.get_alerts` action allows you to get the weather alert data from Environment Canada. For each of the alert categories (warnings, watches, advisories, statements, and endings) a list of alerts is provided.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
