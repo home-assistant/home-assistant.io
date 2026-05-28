@@ -68,7 +68,7 @@ The **KlikAanKlikUit** integration provides the following entities.
 
 ## Data updates
 
-This integration does not poll device's state from the device.
+This integration does not {% term polling polls %} device's state from the device.
 
 Because KlikAanKlikUit RF control is one-way, Home Assistant cannot confirm whether a device actually changed state. The integration uses assumed state and restores the last known state after restart.
 
