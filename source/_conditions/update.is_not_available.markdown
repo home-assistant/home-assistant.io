@@ -38,9 +38,9 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple update entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted update is up to date, or **All** to pass only when every targeted update is up to date.
+  description: When multiple update entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted update is up to date, or **All** to pass only when every targeted update is up to date. The default is **Any**.
 For at least:
-  description: How long the update must have stayed up to date before the condition passes.
+  description: How long the update must have stayed up to date before the condition passes. The default is `00:00:00`.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -69,12 +69,14 @@ behavior:
     Accepts `any` or `all`.
   required: false
   type: string
+  default: any
 for:
   description: >
     How long the update must have stayed up to date before the condition
     passes. Use the `HH:MM:SS` format, like `00:10:00` for 10 minutes.
   required: false
   type: string
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}

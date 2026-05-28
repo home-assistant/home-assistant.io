@@ -36,9 +36,9 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple update entities are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted update becomes available, **First** to fire only when the first targeted update becomes available, or **All** to fire only after every targeted update is available.
+  description: When multiple update entities are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted update becomes available, **First** to fire only when the first targeted update becomes available, or **All** to fire only after every targeted update is available. The default is **Each**.
 For at least:
-  description: How long the update must stay available before the trigger fires. Set it to zero to fire immediately.
+  description: How long the update must stay available before the trigger fires. Set it to zero to fire immediately. The default is `00:00:00`.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -67,12 +67,14 @@ behavior:
     fires. Accepts `any`, `first`, or `last`.
   required: false
   type: string
+  default: any
 for:
   description: >
     How long the update must stay available before the trigger fires. Use the
     `HH:MM:SS` format, like `00:10:00` for 10 minutes.
   required: false
   type: string
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
