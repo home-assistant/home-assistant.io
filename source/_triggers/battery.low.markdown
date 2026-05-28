@@ -11,6 +11,8 @@ The **Battery low** trigger fires when a battery sensor reports that the battery
 
 Use **Battery low** to send an alert before a device goes offline, pause automations that rely on battery-powered sensors, or keep a log of which devices need attention. Combine it with an area or label target to monitor all battery-powered devices in a room or across your whole home at once.
 
+
+
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
@@ -94,7 +96,7 @@ for:
 ## Good to know
 
 - This trigger works with `binary_sensor` entities that have the `battery` device class. These are separate from battery percentage sensors (`sensor` entities with the `battery` device class). If your device only exposes a percentage sensor, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
-- Use a label to group all battery-powered devices across different areas, and target that label to monitor them all from a single automation.
+- Use a label to group battery-powered devices across different areas, and target that label to monitor them all from a single automation.
 - Combine this trigger with a notification action to get a push notification on your phone the moment any sensor runs low.
 
 {% include triggers/try_it.md %}
