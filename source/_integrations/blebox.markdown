@@ -783,7 +783,7 @@ This integration adds the Wikęd device ("blebox inside") as a cover entity to H
 - Open
 - Door state (open, close, unknown)
 
-### DrutexSmart
+### Drutex SmartWindow
 
 This integration adds the Drutex device ("blebox inside") as a sensor entity and a binary sensor entity to Home Assistant.
 
