@@ -81,11 +81,8 @@ Entity availability depends on the appliance type and model. Some entities may n
 - **Auto switch off event**
   - **Description**: The Auto Switch Off event indicates when the appliance can be automatically turned off.
   - **Available for appliance types**: Hood.
-- **Filter charcoal enable**
+- **Charcoal filter**
   - **Description**: Reports if charcoal filter is active.
-  - **Available for appliance types**: Hood.
-- **Human centric light state**
-  - **Description**: Reports status of adaptive lighting.
   - **Available for appliance types**: Hood.
 - **Pot detected**
   - **Description**: Detects pot presence on zone.
