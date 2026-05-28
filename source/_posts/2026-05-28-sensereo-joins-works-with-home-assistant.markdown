@@ -20,7 +20,7 @@ What happens if your smoke alarm goes off, but you're not there to hear it? It's
 
 ## It's just good *sense*
 
-For anyone unfamiliar, Matter is an open standard that lets smart home devices from different brands work together, regardless of who made them – no lock-in, no closed ecosystems. It's exactly the kind of open, interoperable technology the <a href="https://www.openhomefoundation.org/" target="_blank" rel="noopener">Open Home Foundation</a> exists to champion. Thread works on the same principle: it's an energy efficient, wireless mesh network that connects devices directly to one another, with the ability to reroute disruptions automatically. And for battery-powered alarms like Sensereo's, Thread's low-power design means fewer battery changes for devices that are always on duty.
+For anyone unfamiliar, Matter is an open standard that lets smart home devices from different brands work together, regardless of who made them – no lock-in, no closed ecosystems. It's exactly the kind of open, interoperable technology the <a href="https://www.openhomefoundation.org/" target="_blank" rel="noopener">Open Home Foundation</a> exists to champion. Thread operates on the same principle: it's an energy-efficient, wireless mesh network that connects devices directly to one another and can automatically reroute around disruptions. And for battery-powered alarms like Sensereo's, Thread's low-power design means fewer battery changes for devices that are always on duty.
 
 While we're talking about safety, it's important to note that if your Thread network did for any reason drop out, Sensereo's smoke and CO alarms will keep working as a "regular" alarm would – no smart home required.
 
