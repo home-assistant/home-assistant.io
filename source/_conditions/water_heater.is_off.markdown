@@ -102,7 +102,7 @@ When a utility-rate sensor reports a low-price period, switch the water heater t
 - **Trigger**: State: Utility rate changes to low
 - **Condition**: Water heater is off
   - **Target**: Utility room water heater
-- **Action**: Set operation mode
+- **Action**: Set water heater operation mode
 
 {% details "YAML example for setting boost mode only when off" %}
 

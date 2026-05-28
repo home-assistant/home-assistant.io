@@ -138,7 +138,7 @@ When you leave home, enable away mode only if the water heater target temperatur
 - **Condition**: Water heater target temperature
   - **Target**: Utility room water heater
   - **Threshold type**: Below (50°C)
-- **Action**: Set away mode
+- **Action**: Set water heater away mode
 
 {% details "YAML example for enabling away mode from a lower setpoint" %}
 

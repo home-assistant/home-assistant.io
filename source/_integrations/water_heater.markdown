@@ -163,7 +163,7 @@ When the water heater changes to **Eco** mode, lower the recirculation pump spee
 - **Trigger**: Water heater operation mode changed
   - **Target**: Utility room water heater
   - **Operation mode**: Eco
-- **Action**: Turn on
+- **Action**: Turn on switch
 
 {% details "YAML example for lowering the recirculation pump in Eco mode" %}
 
@@ -192,7 +192,7 @@ When everybody leaves home, enable away mode only if the target temperature is a
 - **Condition**: Water heater target temperature
   - **Target**: Utility room water heater
   - **Threshold type**: Below (50°C)
-- **Action**: Set away mode
+- **Action**: Set water heater away mode
 
 {% details "YAML example for enabling away mode from a lower setpoint" %}
 

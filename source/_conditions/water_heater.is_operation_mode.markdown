@@ -115,7 +115,7 @@ When the kitchen motion sensor detects activity, run the hot water recirculation
 - **Condition**: Water heater operation mode
   - **Target**: Utility room water heater
   - **Operation mode**: Performance
-- **Action**: Turn on
+- **Action**: Turn on switch
 
 {% details "YAML example for recirculation in performance mode" %}
 

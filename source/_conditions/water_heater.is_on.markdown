@@ -102,7 +102,7 @@ When overnight rates begin, raise the target temperature, but only if the water 
 - **Trigger**: State: Utility rate changes to low
 - **Condition**: Water heater is on
   - **Target**: Utility room water heater
-- **Action**: Set temperature
+- **Action**: Set water heater target temperature
 
 {% details "YAML example for setting temperature only when on" %}
 
