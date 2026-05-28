@@ -4,7 +4,7 @@ description: Control Somfy RTS motorized covers via a 433.42 MHz radio frequency
 ha_release: 2026.7
 ha_iot_class: Assumed State
 ha_codeowners:
-  - '@l-henke'
+  - '@L-henke'
 ha_domain: somfy_rts
 ha_integration_type: device
 ha_config_flow: true
