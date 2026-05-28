@@ -29,7 +29,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor detects carbon monoxide, or **All** to pass only when every targeted sensor detects carbon monoxide.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -78,9 +77,10 @@ If carbon monoxide built up while the family was out, the first person home need
 
 - **Trigger**: Zone: Person enters home zone
 - **Condition**: Air Quality: Carbon monoxide detected
-- **Target**: Hallway CO sensor
-- **Condition passes if**: Any
-- **Action**: Notify: Send urgent notification
+  - **Target**: Hallway CO sensor
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a CO warning on arrival home" %}
 
@@ -99,7 +99,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Carbon monoxide detected at home"
         message: >

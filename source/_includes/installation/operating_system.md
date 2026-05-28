@@ -279,7 +279,7 @@ If you are running an older Windows version or have a stricter network configura
 
 - [VirtualBox (Intel chip)][vdi] (.vdi)
 {% if page.installation_type == 'macos' %}
-- [VirtualBox (Apple Silicon chip)][vmdk_arch64] (.vmdk)
+- [VirtualBox (Apple Silicon chip)][vdi_aarch64] (.vdi)
 {% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
@@ -509,7 +509,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
-[vmdk_arch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vdi_aarch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz

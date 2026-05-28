@@ -64,7 +64,9 @@ triggers:
     entity_id: device_tracker.my_vehicle
     to: "home"
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: "The vehicle has arrived home."
 ```

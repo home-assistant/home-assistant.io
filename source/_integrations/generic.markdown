@@ -34,8 +34,8 @@ Username:
   description: The username for accessing your camera. Note that this applies to both still_image_url and stream_source.
 Password:
   description: The password for accessing your camera. Note that this applies to both still_image_url and stream_source.
-Advanced settings:
-  description: Advanced settings are only needed for special cases. Leave them unchanged unless you know what you are doing.
+More options:
+  description: These options are only needed for special cases.
   keys:
     Frame Rate:
       description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
@@ -48,7 +48,7 @@ Advanced settings:
     Limit refetch to URL change:
       description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
     Use wallclock as timestamps:
-      description: ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ).
+      description: Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (for example, EZVIZ).
 {% endconfiguration_basic %}
 
 <p class='img'>
@@ -74,12 +74,6 @@ You can display a GIF from the web as a still image.
 You can show a static image with this platform. Just place the image here: `/config/www/your_image.png`
 
 - Still Image URL: `https://127.0.0.1:8123/local/your_image.png`
-
-### Sharing a camera feed from one Home Assistant instance to another
-
-If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](https://developers.home-assistant.io/docs/api/rest/#get-apicamera_proxycameraentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
-
-- Still Image URL: `https://127.0.0.5:8123/api/camera_proxy/camera.live_view`
 
 ### Image from HTTP only camera
 

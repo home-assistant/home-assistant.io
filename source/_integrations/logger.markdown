@@ -44,7 +44,7 @@ integrations:
 logger:
   default: critical
   logs:
-    # log level for HA core
+    # log level for Home Assistant Core
     homeassistant.core: fatal
 
     # log level for MQTT integration
