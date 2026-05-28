@@ -12,7 +12,7 @@ og_image: /images/blog/2026-05-sensereo/art.webp
 
 <img src="/images/blog/2026-05-sensereo/art.webp" alt="Sensereo joins Works with Home Assistant" style="border: 0;box-shadow: none;">
 
-We're sensing a *change in the air* this month as we welcome Sensereo to the Works with Home Assistant program 🎉. Specialists in environmental sensing, Sensereo bring Matter smoke and carbon monoxide (CO) alarms into the Home Assistant ecosystem – meaning more ways to keep your home open, safe, and sound.<!--more-->
+We're sensing a *change in the air* this month as we welcome <a href="https://sensereo.com/" target="_blank" rel="noopener">Sensereo</a> to the Works with Home Assistant program 🎉. Specialists in environmental sensing, Sensereo bring Matter smoke and carbon monoxide (CO) alarms into the Home Assistant ecosystem – meaning more ways to keep your home open, safe, and sound.<!--more-->
 
 ## Built from a burning question…
 
