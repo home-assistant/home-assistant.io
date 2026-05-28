@@ -209,9 +209,12 @@ If your device shows up in the Homematic IP app but Home Assistant doesn't pick 
 
 Here is how you can help getting it added:
 
-1. **Download diagnostics for your access point.** Go to {% my integrations title="**Settings** > **Devices & services**" %}, open the **HomematicIP Cloud** integration, and select **Download diagnostics**. Home Assistant downloads an anonymized JSON file. Device IDs, labels, location, and the refresh token are replaced with placeholders, so you can share the file publicly without exposing your home layout.
-2. **Open an issue on the library repository.** File a [new issue](https://github.com/hahn-th/homematicip-rest-api/issues/new) describing what the device does (model number, what you use it for), and attach the diagnostics file.
-3. **Wait for the device to land.** Adding a new device runs through several steps: library pull request, library release on PyPI, Home Assistant integration update, and finally a Home Assistant release. Each step usually takes a few days to a few weeks. You can follow progress on the library issue and on the linked pull requests.
+1. Download diagnostics for your access point:
+    - Go to {% my integrations title="**Settings** > **Devices & services**" %}, open the **HomematicIP Cloud** integration, and select **Download diagnostics**.
+    - Result: Home Assistant downloads an anonymized JSON file.
+    - Device IDs, labels, location, and the refresh token are replaced with placeholders, so you can share the file publicly without exposing your home layout.
+2. Open an issue on the library repository. File a [new issue](https://github.com/hahn-th/homematicip-rest-api/issues/new) describing what the device does (model number, what you use it for), and attach the diagnostics file.
+3. Wait for the device to land. Adding a new device runs through several steps: library pull request, library release on PyPI, Home Assistant integration update, and finally a Home Assistant release. Each step usually takes a few days to a few weeks. You can follow progress on the library issue and on the linked pull requests.
 
 While you wait, you can often expose the device through the Homematic IP app's own automations. The effects on devices that Home Assistant already supports will then show up there.
 
@@ -224,18 +227,18 @@ All actions that operate on the access point accept an optional `accesspoint_id`
 
 ### Climate and home modes
 
-- `homematicip_cloud.activate_eco_mode_with_duration` – Activate eco mode for a given number of minutes.
-- `homematicip_cloud.activate_eco_mode_with_period` – Activate eco mode until a given date and time.
-- `homematicip_cloud.deactivate_eco_mode` – Deactivate eco mode immediately.
-- `homematicip_cloud.activate_vacation` – Activate vacation mode until a given date and time, holding a target temperature.
-- `homematicip_cloud.deactivate_vacation` – Deactivate vacation mode immediately.
-- `homematicip_cloud.set_active_climate_profile` – Switch the active climate profile of a climate entity. The index is 1-based and matches the order shown in the Homematic IP app.
-- `homematicip_cloud.set_home_cooling_mode` – Switch the entire home between heating and cooling. *Administrator only.*
+- `homematicip_cloud.activate_eco_mode_with_duration`: Activate eco mode for a given number of minutes.
+- `homematicip_cloud.activate_eco_mode_with_period`: Activate eco mode until a given date and time.
+- `homematicip_cloud.deactivate_eco_mode`: Deactivate eco mode immediately.
+- `homematicip_cloud.activate_vacation`: Activate vacation mode until a given date and time, holding a target temperature.
+- `homematicip_cloud.deactivate_vacation`: Deactivate vacation mode immediately.
+- `homematicip_cloud.set_active_climate_profile`: Switch the active climate profile of a climate entity. The index is 1-based and matches the order shown in the Homematic IP app.
+- `homematicip_cloud.set_home_cooling_mode`: Switch the entire home between heating and cooling. *Administrator only.*
 
 ### Energy and diagnostics
 
-- `homematicip_cloud.reset_energy_counter` – Reset the energy counter of a measuring actuator. *Administrator only.*
-- `homematicip_cloud.dump_hap_config` – Write a configuration dump to a file on disk. *Administrator only.* For sharing the dump publicly, prefer **Download diagnostics** from the integration page; it produces the same dump with stricter redaction.
+- `homematicip_cloud.reset_energy_counter`: Reset the energy counter of a measuring actuator. *Administrator only.*
+- `homematicip_cloud.dump_hap_config`: Write a configuration dump to a file on disk. *Administrator only.* For sharing the dump publicly, prefer **Download diagnostics** from the integration page; it produces the same dump with stricter redaction.
 
 ### Action examples
 
