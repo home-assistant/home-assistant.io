@@ -161,6 +161,31 @@ The configuration snippet below adds a template sensor containing the current fo
         temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
 ```
 
+### Alerts
+
+To get the alerts in a sensor with all the alert data, use the following, replacing `CONFIG_ENTRY_ID` with an actual `config_entry_id`. Note, this updates the sensor every minute, adjust to your needs. The Environment Canada integration updates forecast data, which includes alerts, every 5 minutes.
+
+```yaml
+- trigger:
+    - platform: time_pattern
+      minutes: "/1"
+    - platform: homeassistant
+      event: start
+    - platform: event
+      event_type: event_template_reloaded
+  action:
+    - service: environment_canada.get_alerts
+      data:
+        config_entry_id: "CONFIG_ENTRY_ID"
+      response_variable: alerts
+  sensor:
+    - name: "Medicine Hat Alert Data"
+      unique_id: "CONFIG_ENTRY_ID"
+      state: "{{ alerts.values() | map(attribute='value') | map('length') | sum }}"
+      attributes:
+        alerts: "{{ alerts }}"
+```
+
 ## Actions
 
 ### Action: Get alerts
