@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sensereo joins Works with Home Assistant"
-description: "Home Assistant just got safer. Sensereo brings smoke and carbon monoxide alarms that are locally controlled, cloud-free, and built to never fall silent."
+description: "Sensereo joins Works with Home Assistant, bringing smoke and CO alarms that are locally controlled, cloud-free, and built to work when you need them most."
 date: 2026-05-28 00:00:01
 date_formatted: "May 28, 2026"
 author: Miranda Bishop
@@ -33,7 +33,7 @@ That peace of mind is central to how Sensereo thinks about their products, and h
 
 ## Devices
 
-Most of us want our smoke alarms to be "reasonably annoying", and Sensereo clearly agrees, because they printed this very description on the MS-1's packaging. Which, as we love to see, has been designed sustainably – signaling the company's commitment to one of the Open Home Foundation's three core principles before you've even opened the box.
+Most of us want our smoke alarms to be "reasonably annoying," and Sensereo clearly agrees, because they printed this very description on the MS-1's packaging. Which, as we love to see, has been designed sustainably – signaling the company's commitment to one of the Open Home Foundation's three core principles before you've even opened the box.
 
 <p class='img'><img src="/images/blog/2026-05-sensereo/image2.webp" alt="Sensereo MSC-1 smoke and carbon monoxide detector with a digital display, mounted on a wall in a modern living room.">
 Sensereo MSC-1 smoke and carbon monoxide detector
@@ -49,7 +49,7 @@ Like all partners of the Works with Home Assistant program, Sensereo commits to 
 
 ## Breathe easy
 
-No smoke and mirrors – just reliable home safety devices and a team that clearly gets what this community is about. Sensereo's commitment to building open, locally controlled tech is exactly what we love to see in the Works with Home Assistant program, and why we're so thrilled to have them on board. Check out our <a href="https://works-with.home-assistant.io/certified-products/" target="_blank" rel="noopener">certified device list</a> to see what else is there!
+No smoke and mirrors – just reliable home safety devices and a team that clearly gets what this community is about. Sensereo's commitment to building open, locally controlled tech is fundamental to the Works with Home Assistant program, and why we're so thrilled to have them on board. Check out our <a href="https://works-with.home-assistant.io/certified-products/" target="_blank" rel="noopener">certified device list</a> to see what else is there!
 
 ## FAQs
 
