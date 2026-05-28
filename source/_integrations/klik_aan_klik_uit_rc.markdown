@@ -68,7 +68,7 @@ The **KlikAanKlikUit** integration provides the following entities.
 
 ## Data updates
 
-This integration does not {% term polling polls %} device's state from the device.
+This integration does not poll device's state from the device.
 
 Because KlikAanKlikUit RF control is one-way, Home Assistant cannot confirm whether a device actually changed state. The integration uses assumed state and restores the last known state after restart.
 
@@ -83,24 +83,31 @@ Because KlikAanKlikUit RF control is one-way, Home Assistant cannot confirm whet
 
 ## Troubleshooting
 
-### No compatible transmitter is shown
+### Can't set up the device 
 
-Make sure your RF transmitter integration is set up and supports 433.92 MHz OOK.
+#### Symptom: No compatible transmitter to select is shown
 
-### Setup error for Device ID or Channel
+When trying to add a device no transmitter can be selected in the configuration dialog.
 
-Make sure the values are in range:
+#### Description
 
-- Device ID: 0 to 67108863
-- Channel: 1 to 16
+This means no compatible transmitter is present for the frequency and modulation type of this device.
 
-### Devices does not react
+#### Resolution
 
-Try these steps:
+Add a transmitter which supports the frequency 433.92 MHz and modulation type OOK.
 
-1. Verify that the selected RF transmitter can control the device from the same location.
-2. Verify that the device is paired for the same Device ID, Channel, and Group values.
-3. If needed, use the **Learn** button entity to pair again.
+### Device does not react
+
+#### Symptom: When sending on/off commands the device does not react
+
+#### Description
+
+This means the device does not receive the commands of the transmitter.
+
+#### Resolution
+
+Reduce distance between transmitter and device.
 
 ## Removing the integration
 
