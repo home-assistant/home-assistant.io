@@ -161,7 +161,7 @@ When the target temperature is changed back into your normal range, switch the w
 - **Trigger**: Water heater target temperature changed
   - **Target**: Utility room water heater
   - **Threshold type**: In range (50-52°C)
-- **Action**: Set operation mode
+- **Action**: Set water heater operation mode
 
 {% details "YAML example for returning to Eco mode" %}
 
