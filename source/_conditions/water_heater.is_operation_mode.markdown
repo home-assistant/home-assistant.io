@@ -35,9 +35,9 @@ To use **Water heater operation mode** in an automation:
 Operation mode:
   description: The operation mode or modes to check for. Only modes supported by the targeted water heater are shown.
 Condition passes if:
-  description: When multiple water heaters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted water heater matches the selected mode, or **All** to pass only when every targeted water heater matches it.
+  description: When multiple water heaters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted water heater matches the selected mode, or **All** to pass only when every targeted water heater matches it. Default is **Any**.
 For at least:
-  description: How long the water heater must stay in the selected mode before the condition passes.
+  description: How long the water heater must stay in the selected mode before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

@@ -38,16 +38,15 @@ To use **Water heater target temperature** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The target temperature setpoint has to meet this threshold for the condition to pass. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a setpoint equal to either bound passes.
+    The target temperature setpoint has to meet this threshold for the condition to pass. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a setpoint equal to either bound passes. Default is **Above**.
 
     You can use a fixed number or select a temperature sensor, a temperature number entity, or a [number helper](/integrations/input_number/) as the threshold.
 Unit:
-  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds.
-  default: °C
+  description: The temperature unit to use for threshold comparison. Accepts `°C`, `°F`, or `K`. Required when using numerical thresholds.
 Condition passes if:
   description: When multiple water heaters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted water heater meets the threshold, or **All** to pass only when every targeted water heater does. Default is **Any**.
 For at least:
-  description: How long the setpoint must have continuously met the threshold before the condition passes. Default is zero (passes immediately).
+  description: How long the setpoint must have continuously met the threshold before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

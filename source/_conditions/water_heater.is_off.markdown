@@ -31,9 +31,9 @@ To use **Water heater is off** in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple water heaters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted water heater is off, or **All** to pass only when every targeted water heater is off.
+  description: When multiple water heaters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted water heater is off, or **All** to pass only when every targeted water heater is off. Default is **Any**.
 For at least:
-  description: How long the water heater must stay off before the condition passes.
+  description: How long the water heater must stay off before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
