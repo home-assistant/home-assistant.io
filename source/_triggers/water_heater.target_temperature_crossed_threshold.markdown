@@ -149,7 +149,7 @@ When the target temperature is raised above 55°C, start the recirculation pump 
 - **Trigger**: Water heater target temperature crossed threshold
   - **Target**: Utility room water heater
   - **Threshold type**: Above (55°C)
-- **Action**: Turn on
+- **Action**: Turn on switch
 
 {% details "YAML example for starting recirculation" %}
 

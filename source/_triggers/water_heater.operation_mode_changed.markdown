@@ -157,7 +157,7 @@ When the first targeted water heater changes to **Eco** mode, reduce the recircu
   - **Operation mode**: eco
   - **Trigger when**: First
   - **For at least**: 00:05:00
-- **Action**: Turn on
+- **Action**: Turn on switch
 
 {% details "YAML example for lowering pump speed in Eco mode" %}
 

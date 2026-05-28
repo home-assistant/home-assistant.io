@@ -109,7 +109,7 @@ When the water heater turns off, stop the recirculation pump so it does not keep
 
 - **Trigger**: Water heater turned off
   - **Target**: Utility room water heater
-- **Action**: Turn off
+- **Action**: Turn off switch
 
 {% details "YAML example for stopping the recirculation pump" %}
 

@@ -109,7 +109,7 @@ When the water heater turns on, start the recirculation pump so hot water is ava
 
 - **Trigger**: Water heater turned on
   - **Target**: Utility room water heater
-- **Action**: Turn on
+- **Action**: Turn on switch
 
 {% details "YAML example for starting the recirculation pump" %}
 
@@ -136,7 +136,7 @@ When all targeted water heaters are back on for 5 minutes, switch them to your n
   - **Target**: Basement water heaters
   - **Trigger when**: All
   - **For at least**: 00:05:00
-- **Action**: Set operation mode
+- **Action**: Set water heater operation mode
 
 {% details "YAML example for restoring the normal mode" %}
 
