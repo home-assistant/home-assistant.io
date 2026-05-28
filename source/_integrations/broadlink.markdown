@@ -3,6 +3,7 @@ title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
   - Climate
+  - Infrared
   - Light
   - Radio Frequency
   - Remote
@@ -19,6 +20,7 @@ ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
   - climate
+  - infrared
   - light
   - radio_frequency
   - remote
@@ -58,6 +60,7 @@ The {% term entities %} have the same name as the device by default. To change t
 The {% term entities %} are divided into the following subdomains:
 
 - [Climate](#climate)
+- [Infrared](#infrared)
 - [Radio frequency](#radio-frequency)
 - [Remote](#remote)
 - [Select](#select)
@@ -69,6 +72,13 @@ The {% term entities %} are divided into the following subdomains:
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats.
+
+## Infrared
+
+The `infrared` {% term entities %} allow other integrations to transmit IR commands through your Broadlink universal remote. They are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, and `RM4 TV mate`).
+
+The `infrared` entity is complementary to the `remote` entity. Both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) integration for more information. 
+The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned IR codes.
 
 ## Radio frequency
 
@@ -437,9 +447,22 @@ switch:
 
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
-__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
+__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example, Bedroom TV.
 
-##  Managing codes for remotes
+## Troubleshooting
+
+### Device is locked
+
+If you see the error `<device name> is locked` in the logs, the device has its lock setting enabled. When a device is locked, the integration cannot communicate with it and will fail to load, so the **Configure** button mentioned in the error is not available.
+
+To resolve this, unlock the device using the Broadlink app on your mobile device:
+
+1. Open the Broadlink app and select the device.
+2. Go to the device settings.
+3. Disable the lock.
+4. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Broadlink**, and select **Reload**.
+
+## Managing codes for remotes
 ### Using e-Control remotes
 
 If you already have your remotes learned on e-Control app you can use this method to "copy" them to Home Assistant.
@@ -503,7 +526,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
 
-5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g., `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
+5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located, for example `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
 
     ```bash
     C:\Python27>python getBroadlinkSharedData.py
@@ -563,7 +586,6 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
 8. Double click the Template node to edit it, select:
 
-   {% raw %}
 
    ```bash
    Property: msg.payload
@@ -572,7 +594,6 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
    Output as: Plain text
    ```
 
-   {% endraw %}
 
 9. Drag a Debug node to the right of the Template node and link them.
 10. Show the debug messages, deploy the flow and click on the inject button.
@@ -711,6 +732,6 @@ Assuming that your (or similar) device is in one of these databases:
 
 You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.
 
-### Managig codes with Broadlink Manager
+### Managing codes with Broadlink Manager
 
 A Docker based GUI to learn, send, and generate IR and RF codes is available through the [Broadlink Manager project](https://github.com/t0mer/broadlinkmanager-docker)

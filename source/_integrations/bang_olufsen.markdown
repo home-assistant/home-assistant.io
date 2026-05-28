@@ -54,7 +54,7 @@ Device model:
 
 ## Data updates
 
-The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.github.io/mozart-open-api), which is a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume etc. The only exception to this is the repeat and shuffle controls which are polled every 30 seconds.
+The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.github.io/mozart-open-api), which is a local REST API with a WebSocket notification channel for immediate state information such as media metadata, playback progress, and volume. The only exception is that the repeat and shuffle controls are polled every 30 seconds.
 
 ## Supported features
 
@@ -64,7 +64,7 @@ Currently, for each added physical device, a single device is created that inclu
 
 A number of features are available through the media player entity:
 
-- See current metadata, progress, volume, etc.
+- See current metadata, progress, volume, and more.
 - Control next/previous, play/pause, shuffle/repeat settings, volume, sound mode, audio and video sources, and more.
 - Play various media through [play_media actions](#play_media-actions).
 - Control multiroom audio through [Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom):

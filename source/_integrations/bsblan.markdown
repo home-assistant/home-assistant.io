@@ -203,7 +203,6 @@ data:
 
 This example automatically adjusts the hot water schedule based on the season.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -292,7 +291,6 @@ automation:
               end_time: "21:00:00"
 ```
 
-{% endraw %}
 
 For more documentation of the BSBLan device, check the [manual](https://docs.bsb-lan.de).
 

@@ -126,8 +126,6 @@ you need to replace it with actions and entities that you have in your installat
 
 This example uses the [Latest release](#latest-release) entity provided by this integration, and a [notify](/integrations/notify) action,
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -142,13 +140,9 @@ actions:
 
 ```
 
-{% endraw %}
-
 ### Notify new stars
 
 This example uses the [Stars](#diagnostic-entities) diagnostic entity provided by this integration, and a [notify](/integrations/notify) action,
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -162,5 +156,3 @@ actions:
         github/repository was starred again!
         Total stars are now: {{ trigger.to_state.state }}
 ```
-
-{% endraw %}

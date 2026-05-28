@@ -2,42 +2,51 @@
 title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
 ha_category:
-  - Notifications
   - Event
+  - Notifications
 ha_release: 0.27
 ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: html5
 ha_platforms:
-  - notify
   - event
-ha_integration_type: integration
+  - notify
+ha_integration_type: service
 related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - url: https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API
+    title: MDN Notifications API documentation
+  - url: https://support.google.com/webmasters/answer/9008080#domain_name_verification
+    title: Domain name verification
 ha_codeowners:
   - '@alexyao2015'
+  - '@tr4nt0r'
 ---
 
-The **HTML5 Push Notifications** {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
+The **HTML5 Push Notifications** {% term integration %} lets you receive push notifications in supported browsers.
 
-{% important %}
-HTML5 push notifications **do not** work on iOS versions below 16.4.
-{% endimportant %}
+## Supported platforms
 
-## Requirements
+The following platforms are known to support web push notifications:
 
-The `html5` platform can only function if all of the following requirements are met:
+- On desktop (Windows/macOS/Linux) and Android: Chrome/Chromium, Firefox, Edge, Brave, Opera, Vivaldi.
+- Since iOS / iPadOS 16.4, for installed web apps (PWAs).
 
-- You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android. Or you added your Home Assistant instance to your home screen on iOS 16.4 or higher.
-- On Brave desktop, you have gone into Brave Privacy Settings by going to `brave://settings/privacy` in your address bar or **Settings > Privacy and Security** and made sure the **Use Google services for push messaging** option is turned on.
-- Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
-- If using a proxy, HTTP basic authentication must be disabled to register or deregister push notifications. It can be re-enabled afterwards.
-- You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
-- You are willing to accept the notification permission in your browser.
+## Prerequisites
 
+- In Brave on desktop, open `brave://settings/privacy` or go to **Settings > Privacy and Security**, and ensure that **Use Google services for push messaging** is enabled.
+- Your Home Assistant instance must be reachable from outside your local network over HTTPS, or you must be able to complete an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) for the domain used by Home Assistant.
+- If using a reverse proxy, HTTP Basic Authentication must be temporarily disabled to allow registering or unregistering push notifications. It can be re-enabled afterwards.
+- Your Home Assistant setup must use a valid SSL/TLS certificate. This does not need to be configured directly in Home Assistant (for example, it can be handled by NGINX in front of Home Assistant). See [Enabling HTML5 Push Notifications behind an NGINX reverse proxy with authentication](#enabling-html5-push-notifications-behind-an-nginx-reverse-proxy-with-authentication).
+- You must accept the notification permission prompt in your browser.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Email:
+    description: "Email address used for contact information. This address is included in the metadata of every notification."
+VAPID private key:
+    description: "Private key used for push notification authentication. If omitted, a key will be generated automatically."
+{% endconfiguration_basic %}
 
 ### Setting up your browser
 
@@ -45,9 +54,9 @@ Assuming you have already configured the platform:
 
 {% my profile badge %}
 
-1. Open the Home Assistant {% my profile title="**User profile**" %} page in [a supported browser](#requirements). 
+1. Open the Home Assistant {% my profile title="**User profile**" %} page in [a supported browser](#supported-platforms).
    - To open the page, select the **User Profile** link above or in Home Assistant, select your user account initials at the bottom of the sidebar.
-2. Assuming you have met all the [requirements](#requirements) above, you should see a **Receive notifications** toggle.
+2. Assuming you have met all the [requirements](#prerequisites) above, you should see a **Receive notifications** toggle.
    - If the toggle is greyed out, make sure you are viewing Home Assistant via its external HTTPS address. 
    - Also, make sure you have added the {% my integrations title="**HTML5 Push Notifications**" domain="html5" %} integration to Home Assistant.
 3. Turn on the toggle and name the device.
@@ -56,25 +65,21 @@ Assuming you have already configured the platform:
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
-## Notifiers
+## Supported functionality
 
-The **HTML5 Push Notifications** {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [`html5.send_message`](#send-message) action instead. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
+### Notifiers
 
-{% details "Example YAML configuration" %}
+The **HTML5 Push Notifications** {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the **Notify: Send message** (`notify.send_message`) {% term action %}. For more customizable notifications, you can use the [**HTML5 Push Notifications: Send message** (`html5.send_message`)](/actions/html5.send_message/) action instead. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
 
-{% raw %}
-
-```yaml
-action: notify.send_message
-data:
-  title: "Reminder"
-  message: "Have you considered frogs?"
-  entity_id: notify.my-desktop
-```
-
-{% endraw %}
-
-{% enddetails %}
+{% example %}
+action: |
+  action: html5.send_message
+  data:
+    title: "Reminder"
+    message: "Have you considered frogs?"
+  target:
+    entity_id: notify.my_desktop
+{% endexample %}
 
 ### Events
 
@@ -158,8 +163,6 @@ Keep in mind that support for the features described below can vary depending on
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: html5.send_message
 data:
@@ -203,7 +206,6 @@ target:
   entity_id: notify.my_desktop
 ```
 
-{% endraw %}
 
 {% enddetails %}
 
@@ -223,8 +225,6 @@ You can dismiss notifications using the `html5.dismiss_message` action.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 action: html5.dismiss_message
 data:
@@ -233,7 +233,6 @@ target:
   entity_id: notify.my_desktop
 ```
 
-{% endraw %}
 
 {% enddetails %}
 
@@ -258,67 +257,93 @@ You can use the `target` parameter to write automations against a single `target
 You will receive an event named `html5_notification.received` when the
 notification is received on the device.
 
-```yaml
-- alias: "HTML5 push notification received and displayed on device"
+{% example %}
+automation: |
+  alias: "HTML5 push notification received and displayed on device"
   triggers:
     - trigger: event
       event_type: html5_notification.received
-```
+{% endexample %}
 
 ### Clicked event
 
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
-```yaml
-- alias: "HTML5 push notification clicked"
+{% example %}
+automation: |
+  alias: "HTML5 push notification clicked"
   triggers:
     - trigger: event
       event_type: html5_notification.clicked
-```
+{% endexample %}
 
 or
 
-```yaml
-- alias: "HTML5 push notification action button clicked"
+{% example %}
+automation: |
+  alias: "HTML5 push notification action button clicked"
   triggers:
     - trigger: event
       event_type: html5_notification.clicked
       event_data:
         action: open_door
-```
+{% endexample %}
 
 ### Closed event
 
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
-```yaml
-- alias: "HTML5 push notification clicked"
+{% example %}
+automation: |
+  alias: "HTML5 push notification clicked"
   triggers:
     - trigger: event
       event_type: html5_notification.closed
-```
+{% endexample %}
 
-## Making notifications work with NGINX proxy
+## Enabling HTML5 Push Notifications behind an NGINX reverse proxy with authentication
 
-If you use NGINX as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of an authentication token that cannot be passed through the proxy.
+If your Home Assistant instance is behind an NGINX reverse proxy with authentication enabled, device events may fail to reach Home Assistant. This happens because the authentication token used by the HTML5 Push Notifications integration may not pass through the proxy correctly.
 
-To solve the issue put additional location into your NGINX site's configuration:
+To allow callback requests from devices, add the following location block to your NGINX configuration:
 
 ```bash
 location /api/notify.html5/callback {
     if ($http_authorization = "") { return 403; }
+    
     allow all;
     proxy_pass http://localhost:8123;
+    
     proxy_set_header Host $host;
     proxy_redirect http:// https://;
 }
 ```
 
-This rule check if request have `Authorization` HTTP header and bypass the htpasswd (if you use one).
+This configuration allows requests to the callback endpoint to bypass `htpasswd` authentication, while still requiring the `Authorization` HTTP header to be present.
 
-If you still have the problem, even with mentioned rule, try to add this code:
+If callbacks still do not work, explicitly forward the Authorization header to Home Assistant by adding:
 
 ```bash
     proxy_set_header Authorization $http_authorization;
     proxy_pass_header Authorization;
 ```
+
+## Data updates
+
+The **HTML5 Push Notifications** integration sends notifications to target devices through push messaging services, while events from devices are pushed directly to your Home Assistant instance.
+
+## Known limitations
+
+Supported features can vary depending on the browser and platform you are using. Refer to the [MDN Notifications API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility) for a detailed overview of compatibility across environments.
+
+## Troubleshooting
+
+The **HTML5 Push Notifications** integration relies on an active internet connection for sending notifications and receiving events. If you encounter issues, verify that your network connection is stable and your Home Assistant instance is reachable from the internet.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (_download of debug log file will start automatically_). If you have collected the debug log, provide it with the issue report.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

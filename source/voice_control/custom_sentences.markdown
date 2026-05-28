@@ -49,13 +49,11 @@ This is the easiest method to get started with custom sentences for automations.
 
       could have the response:
 
-      {% raw %}
 
       ```yaml
       Playing {{ trigger.slots.album }} by {{ trigger.slots.artist }}
       ```
 
-      {% endraw %}
 
    - For more details, refer to [conversation response script action](/docs/scripts/#respond-to-a-conversation).
  

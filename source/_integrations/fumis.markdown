@@ -8,13 +8,18 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: fumis
 ha_platforms:
+  - binary_sensor
   - button
   - climate
+  - diagnostics
+  - number
   - sensor
+  - switch
 ha_codeowners:
   - '@frenck'
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The **Fumis** {% term integration %} connects your pellet stove to Home Assistant through the Fumis online service. Fumis, by [ATech Electronics](https://www.atech.si/) in Slovenia, makes the combustion controllers found in pellet stoves from many different manufacturers. The Fumis WiRCU Wi-Fi module connects your stove to the internet, making it possible to monitor and control your stove from anywhere.
@@ -69,7 +74,7 @@ This integration supports multiple stoves. If you have more than one stove with 
 
 ### Entities
 
-The **Fumis** integration provides climate, sensor, and button entities for your pellet stove.
+The **Fumis** integration provides a climate entity, as well as binary sensor, button, sensor, and switch entities, for your pellet stove.
 
 #### Climate
 
@@ -90,7 +95,9 @@ The integration provides sensors that give you insight into your stove's operati
 
 - **Temperature**: The current room temperature as measured by your stove.
 - **Stove status**: A simplified view of what your stove is doing (off, heating up, ignition, burning, eco, or cooling).
-- **Detailed stove status**: The precise operational phase of your stove, useful for advanced automations.
+- **Detailed stove status**: The precise operational phase of your stove, useful for automations.
+- **Alert**: The currently active alert on your stove. Shows "No alert" when there are no warnings. See the [alert codes](#alert-codes) below.
+- **Error**: The currently active error on your stove. Shows "No error" when everything is fine. See the [error codes](#error-codes) below.
 - **Fuel level**: How much fuel is left in the pellet hopper, shown as a percentage.
 - **Power output**: The current thermal output of your stove in kilowatts.
 - **Combustion chamber**: The temperature inside the combustion chamber.
@@ -106,9 +113,51 @@ The integration provides sensors that give you insight into your stove's operati
 
 Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
 
+#### Binary sensors
+
+- **Door**: Shows whether the combustion chamber door is open or closed. This sensor is only available on stoves that have a door sensor (like the Austroflamm Clou Duo).
+
 #### Buttons
 
 - **Sync clock**: The Fumis WiRCU module does not synchronize its internal clock from the internet. Over time, the clock can drift, and it does not automatically adjust for daylight saving time changes. This button sends the current time from Home Assistant to your stove's controller, keeping its clock accurate. This is especially useful for stoves that use the built-in weekly timer schedule. You can automate this by pressing the button on a regular basis, for example, after a daylight saving time change.
+
+#### Switches
+
+- **Eco mode**: Turn eco mode on or off. When eco mode is active and the room temperature exceeds the target temperature, the stove turns off automatically and restarts when the room temperature drops below the target temperature again. This switch is only available on stoves that support eco mode.
+- **Timer**: Enable or disable the weekly timer schedule. When enabled, the stove follows the programmed schedule to turn on and off at set times throughout the week.
+#### Numbers
+
+- **Power level**: Set the stove's heating power from level 1 (lowest) to 5 (highest). A higher power level means more pellets are fed into the combustion chamber, producing more heat. The actual thermal output in kilowatts adjusts gradually after changing the power level.
+- **Fan speed**: Adjust the fan speed from 0 to 5. This controls the airflow through the stove and should typically not need to be changed. This entity is disabled by default and only available on stoves with a controllable fan.
+
+### Alert codes
+
+The alert sensor shows the currently active alert on your stove. Alerts are less critical than errors and typically indicate something that needs your attention. The following alert codes are recognized:
+
+- **Low fuel level** (A001): The pellet tank is running low. Time to refill.
+- **Service due** (A002): Your stove is due for regular maintenance.
+- **Flue gas temperature warning** (A003): The flue gas temperature is elevated. Consider cleaning the chimney or heat exchanger.
+- **Low battery** (A004): The controller battery is low. Contact your service technician for a replacement.
+- **Speed sensor failure** (A005): The speed sensor is not working correctly. Contact your service technician.
+- **Door open** (A006): The combustion chamber door is open. Close the door.
+- **Airflow sensor malfunction** (A007): The airflow sensor is malfunctioning. The stove is operating in a limited mode.
+
+### Error codes
+
+The error sensor shows the currently active error on your stove. When an error occurs, the sensor state changes to a descriptive name, and the original device error code is available as a `code` attribute on the sensor. The following error codes are recognized:
+
+- **Ignition failed** (E101): Ignition failed, water overtemperature, or backfire protection triggered.
+- **Chimney or burning pot dirty** (E102): The chimney or burning pot needs cleaning, or the stove was manually stopped before flame detection.
+- **Sensor T02 malfunction** (E105): Temperature sensor T02 is malfunctioning or disconnected.
+- **Sensor T03/T05 malfunction** (E106): Temperature sensor T03 or T05 is malfunctioning or disconnected.
+- **Sensor T04 malfunction** (E107): Temperature sensor T04 is malfunctioning or disconnected.
+- **Safety switch tripped** (E108): The safety thermostat (STB) has tripped. Reset and restart the stove.
+- **Pressure sensor off** (E109): The pressure sensor has switched off. Reset and restart the stove.
+- **Sensor T01/T02 malfunction** (E110): Temperature sensor T01 or T02 is malfunctioning or disconnected.
+- **Sensor T01/T03 malfunction** (E111): Temperature sensor T01 or T03 is malfunctioning or disconnected.
+- **Flue gas overtemperature** (E113): The flue gas temperature is too high. Clean the chimney or heat exchanger.
+- **Fuel ignition timeout** (E114): The fuel did not ignite in time. The burning pot may be empty, or the pellet tank needs refilling.
+- **General error** (E115): A general error has occurred. Contact your service technician.
 
 ## Examples
 
@@ -174,7 +223,9 @@ Never run out of pellets unexpectedly. This automation sends you a notification 
       entity_id: sensor.pellet_stove_fuel_level
       below: 20
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Pellet stove"
         message: "Fuel level is running low. Time to refill the hopper."

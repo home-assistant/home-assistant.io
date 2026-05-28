@@ -65,7 +65,6 @@ If someone leaves the garage door open for more than 10 minutes, this automation
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 alias: "Notify when garage left open"
@@ -79,13 +78,14 @@ triggers:
     for:
       minutes: 10
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Garage door open"
       message: "The garage door has been open for 10 minutes."
 ```
 
-{% endraw %}
 {% enddetails %}
 
 ### Close the garage door at night
@@ -94,7 +94,6 @@ This automation closes the garage door automatically at 10 PM if it happens to b
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 alias: "Close garage door at night"
@@ -113,7 +112,6 @@ actions:
       entity_id: cover.garage_door
 ```
 
-{% endraw %}
 {% enddetails %}
 
 ## Data updates

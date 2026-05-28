@@ -86,8 +86,6 @@ Get started quickly with these automation examples.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: Lock door when last person leaves
 description: Lock the door when last person leaves the home
@@ -105,8 +103,7 @@ actions:
     target:
       entity_id: lock.lock_a1b2
 ```
-
-{% endraw %} {% enddetails %}
+{% enddetails %}
 
 ## Known Limitations
 
