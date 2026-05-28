@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: samsung_infrared
 ha_config_flow: true
 ha_platforms:
+  - button
   - media_player
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -38,15 +39,33 @@ The integration supports Samsung TVs that can be controlled via the standard Sam
 
 ## Supported functionality
 
-### Entities
-
 The **Samsung Infrared** integration provides the following entities.
 
-#### Media player
+### Buttons
 
-- **Samsung TV**
-  - **Description**: Represents the Samsung TV and allows you to control it via IR commands.
-  - **Supported features**: Turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, and stop.
+- **Power**: Toggles the TV power state.
+- **Source**: Opens the input source selection menu
+- **Settings**: Opens the TV settings menu.
+- **Info**: Displays program information.
+- **Exit**: Exits the current menu or app.
+- **Return**: Returns to the previous screen or menu.
+- **Home**: Opens the TV home screen.
+- **Red**, **Green**, **Yellow**, **Blue**: Color buttons for special functions (function depends on the current context).
+- **Up**, **Down**, **Left**, **Right**: Navigation buttons for menu navigation.
+- **OK**: Confirms selections in menus.
+- **Previous channel**: Switches to the previously viewed channel.
+- **Number 0-9**: Number keys for channel selection and text input.
+- **Fast forward**: Fast forwards playback.
+- **Rewind**: Rewinds playback.
+- **Record**: Starts recording (if supported by the TV).
+- **Tools**: Opens the tools menu.
+- **Browser**: Opens the web browser.
+- **AD/Subtitle**: Toggles audio description or subtitles.
+- **E-Manual**: Opens the electronic manual.
+
+### Media player
+
+- **Samsung TV**: Represents the Samsung TV and allows you to control it via IR commands. Supported features include turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, and stop.
 
 ## Known limitations
 
