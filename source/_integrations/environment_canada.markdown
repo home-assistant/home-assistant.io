@@ -169,7 +169,7 @@ The `environment_canada.get_alerts` action allows you to get the weather alert d
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `config_entry_id` | no | Weather service to get alerts for.
+| `config_entry_id` | no | Weather service to get alerts for. |
 
 ### Action: Get forecasts
 
@@ -177,7 +177,7 @@ The `environment_canada.get_forecasts` action allows you to get the raw forecast
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Weather entity to get forecast for.
+| `entity_id` | yes | Weather entity to get forecast for. |
 
 ### Action: Set radar type
 
@@ -185,5 +185,5 @@ The `environment_canada.set_radar_type` action allows you to set the type of rad
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Camera to set the radar type for.
-| `radar_type` | no | One of "Auto", "Rain", or "Snow".
+| `entity_id` | yes | Camera to set the radar type for. |
+| `radar_type` | no | One of "Auto", "Rain", or "Snow". |
