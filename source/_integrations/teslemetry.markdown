@@ -145,6 +145,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Charger power|Yes|
 |Sensor|Charger voltage|Yes|
 |Sensor|Charging|Yes|
+|Sensor|Destination|No|
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|
