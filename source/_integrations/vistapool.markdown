@@ -2,6 +2,7 @@
 title: Vistapool
 description: Monitor and control Hayward-branded pool controllers via the Hayward cloud API.
 ha_category:
+  - Number
   - Sensor
 ha_release: 2026.6
 ha_iot_class: Cloud Push
@@ -10,6 +11,7 @@ ha_codeowners:
   - "@fdebrus"
 ha_domain: vistapool
 ha_platforms:
+  - number
   - sensor
 ha_integration_type: hub
 ---
@@ -50,6 +52,23 @@ The integration provides the following sensors:
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+
+## Numbers
+
+The integration provides the following adjustable values, grouped by what they configure. All are stored in the configuration {% term entities %} category.
+
+### Chemical setpoints
+
+- **Redox setpoint**: target redox potential in mV (500–800). Available if a redox module is installed.
+- **pH minimum**: lower bound of the pH target window (6.00–8.00). Available if a pH module is installed.
+- **pH maximum**: upper bound of the pH target window (6.00–8.00). Available if a pH module is installed.
+- **Electrolysis setpoint**: target cell production in g/h. The maximum value is read from the cell's hardware-reported maximum, so the slider adapts automatically to different cell sizes. Available if a hydrolysis or electrolysis module is installed.
+
+### Temperature targets
+
+- **Intel temperature**: target temperature used by INTEL filtration mode (5–40 °C).
+- **Heating minimum temperature**, **Heating maximum temperature**: lower and upper bounds of the HEAT mode temperature range (5–40 °C each). Available only if your controller supports HEAT mode.
+- **Smart minimum temperature**, **Smart maximum temperature**: lower and upper bounds of the SMART mode temperature range (5–40 °C each). Available only if your controller supports SMART mode.
 
 ## Known limitations
 
