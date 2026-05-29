@@ -2,6 +2,7 @@
 title: Subaru
 description: Instructions on how to setup your Subaru account with Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Lock
   - Presence detection
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - binary_sensor
   - button
   - device_tracker
   - diagnostics
@@ -25,18 +27,18 @@ This {% term integration %} retrieves vehicle information and actuates remote se
 
 This integration requires a telematics equipped Subaru and an active vehicle subscription to the MySubaru service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com). 
 
-Subaru has deployed three generations of telematics with different feature sets. Use the table below to determine your vehicle's telematics generation and capabilities. This table is a best guess.
+Subaru has deployed four generations of telematics with different feature sets. Use the table below to determine your vehicle's telematics generation and capabilities. This table is a best guess.
 
-| Model     | Gen 1     | Gen 2     | Gen 3 |
-|-----------|-----------|-----------|-------|
-| Ascent    |    ---    | 2019-2023 | 2024+ |
-| BRZ       |    ---    | 2022-2023 |  ---  |
-| Crosstrek | 2016-2018 | 2019+     |  ---  |
-| Forester  | 2016-2018 | 2019+     |  ---  |
-| Impreza   | 2016-2018 | 2019-2022 | 2023+ |
-| Legacy    | 2016-2019 | 2020-2022 | 2023+ |
-| Outback   | 2016-2019 | 2020-2022 | 2023+ |
-| WRX       | 2017-2021 | 2022-2023 |  ---  |
+| Model     | Gen 1     | Gen 2     | Gen 3     | Gen 4 |
+|-----------|-----------|-----------|-----------|-------|
+| Ascent    |    ---    | 2019-2023 | 2024+     |  ---  |
+| BRZ       |    ---    | 2022-2023 |  ---      |  ---  |
+| Crosstrek | 2016-2018 | 2019+     |  ---      |  ---  |
+| Forester  | 2016-2018 | 2019+     |  ---      |  ---  |
+| Impreza   | 2016-2018 | 2019-2022 | 2023+     |  ---  |
+| Legacy    | 2016-2019 | 2020-2022 | 2023+     |  ---  |
+| Outback   | 2016-2019 | 2020-2022 | 2023-2025 | 2026+ |
+| WRX       | 2017-2021 | 2022-2023 |  ---      |  ---  |
 
 {% note %}
 This integration *does not* support the Subaru Solterra EV or any other Subaru that uses the [SubaruConnect](https://www.subaru.com/vehicle-info/connected-services/subaruconnect.html) service.
@@ -54,24 +56,85 @@ If your account includes multiple vehicles, the same PIN will be used for all ve
 
 Available sensors will vary by model, year, and subscription type. The integration will add all supported sensors for your vehicle. Sensor data is usually only updated when the vehicle is turned off unless the [polling option](#options) is enabled.
 
-| Sensor                   | Gen 1   | Gen 2   | Gen 3   |
-|--------------------------|---------|---------|---------|
-| Average fuel consumption |         | &check; | &check; |
-| Distance to empty        |         | &check; | &check; |
-| EV battery level         |         | &check; | &check; |
-| EV range                 |         | &check; | &check; |
-| EV time to full charge   |         | &check; | &check; |
-| Odometer                 | &check;*| &check; | &check; |
-| Tire pressures           |         | &check; | &check; |
+| Sensor                            | Gen 1    | Gen 2   | Gen 3   | Gen 4   |
+|-----------------------------------|----------|---------|---------|---------|
+| Average fuel consumption          |          | &check; | &check; | &check; |
+| EV battery level                  |          | &check; | &check; | &check; |
+| EV charge mode                    |          | &check; | &check; | &check; |
+| EV charger state                  |          | &check; | &check; | &check; |
+| EV plug status                    |          | &check; | &check; | &check; |
+| EV range                          |          | &check; | &check; | &check; |
+| EV time to full charge            |          | &check; | &check; | &check; |
+| Fuel level                        |          |         | &check; | &check; |
+| Odometer                          | &check;* | &check; | &check; | &check; |
+| Range                             |          | &check; | &check; | &check; |
+| Recommended tire pressure front   |          | &check; | &check; | &check; |
+| Recommended tire pressure rear    |          | &check; | &check; | &check; |
+| Tire pressures (each wheel)       |          | &check; | &check; | &check; |
+| Vehicle state                     |          | &check; | &check; | &check; |
 
-\* Gen 1 odometer only updates every 500 miles <br>
+\* Gen 1 odometer only updates every 500 miles. <br>
+
+EV sensors are only present on PHEV vehicles. Some Gen 2 sensors may be permanently `unknown` if the vehicle does not report the underlying capability (for example, recommended tire pressure for vehicles that do not advertise the `TIR_*` / `TIF_*` feature flags).
+
+## Binary sensors
+
+Binary sensors are added for Gen 2 and newer vehicles. Most are derived from the
+data the vehicle pushes after engine shutdown; some may be `unknown` until the
+first push has been received.
+
+### Openings
+
+Each door and window has its own `BinarySensorDeviceClass.DOOR` or
+`BinarySensorDeviceClass.WINDOW` entity that reports `on` when open and `off`
+when closed:
+
+- Door front left, Door front right, Door rear left, Door rear right
+- Hood, Tailgate
+- Window front left, Window front right, Window rear left, Window rear right, Sunroof
+
+### Per-door lock status
+
+Five read-only `BinarySensorDeviceClass.LOCK` entities report the locked state
+of each door (`on` = unlocked, `off` = locked). These are independent of the
+controllable [Lock](#lock) entity, which sends commands and reflects the desired
+lock state.
+
+- Lock status front left, Lock status front right
+- Lock status rear left, Lock status rear right
+- Lock status tailgate
+
+### Vehicle health
+
+The integration exposes the warning indicators (Malfunction Indicator Lamps) reported by your vehicle as diagnostic binary sensors with `BinarySensorDeviceClass.PROBLEM`. Each is `on` when the corresponding warning is active.
+
+The **Vehicle health** entity is enabled by default and reflects the overall trouble rollup. Individual per-indicator entities below are **disabled by default**; enable them in the entity settings for any warning lights you want to track. Only the indicators your vehicle actually has are created.
+
+- Airbag warning (SRS)
+- AWD warning
+- ABS warning
+- Transmission temperature warning (ATF)
+- Blind spot and rear cross traffic warning
+- Check engine
+- Electronic brakeforce distribution warning (EBD)
+- Electric parking brake warning (EPB)
+- Engine oil level warning (EOL)
+- EyeSight warning
+- Idle stop & start warning (ISS)
+- Oil pressure warning
+- Electric power steering warning (EPAS)
+- Reverse automatic braking warning
+- Telematics warning
+- Tire pressure warning (TPMS)
+- Vehicle dynamics control warning (VDC)
+- Washer fluid warning
+- Steering responsive headlights warning (SRH)
 
 ## Lock
 
-This integration supports remote locking and unlocking of vehicle doors. If doors are remotely unlocked, they will automatically relock if a door is not opened within a minute. There is no remote notification of this automatic relock.  
-{% note %}
-This integration does not yet support tracking the current lock/unlock state.
-{% endnote %}
+This integration supports remote locking and unlocking of vehicle doors. If doors are remotely unlocked, they will automatically relock if a door is not opened within a minute. There is no remote notification of this automatic relock.
+
+The state of the controllable lock entity reflects the last command sent. To see the actual current lock state of each door, use the [per-door lock status binary sensors](#per-door-lock-status).
 
 ### Unlock specific door
 
