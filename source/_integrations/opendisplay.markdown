@@ -15,6 +15,7 @@ ha_platforms:
   - diagnostics
   - event
   - sensor
+  - binary_sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -84,6 +85,10 @@ actions:
       entity_id: light.my_light
 ```
 {% enddetails %}
+
+## Binary sensors
+
+- **Connectivity**: Reports whether the device is currently connected to Home Assistant and can receive commands
 
 ## Actions
 
