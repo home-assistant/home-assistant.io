@@ -86,7 +86,7 @@ actions:
 ```
 {% enddetails %}
 
-## Binary sensors
+### Binary sensors
 
 - **Connectivity**: Reports whether the device is currently connected to Home Assistant and can receive commands
 
