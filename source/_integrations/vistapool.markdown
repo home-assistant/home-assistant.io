@@ -55,7 +55,7 @@ The integration provides the following sensors:
 
 ## Numbers
 
-The integration provides the following adjustable values, grouped by what they configure. All are stored in the configuration {% term entities %} category.
+The integration provides the following adjustable values, grouped by what they configure. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
 
 ### Chemical setpoints
 
