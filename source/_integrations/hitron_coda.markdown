@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-This integration offers presence detection by examining devices connected to a [Rogers Hitron CODA](https://www.rogers.com/customer/support/article/wi-fi-password-hitron-coda4582-cgn3amr-cgnm3552-cgn3acr-cgn3)
+The **Rogers Hitron CODA** {% term integration %} offers presence detection by examining devices connected to a [Rogers Hitron CODA](https://www.rogers.com/customer/support/article/wi-fi-password-hitron-coda4582-cgn3amr-cgnm3552-cgn3acr-cgn3)
 or [Shaw Hitron CGNM](https://community.shaw.ca/docs/DOC-4066) Router.
 
 To use a Hitron router in your installation, add the following to your {% term "`configuration.yaml`" %} file.

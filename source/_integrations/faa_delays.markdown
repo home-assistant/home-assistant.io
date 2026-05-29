@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: faa_delays
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **FAA Delays** {% term integration %} collects and displays information about delays at US Airports based on the

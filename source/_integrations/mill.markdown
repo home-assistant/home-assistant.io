@@ -27,9 +27,9 @@ A number entity can configure the maximum power of the heaters.
 
 ## Actions
 
-This cloud integration supports an action to set the temperature for the room connected to heater in the Mill app:
+### Action: Set room temperature
 
-`mill.set_room_temperature`
+The `mill.set_room_temperature` action sets the temperature for the room connected to heater in the Mill app.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

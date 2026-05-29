@@ -12,11 +12,12 @@ ha_domain: syncthru
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Samsung SyncThru Printer platform allows Home Assistant to read current data from a local Samsung printer.  
+The **Samsung SyncThru Printer** {% term integration %} allows Home Assistant to read current data from a local Samsung printer.  
 
 Depending on device abilities, the following separate sensors are created if supported:
 

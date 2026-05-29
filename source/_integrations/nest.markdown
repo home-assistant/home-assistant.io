@@ -22,10 +22,10 @@ ha_platforms:
   - diagnostics
   - event
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `nest` integration allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
+The **Google Nest** {% term integration %} allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -43,8 +43,22 @@ You are in control of the information and capabilities exposed to Home Assistant
 - The Nest Device Access Console Pub/Sub setup process has changed as of January 23rd 2025. **Please make sure you are using the latest version of Home Assistant.**
 
 - The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+- The SDM API is also incompatible with some Google Account types or Security settings, including Google Workspace and the Advanced Protection Program. See [Known limitations](#known-limitations) below.
 
 ## Configuration
+
+{% details "Important: Remove existing Google credentials first" %}
+
+If you have previously set up the Google integration or a Nest integration, you should remove any existing Google integration credentials before proceeding.
+
+To remove existing credentials:
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Select the three dots (⋮) menu in the upper right corner.
+3. Review the list for any previous Google or Nest integrations.
+4. Remove any existing Google/Nest integration by selecting it and choosing "Delete".
+
+This ensures that Home Assistant will use your latest Google integration configuration and prevents authentication conflicts.
+{% enddetails %}
 
 To add the **Nest** integration to your Home Assistant, use this My Button:
 {% my config_flow_start badge domain=page.ha_domain %}
@@ -93,30 +107,28 @@ You now have a cloud project ready for the next section to configure authenticat
 
 {% details "Configure OAuth Consent screen [Cloud Console]" %}
 
-By the end of this section you will have configured the OAuth Consent Screen, needed for giving Home Assistant access to
-your cloud project.
+By the end of this section you will have configured the OAuth consent screen, needed to give Home Assistant access to your cloud project.
 
-1. Go to the [Google API Console](https://console.developers.google.com/apis/credentials).
+1. Go to the [Branding page](https://console.cloud.google.com/auth/branding) in the Google Auth Platform Console.
 
-2. Click [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent) and configure it.
+2. If prompted to configure OAuth, click **Get started** and follow the setup wizard. When the wizard asks for user type, select **External**, and only continue once the OAuth consent configuration has been created.
 
-3. Select **External** then click **Create**. While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
-    ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
+3. Click **Branding** in the left sidebar. Fill in the required fields:
+   - **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
+   - **User support email**: Select your Google account email.
+   - **Developer contact email**: Enter your email address under Developer contact information.
+   
+   Leave all other fields (App logo, App domain, Authorized domains) empty to avoid triggering Google's verification process. Click **Save**.
 
-4. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**. Omit unnecessary information (e.g. logo) to avoid additional review by Google.
+4. Click **Audience** in the left sidebar.
+   - Under **User type**, confirm it shows **External**.
+   - Under **Test users**, click **+ Add users** and add your Google account email (e.g. your @gmail.com address). Click **Save**.
 
-5. On the *Scopes* step click **Save and Continue**.
+5. Still on the **Audience** page, under **Publishing status**, click **Publish app** to set the status to **In production**.
 
-6. On the *Test Users* step, you need to add your Google Account (e.g., your @gmail.com address) to the list. Click *Save* on your test account then **Save and Continue** to finish the consent flow.
-    ![Screenshot of OAuth consent screen test users](/images/integrations/nest/oauth_consent_test_users.png)
+   Make sure the status is not **Testing**, or you will get logged out every 7 days.
 
-7. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is **In Production**.
-
-    ![Screenshot of OAuth consent screen production status](/images/integrations/nest/oauth_consent_production_status.png)
-
-8. The warning says your *app will be available to any user with a Google Account* which refers to the fields you entered on the *App Information* screen if someone finds the URL. This does not expose your Google Account or Nest data.
-
-9. Make sure the status is not *Testing*, or you will get logged out every 7 days.
+   The warning says your app will be available to any user with a Google Account. This refers to the fields you entered on the Branding page if someone finds the URL. This does not expose your Google Account or Nest data.
 
 {% enddetails %}
 
@@ -145,7 +157,7 @@ The steps below use *Web Application Auth* with *My Home Assistant* to handle Go
 
     ![Screenshot of OAuth Client ID and Client Secret](/images/integrations/nest/oauth_created.png)
 
-8. You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.  See [Application Credentials](/integrations/application_credentials) for more general detail about how Home Assistant manages credentials.
+8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.  Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
 
 {% enddetails %}
 
@@ -311,10 +323,6 @@ This feature is enabled by the following permissions:
 - *Allow Home Assistant to access and control your thermostat*
 
 {% endnote %}
-{% note %}
-Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
-{% endnote %}
-
 
 ## Camera
 
@@ -355,10 +363,12 @@ All doorbells and cameras support event entities. See the [Event](https://www.ho
 There are two classes of event entities that are available based on the above camera features:
 
 - `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
-- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+- `doorbell` for all cameras that are doorbells and support `ring` events. In the camera feature table above, this capability is listed as “Chime”.
 
 Nest event entities are updated immediately when an event message is received
 without waiting for any media to be fetched. See Device Triggers for media support.
+
+{% include integrations/actions.md %}
 
 ## Device Triggers
 
@@ -374,6 +384,8 @@ event entity for immediate notifications without media.
 {% details "Example Device Trigger / Event payload" %}
 
 This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
+
+Doorbell device trigger payloads use the `doorbell_chime` event, not `ring`.
 
 ```json
 {
@@ -460,8 +472,6 @@ You can use the Nest Device Trigger payload fields `attachment.image` or `attach
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
-{% raw %}
-
 ```yaml
 action: notify.mobile_app_iphone
 data:
@@ -472,15 +482,11 @@ data:
     video: "{{ trigger.event.data.attachment.video }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS" %}
 
 Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
-
-{% raw %}
 
 ```yaml
 action: notify.mobile_app_android
@@ -491,15 +497,11 @@ data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS" %}
 
 Example for cameras that support Snapshot (jpg) on either Android or iOS.
-
-{% raw %}
 
 ```yaml
 action: notify.mobile_app
@@ -509,8 +511,6 @@ data:
   data:
     image: "{{ trigger.event.data.attachment.image }}"
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -524,15 +524,91 @@ This feature is enabled by the following permissions:
 
 {% endnote %}
 
+## Known limitations
+
+### Google account types
+
+There are limitations to which Google accounts can use the SDM API. See the [Device Access Registration](https://developers.google.com/nest/device-access/registration) documentation for details.
+
+The primary limitations are the following:
+
+- Google Workspace accounts are not supported. Only consumer accounts (for example, gmail.com) can be used.
+- Once a Google Account is associated with your Device Access Project, it cannot be changed. Be sure you are signed in to the correct Google Account before continuing.
+
+Keep in mind, the US$5 registration fee is non-refundable.
+
+### Google Advanced Protection Program
+
+The "Restricted" API scopes required for device control are automatically blocked for [Google Advanced Protection Program](https://landing.google.com/intl/en_in/advancedprotection/) users.
+
+{% important %}
+Workaround: If you have enabled AP, create and use a secondary, standard Google Account (non-AP) to host the devices:
+
+1. Create a new Google Account *without* Advanced Protection (if you don't have one already).
+
+2. Create a new **Home** in the Google Home app using this new account.
+
+3. Remove your Nest devices from your main account and re-add them to this new **Home**. Note that this may delete saved video history or settings for some devices.
+
+4. Invite your main account (the one with AP) as a **Family Member** to the new **Home**. This allows you to retain control in the Google Home app on your phone.
+
+5. Connect Home Assistant using the new standard account credentials.
+{% endimportant %}
+
+*[AP]: Advanced Protection Program
+
+### Google Home App migration and cameras
+
+Migrating your cameras to the Google Home App converts cameras from RTSP to WebRTC, which results in the loss of snapshot functionality. Additionally, there is a known issue where media is not currently published for these events; this has been reported to the Nest SDM team and is an unexpected side effect of their migration.
+
+### Temperature sensors partially supported
+
+Additional Nest temperature sensors are not supported by the SDM API. The temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App. If multiple sensors are available, only the temperature from the active sensor will be displayed.
+
 ## Troubleshooting
 
-- *No access to partner information* "Information could not be retrieved" error message during the setup wizard means that the Google Account used is not able to access the Home. Please ensure that you have successfully migrated your Nest Account to a Google Account using the Google Nest App. Additionally, if your home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
+### Can't link Google account
 
-- You can add or remove devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Reload the Nest integration to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
+#### Symptom: Can’t link to [Project Name]: Please contact [Project Name] if the issue persists
 
-- *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URL behavior may have changed since you initially set this up!
+##### Description
 
-{% details "Details about resolving redirect_uri_mismatch" %}
+The error *Can’t link to [Project Name]* typically means that the *OAuth Client ID* used is
+mismatched in Home Assistant [Application Credentials](/integrations/application_credentials/).
+
+##### Resolution
+
+The simplest approach is to remove Application Credentials from Home Assistant and then verify
+that the *OAuth Client ID* used must be consistent across these three places:
+
+- [Google Cloud Console](https://console.cloud.google.com/apis/credentials) - See instructions above to create new Web Auth OAuth Credentials if needed.
+- [Device Access Project](https://console.nest.google.com/device-access/project-list) - The OAuth Client ID for your Device Access Project must refer to the Web Auth OAuth Client ID in the Google Cloud Console.
+- Make sure you are using the same Google Account in the Device Access Console and Google Cloud Console. For example, double-check the photo and account name in the top right of the screen.
+- [Application Credentials](/integrations/application_credentials/) - Home Assistant needs to be configured with the same credentials. Delete any existing entries if they do not match, then either manually enter or re-enter as part of the setup.
+
+  ![Screenshot of success](/images/integrations/nest/application_credentials.png)
+
+#### Symptom: No access to partner information or Information could not be retrieved
+
+##### Description
+
+The error *No access to partner information* or *Information could not be retrieved* shown
+during the account linking process means that the Google Account used cannot access the Google Home.
+
+##### Resolution
+
+- You can organize your homes and devices in the Google Home App and [share homes and devices](https://support.google.com/googlenest/answer/9155535) across accounts. Ensure the account being used has access to the Home.
+- If you formerly had a Nest account, ensure that it is migrated successfully to a Google Account. If your Google Home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
+
+#### Symptom: Error 400: redirect_uri_mismatch 
+
+##### Description
+
+This error *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URL behavior may have changed since you initially set this up!
+
+##### Resolution
+
+For users with a default configuration:
 
 - This should show the redirect URI `https://my.home-assistant.io/redirect/oauth` in the error message. If the error message has a different URL, then you are running an older version of Home Assistant need to upgrade or manually disabled My Home Assistant (see below).
 
@@ -543,100 +619,254 @@ This feature is enabled by the following permissions:
 
   ![Screenshot of success](/images/integrations/nest/redirect_uris_fix.png)
 
-{% enddetails %}
+For users who have manually disabled *My Home Assistant*:
 
-{% details "I have manually disabled My Home Assistant" %}
+- Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*. See the documentation on [Securing](/docs/configuration/securing/) and note that you don't actually need to enable remote access.
 
-Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*. See the documentation on [Securing](/docs/configuration/securing/) and note that you don't actually need to enable remote access.
-
-If you don't have [My Home Assistant](/integrations/my) on your installation,
+- If you don't have [My Home Assistant](/integrations/my) on your installation,
 you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
 instead.
 
-The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+- The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
-{% enddetails %}
+#### Symptom: Something went wrong: Please contact the developer of this app if the issue persists
 
-- *Something went wrong: Please contact the developer of this app if the issue persists*: This 
-typically means you are using the wrong type of credential or have credentials
-mixed up between accounts. Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above. If you have multiple Google accounts logged into the current browser session, Google may default to the first logged in account while switching between pages. To avoid this, log out of other accounts or use a private/incognito browser window with only the desired Google account logged in.
+##### Description
 
-- *Something went wrong, please try again in a few minutes*: According to Google's [Partner Connections Manager Error Reference](https://developers.google.com/nest/device-access/reference/errors/pcm), this error covers all other undocumented internal errors within Partner Connections. One of the issues that cause this error is synchronization problems between the Nest and Google Home apps. Confirm that your Nest device is visible within both apps under the same Home. If it is missing within Google Home, create a new dummy home on the Nest app, which triggers the synchronization process. (This is the workaround recommended by the Google support team). The dummy entry can be deleted once the Nest device is visible within the Google Home app.
+This typically means you are using the wrong type of credential or have credentials
+mixed up between accounts.
 
-- *Can’t link to [Project Name]: Please contact [Project Name] if the issue persists*: This typically means that the *OAuth Client ID* used is mismatched
+##### Resolution
 
-{% details "Resolving mismatched OAuth Client ID" %}
+Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above. If you have multiple Google accounts logged into the current browser session, Google may default to the first logged in account while switching between pages. To avoid this, log out of other accounts or use a private/incognito browser window with only the desired Google account logged in.
 
-The *OAuth Client ID* used must be consistent, so check these:
+#### Symptom: Something went wrong, please try again in a few minutes
 
-- [Google Cloud Console](https://console.cloud.google.com/apis/credentials) - See instructions above to create new Web Auth OAuth Credentials if needed
-- [Device Access Project](https://console.nest.google.com/device-access/project-list) - The OAuth Client ID for your Device Access Project must refer to the Web Auth OAuth Client ID in the Google Cloud Console
-- Make sure you are using the same Google Account in the Device Access Console and Google Cloud Console e.g. double-check the photo and account name in the top right of the screen
-- [Application Credentials](/integrations/application_credentials/) - Home Assistant needs to be configured with the same credentials. Delete any existing entries if they do not match, then either manually enter or re-enter as part of the setup.
+##### Description
 
-  ![Screenshot of success](/images/integrations/nest/application_credentials.png)
+According to Google's [Partner Connections Manager Error Reference](https://developers.google.com/nest/device-access/reference/errors/pcm), this error covers all other undocumented internal errors within Partner Connections. One of the issues that cause this error is synchronization problems between the Nest and Google Home apps. 
 
+##### Resolution
 
-{% enddetails %}
+Confirm that your Nest device is visible within the Google Home App and Nest App under the same Home. If it is missing within Google Home, create a new dummy home on the Nest app, which triggers the synchronization process. (This is the workaround recommended by the Google support team). The dummy entry can be deleted once the Nest device is visible within the Google Home app.
 
-- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiguration or your authentication token was revoked by Google for some other reason.
+#### Symptom: Error 403: access_denied or Access blocked: home-assistant.io has not completed Google's verification process
 
-{% details "Details about reauthentication issues" %}
+##### Description
+
+The error *Error 403: access_denied* means that the OAuth Consent screen may be misconfigured,
+either because it does not allow access to your Google Account or because you have entered
+extra information that triggered Google's verification process. Google will require
+verification when you add extra information to the branding page.
+
+#### Resolution
+
+Visit the OAuth [Verification Center](https://console.cloud.google.com/auth/verification) and
+confirm the *Verification Status* is *Verification not required*. If verification
+is required:
+
+1. Navigate to the [Branding](https://console.cloud.google.com/auth/branding) page.
+2. Remove additional fields that are not required and Save. See the set up instruction above and
+make sure not to enter extra fields.
+3. Go back to the Verification Center and confirm the status is correct.
+
+Additionally you need to make sure the Audience configuration is correct by following these steps:
+
+1. Visit the OAuth [Audience](https://console.cloud.google.com/auth/audience) page.
+2. Make sure the account is set to *In production*.
+
+You may now repeat the integration setup and account linking steps.
+
+#### Symptom: Error: invalid_client no application name
+
+##### Description
+
+The error *Error: invalid_client no application name* means the OAuth Consent screen has not been
+fully configured for the project and needs additional information.
+
+#### Resolution
+
+Visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and
+enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
+
+### Can't find devices
+
+#### Symptom: Devices do not appear in Home Assistant
+
+##### Description
+
+This typically means that Home Assistant does not have access to the device because it was not returned
+from the SDM API.
+
+##### Resolution
+
+You can manage the devices and permissions shared with Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Home Assistant automatically updates to reflect any changes you make. For more details, refer to the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation.
+
+#### Symptom: Thermostats do not appear in Home Assistant or are unavailable
+
+There have been reports that Thermostats may not appear or are unavailable due to a bug in the SDM API. A common fix to get the API to work again is to try these steps:
+
+- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
+- Home Assistant automatically updates to reflect any changes you make and will discover new devices that appear in the API.
+
+#### Symptom: Devices do not appear when the API is disabled
+
+##### Description
+
+The SDM API may not return devices for the authorized account when the SDM API is disabled.
+
+##### Resolution
+
+Double-check that GCP is configured correctly and [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
+
+### Authentication problems
+
+#### Symptom: Re-authentication required often
+
+##### Description
+
+You may be asked to reauthenticate more often than you expect, such as every 7 days. This means an OAuth Consent Screen is misconfigured, or your authentication token was revoked by Google for some other reason.
+
+##### Resolution
 
 - This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days.
 - Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token.
 - You may also see this as the error message *invalid_grant: Token has been expired or revoked*.
 - See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired.
 
-{% enddetails %}
+### Integration set up failure
 
-- Check **Settings** -> **System** -> **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+#### Symptom: Configuration error: Failed to create subscriber `subscription/name` was not found
 
-- *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
+##### Description
 
-{% details "How to restart thermostat" %}
+The integration fails to start because it attempts to create a subscriber with a subscription
+name that is not found in your Google Account. By default, Google pub/sub subscriptions will be deleted after 31 days of inactivity ([reference](https://cloud.google.com/knowledge/kb/pub-sub-subscriptions-disappeared-without-any-deletion-logs-000004170)). If this happens, then the integration will fail, and you will see the preceding log line in your Home Assistant logs.
 
-- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
-- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & services**, click `...` next to *Nest* and choose **Reload**.
+##### Resolution.
 
-{% enddetails %}
+To repair the subscriber:
 
-- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
-
-- *Error 403: access_denied* means that you need to visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and add your Google Account as a *Test User*.
-
-- *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
-
-- *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
-
-- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
-
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your {% term "`configuration.yaml`" %} depending on where you are having trouble:
-
-```yaml
-
-logger:
-  default: info
-  logs:
-    homeassistant.components.nest: debug
-    homeassistant.components.nest.climate_sdm: debug
-    homeassistant.components.nest.camera_sdm: debug
-    homeassistant.components.nest.sensor_sdm: debug
-    homeassistant.helpers.config_entry_flow: debug
-    homeassistant.helpers.config_entry_oauth2_flow: debug
-    google_nest_sdm: debug
-    google_nest_sdm.device: debug
-    google_nest_sdm.device_manager: debug
-    google_nest_sdm.google_nest_subscriber: debug
-    google_nest_sdm.event: debug
-```
-
-- *Not receiving camera motion and person events*: assuming the integration is correctly configured (for example, the oauth and SDM API are set up correctly, you can see camera streams, and permissions are correctly set in [Partner Connections Manager](https://nestservices.google.com/partnerconnections)): If you are then still not seeing events, it's possible you need to adjust the Google Home App settings. Refer to the [Google Home App Notification Settings](#google-home-app-notification-settings) for details.
-
-- **Configuration error: Failed to create subscriber `subscription/name` was not found** - By default, Google pub/sub subscriptions will be deleted after 31 days of inactivity ([reference](https://cloud.google.com/knowledge/kb/pub-sub-subscriptions-disappeared-without-any-deletion-logs-000004170)). If this happens, then the integration will fail, and you will see the preceding log line in your Home Assistant logs. If that is the case, then:
-
-  1. Go to the [Device Access Console](https://console.nest.google.com/device-access/project-list) and re-enable the Pub/Sub Topic.
+  1. Go to the [Device Access Console](https://console.nest.google.com/device-access/project-list) and re-enable the Pub/Sub topic.
   2. The Nest integration may need to be recreated to pick up the new Pub/Sub topic.
   3. (Optional) To prevent future expirations, go to your [Google Cloud Console Pub/Sub subscription page](https://console.cloud.google.com/cloudpubsub/subscription/list) and edit the Pub/Sub subscription created by Nest to not expire by default.
+
+### Nest integration data issues
+
+#### Symptom: Not receiving camera motion and person events
+
+The Nest integration subscribes a Google Pub/sub subscription to listen for camera motion
+or person events. The settings in the Google Home app also control which events
+are published, so if they are not set properly you may not receive events.
+
+#### Resolution
+
+- Verify that you have allowed Home Assistant to access camera streams, and permissions are correctly set in [Partner Connections Manager](https://nestservices.google.com/partnerconnections).
+- If you are then still not seeing events, it's possible you need to adjust the Google Home App settings. Refer to the [Google Home App Notification Settings](#google-home-app-notification-settings) for details.
+
+#### Symptom: Devices not receiving updated information
+
+##### Description
+
+You may see changes in Google Home that are unexpectedly not reflected in Home Assistant. The Nest integration subscribes to updates from a Google Pub/sub subscription and problems with stale information
+usually indicate a problem with subscriber configuration.
+
+Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
+
+##### Resolution
+
+- To learn more about how Google Pub/Sub works see the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow). The steps in the following section will:
+
+  1. Verify the Nest Device Access Console is configured with a Pub/Sub topic for publishing messages
+  2. (Optional) Verify topic message publishing. These steps are available for some topic configurations.
+  3. Verify Pub/Sub subscription message routing
+  4. Verify Home Assistant is receiving messages on the Pub/Sub subscription
+
+- **Verify the Nest Device Access Console configuration**
+
+  1. Visit the [Device Access Console](https://console.nest.google.com/device-access/project-list)
+  2. Click the Home Assistant device access project
+  3. Verify the *Pub/Sub topic* is *Enabled*. If not, follow the integration configuration instructions.
+  4. If the Pub/Sub topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant. You may follow the steps in the next section to verify the topic.
+  5. If the Pub/Sub topic starts with `projects/sdm-prod/topics` then you are using a topic created by the Device Access console. This is the old way, but works completely fine. You should skip the next section.
+
+- **(Optional) Verify topic message publishing.** Skip this section if using a topic name starting with `projects/sdm-prod/topics`
+
+  1. Visit the Pub/Sub Topics [Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list)
+  2. Click the Home Assistant Topic ID matching the Device Access Console configuration.
+  3. View the *Subscriptions* tab and confirm there is a Subscription ID. This will be verified in the next section.
+  4. Click the *Metrics* tab and set the zoom to *6 hours* or *1 day*.
+  5. View the *Published message count*. This counts messages published by the device to the topic. If the number of messages is not what you expect then it indicates:
+      - A problem with the device connecting to Google: Verify the device works in the Google Home App.
+      - An issue with the SDM API: This requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
+
+- **Verify Pub/Sub subscription message routing**
+
+  1. Visit the Pub/Sub Subscriptions [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list)
+  2. Click the Home Assistant Subscription ID
+  3. Confirm the *Topic name* is the same as in the Nest Device Access Console above.
+  4. View the *Metrics* tab in the bottom panel, which includes:
+
+    - *Delivery metrics*: The *Publish message count* shows messages are published on the topic that are routed to the subscription. You may need to scroll down to see this.
+    - *Oldest unacked message age* shows messages not being fully received by the Home Assistant nest integration. See the next section for diagnosing this.
+
+  5. Click the *Messages* tab
+  6. Click *Pull* to see a sample of received messages published on the topic. These correspond to messages optionally verified by the *Published message count* in the previous section. If there are no messages published then it indicates either:
+
+    - A Subscription misconfiguration: Confirm the *Topic ID* matches the Device Access Console. If they do not match, then follow the integration configuration instructions to resolve this.
+    - A problem with the device connecting to Google: Verify the device works in the Google Home App.
+    - An issue with the SDM API: This requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
+
+  7. Click the arrow for a received message to *View all row content* to make it easier to see the full contents of the received messages. You may confirm the message contains the information you expect to see and corresponds with messages received by Home Assistant in the next section.
+
+- **Verify Home Assistant is receiving messages**
+
+  1. Enable debug logs for the Nest integration. See [Debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for instructions.
+  2. View the raw logs
+  3. Successfully received event messages will appear in debug logs similar to the following:
+
+  {% details "Example debug log: Received 1 message" %}
+  {% raw %}
+  ```text
+  2025-11-08 09:15:57.620 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Received 1 messages
+  2025-11-08 09:15:57.621 DEBUG (MainThread) [google_nest_sdm.event] EventMessage raw_data={'eventId': 'xxxxxx-yyyy-zzzz-aaaa', 'timestamp': '2025-11-08T17:15:56.470930Z', 'resourceUpdate': {'name': 'enterprises/...'}}
+  2025-11-08 09:15:57.621 DEBUG (MainThread) [google_nest_sdm.device] Processing update xxxxxx-yyyy-zzzz-aaaa @ 2025-11-08 17:15:56.470930+00:00
+  2025-11-08 09:15:57.621 DEBUG (MainThread) [google_nest_sdm.device] Trait update {'sdm.devices.traits.ThermostatMode': {'mode': 'COOL', 'availableModes': ['HEAT', 'COOL', 'HEATCOOL', 'OFF']}, 'sdm.devices.traits.ThermostatEco': {'availableModes': ['OFF', 'MANUAL_ECO'], 'mode': 'OFF', 'heatCelsius': 4.4444427, 'coolCelsius': 24.444443}, 'sdm.devices.traits.ThermostatTemperatureSetpoint': {'coolCelsius': 25.997345}, 'name': 'enterprises/<project id>/devices/<device_id>'}
+  2025-11-08 09:17:14.406 DEBUG (MainThread) [google_nest_sdm.subscriber_client] Sending streaming pull request (acking 1 messages)
+  ```
+  {% endraw %}
+  {% enddetails %}
+
+  4. Subscription pull requests are long running, and reconnect every few minutes. This is normal and you will see debug messages like `API error in streaming pull` and then `Event stream connection established`. The [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow) describes how this works in more detail. The following debug logs indicate the Subscription connection is working properly.
+
+  {% details "Example debug log: Event stream connection established" %}
+  {% raw %}
+  ```text
+  2025-11-08 09:19:50.827 DEBUG (MainThread) [google_nest_sdm.subscriber_client] API error in streaming pull: 503 The service was unable to fulfill your request. Please try again. [code=8a75]
+  2025-11-08 09:19:50.828 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Disconnected from event stream: API error when streaming iterator: 503 The service was unable to fulfill your request. Please try again. [code=8a75]
+  2025-11-08 09:19:50.830 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Reconnecting stream in 10.0 seconds
+  ...
+  2025-11-08 09:20:00.837 DEBUG (MainThread) [google_nest_sdm.subscriber_client] Sending streaming pull request for projects/<your cloud project>/subscriptions/home-assistant-prod
+  ...
+  2025-11-08 09:20:01.004 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Event stream connection established
+  2025-11-08 09:20:01.004 DEBUG (MainThread) [google_nest_sdm.subscriber_client] Starting streaming iterator
+  ```
+  {% endraw %}
+  {% enddetails %}
+
+  5. Confirm the Subscription ID from the `Sending streaming pull request` message in the debug logs match the Subscription ID verified above in the cloud console. If they do not match, then follow the integration configuration instructions to resolve this.
+
+- When reporting issues for the Nest integration please include details such as messages published by the device and details from the debug log.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, you may also want to remove any unused information in
+your Google Account that was added during the set up process.  See the integration
+configuration instructions for how to find where OAuth credentials and Device Access projects
+are configured.

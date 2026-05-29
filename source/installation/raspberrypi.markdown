@@ -14,12 +14,12 @@ Included section for this page is located under source/_includes/installation
 
 We will need a few things to get started with installing Home Assistant.
 
-- [Raspberry Pi 5](https://amzn.to/3UH6TcD) or [Raspberry Pi 4](https://amzn.to/2S0Gcl1) with [power supply](https://amzn.to/2ReZ2Vq) (Raspberry Pi 3 Model B is ok to get started, but the Model A does not have enough RAM).
-- [Micro SD Card](https://amzn.to/2X0Z2di).
+- [Raspberry Pi 5](https://www.amazon.com/dp/B0CRSPKPNG) or [Raspberry Pi 4](https://www.amazon.com/dp/B07TC2BK1X) with [power supply](https://www.amazon.com/dp/B07TYQRXTK) (make sure to choose a model with at least 2&nbsp;GB of RAM).
+- [Micro SD Card](https://www.amazon.com/dp/B07G3GMRYF).
   - Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html). Check for the label **A2** on the card. Application Class 2 cards perform better especially on small read and write operations and are better suited to host applications.
   - Make sure to use a card that provides at least 32&nbsp;GB.
-- SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
-- [Ethernet cable](https://amzn.com/dp/B00N2VISLW). Required for installation. After installation, Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
+- SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://www.amazon.com/dp/B0B9QZ4W4Y) if you don't have one. The brand doesn't matter, just pick the cheapest.
+- [Ethernet cable](https://www.amazon.com/dp/B00N2VISLW). Required for installation. After installation, Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
 
 {% note %}
 Remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) with your Raspberry Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
@@ -32,23 +32,23 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
 ### Write the image to your SD card
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/).
-   - **Troubleshooting**: If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool, such as Balena Etcher.
-2. Open the Raspberry Pi Imager and select your Raspberry Pi device.
+   - Troubleshooting: If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool, such as Balena Etcher.
+2. Open the Raspberry Pi Imager and select **OS**.
     ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
-3. Choose the operating system:
-   1. Select **Choose OS**.
-   2. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
-   3. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3, RPi&nbsp;4, or RPi&nbsp;5).
-    ![Choose the operating system](/images/installation/rpi-ha.webp)
-4. Choose the storage:
+3. Choose the operating system type:
+   - Select **Other specific-purpose OS** > **Home automation** > **Home Assistant**.
+    ![Choose the operating system type: Other specific-purpose OS](/images/installation/rpi-ha-1.webp)
+4. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3, RPi&nbsp;4, or RPi&nbsp;5).
+    ![Choose the Home Assistant OS](/images/installation/rpi-ha-2.webp)
+5. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
    2. Select your SD card.
     ![Select the storage](/images/installation/rpi-select-sd-card.png)
-5. Write the installer onto the SD card:
-   1. To start the process, select **Next**.
+6. Write the installer onto the SD card:
+   1. To start the process, select **Next**, then choose **Write**.
    2. Wait for the Home Assistant OS to be written to the SD card.
-    ![Select write](/images/installation/rpi_choose_next.png)
-6. Eject the SD card.
+    ![Select write](/images/installation/rpi_choose_write.png)
+7. Select **Finish** and eject the SD card.
 
 ### Start up your Raspberry Pi
 
@@ -78,7 +78,7 @@ Congratulations! You finished the Raspberry Pi setup!
 
 If Raspberry Pi Imager is not supported by your platform, you can download the Home Assistant image and use another imaging tool, such as Balena Etcher.
 
-To download the image to your computer, copy the correct URL for the Raspberry Pi 3, 4 or 5 (Note: there are 3 different links below!):
+To download the image to your computer, copy the correct URL for the Raspberry Pi 4 or 5 (Note: there are two different links below!):
 
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
@@ -86,14 +86,12 @@ To download the image to your computer, copy the correct URL for the Raspberry P
 - title: {{ variant.name }}
   content: |
 
-    ```text
+    {% raw %}```{% endraw %}text
     https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
-    ```    
+    {% raw %}```{% endraw %}
 
 {% endfor %}
 {% endtabbed_block %}
-
-{% include installation_survey.html %}
 
 With the Home Assistant Operating System installed and accessible, you can now continue with onboarding.
 

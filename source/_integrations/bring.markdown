@@ -28,19 +28,19 @@ related:
 ha_quality_scale: platinum
 ---
 
-The **Bring!** integration allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
+The **Bring!** {% term integration %} allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
 
 ## About Bring!  
 
 **Bring!** is a grocery shopping list app that allows users to create shared lists and organize grocery shopping with family, partners, or roommates.  
 
-Available as a mobile app on [Google Play for Android](https://play.google.com/store/apps/details?id=ch.publisheria.bring) and the [App Store for iOS](https://itunes.apple.com/app/apple-store/id580669177). **Bring!** also offers a web version at [web.getbring.com](https://web.getbring.com).  
+Available as a mobile app on [Google Play for Android](https://play.google.com/store/apps/details?id=ch.publisheria.bring) and the [App Store for iOS](https://apps.apple.com/app/id580669177). **Bring!** also offers a web version at [web.getbring.com](https://web.getbring.com).  
 
 ## How you can use this integration
 
 - **Automated notifications**: Receive alerts on your phone when essential items are added to your list or when the quantity of items reaches a set value.
 - **List updates based on events**: Automatically add items to your shopping list when appliances are low on supplies, like dishwasher salt, or need routine maintenance, such as tub cleaner for the washer.
-- **Voice control**: Use voice assistants connected to Home Assistant to add items to your **Bring!** list.
+- **Voice control**: Add items to your **Bring!** shopping list using [Assist](/voice_control/), Home Assistant’s voice assistant.
 - **Geofencing**: Receive reminders when you are near a specific store and need to pick up items, based on your location.
 
 ## Prerequisites
@@ -97,7 +97,7 @@ If you want to receive these notifications, you must use a dedicated account, as
 | `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
 | `item`                 |      yes | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
 
-### Available notification types
+#### Available notification types
 
 | Notification type   | Name of notification                                           |
 | ------------------- | -------------------------------------------------------------- |
@@ -117,7 +117,9 @@ The notification that list members receive differs from the label shown in the B
 
 {% endnote %}
 
-### Sending a going shopping notification
+{% details "Example YAML configuration" %}
+
+#### Sending a going shopping notification
 
 ```yaml
 ...
@@ -129,7 +131,7 @@ actions:
       message: going_shopping 
 ```
 
-### Sending an urgent message notification
+#### Sending an urgent message notification
 
 Note that for the notification type `urgent_message` the attribute `item` is **required**.
 
@@ -144,6 +146,40 @@ actions:
       item: Cilantro
 ```
 
+{% enddetails %}
+
+### Action: Send reaction
+
+Reactions in **Bring!** let users quickly acknowledge shopping list updates with emojis. The action `bring.send_reaction` in Home Assistant allows sending reactions like 👍 or ❤️ to the latest event from the [Activities entity](#events).
+
+| Data attribute         | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            |       no | The Bring! Activities entity to react to its latest activity. For example, event.shopping_list_activities.   |
+| `reaction`             |       no | Reaction to send in response to an activity by a list member.                                                |
+
+#### Available reactions
+
+| Reaction   | Emoji |
+|------------|-------|
+| `THUMBS_UP`| 👍🏼    |
+| `MONOCLE`  | 🧐    |
+| `DROOLING` | 🤤    |
+| `HEART`    | ❤️     |
+
+{% details "Example YAML configuration" %}
+
+```yaml
+...
+actions:
+  - action: bring.send_reaction
+    data:
+      reaction: HEART
+    target:
+      entity_id: event.shoppinglist_activities
+```
+
+{% enddetails %}
+
 ## Automations
 
 Get started with these automation examples for **Bring!**, each featuring ready-to-use blueprints!
@@ -156,7 +192,6 @@ Get notified when it's time to go grocery shopping. A notification is sent when 
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 triggers:
@@ -197,7 +232,6 @@ alias: "Bring!: Grocery shopping reminder 🛒"
 description: "Get notified when it's time to go grocery shopping. A notification is sent when your shopping list reaches a set threshold or when urgent items are added."
 ```
 
-{% endraw %}
 
 {% enddetails %}
 
@@ -218,7 +252,7 @@ The **Bring!** integration relies on an active internet connection to communicat
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

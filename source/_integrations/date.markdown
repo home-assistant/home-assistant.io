@@ -37,9 +37,9 @@ In addition, the entity can have the following states:
 
 Available {% term actions %}: `date.set_value`
 
-### Action`date.set_value`
+### Action: Set value
 
-Set a new value for the date {% term entity %}.
+The `date.set_value` action allows you to set a new value for a date {% term entity %}.
 
 | Data attribute | Optional | Description                                                                |
 | -------------- | -------- | -------------------------------------------------------------------------- |

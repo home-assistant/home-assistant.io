@@ -15,11 +15,15 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `fail2ban` {% term integration %} allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
+The **Fail2Ban** {% term integration %} allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
+
+{% important %}
+This integration is only available on {% term "Home Assistant Container" %} . Unfortunately, it cannot be used with {% term "Home Assistant Operating System" %}.
+{% endimportant %}
 
 {% important %}
 
-Your system must have `fail2ban` installed and correctly configured for this sensor to work. In addition, Home Assistant must be able to read the `fail2ban` log file.
+Your system must have `fail2ban` installed and correctly configured for this sensor to work. In addition, the `fail2ban` log file must be mounted to the Home Assistant container to be able to read it.
 
 {% endimportant %}
 

@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `mqtt_statestream` {% term integration %} publishes state changes in Home Assistant to individual MQTT topics. [The MQTT integration](/integrations/mqtt/) is a prerequisite for MQTT Statestream to work.
+The **MQTT Statestream** {% term integration %} publishes state changes in Home Assistant to individual MQTT topics. [The MQTT integration](/integrations/mqtt/) is a prerequisite for MQTT Statestream to work.
 
 ## Configuration
 

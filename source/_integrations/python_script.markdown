@@ -9,7 +9,7 @@ ha_domain: python_script
 ha_integration_type: integration
 ---
 
-This integration allows you to write Python scripts that are exposed as actions in Home Assistant. Each Python file created in the `<config>/python_scripts/` folder will be exposed as an action. The content is not cached so you can easily develop: edit file, save changes, perform action. The scripts are run in a sandboxed environment. The following variables are available in the sandbox:
+This {% term integration %} allows you to write Python scripts that are exposed as actions in Home Assistant. Each Python file created in the `<config>/python_scripts/` folder will be exposed as an action. The content is not cached so you can easily develop: edit file, save changes, perform action. The scripts are run in a sandboxed environment. The following variables are available in the sandbox:
 
 | Name       | Description                                                                                                                                |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -91,7 +91,7 @@ hass.bus.fire("hello_world_event", {"wow": "from a Python script!"})
 
 This script doesn't output anything. However, you can view the events being fired in the Developer tools.
 
-From a separate browser window or tab, go to `Developer Tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
+From a separate browser window or tab, go to `Developer tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
 
 ```yaml
 event_type: hello_world_event
@@ -147,17 +147,15 @@ output["hello"] = f"hello {data.get('name', 'world')}"
 
 The above `python_script` can be called using the following YAML and return a result to later steps.
 
-{% raw %}
-
 ```yaml
 - action: python_script.hello_world
   response_variable: python_script_output
-- action: notify.mobile_app_iphone
+- action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     message: "{{ python_script_output['hello'] }}"
 ```
-
-{% endraw %}
 
 ## Documenting your Python scripts
 
@@ -177,15 +175,15 @@ turn_on_light:
       example: [255, 0, 0]
 ```
 
-For more examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+For more examples, visit the [Scripts section](https://community.home-assistant.io/c/26) in our forum.
 
 ## Actions
 
 Available actions: `reload`.
 
-### Action `python_script.reload`
+### Action: Reload
 
-Reload all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
+The `python_script.reload` action reloads all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
 
 Use this when creating a new Python script, or after updating the `<config>/python_scripts/services.yaml` file. 
 

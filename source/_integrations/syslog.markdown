@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `syslog` {% term integration %} allows you to deliver notifications from Home Assistant to the local syslog.
+The **Syslog** {% term integration %} allows you to deliver notifications from Home Assistant to the local syslog.
 
 To enable syslog notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

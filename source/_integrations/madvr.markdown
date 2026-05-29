@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The madVR Envy allows for the automation and control of [madVR Envy devices](https://madvrenvy.com).
+The **madVR Envy** {% term integration %} allows for the automation and control of [madVR Envy devices](https://madvrenvy.com).
 
 ## Supported Devices
 

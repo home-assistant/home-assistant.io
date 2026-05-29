@@ -3,6 +3,7 @@ title: WiZ
 description: Instructions on setting up WiZ within Home Assistant.
 ha_category:
   - Binary sensor
+  - Fan
   - Light
   - Number
   - Sensor
@@ -13,15 +14,17 @@ ha_dhcp: true
 ha_config_flow: true
 ha_codeowners:
   - '@sbidy'
+  - '@arturpragacz'
 ha_domain: wiz
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - fan
   - light
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **WiZ** {% term integration %} allows you to control your WiZ lights and smart sockets.

@@ -11,6 +11,7 @@ ha_domain: kitchen_sink
 ha_iot_class: Calculated
 ha_platforms:
   - button
+  - fan
   - image
   - lawn_mower
   - lock
@@ -24,7 +25,7 @@ related:
     title: Configuration file
 ---
 
-The Kitchen Sink {% term integration %} contains demonstrations of various odds and ends.
+The **Kitchen Sink** {% term integration %} contains demonstrations of various odds and ends.
 
 This sets up a demo environment of features which are obscure or which represent incorrect behavior, and are thus not wanted in the `demo` integration.
 

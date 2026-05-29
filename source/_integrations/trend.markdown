@@ -17,9 +17,9 @@ ha_codeowners:
   - '@jpbede'
 ---
 
-The `trend` platform allows you to create sensors which show the trend of
-numeric `state` or`state_attributes` from other entities. This sensor requires
-at least two updates of the underlying sensor to establish a trend.
+The **Trend** {% term integration %} allows you to create sensors that show the trend of
+numeric `state` or `state_attributes` from other entities. This sensor requires
+at least two updates of the tracked entity to establish a trend.
 Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
 
@@ -29,9 +29,9 @@ as part of automations, where you want to base an action on a trend.
 Name:
   description: The name the sensor should have. You can change it again later.
 Entity that the sensor tracks:
-  description: The sensor entity that is to be tracked and whose trend is to be detected.
+  description: The sensor or counter entity that this sensor tracks.
 Attribute of the entity that the sensor tracks:
-  description: The attribute of the previous selected sensor entity that this sensor tracks. If no attribute is specified then the sensor will track the state.
+  description: The attribute of the previously selected entity that this sensor tracks. If no attribute is specified, the sensor will track the state.
 Invert the result:
   description: Invert the result. A `true` value would mean descending rather than ascending.
 {% endconfiguration_basic %}
@@ -106,6 +106,12 @@ sensors:
       required: false
       type: integer
       default: 0
+    unique_id:
+      description: >
+        An ID that uniquely identifies this sensor. Set this to a unique value to allow
+        customization through the UI and to enable the sensor to be placed in areas.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Using Multiple Samples
@@ -148,6 +154,7 @@ binary_sensor:
     sensors:
       temp_falling:
         entity_id: sensor.outside_temperature
+        unique_id: outside_temp_falling_trend
         sample_duration: 7200
         max_samples: 120
         min_samples: 20
@@ -156,6 +163,7 @@ binary_sensor:
 
       temp_rising:
         entity_id: sensor.outside_temperature
+        unique_id: outside_temp_rising_trend
         sample_duration: 7200
         max_samples: 120
         min_samples: 20

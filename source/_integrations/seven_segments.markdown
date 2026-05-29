@@ -16,24 +16,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `seven_segments` image processing {% term integration %} allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
-
-{% details "Notes for Home Assistant Core Installations" %}
-
-`ssocr` needs to be available on your system. Check the installation instruction below:
-
-```bash
-sudo dnf -y install imlib2-devel # Fedora
-sudo apt install libimlib2-dev # Ubuntu
-brew install imlib2 # macOS
-git clone https://github.com/auerswal/ssocr.git
-cd ssocr
-make
-sudo make PREFIX=/usr install # On most systems
-make deb # (Optional) This allows you to make a deb so that you apt is aware of ssocr
-```
-
-{% enddetails %}
+The **Seven Segments OCR** {% term integration %} allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
 
 ## Configuration
 
@@ -141,8 +124,6 @@ image_processing:
 
 With the help of a [template sensor](/integrations/template), the value can be shown as badge.
 
-{% raw %}
-
 ```yaml
 sensor:
   - platform: template
@@ -152,5 +133,3 @@ sensor:
         friendly_name: "Ampere"
         unit_of_measurement: "A"
 ```
-
-{% endraw %}

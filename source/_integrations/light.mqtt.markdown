@@ -8,7 +8,7 @@ ha_release: 0.8
 ha_domain: mqtt
 ---
 
-The `mqtt` light platform lets you control your MQTT enabled lights through one of the supported message schemas, `default`, `json` or `template`.
+The **MQTT Light** {% term integration %} lets you control your MQTT enabled lights through one of the supported message schemas, `default`, `json` or `template`.
 
 ## Comparison of light MQTT schemas
 
@@ -20,6 +20,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 | Effects           | ✔                            | ✔                      | ✔                              |
 | Flashing          | ✘                            | ✔                      | ✔                              |
 | HS Color          | ✔                            | ✔                      | ✔                              |
+| Light group       | ✘                            | ✔                      | ✘                              |
 | RGB Color         | ✔                            | ✔                      | ✔                              |
 | RGBW Color        | ✔                            | ✔                      | ✘                              |
 | RGBWW Color       | ✔                            | ✔                      | ✘                              |
@@ -42,12 +43,17 @@ Optimistic mode can be forced, even if the `state_topic` is available. Try to en
 Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
 The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`.
 
+To use an MQTT basic light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   - light:
       command_topic: "office/rgb1/light/switch"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -70,7 +76,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -79,7 +85,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -91,7 +97,7 @@ brightness_command_topic:
   required: false
   type: string
 brightness_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
   required: false
   type: template
 brightness_scale:
@@ -104,7 +110,7 @@ brightness_state_topic:
   required: false
   type: string
 brightness_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the brightness value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the brightness value."
   required: false
   type: template
 color_mode_state_topic:
@@ -112,11 +118,11 @@ color_mode_state_topic:
   required: false
   type: string
 color_mode_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the color mode."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the color mode."
   required: false
   type: template
 color_temp_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `color_temp_command_topic`. Available variables: `value`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to compose message which will be sent to `color_temp_command_topic`. Available variables: `value`."
   required: false
   type: template
 color_temp_command_topic:
@@ -133,12 +139,16 @@ color_temp_state_topic:
   required: false
   type: string
 color_temp_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the color temperature value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the color temperature value."
   required: false
   type: template
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
@@ -194,7 +204,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -216,7 +226,7 @@ effect_command_topic:
   required: false
   type: string
 effect_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `effect_command_topic`. Available variables: `value`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to compose message which will be sent to `effect_command_topic`. Available variables: `value`."
   required: false
   type: template
 effect_list:
@@ -228,11 +238,15 @@ effect_state_topic:
   required: false
   type: string
 effect_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the effect value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the effect value."
   required: false
   type: template
+group:
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
+  required: false
+  type: list
 hs_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `hs_command_topic`. Available variables: `hue` and `sat`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to compose message which will be sent to `hs_command_topic`. Available variables: `hue` and `sat`."
   required: false
   type: template
 hs_command_topic:
@@ -247,7 +261,7 @@ hs_state_topic:
   required: false
   type: string
 hs_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the HS value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the HS value."
   required: false
   type: template
 icon:
@@ -255,7 +269,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -271,6 +285,27 @@ max_mireds:
   description: The maximum color temperature in mireds.
   required: false
   type: integer
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 min_kelvin:
   description: The minimum color temperature in Kelvin.
   required: false
@@ -285,10 +320,6 @@ name:
   required: false
   type: string
   default: MQTT Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 on_command_type:
   description: "Defines when on the payload_on is sent. Using `last` (the default) will send any style (brightness, color, etc) topics first and then a `payload_on` to the `command_topic`. Using `first` will send the `payload_on` and then any style topics. Using `brightness` will only send brightness commands instead of the `payload_on` to turn the light on."
   required: false
@@ -333,7 +364,7 @@ retain:
   type: boolean
   default: false
 rgb_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
   required: false
   type: template
 rgb_command_topic:
@@ -345,11 +376,11 @@ rgb_state_topic:
   required: false
   type: string
 rgb_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the RGB value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the RGB value."
   required: false
   type: template
 rgbw_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `rgbw_command_topic`. Available variables: `red`, `green`, `blue` and `white`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to compose message which will be sent to `rgbw_command_topic`. Available variables: `red`, `green`, `blue` and `white`."
   required: false
   type: template
 rgbw_command_topic:
@@ -361,11 +392,11 @@ rgbw_state_topic:
   required: false
   type: string
 rgbw_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the RGBW value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the RGBW value."
   required: false
   type: template
 rgbww_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `rgbww_command_topic`. Available variables: `red`, `green`, `blue`, `cold_white` and `warm_white`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to compose message which will be sent to `rgbww_command_topic`. Available variables: `red`, `green`, `blue`, `cold_white` and `warm_white`."
   required: false
   type: template
 rgbww_command_topic:
@@ -377,7 +408,7 @@ rgbww_state_topic:
   required: false
   type: string
 rgbww_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the RGBWW value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the RGBWW value."
   required: false
   type: template
 schema:
@@ -390,7 +421,7 @@ state_topic:
   required: false
   type: string
 state_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the state value. The template should return the values defined by `payload_on` (defaults to \"ON\") and `payload_off` (defaults to \"OFF\") settings, or \"None\"."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the state value. The template should return the values defined by `payload_on` (defaults to \"ON\") and `payload_off` (defaults to \"OFF\") settings, or \"None\"."
   required: false
   type: template
 unique_id:
@@ -407,7 +438,7 @@ white_scale:
   type: integer
   default: 255
 xy_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to compose message which will be sent to `xy_command_topic`. Available variables: `x` and `y`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to compose message which will be sent to `xy_command_topic`. Available variables: `x` and `y`."
   required: false
   type: template
 xy_command_topic:
@@ -419,7 +450,7 @@ xy_state_topic:
   required: false
   type: string
 xy_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the XY value."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the XY value."
   required: false
   type: template
 {% endconfiguration %}
@@ -440,8 +471,6 @@ In this section you will find some real-life examples of how to use this sensor.
 
 To enable a light with brightness and RGB support in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -461,8 +490,6 @@ mqtt:
       payload_off: "OFF"
       optimistic: false
 ```
-
-{% endraw %}
 
 ### Brightness and no RGB support
 
@@ -542,6 +569,9 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
 
+To use an MQTT JSON light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -549,6 +579,8 @@ mqtt:
       schema: json
       command_topic: "home/rgb1/set"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -571,7 +603,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -580,7 +612,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -605,6 +637,10 @@ color_temp_kelvin:
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
@@ -644,7 +680,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -681,12 +717,16 @@ flash_time_short:
   required: false
   type: integer
   default: 2
+group:
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -702,6 +742,27 @@ max_mireds:
   description: The maximum color temperature in mireds.
   required: false
   type: integer
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 min_kelvin:
   description: The minimum color temperature in Kelvin.
   required: false
@@ -716,10 +777,6 @@ name:
   required: false
   type: string
   default: MQTT JSON Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
@@ -759,7 +816,7 @@ state_topic:
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
+  description: A list of color modes supported by the light. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
 transition:
@@ -948,6 +1005,9 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
 
+To use an MQTT template light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -957,6 +1017,8 @@ mqtt:
       command_on_template: "on"
       command_off_template: "off"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -979,7 +1041,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -988,7 +1050,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -996,11 +1058,11 @@ availability_topic:
   required: false
   type: string
 blue_template:
-  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract blue color from the state payload value. Expected result of the template is an integer from 0-255 range."
+  description: "[Template](/docs/templating/where-to-use/#mqtt) to extract blue color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: template
 brightness_template:
-  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
+  description: "[Template](/docs/templating/where-to-use/#mqtt) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: template
 color_temp_kelvin:
@@ -1009,20 +1071,24 @@ color_temp_kelvin:
   type: boolean
   default: false
 color_temp_template:
-  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract color temperature from the state payload value. Expected result of the template is an integer. If `color_temp_kelvin` is `true` the expected value is in Kelvin else mireds are expected."
+  description: "[Template](/docs/templating/where-to-use/#mqtt) to extract color temperature from the state payload value. Expected result of the template is an integer. If `color_temp_kelvin` is `true` the expected value is in Kelvin else mireds are expected."
   required: false
   type: template
 command_off_template:
-  description: "The [template](/docs/configuration/templating/#using-command-templates-with-mqtt) for *off* state changes. Available variables: `state` and `transition`."
+  description: "The [template](/docs/templating/where-to-use/#mqtt) for *off* state changes. Available variables: `state` and `transition`."
   required: true
   type: template
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#using-command-templates-with-mqtt) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `hue`, `sat`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `hue` is provided as float from range 0-360. Value of `sat` is provided as float from range 0-100. Value of `color_temp` is provided as integer representing mired or Kelvin units if `color_temp_kelvin` is `true`."
+  description: "The [template](/docs/templating/where-to-use/#mqtt) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `hue`, `sat`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `hue` is provided as float from range 0-360. Value of `sat` is provided as float from range 0-100. Value of `color_temp` is provided as integer representing mired or Kelvin units if `color_temp_kelvin` is `true`."
   required: true
   type: template
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
@@ -1062,7 +1128,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -1080,19 +1146,23 @@ effect_list:
   required: false
   type: [string, list]
 effect_template:
-  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract effect from the state payload value."
+  description: "[Template](/docs/templating/where-to-use/#mqtt) to extract effect from the state payload value."
   required: false
   type: template
 green_template:
-  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
+  description: "[Template](/docs/templating/where-to-use/#mqtt) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: template
+group:
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -1108,6 +1178,27 @@ max_mireds:
   description: The maximum color temperature in mireds.
   required: false
   type: integer
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 min_kelvin:
   description: The minimum color temperature in Kelvin.
   required: false
@@ -1122,10 +1213,6 @@ name:
   required: false
   type: string
   default: MQTT Template Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
@@ -1151,7 +1238,7 @@ qos:
   type: integer
   default: 0
 red_template:
-  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract red color from the state payload value. Expected result of the template is an integer from 0-255 range."
+  description: "[Template](/docs/templating/where-to-use/#mqtt) to extract red color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: template
 schema:
@@ -1160,7 +1247,7 @@ schema:
   type: string
   default: basic
 state_template:
-  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract state from the state payload value."
+  description: "[Template](/docs/templating/where-to-use/#mqtt) to extract state from the state payload value."
   required: false
   type: template
 state_topic:
@@ -1185,8 +1272,6 @@ In this section you find some real-life examples of how to use this light.
 
 For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -1203,13 +1288,9 @@ mqtt:
       blue_template: "{{ value.split(',')[2].split('-')[2] }}"
 ```
 
-{% endraw %}
-
 ### JSON payload
 
 For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your {% term "`configuration.yaml`" %} file:
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1245,16 +1326,12 @@ mqtt:
       effect_template: '{{ value_json.effect }}'
 ```
 
-{% endraw %}
-
 ### CCT light (brightness and temperature)
 
 This example comes from a configuration of Shelly RGBW Bulb working in White mode.
 `max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.
 The code also ensures bi-directional conversion of brightness scale between 0-100 (required by the device) and 0-255 (required by Home Assistant).
 Add the following to your {% term "`configuration.yaml`" %} file:
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1286,8 +1363,6 @@ mqtt:
       retain: false
       optimistic: false  
 ```
-
-{% endraw %}
 
 ### Template schema - No brightness or color support
 

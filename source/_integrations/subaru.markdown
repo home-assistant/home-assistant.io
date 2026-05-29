@@ -13,18 +13,19 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This integration retrieves vehicle information and actuates remote services provided by [Subaru STARLINK](https://www.subaru.com/subaru-starlink/starlink-safety-and-security.html) (currently only available in USA and Canada).
+This {% term integration %} retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
 
-This integration requires a telematics equipped Subaru and an active vehicle subscription to the Subaru STARLINK service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com).
+This integration requires a telematics equipped Subaru and an active vehicle subscription to the MySubaru service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com). 
 
-Subaru has deployed three generations of telematics with different feature sets. Use the table below to determine your vehicle's telematics generation and capabilities. This table is a best guess based upon what Subaru [lists as available features](https://www.subaru.com/vehicle-info/subaru-starlink/starlink-safety-and-security/compare-packages.html?model=&year=).
+Subaru has deployed three generations of telematics with different feature sets. Use the table below to determine your vehicle's telematics generation and capabilities. This table is a best guess.
 
 | Model     | Gen 1     | Gen 2     | Gen 3 |
 |-----------|-----------|-----------|-------|
@@ -37,7 +38,11 @@ Subaru has deployed three generations of telematics with different feature sets.
 | Outback   | 2016-2019 | 2020-2022 | 2023+ |
 | WRX       | 2017-2021 | 2022-2023 |  ---  |
 
-In addition to the telematics generational differences, there are two levels of STARLINK subscriptions, "Safety Plus" and "Security Plus". All remote services (such as locks and location tracking) require a "Security Plus" level subscription.
+{% note %}
+This integration *does not* support the Subaru Solterra EV or any other Subaru that uses the [SubaruConnect](https://www.subaru.com/vehicle-info/connected-services/subaruconnect.html) service.
+{% endnote %}
+
+In addition to the telematics generational differences, there are differing levels of MySubaru subscriptions. Remote services (such as locks and location tracking) require either a "Companion+" or "Security" level subscription.
 
 {% include integrations/config_flow.md %}
 
@@ -65,7 +70,7 @@ Available sensors will vary by model, year, and subscription type. The integrati
 
 This integration supports remote locking and unlocking of vehicle doors. If doors are remotely unlocked, they will automatically relock if a door is not opened within a minute. There is no remote notification of this automatic relock.  
 {% note %}
-The current lock status is always unknown due to the fact that the Subaru API does not report this data.
+This integration does not yet support tracking the current lock/unlock state.
 {% endnote %}
 
 ### Unlock specific door
@@ -82,11 +87,19 @@ The action requires the `door` parameter which may be set to one of the followin
 
 Tracks the most recently reported location of the vehicle. The vehicle reports its location when it is turned off. If enabled, the [polling option](#options) will also update the vehicle location.
 
+## Remote start
+
+Remote start and stop is available on supported Gen 2/3 vehicles.
+
+### Climate preset selection
+
+Currently the Remote Start action will use the built-in "Auto" climate preset. Support for selecting a climate preset will be added in the future.
+
 ## Options
 
 Subaru integration options are set via:
 
-**Settings** -> **Devices & services** -> **Subaru** -> **Options**.
+{% my integrations title="**Settings** > **Devices & services**" %} > **Subaru** > **Options**.
 
 - **Enable vehicle polling *[Default: off]*:** When enabled, vehicle polling will send a remote command to your vehicle every 2 hours to obtain new sensor data. This involves "waking" your vehicle and requesting that it send new data to Subaru servers. Without vehicle polling, new sensor data is only received when the vehicle automatically pushes data (normally after engine shutdown). This option only applies to vehicles with Security Plus subscriptions because it uses a "locate" command to request the data.
 
@@ -96,15 +109,9 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 
 ## FAQ - Troubleshooting
 
-**Q:** I have a Subaru STARLINK Security Plus subscription. How do I use the locator, and remote light/horn features in Home Assistant?
+**Q:** How do I use the locator, and remote light/horn features in Home Assistant?
 
-**A:** Those features are supported by the underlying [subarulink](https://github.com/G-Two/subarulink) Python package, and will be integrated into Home Assistant soon. Both Gen 1 and Gen 2 will be supported.
-
----
-
-**Q:** Will remote start ever be supported?
-
-**A:** Yes, Gen 2/3 remote start and climate settings are supported by the underlying [subarulink](https://github.com/G-Two/subarulink) Python package, and will be integrated into Home Assistant soon.
+**A:** Those features are supported by the underlying [subarulink](https://github.com/G-Two/subarulink) Python package, and will be integrated into Home Assistant soon.
 
 ---
 **Q:** Why do I need to enter my PIN during configuration?
@@ -115,7 +122,7 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 
 **Q:** Why wasn't I asked to enter my PIN during configuration?
 
-**A:** A PIN is only required to send a remote command. If you do not have a STARLINK Security Plus subscription, you will not be prompted for a PIN.
+**A:** A PIN is only required to send a remote command. If you do not have a subscription that supports remote commands, you will not be prompted for a PIN.
 
 ---
 

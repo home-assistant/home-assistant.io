@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The [NYT Games](https://www.nytimes.com/crosswords) integration fetches data about your progress on their daily puzzles.
+The [NYT Games](https://www.nytimes.com/crosswords) {% term integration %} fetches data about your progress on their daily puzzles.
 
 ## Prerequisites
 

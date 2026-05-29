@@ -1,9 +1,9 @@
 ---
 title: "Multiple dashboards"
-description: "Multiple powerful and configurable dashboards in Home Assistant."
+description: "Create more than one dashboard in Home Assistant: a private overview for yourself, a simpler one for the rest of the household, and a tablet view in the kitchen."
 related:
   - docs: /integrations/logbook/
-    title: Logbook integration
+    title: Activity integration
   - docs: /integrations/history/
     title: History integration
   - docs: /integrations/todo/
@@ -12,29 +12,87 @@ related:
     title: Views
   - docs: /dashboards/iframe/
     title: Webpage card
+  - docs: /docs/organizing/
+    title: Grouping your assets
+  - docs: /docs/organizing/areas/
+    title: Grouping by areas
 ---
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-Under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}, you can see your own dashboards and some of the predefined ones.
+Under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}, you can see your own dashboards as well as the predefined, built-in dashboards.
 
 <p class='img'>
 <img src='/images/dashboards/dashboard-manage-01.png' alt='Screenshot of the dashboard list'>
 Screenshot of the Dashboard list.
 </p>
 
-## Home Assistant default dashboards
+## Home Assistant built-in dashboards
 
-Home Assistant ships with some dashboards out of the box:
+**Built-in** dashboards are available out of the box, cannot be deleted, and there are limited options on how much you can edit them.
 
-- Overview
-- Energy
-- [Map](#map-dashboard)
-- Logbook
-- History
-- To-do lists
+### Dashboards shown in the sidebar by default
 
-Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Logbook** and **History** dashboards are powered by their respective integrations.
+Predefined dashboards that are available in the sidebar by default:
+
+- [Home dashboard](#home-dashboard). Category: built-in. It is shown in the sidebar only while it is set as your default dashboard. If you set another dashboard as default, that dashboard appears in the sidebar instead.
+- [Activity dashboard](#activity-dashboard). Category: built-in.
+- Energy dashboard. Category: built-in.
+- [History dashboard](#history-dashboard). Category: built-in.
+- [Map dashboard](#map-dashboard). Category: User created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as a **User created** dashboard.
+- [To-do lists dashboard](#to-do-lists-dashboard). Category: built-in.
+
+<p class='img'>
+<img src='/images/dashboards/dashboards-out-of-the-box.png' alt='Screenshot of the dashboard list on a new installation'>
+Screenshot of the Dashboard list on a new installation.
+</p>
+
+### Dashboards only shown in the dashboard list by default
+
+Some of the built-in dashboards are not shown in the sidebar by default, but are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+
+- **Lights** dashboards: Overview of your lights, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/).
+- **Security** dashboards: Overview of your security-related devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The security-related devices include devices such as alarm, lock, camera, doors/covers, motion sensors, and binary sensor.
+- **Climate** dashboards: Overview of your climate devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The climate dashboard includes devices such as heating and cooling devices, windows, and fans.
+- **Energy** dashboards: Allows you to visualize your energy consumption and production, if you have such entities available. This includes electricity from grid and from solar panels, gas and water consumption, and the status of your battery storage.
+
+Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards for example are powered by their respective integrations.
+
+### Home dashboard
+
+The **Home** dashboard is an entry point to open other built-in dashboards based on areas or topics such as lights, climate, or media players.
+
+The **Home** dashboard is prepopulated by default and shows your {% term entities %} [grouped](/docs/organizing/) by [areas](/docs/organizing/areas/).
+
+- It uses the [sections view](/dashboards/sections/) type and [tile cards](/dashboards/tile/).
+- The first view shows all your areas and the {% term entities %} that are [assigned to those areas](/docs/organizing/areas/).
+- In addition, the dashboard provides a separate view for each area.
+- {% term entities Entities%}, such as lights, covers, and cameras are automatically grouped by {% term domain %}.
+
+<p class='img'>
+<img src='/images/dashboards/home-dashboard-overview.png' alt='Screenshot of the built-in Home dashboard'>
+Screenshot of the built-in Home dashboard.
+</p>
+
+#### Editing the Home dashboard
+
+1. Make sure all the {% term entities %} are [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
+2. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
+3. You can add entities to customize which items appear on your dashboard.
+4. If you don't like how the cards are arranged, [you can reorder floors and areas](/docs/organizing/areas/#reordering-areas-on-built-in-dashboards) under {% my areas title="**Settings** > **Areas, labels & zones**" %}.
+
+#### Troubleshooting: entity is not showing
+
+1. Not all devices or entity types are automatically added to the **Home** dashboard.
+2. Make sure the entity is [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items) and check the dashboard again.
+
+### History dashboard
+
+The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
+
+### Activity dashboard
+
+The predefined **Activity** dashboard is powered by the [Activity integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Activity integration.
 
 ### Map dashboard
 
@@ -43,14 +101,6 @@ The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/
 #### Maps and presence detection
 
 If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
-
-### Logbook dashboard
-
-The predefined **Logbook** dashboard is powered by the [Logbook integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Logbook integration.
-
-### History dashboard
-
-The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
 
 ### To-do lists dashboard
 
@@ -74,31 +124,57 @@ Note that not every webpage can be embedded due to security restrictions that
 some sites have in place. These restrictions are enforced by your browser and prevent
 embedding them into a Home Assistant dashboard.
 
+## Setting a default dashboard
+
+The default dashboard is the dashboard that is shown when you open Home Assistant. It is listed on top of the sidebar.
+
+- If you have administrator rights, you can set an initial default dashboard for all users.
+   1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+   2. In the list of dashboards, find the dashboard of interest and select the {% icon "mdi:dots-vertical" %} menu.
+   3. Select **Set as default**.
+
+      ![Setting a default dashboard for all users](/images/dashboards/dashboards-set-default.png)
+
+   4. **Result**: This dashboard is shown to all users when they open Home Assistant.
+- To change your personal default dashboard, you don't need administrator rights.
+   1. Go to {% my profile title="**User profile**" %}.
+   2. On the **General** tab, under **Dashboard**, select your default dashboard.
+
+      ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
+   3. If you want your wall tablet to use a different dashboard than your other devices, use a separate user profile for your wall tablet.
+      - If you set your phone to one dashboard and your wall tablet to another, using the same user, they’ll both revert to the default dashboard.
+
 ## Creating a new dashboard
 
-The default **Overview** dashboard updates itself when you add new devices, as long as you do not edit the default dashboard. If you want a customized dashboard, it is recommended not to change the **Overview** dashboard, but to create a new dashboard instead.
+The built-in dashboards update themselves when you add new devices. If you want a customized dashboard, it is recommended not to change the **Overview** dashboard, but to create a new dashboard instead.
 
 This will leave the default dashboard intact.
 
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. Select **Add dashboard**.
-   ![Screenshot of the dashboard list](/images/dashboards/dashboard-manage-02.png)
 3. In the dialog, choose one of the options:
-   - If you want to start with a pre-populated dashboard, choose **Default dashboard**.
+   - If you want to start with a pre-populated dashboard, choose **Overview (Legacy)** or one of the suggested ones, such as the **Map** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
+
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
-   - **Result**: The dashboard is added.
-5. Open your new dashboard and in the top right of the screen, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
-6. If you chose **Default dashboard**, you need to take control before you can edit it:
-   - The **Edit dashboard** dialog appears.
-     - By editing the dashboard, you are taking over control of this dashboard.
-     - This means that it is no longer automatically updated when new dashboard elements become available.
+   - Result: The dashboard is added.
+
+## Editing a new dashboard
+
+1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
+   - Result: The **Edit dashboard** dialog appears.
+2. Select the areas you want to show on this new dashboard and select **Save**.
+3. If you want to have more detailed control over the dashboard, you need to take control:
+     - This means that this dashboard is no longer automatically updated when new dashboard elements become available.
      - Once you've taken control, you can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
-7. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
+4. You can now [add a badge](/dashboards/badges/#adding-a-badge-to-your-dashboard), [add a card](/dashboards/cards/#adding-cards-to-your-dashboard), or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
+5. To **undo** or **redo** a change, select the buttons on top of the dashboard.
+
+   ![Screenshot of the undo and redo buttons on top of the dashboard](/images/dashboards/dashboard-undo-redo.png)
 
 ## Deleting a dashboard
 
@@ -109,80 +185,55 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
 
-## Using YAML for the Overview dashboard
+## Adding YAML dashboards
 
-To change the **Overview** dashboard, create a new file `ui-lovelace.yaml` in your configuration directory and add the following section to your `configuration.yaml` and restart Home Assistant:
+You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file.
 
-```yaml
-lovelace:
-  mode: yaml
-```
+If it is the first time you edit the `configuration.yaml` file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configuration.yaml) to know how to install a file editor and find the file.
 
-A good way to start this file is to copy and paste the "Raw configuration" from the UI so your manual configuration starts the same as your existing UI.
-
-- In your sidebar, select **Overview**.
-- In the top-right corner, select the pencil icon.
-- Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Raw configuration editor**.
-- There you see the configuration for your current dashboard. Copy that into the `<config>/ui-lovelace.yaml` file.
-
-Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore, and new entities will not automatically be added to your UI.
-
-When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
-
-To revert back to using the UI to edit your dashboard, remove the `lovelace` section from your `configuration.yaml` and copy the contents of your `ui-lovelace.yaml` into the raw configuration section of Home Assistant and restart.
-
-## Adding more dashboards with YAML
-
-It is also possible to use YAML to define multiple dashboards. Each dashboard will be loaded from its own YAML file.
+To add YAML dashboards, in your `configuration.yaml` file, create a `dashboards:` section under the top-level `lovelace:` key.
 
 ```yaml
 lovelace:
-  mode: yaml
-  # Include external resources only add when mode is yaml, otherwise manage in the resources in the dashboard configuration panel.
+  # Use resource_mode to load resources from YAML
+  resource_mode: yaml
+  # Include external resources (requires resource_mode: yaml)
   resources:
     - url: /local/my-custom-card.js
       type: module
     - url: /local/my-webfont.css
       type: css
-  # Add more dashboards
+  # Add YAML dashboards
   dashboards:
-    lovelace-generated: # Needs to contain a hyphen (-)
+    my-home: # Needs to contain a hyphen (-)
       mode: yaml
-      filename: notexist.yaml
-      title: Generated
+      filename: my-home.yaml
+      title: My home
+      icon: mdi:home-outline
+      show_in_sidebar: true
+    dashboard-hidden:
+      mode: yaml
+      filename: hidden.yaml
+      title: Hidden
+      show_in_sidebar: false
+    dashboard-admin:
+      mode: yaml
+      title: Admin
       icon: mdi:tools
       show_in_sidebar: true
       require_admin: true
-    lovelace-hidden:
-      mode: yaml
-      title: hidden
-      show_in_sidebar: false
-      filename: hidden.yaml
-```
-
-You can also add YAML dashboards when your main dashboard is UI configured:
-
-```yaml
-lovelace:
-  mode: storage
-  # Add yaml dashboards
-  dashboards:
-    lovelace-yaml:
-      mode: yaml
-      title: YAML
-      icon: mdi:script
-      show_in_sidebar: true
-      filename: dashboards.yaml
+      filename: admin.yaml
 ```
 
 {% configuration dashboards %}
-mode:
-  required: true
-  description: "In what mode should the main dashboard be, `yaml` or `storage` (UI managed)."
+resource_mode:
+  required: false
+  description: "Controls how resources are loaded. Set to `yaml` to load resources from the `resources` key in YAML configuration. Set to `storage` to manage resources through the UI."
   type: string
+  default: storage
 resources:
   required: false
-  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` action directly."
+  description: "List of resources that should be loaded. Requires `resource_mode: yaml` to take effect. After changing the YAML configuration, select the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and select **Reload resources** to pick up changes without restarting Home Assistant. You can also call the `lovelace.reload_resources` action directly."
   type: list
   keys:
     url:
@@ -195,7 +246,7 @@ resources:
       type: string
 dashboards:
   required: false
-  description: Additional YAML dashboards. The key is used for the URL and should contain a hyphen (`-`)
+  description: "Additional YAML dashboards. The key is used for the URL and should contain a hyphen (`-`), except for `lovelace`, which is allowed for backward compatibility."
   type: map
   keys:
     mode:

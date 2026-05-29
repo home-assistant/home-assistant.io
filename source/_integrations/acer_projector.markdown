@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `acer_projector` switch platform allows you to control the state of RS232 connected projectors from [Acer](https://www.acer.com/).
+The **Acer Projector** integration allows you to control the state of RS232 connected projectors from [Acer](https://www.acer.com/).
 
 ## Configuration
 

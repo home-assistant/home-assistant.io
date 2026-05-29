@@ -61,7 +61,7 @@ send_delay:
   default: 0.0
   type: float
 whitelist:
-  description: You can define a whitelist to prevent that too many unwanted RF codes (e.g., the neighbors weather station) are put on your HA event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
+  description: You can define a whitelist to prevent that too many unwanted RF codes (e.g., the neighbors weather station) are put on your Home Assistant event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
   required: false
   type: string
 {% endconfiguration %}
@@ -318,7 +318,7 @@ switch:
 
 ## Light
 
-Pilight dimmer devices, which can have different brightness values, can be used as a light. 
+Pilight dimmer devices, which can have different brightness values, can be used as a light.
 The configuration parameters are the same for dimmers and switches, but dimmers support a minimum and maximum dimming level.
 
 The `dimlevel_min` and `dimlevel_max` settings are to be set in the range of `0` to `15`, as used by pilight. Any dimming performed by Home Assistant (most likely in a `0` to `100` range) will be converted as a percentage of the available configured range in Pilight.

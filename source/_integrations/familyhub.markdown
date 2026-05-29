@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `familyhub` {% term integration %}  allows you to get images of the inside of your [Samsung Family Hub refrigerator](https://www.samsung.com/us/explore/family-hub-refrigerator/connected-hub/) in Home Assistant.
+The **Samsung Family Hub** {% term integration %} allows you to get images of the inside of your [Samsung Family Hub refrigerator](https://www.samsung.com/us/explore/family-hub-refrigerator/connected-hub/) in Home Assistant.
 
 ## Configuration
 

@@ -3,7 +3,9 @@ title: "Home Assistant 0.45: Automation editor, Z-Wave panel, OCR"
 description: "AXIS and Keene support, PiFace, Raspihats, and Datadog integration"
 date: 2017-05-20 13:00:00 +0000
 date_formatted: "May 20, 2017"
-author: Paulus Schoutsen & Fabian Affolter
+author:
+  - Paulus Schoutsen
+  - Fabian Affolter
 author_twitter: balloob
 categories:
 - Release-Notes
@@ -435,4 +437,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /integrations/hassio/
 [media_player.volumio docs]: /integrations/volumio
 [telegram_bot docs]: /integrations/telegram_bot/
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

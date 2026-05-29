@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
+The **Slack** {% term integration %} allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
 ![](/images/integrations/slack/slack-message.png)
 
@@ -30,8 +30,18 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 
 Find `Features/OAuth and Permissions/Scopes/Bot Token Scopes`
 
-3. Add the `chat:write` and `dnd:read` scopes
-  - To modify your Slack bot's username and icon, additionally add the `chat:write.customize` OAuth scope
+3. Add the following OAuth scopes:
+  - `chat:write`
+  - `dnd:read`
+  - `channels:manage`
+  - `channels:read`
+  - `groups:read`
+  - `groups:write`
+  - `im:read`
+  - `im:write`
+  - `mpim:read`
+  - `mpim:write`
+  - Optionally add `chat:write.customize` to modify your Slack bot's username and icon.
 
 ![](/images/integrations/slack/bot-token-scopes.png)
 
@@ -51,7 +61,7 @@ In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
 #### Sample App Manifest
 
-You can easily create a bot with all the permissions needed from an App Manifest. 
+You can easily create a bot with all the permissions needed from an App Manifest.
 
 ```yaml
 display_information:
@@ -94,7 +104,7 @@ Icon/Username:
 
 One of the easiest ways to send a message, is to create a script. You can paste in YAML and make changes in the GUI.
 
-You can call this script as an action. 
+You can call this script as an action.
 
 1. Go to Home Assistant Settings > Automations and Scenes > Scripts > Add Script
 2. Click the three dots in the top right, and pick 'Edit in YAML'. Paste in the contents below.
@@ -174,7 +184,7 @@ The following attributes can be placed inside the `data` key of the action for e
 | `icon`            | yes      | The icon of the Slack bot.                                                                                                                                                                                                                                                                                                                      |
 | `file`            | yes      | A file to include with the message; see below.                                                                                                                                                                                                                                                                                                  |
 | `blocks`          | yes      | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used. |
-| `blocks_template` | yes      | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).                                                                                                                                                                                                                             |
+| `blocks_template` | yes      | The same as `blocks`, but able to support [templates](/docs/templating/).                                                                                                                                                                                                                             |
 | `thread_ts`       | yes      | Sends the message as a reply to a specified parent message.                                                                                                                                                                                                                                                                                     |
 
 Note that using `file` will ignore all usage of `blocks` and `blocks_template` (as Slack does not support those frameworks in messages that accompany uploaded files).

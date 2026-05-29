@@ -29,7 +29,7 @@ We will not accept reports of vulnerabilities of the following types:
 - Social engineering.
 - Attacks that require the user to have access to the Home Assistant host system.
 - Attacks involving physical access to a user’s device, or involving a device or network that’s already seriously compromised (like, man-in-the-middle).
-- Attacks that require the user to install a malicious other software, like a third-party integration, add-on, or plugin.
+- Attacks that require the user to install a malicious other software, like a third-party integration, app (formerly known as add-ons), or plugin.
 - Attacks that the user can only perform against their own setup.
 - Privilege escalation attacks for logged in users. Home Assistant assumes every user is trusted and does not enforce user privileges. It assumes every logged in user has the same access as an owner account ([more information](/docs/authentication/#user-accounts)).
 
@@ -61,6 +61,41 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 ## Past advisories
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
+
+**2026-05-11: Cross-origin iframe access token exfiltration via WebView JS bridge callback injection**  
+Severity: _High (CVSS: 8.3)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-7jp2-p2fw-mgvf)_  
+Assigned CVE: _[CVE-2026-44698](https://nvd.nist.gov/vuln/detail/CVE-2026-44698)_  
+Discovered by: _[Kwstubbs](https://github.com/Kwstubbs)_  
+Fixed in: _Home Assistant for Android 2026.4.4 and iOS 2026.4.1_
+
+**2026-03-27: Stored XSS in map card through malicious device name**  
+Severity: _Moderate_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-r584-6283-p7xc)_  
+Assigned CVE: _[CVE-2026-33044](https://nvd.nist.gov/vuln/detail/CVE-2026-33044)_  
+Discovered by: _[pwnpanda](https://github.com/pwnpanda)_  
+Fixed in: _Home Assistant Core 2026.1.2_
+
+**2026-03-27: Stored XSS in history graph card**  
+Severity: _Moderate_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-46j8-vpx8-6p72)_  
+Assigned CVE: _[CVE-2026-33045](https://nvd.nist.gov/vuln/detail/CVE-2026-33045)_  
+Discovered by: _[pwnpanda](https://github.com/pwnpanda)_  
+Fixed in: _Home Assistant Core 2026.1.2_
+
+**2026-03-27: Unauthenticated app (add-on) endpoints exposed to local network via host network mode**
+Severity: _Critical (CVSS: 9.7)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-gh5m-4m97-c95h)_  
+Assigned CVE: _[CVE-2026-34205](https://nvd.nist.gov/vuln/detail/CVE-2026-34205)_  
+Discovered by: _[arturpragacz](https://github.com/arturpragacz)_  
+Fixed in: _Home Assistant Supervisor 2026.03.2_  
+
+**2025-10-14: Stored XSS in graph tooltip from entity name**  
+Severity: _High (CVSS: 8.5)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-mq77-rv97-285m)_  
+Assigned CVE: _[CVE-2025-62172](https://nvd.nist.gov/vuln/detail/CVE-2025-62172)_  
+Discovered by: _[pwnpanda](https://github.com/pwnpanda)_  
+Fixed in: _Home Assistant Core 2025.10.2_
 
 **2025-02-18: SSL validation for outgoing requests in core and used libs not correct**  
 Severity: _High (CVSS: 7.0)_  

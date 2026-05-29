@@ -13,6 +13,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+  - Valve
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
@@ -23,18 +24,22 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - event
   - light
   - lock
   - sensor
+  - siren
   - switch
+  - valve
   - weather
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@hahn-th'
+  - '@lackas'
 ---
 
-The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
+The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -48,6 +53,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Sensor
 - Switch
+- Valve
 - Weather
 
 {% include integrations/config_flow.md %}
@@ -91,6 +97,14 @@ Groups are instantly created in Home Assistant when created in the native Homema
 Devices are created with a delay of 30 seconds in Home Assistant when created in the native HomematicIP APP.
 Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Home Assistant entity registry afterwards.
 
+## Use HmIP-DLD Door Lock Drive in Home Assistant
+
+If you are unable to control the **HmIP-DLD** device via Home Assistant, you may need to allow the Home Assistant device to control the **HmIP-DLD** in the HomematicIP app.
+
+To do this, navigate to the **Access Control** section in your HomematicIP app and enable the necessary permissions.
+
+Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. Ensure that no PIN is set for the device in the HomematicIP app.
+
 ## Implemented and tested devices
 
 - homematicip_cloud.alarm_control_panel
@@ -128,7 +142,7 @@ Within this delay the device registration should be completed in the App, otherw
 - homematicip_cloud.climate
   - Climate group (*HmIP-HeatingGroup*)
   - This includes temperature/humidity measures for climate devices of a room delivered by:
-    - Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B*)
+    - Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B, HmIP-WTH-1*)
     - Brand Wall-mounted thermostat (*HmIP-BWTH, HmIP-BWTH-24*)
     - Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
     - Temperature and humidity sensor (*HmIP-STH*)
@@ -199,6 +213,9 @@ Within this delay the device registration should be completed in the App, otherw
   - Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
   - Switch Actuator - 2x channels (*HmIP-BS2*)
 
+- homematicip_cloud.valve
+  - Smart Watering Actuator (*ELV-SH-WSM*)
+
 - homematicip_cloud.weather
   - Weather Sensor – basic (*HmIP-SWO-B*)
   - Weather Sensor – plus (*HmIP-SWO-PL*)
@@ -208,8 +225,8 @@ Within this delay the device registration should be completed in the App, otherw
 
 In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/hahn-th/homematicip-rest-api) GitHub repository.
 
-1. Create a dump of your access point configuration in Home Assistant: 
-  **Developer Tools** -> **Actions** -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
+1. Create a dump of your access point configuration in Home Assistant:
+  {% my developer_call_service title="**Settings** > **Developer tools** > **Actions**" %} > Select `homematicip_cloud.dump_hap_config` > **Execute**. 
   The default dump is anonymized and is written to your configuration directory (`hmip_config_XXXX.json`).
 2. Create a [new issue](https://github.com/hahn-th/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
 
@@ -233,7 +250,7 @@ Executable by administrators or within the context of an automation:
 
 ### Action examples
 
-`accesspoint_id` (SGTIN) is optional for all actions and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, the action will be performed for all configured Homematic IP Access Points.
+`accesspoint_id` (SGTIN) is optional for all actions and only relevant if you have multiple Homematic IP Accesspoints connected to Home Assistant. If empty, the action will be performed for all configured Homematic IP Access Points.
 The `accesspoint_id` (SGTIN) can be found on top of the integration page, or on the back of your Homematic IP Accesspoint.
 
 Activate eco mode with duration. 

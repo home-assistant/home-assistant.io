@@ -13,7 +13,7 @@ ha_domain: oralb
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Oral-B](https://oralb.com/) devices into Home Assistant.

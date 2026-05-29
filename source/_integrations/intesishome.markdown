@@ -14,7 +14,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `IntesisHome` climate platform lets you control [IntesisHome](https://www.intesishome.com), [Airconwithme](https://airconwithme.com) and [anywAIR](https://www.fujitsugeneral.com.au/anywair) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
+The **IntesisHome** {% term integration %} lets you control [IntesisHome](https://www.intesishome.com), [Airconwithme](https://airconwithme.com) and [anywAIR](https://www.fujitsugeneral.com.au/anywair) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
 
 Note: IntesisHome products are a separate product line to IntesisBox. This platform does not support IntesisBox devices (which can be controlled locally using the WMP protocol).
 

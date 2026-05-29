@@ -17,10 +17,10 @@ ha_platforms:
   - climate
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Toon integration platform can be used to control your Quby Toon thermostat,
+The **Toon** {% term integration %} platform can be used to control your Quby Toon thermostat,
 which is currently being sold as:
 
 - Eneco Toon
@@ -34,19 +34,12 @@ Sensors for energy, power and gas consumption, sensors for solar production and
 several binary sensors for things like boiler burner on/off, hot tap water and
 boiler health status.
 
-For the Toon integration to work, you'll need an active Toon subscription
-and a Toon API developer account.
+## Prerequisites
 
-There is currently support for the following device types within Home Assistant:
-
-- [Binary sensor](#binary-sensor)
-- [Climate](#climate)
-- [Sensor](#sensor)
-- [Switch](#switch)
+- An active, paid Toon subscription with one of the supported providers (Eneco, Engie Electrabel, or Viesgo). The integration communicates with the Toon cloud service, which requires an active subscription.
+- A free Toon API developer account (see steps below).
 
 ## Setting up a developer account
-
-In order to be able to use this integration, you'll need to sign up for a free Toon API developer account.
 
 1. Visit the [Toon API developers website](https://developer.toon.eu/), and [sign in](https://developer.toon.eu/user/login). [Create an account](https://developer.toon.eu/user/register) if you don’t have one already.
 2. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page and click on "Add a new App" button on the top right.

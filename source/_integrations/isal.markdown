@@ -16,9 +16,9 @@ ha_iot_class: Local Polling
 
 ## Configuration
 
-Configuration of this integration only applies to Home Assistant Core installations types. Home Assistant Container, Home Assistant Supervisor, and Home Assistant Operation System installs already have `isal` pre-installed, and no action is required.
+{% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %} installations already have `isal` pre-installed, and no action is required.
 
-If your system supports [`isal`](https://github.com/pycompression/python-isal), it can be enabled with the following configuration:
+If for some reason you have removed it, and your system supports [`isal`](https://github.com/pycompression/python-isal), it can be enabled with the following configuration:
 
 ```yaml
 # Example configuration.yaml entry

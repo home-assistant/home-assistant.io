@@ -8,11 +8,11 @@ A full backup includes the following directories:
 
 - `config`
 - `share`
-- `addons` (only manually installed or created add-ons, not those installed from the store)
+- `addons` (only manually installed or created apps, not those installed from the store)
 - `ssl`
 - `media`
 
-A partial backup consists of any number of the above default directories and installed add-ons.
+A partial backup consists of any number of the above default directories and installed apps.
 
 ### Preparing for a backup
 
@@ -25,7 +25,7 @@ Before creating a backup, check if you can reduce the size of the backup. This i
    - Note the keep days, purge interval, and include/exclude options.
 2. To check how much space you've used in total, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
    - From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
-   - If you have add-ons installed that you no longer use, uninstall those add-ons. Some add-ons require quite a bit of space.
+   - If you have apps installed that you no longer use, uninstall those apps. Some apps require quite a bit of space.
 3. If you want to store the backup on your network storage instead of just locally on your system, follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
 
 ### Setting up an automatic backup process
@@ -43,14 +43,18 @@ The automatic backup process creates a backup on a predefined schedule and also 
      - **System optimal** sets a time in a predefined time window as shown in the UI.
      - **Custom** lets you pick the time when you want the backup to start.
      - Make sure you pick a time when all your backup locations are up and running and available. Otherwise, the backup will fail for locations which are not available.
-5. Define how many backups you want to keep.
+5. Define if you want to back up automatically before updating.
+   - This sets a default. But you can change this setting each time before updating.
+   - For large installations, backups might take a while.
+   - Your update might start later than you expected.
+6. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
-6. Define the data you want to back up.
+7. Define the data you want to back up.
    - It is recommended to disable media and the shared folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
-   - Some add-ons may also be quite large.
-7. [Define the location for backups](#defining-backup-locations).
+   - Some apps may also be quite large.
+8. [Define the location for backups](#defining-backup-locations).
 
 ### Defining backup locations
 
@@ -90,7 +94,7 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 3. Define the data you want to back up.
    - It is recommended to disable media and the share folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
-   - Some add-ons may also be quite large.
+   - Some apps may also be quite large.
 4. Provide a name for the backup.
 5. Choose the backup locations.
    - To learn more about the locations, refer to the section on [defining the backup location](#defining-backup-locations).
@@ -108,14 +112,14 @@ There are multiple ways to download your local backup from your Home Assistant i
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
-   - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
+   - Result: The selected backup is stored in the **Downloads** folder of your computer.
 4. If a backup is stored on multiple locations, you can select where you download it from:
    - Select the backup, and under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 **Option 2**: Copy backups from the backups folder:
 
 1. If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.
-   - For example, [use the samba add-on](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-add-on).
+   - For example, [use the samba app](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-app).
 2. In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
 
 ### Downloading a backup from Home Assistant Cloud
@@ -125,13 +129,13 @@ If you were logged in to Home Assistant Cloud and had Cloud backup enabled when 
 There are two ways to download the backup from Home Assistant Cloud:
 
 - **Option 1**: From the backups page
-  1. Got to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
-  2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+  1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+  2. Select the backup from the list.
+  3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 - **Option 2**: From your Home Assistant Cloud account
   1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-  2. Select the backup from the list.
-  3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
+  2. Under **Stored files**, you can see the latest available backup file. Select the **Download** button.
 
 ### Deleting obsolete backups
 
@@ -139,23 +143,30 @@ If you defined an automatic backup and backup purge schedule, old backups are de
 
 To delete old backups, follow these steps:
 
-1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
-2. To delete one backup, on the list, select the backup of interest.
+1. In Home Assistant, under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
+2. To **delete one backup**: from the list, select the backup of interest.
    - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-3. To delete multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
+3. To **delete multiple backups**: select the {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list of backups, select all the ones you want to delete and select **Delete selected**.
    - {% icon "mdi:information-outline" %} Consider keeping at least one recent backup for recovery purposes.
+4. To **delete a backup that is stored on Home Assistant Cloud**, you have 2 options:
+   - **Option 1**: Trigger backup deletion from within Home Assistant
+     - Follow steps 1 and 2 from above.
+     - Even though you select **Delete** in Home Assistant, it will be deleted from Home Assistant Cloud storage.
+   - **Option 2**: Delete the backup from the Nabu Casa account page.
+     - Log in to your [Nabu Casa account](https://account.nabucasa.com/).
+     - Under **Backups**, delete the backup.
 
 ### Restoring a backup
 
 There are two ways to use a backup:
 
 - On your current system to recover your settings.
-- During onboarding, to migrate your setup to a new device or to device on which you performed a factory reset.
+- During onboarding, to migrate your setup to a new device or to a device on which you performed a factory reset.
 
 #### Estimated duration
 
-The time it takes to restore a backup depends on your installation. Home Assistant Core and all add-ons are being reinstalled. For a larger installation, this process can take about 45 minutes.
+The time it takes to restore a backup depends on your installation. Home Assistant Core and all apps are being reinstalled. For a larger installation, this process can take about 45 minutes.
 
 #### Restoring a backup during onboarding
 
@@ -181,19 +192,26 @@ You can use a backup during the onboarding process to restore your configuration
 
 ##### To restore a backup during onboarding
 
-1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or Connect&nbsp;ZBT-1):
+1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or a Connect&nbsp;ZBT-2):
    - make sure to plug them into the new device.
-2. After Home Assistant has been installed, on the welcome screen, select **Restore from backup**.
-   - Then, select **Upload backup**.
-   - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
-   - You can access any connected network drive from there.
-3. Select the backup file, then, in the dialog, select all parts you want to restore.
-   - Your current system will be overwritten with the parts that you choose to restore.
-   - If you want to restore the complete configuration with all directories and add-ons, select everything.
-4. Under **Backup password**, enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
-5. To start the process, select **Restore**.
+2. You can either restore a backup from your local machine or a backup stored on Home Assistant Cloud:
+   - **Option 1**: restoring from a local backup.
+     - On the welcome screen, select **Upload backup**.
+     - Select **Select backup file**.
+       - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
+       - You can access any connected network drive from there.
+     - Select the backup file.
+   - **Option 2**: restoring from a Home Assistant Cloud backup.
+     - On the welcome screen, select **Home Assistant Cloud**.
+     - Sign in to Home Assistant Cloud.
+3. In the dialog, select all the parts you want to restore.
+      - Your current system will be overwritten with the parts that you choose to restore.
+      - If you want to restore the complete configuration with all directories and apps, select everything.
+4. Enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+5. To start the process, select **Restore backup**.
    - The restore may take a while, depending on the amount of data.
-   - To see if the restore is complete, reload the page from time to time.
+   - Don't refresh the page. Just wait.
+     - If you refresh the page, you will see a "Not found" message. This is because the system is shutdown, wiped, and reinstalled from the backup. During that time, it won't be reachable.
    - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
 6. On the login screen, enter the credentials of the system from which you took the backup.
    - The login password and username must match the ones you used at the time the backup was taken.
@@ -209,8 +227,8 @@ You can use a backup during the onboarding process to restore your configuration
 2. From the list of backups, select the backup from which you want to restore.
 3. Select what to restore:
    - Your current system will be overwritten with the parts that you choose to restore.
-   - If you want to restore the complete configuration with all directories and add-ons, select everything.
-   - If you only want to restore specific elements, only select the folders and add-ons you want to restore.
+   - If you want to restore the complete configuration with all directories and apps, select everything.
+   - If you only want to restore specific elements, only select the folders and apps you want to restore.
 4. Select **Restore**.
    - This may take a while, depending on how much there is to compress or decompress.
 5. Once the restore is complete, Home Assistant restarts to apply the new settings.

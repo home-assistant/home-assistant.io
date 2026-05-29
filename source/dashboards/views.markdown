@@ -1,6 +1,6 @@
 ---
-title: "Views"
-description: "A view is a tab inside a dashboard."
+title: "Dashboard views"
+description: "A view is a tab inside a dashboard that groups related cards together, such as a tab for the living room or one for energy."
 related:
   - docs: /dashboards/masonry/
     title: Masonry view
@@ -28,8 +28,8 @@ A view is a tab inside a dashboard. For example, the screenshot below shows a se
 Views control the layout.
 
 <p class='img'>
-    <img src='/images/dashboards/layout-types.png' alt='The three basic view layouts: Panel, sidebar, and masonry'>
-    The three basic view layouts: panel, sidebar, and masonry
+    <img src='/images/dashboards/layout-types.png' alt='Three of the four view types: Panel, Sidebar, and Masonry'>
+    Three of the four view types are shown: Panel, Sidebar, and Masonry. The default Sections view is not pictured.
 </p>
 
 There are four different view types:
@@ -49,7 +49,7 @@ There are four different view types:
 3. Define the view settings:
    - If you want a view title, enter the **Title**.
    - If you want to see an icon, select the [view icon](#view-icon).
-     - If an icon is defined, only the icon is shown. The text only shows as a tooltip.
+     - If an icon is defined, only the icon is shown. The text title is shown as a tooltip. To show both the icon and the text title, enable the **Show icon and title** toggle.
      - We use [Material icons](https://pictogrammers.com/library/mdi/).
    - If you want to link to another view, define the [URL](#url-of-a-view).
    - If you want to use a previously defined theme, select the [theme](/integrations/frontend/#themes).
@@ -78,7 +78,7 @@ To migrate a view into a sections view type, follow these steps:
 3. If the new view type offers additional settings, define those settings.
    - For more information on those settings, refer to the documentation of that view type.
 4. In the top-right corner, select **Convert**.
-   - **Result**: A new, additional view is created.
+   - Result: A new, additional view is created.
    - Your current view will stay untouched.
    - A new tab opens, and all your cards are imported to the new view.
 5. In the **Imported cards** section, pick each of the cards, and drag them into the sections.
@@ -86,7 +86,7 @@ To migrate a view into a sections view type, follow these steps:
 
     ![Move cards from imported cards section onto your dashboard](/images/dashboards/imported-cards.png)
 6. To save your changes, select **Done**.
-    - **Result**: Your new dashboard is shown.
+    - Result: Your new dashboard is shown.
     - If you have cards that were not yet integrated, you can still add them later. They are still available in the Edit mode, in the **Imported cards** section.
 
 ## URL of a view
@@ -115,13 +115,18 @@ Picture card configuration:
 
 ## View icon
 
-If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip.
+If a view icon is defined, only the icon is shown. The text title is shown as a tooltip. To show both the icon and the text title, enable the **Show icon and title** toggle.
 
-### Example
+### Examples
 
 ```yaml
 - title: Garden
   icon: mdi:flower
+```
+```yaml
+- title: Garden
+  icon: mdi:flower
+  show_icon_and_title: true
 ```
 
 ## Visible
@@ -195,7 +200,7 @@ The background settings of a view can be customized to display a background. Alt
 **Image** - Sets the background image to use behind the view: 
    - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
    - **Local path** lets you pick an image stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`.
-     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on) add-on.
+     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-app) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app) app.
    - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
 
 {% configuration views %}
@@ -320,6 +325,11 @@ views:
       required: false
       description: Icon-name from Material Design Icons. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
       type: string
+    show_icon_and_title:
+      required: false
+      description: Show both icon and text title. Only for "View", not for "Subview".
+      type: boolean
+      default: false      
     background:
       required: false
       description: Style the background behind the view.

@@ -2,6 +2,7 @@
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
+  - Alarm
   - Binary sensor
   - Button
   - Camera
@@ -15,14 +16,14 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Siren
   - Switch
-ha_dhcp: true
-ha_ssdp: true
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: unifiprotect
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
@@ -34,11 +35,13 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - text
 ha_integration_type: hub
 ha_codeowners:
   - '@RaHehl'
+ha_quality_scale: platinum
 ---
 
 The **UniFi Protect** {% term integration %} adds support for retrieving camera feeds and sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -47,22 +50,25 @@ The **UniFi Protect** {% term integration %} adds support for retrieving camera 
 
 ### Hardware support
 
-This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
-
-- Any UniFi Protect Network Video Recorder (**[UNVR](https://store.ui.com/collections/unifi-protect-nvr/products/unvr)** or **[UNVRPRO](https://store.ui.com/collections/unifi-protect-nvr/products/unvr-pro)**)
-- Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
-- UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
-
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`v2.0.24`](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8) or newer.
+This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect.
 
 ### Software support
 
-The absolute **minimal** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
+The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
 
+### Public API features {#public-api-features}
+
+Some entities depend on features that were added to the UniFi Protect public API in a specific version. If your UniFi Protect version is older than the version that introduced a given feature, the corresponding entity will not be available. You can look up which features were introduced in which version on the [UniFi Protect developer portal](https://developer.ui.com/protect/).
+
+### No EA support
 {% important %}
 **Early Access and Release Candidate versions are not supported by Home Assistant.**
 
 Using Early Access Release Candidate versions of UniFi Protect or UniFi OS will likely cause your UniFi Protect {% term integration %} to break unexpectedly. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
+
+It is OK to open Early Access (EA) issues—it's actually encouraged as an early warning that something might soon break. However, it is very important to understand:
+This does not mean that everything reported from EA channels will be fixed immediately. Please, before opening a new issue, check thoroughly if there is already an open or closed issue or pull request regarding your problem.
+Also, make sure your report is reproducible and provides all necessary context: always include the Protect version, and if your issue concerns specific cameras, please mention the model(s) as well. Whenever possible, also provide relevant excerpts from the error log.
 {% endimportant %}
 
 ### Local user
@@ -73,14 +79,26 @@ but it is not required. The entities that are created will automatically adjust 
 use has.
 
 1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
-**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (e.g. _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
-2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (e.g. _192.168.1.1/admins/_).
+**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
+2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (for example _192.168.1.1/admins/_).
 3. Click on **+** in the top right corner and select **Add Admin**.
 4. Select **Restrict to local access only** and enter a new _username_ and _password_.
-5. Select **Full Management** for the _Protect_ role. 
+5. Select **Full Management** for the _Protect_ role.
 6. Click **Add** in the bottom right.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
+
+In addition to the username and password, you now need to create an API key for Home Assistant.
+
+1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
+2. Go to **Settings** > **Control Plane** > **Integrations** or go to [IP address]/network/default/integrations/ (for example _192.168.1.1/network/default/integrations/_).
+3. Enter a new name for the API key, like "Home Assistant".
+4. Select **Create API Key** and copy the generated key.
+5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
+
+{% tip %}
+Currently, creating an API key requires you to be logged in as an administrator.
+{% endtip %}
 
 ### Camera streams
 
@@ -91,8 +109,8 @@ check that this is done. To check and enable the feature:
 1. Open UniFi Protect and click on _Devices_.
 2. Select the camera you want to ensure can stream in UniFi Protect.
 3. Click the _Settings_ tab in the top right.
-4. Expand the _Advanced_ section at the bottom.
-5. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
+4. Expand the _Share_ _Livestream_ section near the bottom.
+5. Enable a minimum of one stream out of those available. The Stream with the Highest resolution is the default enabled one.
 
 {% include integrations/config_flow.md %}
 
@@ -131,6 +149,13 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 - **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
+
+#### PTZ cameras
+
+If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, the following additional entities and functionality are available:
+
+- **PTZ patrol** - A select entity that lets you start or stop patrols that are configured in UniFi Protect. The state reflects the currently active patrol. Select **Stopped** to stop the current patrol.
+- **PTZ presets** - Use the [PTZ go to preset action](#action-ptz-go-to-preset) (`unifiprotect.ptz_goto_preset`) to move your PTZ camera to a saved preset position, including the home position. Presets must be configured in the UniFi Protect app first.
 
 ### UniFi Protect floodlights
 
@@ -182,11 +207,29 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
 - **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
 
+### UniFi Protect relays
+
+Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. This requires a UniFi Protect version that includes **Relay information & management** in the public API. See [Public API features](#public-api-features).
+
+- **Switch**: A switch entity is added for each relay output channel to turn the output on or off.
+
+{% note %}
+Relay input channels are not yet supported.
+{% endnote %}
+
+### UniFi Protect sirens
+
+Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the NVR. This requires a UniFi Protect version that includes **Siren information & management** in the public API. See [Public API features](#public-api-features).
+
+- **Siren**: A siren entity to trigger and stop the siren. You can also set the volume level and the duration before triggering. The default duration is 5 seconds. Running the siren indefinitely is not supported.
+
 ### NVR
 
-Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
+Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
 
-- **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
+- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. This requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+- **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+- **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
 ## Media source
@@ -220,43 +263,63 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 ## Actions
 
-### Action unifiprotect.add_doorbell_text
+### Action: Add doorbell text
 
-Adds a new custom message for Doorbells.
+The `unifiprotect.add_doorbell_text` action adds a new custom message for Doorbells.
 
 | Data attribute | Optional | Description                                                                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                   |
 
-### Action unifiprotect.remove_doorbell_text
+### Action: Remove doorbell text
 
-Removes an existing message for Doorbells.
+The `unifiprotect.remove_doorbell_text` action removes an existing message for Doorbells.
 
 | Data attribute | Optional | Description                                                                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                            |
 
-### Action unifiprotect.set_chime_paired_doorbells
+### Action: Set chime paired doorbells
 
-Use to set the paired doorbell(s) with a smart chime.
+The `unifiprotect.set_chime_paired_doorbells` action sets the paired doorbell(s) with a smart chime.
 
 | Data attribute | Optional | Description                                                                                             |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
 
-### Action unifiprotect.remove_privacy_zone
+### Action: Remove privacy zone
 
-Use to remove a privacy zone from a camera.
+The `unifiprotect.remove_privacy_zone` action removes a privacy zone from a camera.
 
 | Data attribute | Optional | Description                                                                                             |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
 | `name`                 | No       | The name of the zone to remove.                                                                         |
 
-### Action unifiprotect.get_user_keyring_info
+### Action: PTZ go to preset
+
+The `unifiprotect.ptz_goto_preset` action moves a <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
+
+| Data attribute | Optional | Description                                                                                    |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `device_id`    | No       | The device ID of the PTZ camera you want to move.                                              |
+| `preset`       | No       | The name of the preset position to move to. Use `Home` for the home position.                  |
+
+#### Example usage
+
+```yaml
+action: unifiprotect.ptz_goto_preset
+data:
+  device_id: your_device_id_here
+  preset: "Home"
+```
+
+### Action: Get user keyring info
+
+The `unifiprotect.get_user_keyring_info` action retrieves keyring information for a UniFi Protect instance.
 
 | Data attribute | Optional | Description                                                                                                 |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
@@ -265,7 +328,7 @@ Use to remove a privacy zone from a camera.
 #### Example Usage
 
 ```yaml
-service: unifiprotect.get_user_keyring_info
+action: unifiprotect.get_user_keyring_info
 data:
   device_id: your_device_id_here
 ```
@@ -316,9 +379,32 @@ Four URLs for proxy API endpoints:
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
 
-The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
+The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and find the event when the sensor started detecting motion.
 
-### Example Notification Automation with Video
+### Example notification automation with thumbnail
+
+This example sends a notification with a camera thumbnail when motion is detected. The short delay ensures that the thumbnail is available before the notification is sent.
+
+```yaml
+alias: "Motion detection with image"
+description: "Sends a notification with camera snapshot when motion is detected."
+triggers:
+  - entity_id: binary_sensor.g4_instant_motion # Replace with your camera entity
+    trigger: state
+    from: off
+    to: on
+actions:
+  - delay:
+      seconds: 2
+  - data:
+      message: "Motion detected"
+      data:
+        image: >-
+          {% raw %}/api/unifiprotect/thumbnail/{{ config_entry_id(trigger.entity_id) }}/{{ trigger.to_state.attributes.event_id }}{% endraw %}
+    action: notify.mobile_app_your_device # Replace with your notification target
+```
+
+### Example notification automation with video
 
 ```yaml
 alias: "Security: Camera Motion Notification"
@@ -344,6 +430,10 @@ max_exceeded: silent
 
 Waiting for the motion sensor to change from `on` to `off` before sending the notification is essential. Waiting ensures that the event has ended and the video is accessible; otherwise, you may get an error instead of the video link.
 
+{% note %}
+The iOS Companion App does not support video attachments via local URLs. Images work with relative paths, but for video attachments you need to use an externally accessible URL or a different delivery method.
+{% endnote %}
+
 ## Event Entities Support
 
 The UniFi Protect integration provides support for various event types triggered by connected devices. Below are the descriptions for each supported event type:
@@ -352,7 +442,7 @@ The UniFi Protect integration provides support for various event types triggered
 
 - **Event Name**: Doorbell
 - **Event Attributes**:
-  - **event_type**: `doorbell`
+  - **event_type**: `ring`
   - **event_id**: A unique ID that identifies the doorbell event.
 - **Description**: This event is triggered when someone rings the doorbell. It provides an `event_id`, which can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
 
@@ -368,8 +458,14 @@ triggers:
     trigger: event
 conditions:
   - condition: template
-    value_template: |
-      {% raw %}{{ 'ring' in trigger.event.data.new_state.attributes.event_types }}{% endraw %}
+    value_template: >
+      {% raw %}{{
+        trigger.event.data.old_state is not none and
+        not trigger.event.data.old_state.state == 'unavailable' and
+        trigger.event.data.new_state is not none and
+        not trigger.event.data.new_state.state == 'unavailable' and
+        trigger.event.data.new_state.attributes.event_type == 'ring'
+      }}{% endraw %}
 actions:
   - data:
       message: Someone is at the door!
@@ -377,7 +473,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-The condition is required to prevent the notification from being triggered by events of type 'unknown', for example, during a restart.
+The condition ensures the notification is only sent for actual doorbell rings and not during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
 
 ### NFC Card Scanned Event
 
@@ -386,7 +482,7 @@ The condition is required to prevent the notification from being triggered by ev
   - **event_type**: `scanned`
   - **event_id**: A unique ID that identifies the NFC card scan event.
   - **nfc_id**: The ID of the scanned NFC card.
-- **Description**: This event is triggered when an NFC card is scanned at a compatible device (e.g., a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
+- **Description**: This event is triggered when an NFC card is scanned at a compatible device (for example, a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
 
 #### Example G4 Doorbell NFC Scanned Automation
 
@@ -420,9 +516,9 @@ actions:
 
 You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
 
-**Warning:**
-
+{% warning %}
 When processing NFC scans, always validate the scanned ID. Unknown NFC cards also trigger the scan event. Additionally, this event was developed using third-party cards, as the developer did not have access to official UniFi cards at the time. With third-party cards, the scan relies on the card's serial number. While this approach is not uncommon, it is essential to note that the card's serial number is generally not considered a secure identifier and can be duplicated relatively easily. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
+{% endwarning %}
 
 ### Fingerprint Identified Event
 
@@ -456,46 +552,126 @@ condition:
          (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
          trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
        }}{% endraw %}
-action:
-  - service: notify.mobile_app_your_device # Replace with your notification target
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
       title: "Fingerprint Scan Notification"
 ```
 
-**Warning:**
-
+{% warning %}
 Similar to NFC, an event is triggered when a fingerprint is recognized and not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
+{% endwarning %}
 
-#### Example G4 Doorbell Fingerprint Identified Automation
+### Vehicle Detection Event
+
+- **Event Name**: Vehicle
+- **Event Attributes**:
+  - **event_type**: `detected`
+  - **event_id**: A unique ID that identifies the vehicle detection event.
+  - **thumbnail_count**: The number of thumbnails received for this event.
+  - **confidence**: Detection confidence score (0-100, optional).
+  - **clock_best_wall**: Timestamp of the best detection frame in ISO 8601 format (optional).
+  - **license_plate**: Detected license plate (optional, requires License Plate Recognition).
+  - **attributes**: Additional detection metadata from UniFi Protect (optional), including:
+    - **trackerId**: Internal tracking ID for the detected vehicle.
+    - **vehicleType**: Detected vehicle type (for example, car, truck or bus) with confidence score.
+    - **color**: Detected vehicle color with confidence score.
+    - **zone**: List of zone IDs where the vehicle was detected.
+- **Description**: This event is triggered when a camera with Smart Detection capabilities detects a vehicle. Unlike other event types that fire immediately, vehicle detection uses a 3-second delay to allow optimal thumbnail and License Plate Recognition (LPR) data to arrive. The delay ensures Home Assistant receives the thumbnail with the highest confidence LPR data before firing the event.
+
+#### How Vehicle Detection Works
+
+The vehicle detection event uses a delayed firing mechanism to optimize data quality:
+
+1. When a vehicle is detected, the camera starts sending thumbnail data via WebSocket.
+2. A 3-second timer starts waiting for additional thumbnails.
+3. If new thumbnails arrive for the same event, the timer resets to 3 seconds.
+4. After the timer expires, the event fires with the best available thumbnail based on:
+   - License plate detection (highest priority)
+   - Confidence score (higher is better)
+   - Timestamp (most recent)
+5. If a new vehicle event starts while a timer is pending, the old event fires immediately, then a new timer starts for the new event.
+6. In rare cases, if UniFi Protect sends updated data after the event has already fired, an additional event will be triggered with the new information.
+
+#### Requirements
+
+- Camera with Smart Detection support (`feature_flags.has_smart_detect = true`)
+- Vehicle detection must be enabled on the camera
+- License Plate Recognition is optional
+
+#### Example Vehicle Detection Automation
 
 ```yaml
-alias: G4 Doorbell Fingerprint Identified Automation
-description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
-trigger:
-  - platform: event
-    event_type: state_changed
+alias: Vehicle Detected at Driveway
+description: Automation that triggers when any vehicle is detected
+triggers:
+  - event_type: state_changed
     event_data:
-      entity_id: event.g4_doorbell_pro_poe_fingerprint # Replace with your doorbell entity
-condition:
+      entity_id: event.driveway_camera_vehicle # Replace with your camera entity
+    trigger: event
+conditions:
   - condition: template
     value_template: >
       {% raw %}{{ 
+         trigger.event.data.old_state is not none and
+         not trigger.event.data.old_state.attributes.get('restored', false) and
+         trigger.event.data.old_state.state != 'unavailable' and
          trigger.event.data.new_state is not none and
-         trigger.event.data.new_state.attributes.event_type == 'identified' and
-         (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
-         trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
+         trigger.event.data.new_state.attributes.event_type == 'detected'
        }}{% endraw %}
-action:
-  - service: notify.mobile_app_your_device # Replace with your notification target
-    data:
-      {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
-      title: "Fingerprint Scan Notification"
+actions:
+  - data:
+      message: >-
+        {% raw %}Vehicle detected{% if trigger.event.data.new_state.attributes.confidence is defined %} with {{ trigger.event.data.new_state.attributes.confidence }}% confidence{% endif %}.
+        {% if trigger.event.data.new_state.attributes.license_plate is defined %}
+        License plate: {{ trigger.event.data.new_state.attributes.license_plate }}
+        {% endif %}{% endraw %}
+      title: Vehicle Detection
+    action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-**Warning:**
+#### Example Specific License Plate Automation
 
-Similar to NFC, an event is triggered when a fingerprint is recognized and not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown.
+```yaml
+alias: Garage Door Open for Known Vehicle
+description: Opens garage door when a specific license plate is detected
+triggers:
+  - event_type: state_changed
+    event_data:
+      entity_id: event.driveway_camera_vehicle # Replace with your camera entity
+    trigger: event
+conditions:
+  - condition: template
+    value_template: >
+      {% raw %}{{ 
+         trigger.event.data.old_state is not none and
+         not trigger.event.data.old_state.attributes.get('restored', false) and
+         trigger.event.data.old_state.state != 'unavailable' and
+         trigger.event.data.new_state is not none and
+         trigger.event.data.new_state.attributes.event_type == 'detected' and
+         trigger.event.data.new_state.attributes.license_plate in ['ABC123', 'XYZ789']
+       }}{% endraw %}
+actions:
+  - action: cover.open
+    target:
+      entity_id: cover.garage_door
+  - data:
+      message: >-
+        {% raw %}Garage door opened for vehicle {{ trigger.event.data.new_state.attributes.license_plate }}.{% endraw %}
+      title: Garage Door Notification
+    action: notify.mobile_app_your_device # Replace with your notification target
+```
+
+{% note %}
+Vehicle detection events are fired even if no license plate is detected. The `license_plate` attribute will only be present when License Plate Recognition successfully identifies a plate. The 3-second delay ensures that if LPR data is available, it will be included in the event.
+{% endnote %}
+
+{% warning %}
+License Plate Recognition can be triggered by various sources, including images or printed materials showing license plates. Always use caution when creating automations based on license plate detection, especially for security-sensitive actions like opening garage doors or unlocking gates. Consider implementing additional verification methods or time-based restrictions to prevent unwanted triggering. Use at your own risk.
+{% endwarning %}
 
 ## Troubleshooting
 

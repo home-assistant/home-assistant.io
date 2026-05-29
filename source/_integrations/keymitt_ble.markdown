@@ -12,10 +12,10 @@ ha_bluetooth: true
 ha_platforms:
   - switch
 ha_config_flow: true
-ha_integration_type: hub
+ha_integration_type: device
 ---
 
-This integration allows you to locally control a [MicroBot Push](https://keymitt.com/products/microbot-push) (previously manufactured by Naran but now under the Keymitt brand).
+This {% term integration %} allows you to locally control a MicroBot Push (previously manufactured by Naran but now under the Keymitt brand).
 
 ### Prerequisites
 
@@ -33,9 +33,9 @@ Please note, that the devices cannot remain paired to the MicroBot application f
 
 This Integration is for the MicroBot Push only. The Keymitt lock is not supported.
 
-### Action `keymitt_ble.calibrate`
+### Action: Calibrate
 
-The Calibration action will locally set the MicroBot Push depth, duration, and mode.
+The `keymitt_ble.calibrate` action locally sets the MicroBot Push depth, duration, and mode.
 
 Please note: The push arm will extend or retract (depending on the mode defined) after the action is performed. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
 

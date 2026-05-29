@@ -2,6 +2,7 @@
 title: One-Time Password (OTP)
 description: Instructions on how to add One-Time Password (OTP) sensors into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_iot_class: Local Polling
@@ -11,13 +12,13 @@ ha_domain: otp
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The `otp` {% term integration %} generates One-Time Passwords according to [RFC6238](https://tools.ietf.org/html/rfc6238) that is compatible with most OTP generators available, including Google Authenticator. You can use this when building custom security solutions and want to use "rolling codes", that change every 30 seconds.
+The **One-Time Password (OTP)** {% term integration %} generates One-Time Passwords according to [RFC6238](https://tools.ietf.org/html/rfc6238) that is compatible with most OTP generators available, including Google Authenticator. You can use this when building custom security solutions and want to use "rolling codes", that change every 30 seconds.
 
 {% include integrations/config_flow.md %}
 

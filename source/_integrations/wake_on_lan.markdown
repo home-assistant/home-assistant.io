@@ -14,7 +14,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@ntilley905'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -27,11 +27,17 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button) enabled from the UI
 - [Switch](#switch) enabled from YAML configuration
 
+{% tip %}
+To implement a switch without using YAML, consider using a [template switch helper](/integrations/template/#switch). Use the Wake on LAN button as the turn on action, a [ping](/integrations/ping) sensor for the state, and a third service for the turn off action.
+{% endtip %}
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Mac address:
   description: "The MAC address to send the wake-up command to. For example, `00:01:02:03:04:05`."
+SecureOn password:
+  description: "The SecureOn password to append to the magic packet. For example, `00:aa:22:bb:33:cc`."
 Broadcast address:
   description: The IP address of the host to send the magic packet to.
 Broadcast port:
@@ -53,13 +59,14 @@ wake_on_lan:
 
 Available actions: `send_magic_packet`.
 
-#### Action `wake_on_lan.send_magic_packet`
+#### Action: Send magic packet
 
-Send a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
+The `wake_on_lan.send_magic_packet` action sends a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
 
 | Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `mac`                  | no       | MAC address of the device to wake up.                 |
+| `secureon_password`    | yes      | The SecureOn password to append to the magic packet.  |
 | `broadcast_address`    | yes      | Optional broadcast IP where to send the magic packet. |
 | `broadcast_port`       | yes      | Optional port where to send the magic packet.         |
 
@@ -139,19 +146,19 @@ Suggested recipe for letting the `turn_off` script suspend a Linux computer (the
 from Home Assistant running on another Linux computer (the **server**).
 
 1. On the **server**, log in as the user account Home Assistant is running under. In this example it's `hass`.
-2. On the **server**, create SSH keys by running `ssh-keygen`. Just press enter on all questions.
-3. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. It's recommended using the same username as on the server. If you do, you can leave out `hass@` in the SSH commands below.
-4. On the **server**, transfer your public SSH key by `ssh-copy-id hass@TARGET` where TARGET is your target machine's name or IP address. Enter the password you created in step 3.
-5. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
-6. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here is it `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
-7. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
-8. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
-
+2. On the **server**, create a `.ssh` directory in `/config`. This is necessary to avoid a 255 error that prevents the SSH command from executing.
+3. On the **server**, create SSH keys by running `ssh-keygen`. Just press enter on all questions.
+4. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. It's recommended using the same username as on the server. If you do, you can leave out `hass@` in the SSH commands below.
+5. On the **server**, transfer your public SSH key by `ssh-copy-id hass@TARGET` where TARGET is your target machine's name or IP address. Enter the password you created in step 4.
+6. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
+7. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here it is `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
+8. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
+9. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
 ```yaml
 switch:
   - platform: wake_on_lan
     name: "TARGET"
-    ...
+    mac: XX:XX:XX:XX:XX:XX
     turn_off:
       action: shell_command.turn_off_TARGET
 

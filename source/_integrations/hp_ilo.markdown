@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `hp_ilo` {% term integration %} allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
+The **HP Integrated Lights-Out** {% term integration %} allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
 
 If the ILO or specified jsonpath query returns only a single value (e.g., a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
 
@@ -101,8 +101,6 @@ Valid sensor_types:
 
 In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your {% term "`configuration.yaml`" %} file
 
-{% raw %}
-
 ```yaml
 sensor:
   - platform: hp_ilo
@@ -122,8 +120,6 @@ sensor:
         sensor_type: server_health
         value_template: '{{ ilo_data.health_at_a_glance }}'
 ```
-
-{% endraw %}
 
 <p class='img'>
   <img src='/images/screenshots/hp_ilo_sensors.png' />

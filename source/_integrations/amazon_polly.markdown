@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
+The **Amazon Polly** {% term integration %} works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
 Polly is a paid service via Amazon Web Services.  There is a [free tier](https://aws.amazon.com/polly/pricing/) for the first 12 months and then a charge per million characters afterwards.
 
 ## Setup
@@ -132,7 +132,7 @@ Say with break:
 Say with specific voice and engine as options:
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   data:
     message: "Hello from Amazon Polly"
     entity_id: media_player.living_room
@@ -142,8 +142,8 @@ Say with specific voice and engine as options:
       engine: generative
 ```
 
-
 ## Advanced usage
+
 Amazon Polly supports accented bilingual voices and you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. First enable SSML in configuration:
 
 ```yaml

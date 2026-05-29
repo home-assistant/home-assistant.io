@@ -11,7 +11,7 @@ ha_domain: logger
 ha_integration_type: system
 ---
 
-The `logger` integration lets you define the level of logging activities in Home
+The **Logger** {% term integration %} lets you define the level of logging activities in Home
 Assistant.
 
 To enable the `logger` integration in your installation,
@@ -44,7 +44,7 @@ integrations:
 logger:
   default: critical
   logs:
-    # log level for HA core
+    # log level for Home Assistant Core
     homeassistant.core: fatal
 
     # log level for MQTT integration
@@ -139,10 +139,10 @@ logger:
 
 ## Actions
 
-### Action `set_default_level`
+### Action: Set default level
 
-You can alter the default log level (for integrations without a specified log
-level) using the `logger.set_default_level` action.
+The `logger.set_default_level` action alters the default log level (for integrations without a specified log
+level).
 
 An example call might look like this:
 
@@ -152,9 +152,9 @@ data:
   level: info
 ```
 
-### Action `set_level`
+### Action: Set level
 
-You can alter log level for one or several integrations using the `logger.set_level` action.
+The `logger.set_level` action alters the log level for one or several integrations.
 It accepts the same format as `logs` in the configuration.
 
 An example call might look like this:
@@ -171,22 +171,27 @@ data:
 
 ## Viewing logs
 
-The log information are stored in the
-[configuration directory](/docs/configuration/) as `home-assistant.log`
-and you can read it with the command-line tool `cat` or follow it dynamically
-with `tail -f`.
+The primary way to view logs is through the Home Assistant UI. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and select **Home Assistant Core**. To see the full unformatted log output, enable **Show raw logs** at the top of the page. You can also download the log file from this page.
 
-You can use the example below, when logged in through the [SSH add-on](/addons/ssh/):
+### Viewing logs on Home Assistant OS
+
+On {% term "Home Assistant Operating System" %} installations, logs are not written to a file in the configuration directory. Use the UI as described above, or run the following command from the [SSH app for Home Assistant](/common-tasks/os/#installing-and-using-the-ssh-app):
+
+```bash
+ha core logs --follow
+```
+
+### Viewing logs on Container installations
+
+For {% term "Home Assistant Container" %} installations, the log information is also written to a file called `home-assistant.log` in the [configuration directory](/docs/configuration/). You can follow it dynamically with the following command:
+
+```bash
+# Follow the log dynamically
+docker logs --follow MY_CONTAINER_ID
+```
+
+Or read the file directly:
 
 ```bash
 tail -f /config/home-assistant.log
 ```
-
-On Docker you can use your host command line directly - follow the logs dynamically with:
-
-```bash
-# follow the log dynamically
-docker logs --follow  MY_CONTAINER_ID
-```
-
-To see other options use `--help` instead, or simply leave with no options to display the entire log.

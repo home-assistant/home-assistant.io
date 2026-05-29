@@ -1,6 +1,6 @@
 ---
-title: Xiaomi Miio
-description: Instructions on how to integrate Xiaomi devices using the Xiaomi Miio integration within Home Assistant.
+title: Xiaomi Home
+description: Instructions on how to integrate Xiaomi devices using the Xiaomi Home integration within Home Assistant.
 ha_category:
   - Alarm
   - Fan
@@ -35,10 +35,10 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The **Xiaomi Miio** {% term integration %} supports the following devices:
+The **Xiaomi Home** {% term integration %} supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
@@ -51,7 +51,7 @@ The **Xiaomi Miio** {% term integration %} supports the following devices:
 
 ## Prerequisites
 
-Most Xiaomi Miio devices support configuration using the Home Assistant UI,
+Most Xiaomi Home devices support configuration using the Home Assistant UI,
 except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
 and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for those devices for more information.
 
@@ -63,8 +63,8 @@ For more complex network setups (e.g. VLANs), reference the [following documenta
 
 {% include integrations/config_flow.md %}
 
-It is recommend to supply your Xiaomi cloud credentials during configuration
-to automatically connect to your devices. You need to specify the cloud server
+It is recommended to supply your Xiaomi Home credentials during configuration
+to automatically connect to your devices. You need to specify the server region
 you used in the Xiaomi Home App (where you initially setup the device). There are
 6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
 [this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
@@ -74,13 +74,13 @@ the server to use for each country.
 
 The most common problems are:
 
-- Xiaomi Miio devices do not communicate across subnets/VLANs due to the source address of the UDP packet not belonging to the subnet of the device itself, [more information and solutions](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets).
+- Xiaomi Home devices do not communicate across subnets/VLANs due to the source address of the UDP packet not belonging to the subnet of the device itself, [more information and solutions](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets).
 - Roborock vacuums need to be connected to the Xiaomi Home app, not the Roborock app, [more information](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#roborock-vacuum-not-detected).
 - Blocking the network access to the device is known to cause intermittent connection issues due to the device's internal software hanging and a watchdog restarting the internal software, [more information](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#intermittent-connection-issues-timeouts-xiaomi-vacuum).
 
 ## Xiaomi Gateway
 
-The `xiaomi_miio` gateway {% term integration %} allows you to control the gateway and its connected subdevices.
+The Xiaomi Home {% term integration %} allows you to control the gateway and its connected subdevices.
 
 ### Supported Xiaomi gateway models
 
@@ -94,7 +94,7 @@ The following list shows the Gateway name, the model number, the Zigbee ID, and 
 - **European version**
   - Model: ZHWG11LM-763 / DGNWQ05LM
   - Zigbee ID: lumi.gateway.mieu01
-  - Supported: Yes (cloud credentials needed)
+  - Supported: Yes (Xiaomi Home credentials needed)
 
 - **Aqara hub**
   - Model: ZHWG11LM
@@ -121,7 +121,7 @@ The following list shows the Gateway name, the model number, the Zigbee ID, and 
   - Zigbee ID: lumi.acpartner.v3
   - Supported: Yes
 
-Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified during the config flow and the "Use cloud to get connected subdevices" can be enabled in the options flow (after setting up the {% term integration %}, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway {% term integration %}). The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no cloud credentials are provided yet and are needed for that particular gateway model.
+Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, Xiaomi Home credentials can be specified during the config flow and the "Use Xiaomi Home service to get connected subdevices" can be enabled in the options flow (after setting up the {% term integration %}, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Home {% term integration %}). The connected subdevices will then be retrieved from Xiaomi Home (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no account credentials are provided yet and are needed for that particular gateway model.
 
 ### Gateway features
 
@@ -136,7 +136,7 @@ Not yet implemented features (but possible):
 
 ### Supported subdevices
 
-These subdevices are fully implemented in HomeAssistant:
+These subdevices are fully implemented in Home Assistant:
 
 - **Weather sensor (WSDCGQ01LM)**
   - Zigbee ID: `lumi.sensor_ht`
@@ -242,7 +242,7 @@ The list shows the device name, the model number, and the Zigbee ID.
 
 ## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
 
-The `xiaomi_miio` device tracker platform is observing your Xiaomi Mi WiFi Repeater 2 and reporting all associated WiFi clients.
+The device tracker platform is observing your Xiaomi Mi WiFi Repeater 2 and reporting all associated WiFi clients.
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
@@ -257,11 +257,11 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your miio device.
+  description: The IP address of your Xiaomi device.
   required: true
   type: string
 token:
-  description: The API token of your miio device.
+  description: The API token of your Xiaomi device.
   required: true
   type: string
 {% endconfiguration %}
@@ -1200,57 +1200,52 @@ Clean mode and Motor speed can only be set when the device is turned on.
 
 ### Actions
 
-### Action `humidifier.set_humidity`
+### Action: Set humidity
 
-Set the target humidity.
+The `humidifier.set_humidity` action sets the target humidity.
 
 | Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO humidifier entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi humidifier entity.      |
 | `humidity`             | no       | Target humidity                                       |
 
-### Action `humidifier.set_mode`
+### Action: Set humidifier mode
 
-Set the humidifier operation mode.
+The `humidifier.set_mode` action sets the humidifier operation mode.
 
 | Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO humidifier entity. |
-| `mode`                 | no       | The Xiaomi miIO operation mode                        |
+| `entity_id`            | no       | Only act on a specific Xiaomi humidifier entity.      |
+| `mode`                 | no       | The humidifier operation mode                         |
 
-### Action `fan.set_percentage`
-
-Set the fan speed percentage.
-
-| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi fan entity.      |
 | `percentage`           | no       | Fan speed. Percentage speed setting            |
 
-### Action `fan.set_preset_mode`
+### Action: Set fan preset mode
 
-Set the fan operation mode.
-
-| Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
-| `preset_mode`          | no       | The Xiaomi miIO operation mode                 |
-
-### Action `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
-
-Reset the filter lifetime and usage.
+The `fan.set_preset_mode` action sets the fan operation mode.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi fan entity.      |
+| `preset_mode`          | no       | The fan operation mode                         |
 
-### Action `xiaomi_miio.fan_set_extra_features` (Air Purifier only)
+### Action: Reset filter (Air Purifier 2 only)
 
-Set the extra features.
+The `xiaomi_miio.fan_reset_filter` action resets the filter lifetime and usage.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi fan entity.      |
+
+### Action: Set extra features (Air Purifier only)
+
+The `xiaomi_miio.fan_set_extra_features` action sets the extra features.
+
+| Data attribute | Optional | Description                                    |
+| ---------------------- | -------- | ---------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific Xiaomi fan entity.      |
 | `features`             | no       | Integer, known values are 0 and 1.             |
 
 ## Xiaomi Air Quality Monitor
@@ -1273,7 +1268,7 @@ Currently, the supported features are:
 
 ## Xiaomi IR Remote
 
-The `xiaomi miio` remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
+The remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
 
 ### Setup
 
@@ -1487,9 +1482,9 @@ In addition to all of the actions provided by the `vacuum` {% term integration %
 - `xiaomi_miio.vacuum_remote_control_move`
 - `xiaomi_miio.vacuum_remote_control_move_step`
 
-### Action `xiaomi_miio.vacuum_clean_zone`
+### Action: Clean zone
 
-Start the cleaning operation in the areas selected for the number of repeats indicated.
+The `xiaomi_miio.vacuum_clean_zone` action starts the cleaning operation in the areas selected for the number of repeats indicated.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
@@ -1506,8 +1501,6 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 Example of `xiaomi_miio.vacuum_clean_zone` use:
 
 Inline array:
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
@@ -1523,11 +1516,7 @@ automation:
           zone: [[30914, 26007, 35514, 28807], [20232, 22496, 26032, 26496]]
 ```
 
-{% endraw %}
-
 Array with inline zone:
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
@@ -1544,8 +1533,6 @@ automation:
             - [30914, 26007, 35514, 28807]
             - [20232, 22496, 26032, 26496]
 ```
-
-{% endraw %}
 
 Array mode:
 
@@ -1572,9 +1559,9 @@ automation:
               - 26496
 ```
 
-### Action `xiaomi_miio.vacuum_clean_segment`
+### Action: Clean segment
 
-Clean the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
+The `xiaomi_miio.vacuum_clean_segment` action cleans the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
@@ -1633,9 +1620,9 @@ automation:
           segments: [1, 1]
 ```
 
-### Action `xiaomi_miio.vacuum_goto`
+### Action: Go to coordinates
 
-Go the specified coordinates.
+The `xiaomi_miio.vacuum_goto` action sends the vacuum to the specified coordinates.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
@@ -1649,34 +1636,34 @@ Go the specified coordinates.
 
 Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` action first.
 
-### Action `xiaomi_miio.vacuum_remote_control_start`
+### Action: Start remote control
 
-Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
-
-| Data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Only act on a specific robot |
-
-### Action `xiaomi_miio.vacuum_remote_control_stop`
-
-Exit the remote control mode of the robot.
+The `xiaomi_miio.vacuum_remote_control_start` action starts the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
 | Data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Only act on a specific robot |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Only act on a specific robot |
 
-### Action `xiaomi_miio.vacuuNm_remote_control_move`
+### Action: Stop remote control
 
-Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
+The `xiaomi_miio.vacuum_remote_control_stop` action exits the remote control mode of the robot.
+
+| Data attribute | Optional | Description                  |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Only act on a specific robot |
+
+### Action: Remote control move
+
+The `xiaomi_miio.vacuum_remote_control_move` action remote controls the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
 - `entity_id`: Only act on a specific robot. Not optional.
 - `velocity`: Speed: between -0.29 and 0.29. Not optional.
 - `rotation`: Rotation: between -179 degrees and 179 degrees. Not optional.
 - `duration`: The number of milliseconds that the robot should move for. Not optional.
 
-### Action `xiaomi_miio.vacuum_remote_control_move_step`
+### Action: Remote control move step
 
-Enter remote control mode, make one move, stop, and exit remote control mode.
+The `xiaomi_miio.vacuum_remote_control_move_step` action enters remote control mode, makes one move, stops, and exits remote control mode.
 
 - **entity_id**: Only act on a specific robot. Not optional.
 - **velocity**: Speed: between -0.29 and 0.29. Not optional.
@@ -1830,7 +1817,7 @@ It seems to be the case that Numbers 1..15 are used to number the initial segmen
 
 ## Xiaomi Philips Light
 
-The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips Zhirui Downlight, Xiaomi Philips LED Ceiling Lamp, Xiaomi Philips Eyecare Lamp 2, Xiaomi Philips Moonlight Bedside Lamp and Philips Zhirui Desk Lamp.
+The Xiaomi Home light platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips Zhirui Downlight, Xiaomi Philips LED Ceiling Lamp, Xiaomi Philips Eyecare Lamp 2, Xiaomi Philips Moonlight Bedside Lamp and Philips Zhirui Desk Lamp.
 
 ### Features
 
@@ -1918,75 +1905,75 @@ Supported models: `philips.light.moonlight`
 
 ### Actions
 
-### Action `xiaomi_miio.light_set_scene`
+### Action: Set scene
 
-Set one of the 4 available fixed scenes.
+The `xiaomi_miio.light_set_scene` action sets one of the 4 available fixed scenes.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 | `scene`                | no       | Scene, between 1 and 4.                          |
 
-### Action `xiaomi_miio.light_set_delayed_turn_off`
+### Action: Set delayed turn off
 
-Delayed turn off.
+The `xiaomi_miio.light_set_delayed_turn_off` action sets a delayed turn off.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 | `time_period`          | no       | Time period for the delayed turn off.            |
 
-### Action `xiaomi_miio.light_reminder_on` (Eyecare Smart Lamp 2 only)
+### Action: Turn on reminder (Eyecare Smart Lamp 2 only)
 
-Enable the eye fatigue reminder/notification.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
-
-### Action `xiaomi_miio.light_reminder_off` (Eyecare Smart Lamp 2 only)
-
-Disable the eye fatigue reminder/notification.
+The `xiaomi_miio.light_reminder_on` action enables the eye fatigue reminder/notification.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 
-### Action `xiaomi_miio.light_night_light_mode_on` (Eyecare Smart Lamp 2 only)
+### Action: Turn off reminder (Eyecare Smart Lamp 2 only)
 
-Turn the smart night light mode on.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
-
-### Action `xiaomi_miio.light_night_light_mode_off` (Eyecare Smart Lamp 2 only)
-
-Turn the smart night light mode off.
+The `xiaomi_miio.light_reminder_off` action disables the eye fatigue reminder/notification.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 
-### Action `xiaomi_miio.light_eyecare_mode_on` (Eyecare Smart Lamp 2 only)
+### Action: Turn on night light mode (Eyecare Smart Lamp 2 only)
 
-Turn the eyecare mode on.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
-
-### Action `xiaomi_miio.light_eyecare_mode_off` (Eyecare Smart Lamp 2 only)
-
-Turn the eyecare mode off.
+The `xiaomi_miio.light_night_light_mode_on` action turns the smart night light mode on.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
+
+### Action: Turn off night light mode (Eyecare Smart Lamp 2 only)
+
+The `xiaomi_miio.light_night_light_mode_off` action turns the smart night light mode off.
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
+
+### Action: Turn on eyecare mode (Eyecare Smart Lamp 2 only)
+
+The `xiaomi_miio.light_eyecare_mode_on` action turns the eyecare mode on.
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
+
+### Action: Turn off eyecare mode (Eyecare Smart Lamp 2 only)
+
+The `xiaomi_miio.light_eyecare_mode_off` action turns the eyecare mode off.
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 
 ## Xiaomi Smart WiFi Socket and Smart Power Strip
 
-The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug, Xiaomi Smart Power Strip and Xiaomi Chuangmi Plug V1.
+The Xiaomi Home switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug, Xiaomi Smart Power Strip and Xiaomi Chuangmi Plug V1.
 
 ### Features
 
@@ -2032,43 +2019,39 @@ Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2`
 
 ### Actions
 
-### Action `xiaomi_miio.switch_set_wifi_led_on` (Power Strip only)
+### Action: Turn on WiFi LED (Power Strip only)
 
-Turn the wifi LED on.
-
-| Data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
-
-### Action `xiaomi_miio.switch_set_wifi_led_off` (Power Strip only)
-
-Turn the wifi LED off.
+The `xiaomi_miio.switch_set_wifi_led_on` action turns the WiFi LED on.
 
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi switch entity.      |
 
-### Action `xiaomi_miio.switch_set_power_price` (Power Strip)
+### Action: Turn off WiFi LED (Power Strip only)
 
-Set the power price.
+The `xiaomi_miio.switch_set_wifi_led_off` action turns the WiFi LED off.
 
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi switch entity.      |
+
+| Data attribute | Optional | Description                                       |
+| ---------------------- | -------- | ------------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific Xiaomi switch entity.      |
 | `price`                | no       | Power price, between 0 and 999.                   |
 
-### Action `xiaomi_miio.switch_set_power_mode` (Power Strip V1 only)
+### Action: Set power mode (Power Strip V1 only)
 
-Set the power mode.
+The `xiaomi_miio.switch_set_power_mode` action sets the power mode.
 
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
+| `entity_id`            | no       | Only act on a specific Xiaomi switch entity.      |
 | `mode`                 | no       | Power mode, valid values are 'normal' and 'green' |
 
 ## Retrieving the Access Token
 
-Not recommended, please specify the cloud credentials during the config flow for easier setup.
+Not recommended, please specify the Xiaomi account credentials during the config flow for easier setup.
 However when setting up a device manually the token can be retrieved in one of the following ways.
 
 ### Xiaomi Cloud Tokens Extractor
@@ -2192,7 +2175,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 ### Miio command line tool
 
-Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
+Use of Miio should be done before the Vacuum is connected to Xiaomi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
 Discovering devices on the current network:
 

@@ -14,7 +14,11 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The [Discord service](https://discordapp.com/) is a platform for the notify integration. This allows integrations to send messages to the user using Discord.
+The **Discord** {% term integration %} lets you send notifications from Home Assistant to [Discord](https://discordapp.com/) channels and users via a bot. You can send text messages, attach files, like images or videos, from local paths or remote URLs, and use Discord embeds for rich formatting.
+
+{% note %}
+This integration is for outgoing messages only. It cannot read incoming Discord messages or use them as triggers for automations.
+{% endnote %}
 
 ## Prerequisites
 
@@ -105,7 +109,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | `description` | yes      | Description of the embed.                                                                            |
 | `color`       | yes      | Color code of the embed.  This value is an *int*.                                                    |
 | `url`         | yes      | URL of the embed.                                                                                    |
-| `author`      | yes      | Sets the footer for the embed content.                                                               |
+| `author`      | yes      | Sets the author for the embed content.                                                               |
 | `footer`      | yes      | Sets the footer for the embed content.                                                               |
 | `thumbnail`   | yes      | Sets the thumbnail for the embed content.                                                            |
 | `image`       | yes      | Sets the image for the embed content.                                                                |
@@ -185,4 +189,4 @@ For more information about creating and authorizing bots, visit the [OAuth2 info
 
 To use notifications effectively, please see the [getting started with automation page](/getting-started/automation/).
 
-Images are uploaded to Discord when a message is sent. As such, a local path to the image is required (i.e., `/config/www/garage.jpg` as opposed to `/local/garage.jpg`), and updating an image after sending it in a message will not update the message in Discord.
+Images are uploaded to Discord when a message is sent. As such, a local path to the image is required (that is, `/config/www/garage.jpg` as opposed to `/local/garage.jpg`), and updating an image after sending it in a message will not update the message in Discord.

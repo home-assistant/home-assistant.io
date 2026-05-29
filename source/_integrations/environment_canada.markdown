@@ -17,7 +17,7 @@ ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
@@ -26,21 +26,24 @@ The **Environment Canada** {% term integration %} provides meteorological data f
 
 ## Location selection
 
-The integration automatically determines the closest weather station based on the latitude and longitude specified. If integration-specific coordinates are not provided, the coordinates configured for Home Assistant are used.
+Choose your weather location using either:
 
-You can also specify a weather station to use by providing an identification code of the form `AB/s0000123`, based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv).
+- Station selector: Select a station location from a dropdown of all Environment Canada weather stations.
+- Coordinates: Provide latitude and longitude to automatically find the nearest station (defaults to your Home Assistant location).
 
 ## Entities
 
-The integration will create the entities listed below. Some of the entities are disabled by default and can be enabled via the integration's Entities page.
+The integration will create the entities listed below.
 
 ### Weather
 
 - Current conditions, daily forecast, and hourly forecast
 
-### Camera
+### Radar map (Camera)
 
-- Loop of radar imagery from the last 3 hours (disabled by default). Also, by default, this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the action described below.
+- Loop of radar imagery from the last 3 hours.
+- This entity is disabled by default can be enabled in the entry's settings dialog.
+- By default, this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the action described below.
 
 ### Sensors
 
@@ -48,13 +51,13 @@ The integration will create the entities listed below. Some of the entities are 
 
 - Current condition
 - Forecast summary
-- [Icon code](https://dd.weather.gc.ca/citypage_weather/docs/Current_Conditions_Icons-Icones_conditions_actuelles.pdf) of current condition
+- [Icon code](https://dd.weather.gc.ca/today/citypage_weather/docs/Current_Conditions_Icons-Icones_conditions_actuelles.pdf) of current condition
 - Barometric pressure
 - Pressure tendency
 - Humidity
 - Visibility
 - UV index
-- Air quality (AQHI)
+- Air quality health index (AQHI)
 
 #### Temperature
 
@@ -75,7 +78,6 @@ The integration will create the entities listed below. Some of the entities are 
 #### Precipitation
 
 - Probability of precipitation
-- Precipitation yesterday
 
 #### Alerts
 
@@ -103,7 +105,7 @@ The first course of action should be to check if there are known problems with t
 
 ### Sensor `unavailable` or `unknown`
 
-Not all weather stations provide a complete set of weather/sensor data. The data that is retrieved by this integration can be found [here](https://dd.weather.gc.ca/citypage_weather/xml/). Browsing the XML data for your station will help you to understand what data is (un)available.
+Not all weather stations provide a complete set of weather/sensor data. The data that is retrieved by this integration can be found [here](https://dd.weather.gc.ca/today/citypage_weather/). Browsing the XML data for your station will help you to understand what data is (un)available.
 
 ## Template sensors
 
@@ -114,8 +116,6 @@ Replace `NAME` with the weather entity used in your configuration.
 ### Feels Like
 
 A sensor that takes into account the humidex or wind chill for what the temperature feels like.
-
-{% raw %}
 
 ```yaml
 template:
@@ -133,13 +133,9 @@ template:
         {% endif %}
 ```
 
-{% endraw %}
-
 ### Additional Forecast Data
 
 The configuration snippet below adds a template sensor containing the current forecast information as attributes and the text summary of the forecast for the current day.
-
-{% raw %}
 
 ```yaml
 - trigger:
@@ -149,10 +145,10 @@ The configuration snippet below adds a template sensor containing the current fo
       event: start
     - platform: event
       event_type: event_template_reloaded
-  action:
-    - service: environment_canada.get_forecasts
+  actions:
+    - action: environment_canada.get_forecasts
       target:
-        entity_id: weather.ottawa_kanata_orleans_forecast
+        entity_id: weather.NAME
       response_variable: forecasts
   sensor:
     - name: Weather Forecast Daily
@@ -165,21 +161,19 @@ The configuration snippet below adds a template sensor containing the current fo
         temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
 ```
 
-{% endraw %}
-
 ## Actions
 
-### Action `environment_canada.get_forecasts`
+### Action: Get forecasts
 
-Get the raw forecast data from Environment Canada. Returns both the `daily_forecast` and the `hourly_forecast` data.
+The `environment_canada.get_forecasts` action allows you to get the raw forecast data from Environment Canada. It returns both the `daily_forecast` and the `hourly_forecast` data.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | Weather entity to get forecast for.
 
-### Action `environment_canada.set_radar_type`
+### Action: Set radar type
 
-Sets the type of radar to retrieve for the camera.
+The `environment_canada.set_radar_type` action allows you to set the type of radar to retrieve for the camera.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

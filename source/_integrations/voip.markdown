@@ -6,10 +6,10 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: '2023.5'
 ha_codeowners:
-  - '@balloob'
   - '@synesthesiam'
+  - '@jaminh'
 ha_domain: voip
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: internal
 ha_platforms:
   - assist_satellite
@@ -19,7 +19,7 @@ ha_platforms:
 ha_config_flow: true
 ---
 
-The **VoIP** {% term integration %} enables users to talk to [Assist](/voice_control/) using an analog phone and a VoIP adapter. Currently, the system works with the [Grandstream HT801](https://amzn.to/40k7mRa). See [the tutorial](/voice_control/worlds-most-private-voice-assistant) for detailed instructions.
+The **VoIP** {% term integration %} enables users to talk to [Assist](/voice_control/) using an analog phone and a VoIP adapter. Currently, the system works with the [Grandstream HT801](https://www.amazon.com/dp/B06XW1BQHC). See [the tutorial](/voice_control/worlds-most-private-voice-assistant) for detailed instructions.
 
 As an alternative, the [Grandstream HT802](https://www.amazon.com/Grandstream-GS-HT802-Analog-Telephone-Adapter/dp/B01JH7MYKA/) can be used, which is basically the same as the previously mentioned HT801, but has two phone ports, of which Home Assistant currently support using only one of them.
 

@@ -7,7 +7,7 @@ ha_category:
   - Sensor
   - Weather
 ha_codeowners:
-  - '@hacf-fr'
+  - '@hacf-fr/reviewers'
   - '@oncleben31'
   - '@Quentame'
 ha_config_flow: true
@@ -15,10 +15,10 @@ ha_domain: meteo_france
 ha_platforms:
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `meteo_france` integration uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world with a focus on France. One or more locations can be set via the front end or via the configuration file.
+The **Météo-France** {% term integration %} uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world with a focus on France. One or more locations can be set via the front end or via the configuration file.
 
 The integration support the following platforms within Home Assistant:
 
@@ -57,7 +57,7 @@ All the following sensors will be created :
 
 Warning: The probability entities data are not always provided by the API. They are added only if available.
 
-To enable an entity disabled by default, go in **Settings** -> **Devices & services**, click on the city name in **Météo-France** and then the **X entities** link. You will have the list of the enabled entities. Here click the filter button and select **Show disable entities**. The disabled entities will be visible in the list, select the one you want to enable and click the **Enable Selected** button.
+To enable an entity disabled by default, go in {% my integrations title="**Settings** > **Devices & services**" %}, click on the city name in **Météo-France** and then the **X entities** link. You will have the list of the enabled entities. Here click the filter button and select **Show disable entities**. The disabled entities will be visible in the list, select the one you want to enable and click the **Enable Selected** button.
 
 ### About `next_rain` condition sensor
 

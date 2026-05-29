@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
+The **ThermoWorks Smoke** {% term integration %} pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
 This requires a [Smoke WiFi Gateway](https://www.thermoworks.com/Smoke-Gateway) with an internet connection.
 
 You will need to have previously registered your smoke to your account via the mobile app and provide
@@ -88,8 +88,6 @@ sensor:
 This will use an automation to trigger a notification when Probe 1 goes above a temperature stored in an input_number variable.
 By default, your smoke is named "My Smoke" in the app. If you have changed it you will need to change the sensor name from `my_smoke_probe_1` to `your_name_probe_1`.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -126,5 +124,3 @@ automation:
             {{- ' '+states("sensor.my_smoke_probe_1") -}}
             {{- state_attr('sensor.my_smoke_probe_1','unit_of_measurement') }}
 ```
-
-{% endraw %}

@@ -15,7 +15,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://k2audio.co.uk/collections/ip-and-internet-control) modules with Home Assistant.
+The **Kira** {% term integration %} is the main integration to integrate Keene Electronics IR over IP [Kira](https://k2audio.co.uk/collections/ip-and-internet-control) modules with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -94,7 +94,7 @@ If no sensors or remotes are specified, a sensor with default values will be add
 
 ### Entities
 
-Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check go to Developer Tools > States and start to type “kira” within the entity list.
+Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check, go to **Settings** > **Developer tools** > **States** and start to type “kira” within the entity list.
 
 <p class='img'>
   <img src='/images/integrations/kira/kira_states.png' />

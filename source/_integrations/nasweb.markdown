@@ -2,6 +2,9 @@
 title: NASweb
 description: Integrate NASweb devices
 ha_category:
+  - Alarm
+  - Climate
+  - Sensor
   - Switch
 ha_release: '2024.12'
 ha_codeowners:
@@ -10,6 +13,9 @@ ha_iot_class: Local Push
 ha_domain: nasweb
 ha_config_flow: true
 ha_platforms:
+  - alarm_control_panel
+  - climate
+  - sensor
   - switch
 ha_integration_type: hub
 ---

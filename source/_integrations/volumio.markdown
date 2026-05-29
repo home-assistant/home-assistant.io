@@ -12,7 +12,7 @@ ha_domain: volumio
 ha_zeroconf: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Volumio** {% term integration %} allows you to control a [Volumio](https://volumio.org/) media player from Home Assistant.

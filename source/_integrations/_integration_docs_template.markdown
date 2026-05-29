@@ -6,7 +6,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: my_integration
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - url: https://developers.home-assistant.io/docs/documenting/standards
     title: Documentation standard
@@ -14,7 +14,7 @@ related:
     title: Integration Quality Scale - Rules
   - docs: /docs/glossary/
     title: Glossary
-  - docs: /docs/tools/quick-bar/#my-links
+  - docs: /docs/tools/quick-search/#my-links
     title: My link
 ---
 
@@ -24,6 +24,9 @@ related:
 
 The **My integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.
+
+<!-- Keep the "include" below if your integration is a building block integration -->
+{% include integrations/building_block_integration.md %}
 
 ## Supported devices
 
@@ -56,7 +59,7 @@ The following devices are not supported by the integration:
 
 {% configuration_basic %}
 Host:
-    description: "The IP address of your bridge. You can find it in your router or in the Integration app under **Bridge Settings** > **Local API**."
+    description: "The IP address or hostname of your bridge. For example, `192.168.1.100` or `my-bridge.local`. You can find it in your router or in the Integration app under **Bridge Settings** > **Local API**."
 Local access token:
     description: "The local access token for your bridge. You can find it in the Integration app under **Bridge Settings** > **Local API**."
 {% endconfiguration_basic %}
@@ -65,7 +68,7 @@ Local access token:
 
 {% configuration %}
 Host:
-    description: "The IP address of your bridge. You can find it in your router or in the Integration app under **Bridge Settings** > **Local API**."
+    description: "The IP address or hostname of your bridge. For example, `192.168.1.100` or `my-bridge.local`. You can find it in your router or in the Integration app under **Bridge Settings** > **Local API**."
     required: false
     type: string
 Local access token:
@@ -87,24 +90,22 @@ Timeframe:
 
 ## Supported functionality
 
-### Entities
-
 The **My integration** integration provides the following entities.
 
-#### Buttons
+### Buttons
 
 - **Start backflush**
   - **Description**: Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation.
   - **Available for machines**: all
 
-#### Numbers
+### Numbers
 
 - **Dose**
   - **Description**: Dosage (in ticks) for each key
   - **Available for machines**: GS3 AV, Linea Mini.
   - **Remarks**: GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default.
 
-#### Sensors
+### Sensors
 
 - **Current coffee temperature**
   - **Description**: Current temperature of the coffee boiler.
@@ -116,7 +117,7 @@ The **My integration** integration provides the following entities.
   - **Available for machines**: Linea Micra, GS3 AV, GS3 MP.
   - **Remarks**: -
 
-#### Selects
+### Selects
 
 - **Prebrew/-infusion mode**
   - **Description**: Whether to use prebrew, preinfusion, or neither.
@@ -128,37 +129,66 @@ The **My integration** integration provides the following entities.
   - **Options**: 1, 2, 3
   - **Available for machines**: Linea Micra
 
-#### Updates
+### Updates
 
 - **Gateway firmware**
   - **Description**: Firmware status of the gateway.
   - **Available for machines**: all
 
-## Actions
+<!--
+The "include" elements below add sections (heading 2) for triggers, conditions, or actions for this integration. Use the one that applies to what you are adding.
+Create separate files for each:
+- trigger, in source/_triggers/
+- condition, in source/_conditions/
+- action, in source/_actions/
+-->
+{% include integrations/actions.md %}
 
-The integration provides the following actions.
+{% include integrations/conditions.md %}
 
-### Action: Get schedule
+{% include integrations/triggers.md %}
 
-The `my_integration.get_schedule` action is used to fetch a schedule from the integration.
+<!--
+If the integration has all three components (triggers, conditions, and actions), use the combined include instead. 
+{% include integrations/triggers_conditions_actions.md %}
+-->
 
-- **Data attribute**: `config_entry_id`
-  - **Description**: The ID of the config entry to get the schedule from.
-  - **Optional**: No
+## My-integration automation examples
 
-## Examples
+The real power of this integration is...
+Here are a few ideas to get you started.
 
-### Turning off the LEDs during the night
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Turning off the LEDs during the night
 
 The status LEDs on the device can be quite bright.
 To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
 
-link to the blueprint on the [blueprints
-    exchange](https://community.home-assistant.io/c/blueprints-exchange/53)
+- **Trigger**: Sun: after sunset
+  - **Target**: Optional trigger target if needed
+- **Condition**: Optional condition if needed
+- **Action**: Turn off light
+
+{% details "YAML example for turning off LEDs at night" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the LEDs during the night"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: light.turn_off
+      target:
+        entity_id: light.device_leds
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
-The **My integration** integration fetches data from the device every 5 minutes by default.
+The **My integration** integration {% term polling polls %} data from the device every 5 minutes by default.
 Newer devices (the ones running MyOS) have the possibility to push data.
 In this case, pushing data is enabled when the integration is started. If enabling data push fails, the integration uses data {% term polling %}.
 
@@ -174,11 +204,11 @@ The integration does not provide the ability to reboot, which can instead be don
 
 When trying to set up the integration, the form shows the message “This device can’t be reached”.
 
-##### Description
+#### Description
 
 This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
 
-##### Resolution
+#### Resolution
 
 To resolve this issue, try the following steps:
 

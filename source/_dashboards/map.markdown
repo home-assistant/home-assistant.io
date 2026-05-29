@@ -23,7 +23,7 @@ The map card allows you to display your home zone, entities, and other predefine
 Screenshot of the map card.
 </p>
 
-## Adding the map card to your dashboard
+## Adding the map card to a dashboard
 
 1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.
@@ -102,6 +102,15 @@ hours_to_show:
   description: Shows a path of previous locations. Hours to show as path on the map.
   type: integer
   default: 0
+cluster:
+  required: false
+  description: 'When set to `false`, the map will not cluster the markers. This is useful when you want to see all markers at once, but it may cause performance issues with a large number of markers.'
+  type: boolean
+  default: true
+conditions:
+  required: false
+  description: List of conditions to check for entity visibility. See [description](#conditions-options).
+  type: list
 {% endconfiguration %}
 
 {% important %}
@@ -113,6 +122,23 @@ The `default_zoom` value will be ignored if it is set higher than the current zo
 after fitting all visible entity markers in the map window. In other words, this can only
 be used to zoom the map _out_ by default.
 {% endnote %}
+
+## Conditions options
+
+You can specify one or more `conditions`, in which case every selected entity will be tested against each condition and shown if it passes every condition. See [available conditions](/dashboards/conditional/#conditions-options). For conditions which accept an `entity` id, this will be automatically set to the entity being tested.
+
+### Examples
+
+Map all locatable entities, except hiding those that have a state of `home`.
+
+```yaml
+type: map
+auto_fit: true
+show_all: true
+conditions:
+  - condition: state
+    state_not: home
+```
 
 ## Options for entities
 
@@ -136,6 +162,10 @@ attribute:
   required: false
   description: An entity's attribute when `label_mode` set to `attribute`.
   type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
+  type: string
 focus:
   required: false
   default: true
@@ -143,7 +173,7 @@ focus:
   type: boolean
 {% endconfiguration %}
 
-## Options for geolocation sources:
+## Options for geolocation sources
 
 If you define geolocation sources as objects instead of strings (by adding `source:` before the ID), you can add more customization and configuration.
 
@@ -155,11 +185,15 @@ source:
 label_mode:
   required: false
   default: name
-  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name.
   type: string
 attribute:
   required: false
   description: An entity's attribute when `label_mode` set to `attribute`.
+  type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false

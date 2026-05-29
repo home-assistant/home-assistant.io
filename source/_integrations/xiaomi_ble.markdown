@@ -17,7 +17,7 @@ ha_platforms:
   - binary_sensor
   - event
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates devices that use the Xiaomi Mijia BLE MiBeacon protocol and the BLE protocols implemented in the MiScales and the MiFora plant sensor. This integration does not support Xiaomi BLE Mesh devices. The integration listens to Bluetooth broadcasts that the device makes by itself, allowing it to track the latest sensor values or events without waking the device up for polling (except HHCCJCY01, see note below). This method conserves battery lifetime.
@@ -53,12 +53,12 @@ Flower Care firmware update steps:
 
 - Install the official "Flower Care" app by HHCC:
   - [Google Play](https://play.google.com/store/apps/details?id=com.huahuacaocao.flowercare) (requires location and storage permission)
-  - [Apple App Store](https://apps.apple.com/app/flower-care/id1095274672)
+  - [Apple App Store](https://apps.apple.com/app/id1095274672)
 - Place the device with the app within 10cm of the plant sensor
 - Press the "+" button on the top right in the devices tab of the app
 - Add the plant sensor to the app and select an arbitrary plant
 - Wait for the synchronization of the sensor to finish, and a dialog asking for a firmware update should appear (this might take a few minutes)
-- The installed and latest firmware version can be verified by selecting the plant -> three-dot menu -> Hardware settings -> Hardware update
+- The installed and latest firmware version can be verified by selecting the plant -> three dots menu -> Hardware settings -> Hardware update
 - The Flower Care account and app are not required any further for this integration to work
 
 Also note that the battery level of the plant sensor can only be retrieved by connecting to the device (reading characteristics), while the other sensor data is broadcasted passively. To prevent battery drainage, a connection is made only once a day. Connecting to the device also requires that the device has a good signal strength.

@@ -10,7 +10,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-With the `freedns` {% term integration %} you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
+With the **FreeDNS** {% term integration %} you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
 
 ## Setup (Default API V1)
 

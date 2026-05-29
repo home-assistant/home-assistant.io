@@ -18,7 +18,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `iperf3` sensor {% term integration %} allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
+The **Iperf3** {% term integration %} allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
 
 Enabling this {% term integration %} will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a Iperf3 test to run.
 

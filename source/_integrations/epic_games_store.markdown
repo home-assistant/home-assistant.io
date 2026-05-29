@@ -6,7 +6,6 @@ ha_category:
 ha_release: 2024.5
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@hacf-fr'
   - '@Quentame'
 ha_domain: epic_games_store
 ha_config_flow: true
@@ -17,14 +16,14 @@ ha_integration_type: service
 
 The **Epic Games Store** {% term integration %} integrates the [Epic Games Store](https://store.epicgames.com/) service into Home Assistant.
 
-The integration adds calendars to follow [discounts & free games](https://store.epicgames.com/free-games).
+The integration adds {% term calendars %} to follow [discounts & free games](https://store.epicgames.com/free-games).
 
 {% include integrations/config_flow.md %}
 
 
 ## Calendars
 
-The following calendars will be created:
+The following {% term calendars %} will be created:
 
 |Entity|Description|
 |------|-----------|

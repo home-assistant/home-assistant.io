@@ -19,7 +19,7 @@ Give us a minute of your time to improve the sample database [with your own samp
 
 ### Donate your voice to Piper
 
-To create a Piper voice, you don't need an army of volunteers. You need a native speaker of a language to create a dataset, which is then trained into a Piper model and verified again by the native speaker.[Check the Training guide](https://github.com/rhasspy/piper/blob/master/TRAINING.md).
+To create a Piper voice, you don't need an army of volunteers. You need a native speaker of a language to create a dataset, which is then trained into a Piper model and verified again by the native speaker. [Check the Training guide](https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/TRAINING.md).
 
 Are you missing a language? Email us if you want to help out! To help interested people contribute languages, we opened up the email address [voice@nabucasa.com](mailto:voice@nabucasa.com).
 

@@ -12,11 +12,13 @@ ha_integration_type: device
 ha_iot_class: Local Push
 ha_platforms:
   - media_player
+  - switch
 ha_release: 0.17
 ha_ssdp: true
+ha_quality_scale: bronze
 ---
 
-The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
+The **Onkyo** {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
 Please be aware that you need to enable "Network Standby" for this integration to work with your hardware.
 
 {% include integrations/config_flow.md %}
@@ -32,7 +34,7 @@ Listening modes:
   description: List of listening modes supported by the receiver.
 {% endconfiguration_basic %}
 
-The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three-dot menu on the integration entry and select **Reconfigure**.
+The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three dots {% icon "mdi:dots-vertical" %} menu on the integration entry and select **Reconfigure**.
 
 {% include integrations/option_flow.md %}
 
@@ -45,9 +47,15 @@ Listening modes:
   description: Mappings of listening modes to their names.
 {% endconfiguration_basic %}
 
-## Zones
+## Supported functionality
+
+### Zones
 
 If your receiver has a second or third zone available, they are displayed as additional media players with functionality similar to the main zone.
+
+### Channel muting switches
+
+If your receiver supports channel muting, the integration creates a switch for each speaker channel. Turning a switch on mutes that channel, and turning it off unmutes it. This lets you mute individual channels independently of the main volume.
 
 ## Actions
 
@@ -106,6 +114,12 @@ script:
 ## Supported devices
 
 Network receivers from Onkyo and Integra are supported starting with models from the year 2011. Pioneer network receivers are supported starting with models from 2016.
+
+## Troubleshooting
+
+### No entities created
+
+Restart your receiver (power cycle).
 
 ## Removing the integration
 

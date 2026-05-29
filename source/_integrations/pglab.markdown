@@ -3,8 +3,8 @@ title: PG LAB Electronics
 description: Instructions on how to integrate PG LAB Electronics with Home Assistant.
 ha_category:
   - Cover
-  - Switch
   - Sensor
+  - Switch
 ha_release: '2025.3'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -13,9 +13,9 @@ ha_codeowners:
 ha_domain: pglab
 ha_platforms:
   - cover
-  - switch
   - sensor
-ha_integration_type: integration
+  - switch
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

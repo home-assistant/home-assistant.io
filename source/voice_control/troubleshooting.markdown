@@ -16,7 +16,7 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 
 If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in the **Developer tools**.
 
-1. Go to  {% my developer_assist title="**Developer tools** > **Assist**" %}.
+1. Go to {% my developer_assist title="**Settings** > **Developer tools** > **Assist**" %}.
 2. In the sentence parser, select the language and enter the sentence you want to test.
 3. The debug tool shows you the following:
    - The intent triggered.
@@ -98,9 +98,8 @@ If you have a complex network setup, or if you changed this setting in the past,
 
 To fix the URL, follow these steps:
 
-1. In {% my profile title="your user profile" %}, enable **Advanced Mode**.
-2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-3. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
   - For most users, the **Automatic** option works and is recommended.
    ![Create alias for entity name](/images/assist/local_url.png)
 
@@ -113,18 +112,18 @@ You think there is an issue with background noise or speaker volume? In some cas
 
 ### To tweak the Assist audio configuration for your device
 
-1. Make sure you have the ESPHome add-on installed:
-   - Go to {% my supervisor_store title="**Settings** > **Add-ons** > **Add-on store**" %}.
-   - If you do not have the **ESPHome** add-on installed, install it.
-2. Start the ESPHome add-on, and select **Open Web UI**.
-3. Adopt your device to the ESPHome add-on:
-   - Once the ESPHome add-on is started, you see your device as **Discovered**.
+1. Make sure you have the ESPHome app (formerly known as an add-on) installed:
+   - Go to {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
+   - If you do not have the **ESPHome** app installed, install it.
+2. Start the ESPHome app, and select **Open Web UI**.
+3. Adopt your device to the ESPHome app:
+   - Once the ESPHome app is started, you see your device as **Discovered**.
    - Select **Adopt**.
    - When prompted, enter the Network credentials of your local 2.4 GHz Wi-Fi network and select **Adopt**.
 
 4. If you see a notification that there is an update available for this device, select **Update**.
 5. Make sure you have access to the configuration file.
-   - If you are unsure what method to use, [install the File editor](/common-tasks/os/#installing-and-using-the-file-editor-add-on) add-on.
+   - If you are unsure what method to use, [install the File editor](/common-tasks/os/#installing-and-using-the-file-editor-app) app.
    - In the File Editor configuration, make sure the **Enforce basepath** option is disabled.
 6. Edit the general configuration to enable debug mode:
    - Access the `config` folder and open the `configuration.yaml` file.
@@ -140,7 +139,7 @@ You think there is an issue with background noise or speaker volume? In some cas
    - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
 9. Listen to the audio file of interest.
 10. Open the configuration file:
-    - In the ESPHome add-on, on your device, select **Edit**.
+    - In the ESPHome app, on your device, select **Edit**.
     - This lets you edit the configuration file of that device.
 11. To add a section to adjust noise suppression and volume, add the following lines:
 
@@ -156,4 +155,4 @@ You think there is an issue with background noise or speaker volume? In some cas
     - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
 13. Note: Collecting debug recordings impacts your disk space.
     - Once you have found a configuration that works, delete the folder with the audio files.
-    - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
+    - In the `configuration.yaml` file, delete the `assist_pipeline` entry and restart Home Assistant.

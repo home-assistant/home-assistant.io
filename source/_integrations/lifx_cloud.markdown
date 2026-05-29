@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `lifx_cloud` scene {% term integration %} allows you to activate the scenes that LIFX smartphone apps store in the LIFX cloud.
+The **LIFX Cloud** {% term integration %} allows you to activate the scenes that LIFX smartphone apps store in the LIFX cloud.
 
 To enable the LIFX Cloud {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

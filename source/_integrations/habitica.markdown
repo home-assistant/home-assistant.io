@@ -15,13 +15,14 @@ ha_platforms:
   - calendar
   - diagnostics
   - image
+  - notify
   - sensor
   - switch
   - todo
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
@@ -34,7 +35,7 @@ related:
 ha_quality_scale: platinum
 ---
 
-The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks, and many more things.
+The **Habitica** {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks, and many more things.
 
 ## About Habitica
 
@@ -97,6 +98,9 @@ Verify SSL certificate:
 - **Saddles**: Indicates the number of saddles owned, used for instantly raising pets to mounts.
 - **Hatching potions**: Shows the total count of available hatching potions. The sensor's attributes detail each potion type and quantity. Pour them on an egg to hatch a pet.
 - **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
+- **Pending damage**: Total damage accumulated during the day by completing your tasks. The quest boss is then attacked for this amount at the end of the day.
+- **Pending quest items**: Quest items found during the day when completing tasks. The total is counted towards the quest objective at the end of the day.
+- **Last check-in**: Last time a user checked in.
 
 ## Binary sensors
 
@@ -114,6 +118,8 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 - **Dailies**: Shows the daily tasks that need to be completed today or in the future. Tasks completed yesterday can still be marked off as "yesterdailies" until a new day starts.
 
 ## Calendars
+
+The following {% term calendars %} will be created:
 
 - **To-Do calendar**: Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
 - **Dailies calendar**: Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
@@ -159,11 +165,47 @@ If you've unlocked the class system, button controls for casting player and part
 
 - **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
+## Notifier
+
+- **Party chat**: Sends a message to your party's group chat.
+- **Private message**: Sends a private message to an individual party member. A separate notify entity is created for each member of your party.
+
+## Party
+
+If you’re part of a party, the integration creates a device with these entities.
+
+- **Boss health**: The total health of the quest boss.
+- **Boss health remaining**: The remaining health of the quest boss.
+- **Collected quest items**: Displays the total number of items collected. Attributes include a breakdown of each required item type, showing both collected and required amounts.
+- **Group leader**: The username of your party's leader.
+- **Member count**: The current number of members in your party.
+- **Quest**: Shows the name of the current quest your party is engaged in.
+- **Quest boss**: The name and image of the foe your party is currently battling.
+- **Boss rage**: Rage accumulated when quest participants miss their daily tasks.
+- **Boss rage limit break**: The maximum rage a quest boss can hold. Once this limit is reached, the boss unleashes its rage skill.
+
+{% note %}
+
+Certain entities are only available depending on whether you are in a boss quest or a collect quest.
+
+{% endnote %}
+
+### Keep an eye on your team mates
+
+You can add members of your party to Home Assistant, so you can keep an eye on your mates health and other key stats. To add a party member, go to {% my integration domain="habitica" title="**Settings** > **Devices & services** > **Habitica**" %} and select **{% icon "mdi:plus" %} Add party member**.
+
+When you add someone, Home Assistant creates a new entry with the following entities:
+
+- **Sensors**: Class, display name, health, mana, max. mana, experience, next level, strength, intelligence, constitution, and perception.
+- **Image**: Avatar
+
+For details about each of these entities, see the descriptions above under [**Sensors**](#sensors) and [**Image**](#image).
+
 ## Actions
 
-### Action `habitica.cast_skill`
+### Action: Cast skill
 
-Use a skill or spell from your Habitica character on a specific task to affect its progress or status.
+The `habitica.cast_skill` action uses a skill or spell from your Habitica character on a specific task to affect its progress or status.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -177,35 +219,35 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 - **Warrior**: `smash`
 - **Mage**: `fireball`
 
-To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
+To use task aliases, make sure **Developer Mode** is enabled under [**Settings** > **Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
-### Action `habitica.accept_quest`
+### Action: Accept quest
 
-Accept a pending invitation to a quest. For an example, see the [`Auto-accept quest invitation`](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
+The `habitica.accept_quest` action accepts a pending invitation to a quest. For an example, see the [`Auto-accept quest invitation`](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to accept the quest.             |
 
-### Action `habitica.reject_quest`
+### Action: Reject quest
 
-Reject a pending invitation to a quest.
+The `habitica.reject_quest` action rejects a pending invitation to a quest.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to reject the quest.             |
 
-### Action `habitica.leave_quest`
+### Action: Leave quest
 
-Leave the current quest you are participating in.
+The `habitica.leave_quest` action allows you to leave the current quest you are participating in.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to leave the quest.              |
 
-### Action `habitica.abort_quest` 🔒
+### Action: Abort quest 🔒
 
-Terminate your party's ongoing quest. All progress will be lost, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+The `habitica.abort_quest` action terminates your party's ongoing quest. All progress will be lost, and the quest roll is returned to the owner's inventory. Only the quest leader or group leader can perform this action.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
@@ -217,25 +259,25 @@ Actions marked with 🔒 have usage restrictions. See action descriptions for de
 
 {% endnote %}
 
-### Action `habitica.start_quest` 🔒
+### Action: Start quest 🔒
 
-Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
+The `habitica.start_quest` action begins the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to force-start the quest.        |
 
-### Action `habitica.cancel_quest` 🔒
+### Action: Cancel quest 🔒
 
-Cancel a quest that has not yet started. All accepted and pending invitations will be canceled, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+The `habitica.cancel_quest` action cancels a quest that has not yet started. All accepted and pending invitations will be canceled, and the quest roll is returned to the owner's inventory. Only the quest leader or group leader can perform this action.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to cancel the quest.             |
 
-### Action `habitica.score_habit`
+### Action: Score habit
 
-Increase the positive or negative streak of a habit.
+The `habitica.score_habit` action increases the positive or negative streak of a habit.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -243,18 +285,18 @@ Increase the positive or negative streak of a habit.
 | `task`         | no       |  The name, `task ID`, or **alias** of the habit to track.                                                         |
 | `direction`    | no       |  `up` for positive progress or `down` for negative progress you want to track for your habit.                     |
 
-### Action `habitica.score_reward`
+### Action: Score reward
 
-Buy a custom reward with gold.
+The `habitica.score_reward` action buys a custom reward with gold.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `config_entry` | no       |  Config entry of the character buying the reward.                                                                 |
 | `task`         | no       |  The name, `task ID`, or **alias** of the custom reward to buy.                                                   |
 
-### Action `habitica.transformation`
+### Action: Transformation
 
-Use a transformation item from your Habitica character's inventory on a member of your party or yourself.
+The `habitica.transformation` action uses a transformation item from your Habitica character's inventory on a member of your party or yourself.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -269,9 +311,9 @@ Use a transformation item from your Habitica character's inventory on a member o
 - **Seafoam**: `seafoam` (transforms into a starfish)
 - **Shiny seed**: `shiny_seed` (transforms into flower)
 
-### Action `habitica.get_tasks`
+### Action: Get tasks
 
-Fetch tasks from your Habitica account, with optional filters to narrow down the results for more precise task retrieval.
+The `habitica.get_tasks` action fetches tasks from your Habitica account, with optional filters to narrow down the results for more precise task retrieval.
 
 | Data attribute   | Optional | Description                                                                                              |
 | ---------------- | -------- | -------------------------------------------------------------------------------------------------------- |
@@ -282,9 +324,9 @@ Fetch tasks from your Habitica account, with optional filters to narrow down the
 | `tag`            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
 | `keyword`        | yes      | Filter tasks by keyword, searching across titles, notes, and checklists.                                 |
 
-### Action `habitica.update_reward`
+### Action: Update reward
 
-Updates a specific reward for the selected Habitica character.
+The `habitica.update_reward` action updates a specific reward for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -297,9 +339,9 @@ Updates a specific reward for the selected Habitica character.
 | `remove_tag`   | yes      | Remove tags from the Habitica reward.                                                        |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.create_reward`
+### Action: Create reward
 
-Creates a reward for the selected Habitica character.
+The `habitica.create_reward` action creates a reward for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -310,9 +352,9 @@ Creates a reward for the selected Habitica character.
 | `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.update_habit`
+### Action: Update habit
 
-Updates a specific habit for the selected Habitica character.
+The `habitica.update_habit` action updates a specific habit for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -329,9 +371,9 @@ Updates a specific habit for the selected Habitica character.
 | `counter_down` | yes      | Update the down counter of a negative habit.                                                 |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.create_habit`
+### Action: Create habit
 
-Creates a habit for the selected Habitica character.
+The `habitica.create_habit` action creates a habit for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -344,9 +386,9 @@ Creates a habit for the selected Habitica character.
 | `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.update_todo`
+### Action: Update to-do
 
-Updates a specific to-do for the selected Habitica character.
+The `habitica.update_todo` action updates a specific to-do for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -358,6 +400,7 @@ Updates a specific to-do for the selected Habitica character.
 | `remove_checklist_item`  | yes | Remove items from a to-do's checklist.                                                  |
 | `score_checklist_item`   | yes | Mark items from a to-do's checklist as completed.                                       |
 | `unscore_checklist_item` | yes | Undo completion of items of a to-do's checklist.                                        |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
 | `priority`     | yes      | Update the difficulty of a to-do. Valid values: `trivial`, `easy`, `medium`, `hard`          |
 | `date`         | yes      | The to-do's due date.                                                                        |
 | `clear_date`   | yes      | Remove the due date from a to-do.                                                            |
@@ -368,9 +411,9 @@ Updates a specific to-do for the selected Habitica character.
 | `remove_tag`   | yes      | Remove tags from the Habitica to-do.                                                         |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.create_todo`
+### Action: Create to-do
 
-Creates a to-do for the selected Habitica character.
+The `habitica.create_todo` action creates a to-do for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -378,15 +421,16 @@ Creates a to-do for the selected Habitica character.
 | `name`         | no       | The title for the Habitica to-do.                                                            |
 | `notes`        | yes      | The notes for the Habitica to-do.                                                            |
 | `add_checklist_item`     | yes | The items to add to the to-do's checklist.                                              |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
 | `priority`     | yes      | The difficulty of the to-do. Valid values: `trivial`, `easy`, `medium`, `hard`               |
 | `date`         | yes      | The to-do's due date.                                                                        |
 | `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
 | `tag`          | yes      | Add tags to the Habitica to-do. If a tag does not already exist, a new one will be created.  |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.update_daily`
+### Action: Update daily
 
-Updates a specific daily for the selected Habitica character.
+The `habitica.update_daily` action updates a specific daily for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -398,6 +442,7 @@ Updates a specific daily for the selected Habitica character.
 | `remove_checklist_item`  | yes | Remove items from a daily's checklist.                                                  |
 | `score_checklist_item`   | yes | Mark items from a daily's checklist as completed.                                       |
 | `unscore_checklist_item` | yes | Undo completion of items of a daily's checklist.                                        |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
 | `priority`     | yes      | Update the difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`          |
 | `start_date`   | yes      | Defines when the daily task becomes active and specifies the exact weekday or day of the month it repeats on. |
 | `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
@@ -412,9 +457,9 @@ Updates a specific daily for the selected Habitica character.
 | `streak`       | yes      | Adjust or reset the streak counter of the daily.                                             |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.create_daily`
+### Action: Create daily
 
-Creates a daily for the selected Habitica character.
+The `habitica.create_daily` action creates a daily for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -422,7 +467,8 @@ Creates a daily for the selected Habitica character.
 | `name`         | no       | The title for the Habitica daily.                                                            |
 | `notes`        | yes      | The new notes for the Habitica daily.                                                        |
 | `add_checklist_item` | yes | The items to add to the daily's checklist.                                                  |
-| `priority`     | yes      | The difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`             |
+| `collapse_checklist` | yes | Whether the checklist is displayed as collapsed or expanded.                                |
+| `priority`     | yes      | The difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`                 |
 | `start_date`   | yes      | The date when the daily becomes active and specifies the exact weekday or day of the month it repeats on. |
 | `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
 | `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Gray Daily*). |
@@ -443,8 +489,6 @@ Automatically accepts quest invitations from your Habitica party and creates a p
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-auto-accept-quest-invitation/791002" %}
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -468,8 +512,6 @@ actions:
         for other party members to join{% endif %}.
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% note %}
@@ -483,8 +525,6 @@ Automatically create a Habitica to-do when the dishwasher finishes its cycle.
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-create-to-do-when-dishwasher-finishes-its-cycle/786625" %}
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -502,8 +542,6 @@ actions:
     target:
       entity_id: todo.habitica_to_dos
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -554,7 +592,8 @@ actions:
 
 ## Data updates
 
-This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
+This integration syncs with Habitica every 60 seconds to keep your own data up to date.
+Party data, including any party members you’ve added as sub-entries, is refreshed every 15 minutes.
 
 ## Known limitations
 
@@ -574,7 +613,7 @@ The Habitica integration relies on an active internet connection to communicate 
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

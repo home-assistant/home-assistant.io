@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `microsoft` text-to-speech {% term integration %} uses the [TTS engine of the Microsoft Speech Service](https://learn.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Microsoft Speech API. For this integration to work, you need a free API key. You can use your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
+The **Microsoft text-to-speech** {% term integration %} uses the [TTS engine of the Microsoft Speech Service](https://learn.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Microsoft Speech API. For this integration to work, you need a free API key. You can use your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
 
 ## Configuration
 
@@ -74,12 +74,6 @@ region:
   type: string
   default: "`eastus`"
 {% endconfiguration %}
-
-{% note %}
-Not all Azure regions support high-quality neural voices. Use [this overview](https://learn.microsoft.com/azure/cognitive-services/speech-service/regions) to determine the availability of standard and neural voices by region/endpoint.
- 
-New users ([any newly created Azure Speech resource after August 31st, 2021](https://learn.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#more-about-neural-text-to-speech-features)) can only use neural voices. Existing resources can continue using standard voices through August 31st, 2024.
-{% endnote %}
 
 {% important %}
 If you set the language to anything other than the default `en-us`, you will need to specify a matching voice type as well.

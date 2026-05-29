@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `sinch` {% term integration %} uses [Sinch](https://www.sinch.com/products/apis/messaging/sms/) to deliver notifications from Home Assistant.
+The **Sinch SMS** {% term integration %} uses [Sinch](https://www.sinch.com/products/apis/messaging/sms/) to deliver notifications from Home Assistant.
 
 ## Prerequisites
 

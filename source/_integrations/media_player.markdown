@@ -29,7 +29,6 @@ A media player can have the following states:
 - **Idle**: The media player is turned on and accepting commands, but currently not playing any media. Possibly at some idle home screen.
 - **Playing**: The media player is currently playing media.
 - **Paused**: The media player has an active media and is currently paused
-- **Standby**: The media player is in a low power state, accepting commands.
 - **Buffering**: The media player is preparing to start playback of media.
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
@@ -43,28 +42,36 @@ Available actions: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, 
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`. |
 
-#### Action `media_player.volume_mute`
+#### Action: Volume mute
+
+The `media_player.volume_mute` action mutes or unmutes the volume of a media player.
 
 | Data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`. |
 | `is_volume_muted`      |       no | True/false for mute/unmute                       |
 
-#### Action `media_player.volume_set`
+#### Action: Volume set
+
+The `media_player.volume_set` action sets the volume level of a media player.
 
 | Data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`. |
 | `volume_level`         |       no | Float for volume level. Range 0..1               |
 
-#### Action `media_player.media_seek`
+#### Action: Media seek
+
+The `media_player.media_seek` action seeks to a specific position in the currently playing media.
 
 | Data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.       |
 | `seek_position`        |       no | Position to seek to. The format is platform dependent. |
 
-#### Action `media_player.play_media`
+#### Action: Play media
+
+The `media_player.play_media` action plays media on a media player.
 
 | Data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -150,54 +157,62 @@ data:
     title: HomeAssistantRadio
 ```
 
-#### Action `media_player.select_source`
+#### Action: Select source
+
+The `media_player.select_source` action selects an input source for a media player.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.     |
 | `source`               |       no | Name of the source to switch to. Platform dependent. |
 
-#### Action `media_player.select_sound_mode`
+#### Action: Select sound mode
 
-Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](/integrations/songpal).
+The `media_player.select_sound_mode` action selects a sound mode for a media player.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.marantz`|
 | `sound_mode`           |       no | Name of the sound mode to switch to. Platform dependent.|
 
-#### Action `media_player.shuffle_set`
+#### Action: Shuffle set
+
+The `media_player.shuffle_set` action enables or disables shuffle mode for a media player.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.spotify`|
 | `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle        |
 
-#### Action `media_player.repeat_set`
+#### Action: Repeat set
+
+The `media_player.repeat_set` action sets the repeat mode for a media player.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.kitchen`|
 | `repeat`               |       no | `off`/`all`/`one` for setting repeat mode            |
 
-#### Action `media_player.join`
+#### Action: Join
 
-Allows to group media players together for synchronous playback. Only works on supported multiroom audio systems.
+The `media_player.join` action groups media players together for synchronous playback. Only works on supported multiroom audio systems.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | The media player entity whose playback will be expanded to the players specified in `group_members`.  |
 | `group_members`        |       no | The player entities which will be synced with the playback from `entity_id`.  |
 
-#### Action `media_player.unjoin`
+#### Action: Unjoin
+
+The `media_player.unjoin` action unjoins a media player from any player groups.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
-#### Action `media_player.browse_media`
+#### Action: Browse media
 
-Provides access to browsing the media tree provided by the integration. Similar in functionality to browsing media through the media player UI. Common use cases include automations that need to navigate media libraries and find media by specific categories.
+The `media_player.browse_media` action provides access to browsing the media tree provided by the integration. Similar in functionality to browsing media through the media player UI. Common use cases include automations that need to navigate media libraries and find media by specific categories.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
@@ -284,15 +299,16 @@ media_player.living_room:
 
 {% include integrations/device_class_intro.md %}
 
-The screenshot shows different icons representing device classes of the media player entity:
+The media player entity will be represented by one of the following icons in the frontend, depending on the device class of the media player:
 
-<p class='img'>
-<img src='/images/screenshots/device_class_media_player_icons.png' alt='Screenshot showing different icons representing device classes of the media player entity' />
-Example of different icons representing device classes of the media player entity.
-</p>
+- {% icon "mdi:cast" %} `None`
+- {% icon "mdi:television" %} `tv`
+- {% icon "mdi:speaker" %} `speaker`
+- {% icon "mdi:audio-video" %} `receiver` (device that takes audio and video input and outputs to speakers and displays)
+- {% icon "mdi:projector" %} `projector`
 
-The following device classes are supported for media players:
+Some device classes also support additional icons based on their state:
 
-- `tv`: Device is a television type device.
-- `speaker`: Device is a speaker or stereo type device.
-- `receiver`: Device is an audio/video receiver type device taking audio and outputting to speakers and video to displays.
+- Off: {% icon "mdi:cast-off" %} {% icon "mdi:television-off" %} {% icon "mdi:speaker-off" %} {% icon "mdi:audio-video-off" %} {% icon "mdi:projector-off" %}
+- Playing: {% icon "mdi:cast-connected" %} {% icon "mdi:television-play" %} {% icon "mdi:speaker-play" %}
+- Paused: {% icon "mdi:cast-connected" %} {% icon "mdi:television-pause" %} {% icon "mdi:speaker-pause" %}

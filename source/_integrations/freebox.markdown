@@ -11,7 +11,7 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@hacf-fr'
+  - '@hacf-fr/reviewers'
   - '@Quentame'
 ha_config_flow: true
 ha_domain: freebox
@@ -24,10 +24,10 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
+The **Freebox** {% term integration %} allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -69,6 +69,7 @@ To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme
 
 Only the routers with Freebox OS are supported:
 
+- Freebox V9 also known as Freebox Ultra
 - Freebox V8 also known as Freebox Pop
 - Freebox V7 also known as Freebox Delta
 - Freebox V6 also known as Freebox Revolution
@@ -120,9 +121,9 @@ This integration allows you to view and control the Freebox alarm control panel.
 
 ## Action
 
-### Action `freebox.reboot`
+### Action: Reboot
 
-This action will reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
+The `freebox.reboot` action allows you to reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
 
 ## Switch
 
