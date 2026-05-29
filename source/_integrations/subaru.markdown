@@ -62,7 +62,6 @@ Available sensors will vary by model, year, and subscription type. The integrati
 | EV battery level                  |          | &check; | &check; | &check; |
 | EV charge mode                    |          | &check; | &check; | &check; |
 | EV charger state                  |          | &check; | &check; | &check; |
-| EV plug status                    |          | &check; | &check; | &check; |
 | EV range                          |          | &check; | &check; | &check; |
 | EV time to full charge            |          | &check; | &check; | &check; |
 | Fuel level                        |          |         | &check; | &check; |
@@ -103,6 +102,10 @@ lock state.
 - Lock status front left, Lock status front right
 - Lock status rear left, Lock status rear right
 - Lock status tailgate
+
+### EV plug
+
+EV vehicles get an **EV plug** entity (`BinarySensorDeviceClass.PLUG`) that reports `on` when the charging cable is connected and `off` when it is not.
 
 ### Vehicle health
 
