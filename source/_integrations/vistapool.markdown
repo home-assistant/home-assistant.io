@@ -2,6 +2,7 @@
 title: Vistapool
 description: Monitor and control Hayward-branded pool controllers via the Hayward cloud API.
 ha_category:
+  - Button
   - Sensor
 ha_release: 2026.6
 ha_iot_class: Cloud Push
@@ -10,6 +11,7 @@ ha_codeowners:
   - "@fdebrus"
 ha_domain: vistapool
 ha_platforms:
+  - button
   - sensor
 ha_integration_type: hub
 ---
@@ -50,6 +52,12 @@ The integration provides the following sensors:
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+
+## Button
+
+If your controller drives a multi-colour LED light fixture, the integration exposes a one-shot button to cycle through the available colours from Home Assistant.
+
+- **LED next colour**: advance the LED fixture to its next colour. The integration briefly toggles the pool light off and back on (or just turns it on if it was off); the physical fixture interprets the power-cycle as the colour-advance signal, the same way the **Next** button under **LED Color** does in the Vistapool app's Illumination screen. Available only if your controller reports an LED fixture.
 
 ## Known limitations
 
