@@ -3,6 +3,7 @@ title: Vistapool
 description: Monitor and control Hayward-branded pool controllers via the Hayward cloud API.
 ha_category:
   - Sensor
+  - Switch
 ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: vistapool
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: hub
 ---
 
@@ -50,6 +52,27 @@ The integration provides the following sensors:
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+
+## Switches
+
+The integration provides the following {% term entities %}, grouped by what they control.
+
+### Pool equipment
+
+- **Filtration**: toggle the filtration pump on or off.
+- **Relay 1**, **Relay 2**, **Relay 3**, **Relay 4**: toggle the four generic relay outputs on the controller. The switch reads as on when the controller is currently driving the relay, even if the toggle was last set the other way — useful for automations that key on the effective relay state rather than the last command.
+
+### Electrolysis / hydrolysis cell
+
+These are available if your controller has a hydrolysis or electrolysis module installed.
+
+- **Electrolysis cover**: enable cover-mode production reduction (lowers cell output while the pool cover is closed).
+- **Electrolysis boost**: enable boost dosing for shock chlorination.
+
+### Mode toggles
+
+- **Heating climate**: switch heating into climate mode. Available only if your controller supports HEAT mode.
+- **Smart mode freeze**: enable freeze protection in Smart filtration mode. Available only if your controller supports SMART mode.
 
 ## Known limitations
 
