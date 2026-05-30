@@ -19,8 +19,6 @@ ha_quality_scale: legacy
 
 The Apprise integration connects Home Assistant to [more than 140 notification services](https://appriseit.com/services/), including Amazon SNS, Discord, Telegram, Slack, Microsoft Teams, Twilio, and many more. A single Apprise configuration can route alerts to multiple services at once, so your automations stay simple and provider-independent.
 
-Apprise is built into Home Assistant Core. You do not need to install a custom component or add-on.
-
 ## Configuration
 
 To use Apprise notifications, add the following to your {% term "`configuration.yaml`" %} file and restart Home Assistant.
@@ -68,7 +66,7 @@ Then create `/config/apprise.yml` and list your services:
 urls:
   - tgram://BOT_TOKEN/CHAT_ID:
       tag: telegram
-  - mailtos://user:pass@smtp.gmail.com:
+  - mailtos://YOUR_USER:YOUR_PASSWORD@smtp.gmail.com:
       tag: email
 ```
 
@@ -132,8 +130,8 @@ When you use a configuration file, you can assign tags to your services and use 
 
 How multiple tags combine in `target`:
 
-- A list sends to every service tagged with *any* of the listed values (OR logic).
-- A space-separated string sends only to services that carry *all* of the listed tags (AND logic).
+- A list sends to every service tagged with _any_ of the listed values (OR logic).
+- A space-separated string sends only to services that carry _all_ of the listed tags (AND logic).
 - The reserved tag `all` notifies every service, whether tagged or not.
 
 ```yaml
