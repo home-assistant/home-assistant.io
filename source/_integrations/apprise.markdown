@@ -97,20 +97,20 @@ url:
   description: >-
     One or more Apprise URLs pointing to notification services. Accepts a
     single URL string or a list of URL strings. All listed services are
-    notified on every action call.
+    notified on every call.
   required: false
-  type: [string, list]
+  type: list
 config:
   description: >-
-    One or more paths or URLs pointing to Apprise configuration files or a
-    remote Apprise API endpoint.
+    A path or URL pointing to an Apprise configuration file or a remote
+    Apprise API endpoint.
   required: false
   type: string
 {% endconfiguration %}
 
 ## Sending a notification
 
-Once Home Assistant restarts, send a notification from an automation using the action name you defined:
+Once Home Assistant restarts, use the notify service you defined to send notifications from an automation:
 
 ```yaml
 - action: notify.NOTIFIER_NAME
