@@ -228,6 +228,7 @@ This {% term action %} can use the same triggers that are available in an automa
       to: "on"
       for: 10
 ```
+
 You can assign an `id` to each trigger, just like you would do in an automation's `trigger` section, but you won't find it inside the `trigger` condition, which only lists the main automation triggers. You can however find it in a template as `wait.trigger.id`:
 
 ```yaml
@@ -239,8 +240,6 @@ You can assign an `id` to each trigger, just like you would do in an automation'
       target:
         entity_id: light.living_room_table
 ```
-
-
 
 ### Wait timeout
 
