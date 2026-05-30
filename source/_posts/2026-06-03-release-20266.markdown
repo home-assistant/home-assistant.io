@@ -343,7 +343,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[SmartThings]** TVs now let you select the input source, and Copper water meters expose their sensors. Thanks, [@felipecrs] and [@joostlek]!
 - **[Anthropic]** Claude conversations now support the web fetch tool, allowing the model to retrieve and reason about live web content. Thanks, [@Shulyaka]!
 - **[Google Nest]** added a `nest.set_fan_timer` action, so you can script your thermostat's fan timer right from Home Assistant. Thanks, [@tronikos]!
-- **[HomeWizard]** battery groups gained two new sensors: target power and group power. Thanks, [@DCSBL]!
+- **[HomeWizard]** updated charging strategies with support for their new smart charging feature, and two new battery group sensors: target power and group power. Thanks, [@DCSBL]!
 - **[UniFi Protect]** added an alarm profile select entity, letting you switch between alarm profiles directly from Home Assistant. Thanks, [@RaHehl]!
 - **[FRITZ!SmartHome]** now ships data descriptions for all configuration fields, making setup easier to understand. Thanks, [@mib1185]!
 - **[Viessmann ViCare]** RadiatorActuator devices now expose a target temperature sensor. Thanks, [@lackas]!
