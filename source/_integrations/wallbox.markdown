@@ -76,7 +76,9 @@ The {% term integration %} adds a switch {% term entity %}, allowing you to paus
 
 ## Button
 
-The {% term integration %} adds a **Resume schedule** button {% term entity %}. Pressing it resumes the charger's programmed schedule and EcoSmart mode after a manual stop, mirroring the **Resume schedule** action available in the Wallbox mobile app. This requires a user with admin rights.
+The {% term integration %} adds a **Resume schedule** button {% term entity %}. Pressing it resumes the charger's programmed schedule and EcoSmart mode after a manual stop, mirroring the **Resume schedule** action available in the Wallbox mobile app.
+
+This action requires a user with admin rights. If the configured user lacks them, pressing the button fails with an error and a repair issue is raised. See [Insufficient Rights](#insufficient-rights) for details.
 
 ## Data updates
 
