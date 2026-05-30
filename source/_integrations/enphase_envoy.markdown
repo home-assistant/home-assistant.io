@@ -113,15 +113,15 @@ If you prefer not to have your Enphase cloud username and password stored by Hom
 
 To switch back from manual token entry to automatic token retrieval use the reverse process. Deselect the option `Enter the Envoy access token manually` and select **Submit** to switch to the username/password entry mode.
 
-### Token lifetime alerting
+### Token expiry repair
 
-When in manual token entry mode, you will have to take care of timely token update. To alert you in time, the integration will display a repair note in **Settings**.  The repair will show when the token expiry is within the next 30 days. Use the `reconfigure` menu option to update the token. If you opt to ignore the repair, it will show again the next day. The repair will disappear when the token is updated and valid again.
+When in manual token entry mode, you will have to take care of timely token update. To alert you in time, the integration will display a repair note in **Settings**. The repair will show when the token expiry is within the next 30 days. Use the [reconfigure](#reconfigure) menu option for the Envoy integration to update the token. If you opt to ignore the repair, it will show again the next day. The repair will disappear when the token is updated and valid again.
 
 The action [enphase_envoy.token_lifetime](#action-enphase_envoytoken_lifetime) is available to inspect the number of days to token expiry. It can be used in automations as desired.
 
 ## Reconfigure
 
-This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, password, manual token entry mode and/or token. The `reconfigure` menu will show the form as described in [Credentials and/or token configuration](#credentials-andor-token-configuration) and [Required manual input](#required-manual-input) with current configured information.
+This integration supports updating the Envoy configuration through a `reconfigure` menu option for the Enphase Envoy integration in {% my integrations title="**Settings** > **Devices & services** > **Integrations** " %}. The reconfiguration allows for changing the Envoy IP address, username, password, manual token entry mode and/or token. The `reconfigure` menu will show the form as described in [Credentials and/or token configuration](#credentials-andor-token-configuration) and [Required manual input](#required-manual-input) with current configured information.
 
 Use this menu when:
 
@@ -497,12 +497,6 @@ The Enphase C6 combiner controller (C6CC) provides some status information to th
   <img src="/images/integrations/enphase_envoy/enphase_envoy_collar_and_ccc_data.png" alt="envoy collar and c6cc">
   <figcaption>Envoy IQ Metered Collar and C6 Combiner Controller entities.</figcaption>
 </figure>
-
-### Coordinator entities
-
-These entities represent the state of the Enphase Envoy coordinator.
-
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Token lifetime**: Number of days until the Envoy access token expires. Updated once a day.
 
 ## Data polling interval
 
@@ -997,4 +991,8 @@ ___
 ### IQ Combiner reference
 
 [TEB-00269-2.0-EN, March 2025](https://enphase.com/it-it/media/26097)
+
+### Enphase token portal
+
+Obtain a token from the [Enphase token portal](https://entrez.enphaseenergy.com)
 ___
