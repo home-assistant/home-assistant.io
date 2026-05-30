@@ -115,7 +115,7 @@ To switch back from manual token entry to automatic token retrieval use the reve
 
 ### Token lifetime alerting
 
-When in manual token entry mode, you will have to take care of timely token update. When in manual token mode, the integration will display a persistent notification to refresh the token when token expiry is within the next 30 days. Use the `reconfigure` menu option to update the token. The notification will disappear when the token is updated and valid again.
+When in manual token entry mode, you will have to take care of timely token update. To alert you in time, the integration will display a repair note in **Settings**.  The repair will show when the token expiry is within the next 30 days. Use the `reconfigure` menu option to update the token. If you opt to ignore the repair, it will show again the next day. The repair will disappear when the token is updated and valid again.
 
 The action [enphase_envoy.token_lifetime](#action-enphase_envoytoken_lifetime) is available to inspect the number of days to token expiry. It can be used in automations as desired.
 
