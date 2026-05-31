@@ -10,6 +10,8 @@ The **Set cover position and tilt** action moves a cover to a target position an
 
 This is useful for tilting blinds and shades, such as Somfy venetian blinds, where setting the position and the tilt separately would make the motor pause and start again.
 
+This action is available only for covers that support setting both position and tilt, and that accept the combined command. If your cover does not support it, the action returns an error.
+
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
@@ -64,10 +66,6 @@ tilt_position:
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="cover" %}
-
-## Good to know
-
-- This action is available only for covers that support setting both position and tilt, and that accept the combined command. If your cover does not support it, the action returns an error.
 
 {% include actions/try_it.md %}
 
