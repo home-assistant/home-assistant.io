@@ -103,6 +103,10 @@ Claude for Desktop can connect to Home Assistant using either a cloud-based remo
 
 When using a remote custom connector in Claude for Desktop, the connection is brokered through Anthropic's cloud infrastructure. This means your Home Assistant instance must be publicly accessible from the internet.
 
+{% note %}
+Use the same URL that is configured as your Home Assistant external URL. If you use [Home Assistant Cloud](/integrations/cloud/), use your Nabu Casa Cloud URL (for example, `https://<your_id>.ui.nabu.casa`). Connecting with a different URL, such as an internal split-horizon domain, can cause the login step to fail with a blank 404 page, because Home Assistant builds the OAuth redirect from the configured external URL. You can check or update this URL at {% my network title="**Settings** > **System** > **Network**" %}.
+{% endnote %}
+
 1. Download [Claude for Desktop](https://claude.ai/download) and log in.
 2. Select your profile name, select **Settings**, and go to **Connectors**.
 3. Select **Add Custom Connector**.
