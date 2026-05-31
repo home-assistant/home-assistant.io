@@ -1,6 +1,6 @@
 ---
 title: Virtual Remote
-description: Create virtual remote entities backed by infrared entities.
+description: Create a virtual remote entity backed by an infrared entity.
 ha_category:
   - Remote
 ha_iot_class: Local Push
@@ -11,82 +11,104 @@ ha_domain: virtual_remote
 ha_integration_type: helper
 ---
 
-The Virtual Remote integration allows you to create Home Assistant `remote` entities backed by `infrared` entities.
+The Virtual Remote integration creates a Home Assistant `remote` entity that sends infrared commands through an existing `infrared` entity.
 
-A virtual remote behaves like a standard Home Assistant remote entity and supports:
+Virtual Remote does not connect to infrared hardware itself. The linked infrared entity is responsible for the actual transmission. Virtual Remote stores command names, exposes a standard `remote` entity, and forwards commands to the selected infrared entity.
 
-- `remote.send_command`
-- Optional power commands
-- Named infrared commands
-- Raw infrared commands
-- Command repeats and delays
-- Multiple virtual remotes in a single config entry
-
-The integration does not directly transmit infrared commands itself. Instead, it forwards commands to a configured infrared entity.
-
-Because Virtual Remote exposes standard Home Assistant `remote` entities, it can be used with automations, scripts, dashboards, and voice assistants which support the `remote` domain.
+Use this integration when one infrared transmitter should be represented as a user-facing remote for a specific device, such as a TV, receiver, projector, HDMI switch, or air conditioner.
 
 {% include integrations/config_flow.md %}
 
 ## Prerequisites
 
-Before adding Virtual Remote, at least one compatible infrared entity must already exist in Home Assistant.
+Before adding Virtual Remote, at least one compatible `infrared` entity must already exist in Home Assistant.
 
 Examples include:
 
-- Infrared entities provided by the iTach IP2IR integration
-- Infrared entities exposed through ESPHome
-- Other integrations implementing the Home Assistant `infrared` entity model
+- Infrared entities provided by an iTach IP2IR integration.
+- Infrared entities exposed by ESPHome.
+- Infrared entities provided by other integrations implementing the Home Assistant `infrared` entity model.
+
+Virtual Remote only lists enabled `infrared` entities. Disabled infrared entities must be enabled before they can be selected.
 
 ## Supported functionality
 
-Virtual Remote supports:
+Virtual Remote supports the following functions:
 
-- Creating one or more virtual remote entities
-- Associating each virtual remote with an infrared entity
-- Defining reusable named commands
-- Sending raw infrared commands
-- Sending command sequences
-- Configuring delays and repeat counts
-- Standard Home Assistant remote services and automations
+- Create one virtual remote entity per config entry.
+- Link the virtual remote to one existing infrared entity.
+- Change the linked infrared entity from the integration options.
+- Add, edit, and remove named infrared commands.
+- Send configured command names with `remote.send_command`.
+- Send ad-hoc raw infrared payloads with `remote.send_command`.
+- Send command sequences.
+- Use `num_repeats` and `delay_secs` with `remote.send_command`.
+- Map configured commands to the standard remote power commands:
+  - `turn_on`
+  - `turn_off`
+  - `toggle`
+- Report availability based on the linked infrared entity.
+- Create a repair issue if the linked infrared entity is removed.
 
-Each virtual remote is exposed as a standard Home Assistant `remote` entity.
+Virtual Remote does not learn infrared commands and does not discover infrared hardware.
 
-Named commands belong to individual virtual remotes and are not shared between remotes.
+## Use cases
+
+### Create a TV remote from an infrared transmitter
+
+Create a Virtual Remote named `Living Room TV` and link it to the infrared emitter aimed at the TV. Add commands such as `POWER`, `HDMI_1`, `HDMI_2`, and `VOLUME_UP`.
+
+You can then use the created `remote.living_room_tv` entity in dashboards, scripts, scenes, and automations.
+
+### Give one transmitter multiple user-facing remotes
+
+If one physical infrared transmitter controls multiple devices, create one Virtual Remote config entry for each device.
+
+For example:
+
+- `remote.living_room_tv`, linked to the transmitter port aimed at the TV.
+- `remote.av_receiver`, linked to the transmitter port aimed at the receiver.
+- `remote.projector`, linked to the transmitter port aimed at the projector.
+
+Each virtual remote stores its own command names. Commands are not shared between virtual remotes.
+
+### Use raw commands directly in automations
+
+Named commands are useful for commands you use often. For one-off or advanced automations, you can also send a raw infrared payload directly with `remote.send_command`.
+
+This is useful when you do not want to store every command in the integration options.
 
 ## Adding the integration
 
-1. In Home Assistant, go to **Settings** > **Devices & Services**.
-2. Select **Add Integration**.
+1. Go to **Settings** > **Devices & services**.
+2. Select **Add integration**.
 3. Search for **Virtual Remote**.
-4. Select the infrared entity to associate with the virtual remote.
+4. Select the infrared entity that should transmit commands.
 5. Enter a name for the virtual remote.
 6. Select **Submit**.
 
-The integration creates the initial virtual remote entity.
+The integration creates one `remote` entity for the configured device.
 
-Additional virtual remotes can be created through the integration options.
+To create another virtual remote, add the Virtual Remote integration again and select the infrared entity for the next device.
 
-## Managing virtual remotes
+## Managing a virtual remote
 
-Open the integration and select **Configure** to:
+Open the Virtual Remote integration and select **Configure** to manage the virtual remote.
 
-- Add virtual remotes
-- Edit virtual remotes
-- Remove virtual remotes
-- Add named infrared commands
-- Edit command definitions
-- Remove infrared commands
+From the options flow, you can:
 
-Each virtual remote stores its own command definitions.
+- Change the linked infrared entity.
+- Add a named command.
+- Edit a named command.
+- Remove a named command.
+
+Named commands belong to the selected virtual remote only.
 
 ## Command formats
 
-Virtual Remote supports multiple infrared command formats.
+Virtual Remote supports the following infrared command formats.
 
 ### Pronto Hex
-
-Example:
 
 ```text
 0000 006D 0022 0002 0157 00AC ...
@@ -94,46 +116,42 @@ Example:
 
 ### JSON timing array
 
-Example:
-
 ```json
-[9000,4500,560,560,560,1690]
+[9000, 4500, 560, 560, 560, 1690]
 ```
 
 ### JSON timing object
 
-Example:
-
 ```json
 {
-  "timings": [9000,4500,560,560,560,1690],
+  "timings": [9000, 4500, 560, 560, 560, 1690],
   "carrier_frequency": 38000
 }
 ```
 
 ### Timing string
 
-Example:
-
 ```text
-9000 4500 560 560 560 1690
+38000:9000,4500,560,560,560,1690
 ```
 
-If a command name does not match a configured named command, Virtual Remote attempts to interpret the value as a raw infrared command.
+If the carrier frequency is omitted, Virtual Remote uses 38 kHz.
 
-## Sending commands
+When `remote.send_command` is called, Virtual Remote first looks for a configured command with that name. If no configured command matches, it tries to parse the value as a raw infrared command. If neither succeeds, the service call fails with an unknown or invalid command error.
 
-Example action call:
+## Examples
+
+### Send a named command
 
 ```yaml
 action: remote.send_command
 target:
   entity_id: remote.living_room_tv
 data:
-  command: POWER
+  command: HDMI_1
 ```
 
-Example command sequence:
+### Send a command sequence
 
 ```yaml
 action: remote.send_command
@@ -142,10 +160,10 @@ target:
 data:
   command:
     - POWER
-    - HDMI1
+    - HDMI_1
 ```
 
-Example with repeats and delay:
+### Send a command with repeats and delay
 
 ```yaml
 action: remote.send_command
@@ -157,60 +175,136 @@ data:
   delay_secs: 0.4
 ```
 
-## Advanced usage
+### Send a raw infrared command directly
 
-Virtual Remote supports:
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.living_room_tv
+data:
+  command: "38000:9000,4500,560,560,560,1690"
+```
 
-- Reusable named commands
-- Raw infrared payloads
-- Command sequences
-- Configurable repeat counts
-- Configurable inter-command delays
+### Use a virtual remote in a script
 
-These features can be combined within automations and scripts.
+```yaml
+script:
+  watch_blu_ray:
+    sequence:
+      - action: remote.send_command
+        target:
+          entity_id: remote.living_room_tv
+        data:
+          command: POWER
+      - delay: "00:00:02"
+      - action: remote.send_command
+        target:
+          entity_id: remote.living_room_tv
+        data:
+          command: HDMI_1
+```
 
-## Availability behavior
+## Power commands
 
-Virtual Remote does not maintain its own hardware connection state.
+Virtual Remote can map named commands to standard remote power actions.
 
-Availability is inherited directly from the linked infrared entity.
+If configured, these actions can be used with the virtual remote entity:
 
-A virtual remote is available only while its linked infrared entity is available.
+```yaml
+action: remote.turn_on
+target:
+  entity_id: remote.living_room_tv
+```
 
-If the linked infrared entity becomes unavailable or is removed, the virtual remote will become unavailable.
+```yaml
+action: remote.turn_off
+target:
+  entity_id: remote.living_room_tv
+```
 
-The integration creates a repair issue when a configured infrared entity no longer exists.
+```yaml
+action: remote.toggle
+target:
+  entity_id: remote.living_room_tv
+```
+
+If no matching power command is configured, use `remote.send_command` with the desired command name instead.
+
+## Availability
+
+Virtual Remote does not maintain a hardware connection.
+
+The virtual remote is available only while the linked infrared entity exists and is available.
+
+If the linked infrared entity becomes unavailable, the virtual remote also becomes unavailable. If the linked infrared entity is removed, Virtual Remote creates a repair issue so you can select a valid infrared entity.
 
 ## Troubleshooting
 
-### Virtual remote unavailable
+### The integration cannot be added
 
-If a virtual remote becomes unavailable:
+Virtual Remote requires at least one enabled `infrared` entity.
 
-1. Verify the linked infrared entity still exists.
-2. Confirm the backing integration is loaded correctly.
-3. Open the Virtual Remote integration options and select a valid infrared entity if necessary.
+If no infrared entity is available:
 
-### Command errors
+1. Add and configure an integration that provides an `infrared` entity.
+2. Confirm the infrared entity is enabled.
+3. Reload or restart the backing integration if the entity was just created.
+4. Try adding Virtual Remote again.
 
-If a command fails:
+### The virtual remote is unavailable
 
-- Verify the command format is valid.
-- Confirm the infrared entity supports transmission.
-- Verify named commands exist in the virtual remote configuration.
+If the virtual remote is unavailable:
+
+1. Check whether the linked infrared entity still exists.
+2. Check whether the backing infrared integration is loaded.
+3. Confirm the infrared transmitter is connected and reachable.
+4. Open the Virtual Remote options and select a valid infrared entity.
+
+### A named command does not work
+
+If a named command fails:
+
+1. Confirm the command name in the automation exactly matches the configured command name.
+2. Confirm the stored command payload is valid.
+3. Test the linked infrared entity directly if possible.
+4. Confirm the infrared emitter or blaster is aimed at the target device.
+5. Try increasing `num_repeats` for commands that require repeated transmission.
+
+### A raw command does not work
+
+If a raw command fails:
+
+1. Confirm the raw command uses one of the supported formats.
+2. Confirm the timing values are in microseconds.
+3. Confirm the carrier frequency is correct for the target device.
+4. Test a learned command from the same physical remote when possible.
+5. Check the Home Assistant logs for command parsing or send errors.
+
+### The wrong device responds
+
+If a different device responds to a command:
+
+1. Confirm the virtual remote is linked to the correct infrared entity.
+2. Confirm the infrared emitter is plugged into the intended transmitter port.
+3. Check whether the infrared blaster is reaching more than one device.
+4. Use separate emitter ports or reposition the emitter if needed.
 
 ## Known limitations
 
 - Virtual Remote does not learn infrared commands.
-- Virtual Remote does not directly control infrared hardware.
-- An existing infrared entity is required.
-- Infrared protocol validation depends on the backing infrared entity implementation.
+- Virtual Remote does not discover infrared transmitters.
+- Virtual Remote does not directly communicate with infrared hardware.
+- An existing `infrared` entity is required.
+- The linked infrared entity must support sending raw infrared commands.
+- Command validation depends on the command format and the backing infrared entity implementation.
+- Named commands are stored per virtual remote and are not shared across config entries.
+- Removing the integration removes the configured command definitions for that virtual remote.
 
 ## Removing the integration
 
-1. Go to **Settings** > **Devices & Services**.
+1. Go to **Settings** > **Devices & services**.
 2. Open the **Virtual Remote** integration.
 3. Select the three-dot menu.
 4. Select **Delete**.
 
-Removing the integration removes all configured virtual remotes and command definitions.
+Removing a Virtual Remote config entry removes that virtual remote and its command definitions. It does not remove or change the linked infrared entity.
