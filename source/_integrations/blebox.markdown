@@ -434,15 +434,6 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 - Periodic read of humidity
 - Periodic read of temperature
 
-### wind&RainSensor
-
-This integration adds the Blebox device as a sensor & binary sensor entity to Home Assistant.
-
-#### Key supported features
-
-- Periodic read of current wind speed
-- Periodic read of state of rain detection
-
 ### rainSensor
 
 This integration adds the Blebox device as a binary sensor entity to Home Assistant.
