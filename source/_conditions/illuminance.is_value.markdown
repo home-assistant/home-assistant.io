@@ -44,7 +44,7 @@ Condition passes if:
     - **Any**: The condition passes if at least one targeted entity meets the threshold (default).
     - **All**: The condition passes only when every targeted entity meets the threshold.
 For at least:
-  description: How long the reading must meet the threshold before the condition passes. The default is `0` hours, `00` minutes and `00` seconds.
+  description: How long the reading must meet the threshold before the condition passes. The default is `0` (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

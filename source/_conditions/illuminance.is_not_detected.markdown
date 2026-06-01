@@ -31,7 +31,7 @@ To use this condition in an automation:
 Condition passes if:
   description: When multiple light sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is dark, or **All** to pass only when every sensor is dark.
 For at least:
-  description: How long the sensor or sensors must remain dark before the condition passes. The default is `0` hours, `00` minutes and `00` seconds.
+  description: How long the sensor or sensors must remain dark before the condition passes. The default is `0` (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
