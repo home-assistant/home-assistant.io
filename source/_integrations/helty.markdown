@@ -37,9 +37,7 @@ Units without the smart Wi-Fi module, such as models that only offer an RS-485 c
 
 {% configuration_basic %}
 Host:
-    description: "The IP address or hostname of the Helty Flow unit on your network. A static address is recommended so it does not change over time."
-Port:
-    description: "The TCP port of the unit's smart interface, usually `5001`."
+    description: "The IP address or hostname of the Helty Flow unit on your network. A static address (DHCP reservation) is recommended so it does not change over time."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -51,10 +49,6 @@ The integration creates one device per configured unit, exposing a single fan en
 - **Ventilation**
   - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (`boost`, `night`, or `free_cooling`).
 
-## Reconfiguration
-
-If the unit's IP address changes, you do not need to remove and add it again. Reconfigure the entry from its device page and enter the new host and port. The integration checks that it is still the same unit before saving the change.
-
 ## Data updates
 
 Home Assistant {% term polling polls %} the unit every 60 seconds. When you send a command, such as changing the speed or selecting a preset, the integration requests an immediate refresh so the state updates promptly.
@@ -63,7 +57,7 @@ Home Assistant {% term polling polls %} the unit every 60 seconds. When you send
 
 The communication protocol has been reverse-engineered, as there is no official specification from the manufacturer.
 
-The unit does not expose a serial number or a MAC address over its interface, so the device name is used as its unique identifier. If you rename the unit in the Helty app, you need to remove and add it again in Home Assistant.
+The unit does not expose a serial number or MAC address over its interface, so each configured unit is identified by its host address. If the unit's IP address changes, remove it and add it again with the new address. A static IP (DHCP reservation) is recommended to avoid this.
 
 ## Removing the integration
 
