@@ -10,8 +10,6 @@ related_conditions:
 
 The **Moisture level** condition passes when a moisture reading meets a threshold you define. You can check that the moisture content is above, below, within, or outside a specific range. It works with sensors that have the **moisture** device class, such as soil moisture probes. Use it to run an automation only when a plant's soil is dry enough to need water, or only when material is wet enough to need drying.
 
-For an explanation of how moisture differs from humidity, see [Moisture vs. humidity](/integrations/moisture/#moisture-vs-humidity) on the integration page.
-
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include conditions/ui_header.md %}

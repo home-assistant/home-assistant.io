@@ -10,7 +10,6 @@ related_conditions:
 
 The **Moisture is not detected** condition passes when one or more moisture binary sensors are dry. Use it to gate an automation on dry conditions, like only running the dishwasher when the surrounding leak sensor is dry, or only resetting an alert once the area has cleared.
 
-For an explanation of how moisture differs from humidity, see [Moisture vs. humidity](/integrations/moisture/#moisture-vs-humidity) on the integration page.
 
 {% include integrations/labs_entity_triggers_note.md %}
 

@@ -10,7 +10,6 @@ related_conditions:
 
 The **Moisture is detected** condition passes when one or more moisture binary sensors are detecting water. Use it with leak sensors to gate an automation on wet conditions, like only sending a notification if a leak is currently present or only running a routine while the basement floor is still wet.
 
-For an explanation of how moisture differs from humidity, see [Moisture vs. humidity](/integrations/moisture/#moisture-vs-humidity) on the integration page.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
