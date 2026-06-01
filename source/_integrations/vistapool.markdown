@@ -55,7 +55,7 @@ The integration provides the following sensors:
 
 ## Switches
 
-The integration provides the following {% term entities %}, grouped by what they control.
+The integration provides the following switch {% term entities %}, grouped by what they control.
 
 ### Pool equipment
 
