@@ -13,7 +13,7 @@ ha_integration_type: system
 
 This {% term integration %} provides automation triggers and conditions for binary sensors, sensors, and number entities with device class moisture. There are no configuration options for this integration.
 
-## Moisture vs. humidity
+## Moisture and humidity
 
 The moisture and humidity integrations both work with water, but they apply to different aspects:
 
