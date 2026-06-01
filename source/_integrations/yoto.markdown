@@ -57,8 +57,6 @@ For more details, see the [Yoto Developers documentation](https://yoto.dev/get-s
 
 During setup, Home Assistant asks for your Yoto **Client ID** and **Client secret** through the [Application Credentials](/integrations/application_credentials/) flow, then opens the Yoto authorization page so you can grant access. After you approve, Home Assistant creates one {% term device %} and one media player {% term entity %} for every Yoto player in your family.
 
-If a Yoto player is connected to your local network, Home Assistant detects it through <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> and offers to start the setup flow automatically.
-
 ## Supported functionality
 
 The integration provides one media player entity per Yoto player. Each entity supports:
