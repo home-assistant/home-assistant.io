@@ -94,7 +94,7 @@ trigger: |
         number: 40
       value_max:
         number: 70
-    behavior: each
+    behavior: any
 {% endexample %}
 
 To use a number helper as a dynamic threshold that you can adjust without editing the automation:
@@ -131,12 +131,12 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted entity crosses the threshold.
+    - `any` (**Each** in the UI, default): fires every time any targeted entity crosses the threshold.
     - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `all` (**All** in the UI): fires only after every targeted entity crosses the threshold.
+    - `last` (**All** in the UI): fires only after every targeted entity crosses the threshold.
   required: false
   type: string
-  default: each
+  default: any
 for:
   description: |
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
