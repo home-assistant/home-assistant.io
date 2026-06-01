@@ -25,3 +25,5 @@ The moisture and humidity integrations both work with water, but they apply to d
 If you're reacting to water in or on a surface (a leak, soil, a sponge), use the **moisture** triggers and conditions. If you're reacting to how damp the air feels in a room, use **humidity**.
 
 {% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
