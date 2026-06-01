@@ -296,6 +296,46 @@ the specified coordinates.
   - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
   - **Optional**: No.
 
+##### Action Set Vacuum Zoned Cleaning
+
+The `roborock.set_vacuum_zoned_cleaning` action will start cleaning a
+specified rectangular zone.
+You can use the `roborock.get_vacuum_current_position` action to help determine
+the coordinates for the zone.
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `x1`
+  - **Description**: First X-coordinate of the zone, integer value.
+  - **Optional**: No.
+- **Data attribute**: `y1`
+  - **Description**: First Y-coordinate of the zone, integer value.
+  - **Optional**: No.
+- **Data attribute**: `x2`
+  - **Description**: Second X-coordinate of the zone, integer value.
+  - **Optional**: No.
+- **Data attribute**: `y2`
+  - **Description**: Second Y-coordinate of the zone, integer value.
+  - **Optional**: No.
+- **Data attribute**: `repeats`
+  - **Description**: Number of times to clean the zone.
+  - **Optional**: No.
+
+Example:
+
+```yaml
+action: roborock.set_vacuum_zoned_cleaning
+target:
+  entity_id: vacuum.roborock_s7
+data:
+  x1: 28582
+  y1: 21363
+  x2: 27425
+  y2: 22816
+  repeats: 0
+```
+
 ##### Action Get Vacuum Current Position
 
 The `roborock.get_vacuum_current_position` action will get the current position of the vacuum. This
