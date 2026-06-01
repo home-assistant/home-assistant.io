@@ -63,6 +63,7 @@ This integration supports
 - **Pullspring enabled**: indicates whether the pull spring setting is enabled.
 - **Semi locked**: indicates whether the lock is in a "semi-locked" position. "Semi-locked" means the lock has been turned manually and is between its normal end positions. The lock itself will be unavailable in this position.
 - **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state".
+- **Connectivity**: Whether the lock is currently connected to the bridge.
 
 {% note %}
 The `lock.open` service will only pull the spring if the lock is configured with "**auto pull-spring enabled**" in the tedee app. That is due to a limitation in tedee's API.
