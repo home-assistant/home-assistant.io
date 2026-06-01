@@ -73,7 +73,7 @@ for:
 
 - The condition works with binary sensors that have the `battery` device class. These are typically separate entities from the battery percentage sensor and only report `on` (low) or `off` (normal).
 - Not every battery-powered device exposes a low-battery indicator. If yours doesn't, use [Battery level](/conditions/battery.is_level/) with a percentage threshold instead.
-- Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as low. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted device is unavailable.
+- Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - To check the opposite state, use [Battery is not low](/conditions/battery.is_not_low/).
 
 {% include conditions/try_it.md %}

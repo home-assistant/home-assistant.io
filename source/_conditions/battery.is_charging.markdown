@@ -72,7 +72,7 @@ for:
 ## Good to know
 
 - The condition works with sensors and devices that report a charging state, such as devices that expose a battery charging attribute.
-- Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as charging. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted device is unavailable.
+- Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - To check the opposite state, use [Battery is not charging](/conditions/battery.is_not_charging/).
 - To check the battery percentage instead, use [Battery level](/conditions/battery.is_level/).
 
