@@ -103,7 +103,7 @@ The integration {% term polling polls %} data from the thermostat every 5 minute
 
 ## Known limitations
 
-- The devices only support temperature steps of 0.5°C and time steps of 15 minutes.
+- The devices only support temperature steps of 0.5°C and time steps of 10 minutes.
 - If you manually change the target temperature or use presets, the thermostat returns to its programmed schedule at the next schedule change.
 - If the thermostat is in holiday mode, you cannot reset it from Home Assistant. To reset it, press the `MENU` button on the thermostat until it resets.
 

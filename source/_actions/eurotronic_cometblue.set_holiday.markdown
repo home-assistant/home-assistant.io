@@ -33,7 +33,7 @@ To use this action in an automation or script:
 
 {% options_ui %}
 From:
-  description: Start date and time for holiday mode. Must be in te future.
+  description: Start date and time for holiday mode. Must be in the future.
   required: true
 To:
   description: End date and time for holiday mode.
