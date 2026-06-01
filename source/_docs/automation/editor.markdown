@@ -50,6 +50,19 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
     - Result: Automations created or edited via the user interface are activated immediately after saving the automation.
     - To learn more about automations, read the documentation for [Automating Home Assistant](/getting-started/automation/).
 
+## Checking the targeted entities of an automation
+
+After adding a trigger, a condition or an action with a floor, an area, a device or a label as the target, you can see how many entities associated with that target are effectively being watched. The number of entities is presented in the trigger, condition or action row, in parenthesis.
+
+To know which are the entities and check their details:
+
+1. In the trigger, condition or action row, select the target with the entities you want to check.
+   - Result: the **Target details** dialog opens, where you can see a list with the name and state of the entities, grouped by parent target.
+2. From the entities list, select an entity to check its details.
+   - Result: a dialog opens with more information about the entity.
+
+If a trigger, condition or action has a single entity as the target, select it from the row of the respective automation part to open the dialog with more information about the entity.
+
 ## Troubleshooting missing automations
 
 When you're creating automations using the GUI and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your {% term "`configuration.yaml`" %}.
