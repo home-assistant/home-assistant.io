@@ -30,9 +30,9 @@ Any Yoto player that is linked to your Yoto family in the Yoto app is supported.
 To use the integration, you need a Yoto account with at least one player linked in the Yoto app.
 
 {% note %}
-Home Assistant will use account linking provided by Nabu Casa for authenticating with Yoto. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
+Home Assistant uses account linking provided by Nabu Casa for authenticating with Yoto. This service is free, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
 
-Read the "**Using custom application credentials**"-section if you have the [cloud integration](/integrations/cloud) disabled.
+See the **Using custom application credentials** section below if you have the [cloud integration](/integrations/cloud) disabled.
 {% endnote %}
 
 {% details "Using custom application credentials" icon="mdi:account-key" %}
