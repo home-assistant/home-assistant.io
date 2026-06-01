@@ -21,3 +21,5 @@ This {% term integration %} provides automation triggers and conditions for bina
 A common pattern is to combine them: use an [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) trigger to react when ambient light drops, then use the Light integration's **Turn on light** action to set the lamps to the brightness level you want.
 
 {% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
