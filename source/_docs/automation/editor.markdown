@@ -52,16 +52,26 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
 ## Checking the targeted entities of an automation
 
-After adding a trigger, condition, or action that targets a floor, area, device, or label, you can see how many entities are included. The number of entities appears in parentheses in the trigger, condition, or action row.
+After creating an automation and adding a trigger, condition, or action that targets a floor, area, device, or label, you can see how many entities are included, as well as their name, state and other details.
 
-To see which entities are included and check their details:
+To check the number of targeted entities of a trigger, condition, or action:
 
-1. In the trigger, condition, or action row, select the target with the entities you want to check.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. Add a trigger, condition, or action with a floor, area, device, or label as target and select **Save**.
+    - Result: The number of entities appears in parentheses in the trigger, condition, or action row.
+
+To see which are the targeted entities and check their details:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. Add a trigger, condition, or action with a floor, area, device, or label as target and select **Save**.
+4. In the trigger, condition, or action row, select the target with the entities you want to check.
    - Result: The **Target details** dialog opens, where you can see a list with the name and state of the entities, grouped by parent target.
-2. From the entities list, select an entity to check its details.
+5. From the entities list, select an entity to check its details.
    - Result: A dialog opens with more information about the entity.
 
-If a trigger, condition, or action has a single entity as the target, select it from the row to open the entity details dialog.
+If a trigger, condition, or action has a single entity as the target, instead of a floor, area, device, or label, select it from the row to open the entity details dialog.
 
 ## Troubleshooting missing automations
 
