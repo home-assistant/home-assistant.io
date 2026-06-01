@@ -44,7 +44,7 @@ Port:
 
 ## Supported functionality
 
-The integration creates one device per configured unit, with the following entity.
+The integration creates one device per configured unit, exposing a single fan entity.
 
 ### Fans
 
