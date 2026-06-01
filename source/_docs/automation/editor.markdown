@@ -52,16 +52,16 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
 ## Checking the targeted entities of an automation
 
-After adding a trigger, a condition or an action with a floor, an area, a device or a label as the target, you can see how many entities associated with that target are effectively being watched. The number of entities is presented in the trigger, condition or action row, in parentheses.
+After adding a trigger, condition, or action that targets a floor, area, device, or label, you can see how many entities are included. The number of entities appears in parentheses in the trigger, condition, or action row.
 
-To know which are the entities and check their details:
+To see which entities are included and check their details:
 
-1. In the trigger, condition or action row, select the target with the entities you want to check.
-   - Result: the **Target details** dialog opens, where you can see a list with the name and state of the entities, grouped by parent target.
+1. In the trigger, condition, or action row, select the target with the entities you want to check.
+   - Result: The **Target details** dialog opens, where you can see a list with the name and state of the entities, grouped by parent target.
 2. From the entities list, select an entity to check its details.
-   - Result: a dialog opens with more information about the entity.
+   - Result: A dialog opens with more information about the entity.
 
-If a trigger, condition or action has a single entity as the target, select it from the row of the respective automation part to open the dialog with more information about the entity.
+If a trigger, condition, or action has a single entity as the target, select it from the row to open the entity details dialog.
 
 ## Troubleshooting missing automations
 
