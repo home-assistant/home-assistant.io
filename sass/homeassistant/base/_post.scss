@@ -52,14 +52,18 @@ article {
     width: 45%;
   }
 
-  ul {
-    li {
-      p {
-        margin-bottom: 0;
-      }
+  &.post {
+    ul {
+      li {
+        margin-bottom: 1.25rem;
 
-      &:not(:last-child) ul {
-        margin-bottom: 2rem
+        p {
+          margin-bottom: 0;
+        }
+
+        li {
+          margin-bottom: 0;
+        }
       }
     }
   }
