@@ -20,7 +20,7 @@ To use **Battery started charging** in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your device is in (like your bedroom or office). You can also select a device, a specific entity, or a label. When you target multiple entities, the trigger fires whenever any of them starts charging.
+4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your device is in (like your bedroom or office). You can also select a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Battery started charging**.
 6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple devices are targeted.
 7. Under **For at least**, set how long the device must be actively charging before the trigger fires. Leave it at zero to fire immediately.
