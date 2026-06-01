@@ -57,7 +57,7 @@ The integration provides the following sensors:
 
 If your controller drives a multi-color LED light fixture, the integration exposes a one-shot button to cycle through the available colors from Home Assistant.
 
-- **LED next color**: advance the LED fixture to its next color. The integration briefly toggles the pool light off and back on (or just turns it on if it was off); the physical fixture interprets the power-cycle as the color-advance signal, the same way the **Next** button under **LED Color** does in the Vistapool app's Illumination screen. Available only if your controller reports an LED fixture.
+- **LED next color**: advance the LED fixture to its next color. The integration briefly toggles the pool light off and back on (or just turns it on if it was off). The physical fixture interprets the power cycle as the color-advance signal, just as the **Next** button under **LED Color** does in the Vistapool app's **Illumination** screen. Available only if your controller reports an LED fixture.
 
 ## Known limitations
 
