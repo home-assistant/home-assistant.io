@@ -60,7 +60,7 @@ The integration provides the following {% term entities %}, grouped by what they
 ### Pool equipment
 
 - **Filtration**: toggle the filtration pump on or off.
-- **Relay 1**, **Relay 2**, **Relay 3**, **Relay 4**: toggle the four generic relay outputs on the controller. The switch reads as on when the controller is currently driving the relay, even if the toggle was last set the other way — useful for automations that key on the effective relay state rather than the last command.
+- **Relay 1**, **Relay 2**, **Relay 3**, **Relay 4**: toggle the four generic relay outputs on the controller. The switch reads as on when the controller is currently driving the relay, even if the toggle was last set the other way. This is useful for automations that need to reflect the actual relay state, not just the last command sent.
 
 ### Electrolysis / hydrolysis cell
 
