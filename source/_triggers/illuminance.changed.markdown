@@ -9,7 +9,7 @@ related_triggers:
   - illuminance.cleared
 ---
 
-The **Illuminance changed** trigger fires after a light level reading changes. The morning sun creeping into a bedroom, a desk lamp switching on, or clouds shading a patio all show up as illuminance changes. Use the threshold type to filter which changes matter to your automation.
+The **Illuminance changed** trigger fires after a light level reading changes. The morning sun shining into a bedroom, a desk lamp switching on, or clouds shading a patio all show up as illuminance changes. Use the threshold type to filter which changes matter to your automation.
 
 The threshold type controls where the new reading must land for the trigger to fire. You can require the new value to be above a level, below a level, within a range, or outside a range. You can also select **Any change** to fire on any change at all.
 
