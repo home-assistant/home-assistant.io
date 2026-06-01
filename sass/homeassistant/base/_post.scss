@@ -52,6 +52,18 @@ article {
     width: 45%;
   }
 
+  ul {
+    li {
+      p {
+        margin-bottom: 0;
+      }
+
+      &:not(:last-child) ul {
+        margin-bottom: 2rem
+      }
+    }
+  }
+
   .tags {
     list-style-type: none;
     margin: 0;
