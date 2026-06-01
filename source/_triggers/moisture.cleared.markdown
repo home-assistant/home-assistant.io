@@ -11,8 +11,6 @@ related_triggers:
 
 The **Moisture cleared** trigger fires when one or more moisture binary sensors stop detecting water. Use it to know when a leak has dried up, when a freshly mopped floor is dry again, or to reset a warning after a wet area returns to normal.
 
-For an explanation of how moisture differs from humidity, see [Moisture vs. humidity](/integrations/moisture/#moisture-vs-humidity) on the integration page.
-
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}

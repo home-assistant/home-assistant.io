@@ -11,10 +11,6 @@ related_triggers:
 
 The **Moisture content changed** trigger fires after a moisture reading changes. Soil moisture in a plant pot drops slowly as the soil dries out, climbs after watering, or hovers in a target zone when conditions are stable. Use the threshold type to filter which changes matter to your automation.
 
-For an explanation of how moisture differs from humidity, see [Moisture vs. humidity](/integrations/moisture/#moisture-vs-humidity) on the integration page.
-
-The threshold type controls where the new reading must land for the trigger to fire. You can require the new value to be above a level, below a level, within a range, or outside a range. You can also select **Any change** to fire on any change at all.
-
 Use **Moisture content changed** to log soil moisture trends, trigger plant watering when the soil becomes too dry, or alert you when a reading shifts in a way that might signal a problem.
 
 {% include integrations/labs_entity_triggers_note.md %}
