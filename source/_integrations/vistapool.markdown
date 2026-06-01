@@ -55,7 +55,7 @@ The integration provides the following sensors:
 
 ## Light
 
-The integration exposes the pool light wired through the controller as a standard Home Assistant {% term entity %}, so you can switch it from any dashboard, voice assistant, or automation. The controller treats the light as a simple on/off output; brightness and color are not reported by the API and aren't exposed.
+The integration exposes the pool light wired through the controller as a standard Home Assistant {% term entity %}, so you can switch it from any dashboard, voice assistant, or automation. The controller treats the light as a simple on/off output. Brightness and color are not reported by the API and aren't exposed.
 
 - **Pool light**: turn the pool light on or off.
 
