@@ -49,13 +49,13 @@ The following sensors are supported depending on the device type and meter capab
   - Gas flow rate (m³/h): Current gas flow rate
 - **wasserleser**:
   - Total water (m³): Total water volume measured by the meter
-  - Water flow rate (l/h): Current water flow rate in liters per hour
+  - Water flow rate (L/h): Current water flow rate in liters per hour
   - Volume flow rate (m³/h): Current water flow rate in cubic meters per hour
 - **wärmeleser**:
   - Energy tariff 1, tariff 2, and tariff 3 (MWh): Cumulative heat energy for each of the three tariffs
   - Power (kW): Current thermal power
   - Total volume (m³): Total volume of heating medium measured by the meter
-  - Volume flow (l/h): Current flow rate of heating medium
+  - Volume flow (L/h): Current flow rate of heating medium
   - Flow temperature (°C): Temperature of the incoming heating medium
   - Return temperature (°C): Temperature of the outgoing heating medium
   - Temperature difference (K): Difference between flow and return temperature
