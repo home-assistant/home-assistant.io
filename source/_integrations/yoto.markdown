@@ -59,8 +59,6 @@ For more details, see the [Yoto Developers documentation](https://yoto.dev/get-s
 
 {% include integrations/config_flow.md %}
 
-If a Yoto player is connected to your local network, Home Assistant detects it through <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> and offers to start the setup flow automatically.
-
 During setup, Home Assistant opens the Yoto authorization page so you can grant access. After you approve, Home Assistant creates one {% term device %} and one media player {% term entity %} for every Yoto player in your family.
 
 ## Supported functionality
