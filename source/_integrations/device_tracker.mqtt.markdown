@@ -153,7 +153,7 @@ You can provide location information in one of two ways:\n
 1. **Coordinates** — by including `longitude`, `latitude`, and optionally `gps_accuracy`.\n  
 2. **Zone reference** — by setting `in_zones` to the zone’s `friendly_name`, `object_id`, or `entity_id`.\n
 
-The `in_zones` attribute may be a single string or a list of strings.  
+The `in_zones` attribute must be list of strings.  
 Each value must match a Home Assistant zone’s `entity_id`, `object_id`, or `friendly_name`.\n
 For example, the default zone with entity_id `zone.home` typically has:\n
 
