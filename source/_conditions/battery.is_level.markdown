@@ -157,6 +157,7 @@ behavior:
 - Battery level is expressed as a percentage from 0 to 100.
 - This condition checks the entity's current battery reading. To react to changes in the reading, use the [Battery level changed](/triggers/battery.level_changed/) or [Battery level crossed threshold](/triggers/battery.level_crossed/) trigger instead.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
+- For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.
 
 {% include conditions/try_it.md %}
 

@@ -75,6 +75,7 @@ for:
 - Not every battery-powered device exposes a low-battery indicator. If yours doesn't, use [Battery level](/conditions/battery.is_level/) with a percentage threshold instead.
 - Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - To check the opposite state, use [Battery is low](/conditions/battery.is_low/).
+- For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.
 
 {% include conditions/try_it.md %}
 
