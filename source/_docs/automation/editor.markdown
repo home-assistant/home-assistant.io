@@ -52,7 +52,7 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
 ## Checking the targeted entities of an automation
 
-After adding a trigger, a condition or an action with a floor, an area, a device or a label as the target, you can see how many entities associated with that target are effectively being watched. The number of entities is presented in the trigger, condition or action row, in parenthesis.
+After adding a trigger, a condition or an action with a floor, an area, a device or a label as the target, you can see how many entities associated with that target are effectively being watched. The number of entities is presented in the trigger, condition or action row, in parentheses.
 
 To know which are the entities and check their details:
 
