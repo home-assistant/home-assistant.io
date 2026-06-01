@@ -40,7 +40,7 @@ Trigger when:
     - **All**: fires only after every targeted sensor starts detecting light.
   required: false
 For at least:
-  description: How long the sensor or sensors must keep detecting light before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
+  description: How long the sensor or sensors must keep detecting light before the trigger fires. The default is `0` (fires immediately).
   required: false
 {% endoptions_ui %}
 
