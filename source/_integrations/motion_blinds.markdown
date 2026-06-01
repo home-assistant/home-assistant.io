@@ -122,7 +122,7 @@ In the Blindsgalore AMP app go to the home screen, go to settings (three bars in
 
 ### Avosdim app
 
-In the the Avosdim mobile app, go to settings (three bars in the upper left corner > gear icon), select `About` from the bottom, quickly tap the connected shutter icon in the center of the screen 5 times and a pop-up with the key will be shown.
+In the Avosdim mobile app, go to **Settings** (three bars in the upper-left corner > gear icon), select **About** at the bottom, quickly tap the connected shutter icon in the center of the screen 5 times, and a pop-up with the key will appear.
 
 ## Favorite position
 
