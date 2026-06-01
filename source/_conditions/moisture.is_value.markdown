@@ -44,7 +44,7 @@ Condition passes if:
     - **Any**: The condition passes if at least one targeted entity meets the threshold (default).
     - **All**: The condition passes only when every targeted entity meets the threshold.
 For at least:
-  description: How long the reading must meet the threshold before the condition passes. The default is `0` hours, `00` minutes and `00` seconds.
+  description: How long the reading must meet the threshold before the condition passes. The default is `0` (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -152,7 +152,6 @@ When the daily watering schedule runs, only activate the pump if the soil moistu
 - **Trigger**: Time: 08:00
 - **Condition**: Moisture level (below 30%)
   - **Target**: Tomato soil moisture sensor
-  - **Condition passes if**: Any
 - **Action**: Turn on switch
   - **Target**: Plant watering pump
 

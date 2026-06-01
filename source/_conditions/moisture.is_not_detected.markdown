@@ -10,7 +10,6 @@ related_conditions:
 
 The **Moisture is not detected** condition passes when one or more moisture binary sensors are dry. Use it to gate an automation on dry conditions, like only running the dishwasher when the surrounding leak sensor is dry, or only resetting an alert once the area has cleared.
 
-
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include conditions/ui_header.md %}
@@ -32,7 +31,7 @@ To use this condition in an automation:
 Condition passes if:
   description: When multiple moisture sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is dry, or **All** to pass only when every sensor is dry.
 For at least:
-  description: How long the sensor or sensors must stay dry before the condition passes. The default is `0` hours, `00` minutes and `00` seconds.
+  description: How long the sensor or sensors must stay dry before the condition passes. The default is `0` (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -89,7 +88,6 @@ When the daily 22:00 dishwasher start time arrives, only start the dishwasher if
 - **Trigger**: Time: 22:00
 - **Condition**: Moisture is not detected
   - **Target**: Dishwasher leak sensor
-  - **Condition passes if**: Any
   - **For at least**: 00:10:00
 - **Action**: Turn on switch
   - **Target**: Dishwasher smart plug

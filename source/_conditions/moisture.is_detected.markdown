@@ -10,7 +10,6 @@ related_conditions:
 
 The **Moisture is detected** condition passes when one or more moisture binary sensors are detecting water. Use it with leak sensors to gate an automation on wet conditions, like only sending a notification if a leak is currently present or only running a routine while the basement floor is still wet.
 
-
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include conditions/ui_header.md %}
@@ -32,7 +31,7 @@ To use this condition in an automation:
 Condition passes if:
   description: When multiple moisture sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is detecting moisture, or **All** to pass only when every sensor is detecting moisture.
 For at least:
-  description: How long the sensor or sensors must keep detecting moisture before the condition passes. The default is `0` hours, `00` minutes and `00` seconds.
+  description: How long the sensor or sensors must keep detecting moisture before the condition passes. The default is `0` hours, `00` minutes and `00` seconds. The default is `0` (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -89,7 +88,6 @@ When a leak sensor keeps detecting water for 5 minutes, send a follow-up notific
 - **Trigger**: Time pattern: Every minute
 - **Condition**: Moisture is detected
   - **Target**: Basement leak sensor
-  - **Condition passes if**: Any
   - **For at least**: 00:05:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
