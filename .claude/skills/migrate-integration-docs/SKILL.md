@@ -20,7 +20,7 @@ Follow its structure closely unless Core implementation makes a specific section
 Launch a sub-agent to inspect:
 
 - `./source/_integrations/<domain>.markdown`
-- If you have Home Assistant Core checked out, inspect:
+- If you have Home Assistant Core and Frontend checked out, inspect:
   - `../core/homeassistant/components/<domain>/conditions.yaml`
   - `../core/homeassistant/components/<domain>/services.yaml`
   - `../core/homeassistant/components/<domain>/triggers.yaml`

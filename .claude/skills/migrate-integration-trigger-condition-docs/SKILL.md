@@ -25,7 +25,7 @@ Do not migrate action docs as part of this command.
 Launch a sub-agent to inspect:
 
 - `./source/_integrations/<domain>.markdown`
-- If you have Home Assistant Core checked out, inspect:
+- If you have Home Assistant Core and Frontend checked out, inspect:
   - `../core/homeassistant/components/<domain>/conditions.yaml`
   - `../core/homeassistant/components/<domain>/services.yaml`
   - `../core/homeassistant/components/<domain>/triggers.yaml`
