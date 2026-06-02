@@ -63,9 +63,9 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `each` (default): fire every time any targeted thermostat turns on.
-    - `first`: fire only when the first thermostat turns on.
-    - `all`: fire only after every targeted thermostat is on.
+    - `each` (default): fires every time any targeted thermostat turns on.
+    - `first`: fires only when the first thermostat turns on.
+    - `all`: fires only after every targeted thermostat is on.
   required: false
   type: string
   default: each

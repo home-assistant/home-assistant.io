@@ -34,9 +34,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (default): fire every time any targeted humidifier starts humidifying.
-    - **First**: fire only on the first humidifier that starts humidifying.
-    - **All**: fire only after every targeted humidifier starts humidifying.
+    - **Each** (default): fires every time any targeted humidifier starts humidifying.
+    - **First**: fires only on the first humidifier that starts humidifying.
+    - **All**: fires only after every targeted humidifier starts humidifying.
 For at least:
   description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -63,9 +63,9 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `each` (default): fire every time any targeted humidifier starts humidifying.
-    - `first`: fire only on the first humidifier that starts humidifying.
-    - `all`: fire only after every targeted humidifier starts humidifying.
+    - `each` (default): fires every time any targeted humidifier starts humidifying.
+    - `first`: fires only on the first humidifier that starts humidifying.
+    - `all`: fires only after every targeted humidifier starts humidifying.
   required: false
   type: string
   default: each

@@ -37,9 +37,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (default): fire every time any targeted humidifier changes mode.
-    - **First**: fire only on the first mode change.
-    - **All**: fire only after every targeted humidifier changes mode
+    - **Each** (default): fires every time any targeted humidifier changes mode.
+    - **First**: fires only on the first mode change.
+    - **All**: fires only after every targeted humidifier changes mode.
 For at least:
   description: How long the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup. If you set a short delay of a few seconds, it prevents your automation from firing on that momentary blip. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -83,9 +83,9 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `each` (default): fire every time any targeted humidifier changes mode.
-    - `first`: fire only on the first mode change.
-    - `all`: fire only after every targeted humidifier changes mode.
+    - `each` (default): fires every time any targeted humidifier changes mode.
+    - `first`: fires only on the first mode change.
+    - `all`: fires only after every targeted humidifier changes mode.
   required: false
   type: string
   default: each
