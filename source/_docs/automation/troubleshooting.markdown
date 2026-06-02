@@ -1,6 +1,6 @@
 ---
-title: "Troubleshooting automations"
-description: "How to find out why an automation did not run, using the trace timeline, the logs, and the test buttons in the automation editor."
+title: "Testing and troubleshooting automations"
+description: "How to test the conditions and actions of an automation and how to find out why an automation did not run, using the trace timeline, the logs, and the test buttons in the automation editor."
 ---
 
 Sometimes an automation does not do what you expect. Maybe it does not run at all, maybe it runs at the wrong moment, or maybe one of the actions in the middle quietly fails. Home Assistant has built-in tools to help you find out exactly what happened, without having to dig through log files.
@@ -17,15 +17,23 @@ In the three dots menu in the automation list or automation editor UI, select th
 
 You can also trigger an automation manually. This can test the conditions as if the automation was triggered by an event. Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. In the **Action** drop-down, select **Automation: Trigger**, then **Choose entity** to select the automation you are testing. Toggle whether to skip the conditions, then **Perform action**. If needed, additional `trigger` or other data can be added in the YAML view for testing. The [trigger](/docs/automation/trigger/) page has more information about data within the trigger.
 
+If an event fires a trigger, the trigger row displays the message **Triggered** in the automation editor UI. You can select the message to see the YAML details in the **Triggering event detail** dialog.
+
 Testing with complex triggers, conditions, and variables can be difficult. Note that using the **Run actions** button will skip all triggers and conditions, while **Developer tools** can be used with or without checking conditions.
 
 ### Running individual actions or conditions
 
-In the automation editor UI, each {% term condition %} and {% term action %} can be tested individually. Select the three dots {% icon "mdi:dots-vertical" %} menu, then the **Test** button.
+In the automation editor UI, each {% term condition %} can be tested individually. On the right side of the condition row, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Test**.
 
 - Testing a condition will highlight it to show whether the condition passed at the moment it was tested. If all conditions pass, then the automation will run when triggered. Testing building blocks like an **and** condition will report whether the whole block registers as true or false, or you can test individual conditions within the building block.
+- If the condition is verified, the condition row displays the message **Condition passes**.
+- If the condition is not verified, the condition row displays the message **Condition did not pass**.
+
+In the automation editor UI, each {% term action %} can be tested individually. On the right side of the action row, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Run action**.
 
 - Testing an action block will run that block immediately.
+- If an action runs, the action row displays the message **Action ran successfully**.
+- If an action fails, the action row displays the message **Error running action**. Select the message and a dialog opens with more information about the error.
 
 Note that complex automations that depend on previous blocks, such as trigger IDs, variables in templates, or action calls that return data to use in subsequent blocks, cannot be tested this way.
 
