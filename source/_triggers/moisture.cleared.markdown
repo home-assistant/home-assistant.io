@@ -64,9 +64,9 @@ behavior:
   description: |
     When multiple moisture sensors are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted sensor stops detecting moisture.
-    - `first` (**First** in the UI): fires only when the first sensor stops detecting moisture.
-    - `all` (**All** in the UI): fires only after every targeted sensor stops detecting moisture.
+    - `each` (default): fires every time any targeted sensor stops detecting moisture.
+    - `first`: fires only when the first sensor stops detecting moisture.
+    - `all`: fires only after every targeted sensor stops detecting moisture.
   required: false
   type: string
   default: each

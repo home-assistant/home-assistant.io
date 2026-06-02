@@ -144,9 +144,9 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted entity crosses the threshold.
-    - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `all` (**All** in the UI): fires only after every targeted entity crosses the threshold.
+    - `each` (default): fires every time any targeted entity crosses the threshold.
+    - `first`: fires only on the first threshold crossing.
+    - `all`: fires only after every targeted entity crosses the threshold.
   required: false
   type: string
   default: each

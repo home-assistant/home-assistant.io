@@ -35,9 +35,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (`each` in YAML, default): fire every time any targeted humidifier turns off.
-    - **First** (`first` in YAML): fire only when the first of a group turns off.
-    - **All** (`all` in YAML): fire only after every targeted humidifier is off.
+    - **Each** (default): fire every time any targeted humidifier turns off.
+    - **First**: fire only when the first of a group turns off.
+    - **All**: fire only after every targeted humidifier is off.
 For at least:
   description: How long the humidifier must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -64,9 +64,9 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fire every time any targeted humidifier turns off.
-    - `first` (**First** in the UI): fire only when the first of a group turns off.
-    - `all` (**All** in the UI): fire only after every targeted humidifier is off.
+    - `each` (default): fire every time any targeted humidifier turns off.
+    - `first`: fire only when the first of a group turns off.
+    - `all`: fire only after every targeted humidifier is off.
   required: false
   type: string
   default: each

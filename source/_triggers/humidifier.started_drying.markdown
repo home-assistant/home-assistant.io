@@ -36,9 +36,9 @@ Trigger when:
   description: |
     When multiple devices are targeted, controls when the trigger fires:
 
-    - **Each** (`each` in YAML, default): fire every time any targeted device starts drying.
-    - **First** (`first` in YAML): fire only on the first device that starts drying.
-    - **All** (`all` in YAML): fire only after every targeted device starts drying.
+    - **Each** (default): fire every time any targeted device starts drying.
+    - **First**: fire only on the first device that starts drying.
+    - **All**: fire only after every targeted device starts drying.
 For at least:
   description: How long the device must be actively drying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -65,9 +65,9 @@ behavior:
   description: |
     When multiple devices are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fire every time any targeted device starts drying.
-    - `first` (**First** in the UI): fire only on the first device that starts drying.
-    - `all` (**All** in the UI): fire only after every targeted device starts drying.
+    - `each` (default): fire every time any targeted device starts drying.
+    - `first`: fire only on the first device that starts drying.
+    - `all`: fire only after every targeted device starts drying.
   required: false
   type: string
   default: each

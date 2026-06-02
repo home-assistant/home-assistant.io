@@ -35,9 +35,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`each` in YAML, default): fires every time any targeted thermostat starts drying.
-    - **First** (`first` in YAML): fires only when the first of a group starts drying.
-    - **All** (`all` in YAML): fires only after every targeted thermostat is drying.
+    - **Each** (default): fires every time any targeted thermostat starts drying.
+    - **First**: fires only when the first of a group starts drying.
+    - **All**: fires only after every targeted thermostat is drying.
 For at least:
   description: How long the thermostat must stay in the drying state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
@@ -64,9 +64,9 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted thermostat starts drying.
-    - `first` (**First** in the UI): fires only when the first thermostat starts drying.
-    - `all` (**All** in the UI): fires only after every targeted thermostat is drying.
+    - `each` (default): fires every time any targeted thermostat starts drying.
+    - `first`: fires only when the first thermostat starts drying.
+    - `all`: fires only after every targeted thermostat is drying.
   required: false
   type: string
   default: each

@@ -40,9 +40,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`each` in YAML, default): fires every time any targeted thermostat changes mode.
-    - **First** (`first` in YAML): fires only on the first mode change.
-    - **All** (`all` in YAML): fires only after every targeted thermostat changes mode.
+    - **Each** (default): fires every time any targeted thermostat changes mode.
+    - **First**: fires only on the first mode change.
+    - **All**: fires only after every targeted thermostat changes mode.
 For at least:
   description: How long the thermostat must remain in the new mode before the trigger fires. Useful to ignore brief mode changes. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -86,9 +86,9 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted thermostat changes mode.
-    - `first` (**First** in the UI): fires only on the first mode change.
-    - `all` (**All** in the UI): fires only after every targeted thermostat changes mode.
+    - `each` (default): fires every time any targeted thermostat changes mode.
+    - `first`: fires only on the first mode change.
+    - `all`: fires only after every targeted thermostat changes mode.
   required: false
   type: string
   default: each

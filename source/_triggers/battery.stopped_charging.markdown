@@ -62,9 +62,9 @@ behavior:
   description: |
     When multiple devices are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted device stops charging.
-    - `first` (**First** in the UI): fires only on the first device that stops charging.
-    - `all` (**All** in the UI): fires only after every targeted device stops charging.
+    - `each` (default): fires every time any targeted device stops charging.
+    - `first`: fires only on the first device that stops charging.
+    - `all`: fires only after every targeted device stops charging.
   required: false
   type: string
   default: each

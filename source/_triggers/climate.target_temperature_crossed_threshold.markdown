@@ -54,9 +54,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`each` in YAML, default): fire every time any targeted thermostat crosses the threshold.
-    - **First** (`first` in YAML): fire only on the first threshold crossing.
-    - **All** (`all` in YAML): fire only after every targeted thermostat crosses the threshold.
+    - **Each** (default): fire every time any targeted thermostat crosses the threshold.
+    - **First**: fire only on the first threshold crossing.
+    - **All**: fire only after every targeted thermostat crosses the threshold.
 For at least:
   description: How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Useful to avoid false triggers from brief adjustments. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -133,9 +133,9 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted thermostat crosses the threshold.
-    - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `all` (**All** in the UI): fires only after every targeted thermostat crosses the threshold.
+    - `each` (default): fires every time any targeted thermostat crosses the threshold.
+    - `first`: fires only on the first threshold crossing.
+    - `all`: fires only after every targeted thermostat crosses the threshold.
   required: false
   type: string
   default: each
