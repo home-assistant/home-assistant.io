@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - sensor
 ha_integration_type: hub
+ha_dhcp: true
 ---
 
 The **Vistapool** integration connects Home Assistant to **Hayward-branded pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
