@@ -33,7 +33,7 @@ To use **Thermostat target temperature** in an automation:
       - **Number**: Enter a fixed temperature directly, for example `20` for 20°C. For **In range** or **Outside range**, enter both a lower and upper bound.
       - **Entity**: Use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold. You can compare the setpoint against another temperature value or use a number helper that you can adjust without editing the automation.
 7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
-8. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+8. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 9. Under **For at least**, set how long the thermostat must have been at the threshold before the condition passes. Leave it at zero to pass immediately.
 10. Select **Save**.
 
@@ -47,7 +47,7 @@ Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
   default: °C
 Condition passes if:
-  description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat meets the threshold, or **All** to pass only when every targeted thermostat does. Default is **Any**.
+  description: When multiple thermostats are targeted, controls how results combine. Pick **Each** to pass if at least one targeted thermostat meets the threshold, or **All** to pass only when every targeted thermostat does. Default is **Each**.
 For at least:
   description: How long the thermostat must have continuously met the threshold before the condition passes. Default is zero (passes immediately).
 {% endoptions_ui %}
@@ -138,10 +138,10 @@ threshold:
   type: map
 behavior:
   description: >
-    Controls how results combine when multiple thermostats are targeted. Accepts `all` or `any`.
+    Controls how results combine when multiple thermostats are targeted. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the thermostat must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
@@ -157,7 +157,7 @@ for:
 ## Good to know
 
 - This condition checks the thermostat's _target temperature_ setpoint, not the actual measured temperature in the room. To react to the measured temperature, use the [Temperature value](/conditions/temperature.is_value/) condition instead.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Each** and fail for **All**.
 - Not all thermostats support target temperature control in all modes. Only thermostats that expose a target temperature attribute will be evaluated by this condition.
 - For thermostats in heat-cool mode that support dual setpoints (separate heating and cooling targets), this condition checks the single target temperature attribute. If the thermostat doesn't expose a single target temperature in that mode, it will be skipped.
 

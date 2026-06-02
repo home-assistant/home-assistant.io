@@ -26,7 +26,7 @@ To use **Humidifier target humidity** in an automation:
 5. From the conditions shown for that target, select **Humidifier target humidity**.
 6. Under **Threshold type**, set the comparison direction (**Above**, **Below**, **In range**, or **Outside range**) and the threshold value.
    - Choose **Number** to enter a fixed humidity percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple humidifiers are targeted.
+7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple humidifiers are targeted.
 8. Under **For at least**, set how long the humidifier must have been at the threshold before the condition passes. Leave it at zero to pass immediately.
 9. Select **Save**.
 
@@ -37,7 +37,7 @@ Threshold type:
   description: |
     Controls how the target humidity is compared and where the threshold value comes from. **Above** and **Below** are exclusive: a target humidity equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a target humidity equal to either bound passes. Choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
 Condition passes if:
-  description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier meets the threshold, or **All** to pass only when every targeted humidifier does. Default is **Any**.
+  description: When multiple humidifiers are targeted, controls how results combine. Pick **Each** to pass if at least one targeted humidifier meets the threshold, or **All** to pass only when every targeted humidifier does. Default is **Each**.
 For at least:
   description: How long the humidifier must have continuously met the threshold before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
@@ -75,10 +75,10 @@ threshold:
   type: map
 behavior:
   description: >
-    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the humidifier must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
@@ -94,7 +94,7 @@ for:
 ## Good to know
 
 - This condition checks the humidifier's _target humidity_ setpoint, not the actual measured humidity in the room. To react to the measured humidity, use a sensor-based numeric condition instead.
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Each** and fail for **All**.
 - Target humidity is expressed as a percentage. The valid range depends on the device, but is typically between 20% and 90%.
 
 {% include conditions/try_it.md %}
@@ -127,7 +127,7 @@ automation: |
       options:
         threshold:
           above: 70
-        behavior: any
+        behavior: each
   actions:
     - action: switch.turn_on
       target:

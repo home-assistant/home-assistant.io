@@ -27,7 +27,7 @@ To use this condition in an automation:
       - **Entity**: Use a `counter`, `input_number`, or `number` entity as the threshold.
       - For **In range** or **Outside range**, you need both a lower and upper value or entity.
       - If you do not have a helper yet, create it separately as a {% term helper %} before using it here.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 8. Under **For at least**, set how long the counter must stay within the selected threshold before the condition passes.
 9. Select **Save**.
 
@@ -38,7 +38,7 @@ Threshold type:
   description: |
     The value the counter has to meet for the condition to pass. **Above** and **Below** are exclusive: a counter value equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a counter value equal to either bound passes. Choose **Number** to use a fixed value, or **Entity** to use the current value of a `counter`, `input_number`, or `number` entity.
 Condition passes if:
-  description: When multiple counters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted counter matches, or **All** to pass only when every targeted counter matches. Default is **Any**.
+  description: When multiple counters are targeted, controls how results combine. Pick **Each** to pass if at least one targeted counter matches, or **All** to pass only when every targeted counter matches. Default is **Each**.
 For at least:
   description: How long the counter must stay within the selected threshold before the condition passes. Defaults to `00:00:00`, so the condition passes immediately.
 {% endoptions_ui %}
@@ -124,10 +124,10 @@ threshold:
   required: true
   type: map
 behavior:
-  description: Controls how results combine when multiple counters are targeted. Accepts `all` or `any`.
+  description: Controls how results combine when multiple counters are targeted. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the counter must stay within the selected threshold before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
   required: false
@@ -141,7 +141,7 @@ for:
 
 ## Good to know
 
-- Counters in the `unavailable` or `unknown` state are skipped for **Any** and fail for **All**.
+- Counters in the `unavailable` or `unknown` state are skipped for **Each** and fail for **All**.
 - If the counter leaves the selected threshold before the **For at least** time finishes, the timer resets.
 - When you use an entity as the threshold, Home Assistant reads that entity's current value each time the condition is checked.
 

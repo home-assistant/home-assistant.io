@@ -20,7 +20,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your lock is in, like your front door or garage entry. You can also select a floor, a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Lock is unlocked**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple locks are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple locks are targeted.
 7. Under **For at least**, set how long the lock must stay unlocked before the condition passes.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple locks are targeted, controls how results combine. Pick **Any** to pass if at least one targeted lock is unlocked, or **All** to pass only when every targeted lock is unlocked.
+  description: When multiple locks are targeted, controls how results combine. Pick **Each** to pass if at least one targeted lock is unlocked, or **All** to pass only when every targeted lock is unlocked.
   required: false
 For at least:
   description: How long the lock must stay unlocked before the condition passes.
@@ -56,10 +56,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple locks are targeted, controls how results combine. Accepts
-    `all` or `any`.
+    `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the lock must stay unlocked before the condition passes. Accepts
@@ -108,7 +108,7 @@ automation: |
       target:
         entity_id: lock.front_door
       options:
-        behavior: any
+        behavior: each
         for: "00:10:00"
   actions:
     - action: notify.send_message
@@ -146,7 +146,7 @@ automation: |
       target:
         label_id: outside_locks
       options:
-        behavior: any
+        behavior: each
         for: "00:05:00"
     - condition: sun
       after: sunset

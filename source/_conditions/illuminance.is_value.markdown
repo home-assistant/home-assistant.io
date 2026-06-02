@@ -27,7 +27,7 @@ To use **Illuminance** in an automation:
       - **Number**: Enter a fixed value in lux, for example `500` for an office level. For **In range** or **Outside range**, enter both a lower and upper bound.
       - **Entity**: Use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
         - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 8. Under **For at least**, set how long the reading must meet the threshold before the condition passes.
 9. Select **Save**.
 
@@ -41,7 +41,7 @@ Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - **Any**: The condition passes if at least one targeted entity meets the threshold (default).
+    - **Each**: The condition passes if at least one targeted entity meets the threshold (default).
     - **All**: The condition passes only when every targeted entity meets the threshold.
 For at least:
   description: How long the reading must meet the threshold before the condition passes. The default is `0` (passes immediately).
@@ -119,11 +119,11 @@ behavior:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - `any` (default): passes if at least one targeted entity meets the threshold.
+    - `each` (default): passes if at least one targeted entity meets the threshold.
     - `all`: passes only when every targeted entity meets the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
   required: false
@@ -139,7 +139,7 @@ for:
 
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
 - This condition works with sensors that have the **illuminance** device class. For binary light/dark sensors, use [Light is detected](/conditions/illuminance.is_detected/) or [Light is not detected](/conditions/illuminance.is_not_detected/) instead.
-- Entities that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+- Entities that are `unavailable` or `unknown` are skipped for **Each** and fail for **All**.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation runs.
 
 {% include conditions/try_it.md %}

@@ -20,7 +20,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area the window is in, like your bedroom or kitchen. You can also select a floor, a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Window is closed**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple windows are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple windows are targeted.
 7. Under **For at least**, set how long the window must have been closed before the condition passes. Leave it at zero to pass immediately.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple windows are targeted, controls how results combine. Pick **Any** to pass if at least one targeted window is closed, or **All** to pass only when every targeted window is closed.
+  description: When multiple windows are targeted, controls how results combine. Pick **Each** to pass if at least one targeted window is closed, or **All** to pass only when every targeted window is closed.
   required: true
 For at least:
   description: How long the window must have been closed before the condition passes. Set to zero to pass immediately.
@@ -55,10 +55,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple windows are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple windows are targeted, controls how results combine. Accepts `all` or `each`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the window must have been closed before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
@@ -138,7 +138,7 @@ automation: |
       target:
         entity_id: cover.bedroom_roof_window
       options:
-        behavior: any
+        behavior: each
         for: "00:15:00"
   actions:
     - action: climate.turn_on

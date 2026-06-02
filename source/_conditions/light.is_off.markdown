@@ -23,14 +23,14 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Light: Light is off**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
-6. Under **Condition passes if**, pick **Any** or **All**.
+6. Under **Condition passes if**, pick **Each** or **All**.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one targeted light is off, or **All** to pass only when every targeted light is off.
+  description: When multiple lights are targeted, controls how results combine. Pick **Each** to pass if at least one targeted light is off, or **All** to pass only when every targeted light is off.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -53,17 +53,17 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple lights are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
 
 ## Good to know
 
-- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as off. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted light is unavailable.
+- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as off. With **Each** behavior, they are skipped. With **All** behavior, the condition fails if every targeted light is unavailable.
 - To gate an automation on a light being on instead, use [Light is on](/conditions/light.is_on/).
 - Pair with the [Light turned off](/triggers/light.turned_off/) trigger to react only when a transition to off happens.
 

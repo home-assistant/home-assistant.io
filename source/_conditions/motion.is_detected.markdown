@@ -20,7 +20,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Motion is detected**.
 5. Under **Targets** (see [Targets](#targets)), select one or more motion entities, motion devices, an area, a floor, or a label.
-6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
+6. If you selected more than one target, under **Condition passes if**, pick **Each** or **All**.
 7. Under **For at least**, you can set for how long one or more sensors must be detecting motion before the condition passes. Leave it at zero for the condition to pass as soon as the sensors start detecting motion.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple motion sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is detecting motion, or **All** to pass only when every sensor is detecting motion.
+  description: When multiple motion sensors are targeted, controls how results combine. Pick **Each** to pass if at least one targeted sensor is detecting motion, or **All** to pass only when every sensor is detecting motion.
 For at least:
   description: How long one or more sensors must be continuously detecting motion before the condition passes. The default is `0` hours, `00` minutes and `00` seconds.
 {% endoptions_ui %}
@@ -55,10 +55,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple motion sensors are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple motion sensors are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long one or more motion sensors must be continuously detecting motion before the condition passes. Accepts a duration string in `HH:MM:SS` format.

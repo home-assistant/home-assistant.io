@@ -21,7 +21,7 @@ To use this condition in an automation:
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Carbon dioxide value**.
 6. Under **Threshold type**, set the CO2 level the condition checks against.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 8. Select **Save**.
 
 ### Options in the UI
@@ -30,7 +30,7 @@ To use this condition in an automation:
 Threshold type:
   description: The carbon dioxide level the sensor has to meet or exceed for the condition to pass.
 Condition passes if:
-  description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
+  description: When multiple sensors are targeted, controls how results combine. Pick **Each** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -44,7 +44,7 @@ condition: |
     entity_id: sensor.office_co2
   options:
     threshold: 1000
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when the office CO2 sensor reads at or above 1000 ppm.
@@ -61,10 +61,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple sensors are targeted, controls how results combine. Accepts `all` or `each`.
   required: true
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -73,7 +73,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Each** and fail for **All**.
 - Outdoor CO2 levels are typically around 420 ppm. Indoor levels above 1000 ppm often suggest the room needs better ventilation.
 
 {% include conditions/try_it.md %}
@@ -105,7 +105,7 @@ automation: |
         entity_id: sensor.bedroom_co2
       options:
         threshold: 1000
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:

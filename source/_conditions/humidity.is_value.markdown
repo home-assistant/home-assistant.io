@@ -29,7 +29,7 @@ To use **Relative humidity** in an automation:
         - Sensor: Its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two humidity readings, for example to check whether indoor humidity is higher than outdoor humidity.
         - For **In range** or **Outside range**, you need two entities: one for the lower bound and one for the upper bound (for example, two separate number helpers).
         - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 8. Select **Save**.
 
 ### Options in the UI
@@ -42,7 +42,7 @@ Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - **Any**: The condition passes if at least one targeted entity meets the threshold (default).
+    - **Each**: The condition passes if at least one targeted entity meets the threshold (default).
     - **All**: The condition passes only when every targeted entity meets the threshold.
 {% endoptions_ui %}
 
@@ -60,7 +60,7 @@ condition: |
       type: above
       value:
         number: 60
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when the bedroom humidity sensor reads above 60%.
@@ -98,7 +98,7 @@ condition: |
         number: 40
       value_max:
         number: 60
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when at least one of the humidity sensors reads between 40% and 60%.
@@ -133,7 +133,7 @@ condition: |
       type: above
       value:
         entity: input_number.humidity_alert_threshold
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when the bedroom humidity sensor reads above the number helper´s value.
@@ -157,11 +157,11 @@ behavior:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - `any`: The condition passes if at least one targeted entity meets the threshold.
+    - `each`: The condition passes if at least one targeted entity meets the threshold.
     - `all`: The condition passes only when every targeted entity meets the threshold.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -171,7 +171,7 @@ behavior:
 ## Good to know
 
 - The condition works with humidity sensors, climate entities (using the current humidity reading), humidifier entities (using the current humidity reading), and weather entities.
-- Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Each** and fail for **All**.
 - Humidity is expressed as a percentage. Indoor comfort is generally between 40% and 60%. Below 30% often feels dry and can irritate airways. Above 65% can encourage mold and dust mites.
 - This condition checks the entity's _current_ humidity reading, not its target setpoint. To check a humidifier's target setpoint instead, use the [Humidifier target humidity](/conditions/humidifier.is_target_humidity/) condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
@@ -210,7 +210,7 @@ automation: |
           type: above
           value:
             number: 65
-        behavior: any
+        behavior: each
   actions:
     - action: switch.turn_on
       target:

@@ -20,14 +20,14 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your gas sensor is in (like your kitchen or garage). You can also select a floor, a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Gas cleared**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple sensors are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple sensors are targeted.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is cleared, or **All** to pass only when every targeted sensor is cleared.
+  description: When multiple sensors are targeted, controls how results combine. Pick **Each** to pass if at least one targeted sensor is cleared, or **All** to pass only when every targeted sensor is cleared.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -50,10 +50,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple sensors are targeted, controls how results combine. Accepts `all` or `each`.
   required: true
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -62,7 +62,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as cleared. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as cleared. With **Each** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
 - To check whether gas is currently detected, use [Gas detected](/conditions/air_quality.is_gas_detected/).
 
 {% include conditions/try_it.md %}

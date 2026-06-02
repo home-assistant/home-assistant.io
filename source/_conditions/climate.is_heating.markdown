@@ -23,7 +23,7 @@ To use **Thermostat is heating** in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your thermostat is in (like your living room or bedroom). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Thermostat is heating**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple thermostats are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple thermostats are targeted.
 7. Under **For at least**, set how long the thermostat must have been actively heating before the condition passes. Leave it at zero to pass immediately.
 8. Select **Save**.
 
@@ -31,7 +31,7 @@ To use **Thermostat is heating** in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat is actively heating, or **All** to pass only when every targeted thermostat is actively heating. Default is **Any**.
+  description: When multiple thermostats are targeted, controls how results combine. Pick **Each** to pass if at least one targeted thermostat is actively heating, or **All** to pass only when every targeted thermostat is actively heating. Default is **Each**.
 For at least:
   description: How long the thermostat must have been continuously heating before the condition passes. Default is zero (passes immediately).
 {% endoptions_ui %}
@@ -54,10 +54,10 @@ This passes when the bedroom thermostat is actively running the heater to warm t
 {% options_yaml %}
 behavior:
   description: >
-    When multiple thermostats are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple thermostats are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the thermostat must have been continuously heating before the condition passes. Accepts a duration string in `HH:MM:SS` format.
@@ -73,7 +73,7 @@ for:
 ## Good to know
 
 - A thermostat can be set to heat mode but not actively heating if it has already reached its target temperature and is idling. Use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively heating. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is unavailable.
+- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively heating. With **Each** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is unavailable.
 - This condition checks the current action of the thermostat, not its mode. To check if a thermostat is simply on (any active mode) or off, use [Thermostat is on](/conditions/climate.is_on/) or [Thermostat is off](/conditions/climate.is_off/).
 
 {% include conditions/try_it.md %}

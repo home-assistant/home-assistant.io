@@ -24,7 +24,7 @@ To use **Humidifier is drying** in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your dehumidifier is in (like your basement or bathroom). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Humidifier is drying**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple devices are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple devices are targeted.
 7. Under **For at least**, set how long the humidifier must have been actively drying before the condition passes. Leave it at zero to pass immediately.
 8. Select **Save**.
 
@@ -32,7 +32,7 @@ To use **Humidifier is drying** in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted device is actively drying, or **All** to pass only when every targeted device is actively drying. Default is **Any**.
+  description: When multiple humidifiers are targeted, controls how results combine. Pick **Each** to pass if at least one targeted device is actively drying, or **All** to pass only when every targeted device is actively drying. Default is **Each**.
 For at least:
   description: How long the humidifier must have been continuously drying before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
@@ -55,10 +55,10 @@ This passes when the basement dehumidifier is actively removing moisture from th
 {% options_yaml %}
 behavior:
   description: >
-    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the humidifier must have been continuously drying before the condition passes. Accepts a duration string in `HH:MM:SS` format.
@@ -74,7 +74,7 @@ for:
 ## Good to know
 
 - A dehumidifier can be on but not drying if it has already reached its target humidity and is idling. Use [Humidifier is on](/conditions/humidifier.is_on/) if you only care about whether the device is powered.
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively drying. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted device is unavailable.
+- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively drying. With **Each** behavior, they are skipped. With **All** behavior, the condition fails if every targeted device is unavailable.
 - This condition applies to devices in a drying cycle. For humidifiers that are actively adding moisture, use [Humidifier is humidifying](/conditions/humidifier.is_humidifying/) instead.
 
 {% include conditions/try_it.md %}
@@ -104,7 +104,7 @@ automation: |
       target:
         entity_id: humidifier.basement
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: cover.open_cover
       target:

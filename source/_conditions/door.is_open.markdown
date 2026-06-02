@@ -22,7 +22,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Door is open**.
 5. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your door is in, like your entryway or garage. You can also select a floor, a device, a specific entity, or a label.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 7. Under **For at least**, enter how long the door must have stayed open before the condition passes.
 8. Select **Save**.
 
@@ -30,7 +30,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple doors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted door is open, or **All** to pass only when every targeted door is open.
+  description: When multiple doors are targeted, controls how results combine. Pick **Each** to pass if at least one targeted door is open, or **All** to pass only when every targeted door is open.
 For at least:
   description: How long the door must have stayed open before the condition passes.
 {% endoptions_ui %}
@@ -55,10 +55,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple doors are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple doors are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the door must have stayed open before the condition passes.
@@ -75,8 +75,8 @@ for:
 
 - This condition works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
 - Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted door is open.
-- With **All**, the condition passes only if every available targeted door is open. If every targeted door is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- With **Each**, the condition passes if at least one available targeted door is open.
+- With **All**, the condition passes only if every available targeted door is open. If every targeted door is `unavailable` or `unknown`, **All** passes and **Each** fails.
 
 {% include conditions/try_it.md %}
 
@@ -110,7 +110,7 @@ automation: |
           - binary_sensor.patio_door
           - cover.garage_door
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:
@@ -148,7 +148,7 @@ automation: |
       target:
         entity_id: cover.garage_door
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:

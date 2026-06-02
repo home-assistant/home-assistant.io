@@ -26,7 +26,7 @@ To use **Thermostat is in HVAC mode** in an automation:
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your thermostat is in (like your living room or bedroom). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Thermostat is in HVAC mode**.
 6. Under **HVAC mode**, select one or more modes to check for. Only modes available on the targeted device are shown. Typical modes include **Off**, **Heat**, **Cool**, **Heat/cool**, **Auto**, **Dry**, and **Fan only**.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple thermostats are targeted.
+7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple thermostats are targeted.
 8. Under **For at least**, set how long the thermostat must have been in the selected mode before the condition passes. Leave it at zero to pass immediately.
 9. Select **Save**.
 
@@ -36,7 +36,7 @@ To use **Thermostat is in HVAC mode** in an automation:
 HVAC mode:
   description: The HVAC mode or modes to check for. Only the modes available on the targeted device are shown. Typical modes include **Off**, **Heat**, **Cool**, **Heat/cool**, **Auto**, **Dry**, and **Fan only**, though the exact modes depend on your device.
 Condition passes if:
-  description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat is in the selected mode, or **All** to pass only when every targeted thermostat is in the selected mode. Default is **Any**.
+  description: When multiple thermostats are targeted, controls how results combine. Pick **Each** to pass if at least one targeted thermostat is in the selected mode, or **All** to pass only when every targeted thermostat is in the selected mode. Default is **Each**.
 For at least:
   description: How long the thermostat must have been continuously in the selected mode before the condition passes. Default is zero (passes immediately).
 {% endoptions_ui %}
@@ -79,10 +79,10 @@ hvac_mode:
   type: [string, list]
 behavior:
   description: >
-    When multiple thermostats are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple thermostats are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the thermostat must have been continuously in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format.

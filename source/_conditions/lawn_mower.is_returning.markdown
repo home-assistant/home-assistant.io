@@ -19,7 +19,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Lawn mower is returning**.
 5. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area where your mower is used. You can also select a floor, a device, a specific entity, or a label.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 7. Under **For at least**, set how long the mower must stay in the returning state before the condition passes. Leave it at zero to check the current state only.
 8. Select **Save**.
 
@@ -27,7 +27,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple lawn mowers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted mower is returning, or **All** to pass only when every targeted mower is returning.
+  description: When multiple lawn mowers are targeted, controls how results combine. Pick **Each** to pass if at least one targeted mower is returning, or **All** to pass only when every targeted mower is returning.
 For at least:
   description: How long the mower must stay in the returning state before the condition passes. Leave it at zero to check the current state only.
 {% endoptions_ui %}
@@ -53,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple lawn mowers are targeted, controls how results combine.
-    Accepts `all` or `any`.
+    Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the mower must stay in the returning state before the condition

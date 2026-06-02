@@ -21,7 +21,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the timer you want to check. You can also select an area, a floor, a device, or a label.
 5. From the conditions shown for that target, select **Timer is paused**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 7. Under **For at least**, set how long the timer must stay paused before the condition passes. Leave the default to check the current state only.
 8. Select **Save**.
 
@@ -29,7 +29,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple timers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted timer is paused, or **All** to pass only if every targeted timer is paused.
+  description: When multiple timers are targeted, controls how results combine. Pick **Each** to pass if at least one targeted timer is paused, or **All** to pass only if every targeted timer is paused.
 For at least:
   description: How long the timer must remain paused before the condition passes. Defaults to `00:00:00`.
 {% endoptions_ui %}
@@ -53,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 behavior:
-  description: When multiple timers are targeted, controls how results combine. Accepts `all` or `any`.
+  description: When multiple timers are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the timer must remain paused before the condition passes. Accepts a duration string in `HH:MM:SS` format.
   required: false
@@ -71,7 +71,7 @@ for:
 ## Good to know
 
 - A paused timer keeps its remaining time until it is restarted or cancelled.
-- Timers that are `unavailable` or `unknown` are skipped for **Any** and cause **All** to fail.
+- Timers that are `unavailable` or `unknown` are skipped for **Each** and cause **All** to fail.
 
 {% include conditions/try_it.md %}
 

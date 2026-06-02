@@ -21,7 +21,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Moisture is not detected**.
 5. Under **Targets** (see [Targets](#targets)), select one or more leak sensors, devices, an area, a floor, or a label.
-6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
+6. If you selected more than one target, under **Condition passes if**, pick **Each** or **All**.
 7. Under **For at least**, you can set how long the sensors must stay dry before the condition passes.
 8. Select **Save**.
 
@@ -29,7 +29,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple moisture sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is dry, or **All** to pass only when every sensor is dry.
+  description: When multiple moisture sensors are targeted, controls how results combine. Pick **Each** to pass if at least one targeted sensor is dry, or **All** to pass only when every sensor is dry.
 For at least:
   description: How long the sensor or sensors must stay dry before the condition passes. The default is `0` (passes immediately).
 {% endoptions_ui %}
@@ -54,11 +54,11 @@ behavior:
   description: |
     When multiple moisture sensors are targeted, controls how results combine:
 
-    - `any` (**Any** in the UI, default): passes if at least one targeted sensor is dry.
+    - `each` (**Each** in the UI, default): passes if at least one targeted sensor is dry.
     - `all` (**All** in the UI): passes only when every targeted sensor is dry.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the sensor or sensors must stay dry before the condition passes. Accepts a duration string in `HH:MM:SS` format.
   required: false
@@ -73,7 +73,7 @@ for:
 ## Good to know
 
 - This condition works with binary sensors that have the **moisture** device class, such as water leak sensors.
-- Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+- Sensors that are `unavailable` or `unknown` are skipped for **Each** and fail for **All**.
 - To check for the opposite state, use [Moisture is detected](/conditions/moisture.is_detected/).
 - For percentage-based moisture readings (such as soil moisture probes), use [Moisture level](/conditions/moisture.is_value/) instead.
 

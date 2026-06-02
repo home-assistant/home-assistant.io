@@ -25,7 +25,7 @@ To use **Humidifier is in mode** in an automation:
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Humidifier is in mode**.
 6. Under **Mode**, select one or more modes to check for. Only modes available on the targeted device are shown.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple humidifiers are targeted.
+7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple humidifiers are targeted.
 8. Under **For at least**, set how long the humidifier must have been in the selected mode before the condition passes. Leave it at zero to pass immediately.
 9. Select **Save**.
 
@@ -35,7 +35,7 @@ To use **Humidifier is in mode** in an automation:
 Mode:
   description: The mode or modes to check for. Only the modes available on the targeted device are shown. Typical modes include **Normal**, **Eco**, **Not home**, **Boost**, **Comfort**, **Home**, **Sleep**, **Auto**, and **Baby**, though the exact modes depend on your device.
 Condition passes if:
-  description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier is in the selected mode, or **All** to pass only when every targeted humidifier is in the selected mode. Default is **Any**.
+  description: When multiple humidifiers are targeted, controls how results combine. Pick **Each** to pass if at least one targeted humidifier is in the selected mode, or **All** to pass only when every targeted humidifier is in the selected mode. Default is **Each**.
 For at least:
   description: How long the humidifier must have been continuously in the selected mode before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
@@ -78,10 +78,10 @@ mode:
   type: [string, list]
 behavior:
   description: >
-    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the humidifier must have been continuously in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format.
@@ -130,7 +130,7 @@ automation: |
             entity_id: humidifier.bedroom
           options:
             mode: "sleep"
-            behavior: any
+            behavior: each
   actions:
     - action: scene.turn_on
       target:

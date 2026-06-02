@@ -24,7 +24,7 @@ To use this condition in an automation:
 4. From the search box, search for and select **Light: Light brightness**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Threshold type**, set the brightness percentage the condition checks against.
-7. Under **Condition passes if**, pick **Any** or **All**.
+7. Under **Condition passes if**, pick **Each** or **All**.
 8. Select **Save**.
 
 ### Options in the UI
@@ -34,7 +34,7 @@ Threshold type:
   description: The brightness level the light has to meet or exceed. Expressed as a percentage of full brightness.
   required: true
 Condition passes if:
-  description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one light meets the threshold, or **All** to pass only when every targeted light does.
+  description: When multiple lights are targeted, controls how results combine. Pick **Each** to pass if at least one light meets the threshold, or **All** to pass only when every targeted light does.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -48,7 +48,7 @@ condition: |
     entity_id: light.living_room
   options:
     threshold: 50
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when the living room light's brightness is at or above 50%.
@@ -65,10 +65,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple lights are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -76,7 +76,7 @@ behavior:
 ## Good to know
 
 - A light that is off has brightness zero, so it never meets a positive threshold. Combine with [Light is on](/conditions/light.is_on/) if you want to check both.
-- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Each** and fail for **All**.
 - Pair with [Light brightness crossed threshold](/triggers/light.brightness_crossed_threshold/) as a matching trigger when you need the automation to run the moment the brightness crosses that line.
 
 {% include conditions/try_it.md %}
@@ -108,7 +108,7 @@ automation: |
         entity_id: light.living_room
       options:
         threshold: 40
-        behavior: any
+        behavior: each
   actions:
     - action: scene.turn_on
       target:

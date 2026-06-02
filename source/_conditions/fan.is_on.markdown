@@ -20,7 +20,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the fan you want to check. You can also select an area, a floor, a device, or a label.
 5. From the conditions shown for that target, select **Fan is on**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 7. Under **For at least**, set how long the fan must have been on.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple fans are targeted, controls whether **Any** targeted fan must be on or **All** targeted fans must be on.
+  description: When multiple fans are targeted, controls whether **Each** targeted fan must be on or **All** targeted fans must be on.
   required: false
 For at least:
   description: How long the fan must have been on for the condition to pass.
@@ -45,7 +45,7 @@ condition: |
   target:
     entity_id: fan.office
   options:
-    behavior: any
+    behavior: each
     for: "00:15:00"
 {% endexample %}
 
@@ -55,10 +55,10 @@ This passes when `fan.office` has been on for 15 minutes.
 
 {% options_yaml %}
 behavior:
-  description: When multiple fans are targeted, controls whether `any` or `all` targeted fans must be on.
+  description: When multiple fans are targeted, controls whether `each` or `all` targeted fans must be on.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the fan must have been on for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
   required: false
@@ -73,7 +73,7 @@ for:
 ## Good to know
 
 - A fan in the `unknown` or `unavailable` state does not count as on.
-- With **All**, every targeted fan must match. With **Any**, one matching fan is enough.
+- With **All**, every targeted fan must match. With **Each**, one matching fan is enough.
 - To check for the opposite state, use [Fan is off](/conditions/fan.is_off/).
 
 {% include conditions/try_it.md %}
@@ -106,7 +106,7 @@ automation: |
       target:
         entity_id: fan.bedroom
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: notify.send_message
@@ -142,7 +142,7 @@ automation: |
       target:
         entity_id: fan.office
       options:
-        behavior: any
+        behavior: each
         for: "00:10:00"
   actions:
     - action: cover.close_cover

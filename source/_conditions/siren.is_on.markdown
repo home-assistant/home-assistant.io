@@ -20,7 +20,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your siren is in. You can also select a floor, a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Siren is on**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple sirens are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple sirens are targeted.
 7. Under **For at least**, set how long the siren must stay on before the condition passes.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple sirens are targeted, controls how results combine. Pick **Any** to pass if at least one targeted siren is on, or **All** to pass only when every targeted siren is on.
+  description: When multiple sirens are targeted, controls how results combine. Pick **Each** to pass if at least one targeted siren is on, or **All** to pass only when every targeted siren is on.
 For at least:
   description: How long the siren must stay on before the condition passes.
 {% endoptions_ui %}
@@ -54,10 +54,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple sirens are targeted, controls how results combine.
-    Accepts `all` or `any`.
+    Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the siren must stay on before the condition passes.

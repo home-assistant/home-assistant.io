@@ -21,7 +21,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Light is not detected**.
 5. Under **Targets** (see [Targets](#targets)), select one or more light sensors, devices, an area, a floor, or a label.
-6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
+6. If you selected more than one target, under **Condition passes if**, pick **Each** or **All**.
 7. Under **For at least**, you can set how long the sensors must remain dark before the condition passes.
 8. Select **Save**.
 
@@ -29,7 +29,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple light sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is dark, or **All** to pass only when every sensor is dark.
+  description: When multiple light sensors are targeted, controls how results combine. Pick **Each** to pass if at least one targeted sensor is dark, or **All** to pass only when every sensor is dark.
 For at least:
   description: How long the sensor or sensors must remain dark before the condition passes. The default is `0` (passes immediately).
 {% endoptions_ui %}
@@ -54,11 +54,11 @@ behavior:
   description: |
     When multiple light sensors are targeted, controls how results combine:
 
-    - `any` (default): passes if at least one targeted sensor is dark.
+    - `each` (default): passes if at least one targeted sensor is dark.
     - `all`: passes only when every targeted sensor is dark.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the sensor or sensors must remain dark before the condition passes. Accepts a duration string in `HH:MM:SS` format.
   required: false
@@ -73,7 +73,7 @@ for:
 ## Good to know
 
 - This condition works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "no light detected" is set on the device itself.
-- Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+- Sensors that are `unavailable` or `unknown` are skipped for **Each** and fail for **All**.
 - For numeric illuminance readings (in lux), use [Illuminance](/conditions/illuminance.is_value/) instead.
 - To check for the opposite state, use [Light is detected](/conditions/illuminance.is_detected/).
 

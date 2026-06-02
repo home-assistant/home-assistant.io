@@ -24,14 +24,14 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Thermostat is on**.
 5. Under **Targets**, select the thermostat entity, an area, a floor, or a label.
-6. Under **Condition passes if**, pick **Any** or **All** to control how the check behaves when multiple thermostats are targeted.
+6. Under **Condition passes if**, pick **Each** or **All** to control how the check behaves when multiple thermostats are targeted.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat is on, or **All** to pass only when every targeted thermostat is on.
+  description: When multiple thermostats are targeted, controls how results combine. Pick **Each** to pass if at least one targeted thermostat is on, or **All** to pass only when every targeted thermostat is on.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -54,10 +54,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple thermostats are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple thermostats are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -67,7 +67,7 @@ behavior:
 ## Good to know
 
 - This condition passes when the thermostat is in any active HVAC mode: heat, cool, heat/cool, auto, dry, or fan only. It does not pass when the thermostat is off.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as on. With **Any** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition passes.
+- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as on. With **Each** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition passes.
 - To gate an automation on a thermostat being off instead, use [Thermostat is off](/conditions/climate.is_off/).
 - To check for a specific HVAC mode, use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/).
 

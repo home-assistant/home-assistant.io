@@ -30,7 +30,7 @@ To use **Temperature** in an automation:
         - For **In range** or **Outside range**, you need two entities: one for the lower bound and one for the upper bound (for example, two separate number helpers).
         - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
-8. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+8. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 9. Select **Save**.
 
 ### Options in the UI
@@ -43,7 +43,7 @@ Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
   default: °C
 Condition passes if:
-  description: When multiple entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does. Default is **Any**.
+  description: When multiple entities are targeted, controls how results combine. Pick **Each** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does. Default is **Each**.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -61,7 +61,7 @@ condition: |
       value:
         number: 20
         unit_of_measurement: "°C"
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when the living room temperature sensor reads above 20°C.
@@ -79,7 +79,7 @@ condition: |
       value:
         number: 24
         unit_of_measurement: "°C"
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when the living room temperature sensor reads below 24°C.
@@ -100,7 +100,7 @@ condition: |
       value_max:
         number: 22
         unit_of_measurement: "°C"
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when the living room temperature sensor reads between 20 and 22°C.
@@ -134,10 +134,10 @@ threshold:
   type: map
 behavior:
   description: >
-    Controls how results combine when multiple entities are targeted. Accepts `all` or `any`.
+    Controls how results combine when multiple entities are targeted. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -148,7 +148,7 @@ behavior:
 
 - The condition works with temperature sensors, [climate](/integrations/climate/) entities (using the current temperature reading), [water heater](/integrations/water_heater/) entities (using the current temperature reading), and [weather](/integrations/weather/) entities.
 - Climate, water heater, and weather entities that don't report a current temperature attribute are automatically excluded from evaluation. Only entities with a valid temperature value are considered.
-- Entities that have an `unavailable` or `unknown` state are skipped for **Any** and fail for **All**.
+- Entities that have an `unavailable` or `unknown` state are skipped for **Each** and fail for **All**.
 - This condition checks the entity's current temperature reading, not its target setpoint. To check a climate device's target setpoint instead, use the climate target temperature condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the condition in Celsius, the conversion happens automatically.
@@ -186,7 +186,7 @@ automation: |
           value:
             number: 24
             unit_of_measurement: "°C"
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:
@@ -227,7 +227,7 @@ automation: |
           value_max:
             number: 22
             unit_of_measurement: "°C"
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:
@@ -269,7 +269,7 @@ automation: |
             entity: input_number.comfort_temperature_min
           value_max:
             entity: input_number.comfort_temperature_max
-        behavior: any
+        behavior: each
   actions:
     - action: climate.set_hvac_mode
       target:

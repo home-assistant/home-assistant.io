@@ -26,7 +26,7 @@ To use this condition in an automation:
       - **Number**: Enter a fixed item count directly.
       - **Entity**: Use an `input_number`, `number`, or `sensor` entity as the threshold value.
       - If you use **In range** or **Outside range**, enter both a lower and upper value.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 8. Under **For at least**, set how long the list must stay at the matching count before the condition passes. Leave it at zero to pass right away.
 9. Select **Save**.
 
@@ -36,7 +36,7 @@ To use this condition in an automation:
 Threshold type:
   description: The number of incomplete items the list must be above, below, inside, or outside. Use **Number** for a fixed value or **Entity** to read the threshold from an `input_number`, `number`, or `sensor` entity.
 Condition passes if:
-  description: When multiple to-do lists are targeted, controls how results combine. Pick **Any** to pass if at least one targeted list matches the threshold, or **All** to pass only when every targeted list matches it.
+  description: When multiple to-do lists are targeted, controls how results combine. Pick **Each** to pass if at least one targeted list matches the threshold, or **All** to pass only when every targeted list matches it.
 For at least:
   description: How long the targeted to-do list must stay at the matching count before the condition passes.
 {% endoptions_ui %}
@@ -79,10 +79,10 @@ threshold:
 behavior:
   description: >
     When multiple to-do lists are targeted, controls how results combine.
-    Accepts `all` or `any`.
+    Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the incomplete item count must stay in the matching range before

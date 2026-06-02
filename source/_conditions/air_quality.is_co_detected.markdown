@@ -21,14 +21,14 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your CO sensor is in (like your kitchen or garage). You can also select a floor, a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Carbon monoxide detected**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple sensors are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple sensors are targeted.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor detects carbon monoxide, or **All** to pass only when every targeted sensor detects carbon monoxide.
+  description: When multiple sensors are targeted, controls how results combine. Pick **Each** to pass if at least one targeted sensor detects carbon monoxide, or **All** to pass only when every targeted sensor detects carbon monoxide.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -51,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple sensors are targeted, controls how results combine. Accepts `all` or `each`.
   required: true
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -63,7 +63,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as detecting. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as detecting. With **Each** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
 - To check whether carbon monoxide is no longer detected, use [Carbon monoxide cleared](/conditions/air_quality.is_co_cleared/).
 - To check the actual CO concentration rather than just a binary detection, use [Carbon monoxide value](/conditions/air_quality.is_co_value/).
 
@@ -97,7 +97,7 @@ automation: |
       target:
         entity_id: binary_sensor.hallway_co
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:

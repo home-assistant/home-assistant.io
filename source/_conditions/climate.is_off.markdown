@@ -23,14 +23,14 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Thermostat is off**.
 5. Under **Targets**, select the thermostat entity, an area, a floor, or a label.
-6. Under **Condition passes if**, pick **Any** or **All**.
+6. Under **Condition passes if**, pick **Each** or **All**.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat is off, or **All** to pass only when every targeted thermostat is off.
+  description: When multiple thermostats are targeted, controls how results combine. Pick **Each** to pass if at least one targeted thermostat is off, or **All** to pass only when every targeted thermostat is off.
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -53,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple thermostats are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple thermostats are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -65,7 +65,7 @@ behavior:
 
 ## Good to know
 
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as off. With **Any** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition passes.
+- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as off. With **Each** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition passes.
 - To gate an automation on a thermostat being on instead, use [Thermostat is on](/conditions/climate.is_on/).
 - Pair with the [Thermostat turned off](/triggers/climate.turned_off/) trigger to react only when a transition to off happens.
 

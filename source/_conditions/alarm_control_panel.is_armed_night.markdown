@@ -21,7 +21,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your alarm panel is in (like your hallway or entryway). You can also select a floor, a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Alarm is armed night**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple alarm panels are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple alarm panels are targeted.
 7. Under **For at least**, set how long the alarm must have been in this state before the condition passes. Leave it at zero to pass immediately.
 8. Select **Save**.
 
@@ -29,7 +29,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple alarm panels are targeted, controls how results combine. Pick **Any** to pass if at least one targeted alarm is armed night, or **All** to pass only when every targeted alarm is armed night.
+  description: When multiple alarm panels are targeted, controls how results combine. Pick **Each** to pass if at least one targeted alarm is armed night, or **All** to pass only when every targeted alarm is armed night.
 For at least:
   description: How long the alarm must have been armed in night mode before the condition passes. Set to zero to pass immediately.
 {% endoptions_ui %}
@@ -54,10 +54,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple alarm panels are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple alarm panels are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the alarm must have been armed in night mode before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
@@ -72,7 +72,7 @@ for:
 
 ## Good to know
 
-- Alarm panels that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as armed night. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted alarm is unavailable.
+- Alarm panels that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as armed night. With **Each** behavior, they are skipped. With **All** behavior, the condition fails if every targeted alarm is unavailable.
 - If you want to check whether the alarm is armed in any mode (not just night), use [Alarm is armed](/conditions/alarm_control_panel.is_armed/).
 - To check the opposite state, use [Alarm is disarmed](/conditions/alarm_control_panel.is_disarmed/).
 
@@ -104,7 +104,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.hallway
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: light.turn_on
       target:
@@ -138,7 +138,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.home_alarm
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:

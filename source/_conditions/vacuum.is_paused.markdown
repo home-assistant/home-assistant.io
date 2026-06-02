@@ -20,7 +20,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Vacuum: Vacuum cleaner is paused**.
 5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 7. Under **For at least**, enter how long the vacuum must stay paused before the condition passes.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple vacuums are targeted, controls how results combine. Pick **Any** to pass if at least one targeted vacuum is paused, or **All** to pass only when every targeted vacuum is paused.
+  description: When multiple vacuums are targeted, controls how results combine. Pick **Each** to pass if at least one targeted vacuum is paused, or **All** to pass only when every targeted vacuum is paused.
   required: true
 For at least:
   description: The time the vacuum must stay paused before the condition passes.
@@ -45,7 +45,7 @@ condition: |
   target:
     entity_id: vacuum.hallway
   options:
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This passes when `vacuum.hallway` is paused.
@@ -57,10 +57,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple vacuums are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple vacuums are targeted, controls how results combine. Accepts `all` or `each`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     The time the vacuum must stay paused before the condition passes.
@@ -76,9 +76,9 @@ for:
 ## Good to know
 
 - Entities with state `unavailable` or `unknown` are ignored when Home Assistant evaluates the condition.
-- With **Any** (default), the condition passes if at least one targeted vacuum is paused.
+- With **Each** (default), the condition passes if at least one targeted vacuum is paused.
 - With **All**, the condition passes only if every targeted vacuum that Home Assistant can evaluate is paused.
-- If every targeted vacuum is `unavailable` or `unknown`, **Any** fails and **All** passes.
+- If every targeted vacuum is `unavailable` or `unknown`, **Each** fails and **All** passes.
 
 {% include conditions/try_it.md %}
 
@@ -107,7 +107,7 @@ automation: |
       target:
         entity_id: vacuum.hallway
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:

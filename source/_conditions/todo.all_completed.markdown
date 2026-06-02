@@ -20,7 +20,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the to-do list you want to check. You can also select an area, floor, device, entity, or label if that target resolves to one or more to-do lists.
 5. From the conditions shown for that target, select **All to-do items completed**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 7. Under **For at least**, set how long the list must stay complete before the condition passes. Leave it at zero to pass right away.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple to-do lists are targeted, controls how results combine. Pick **Any** to pass if at least one targeted list has no incomplete items, or **All** to pass only when every targeted list has no incomplete items.
+  description: When multiple to-do lists are targeted, controls how results combine. Pick **Each** to pass if at least one targeted list has no incomplete items, or **All** to pass only when every targeted list has no incomplete items.
 For at least:
   description: How long the targeted to-do list must stay complete before the condition passes.
 {% endoptions_ui %}
@@ -54,10 +54,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple to-do lists are targeted, controls how results combine.
-    Accepts `all` or `any`.
+    Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the to-do list must stay complete before the condition passes.

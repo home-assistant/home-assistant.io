@@ -24,7 +24,7 @@ To use **Humidifier is humidifying** in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the conditions shown for that target, select **Humidifier is humidifying**.
-6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple humidifiers are targeted.
+6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All** to control how the check behaves when multiple humidifiers are targeted.
 7. Under **For at least**, set how long the humidifier must have been actively humidifying before the condition passes. Leave it at zero to pass immediately.
 8. Select **Save**.
 
@@ -32,7 +32,7 @@ To use **Humidifier is humidifying** in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier is actively humidifying, or **All** to pass only when every targeted humidifier is actively humidifying. Default is **Any**.
+  description: When multiple humidifiers are targeted, controls how results combine. Pick **Each** to pass if at least one targeted humidifier is actively humidifying, or **All** to pass only when every targeted humidifier is actively humidifying. Default is **Each**.
 For at least:
   description: How long the humidifier must have been continuously humidifying before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
@@ -55,10 +55,10 @@ This passes when the bedroom humidifier is actively adding moisture to the air.
 {% options_yaml %}
 behavior:
   description: >
-    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple humidifiers are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the humidifier must have been continuously humidifying before the condition passes. Accepts a duration string in `HH:MM:SS` format.
@@ -74,7 +74,7 @@ for:
 ## Good to know
 
 - A humidifier can be on but not humidifying if it has already reached its target humidity and is idling. Use [Humidifier is on](/conditions/humidifier.is_on/) if you only care about whether the device is powered.
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively humidifying. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted humidifier is unavailable.
+- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively humidifying. With **Each** behavior, they are skipped. With **All** behavior, the condition fails if every targeted humidifier is unavailable.
 - This condition only applies to devices in a humidification cycle. For dehumidifiers that are actively removing moisture, use [Humidifier is drying](/conditions/humidifier.is_drying/) instead.
 
 {% include conditions/try_it.md %}
@@ -104,7 +104,7 @@ automation: |
       target:
         entity_id: humidifier.bedroom
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:

@@ -18,7 +18,7 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Calendar event is active**.
 5. Under **Targets**, select a calendar entity, an area, a floor, or a label.
-6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
+6. If you selected more than one target, under **Condition passes if**, pick **Each** or **All**.
 7. Under **For at least**, set how long the event must be active before the condition passes.
 8. Select **Save**.
 
@@ -26,7 +26,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple calendars are targeted, controls how results combine. Pick **Any** to pass if at least one targeted calendar has an active event, or **All** to pass only when every calendar has an active event.
+  description: When multiple calendars are targeted, controls how results combine. Pick **Each** to pass if at least one targeted calendar has an active event, or **All** to pass only when every calendar has an active event.
 For at least:
   description: How long the event must be active before the condition passes. The default is `0` hours, `00` minutes and `00` seconds.
 {% endoptions_ui %}
@@ -51,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple calendars are targeted, controls how results combine. Accepts `all` or `any`.
+    When multiple calendars are targeted, controls how results combine. Accepts `all` or `each`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the event must be active before the condition passes. Accepts a duration string in `HH:MM:SS` format.

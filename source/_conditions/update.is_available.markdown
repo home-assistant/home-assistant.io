@@ -29,7 +29,7 @@ To use this condition in an automation:
    pick the device, area, floor, label, or specific update entity you want to
    evaluate.
 6. Under **Condition passes if** (see
-   [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
+   [Behavior](#behavior-with-multiple-targets)), pick **Each** or **All**.
 7. Under **For at least**, enter how long the update must have stayed available
    before the condition passes.
 8. Select **Save**.
@@ -38,7 +38,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Condition passes if:
-  description: When multiple update entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted update is available, or **All** to pass only when every targeted update is available. The default is **Any**.
+  description: When multiple update entities are targeted, controls how results combine. Pick **Each** to pass if at least one targeted update is available, or **All** to pass only when every targeted update is available. The default is **Each**.
 For at least:
   description: How long the update must have stayed available before the condition passes. The default is `00:00:00`.
 {% endoptions_ui %}
@@ -66,10 +66,10 @@ not available through the UI.
 behavior:
   description: >
     When multiple update entities are targeted, controls how results combine.
-    Accepts `any` or `all`.
+    Accepts `each` or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the update must have stayed available before the condition passes.
@@ -90,7 +90,7 @@ for:
 - Entities in the `unavailable` or `unknown` state are ignored.
 - With **All**, the condition passes only if every available targeted update is
   available. If every targeted entity is `unavailable` or `unknown`, **All**
-  passes and **Any** fails.
+  passes and **Each** fails.
 - If you use `for`, each matching update must stay available for the full time
   you set.
 
