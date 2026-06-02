@@ -33,7 +33,7 @@ In the automation editor UI, each {% term action %} can be tested individually. 
 
 - Testing an action block will run that block immediately.
 - If the action runs, the action row displays the message **Action ran successfully**.
-- If the action fails, the action row displays the message **Error running action**. Select the message and a dialog opens with more information about the error.
+- If the action fails, the action row displays the message **Error running action**. Select the message to open a dialog with more information about the error.
 
 Note that complex automations that depend on previous blocks, such as trigger IDs, variables in templates, or action calls that return data to use in subsequent blocks, cannot be tested this way.
 
