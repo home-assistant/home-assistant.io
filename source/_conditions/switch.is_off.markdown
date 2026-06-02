@@ -31,7 +31,7 @@ Condition passes if:
   description: When multiple switches are targeted, controls whether **Any** targeted switch must be off or **All** targeted switches must be off.
   required: false
 For at least:
-  description: How long the switch must have been off for the condition to pass.
+  description: How long the switch must have been off for the condition to pass. The default is `0` (no minimum duration).
   required: false
 {% endoptions_ui %}
 

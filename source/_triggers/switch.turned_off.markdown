@@ -31,7 +31,7 @@ Trigger when:
   description: When multiple switches are targeted, controls whether the trigger fires for **Each** switch, only the **First** switch, or after **All** targeted switches are off.
   required: false
 For at least:
-  description: How long the switch must stay off before the trigger fires.
+  description: How long the switch must stay off before the trigger fires. The default is `0` (fires immediately).
   required: false
 {% endoptions_ui %}
 
