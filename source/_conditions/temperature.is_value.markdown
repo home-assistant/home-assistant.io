@@ -13,38 +13,20 @@ When you target more than one entity, the condition's **Condition passes if** op
 
 {% include conditions/ui_header.md %}
 
-To use **Temperature** in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **And if** section, select **Add condition**.
-4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your temperature sensor is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Temperature value**.
-6. Under **Threshold type**, set the temperature level the condition checks against:
-   1. Pick whether the reading must be **Above**, **Below**, **In range**, or **Outside range** of the threshold.
-   2. Select **Number** or **Entity**:
-      - **Number**: Enter a fixed temperature directly, for example `20` for 20°C. For **In range** or **Outside range**, enter both a lower and upper bound.
-      - **Entity**: Use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold:
-        - Number helper: You can adjust the threshold value without editing the automation. The sensor reading is compared against the number helper's current value.
-        - Sensor: Its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two temperature readings, for example to check whether indoor temperature is higher than outdoor temperature.
-        - For **In range** or **Outside range**, you need two entities: one for the lower bound and one for the upper bound (for example, two separate number helpers).
-        - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
-8. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
-9. Select **Save**.
+{% include conditions/threshold_value_steps.md
+   title="Temperature value"
+   sensor="temperature sensor"
+   areas="bedroom or living room"
+   reading="temperature"
+   value_long="a fixed temperature directly, for example `20` for 20°C"
+   has_unit="true" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: |
-    The temperature level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter a fixed temperature value, or **Entity** to use a sensor or number helper as a dynamic threshold.
-Unit:
-  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
-  default: °C
-Condition passes if:
-  description: When multiple entities are targeted, controls how results combine. Pick **Any** to pass if at least one targeted entity meets the threshold, or **All** to pass only when every targeted entity does. Default is **Any**.
-{% endoptions_ui %}
+{% include conditions/threshold_value_options_ui.md
+   reading="temperature"
+   value_short="a fixed temperature value"
+   has_unit="true" %}
 
 {% include conditions/yaml_header.md %}
 
@@ -107,38 +89,10 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
 
 ### Options in YAML
 
-{% options_yaml %}
-threshold:
-  description: |
-    The temperature level the entity has to meet for the condition to pass:
-
-    - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass.
-    - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass.
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass.
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass.
-
-    For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`. For example:
-
-    ```yaml
-    threshold:
-      type: between
-      value_min:
-        entity: input_number.comfort_temperature_min
-      value_max:
-        number: 22
-        unit_of_measurement: °C
-    ```
-
-    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two temperature readings dynamically.
-  required: true
-  type: map
-behavior:
-  description: >
-    Controls how results combine when multiple entities are targeted. Accepts `all` or `any`.
-  required: false
-  type: string
-  default: any
-{% endoptions_yaml %}
+{% include conditions/threshold_value_options_yaml.md
+   reading="temperature"
+   has_unit="true"
+   threshold_required="true" %}
 
 {% include conditions/targets.md %}
 
