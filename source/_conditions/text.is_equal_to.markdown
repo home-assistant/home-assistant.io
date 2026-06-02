@@ -2,9 +2,7 @@
 title: "Text is equal to"
 condition: text.is_equal_to
 domain: text
-description: "Tests if one or more texts are equal to a specified value."
-related_triggers:
-  - text.changed
+description: "Tests if one or more text entities are equal to a specified value."
 ---
 
 The **Text is equal to** condition passes when a text {% term entity %} holds a specific value. It works with both [Text](/integrations/text/) entities and [Text helpers](/integrations/input_text/). Use it to branch an automation based on a stored note, only continue when a device reports a known status string, or check that a code helper matches an expected value.
@@ -30,6 +28,7 @@ To use **Text is equal to** in an automation:
 {% options_ui %}
 Value:
   description: The text the entity must match for the condition to pass. The comparison is exact and case-sensitive.
+  required: true
 Condition passes if:
   description: When multiple text entities are targeted, controls whether **Any** targeted entity must match the value or **All** targeted entities must match.
   required: false
