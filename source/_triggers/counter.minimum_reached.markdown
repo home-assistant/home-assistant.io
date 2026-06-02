@@ -55,10 +55,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 behavior:
-  description: When multiple counters are targeted, controls whether the trigger fires for `any`, `first`, or `last`.
+  description: When multiple counters are targeted, controls whether the trigger fires for `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the counter must stay at its minimum before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
   required: false

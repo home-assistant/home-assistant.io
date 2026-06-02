@@ -56,10 +56,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple locks are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the lock must stay open before the trigger fires. Accepts a
@@ -104,7 +104,7 @@ automation: |
       target:
         entity_id: lock.front_door
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: sun
@@ -137,7 +137,7 @@ automation: |
       target:
         entity_id: lock.patio_door
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: script.patio_entry_sequence

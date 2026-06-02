@@ -62,12 +62,12 @@ behavior:
   description: |
     When multiple devices are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted device starts charging.
+    - `each` (**Each** in the UI, default): fires every time any targeted device starts charging.
     - `first` (**First** in the UI): fires only on the first device that starts charging.
-    - `last` (**All** in the UI): fires only after every targeted device starts charging.
+    - `all` (**All** in the UI): fires only after every targeted device starts charging.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the device must be actively charging before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:01:00` fires only after the device has been charging for 1 minute.

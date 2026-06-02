@@ -53,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 behavior:
-  description: When multiple timers are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  description: When multiple timers are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long ago the timer must have finished before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false

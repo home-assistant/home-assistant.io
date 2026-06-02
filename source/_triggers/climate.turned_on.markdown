@@ -34,9 +34,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fires every time any targeted thermostat turns on.
+    - **Each** (`each` in YAML, default): fires every time any targeted thermostat turns on.
     - **First** (`first` in YAML): fires only when the first of a group turns on.
-    - **All** (`last` in YAML): fires only after every targeted thermostat is on.
+    - **All** (`all` in YAML): fires only after every targeted thermostat is on.
 For at least:
   description: How long the thermostat must stay on before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -63,12 +63,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted thermostat turns on.
+    - `each` (**Each** in the UI, default): fire every time any targeted thermostat turns on.
     - `first` (**First** in the UI): fire only when the first thermostat turns on.
-    - `last` (**All** in the UI): fire only after every targeted thermostat is on.
+    - `all` (**All** in the UI): fire only after every targeted thermostat is on.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat must stay on before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed on for 10 seconds.

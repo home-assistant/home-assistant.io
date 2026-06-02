@@ -73,12 +73,12 @@ behavior:
   description: |
     When multiple battery sensors are targeted, controls when the trigger fires:
 
-    - `any`: fires every time any targeted sensor stops reporting a low battery.
+    - `each`: fires every time any targeted sensor stops reporting a low battery.
     - `first`: fires only when the first targeted sensor stops reporting a low battery.
-    - `last`: fires only after every targeted sensor stops reporting a low battery.
+    - `all`: fires only after every targeted sensor stops reporting a low battery.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the sensor or sensors must remain reporting a normal battery level before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.

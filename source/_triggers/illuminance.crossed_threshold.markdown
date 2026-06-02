@@ -144,12 +144,12 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted entity crosses the threshold.
+    - `each` (**Each** in the UI, default): fires every time any targeted entity crosses the threshold.
     - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `last` (**All** in the UI): fires only after every targeted entity crosses the threshold.
+    - `all` (**All** in the UI): fires only after every targeted entity crosses the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.

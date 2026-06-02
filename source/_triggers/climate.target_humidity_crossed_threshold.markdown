@@ -51,9 +51,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fires every time any targeted thermostat crosses the threshold.
+    - **Each** (`each` in YAML, default): fires every time any targeted thermostat crosses the threshold.
     - **First** (`first` in YAML): fires only on the first threshold crossing.
-    - **All** (`last` in YAML): fires only after every targeted thermostat crosses the threshold.
+    - **All** (`all` in YAML): fires only after every targeted thermostat crosses the threshold.
 For at least:
   description: How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Useful to avoid false triggers from brief adjustments. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -124,12 +124,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted thermostat crosses the threshold.
+    - `each` (**Each** in the UI, default): fires every time any targeted thermostat crosses the threshold.
     - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `last` (**All** in the UI): fires only after every targeted thermostat crosses the threshold.
+    - `all` (**All** in the UI): fires only after every targeted thermostat crosses the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the setpoint has been beyond the threshold for 10 seconds, which helps ignore accidental or brief adjustments.
@@ -179,7 +179,7 @@ automation: |
           type: below
           value:
             number: 40
-        behavior: last
+        behavior: all
   actions:
     - action: humidifier.set_humidity
       target:

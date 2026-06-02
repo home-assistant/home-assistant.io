@@ -54,9 +54,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted thermostat crosses the threshold.
+    - **Each** (`each` in YAML, default): fire every time any targeted thermostat crosses the threshold.
     - **First** (`first` in YAML): fire only on the first threshold crossing.
-    - **All** (`last` in YAML): fire only after every targeted thermostat crosses the threshold.
+    - **All** (`all` in YAML): fire only after every targeted thermostat crosses the threshold.
 For at least:
   description: How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Useful to avoid false triggers from brief adjustments. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -133,12 +133,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted thermostat crosses the threshold.
+    - `each` (**Each** in the UI, default): fires every time any targeted thermostat crosses the threshold.
     - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `last` (**All** in the UI): fires only after every targeted thermostat crosses the threshold.
+    - `all` (**All** in the UI): fires only after every targeted thermostat crosses the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the setpoint has been beyond the threshold for 10 seconds, which helps ignore accidental or brief adjustments.
@@ -189,7 +189,7 @@ automation: |
           value:
             number: 20
             unit_of_measurement: "°C"
-        behavior: last
+        behavior: all
   actions:
     - action: climate.set_preset_mode
       target:
