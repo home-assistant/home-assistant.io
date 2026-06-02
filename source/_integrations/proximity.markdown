@@ -76,10 +76,6 @@ This sensor shows the direction of travel of the nearest device or person to the
 - `towards`
 - `unknown`
 
-### Nearest speed
-
-This sensor shows the speed of the nearest device or person.
-
 ### Video tutorial
 
 This comprehensive video tutorial explains how to utilize the Proximity integration to automatically adjust the heating in your home based on your presence, whether you're leaving or entering an area around your house.
