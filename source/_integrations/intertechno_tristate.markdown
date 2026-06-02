@@ -46,12 +46,16 @@ Before adding the integration, make sure:
 
 {% include integrations/config_flow.md %}
 
-When you add a device, you will provide:
-
-- **RF transmitter**
-- **House code**: A letter from A to P
-- **Group**: A value from 1 to 4
-- **Channel**: A value from 1 to 4
+{% configuration_basic %}
+RF transmitter:
+  description: "The RF transmitter to use for sending 433.92 MHz OOK commands."
+House code:
+  description: "A letter from A to P that matches your device."
+Group:
+  description: "A value from 1 to 4 that matches your device."
+Channel:
+  description: "A value from 1 to 4 that matches your device."
+{% endconfiguration_basic %}
 
 During setup, Home Assistant asks you to put the device in pairing mode and then sends a learn command.
 
