@@ -42,7 +42,7 @@ Threshold type:
 
     You can use a fixed number or select a temperature sensor, a temperature number entity, or a [number helper](/integrations/input_number/) as the threshold.
 Unit:
-  description: The temperature unit to use for threshold comparison. Accepts `°C`, `°F`, or `K`. Required when using numerical thresholds.
+  description: The temperature unit to use for threshold comparison. Accepts `°C`, `°F`, or `K`. Required when using numerical thresholds (not required when using entity references).
 Condition passes if:
   description: When multiple water heaters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted water heater meets the threshold, or **All** to pass only when every targeted water heater does. Default is **Any**.
 For at least:

@@ -28,10 +28,10 @@ water_heater:
 
 ## The state of a water heater entity
 
-A water heater entity can be **On** or **Off**.
+A water heater entity state reflects the current operation of the device. Common states include:
 
-Depending on the device, the entity can also report an operation state that reflects the current mode or heating behavior. Common states include:
-
+- **On**: The water heater is on.
+- **Off**: The water heater is off.
 - **Eco**: Energy efficient mode, provides energy savings and fast heating.
 - **Electric**: Electric only mode. This mode uses the most energy.
 - **Performance**: High performance mode.
