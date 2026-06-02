@@ -1,10 +1,11 @@
 ---
+name: migrate-integration-docs
 description: Migrate Home Assistant integration docs to split-page format.
 ---
 
 Usage: `/migrate-integration-docs <domain> [epic-or-issue]`
 
-Migrate `./home-assistant.io/source/_integrations/<domain>.markdown` to the current Home Assistant split-page documentation format.
+Migrate `./source/_integrations/<domain>.markdown` to the current Home Assistant split-page documentation format.
 
 Keep the main context small.
 Use sub-agents for discovery and review.
@@ -18,16 +19,17 @@ Follow its structure closely unless Core implementation makes a specific section
 
 Launch a sub-agent to inspect:
 
-- `./home-assistant.io/source/_integrations/<domain>.markdown`
-- `./core/homeassistant/components/<domain>/conditions.yaml`
-- `./core/homeassistant/components/<domain>/services.yaml`
-- `./core/homeassistant/components/<domain>/triggers.yaml`
-- `./core/homeassistant/components/<domain>/strings.json`
-- `./frontend/src/translations/en.json`
+- `./source/_integrations/<domain>.markdown`
+- If you have Home Assistant Core checked out, inspect:
+  - `../core/homeassistant/components/<domain>/conditions.yaml`
+  - `../core/homeassistant/components/<domain>/services.yaml`
+  - `../core/homeassistant/components/<domain>/triggers.yaml`
+  - `../core/homeassistant/components/<domain>/strings.json`
+  - `../frontend/src/translations/en.json`
 - any existing split pages for `<domain>` in:
-  - `./home-assistant.io/source/_triggers`
-  - `./home-assistant.io/source/_conditions`
-  - `./home-assistant.io/source/_actions`
+  - `./source/_triggers`
+  - `./source/_conditions`
+  - `./source/_actions`
 
 The sub-agent must return only this compact inventory:
 
@@ -89,11 +91,11 @@ Rules for Stage 1:
 
 Launch a sub-agent to inspect:
 
-- `./home-assistant.io/source/_integrations/_integration_docs_template.markdown`
+- `./source/_integrations/_integration_docs_template.markdown`
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/integration-docs-examples.md`
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/general-style-guide.md`
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md`
-- relevant include snippets under `./home-assistant.io/source/_includes`
+- relevant include snippets under `./source/_includes`
 - 2-4 existing files across triggers, conditions, and actions
 
 The sub-agent must return only this:
@@ -134,7 +136,7 @@ The sub-agent must explicitly call out mandatory split-page sections and include
 
 Using only the distilled outputs from Stage 1 and Stage 2:
 
-1. Update `./home-assistant.io/source/_integrations/<domain>.markdown`.
+1. Update `./source/_integrations/<domain>.markdown`.
 2. Create or update one split page per trigger.
 3. Create or update one split page per condition.
 4. Create or update one split page per action.
