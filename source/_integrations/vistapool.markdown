@@ -20,6 +20,8 @@ The **Vistapool** integration connects Home Assistant to **Hayward-branded pool 
 
 It communicates with the official Hayward cloud API using real-time push updates (no polling), giving you instant visibility and control over your pool equipment.
 
+When your pool controller's Wi-Fi module joins your network, Home Assistant detects it automatically and offers to set up the integration for you. You only need to enter your Hayward cloud account credentials to finish.
+
 {% include integrations/config_flow.md %}
 
 ## Prerequisites
