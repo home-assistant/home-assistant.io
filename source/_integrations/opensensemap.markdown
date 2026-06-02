@@ -32,9 +32,9 @@ Station ID:
 
 A sensor entity is created for each of the following measurements that the station reports:
 
-- **PM1** — particulate matter under 1 µm (µg/m³)
-- **PM2.5** — particulate matter under 2.5 µm (µg/m³)
-- **PM10** — particulate matter under 10 µm (µg/m³)
+- **PM1**: particulate matter under 1 µm (µg/m³)
+- **PM2.5**: particulate matter under 2.5 µm (µg/m³)
+- **PM10**: particulate matter under 10 µm (µg/m³)
 - **Temperature**
 - **Humidity** (%)
 - **Atmospheric pressure**
