@@ -67,7 +67,6 @@ The integration provides the following sensors:
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
 
-<<<<<<< HEAD
 ## Switches
 
 The integration provides the following switch {% term entities %}, grouped by what they control.
@@ -88,7 +87,7 @@ These are available if your controller has a hydrolysis or electrolysis module i
 
 - **Heating climate**: switch heating into climate mode. Available only if your controller supports HEAT mode.
 - **Smart mode freeze**: enable freeze protection in Smart filtration mode. Available only if your controller supports SMART mode.
-=======
+
 ## Button
 
 If your controller drives a multi-color LED light fixture, the integration exposes a one-shot button to cycle through the available colors from Home Assistant.
@@ -155,7 +154,6 @@ automation: |
 Vistapool uses real-time **cloud push**. Home Assistant subscribes to the Vistapool cloud once and the controller streams every change as it happens, so dashboards and automations react within a second or two of the physical event, with no fixed polling interval.
 
 When the connection drops, the integration reconnects automatically with exponential backoff. Entities go to **Unavailable** while the connection is down and recover as soon as the stream is back.
->>>>>>> upstream/next
 
 ## Known limitations
 
