@@ -1,19 +1,19 @@
 ---
 title: Powersensor
 description: Integrate Powersensor plugs and sensors into Home Assistant
-ha_release: 2026.3
+ha_release: 2026.6
 ha_category: Sensor
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@jmattsson'
   - '@bookman-dius'
-ha_domain: powersensor
+ha_domain: powersensor_au
 ha_integration_type: hub
 ha_quality_scale: bronze
 related:
   - url: https://dius.github.io/homeassistant-powersensor/
-    title: External documentation 
+    title: External documentation
 ---
 
 The **Powersensor** {% term integration %} integrates [Powersensor](https://www.powersensor.com.au) devices into Home Assistant. The integration lets you view data from Powersensor plugs and sensors and use them in automations.
@@ -50,8 +50,6 @@ This integration provides the following platforms:
 ## Known limitations
 
 The integration does not provide complete support for Powersensor water sensors and water flow data is not exposed in Home Assistant. However, the integration will surface any water sensor on the network and expose the battery level of the sensor.
-
-{% include integrations/config_flow.md %}
 
 
 ## Actions
