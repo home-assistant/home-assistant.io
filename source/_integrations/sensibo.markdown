@@ -319,8 +319,6 @@ Use the [Get device mode capabilities](#get-device-mode-capabilities) action to 
 
 **Example full state:**
 
-{% raw %}
-
 ```yaml
 on: true
 fanLevel: "high"
@@ -332,15 +330,11 @@ horizontalSwing: "fixedLeft"
 light: "on"
 ```
 
-{% endraw %}
-
 ## Examples
 
 ### Template switch to turn HVAC device on or off
 
 A simple switch which has `heat` or `off` as mode.
-
-{% raw %}
 
 ```yaml
 switch:
@@ -363,11 +357,7 @@ switch:
             hvac_mode: "off"
 ```
 
-{% endraw %}
-
 ### Start the timer for 30 minutes when I get home
-
-{% raw %}
 
 ```yaml
 automation:
@@ -385,11 +375,7 @@ automation:
         entity_id: climate.hvac_device
 ```
 
-{% endraw %}
-
 ### Set a full state of the HVAC device at 6pm
-
-{% raw %}
 
 ```yaml
 automation:
@@ -409,8 +395,6 @@ automation:
       target:
         entity_id: climate.hvac_device
 ```
-
-{% endraw %}
 
 ## Data fetching and limitations
 

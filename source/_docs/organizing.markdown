@@ -24,7 +24,11 @@ There are a few tools to group your assets: [Areas](#area), [floors](#floor), [l
 | Floor             | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
 | Label             | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
 | Category          | {% icon "openmoji:cross-mark" %} | {% icon "openmoji:cross-mark" %} |
-| Group Integration | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Group integration | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
+
+For example, a smart plug with energy monitoring is a single device, but it has multiple entities of different types: a switch entity and a sensor entity. Each of those entities can only belong to one area and one floor, but they can each have multiple labels and be a member of multiple groups.
+
+When you assign a device to an area, all its entities inherit that area. You can override this for individual entities. For example, you could keep the sensor entities of the smart plug in the living room, but assign the switch entity to the kitchen.
 
 ## Area
 
@@ -60,7 +64,9 @@ There are a few tools to group your assets: [Areas](#area), [floors](#floor), [l
 <img class="no-shadow" src='/images/organizing/categories.png' alt='Screenshots the new categories. Automations are grouped into their categories, making it easier to get an overview or to filter them.'>
 
 ## Group Integration
-  - Designed to combine multiple entities into one entity representing the group.
-  - The combined entity can also have an area and labels.
-  - Can be used in automations and scripts as a target for actions.
-  - Does not assist with organizing entities in the UI like the other methods above. For example, you cannot use group integration to sort or filter other entities.
+
+- Designed to combine multiple entities into one entity representing the group.
+- The combined entity can also have an area and labels.
+- An entity can be a member of multiple groups.
+- Can be used in automations and scripts as a target for actions.
+- Does not assist with organizing entities in the UI like the other methods above. For example, you cannot use group integration to sort or filter other entities.

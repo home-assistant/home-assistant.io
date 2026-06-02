@@ -21,7 +21,7 @@ topic:
   required: true
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) that returns a tag ID."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that returns a tag ID."
   required: false
   type: template
 device:

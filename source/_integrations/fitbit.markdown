@@ -54,3 +54,30 @@ The integration setup will next give you instructions to enter the [Application 
 Please be aware that Fitbit has very low rate limits, 150 per user per hour. The clock resets at the _top_ of the hour (meaning it is not a rolling 60 minutes). There is no way around the limits. Due to the rate limits, the sensor only updates every 30 minutes. You can manually trigger an update by restarting Home Assistant. Keep in mind that 1 request is used for every sensor.
 
 The unit system that the sensor will use is based on the country you set in your Fitbit profile.
+
+## Troubleshooting
+
+### Resetting a broken or incorrect configuration
+
+If the Fitbit integration was initially configured incorrectly, simply removing and re-adding the integration may not be sufficient. When removing the integration, Home Assistant asks whether the existing application credentials should be kept or removed.
+
+If you choose to keep them, the previously stored (and possibly incorrect) credentials will continue to be used automatically during the next setup attempt, which can lead to repeated connection failures.
+
+To fully reset the configuration, the stored application credentials must also be removed (see [Deleting application credentials](/integrations/application_credentials/#deleting-application-credentials)).
+
+### “Connection failed” after authorization
+
+#### Symptom
+
+In some cases, the authorization appears to succeed, but Home Assistant returns a `Connection failed` error after redirecting back from Fitbit.
+
+The Home Assistant Core log typically shows the message `Failed to fetch user profile for Fitbit API: Error from Fitbit API`.
+
+#### Description
+
+This is usually caused by missing permissions. The Fitbit integration requires the **Profile** scope. If **Profile** is not enabled during authorization, Home Assistant cannot fetch the user profile and the setup fails.
+
+#### Resolution
+
+1. In the Fitbit permission settings, enable **Profile**.
+2. Repeat the authorization steps.

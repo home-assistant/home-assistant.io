@@ -20,15 +20,87 @@ The **Google Maps Travel Time** {% term integration %} provides travel time from
 
 You need to register for an API key by following the instructions [here](https://developers.google.com/maps/documentation/routes/get-api-key-v2). You only need to turn on the Routes API.
 
-Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Routes API currently provides 10,000 free requests per month that take the current traffic into account. The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 2 sensors may exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
+Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs. The integration consumes the Compute Routes Pro API providing 5,000 free requests per month. The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 1 sensor will exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
 
-A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 322 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
+A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 161 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
 
 {% include integrations/config_flow.md %}
 
 Notes:
 
 - Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
+
+## Actions
+
+The integration provides the following actions.
+
+### Action: Get travel times
+
+The `google_travel_time.get_travel_times` action retrieves route alternatives and travel times between two locations. It populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry to use for this action.
+  - **Optional**: No
+- **Data attribute**: `origin`
+  - **Description**: The origin of the route. You can use an address, GPS coordinates, or an entity ID.
+  - **Optional**: No
+- **Data attribute**: `destination`
+  - **Description**: The destination of the route. You can use an address, GPS coordinates, or an entity ID.
+  - **Optional**: No
+- **Data attribute**: `mode`
+  - **Description**: The mode of transportation. Available options: `driving`, `walking`, `bicycling`.
+  - **Optional**: Yes
+- **Data attribute**: `units`
+  - **Description**: Which unit system to use. Available options: `metric`, `imperial`.
+  - **Optional**: Yes
+- **Data attribute**: `language`
+  - **Description**: The language to use for the response.
+  - **Optional**: Yes
+- **Data attribute**: `avoid`
+  - **Description**: Features to avoid when calculating the route. Available options: `tolls`, `highways`, `ferries`, `indoor`.
+  - **Optional**: Yes
+- **Data attribute**: `traffic_model`
+  - **Description**: The traffic model to use when calculating driving routes. Available options: `best_guess`, `pessimistic`, `optimistic`.
+  - **Optional**: Yes
+- **Data attribute**: `departure_time`
+  - **Description**: The desired departure time as a time string, for example `08:00:00`.
+  - **Optional**: Yes
+
+### Action: Get transit times
+
+The `google_travel_time.get_transit_times` action retrieves route alternatives and travel times between two locations using public transit. It populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry to use for this action.
+  - **Optional**: No
+- **Data attribute**: `origin`
+  - **Description**: The origin of the route. You can use an address, GPS coordinates, or an entity ID.
+  - **Optional**: No
+- **Data attribute**: `destination`
+  - **Description**: The destination of the route. You can use an address, GPS coordinates, or an entity ID.
+  - **Optional**: No
+- **Data attribute**: `units`
+  - **Description**: Which unit system to use. Available options: `metric`, `imperial`.
+  - **Optional**: Yes
+- **Data attribute**: `language`
+  - **Description**: The language to use for the response.
+  - **Optional**: Yes
+- **Data attribute**: `transit_mode`
+  - **Description**: The preferred transit mode. Available options: `bus`, `subway`, `train`, `tram`, `rail`.
+  - **Optional**: Yes
+- **Data attribute**: `transit_routing_preference`
+  - **Description**: The transit routing preference. Available options: `less_walking`, `fewer_transfers`.
+  - **Optional**: Yes
+- **Data attribute**: `departure_time`
+  - **Description**: The desired departure time as a time string, for example `08:00:00`.
+  - **Optional**: Yes
+- **Data attribute**: `arrival_time`
+  - **Description**: The desired arrival time as a time string, for example `08:00:00`.
+  - **Optional**: Yes
+
+{% important %}
+You can either use `departure_time` or `arrival_time`, not both.
+{% endimportant %}
 
 ## Dynamic Configuration
 

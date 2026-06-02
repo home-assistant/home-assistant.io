@@ -16,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Total Connect** {% term integration %} provides connectivity with Resideo Total Connect 2.0-enabled alarm systems.

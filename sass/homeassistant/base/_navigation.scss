@@ -1,3 +1,9 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
+@use "sass:color";
+
 /*
  * Navigataur: A pure CSS responsive navigation menu
  * Author: Mike King (@micjamking)
@@ -30,8 +36,6 @@ body {
   list-style: none;
   float: left;
 }
-
-$menu-collapse: 1140px;
 
 // @media only screen and (max-width: $lap-end){
 @media only screen and (max-width: $menu-collapse) {
@@ -119,6 +123,7 @@ ul.menu li {
 ---------------------------------*/
 header .grid {
   height: 68px;
+  display: flex;
 }
 
 .menu {
@@ -198,7 +203,7 @@ header .grid {
   }
 
   .toggle:hover::after {
-    background: darken($primary-color, 25%);
+    background: color.adjust($primary-color, $lightness: -25%);
   }
 
   #toggle:checked + .toggle::after {

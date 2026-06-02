@@ -19,9 +19,9 @@ The plant status card is for all the lovely botanists out there.
 Screenshot of the plant status card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

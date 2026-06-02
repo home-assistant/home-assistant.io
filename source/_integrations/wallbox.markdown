@@ -15,7 +15,7 @@ ha_platforms:
 ha_config_flow: true
 ha_codeowners:
   - '@hesselonline'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station. 

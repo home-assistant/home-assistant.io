@@ -1,6 +1,6 @@
 ---
 title: "Events"
-description: "Describes all there is to know about events in Home Assistant."
+description: "Events are how integrations and parts of Home Assistant tell each other that something has happened, and how you can trigger automations based on them."
 related:
   - docs: /docs/automation/trigger/#event-trigger
     title: Event triggers
@@ -27,7 +27,7 @@ All events share these basic fields.
 | Field        | Description                                                                                                                                  |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `event_type` | Type of the event. Example: `call_service`.                                                                                                  |
-| `origin`     | Origin of the event. `REMOTE` (coming in from the API, e.g. a webhook) or `LOCAL` (everything else).                                         |
+| `origin`     | Origin of the event. `REMOTE` (coming in from the API, such as a webhook) or `LOCAL` (everything else).                                         |
 | `time_fired` | When the event was fired. Example: `2022-01-28T12:19:53.736380+00:00`.                                                                       |
 | `context`    | Dictionary with the [context](https://data.home-assistant.io/docs/context/). Example: `{ 'id': '123', "parent_id": null, 'user_id': 'abc'}`. |
 

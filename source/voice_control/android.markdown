@@ -29,6 +29,27 @@ Assist can be used on Android phones and tablets using the [Home Assistant Compa
 2. In the top-right corner, select the three-dots menu and select **Assist**.
 3. [Give a command](/voice_control/custom_sentences/).
 
+### Setting up Home Assistant Assist as default assistant app
+
+To define Home Assistant Assist as default assistant app on your Android phone, follow these steps:
+
+1. On your Android phone, open the **Home Assistant** app.
+2. Go to **Settings** > **Companion app**.
+3. Select **Assist for Android**.
+4. Select **Set as default**.
+5. In the system settings that open, select **Default digital assistant app**.
+   - On some Android versions, this might be labeled **Voice Assistant** or **Assist app**.
+6. Select **Home Assistant**.
+7. Go back to the **Home Assistant** app. You should now see that **Assist** is your default assistant.
+8. Start Assist using the gesture to start an assistant. The gesture may differ depending on your Android version:
+   - Swipe from the bottom left corner.
+   - Long press the power button.
+   - Hold the home button (square button at the bottom).
+9. You can now also start Assist from your lock screen.
+   <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
+
+To activate Assist hands-free, [enable wake word detection](#enabling-wake-word-detection-on-android).
+
 ### About wake word detection on Android
 
 Wake word detection allows you to activate Assist hands-free by saying a wake word like "Hey Jarvis" or "Hey Nabu". Your Android device uses [microWakeWord](/voice_control/about_wake_word/#about-on-device-wake-word-processing-microwakeword) to process wake words locally on the device, which means your audio stays private and no audio is sent to Home Assistant until after the wake word is detected.
@@ -45,7 +66,17 @@ Wake word detection runs entirely on your Android device, which means it works w
 
 ### Enabling wake word detection on Android
 
+{% note %}
+Wake word detection on Android is experimental.
+
+If the app becomes unresponsive or stops opening as expected, disable Home Assistant as your default digital assistant to disable wake-word detection:
+
+- On your Android phone, go to **Settings** > **Apps** > **Default apps** > **Digital assistant app** and select a different assistant or **None**.
+- If you run into issues, please [open an issue on GitHub](https://github.com/home-assistant/android/issues) so the team can look into it.
+{% endnote %}
+
 To enable wake word detection on your Android device, follow these steps:
+
 #### Prerequisites
 
 - Home Assistant Companion App version 2026.2.3 or later
@@ -62,7 +93,7 @@ To enable wake word detection on your Android device, follow these steps:
    - Hey Nabu
    - Hey Jarvis
    - Hey Mycroft
-   **Result**:  Once enabled, wake word detection works even when your device is locked or the app is in the background.
+   Result: Once enabled, wake word detection works even when your device is locked or the app is in the background.
 6. To use Assist on Android, say your chosen wake word, wait for the listening prompt, and then speak your command.
 
 #### Controlling wake word detection from Home Assistant
@@ -70,27 +101,6 @@ To enable wake word detection on your Android device, follow these steps:
 You can turn wake word detection on or off remotely from Home Assistant. This is useful for automations that enable wake word detection only when you're at home or during specific times to save battery.
 
 Use the `command_wake_word_detection` command with `turn_on` or `turn_off` to control wake word detection. For details on how to send commands to the companion app, see the [notification commands documentation](https://companion.home-assistant.io/docs/notifications/notification-commands/).
-
-### Setting up Home Assistant Assist as default assistant app
-
-This section was written using an Android 13. Depending on your flavor of Android, the exact steps may vary.
-
-To define Home Assistant Assist as default assistant app on your Android phone, follow these steps:
-
-1. On the Android phone, go to **Settings** > **Apps** > **Default apps**.
-2. Under **Digital assistant app**, select **Default digital assistant app**.
-   - On some Android versions, this might be under **Digital & voice input** > **Default digital assistant app** > **Voice Assistant**.
-3. Select **Home Assistant**.
-
-   - On some Android versions, you might be able to change the assistant's language settings here by selecting the cogwheel {% icon "mdi:cog-outline" %}.
-4. Go back one step. The **Default digital assistant app** should now show *Home Assistant* as the default.
-5. Leave the **Settings**.
-6. Start Assist using the gesture to start an assistant. The gesture may differ depending on the version.
-   - Swipe from the bottom left corner.
-   - Long press the power button.
-   - Hold the home button (square button at the bottom).
-7. You can now also start Assist from your lock screen.
-   <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
 ### Using Assist with multiple Home Assistant servers
 
@@ -131,11 +141,11 @@ Assist is available on Wear OS using the [Home Assistant Companion App](https://
 The way how Assist can be set up on your phone may differ depending on your version of Wear OS.
 
 1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) on your watch and connecting it to your Home Assistant, Assist appears automatically on the **Apps screen**.
-    
+
     ![Assist app](/images/assist/wearos_assist_app.png)
 
 2. To add an Assist tile, in the Wear OS app, go to the **Tiles** area, select **Add tile** > **Assist**.
-    
+
     ![Conversation tile](/images/assist/android_tile.png)
 
 ### Adding Assist to the watch face
@@ -147,27 +157,27 @@ The way how Assist can be set up on your phone may differ depending on your vers
    - If you just recently added the Home Assistant app, Assist may not be listed yet.
    - After rebooting your watch, under **Complications**, there should be a section with Home Assistant icons.
 5. Save your changes. You should now see Assist as a complication on your watch face.
-   
+
      ![Assist complication](/images/assist/android_watch_5.png)
 
 ### Using Assist on Wear OS
 
-1. On your watch, open Assist. 
+1. On your watch, open Assist.
    - For example, swipe left until the **Assist** button is visible.
-   
+
     ![Assist button](/images/assist/android_watch_1.png)
 
 2. After tapping **Assist**, wait for **How can I assist?** to be displayed and the microphone to start pulsing.
-   
+
     ![How can I assist](/images/assist/android_watch_2.png)
 
 3. Speak your command.
-   
+
     ![Assist speak your command](/images/assist/android_watch_3.png)
 
 4. To change the assistant, tap the current assistant (**Home Assistant Cloud** in the screenshot above).
    - Select the assistant from the list.
-    
+
    ![List of assistants](/images/assist/android_watch_6.png)
 
 ### Setting up Home Assistant Assist as default assistant app on a Wear OS watch
@@ -191,9 +201,9 @@ Depending on your watch, you can assign Assist to a button so that you can start
 1. On your watch, go to **Settings** > **Advances features** > **Customize keys**.
 2. Assign a key:
    - To use double press, tap **Home key** > **Double press**. From the list of apps, select **HA: Assist**.
-   - On a Galaxy watch, if Assist is set as the default, you can use long press. Tap **Home key**, then tap **press and hold**. Select **Assistant**. 
+   - On a Galaxy watch, if Assist is set as the default, you can use long press. Tap **Home key**, then tap **press and hold**. Select **Assistant**.
      - Then long press the home key, and from the selection, select **HA: Assist**.
      - Select **Always**.
-      
+
      ![List of assistants](/images/assist/android_watch_7.png)
 3. Now, use your key and speak a command.

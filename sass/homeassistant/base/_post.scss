@@ -1,10 +1,16 @@
-$meta-color: lighten($text-color, 20%);
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
+@use "sass:color";
+
+$meta-color: color.adjust($text-color, $lightness: 20%);
 
 article {
   blockquote {
-    @extend .clearfix;
+    @include clearfix;
     border-left: 2px solid $primary-color;
-    color: lighten($text-color, 15%);
+    color: color.adjust($text-color, $lightness: 15%);
     font-family: $sans-serif;
     font-size: 1.25em;
     font-style: italic;
@@ -47,9 +53,12 @@ article {
   }
 
   .tags {
-    @extend .inline;
+    list-style-type: none;
+    margin: 0;
     display: inline;
+
     li {
+      display: inline;
       margin-right: 2px;
       &::after {
         content: ",";
@@ -123,5 +132,21 @@ article {
     > header + img + p{
       margin-top: 24px;
     }
+  }
+}
+
+.wwha-footer-mobile {
+  display: none;
+
+  @media only screen and (max-width: $lap-end) {
+    display: block;
+  }
+}
+
+.wwha-sidebar-desktop {
+  display: block;
+
+  @media only screen and (max-width: $lap-end) {
+    display: none;
   }
 }

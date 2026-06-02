@@ -14,6 +14,7 @@ ha_codeowners:
   - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
+  - event
   - sensor
   - switch
 ha_integration_type: service
@@ -50,7 +51,7 @@ Verify SSL certificate:
 
 ## Supported functionality
 
-The Transmission integration will add the following sensors and switches.
+The **Transmission** integration provides the following sensors and switches.
 
 ### Sensors
 
@@ -62,11 +63,62 @@ The Transmission integration will add the following sensors and switches.
 - The total number of torrents present in the client.
 - The current number of started torrents (downloading).
 - The current number of completed torrents (seeding).
+- The current session downloaded data [GB].
+- The current session uploaded data [GB].
+- The total downloaded data [GB].
+- The total uploaded data [GB].
+- The current session upload/download ratio.
+- The total upload/download ratio.
 
 ### Switches
 
 - A switch to start/stop all torrents.
 - A switch to enable turtle mode (a.k.a. alternative speed limits).
+
+## Event entity
+
+The **Transmission** {% term integration %} provides an {% term "Event entity" %} that records the last torrent event. The entity state stores the time of that event, and several event attributes provide more details that you can use in automations.
+
+- **State attribute**: `event_type`
+  - **Description**: The type of the last torrent event. Possible states are Started, Downloaded, and Removed.
+
+- **State attribute**: `name`
+  - **Description**: The filename of the torrent.
+
+- **State attribute**: `id`
+  - **Description**: The ID of the torrent within **Transmission**.
+
+- **State attribute**: `download_path`
+  - **Description**: The path where the torrent content is downloaded.
+
+- **State attribute**: `labels`
+  - **Description**: The list of labels added to the torrent.
+
+### Usage examples
+
+Create a persistent notification when a torrent is downloaded.
+
+```yaml
+alias: Transmission torrent downloaded event
+description: "Notify when a torrent is downloaded"
+triggers:
+  - trigger: state
+    entity_id:
+      - event.transmission_torrent
+    not_from:
+      - unavailable
+conditions:
+  - condition: state
+    entity_id: event.transmission_torrent
+    attribute: event_type
+    state: "downloaded"
+actions:
+  - action: persistent_notification.create
+    data:
+      message: >
+        {{ state_attr(trigger.entity_id, 'name') }} was downloaded
+mode: single
+```
 
 ## Event automation
 
@@ -81,8 +133,6 @@ Possible events are:
 Inside the event, there is the name of the torrent that is started or completed and the path where the files are downloaded, as seen in the Transmission User Interface.
 
 Example of an automation that notifies on successful download and removes the torrent from the client if the torrent has a label of Remove:
-
-{% raw %}
 
 ```yaml
 alias: Transmission download complete
@@ -108,8 +158,6 @@ actions:
           entry_id: YOUR_TRANSMISSION_ENTRY_ID
           id: "{{trigger.event.data.id}}"
 ```
-
-{% endraw %}
 
 ## Actions
 
@@ -201,8 +249,6 @@ response_variable: torrents
 
 All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Settings** > **Developer tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
-{% raw %}
-
 ```yaml
 content: >
   {% set payload = state_attr('sensor.transmission_total_torrents', 'torrent_info') %}
@@ -212,8 +258,6 @@ content: >
   {{ name|truncate(20) }} is {{ data.percent_done }}% complete, with {{ data.ratio }} ratio, {{ data.eta }} remaining {% endfor %}
 type: markdown
 ```
-
-{% endraw %}
 
 ## Removing the integration
 

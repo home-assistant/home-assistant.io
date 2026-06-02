@@ -15,7 +15,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Tesla Wall Connector** {% term integration %} allows you to integrate your Gen 3 [Tesla Wall Connector](https://www.tesla.com/support/home-charging-installation/wall-connector) with Wi-Fi into Home Assistant.

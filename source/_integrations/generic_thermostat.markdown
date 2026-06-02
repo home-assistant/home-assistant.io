@@ -80,7 +80,15 @@ ac_mode:
   type: boolean
   default: false
 min_cycle_duration:
-  description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on. This option will be ignored if the `keep_alive` option is set.
+  description: The minimum amount of time that must elapse before the switch specified in the *heater* option can be switched off.
+  required: false
+  type: [time, integer]
+max_cycle_duration:
+  description: The maximum amount of time that can elapse before the switch specified in the *heater* option will be switched off.
+  required: false
+  type: [time, integer]
+cycle_cooldown:
+  description: The minimum amount of time that must elapse before the switch specified in the *heater* option can be switched back on after being off.
   required: false
   type: [time, integer]
 cold_tolerance:
@@ -94,7 +102,7 @@ hot_tolerance:
   default: 0.3
   type: float
 keep_alive:
-  description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off). When `keep_alive` is set the `min_cycle_duration` option will be ignored.
+  description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off).
   required: false
   type: [time, integer]
 initial_hvac_mode:
@@ -137,7 +145,7 @@ target_temp_step:
   default: "equal to `precision`."
 {% endconfiguration %}
 
-Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.
+Time for `min_cycle_duration`, `max_cycle_duration`, `cycle_cooldown` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds. If both `min_cycle_duration` and `max_cycle_duration` are set, the time for `max_cycle_duration` must be greater than `min_cycle_duration`.
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
@@ -158,7 +166,11 @@ climate:
     cold_tolerance: 0.3
     hot_tolerance: 0
     min_cycle_duration:
-      seconds: 5
+      minutes: 1
+    max_cycle_duration:
+      minutes: 10
+    cycle_cooldown:
+      seconds: 30
     keep_alive:
       minutes: 3
     initial_hvac_mode: "off"

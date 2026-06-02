@@ -13,6 +13,7 @@ ha_domain: tplink_omada
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
   - switch
   - update
@@ -41,6 +42,7 @@ A local account must be used for login. Do not turn on two-factor authentication
 TP-Link Omada Controller:
 
 - OC200
+- OC220
 - OC300
 - Software Controller
 

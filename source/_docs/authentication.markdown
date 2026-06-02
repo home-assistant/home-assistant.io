@@ -22,10 +22,6 @@ When you start Home Assistant for the first time, the _owner_ user account is cr
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
 {% endwarning %}
 
-{% note %}
-If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that **Advanced Mode** is enabled for your user in your profile.
-{% endnote %}
-
 ### Your account profile
 
 Once you're logged in, you can see the details of your account on the {% my profile title="**User profile**" %} page by selecting on the circular at the very bottom of the sidebar.
@@ -97,7 +93,7 @@ If you lose the password associated with the owner account, you need to [start a
 
 You have to use a domain name, not IP address, to remote access Home Assistant otherwise you will get `Error: invalid client id or redirect url` error on the login form. However, you can use the IP address to access Home Assistant in your home network.
 
-This is because we only allow an IP address as a client ID when your IP address is an internal network address (e.g., `192.168.0.1`) or loopback address (e.g., `127.0.0.1`).
+This is because we only allow an IP address as a client ID when your IP address is an internal network address (such as `192.168.0.1`) or loopback address (such as `127.0.0.1`).
 
 If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one.
 On Linux edit the `/etc/hosts` file, and add following entry:
