@@ -54,8 +54,8 @@ behavior:
   description: |
     When multiple moisture sensors are targeted, controls how results combine:
 
-    - `any` (**Any** in the UI, default): passes if at least one targeted sensor is dry.
-    - `all` (**All** in the UI): passes only when every targeted sensor is dry.
+    - `any` (default): passes if at least one targeted sensor is dry.
+    - `all`: passes only when every targeted sensor is dry.
   required: false
   type: string
   default: any
