@@ -41,7 +41,7 @@ Proceed entirely at your own risk. If in doubt, keep Home Assistant local-only a
 
 ## Supported functionality
 
-Each Fluss+ device is surfaced in Home Assistant as either a [button](#button) or a [cover](#cover), based on whether a status sensor is installed.
+Every Fluss+ device is exposed as a [button](#button). If the device also has the open/close status sensor installed, a [cover](#cover) entity is added alongside the button.
 
 ### Button
 
