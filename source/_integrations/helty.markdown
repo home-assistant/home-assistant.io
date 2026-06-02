@@ -47,7 +47,7 @@ The integration creates one device per configured unit, exposing a single fan en
 ### Fans
 
 - **Ventilation**
-  - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (`boost`, `night`, or `free_cooling`).
+  - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (**Boost**, **Night**, or **Free cooling**).
 
 ## Data updates
 
