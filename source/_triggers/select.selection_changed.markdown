@@ -5,7 +5,7 @@ domain: select
 description: "Triggers after the selected option of one or more dropdowns changes."
 ---
 
-The **Selection changed** trigger fires after the selected option of a dropdown {% term entity %} changes. It works with both **Select** entities provided by integrations and the **Dropdown helper** ({% term "input_select" %}) you create yourself. Use it to react when someone switches modes, scenes, presets, or any other choice you have set up as a dropdown.
+The **Selection changed** trigger fires after the selected option of a dropdown {% term entity %} changes. It works with both **Select** entities provided by integrations and the **Dropdown helper** ("input_select") you create yourself. Use it to react when someone switches modes, scenes, presets, or any other choice you have set up as a dropdown.
 
 This trigger fires on any change of the selected option. To run only when the dropdown is set to a specific option, combine it with the [Option is selected](/conditions/select.is_option_selected/) condition.
 
