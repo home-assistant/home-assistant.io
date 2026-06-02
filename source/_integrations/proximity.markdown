@@ -29,7 +29,7 @@ Some examples of its use include:
 {% include integrations/config_flow.md %}
 
 {% note %}
-When adding the **Proximity** integration, you are prompted to define the **Tolerance distance**. The tolerance distance must be provided in meters (m) and is used to filter out small GPS coordinate changes (_due to inaccuracies of GPS_) to calculate the direction of travel.
+When adding the **Proximity** integration, you are prompted to define the **Tolerance distance** and **Speed threshold**. The tolerance distance must be provided in meters (m) and is used to filter out small GPS coordinate changes (_due to inaccuracies of GPS_) to calculate the direction of travel. The speed threshold is used to mark the tracked device or person as stationary.
 {% endnote %}
 
 ## Sensors
@@ -50,8 +50,12 @@ For each tracked device or person, a sensor is created showing the direction of 
 - `towards`
 - `unknown`
 
+### Speed
+
+For each tracked device or person, a sensor is created showing the approximate speed of the tracked device or person.
+
 {% important %}
-To calculate the distance and the direction of travel for a tracked device or person, they must specify a geo-location.
+To calculate the distance, the direction of travel, and the speed for a tracked device or person, they must specify a geo-location.
 {% endimportant %}
 
 ### Nearest device
@@ -71,6 +75,10 @@ This sensor shows the direction of travel of the nearest device or person to the
 - `stationary`
 - `towards`
 - `unknown`
+
+### Nearest speed
+
+This sensor shows the speed of the nearest device or person.
 
 ### Video tutorial
 
