@@ -3,6 +3,7 @@ title: Helty Flow
 description: Instructions on how to integrate Helty Flow ventilation units with Home Assistant.
 ha_category:
   - Fan
+  - Sensor
 ha_release: 2026.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: helty
 ha_platforms:
   - fan
+  - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -42,12 +44,21 @@ Host:
 
 ## Supported functionality
 
-The integration creates one device per configured unit, exposing a single fan entity.
+The integration creates one device per configured unit, exposing a fan entity and a set of sensors.
 
 ### Fans
 
 - **Ventilation**
   - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (**Boost**, **Night**, or **Free cooling**).
+
+### Sensors
+
+- **Indoor temperature**
+  - **Description**: The temperature of the air inside your home, as measured by the unit.
+- **Outdoor temperature**
+  - **Description**: The temperature of the outdoor air, as measured by the unit.
+- **Indoor humidity**
+  - **Description**: The relative humidity of the air inside your home, as measured by the unit.
 
 ## Data updates
 
