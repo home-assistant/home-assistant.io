@@ -45,10 +45,10 @@ This trigger has no additional YAML options beyond the target.
 
 ## Good to know
 
-- This trigger fires whenever the scene is activated, regardless of how. That includes the **Activate scene** action, selecting it in the UI or on a dashboard, a voice command, or another automation.
+- This trigger fires every time the scene is activated. For example, from the UI, a dashboard, a voice command, another automation, or the **Activate scene** action.
 - A scene entity is stateless. It does not have an `on` or `off` state, but it does track the timestamp of when it was last activated. This trigger fires when that timestamp updates.
 - Changes to `unavailable` or `unknown` do not count as scene activations.
-- If you only need to activate a scene from an automation, use the **Activate scene** action (`scene.turn_on`) instead.
+- If you only need to activate a scene from an automation, use the related [**Activate scene**](/actions/scene.turn_on/) action instead.
 
 {% include triggers/try_it.md %}
 
