@@ -29,7 +29,7 @@ Some examples of its use include:
 {% include integrations/config_flow.md %}
 
 {% note %}
-When adding the **Proximity** integration, you are prompted to define the **Tolerance distance** and **Speed threshold**. The tolerance distance must be provided in meters (m) and is used to filter out small GPS coordinate changes (_due to inaccuracies of GPS_) to calculate the direction of travel. The speed threshold is used to mark the tracked device or person as stationary.
+When adding the **Proximity** integration, you are prompted to define the **Tolerance distance** and **Speed threshold**. The tolerance distance must be provided in meters (m) and is used to filter out small GPS coordinate changes (_due to inaccuracies of GPS_) to calculate the direction of travel. The speed threshold must be provided in meters per second (m/s) and is used to mark the tracked device or person as stationary.
 {% endnote %}
 
 ## Sensors
