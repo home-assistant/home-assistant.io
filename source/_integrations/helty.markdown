@@ -37,7 +37,7 @@ Units without the smart Wi-Fi module, such as models that only offer an RS-485 c
 
 {% configuration_basic %}
 Host:
-    description: "The IP address or hostname of the Helty Flow unit on your network. A static address (DHCP reservation) is recommended so it does not change over time."
+    description: "The IP address or hostname of the Helty Flow unit on your network. For example, `192.168.1.42` or `helty-flow-bedroom.local`. A static address (DHCP reservation) is recommended so it does not change over time."
 {% endconfiguration_basic %}
 
 ## Supported functionality
