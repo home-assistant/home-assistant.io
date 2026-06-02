@@ -59,7 +59,7 @@ If you don't have a sensor installed yet and would like to see the open or close
 
 ## Data updates
 
-The integration {% term polling polls %} the Fluss+ cloud API every 30 minutes for updated device status. After an open or close command on a cover, the integration checks that device's after 10 seconds. This ensures the entity reflects its new position without waiting for the next scheduled poll.
+The integration {% term polling polls %} the Fluss+ cloud API every 30 minutes for updated device status. After you open or close a cover, the integration also schedules an additional status refresh, so the entity state catches up without waiting for the next scheduled poll. This ensures the entity reflects its new position without waiting for the next scheduled poll.
 
 ## Removing the integration
 
