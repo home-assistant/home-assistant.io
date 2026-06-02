@@ -5,7 +5,7 @@ domain: select
 description: "Tests if one or more dropdowns have a specific option selected."
 ---
 
-The **Option is selected** condition passes when a dropdown {% term entity %} is currently set to a specific option. It works with both **Select** entities provided by integrations and the **Dropdown helper** ({% term "input_select" %}) you create yourself. Use it to gate automations on the current choice of a dropdown, such as only running a routine when **House mode** is set to "Home" or "Guest".
+The **Option is selected** condition passes when a dropdown {% term entity %} is currently set to a specific option. It works with both **Select** entities provided by integrations and the **Dropdown helper** ("input_select") you create yourself. Use it to gate automations on the current choice of a dropdown, such as only running a routine when **House mode** is set to "Home" or "Guest".
 
 When you target more than one dropdown, the **Condition passes if** option controls how the check combines results. You can require any targeted dropdown to be on the selected option, or demand that all of them are.
 
