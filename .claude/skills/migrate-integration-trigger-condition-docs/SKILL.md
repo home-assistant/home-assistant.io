@@ -225,12 +225,13 @@ Example rules:
   In YAML:
 
   ```yaml
-  action: notify.send_message
-    target:
-      entity_id: notify.my_device
-    data:
-      message: >
-        ...
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          ...
   ```
 
 - If there are other `**Target**` items in UI lists, they should be nested with two spaces under the trigger/action/condition above them.

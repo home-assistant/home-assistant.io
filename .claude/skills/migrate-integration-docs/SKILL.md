@@ -207,6 +207,28 @@ Example rules:
 - Do not imply a helper exists unless you explicitly say it is user-created.
 - In automation examples, do not list default values such as default `for` or `behavior` values.
 - In automation examples, use the correct full action labels, such as `Lock lock` or `Turn on switch`, not shortened labels like `Lock` or `Turn on`.
+- For examples that use the mobile notification action, use this pattern to refer to the mobile device:
+
+  In UI:
+
+  ```md
+  - **Action**: Send a notification message
+    - **Target**: My Device (`notify.my_device`)
+  ```
+
+  In YAML:
+
+  ```yaml
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          ...
+  ```
+
+- If there are other `**Target**` items in UI lists, they should be nested with two spaces under the trigger/action/condition above them.
 
 ## Stage 4: review with a sub-agent
 
