@@ -52,10 +52,10 @@ This fires whenever `switch.coffee_machine` turns on.
 
 {% options_yaml %}
 behavior:
-  description: When multiple switches are targeted, controls whether the trigger fires for `any`, `first`, or `last`.
+  description: When multiple switches are targeted, controls whether the trigger fires for `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the switch must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
   required: false
