@@ -46,7 +46,7 @@ Threshold type:
 
     You can use a fixed number or select a temperature sensor, a temperature number entity, or a [number helper](/integrations/input_number/) as the threshold.
 Unit:
-  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F` when you use a fixed number.
+  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references). Default is `°C`.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
