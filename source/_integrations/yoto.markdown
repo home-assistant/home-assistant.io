@@ -14,6 +14,7 @@ ha_domain: yoto
 ha_platforms:
   - media_player
 ha_integration_type: hub
+ha_dhcp: true
 ---
 
 The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, and see what is currently playing.
@@ -26,12 +27,15 @@ Any Yoto player that is linked to your Yoto family in the Yoto app is supported.
 
 ## Prerequisites
 
-To use the integration, you need:
+To use the integration, you need a Yoto account with at least one player linked in the Yoto app.
 
-- A Yoto account with at least one player linked in the Yoto app.
-- Your own Yoto OAuth2 application credentials. Yoto does not yet provide shared credentials for Home Assistant, so you have to register your own developer application and copy the client ID and client secret into Home Assistant when prompted.
+{% note %}
+Home Assistant uses account linking provided by Nabu Casa for authenticating with Yoto. This service is free, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
 
-{% details "Generate a client ID and client secret" %}
+See the **Using custom application credentials** section below if you have the [cloud integration](/integrations/cloud) disabled.
+{% endnote %}
+
+{% details "Using custom application credentials" icon="mdi:account-key" %}
 
 1. Sign in to the [Yoto developer dashboard](https://dashboard.yoto.dev/) with your Yoto account.
 2. Create a new application. Pick any **Name** you like, for example `Home Assistant`.
@@ -47,7 +51,7 @@ To use the integration, you need:
     - `user:content:view`
     - `user:icons:manage`
 6. Accept the **Terms and Conditions** and **Data Privacy** statements, then select **Create Application**.
-7. Open the application you just created and note the **Client ID** and **Client secret**. You enter them in the next step.
+7. Open the application you just created and note the **Client ID** and **Client secret**. Add them as [Application Credentials](/integrations/application_credentials/) before starting the integration setup.
 
 For more details, see the [Yoto Developers documentation](https://yoto.dev/get-started/start-here/).
 
@@ -55,7 +59,7 @@ For more details, see the [Yoto Developers documentation](https://yoto.dev/get-s
 
 {% include integrations/config_flow.md %}
 
-During setup, Home Assistant asks for your Yoto **Client ID** and **Client secret** through the [Application Credentials](/integrations/application_credentials/) flow, then opens the Yoto authorization page so you can grant access. After you approve, Home Assistant creates one {% term device %} and one media player {% term entity %} for every Yoto player in your family.
+During setup, Home Assistant opens the Yoto authorization page so you can grant access. After you approve, Home Assistant creates one {% term device %} and one media player {% term entity %} for every Yoto player in your family.
 
 ## Supported functionality
 
