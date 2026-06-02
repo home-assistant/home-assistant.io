@@ -44,8 +44,6 @@ Before adding the integration, make sure:
    - Group (1-4)
    - Channel (1-4)
 
-## Configuration options
-
 {% include integrations/config_flow.md %}
 
 When you add a device, you will provide:
