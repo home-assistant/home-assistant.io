@@ -85,8 +85,8 @@ These are available if your controller has a hydrolysis or electrolysis module i
 
 ### Mode toggles
 
-- **Heating climate**: switch heating into climate mode. Available only if your controller supports HEAT mode.
-- **Smart mode freeze**: enable freeze protection in Smart filtration mode. Available only if your controller supports SMART mode.
+- **Heating climate**: switch heating into climate mode. Available only if your controller supports Heat mode.
+- **Smart mode freeze**: enable freeze protection in Smart filtration mode. Available only if your controller supports Smart mode.
 
 ## Button
 
