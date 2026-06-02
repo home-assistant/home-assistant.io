@@ -253,3 +253,5 @@ The following example turns off some entities as soon as a window opens. The sta
     target:
       entity_id: scene.before
 ```
+
+{% include integrations/triggers.md %}
