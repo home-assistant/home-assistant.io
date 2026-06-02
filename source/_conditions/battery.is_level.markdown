@@ -102,7 +102,7 @@ condition: |
         number: 101
 {% endexample %}
 
-This passes when at least one of the batteries reads between 20% and 100%. The `between` threshold is exclusive, so `value_max` with `number: 101` is used to include a reading of 100%.
+This passes when at least one of the batteries reads between 21% and 100%. The `between` threshold is exclusive, so `value_max` with `number: 101` is used to include a reading of 100%.
 
 To use a number helper as a dynamic threshold that you can adjust without editing the automation:
 
