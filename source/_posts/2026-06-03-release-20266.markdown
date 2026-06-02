@@ -125,7 +125,7 @@ Every suggestion renders as a real preview of how the card will look on your das
 
 On mobile, the same dialog turns into a two-step flow: pick your entity, then pick your card.
 
-<img src='/images/blog/2026-06/temp-new-card-picker.png' alt='Screenshot of the new add card dialog with an entity tree on the left and live card previews on the right.' class='no-shadow' />
+<img src='/images/blog/2026-06/new-card-picker.png' alt='Screenshot of the new add card dialog with an entity tree on the left and live card previews on the right.' class='no-shadow' />
 
 This is the first visible step of [a broader effort on the Open Home Foundation roadmap](https://github.com/OpenHomeFoundation/roadmap/issues/75) to make building a dashboard feel as natural as building an automation: start from what you want to control, and let Home Assistant suggest the rest. Expect more in this direction in the releases to come.
 
@@ -166,7 +166,7 @@ Now every floor, area, device, and label pill in your automation rows shows the 
 
 It is the kind of small detail that turns _"I hope this only hits the right lights"_ into _"yep, twelve, that's correct"_, especially handy as your home grows or you start using labels across rooms.
 
-<img src='/images/blog/2026-06/temp-target-row-count.png' alt='Screenshot of an automation row showing the number of entities next to each device and area target.' class='no-shadow' />
+<img src='/images/blog/2026-06/target-row-count.png' alt='Screenshot of an automation row showing the number of entities next to each device and area target.' class='no-shadow' />
 
 ### Add notes to any step in your automation
 
@@ -176,7 +176,7 @@ Every trigger, condition, action, option, and script field now has a dedicated *
 
 Notes travel with the automation when you duplicate, export, or share it as a blueprint, so the reasoning behind a setup is no longer something only the original author remembers.
 
-<img src='/images/blog/2026-06/temp-automation-item-note.png' alt='Screenshot of an automation trigger row with a small note icon, showing the note in a tooltip on hover.' class='no-shadow' />
+<img src='/images/blog/2026-06/automation-item-note.png' alt='Screenshot of an automation trigger row with a small note icon, showing the note in a tooltip on hover.' class='no-shadow' />
 
 ## Tile card features
 
@@ -193,7 +193,7 @@ Two new tile card features put the forecast directly onto your existing weather 
 
 Both features automatically pick the best forecast resolution your weather service offers, daily, twice-daily, or hourly, and you can pin a specific resolution or toggle the day and hour labels from the card editor. One small change, big difference: your dashboard now answers the next question before you ask it.
 
-<img src='/images/blog/2026-06/temp-tile-weather-forecast.png' alt='Screenshot of weather tile cards showing the temperature and precipitation forecast features.' class='no-shadow' />
+<img src='/images/blog/2026-06/tile-weather-forecast.png' alt='Screenshot of weather tile cards showing the temperature and precipitation forecast features.' class='no-shadow' />
 
 ### Turning the media player tile into a real remote
 
@@ -208,7 +208,7 @@ This release fills in those last gaps. Across the media player tile card feature
 The result: a single tile that looks like, and acts like, a remote built specifically for that device. No more "almost right" tiles, no more falling back to the more info dialog for that one button you really need. Your [Music Assistant](https://www.music-assistant.io/) setup is going to feel right at home. Thanks, [@pcan08] and [@MindFreeze]!
 
 <!-- TODO: add screenshot showing a media player tile with the new mute, shuffle/repeat, volume up-down controls, and the filtered source dropdown. -->
-<img src='/images/blog/2026-06/temp-tile-media-player.png' alt='Screenshot of a media player tile card showing the new mute, shuffle, repeat, and volume controls together with a filtered source dropdown.' class='no-shadow' />
+<img src='/images/blog/2026-06/tile-media-player.png' alt='Screenshot of a media player tile card showing the new mute, shuffle, repeat, and volume controls together with a filtered source dropdown.' class='no-shadow' />
 
 [@MindFreeze]: https://github.com/MindFreeze
 [@pcan08]: https://github.com/pcan08
@@ -219,14 +219,14 @@ The result: a single tile that looks like, and acts like, a remote built specifi
 
 Open your lock from the device page and select **Manage access** from the {% icon "mdi:dots-vertical" %} menu to get an overview of every user the lock has, and the credentials assigned to them. From there, you can add a new user, give existing ones extra credentials, edit them, or remove them. If you try to reuse a PIN that is already in use on the lock, the dialog will warn you instead of silently overwriting it. Everything happens directly between Home Assistant and your lock over Z-Wave; no cloud account, no vendor app, no internet connection required.
 
-<img src='/images/blog/2026-06/temp-zwave-credential-management.png' alt='Screenshot of a Z-Wave smart lock device page with the new Manage access option in the menu.' class='no-shadow' />
+<img src='/images/blog/2026-06/zwave-credential-management.png' alt='Screenshot of a Z-Wave smart lock device page with the new Manage access option in the menu.' class='no-shadow' />
 
 There are two small differences with the Matter version that play to Z-Wave's strengths:
 
 - _A user can have more than one credential of the same type_, so you can give someone both their everyday PIN and a temporary backup one without having to create a second user.
 - _Both PIN codes and passwords are supported_, where the lock supports them. PIN codes are limited to digits (the familiar keypad experience), while passwords accept the full character set for locks with an alphanumeric keypad.
 
-<img src='/images/blog/2026-06/temp-zwave-credentials-add-user.png' alt='Screenshot of the Add user dialog for a Z-Wave smart lock, with fields for the user name, a PIN code / Password credential type selector, and a PIN code input.' class='no-shadow' />
+<img src='/images/blog/2026-06/zwave-credentials-add-user.png' alt='Screenshot of the Add user dialog for a Z-Wave smart lock, with fields for the user name, a PIN code / Password credential type selector, and a PIN code input.' class='no-shadow' />
 
 Just like the Matter equivalent, every action behind the dialog is also available as a regular Home Assistant {% term action %}. That means you can hand out a one-time PIN to a guest from an automation, rotate codes on a schedule, or wipe a lost user with a single button press on your dashboard.
 
@@ -238,7 +238,7 @@ Just like the Matter equivalent, every action behind the dialog is also availabl
 
 This release gives the Apps page a friendlier, more modern look. Every installed app is shown as its own card with its icon, name, a short description, and a clear indicator of whether it is running, so you can spot the state of your apps at a glance.
 
-<img src='/images/blog/2026-06/temp-apps-panel-refresh.png' alt='Screenshot of the refreshed Apps page, showing installed apps as cards with their icon, name, description, and status.' class='no-shadow' />
+<img src='/images/blog/2026-06/apps-panel-refresh.png' alt='Screenshot of the refreshed Apps page, showing installed apps as cards with their icon, name, description, and status.' class='no-shadow' />
 
 Installed apps can now also carry small _tags_ that highlight what they are, making it easier to scan your list and find what you are looking for. The app detail page got the same care, with a cleaner layout that also works well on a tablet.
 
@@ -541,7 +541,7 @@ Two quality-of-life upgrades land in the energy dashboard this release. ⚡
 
 If you have a home battery, you can now hook up its _state-of-charge sensor_ (the percentage one) right from {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}. Once it is set, the **Battery** node on the energy distribution card shows the current charge level alongside the energy flowing in and out, and a matching _battery badge_ appears at the top of the energy panel so you can see at a glance how full your battery is, without leaving the dashboard. Thanks, [@MindFreeze]!
 
-<img src='/images/blog/2026-06/temp-battery-state-of-charge.png' alt='Screenshot of the energy distribution card showing the battery node with a 100% state-of-charge value.' class='no-shadow' />
+<img src='/images/blog/2026-06/battery-state-of-charge.png' alt='Screenshot of the energy distribution card showing the battery node with a 100% state-of-charge value.' class='no-shadow' />
 
 The other addition is small but long-requested: you can now give your _grid, solar, battery, gas, and water sources a custom name_ in the energy configuration. So instead of _"Grid consumption"_ and _"Grid return"_, you can call them _"Main meter"_ and _"Solar export"_, or whatever makes sense for your home. The names flow through to the cards, charts, and statistics, making multi-source setups (like a separate EV meter or a second water tap) far easier to tell apart. Thanks, [@karwosts]!
 
@@ -561,7 +561,7 @@ This release threads a generous set of _quick links_ through those views so you 
 
 Individually these are small. Together they make Home Assistant feel even more connected than it already was, with fewer detours between the pages. Thanks, [@timmo001]!
 
-<img src='/images/blog/2026-06/temp-add-to.png' alt='Screenshot of the new Add to dialog on a device page, offering shortcuts to create an automation as a trigger, condition, or action, a script, or a scene.' class='no-shadow' />
+<img src='/images/blog/2026-06/add-to.png' alt='Screenshot of the new Add to dialog on a device page, offering shortcuts to create an automation as a trigger, condition, or action, a script, or a scene.' class='no-shadow' />
 
 [@timmo001]: https://github.com/timmo001
 
@@ -571,7 +571,7 @@ A small quality-of-life improvement that should not go unnoticed. You don't need
 
 The YAML code editors throughout the UI now show inline linting: missing colons, unmatched quotes, and yes, that one space too many or too few in your indentation (we know, we know 😅), are all highlighted as you type, right next to the line that causes them. No more saving, hitting an obscure error, and scrolling back to find the cause.
 
-<img src='/images/blog/2026-06/temp-yaml-linting.png' alt='Screenshot of the YAML editor showing inline linting with an error highlighted on the offending line.' class='no-shadow' />
+<img src='/images/blog/2026-06/yaml-linting.png' alt='Screenshot of the YAML editor showing inline linting with an error highlighted on the offending line.' class='no-shadow' />
 
 ## Need help? Join the community
 
