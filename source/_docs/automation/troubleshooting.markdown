@@ -20,7 +20,7 @@ In the automation editor UI, hover over the state indicator circle on the right 
 - **Condition passes**: the condition is verified.
 - **Condition did not pass**: the condition is not verified.
 - **Invalid condition configuration**: the condition has an invalid input value for an option, for example.
-- **Condition state unknown**: the condition state can´t be checked due to a missing input value for an option, for example.
+- **Condition state unknown**: the condition state can't be checked due to a missing input value for an option, for example.
 
 There is an automatic and continuous verification of the condition state. When you edit the condition and change any of its options, for example, the condition state is automatically updated.
 
