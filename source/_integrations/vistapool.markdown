@@ -1,6 +1,6 @@
 ---
 title: Vistapool
-description: Monitor and control Hayward-branded pool controllers via the Hayward cloud API.
+description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
 ha_category:
   - Button
   - Sensor
@@ -16,9 +16,9 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Vistapool** integration connects Home Assistant to **Hayward-branded pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
+The **Vistapool** integration connects Home Assistant to **Vistapool-compatible pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
 
-It communicates with the official Hayward cloud API using real-time push updates (no polling), giving you instant visibility and control over your pool equipment.
+It communicates with the official Vistapool cloud API using real-time push updates (no polling), giving you instant visibility and control over your pool equipment.
 
 ### Use case
 
@@ -33,15 +33,15 @@ Vistapool turns your pool controller into a live source of data and a remote tha
 
 ## Prerequisites
 
-- A supported Hayward-compatible pool controller
+- A supported Vistapool-compatible pool controller
 - A Wi-Fi module connected to the internet
-- The controller must already be linked to your Hayward cloud account
+- The controller must already be linked to your Vistapool cloud account
 
 ## Supported devices
 
-Any pool controller compatible with the Hayward / AquaRite cloud platform, including:
+Any pool controller compatible with the Vistapool cloud platform, including:
 
-- Hayward AquaRite
+- AquaRite
 - Vistapool
 - Sugar Valley
 - Poolwatch
@@ -125,20 +125,20 @@ automation: |
 
 ## Data updates
 
-Vistapool uses real-time **cloud push**. Home Assistant subscribes to the Hayward cloud once and the controller streams every change as it happens, so dashboards and automations react within a second or two of the physical event, with no fixed polling interval.
+Vistapool uses real-time **cloud push**. Home Assistant subscribes to the Vistapool cloud once and the controller streams every change as it happens, so dashboards and automations react within a second or two of the physical event, with no fixed polling interval.
 
 When the connection drops, the integration reconnects automatically with exponential backoff. Entities go to **Unavailable** while the connection is down and recover as soon as the stream is back.
 
 ## Known limitations
 
-- The integration requires an active internet connection as it communicates via the Hayward cloud API
+- The integration requires an active internet connection as it communicates via the Vistapool cloud API
 - Sensor availability depends on which modules are physically installed on your controller
 
 ## Troubleshooting
 
 ### Entities show "Unavailable"
 
-Check your internet connection and verify the controller is online in the Hayward app. The integration will automatically reconnect when the connection is restored.
+Check your internet connection and verify the controller is online in the Vistapool app. The integration will automatically reconnect when the connection is restored.
 
 ### Reauth notification appears
 
