@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - sensor
 ha_integration_type: hub
+ha_dhcp: true
 ---
 
 The **Vistapool** integration connects Home Assistant to **Vistapool-compatible pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
@@ -28,6 +29,8 @@ Vistapool turns your pool controller into a live source of data and a remote tha
 - Get a notification when pH or chlorine drift outside the healthy range.
 - Cycle the pool light through its built-in color shows from any automation.
 - Combine pool state with the rest of your home, such as turning off the filtration pump while a high-load appliance is running.
+
+When your pool controller's Wi-Fi module joins your network, Home Assistant detects it automatically and offers to set up the integration for you. You only need to enter your Vistapool cloud account credentials to finish.
 
 {% include integrations/config_flow.md %}
 
