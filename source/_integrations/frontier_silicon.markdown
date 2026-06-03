@@ -74,7 +74,7 @@ Overview of the info dialog:
 
 ## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+To remove this integration, follow the standard integration removal steps. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
 
