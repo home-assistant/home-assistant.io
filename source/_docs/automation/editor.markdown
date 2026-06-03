@@ -73,6 +73,26 @@ To see which entities are targeted and check their details:
 
 If a trigger, condition, or action has a single entity as the target, instead of a floor, area, device, or label, select it from the row to open the entity details dialog.
 
+## Adding notes to an automation
+
+You can add notes to a trigger, condition, or action in an automation. Use notes to explain why a step exists, or to include additional context.
+
+To add a note to a trigger, condition, or action:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. Add a trigger, condition, or action to your automation.
+4. On the right side of the trigger, condition, or action row, select the three dots {% icon "mdi:dots-vertical" %} menu and then select **Add note**.
+5. In the **Add note** dialog, enter the text of your note and select **Submit**.
+   - Result: You can read your note by hovering over or selecting the {% icon "mdi:comment-text-outline" %} button.
+
+## Editing notes in an automation
+
+If you want to change a note on a trigger, condition, or action:
+1. Select the trigger, condition, or action row where your note is.
+2. In the **Note** section of the trigger, condition, or action dialog, select **Edit**.
+3. Enter the new text or change the existing one and select **Submit**.
+
 ## Troubleshooting missing automations
 
 When you're creating automations using the GUI and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your {% term "`configuration.yaml`" %}.
