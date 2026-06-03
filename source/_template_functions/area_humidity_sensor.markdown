@@ -1,5 +1,5 @@
 ---
-title: "Get the humidity sensor of an area: area_humidity_sensor"
+title: "Get humidity sensor of an area: area_humidity_sensor"
 function_name: "area_humidity_sensor"
 description: "Returns the entity ID of the humidity sensor associated with a given area."
 available_as:

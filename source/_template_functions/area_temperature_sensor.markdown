@@ -1,5 +1,5 @@
 ---
-title: "Get the temperature sensor of an area: area_temperature_sensor"
+title: "Get temperature sensor of an area: area_temperature_sensor"
 function_name: "area_temperature_sensor"
 description: "Returns the entity ID of the temperature sensor associated with a given area."
 available_as:
