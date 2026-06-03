@@ -18,7 +18,7 @@ related_functions:
   - areas
 ---
 
-The `area_temperature_sensor` template function returns the entity ID of the temperature sensor that belong to a given {% term area %}. You can specify the area by its name or by its internal ID.
+The `area_temperature_sensor` template function returns the entity ID of the temperature sensor that belongs to a given {% term area %}. You can specify the area by its name or by its internal ID.
 
 This is useful when you need to get the temperature of an area in a predictable manner. For example, you might want to iterate over all areas and perform an action based on each area's temperature. Rather than specifying the temperature sensor for each area manually, you can just use this template instead.
 

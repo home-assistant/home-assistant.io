@@ -18,7 +18,7 @@ related_functions:
   - areas
 ---
 
-The `area_humidity_sensor` template function returns the entity ID of the humidity sensor that belong to a given {% term area %}. You can specify the area by its name or by its internal ID.
+The `area_humidity_sensor` template function returns the entity ID of the humidity sensor that belongs to a given {% term area %}. You can specify the area by its name or by its internal ID.
 
 This is useful when you need to get the humidity of an area in a predictable manner. For example, you might want to iterate over all areas and perform an action based on each area's humidity. Rather than specifying the humidity sensor for each area manually, you can just use this template instead.
 
