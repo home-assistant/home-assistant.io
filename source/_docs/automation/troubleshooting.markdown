@@ -15,7 +15,7 @@ Many automations can be tested directly in the automation editor UI.
 
 You can see whether a condition passes or fails as soon as you add it to the automation.
 
-In the automation editor UI, hover over the state indicator circle on the right side of the condition row to check the condition state. The available states are:
+In the automation editor UI, hover over the state indicator circle on the left side of the condition row to check the condition state. The available states are:
 
 - **Condition passes**: the condition is verified.
 - **Condition did not pass**: the condition is not verified.
