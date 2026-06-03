@@ -6,7 +6,7 @@ available_as:
   - function
   - filter
 category: area
-return_type: string
+return_type: string | None
 limited: true
 since: "2026.07"
 related_functions:
