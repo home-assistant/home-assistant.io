@@ -11,6 +11,8 @@ ha_platforms:
   - air_quality
 ha_integration_type: service
 ha_quality_scale: legacy
+ha_codeowners:
+  - '@AlCalzone'
 ---
 
 The **openSenseMap** {% term integration %} queries the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor an air quality sensor station.

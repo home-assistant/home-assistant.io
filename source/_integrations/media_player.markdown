@@ -33,6 +33,10 @@ A media player can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
 ## Actions
 
 ### Media control actions
@@ -294,6 +298,73 @@ media_player.living_room:
       media_content_type: album
       media_content_id: A:ALBUMARTIST/Beatles/Abbey%20Road
 ```
+
+## Media player automation examples
+
+Here are a few examples of how you can use Media player triggers and conditions in automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: dim the room when a movie starts
+
+When the living room TV starts playing, dim the lights so the room is ready for watching.
+
+- **Trigger**: Media player started playing
+  - **Target**: Living room TV
+- **Action**: Turn on light
+  - **Target**: Living room lights
+
+{% details "YAML example for dimming the room when a movie starts" %}
+
+{% example %}
+automation: |
+  alias: "Dim the room when the TV starts playing"
+  triggers:
+    - trigger: media_player.started_playing
+      target:
+        entity_id: media_player.living_room_tv
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.living_room_lights
+      data:
+        brightness_pct: 25
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a bedtime reminder if audio is still playing
+
+At bedtime, check whether the bedroom speaker is still playing, and send a notification if it is.
+
+- **Trigger**: Time: 23:00
+- **Condition**: Media player is playing
+  - **Target**: Bedroom speaker
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a bedtime playback reminder" %}
+
+{% example %}
+automation: |
+  alias: "Remind me when audio is still playing at bedtime"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  conditions:
+    - condition: media_player.is_playing
+      target:
+        entity_id: media_player.bedroom_speaker
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          Bedroom audio is still playing.
+{% endexample %}
+
+{% enddetails %}
 
 ## Device class
 

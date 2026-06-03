@@ -10,7 +10,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@skipperro'
 ha_domain: paj_gps
-ha_zeroconf: false
 ha_platforms:
   - device_tracker
   - sensor

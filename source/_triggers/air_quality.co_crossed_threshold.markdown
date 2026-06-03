@@ -49,7 +49,7 @@ trigger: |
     entity_id: sensor.living_room_co
   options:
     threshold: 35
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the living room CO sensor crosses 35 ppm in either direction.
@@ -66,10 +66,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -114,7 +114,7 @@ automation: |
         entity_id: sensor.garage_co
       options:
         threshold: 35
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:

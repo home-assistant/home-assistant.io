@@ -1,7 +1,7 @@
 ---
 title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
-ha_category:  
+ha_category:
   - Button
   - Number
   - Sensor
@@ -17,6 +17,7 @@ ha_platforms:
   - sensor
 ha_integration_type: hub
 ha_dhcp: true
+ha_quality_scale: bronze
 ---
 
 The **Vistapool** integration connects Home Assistant to **Vistapool-compatible pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
@@ -71,51 +72,44 @@ Notify when chlorine production drops, which usually means the salt level or cel
 
 {% example %}
 automation: |
-  alias: "Pool: low chlorine production"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.my_pool_electrolysis
-      below: 5
-      for:
-        minutes: 30
-  actions:
-    - action: notify.persistent_notification
-      data:
-        title: "Pool chlorine low"
-        message: "The salt cell is producing less than 5 gr/h. Check salt level or clean the cell."
+alias: "Pool: low chlorine production"
+triggers: - trigger: numeric_state
+entity_id: sensor.my_pool_electrolysis
+below: 5
+for:
+minutes: 30
+actions: - action: notify.persistent_notification
+data:
+title: "Pool chlorine low"
+message: "The salt cell is producing less than 5 gr/h. Check salt level or clean the cell."
 {% endexample %}
 
 Notify when pH drifts outside the healthy range:
 
 {% example %}
 automation: |
-  alias: "Pool: pH out of range"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.my_pool_ph
-      below: 7.0
-    - trigger: numeric_state
-      entity_id: sensor.my_pool_ph
-      above: 7.6
-  actions:
-    - action: notify.persistent_notification
-      data:
-        title: "Pool pH out of range"
-        message: "pH is {{ states('sensor.my_pool_ph') }}. Healthy range is 7.0 to 7.6."
+alias: "Pool: pH out of range"
+triggers: - trigger: numeric_state
+entity_id: sensor.my_pool_ph
+below: 7.0 - trigger: numeric_state
+entity_id: sensor.my_pool_ph
+above: 7.6
+actions: - action: notify.persistent_notification
+data:
+title: "Pool pH out of range"
+message: "pH is {{ states('sensor.my_pool_ph') }}. Healthy range is 7.0 to 7.6."
 {% endexample %}
 
 Cycle the pool light to the next color at sunset every evening:
 
 {% example %}
 automation: |
-  alias: "Pool: advance LED color at sunset"
-  triggers:
-    - trigger: sun
-      event: sunset
-  actions:
-    - action: button.press
-      target:
-        entity_id: button.my_pool_led_next_color
+alias: "Pool: advance LED color at sunset"
+triggers: - trigger: sun
+event: sunset
+actions: - action: button.press
+target:
+entity_id: button.my_pool_led_next_color
 {% endexample %}
 
 ### Sensors
