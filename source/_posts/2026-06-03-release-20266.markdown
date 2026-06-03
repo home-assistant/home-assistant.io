@@ -15,60 +15,20 @@ og_image: /images/blog/2026-06/social.png
 
 <lite-youtube videoid="REUxx6fZ97Y" videotitle="Home Assistant 2026.6 Release Party"></lite-youtube>
 
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2026.6** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/144)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/813)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/151)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=REUxx6fZ97Y) on June 3, 2026, at 20:00 GMT / 12:00 PT / 21:00 CET!
-
-{% endtip %}
-
 Home Assistant 2026.6! 🎉
 
-Enjoy the (beta) release!
+I'm going to put my hand up right away: ✋ I am _not_ a dashboard person. Not because I don't like them; I love seeing what you all build. But designing a beautiful one is a kind of visual creativity I just don't have. That's a big part of why I love the built-in [Home dashboard](/dashboards/home/) so much, it does the designing for me. But when I do build a custom dashboard, I usually stare at that "add a card" dialog for way too long, picking cards almost at random just to see if they look good with the data I have.
+
+So you can imagine my excitement for my personal favorite of this release: the [new card picker](#a-friendlier-way-to-add-cards-to-your-dashboard). Instead of asking _"which card type do I want?"_, it now asks _"which thing in your home do you want to show?"_, and then suggests cards that actually make sense for it, with live previews using your own data. For someone like me, that's not just
+easier; it's genuinely _inspiring_. It nudges me towards combinations I would not have thought of on my own. 💡
+
+This fits into a bigger direction I keep getting more excited about: Home Assistant getting better at starting from the thing you want to _do_, instead of asking you to first learn the building blocks. The same idea is what makes [purpose-specific triggers and conditions](#purpose-specific-triggers-and-conditions) in [Home Assistant Labs](/blog/2025/12/03/release-202512/#home-assistant-labs) feel so right, and this release brings them a big step closer to graduating out of Labs with brand new **zone** triggers and conditions. 📍
+
+A close second favorite for me this release is everything happening _around_ that in the [automation editor](#polishing-the-automation-editor): [live test indicators on your conditions](#see-at-a-glance-which-conditions-pass), [target counts on every device, area, floor, and label](#see-exactly-how-many-things-an-automation-targets), and [proper notes you can attach to any step](#add-notes-to-any-step-in-your-automation). Individually they are small quality-of-life touches; together, they make building automations feel a whole lot more transparent. ✨
+
+And there is plenty more to love in this release: new tile card features, Z-Wave smart locks catching up with their Matter siblings, a friendlier Apps page, and another big batch of new integrations from our community. 🚀
+
+Enjoy the release!
 
 ../Frenck
 
@@ -118,7 +78,7 @@ When you add a card now, the dialog opens on a new **By entity** tab. On the lef
 
 Pick an entity, and the right side fills with _live previews of cards that actually fit it_, not a generic list:
 
-- For a **light**, you get a plain tile, a tile with a brightness slider, a toggle tile, color-temperature, and favorite colors.
+- For a **light**, you get a plain tile, a tile with a brightness slider, a toggle tile, color temperature, and favorite colors.
 - For a **cover**, open/close, a position slider, and tilt.
 - For a **media player**, a tile with playback controls or with the volume slider.
 - For a **numeric sensor** like temperature, humidity, or power, a trend graph tile so you can see history at a glance.
@@ -188,7 +148,7 @@ It is the kind of small detail that turns _"I hope this only hits the right ligh
 
 Conditions are the gatekeepers of your automations. They decide whether something runs or not, and when an automation doesn't fire the way you expected, the first question is usually: _"which condition was actually blocking it?"_ Until now, finding out meant testing each condition one by one, or waiting for the next run and digging through the trace afterwards.
 
-The automation editor now tells you _right there, while you are editing_. Every condition row shows a small live test indicator as a badge on its icon, that updates in real time as your home changes:
+The automation editor now tells you _right there, while you are editing_. Every condition row shows a small live test indicator as a badge on its icon that updates in real time as your home changes:
 
 - A green check when the condition currently passes
 - A red circle when it doesn't
@@ -224,7 +184,7 @@ Two new tile card features put the forecast directly onto your existing weather 
 - **Temperature forecast** draws a bar chart of high and low temperatures for the days ahead, colored from cool cyan to deep red so you can read the week at a glance. In the hourly view, it renders as a smooth filled curve.
 - **Precipitation forecast** shows how much rain (or snow) is expected for each slot, or, when your weather service only provides it, the chance of precipitation.
 
-Both features automatically pick the best forecast resolution your weather service offers, daily, twice-daily, or hourly, and you can pin a specific resolution or toggle the day and hour labels from the card editor. One small change, big difference: your dashboard now answers the next question before you ask it.
+Both features automatically pick the best forecast resolution your weather service offers (daily, twice-daily, or hourly), and you can pin a specific resolution or toggle the day and hour labels from the card editor. One small change, big difference: your dashboard now answers the next question before you ask it.
 
 <img src='/images/blog/2026-06/tile-weather-forecast.png' alt='Screenshot of weather tile cards showing the temperature and precipitation forecast features.' class='no-shadow' />
 
@@ -253,10 +213,7 @@ Open your lock from the device page and select **Manage access** from the {% ico
 
 <img src='/images/blog/2026-06/zwave-credential-management.png' alt='Screenshot of a Z-Wave smart lock device page with the new Manage access option in the menu.' class='no-shadow' />
 
-There are two small differences with the Matter version that play to Z-Wave's strengths:
-
-- _A user can have more than one credential of the same type_, so you can give someone both their everyday PIN and a temporary backup one without having to create a second user.
-- _Both PIN codes and passwords are supported_, where the lock supports them. PIN codes are limited to digits (the familiar keypad experience), while passwords accept the full character set for locks with an alphanumeric keypad.
+There is one small difference with the Matter version that plays to Z-Wave's strengths: _both PIN codes and passwords are supported_, where the lock supports them. PIN codes are limited to digits (the familiar keypad experience), while passwords accept the full character set for locks with an alphanumeric keypad.
 
 <img src='/images/blog/2026-06/zwave-credentials-add-user.png' alt='Screenshot of the Add user dialog for a Z-Wave smart lock, with fields for the user name, a PIN code / Password credential type selector, and a PIN code input.' class='no-shadow' />
 
@@ -298,10 +255,10 @@ We welcome the following new integrations in this release:
   Monitor your [Guntamatic](https://www.guntamatic.com) wood or pellet heater locally from Home Assistant. The integration reads sensor data directly from the heater's web interface over your local network, with no cloud account needed.
 
 - **[LG TV via Serial]**, added by [@balloob] — launching at 🥈 silver quality  
-  Control your LG TV locally from Home Assistant over its built-in RS-232 serial port. Works through a direct serial cable, a USB-to-serial adapter, or an [ESPHome]-based serial proxy, giving you a reliable connection that even works while the TV is in standby. Great for older sets without smart features and for commercial signage displays.
+  Control your LG TV locally from Home Assistant over its built-in <abbr title="Recommended Standard 232">RS-232</abbr> serial port. Works through a direct serial cable, a <abbr title="Universal Serial Bus">USB</abbr>-to-serial adapter, or an [ESPHome]-based serial proxy, giving you a reliable connection that even works while the TV is in standby. Great for older sets without smart features and for commercial signage displays.
 
 - **[Marantz Infrared]**, added by [@balloob] — launching at 🥈 silver quality  
-  Control your Marantz amplifier with any infrared transmitter you already have set up in Home Assistant. Built on top of the [Infrared] entity platform, so you can pair it with an ESPHome device with an IR LED, or any other supported IR emitter, and operate your amplifier without depending on the network or cloud.
+  Control your Marantz amplifier with any infrared transmitter you already have set up in Home Assistant. Built on top of the [Infrared] entity platform, so you can pair it with an ESPHome device with an IR <abbr title="light-emitting diode">LED</abbr>, or any other supported IR emitter, and operate your amplifier without depending on the network or cloud.
 
 - **[Mitsubishi Comfort]**, added by [@nikolairahimi]  
   Bring Mitsubishi Electric ductless minisplit heat pump and air conditioning systems into Home Assistant. The integration talks directly to each indoor unit over your local network for low-latency control, and only uses the Kumo Cloud account for the initial device discovery and credential retrieval. Kumo Station outdoor units are supported for temperature monitoring.
@@ -328,7 +285,7 @@ We welcome the following new integrations in this release:
   Control your [Xthings](https://xthings.com) smart home devices, starting with the U-tec Bright A19 Color smart light bulb, through the Xthings Cloud service. Contributed by Xthings themselves, with real-time status updates delivered over WebSocket push, so the state in Home Assistant stays in sync with what's happening on your devices.
 
 - **[Yoto]**, added by [@piitaya]  
-  Control your [Yoto](https://yotoplay.com) audio players from Home Assistant. Play and pause cards, change the volume, skip and seek tracks, and see what is currently playing. The integration talks to the official Yoto cloud over OAuth2 and receives playback updates over MQTT, so changes that happen on the player show up in Home Assistant almost immediately.
+  Control your [Yoto](https://yotoplay.com) audio players from Home Assistant. Play and pause cards, change the volume, skip and seek tracks, and see what is currently playing. The integration talks to the official Yoto cloud over <abbr title="Open Authorization 2.0">OAuth2</abbr> and receives playback updates over <abbr title="Message Queuing Telemetry Transport">MQTT</abbr>, so changes that happen on the player show up in Home Assistant almost immediately.
 
 [@balloob]: https://github.com/balloob
 [@Crocmagnon]: https://github.com/Crocmagnon
@@ -369,7 +326,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[MQTT]** picked up two improvements: a new message expiry interval option, and subentry support extended to the date, datetime, and time entity platforms. Thanks, [@jbouwh]!
 - **[Shelly]** now exposes an occupancy binary sensor. Thanks, [@bieniu]!
 - **[Sonos]** got search, so you can now find tracks, albums, and artists across your music services straight from Home Assistant. Thanks, [@PeteRager]!
-- **[Reolink]** battery cameras can now connect directly to Home Assistant, without needing a Reolink Home Hub or NVR as a bridge. Not all models and features are supported yet; using a Home Hub or NVR remains the preferred method. A battery camera cannot be connected both ways at the same time. Thanks, [@starkillerOG]!
+- **[Reolink]** battery cameras can now connect directly to Home Assistant, without needing a Reolink Home Hub or <abbr title="network video recorder">NVR</abbr> as a bridge. Not all models and features are supported yet; using a Home Hub or NVR remains the preferred method. A battery camera cannot be connected both ways at the same time. Thanks, [@starkillerOG]!
 - **[Tuya]** received a wave of device-specific improvements: number entities and fault codes for the Pro Breeze OmniDr dehumidifier, water-timer data points and a countdown number for the sfkzq single-valve timers, additional entities for cameras, a number entity for the WG2 alarm panel (Duosmart C30), total production sensor support for SPM02 devices, and support for the InverGo inverter pool heat pump. Thanks, [@peterlang-p], [@mik-laj], [@davidXire], [@tbouron], [@ChayoteJarocho], and [@focabr]!
 - **[SwitchBot]** had a great release with broad device support: the Permanent Outdoor Light, Weather Station, and Lock Vision (Pro) / Lock Pro Wifi are now supported, the Meter CO2 gained a display time offset number entity, and the Air Purifier now exposes its LED settings. Thanks, [@elgris], [@Onero-testdev], and [@zerzhang]!
 - **[SmartThings]** TVs now let you select the input source, and Copper water meters expose their sensors. Thanks, [@felipecrs] and [@joostlek]!
@@ -386,21 +343,21 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[OneDrive]** added a delete action so you can clean up files from your automations. Thanks, [@leodrivera]!
 - **[WeatherFlow Cloud]** stations now expose dedicated station-level sensors. Thanks, [@jeeftor]!
 - **[Portainer]** continues to grow: new system health and disk space coordinators, and recreate-container service actions. Thanks, [@erwindouna]!
-- **[Ohme]** EV chargers got two new controls: a state of charge input number and a solar boost switch. Thanks, [@dan-r]!
+- **[Ohme]** <abbr title="electric vehicle">EV</abbr> chargers got two new controls: a state of charge input number and a solar boost switch. Thanks, [@dan-r]!
 - **[Jewish Calendar]** now exposes a calendar entity, perfect for tracking Jewish holidays and Shabbat in your dashboards and automations. Thanks, [@tsvi]!
 - **[BleBox]** picked up several improvements: a new update platform that exposes installed and latest firmware versions and lets you trigger firmware updates straight from Home Assistant, plus tilt-only mode and 180-degree tilt support for cover and shutter entities. Thanks, [@bkobus-bbx]!
 - **[PrusaLink]** 3D printers gained more sensors: X/Y axis position, location, minimum extrusion temperature, plus SD ready, farm mode, and connection status binary sensors. Thanks, [@heikkih]!
 - **[System Bridge]** gained a notify entity, so you can send desktop notifications from your automations. Thanks, [@tr4nt0r]!
-- **[Indevolt]** battery support expanded significantly with new battery temperature, MOS temperature, main MOS temperature, cycle count, transformer temperature, and real-time control sensors. Thanks, [@Xirt] and [@karlbeecken]!
+- **[Indevolt]** battery support expanded significantly with new battery temperature, <abbr title="metal-oxide-semiconductor">MOS</abbr> temperature, main MOS temperature, cycle count, transformer temperature, and real-time control sensors. Thanks, [@Xirt] and [@karlbeecken]!
 - **[Qube heat pump]** added a water heater entity for domestic hot water control (with a boost mode for using surplus energy), plus switches for summer mode, anti-legionella cycle, heating curve, and heating demand. Thanks, [@MattieGit]!
 - **[Eurotronic Comet Blue]** thermostats added a number platform exposing the eco and comfort setpoints and the temperature offset, so you can fine-tune your schedule without leaving the dashboard. Thanks, [@rikroe]!
 - **[Elk-M1 Control]** picked up dedicated number entities for the Elk's configurable settings (such as timers), previously buried inside a single sensor. Thanks, [@gwww]!
 - **[Control4]** now supports motorized window treatments through a new cover platform. Thanks, [@nayfield]!
 - **[IMGW-PIB]** added river vegetation cover sensors for emergent, floating, and submerged vegetation. Disabled by default, so you can enable just the ones you need. Thanks, [@bieniu]!
-- **[Watts Vision +]** received HVAC action and preset mode support, plus a new timer mode service. Thanks, [@theobld-ww]!
+- **[Watts Vision +]** received <abbr title="heating, ventilation, and air conditioning">HVAC</abbr> action and preset mode support, plus a new timer mode service. Thanks, [@theobld-ww]!
 - **[Kiosker]** gained a switch to disable the screensaver, plus a set of buttons for common kiosk actions: navigate forward, backward, and home; clear cache and cookies; print; ping; and interact with the screensaver. Thanks, [@Claeysson]!
 - **[V2C]** EV chargers now expose their LED lights. Thanks, [@dgomes]!
-- **[Lunatone]** DALI lighting controllers now expose their device status as sensors. Thanks, [@MoonDevLT]!
+- **[Lunatone]** <abbr title="Digital Addressable Lighting Interface">DALI</abbr> lighting controllers now expose their device status as sensors. Thanks, [@MoonDevLT]!
 - **[Satel Integra]** alarm zones now expose temperature sensors. Thanks, [@Tommatheussen]!
 - **[Template entities]** now support the device tracker platform, giving you a modern replacement for the `device_tracker.see` action that was deprecated last release. Thanks, [@Petro31]!
 
@@ -557,11 +514,11 @@ The following {% term integration %} is also no longer available as of this rele
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
 - **A friendlier setup for {% term Matter %} devices.** When you add any Matter device, Home Assistant now asks you to name it and assign it to an area right away, so it is ready to use the way you intend from the first moment. For contact sensors and covers, you can also pick what the device is attached to (a door, window, garage door, or something else). On iOS, the pre-filled name and device class selection require an upcoming iOS app update; until then, the previous behavior is used.
-- **OpenThread Border Router 1.4 is out of beta.** The [OpenThread Border Router](/integrations/otbr/) app now ships {% term Thread %} 1.4 by default, no beta toggle required. For now, this is mostly about bug fixes and stability, including the new built-in mDNS implementation from OpenThread, which should help resolve a class of stubborn Thread connectivity issues that previously traced back to mDNS quirks in some home routers. It also lays the groundwork for bringing the new Thread 1.4 features to Home Assistant in the near future.
+- **OpenThread Border Router 1.4 is out of beta.** The [OpenThread Border Router](/integrations/otbr/) app now ships {% term Thread %} 1.4 by default, no beta toggle required. For now, this is mostly about bug fixes and stability, including the new built-in <abbr title="multicast DNS">mDNS</abbr> implementation from OpenThread, which should help resolve a class of stubborn Thread connectivity issues that previously traced back to mDNS quirks in some home routers. It also lays the groundwork for bringing the new Thread 1.4 features to Home Assistant in the near future.
 - **Sirens join the Matter integration.** Matter sirens (like Heiman-style smoke detectors that double as a loud alarm) are now exposed as proper [siren](/integrations/siren/) {% term entities %} you can switch on and off from automations and dashboards. Thanks, [@lboue]! 🚨
 - **Bluetooth proxies are now much friendlier to battery-powered devices.** Until now, every Bluetooth scanner ran in _active_ mode, constantly polling devices and waking up your battery-powered Bluetooth sensors and trackers more often than they need to. Starting this release, the default for both the [Bluetooth](/integrations/bluetooth/) integration and ESPHome Bluetooth proxies is the new _Auto_ mode, which switches to active scanning only when an integration actually needs it, and only on one scanner at a time. The result: around 95–96% less battery used for Bluetooth scanning, while everything keeps working the way it did. The Bluetooth UI catches up too, labeling each adapter as _Auto (active)_ or _Auto (passive)_, and the device info dialog gained a **Raw advertisement** field for debugging. More on the default change in the [backward-incompatible changes](#backward-incompatible-changes) section.
 - **Firmware version in the devices table.** The Devices page gets a hidden-by-default **Firmware** column you can switch on from the table options, making it easy to check whether a firmware update actually landed without changing the default layout. Thanks, [@markvp]!
-- **A friendlier ZHA group page.** The [ZHA](/integrations/zha/) group create and edit screens have been rebuilt around a compact, card-based layout that keeps your devices and group settings visible together, instead of one long table you had to scroll through. Thanks, [@jpbede]!
+- **A friendlier <abbr title="Zigbee Home Automation">ZHA</abbr> group page.** The [ZHA](/integrations/zha/) group create and edit screens have been rebuilt around a compact, card-based layout that keeps your devices and group settings visible together, instead of one long table you had to scroll through. Thanks, [@jpbede]!
 - **Search by label in more places.** The data tables for {% term helpers %}, automations, scenes, and scripts now let you filter by {% term label %}, matching the search bar that devices and entities already had. Thanks, [@ildar170975]!
 - **The backup encryption key is harder to miss.** Home Assistant already creates a {% term backup %} automatically before every update, but that backup is only useful if you can still decrypt it. The [Backup](/integrations/backup/) settings page has been reorganized to put your encryption key front and center, with a clear reminder to save it somewhere safe. Losing that key is one of the most painful ways to lose access to a backup, so we want to make sure you don't.
 - **Color customization for graph cards.** The [statistics graph card](/dashboards/statistics-graph/) and [history graph card](/dashboards/history-graph/) now let you pick a custom color per entity, both from the visual editor and in YAML. Thanks, [@ildar170975]!
