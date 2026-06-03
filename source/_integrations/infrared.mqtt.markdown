@@ -15,7 +15,7 @@ The **MQTT Infrared** {% term integration %} allows you to integrate infrared em
 To use an MQTT infrared entity in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-The MQTT infrared platform supports a configration schema for infrared emitter and receiver devices.
+The MQTT infrared platform supports a configuration schema for infrared emitter and receiver devices.
 
 ### Infrared emitter schema
 
@@ -79,7 +79,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Device information for this time entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
+  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
   required: false
   type: map
   keys:
@@ -154,7 +154,7 @@ json_attributes_template:
   required: false
   type: template
 json_attributes_topic:
-  description: The MQTT topic subscribed to for receiving a JSON dictionary payload that sets the entity attributes. Implies `force_update` of the current daye state when a message is received on this topic.
+  description: The MQTT topic subscribed to for receiving a JSON dictionary payload that sets the entity attributes. Implies `force_update` of the current state when a message is received on this topic.
   required: false
   type: string
 message_expiry_interval:
@@ -256,20 +256,12 @@ availability_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the device's availability from the `availability_topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
-command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `command_topic`.
-  required: false
-  type: template
-command_topic:
-  description: The MQTT topic to publish the infrared value that is set in ISO format.
-  required: true
-  type: string
 default_entity_id:
   description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `infrared.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, it will be created with a number appended. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
-  description: "Device information for this time entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
+  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
   required: false
   type: map
   keys:
@@ -344,7 +336,7 @@ json_attributes_template:
   required: false
   type: template
 json_attributes_topic:
-  description: The MQTT topic subscribed to for receiving a JSON dictionary payload that sets the entity attributes. Implies `force_update` of the current daye state when a message is received on this topic.
+  description: The MQTT topic subscribed to for receiving a JSON dictionary payload that sets the entity attributes. Implies `force_update` of the current state when a message is received on this topic.
   required: false
   type: string
 message_expiry_interval:
@@ -388,11 +380,11 @@ retain:
   type: boolean
   default: false
 schema:
-  description: "The configuration schema, must be \"emitter\"."
+  description: "The configuration schema, must be \"receiver\"."
   required: true
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive ........"
+  description: "The MQTT topic subscribed to receive a JSON with `timings` and `modulation` as required attributes. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz."
   required: false
   type: string
 unique_id:
@@ -409,24 +401,32 @@ value_template:
 
 The signal data schema is derived from the commands that are provided via the [infrared protocols](https://github.com/home-assistant-libs/infrared-protocols) library.
 
-By default an infrared receiver entity expects a JSON payload that has the a `timings` and `modulation` attribute. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz.
+By default, an infrared receiver entity expects a JSON payload that has a required `timings` and `modulation` attribute. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz.
 
-And example message to receive:
+An example message to receive:
 
 ```json
 {
-    "timings":[9000,-4500,562,-1687,562,-1687,562,-562,562,-1687,562,-1687,562,-1687,562,-1687,562,-1687,562,-562,562,-562,562,-1687,562,-562,562,-562,562,-562,562,-562,562,-562,562,-1687,562,-1687,562,-1687,562,-562,562,-1687,562,-1687,562,-1687,562,-1687,562,-562,562,-562,562,-562,562,-1687,562,-562,562,-562,562,-562,562,-562,562],
+    "timings":[9000,-4500,562,-1687,562,-1687,562,-562,562,-1687,562,-1687,562,
+    -1687,562,-1687,562,-1687,562,-562,562,-562,562,-1687,562,-562,562,-562,562,
+    -562,562,-562,562,-562,562,-1687,562,-1687,562,-1687,562,-562,562,-1687,562,
+    -1687,562,-1687,562,-1687,562,-562,562,-562,562,-562,562,-1687,562,-562,562,
+    -562,562,-562,562,-562,562],
     "modulation":38000
 }
 ```
 
 The message should contain `timings` and `modulation` attributes, any other attributes in the JSON message will be ignored.
 
-And example message that is sent when a command is issued:
+An example message that is sent when a command is issued:
 
 ```json
 {
-    "timings":[9000,-4500,562,-1687,562,-1687,562,-562,562,-1687,562,-1687,562,-1687,562,-1687,562,-1687,562,-562,562,-562,562,-1687,562,-562,562,-562,562,-562,562,-562,562,-562,562,-1687,562,-1687,562,-1687,562,-562,562,-1687,562,-1687,562,-1687,562,-1687,562,-562,562,-562,562,-562,562,-1687,562,-562,562,-562,562,-562,562,-562,562],
+    "timings":[9000,-4500,562,-1687,562,-1687,562,-562,562,-1687,562,-1687,562,
+    -1687,562,-1687,562,-1687,562,-562,562,-562,562,-1687,562,-562,562,-562,562,
+    -562,562,-562,562,-562,562,-1687,562,-1687,562,-1687,562,-562,562,-1687,562,
+    -1687,562,-1687,562,-1687,562,-562,562,-562,562,-562,562,-1687,562,-562,562,
+    -562,562,-562,562,-562,562],
     "modulation":38000,
     "repeat_count":0
 }
@@ -447,6 +447,8 @@ mqtt:
       icon: mdi:ab-testing
       state_topic: "ir/receive-signal"
 ```
+
+{% endraw %}
 
 This is an example of a manual configured MQTT `infrared` emitter item.
 
