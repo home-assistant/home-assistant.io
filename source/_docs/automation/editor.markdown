@@ -75,7 +75,7 @@ If a trigger, condition, or action has a single entity as the target, instead of
 
 ## Adding notes to an automation
 
-You can add notes to a trigger, condition, or action in an automation. Use notes to explain why a certain automation step exists or include details about that step, for example.
+You can add notes to a trigger, condition, or action in an automation. Use notes to explain why a step exists, or to include additional context.
 
 To add a note to a trigger, condition, or action:
 
@@ -86,10 +86,9 @@ To add a note to a trigger, condition, or action:
 5. In the **Add note** dialog, enter the text of your note and select **Submit**.
    - Result: You can read your note by hovering over or selecting the {% icon "mdi:comment-text-outline" %} button.
 
-## Editing the notes of an automation
+## Editing notes in an automation
 
-If you want to change a note of a trigger, condition, or action:
-
+If you want to change a note on a trigger, condition, or action:
 1. Select the trigger, condition, or action row where your note is.
 2. In the **Note** section of the trigger, condition, or action dialog, select **Edit**.
 3. Enter the new text or change the existing one and select **Submit**.
