@@ -24,14 +24,14 @@ LiteLLM exposes an OpenAI-compatible API in front of a wide range of model provi
 
 {% configuration_basic %}
 URL:
-  description: "The base URL of your LiteLLM proxy, including the host and port (for example `homeassistant.local:4000`). The integration automatically prefixes the `http://` scheme and appends the OpenAI `/v1` path if they are missing."
+  description: The base URL of your LiteLLM proxy, including the host and port. The integration automatically appends the OpenAI `/v1` path if it is missing.
 API key:
-  description: "An optional LiteLLM API key or virtual key. Leave it empty if your proxy does not require authentication."
+  description: An optional LiteLLM API key or virtual key. Leave it empty if your proxy does not require authentication.
 {% endconfiguration_basic %}
 
 ## Prerequisites
 
-You need a running [LiteLLM proxy](https://docs.litellm.ai/docs/simple_proxy) that is reachable from your Home Assistant instance, with at least one model configured. The proxy exposes the available models through its `/model/info` (or `/models`) endpoint, which the integration uses to populate the model selection.
+You need a running [LiteLLM proxy](https://docs.litellm.ai/docs/simple_proxy) that is reachable from your Home Assistant instance, with at least one model configured. The integration discovers the available models from the proxy during setup.
 
 ## Supported functionality
 
