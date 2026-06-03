@@ -93,6 +93,8 @@ Verify SSL:
   description: "Verify the SSL certificate of your hub. This option is available only when connecting via the hostname."
 {% endconfiguration_basic %}
 
+{% include integrations/actions.md %}
+
 ## Data updates
 
 This integration retrieves data from Overkiz every 30 seconds to ensure timely updates. If you only have stateless devices (RTS protocol), the integration will poll for new data every hour to reduce unnecessary load on the Overkiz API.
