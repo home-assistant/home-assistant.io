@@ -55,10 +55,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple windows are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple windows are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the window must stay open before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
@@ -103,7 +103,7 @@ automation: |
       target:
         entity_id: binary_sensor.kitchen_window
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: sun
@@ -139,7 +139,7 @@ automation: |
       target:
         entity_id: cover.hallway_skylight
       options:
-        behavior: any
+        behavior: each
         for: "00:02:00"
   actions:
     - action: climate.turn_off

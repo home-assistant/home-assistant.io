@@ -64,10 +64,10 @@ not available through the UI.
 behavior:
   description: >
     When multiple update entities are targeted, controls when the trigger
-    fires. Accepts `any`, `first`, or `last`.
+    fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the update must stay available before the trigger fires. Use the

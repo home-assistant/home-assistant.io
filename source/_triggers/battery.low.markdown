@@ -65,7 +65,7 @@ trigger: |
   target:
     area_id: living_room
   options:
-    behavior: last
+    behavior: all
 {% endexample %}
 
 ### Options in YAML
@@ -75,12 +75,12 @@ behavior:
   description: |
     When multiple battery sensors are targeted, controls when the trigger fires:
 
-    - `any`: fires every time any targeted sensor reports a low battery.
+    - `each`: fires every time any targeted sensor reports a low battery.
     - `first`: fires only when the first targeted sensor reports a low battery.
-    - `last`: fires only after every targeted sensor reports a low battery.
+    - `all`: fires only after every targeted sensor reports a low battery.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the sensor or sensors must remain reporting low battery before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.

@@ -61,10 +61,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple vacuums are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple vacuums are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     The time the vacuum must remain paused before the trigger fires.

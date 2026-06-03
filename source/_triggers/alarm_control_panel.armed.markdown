@@ -56,10 +56,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple alarm panels are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple alarm panels are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -103,7 +103,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.home_alarm
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: lock.lock
@@ -137,7 +137,7 @@ automation: |
       target:
         label_id: alarm_panels
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: notify.send_message

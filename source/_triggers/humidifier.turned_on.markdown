@@ -35,9 +35,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted humidifier turns on.
-    - **First** (`first` in YAML): fire only when the first of a group turns on.
-    - **All** (`last` in YAML): fire only after every targeted humidifier is on.
+    - **Each** (default): fires every time any targeted humidifier turns on.
+    - **First**: fires only when the first of a group turns on.
+    - **All**: fires only after every targeted humidifier is on.
 For at least:
   description: How long the humidifier must stay on before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -64,12 +64,12 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted humidifier turns on.
-    - `first` (**First** in the UI): fire only when the first of a group turns on.
-    - `last` (**All** in the UI): fire only after every targeted humidifier is on.
+    - `each` (default): fires every time any targeted humidifier turns on.
+    - `first`: fires only when the first of a group turns on.
+    - `all`: fires only after every targeted humidifier is on.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the humidifier must stay on before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has stayed on for 5 minutes.
@@ -112,7 +112,7 @@ automation: |
       target:
         entity_id: humidifier.bedroom
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: fan.turn_on
@@ -145,7 +145,7 @@ automation: |
       target:
         entity_id: humidifier.nursery
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: time
