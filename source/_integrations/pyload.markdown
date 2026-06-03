@@ -57,10 +57,12 @@ URL:
   description: "The full URL of the pyLoad web interface, including the protocol (HTTP or HTTPS), hostname or IP address, port, and any path prefix if applicable. Example: `https://example.com:8000/path`"
 Verify SSL certificate:
   description: "If checked, the SSL certificate will be validated to ensure a secure connection."
-Username:
-  description: "The username used to access the pyLoad instance."
-Password:
-  description: "The password associated with the pyLoad account."
+API key:
+  description: "The API key to authenticato with the pyLoad API."
+Username [Deprecated]:
+  description: "The username used to access the pyLoad instance. No longer supported with pyLoad 0.5.0b3.dev97 or later."
+Password [Deprecated]:
+  description: "The password associated with the pyLoad account. No longer supported with pyLoad 0.5.0b3.dev97 or later."
 {% endconfiguration_basic %}
 
 ## Sensors

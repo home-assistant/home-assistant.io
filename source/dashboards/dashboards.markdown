@@ -1,6 +1,6 @@
 ---
 title: "Multiple dashboards"
-description: "Multiple powerful and configurable dashboards in Home Assistant."
+description: "Create more than one dashboard in Home Assistant: a private overview for yourself, a simpler one for the rest of the household, and a tablet view in the kitchen."
 related:
   - docs: /integrations/logbook/
     title: Activity integration

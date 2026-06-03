@@ -24,8 +24,8 @@ The integration should be configured on OpenWrt devices providing wireless acces
 Before this scanner can be used, you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
 
 ```bash
-opkg update
-opkg install rpcd-mod-file uhttpd-mod-ubus
+apk update
+apk add rpcd-mod-file uhttpd-mod-ubus
 ```
 
 Add a new system user `hass` (or do it in any other way that you prefer):
