@@ -10,10 +10,12 @@ return_type: "list of strings"
 limited: true
 since: "2021.11"
 related_functions:
-  - areas
+  - area_devices
+  - area_humidity_sensor
   - area_id
   - area_name
-  - area_devices
+  - area_temperature_sensor
+  - areas
 ---
 
 The `area_entities` template function returns a list of entity IDs that belong to a given {% term area %}. You can specify the area by its name (like _"Living Room"_) or by its internal ID. It gives you all {% term entities %} that have been assigned to that area in Home Assistant.
