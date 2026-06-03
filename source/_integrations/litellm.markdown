@@ -22,9 +22,9 @@ The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use 
 
 {% configuration_basic %}
 URL:
-  description: "The base URL of your LiteLLM proxy."
+  description: "The base URL of your LiteLLM proxy, including the host and port (for example `homeassistant.local`). The integration automatically appends the OpenAI `/v1` path if it is missing."
 API key:
-  description: "An optional LiteLLM API key or virtual key."
+  description: "An optional LiteLLM API key or virtual key. Leave it empty if your proxy does not require authentication."
 {% endconfiguration_basic %}
 
 ## Removing the integration
