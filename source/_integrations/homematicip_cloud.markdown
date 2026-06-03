@@ -355,26 +355,26 @@ actions:
 
 ## Button events
 
-Devices with physical buttons expose an event entity per button channel. You can use these to trigger automations on a short press, a long press start, or a long press stop.
+Devices with physical buttons expose an event entity per button channel. You can use these to trigger automations on a short release, a long press, or a long release.
 
 {% important %}
 If a button is directly paired to an actuator inside the Homematic IP app (*Direct Device Connection*, called *Direktverknüpfung* in the German app), the cloud doesn't see the press, so Home Assistant can't react to it either. To use the button in Home Assistant, either remove the direct pairing in the Homematic IP app, or add an automation in the Homematic IP app that references the button. The cloud then forwards the press to Home Assistant.
 {% endimportant %}
 
 {% note %}
-The cloud doesn't deliver a dedicated double-press event. A double-press arrives as two consecutive `short_press` events, so double-press automations are built on top of the same event entity, as shown below.
+The cloud doesn't deliver a dedicated double-press event. A double-press arrives as two consecutive `short_release` events, so double-press automations are built on top of the same event entity, as shown below.
 {% endnote %}
 
-### Trigger an action on a short press
+### Trigger an action on a short release
 
 {% example %}
 automation:
-  - alias: "Toggle living room light on button 3 short press"
+  - alias: "Toggle living room light on button 3 short release"
     triggers:
       - trigger: state
         entity_id: event.wandtaster_6_fach_button_3
         attribute: event_type
-        to: short_press
+        to: short_release
     actions:
       - action: light.toggle
         target:
@@ -383,7 +383,7 @@ automation:
 
 ### Trigger an action on a double press
 
-The cloud delivers a double press as two consecutive `short_press` events. Use `wait_for_trigger` with a short timeout to detect the second press:
+The cloud delivers a double press as two consecutive `short_release` events. Use `wait_for_trigger` with a short timeout to detect the second press:
 
 {% example %}
 automation:
@@ -392,13 +392,13 @@ automation:
       - trigger: state
         entity_id: event.wandtaster_6_fach_button_3
         attribute: event_type
-        to: short_press
+        to: short_release
     actions:
       - wait_for_trigger:
           - trigger: state
             entity_id: event.wandtaster_6_fach_button_3
             attribute: event_type
-            to: short_press
+            to: short_release
         timeout: "00:00:00.500"
         continue_on_timeout: false
       - action: scene.turn_on
@@ -408,7 +408,7 @@ automation:
 
 ### Dim a light while holding a button
 
-The button reports `long_press_start` when held and `long_press_stop` when released. Use a `repeat` loop that keeps dimming until the release event fires:
+The button reports `long_press` when held and `long_release` when released. Use a `repeat` loop that keeps dimming until the release event fires:
 
 {% example %}
 automation:
@@ -417,7 +417,7 @@ automation:
       - trigger: state
         entity_id: event.wandtaster_6_fach_button_3
         attribute: event_type
-        to: long_press_start
+        to: long_press
     actions:
       - repeat:
           sequence:
@@ -431,5 +431,5 @@ automation:
             - condition: state
               entity_id: event.wandtaster_6_fach_button_3
               attribute: event_type
-              state: long_press_start
+              state: long_press
 {% endexample %}
