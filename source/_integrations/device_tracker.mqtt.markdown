@@ -172,6 +172,11 @@ payload_available:
   required: false
   type: string
   default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
 platform:
   description: Must be `device_tracker`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
   required: true
