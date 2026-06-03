@@ -266,7 +266,7 @@ We welcome the following new integrations in this release:
 - **[Ouman EH-800]**, added by [@Markus98]  
   Connect your [Ouman EH-800](https://ouman.fi/en/product/ouman-eh-800-and-eh-800b/) heating controller to Home Assistant. Monitor and control your heating system locally with climate, number, select, sensor, and valve entities, perfect for automating your home's heat distribution.
 
-- **[OVHcloud AI Endpoints]**, added by [@Crocmagnon] — launching at 🥉 bronze quality  
+- **[OVHcloud AI Endpoints]**, added by [@Crocmagnon]
   Add a conversation agent powered by [OVHcloud AI Endpoints](https://endpoints.ai.cloud.ovh.net/) to Home Assistant. Pick from a curated catalog of open-weight large language models hosted in Europe, and use them with [Assist](/voice_control/) to control your home and answer questions.
 
 - **[PAJ GPS]**, added by [@skipperro]  
@@ -278,14 +278,14 @@ We welcome the following new integrations in this release:
 - **[Samsung Infrared]**, added by [@lmaertin]  
   Control your Samsung TV with any infrared transmitter you already have set up in Home Assistant. Like the [Marantz Infrared] integration, it builds on the [Infrared] entity platform, so you can use an ESPHome device with an IR LED, or any other supported IR emitter, to operate your TV.
 
-- **[Vistapool]**, added by [@fdebrus] — launching at 🥉 bronze quality  
+- **[Vistapool]**, added by [@fdebrus]
   Monitor and control your Hayward-branded pool controllers from Home Assistant, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices. The integration uses the official Hayward cloud API with real-time push updates, so changes show up instantly without polling.
 
 - **[Xthings Cloud]**, added by [@zhangluofeng]  
   Control your [Xthings](https://xthings.com) smart home devices, starting with the U-tec Bright A19 Color smart light bulb, through the Xthings Cloud service. Contributed by Xthings themselves, with real-time status updates delivered over WebSocket push, so the state in Home Assistant stays in sync with what's happening on your devices.
 
 - **[Yoto]**, added by [@piitaya]  
-  Control your [Yoto](https://yotoplay.com) audio players from Home Assistant. Play and pause cards, change the volume, skip and seek tracks, and see what is currently playing. The integration talks to the official Yoto cloud over <abbr title="Open Authorization 2.0">OAuth2</abbr> and receives playback updates over <abbr title="Message Queuing Telemetry Transport">MQTT</abbr>, so changes that happen on the player show up in Home Assistant almost immediately.
+  Control your [Yoto](https://yotoplay.com) audio players from Home Assistant. Play and pause cards, change the volume, skip and seek tracks, and see what is currently playing. The integration connects to your Yoto account and receives live playback updates, so changes that happen on the player show up in Home Assistant almost immediately.
 
 [@balloob]: https://github.com/balloob
 [@Crocmagnon]: https://github.com/Crocmagnon
