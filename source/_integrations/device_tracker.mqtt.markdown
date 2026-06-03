@@ -197,32 +197,17 @@ unique_id:
 
 The device_tracker can be created via publishing to a discovery topic that follows the following [MQTT Discovery](/integrations/mqtt/#mqtt-discovery#discovery-topic) topic name format: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
 
-You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
-
-To create the device_tracker:
-
-```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "homeassistant/device_tracker/a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
-```
-
-To set the state of the device tracker to "home":
-
-```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/state -m 'home'
-```
-
-To set the state of the device tracker to a named location:
-
-```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/state -m 'location_name'
-```
-
 If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (that is, `json_attributes_topic`) in the configuration payload:
 
-- Attributes topic: `homeassistant/device_tracker/a4567d663eaf/attributes`
+- Attributes topic: `homeassistant/device_tracker/a4567d663eaf/location_attrs`
 - Example attributes payload:
 
-Example message to be received at topic `homeassistant/device_tracker/a4567d663eaf/attributes`:
+Device tracker can link to a zone with:
+
+1. Use GPS based coordinates
+2. A list of zones (either zone entity IDs, object IDs or names) the device tracker is linked to.
+
+Example message with GPS based coordinates to be received at topic `homeassistant/device_tracker/a4567d663eaf/location_attrs`:
 
 ```json
 {
@@ -232,17 +217,21 @@ Example message to be received at topic `homeassistant/device_tracker/a4567d663e
  }
 ```
 
+Example message with GPS based coordinates to be received at topic `homeassistant/device_tracker/a4567d663eaf/location_attrs`:
+
+```json
+{
+  "in_zones": ["home"]
+}
+```
+
+You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+
 To create the device_tracker with GPS coordinates support:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "homeassistant/device_tracker/a4567d663eaf/attributes", "name": "My Tracker"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "homeassistant/device_tracker/a4567d663eaf/location_attrs", "name": "My Tracker"}'
 ```
-
-{% note %}
-
-Using `state_topic` is optional when using `json_attributes_topic` to determine the state of the device tracker.
-
-{% endnote %}
 
 To set the state of the device tracker to specific coordinates:
 
@@ -261,8 +250,6 @@ The following example shows how to configure the same device tracker through con
 mqtt:
   - device_tracker:
       name: "My Tracker"
-      state_topic: "a4567d663eaf/state"
-      payload_home: "home"
-      payload_not_home: "not_home"
+      json_attributes_topic: "a4567d663eaf/location_attrs"
 ```
 
