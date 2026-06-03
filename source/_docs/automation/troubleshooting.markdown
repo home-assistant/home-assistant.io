@@ -11,6 +11,19 @@ The most useful tool is the **trace**. Every time an automation runs, Home Assis
 
 Many automations can be tested directly in the automation editor UI.
 
+### Checking the state of a condition
+
+You can see whether a condition passes or fails as soon as you add it to the automation.
+
+In the automation editor UI, hover over the state indicator circle on the left side of the condition row to check the condition state. The available states are:
+
+- **Condition passes**: the condition is verified.
+- **Condition did not pass**: the condition is not verified.
+- **Invalid condition configuration**: the condition has an invalid input value for an option, for example.
+- **Condition state unknown**: the condition state can't be checked due to a missing input value for an option, for example.
+
+There is an automatic and continuous verification of the condition state. When you edit the condition and change any of its options, for example, the condition state is automatically updated.
+
 ### Running the entire automation
 
 In the three dots menu in the automation list or automation editor UI, select the **Run actions** button. This will execute all the {% term actions %}, while skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. Note that any [trigger ID](/docs/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
