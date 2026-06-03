@@ -57,7 +57,7 @@ area_name_or_id:
 
 ## Good to know
 
-- Returns None if the the supplied area is neither a valid name nor ID.
+- Returns None if the supplied area is neither a valid name nor ID.
 - Also returns None if no humidity sensor is configured for an area.
 - The function returns the entity ID of the humidity sensor, not the humidity directly.
 - You can use the [`states`](/template-functions/states/) for that.
