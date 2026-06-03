@@ -93,7 +93,10 @@ When you leave home, this automation checks that the **house mode** helper is se
 - **Condition**: Text is equal to
   - **Target**: House mode
   - **Value**: `away`
-- **Action**: Turn off light, then lock door
+- **Action**: Turn off light
+  - **Target**: Living room light
+- **Action**: Lock lock
+  - **Target**: Front door
 
 {% details "YAML example for an away-mode goodbye routine" %}
 
