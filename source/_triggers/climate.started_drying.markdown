@@ -35,9 +35,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fires every time any targeted thermostat starts drying.
-    - **First** (`first` in YAML): fires only when the first of a group starts drying.
-    - **All** (`last` in YAML): fires only after every targeted thermostat is drying.
+    - **Each** (default): fires every time any targeted thermostat starts drying.
+    - **First**: fires only when the first of a group starts drying.
+    - **All**: fires only after every targeted thermostat is drying.
 For at least:
   description: How long the thermostat must stay in the drying state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
@@ -64,12 +64,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted thermostat starts drying.
-    - `first` (**First** in the UI): fires only when the first thermostat starts drying.
-    - `last` (**All** in the UI): fires only after every targeted thermostat is drying.
+    - `each` (default): fires every time any targeted thermostat starts drying.
+    - `first`: fires only when the first thermostat starts drying.
+    - `all`: fires only after every targeted thermostat is drying.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat must stay in the drying state before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has been drying for 10 seconds, which helps avoid false triggers from brief drying cycles.
@@ -142,7 +142,7 @@ automation: |
       target:
         label_id: drying_thermostats
       options:
-        behavior: last
+        behavior: all
   actions:
     - action: fan.turn_on
       target:

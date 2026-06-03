@@ -37,9 +37,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted humidifier changes mode.
-    - **First** (`first` in YAML): fire only on the first mode change.
-    - **All** (`last` in YAML): fire only after every targeted humidifier changes mode
+    - **Each** (default): fires every time any targeted humidifier changes mode.
+    - **First**: fires only on the first mode change.
+    - **All**: fires only after every targeted humidifier changes mode.
 For at least:
   description: How long the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup. If you set a short delay of a few seconds, it prevents your automation from firing on that momentary blip. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -83,12 +83,12 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted humidifier changes mode.
-    - `first` (**First** in the UI): fire only on the first mode change.
-    - `last` (**All** in the UI): fire only after every targeted humidifier changes mode.
+    - `each` (default): fires every time any targeted humidifier changes mode.
+    - `first`: fires only on the first mode change.
+    - `all`: fires only after every targeted humidifier changes mode.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup.
@@ -132,7 +132,7 @@ automation: |
         entity_id: humidifier.bedroom
       options:
         mode: "sleep"
-        behavior: any
+        behavior: each
   actions:
     - action: scene.turn_on
       target:
@@ -163,7 +163,7 @@ automation: |
         label_id: all_humidifiers
       options:
         mode: "eco"
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:

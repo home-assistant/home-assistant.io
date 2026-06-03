@@ -57,10 +57,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple lights are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -69,7 +69,7 @@ behavior:
 
 - The trigger only fires when a light transitions from a known, valid state. Transitions from being unavailable (`unavailable`) or having an unknown state (`unknown`) to off do not count.
 - To react to the opposite transition, use [Light turned on](/triggers/light.turned_on/).
-- Pair this trigger with the `last` behavior to run something once every light in an area is off, like turning off the TV when every light in the living room has been switched off.
+- Pair this trigger with the `all` behavior to run something once every light in an area is off, like turning off the TV when every light in the living room has been switched off.
 
 {% include triggers/try_it.md %}
 
@@ -95,7 +95,7 @@ automation: |
       target:
         label_id: all_lights
       options:
-        behavior: last
+        behavior: all
   conditions:
     - condition: time
       after: "22:30:00"
@@ -126,7 +126,7 @@ automation: |
       target:
         area_id: living_room
       options:
-        behavior: last
+        behavior: all
   actions:
     - action: media_player.turn_off
       target:

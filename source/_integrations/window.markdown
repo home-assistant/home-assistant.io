@@ -42,7 +42,7 @@ automation: |
       target:
         entity_id: binary_sensor.kitchen_window
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: sun
@@ -76,7 +76,7 @@ automation: |
       target:
         entity_id: binary_sensor.bedroom_window
       options:
-        behavior: any
+        behavior: each
         for: "00:02:00"
   actions:
     - action: climate.set_hvac_mode

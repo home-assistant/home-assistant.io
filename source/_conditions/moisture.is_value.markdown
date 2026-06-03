@@ -119,8 +119,8 @@ behavior:
   description: |
     When multiple entities are targeted, controls how results combine:
 
-    - `any` (**Any** in the UI, default): passes if at least one targeted entity meets the threshold.
-    - `all` (**All** in the UI): passes only when every targeted entity meets the threshold.
+    - `any` (default): passes if at least one targeted entity meets the threshold.
+    - `all`: passes only when every targeted entity meets the threshold.
   required: false
   type: string
   default: any

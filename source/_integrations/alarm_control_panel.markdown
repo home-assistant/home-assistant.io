@@ -146,7 +146,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.home_alarm
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:
@@ -200,7 +200,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.home_alarm
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.notify
       data:

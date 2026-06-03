@@ -69,12 +69,12 @@ behavior:
   description: |
     When multiple light sensors are targeted, controls when the trigger fires:
 
-    - `any`: fires every time any targeted sensor stops detecting light.
+    - `each`: fires every time any targeted sensor stops detecting light.
     - `first`: fires only when the first sensor stops detecting light.
-    - `last`: fires only after every targeted sensor stops detecting light.
+    - `all`: fires only after every targeted sensor stops detecting light.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the sensor or sensors must remain dark before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.

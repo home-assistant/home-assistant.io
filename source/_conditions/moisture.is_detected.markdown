@@ -54,8 +54,8 @@ behavior:
   description: |
     When multiple moisture sensors are targeted, controls how results combine:
 
-    - `any` (**Any** in the UI, default): passes if at least one targeted sensor is detecting moisture.
-    - `all` (**All** in the UI): passes only when every targeted sensor is detecting moisture.
+    - `any` (default): passes if at least one targeted sensor is detecting moisture.
+    - `all`: passes only when every targeted sensor is detecting moisture.
   required: false
   type: string
   default: any

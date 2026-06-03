@@ -64,12 +64,12 @@ behavior:
   description: |
     When multiple moisture sensors are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted sensor stops detecting moisture.
-    - `first` (**First** in the UI): fires only when the first sensor stops detecting moisture.
-    - `last` (**All** in the UI): fires only after every targeted sensor stops detecting moisture.
+    - `each` (default): fires every time any targeted sensor stops detecting moisture.
+    - `first`: fires only when the first sensor stops detecting moisture.
+    - `all`: fires only after every targeted sensor stops detecting moisture.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the sensor or sensors must stay dry before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
   required: false
