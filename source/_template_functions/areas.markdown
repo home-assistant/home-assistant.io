@@ -9,10 +9,12 @@ return_type: list
 limited: true
 since: "2021.11"
 related_functions:
+  - area_devices
+  - area_entities
+  - area_humidity_sensor
   - area_id
   - area_name
-  - area_entities
-  - area_devices
+  - area_temperature_sensor
 ---
 
 The `areas` template function returns a list of all {% term area %} IDs in your Home Assistant instance. Each area you've created in Home Assistant has a unique ID, and this function gives you all of them.
