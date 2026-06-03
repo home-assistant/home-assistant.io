@@ -72,10 +72,11 @@ All messages lower than the specified level will be ignored in the logs.
 
 ### Logs
 
-It is possible to change logging severity for a specific component or integration:
+You can change logging severity for a specific component or integration.
+
+Example `configuration.yaml` entry:
 
 ```yaml
-# Example configuration.yaml entry
 logger:
   default: critical
   logs:
