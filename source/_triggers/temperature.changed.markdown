@@ -20,13 +20,18 @@ Use **Temperature changed** to log temperature trends, trigger heating or coolin
    sensor="temperature sensor"
    areas="bedroom or living room"
    unit_phrase_ui="a fixed temperature"
-   has_unit="true" %}
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options="°C or °F" %}
 
 ### Options in the UI
 
 {% include triggers/threshold_changed_options_ui.md
    unit_phrase_ui="a fixed temperature"
-   has_unit="true" %}
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options_code="`°C` or `°F`"
+   unit_default="°C" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -90,7 +95,12 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% include triggers/threshold_changed_options_yaml.md
    reading="temperature"
    unit_phrase_yaml="literal number"
-   has_unit="true" %}
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options_code="`°C` or `°F`"
+   unit_default="°C"
+   unit_example_entity="input_number.comfort_temperature_min"
+   unit_example_value="24" %}
 
 {% include triggers/targets.md %}
 

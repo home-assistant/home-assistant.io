@@ -2,13 +2,22 @@
 Reusable "Options in YAML" block for "crossed threshold" entity triggers that
 use the threshold-mapping schema. The `behavior` and `for` field descriptions
 are identical across the whole family. Suited to unitless members (humidity,
-brightness, battery); members with a temperature unit need an added
-unit_of_measurement note in the threshold description.
+brightness, battery); members with a unit (temperature, energy, etc.) get an
+added unit_of_measurement note in the threshold description.
 
 Parameters:
-  unit_phrase_yaml  literal-value phrasing, e.g. "literal percentage 0–100"
-  example_value     value used in the inline example (unitless members), e.g. "70"
-  has_unit          set (to anything) for the temperature unit note + a unit-style example
+  reading             quantity noun, e.g. "humidity", "temperature"
+  unit_phrase_yaml    literal-value phrasing, e.g. "literal percentage 0–100"
+  example_value       value used in the inline example (unitless members), e.g. "70"
+  has_unit            set (to anything) for unit_of_measurement note + a unit-style
+                      example (requires unit_label, unit_options_code, unit_default,
+                      unit_example_entity, unit_example_value)
+  unit_label          unit-kind label, e.g. "temperature unit", "energy unit"
+  unit_options_code   inline-code list of allowed units, e.g. "`°C` or `°F`"
+  unit_default        default unit used in the example, e.g. "°C"
+  unit_example_entity entity reference used in the example, e.g.
+                      "input_number.max_comfort_temperature"
+  unit_example_value  literal number used in the example, e.g. "18"
 {% endcomment %}
 {% options_yaml %}
 threshold:
@@ -22,7 +31,7 @@ threshold:
 
 {% if include.has_unit %}
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
+    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system {{ include.unit_label }} if the entity has no unit.
 
     For example:
 
@@ -30,13 +39,13 @@ threshold:
     threshold:
       type: between
       value_min:
-        number: 18
-        unit_of_measurement: °C
+        number: {{ include.unit_example_value }}
+        unit_of_measurement: {{ include.unit_default }}
       value_max:
-        entity: input_number.max_comfort_temperature
+        entity: {{ include.unit_example_entity }}
     ```
 
-    A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two temperature readings dynamically.
+    A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two {{ include.reading }} readings dynamically.
 {% else %}
 
     For example:

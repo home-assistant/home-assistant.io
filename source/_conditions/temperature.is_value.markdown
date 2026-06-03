@@ -19,14 +19,19 @@ When you target more than one entity, the condition's **Condition passes if** op
    areas="bedroom or living room"
    reading="temperature"
    value_long="a fixed temperature directly, for example `20` for 20°C"
-   has_unit="true" %}
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options="°C or °F" %}
 
 ### Options in the UI
 
 {% include conditions/threshold_value_options_ui.md
    reading="temperature"
    value_short="a fixed temperature value"
-   has_unit="true" %}
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options_code="`°C` or `°F`"
+   unit_default="°C" %}
 
 {% include conditions/yaml_header.md %}
 
@@ -92,6 +97,9 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
 {% include conditions/threshold_value_options_yaml.md
    reading="temperature"
    has_unit="true"
+   unit_default="°C"
+   unit_example_entity="input_number.comfort_temperature_min"
+   unit_example_value="22"
    threshold_required="true" %}
 
 {% include conditions/targets.md %}

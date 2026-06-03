@@ -9,7 +9,9 @@ Parameters:
   sensor          sensor noun, e.g. "humidity sensor"
   areas           example areas, e.g. "bathroom or bedroom"
   unit_phrase_ui  value-entry phrasing, e.g. "a fixed percentage (0–100%)"
-  has_unit        set (to anything) to add a "Unit" step for the temperature unit
+  has_unit        set (to anything) to add a "Unit" step (requires unit_label, unit_options)
+  unit_label      unit-kind label, e.g. "temperature unit", "energy unit"
+  unit_options    bare list of allowed units for prose, e.g. "°C or °F"
 {% endcomment %}
 To use **{{ include.title }}** in an automation:
 
@@ -26,6 +28,6 @@ To use **{{ include.title }}** in an automation:
    - For each option, you can enter {{ include.unit_phrase_ui }}, pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
      - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 {%- if include.has_unit %}
-7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
+7. Under **Unit**, select the {{ include.unit_label }} ({{ include.unit_options }}) to use for the threshold comparison.
 {%- endif %}
 8. Select **Save**.

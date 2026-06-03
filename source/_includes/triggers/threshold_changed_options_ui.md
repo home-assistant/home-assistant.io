@@ -3,8 +3,12 @@ Reusable "Options in the UI" block for "changed" entity triggers that use the
 threshold-mapping schema.
 
 Parameters:
-  unit_phrase_ui  value-entry phrasing, e.g. "a fixed percentage (0–100%)"
-  has_unit        set (to anything) to add a "Unit" row for the temperature unit
+  unit_phrase_ui     value-entry phrasing, e.g. "a fixed percentage (0–100%)"
+  has_unit           set (to anything) to add a "Unit" row (requires unit_label,
+                     unit_options_code, unit_default)
+  unit_label         unit-kind label, e.g. "temperature unit", "energy unit"
+  unit_options_code  inline-code list of allowed units, e.g. "`°C` or `°F`"
+  unit_default       default unit, e.g. "°C"
 {% endcomment %}
 {% options_ui %}
 Threshold type:
@@ -19,6 +23,6 @@ Threshold type:
     For each mode you can enter {{ include.unit_phrase_ui }} or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% if include.has_unit %}
 Unit:
-  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references). Default is `°C`.
+  description: The {{ include.unit_label }} to use for threshold comparison. Accepts {{ include.unit_options_code }}. Required when using numerical thresholds (not required when using entity references). Default is `{{ include.unit_default }}`.
 {% endif %}
 {% endoptions_ui %}

@@ -5,12 +5,14 @@ range). Used by humidity.is_value; reusable by climate.target_humidity,
 light.is_brightness, counter.is_value, and similar.
 
 Parameters:
-  title       UI display name, e.g. "Relative humidity"
-  sensor      sensor noun, e.g. "humidity sensor"
-  areas       example areas, e.g. "bedroom or bathroom"
-  reading     quantity noun, e.g. "humidity"
-  value_long  Number-entry phrasing, e.g. "a fixed percentage directly, for example `65` for 65%"
-  has_unit    set (to anything) to add a "Unit" step for the temperature unit
+  title         UI display name, e.g. "Relative humidity"
+  sensor        sensor noun, e.g. "humidity sensor"
+  areas         example areas, e.g. "bedroom or bathroom"
+  reading       quantity noun, e.g. "humidity"
+  value_long    Number-entry phrasing, e.g. "a fixed percentage directly, for example `65` for 65%"
+  has_unit      set (to anything) to add a "Unit" step (requires unit_label, unit_options)
+  unit_label    unit-kind label, e.g. "temperature unit", "energy unit"
+  unit_options  bare list of allowed units for prose, e.g. "°C or °F"
 {% endcomment %}
 To use **{{ include.title }}** in an automation:
 
@@ -29,7 +31,7 @@ To use **{{ include.title }}** in an automation:
         - For **In range** or **Outside range**, you need two entities: one for the lower bound and one for the upper bound (for example, two separate number helpers).
         - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 {%- if include.has_unit %}
-7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
+7. Under **Unit**, select the {{ include.unit_label }} ({{ include.unit_options }}) to use for the threshold comparison.
 {%- endif %}
 8. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 9. Select **Save**.

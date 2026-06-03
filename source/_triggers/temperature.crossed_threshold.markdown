@@ -22,13 +22,18 @@ When you target more than one entity, the trigger's **Trigger when** option cont
    sensor="temperature sensor"
    areas="bedroom or living room"
    unit_phrase_ui="a fixed temperature"
-   has_unit="true" %}
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options="°C or °F" %}
 
 ### Options in the UI
 
 {% include triggers/threshold_crossed_options_ui.md
    unit_phrase_ui="a fixed temperature"
-   has_unit="true" %}
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options_code="`°C` or `°F`"
+   unit_default="°C" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -75,8 +80,14 @@ trigger: |
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% include triggers/threshold_crossed_options_yaml.md
+   reading="temperature"
    unit_phrase_yaml="literal number"
-   has_unit="true" %}
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options_code="`°C` or `°F`"
+   unit_default="°C"
+   unit_example_entity="input_number.max_comfort_temperature"
+   unit_example_value="18" %}
 
 {% include triggers/targets.md %}
 

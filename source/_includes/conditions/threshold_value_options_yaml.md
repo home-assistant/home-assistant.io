@@ -2,14 +2,19 @@
 Reusable "Options in YAML" block for entity conditions that test a reading
 against the threshold-mapping schema. The `behavior` description is shared
 across the family. Unitless members (humidity, brightness, counter) get the
-per-type "Provide value..." guidance; members with a temperature unit get the
-unit_of_measurement guidance and a unit-style example instead.
+per-type "Provide value..." guidance; members with a unit (temperature, energy,
+etc.) get the unit_of_measurement guidance and a unit-style example instead.
 
 Parameters:
-  reading             quantity noun, e.g. "humidity"
+  reading             quantity noun, e.g. "humidity", "temperature"
   range_note          parenthetical range for above/below (unitless), e.g. "0–100"
   number_final        closing number guidance (unitless), e.g. "a percentage value (0–100)"
-  has_unit            set (to anything) for temperature unit_of_measurement guidance + example
+  has_unit            set (to anything) for unit_of_measurement guidance + example
+                      (requires unit_default, unit_example_entity, unit_example_value)
+  unit_default        default unit used in the example, e.g. "°C"
+  unit_example_entity entity reference used in the example, e.g.
+                      "input_number.comfort_temperature_min"
+  unit_example_value  literal number used in the example, e.g. "22"
   threshold_required  "true" or "false" for the threshold field (default "false")
 {% endcomment %}
 {% options_yaml %}
@@ -29,13 +34,13 @@ threshold:
     threshold:
       type: between
       value_min:
-        entity: input_number.comfort_temperature_min
+        entity: {{ include.unit_example_entity }}
       value_max:
-        number: 22
-        unit_of_measurement: °C
+        number: {{ include.unit_example_value }}
+        unit_of_measurement: {{ include.unit_default }}
     ```
 
-    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two temperature readings dynamically.
+    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two {{ include.reading }} readings dynamically.
 {% else %}
 
     For the `number` key, use {{ include.number_final }}. For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
