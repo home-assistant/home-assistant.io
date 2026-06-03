@@ -67,11 +67,11 @@ availability_template:
   required: false
   type: template
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `command_topic`. Available variables for templating are `timings`: a list of integers that represent the microseconds a pulse is on (positive int) and off (negative int), `modulation`: the modulation frequency for the signal and `repeat_count`: the number of times the signal sequence is to be repeated. The signal data is derived from the commands that are provided via the [infrared protocols](https://github.com/home-assistant-libs/infrared-protocols) library.
+  description: "Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `command_topic`. Available variables for templating are `timings`, a list of integers that represent the microseconds a pulse is on (positive int) and off (negative int), `modulation`, the modulation frequency for the signal and `repeat_count`, the number of times the signal sequence is to be repeated. The signal data is derived from the commands that are provided via the [infrared protocols](https://github.com/home-assistant-libs/infrared-protocols) library."
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish the an MQTT signal payload. Without a `command_template` defined, a JSON payload will be published when an infrared command is issued.
+  description: "The MQTT topic to publish the MQTT signal payload. Without a `command_template` defined, a [JSON payload](#infrared-signal-schema) will be published when an infrared command is issued."
   required: true
   type: string
 default_entity_id:
@@ -384,7 +384,7 @@ schema:
   required: true
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive a JSON with `timings` and `modulation` as required attributes. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz."
+  description: "The MQTT topic subscribed to receive a [JSON payload](#infrared-signal-schema) with `timings` and `modulation` as required attributes. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz."
   required: false
   type: string
 unique_id:
