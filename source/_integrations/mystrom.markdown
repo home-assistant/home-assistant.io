@@ -21,6 +21,7 @@ ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_dhcp: true
 ---
 
 There is currently support for the following device types within Home Assistant:

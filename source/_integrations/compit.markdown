@@ -569,6 +569,18 @@ Number entities let you set **default** temperature setpoints and other configur
   - **Options**: Schedule, Manual, Disabled
   - **Available for devices**: R480 (Heat pump controller)
 
+### Switches
+
+Switch entities let you turn device modes and features on or off.
+
+- **Device on/off**
+  - **Description**: Turns the device on or off.
+  - **Available for devices**: EL750 (Electric boiler controller)
+
+- **Force domestic hot water**
+  - **Description**: Forces domestic hot water production.
+  - **Available for devices**: R900 (Heat pump controller)
+
 ### Water heaters
 
 - **Water heater**

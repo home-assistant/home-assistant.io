@@ -4,7 +4,8 @@ description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
   - Button
-  - Notify
+  - Media Player
+  - Notifications
   - Select
   - Sensor
   - Switch
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - media_player
   - notify
   - select
   - sensor
@@ -46,7 +48,7 @@ There is support for the following device families within Home Assistant:
 
 {% warning %}
 
-This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
 You must ensure the authenticator app is setup as your preferred method for 2FA.
 
@@ -105,7 +107,7 @@ The `alexa_devices.send_text_command` action allows you to control Alexa using t
 The `alexa_devices.send_sound` action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
 
 {%tip%}
-Additional sounds are available through advanced markup using the `notify.send_message` [action](#action-notifysend_message)
+Additional sounds are available through advanced markup using the `notify.send_message` [action](#action-send-message)
 {%endtip%}
 
 | Data attribute | Optional | Description |
@@ -148,6 +150,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 In addition to sensors, you can use the following entities:
 
 - **Button** - Execute Alexa routines
+- **Media Player** - Play audio/video from several sources
 - **Notify** - Speak and Announce notifications
 - **Select** - Select default device
 - **Switch** - Do not disturb
@@ -169,7 +172,7 @@ automation:
       data:
         message: Welcome home Simone
       target:
-        entity_id: notify.echo_dot_livingroom_announce
+        entity_id: notify.echo_dot_living_room_announce
 ```
 
 ### Ask the time
@@ -256,7 +259,7 @@ This integration {% term polling polls %} data from the device every five minute
 
 ## Known limitations
 
-- This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+- This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
 - [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
 

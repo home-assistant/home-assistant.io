@@ -75,12 +75,6 @@ You can show a static image with this platform. Just place the image here: `/con
 
 - Still Image URL: `https://127.0.0.1:8123/local/your_image.png`
 
-### Sharing a camera feed from one Home Assistant instance to another
-
-If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](https://developers.home-assistant.io/docs/api/rest/#get-apicamera_proxycameraentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
-
-- Still Image URL: `https://127.0.0.5:8123/api/camera_proxy/camera.live_view`
-
 ### Image from HTTP only camera
 
 To access a camera which is only available via HTTP, you must turn off SSL verification.
