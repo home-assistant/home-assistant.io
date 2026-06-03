@@ -31,7 +31,7 @@ API key:
 
 ## Prerequisites
 
-You need a running [LiteLLM proxy](https://docs.litellm.ai/docs/simple_proxy) that is reachable from your Home Assistant instance, with at least one model configured. The proxy exposes the available models through its `/model/info` (or `/models`) endpoint, which the integration uses to populate the model selection.
+You need a running [LiteLLM proxy](https://docs.litellm.ai/docs/simple_proxy) that is reachable from your Home Assistant instance, with at least one model configured. The integration discovers the available models from the proxy during setup.
 
 ## Supported functionality
 
