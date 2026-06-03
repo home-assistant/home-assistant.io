@@ -694,6 +694,10 @@ The configuration consists of two steps:
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
+### Simon 24 GO CONTROL B (NENB1W.01)
+
+This integration does not add direct support for Simon 24 GO Control B device. It is however possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge between the device and Home Assistant, the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
+
 ## "BleBox inside" - Simon 54 GO
 
 Simon 54 GO is a range of wall switches and accessories with integrated BleBox Wi-Fi modules. The full product range is available in the [Simon 54 GO catalog](https://www.kontakt-simon.com.pl/pl/Katalog/1252/).
@@ -801,6 +805,10 @@ The configuration consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+### Simon 54 GO CONTROL B (DENB1W.01)
+
+This integration does not add direct support for Simon 54 GO Control B device. It is however possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge between the device and Home Assistant, the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
 
 ## "BleBox inside" - Simon 55 GO
 
@@ -929,6 +937,10 @@ The configuration consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+### Simon 55 GO CONTROL B (TENB1W.01)
+
+This integration does not add direct support for Simon 55 GO Control B device. It is however possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge between the device and Home Assistant, the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
 
 ## "BleBox inside" - other manufacturers
 
