@@ -11,9 +11,11 @@ limited: true
 since: "2021.11"
 related_functions:
   - area_entities
-  - areas
+  - area_humidity_sensor
   - area_id
   - area_name
+  - area_temperature_sensor
+  - areas
 ---
 
 The `area_devices` template function returns a list of device IDs that belong to a given {% term area %}. You can specify the area by its name or by its internal ID. While [`area_entities`](/template-functions/area_entities/) gives you individual {% term entity %} IDs, `area_devices` gives you the {% term devices %} themselves.

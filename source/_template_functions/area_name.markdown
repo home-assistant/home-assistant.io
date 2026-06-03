@@ -10,9 +10,11 @@ return_type: string
 limited: false
 since: "2021.11"
 related_functions:
-  - area_id
-  - area_entities
   - area_devices
+  - area_entities
+  - area_humidity_sensor
+  - area_id
+  - area_temperature_sensor
   - areas
 ---
 
