@@ -202,14 +202,17 @@ unique_id:
 
 The device_tracker can be created via publishing to a discovery topic that follows the following [MQTT Discovery](/integrations/mqtt/#mqtt-discovery#discovery-topic) topic name format: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
 
-If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (that is, `json_attributes_topic`) in the configuration payload:
+You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
-- Attributes topic: `homeassistant/device_tracker/a4567d663eaf/location_attrs`
-- Example attributes payload:
+To create the device_tracker:
 
-Device tracker can link to a zone with:
+```bash
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "homeassistant/device_tracker/a4567d663eaf/location_attrs", "name": "My Tracker"}'
+```
 
-1. Use GPS based coordinates
+An MQTT device tracker can link to a zone with:
+
+1. GPS based coordinates
 2. A list of zones (either zone entity IDs, object IDs or names) the device tracker is linked to.
 
 Example message with GPS based coordinates to be received at topic `homeassistant/device_tracker/a4567d663eaf/location_attrs`:
@@ -230,25 +233,21 @@ Example message with GPS based coordinates to be received at topic `homeassistan
 }
 ```
 
-You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
-
-To create the device_tracker with GPS coordinates support:
-
-```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "homeassistant/device_tracker/a4567d663eaf/location_attrs", "name": "My Tracker"}'
-```
-
 To set the state of the device tracker to specific coordinates:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/attributes -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
 ```
 
+To set the state of the device tracker with linked zones:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/attributes -m '{"in_zones": ["home"]}'
+```
 
 ### YAML configuration
 
 The following example shows how to configure the same device tracker through configuration.yaml
-
 
 ```yaml
 # Example configuration.yaml entry
@@ -257,4 +256,3 @@ mqtt:
       name: "My Tracker"
       json_attributes_topic: "a4567d663eaf/location_attrs"
 ```
-
