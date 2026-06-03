@@ -78,7 +78,7 @@ output: "50"
 
 ### Get the humidity in each room
 
-Iterate over all areas using [`areas`](/template-functions/areas/), filter for areas without a humidity sensor, and then get an area's name using [`area_name`](/template-functions/area_name/).
+Iterate over all areas using [`areas`](/template-functions/areas/), filter out areas without a humidity sensor, and then get an area's name using [`area_name`](/template-functions/area_name/).
 
 {% example %}
 template: |
