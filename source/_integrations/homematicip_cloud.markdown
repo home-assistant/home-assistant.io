@@ -358,7 +358,7 @@ actions:
 Devices with physical buttons expose an event entity per button channel. You can use these to trigger automations on a short press, a long press start, or a long press stop.
 
 {% important %}
-If a button is directly paired to an actuator inside the Homematic IP app (called *Direktverknüpfung* in the German app), the cloud doesn't see the press, so Home Assistant can't react to it either. To use the button in Home Assistant, either remove the direct pairing in the Homematic IP app, or add an automation in the Homematic IP app that references the button. The cloud then forwards the press to Home Assistant.
+If a button is directly paired to an actuator inside the Homematic IP app (*Direct Device Connection*, called *Direktverknüpfung* in the German app), the cloud doesn't see the press, so Home Assistant can't react to it either. To use the button in Home Assistant, either remove the direct pairing in the Homematic IP app, or add an automation in the Homematic IP app that references the button. The cloud then forwards the press to Home Assistant.
 {% endimportant %}
 
 {% note %}
@@ -367,7 +367,7 @@ The cloud doesn't deliver a dedicated double-press event. A double-press arrives
 
 ### Trigger an action on a short press
 
-```yaml
+{% example %}
 automation:
   - alias: "Toggle living room light on button 3 short press"
     triggers:
@@ -379,13 +379,13 @@ automation:
       - action: light.toggle
         target:
           entity_id: light.living_room
-```
+{% endexample %}
 
 ### Trigger an action on a double press
 
 The cloud delivers a double press as two consecutive `short_press` events. Use `wait_for_trigger` with a short timeout to detect the second press:
 
-```yaml
+{% example %}
 automation:
   - alias: "Activate movie scene on button 3 double press"
     triggers:
@@ -404,13 +404,13 @@ automation:
       - action: scene.turn_on
         target:
           entity_id: scene.movie_night
-```
+{% endexample %}
 
 ### Dim a light while holding a button
 
 The button reports `long_press_start` when held and `long_press_stop` when released. Use a `repeat` loop that keeps dimming until the release event fires:
 
-```yaml
+{% example %}
 automation:
   - alias: "Dim living room while holding button 3"
     triggers:
@@ -432,4 +432,4 @@ automation:
               entity_id: event.wandtaster_6_fach_button_3
               attribute: event_type
               state: long_press_start
-```
+{% endexample %}
