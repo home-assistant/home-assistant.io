@@ -353,18 +353,83 @@ actions:
       accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
 
-## Additional info
+## Button events
 
-Push button devices are only available with a battery sensor. This is due to a limitation of the vendor API (eq3).
-It's not possible to detect a key press event on these devices at the moment.
+Devices with physical buttons expose an event entity per button channel. You can use these to trigger automations on a short release, a long press, or a long release.
 
-  - Remote Control - 8x buttons (*HmIP-RC8*)
-  - Wall-mount Remote Control for brand switches - 2x buttons (*HmIP-BRC2*)
-  - Motion Detector for 55mm frames - indoor (HmIP-SMI55)(Push button)
-  - Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*)
-  - Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*)
-  - Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*)
-  - Key Ring Remote Control - 4x buttons (*HmIP-KRC4*)
-  - Key Ring Remote Control - alarm  (*HmIP-KRCA*)
-  - Wall-mount Remote Control – flat (*HmIP-WRCC2*)
-  - Rotary Button (*HmIP-WRCR*)
+{% important %}
+If a button is directly paired to an actuator inside the Homematic IP app (*Direct Device Connection*, called *Direktverknüpfung* in the German app), the cloud doesn't see the press, so Home Assistant can't react to it either. To use the button in Home Assistant, either remove the direct pairing in the Homematic IP app, or add an automation in the Homematic IP app that references the button. The cloud then forwards the press to Home Assistant.
+{% endimportant %}
+
+{% note %}
+The cloud doesn't deliver a dedicated double-press event. A double-press arrives as two consecutive `short_release` events, so double-press automations are built on top of the same event entity, as shown below.
+{% endnote %}
+
+### Trigger an action on a short release
+
+{% example %}
+automation:
+  - alias: "Toggle living room light on button 3 short release"
+    triggers:
+      - trigger: state
+        entity_id: event.wandtaster_6_fach_button_3
+        attribute: event_type
+        to: short_release
+    actions:
+      - action: light.toggle
+        target:
+          entity_id: light.living_room
+{% endexample %}
+
+### Trigger an action on a double press
+
+The cloud delivers a double press as two consecutive `short_release` events. Use `wait_for_trigger` with a short timeout to detect the second press:
+
+{% example %}
+automation:
+  - alias: "Activate movie scene on button 3 double press"
+    triggers:
+      - trigger: state
+        entity_id: event.wandtaster_6_fach_button_3
+        attribute: event_type
+        to: short_release
+    actions:
+      - wait_for_trigger:
+          - trigger: state
+            entity_id: event.wandtaster_6_fach_button_3
+            attribute: event_type
+            to: short_release
+        timeout: "00:00:00.500"
+        continue_on_timeout: false
+      - action: scene.turn_on
+        target:
+          entity_id: scene.movie_night
+{% endexample %}
+
+### Dim a light while holding a button
+
+The button reports `long_press` when held and `long_release` when released. Use a `repeat` loop that keeps dimming until the release event fires:
+
+{% example %}
+automation:
+  - alias: "Dim living room while holding button 3"
+    triggers:
+      - trigger: state
+        entity_id: event.wandtaster_6_fach_button_3
+        attribute: event_type
+        to: long_press
+    actions:
+      - repeat:
+          sequence:
+            - action: light.turn_on
+              target:
+                entity_id: light.living_room
+              data:
+                brightness_step_pct: -5
+            - delay: "00:00:00.200"
+          while:
+            - condition: state
+              entity_id: event.wandtaster_6_fach_button_3
+              attribute: event_type
+              state: long_press
+{% endexample %}
