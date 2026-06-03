@@ -84,7 +84,7 @@ Iterate over all areas using [`areas`](/template-functions/areas/), filter out a
 template: |
   {%- for area in areas() %}
     {%- set humidity_sensor = area | area_humidity_sensor %}
-    {%- if humidity_sensor != None %}
+    {%- if humidity_sensor is not none %}
   {{ area | area_name }}: {{ humidity_sensor | states }}
     {%- endif %}
   {%- endfor %}
