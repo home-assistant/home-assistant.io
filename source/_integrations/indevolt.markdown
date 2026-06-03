@@ -220,7 +220,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 - Energy mode can only be set when the device is not in "Outdoor / Portable"-mode (BK1600 / BK1600 Ultra).
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
-- The inverter temperature only shows when the inverter is actve (BK1600 / BK1600 Ultra).
+- The inverter temperature only shows when the inverter is active (BK1600 / BK1600 Ultra).
 - The SolidFlex 1200 identifies itself as a SolidFlex 2000 device.
 
 ## Troubleshooting
