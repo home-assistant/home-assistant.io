@@ -72,6 +72,12 @@ Overview of the info dialog:
 <img src='/images/screenshots/frontier_silicon_info_dialog.png' />
 </p>
 
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Notes and Limitations
 
 {% warning %}
