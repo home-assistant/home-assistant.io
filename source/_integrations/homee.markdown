@@ -81,6 +81,10 @@ A list of known devices and their status can be found in the [old custom integra
 No unsupported devices are currently known.
 If you think a device is not correctly supported, see [below](#homee-device-not-working-as-expected).
 
+## Unsupported devices
+
+Commands of the "Warema WMS Handsender" remote controls are not passed to the external API by the homee cube. Therefore these devices show up in Home Assistant, but have now function.
+
 ## Limitations
 
 Changed values are reported from homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.
