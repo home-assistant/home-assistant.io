@@ -15,7 +15,13 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com/) using your App ID and App secret. Devices linked to your platform account are discovered automatically, and supported actions are exposed as **button** entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com/) using your App ID and App secret. Devices linked to your platform account are discovered automatically, and supported actions are exposed as button entities in Home Assistant.
+
+## Supported devices
+
+The integration supports Imou devices that are already added to your Imou Open Platform account and reported by the cloud API. Supported button entities depend on each device type (for example, PTZ controls are only created when the device supports PTZ).
+
+Add or remove devices in the Imou Open Platform or Imou app; new devices are picked up on the next data refresh.
 
 ## Prerequisites
 
@@ -56,15 +62,9 @@ Imou Open Platform API usage limits apply to your App ID:
 2. API endpoints are split by region. Select the matching **Server region** during setup. For details, see the [development specification](https://open.imoulife.com/book/http/develop.html).
 3. For additional API documentation, see the HTTP interface section in the [development documentation](https://open.imoulife.com/book/en).
 
-## Supported devices
-
-The integration supports Imou devices that are already added to your Imou Open Platform account and reported by the cloud API. Supported **button** entities depend on each device type (for example, PTZ controls are only created when the device supports PTZ).
-
-Add or remove devices in the Imou Open Platform or Imou app; new devices are picked up on the next data refresh.
-
 ## Supported functionality
 
-The integration exposes **button** entities when the cloud API reports that the action is supported for a device:
+The integration exposes button entities when the cloud API reports that the action is supported for a device:
 
 ### Buttons
 
@@ -75,12 +75,6 @@ The integration exposes **button** entities when the cloud API reports that the 
 ## Data updates
 
 The integration {% term polling polls %} Imou cloud APIs every 2 minutes to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Security and privacy considerations
 
@@ -99,3 +93,9 @@ The integration polls the platform regularly to discover devices and refresh onl
 ### A button is unavailable
 
 Buttons are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
