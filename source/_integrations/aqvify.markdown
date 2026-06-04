@@ -1,6 +1,6 @@
 ---
 title: Aqvify
-description: Instructions on how to setup Aqvify devices within Home Assistant.
+description: Instructions on how to set up Aqvify devices within Home Assistant.
 ha_category:
   - Sensor
 ha_release: 2026.7
@@ -28,7 +28,7 @@ The **Aqvify** {% term integration %} allows users to integrate their [Aqvify](h
 
 ## Supported sensors
 
-There is currently support for the sensor measuring well water level.
+There is currently support for sensors measuring well water level from different perspectives. Please refer to documentation from Aqvify for the exact interpretation of the values.
 
 {% include integrations/config_flow.md %}
 
