@@ -7,7 +7,7 @@ description: "Triggers after the selected option of one or more dropdowns change
 
 The **Selection changed** trigger fires after the selected option of a dropdown {% term entity %} changes. It works with both **Select** entities provided by integrations and the **Dropdown helper** ("input_select") you create yourself. Use it to react when someone switches modes, scenes, presets, or any other choice you have set up as a dropdown.
 
-This trigger fires on any change of the selected option. To run only when the dropdown is set to a specific option, combine it with the [Option is selected](/conditions/select.is_option_selected/) condition.
+This trigger fires when the selected option changes from one valid option to another. To run only when the dropdown is set to a specific option, combine it with the [Option is selected](/conditions/select.is_option_selected/) condition.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -20,25 +20,7 @@ To use **Selection changed** in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the dropdown entity you want to watch. You can also select an area, a device, or a label.
 5. From the triggers shown for that target, select **Selection changed**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple dropdowns are targeted.
-7. Under **For at least**, set how long the dropdown must stay on the new option before the trigger fires. Leave it at zero to fire immediately.
-8. Select **Save**.
-
-### Options in the UI
-
-{% options_ui %}
-Trigger when:
-  description: |
-    When multiple dropdowns are targeted, controls when the trigger fires:
-
-    - **Each** (default): fires every time any targeted dropdown changes.
-    - **First**: fires only on the first change.
-    - **All**: fires only after every targeted dropdown has changed.
-  required: false
-For at least:
-  description: How long the dropdown must stay on the new option before the trigger fires. The default is `0` (fires immediately).
-  required: false
-{% endoptions_ui %}
+6. Select **Save**.
 
 {% include triggers/yaml_header.md %}
 
@@ -53,35 +35,13 @@ trigger: |
 
 This fires every time the selected option of the washing machine program dropdown changes.
 
-### Options in YAML
-
-{% options_yaml %}
-behavior:
-  description: |
-    When multiple dropdowns are targeted, controls when the trigger fires:
-
-    - `any` (**Each** in the UI, default): fires every time any targeted dropdown changes.
-    - `first` (**First** in the UI): fires only on the first change.
-    - `last` (**All** in the UI): fires only after every targeted dropdown has changed.
-  required: false
-  type: string
-  default: any
-for:
-  description: How long the dropdown must stay on the new option before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
-  required: false
-  type: string
-  default: "00:00:00"
-{% endoptions_yaml %}
-
 {% include triggers/targets.md %}
-
-{% include triggers/behavior.md %}
 
 ## Good to know
 
 - This trigger works with both **Select** entities provided by integrations (domain `select`) and **Dropdown helpers** you create yourself (domain `input_select`).
 - The trigger does not filter by which option was selected. To run only on a specific option, add an [Option is selected](/conditions/select.is_option_selected/) condition, or use a [State trigger](/docs/automation/trigger/#state-trigger) with the `to` option.
-- Changes from `unknown` or `unavailable` to a real option also count as a selection change.
+- The trigger only fires when switching between two valid options. It does not fire when the dropdown becomes `unknown` or `unavailable`, or when it changes from `unknown` or `unavailable` to a valid option. To react to those cases, use a [State trigger](/docs/automation/trigger/#state-trigger).
 
 {% include triggers/try_it.md %}
 
