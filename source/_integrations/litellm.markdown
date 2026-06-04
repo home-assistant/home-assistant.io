@@ -4,7 +4,7 @@ description: Instructions on how to integrate LiteLLM as a conversation agent
 ha_category:
   - AI
 ha_release: 2026.7
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@luismalves'
