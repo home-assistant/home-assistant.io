@@ -28,8 +28,8 @@ Add or remove devices in the Imou Open Platform or Imou app; new devices are pic
 Before using the Imou integration, create an Imou Open Platform application:
 
 1. Visit [Imou Open Platform](https://open.imoulife.com/).
-2. Register or log in to your Imou account, then open the **control board**.
-3. Complete **App Information** to obtain an **App ID** and **App secret**.
+2. Register or log in to your Imou account, then open the **Control board**.
+3. Go to **App Information** to obtain an **App ID** and **App secret**.
 4. Add your Imou devices in the Imou Open Platform or Imou mobile app so they appear on your account.
 
 ## Configuration
