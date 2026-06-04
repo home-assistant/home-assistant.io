@@ -44,7 +44,7 @@ The **Samsung Infrared** integration provides the following entities.
 ### Buttons
 
 - **Power**: Toggles the TV power state.
-- **Source**: Opens the input source selection menu
+- **Source**: Cycles through input sources, including TV, HDMI 1 to HDMI 4, USB drives, DLNA devices, and other available sources.
 - **Settings**: Opens the TV settings menu.
 - **Info**: Displays program information.
 - **Exit**: Exits the current menu or app.
@@ -65,7 +65,7 @@ The **Samsung Infrared** integration provides the following entities.
 
 ### Media player
 
-- **Samsung TV**: Represents the Samsung TV and allows you to control it via IR commands. Supported features include turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, and stop.
+- **Samsung TV**: Represents the Samsung TV and allows you to control it via IR commands. Supported features include turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, stop, and source selection (TV, HDMI 1, HDMI 2, HDMI 3, HDMI 4).
 
 ## Known limitations
 
