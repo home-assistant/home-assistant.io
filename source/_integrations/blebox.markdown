@@ -471,6 +471,20 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of illuminance (unit: lx)
 
+### openSensor
+
+This integration adds the Blebox device as a sensor entity and a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of open status (2 or 3 statuses depending on configuration)
+- Periodic read of open/closed state (binary sensor)
+
+#### Additional features
+
+- An option to change the detection mode is available in the wBox app.
+- After changing settings, the device needs to be reloaded.
+
 ### smartMeter DIN
 
 This integration adds the Blebox device as multiple sensor entities to Home Assistant.
@@ -1102,6 +1116,20 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to configure the number of phases (1 or 3) is available in the wBox app.
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
+
+### Drutex SmartWindow
+
+This integration adds the Drutex device ("blebox inside") as a sensor entity and a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of open status (from 2 to 5 statuses depending on configuration)
+- Periodic read of open/closed state (binary sensor)
+
+#### Additional features
+
+- An option to change the detection mode is available in the wBox app.
+- After changing settings, the device needs to be reloaded.
 
 ## Examples
 
