@@ -2,6 +2,7 @@
 title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
 ha_category:
+  - Light
   - Button
   - Number
   - Sensor
@@ -12,6 +13,7 @@ ha_codeowners:
   - "@fdebrus"
 ha_domain: vistapool
 ha_platforms:
+  - light
   - button
   - number
   - sensor
@@ -132,6 +134,12 @@ The integration provides the following sensors:
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+
+## Light
+
+The integration exposes the pool light wired through the controller as a standard Home Assistant {% term entity %}, so you can switch it from any dashboard, voice assistant, or automation. The controller treats the light as a simple on/off output. Brightness and color are not reported by the API and aren't exposed.
+
+- **Pool light**: turn the pool light on or off.
 
 ### Numbers
 
