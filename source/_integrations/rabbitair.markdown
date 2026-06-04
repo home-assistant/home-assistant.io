@@ -3,6 +3,7 @@ title: Rabbit Air
 description: Instructions on how to integrate Rabbit Air air purifier within Home Assistant.
 ha_category:
   - Fan
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 2024.2
 ha_codeowners:
@@ -12,6 +13,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - fan
+  - sensor
 ha_integration_type: device
 ---
 
@@ -20,7 +22,7 @@ The **Rabbit Air** {% term integration %} lets you control your air purifier ove
 - MinusA2 (2-nd generation)
 - A3
 
-The fan platform of this integration allows you to turn the unit on/off, select the preset mode, or set the speed manually.
+The fan platform of this integration allows you to turn the unit on/off, select the preset mode, or set the speed manually. The sensor platform provides the current air quality reported by the device.
 
 ## Prerequisites
 
