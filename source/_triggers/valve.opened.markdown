@@ -62,12 +62,12 @@ behavior:
   description: |
     When multiple valves are targeted, controls when the trigger fires:
     
-    - `any`: fires every time any targeted valve opens.
+    - `each`: fires every time any targeted valve opens.
     - `first`: fires only when the first valve in the group opens.
-    - `last`: fires only after every targeted valve is open.
+    - `all`: fires only after every targeted valve is open.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the valve must stay open before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:30` fires only after the valve has stayed open for 30 seconds, which helps ignore brief or accidental openings.

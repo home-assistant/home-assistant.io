@@ -146,6 +146,16 @@ ESPHome devices can call any [Home Assistant Action](https://esphome.io/componen
 
 The [Native API Component](https://esphome.io/components/api/) also supports sending tag scan events to Home Assistant. See the [homeassistant.tag_scanned Action](https://esphome.io/components/api/#homeassistanttag_scanned-action) for more information.
 
+### Bluetooth proxy scanning mode
+
+For ESPHome devices running the [Bluetooth proxy](https://esphome.io/components/bluetooth_proxy/) on a recent firmware, you can choose how the proxy scans for Bluetooth devices. The default is **Auto**, which is recommended for most setups. To change it, open the device in {% my integrations title="**Settings** > **Devices & services**" %}, select **Configure**, and pick a **Bluetooth scanning mode**:
+
+- **Auto**: Listens passively most of the time and only briefly switches to active scanning when a device or integration needs more details. Compared to running continuously active, this saves around 95 to 96 percent of the scan-related battery drain on your Bluetooth devices while still discovering devices and updates quickly.
+- **Active**: Continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you.
+- **Passive**: Only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work.
+
+The first time Home Assistant connects to a proxy, the device's YAML mode is honored if it was set to passive; otherwise the proxy starts in **Auto**. After that, the choice saved in Home Assistant takes ownership of the running mode and changing `bluetooth_proxy:` `mode:` in the device YAML no longer affects the running mode.
+
 ## Entity naming and IDs
 
 - Entity name is a combination of the friendly name (or name if unset) and component name

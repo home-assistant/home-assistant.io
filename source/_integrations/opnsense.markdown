@@ -14,6 +14,7 @@ ha_platforms:
   - device_tracker
 ha_integration_type: hub
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 [OPNsense](https://opnsense.org/) is an open source FreeBSD based firewall
@@ -22,56 +23,30 @@ within Home Assistant:
 
 - [Presence detection](#presence-detection)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To configure OPNsense integration with Home Assistant add the following section
-to your configuration.yaml:
+{% configuration_basic %}
+URL:
+  description: "The full URL for the router API. For example, `https://router.local:443/api`"
+API key:
+  description: "The API key."
+API secret:
+  description: "The secret that pairs with your API key and is required for authentication."
+Verify SSL:
+  description: "Whether to verify the router's SSL certificate. Keep this enabled unless your router uses a self-signed certificate in a trusted environment. Disabling certificate verification reduces security, because Home Assistant can no longer confirm that it is connecting to the correct router."
+Tracker interfaces:
+  description: "Optionally restrict the interfaces used for device scanning."
+{% endconfiguration_basic %}
 
-```yaml
-opnsense:
-  url: https://router/api
-  api_secret: API_SECRET
-  api_key: API_KEY
-```
-
-Where the `api_key` and `api_secret` values are acquired from your OPNsense
+The API key and API secret values are acquired from your OPNsense
 router using the web interface. For more information on this procedure, refer
 to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
 
-User with API Key requires privileges for Type: 
+The API user requires the following privileges:
 
 - GUI Name: Diagnostics: ARP Table
-- GUI Name: Diagnostics: Network Insight
-
-{% important %}
-OPNSense versions 25.7 and later require All Pages privilege to be granted to the API user account.
-{% endimportant %}
-
-{% configuration %}
-url:
-  description: The URL for the OPNsense API endpoint of your router.
-  type: string
-  required: true
-api_key:
-  description: The API key used to authenticate with your OPNsense API endpoint.
-  type: string
-  required: true
-api_secret:
-  description: The API secret used to authenticate with your OPNsense API endpoint.
-  type: string
-  required: true
-verify_ssl:
-  description: Set to true to enable the validation of the OPNsense API SSL.
-  type: boolean
-  required: false
-  default: false
-tracker_interfaces:
-  description: List of the OPNsense router's interfaces to use for tracking devices.
-  type: list
-  required: false
-  default: []
-{% endconfiguration %}
-
+- GUI Name: Status: Interfaces
+- GUI Name: System: Firmware
 
 ## Presence detection
 

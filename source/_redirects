@@ -600,6 +600,7 @@ layout: null
 /integrations/iota /more-info/removed-integration 301
 /integrations/juicenet /more-info/removed-integration 301
 /integrations/keyboard /more-info/removed-integration 301
+/integrations/konnected /integrations/konnected_esphome/ 301
 /integrations/lannouncer /more-info/removed-integration 301
 /integrations/lirc /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
@@ -627,6 +628,7 @@ layout: null
 /integrations/mpchc /more-info/removed-integration 301
 /integrations/mychevy /more-info/removed-integration 301
 /integrations/n26 /more-info/removed-integration 301
+/integrations/national_grid_us /more-info/removed-integration 301
 /integrations/nello /more-info/removed-integration 301
 /integrations/nma /more-info/removed-integration 301
 /integrations/nuimo_controller /more-info/removed-integration 301

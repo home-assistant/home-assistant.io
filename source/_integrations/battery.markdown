@@ -16,3 +16,5 @@ This {% term integration %} provides automation triggers and conditions for bina
 For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.
 
 {% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}

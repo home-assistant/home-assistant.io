@@ -123,6 +123,10 @@ name:
   required: false
   description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
+color:
+  required: false
+  description: Custom color. Can be defined as `red` (named color), `'#ff0000'` (hex format), `rgb(255, 0, 0)` (RGB format).
+  type: string
 {% endconfiguration %}
 
 ### Example

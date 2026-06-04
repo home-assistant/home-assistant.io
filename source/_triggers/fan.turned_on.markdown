@@ -45,7 +45,7 @@ trigger: |
   target:
     entity_id: fan.bedroom
   options:
-    behavior: any
+    behavior: each
     for: "00:05:00"
 {% endexample %}
 
@@ -55,10 +55,10 @@ This fires when `fan.bedroom` has been on for 5 minutes.
 
 {% options_yaml %}
 behavior:
-  description: When multiple fans are targeted, controls whether the trigger fires for `any`, `first`, or `last`.
+  description: When multiple fans are targeted, controls whether the trigger fires for `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the fan must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
   required: false
@@ -101,7 +101,7 @@ automation: |
       target:
         entity_id: fan.bathroom
       options:
-        behavior: any
+        behavior: each
         for: "00:20:00"
   actions:
     - action: notify.send_message
@@ -133,7 +133,7 @@ automation: |
       target:
         entity_id: fan.bedroom
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: light.turn_on

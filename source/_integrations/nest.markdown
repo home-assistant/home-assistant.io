@@ -363,10 +363,12 @@ All doorbells and cameras support event entities. See the [Event](https://www.ho
 There are two classes of event entities that are available based on the above camera features:
 
 - `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
-- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+- `doorbell` for all cameras that are doorbells and support `ring` events. In the camera feature table above, this capability is listed as “Chime”.
 
 Nest event entities are updated immediately when an event message is received
 without waiting for any media to be fetched. See Device Triggers for media support.
+
+{% include integrations/actions.md %}
 
 ## Device Triggers
 
@@ -382,6 +384,8 @@ event entity for immediate notifications without media.
 {% details "Example Device Trigger / Event payload" %}
 
 This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
+
+Doorbell device trigger payloads use the `doorbell_chime` event, not `ring`.
 
 ```json
 {
