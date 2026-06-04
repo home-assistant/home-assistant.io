@@ -122,11 +122,11 @@ Common values include:
 
 `MAN` states are timed overrides, but the timer duration is configured on the Duco system and is not encoded in the raw state value itself. Some systems may also report compatibility values like `MAN1x2` or `MAN1x3` for timed manual modes.
 
-To see when a timed mode ends, use the [State end time](#state-end-time) sensor.
+To see when a timed state ends, use the [State end time](#state-end-time) sensor.
 
 #### State end time
 
-Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation mode ends. When no timer is active, this sensor is unavailable.
+Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation state ends. When no timer is active, this sensor is unavailable.
 
 #### CO₂ concentration
 
