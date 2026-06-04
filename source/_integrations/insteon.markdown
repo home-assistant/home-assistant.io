@@ -14,6 +14,7 @@ ha_release: 0.39
 ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
+  - '@ssyrell'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor

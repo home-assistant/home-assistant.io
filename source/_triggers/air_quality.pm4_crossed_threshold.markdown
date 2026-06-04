@@ -49,7 +49,7 @@ trigger: |
     entity_id: sensor.nursery_pm4
   options:
     threshold: 30
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the nursery PM4 sensor crosses 30 in either direction.
@@ -66,10 +66,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -113,7 +113,7 @@ automation: |
         entity_id: sensor.nursery_pm4
       options:
         threshold: 30
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:

@@ -364,7 +364,7 @@ join: ',' | split: ',' -%}
           if (key === 'search') {
             if (
               integration[key].indexOf(query[key]) === -1
-              && integration.cat.find((c) => c.includes(query[key])) == undefined
+              && integration.cat.find((c) => c === query[key]) == undefined
             ) {
               return false;
             }

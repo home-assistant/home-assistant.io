@@ -37,17 +37,15 @@ You will need to sign in on the [Viessmann developer portal](https://app.develop
 Create a new API client by selecting **Add** in the **Clients** section on the developer dashboard with the following settings:
    - Name: `HomeAssistant`
    - Google reCAPTCHA: `disabled`
-   - Redirect URIs: `vicare://oauth-callback/everest`
+   - Redirect URIs: `https://my.home-assistant.io/redirect/oauth`
 
 Copy the **Client ID** in the **Clients** section on the developer dashboard for the setup in Home Assistant.
-
-{% important %}
-You have to set up the {% term integration %} from your device (phone) where you have the ViCare app installed. Otherwise, your device does not know how to handle the `vicare://` redirect URL, and you will receive an **Invalid credentials** notification and the setup procedure will fail.
-{% endimportant %}
 
 {% note %}
 It may take up to an hour for your new client to become active and usable. Otherwise, you will not receive any devices in Home Assistant.
 {% endnote %}
+
+When Home Assistant prompts for application credentials during setup, enter the **Client ID** from the Viessmann developer portal. The **Client Secret** field is not used by the integration (ViCare uses PKCE), so you can enter any value.
 
 ### API limits
 

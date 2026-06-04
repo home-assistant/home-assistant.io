@@ -7,13 +7,12 @@ ha_iot_class: Cloud Polling
 ha_release: 2026.6
 ha_config_flow: true
 ha_codeowners:
-  - '@cielo-connect'
   - '@ihsan-cielo'
-
+  - '@mudasar-cielo'
 ha_domain: cielo_home
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
@@ -154,4 +153,3 @@ This integration follows standard integration removal. No extra steps are requir
 **Optional**: Revoke your API key in the [Cielo Home Web Portal](https://home.cielowigle.com).
 
 {% endnote %}
-
