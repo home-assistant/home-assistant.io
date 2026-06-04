@@ -3,22 +3,23 @@ title: PAJ GPS
 description: Instructions on how to integrate PAJ GPS devices into Home Assistant.
 ha_category:
   - Device tracker
+  - Sensor
 ha_release: 2026.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@skipperro'
 ha_domain: paj_gps
-ha_zeroconf: false
 ha_platforms:
   - device_tracker
+  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
 The **PAJ GPS** {% term integration %} allows you to incorporate PAJ GPS devices from <www.paj-gps.de> into your Home Assistant.
 
-It provides entities for tracking the location of your PAJ GPS devices.
+It provides entities for tracking the location of your PAJ GPS devices and monitoring their speed.
 
 ## Possible use cases
 
@@ -53,6 +54,11 @@ The PAJ GPS integration provides the following entities.
 
 The PAJ GPS {% term integration %} will track the location of each device registered to your account. The integration provides real-time GPS coordinates (latitude and longitude) for your PAJ GPS devices.
 
+### Sensors
+
+- **Speed**
+  - **Description**: The current speed of the PAJ GPS device in km/h, as reported by the GPS module.
+
 ## Examples
 
 Opening the garage door when a car with a PAJ GPS device is near using automations:
@@ -86,9 +92,9 @@ actions:
 
 ## Troubleshooting
 
-### No sensors other than GPS location available
+### No battery level sensor available
 
-Those will be available in the next release of this integration.
+The battery level sensor is not currently available in this integration.
 
 ## Removing the integration
 

@@ -11,9 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The **Calendar** {% term integration %} provides calendar {% term entities %}, allowing other integrations
-to integrate calendars into Home Assistant. Calendars are shown on the calendar
-dashboard and can be used with automations.
+The **Calendar** {% term integration %} provides calendar {% term entities %}, allowing other integrations to integrate calendars into Home Assistant. Calendars are shown on the calendar dashboard and can be used with automations.
 
 {% include integrations/building_block_integration.md %}
 
@@ -50,14 +48,14 @@ Also see [Actions](#actions) below.
 ## Calendar card
 
 To display calendar events directly on your dashboards, Home Assistant includes the [calendar card](/dashboards/calendar/).
-The card shows upcoming events from one or more calendar entities and provides a quick,glanceable view of your schedule.
+The card shows upcoming events from one or more calendar entities and provides a quick, glanceable view of your schedule.
 
 ## The state of a calendar entity
 
 The state shows whether or not there is an active event:
 
-- On: The calendar has an active event.
-- Off: The calendar does not have an active event.
+- **On**: The calendar has an active event.
+- **Off**: The calendar does not have an active event.
 
 In addition, the entity can have the following states:
 
@@ -92,14 +90,9 @@ automation:
       offset: -00:15:00
 ```
 
-Calendar triggers should not generally use automation mode `single` to ensure
-the trigger can fire when multiple events start at the same time. For example,
-use `queued` or `parallel` instead. Note that calendars are read once every 15
-minutes. When testing, make sure you do not plan events less than 15 minutes
-away from the current time, or your {% term trigger %} might not fire.
+Calendar triggers should not generally use automation mode `single` to ensure the trigger can fire when multiple events start at the same time. For example, use `queued` or `parallel` instead. Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your {% term trigger %} might not fire.
 
-See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) 
-for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
 
 ### Automation recipes
 
@@ -270,3 +263,7 @@ data:
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
 ```
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}

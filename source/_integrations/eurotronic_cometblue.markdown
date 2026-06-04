@@ -1,5 +1,5 @@
 ---
-title: Eurotronic Comet Blue Thermostats
+title: Eurotronic Comet Blue
 description: Instructions on how to integrate Eurotronic Comet Blue Thermostats into Home Assistant.
 ha_category:
   - Button

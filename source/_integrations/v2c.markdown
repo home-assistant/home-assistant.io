@@ -12,6 +12,7 @@ ha_domain: v2c
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - light
   - number
   - sensor
   - switch

@@ -30,7 +30,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the volatile organic compounds ratio has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -77,9 +76,10 @@ threshold:
 Maybe someone just sprayed cleaning solution, or the new couch is off-gassing. This automation sends a notification when the VOC ratio in the living room changes significantly so you know to investigate the cause and open a window.
 
 - **Trigger**: Volatile organic compounds ratio changed
-- **Target**: Living room VOC ratio sensor
-- **Threshold type**: 5
-- **Action**: Notify mobile app
+  - **Target**: Living room VOC ratio sensor
+  - **Threshold type**: 5
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for VOC ratio alert" %}
 
@@ -93,7 +93,9 @@ automation: |
       options:
         threshold: 5
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "VOC ratio changed"
         message: "The VOC ratio in the living room shifted. Check ventilation."

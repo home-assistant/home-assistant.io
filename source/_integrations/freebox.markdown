@@ -11,7 +11,7 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@hacf-fr'
+  - '@hacf-fr/reviewers'
   - '@Quentame'
 ha_config_flow: true
 ha_domain: freebox
@@ -69,6 +69,7 @@ To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme
 
 Only the routers with Freebox OS are supported:
 
+- Freebox V9 also known as Freebox Ultra
 - Freebox V8 also known as Freebox Pop
 - Freebox V7 also known as Freebox Delta
 - Freebox V6 also known as Freebox Revolution

@@ -36,6 +36,7 @@ The **FRITZ!SmartHome** {% term integration %} for Home Assistant allows you to 
   - [FRITZ!Box 5590 Fiber][fritzbox_5590_fiber]
   - FRITZ!Box 6490 Cable
   - FRITZ!Box 6591 Cable
+  - [FRITZ!Box 6690 Cable][fritzbox_6690_cable]
   - FRITZ!Box 7590
   - FRITZ!Box 7490
   - FRITZ!Box 7430
@@ -153,6 +154,7 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 - Temperature
 
 [fritzbox_5590_fiber]: https://fritz.com/en/products/fritz-box-5590-fiber-20002981
+[fritzbox_6690_cable]: https://fritz.com/en/products/fritz-box-6690-cable-20002965
 [fritzbox_7590_ax]: https://fritz.com/en/products/fritz-box-7590-ax-20002998
 [fritzbox_7530_ax]: https://fritz.com/en/products/fritz-box-7530-ax-20002930
 [fritzdect_200]: https://fritz.com/en/products/fritz-dect-200-20002572
@@ -162,6 +164,83 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 [fritzdect_440]: https://fritz.com/en/products/fritz-smart-control-350-20003119
 [fritz_smart_gateway]: https://fritz.com/en/products/fritz-smart-gateway-20003012
 [rademacher_rollotron_dect_1213]: https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213
+
+## Automation examples
+
+### Control heating by presence
+
+This will apply the **comfort** preset to `climate.livingroom` when at
+least one person is in `zone.home`, and apply **eco** when nobody is in
+the zone.
+
+```yaml
+description: "Set comfort when at least one person is home, otherwise set eco."
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - zone.home
+conditions:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: zone.home
+        state:
+          - unavailable
+          - unknown
+actions:
+  - if:
+      - condition: numeric_state
+        entity_id: zone.home
+        above: 0
+    then:
+      - action: climate.set_preset_mode
+        target:
+          entity_id: climate.livingroom
+        data:
+          preset_mode: comfort
+    else:
+      - action: climate.set_preset_mode
+        target:
+          entity_id: climate.livingroom
+        data:
+          preset_mode: eco
+```
+
+### Control lights based on sun state
+
+This will turn on the `light.outdoor` at sunset and turn it off at sunrise.
+
+```yaml
+description: "Turn on the outdoor lights when the sun goes down."
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - sun.sun
+conditions:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state:
+          - unavailable
+          - unknown
+actions:
+  - if:
+      - condition: state
+        entity_id: sun.sun
+        state:
+          - below_horizon
+    then:
+      - action: light.turn_on
+        target:
+          entity_id: light.outdoor
+    else:
+      - action: light.turn_off
+        target:
+          entity_id: light.outdoor
+```
 
 ## Troubleshooting
 

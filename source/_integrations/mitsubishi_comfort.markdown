@@ -4,7 +4,7 @@ description: Integrate Mitsubishi Electric ductless minisplit heat pump and air 
 ha_category:
   - Climate
 ha_release: 2026.6
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@nikolairahimi'

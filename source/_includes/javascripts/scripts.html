@@ -13,6 +13,7 @@ window.__conditions = {{ site.data.conditions_json }};
 </script>
 <script src="{{ '/javascripts/prism-template-links.js' | cache_buster }}" type="text/javascript" defer></script>
 <script src="{{ '/javascripts/prism-doc-links.js' | cache_buster }}" type="text/javascript" defer></script>
+<script src="{{ '/javascripts/docsearch-options.js' | cache_buster }}" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js" integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6" crossorigin="anonymous"></script>
 <script type="text/javascript">
   docsearch({
@@ -20,6 +21,13 @@ window.__conditions = {{ site.data.conditions_json }};
     appId: 'FBHBYS3J0U',
     indexName: 'home-assistant',
     apiKey: "{{ site.algolia.api_key }}",
+    transformItems(items) {
+      return items.map((item) => ({
+        ...item,
+        url: rewriteDocSearchPreviewUrl(item.url),
+        url_without_anchor: rewriteDocSearchPreviewUrl(item.url_without_anchor),
+      }));
+    },
   });
   document.querySelector('.site-title').addEventListener('contextmenu', function (ev) {
     ev.preventDefault();

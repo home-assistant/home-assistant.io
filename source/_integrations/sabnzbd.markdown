@@ -94,7 +94,9 @@ This automation sends a notification when a download completes:
       to: "Idle"
       from: "Downloading"
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Download Complete"
         message: "SABnzbd has finished downloading and extracting files"
@@ -111,7 +113,9 @@ Get notified when your download drive is running low on space:
       entity_id: sensor.sabnzbd_disk_free
       below: 10
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Low Disk Space"
         message: "Download drive has less than {{ states('sensor.sabnzbd_disk_free') }} GB free"
@@ -137,7 +141,9 @@ Automatically pause downloads when your media players are active:
     - action: button.press
       target:
         entity_id: button.sabnzbd_pause
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Downloads paused for movie time"
 
