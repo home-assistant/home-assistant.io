@@ -25,6 +25,20 @@ If you are using a third-party device (for example, not reading directly from yo
 
 To accomplish this, you can use the [utility_meter integration](/integrations/utility_meter/). With this integration you define as many tariffs as required by your utility provider.
 
+## Solar production on a separate grid connection
+
+If you have a solar installation with a dedicated grid connection that is used only for exporting production — separate from the main household consumption grid connection — you can configure the energy dashboard as follows:
+
+1. If not configured yet, add your main household grid connection as a **Grid** source with **Energy imported from grid**, **Energy exported to grid**, and **Power measurement** configured as normal. Do not add any sensor for the separate solar production to this connection.
+2. Add your inverter production energy and power sensors as a **Solar panels** source, as usual.
+3. Add the dedicated solar grid connection as a **Grid** source.
+    - Configure **Energy exported to grid** and leave **Energy imported from grid** empty, as this connection never imports.
+    - Set the **Power measurement** sensor for this connection to a sensor that reads the export power.
+    - Set the **Type of power measurement** setting to **Inverted**, since we need it to be negative when exporting to grid, but most inverters report export power as a positive value.
+    - On the **Export compensation** setting, select one of the desired cost tracking options. Leave the **Cost tracking** setting empty.
+
+With this setup, the dashboard correctly attributes solar production exported via the dedicated connection as **Solar → Grid**.
+
 ## The Energy dashboard is not visible
 
 If you do not see the Energy dashboard in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your {% term "`configuration.yaml`" %}. If you have, you will need to enable the integrations and UI elements required for the dashboard to appear.
