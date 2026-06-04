@@ -798,6 +798,11 @@ Widget that displays playback controls for a [media player](/integrations/media_
 ```yaml
 features:
   - type: "media-player-playback"
+    controls:
+      - media_play_pause
+      - media_previous_track
+      - media_next_track
+      - volume_mute
 ```
 
 {% configuration features %}
@@ -805,6 +810,10 @@ type:
   required: true
   description: "`media-player-playback`"
   type: string
+controls:
+  required: false
+  description: "List of controls to show on the card. The list can contain `turn_on`, `turn_off`, `media_play`, `media_pause`, `media_play_pause`, `media_stop`, `media_previous_track`, `media_next_track`, `volume_down`, `volume_up`, `volume_mute`, `shuffle`, and `repeat`. When not specified, the controls are determined automatically based on the capabilities of the media player entity."
+  type: list
 {% endconfiguration %}
 
 ## Media player sound mode
@@ -819,6 +828,10 @@ Widget that displays a dropdown to select the sound mode for a [media player](/i
 ```yaml
 features:
   - type: "media-player-sound-mode"
+    sound_modes:
+      - "movie"
+      - "music"
+      - "game"
 ```
 
 {% configuration features %}
@@ -826,6 +839,10 @@ type:
   required: true
   description: "`media-player-sound-mode`"
   type: string
+sound_modes:
+  required: false
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Developer tools** > **States**" %}. When not specified, all available sound modes are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player source
@@ -840,6 +857,10 @@ Widget that displays a dropdown to select the source for a [media player](/integ
 ```yaml
 features:
   - type: "media-player-source"
+    sources:
+      - "AirPlay"
+      - "SHIELD"
+      - "NET RADIO"
 ```
 
 {% configuration features %}
@@ -847,6 +868,10 @@ type:
   required: true
   description: "`media-player-source`"
   type: string
+sources:
+  required: false
+  description: "List of sources to show in the dropdown. Use this to filter or reorder the available sources. The source names depend on your device. When not specified, all available sources are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player volume buttons
@@ -873,6 +898,11 @@ step:
   description: "The step size of the volume. The default is 5%."
   type: integer
   default: 5
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Media player volume slider
@@ -894,6 +924,11 @@ type:
   required: true
   description: "`media-player-volume-slider`"
   type: string
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Numeric input
@@ -1232,4 +1267,102 @@ controls:
   required: false
   description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above. If not set, the default set of controls supported in the area is shown.
   type: list
+{% endconfiguration %}
+
+## Temperature forecast
+
+Widget that displays a bar chart of the upcoming high and low temperatures for a [weather](/integrations/weather) entity. When the forecast type is set to hourly, a filled curve is shown instead. By default, the bars use a temperature-aware gradient with cool blues for the lowest values and warm reds for the highest values.
+
+<p class='img'>
+  <img src='/images/dashboards/features/temperature_forecast.png' alt='Screenshot of the tile card with the temperature forecast feature'>
+  Screenshot of the tile card with the temperature forecast feature
+</p>
+
+```yaml
+features:
+  - type: "temperature-forecast"
+    forecast_type: daily
+    days_to_show: 7
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`temperature-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "The forecast resolution to display. The value can be `daily`, `twice_daily`, or `hourly`. When not specified, the best resolution supported by the entity is used, in this order: `daily`, `twice_daily`, `hourly`."
+  type: string
+days_to_show:
+  required: false
+  description: "Number of days to show in the chart. Used when `forecast_type` is `daily` or `twice_daily`."
+  type: integer
+  default: 7
+hours_to_show:
+  required: false
+  description: "Number of hours to show in the chart. Used when `forecast_type` is `hourly`."
+  type: integer
+  default: 24
+color:
+  required: false
+  description: "Color to use for the bars or curve. Accepts any Home Assistant color token or CSS color value. When not specified, a temperature-aware gradient is used."
+  type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+## Precipitation forecast
+
+Widget that displays a bar chart of the upcoming precipitation for a [weather](/integrations/weather) entity. You can choose between showing the precipitation amount or the precipitation probability. Empty slots are shown as a small dot to keep the timeline easy to read.
+
+<p class='img'>
+  <img src='/images/dashboards/features/precipitation_forecast.png' alt='Screenshot of the tile card with the precipitation forecast feature'>
+  Screenshot of the tile card with the precipitation forecast feature
+</p>
+
+```yaml
+features:
+  - type: "precipitation-forecast"
+    forecast_type: daily
+    days_to_show: 7
+    precipitation_type: amount
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`precipitation-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "The forecast resolution to display. The value can be `daily`, `twice_daily`, or `hourly`. When not specified, the best resolution supported by the entity is used, in this order: `daily`, `twice_daily`, `hourly`."
+  type: string
+days_to_show:
+  required: false
+  description: "Number of days to show in the chart. Used when `forecast_type` is `daily` or `twice_daily`."
+  type: integer
+  default: 7
+hours_to_show:
+  required: false
+  description: "Number of hours to show in the chart. Used when `forecast_type` is `hourly`."
+  type: integer
+  default: 24
+precipitation_type:
+  required: false
+  description: "What to display on the chart. The value can be `amount` to show the precipitation amount, or `probability` to show the chance of precipitation."
+  type: string
+  default: amount
+color:
+  required: false
+  description: "Color to use for the bars. Accepts any Home Assistant color token or CSS color value. Defaults to the rainy weather state color."
+  type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
 {% endconfiguration %}

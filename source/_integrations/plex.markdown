@@ -55,7 +55,7 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 
 ### Manual configuration
 
-Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This option is only available to users in "Advanced Mode". This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
+Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
 
 **Host**: The IP address or hostname of your Plex server. Optional if 'Token' is provided.
 

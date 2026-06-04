@@ -4,7 +4,9 @@ description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
   - Button
+  - Media Player
   - Notifications
+  - Select
   - Sensor
   - Switch
 ha_release: '2025.6'
@@ -17,6 +19,8 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
+  - media_player
   - notify
   - sensor
   - switch
@@ -146,7 +150,9 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 In addition to sensors, you can use the following entities:
 
 - **Button** - Execute Alexa routines
+- **Media Player** - Play audio/video from several sources
 - **Notify** - Speak and Announce notifications
+- **Select** - Select default device
 - **Switch** - Do not disturb
 
 ## Examples

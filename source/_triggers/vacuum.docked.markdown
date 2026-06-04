@@ -51,7 +51,7 @@ trigger: |
       - vacuum.upstairs
       - vacuum.downstairs
   options:
-    behavior: last
+    behavior: all
 {% endexample %}
 
 This example fires after both vacuums have docked.
@@ -63,10 +63,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple vacuums are targeted, controls when the trigger fires. Options: `any` (every time any targeted vacuum docks), `first` (only when the first returns), or `last` (only after all have docked).
+    When multiple vacuums are targeted, controls when the trigger fires. Options: `each` (every time any targeted vacuum docks), `first` (only when the first returns), or `all` (only after all have docked).
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     The time the vacuum must remain docked before the trigger fires.

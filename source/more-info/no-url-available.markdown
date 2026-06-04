@@ -44,8 +44,6 @@ Now you can set up the integration as normal, without getting the No URL Availab
 
 Another good solution is configuring the Home Assistant instance URL in Home Assistant. By letting Home Assistant know about the URL you use to access it, Home Assistant will be able to deal with that in a situation like this.
 
-Please note, you'll need to enable advanced mode in your user profile in order to set this up.
-
 Go to {% my network title="**Settings** > **System** > **Network**" %}.
 
 On this page, two fields that can resolve this issue: **Local Network** and **Internet**.

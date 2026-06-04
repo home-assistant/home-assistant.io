@@ -34,9 +34,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fires every time any targeted thermostat turns off.
-    - **First** (`first` in YAML): fires only when the first of a group turns off.
-    - **All** (`last` in YAML): fires only after every targeted thermostat is off.
+    - **Each** (default): fires every time any targeted thermostat turns off.
+    - **First**: fires only when the first of a group turns off.
+    - **All**: fires only after every targeted thermostat is off.
 For at least:
   description: How long the thermostat must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -63,12 +63,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted thermostat turns off.
-    - `first` (**First** in the UI): fires only when the first thermostat turns off.
-    - `last` (**All** in the UI): fires only after every targeted thermostat is off.
+    - `each` (default): fires every time any targeted thermostat turns off.
+    - `first`: fires only when the first thermostat turns off.
+    - `all`: fires only after every targeted thermostat is off.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed off for 10 seconds, which helps ignore accidental toggles or brief power losses.
@@ -111,7 +111,7 @@ automation: |
       target:
         area_id: living_room
       options:
-        behavior: last
+        behavior: all
         for: "00:05:00"
   actions:
     - action: fan.turn_off

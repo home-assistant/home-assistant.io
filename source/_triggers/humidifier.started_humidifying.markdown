@@ -34,9 +34,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted humidifier starts humidifying.
-    - **First** (`first` in YAML): fire only on the first humidifier that starts humidifying.
-    - **All** (`last` in YAML): fire only after every targeted humidifier starts humidifying.
+    - **Each** (default): fires every time any targeted humidifier starts humidifying.
+    - **First**: fires only on the first humidifier that starts humidifying.
+    - **All**: fires only after every targeted humidifier starts humidifying.
 For at least:
   description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -63,12 +63,12 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted humidifier starts humidifying.
-    - `first` (**First** in the UI): fire only on the first humidifier that starts humidifying.
-    - `last` (**All** in the UI): fire only after every targeted humidifier starts humidifying.
+    - `each` (default): fires every time any targeted humidifier starts humidifying.
+    - `first`: fires only on the first humidifier that starts humidifying.
+    - `all`: fires only after every targeted humidifier starts humidifying.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the humidifier must be actively humidifying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has been actively humidifying for 5 minutes.
@@ -112,7 +112,7 @@ automation: |
       target:
         entity_id: humidifier.nursery
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: time
@@ -148,7 +148,7 @@ automation: |
       target:
         entity_id: humidifier.bedroom
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: fan.turn_on

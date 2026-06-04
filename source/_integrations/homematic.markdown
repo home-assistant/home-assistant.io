@@ -506,8 +506,6 @@ automation:
 
   3. Set up a template sensor in Home Assistant, which contains the value of the system variable:
 
-     {% raw %}
-
      ```yaml
      template:
        - sensor:
@@ -516,7 +514,6 @@ automation:
            icon: "mdi:clock"
      ```
 
-     {% endraw %}
 
   4. Set up an automation which calls *homematic.reconnect* whenever the sensor variable changes:
 

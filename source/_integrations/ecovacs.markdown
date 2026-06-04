@@ -42,7 +42,7 @@ Additional note: There are some issues with password encoding. Using some specia
 
 {% include integrations/config_flow.md %}
 
-With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
+During setup, you can choose to use a self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
 
 ## Provided entities
 

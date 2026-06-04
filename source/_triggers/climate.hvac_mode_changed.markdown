@@ -40,9 +40,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fires every time any targeted thermostat changes mode.
-    - **First** (`first` in YAML): fires only on the first mode change.
-    - **All** (`last` in YAML): fires only after every targeted thermostat changes mode.
+    - **Each** (default): fires every time any targeted thermostat changes mode.
+    - **First**: fires only on the first mode change.
+    - **All**: fires only after every targeted thermostat changes mode.
 For at least:
   description: How long the thermostat must remain in the new mode before the trigger fires. Useful to ignore brief mode changes. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -86,12 +86,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted thermostat changes mode.
-    - `first` (**First** in the UI): fires only on the first mode change.
-    - `last` (**All** in the UI): fires only after every targeted thermostat changes mode.
+    - `each` (default): fires every time any targeted thermostat changes mode.
+    - `first`: fires only on the first mode change.
+    - `all`: fires only after every targeted thermostat changes mode.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed in the new mode for 10 seconds, which is useful to ignore brief mode changes.

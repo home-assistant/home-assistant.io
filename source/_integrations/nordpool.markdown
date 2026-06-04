@@ -111,6 +111,7 @@ The block price sensors are not enabled by default.
 | Currency                  | [Currency]        | The configured currency.                                                          |
 | Exchange rate             | Decimal           | The exchange rate between the configure currency and Euro's.                      |
 | Last updated              | Datetime          | The time when the market prices were last updated.                                |
+| Tomorrow price available  | Binary            | True or False if tomorrow's price is available                                    |
 
 ## Actions
 
