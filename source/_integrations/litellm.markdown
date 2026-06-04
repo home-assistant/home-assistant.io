@@ -15,9 +15,9 @@ ha_platforms:
 ha_quality_scale: bronze
 ---
 
-The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use a self-hosted LiteLLM proxy as a conversation agent in Home Assistant.
+The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use a LiteLLM proxy as a conversation agent in Home Assistant.
 
-LiteLLM exposes an OpenAI-compatible API in front of a wide range of model providers. Because the proxy is self-hosted, this integration lets you point Home Assistant at your own endpoint instead of a hosted service.
+LiteLLM exposes a single OpenAI-compatible API in front of a wide range of model providers, so you can use almost any model through one endpoint. This is similar to a service like OpenRouter, with the added benefit that you can run LiteLLM yourself if you prefer to keep everything under your own control. This integration lets you point Home Assistant at any LiteLLM proxy, whether it is a hosted instance or one you self-host.
 
 {% include integrations/config_flow.md %}
 
@@ -30,7 +30,7 @@ API key:
 
 ## Prerequisites
 
-You need a running [LiteLLM proxy](https://docs.litellm.ai/docs/simple_proxy) that is reachable from your Home Assistant instance, with at least one model configured. The integration discovers the available models from the proxy during setup.
+You need access to a [LiteLLM proxy](https://docs.litellm.ai/docs/simple_proxy) that is reachable from your Home Assistant instance, with at least one model configured. You can use a hosted LiteLLM proxy or [run one yourself](https://docs.litellm.ai/docs/simple_proxy). The integration discovers the available models from the proxy during setup.
 
 ## Supported functionality
 
