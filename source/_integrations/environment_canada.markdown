@@ -181,7 +181,7 @@ To get the alerts in a sensor with all the alert data, use the following, replac
   sensor:
     - name: "Medicine Hat Alert Data"
       unique_id: "CONFIG_ENTRY_ID"
-      state: "{{ alerts.values() | map(attribute='value') | map('length') | sum }}"
+      state: "{{ alerts.values() | map('length') | sum }}"
       attributes:
         alerts: "{{ alerts }}"
 ```
