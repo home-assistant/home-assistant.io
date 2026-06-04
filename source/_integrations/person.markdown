@@ -123,3 +123,5 @@ person:
 ```
 
 If you change the YAML, you can reload it by calling the `person.reload` action.
+
+{% include integrations/actions.md %}

@@ -38,6 +38,7 @@ ha_platforms:
   - humidifier
   - light
   - lock
+  - number
   - select
   - sensor
   - switch
@@ -153,6 +154,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 
 ### Locks
 
@@ -182,6 +184,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- [Weather Station](https://www.switch-bot.com/products/switchbot-outdoor-weather-station) (currently only supports retrieving sensor data)
 
 ### Hubs
 
@@ -655,6 +658,18 @@ Features:
 - change color
 - set effect
 
+#### Permanent Outdoor Light
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
 ### Locks
 
 Note: The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
@@ -699,7 +714,7 @@ Options:
 
 #### Lock Ultra
 
-This is an encrypted device.
+This is an encrypted device. Half-lock is supported only on European Union (EU) models. To use it, you need to enable nightlatch operation mode. See the Options section below.
 
 Features:
 
@@ -708,6 +723,7 @@ Features:
 - auto-lock paused state
 - calibration state
 - get battery level
+- half-lock
 
 Options:
 

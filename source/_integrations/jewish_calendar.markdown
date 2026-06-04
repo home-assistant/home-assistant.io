@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: jewish_calendar
 ha_platforms:
   - binary_sensor
+  - calendar
   - diagnostics
   - sensor
 ha_integration_type: integration
@@ -20,7 +21,6 @@ The **Jewish Calendar** {% term integration %} exposes Jewish calendar informati
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-
 Language:
   description: The language to be used for textual sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are `english` and `hebrew`. Default value is `english`.
 
@@ -39,7 +39,58 @@ Minutes before sunset for candle lighting:
 
 Minutes after sunset for Havdalah:
   description: By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static time offset relative to sunset.
+
+Daily events to display:
+  description: Select which daily events should appear in the daily events calendar. By default, the Hebrew date, sunrise, sunset, and nightfall are displayed.
+
+Learning schedule to display:
+  description: Select which learning schedules should appear in the learning schedule calendar. Currently, Daf Yomi is the only available option.
+
+Yearly events to display:
+  description: Select which yearly events should appear in the yearly events calendar. By default, holidays, Torah portion, candle lighting, and Havdalah are displayed. You can also add the Omer count.
 {% endconfiguration_basic %}
+
+## Calendars
+
+The **Jewish Calendar** {% term integration %} provides three calendar entities, each focusing on a different type of Jewish calendar event. You can customize which event types are displayed in each calendar through the integration's configuration options.
+
+### Daily events
+
+The daily events calendar shows time-based events that occur every day, such as the Hebrew date and halachic prayer times. The following event types can be configured:
+
+- **Hebrew date**: The Hebrew date for each day (for example, "1 Tishrei 5779")
+- **Alot Hashachar**: Halachic dawn
+- **Netz Hachama**: Halachic sunrise
+- **Sof Zman Shema (Gr"A)**: Latest time for Shema according to the Gr"a
+- **Sof Zman Shema (Mg"A)**: Latest time for Shema according to the Mg"A
+- **Sof Zman Tefilla (Gr"A)**: Latest time for Tefilla according to the Gr"a
+- **Sof Zman Tefilla (Mg"A)**: Latest time for Tefilla according to the Mg"A
+- **Chatzot Hayom**: Halachic midday
+- **Mincha Gedola**: Earliest time for Mincha
+- **Mincha Ketana**: Preferable time for Mincha
+- **Plag Hamincha**: Plag Hamincha
+- **Shkia**: Sunset
+- **T'set Hakochavim**: Nightfall
+
+By default, the Hebrew date, sunrise (Netz Hachama), sunset (Shkia), and nightfall (T'set Hakochavim) are displayed.
+
+### Learning schedule
+
+The learning schedule calendar shows daily study schedules. This calendar is disabled by default and can be enabled through the entity settings. The following event types can be configured:
+
+- **Daf Yomi**: The daily Talmud study page according to the Daf Yomi cycle
+
+### Yearly events
+
+The yearly events calendar shows events tied to the Jewish calendar year, such as holidays and the weekly Torah portion. The following event types can be configured:
+
+- **Jewish holidays**: Jewish holidays, including Rosh Hashana, Yom Kippur, Sukkot, Chanukah, Purim, Pesach, Shavuot, and more
+- **Torah portion**: The weekly Torah portion (Parshat Hashavua)
+- **Omer count**: The daily Omer count during the 49 days between Pesach and Shavuot
+- **Candle lighting**: Timed events for Shabbat and holiday candle lighting based on your location and configured offset
+- **Havdalah**: Timed events for Shabbat and holiday Havdalah based on your location and configured offset
+
+By default, holidays, Torah portion, candle lighting, and Havdalah are displayed. The Omer count can be added through the configuration options.
 
 ## Sensor list
 

@@ -14,7 +14,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Kane610'
 ha_domain: unifi
-ha_ssdp: true
 ha_platforms:
   - button
   - device_tracker
@@ -25,6 +24,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
@@ -100,7 +100,7 @@ and in many cases, get a read-only sensor instead of an editable switch {% term 
 
 ## Configuration options
 
-All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**. Some advanced options are only available when **Advanced Mode** is enabled on your user profile page.
+All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**.
 
 {% configuration_basic %}
 Track network clients:
@@ -124,7 +124,7 @@ Bandwidth usage sensors for network clients:
 Uptime sensors for network clients:
   description: "Create uptime sensors for network clients. Disabled by default."
 Create entities from network clients:
-  description: "Advanced option to select which network clients to create entities from. Only available when **Advanced Mode** is enabled."
+  description: "Select which network clients to create entities from."
 {% endconfiguration_basic %}
 
 ## Button

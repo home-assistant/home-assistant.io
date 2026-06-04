@@ -2,7 +2,7 @@
 title: PTDevices
 description: Instructions on how to integrate your PTLevel into Home Assistant.
 ha_release: 2026.6
-ha_category: 
+ha_category:
   - Sensor
 ha_platforms:
   - sensor
@@ -10,8 +10,8 @@ ha_iot_class: Cloud Polling
 ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
+  - '@ParemTech-Inc'
   - '@frogman85978'
-  - '@paremtech-inc'
 ha_domain: ptdevices
 ha_integration_type: hub
 ---
