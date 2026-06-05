@@ -80,4 +80,9 @@ If the setup fails or the integration stops working, check the following:
 - Make sure the IP address of your Internet-Box is correct and reachable from Home Assistant.
 - Make sure the administrator password is correct. The integration signs in to your Internet-Box to read the list of connected devices, so it needs valid administrator credentials.
 
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
 {% include integrations/remove_device_service.md %}
