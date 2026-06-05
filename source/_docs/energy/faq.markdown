@@ -34,7 +34,7 @@ If you have a solar installation with a dedicated grid connection that is used o
 3. Add the dedicated solar grid connection as a **Grid** source.
     - Configure **Energy exported to grid** and leave **Energy imported from grid** empty, as this connection never imports.
     - Set the **Power measurement** sensor for this connection to a sensor that reads the export power.
-    - Set the **Type of power measurement** setting to **Inverted**, since we need it to be negative when exporting to grid, but most inverters report export power as a positive value.
+    - Set the **Type of power measurement** setting to **Inverted** so that the value is negative when exporting to the grid. Most inverters report export power as a positive value.
     - On the **Export compensation** setting, select one of the desired cost tracking options. Leave the **Cost tracking** setting empty.
 
 With this setup, the dashboard correctly attributes solar production exported via the dedicated connection as **Solar → Grid**.
