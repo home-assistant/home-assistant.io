@@ -3,6 +3,7 @@ title: Cielo Home
 description: Instructions on how to integrate Cielo smart thermostats in Home Assistant.
 ha_category:
   - Climate
+  - Sensor  
 ha_iot_class: Cloud Polling
 ha_release: 2026.6
 ha_config_flow: true
@@ -112,8 +113,8 @@ Some fan modes or swing positions depend on the device’s remote configuration.
 
 Each supported device also exposes sensor entities that appear under the same device as the climate entity:
 
-- **Temperature**: Reports the current indoor temperature from the device.
-- **Humidity**: Reports the current humidity from the device.
+- **Temperature**: Reports the current indoor temperature from the device. The unit (°C or °F) follows the device setting.
+- **Humidity**: Reports the current humidity from the device, in percent.
 
 ## Data updates
 
