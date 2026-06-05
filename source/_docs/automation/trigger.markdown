@@ -348,7 +348,7 @@ Webhook endpoints don't require authentication, other than knowing a valid webho
 
 ## Zone trigger
 
-Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a person, or a device_tracker. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
+Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a [person](/integrations/person/), or a [device tracker](/integrations/device_tracker/).
 
 ```yaml
 automation:
