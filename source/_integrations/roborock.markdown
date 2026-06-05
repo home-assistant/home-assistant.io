@@ -416,12 +416,12 @@ We are working on adding a lot of features to the core integration. We have reve
 
 ### How can I clean a specific room?
 
-1. Go to the vacuum entity of your Roborock device
-2. Click the gear icon button
-3. Click "Map vacuum segments to areas"
-4. Map the Roborock areas to your Home Assistant areas and click save
-5. Go back to the vacuum entity and click the cleaning by area button
-6. Select your areas and click clean
+1. Go to the vacuum entity of your Roborock device.
+2. Select the gear icon button.
+3. Select **Map vacuum segments to areas**.
+4. Map the Roborock areas to your Home Assistant areas and select **Save**.
+5. Go back to the vacuum entity and select **Cleaning by area**.
+6. Select your areas and select **Clean**.
 
 Do note that Roborock vacuums do not support cleaning in a specific room order.
 
