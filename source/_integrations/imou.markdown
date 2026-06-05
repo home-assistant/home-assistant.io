@@ -11,11 +11,12 @@ ha_codeowners:
   - '@Imou-OpenPlatform'
 ha_platforms:
   - button
+  - camera
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com/) using your App ID and App secret. Devices linked to your platform account are discovered automatically, and supported actions are exposed as button entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com/) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose a live camera stream, and supported actions are exposed as button entities in Home Assistant.
 
 ## Supported devices
 
@@ -54,6 +55,13 @@ When adding the integration, select **Server region** to match your Open Platfor
 
 These regions correspond to the API endpoints used by the integration.
 
+### Options
+
+After setup, open the integration **Configure** menu to adjust:
+
+- **Live stream resolution**: `HD` or `SD` for the cloud live stream URL.
+- **Polling interval**: How often to refresh the device list and online status from Imou cloud (30–900 seconds; default 120).
+
 ## API usage
 
 Imou Open Platform API usage limits apply to your App ID:
@@ -64,9 +72,14 @@ Imou Open Platform API usage limits apply to your App ID:
 
 ## Supported functionality
 
-The integration exposes button entities when the cloud API reports that the action is supported for a device:
+### Camera
+
+Each device channel with a camera feed exposes a **Live view** camera entity. You can view a still image or start a live stream when the device is online.
 
 ### Buttons
+
+The integration exposes button entities when the cloud API reports that the action is supported for a device:
+
 
 - **PTZ up**, **PTZ down**, **PTZ left**, **PTZ right**: Move the camera lens in the corresponding direction. Each press moves the lens for a short interval. The device must support PTZ.
 - **Mute**: Silence alarm audio on supported gateway devices.
@@ -74,7 +87,7 @@ The integration exposes button entities when the cloud API reports that the acti
 
 ## Data updates
 
-The integration {% term polling polls %} Imou cloud APIs every 2 minutes to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
+The integration {% term polling polls %} Imou cloud APIs on the configured **Polling interval** (default every 2 minutes) to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
 
 ## Security and privacy considerations
 
