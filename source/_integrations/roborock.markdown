@@ -501,6 +501,12 @@ Instead of scheduling your vacuum to run at a fixed time when you might be home 
 {% warning %}
 Running a robot vacuum while your alarm system is armed can falsely trigger motion sensors (PIRs) and cause accidental alarms. Only use this automation if your motion sensors are pet-immune, positioned out of the vacuum's path, or if you can reliably verify your home's security remotely (e.g., via security cameras) to confirm if a burglary is occurring before emergency services are dispatched.
 {% endwarning %}
+
+- **Trigger**: `alarm_control_panel.home_alarm` gets set to `"armed_away"` 
+- **Conditions**: `vacuum.roborock_s8` is `"docked"`
+- **Actions**: `vacuum.start` to start the robot vacuum to clean the house while everyone is away
+
+{% details "YAML example for cleaning the house after the alarm is set to armed away" %}
 ```yaml
 alias: "Vacuum: Clean when house is empty"
 description: "Triggers a full clean when the house alarm is armed to away."
@@ -518,11 +524,15 @@ action:
       entity_id: vacuum.roborock_s8
 mode: single
 ```
-
+{% enddetails %}
 ### Automation: post-cooking kitchen cleanup
 
 Cooking often leaves crumbs or spills near the stove. You can automate your Roborock to head straight to the kitchen to tidy up when your smart stove or oven is turned off.
+- **Trigger**: `switch.smart_hob_power` gets switched to `"off"` for a minute
+- **Conditions**: `vacuum.roborock_s8` is `"docked"`
+- **Actions**: `vacuum.clean_area` with `cleaning_area_id: kitchen` to start the robot vacuum to clean kitchen after cooking is done
 
+{% details "YAML example for cleaning the kitchen after the hob is turned off for a minute" %}
 ```yaml
 alias: "Vacuum: Clean kitchen after cooking"
 description: "Sends the vacuum to the kitchen zone 1 minute after the stovetop turns off."
@@ -545,3 +555,4 @@ action:
     data:
       cleaning_area_id: kitchen
 ```
+{% enddetails %}
