@@ -41,11 +41,11 @@ To set up the integration, you need the following:
 
 {% configuration_basic %}
 Host:
-description: "The IP address of your Internet-Box. By default, this is `192.168.1.1`."
+  description: "The IP address of your Internet-Box. By default, this is `192.168.1.1`."
 Username:
-description: "The administrator username for your Internet-Box. By default, this is `admin`."
+  description: "The administrator username for your Internet-Box. By default, this is `admin`."
 Password:
-description: "The administrator password for your Internet-Box. This is the password you use to sign in to the router's web interface."
+  description: "The administrator password for your Internet-Box. This is the password you use to sign in to the router's web interface."
 {% endconfiguration_basic %}
 
 ## Supported functionality
