@@ -57,8 +57,8 @@ Most robotic vacuums utilize a hybrid communication model. Home Assistant uses l
 ### Non-vacuum appliances (cloud-dependent)
 Non-vacuum products paired with the Roborock app communicate strictly by using an outbound MQTT connection. These devices do **not** support local communication with Home Assistant and are entirely cloud-dependent:
 
-- **[Roborock Wet/Dry Vacuums (Dyad Series)](https://us.roborock.com/collections/wet-dry-vacuums):** Currently exposes a select number of telemetry and cleaning sensors.
-- **Roborock Zeo One (Smart Washer/Dryer):** Exposes cycle states, remaining times, and specific appliance entities.
+- **Roborock wet/dry vacuums (Dyad Series):** Currently exposes a select number of telemetry and cleaning sensors.
+- **Roborock Zeo One (smart washer/dryer):** Exposes cycle states, remaining times, and specific appliance entities.
 
 ## Prerequisites
 
