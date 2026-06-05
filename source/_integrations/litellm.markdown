@@ -30,7 +30,11 @@ API key:
 
 ## Prerequisites
 
-You need access to a [LiteLLM proxy](https://docs.litellm.ai/docs/simple_proxy) that is reachable from your Home Assistant instance, with at least one model configured. You can use a hosted LiteLLM proxy or [run one yourself](https://docs.litellm.ai/docs/simple_proxy). The integration discovers the available models from the proxy during setup.
+Before you add this integration, you need the following:
+
+- **A LiteLLM proxy that Home Assistant can reach.** This is the endpoint the integration connects to. You can use a hosted LiteLLM proxy or [run one yourself](https://docs.litellm.ai/docs/simple_proxy).
+- **At least one model configured on the proxy.** The integration discovers the available models from the proxy during setup and creates a conversation agent for each one.
+- **An API key, if your proxy requires authentication.** This is used to authorize Home Assistant's requests to the proxy. You can leave it empty if your proxy does not require one.
 
 ## Supported functionality
 
