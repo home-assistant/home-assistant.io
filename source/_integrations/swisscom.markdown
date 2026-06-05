@@ -35,6 +35,7 @@ All models share the same web interface, so they work the same way with this int
 To set up the integration, you need the following:
 
 - The IP address of your Internet-Box. By default, this is `192.168.1.1`.
+- The administrator username. By default, this is `admin`.
 - The administrator password for your Internet-Box. This is the password you use to sign in to the router's web interface.
 
 {% include integrations/config_flow.md %}
