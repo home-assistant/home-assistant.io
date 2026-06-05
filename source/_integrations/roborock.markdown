@@ -48,7 +48,7 @@ pause the vacuum when a media player starts playing music.
 
 This integration communicates with devices paired to the official Roborock app. While it was originally developed for robot vacuums, it also supports other smart home appliances in the Roborock ecosystem. 
 
-### Robot Vacuums (Local Polling with Cloud Fallback)
+### Robot vacuums (local polling with cloud fallback)
 Most robotic vacuums utilize a hybrid communication model. Home Assistant uses local communication for commands and polling but relies on the cloud for setup and fallback control.
 
 - **S, [QV, Qrevo, and Saros series](https://us.roborock.com/collections/robot-vacuums?sort_by=manual&filter.p.m.custom.product_series=Qrevo+Series&filter.p.m.custom.product_series=Roborock+Qrevo+Series&filter.p.m.custom.product_series=Roborock+QV+Series&filter.p.m.custom.product_series=Saros+Series&filter.v.price.gte=0&filter.v.price.lte=1700):** Fully supported 
