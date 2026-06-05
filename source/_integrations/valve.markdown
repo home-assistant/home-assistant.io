@@ -44,6 +44,8 @@ The following device classes are supported for valves:
 
 {% include integrations/triggers.md %}
 
+{% include integrations/conditions.md %}
+
 ## Actions
 
 ### Valve control actions
