@@ -344,7 +344,7 @@ details about any named rooms on each map.
   - **Description**: Get maps for a specific device
   - **Optional**: No.
 
-This will return the name of the map, and the room names and id numbers.
+This returns the name of the map, and the room names and ID numbers.
 
 ### Dyad devices
 
