@@ -27,7 +27,7 @@ To accomplish this, you can use the [utility_meter integration](/integrations/ut
 
 ## Solar production on a separate grid connection
 
-If you have a solar installation with a dedicated grid connection that is used only for exporting production — separate from the main household consumption grid connection — you can configure the energy dashboard as follows:
+If you have a solar installation with a dedicated grid connection that is used only for exporting production—separate from the main household consumption grid connection—you can configure the energy dashboard as follows:
 
 1. If not configured yet, add your main household grid connection as a **Grid** source with **Energy imported from grid**, **Energy exported to grid**, and **Power measurement** configured as normal. Do not add any sensor for the separate solar production to this connection.
 2. Add your inverter production energy and power sensors as a **Solar panels** source, as usual.
