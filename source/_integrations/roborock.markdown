@@ -496,7 +496,7 @@ While the Roborock integration allows for direct control of your vacuum, its tru
 
 Instead of scheduling your vacuum to run at a fixed time when you might be home or on a work call, you can trigger a full clean automatically the moment your alarm system is armed to "Away."
 
-> [!WARNING]
+> [!IMPORTANT]
 > Running a robot vacuum while your alarm system is armed can falsely trigger motion sensors (PIRs) and cause accidental alarms. Only use this automation if your motion sensors are pet-immune, positioned out of the vacuum's path, or if you can reliably verify your home's security remotely (e.g., via security cameras), and deny that there is a burglary going on before emergency services are dispatched.
 ```yaml
 alias: "Vacuum: Clean when house is empty"
