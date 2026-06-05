@@ -10,6 +10,79 @@ For a summary in a more readable format
 
 ## All changes
 
+## Release 2026.6.1 - June 5
+
+- Fix Lyric sensor crash when next_period_time is None ([@bk86a] - [#167831])
+- Fix SleepIQ 401 storm by isolating client session cookies ([@Stormalong] - [#172276])
+- Upgrade HomeLink package, set integration type ([@rjones-gentex] - [#172371])
+- Bump actron-neo-api to 0.5.12 ([@kclif9] - [#172902])
+- Switchbot Cloud: Fixed an issue where condition filtering for enabled Webhooks was abnormal ([@XiaoLing-git] - [#172903])
+- Bump aioautomower to 2.7.6 ([@Thomas55555] - [#172937])
+- Add more Reolink diagnostic info ([@starkillerOG] - [#172945])
+- Fix Mitsubishi Comfort devices skipped due to unresolved local address ([@nikolairahimi] - [#172959])
+- Bump idasen-ha to 2.7.0 ([@abmantis] - [#172962])
+- Fix value template in MQTT Fan and Siren subentry setup ([@jbouwh] - [#172980])
+- Improve person tests ([@emontnemery] - [#172997])
+- Bump imgw_pib to 2.2.2 ([@bieniu] - [#172999])
+- Fix person in_zones propagation from scanner in home zone ([@emontnemery] - [#173007])
+- Bump holidays to 0.98 ([@gjohansson-ST] - [#173029])
+- Portainer extend timeout for disk space coordinator ([@erwindouna] - [#173032])
+- Convert LinkPlay configuration_url to string for device registry ([@frenck] - [#173034])
+- Fix Duco mode end time sensor name ([@ronaldvdmeer] - [#173045])
+- Unify query token auth in http views ([@edenhaus] - [#173082])
+- Create certificate files before trying to migrate the MQTT config entry ([@jbouwh] - [#173087])
+- Bump wheels to 2026.06.0 ([@edenhaus] - [#173089])
+- Bump pySmartThings to 4.0.1 ([@joostlek] - [#173092])
+- Bump yoto-api to 3.1.6 ([@piitaya] - [#173104])
+- Bump aiostreammagic to 2.13.2 ([@noahhusby] - [#173114])
+- Fix process advertisement for active scans ([@elupus] - [#173116])
+
+[#167831]: https://github.com/home-assistant/core/pull/167831
+[#172276]: https://github.com/home-assistant/core/pull/172276
+[#172371]: https://github.com/home-assistant/core/pull/172371
+[#172902]: https://github.com/home-assistant/core/pull/172902
+[#172903]: https://github.com/home-assistant/core/pull/172903
+[#172937]: https://github.com/home-assistant/core/pull/172937
+[#172945]: https://github.com/home-assistant/core/pull/172945
+[#172959]: https://github.com/home-assistant/core/pull/172959
+[#172962]: https://github.com/home-assistant/core/pull/172962
+[#172980]: https://github.com/home-assistant/core/pull/172980
+[#172997]: https://github.com/home-assistant/core/pull/172997
+[#172999]: https://github.com/home-assistant/core/pull/172999
+[#173007]: https://github.com/home-assistant/core/pull/173007
+[#173029]: https://github.com/home-assistant/core/pull/173029
+[#173032]: https://github.com/home-assistant/core/pull/173032
+[#173034]: https://github.com/home-assistant/core/pull/173034
+[#173045]: https://github.com/home-assistant/core/pull/173045
+[#173082]: https://github.com/home-assistant/core/pull/173082
+[#173087]: https://github.com/home-assistant/core/pull/173087
+[#173089]: https://github.com/home-assistant/core/pull/173089
+[#173092]: https://github.com/home-assistant/core/pull/173092
+[#173104]: https://github.com/home-assistant/core/pull/173104
+[#173114]: https://github.com/home-assistant/core/pull/173114
+[#173116]: https://github.com/home-assistant/core/pull/173116
+[@Stormalong]: https://github.com/Stormalong
+[@Thomas55555]: https://github.com/Thomas55555
+[@XiaoLing-git]: https://github.com/XiaoLing-git
+[@abmantis]: https://github.com/abmantis
+[@bieniu]: https://github.com/bieniu
+[@bk86a]: https://github.com/bk86a
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@kclif9]: https://github.com/kclif9
+[@nikolairahimi]: https://github.com/nikolairahimi
+[@noahhusby]: https://github.com/noahhusby
+[@piitaya]: https://github.com/piitaya
+[@rjones-gentex]: https://github.com/rjones-gentex
+[@ronaldvdmeer]: https://github.com/ronaldvdmeer
+[@starkillerOG]: https://github.com/starkillerOG
+
 - prusalink: populate serial number and firmware version in device info ([@heikkih] - [#169309])
 - Fix Schlage add_code service failing when code is passed as integer ([@MohamedBarrak3] - [#168399])
 - Bump indevolt-api to 1.6.5 ([@Xirt] - [#169406])
