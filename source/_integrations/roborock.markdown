@@ -492,7 +492,7 @@ We recommend using the "Auto" setting for your region. If that doesn't work beca
 
 ## Roborock integration automations
 
-While the Roborock integration allows for direct control of your vacuum, its true potential is unlocked when connected to the broader Home Assistant ecosystem. Below are examples of how you can automate your vacuum based on your home's state and other smart devices.
+The Roborock integration allows for direct control of your vacuum, but its true potential is unlocked when connected to the broader Home Assistant ecosystem.
 
 ### Automation: Clean when leaving the house
 
