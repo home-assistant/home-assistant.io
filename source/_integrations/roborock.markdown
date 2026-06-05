@@ -344,7 +344,7 @@ details about any named rooms on each map.
   - **Description**: Get maps for a specific device
   - **Optional**: No.
 
-This will return the name of the map, and the room names and id numbers. See [How can I clean a specific room? ](#how-can-i-clean-a-specific-room) for more details on how to use the maps response.
+This will return the name of the map, and the room names and id numbers.
 
 ### Dyad devices
 
