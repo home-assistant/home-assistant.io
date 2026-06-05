@@ -60,10 +60,8 @@ The PAJ GPS {% term integration %} will track the location of each device regist
 
 - **Speed**
   - **Description**: The current speed of the PAJ GPS device in km/h, as reported by the GPS module.
-
-### Battery level sensor
-
-The **Battery level** sensor reports the remaining battery charge (0–100%) for PAJ GPS devices that have a built-in battery. Devices that are powered by the vehicle's electrical system, such as OBD, USB or hardwired trackers, usually do not have this sensor.
+- **Battery level**
+  - **Description**: Remaining battery charge (0–100%) for PAJ GPS devices that have a built-in battery. Devices that are powered by the vehicle's electrical system, such as OBD, USB or hardwired trackers, usually do not have this sensor.
 
 ## Examples
 
