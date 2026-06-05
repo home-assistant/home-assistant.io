@@ -494,7 +494,7 @@ We recommend using the "Auto" setting for your region. If that doesn't work beca
 
 While the Roborock integration allows for direct control of your vacuum, its true potential is unlocked when connected to the broader Home Assistant ecosystem. Below are examples of how you can automate your vacuum based on your home's state and other smart devices.
 
-### Clean Automatically When Leaving the House
+### Automation: Clean when leaving the house
 
 Instead of scheduling your vacuum to run at a fixed time when you might be home or on a work call, you can trigger a full clean automatically the moment your alarm system is armed to "Away."
 
