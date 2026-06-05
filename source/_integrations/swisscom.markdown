@@ -10,7 +10,7 @@ ha_config_flow: true
 ha_platforms:
   - device_tracker
 ha_integration_type: hub
-ha_quality_scale: legacy
+ha_quality_scale: bronze
 related:
   - docs: /integrations/device_tracker/
     title: Device tracker
