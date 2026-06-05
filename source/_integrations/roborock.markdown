@@ -44,7 +44,7 @@ The integration also allows for automation and integration with other smart home
 devices. For example, you could send a notification when the vacuum is stuck, or
 pause the vacuum when a media player starts playing music.
 
-## Supported Devices
+## Supported devices
 
 This integration communicates with devices paired to the official Roborock app. While it was originally developed for robot vacuums, it also supports other smart home appliances in the Roborock ecosystem. 
 
