@@ -596,7 +596,7 @@ conditions:
 
 ## Zone condition
 
-Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/), or a [device tracker](/integrations/device_tracker/).
+Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
 
 ```yaml
 conditions:
