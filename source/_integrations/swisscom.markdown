@@ -48,6 +48,16 @@ Password:
   description: "The administrator password for your Internet-Box. This is the password you use to sign in to the router's web interface."
 {% endconfiguration_basic %}
 
+## Migrating from YAML configuration
+
+If you previously configured the Swisscom Internet-Box through `configuration.yaml`:
+
+1. Set up the integration through the UI to provide your administrator credentials.
+2. Remove the `device_tracker` Swisscom entry from your `configuration.yaml` file.
+3. Restart Home Assistant.
+
+A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} will guide you through the same steps.
+
 ## Supported functionality
 
 The integration creates a {% term "device tracker" %} entity for each device known to your Internet-Box. Each entity reports whether the device is currently connected to your network, along with the following attributes:
