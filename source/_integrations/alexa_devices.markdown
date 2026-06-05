@@ -69,7 +69,7 @@ You must ensure the authenticator app is setup as your preferred method for 2FA.
 
 ### Available Actions
 
-Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`, `alexa_devices.send_info_skill`
+Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`, `alexa_devices.send_info_skill`, `media_player.volume_set`, `media_player.volume_up`, `media_player.volume_down`, `media_player.volume_mute`, `media_player.media_play`, `media_player.media_play_pause`, `media_player.media_pause`, `media_player.media_stop`, `media_player.media_next_track`, `media_player.media_previous_track`, `media_player.play_media`
 
 ### Action: Send message
 
@@ -124,6 +124,28 @@ The `alexa_devices.send_info_skill` action allows you to run some of the inbuilt
 | `device_id` | no | Device on which you want to run action |
 | `info_skill` | no | The info skill you want to run |
 
+### Action: Media Player Play Media
+
+The `media_player.play_media` action allows you request playback of audio tracks on Alexa.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------------------------------------- |
+| `entity_id` | no | Media player on which to play music |
+| `media_content_id` | no | What you want to play |
+| `media_content_type` | no | Provider to play from |
+
+This is equivalent to asking Alexa to play `media_content_id` on `media_content_type`.  `media_content_id` could be a track, an artist, an album, a genre etc.  Just like asking Alexa it is not guaranteed that exact track will play and this will vary based on provider.
+
+To get a list of your providers, visit https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.music in a browser where you are signed into Amazon website and change the domain to match your Amazon location.   This will show the providers linked to your account and you are looking for `id`.
+
+Some known values are
+
+| Provider | `media_content_type` |
+| -------- | -------------------- |
+| Amazon Music | AMAZON_MUSIC |
+| Spotify | SPOTIFY |
+| TuneIn | TUNEIN |
+
 ## Sensors
 
 The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
@@ -150,7 +172,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 In addition to sensors, you can use the following entities:
 
 - **Button** - Execute Alexa routines
-- **Media Player** - Play audio/video from several sources
+- **Media Player** - Play audio from several sources
 - **Notify** - Speak and Announce notifications
 - **Select** - Select default device
 - **Switch** - Do not disturb
@@ -186,15 +208,28 @@ data:
 
 ### Set volume
 
-{% note %}
-Once media player functionality is supported you will be able to achieve this through standard media player actions.
-{% endnote %}
+```yaml
+action: media_player.volume_set
+target:
+  entity_id: media_player.study_dot
+data:
+  volume_level: 0.4
+```
+
+### Play music
+
+{%tip%}
+For details of how to validate `media_content_type` see the `media_player.play_media` [action](#action-media-player-play-media)
+{%endtip%}
 
 ```yaml
-action: alexa_devices.send_text_command
+action: media_player.play_media
 data:
-  device_id: 037d79c1af96c67ba57ebcae560fb18e
-  text_command: volume 7
+  media:
+    media_content_id: Start wearing Purple by Gogol Bordello
+    media_content_type: SPOTIFY
+target:
+  entity_id: media_player.study_dot
 ```
 
 ### Control devices in Alexa
@@ -255,13 +290,12 @@ target:
 
 ## Data updates
 
-This integration {% term polling polls %} data from the device every five minutes by default.
+This integration {% term polling polls %} data from the device every five minutes by default.   Media player and event data are pushed from Amazon.
 
 ## Known limitations
 
 - This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
-- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
 
 ## Troubleshooting
 
