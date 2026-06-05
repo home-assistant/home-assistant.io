@@ -21,6 +21,7 @@ ha_dhcp: true
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
+ha_quality_scale: platinum
 ---
 
 The **Tailwind** {% term integration %} lets you control your [Tailwind](https://gotailwind.com/) garage door controller fully locally, without relying on cloud services.
@@ -97,7 +98,9 @@ triggers:
     for:
       minutes: 10
 actions:
-  - action: notify.mobile_app_my_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Garage door"
       message: "The garage door has been open for 10 minutes."

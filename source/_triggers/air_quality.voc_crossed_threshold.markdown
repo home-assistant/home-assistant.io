@@ -23,7 +23,7 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Volatile organic compounds level crossed threshold**.
 6. Under **Threshold type**, set the VOC level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
 8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
 9. Select **Save**.
 
@@ -32,13 +32,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: The VOC concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -52,7 +49,7 @@ trigger: |
     entity_id: sensor.office_voc
   options:
     threshold: 300
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the office VOC sensor crosses 300 in either direction.
@@ -69,10 +66,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -102,7 +99,7 @@ Hours of focused work in a closed room lets VOCs build up from furniture, carpet
 - **Trigger**: Volatile organic compounds level crossed threshold
 - **Target**: Office VOC sensor
 - **Threshold type**: 300
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Action**: Turn on fan (office ventilation)
 
 {% details "YAML example for VOC-based office ventilation" %}
@@ -116,7 +113,7 @@ automation: |
         entity_id: sensor.office_voc
       options:
         threshold: 300
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:

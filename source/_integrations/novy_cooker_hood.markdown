@@ -11,10 +11,11 @@ ha_codeowners:
   - '@piitaya'
 ha_domain: novy_cooker_hood
 ha_platforms:
+  - diagnostics
   - fan
   - light
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: gold
 ---
 
 The **Novy Cooker Hood** {% term integration %} lets you control the light and extractor of a [Novy](https://www.novy.com/) cooker hood over 433.92&nbsp;MHz radio, through a compatible RF transmitter. You can automatically run the extractor when the hob is in use, for example at 50%, as soon as a smart plug reports power draw, and switch the light by voice through Assist, which is handy when your hands are full in the kitchen.

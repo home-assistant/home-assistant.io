@@ -12,6 +12,8 @@ ha_domain: xthings_cloud
 ha_integration_type: hub
 ha_platforms:
   - light
+  - lock
+  - switch
 ha_quality_scale: bronze
 ---
 

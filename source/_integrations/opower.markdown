@@ -193,10 +193,12 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 - For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
 - Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
+- For some utilities, the account number displayed in Home Assistant might not match the account number on your utility bill or web portal. This is expected behavior. The integration uses an internal identifier from the Opower system (`preferredUtilityAccountId`), which can differ from your public billing account number (`accountName`). It does not mean you are connected to anyone else's account or that you are seeing someone else's statistics.
 
 ## Troubleshooting
 
 - If your usage or cost sensors are completely missing or showing `0`, this may be expected behavior; see **Known limitations** above.
+- If the account number shown in Home Assistant doesn't match the one on your bill, this is normal and does not mean you are connected to someone else's account; see [Known limitations](#known-limitations) above.
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - When configuring the Energy dashboard in Home Assistant, use the statistics as described in **Known limitations** above.
 

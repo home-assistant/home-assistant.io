@@ -19,7 +19,8 @@ ha_platforms:
 ha_domain: indevolt
 ha_integration_type: device
 ha_dhcp: true
-ha_quality_scale: bronze
+ha_zeroconf: true
+ha_quality_scale: platinum
 ha_config_flow: true
 ---
 
@@ -27,14 +28,22 @@ The **Indevolt** {% term integration %} enables direct local communication betwe
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status. You can also manage battery working modes and control real-time charging/discharging behavior, and configure power limits and other battery protection settings.
+With this integration, you can monitor energy production, consumption, and battery status in real time. You can also manage battery working modes, control real-time charging and discharging behavior, and configure power limits and other battery protection settings.
+
+Beyond basic monitoring, the Indevolt integration enables advanced energy management automations within Home Assistant. For example, you can:
+
+- Optimize battery charging and discharging based on solar production forecasts
+- Automatically adjust energy modes to take advantage of variable electricity pricing
+- Prevent grid feed-in during peak tariff periods by dynamically limiting output power
+- Maintain a minimum battery charge for backup scenarios by adjusting discharge limits when applicable
+- Coordinate battery behavior with other Home Assistant energy devices for whole-home optimization
 
 ## Supported devices
 
 The integration supports the following devices:
 
-- BK1600/BK1600Ultra
-- SolidFlex/PowerFlex2000
+- BK1600 / BK1600 Ultra
+- SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000
 
 ## Prerequisites
 
@@ -66,6 +75,7 @@ The following button entity allows triggering device actions directly from Home 
 
 #### All generations
 
+- Rated capacity (kWh)
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
 - Device heating state (Gen-1 specific, on/off)
@@ -95,29 +105,31 @@ The following button entity allows triggering device actions directly from Home 
 - Meter connection status
 - Meter power (W)
 
-#### BK1600/BK1600Ultra (Generation 1)
+#### BK1600 / BK1600 Ultra (Generation 1)
 
 - Inverter temperature (°C)
 - MOS Temperature charge/discharge (°C)
 - Battery pack 1-3 temperature (°C)
 - Device heating state (on/off)
 
-#### SolidFlex2000/PowerFlex2000 (Generation 2)
+#### SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000 (Generation 2)
 
-- Rated capacity (kWh)
 - DC input voltage (4 channels, V)
 - DC input current (4 channels, A)
 - DC input power (4 channels, W)
 - Grid voltage (V)
 - Grid frequency (Hz)
-- Battery cycle count
+- Equivalent full cycles
 - Transformer temperature (°C)
 - Main battery serial number
+- Main battery cycle count
 - Main battery SOC (%)
 - Main battery temperature (°C)
+- Main battery MOS temperature (°C)
 - Main battery voltage (V)
 - Main battery current (A)
 - Battery pack 1-5 serial number
+- Battery pack 1-5 cycle count
 - Battery pack 1-5 SOC (%)
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 MOS temperature (°C)
@@ -188,15 +200,28 @@ data:
   target_soc: 10
 ```
 
+## Examples
+
+### Setting emergency SOC based on forecasted minimum temperatures
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_manage_auto_emergency_soc.yml" %}
+
+### Dynamically control battery discharge based on battery state, grid import/export and solar production
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_smart_discharge.yml" %}
+
 ## Data updates
 
 The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. If an update fails, the integration will retry again at the set interval (self-recovery).
 
 ## Known limitations
 
-- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode
+- Real-time configuration changes may appear with a small delay in Home Assistant and the Indevolt app.
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode (BK1600 / BK1600 Ultra).
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
+- The inverter temperature only shows when the inverter is active (BK1600 / BK1600 Ultra).
+- The SolidFlex 1200 identifies itself as a SolidFlex 2000 device.
 
 ## Troubleshooting
 
@@ -205,7 +230,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 1. Ensure the device is powered on and functioning normally.
 2. Confirm both the device and Home Assistant are connected to the same local network.
 3. Ensure the device's IP address is correct and hasn't changed.
-4. Check the device's settings in the Indevolt app to ensure that the API is enabled.
+4. Check the device's settings in the Indevolt app to ensure that the API is enabled in "HTTP" mode.
 
 Check the Home Assistant logs for more information.
 

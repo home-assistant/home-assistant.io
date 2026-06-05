@@ -122,7 +122,9 @@ actions:
   - action: switch.turn_on
     target:
       entity_id: switch.dishwasher
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: "Dishwasher started during low carbon intensity period ({{ states('sensor.electricity_maps_carbon_intensity') }} gCO2eq/kWh)"
 ```

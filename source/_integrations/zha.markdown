@@ -715,7 +715,8 @@ If your Zigbee device pairs/joins successfully with the ZHA {% term integration 
 1. Try to re-pair/re-join the device several times.
 2. Review the troubleshooting sections.
 3. Search for similar situations in the Home Assistant [community forum or Discord chat server](https://www.home-assistant.io/help/).
-4. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
+4. Still not working? You might need a new custom ZHA device handler. This device handler adds exception handling code to ZHA to work around device-specific issues.
+   To submit a device support request for a new custom ZHA device handler, see [ZHA device handlers](#zha-device-handlers).
 
 #### ZHA device handlers
 For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)".
@@ -922,25 +923,7 @@ For troubleshooting, read the following sections on this page. They provide info
 
 ### Debug logging
 
-To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to {% term "`configuration.yaml`" %}:
-
-```yaml
-logger:
-  default: info
-  logs:
-    homeassistant.core: debug
-    homeassistant.components.zha: debug
-    bellows.zigbee.application: debug
-    bellows.ezsp: debug
-    zigpy: debug
-    zigpy_deconz.zigbee.application: debug
-    zigpy_deconz.api: debug
-    zigpy_xbee.zigbee.application: debug
-    zigpy_xbee.api: debug
-    zigpy_zigate: debug
-    zigpy_znp: debug
-    zhaquirks: debug
-```
+To enable debug logging, follow the steps on [Debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 

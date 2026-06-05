@@ -52,6 +52,22 @@ article {
     width: 45%;
   }
 
+  &.post {
+    ul {
+      li {
+        margin-bottom: 1.25rem;
+
+        p {
+          margin-bottom: 0;
+        }
+
+        li {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
   .tags {
     list-style-type: none;
     margin: 0;

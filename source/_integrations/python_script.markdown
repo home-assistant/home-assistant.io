@@ -150,7 +150,9 @@ The above `python_script` can be called using the following YAML and return a re
 ```yaml
 - action: python_script.hello_world
   response_variable: python_script_output
-- action: notify.mobile_app_iphone
+- action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     message: "{{ python_script_output['hello'] }}"
 ```

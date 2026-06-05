@@ -1205,97 +1205,13 @@ actions:
         - switch.in_wall_dual_relay_switch_3
 ```
 
-## Automations
+<a id="automations"></a>
+<a id="zwave_jsvalue_updated"></a>
+<a id="zwave_jsvalue_updated-trigger"></a>
+<a id="zwave_jsevent"></a>
+<a id="zwave_jsevent-trigger"></a>
 
-The `Z-Wave` integration provides its own trigger platforms which can be used in automations.
-
-### `zwave_js.value_updated`
-
-This trigger platform can be used to trigger automations on any Z-Wave JS value update, including Z-Wave JS values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
-
-#### Example automation trigger configuration
-
-```yaml
-# Fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
-triggers:
-  - trigger: zwave_js.value_updated
-    # At least one `device_id` or `entity_id` must be provided
-    device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
-    entity_id:
-      - lock.front_lock
-      - lock.back_door
-    # `property` and `command_class` are required
-    command_class: 98 # Door Lock CC
-    property: "latchStatus"
-    # `property_key` and `endpoint` are optional
-    property_key: null
-    endpoint: 0
-    # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
-    from:
-      - "closed"
-      - "jammed"
-    to: "opened"
-```
-
-#### Available trigger data
-
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
-
-| Template variable            | Data                                                                                       |
-| ---------------------------- | ------------------------------------------------------------------------------------------ |
-| `trigger.device_id`          | Device ID for the device in the device registry.                                           |
-| `trigger.node_id`            | Z-Wave node ID.                                                                            |
-| `trigger.command_class`      | Command Class ID.                                                                          |
-| `trigger.command_class_name` | Command Class name.                                                                        |
-| `trigger.property`           | Z-Wave Value's property.                                                                   |
-| `trigger.property_name`      | Z-Wave Value's property name.                                                              |
-| `trigger.property_key`       | Z-Wave Value's property key.                                                               |
-| `trigger.property_key_name`  | Z-Wave Value's property key name.                                                          |
-| `trigger.endpoint`           | Z-Wave Value's endpoint.                                                                   |
-| `trigger.previous_value`     | The previous value for this Z-Wave value (translated to a state name when possible).       |
-| `trigger.previous_value_raw` | The raw previous value for this Z-Wave value (the key of the state when a state is named). |
-| `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
-| `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
-
-### `zwave_js.event`
-
-This trigger platform can be used to trigger automations on any Z-Wave JS controller, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
-
-There is strict validation in place based on all known event types, so if you come across an event type that isn't supported, please open a GitHub issue in the `home-assistant/core` repository.
-
-#### Example automation trigger configuration
-
-```yaml
-# Fires whenever the `interview failed` event is fired on the three devices (devices will be derived from device and entity IDs).
-triggers:
-  - trigger: zwave_js.event
-    # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
-    device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
-    entity_id:
-      - lock.front_lock
-      - lock.back_door
-    config_entry_id:
-    # `event_source` and `event` are required
-    event_source: node   # options are node, controller, and driver
-    event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
-    # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparison check would never evaluate to true.
-    event_data:
-      args:
-        isFinal: true
-    partial_dict_match: true  # defaults to false
-```
-
-#### Available trigger data
-
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.event` trigger platform has additional trigger data available for use.
-
-| Template variable      | Data                                                                             |
-| ---------------------- | -------------------------------------------------------------------------------- |
-| `trigger.device_id`    | Device ID for the device in the device registry (only included for node events). |
-| `trigger.node_id`      | Z-Wave node ID (only included for node events).                                  |
-| `trigger.event_source` | Source of event (node, controller, or driver).                                   |
-| `trigger.event`        | Name of event.                                                                   |
-| `trigger.event_data`   | Any data included in the event.                                                  |
+{% include integrations/triggers.md %}
 
 ## Advanced installation instructions
 
@@ -1434,7 +1350,7 @@ Entities will be created only after the node is ready (the interview is complete
 
 If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the GitHub issue tracker.
 
-### My device doesn't automatically update its status in HA if I control it manually
+### My device doesn't automatically update its status in Home Assistant if I control it manually
 
 Your device might not send automatic status updates to the adapter. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status).
 

@@ -109,7 +109,9 @@ actions:
   - data:
       title: "{{'Victoria Line: ' + states.sensor.victoria.state}}"
       message: "{{states.sensor.victoria.attributes.Description}}"
-    action: notify.mobile_app_pixel_7
+    action: notify.send_message
+    target:
+      entity_id: notify.my_device
 
 ```
 
