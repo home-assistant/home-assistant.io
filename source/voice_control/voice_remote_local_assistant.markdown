@@ -92,6 +92,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
 
    - Enter a name. You can pick any name that is meaningful to you.
    - Select the language that you want to speak.
+   - Optional: Set **Command timeout** between 5 seconds and 5 minutes. The default is 15 seconds.
    - Under **Conversation agent**, select **Home Assistant**.
    - Under **Speech-to-text**, select the speech-to-text engine you choose in the previous step (either **Whisper** or **Speech-to-Phrase**). Select the language.
    - Under **Text-to-speech**, select **Piper**. Select the language.
