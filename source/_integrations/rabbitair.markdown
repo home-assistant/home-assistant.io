@@ -17,12 +17,14 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **Rabbit Air** {% term integration %} lets you control your air purifier over the local network. The following device models are currently supported:
+The **Rabbit Air** {% term integration %} lets you control your air purifier over the local network.
 
-- MinusA2 (2-nd generation)
+## Supported devices
+
+The following device models are currently supported:
+
+- MinusA2 (second generation)
 - A3
-
-The fan platform of this integration allows you to turn the unit on/off, select the preset mode, or set the speed manually. The sensor platform provides the current air quality reported by the device.
 
 ## Prerequisites
 
@@ -58,3 +60,15 @@ host:
 access_token:
   description: Access Token that can be obtained in the Rabbit Air app.
 {% endconfiguration_basic %}
+
+## Supported functionality
+
+The **Rabbit Air** integration provides the following entities.
+
+### Fans
+
+- **Rabbit Air**: Turn the air purifier on or off, select the preset mode, or set the speed manually.
+
+### Sensors
+
+- **Air quality**: Shows the current air quality reported by the device. The sensor can report `lowest`, `low`, `medium`, `high`, or `highest`.
