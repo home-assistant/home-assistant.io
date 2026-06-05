@@ -27,7 +27,7 @@ Before setting up the integration, ensure the following:
 1. Your EVT800 is powered by solar (it does not power on without sunlight).
 2. The EVT800 is connected to your local network via Wi-Fi.
 3. Determine the **IP address** of the EVT800:
-   - Check your router`s device list or use a network scanning tool.
+   - Check your router's device list or use a network scanning tool.
 4. Open a web browser and navigate to:
    `http://<YOUR_EVT800_IP_ADDRESS>`
    - Default username: `admin`
@@ -148,7 +148,7 @@ Incorrect configuration or the device is not powered.
 
 ### General tips
 
-- If you frequently lose connection to the device, consider assigning a **static IP** to your EVT800 in your router`s DHCP settings.
+- If you frequently lose connection to the device, consider assigning a **static IP** to your EVT800 in your router's DHCP settings.
 
 ## Removing the integration
 
