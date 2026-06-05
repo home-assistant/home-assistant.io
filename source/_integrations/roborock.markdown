@@ -402,7 +402,8 @@ This integration follows standard integration removal. No extra steps are requir
 No. This integration requires information from your Roborock app to set up and uses Roborock's protocols to communicate with your device. You must have your vacuum synced to the Roborock app.
 
 ### Can I block internet access for this device?
-As of right now - no. When the vacuum is disconnected from the internet, it will block its local API until it can reach the Roborock servers. However when connected via Matter, the vacuum can work fully offline, but the controls and sensors are limited.
+
+As of right now - no. When the vacuum is disconnected from the internet, it will block its local API until it can reach the Roborock servers. However, when connected by using Matter, the vacuum can work fully offline, but the controls and sensors are limited.
 
 ### What devices are supported?
 If you can add your device to the Roborock app - it is supported. However, some older vacuums like the Roborock S5 must be connected using the Mi Home app and can be set up in Home Assistant through the [Xiaomi Miio](/integrations/xiaomi_miio/) integration.
