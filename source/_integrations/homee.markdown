@@ -78,8 +78,11 @@ Devices you add in homee appear automatically in Home Assistant. If you remove a
 The integration basically supports all devices that are working in homee. Since development relies on an unofficial and outdated description of the interface and reverse engineering, not all functions of a device may work as expected.
 
 A list of known devices and their status can be found in the [old custom integration's wiki](https://github.com/Taraman17/hass-homee/wiki).
-No unsupported devices are currently known.
 If you think a device is not correctly supported, see [below](#homee-device-not-working-as-expected).
+
+## Unsupported devices
+
+Commands of the "Warema WMS Handsender" remote controls are not passed to the external API by the homee cube. Therefore these devices show up in Home Assistant, but have no function.
 
 ## Homeegrams (automations)
 

@@ -50,6 +50,7 @@ This {% term integration %} is tested to work with the following models:
 | LWA021       | Hue Filament Bulb White                          |
 | LWA031       | Hue White 1600                                   |
 | LTO002       | Hue White ambiance filament globe bulb           |
+| Unknown      | Hue White and Color Ambiance Infuse ceiling lamp |
 | Unknown      | Hue White and Color Ambiance Go portable accent light  |
 
 The **Philips Hue BLE** integration has been designed to work with other models as well. If you have a different model and it is working, please let us know.
