@@ -140,14 +140,27 @@ json_attributes_template:
   required: false
   type: template
 json_attributes_topic:
-  description: "The MQTT topic subscribed to receive a JSON dictionary message containing device tracker attributes.
-  This topic can be used to set the location of the device tracker under the following conditions:
+  description: "The MQTT topic is subscribed to receive a JSON dictionary containing device tracker attributes and is used to update the location of the device tracker.\n
+The JSON message must include either:\n
 
-- If the attributes in the JSON message include `longitude`, `latitude`, and `gps_accuracy` (optional).\n
-- If the device tracker is within a configured [zone](/integrations/zone/).\n
+- `in_zones`, **or**\n
+- `longitude`, `latitude`, and optionally `gps_accuracy`.
 
-  If these conditions are met, it is not required to configure `state_topic`.\n\n
-  Be aware that any location message received at `state_topic`  overrides the location received via `json_attributes_topic` until a message configured with `payload_reset` is received at `state_topic`. For a more generic usage example of the `json_attributes_topic`, refer to the [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation."
+A device tracker is considered to be located *within a zone* when the `in_zones` attribute is provided.\n
+
+You can provide location information in one of two ways:\n
+
+1. **Coordinates** — by including `longitude`, `latitude`, and optionally `gps_accuracy`.\n  
+2. **Zone reference** — by setting `in_zones` to the zone’s `friendly_name`, `object_id`, or `entity_id`.\n
+
+The `in_zones` attribute must be list of strings.  
+Each value must match a Home Assistant zone’s `entity_id`, `object_id`, or `friendly_name`.\n
+For example, the default zone with entity_id `zone.home` typically has:\n
+
+- `friendly_name`: **Home** (depending on language settings and customization)\n
+- `object_id`: **home**\n
+
+For a more general usage example of `json_attributes_topic`, refer to the [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation."
   required: false
   type: string
 name:
@@ -159,26 +172,11 @@ payload_available:
   required: false
   type: string
   default: online
-payload_home:
-  description: The payload value that represents the 'home' state for the device.
-  required: false
-  type: string
-  default: home
 payload_not_available:
   description: The payload that represents the unavailable state.
   required: false
   type: string
   default: offline
-payload_not_home:
-  description: The payload value that represents the 'not_home' state for the device.
-  required: false
-  type: string
-  default: not_home
-payload_reset:
-  description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
-  required: false
-  type: string
-  default: '"None"'
 platform:
   description: Must be `device_tracker`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
   required: true
@@ -192,18 +190,10 @@ source_type:
   description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
   required: false
   type: string
-state_topic:
-  description: The MQTT topic subscribed to receive device tracker state changes. The states defined in `state_topic` override the location states defined by the `json_attributes_topic`. This state override is turned inactive if the `state_topic` receives a message containing `payload_reset`. The `state_topic` can only be omitted if `json_attributes_topic` is used. An empty payload is ignored. Valid payloads are `not_home`, `home` or any other custom location or zone name. Payloads for `not_home`, `home` can be overridden with the `payload_not_home`and `payload_home` config options.
-  required: false
-  type: string
 unique_id:
   description: "An ID that uniquely identifies this device_tracker. If two device_trackers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery."
   required: false
   type: string
-value_template:
-  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that returns a device tracker state."
-  required: false
-  type: template
 {% endconfiguration %}
 
 ## Examples
@@ -217,27 +207,15 @@ You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or th
 To create the device_tracker:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "homeassistant/device_tracker/a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "homeassistant/device_tracker/a4567d663eaf/location_attrs", "name": "My Tracker"}'
 ```
 
-To set the state of the device tracker to "home":
+An MQTT device tracker can link to a zone with:
 
-```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/state -m 'home'
-```
+1. GPS based coordinates
+2. A list of zones (either zone entity IDs, object IDs or names) the device tracker is linked to.
 
-To set the state of the device tracker to a named location:
-
-```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/state -m 'location_name'
-```
-
-If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (that is, `json_attributes_topic`) in the configuration payload:
-
-- Attributes topic: `homeassistant/device_tracker/a4567d663eaf/attributes`
-- Example attributes payload:
-
-Example message to be received at topic `homeassistant/device_tracker/a4567d663eaf/attributes`:
+Example message with GPS based coordinates to be received at topic `homeassistant/device_tracker/a4567d663eaf/location_attrs`:
 
 ```json
 {
@@ -247,17 +225,13 @@ Example message to be received at topic `homeassistant/device_tracker/a4567d663e
  }
 ```
 
-To create the device_tracker with GPS coordinates support:
+Example message with GPS based coordinates to be received at topic `homeassistant/device_tracker/a4567d663eaf/location_attrs`:
 
-```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "homeassistant/device_tracker/a4567d663eaf/attributes", "name": "My Tracker"}'
+```json
+{
+  "in_zones": ["home"]
+}
 ```
-
-{% note %}
-
-Using `state_topic` is optional when using `json_attributes_topic` to determine the state of the device tracker.
-
-{% endnote %}
 
 To set the state of the device tracker to specific coordinates:
 
@@ -265,19 +239,20 @@ To set the state of the device tracker to specific coordinates:
 mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/attributes -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
 ```
 
+To set the state of the device tracker with linked zones:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/attributes -m '{"in_zones": ["home"]}'
+```
 
 ### YAML configuration
 
 The following example shows how to configure the same device tracker through configuration.yaml
-
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   - device_tracker:
       name: "My Tracker"
-      state_topic: "a4567d663eaf/state"
-      payload_home: "home"
-      payload_not_home: "not_home"
+      json_attributes_topic: "a4567d663eaf/location_attrs"
 ```
-
