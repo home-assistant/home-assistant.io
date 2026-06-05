@@ -69,7 +69,9 @@ You must ensure the authenticator app is setup as your preferred method for 2FA.
 
 ### Available Actions
 
-Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`, `alexa_devices.send_info_skill`, `media_player.volume_set`, `media_player.volume_up`, `media_player.volume_down`, `media_player.volume_mute`, `media_player.media_play`, `media_player.media_play_pause`, `media_player.media_pause`, `media_player.media_stop`, `media_player.media_next_track`, `media_player.media_previous_track`, `media_player.play_media`
+Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`, `alexa_devices.send_info_skill`
+
+`media_player.volume_set`, `media_player.volume_up`, `media_player.volume_down`, `media_player.volume_mute`, `media_player.media_play`, `media_player.media_play_pause`, `media_player.media_pause`, `media_player.media_stop`, `media_player.media_next_track`, `media_player.media_previous_track`, `media_player.play_media`
 
 ### Action: Send message
 
@@ -126,7 +128,7 @@ The `alexa_devices.send_info_skill` action allows you to run some of the inbuilt
 
 ### Action: Media Player Play Media
 
-The `media_player.play_media` action allows you request playback of audio tracks on Alexa.
+The `media_player.play_media` action allows you to request playback of audio tracks on Alexa.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
@@ -290,7 +292,7 @@ target:
 
 ## Data updates
 
-This integration {% term polling polls %} data from the device every five minutes by default.   Media player and event data are pushed from Amazon.
+This integration {% term polling polls %} data from the device every five minutes by default. Media player and event data are pushed from Amazon.
 
 ## Known limitations
 
