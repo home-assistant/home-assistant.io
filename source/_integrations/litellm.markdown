@@ -60,7 +60,6 @@ The agent can be used in [Assist](/voice_control/) like any other conversation a
 
 To change the model, instructions, or tools later, select the conversation agent and choose **Reconfigure conversation agent**.
 
-
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
