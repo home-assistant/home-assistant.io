@@ -12,8 +12,8 @@ ha_integration_type: system
 
 The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker set the state of the person. When you use multiple device trackers, the state of the person is determined in this order:
 
-1. If there are connected [connection trackers](/integrations/device_tracker/#connection-trackers), the tracker most recently updated will be used.
-2. If there are [position trackers](/integrations/device_tracker/#connection-trackers), the most recently updated tracker will be used.
+1. If one or more [connection trackers](/integrations/device_tracker/#connection-trackers) are connected, the tracker most recently updated will be used.
+2. If there are [position trackers](/integrations/device_tracker/#position-trackers), the most recently updated tracker will be used.
 3. Otherwise, the latest tracker with state `not_home` will be used.
 
 Let's say, for example, that you have three trackers: `tracker_gps`, `tracker_router`, and `tracker_ble`.
