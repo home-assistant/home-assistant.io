@@ -4,6 +4,7 @@ description: Instructions on how to integrate Lunatone REST API devices with Hom
 ha_category:
   - Hub
   - Light
+  - Sensor
 ha_release: 2025.11
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -13,12 +14,13 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - light
+  - sensor
 ha_integration_type: hub
 ha_zeroconf: true
 ha_quality_scale: silver
 ---
 
-The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This allows you to use lights in Home Assistant that are connected to the DALI bus via your device.
+The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This allows you to use lights and sensors in Home Assistant that are connected to the DALI bus via your device.
 
 ## Supported devices
 
@@ -57,7 +59,7 @@ The Lunatone integration provides the following entities.
 
 - **Brightness**
   - **Description**: Control the brightness of the light
-  - **Available for devices**: all
+  - **Available for devices**: All
 
 - **Color Temperature**
   - **Description**: Control the color temperature of the light
@@ -70,6 +72,38 @@ The Lunatone integration provides the following entities.
 - **RGBW Color**
   - **Description**: Control the RGBW color of the light
   - **Available for devices**: Devices with firmware version 1.17.0 or later
+
+#### Sensors
+
+The following sensor entities are available from your Lunatone gateway and connected DALI devices..
+
+- **Air quality index**
+  - **Description**: Shows the overall air quality index reported by the connected sensor device.
+  - **Available for devices**: All
+
+- **Carbon dioxide**
+  - **Description**: Shows the measured carbon dioxide concentration.
+  - **Available for devices**: All
+
+- **Humidity**
+  - **Description**: Shows the measured relative humidity.
+  - **Available for devices**: All
+
+- **Illuminance**
+  - **Description**: Shows the measured ambient light level.
+  - **Available for devices**: All
+
+- **Pressure**
+  - **Description**: Shows the measured air pressure.
+  - **Available for devices**: All
+
+- **Temperature**
+  - **Description**: Shows the measured temperature.
+  - **Available for devices**: All
+
+- **Volatile organic compounds**
+  - **Description**: Shows the measured level of volatile organic compounds.
+  - **Available for devices**: All
 
 ## Removing the integration
 

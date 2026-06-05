@@ -69,7 +69,7 @@ automation:
         target:
           entity_id: fan.bathroom
         options:
-          behavior: any
+          behavior: each
           for: "00:20:00"
     actions:
       - action: notify.send_message

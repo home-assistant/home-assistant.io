@@ -49,7 +49,7 @@ trigger: |
     entity_id: sensor.patio_pm10
   options:
     threshold: 50
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the patio PM10 sensor crosses 50 in either direction.
@@ -66,10 +66,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -115,7 +115,7 @@ automation: |
         entity_id: sensor.patio_pm10
       options:
         threshold: 50
-        behavior: any
+        behavior: each
   conditions:
     - condition: numeric_state
       entity_id: sensor.patio_pm10

@@ -84,6 +84,12 @@ If you think a device is not correctly supported, see [below](#homee-device-not-
 
 Commands of the "Warema WMS Handsender" remote controls are not passed to the external API by the homee cube. Therefore these devices show up in Home Assistant, but have no function.
 
+## Homeegrams (automations)
+
+Homeegrams are {% term automations %} in homee. The integration implements them as {% term switches %} that the user can trigger and that momentarily turn on if the Homeegram is played in homee, so they can also be used as a {% term trigger %} in Home Assistant.
+Although turning off a Homeegram in HA can be triggered by the user, it is not supported and will raise an error.
+Only Homeegrams that perform at least two actions are enabled by default to avoid creating a large number of low-value entities in your Home Assistant installation.
+
 ## Limitations
 
 Changed values are reported from homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.

@@ -228,6 +228,7 @@ Each UniFi Protect siren is added as a separate device in Home Assistant, linked
 Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
 
 - **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. This requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+- **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
 - **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
