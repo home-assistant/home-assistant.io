@@ -34,9 +34,28 @@ You need access to a [LiteLLM proxy](https://docs.litellm.ai/docs/simple_proxy) 
 
 ## Supported functionality
 
-### Conversation agent
 
-The integration adds a conversation agent for each configured model that can be used in [Assist](/voice_control/). When you grant it control of Home Assistant, the agent can call the configured tools to interact with your devices and entities. To choose which devices and entities the agent can access, see [exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
+### Adding a conversation agent
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your LiteLLM entry.
+2. Select **Add conversation agent**.
+3. Fill in the fields:
+
+{% configuration_basic %}
+Model:
+   description: "The model to use for the conversation agent. The list is discovered from your LiteLLM proxy."
+Instructions:
+   description: "Instruct how the LLM should respond. This field supports [templates](/docs/configuration/templating/)."
+Control Home Assistant:
+   description: "Select which tools the agent can use to interact with your devices and entities. Leave empty if you do not want the agent to control Home Assistant."
+{% endconfiguration_basic %}
+
+When you grant the agent control of Home Assistant, it can call the configured tools to interact with your devices and entities. To choose which devices and entities the agent can access, see [exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
+
+The agent can be used in [Assist](/voice_control/) like any other conversation agent.
+
+To change the model, instructions, or tools later, select the conversation agent and choose **Reconfigure conversation agent**.
+
 
 ## Removing the integration
 
