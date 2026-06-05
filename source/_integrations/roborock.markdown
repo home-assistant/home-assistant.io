@@ -423,7 +423,9 @@ We are working on adding a lot of features to the core integration. We have reve
 5. Go back to the vacuum entity and select **Cleaning by area**.
 6. Select your areas and select **Clean**.
 
-Do note that Roborock vacuums do not support cleaning in a specific room order.
+{% note %}
+Roborock vacuums do not support cleaning in a specific room order.
+{% endnote %}
 
 ## Known limitations
 
