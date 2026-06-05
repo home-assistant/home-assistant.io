@@ -507,6 +507,7 @@ Running a robot vacuum while your alarm system is armed can falsely trigger moti
 - **Actions**: `vacuum.start` to start the robot vacuum to clean the house while everyone is away
 
 {% details "YAML example for cleaning the house after the alarm is set to armed away" %}
+
 ```yaml
 alias: "Vacuum: Clean when house is empty"
 description: "Triggers a full clean when the house alarm is armed to away."
@@ -524,6 +525,7 @@ action:
       entity_id: vacuum.roborock_s8
 mode: single
 ```
+
 {% enddetails %}
 ### Automation: post-cooking kitchen cleanup
 
@@ -533,6 +535,7 @@ Cooking often leaves crumbs or spills near the stove. You can automate your Robo
 - **Actions**: `vacuum.clean_area` with `cleaning_area_id: kitchen` to start the robot vacuum to clean kitchen after cooking is done
 
 {% details "YAML example for cleaning the kitchen after the hob is turned off for a minute" %}
+
 ```yaml
 alias: "Vacuum: Clean kitchen after cooking"
 description: "Sends the vacuum to the kitchen zone 1 minute after the stovetop turns off."
@@ -555,4 +558,5 @@ action:
     data:
       cleaning_area_id: kitchen
 ```
+
 {% enddetails %}
