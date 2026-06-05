@@ -17,7 +17,7 @@ og_image: /images/blog/2026-06/social.png
 
 Home Assistant 2026.6! 🎉
 
-I'm going to put my hand up right away: ✋ I am _not_ a dashboard person. Not because I don't like them; I love seeing what you all build. But designing a beautiful one is a kind of visual creativity I just don't have. That's a big part of why I love the built-in [Home dashboard](/dashboards/home/) so much, it does the designing for me. But when I do build a custom dashboard, I usually stare at that "add a card" dialog for way too long, picking cards almost at random just to see if they look good with the data I have.
+I'm going to put my hand up right away: ✋ I am _not_ a dashboard person. Not because I don't like them; I love seeing what you all build. But designing a beautiful one is a kind of visual creativity I just don't have. That's a big part of why I love the built-in [Home dashboard](/dashboards/dashboards/#home-dashboard) so much, it does the designing for me. But when I do build a custom dashboard, I usually stare at that "add a card" dialog for way too long, picking cards almost at random just to see if they look good with the data I have.
 
 So you can imagine my excitement for my personal favorite of this release: the [new card picker](#a-friendlier-way-to-add-cards-to-your-dashboard). Instead of asking _"which card type do I want?"_, it now asks _"which thing in your home do you want to show?"_, and then suggests cards that actually make sense for it, with live previews using your own data. For someone like me, that's not just
 easier; it's genuinely _inspiring_. It nudges me towards combinations I would not have thought of on my own. 💡
