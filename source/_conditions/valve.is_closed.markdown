@@ -77,7 +77,7 @@ for:
 
 ## Good to know
 
-- Valves that are in the transitional **Closing** state, that means that they are still moving towards closed state, do not satisfy this condition. The condition only passes once the valve is fully **Closed**. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- Valves in the transitional **Closing** state do not satisfy this condition. The condition only passes once the valve is fully **Closed**. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves reporting position (0 to 100%) are considered closed only when their position is exactly 0. A valve at position 1% is considered open.
 - Valves that have an **Unavailable** or **Unknown** state do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted valves.
 - This condition works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
@@ -117,7 +117,7 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        title: "✅ Water supply closed"
+        title: "Water supply closed"
         message: >
           The main water supply valve has been confirmed closed for at least
           30 seconds. It is safe to inspect the leak and reopen when ready.
@@ -158,7 +158,7 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        title: "🔧 Boiler blocked"
+        title: "Boiler blocked"
         message: >
           The boiler tried to start but the gas supply valve is closed.
           Open the gas valve before restarting the heating system.

@@ -114,7 +114,7 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        title: "⚠️ Irrigation skipped"
+        title: "Irrigation skipped"
         message: >
           The main water supply valve is already open.
           Scheduled irrigation was skipped to avoid wasting water.
@@ -157,7 +157,7 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        title: "🚰 Irrigation pump stopped"
+        title: "Irrigation pump stopped"
         message: >
           An irrigation valve has been open for over 30 minutes.
           The pump has been turned off to prevent overwatering.
