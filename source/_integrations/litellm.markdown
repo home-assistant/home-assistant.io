@@ -36,9 +36,6 @@ Before you add this integration, you need the following:
 - **At least one model configured on the proxy.** The integration discovers the available models from the proxy during setup and creates a conversation agent for each one.
 - **An API key, if your proxy requires authentication.** This is used to authorize Home Assistant's requests to the proxy. You can leave it empty if your proxy does not require one.
 
-## Supported functionality
-
-
 ### Adding a conversation agent
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your LiteLLM entry.
