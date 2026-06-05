@@ -51,8 +51,8 @@ This integration communicates with devices paired to the official Roborock app. 
 ### Robot vacuums (local polling with cloud fallback)
 Most robotic vacuums utilize a hybrid communication model. Home Assistant uses local communication for commands and polling but relies on the cloud for setup and fallback control.
 
-- **S, [QV, Qrevo, and Saros series](https://us.roborock.com/collections/robot-vacuums?sort_by=manual&filter.p.m.custom.product_series=Qrevo+Series&filter.p.m.custom.product_series=Roborock+Qrevo+Series&filter.p.m.custom.product_series=Roborock+QV+Series&filter.p.m.custom.product_series=Saros+Series&filter.v.price.gte=0&filter.v.price.lte=1700):** Fully supported 
-- **[Q-Series](https://us.roborock.com/collections/robot-vacuums?sort_by=manual&filter.p.m.custom.product_series=Roborock+Q7+Series&filter.p.m.custom.product_series=Roborock+Q10+Series&filter.v.price.gte=0&filter.v.price.lte=1700):** Compatibility varies. While many Q-series models are supported, newer variants may have a different protocol that may fail to connect properly. If your model is unsupported, it may feature partial local control using the native [Matter](/integrations/matter/) integration.
+- **S, QV, Qrevo, and Saros series:** Fully supported 
+- **Q-Series:** Compatibility varies. While many Q-series models are supported, newer variants may have a different protocol that may fail to connect properly. If your model is unsupported, it may feature partial local control using the native [Matter](/integrations/matter/) integration.
 
 ### Non-Vacuum Appliances (Cloud Dependent)
 Non-vacuum products paired with the Roborock app communicate strictly via an outbound MQTT connection. These devices do **not** support local communication with Home Assistant and are entirely cloud-dependent:
