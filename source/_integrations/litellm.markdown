@@ -1,6 +1,6 @@
 ---
 title: LiteLLM
-description: Instructions on how to integrate LiteLLM as a conversation agent
+description: Instructions on how to integrate a LiteLLM proxy as a conversation agent in Home Assistant
 ha_category:
   - AI
 ha_release: 2026.7
