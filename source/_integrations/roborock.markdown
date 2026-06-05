@@ -519,7 +519,8 @@ action:
 mode: single
 ```
 
-### Automation: Post-cooking kitchen cleanup
+### Automation: post-cooking kitchen cleanup
+
 Cooking often leaves crumbs or spills near the stove. You can automate your Roborock to head straight to the kitchen to tidy up when your smart stove or oven is turned off.
 
 ```yaml
