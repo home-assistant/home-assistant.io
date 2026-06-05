@@ -413,7 +413,6 @@ We are working on adding a lot of features to the core integration. We have reve
 - Manual vacuum remote control
 - Viewing the camera
 
-
 ### How can I clean a specific room?
 
 1. Go to the vacuum entity of your Roborock device
