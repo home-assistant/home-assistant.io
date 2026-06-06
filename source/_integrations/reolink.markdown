@@ -372,6 +372,15 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Battery temperature*+
 - Battery state*+ (discharging, charging, charge complete)
 
+### Time entities
+
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following time entities are added:
+
+- Floodlight schedule start*+
+- Floodlight schedule end*+
+
+**Floodlight schedule start** and **Floodlight schedule end** set the time window during which the floodlight turns on while the **Floodlight mode** select entity is set to **Schedule**. Because the camera only stores the schedule in this mode, setting either time also switches the floodlight to **Schedule** mode. If the configured window covers the current time, the floodlight turns on immediately.
+
 ### Update entity
 
 An update entity is available that checks for firmware updates every 24 hours.
