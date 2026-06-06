@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@ctalkington'
 ha_platforms:
+  - calendar
   - sensor
 ha_integration_type: service
 ---
@@ -24,6 +25,12 @@ URL:
 API Key:
   description: Your Sonarr API key. To find it, open your Sonarr web interface and navigate to **Settings** > **General**. The API key is listed under the **Security** section.
 {% endconfiguration_basic %}
+
+## Calendar
+
+A {% term calendar %} entity is created showing upcoming TV episode air times from your Sonarr schedule. Each event displays the series title, season and episode number, and episode title, for example, *Breaking Bad - S01E01 - Pilot*.
+
+You can use the calendar entity in the Home Assistant calendar dashboard to see what is coming up, or in automations to trigger actions when an episode is about to air.
 
 ## Sensors
 
