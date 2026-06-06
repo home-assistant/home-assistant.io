@@ -31,6 +31,10 @@ This integration uses data from the [Grand Lyon open data platform](https://data
 
 You need an account on [data.grandlyon.com](https://data.grandlyon.com/). Sign up for a free account if you don't have one. You can find more information about how to properly create an account and set a password [in their documentation](https://rdata-grandlyon.readthedocs.io/fr/latest/authentification.html) (fr).
 
+{% note %}
+Some users have reported issues with passwords containing special characters. If you have issues authenticating, try changing your password to remove them.
+{% endnote %}
+
 If you want to monitor transit stops, you also need to request access to the [realtime next departures dataset](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info). This is not required for Vélo'v stations.
 
 {% include integrations/config_flow.md %}
@@ -54,7 +58,7 @@ After setting up the integration, you can add transit stops and Vélo'v bike-sha
 Line:
   description: "The transit line identifier (for example, `C1` or `T2`)."
 Stop ID:
-  description: "The stop identifier. You can find the stop identifier on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info). Zoom on the map and click on a stop. The ID will be displayed on the panel on the right, at the bottom. The field is called `id`."
+  description: "The stop identifier. You can find the stop identifier on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/points-arret-reseau-transports-commun-lyonnais/donnees). Zoom on the map and click on a stop. The ID will be displayed on the panel on the right, at the bottom. The field is called `id`."
 {% endconfiguration_basic %}
 
 ### Adding a Vélo'v station
