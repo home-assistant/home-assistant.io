@@ -147,7 +147,7 @@ This integration adds the Blebox device as a climate entity to Home Assistant.
 
 ### thermoBox
 
-This integration adds the Blebox device as a climate entity to Home Assistant.
+This integration adds the Blebox device as a climate entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -920,7 +920,7 @@ This integration adds the Simon 55 GO device ("blebox inside") to Home Assistant
 
 ### Simon 55 GO THERMO (TETD2W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a climate entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
