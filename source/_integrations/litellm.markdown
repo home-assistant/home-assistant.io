@@ -36,6 +36,8 @@ API key:
   description: An optional LiteLLM API key or virtual key. Leave it empty if your proxy does not require authentication.
 {% endconfiguration_basic %}
 
+### Adding a conversation agent
+
 After the integration is set up, add a conversation agent for the model you want to use:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your LiteLLM entry.
