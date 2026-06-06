@@ -40,7 +40,7 @@ The following configuration options are available:
 path or url:
   description: "Path to the OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html). This is usually either a path to a serial device in `/dev/` if the gateway is connected via serial or USB, or a URL in the form of `socket://[IP address]:[port]` if it is connected over the network.<br/>Examples: `/dev/ttyUSB0`, `socket://192.168.0.250:25238`"
 id:
-  description: "The `gateway_id` for this OpenTherm Gateway. This is used to identify this specific gateway in action and to generate the entity IDs for the entities related to this gateway. The entered value will be slugified, i.e. all spaces and special characters will be converted to underscores and any accents will be removed from their characters."
+  description: "The `gateway_id` for this OpenTherm Gateway. This is used to identify this specific gateway in action and to generate the entity IDs for the entities related to this gateway. The entered value will be slugified, i.e. all spaces and special characters will be converted to underscores and any accents will be removed from their characters.<br/>Examples: `thermostat`, `living_room`"
 {% endconfiguration_basic %}
 
 {% important %}
