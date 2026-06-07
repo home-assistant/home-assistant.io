@@ -25,7 +25,7 @@ If you are using a third-party device (for example, not reading directly from yo
 
 To accomplish this, you can use the [utility_meter integration](/integrations/utility_meter/). With this integration you define as many tariffs as required by your utility provider.
 
-## Solar production on a separate grid connection
+## Setting up a dedicated solar export connection in the Energy dashboard
 
 If you have a solar installation with a dedicated grid connection that is used only for exporting production—separate from the main household consumption grid connection—you can configure the energy dashboard as follows:
 
