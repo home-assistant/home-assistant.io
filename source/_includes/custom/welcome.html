@@ -5,20 +5,16 @@
 
 {%- assign tot = 0 -%}
 {%- for comp in site.integrations -%}
-{%- if comp.ha_category -%}
-{%- if comp.ha_category.first -%}
-{%- assign tot = tot | plus: comp.ha_category.size -%}
-{%- else -%}
-{%- assign tot = tot | plus: 1 -%}
-{%- endif -%}
-{%- endif %}
+  {%- if comp.ha_category and comp.title -%}
+    {%- assign tot = tot | plus: 1 -%}
+  {%- endif -%}
 {%- endfor -%}
 
 <div class='hero-buttons'>
   <a href='/installation/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a>
   <div>
     <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
-    <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | round | times: 100 }}+ integrations</a>
+    <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | floor | times: 100 }}+ integrations</a>
   </div>
 </div>
 
@@ -43,4 +39,3 @@
     </div>
   </div> -->
 </div>
-
