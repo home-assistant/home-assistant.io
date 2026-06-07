@@ -56,7 +56,7 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 
 The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
 
-### Public API features {#public-api-features}
+### Public API features
 
 Some entities depend on features that were added to the UniFi Protect public API in a specific version. If your UniFi Protect version is older than the version that introduced a given feature, the corresponding entity will not be available. You can look up which features were introduced in which version on the [UniFi Protect developer portal](https://developer.ui.com/protect/).
 
