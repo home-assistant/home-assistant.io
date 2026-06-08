@@ -5,7 +5,7 @@
 
 {%- assign integration_count = 0 -%}
 {%- for comp in site.integrations -%}
-  {%- if comp.ha_category and comp.title -%}
+  {%- if comp.ha_category -%}
     {%- assign integration_count = integration_count | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
@@ -14,10 +14,23 @@
   <a href='/installation/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a>
   <div>
     <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
-    <a href='/integrations/'>Browse {{ integration_count | minus: 1 | divided_by: 100 | floor | times: 100 }}+ integrations</a>
-    <!--  Subtracting 1 forces a conservative buffer so milestones only flip over 
-  after safely exceeding the baseline (e.g., 1600 stays at 1500+ until 1601). -->
   </div>
+  
+  {%- comment -%}
+    Liquid integer division automatically truncates decimals (floors).
+    Using (count - 1) handles the exact milestone edge case cleanly.
+  {%- endcomment -%}
+  {%- if integration_count > 0 -%}
+    {%- assign milestone = integration_count | minus: 1 | divided_by: 100 | times: 100 -%}
+  {%- comment -%}
+    Subtracting 1 forces a conservative buffer so milestones only flip over 
+    after safely exceeding the baseline (e.g., 1600 stays at 1500+ until 1601).
+  {%- endcomment -%}
+  {%- else -%}
+    {%- assign milestone = 0 -%}
+  {%- endif -%}
+
+  <a href='/integrations/'>Browse {{ milestone }}+ integrations</a>
 </div>
 
 <div class="hero-socialproof">
