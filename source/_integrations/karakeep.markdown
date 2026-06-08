@@ -70,6 +70,12 @@ For each config entry, the integration creates the following {% term sensors %}:
 
 This integration retrieves data from Karakeep using a pull-based mechanism. Statistic sensors are updated every 5 minutes.
 
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+If the API key is not used anymore, you can remove it from your Karakeep instance.
+
 ## Troubleshooting
 
 {% details "The integration cannot connect to Karakeep" %}
