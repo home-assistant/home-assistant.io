@@ -205,7 +205,7 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 
 ### switchBox DIN
 
@@ -216,7 +216,7 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 
 ### switchBoxD
 
@@ -227,7 +227,7 @@ This integration adds the Blebox device as 2 switch entities and 2 sensor entiti
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 
 ### switchBoxD DIN
 
@@ -238,7 +238,7 @@ This integration adds the Blebox device as 2 switch entities and 2 sensor entiti
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 
 ### switchBoxDC
 
@@ -621,6 +621,8 @@ This integration adds the Simon 24 GO device ("blebox inside") as a switch entit
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 24 GO SWITCH D (NEW2W.01)
 
@@ -630,6 +632,8 @@ This integration adds the Simon 24 GO device ("blebox inside") as a switch entit
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 24 GO SWITCH Q (NEW4W.01)
 
@@ -733,6 +737,8 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 54 GO SWITCH D (DEW2W.01)
 
@@ -742,6 +748,8 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 54 GO SWITCH Q (DEW4W.01)
 
@@ -836,6 +844,8 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCHSHUTT
 
@@ -854,6 +864,8 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCH D (TEW2W.01)
 
@@ -863,6 +875,8 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCH Q (TEW4W.01)
 
