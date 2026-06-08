@@ -100,7 +100,7 @@ for:
 When a satellite starts processing a voice command, this automation turns off a nearby display that is no longer needed for input. Because the command has already been captured and is being interpreted, leaving the display on serves no purpose and wastes standby power. The display can be turned back on when the satellite returns to idle using the [Assist satellite idle](/triggers/assist_satellite.idle) trigger.
 
 - **Trigger**: Satellite started processing
-  * **Target**: Kitchen Assist satellite
+  - **Target**: Kitchen Assist satellite
 - **Action**: Turn off switch
   - **Target**: Kitchen display switch
 

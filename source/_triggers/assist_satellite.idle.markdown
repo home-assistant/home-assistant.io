@@ -93,7 +93,7 @@ for:
 - This trigger combined with the **Satellite started listening** trigger forms a natural bracket around a complete voice session, which is useful for logging session duration or computing the energy cost of each pipeline run.
 - Satellites that have the unavailable (`unavailable` in YAML) or unknown (`unknown` in YAML) state are skipped in the evaluation of multi-target behavior.
 
-{% include triggers/try_it.md %},
+{% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
 

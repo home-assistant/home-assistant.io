@@ -117,7 +117,7 @@ automation: |
   actions:
     - action: media_player.media_pause
       target:
-        entity_id: media_player_living_room
+        entity_id: media_player.living_room
 {% endexample %}
 
 {% enddetails %}
