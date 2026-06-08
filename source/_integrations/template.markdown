@@ -1346,7 +1346,7 @@ light:
       required: false
       type: action
     set_xy:
-      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with a `xy_color`.  The script receives the variables `xy` as a tuples, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with a `xy_color`.  The script receives the variables `xy` as a tuple, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     state:
