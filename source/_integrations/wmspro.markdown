@@ -71,7 +71,7 @@ Home Assistant treats the slat rotation as a linear scale from fully open to ful
 
 ### Automatic learning
 
-The number entities persist across Home Assistant restarts. They are updated automatically on slat rotation to allow automatic learning of the valid rotation range based on the current rotation angle. For learning, it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected and waiting until the position was updated.
+The number entities persist across Home Assistant restarts. They are updated automatically on slat rotation to allow automatic learning of the valid rotation range based on the current rotation angle. For learning, it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected and wait until the position has updated.
 
 ## Scenes
 
