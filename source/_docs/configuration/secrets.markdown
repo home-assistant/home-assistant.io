@@ -63,8 +63,8 @@ This will not print the actual secret's value to the log.
 
 ## Secrets in automations and scripts
 
-Using secrets is incompatible with the frontend UI-based automation and script editor. If even a single secret is used in automations.yaml or scripts.yaml, you will not be able to edit or view any automations or scripts from the frontend UI.
-
+Using secrets is not supported in the Home Assistant UI YAML editor for automations and scripts. If `!secret` is used in `automations.yaml` or `scripts.yaml`, you will not be able to edit or view **any** YAML automations or scripts in the UI.
+ 
 You can however split automations or scripts using secrets into a separate yaml file, as described in [splitting configuration](/docs/configuration/splitting_configuration/#top-level-keys). These will be read-only in the frontend, and allow the rest of your automations to still be editable normally.
 
 Example `configuration.yaml`:
