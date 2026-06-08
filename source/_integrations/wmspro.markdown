@@ -45,8 +45,7 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 ## Buttons
 
-- All devices that support an identification activity (for example, winking an awning or blinking a light)
-  can be triggered to perform such activity.
+- All devices that support an identification activity (for example, winking an awning or blinking a light) can be triggered to perform such activity.
 
 ## Covers
 
@@ -55,11 +54,7 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 ### Rotation support
 
-Home Assistant treats the slat rotation as a linear scale from fully open to fully closed. The integration
-uses the maximum rotation angle as the fully closed position, but the minimum (reverse) angle is not treated
-as fully open. When you set the slats to the open position in Home Assistant, they move to the position
-where the slats are parallel to the ground as expected. You can change the minimum and maximum rotation
-angles via configuration [number](#numbers) entities or [automatic learning](#automatic-learning).
+Home Assistant treats the slat rotation as a linear scale from fully open to fully closed. The integration uses the maximum rotation angle as the fully closed position, but the minimum (opposite) angle is not treated as fully open. Instead when you set the slats to the open position in Home Assistant, they move to the position where the slats are parallel to the ground as expected. You can change the minimum and maximum rotation angles via configuration [number](#numbers) entities or [automatic learning](#automatic-learning).
 
 ## Lights
 
@@ -71,12 +66,12 @@ angles via configuration [number](#numbers) entities or [automatic learning](#au
   This is required as the WMS WebControl pro currently reports invalid minimum and maximum rotation values.
 - *Slat-drives supporting rotation* also have a diagnostic entity to control the raw rotation angle.
   This is especially useful for *slat-based roofs* which currently have no other way to be controlled.
+- *Slat-based covers* like roofs that only have rotation, but not position control, will only have this entity.
+  In that case this raw rotation number entity will not be marked as diagnostic entity, but as main entity instead.
 
 ### Automatic learning
 
-The number entities persist across Home Assistant restarts. They are updated automatically on slat rotation
-to allow automatic learning of the valid rotation range based on the current rotation angle. For learning,
-it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected.
+The number entities persist across Home Assistant restarts. They are updated automatically on slat rotation to allow automatic learning of the valid rotation range based on the current rotation angle. For learning, it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected and waiting until the position was updated.
 
 ## Scenes
 
