@@ -95,7 +95,7 @@ The **Kiosker** integration provides the following entities.
 - **Screensaver state**
   - Shows whether the screensaver is currently active.
 - **Blackout state**
-  - Shows whether the screen is currently blacked out. Has extra attributes with the blackout data when active.
+  - Shows whether the screen is currently blacked out.
 - **Blackout dismissible** (disabled by default)
   - Shows whether the current blackout is dismissible by te user. Defaults to unknown if no visible blackout.
 
