@@ -61,11 +61,11 @@ condition: |
   target:
     entity_id: sensor.main_power
   options:
-      threshold:
-        type: below
-        value:
-          number: 2500
-          unit_of_measurement: "W"
+    threshold:
+      type: below
+      value:
+        number: 2500
+        unit_of_measurement: "W"
 {% endexample %}
 
 This passes when the main power reading is below 2500 W.

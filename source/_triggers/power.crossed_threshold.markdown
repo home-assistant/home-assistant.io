@@ -69,11 +69,11 @@ trigger: |
   target:
     entity_id: sensor.washing_machine_power
   options:
-      threshold:
-        type: below
-        value:
-          number: 3
-          unit_of_measurement: "W"
+    threshold:
+      type: below
+      value:
+        number: 3
+        unit_of_measurement: "W"
 {% endexample %}
 
 This fires whenever the washing machine power reading crosses below 3 W.

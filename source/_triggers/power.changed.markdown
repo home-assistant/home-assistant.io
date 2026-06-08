@@ -55,11 +55,11 @@ trigger: |
   target:
     entity_id: sensor.washing_machine_power
   options:
-      threshold:
-        type: above
-        value:
-          number: 10
-          unit_of_measurement: "W"
+    threshold:
+      type: above
+      value:
+        number: 10
+        unit_of_measurement: "W"
 {% endexample %}
 
 This fires whenever the washing machine power reading changes to a value above 10 W. To fire on any change regardless of direction or value, use `type: any` and omit `value`.
