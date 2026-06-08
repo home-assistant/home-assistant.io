@@ -13,6 +13,7 @@ Review `.github/copilot-instructions.md` against these current home-assistant.io
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/integration-docs-examples.md`
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/standards.md`
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/general-style-guide.md`
+- `https://raw.githubusercontent.com/home-assistant/frontend/refs/heads/dev/gallery/src/pages/brand/personality.markdown`
 
 Update only `.github/copilot-instructions.md`.
 
