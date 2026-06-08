@@ -69,7 +69,7 @@ angles via configuration [number](#numbers) entities or [automatic learning](#au
 
 - *Slat-based blinds* will have configuration entities to overwrite the minimum and maximum rotation angle.
   This is required as the WMS WebControl pro currently reports invalid minimum and maximum rotation values.
-- *Slat-drives supporting rotation* will also have a diagnostic entity to control the raw rotation angle.
+- *Slat-drives supporting rotation* also have a diagnostic entity to control the raw rotation angle.
   This is especially useful for *slat-based roofs* which currently have no other way to be controlled.
 
 ### Automatic Learning
