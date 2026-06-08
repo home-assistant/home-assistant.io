@@ -37,7 +37,7 @@ The **WMS WebControl pro** {% term integration %} allows you to integrate WAREMA
 This integration uses a local API which is available since firmware container version 11H.
 
 See device section for support information: [buttons](#buttons), [covers](#covers), [lights](#lights),
-[numbers](#numbers), [scenes](#scenes) and [switches](#switches).
+[numbers](#numbers), [scenes](#scenes), and [switches](#switches).
 
 {% include integrations/config_flow.md %}
 
