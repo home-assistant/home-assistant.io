@@ -195,6 +195,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -816,6 +817,16 @@ Features:
 - set mode
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
+
+#### Circulator Fan Pro
+
+This is an encrypted device.
+
+The Circulator Fan Pro combines a fan with a built-in night light. It adds the following entities:
+
+- A fan that supports turning on or off, setting the speed, setting the mode (including hurricane), and oscillating.
+- A light for the two-level (high and low) night light.
+- A switch for vertical oscillation.
 
 ### Air Purifiers
 
