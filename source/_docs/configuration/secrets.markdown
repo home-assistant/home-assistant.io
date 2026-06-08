@@ -60,3 +60,21 @@ logger: debug
 ```
 
 This will not print the actual secret's value to the log.
+
+## Secrets in automations and scripts
+
+Using secrets is incompatible with the frontend UI-based automation and script editor. If even a single secret is used in automations.yaml or scripts.yaml, you will not be able to edit or view any automations or scripts from the frontend UI.
+
+You can however split automations or scripts using secrets into a separate yaml file, as described in [splitting configuration](/docs/configuration/splitting_configuration/#top-level-keys). These will be read-only in the frontend, and allow the rest of your automations to still be editable normally.
+
+Example `configuration.yaml`:
+
+```yaml
+# The main automations editable in the UI
+automation ui: !include automation.yaml
+
+# These automations may contain secrets, and will be read-only in the UI
+automation secret: !include automation-secret.yaml
+```
+{% caution %} Secrets used in automations will expose their secret value to admins when viewed in the frontend interface, in the automation source viewer and in the trace viewer. {% endcaution %}
+
