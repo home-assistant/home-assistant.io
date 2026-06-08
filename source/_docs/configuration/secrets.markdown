@@ -71,10 +71,10 @@ Example `configuration.yaml`:
 
 ```yaml
 # The main automations editable in the UI
-automation ui: !include automation.yaml
+automation ui: !include automations.yaml
 
 # These automations may contain secrets, and will be read-only in the UI
-automation secret: !include automation-secret.yaml
+automation secret: !include automations-secret.yaml
 ```
 {% caution %}
 Secrets used in automations will expose their secret value to administrators when viewed in the UI, such as in the YAML source viewer and the trace viewer.
