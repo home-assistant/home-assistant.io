@@ -3,7 +3,7 @@ title: MELCloud Home
 description: Instructions on how to integrate MELCloud Home with Home Assistant.
 ha_category:
   - Climate
-ha_release: '2026.7'
+ha_release: 2026.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@erwindouna'
@@ -19,14 +19,15 @@ The **MELCloud Home** {% term integration %} connects Home Assistant to [MELClou
 
 ## Prerequisites
 
+
+{% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 E-mail:
     description: "The e-mail address you used to configure your MELCloud Home account."
 Password:
-    description: "The password associated with the MELCloud Home account.."
+    description: "The password associated with the MELCloud Home account."
 {% endconfiguration_basic %}
-
-{% include integrations/config_flow.md %}
 
 ## Supported functionality
 
