@@ -137,7 +137,7 @@ The `answers` are given as a list of objects with the following structure:
 
 Sentence templates may contain wildcard `{slots}` that will be stored in the answer's `slots` field. For example, `play {album} by {artist}` will match "play the white album by the beatles" with "white album" stored in `slots.album` and "the beatles" in `slots.artist`.
 
-Number ranges can be matched with lists like `{0..100:brightness}` which will match numbers from 0 to 100 and put the value into a `brightness` slot. This works for digits as well as words, so the sentence `set brightness to {0..100:brightness} percent` will match:
+Number ranges can be matched with ranges like `{0..100:brightness}`. This matches numbers from 0 to 100 and stores the value in a `brightness` slot. This works for digits as well as words, so the sentence `set brightness to {0..100:brightness} percent` will match:
 
 - "set brightness to 50 percent"
 - "set brightness to fifty percent"

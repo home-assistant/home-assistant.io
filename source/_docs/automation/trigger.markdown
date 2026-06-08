@@ -456,12 +456,12 @@ Including extra words in your template can help: `play {album} by artist {artist
 
 ### Inline number ranges
 
-Number ranges can be matched with lists like `{0..100:brightness}` which will match numbers from 0 to 100 and put the value into a `brightness` slot. This works for digits as well as words, so the sentence `set brightness to {0..100:brightness} percent` will match:
+Number ranges can be matched with ranges like `{0..100:brightness}`. This matches numbers from 0 to 100 and stores the value in a `brightness` slot. This works for digits as well as words, so the sentence `set brightness to {0..100:brightness} percent` will match:
 
 - "set brightness to 50 percent"
 - "set brightness to fifty percent"
 
-In both cases, the value of `{{ trigger.slots.brightness }}` will be 50. If you want to get the words as spoken or written for a response, use `trigger.details` like `{{ trigger.details.brightness.text }}`
+In both cases, the value of `{{ trigger.slots.brightness }}` will be 50. If you want to get the words as spoken or written for a response, use `trigger.details`, like `{{ trigger.details.brightness.text }}`.
 
 ## Multiple triggers
 
