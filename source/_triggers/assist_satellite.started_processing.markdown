@@ -87,7 +87,7 @@ for:
 ## Good to know
 
 - This trigger fires as soon as the satellite hands the captured audio to the speech-to-text and intent pipeline. The voice command has not yet been acted upon at this point.
-- The processing state spans both speech-to-text transcription and intent recognition. For cloud-based pipelines, processing time is dominated by network round-trip latency, that is typically 100 ms to 500 ms on a fast connection, but up to several seconds under congestion. For local pipelines, total processing time depends entirely on the speech recognition model and hardware, thus can be one to several seconds.
+- The processing state spans both speech-to-text transcription and intent recognition. For cloud-based pipelines, processing time is dominated by network round-trip latency, that is typically 100 ms to 500 ms on a fast connection, but up to several seconds under congestion. For local pipelines, total processing time depends entirely on the speech recognition model and hardware, thus can be one or several seconds.
 - If you are using a cloud pipeline, keep in mind that processing requires network access. A slow or offline internet connection can keep the satellite in the processing state longer than usual.
 - Satellites that have the **Unavailable** or **Unknown** state are skipped in the evaluation of multi-target behavior.
 
