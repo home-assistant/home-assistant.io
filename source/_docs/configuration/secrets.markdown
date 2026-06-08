@@ -76,5 +76,7 @@ automation ui: !include automation.yaml
 # These automations may contain secrets, and will be read-only in the UI
 automation secret: !include automation-secret.yaml
 ```
-{% caution %} Secrets used in automations will expose their secret value to admins when viewed in the frontend interface, in the automation source viewer and in the trace viewer. {% endcaution %}
+{% caution %}
+Secrets used in automations will expose their secret value to administrators when viewed in the UI, such as in the YAML source viewer and the trace viewer.
+{% endcaution %}
 
