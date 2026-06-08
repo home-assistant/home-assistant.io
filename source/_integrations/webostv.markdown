@@ -48,42 +48,7 @@ Sources:
 
 LG webOS TV devices running webOS 2.0 and above.
 
-## Turn on automation trigger
-
-To turn on your TV, you need to create an automation. You can create an automation from the user interface. From the device, create a new automation and select the **Device is requested to turn on** trigger.
-
-If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as the [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/). They provide an action that can be used for that.
-
-Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
-
-{% important %}
-This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
-{% endimportant %}
-
-Automations can also be created using YAML:
-
-The `webostv.turn_on` device trigger is used in an automation to turn on the TV when the media player power button is pressed.
-
-| Data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |       no | Entity requested to turn on. For example `media_player.lg_webos_tv`|
-
-```yaml
-# Example configuration.yaml entry
-wake_on_lan: # enables `wake_on_lan` integration
-
-automation:
-  - alias: "Turn On Living Room TV with WakeOnLan"
-    triggers:
-      - trigger: webostv.turn_on
-        entity_id: media_player.lg_webos_tv
-    actions:
-      - action: wake_on_lan.send_magic_packet
-        data:
-          mac: aa:bb:cc:dd:ee:ff
-```
-
-Any other [actions](/docs/automation/action/) to power on the device can be configured.
+{% include integrations/triggers.md %}
 
 ## Actions
 
@@ -242,6 +207,64 @@ The behavior of the next and previous buttons is different depending on the acti
 
 - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
 - otherwise: next/previous buttons act as next/previous track
+
+## LG webOS TV automation examples
+
+These examples show common automations using the LG webOS TV integration.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: turn on the TV with Wake-on-LAN
+
+When something requests the LG webOS TV to turn on, send a Wake-on-LAN magic packet to power it on over the network. The [Wake-on-LAN integration](/integrations/wake_on_lan/) must be set up before using this example.
+
+- **Trigger**: Device is requested to turn on
+  - **Device**: Living room LG TV (`media_player.lg_webos_tv`)
+- **Action**: Send magic packet
+  - **MAC address**: `aa:bb:cc:dd:ee:ff`
+
+{% details "YAML example for turning on the TV with Wake-on-LAN" %}
+
+{% example %}
+automation: |
+  alias: "Turn on LG webOS TV with Wake-on-LAN"
+  triggers:
+    - trigger: webostv.turn_on
+      entity_id: media_player.lg_webos_tv
+  actions:
+    - action: wake_on_lan.send_magic_packet
+      data:
+        mac: "aa:bb:cc:dd:ee:ff"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a notification when the TV is requested to turn on
+
+When something requests the LG webOS TV to turn on, send a notification to your phone.
+
+- **Trigger**: Device is requested to turn on
+  - **Device**: Living room LG TV (`media_player.lg_webos_tv`)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for sending a notification when the TV is requested to turn on" %}
+
+{% example %}
+automation: |
+  alias: "Notify when LG webOS TV is requested to turn on"
+  triggers:
+    - trigger: webostv.turn_on
+      entity_id: media_player.lg_webos_tv
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The living room TV was requested to turn on."
+{% endexample %}
+
+{% enddetails %}
 
 ## Troubleshooting
 
