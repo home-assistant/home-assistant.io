@@ -161,6 +161,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
       - if at least one member has a numeric state: calculated according to the `type`
       - otherwise: set to `unknown`
 - The variable `ignore_non_numeric` can be combined with the type `first_available` to always take the first available numeric state from a group.
+- Explicitly selected entities has priority when selecting targets for the group which may be noteworthy using the `first available` option.
 
 ## Managing groups
 
@@ -170,7 +171,7 @@ To edit a group, **{% my helpers title="**Settings** > **Devices & services** > 
 
 ### Group options
 
-To add or remove entities from an existing group, click on `Group options`, all the existing entities are listed in the `members` section where you add and remove entities.
+To add or remove entities from an existing group, click on `Group options`, all the existing targets are listed in the `members` section where you add and remove targets.
 
 ![Group members](/images/integrations/group/Group_members.png)
 
@@ -178,9 +179,9 @@ To add or remove entities from an existing group, click on `Group options`, all 
 
 These are the attributes available for a group.
 
-| Attribute                            | Data                                                                                                                            |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`                          | List of all the `entity_id`'s in the group.                                                                                     |
+| Attribute                            | Data                                               |
+| ------------------------------------ | -------------------------------------------------- |
+| `entity_id`                          | List of all the target `entity_id`'s in the group. |
 
 ## YAML configuration
 
