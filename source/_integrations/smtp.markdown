@@ -17,40 +17,24 @@ The **SMTP** {% term integration %} allows you to deliver notifications from Hom
 {% include integrations/config_flow.md %}
 
 Check your email provider configuration or help pages to get the correct SMTP settings.
-{% configuration %}
+{% configuration_basic %}
 Sender email:
     description: "Email address that will appear in the From field."
-    required: true
-    type: string
 Sender name:
     description: "Display name shown as the email sender."
-    required: false
-    type: string
 Host:
     description: "Hostname or IP address of the SMTP server."
-    required: true
-    type: string
 Port:
     description: "SMTP server port number."
-    required: true
-    type: string
 Connection security:
     description: "Encryption method used for the SMTP connection."
-    required: true
-    type: string
 Username:
     description: "Username used to authenticate with the SMTP server."
-    required: false
-    type: string
 Password:
     description: "Password or app-specific password for the SMTP account."
-    required: false
-    type: string
 Verify SSL certificate:
     description: "Enable certificate verification for secure SSL/TLS connections."
-    required: true
-    type: string
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ### Usage
 
