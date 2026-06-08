@@ -26,7 +26,7 @@ Let's say, for example, that you have three trackers: `tracker_gps`, `tracker_ro
 6. You've returned home and your mobile device has connected to the router, but `tracker_gps` hasn't updated yet. Your state will be `home` with source `tracker_router`.
 7. After the `tracker_gps` update occurs, your state will still be `home` with source `tracker_router` or `tracker_ble`, whichever has the most recent update.
 
-In short, when you're at home, your position is determined first by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined first by GPS and then by stationary trackers.
+In short, when you're at home, your position is determined first by connection trackers (if any) and then by position trackers. When you're outside your home, your position is determined first by position trackers and then by connection trackers.
 
 In addition to the state, the person will have the state attributes `latitude`, `longitude`, `gps_accuracy` and `in_zones` copied from the source device tracker.
 
