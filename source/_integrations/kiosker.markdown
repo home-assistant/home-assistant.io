@@ -105,6 +105,8 @@ The **Kiosker** integration provides the following entities.
   - Clears all cookies on the device.
 - **Dismiss screensaver**
   - Dismisses the currently active screensaver.
+- **Clear blackout**
+  - Clears the currently active blackout.
 
 ## Data updates
 
