@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 section#buy {
     isolation: isolate;
     max-height: 1000px;

@@ -9,12 +9,13 @@ ha_config_flow: true
 ha_release: 2023.9
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@h3l1o5'
+  - '@aeon-matrix'
 ha_domain: yardian
 ha_platforms:
   - binary_sensor
+  - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Yardian** {% term integration %} allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).

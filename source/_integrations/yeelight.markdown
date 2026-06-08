@@ -18,7 +18,7 @@ ha_platforms:
 ha_homekit: true
 ha_dhcp: true
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Yeelight** {% term integration %} allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
@@ -32,7 +32,7 @@ There is support for the following device types within Home Assistant:
 
 ### Custom effects
 
-Custom effects can only be set up through YAML configuration. To turn on the effect you can use [light.turn_on](/integrations/light/#action-lightturn_on) action.
+Custom effects can only be set up through YAML configuration. To turn on the effect you can use [light.turn_on](/actions/light.turn_on/) action.
 
 Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
 
@@ -296,7 +296,7 @@ The `yeelight.set_music_mode` action enables or disables music_mode.
 
 ### Device Discovery
 
-The Yeelight devices use non-standard search parameters for SSDP so devices are not visible in **the SSDP/UPnP Browser**. 
+The Yeelight devices use non-standard search parameters for SSDP so devices are not visible in **the SSDP/UPnP Browser**.
 
 If you want to check what devices are in your network, you can use [the `async-upnp-client` library](https://pypi.org/project/async-upnp-client/), and then run the following command:
 ```bash

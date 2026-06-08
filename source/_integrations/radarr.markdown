@@ -29,6 +29,8 @@ Your API key can be found in Settings > General in the Radarr Web UI.
 
 ### Calendar
 
+A {% term calendar %} entity will also be created indicating the day of release and the type of release, such as Cinemas, Digital, or Physical.
+
 A calendar entity will be created indicating the day of release and the type of release, such as Cinemas, Digital, or Physical.
 
 ### Sensors

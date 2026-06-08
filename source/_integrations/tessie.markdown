@@ -34,6 +34,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Tessie** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
@@ -85,6 +86,13 @@ You must have an active [Tessie](https://my.tessie.com/) subscription, generate 
 
 {% include integrations/config_flow.md %}
 
+## Data updates
+
+The {% term integration %} {% term polling polls %} vehicle data every 10 seconds using cached responses from Tessie.
+
+For energy sites, live and site information is refreshed every 30 seconds, and energy history is refreshed every 60 seconds.
+
+## Troubleshooting
 
 Once the integration is set up, all connected Tesla vehicles and energy products will be automatically added to Home Assistant. Note that reconfiguration through the UI is not currently supported. If you need to change your API token or reconnect your account, you will need to remove and re-add the integration.
 
@@ -205,6 +213,15 @@ Cooled seats:
 
 The integration will create sensor entities for a variety of metrics related to your vehicles:
 
+#### Battery health state
+
+- Battery module temperature max
+- Battery module temperature min
+- Battery pack current
+- Battery pack voltage
+- Lifetime energy used
+- Phantom drain
+
 #### Charge state
 
 - Battery charging
@@ -212,7 +229,9 @@ The integration will create sensor entities for a variety of metrics related to 
 - Battery range
 - Battery range estimate (disabled)
 - Battery range ideal (disabled)
+- Charge cable (disabled)
 - Charge energy added
+- Charge port latch (disabled)
 - Charge rate
 - Charger current
 - Charger power
@@ -267,6 +286,7 @@ The integration will show vehicle software updates and their installation progre
 - Backup capable
 - Grid services enabled
 - Grid services active
+- Grid status
 - Storm watch active
 
 ### Number
@@ -286,6 +306,7 @@ The integration will show vehicle software updates and their installation progre
 - Generator power
 - Grid power
 - Grid services power
+- Island status
 - Load power
 - Percentage charged
 - Solar power
@@ -297,6 +318,30 @@ The integration will show vehicle software updates and their installation progre
 - Power
 - State code
 
+#### Energy history
+
+- Battery charged from generator (disabled)
+- Battery charged from grid (disabled)
+- Battery charged from solar (disabled)
+- Battery discharged (disabled)
+- Energy consumed from battery (disabled)
+- Energy consumed from generator (disabled)
+- Energy consumed from grid (disabled)
+- Energy consumed from solar (disabled)
+- Generator exported (disabled)
+- Grid exported from battery (disabled)
+- Grid exported from generator (disabled)
+- Grid exported from solar (disabled)
+- Grid imported
+- Grid services exported (disabled)
+- Grid services imported (disabled)
+- Solar exported (disabled)
+- Total battery charged
+- Total battery discharged
+- Total grid exported
+- Total home usage
+- Total solar generated
+
 ### Switch
 
 - Allow charging from grid
@@ -304,9 +349,9 @@ The integration will show vehicle software updates and their installation progre
 
 ## Energy dashboard
 
-The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+The energy history sensors provide cumulative energy values (kWh) that can be used directly on the [energy dashboard](/docs/energy/).
 
-Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
+Alternatively, energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
 The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
 which then can be used within the energy dashboard.
 
@@ -406,7 +451,6 @@ automation:
 
 This automation sends a notification when your vehicle has finished charging:
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Notify when Tesla charging complete"
@@ -420,11 +464,12 @@ automation:
         entity_id: sensor.my_tesla_battery_level
         above: 79
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%"
 ```
-{% endraw %}
 
 ## Troubleshooting
 

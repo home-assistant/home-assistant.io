@@ -3,6 +3,7 @@ title: NINA
 description: Instructions on how to set up NINA warnings in Home Assistant.
 ha_category:
   - Binary sensor
+  - Sensor
 ha_release: 2022.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -12,12 +13,14 @@ ha_domain: nina
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - sensor
 ha_integration_type: service
+ha_quality_scale: silver
 ---
 
 The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html) {% term integration %} displays warnings from the [Bundesamt für Bevölkerungsschutz und Katastrophenhilfe](https://www.bbk.bund.de/) in Germany.
 
-For each county/city it creates warning slots that change to Unsafe when warnings are present. The text of the warning and the metadata are stored in the attributes of the slots.
+For each county/city it creates warning slots that change to Unsafe when warnings are present. The details of the warning are provided in separate entities.
 
 {% include integrations/config_flow.md %}
 
@@ -79,20 +82,47 @@ Show only warnings from the city of nagold.
 Regex: `.*nagold.*` <br>
 Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 
-## Attributes
+## Supported functionality
 
-| Attribute    | Description                            |
-| ------------ | -------------------------------------- |
-| `headline` | *(str)* Official headline of the warning. |
-| `description` | *(str)* Official description of the warning. |
-| `sender` | *(str)* Sender of the warning. Can be empty. |
-| `severity` | *(str)* Severity of the warning. <br>Extreme - Extraordinary threat to life or property <br>Severe - Significant threat to life or property <br>Moderate - Possible threat to life or property <br>Minor – Minimal to no known threat to life or property <br>Unknown - Severity unknown |
-| `recommended_actions` | *(str)* The recommendations for action. |
-| `affected_areas` | *(str)* Areas where the warning applies. |
-| `id` | *(str)* Individual ID for each warning. |
-| `sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
-| `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
-| `expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
+This integration provides the following entities for each warning slot.
+
+### Sensors
+
+- **Affected areas**:
+  - **Description**: Areas affected by the warning.
+  - **Remarks**: Shortened to 250 chars. To get all areas please use the `nina.get_affected_areas` action.
+- **Expires**:
+  - **Description**: Expiration timestamp of the warning.
+- **Headline**:
+  - **Description**: Headline of the warning.
+- **More information URL**:
+  - **Description**: URL with further information about the warning.
+- **Sender**:
+  - **Description**: Sender of the warning.
+- **Sent**:
+  - **Description**: Transmission timestamp of the warning.
+- **Severity**:
+  - **Description**: Severity of the warning.
+  - **Options**: Extreme, Severe, Moderate, Minor, Unknown
+- **Start**:
+  - **Description**: Starting timestamp of the warning.
+
+### Binary sensors
+
+- **Warning**:
+  - **Description**: Presence of a warning.
+  - **Attributes**: Available attributes are listed below.
+
+### Attributes
+
+The following attributes are available for the warnings.
+
+- **Attributes**:
+  - `id`: Individual ID for each warning.
+
+#### Response data
+
+The response data is a string with the description as provided by NINA.
 
 ## Data updates
 

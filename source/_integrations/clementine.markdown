@@ -29,7 +29,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP address of the Clementine Player e.g., 192.168.0.20.
+  description: The IP address of the Clementine Player, for example, `192.168.0.20`.
   required: true
   type: string
 port:

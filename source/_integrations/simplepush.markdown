@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: simplepush
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@engrbm87'
 ---
@@ -38,7 +38,7 @@ Attachments can be images, GIFs or video files that are accessible by a URL.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-## Examples 
+## Examples
 
 Send a notification with a title and event.
 

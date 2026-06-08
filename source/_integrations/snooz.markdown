@@ -12,7 +12,7 @@ ha_domain: snooz
 ha_config_flow: true
 ha_platforms:
   - fan
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [SNOOZ](https://getsnooz.com/) devices into Home Assistant.

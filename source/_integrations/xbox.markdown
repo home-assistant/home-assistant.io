@@ -9,7 +9,6 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
-  - '@hunterjm'
   - '@tr4nt0r'
 ha_domain: xbox
 ha_config_flow: true
@@ -23,6 +22,7 @@ ha_platforms:
 ha_integration_type: hub
 ha_ssdp: true
 ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 The **Xbox** {% term integration %} allows you to connect Home Assistant to the **Xbox Network**.
@@ -350,6 +350,10 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 ## Data updates
 
 This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds.
+
+## Known limitations
+
+- Xbox consoles cannot be woken up through Home Assistant when they are in **energy saving**. When an Xbox is turned off, it will eventually enter energy saving automatically. To enable remote wake via Home Assistant, the console must be set to **sleep mode** in the power options. Be aware that this mode consumes significantly more energy compared to **shutdown (energy saving) mode**. For more details, see the [Xbox documentation on power modes](https://support.xbox.com/en-US/help/hardware-network/power/learn-about-power-modes).
 
 ## Troubleshooting
 

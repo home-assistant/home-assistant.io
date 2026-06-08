@@ -12,7 +12,7 @@ ha_domain: roon
 ha_platforms:
   - event
   - media_player
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Roon** {% term integration %} allows you to control [RoonLabs](https://roonlabs.com/) music players from Home Assistant.

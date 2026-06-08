@@ -10,6 +10,7 @@ ha_category:
   - Humidifier
   - Light
   - Lock
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -32,10 +33,13 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - fan
   - humidifier
   - light
   - lock
+  - number
+  - select
   - sensor
   - switch
   - vacuum
@@ -150,6 +154,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 
 ### Locks
 
@@ -157,6 +162,9 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
 - [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
+- Lock Vision
+- Lock Vision Pro
+- Lock Pro Wifi
 
 ### Humidifiers
 
@@ -176,6 +184,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- [Weather Station](https://www.switch-bot.com/products/switchbot-outdoor-weather-station) (currently only supports retrieving sensor data)
 
 ### Hubs
 
@@ -208,6 +217,11 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Buttons
 
 - [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
+
+### Keypad Visions
+
+- [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
+- [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
 
 ## Works with Home Assistant
 
@@ -333,6 +347,14 @@ Features:
 - get light level
 - get battery level
 - get calibration state
+- set curtain movement speed
+
+Curtain movement speed is configured from the device options. Curtain movement speed is primarily designed for Curtain 3 models. Older Curtain models may ignore the setting.
+
+1. To set **Curtain movement speed**, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the SwitchBot integration and select the curtain device you want to configure.
+3. Select **Configure** for that device.
+4. In the **Options** dialog, set **Curtain movement speed** to a number between 0-255. The default is 255.
 
 #### Blind Tilt
 
@@ -358,8 +380,6 @@ The close button will close the blinds to the closest closed position (either 0%
 ##### Simple cover template entity
 
 Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/template/#cover), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -390,8 +410,6 @@ cover:
           target:
             entity_id: cover.example_blinds
 ```
-
-{% endraw %}
 
 #### Roller Shade
 The Roller Shade is exposed as a cover entity with control of the position only:
@@ -458,6 +476,36 @@ Features:
 - get humidity
 - get carbon dioxide
 - get battery level
+- set display time format (12h/24h)
+- set display time offset
+- sync the device date and time with Home Assistant
+
+{% details "Setting display time offset" %} 
+
+**Display time offset** entity shifts the time shown on the device display without altering the device's internal timekeeping. The offset can be negative and it is applied independently: for example, pressing the **Sync date and time** button will update the internal clock to match Home Assistant but will not change or reset your custom offset. This allows you to maintain a specific time offset while still using automations to prevent hardware time drift.
+
+{% enddetails %}
+
+{% details "Syncing the device date and time with Home Assistant automatically" %} 
+
+The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. That helps to mitigate the time drift on the device. Here's a simple example for `configuration.yaml`:
+
+```yaml
+automation:
+  - alias: "Daily SwitchBot CO2 Time Sync"
+    description: "Sync date and time sync for the Meter Pro CO2 every night."
+    trigger:
+    triggers:
+      - trigger: time
+        # Ensures the time is in sync after a DST (summer/winter) time change.
+        at: "03:00:00"
+    actions:
+      - action: button.press
+        target:
+          # Replace with your actual entity ID
+          entity_id: button.<your_device_name>_sync_date_and_time
+```
+{% enddetails %}
 
 #### Contact Sensor
 
@@ -509,6 +557,28 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+
+#### Keypad Vision (Pro)
+
+This is an encrypted device. For testing, you can execute the actions that this device supports individually within the development tools.
+
+Note: Users need to bind the device to the lock before the doorbell event can be triggered.
+
+Features:
+- get battery
+- get tamper alarm
+- get doorbell event
+
+Actions:
+- add_password
+
+Examples:
+```yaml
+action: switchbot.add_password
+data:
+  device_id: c2d01328efd261f586e56d914e3af07e
+  password: 123456
+```
 
 ### Lights
 
@@ -588,6 +658,18 @@ Features:
 - change color
 - set effect
 
+#### Permanent Outdoor Light
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
 ### Locks
 
 Note: The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
@@ -610,7 +692,7 @@ Options:
 2. Under **Integration entries**, find the lock and select **Configure**.
 3. In the **Options** dialog, configure the nightlatch operation mode.
 
-#### Lock Pro
+#### Lock Pro (Wifi)
 
 This is an encrypted device.
 
@@ -632,7 +714,7 @@ Options:
 
 #### Lock Ultra
 
-This is an encrypted device.
+This is an encrypted device. Half-lock is supported only on European Union (EU) models. To use it, you need to enable nightlatch operation mode. See the Options section below.
 
 Features:
 
@@ -641,6 +723,7 @@ Features:
 - auto-lock paused state
 - calibration state
 - get battery level
+- half-lock
 
 Options:
 
@@ -657,6 +740,40 @@ Features:
 - Lock or unlock
 - calibration state
 - get battery level
+
+#### Lock Vision
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- calibration state
+- get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
+#### Lock Vision Pro
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 ### Hubs
 

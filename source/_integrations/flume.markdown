@@ -45,8 +45,6 @@ To clear the notifications, you will need to use your Flume app or go to: [https
 
 Example of an automation that sends a Home Assistant notification of the most recent usage alert:
 
-{% raw %}
-
 ```yaml
 alias: "Notify: flume"
 triggers:
@@ -77,13 +75,9 @@ actions:
             {{ usage_alert.title }}
 ```
 
-{% endraw %}
-
 ## Configuration for binary sensor
 
 The following YAML creates a binary sensor. This requires the default sensor to be configured successfully.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -93,5 +87,3 @@ template:
       state: >-
         {{ states('sensor.flume_sensor') != "0" }}
 ```
-
-{% endraw %}

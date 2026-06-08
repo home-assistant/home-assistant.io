@@ -29,7 +29,13 @@ This {% term integration %} interacts with your [Tedee](https://tedee.com) locks
 - You need to have the **local API** and **encrypted token** enabled.
 - The bridge firmware needs to be at least version `2.2.18086` for push updates to work without errors.
 
-If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit device integration](/integrations/homekit_controller/) (only for PRO model). Communication will happen over Bluetooth in that case, and features will be limited.
+{% tip %}
+If you do not own the bridge, you can still add your locks to Home Assistant through other ways, depending on your lock model, with a limited feature set:
+
+- Lock PRO: [HomeKit device integration](/integrations/homekit_controller/). Communication will happen over Bluetooth in that case
+- Lock GO and GO 2: [Matter integration](/integrations/matter/). In which case communication will happen over Thread
+
+{% endtip %}
 
 {% note %}
 The integration will try to configure webhooks to receive near-real-time push updates from your bridge about your lock state changes. For this to work properly, the bridge must be able to reach your Home Assistant instance. It will prefer the configured `internal_url`, so ensure this address is reachable from your bridge on your network. If communication through the webhooks is not possible, the integration will query for an update every 30 seconds.
@@ -57,6 +63,7 @@ This integration supports
 - **Pullspring enabled**: indicates whether the pull spring setting is enabled.
 - **Semi locked**: indicates whether the lock is in a "semi-locked" position. "Semi-locked" means the lock has been turned manually and is between its normal end positions. The lock itself will be unavailable in this position.
 - **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state".
+- **Connectivity**: indicates whether the lock is currently connected to the bridge.
 
 {% note %}
 The `lock.open` service will only pull the spring if the lock is configured with "**auto pull-spring enabled**" in the tedee app. That is due to a limitation in tedee's API.
@@ -80,8 +87,6 @@ Get started quickly with these automation examples.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: Lock door when last person leaves
 description: Lock the door when last person leaves the home
@@ -99,8 +104,7 @@ actions:
     target:
       entity_id: lock.lock_a1b2
 ```
-
-{% endraw %} {% enddetails %}
+{% enddetails %}
 
 ## Known Limitations
 

@@ -15,7 +15,7 @@ ha_platforms:
 related:
   - url: https://tilthydrometer.com/collections/tilt-pi
     title: Tilt Pi product page
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Tilt Pi** {% term integration %} allows you to connect a Tilt Pi to Home Assistant to

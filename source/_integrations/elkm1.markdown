@@ -8,9 +8,11 @@ ha_category:
   - Climate
   - Hub
   - Light
+  - Number
   - Scene
   - Sensor
   - Switch
+  - Time
 ha_iot_class: Local Push
 ha_domain: elkm1
 ha_dhcp: true
@@ -23,9 +25,11 @@ ha_platforms:
   - binary_sensor
   - climate
   - light
+  - number
   - scene
   - sensor
   - switch
+  - time
 ha_integration_type: hub
 related:
   - docs: /docs/configuration/
@@ -46,9 +50,11 @@ There is currently support for the following device types within Home Assistant:
 - **Binary sensor** - Elk-M1 zones with 4 states (non-analog zones) are represented as `binary_sensor` entities. `Normal` state is `off` and any other state is `on`
 - **Climate** - Elk-M1 thermostats are represented as `climate` entities
 - **Light** - Elk-M1 lights (X10, Insteon, UPB) are represented as `light` entities
+- **Number** - Elk-M1 number and duration settings are represented as `number` entities
 - **Scene** - Elk-M1 tasks are represented as `scene` entities
 - **Sensor** - Elk-M1 counters, keypads, panel status, settings, and zones are represented as `sensor` entities
 - **Switch** - Elk-M1 outputs are represented as `switch` entities
+- **Time** - Elk-M1 time settings are represented as `time` entities
 
 The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface Specification, Revision 1.84" document. This document can be found on the Internet.
 
@@ -503,10 +509,10 @@ The panel does not automatically send counter value updates under certain condit
 - `elkm1.sensor_zone_bypass` - Bypass a zone
 - `elkm1.sensor_zone_trigger` - Trigger a zone virtually
 
-| Data attribute | Required | Description                                     |
-| -------------- | -------- | ----------------------------------------------- |
-| `entity_id`    | No       | ElkM1 zone to bypass or trigger                |
-| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits)                |
+| Data attribute | Required | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `entity_id`    | No       | ElkM1 zone to bypass or trigger         |
+| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits) |
 
 {% note %}
 The only mechanism ElkM1 offers to clear zone bypass is to clear all bypassed zones in a given alarm panel (area).
@@ -515,6 +521,17 @@ The only mechanism ElkM1 offers to clear zone bypass is to clear all bypassed zo
 {% note %}
 The `sensor_zone_trigger` action creates a virtual momentary open condition on the zone as if the EOL hardwired loop had been physically opened.
 {% endnote %}
+
+### Switch actions
+
+#### Elk-M1 Output control
+
+- `elkm1.switch_output_turn_on_for` - Turn on the output for a specified duration
+
+| Data attribute | Required | Description |
+| -------------- | -------- | ----------- |
+| `entity_id`    | No       | Elk-M1 output to turn on |
+| `duration`     | Yes      | Duration in integer seconds (1-65535). |
 
 ### System actions
 

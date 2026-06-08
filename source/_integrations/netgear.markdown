@@ -15,11 +15,10 @@ ha_platforms:
   - update
 ha_config_flow: true
 ha_codeowners:
-  - '@hacf-fr'
   - '@Quentame'
   - '@starkillerOG'
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 This {% term integration %} allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.

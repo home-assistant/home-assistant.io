@@ -1,6 +1,6 @@
 ---
 title: "Multiple dashboards"
-description: "Multiple powerful and configurable dashboards in Home Assistant."
+description: "Create more than one dashboard in Home Assistant: a private overview for yourself, a simpler one for the rest of the household, and a tablet view in the kitchen."
 related:
   - docs: /integrations/logbook/
     title: Activity integration
@@ -33,13 +33,13 @@ Screenshot of the Dashboard list.
 
 ### Dashboards shown in the sidebar by default
 
-Built-in dashboards that are available in the sidebar by default:
+Predefined dashboards that are available in the sidebar by default:
 
 - [Home dashboard](#home-dashboard). Category: built-in. It is shown in the sidebar only while it is set as your default dashboard. If you set another dashboard as default, that dashboard appears in the sidebar instead.
 - [Activity dashboard](#activity-dashboard). Category: built-in.
 - Energy dashboard. Category: built-in.
 - [History dashboard](#history-dashboard). Category: built-in.
-- [Map dashboard](#map-dashboard). Category: user-created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as **User-created** dashboard.
+- [Map dashboard](#map-dashboard). Category: User created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as a **User created** dashboard.
 - [To-do lists dashboard](#to-do-lists-dashboard). Category: built-in.
 
 <p class='img'>
@@ -55,6 +55,7 @@ Some of the built-in dashboards are not shown in the sidebar by default, but are
 - **Security** dashboards: Overview of your security-related devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The security-related devices include devices such as alarm, lock, camera, doors/covers, motion sensors, and binary sensor.
 - **Climate** dashboards: Overview of your climate devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The climate dashboard includes devices such as heating and cooling devices, windows, and fans.
 - **Energy** dashboards: Allows you to visualize your energy consumption and production, if you have such entities available. This includes electricity from grid and from solar panels, gas and water consumption, and the status of your battery storage.
+- **Maintenance** dashboard: Overview of your battery entities, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). Low batteries are highlighted so you can spot the ones that need attention at a glance.
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards for example are powered by their respective integrations.
 
@@ -153,20 +154,19 @@ This will leave the default dashboard intact.
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. Select **Add dashboard**.
 3. In the dialog, choose one of the options:
-   - If you want to start with a pre-populated dashboard, choose **Overview** or one of the suggested ones, such as the **Map** dashboard.
+   - If you want to start with a pre-populated dashboard, choose **Overview (Legacy)** or one of the suggested ones, such as the **Map** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
-   ![Screenshot of the Add Dashboard dialog showing dashboard options like Overview, Map, and Areas](/images/dashboards/dashboards-add-dashboard-selector.png)
 
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
-   - **Result**: The dashboard is added.
+   - Result: The dashboard is added.
 
 ## Editing a new dashboard
 
 1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
-   - **Result**: The **Edit dashboard** dialog appears.
+   - Result: The **Edit dashboard** dialog appears.
 2. Select the areas you want to show on this new dashboard and select **Save**.
 3. If you want to have more detailed control over the dashboard, you need to take control:
      - This means that this dashboard is no longer automatically updated when new dashboard elements become available.
@@ -176,7 +176,6 @@ This will leave the default dashboard intact.
 5. To **undo** or **redo** a change, select the buttons on top of the dashboard.
 
    ![Screenshot of the undo and redo buttons on top of the dashboard](/images/dashboards/dashboard-undo-redo.png)
-
 
 ## Deleting a dashboard
 
@@ -189,7 +188,11 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 
 ## Adding YAML dashboards
 
-You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file. To add YAML dashboards, in your `configuration.yaml` file create a `dashboards:` section under the top-level `lovelace:` key.
+You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file.
+
+If it is the first time you edit the `configuration.yaml` file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configuration.yaml) to know how to install a file editor and find the file.
+
+To add YAML dashboards, in your `configuration.yaml` file, create a `dashboards:` section under the top-level `lovelace:` key.
 
 ```yaml
 lovelace:

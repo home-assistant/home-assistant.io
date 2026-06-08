@@ -16,7 +16,7 @@ ha_platforms:
   - button
   - number
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
@@ -86,7 +86,6 @@ This integration creates the following sensors to monitor your SABnzbd instance:
 
 This automation sends a notification when a download completes:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd download complete"
   triggers:
@@ -95,18 +94,18 @@ This automation sends a notification when a download completes:
       to: "Idle"
       from: "Downloading"
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Download Complete"
         message: "SABnzbd has finished downloading and extracting files"
 ```
-{% endraw %}
 
 ### Disk space warning
 
 Get notified when your download drive is running low on space:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd low disk space warning"
   triggers:
@@ -114,20 +113,20 @@ Get notified when your download drive is running low on space:
       entity_id: sensor.sabnzbd_disk_free
       below: 10
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Low Disk Space"
         message: "Download drive has less than {{ states('sensor.sabnzbd_disk_free') }} GB free"
         data:
           priority: high
 ```
-{% endraw %}
 
 ### Bandwidth management during streaming
 
 Automatically pause downloads when your media players are active:
 
-{% raw %}
 ```yaml
 - alias: "Pause downloads during movie time"
   triggers:
@@ -142,7 +141,9 @@ Automatically pause downloads when your media players are active:
     - action: button.press
       target:
         entity_id: button.sabnzbd_pause
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Downloads paused for movie time"
 
@@ -161,13 +162,11 @@ Automatically pause downloads when your media players are active:
       target:
         entity_id: button.sabnzbd_resume
 ```
-{% endraw %}
 
 ### Smart scheduling with speed limits
 
 Reduce download speed during peak hours and increase it during off-peak hours:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd peak hours speed limit"
   triggers:
@@ -191,13 +190,11 @@ Reduce download speed during peak hours and increase it during off-peak hours:
       data:
         value: 100
 ```
-{% endraw %}
 
 ### Dashboard card example
 
 Create a comprehensive SABnzbd monitoring card for your dashboard:
 
-{% raw %}
 ```yaml
 type: entities
 title: SABnzbd Downloads
@@ -221,7 +218,6 @@ entities:
   - entity: number.sabnzbd_speed_limit
     name: Speed limit
 ```
-{% endraw %}
 
 ## Data updates
 

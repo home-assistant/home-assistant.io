@@ -8,11 +8,12 @@ ha_release: 2026.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@petschni"
+  - '@petschni'
 ha_domain: green_planet_energy
 ha_platforms:
   - sensor
 ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 The **Green Planet Energy** {% term integration %} provides real-time electricity pricing data from Green Planet Energy, a German renewable energy provider. It fetches hourly electricity prices and provides various sensors for energy optimization and monitoring. It visualizes the prices so that you can adapt your power consumption and shift it to cheaper hours.

@@ -4,7 +4,7 @@
     "dockerfile": "./Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "3.1",
+      "VARIANT": "3.4",
       "NODE_VERSION": "20"
     }
   },

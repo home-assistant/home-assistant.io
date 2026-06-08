@@ -103,7 +103,9 @@ An example using two automations:
     - trigger: event
       event_type: sighthound.vehicle_detected
   actions:
-    - action: notify.mobile_app_my_iphone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Somebody has just arrived by car."
 ```

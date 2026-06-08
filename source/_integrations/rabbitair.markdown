@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - fan
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Rabbit Air** {% term integration %} lets you control your air purifier over the local network. The following device models are currently supported:
@@ -24,26 +24,29 @@ The fan platform of this integration allows you to turn the unit on/off, select 
 
 ## Prerequisites
 
-To set up the integration, you will need to know a device address and an access token.
+To set up the integration, you need the **Thing ID** and **User key** from the **Rabbit Air 2** app. In Home Assistant, use the **Thing ID** as part of the `host` and the **User key** for `access_token`.
 
-1. Open the Rabbit Air mobile app. You will see a list of devices connected to your account.
-2. Tap the list item, and the device control page will open.
-3. On the device page, select the **Edit** button. You will see a page with the device location and name settings.
-4. On this page, quickly tap **Serial Number** several times until you see two more previously hidden lines. The first is the device ID, and the second is the access token.
+1. Open the **Rabbit Air 2** app. You will see a list of devices connected to your account.
+2. Tap your Rabbit Air device to open the device control page.
+3. In the top right corner, tap the three-dot menu and select **Rename**.
+4. On the **Rename device** screen, tap your device name (for example, **MinusA2**) to expand the section and reveal the **Thing ID** and **User key**.
 
-Note that the device ID is used as an mDNS name of the device. So you can specify it as the "Host" value by adding the suffix ".local" at the end.
+The **Thing ID** is the device's mDNS hostname. You can use the **Thing ID** for `host` by adding the suffix `.local` at the end. Use the **User key** for `access_token`.
 
-For example, you got:
+For example, the app shows:
 
 <p class='img'>
-  <a href='/images/integrations/rabbitair/access_token.png' target='_blank'>
-    <img height='460' src='/images/integrations/rabbitair/access_token.png' alt='Screenshot: Access token on the &quot;Edit device&quot; screen'>
+  <a href='/images/integrations/rabbitair/rename_device_menu.jpg' target='_blank'>
+    <img height='460' src='/images/integrations/rabbitair/rename_device_menu.jpg' alt='Screenshot: Rabbit Air 2 device menu with Rename selected'>
+  </a>
+  <a href='/images/integrations/rabbitair/rename_device_keys.jpg' target='_blank'>
+    <img height='460' src='/images/integrations/rabbitair/rename_device_keys.jpg' alt='Screenshot: Rabbit Air 2 Rename device screen showing Thing ID and User key'>
   </a>
 </p>
 
-Then you can use `abcdef1234_123456789012345678.local` as the **Host** and `0123456789ABCDEF0123456789ABCDEF` as the **Access Token**.
+Then use the **Thing ID** for `host` and the **User key** for `access_token`.
 
-In some cases the access token may not be available right away, then you will see a "Tap for setup user key" message instead. To generate the access token, tap on this message and follow the instructions. If the app says "your device is not supported", it probably means that you are trying to connect to a first-generation MinusA2 model (an older hardware revision). It is not yet supported by this integration.
+If the app says "your device is not supported", it probably means that you are trying to connect to a first-generation MinusA2 model (an older hardware revision). It is not yet supported by this integration.
 
 {% include integrations/config_flow.md %}
 

@@ -17,7 +17,7 @@ ha_platforms:
   - diagnostics
   - notify
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Tibber** {% term integration %} provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
@@ -173,8 +173,6 @@ In this section, you will find some real-life examples of how to use this sensor
 
 The electricity price can be used to make automations. The sensor has a `max_price` and `min_price` attribute, with max and min price for the current day. Here is an example to get a notification when the price is above 90% of the maximum price for the day:
 
-{% raw %}
-
 ```yaml
 - alias: "Electricity price"
   triggers:
@@ -191,5 +189,3 @@ The electricity price can be used to make automations. The sensor has a `max_pri
        target: "device/daniel_telefon_cat"
        message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
 ```
-
-{% endraw %}

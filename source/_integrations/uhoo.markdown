@@ -8,6 +8,11 @@ ha_codeowners:
   - '@joshsmonta'
 ha_domain: uhoo
 ha_integration_type: hub
+ha_category: []
+ha_quality_scale: silver
+ha_platforms:
+  - sensor
+ha_config_flow: true
 ---
 
 The **uHoo** {% term integration %} lets you integrate [uHoo](https://getuhoo.com) devices into Home Assistant.
@@ -32,7 +37,7 @@ With uHoo, you can confidently make better decisions about your indoor air and s
 
 ## Prerequisites
 
-1. Download the **uHoo** app from the [App Store](https://apps.apple.com/us/app/uhoo/id1084953997) or [Google Play](https://play.google.com/store/apps/details?id=com.uhooair).
+1. Download the **uHoo** app from the [App Store](https://apps.apple.com/app/id1084953997) or [Google Play](https://play.google.com/store/apps/details?id=com.uhooair).
 2. Sign up for a uHoo account.
 3. Register at least one device to your account.
 4. Upgrade your account to uHoo Premium.
@@ -59,6 +64,7 @@ With uHoo, you can confidently make better decisions about your indoor air and s
 
 - Virus index
 - Mold index
+- Influenza index
 
 ### Data frequency
 

@@ -16,7 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Twente Milieu** {% term integration %} enables you to monitor the upcoming waste collection schedules provided by [Twente Milieu](https://www.twentemilieu.nl/), a waste collection company serving municipalities in the Twente region of the Netherlands, including Enschede, Hengelo, Almelo, Borne, Hof van Twente, Oldenzaal, and Losser. This integration helps you stay informed about the next pickup dates for different types of waste (like organic, paper, plastic, and non-recyclable), ensuring you never miss a collection day.
@@ -45,7 +45,7 @@ With the Twente Milieu integration, you can:
 
 ### Calendar
 
-The integration provides a calendar entity that displays all upcoming waste collection dates from Twente Milieu. You can view this calendar in your {% my calendar title="Calendar dashboard" %}.
+The integration provides a {% term calendar %} entity that displays all upcoming waste collection dates from Twente Milieu. You can view this calendar in your {% my calendar title="Calendar dashboard" %}.
 
 ### Sensors
 
@@ -78,11 +78,13 @@ automation:
       - trigger: calendar
         event: start
         entity_id: calendar.twente_milieu
-        offset: "-6:00:00"
-        # This triggers 6 hours before the calendar event starts
-
+        # Fire 12 hours before the calendar event starts,
+        # so you get notified the evening before the pickup day.
+        offset: "-12:00:00"
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Garbage day!"
           message: >
@@ -101,11 +103,13 @@ automation:
       - trigger: calendar
         event: end
         entity_id: calendar.twente_milieu
+        # Fire 4 hours before the calendar event ends,
+        # so you get notified in the evening of the pickup day.
         offset: "-4:00:00"
-        # This triggers 4 hours before the calendar event ends
-
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Bring in the bin!"
           message: >

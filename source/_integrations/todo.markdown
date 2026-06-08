@@ -52,6 +52,10 @@ item to a pre-configured to-do list.
 
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/add-to-do-item/699193" %}
 
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
 ## Actions
 
 Some to-do list integrations allow Home Assistant to manage the to-do items in the list. The
@@ -168,3 +172,68 @@ action: todo.remove_completed_items
 target:
   entity_id: todo.personal_tasks
 ```
+
+## To-do list automation examples
+
+To-do list triggers and conditions make it easier to react to changes in a list or check whether a list still needs attention.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: send a notification when someone adds a shopping item
+
+If you share a shopping list with your household, this automation lets you know right away when someone adds a new item.
+
+- **Trigger**: To-do item added
+- **Target**: Shopping list
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a shopping list notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify me when a shopping item is added"
+  triggers:
+    - trigger: todo.item_added
+      target:
+        entity_id: todo.shopping_list
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          A new item was added to the shopping list.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: lock the front door when the evening checklist is finished
+
+If you keep an evening checklist in Home Assistant, this automation locks the front door after the last task is marked complete.
+
+- **Trigger**: To-do item completed
+- **Condition**: All to-do items completed
+- **Target**: Evening checklist
+- **Action**: Lock lock
+
+{% details "YAML example for locking up after the evening checklist is done" %}
+
+{% example %}
+automation: |
+  alias: "Lock the front door when the evening checklist is done"
+  triggers:
+    - trigger: todo.item_completed
+      target:
+        entity_id: todo.evening_checklist
+  conditions:
+    - condition: todo.all_completed
+      target:
+        entity_id: todo.evening_checklist
+  actions:
+    - action: lock.lock
+      target:
+        entity_id: lock.front_door
+{% endexample %}
+
+{% enddetails %}

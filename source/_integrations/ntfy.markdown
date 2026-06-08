@@ -4,6 +4,7 @@ description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
   - Event
   - Notifications
+  - Update
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - event
   - notify
   - sensor
+  - update
 ha_quality_scale: platinum
 ---
 
@@ -63,20 +65,20 @@ Topics may not be password-protected, so choose a name that's not easy to guess.
 
 {% include integrations/config_flow.md %}
 
-## Configuration parameters
-
-### Service parameters
-
 {% configuration_basic %}
 "Service URL":
     description: "Address of the ntfy service. Defaults to `https://ntfy.sh`."
+"Verify SSL certificate":
+    description: "Enable SSL certificate verification for secure connections."
 "Username (optional)":
     description: "Username required to authenticate with protected ntfy topics."
 "Password (optional)":
     description: "Password corresponding to the provided username for authentication."
 {% endconfiguration_basic %}
 
-### Topic parameters
+## Topic configuration parameters
+
+Each topic subentry provides the following configuration parameters:
 
 {% configuration_basic %}
 "Topic":
@@ -85,26 +87,41 @@ Topics may not be password-protected, so choose a name that's not easy to guess.
     description: "An alternative name to display instead of the topic name. This helps identify topics with complex or hard-to-read names more easily."
 {% endconfiguration_basic %}
 
-## Notifiers
+### Topic options
+
+Each topic provides the following optional configuration options to allow narrowing down the messages received when Home Assistant subscribes to the topic. Filters apply only to the [event entity](#events).
+
+{% configuration_basic %}
+"Filter by priority":
+    description: "Include messages that match any of the selected priority levels. If no priority is selected, all messages are included by default."
+"Filter by tags":
+    description: "Only include messages that have all selected tags."
+"Filter by title":
+    description: "Include messages with a title that exactly matches the specified text."
+"Filter by message content":
+    description: "Include messages with content that exactly matches the specified text."
+{% endconfiguration_basic %}
+
+## Supported functionality
+
+### Notifiers
 
 The **ntfy** integration will add a {% term device %} with an associated notify {% term entity %} for each configured topic. To publish notifications, you can use the `notify.send_message` {% term action %}. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
-```yaml
-action: notify.send_message
-data:
-  message: "Reminder: Have you considered frogs?"
-  entity_id: notify.mytopic
-```
-
-{% endraw %}
+{% example %}
+action: |
+  action: notify.send_message
+  data:
+    message: "Reminder: Have you considered frogs?"
+  target:
+    entity_id: notify.mytopic
+{% endexample %}
 
 {% enddetails %}
 
-## Events
+### Events
 
 An {% term event %} {% term entity %} is created for each configured topic. These entities subscribe to their respective topics and receive notifications from the **ntfy** service in real-time. Each event entity exposes the full contents of the notification through its attributes. These attributes include links, attachments, tags, and other metadata.
 
@@ -112,168 +129,110 @@ You can use {% term event %} {% term entities %} in automations. For example, to
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
-```yaml
-triggers:
-  - trigger: numeric_state
-    entity_id:
-      - event.mytopic
-    attribute: priority
-    above: 4
-actions:
-  - action: notify.mobile_app_your_device
-    data:
-      message: "Received new ntfy notification"
-```
-
-{% endraw %}
-
-{% enddetails %}
-
-## Actions
-
-### Publish notification
-
-For more customizable notifications, use the `ntfy.publish` action instead of `notify.send_message`. With `ntfy.publish`, you can take full advantage of the **ntfy** service's capabilities. These include setting a priority, adding links, attachments, tags, and emojis.
-
-#### Parameters
-
-- `title`: Title for your notification message.
-- `message`: Your notification message.
-- `markdown`: Enable Markdown formatting for the message body. See the Markdown guide for syntax details: [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/).
-- `tags`: Add tags or emojis to the notification. Emojis (using shortcodes like `smile`) will appear in the notification title or message. Other tags will be displayed below the notification content.
-- `priority`: All messages have a priority, which defines how urgently your phone notifies you, depending on the configured vibration patterns, notification sounds, and visibility in the notification drawer or pop-over.
-- `click`: URL that is opened when the notification is clicked.
-- `delay`: Set a delay for message delivery. The minimum delay is 10 seconds, and the maximum delay is 3 days.
-- `attach`: Attach images or other files by URL.
-- `email`: Specify the address to forward the notification to, for example `mail@example.com`.
-- `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
-- `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.
-- `sequence_id`: Enter a message or sequence ID to update an existing notification, or specify a sequence ID to reference later when updating, clearing (mark as read and dismiss), or deleting a notification. See [**Updating + deleting notifications**](https://docs.ntfy.sh/publish/#updating-deleting-notifications)
-
-{% details "Example YAML configuration" %}
-
-{% raw %}
-
-```yaml
-action: ntfy.publish
-data:
-  title: "Server Alert"
-  message: "CPU usage exceeded 90%."
-  priority: "5"
-  click: "https://homeassistant.local"
-  tags:
-    - rotating_light
-target:
-  entity_id: notify.mytopic
-```
-
-{% endraw %}
+{% example %}
+automation: |
+  triggers:
+    - trigger: numeric_state
+      entity_id:
+        - event.mytopic
+      attribute: priority
+      above: 4
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Received new ntfy notification"
+{% endexample %}
 
 {% enddetails %}
 
-{% note %}
-
-All parameters are optional. If `message` is left empty, the notification will use the default text: `triggered`. If `priority` is not specified, the default priority (3) will be used.
-
-{% endnote %}
-
-{% tip %}
-
-Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of supported emoji shortcodes.
-
-{% endtip %}
-
-### Dismiss notification
-
-The `ntfy.clear` action dismisses a previously sent message from a ntfy topic by marking it as read.
-
-#### Parameters
-
-- `sequence_id`: The message ID or sequence ID of the notification to dismiss.
-
-{% details "Example YAML configuration" %}
-
-{% raw %}
-
-```yaml
-action: ntfy.clear
-target:
-  entity_id: notify.mytopic
-data:
-  sequence_id: my-download-123
-```
-
-{% endraw %}
-
-{% enddetails %}
-
-### Delete notification
-
-The `ntfy.delete` action deletes a message from a ntfy topic.
-
-#### Parameters
-
-- `sequence_id`: The message ID or sequence ID of the notification to delete.
-
-{% details "Example YAML configuration" %}
-
-{% raw %}
-
-```yaml
-action: ntfy.delete
-target:
-  entity_id: notify.mytopic
-data:
-  sequence_id: my-download-123
-```
-
-{% endraw %}
-
-{% enddetails %}
-
-## Sensors
+### Sensors
 
 The **ntfy** integration adds a device representing the service, along with various sensors that display your usage statistics and current account limits.
 
-### 📊 Message stats
+#### 📊 Message stats
 
-- **Messages published**: The total number of messages sent today.
-- **Messages remaining**: The number of messages that can still be sent before the daily limit is reached.
-- **Messages usage limit**: The maximum number of messages allowed per day on the account.
-- **Messages expiry duration**: The duration for which published messages are cached before automatic deletion.
+- **Messages published**
+  - **Description**: The total number of messages sent today.
+- **Messages remaining**
+  - **Description**: The number of messages that can still be sent before the daily limit is reached.
+  - **Remarks**: Disabled by default
+- **Messages usage limit**
+  - **Description**: The maximum number of messages allowed per day on the account.
+  - **Category**: Diagnostic
+- **Messages expiry duration**
+  - **Description**: The duration for which published messages are cached before automatic deletion.
+  - **Category**: Diagnostic
 
-### ✉️ Email stats
+#### ✉️ Email stats
 
-- **Emails sent**: The number of email notifications sent today.
-- **Emails remaining**: The number of email notifications that can still be sent today.
-- **Email usage limit**: The daily limit for email notifications on the account.
+- **Emails sent**
+  - **Description**: The number of email notifications sent today.
+- **Emails remaining**
+  - **Description**: The number of email notifications that can still be sent today.
+  - **Remarks**: Disabled by default
+- **Email usage limit**
+  - **Description**: The daily limit for email notifications on the account.
+  - **Category**: Diagnostic
 
-### 📞 Phone call stats
+#### 📞 Phone call stats
 
-- **Phone calls made**: The total phone call alerts made today.
-- **Phone calls remaining**: The number of phone call alerts that can still be made today.
-- **Phone calls usage limit**: The maximum number of phone call alerts allowed per day on the account.
+- **Phone calls made**
+  - **Description**: The total phone call alerts made today.
+- **Phone calls remaining**
+  - **Description**: The number of phone call alerts that can still be made today.
+  - **Remarks**: Disabled by default
+- **Phone calls usage limit**
+  - **Description**: The maximum number of phone call alerts allowed per day on the account.
+  - **Category**: Diagnostic
 
-### 🔒 Reserved topics
+#### 🔒 Reserved topics
 
-- **Reserved topics**: The number of reserved topics currently assigned to the account.
-- **Reserved topics remaining**: The number of topics that can still be reserved.
-- **Reserved topics limit**: The maximum number of reserved topics allowed for the account.
+- **Reserved topics**
+  - **Description**: The number of reserved topics currently assigned to the account.
+- **Reserved topics remaining**
+  - **Description**: The number of topics that can still be reserved.
+  - **Remarks**: Disabled by default
+- **Reserved topics limit**
+  - **Description**: The maximum number of reserved topics allowed for the account.
+  - **Category**: Diagnostic
 
-### 📎 Attachment stats
+#### 📎 Attachment stats
 
-- **Attachment storage**: The amount of storage space currently used by file attachments.
-- **Attachment storage remaining**: The remaining storage capacity available for attachments.
-- **Attachment storage limit**: The total storage quota allocated for attachments.
-- **Attachment expiry duration**: The duration attachments are retained before being automatically deleted.
-- **Attachment file size limit**: The maximum allowed size for a single attachment file.
-- **Attachment bandwidth limit**: The daily bandwidth cap for uploading and downloading attachments.
+- **Attachment storage**
+  - **Description**: The amount of storage space currently used by file attachments.
+- **Attachment storage remaining**
+  - **Description**: The remaining storage capacity available for attachments.
+  - **Remarks**: Disabled by default
+- **Attachment storage limit**
+  - **Description**: The total storage quota allocated for attachments.
+- **Attachment expiry duration**
+  - **Description**: The duration attachments are retained before being automatically deleted.
+  - **Category**: Diagnostic
+- **Attachment file size limit**
+  - **Description**: The maximum allowed size for a single attachment file.
+  - **Category**: Diagnostic
+- **Attachment bandwidth limit**
+  - **Description**: The daily bandwidth cap for uploading and downloading attachments.
+  - **Category**: Diagnostic
 
-### ⭐ Account
+#### ⭐ Account
 
-- **Subscription tier**: The subscription plan currently assigned to the ntfy account.
+- **Subscription tier**
+  - **Description**: The subscription plan currently assigned to the ntfy account.
+  - **Category**: Diagnostic
+
+### Updates
+
+For self-hosted **ntfy** instances, Home Assistant creates an update entity that shows when a new version of **ntfy** is available for download. To perform an update, refer to the official [documentation](https://docs.ntfy.sh/).
+
+#### Prerequisites
+
+- **ntfy** version 2.17.0 or later
+- Configured user with **administrator** privileges on the instance
+
+{% include integrations/actions.md %}
 
 ## Data updates
 

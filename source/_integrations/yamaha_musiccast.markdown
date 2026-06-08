@@ -16,7 +16,7 @@ ha_platforms:
   - number
   - select
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Yamaha MusicCast** {% term integration %} allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.

@@ -129,8 +129,6 @@ zabbix:
 
 By default, no entity will be excluded. To limit which entities are being published to Zabbix, you can use the `include` and `exclude` parameters.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 zabbix:
@@ -144,8 +142,6 @@ zabbix:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 {% include common-tasks/filters.md %}
 

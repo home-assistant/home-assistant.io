@@ -50,7 +50,7 @@ but in the likely case that your system was installed by an integrator, you will
 
 This is where the `autodiscover` option comes handy. If it is on, the component will track the Dynet network and every time a device is used, it will be added to Home Assistant. It will initially show as "Area 123 Channel 7", but you can then add it to your {% term "`configuration.yaml`" %} with the correct configuration.
 
-For example, you would go to your kitchen light and turn it on. Now you log into Home Assistant and see what the channel was. If there was more than one discovered (e.g., someone turned off the living room lights), you can try one, turn it on and off in Home Assistant and see which light it affects.
+For example, you would go to your kitchen light and turn it on. Now you sign in to Home Assistant and see what the channel was. If there was more than one discovered (for example, someone turned off the living room lights), you can try one, turn it on and off in Home Assistant and see which light it affects.
 
 The initial process can be a bit time consuming and tedious, but it only has to be done once. Once you are done configuring, it is better to set `autodiscover` to `false`, since there are many "fake" channels and areas that the system uses for internal communication and you do not want to have visible.
 

@@ -14,7 +14,8 @@ related:
     title: Saunum
   - url: https://saunum.com/en/product/control-devices/
     title: Saunum Leil product page
-ha_category: []
+ha_category:
+  - Climate
 ha_platforms:
   - binary_sensor
   - climate
@@ -27,6 +28,12 @@ ha_platforms:
 The **Saunum** {% term integration %} integrates your [Saunum Leil](https://saunum.com/en/product/control-devices/) sauna control unit with Home Assistant. [Saunum](https://saunum.com/) is an Estonian company that creates advanced sauna heaters and control systems with smart features.
 
 With the Leil control unit, you can precisely control temperature, customize your sauna experience, and monitor your sauna's operation.
+
+## Supported devices
+
+The following devices are known to be supported by the integration:
+
+- Saunum Leil touch screen control panel
 
 ## Prerequisites
 
@@ -224,11 +231,47 @@ The **Saunum** integration provides the following entities.
 Monitor the alarm binary sensors regularly. Any active alarm sensor indicates a potential safety or operational issue that should be addressed immediately. The sauna heater will automatically shut down when safety alarms are triggered.
 {% endimportant %}
 
-## Supported devices
+## Actions
 
-The following devices are known to be supported by the integration:
+The **Saunum** integration provides the following actions.
 
-- Saunum Leil touch screen control panel
+### Action: Start session
+
+The `saunum.start_session` action starts a sauna session with custom duration, target temperature, and fan duration. This action provides more granular control than the climate entity, allowing you to specify all session parameters in a single call.
+
+- **Data attribute**: `entity_id`
+  - **Description**: The entity ID of the Saunum climate entity.
+  - **Required**: Yes
+
+- **Data attribute**: `duration`
+  - **Description**: Session duration as a time period (for example, `{"hours": 2}`). Defaults to 2 hours.
+  - **Required**: No
+
+- **Data attribute**: `target_temperature`
+  - **Description**: Target temperature in Celsius (40-100). Defaults to 80.
+  - **Required**: No
+
+- **Data attribute**: `fan_duration`
+  - **Description**: Fan duration as a time period (for example, `{"minutes": 10}`). Defaults to 10 minutes.
+  - **Required**: No
+
+{% note %}
+You cannot start a sauna session when the sauna door is open. The control unit will prevent heating as a safety measure.
+{% endnote %}
+
+#### Example
+
+```yaml
+action: saunum.start_session
+target:
+  entity_id: climate.saunum_leil
+data:
+  duration:
+    hours: 2
+  target_temperature: 80
+  fan_duration:
+    minutes: 10
+```
 
 ## Automations
 
@@ -239,84 +282,50 @@ Examples of automations you can create using the Saunum integration.
 Send a notification and turn on the sauna light when the target temperature is reached.
 
 <!-- markdownlint-disable MD034 -->
-{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/ba601a443eb037d83ed1dc6185258e60" %}
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/sauna-ready-notification-with-light-saunum/986784" %}
 <!-- markdownlint-enable MD034 -->
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
-blueprint:
-  name: Sauna Ready Notification with Light
-  description: Sends a notification and turns on the sauna light when the target temperature is reached
-  domain: automation
-  input:
-    sauna_climate:
-      name: Sauna Climate Entity
-      description: The climate entity that controls your sauna
-      selector:
-        entity:
-          domain: climate
-    sauna_light:
-      name: Sauna Light Entity
-      description: The light entity in your sauna
-      selector:
-        entity:
-          domain: light
-    notify_device:
-      name: Mobile Device
-      description: Device to send notification to
-      selector:
-        device:
-          filter:
-            - integration: mobile_app
-    notification_title:
-      name: Notification Title
-      description: Title for the notification
-      default: "Sauna is Ready!"
-      selector:
-        text:
-    notification_message:
-      name: Notification Message
-      description: Message body
-      default: "Your sauna has reached {target_temperature}°C. Enjoy!"
-      selector:
-        text:
-          multiline: true
+alias: "Sauna ready notification with light"
+description: >-
+  Sends a notification and turns on the sauna light when the target
+  temperature is reached.
 
 mode: restart
 
 variables:
-  sauna_climate: !input sauna_climate
-  notification_message: !input notification_message
+  sauna_climate: climate.saunum_leil
+  notification_title: "Sauna is Ready!"
+  notification_message: "Your sauna has reached {target_temperature}°C. Enjoy!"
 
-trigger:
-  - platform: state
-    entity_id: !input sauna_climate
+triggers:
+  - trigger: state
+    entity_id: climate.saunum_leil
     to: "heat"
     from: "off"
     id: session_start
 
-action:
-  - wait_template: >
+actions:
+  - wait_template: >-
       {% set current = state_attr(sauna_climate, 'current_temperature') | float(0) %}
       {% set target = state_attr(sauna_climate, 'temperature') | float(0) %}
       {{ current >= target }}
     continue_on_timeout: false
   - action: light.turn_on
     target:
-      entity_id: !input sauna_light
-  - device_id: !input notify_device
-    domain: mobile_app
-    type: notify
-    title: !input notification_title
-    message: >
-      {% set target_temperature = state_attr(sauna_climate, 'temperature') | int %}
-      {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
-```
+      entity_id: light.saunum_leil
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      title: "{{ notification_title }}"
+      message: >-
+        {% set target_temperature = state_attr(sauna_climate, 'temperature') | int %}
+        {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
 
-{% endraw %}
+```
 
 {% enddetails %}
 

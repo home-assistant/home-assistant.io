@@ -23,7 +23,7 @@ During the day (in between `start_time` and `sunset_time`), it will fade the lig
 
 The value of `sunset_time` is automatically calculated based on the location specified in your [Home Assistant configuration](/docs/configuration/basic).
 
-The color temperature is specified in kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
+The color temperature is specified in kelvin, and accepted values are between 1000 and 4000 kelvin. Lower values will seem more red, while higher will look more white.
 
 If you want to update at variable intervals, you can leave the switch turned off and use automation rules that use the `switch.<name>_update` action whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
 

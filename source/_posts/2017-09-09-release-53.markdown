@@ -448,7 +448,7 @@ frontend:
 [zwave docs]: /integrations/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 [#9354]: https://github.com/home-assistant/home-assistant/pull/9354
 [#9380]: https://github.com/home-assistant/home-assistant/pull/9380
 [#9387]: https://github.com/home-assistant/home-assistant/pull/9387

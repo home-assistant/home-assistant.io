@@ -33,6 +33,10 @@ A media player can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
 ## Actions
 
 ### Media control actions
@@ -168,7 +172,7 @@ The `media_player.select_source` action selects an input source for a media play
 
 #### Action: Select sound mode
 
-The `media_player.select_sound_mode` action selects a sound mode for a media player. Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](/integrations/songpal).
+The `media_player.select_sound_mode` action selects a sound mode for a media player.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
@@ -295,19 +299,87 @@ media_player.living_room:
       media_content_id: A:ALBUMARTIST/Beatles/Abbey%20Road
 ```
 
+## Media player automation examples
+
+Here are a few examples of how you can use Media player triggers and conditions in automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: dim the room when a movie starts
+
+When the living room TV starts playing, dim the lights so the room is ready for watching.
+
+- **Trigger**: Media player started playing
+  - **Target**: Living room TV
+- **Action**: Turn on light
+  - **Target**: Living room lights
+
+{% details "YAML example for dimming the room when a movie starts" %}
+
+{% example %}
+automation: |
+  alias: "Dim the room when the TV starts playing"
+  triggers:
+    - trigger: media_player.started_playing
+      target:
+        entity_id: media_player.living_room_tv
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.living_room_lights
+      data:
+        brightness_pct: 25
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a bedtime reminder if audio is still playing
+
+At bedtime, check whether the bedroom speaker is still playing, and send a notification if it is.
+
+- **Trigger**: Time: 23:00
+- **Condition**: Media player is playing
+  - **Target**: Bedroom speaker
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a bedtime playback reminder" %}
+
+{% example %}
+automation: |
+  alias: "Remind me when audio is still playing at bedtime"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  conditions:
+    - condition: media_player.is_playing
+      target:
+        entity_id: media_player.bedroom_speaker
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          Bedroom audio is still playing.
+{% endexample %}
+
+{% enddetails %}
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}
 
-The screenshot shows different icons representing device classes of the media player entity:
+The media player entity will be represented by one of the following icons in the frontend, depending on the device class of the media player:
 
-<p class='img'>
-<img src='/images/screenshots/device_class_media_player_icons.png' alt='Screenshot showing different icons representing device classes of the media player entity' />
-Example of different icons representing device classes of the media player entity.
-</p>
+- {% icon "mdi:cast" %} `None`
+- {% icon "mdi:television" %} `tv`
+- {% icon "mdi:speaker" %} `speaker`
+- {% icon "mdi:audio-video" %} `receiver` (device that takes audio and video input and outputs to speakers and displays)
+- {% icon "mdi:projector" %} `projector`
 
-The following device classes are supported for media players:
+Some device classes also support additional icons based on their state:
 
-- `tv`: Device is a television type device.
-- `speaker`: Device is a speaker or stereo type device.
-- `receiver`: Device is an audio/video receiver type device taking audio and outputting to speakers and video to displays.
+- Off: {% icon "mdi:cast-off" %} {% icon "mdi:television-off" %} {% icon "mdi:speaker-off" %} {% icon "mdi:audio-video-off" %} {% icon "mdi:projector-off" %}
+- Playing: {% icon "mdi:cast-connected" %} {% icon "mdi:television-play" %} {% icon "mdi:speaker-play" %}
+- Paused: {% icon "mdi:cast-connected" %} {% icon "mdi:television-pause" %} {% icon "mdi:speaker-pause" %}

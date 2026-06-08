@@ -147,17 +147,15 @@ output["hello"] = f"hello {data.get('name', 'world')}"
 
 The above `python_script` can be called using the following YAML and return a result to later steps.
 
-{% raw %}
-
 ```yaml
 - action: python_script.hello_world
   response_variable: python_script_output
-- action: notify.mobile_app_iphone
+- action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     message: "{{ python_script_output['hello'] }}"
 ```
-
-{% endraw %}
 
 ## Documenting your Python scripts
 
