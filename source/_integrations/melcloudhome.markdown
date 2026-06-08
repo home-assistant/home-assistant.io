@@ -19,6 +19,10 @@ The **MELCloud Home** {% term integration %} connects Home Assistant to [MELClou
 
 ## Prerequisites
 
+During setup of the integration, you will need the following information:
+
+- The e-mail address you used to configure your MELCloud Home account
+- The password associated with the MELCloud Home account
 
 {% include integrations/config_flow.md %}
 
@@ -36,6 +40,7 @@ The integration is newly released in Home Assistant and will gradually expand it
 {% endnote %}
 
 ###  Climate
+
 The integration creates one climate entity per unit or zone:
 
 #### Air-to-Air (ATA) units
