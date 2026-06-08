@@ -48,7 +48,7 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 - **Target temperature**
 - **Current room temperature**
 
-##¼# Air-to-Water (ATW) units
+#### Air-to-Water (ATW) units
 
 Each heating zone of an air-to-water heat pump is exposed as a separate climate entity. Zone 2 is only created when the unit reports zone 2 support.
 
