@@ -34,13 +34,10 @@ Password:
 The integration is newly released in Home Assistant and will gradually expand its features and functionality.
 {% endnote %}
 
-## Climate
-
-
-
+###  Climate
 The integration creates one climate entity per unit or zone:
 
-### Air-to-Air (ATA) units
+#### Air-to-Air (ATA) units
 
 Each air conditioner or heat pump indoor unit is exposed as a climate entity with the following capabilities (availability depends on the physical unit):
 
@@ -51,7 +48,7 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 - **Target temperature**
 - **Current room temperature**
 
-### Air-to-Water (ATW) units
+##¼# Air-to-Water (ATW) units
 
 Each heating zone of an air-to-water heat pump is exposed as a separate climate entity. Zone 2 is only created when the unit reports zone 2 support.
 
