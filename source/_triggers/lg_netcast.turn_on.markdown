@@ -90,7 +90,7 @@ automation: |
   actions:
     - action: wake_on_lan.send_magic_packet
       data:
-        mac: "AA-BB-CC-DD-EE-FF"
+        mac: "AA:BB:CC:DD:EE:FF"
 {% endexample %}
 
 {% enddetails %}
