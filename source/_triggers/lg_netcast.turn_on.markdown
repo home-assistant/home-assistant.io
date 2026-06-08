@@ -77,7 +77,7 @@ When something requests the LG Netcast TV to turn on, send a Wake-on-LAN magic p
 - **Trigger**: Device is requested to turn on
   - **Device**: Living room LG TV (`media_player.lg_netcast_tv`)
 - **Action**: Send magic packet
-  - **MAC address**: `AA-BB-CC-DD-EE-FF`
+  - **MAC address**: `AA:BB:CC:DD:EE:FF`
 
 {% details "YAML example for turning on the TV with Wake-on-LAN" %}
 
