@@ -53,7 +53,7 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 - *Awnings*, *volant awnings* (vertical drop sun shades), and *roller shutters/blinds* can be opened, closed, set to a certain position, and stopped.
 - *Slat-based blinds* can additionally have their slats rotated open, closed, or to a specific rotation angle.
 
-### Rotation Support
+### Rotation support
 
 Home Assistant treats the slat rotation as a linear scale from fully open to fully closed. The integration
 uses the maximum rotation angle as the fully closed position, but the minimum (reverse) angle is not treated
