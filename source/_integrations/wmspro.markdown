@@ -72,7 +72,7 @@ angles via configuration [number](#numbers) entities or [automatic learning](#au
 - *Slat-drives supporting rotation* also have a diagnostic entity to control the raw rotation angle.
   This is especially useful for *slat-based roofs* which currently have no other way to be controlled.
 
-### Automatic Learning
+### Automatic learning
 
 The number entities persist across Home Assistant restarts. They are updated automatically on slat rotation
 to allow automatic learning of the valid rotation range based on the current rotation angle. For learning,
