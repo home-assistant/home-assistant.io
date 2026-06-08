@@ -615,7 +615,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a switch entit
 
 ### Simon 24 GO SWITCH (NEW1W.01)
 
-This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -626,7 +626,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a switch entit
 
 ### Simon 24 GO SWITCH D (NEW2W.01)
 
-This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -731,7 +731,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO SWITCH (DEW1WA.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -742,7 +742,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO SWITCH D (DEW2W.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -838,7 +838,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 
 ### Simon 55 GO SOCKET (TEGZ1W.02)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -858,7 +858,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO SWITCH (TEW1W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -869,7 +869,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO SWITCH D (TEW2W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
