@@ -58,7 +58,7 @@ This platform allows you to detect presence by looking at devices connected to a
 
 These sensors are automatically created and associated to each tracker entity:
 
-- **interface** - The name of the interface the device is connected to.
+- **Interface**: The name of the interface the device is connected to.
 
 The following are also added but are disabled by default:
 
