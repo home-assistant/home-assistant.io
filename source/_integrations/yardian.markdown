@@ -44,8 +44,10 @@ The **Yardian** integration provides the following entities.
 - **Zone enabled**: `On` if a zone is enabled. These entities are disabled by default and created per zone.
 
 ## Button
-- The Yardian integration provides a button entity that allows you to instantly stop all currently running zones.
 
+The Yardian integration provides a button entity to easily control your irrigation system manually:
+
+- **Stop all irrigation**: Enabled by default. Pressing this button will immediately stop any currently active watering zone.
 ## Actions
 
 ### yardian.start_irrigation
