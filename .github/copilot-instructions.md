@@ -36,11 +36,11 @@ Keep the language neutral and descriptive.
 
 Home Assistant's brand personality has five traits. Write in a way that reflects all of them.
 
-- **Welcoming**: Warm, open, and approachable. Meet the reader at their own level. Never talk down to them. Make them feel valued regardless of technical ability. Express this naturally: in how errors are explained, how documentation is written, and how newcomers are addressed.
+- **Welcoming**: Warm, open, and approachable. Meet the reader at their own level. Never talk down to them. Make them feel valued regardless of technical ability. Express this naturally in how you explain errors, how you write documentation, and how you address newcomers.
 - **Candid**: Direct, honest, and unpretentious. Say what you mean. Don't hide complexity behind false simplicity or marketing fluff. Don't pretend limitations don't exist. Respect users enough to be straight with them about what Home Assistant can and can't do.
 - **Supportive**: Helpful, guiding, and genuine. Steer the reader forward without taking over. Be practical and patient. Don't be directive, hollow, condescending, or overbearing.
 - **Generous**: Empowering and trusting. Give readers what they need. Don't overwhelm, patronize, or withhold. Trust users with control, access, and transparency.
-- **Independent**: Principled and confident, without being conceited or obstinate. Home Assistant doesn't need to sound like a corporate tech brand. It's fine to be direct, a little unconventional, and not take itself too seriously.
+- **Independent**: Principled and confident, without being conceited or obstinate. Home Assistant doesn't need to sound like a corporate tech brand. It's fine for Home Assistant to be direct, a little unconventional, and not take itself too seriously.
 
 The full brand personality guide is at [`personality.markdown`](https://raw.githubusercontent.com/home-assistant/frontend/refs/heads/dev/gallery/src/pages/brand/personality.markdown).
 
