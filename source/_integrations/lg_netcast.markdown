@@ -22,64 +22,6 @@ The **LG Netcast** {% term integration %} allows you to control a LG Smart TV ru
 
 {% include integrations/triggers.md %}
 
-## LG Netcast automation examples
-
-These examples show common automations using the LG Netcast integration.
-
-{% include docs/paste_yaml_tip.md %}
-
-### Automation: turn on the TV with Wake-on-LAN
-
-When something requests the LG Netcast TV to turn on, send a Wake-on-LAN magic packet to power it on over the network. The [Wake-on-LAN integration](/integrations/wake_on_lan/) must be set up before using this example.
-
-- **Trigger**: Device is requested to turn on
-  - **Device**: Living room LG TV (`media_player.lg_netcast_tv`)
-- **Action**: Send magic packet
-  - **MAC address**: `AA-BB-CC-DD-EE-FF`
-
-{% details "YAML example for turning on the TV with Wake-on-LAN" %}
-
-{% example %}
-automation: |
-  alias: "Turn on LG Netcast TV with Wake-on-LAN"
-  triggers:
-    - trigger: lg_netcast.turn_on
-      entity_id: media_player.lg_netcast_tv
-  actions:
-    - action: wake_on_lan.send_magic_packet
-      data:
-        mac: "AA-BB-CC-DD-EE-FF"
-{% endexample %}
-
-{% enddetails %}
-
-### Automation: send a notification when the TV is requested to turn on
-
-When something requests the LG Netcast TV to turn on, send a notification to your phone.
-
-- **Trigger**: Device is requested to turn on
-  - **Device**: Living room LG TV (`media_player.lg_netcast_tv`)
-- **Action**: Send a notification message
-  - **Target**: My Device (`notify.my_device`)
-
-{% details "YAML example for sending a notification when the TV is requested to turn on" %}
-
-{% example %}
-automation: |
-  alias: "Notify when LG Netcast TV is requested to turn on"
-  triggers:
-    - trigger: lg_netcast.turn_on
-      entity_id: media_player.lg_netcast_tv
-  actions:
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        message: "The living room TV was requested to turn on."
-{% endexample %}
-
-{% enddetails %}
-
 ## Change channel through play_media action
 
 The `play_media` action can be used in a script to switch to the specified TV channel. It selects the major channel number according to the `media_content_id` parameter:
@@ -207,3 +149,61 @@ data:
   num_repeats: 5
   delay_secs: 0.3
 ```
+
+## LG Netcast automation examples
+
+These examples show common automations using the LG Netcast integration.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: turn on the TV with Wake-on-LAN
+
+When something requests the LG Netcast TV to turn on, send a Wake-on-LAN magic packet to power it on over the network. The [Wake-on-LAN integration](/integrations/wake_on_lan/) must be set up before using this example.
+
+- **Trigger**: Device is requested to turn on
+  - **Device**: Living room LG TV (`media_player.lg_netcast_tv`)
+- **Action**: Send magic packet
+  - **MAC address**: `AA-BB-CC-DD-EE-FF`
+
+{% details "YAML example for turning on the TV with Wake-on-LAN" %}
+
+{% example %}
+automation: |
+  alias: "Turn on LG Netcast TV with Wake-on-LAN"
+  triggers:
+    - trigger: lg_netcast.turn_on
+      entity_id: media_player.lg_netcast_tv
+  actions:
+    - action: wake_on_lan.send_magic_packet
+      data:
+        mac: "AA-BB-CC-DD-EE-FF"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a notification when the TV is requested to turn on
+
+When something requests the LG Netcast TV to turn on, send a notification to your phone.
+
+- **Trigger**: Device is requested to turn on
+  - **Device**: Living room LG TV (`media_player.lg_netcast_tv`)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for sending a notification when the TV is requested to turn on" %}
+
+{% example %}
+automation: |
+  alias: "Notify when LG Netcast TV is requested to turn on"
+  triggers:
+    - trigger: lg_netcast.turn_on
+      entity_id: media_player.lg_netcast_tv
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The living room TV was requested to turn on."
+{% endexample %}
+
+{% enddetails %}
