@@ -15,6 +15,8 @@
   <div>
     <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
     <a href='/integrations/'>Browse {{ integration_count | minus: 1 | divided_by: 100 | floor | times: 100 }}+ integrations</a>
+    <!--  Subtracting 1 forces a conservative buffer so milestones only flip over 
+  after safely exceeding the baseline (e.g., 1600 stays at 1500+ until 1601). -->
   </div>
 </div>
 
