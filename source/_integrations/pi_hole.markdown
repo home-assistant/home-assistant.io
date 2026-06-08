@@ -42,9 +42,11 @@ The combined host, port, and location should take you to the login page of Pi-ho
 
 ### Pi-hole v6 and later
 
-For Pi-hole v6 (released in February 2025) and later, the integration authenticates with an _app password_. To create one, sign in to your Pi-hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**.
 
-You can also use your Pi-hole admin login password, but creating a dedicated app password is recommended.
+For Pi-hole v6 and later, the integration uses an app password. To find it, log into your Pi-hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**. Your admin login password may be used instead, but this is not recommended. 
+
+For Pi-hole v5 and earlier, see below.
+
 
 ### Pi-hole v5 and earlier
 
