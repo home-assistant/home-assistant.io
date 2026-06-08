@@ -91,7 +91,7 @@ for:
 - Home Assistant also fires this trigger on startup for satellites that are already in the idle state, as their state is loaded from storage. Use the **For at least** option to filter out these startup events if needed.
 - You can also use the **For at least** option to add a small delay (for example, two to five seconds) before running follow-up actions. This avoids race conditions where an action fires before the satellite has fully settled. This is especially useful when restoring media playback.
 - This trigger combined with the **Satellite started listening** trigger forms a natural bracket around a complete voice session, which is useful for logging session duration or computing the energy cost of each pipeline run.
-- Satellites that have the unavailable (`unavailable` in YAML) or unknown (`unknown` in YAML) state are skipped in the evaluation of multi-target behavior.
+- Satellites that have the **Unavailable** or **Unknown** state are skipped in the evaluation of multi-target behavior.
 
 {% include triggers/try_it.md %}
 

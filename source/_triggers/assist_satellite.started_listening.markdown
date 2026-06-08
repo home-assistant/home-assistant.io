@@ -86,11 +86,11 @@ for:
 
 ## Good to know
 
-- This trigger fires as soon as the wake word is confirmed and the satellite enters the `listening` state. It does not wait for the voice command to be spoken or processed.
-- If a satellite supports streaming wake word detection, it transitions from `idle` directly to `listening` without an intermediate step.
-- If the satellite is already in the `listening` state when Home Assistant restarts, the trigger will not fire again until the state cycles back through `idle` first.
+- This trigger fires as soon as the wake word is confirmed and the satellite enters the **Listening** state. It does not wait for the voice command to be spoken or processed.
+- If a satellite supports streaming wake word detection, it transitions from **Idle** directly to **Listening** without an intermediate step.
+- If the satellite is already in the **Listening** state when Home Assistant restarts, the trigger will not fire again until the state cycles back through **Idle** first.
 - Use the **For at least** option with caution. Listening windows are typically short (a few seconds), so long durations may prevent the trigger from ever firing under normal conditions.
-- Satellites that have the `unavailable` or `unknown` state are skipped in the evaluation of multi-target behavior.
+- Satellites that have the **Unavailable** or **Unknown** state are skipped in the evaluation of multi-target behavior.
 
 {% include triggers/try_it.md %}
 

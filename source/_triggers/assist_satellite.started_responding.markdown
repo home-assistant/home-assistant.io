@@ -87,9 +87,9 @@ for:
 ## Good to know
 
 - This trigger fires as soon as text-to-speech playback begins. When the playback is complete, the entity returns to the idle state.
-- If a satellite gets stuck in the `responding` state, which can happen after a network glitch or a TTS error, this trigger combined with the `for` option and a follow-up notification can help you detect it early.
-- For local TTS engines such as Piper, the `responding` state is typically very short (under two seconds for brief replies). Cloud TTS may take longer depending on network conditions. Prefer local TTS to minimize response latency and reduce unnecessary cloud energy use.
-- Satellites that have an unavailable or unknown state are skipped in the evaluation of multi-target behavior.
+- If a satellite gets stuck in the **Responding** state, which can happen after a network glitch or a TTS error, this trigger combined with the **For at least** option and a follow-up notification can help you detect it early.
+- For local TTS engines such as Piper, the **Responding** state is typically very short (under two seconds for brief replies). Cloud TTS may take longer depending on network conditions. Prefer local TTS to minimize response latency and reduce unnecessary cloud energy use.
+- Satellites that have the **Unavailable** or **Unknown** state are skipped in the evaluation of multi-target behavior.
 
 {% include triggers/try_it.md %}
 

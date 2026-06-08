@@ -89,7 +89,7 @@ for:
 - This trigger fires as soon as the satellite hands the captured audio to the speech-to-text and intent pipeline. The voice command has not yet been acted upon at this point.
 - The processing state spans both speech-to-text transcription and intent recognition. For cloud-based pipelines this can take one to three seconds and for fully local pipelines it is typically under one second.
 - If you are using a cloud pipeline, keep in mind that processing requires network access. A slow or offline internet connection can keep the satellite in the processing state longer than usual.
-- Satellites that have an unavailable or unknown state are skipped in the evaluation of multi-target behavior.
+- Satellites that have the **Unavailable** or **Unknown** state are skipped in the evaluation of multi-target behavior.
 
 {% include triggers/try_it.md %}
 
