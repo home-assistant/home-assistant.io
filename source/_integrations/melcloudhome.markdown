@@ -34,6 +34,10 @@ Password:
 The integration is newly released in Home Assistant and will gradually expand its features and functionality.
 {% endnote %}
 
+## Climate
+
+
+
 The integration creates one climate entity per unit or zone:
 
 ### Air-to-Air (ATA) units
