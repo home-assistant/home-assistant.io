@@ -74,7 +74,7 @@ angles via configuration [number](#numbers) entities or [automatic learning](#au
 
 ### Automatic Learning
 
-The number entities persist across Home Assistant restarts and are updated automatically on slat rotation
+The number entities persist across Home Assistant restarts. They are updated automatically on slat rotation
 to allow automatic learning of the valid rotation range based on the current rotation angle. For learning,
 it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected.
 
