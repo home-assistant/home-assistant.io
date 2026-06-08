@@ -83,7 +83,7 @@ for:
 - Use the **For at least** option with a value longer than your pipeline's typical processing time to detect satellites that are stuck. For example, `00:00:10` passes only if the satellite has been processing for more than 10 seconds, which is a reliable signal that something is wrong.
 - Prefer local pipelines to reduce network dependency and processing latency. This condition can help surface satellites that consistently process slowly, pointing to an undersized pipeline or a congested connection.
 - Satellites that have the **Unavailable** or **Unknown** state do not count as processing. Home Assistant skips them and evaluates the condition using the remaining targeted satellites.
-- To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle), [Satellite is listening](/conditions/assist_satellite.is_listening), or [Satellite is responding](/conditions/assist_satellite.is_responding).
+- To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle/), [Satellite is listening](/conditions/assist_satellite.is_listening/), or [Satellite is responding](/conditions/assist_satellite.is_responding/).
 
 {% include conditions/try_it.md %}
 
@@ -111,9 +111,9 @@ automation: |
   conditions:
     - condition: not
       conditions:
-      - condition: assist_satellite.is_processing
-        target:
-          label_id: assist_satellites
+        - condition: assist_satellite.is_processing
+          target:
+            label_id: assist_satellites
   actions:
     - action: switch.turn_on
       target:

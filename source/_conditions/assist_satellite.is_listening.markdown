@@ -82,7 +82,7 @@ for:
 - The **Listening** state is active from the moment the wake word is confirmed until the satellite finishes capturing the voice command and hands it to the pipeline. This window is typically two to five seconds long.
 - Because the listening window is short, the **For at least** option should only be set to small values, a few seconds at most. A duration longer than the typical capture window will prevent this condition from ever passing under normal use.
 - Satellites that have an **Unavailable** or **Unknown** state do not count as listening. Home Assistant skips them and evaluates the condition using the remaining targeted satellites.
-- To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle), [Satellite is processing](/conditions/assist_satellite.is_processing), or [Satellite is responding](/conditions/assist_satellite.is_responding).
+- To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle/), [Satellite is processing](/conditions/assist_satellite.is_processing/), or [Satellite is responding](/conditions/assist_satellite.is_responding/).
 
 {% include conditions/try_it.md %}
 

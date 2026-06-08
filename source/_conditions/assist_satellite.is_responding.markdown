@@ -82,7 +82,7 @@ for:
 - Use the **For at least** option with a value longer than your longest expected TTS response (for example, `00:00:30`) to detect satellites that are stuck. This is a reliable way to build a self-healing automation that force-resets the satellite when it does not recover on its own.
 - Prefer local TTS engines such as Piper to minimize response latency and eliminate cloud-dependent failure modes that can cause satellites to get stuck in this state.
 - Satellites that have the **Unavailable** or **Unknown** state do not count as responding. Home Assistant skips them and evaluates the condition using the remaining targeted satellites.
-- To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle), [Satellite is listening](/conditions/assist_satellite.is_listening), or [Satellite is processing](/conditions/assist_satellite.is_processing).
+- To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle/), [Satellite is listening](/conditions/assist_satellite.is_listening/), or [Satellite is processing](/conditions/assist_satellite.is_processing/).
 
 {% include conditions/try_it.md %}
 

@@ -84,7 +84,7 @@ for:
 - A satellite without a configured wake word engine remains in the **Idle** state permanently until a pipeline is triggered externally. In that case, this condition will always pass.
 - Satellites that have the **Unavailable** or **Unknown** state are skipped from the condition evaluation.
 - Use the **For at least** option to add a short delay, for example 5 seconds, before acting. This avoids race conditions where an action fires before the satellite has fully settled after a pipeline run.
-- To check another pipeline state, use [Satellite is listening](/conditions/assist_satellite.is_listening), [Satellite is processing](/conditions/assist_satellite.is_processing), or [Satellite is responding](/conditions/assist_satellite.is_responding).
+- To check another pipeline state, use [Satellite is listening](/conditions/assist_satellite.is_listening/), [Satellite is processing](/conditions/assist_satellite.is_processing/), or [Satellite is responding](/conditions/assist_satellite.is_responding/).
 
 {% include conditions/try_it.md %}
 
