@@ -3,7 +3,7 @@
   Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts.
 </p>
 
-{%- assign integration_count = 0 -%}
+{%- assign integration_count = 0 -% }
 {%- for comp in site.integrations -%}
   {%- if comp.ha_category -%}
     {%- assign integration_count = integration_count | plus: 1 -%}
@@ -14,23 +14,20 @@
   <a href='/installation/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a>
   <div>
     <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
-  </div>
-  
-  {%- comment -%}
-    Liquid integer division automatically truncates decimals (floors).
-    Using (count - 1) handles the exact milestone edge case cleanly.
-  {%- endcomment -%}
-  {%- if integration_count > 0 -%}
-    {%- assign milestone = integration_count | minus: 1 | divided_by: 100 | times: 100 -%}
-  {%- comment -%}
-    Subtracting 1 forces a conservative buffer so milestones only flip over 
-    after safely exceeding the baseline (e.g., 1600 stays at 1500+ until 1601).
-  {%- endcomment -%}
-  {%- else -%}
-    {%- assign milestone = 0 -%}
-  {%- endif -%}
 
-  <a href='/integrations/'>Browse {{ milestone }}+ integrations</a>
+    {%- if integration_count > 0 -%}
+      {%- assign milestone = integration_count | minus: 1 | divided_by: 100 | times: 100 -%}
+    {%- else -%}
+      {%- assign milestone = 0 -%}
+    {%- endif -%}
+
+    {# Kept INSIDE this nested div to fix the layout shift #}
+    <a href='/integrations/'>Browse {{ milestone }}+ integrations</a>
+    {%- comment -%}
+      Subtracting 1 forces a conservative buffer so milestones only flip over 
+      after safely exceeding the baseline (e.g., 1600 stays at 1500+ until 1601).
+    {%- endcomment -%}
+  </div>
 </div>
 
 <div class="hero-socialproof">
