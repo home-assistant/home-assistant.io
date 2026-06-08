@@ -172,6 +172,8 @@ The integration normally updates every 60 seconds. For more detailed steps on ho
 
 Currently, the integration does not support stacks or Edge computing.
 
+On lower end hardware, with slower disks, such as a Rapsberry, the Portainer integration might experience timeouts. If you experience this, please disable the Disk space sensors via the Options.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
