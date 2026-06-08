@@ -98,10 +98,10 @@ for:
 
 ### Automation: pause media playback when any satellite starts listening to save energy
 
-When a satellite starts listening, this automation pauses active media players in the same area. This prevents the satellite from picking up audio from speakers as speech and this way it reduces failed recognitions, unnecessary retries, and the associated network and compute energy use.
+When a satellite starts listening, this automation pauses active media players in the same area. This helps prevent the satellite from picking up audio from speakers as speech, which reduces failed recognitions, unnecessary retries, and related network and compute use.
 
 - **Trigger**: Satellite started listening
-  - **Target**: All Assist satellites of living room (by label)
+  - **Target**: All Assist satellites in the living room (by label)
 - **Action**: Pause media
   - **Target**: Living room media player
 
