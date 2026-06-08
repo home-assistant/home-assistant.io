@@ -6,7 +6,7 @@
 {%- assign tot = 0 -%}
 {%- for comp in site.integrations -%}
   {%- if comp.ha_category and comp.title -%}
-    {%- assign tot = tot | plus: 1 -%}
+    {%- assign tot = tot -%}
   {%- endif -%}
 {%- endfor -%}
 
@@ -14,7 +14,7 @@
   <a href='/installation/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a>
   <div>
     <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
-    <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | floor | times: 100 }}+ integrations</a>
+    <a href='/integrations/'>Browse {{ tot | divided_by: 100 | floor | times: 100 }}+ integrations</a>
   </div>
 </div>
 
