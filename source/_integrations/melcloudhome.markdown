@@ -3,7 +3,7 @@ title: MELCloud Home
 description: Instructions on how to integrate MELCloud Home with Home Assistant.
 ha_category:
   - Climate
-ha_release: '2026.7'
+ha_release: '2026.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@erwindouna'
@@ -17,11 +17,11 @@ ha_quality_scale: bronze
 
 The **MELCloud Home** {% term integration %} connects Home Assistant to [MELCloud Home](https://www.melcloudhome.com/), Mitsubishi Electric's cloud service for managing their air conditioning and heat pump products.
 
-{% include integrations/config_flow.md %}
-
 ## Prerequisites
 
 You need an active MELCloud Home account with at least one registered unit. Use the same email address and password as the MELCloud Home app.
+
+{% include integrations/config_flow.md %}
 
 ## Supported functionality
 
@@ -52,7 +52,7 @@ Each heating zone of an air-to-water heat pump is exposed as a separate climate 
 
 ## Data updates
 
-The integration polls the MELCloud Home API every 60 seconds.
+The integration {% term polling polls %} the MELCloud Home API every 60 seconds.
 
 ## Removing the integration
 
