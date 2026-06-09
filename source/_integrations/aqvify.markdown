@@ -26,11 +26,15 @@ The **Aqvify** {% term integration %} allows users to integrate their [Aqvify](h
 
 - Monitor the water level in a water well and trigger automations based on these sensor values.
 
-## Supported sensors
-
-There is currently support for sensors measuring well water level from different perspectives. Please refer to documentation from Aqvify for the exact interpretation of the values.
-
 {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+The **Aqvify** {% term integration %} supports the following entities:
+
+### Sensors
+
+There is currently support for sensors measuring the well water level from different perspectives. Please refer to Aqvify's documentation for the exact interpretation of the values.
 
 ## Removing the integration
 
