@@ -7,7 +7,7 @@ ha_release: 2026.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@erwindouna'
-ha_domain: melcloudhome
+ha_domain: melcloud_home
 ha_config_flow: true
 ha_platforms:
   - climate
@@ -27,7 +27,7 @@ During setup of the integration, you will need the following information:
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-E-mail:
+Email:
     description: "The e-mail address you used to configure your MELCloud Home account."
 Password:
     description: "The password associated with the MELCloud Home account."
@@ -35,9 +35,7 @@ Password:
 
 ## Supported functionality
 
-{% note %}
-The integration is newly released in Home Assistant and will gradually expand its features and functionality.
-{% endnote %}
+The **MELCloud Home** {% term integration %} provides the following entities.
 
 ###  Climate
 
