@@ -363,8 +363,6 @@ Setting the fan speed or preset mode fails with a notification in the Home Assis
 
 > The Duco device has reached its daily write limit. Try again tomorrow.
 
-If you see this message, use the steps below to verify the current limit status in the Duco section of **System information**.
-
 #### Description
 
 The Duco box enforces a daily API write limit of 200 write requests. When the limit is reached, the box rejects further write requests until the quota resets shortly after midnight.
