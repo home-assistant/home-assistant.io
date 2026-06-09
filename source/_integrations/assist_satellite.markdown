@@ -19,6 +19,8 @@ This is an {% term integration %} for remote satellites that use [Assist](/voice
 
 {% include integrations/triggers.md %}
 
+{% include integrations/conditions.md %}
+
 ## Actions
 
 An Assist satellite entity exposes additional actions to remotely control the satellite in automations or scripts. These actions can be created via the UI, but are
