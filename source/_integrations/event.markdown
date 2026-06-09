@@ -97,8 +97,9 @@ automation: |
       - trigger: event.received
         target:
           entity_id: event.front_door_doorbell
-        event_type:
-          - ring
+        options:
+          event_type:
+            - ring
     actions:
       - action: notify.send_message
         target:
@@ -116,7 +117,7 @@ Use this automation to activate a scene when a remote control button is pressed 
 - **Trigger**: Event received
   - **Target**: Living room remote (`event.living_room_remote_on_button`)
   - **Event type**: Double press
-- **Action**: Activate a scene
+- **Action**: Activate scene
 
 {% details "YAML example for activating a scene on a remote double press" %}
 
@@ -127,8 +128,9 @@ automation: |
       - trigger: event.received
         target:
           entity_id: event.living_room_remote_on_button
-        event_type:
-          - double_short_release
+        options:
+          event_type:
+            - double_short_release
     actions:
       - action: scene.turn_on
         target:

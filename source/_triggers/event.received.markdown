@@ -40,23 +40,18 @@ trigger: |
   trigger: event.received
   target:
     entity_id: event.front_door_doorbell
-  event_type:
-    - ring
+  options:
+    event_type:
+      - ring
 {% endexample %}
 
 This fires every time `event.front_door_doorbell` receives a `ring` event.
 
 ### Options in YAML
 
+YAML uses an `options` mapping for trigger-specific settings.
+
 {% options_yaml %}
-trigger:
-  description: "The trigger type. For this trigger, use `event.received`."
-  required: true
-  type: string
-target:
-  description: "The event entity or entities to monitor. You can target a single entity, a device, an area, a floor, or a label."
-  required: true
-  type: map
 event_type:
   description: "One or more event types to match. The available event types depend on the target entity. Use a list for multiple types."
   required: true
@@ -95,8 +90,9 @@ automation: |
       - trigger: event.received
         target:
           entity_id: event.front_door_doorbell
-        event_type:
-          - ring
+        options:
+          event_type:
+            - ring
     actions:
       - action: notify.send_message
         target:
@@ -114,7 +110,7 @@ Use this automation to activate a scene when a remote control button is pressed 
 - **Trigger**: Event received
   - **Target**: Living room remote (`event.living_room_remote_on_button`)
   - **Event type**: Double press
-- **Action**: Activate a scene
+- **Action**: Activate scene
 
 {% details "YAML example for activating a scene on a remote double press" %}
 
@@ -125,8 +121,9 @@ automation: |
       - trigger: event.received
         target:
           entity_id: event.living_room_remote_on_button
-        event_type:
-          - double_short_release
+        options:
+          event_type:
+            - double_short_release
     actions:
       - action: scene.turn_on
         target:
