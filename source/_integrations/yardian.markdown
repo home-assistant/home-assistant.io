@@ -43,10 +43,9 @@ The **Yardian** integration provides the following entities.
 - **Freeze prevent**: Turns on when the controller enables freeze prevention.
 - **Zone enabled**: `On` if a zone is enabled. These entities are disabled by default and created per zone.
 
-## Button
+### Button
 
-The Yardian integration provides a button entity to easily control your system manually:
-- **Stop all irrigation**: Enabled by default. Pressing this button will immediately stop any currently active zone.
+- **Stop all irrigation**: Enabled by default. Pressing this button entity will immediately stop any currently active zone.
   
 ## Actions
 
