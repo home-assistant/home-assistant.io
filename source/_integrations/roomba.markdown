@@ -44,8 +44,8 @@ Sensors:
 
 - **Battery**: The status of your battery
 - **Bin full** (if Roomba has the capacity to do): If the bin is full
+- **Canceled missions**: Total number of missions that have been canceled-
 - **Charging**: Whether the robot is currently charging
-- **Canceled missions**: Total number of missions that have been canceled
 - **Failed missions**: Total number of missions that have failed
 - **Successful missions**: Total number of successful missions
 - **Average mission time**: The amount of time a mission took on average
