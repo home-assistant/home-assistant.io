@@ -18,7 +18,9 @@ ha_platforms:
   - switch
 ha_domain: indevolt
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_dhcp: true
+ha_zeroconf: true
+ha_quality_scale: platinum
 ha_config_flow: true
 ---
 
@@ -47,7 +49,7 @@ The integration supports the following devices:
 
 <!-- textlint-disable capitalize -->
 1. Connect your Indevolt device and Home Assistant to the same local network.
-2. Ensure the Indevolt device is powered on and has acquired a network IP address. You can get the IP from the app or from your router.
+2. Ensure the Indevolt device is powered on and has acquired a network IP address.
 3. In the Indevolt app, enable the **Local API** and set the protocol to `http`.
 <!-- textlint-disable capitalize -->
 
@@ -58,9 +60,6 @@ Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
 
 {% endconfiguration_basic %}
-
-
-The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
 
 ## Supported functionality
 
@@ -74,18 +73,28 @@ The following button entity allows triggering device actions directly from Home 
 
 ### Sensors
 
-#### BK1600 / BK1600 Ultra (Generation 1)
+#### All generations
 
+- Rated capacity (kWh)
 - Device mode (overall setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-consumption prioritized/Price-Based Strategy)
 - Device heating state (Gen-1 specific, on/off)
+- Real-time mode
+- Real-time power limit (W)
+- Real-time target SOC (%)
+- DC input voltage (2 channels, V)
+- DC input current (2 channels, A)
 - DC input power (2 channels, W)
 - Daily production (kWh)
 - Cumulative production (kWh)
 - Total AC input power (W)
 - Total AC input energy (kWh)
 - Total AC output power (W)
+- Total AC output energy (kWh)
 - Total DC output power (W)
+- Off-grid output energy (kWh)
+- Bypass power (W)
+- Bypass input energy (Wh)
 - Battery power (W)
 - Battery charge/discharge state
 - Battery <abbr title="State of Charge">SOC</abbr> (%)
@@ -96,28 +105,34 @@ The following button entity allows triggering device actions directly from Home 
 - Meter connection status
 - Meter power (W)
 
+#### BK1600 / BK1600 Ultra (Generation 1)
+
+- Inverter temperature (°C)
+- MOS Temperature charge/discharge (°C)
+- Battery pack 1-3 temperature (°C)
+- Device heating state (on/off)
+
 #### SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000 (Generation 2)
 
-All Generation 1 sensors, plus:
-
-- Rated capacity (kWh)
 - DC input voltage (4 channels, V)
 - DC input current (4 channels, A)
 - DC input power (4 channels, W)
 - Grid voltage (V)
 - Grid frequency (Hz)
-- Bypass power (W)
-- Bypass input energy (Wh)
-- Off-grid output energy (kWh)
-- Total AC output energy (kWh)
+- Equivalent full cycles
+- Transformer temperature (°C)
 - Main battery serial number
+- Main battery cycle count
 - Main battery SOC (%)
 - Main battery temperature (°C)
+- Main battery MOS temperature (°C)
 - Main battery voltage (V)
 - Main battery current (A)
 - Battery pack 1-5 serial number
+- Battery pack 1-5 cycle count
 - Battery pack 1-5 SOC (%)
 - Battery pack 1-5 temperature (°C)
+- Battery pack 1-5 MOS temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
 - Battery pack 1-5 heating state (on/off)
@@ -202,9 +217,10 @@ The Indevolt integration automatically retrieves data from your devices by polli
 ## Known limitations
 
 - Real-time configuration changes may appear with a small delay in Home Assistant and the Indevolt app.
-- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode.
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode (BK1600 / BK1600 Ultra).
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
+- The inverter temperature only shows when the inverter is active (BK1600 / BK1600 Ultra).
 - The SolidFlex 1200 identifies itself as a SolidFlex 2000 device.
 
 ## Troubleshooting

@@ -148,7 +148,9 @@ You can add the energy index sensors to the energy dashboard to track your elect
       entity_id: sensor.teleinfo_XXXXXXXXXXXX_apparent_power
       above: 6000
   actions:
-    - action: notify.mobile_app_<device_name>
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "High power usage"
         message: "Apparent power is above 6000 VA"
@@ -156,7 +158,6 @@ You can add the energy index sensors to the energy dashboard to track your elect
 
 ### Automation: tomorrow's Tempo color
 
-{% raw %}
 ```yaml
 - alias: "Notify tomorrow's Tempo color"
   triggers:
@@ -169,7 +170,9 @@ You can add the energy index sensors to the energy dashboard to track your elect
           entity_id: sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color
           state: "unknown"
   actions:
-    - action: notify.mobile_app_<device_name>
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Tempo color tomorrow"
         message: >-
@@ -178,7 +181,6 @@ You can add the energy index sensors to the energy dashboard to track your elect
             'sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color'
           ) }} day
 ```
-{% endraw %}
 
 ## Data updates
 

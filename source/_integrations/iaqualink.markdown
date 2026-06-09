@@ -20,7 +20,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_dhcp: true
 ---
 
@@ -150,7 +150,9 @@ triggers:
     entity_id: binary_sensor.freeze_protection
     to: "on"
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Pool freeze protection active"
       message: >

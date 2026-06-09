@@ -9,6 +9,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Update
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -25,18 +26,28 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - update
 ha_integration_type: device
 ha_zeroconf: true
 ---
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).
 
+## Use cases
+
+- Control your blinds, shutters, and garage or gate automatically. For example, close them at sunset or when wind speed exceeds a set threshold.
+- Manage your lights and dimmers from a single dashboard, and create automations that adjust brightness based on time of day or occupancy.
+- Monitor energy consumption with a smartMeter DIN device and use the data in the Home Assistant energy dashboard.
+- Automate your sauna or heating with a saunaBox or thermoBox by setting a target temperature so it is ready when you get home.
+- Trigger automations from wall buttons and remotes by using an actionBox as a bridge, without replacing your existing switches.
+- Get notified when a floodSensor detects water, or when air quality reported by an airSensor drops below an acceptable level.
+
 ## Prerequisites
 
 Before Home Assistant can discover your BleBox device, it must be connected to your Wi-Fi network.
 
 1. Follow the [BleBox getting started guide](https://blebox.eu/start) to connect your device to your Wi-Fi network using the wBox app.
-2. Once connected, Home Assistant can discover the device automatically. If your device is on a different network segment, you will need to add it manually using its IP address.
+2. Once connected, Home Assistant will discover the device automatically.
 
 {% note %}
 For the best experience, make sure your BleBox devices have the most recent available firmware installed.
@@ -46,7 +57,7 @@ For the best experience, make sure your BleBox devices have the most recent avai
 
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of your BleBox device. You can find it in your router or in the wBox app."
+  description: "The IP address or hostname of your BleBox device, for example `192.168.1.100` or `blebox-device.local`. Hostnames only work if they resolve on your local network. You can find the address in your router or in the wBox app."
 Port:
   description: "The port used to communicate with your BleBox device. The default port is `80`."
 Username:
@@ -54,6 +65,13 @@ Username:
 Password:
   description: "The password for your BleBox device, if you have set up access credentials. This is optional."
 {% endconfiguration_basic %}
+
+## Data updates
+
+This integration uses local polling to fetch the current state of your BleBox devices. The polling interval depends on the entity type:
+
+- Lights, sensors, switches, and climate entities are polled every 5 seconds.
+- Binary sensors, buttons, and covers are polled every 30 seconds (the Home Assistant default).
 
 ## BleBox controllers
 
@@ -129,7 +147,7 @@ This integration adds the Blebox device as a climate entity to Home Assistant.
 
 ### thermoBox
 
-This integration adds the Blebox device as a climate entity to Home Assistant.
+This integration adds the Blebox device as a climate entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -150,6 +168,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -161,6 +180,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -172,6 +192,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -184,7 +205,7 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 
 ### switchBox DIN
 
@@ -195,7 +216,7 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 
 ### switchBoxD
 
@@ -206,7 +227,7 @@ This integration adds the Blebox device as 2 switch entities and 2 sensor entiti
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 
 ### switchBoxD DIN
 
@@ -217,7 +238,7 @@ This integration adds the Blebox device as 2 switch entities and 2 sensor entiti
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 
 ### switchBoxDC
 
@@ -415,15 +436,6 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 - Periodic read of humidity
 - Periodic read of temperature
 
-### wind&RainSensor
-
-This integration adds the Blebox device as a sensor & binary sensor entity to Home Assistant.
-
-#### Key supported features
-
-- Periodic read of current wind speed
-- Periodic read of state of rain detection
-
 ### rainSensor
 
 This integration adds the Blebox device as a binary sensor entity to Home Assistant.
@@ -588,6 +600,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a cover entity
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -602,21 +615,25 @@ This integration adds the Simon 24 GO device ("blebox inside") as a switch entit
 
 ### Simon 24 GO SWITCH (NEW1W.01)
 
-This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 24 GO SWITCH D (NEW2W.01)
 
-This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 24 GO SWITCH Q (NEW4W.01)
 
@@ -683,6 +700,10 @@ The configuration consists of two steps:
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
+### Simon 24 GO CONTROL B (NENB1W.01)
+
+This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
+
 ## "BleBox inside" - Simon 54 GO
 
 Simon 54 GO is a range of wall switches and accessories with integrated BleBox Wi-Fi modules. The full product range is available in the [Simon 54 GO catalog](https://www.kontakt-simon.com.pl/pl/Katalog/1252/).
@@ -695,6 +716,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a cover entity
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
@@ -709,21 +731,25 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO SWITCH (DEW1WA.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 54 GO SWITCH D (DEW2W.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 54 GO SWITCH Q (DEW4W.01)
 
@@ -790,6 +816,10 @@ The configuration consists of two steps:
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
+### Simon 54 GO CONTROL B (DENB1W.01)
+
+This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
+
 ## "BleBox inside" - Simon 55 GO
 
 Simon 55 GO is a range of wall switches and accessories with integrated BleBox Wi-Fi modules. The full product range is available in the [Simon 55 GO catalog](https://www.kontakt-simon.com.pl/pl/Katalog/1257/).
@@ -802,17 +832,20 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 
 - Open
 - Close
+- Stop
 - Position
 - Tilt regulation
 
 ### Simon 55 GO SOCKET (TEGZ1W.02)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCHSHUTT
 
@@ -825,21 +858,25 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO SWITCH (TEW1W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCH D (TEW2W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCH Q (TEW4W.01)
 
@@ -897,7 +934,7 @@ This integration adds the Simon 55 GO device ("blebox inside") to Home Assistant
 
 ### Simon 55 GO THERMO (TETD2W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a climate entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -916,6 +953,10 @@ The configuration consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+### Simon 55 GO CONTROL B (TENB1W.01)
+
+This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
 
 ## "BleBox inside" - other manufacturers
 
@@ -1075,6 +1116,65 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to configure the number of phases (1 or 3) is available in the wBox app.
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
+
+## Examples
+
+### Close shutters at sunset
+
+Leaving shutters open after dark can affect your privacy and home security. You can use this blueprint to automatically close your shutterBox blinds every day at sunset.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_shutters_at_sunset.yaml" %}
+
+### Close the gate when leaving home
+
+It is easy to forget to close the gate when leaving in a hurry. You can use this blueprint to automatically close your gateBox or rollerGate when the last person leaves home.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_gate_on_leave.yaml" %}
+
+### Close covers when wind speed is too high
+
+Strong winds can damage blinds and awnings left open outside. You can use this blueprint to automatically close your covers when the windSensor PRO detects wind speed above a safe threshold.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_covers_on_high_wind.yaml" %}
+
+## Troubleshooting
+
+### Device is not discovered automatically
+
+#### Symptom
+
+The device does not appear in Home Assistant after being connected to the network.
+
+#### Description
+
+Home Assistant can only discover BleBox devices that are on the same network segment.
+
+#### Resolution
+
+1. Confirm that the device is connected to your Wi-Fi network using the wBox app.
+2. Confirm that the device is on the same network segment as your Home Assistant instance. If it is on a different subnet, add it manually by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting **Add integration**, searching for **BleBox**, and entering the device's IP address.
+3. If the device is on the same network segment but still not discovered, restart Home Assistant.
+
+### Integration shows as unavailable
+
+#### Symptom
+
+A previously working device shows as unavailable in Home Assistant.
+
+#### Description
+
+The device's IP address has likely changed due to a DHCP lease renewal.
+
+#### Resolution
+
+1. Check the current IP address of the device in your router's DHCP client list or in the wBox app.
+2. To prevent this from happening again, assign a static IP address or a DHCP reservation to the device in your router settings.
+3. If the IP address has changed, remove the existing integration entry and add it again with the new IP address.
+
+## Known limitations
+
+- Some device settings can only be changed using the wBox app. After changing these settings, reload the affected device by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the device, and selecting **Reload**.
+- Some devices are not directly supported as Home Assistant entities and can be integrated using [webhook automations](#generating-the-compatible-webhook-in-home-assistant) instead.
 
 ## Removing the integration
 

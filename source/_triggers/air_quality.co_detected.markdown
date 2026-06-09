@@ -53,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -101,7 +101,7 @@ automation: |
       target:
         label_id: co_sensors
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: siren.turn_on
@@ -137,7 +137,7 @@ automation: |
       target:
         entity_id: binary_sensor.garage_co
       options:
-        behavior: any
+        behavior: each
         for: "00:01:00"
   actions:
     - action: fan.turn_on

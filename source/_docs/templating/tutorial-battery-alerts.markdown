@@ -37,7 +37,7 @@ All batteries are healthy.
 You need:
 
 - At least one battery-powered device reporting a percentage through Home Assistant. Zigbee, Z-Wave, and Matter devices usually do this automatically.
-- A notification service set up on your phone, usually the [Home Assistant Companion app](/integrations/mobile_app/). The examples below use `notify.mobile_app_your_phone`. Replace that with your own `notify` action when you get there.
+- A notification service set up on your phone, usually the [Home Assistant Companion app](/integrations/mobile_app/). The examples below use `notify.send_message`. Replace `my_device` in `notify.my_device` by your own target when you get there.
 - Five minutes with the [Developer tools template editor](/docs/templating/debugging/#the-template-editor) open.
 
 ## Step 1: See your battery sensors
@@ -140,14 +140,16 @@ You want this to run once every morning.
 ### Add the action
 
 1. Under **Then do**, select **Add action**.
-2. Choose **Perform Action**, then pick your `notify` action (like `notify.mobile_app_your_phone`).
+2. Choose **Perform Action**, then pick your `notify` action (like `notify.send_message`).
 3. Fill in the message field with the template you built in step 3.
 
 In YAML, the action looks like this:
 
 {% example %}
 action: |
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Battery check"
       message: >

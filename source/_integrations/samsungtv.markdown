@@ -9,7 +9,6 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
-  - '@epenet'
 ha_domain: samsungtv
 ha_ssdp: true
 ha_platforms:

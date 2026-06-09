@@ -84,7 +84,9 @@ Variables can be templated.
   variables:
     blind_state_message: "The blind is {{ states('cover.blind') }}."
 - alias: "Notify about the state of the blind"
-  action: notify.mobile_app_iphone
+  action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     message: "{{ blind_state_message }}"
 ```
@@ -220,12 +222,24 @@ This {% term action %} can use the same triggers that are available in an automa
   wait_for_trigger:
     - trigger: event
       event_type: MY_EVENT
+      id: my_trigger
     - trigger: state
       entity_id: light.LIGHT
       to: "on"
       for: 10
 ```
 
+You can assign an `id` to each trigger, just like you would do in an automation's `trigger` section, but you won't find it inside the `trigger` condition, which only lists the main automation triggers. You can however find it in a template as `wait.trigger.id`:
+
+```yaml
+- if:
+    - condition: template
+      value_template: "{{ wait.trigger.id == 'my_trigger' }}"
+  then:
+    - action: light.turn_on
+      target:
+        entity_id: light.living_room_table
+```
 
 ### Wait timeout
 

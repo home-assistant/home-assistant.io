@@ -69,12 +69,12 @@ behavior:
   description: |
     When multiple motion sensors are targeted, controls when the trigger fires:
 
-    - `any`: fires every time any targeted sensor starts detecting motion.
+    - `each`: fires every time any targeted sensor starts detecting motion.
     - `first`: fires only when the first sensor starts detecting motion.
-    - `last`: fires only after every targeted sensor starts detecting motion.
+    - `all`: fires only after every targeted sensor starts detecting motion.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the sensor or sensors must remain detecting motion before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.

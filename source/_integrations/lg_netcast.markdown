@@ -16,40 +16,12 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The **LG Netcast** {% term integration %} allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/integrations/webostv#media-player) platform.
+The **LG Netcast** {% term integration %} allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013).
+For the new LG webOS TV's use the [LG webOS TV](/integrations/webostv#media-player) platform.
 
 {% include integrations/config_flow.md %}
 
-## Turn on action
-
-Home Assistant can turn on an LG Netcast TV if you specify an action provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
-
-1. To create an automation, go to {% my integrations title="**Settings** > **Devices & services**" %} and open the device page.
-2. Under **Automations**, select the + icon to create an automation with that device.
-3. In the dialog, select the **Device is requested to turn on** automation.
-
-Automations can also be created using an automation action:
-
-The example below shows how you can use the `turn_on_action` with the [`wake_on_lan` integration](/integrations/wake_on_lan/).
-
-```yaml
-# Example configuration.yaml entry
-wake_on_lan: # enables `wake_on_lan` integration
-
-# Enables the `lg_netcast` media player
-automation:
-  - alias: "Turn On Living Room TV with WakeOnLan"
-    triggers:
-      - trigger: lg_netcast.turn_on
-        entity_id: media_player.lg_netcast_smart_tv
-    actions:
-      - action: wake_on_lan.send_magic_packet
-        data:
-          mac: AA-BB-CC-DD-EE-FF
-          broadcast_address: 11.22.33.44
-```
-
-Any other [actions](/docs/automation/action/) to power on the device can be configured.
+{% include integrations/triggers.md %}
 
 ## Change channel through play_media action
 
@@ -67,7 +39,7 @@ data:
 
 ## Remote
 
-The LG Netcast remote platform creates a `Remote` entity for each configured TV. This entity allows you to send remote control commands. To power on the TV, use the turn on automation trigger described above.
+The LG Netcast remote platform creates a `Remote` entity for each configured TV. This entity allows you to send remote control commands. To power on the TV, use the [Device is requested to turn on](/triggers/lg_netcast.turn_on/) trigger.
 
 ### Action: Send command
 
@@ -178,3 +150,61 @@ data:
   num_repeats: 5
   delay_secs: 0.3
 ```
+
+## LG Netcast automation examples
+
+These examples show common automations using the LG Netcast integration.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: turn on the TV with Wake-on-LAN
+
+When something requests the LG Netcast TV to turn on, send a Wake-on-LAN magic packet to power it on over the network. The [Wake-on-LAN integration](/integrations/wake_on_lan/) must be set up before using this example.
+
+- **Trigger**: Device is requested to turn on
+  - **Device**: Living room LG TV (`media_player.lg_netcast_tv`)
+- **Action**: Send magic packet
+  - **MAC address**: `AA:BB:CC:DD:EE:FF`
+
+{% details "YAML example for turning on the TV with Wake-on-LAN" %}
+
+{% example %}
+automation: |
+  alias: "Turn on LG Netcast TV with Wake-on-LAN"
+  triggers:
+    - trigger: lg_netcast.turn_on
+      entity_id: media_player.lg_netcast_tv
+  actions:
+    - action: wake_on_lan.send_magic_packet
+      data:
+        mac: "AA:BB:CC:DD:EE:FF"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a notification when the TV is requested to turn on
+
+When something requests the LG Netcast TV to turn on, send a notification to your phone.
+
+- **Trigger**: Device is requested to turn on
+  - **Device**: Living room LG TV (`media_player.lg_netcast_tv`)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for sending a notification when the TV is requested to turn on" %}
+
+{% example %}
+automation: |
+  alias: "Notify when LG Netcast TV is requested to turn on"
+  triggers:
+    - trigger: lg_netcast.turn_on
+      entity_id: media_player.lg_netcast_tv
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The living room TV was requested to turn on."
+{% endexample %}
+
+{% enddetails %}

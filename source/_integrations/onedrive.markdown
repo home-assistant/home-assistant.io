@@ -104,14 +104,13 @@ You can use the `onedrive.upload` action to upload one or more files from Home A
 | `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded files. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
 | `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
 
-{% raw %}
-
 ```yaml
 # Upload a single file
 action: onedrive.upload
 data:
   filename: /media/image.jpg
   destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
 
 # Upload multiple files
 action: onedrive.upload
@@ -120,11 +119,48 @@ data:
     - /media/image_1.jpg
     - /media/image_2.jpg
   destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
 ```
 
-{% endraw %}
 
 {% enddetails %}
+
+The path part of `filename` must be in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+
+The `destination_folder` must comply with [OneDrive naming restrictions](https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa). Folder names cannot contain the following characters: `" * : < > ? / \ |`.
+
+### Action `onedrive.delete`
+
+You can use the `onedrive.delete` action to delete one or more files from your OneDrive app folder.
+
+{% details "Delete action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `destination_path` | no | One or more paths to files inside your `Apps/Home Assistant` app folder to delete. Supports subfolders. | Snapshots/2025/image.jpg |
+| `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to delete from). | a1bee602deade2b09bc522749bbce48e |
+
+```yaml
+# Delete a single file
+action: onedrive.delete
+data:
+  destination_path: Snapshots/2025/image.jpg
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+
+# Delete multiple files
+action: onedrive.delete
+data:
+  destination_path:
+    - Snapshots/2025/image.jpg
+    - Snapshots/2025/image2.jpg
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+```
+
+{% enddetails %}
+
+{% note %}
+The `onedrive.delete` action removes only files, not the folders that were created during upload. Whether the deleted file is moved to the Recycle Bin or permanently removed depends on the **Delete files permanently** option in the integration settings.
+{% endnote %}
 
 ## Automations
 
@@ -151,7 +187,9 @@ triggers:
     from: "nearing"
     to: "critical"
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: OneDrive is almost full!
       message: >

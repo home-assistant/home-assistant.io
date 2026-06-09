@@ -310,6 +310,81 @@ data:
   enqueue: play
 ```
 
+## Searching the music library
+
+You can search your local Sonos music library using the `media_player.search_media` action. This returns a list of matching items that you can then pass to `media_player.play_media` to play. It also powers the search box in the Home Assistant media picker UI.
+
+The action requires a `search_query` and accepts an optional `media_content_type` to narrow results to a specific kind of content. If you omit the type, the search defaults to `track`.
+
+The following values are supported for `media_content_type`:
+
+- `track` (default)
+- `album`
+- `artist`
+- `contributing_artist`
+- `composer`
+- `genre`
+- `playlist`
+
+{% note %}
+Searching is limited to your local Sonos music library. Streaming services such as Spotify or Tidal are not included in search results.
+{% endnote %}
+
+Because the action returns data, use `response_variable` to capture the results and then loop through or pick from them in your automation or script.
+
+### Example: Search and add all matching tracks to the queue
+
+This example searches for all tracks matching "love", clears the queue, adds them to the queue, and then plays the queue:
+
+{% example %}
+actions:
+  - action: media_player.search_media
+    data:
+      search_query: "love"
+      media_content_type: track
+    response_variable: results
+    target:
+      entity_id: media_player.kitchen
+  - action: media_player.clear_playlist
+    target:
+      entity_id: media_player.kitchen
+  - variables:
+      search_length: "{{ results['media_player.kitchen']['result']|count }}"
+  - repeat:
+      sequence:
+        - action: media_player.play_media
+          target:
+            entity_id: media_player.kitchen
+          data:
+            enqueue: add
+            media:
+              media_content_id: >-
+                {{ results['media_player.kitchen']['result'][repeat.index -
+                1]['media_content_id'] }}
+              media_content_type: >-
+                {{ results['media_player.kitchen']['result'][repeat.index -
+                1]['media_content_type'] }}
+      until:
+        - condition: template
+          value_template: '{{search_length == repeat.index}}'                
+  - action: sonos.play_queue
+    target:
+      entity_id: media_player.kitchen
+{% endexample %}
+
+### Example: Search for an album
+
+{% example %}
+actions:
+  - action: media_player.search_media
+    target:
+      entity_id: media_player.living_room
+    data:
+      search_query: "Abbey Road"
+      media_content_type: album
+    response_variable: results
+{% endexample %}
+
 ## Actions
 
 The Sonos integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).

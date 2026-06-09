@@ -91,11 +91,11 @@ trigger: |
       value_min:
         number: 20
       value_max:
-        number: 99
-    behavior: last
+        number: 101
+    behavior: all
 {% endexample %}
 
-This fires once both sensors have charged back into the 20–99% range (effective zone: 21%–98%, because `between` is exclusive on both bounds).
+This fires once both sensors have charged back into the effective 21%–100% range. The `value_max` is set to `number: 101` deliberately so that 100% is included, because `between` is exclusive on both bounds.
 
 To use a number helper as a dynamic threshold you can adjust without editing the automation:
 
@@ -140,12 +140,12 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires. Accepts:
 
-    - `any`: fires every time any targeted entity crosses the threshold.
+    - `each`: fires every time any targeted entity crosses the threshold.
     - `first`: fires only on the first crossing.
-    - `last`: fires only after every targeted entity crosses the threshold.
+    - `all`: fires only after every targeted entity crosses the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:30:00` fires only after the reading has stayed past the threshold for 30 minutes.

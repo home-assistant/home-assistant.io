@@ -107,30 +107,28 @@ You now have a cloud project ready for the next section to configure authenticat
 
 {% details "Configure OAuth Consent screen [Cloud Console]" %}
 
-By the end of this section you will have configured the OAuth Consent Screen, needed for giving Home Assistant access to
-your cloud project.
+By the end of this section you will have configured the OAuth consent screen, needed to give Home Assistant access to your cloud project.
 
-1. Go to the [Google API Console](https://console.developers.google.com/apis/credentials).
+1. Go to the [Branding page](https://console.cloud.google.com/auth/branding) in the Google Auth Platform Console.
 
-2. Click [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent) and configure it.
+2. If prompted to configure OAuth, click **Get started** and follow the setup wizard. When the wizard asks for user type, select **External**, and only continue once the OAuth consent configuration has been created.
 
-3. Select **External** then click **Create**. While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
-    ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
+3. Click **Branding** in the left sidebar. Fill in the required fields:
+   - **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
+   - **User support email**: Select your Google account email.
+   - **Developer contact email**: Enter your email address under Developer contact information.
+   
+   Leave all other fields (App logo, App domain, Authorized domains) empty to avoid triggering Google's verification process. Click **Save**.
 
-4. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**. Omit unnecessary information (e.g. logo) to avoid additional review by Google.
+4. Click **Audience** in the left sidebar.
+   - Under **User type**, confirm it shows **External**.
+   - Under **Test users**, click **+ Add users** and add your Google account email (e.g. your @gmail.com address). Click **Save**.
 
-5. On the *Scopes* step click **Save and Continue**.
+5. Still on the **Audience** page, under **Publishing status**, click **Publish app** to set the status to **In production**.
 
-6. On the *Test Users* step, you need to add your Google Account (e.g., your @gmail.com address) to the list. Click *Save* on your test account then **Save and Continue** to finish the consent flow.
-    ![Screenshot of OAuth consent screen test users](/images/integrations/nest/oauth_consent_test_users.png)
+   Make sure the status is not **Testing**, or you will get logged out every 7 days.
 
-7. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is **In Production**.
-
-    ![Screenshot of OAuth consent screen production status](/images/integrations/nest/oauth_consent_production_status.png)
-
-8. The warning says your *app will be available to any user with a Google Account* which refers to the fields you entered on the *App Information* screen if someone finds the URL. This does not expose your Google Account or Nest data.
-
-9. Make sure the status is not *Testing*, or you will get logged out every 7 days.
+   The warning says your app will be available to any user with a Google Account. This refers to the fields you entered on the Branding page if someone finds the URL. This does not expose your Google Account or Nest data.
 
 {% enddetails %}
 
@@ -365,10 +363,12 @@ All doorbells and cameras support event entities. See the [Event](https://www.ho
 There are two classes of event entities that are available based on the above camera features:
 
 - `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
-- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+- `doorbell` for all cameras that are doorbells and support `ring` events. In the camera feature table above, this capability is listed as “Chime”.
 
 Nest event entities are updated immediately when an event message is received
 without waiting for any media to be fetched. See Device Triggers for media support.
+
+{% include integrations/actions.md %}
 
 ## Device Triggers
 
@@ -384,6 +384,8 @@ event entity for immediate notifications without media.
 {% details "Example Device Trigger / Event payload" %}
 
 This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
+
+Doorbell device trigger payloads use the `doorbell_chime` event, not `ring`.
 
 ```json
 {

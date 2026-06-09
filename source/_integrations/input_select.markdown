@@ -207,3 +207,7 @@ input_select:
         retain: true
         payload: "{{ states('input_select.thermostat_mode') }}"
 ```
+
+{% include integrations/triggers.md domain="select" %}
+
+{% include integrations/conditions.md domain="select" %}
