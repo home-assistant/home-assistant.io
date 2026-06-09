@@ -49,12 +49,14 @@ pause the vacuum when a media player starts playing music.
 This integration communicates with devices paired to the official Roborock app. While it was originally developed for robot vacuums, it also supports other smart home appliances in the Roborock ecosystem. 
 
 ### Robot vacuums (local polling with cloud fallback)
+
 Most robotic vacuums use a hybrid communication model. Home Assistant uses local communication for commands and polling but relies on the cloud for setup and fallback control.
 
-- **S, QV, Qrevo, and Saros series:** Fully supported 
+- **S, QV, Qrevo, and Saros series:** Fully supported.
 - **Q-Series:** Compatibility varies. While many Q-series models are supported, newer variants may have a different protocol that may fail to connect properly. If your model is unsupported, it may feature partial local control using the native [Matter](/integrations/matter/) integration.
 
 ### Non-vacuum appliances (cloud-dependent)
+
 Non-vacuum products paired with the Roborock app communicate strictly by using an outbound MQTT connection. These devices do **not** support local communication with Home Assistant and are entirely cloud-dependent:
 
 - **Roborock wet/dry vacuums (Dyad Series):** Currently exposes a select number of telemetry and cleaning sensors.
@@ -403,7 +405,7 @@ No. This integration requires information from your Roborock app to set up and u
 
 ### Can I block internet access for this device?
 
-As of right now - no. When the vacuum is disconnected from the internet, it will block its local API until it can reach the Roborock servers. However, when connected by using Matter, the vacuum can work fully offline, but the controls and sensors are limited.
+No. When the vacuum is disconnected from the internet, it blocks its local API until it can reach the Roborock servers. However, when connected by using Matter, the vacuum can work fully offline, but the controls and sensors are limited.
 
 ### What devices are supported?
 If you can add your device to the Roborock app - it is supported. However, some older vacuums like the Roborock S5 must be connected using the Mi Home app and can be set up in Home Assistant through the [Xiaomi Miio](/integrations/xiaomi_miio/) integration.
@@ -442,11 +444,13 @@ Despite this integration's IoT class being local polling, cloud access is requir
 The Roborock cloud allows a certain number of requests to its cloud, until it decides to ban your IP address. To counter this, there is rate limiting built into the Python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban.
 
 #### Causes
+
 If your vacuum runs out of battery, hibernates or shutsdown, then Home Assistant may contact the cloud API. If you have a script that automatically reloads the integration if it goes unavailable, then you are frequently reloading and that causes rate limits.
 
 Home Assistant actions like [`get vacuum current position`](#action-get-vacuum-current-position) use the cloud API and may trigger a rate limit if used frequently
 
 #### Symptoms
+
 Home Assistant will notify you about this as a **repair issue** unless if you decide to ignore it, and will give information about rate limiting in your logs. After enough polls the rate limiting will kick in and will stop polling the cloud which will cause all the entities to go unavailable.
 
 For info on how to fix [this](#the-integration-tells-me-it-cannot-reach-my-vacuum-and-is-using-the-cloud-api-and-that-this-is-not-supported-or-i-am-having-any-networking-issues)
@@ -468,11 +472,12 @@ Info about the causes and symptoms of [this issue](#rate-limiting-on-the-cloud-a
 
 The steps needed to fix this issue are specific to your networking setup. Here are some general troubleshooting steps:
 
-1. Ensure your vacuum has outbound access via port 8883 (MQTT) to talk to the cloud servers.
+1. Ensure your vacuum has outbound access via port 8883 (MQTT) to communicate with the cloud servers.
 2. Ensure your vacuum is allowed to communicate directly with your Home Assistant instance's internal IP address over TCP 58867 and UDP 58866.
 3. If you use a network-wide ad or DNS-blockers (such as Pi-hole, AdGuard Home, or NextDNS), ensure that your Roborock vacuum's IP address is entirely exempted from filtering. Overly aggressive ad-blocking lists can inadvertently break the local handshake protocol, forcing Home Assistant to connect to it over the cloud.
 4. Roborock vacuums heavily rely on stable local handshakes. It is recommended to log into your router's admin interface and assign a Static IP / DHCP reservation to your vacuum to prevent connection drops when DHCP leases renew.
-5. Check your router's webpage. If the device is losing connection, you need to focus on increasing your Wi-Fi network's performance. In the Roborock app you can also go to **Settings > Product Info > Wi-Fi Name** and you should see its signal strength, good if you cannot log in your router's webpage.
+5. Check your router's webpage. If the device is losing connection, you need to focus on increasing your Wi-Fi network's performance.
+   If you cannot log into your router's webpage, in the Roborock app, go to **Settings** > **Product Info** > **Wi-Fi Name**, and you should see its signal strength.
 
 ### My Device goes unavailable for a short period of time randomly - how can I fix this?
 
@@ -502,9 +507,9 @@ Instead of scheduling your vacuum to run at a fixed time when you might be home 
 Running a robot vacuum while your alarm system is armed can falsely trigger motion sensors (PIRs) and cause accidental alarms. Only use this automation if your motion sensors are pet-immune, positioned out of the vacuum's path, or if you can reliably verify your home's security remotely (e.g., via security cameras) to confirm if a burglary is occurring before emergency services are dispatched.
 {% endwarning %}
 
-- **Trigger**: `alarm_control_panel.home_alarm` gets set to `"armed_away"` 
-- **Conditions**: `vacuum.roborock_s8` is `"docked"`
-- **Actions**: `vacuum.start` to start the robot vacuum to clean the house while everyone is away
+- **Trigger**: `alarm_control_panel.home_alarm` gets set to `"armed_away"`.
+- **Conditions**: `vacuum.roborock_s8` is `"docked"`.
+- **Actions**: `vacuum.start` to start the robot vacuum to clean the house while everyone is away.
 
 {% details "YAML example for cleaning the house after the alarm is set to armed away" %}
 
@@ -527,12 +532,14 @@ mode: single
 ```
 
 {% enddetails %}
+
 ### Automation: post-cooking kitchen cleanup
 
 Cooking often leaves crumbs or spills near the stove. You can automate your Roborock to head straight to the kitchen to tidy up when your smart stove or oven is turned off.
-- **Trigger**: `switch.smart_hob_power` gets switched to `"off"` for a minute
-- **Conditions**: `vacuum.roborock_s8` is `"docked"`
-- **Actions**: `vacuum.clean_area` with `cleaning_area_id: kitchen` to start the robot vacuum to clean kitchen after cooking is done
+
+- **Trigger**: `switch.smart_hob_power` gets switched to `"off"` for a minute.
+- **Conditions**: `vacuum.roborock_s8` is `"docked"`.
+- **Actions**: `vacuum.clean_area` with `cleaning_area_id: kitchen` to start the robot vacuum to clean kitchen after cooking is done.
 
 {% details "YAML example for cleaning the kitchen after the hob is turned off for a minute" %}
 
