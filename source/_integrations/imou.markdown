@@ -55,13 +55,6 @@ When adding the integration, select **Server region** to match your Open Platfor
 
 These regions correspond to the API endpoints used by the integration.
 
-### Options
-
-After setup, open the integration **Configure** menu to adjust:
-
-- **Live stream resolution**: `HD` or `SD` for the cloud live stream URL.
-- **Polling interval**: How often to refresh the device list and online status from Imou cloud (30–900 seconds; default 120).
-
 ## API usage
 
 Imou Open Platform API usage limits apply to your App ID:
@@ -74,7 +67,7 @@ Imou Open Platform API usage limits apply to your App ID:
 
 ### Camera
 
-Each device channel with a camera feed exposes a **Live view** camera entity. You can view a still image or start a live stream when the device is online.
+Each device channel with a camera feed exposes **Live view SD** and **Live view HD** camera entities. Both are enabled by default. You can view a still image or start a live stream when the device is online.
 
 ### Buttons
 
@@ -87,7 +80,7 @@ The integration exposes button entities when the cloud API reports that the acti
 
 ## Data updates
 
-The integration {% term polling polls %} Imou cloud APIs on the configured **Polling interval** (default every 2 minutes) to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
+The integration {% term polling polls %} Imou cloud APIs every 2 minutes to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
 
 ## Security and privacy considerations
 
