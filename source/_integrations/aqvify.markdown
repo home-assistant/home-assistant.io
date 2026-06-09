@@ -9,6 +9,7 @@ ha_domain: aqvify
 ha_codeowners:
   - '@astrandb'
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_dhcp: false
