@@ -168,12 +168,43 @@ The integration normally updates every 60 seconds. For more detailed steps on ho
 
 {% include common-tasks/define_custom_polling.md %}
 
+## Configuration options
+
+{% my integrations title="Go to **Settings** > **Devices & services**" %}, select the Portainer integration, then select **Configure**.
+
+{% configuration_basic %}
+Disk space sensors:
+  description: Enable or disable the disk space sensors. Disk space monitoring can be resource-intensive on lower-end hardware, leading to CPU spikes or timeouts. Disable this if you experience performance issues.
+{% endconfiguration_basic %}
+
 ## Known limitations
 
 Currently, the integration does not support stacks or Edge computing.
 
-On lower end hardware, with slower disks, such as a Rapsberry, the Portainer integration might experience timeouts. If you experience this, please disable the Disk space sensors via the Options.
+## Troubleshooting
 
+### Sensors unavailable or integration times out
+
+#### Symptom
+
+The integration fails to update, or you see timeout errors in the logs such as:
+
+- `Error communicating with API`
+- `Timeout fetching portainer data`
+
+#### Description
+
+On lower-end hardware with slower disks, such as a Raspberry Pi, collecting disk space usage data can be a resource-intensive operation and may cause timeouts during data updates.
+
+#### Resolution
+
+To resolve this, disable the disk space sensors. 
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the Portainer integration, and then select **Configure**. 
+3. Turn off **Enable disk space sensors**.
+
+If timeouts persist after disabling disk space sensors, you can also reduce the load by [setting a longer polling interval](#defining-a-custom-polling-interval).
 ## Removing the integration
 
 This integration follows standard integration removal.
