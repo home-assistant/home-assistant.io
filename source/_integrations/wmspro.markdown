@@ -62,7 +62,7 @@ Home Assistant treats the slat rotation as a linear scale from fully open to ful
 
 ## Numbers
 
-- *Slat-based blinds* will have configuration entities to overwrite the minimum and maximum rotation angle.
+- *Slat-based blinds* have configuration entities to overwrite the minimum and maximum rotation angle.
   This is required as the WMS WebControl pro currently reports invalid minimum and maximum rotation values.
 - *Slat-drives supporting rotation* also have a diagnostic entity to control the raw rotation angle.
   This is especially useful for *slat-based roofs* which currently have no other way to be controlled.
