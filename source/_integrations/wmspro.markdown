@@ -66,7 +66,7 @@ Home Assistant treats the slat rotation as a linear scale from fully open to ful
   This is required as the WMS WebControl pro currently reports invalid minimum and maximum rotation values.
 - *Slat-drives supporting rotation* also have a diagnostic entity to control the raw rotation angle.
   This is especially useful for *slat-based roofs* which currently have no other way to be controlled.
-- *Slat-based covers* like roofs that only have rotation, but not position control, will only have this entity.
+- *Slat-based covers* like roofs that only have rotation, but not position control, only have this entity.
   In that case this raw rotation number entity will not be marked as diagnostic entity, but as main entity instead.
 
 ### Automatic learning
