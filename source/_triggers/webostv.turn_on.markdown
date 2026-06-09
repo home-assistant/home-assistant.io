@@ -77,8 +77,7 @@ When something requests the LG webOS TV to turn on, send a Wake-on-LAN magic pac
 - **Trigger**: Device is requested to turn on
   - **Device**: Living room LG TV (`media_player.lg_webos_tv`)
 - **Action**: Send magic packet
-  - **MAC address**: `aa:bb:cc:dd:ee:ff`
-
+  - **MAC address**: `AA:BB:CC:DD:EE:FF`
 {% details "YAML example for turning on the TV with Wake-on-LAN" %}
 
 {% example %}
@@ -90,7 +89,7 @@ automation: |
   actions:
     - action: wake_on_lan.send_magic_packet
       data:
-        mac: "aa:bb:cc:dd:ee:ff"
+        mac: "AA:BB:CC:DD:EE:FF"
 {% endexample %}
 
 {% enddetails %}
