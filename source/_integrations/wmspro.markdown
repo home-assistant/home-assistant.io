@@ -67,7 +67,7 @@ Home Assistant treats the slat rotation as a linear scale from fully open to ful
 - *Slat-drives supporting rotation* also have a diagnostic entity to control the raw rotation angle.
   This is especially useful for *slat-based roofs* which currently have no other way to be controlled.
 - *Slat-based covers* like roofs that only have rotation, but not position control, only have this entity.
-  In that case this raw rotation number entity will not be marked as diagnostic entity, but as main entity instead.
+   For covers with rotation only, this entity appears as the main control.
 
 ### Automatic learning
 
