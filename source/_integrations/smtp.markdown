@@ -6,10 +6,10 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: pre 0.7
 ha_domain: smtp
+ha_config_flow: true
 ha_platforms:
   - notify
-ha_integration_type: integration
-ha_quality_scale: legacy
+ha_integration_type: service
 ---
 
 The **SMTP** {% term integration %} allows you to deliver notifications from Home Assistant to an email recipient.
@@ -23,11 +23,11 @@ Sender email:
 Sender name:
     description: "Display name shown as the email sender."
 Host:
-    description: "Hostname or IP address of the SMTP server."
+    description: "Hostname or IP address of your SMTP server. For example, `smtp.example.com`."
 Port:
-    description: "SMTP server port number."
+    description: "Port number used by your SMTP server. Common values are `587` (STARTTLS) and `465` (TLS)."
 Connection security:
-    description: "Encryption method used for the SMTP connection."
+    description: "Encryption method used for the SMTP connection. `starttls` upgrades a plain connection to encrypted (recommended). `tls` uses encryption from the start. `none` sends without encryption."
 Username:
     description: "Username used to authenticate with the SMTP server."
 Password:
@@ -35,6 +35,17 @@ Password:
 Verify SSL certificate:
     description: "Enable certificate verification for secure SSL/TLS connections."
 {% endconfiguration_basic %}
+
+## Adding recipients
+
+You need to add at least one recipient email address. During the integration setup, you will be asked to add your first recipient email address. Additional recipients can be added later. Recipients are managed separately and can be added, edited, or removed at any time.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **SMTP** integration.
+2. Select **Add recipient**.
+3. Enter the email address you want to send notifications to.
+4. Select **Submit**.
+
+Repeat these steps to add more recipients. Every email address you add can be selected as target for the corresponding integration.
 
 ### Usage
 
@@ -163,10 +174,10 @@ Example configuration for Google Mail.
 | -------- | ------------- |
 | **Host** | smtp.gmail.com |
 | **Port** | 587 |
-| **Sender email** | YOUR_USERNAME@gmail.com |
+| **Sender email** | example@gmail.com |
 | **Sender name** | SENDER_NAME |
 | **Connection security** | STARTTLS |
-| **Username** | YOUR_USERNAME@gmail.com |
+| **Username** | example@gmail.com |
 | **Password** | YOUR_APP_PASSWORD |
 
 Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
