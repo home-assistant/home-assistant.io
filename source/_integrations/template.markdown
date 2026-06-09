@@ -1391,7 +1391,10 @@ When `light.turn_on` is called, Home Assistant selects exactly one script to run
 5. `rgbw_color` is provided and `set_rgbw` is defined.
 6. `rgb_color` is provided and `set_rgb` is defined.
 7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-8. None of the above match, and `turn_on` is called.
+6. `rgb_color` is provided and `set_rgb` is defined.
+7. `xy_color` is provided and `set_xy` is defined.
+8. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+9. None of the above match, and `turn_on` is called.
 
 Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
 
