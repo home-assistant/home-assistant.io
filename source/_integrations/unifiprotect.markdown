@@ -114,6 +114,14 @@ check that this is done. To check and enable the feature:
 
 {% include integrations/config_flow.md %}
 
+### Public API camera streams
+
+By default, the integration sources camera live streams from each camera's RTSP(S) URLs through UniFi Protect's private API, as described above. With this option, it sources them from the official UniFi Protect public API instead. To turn this on, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **UniFi Protect**, select **Configure**, and turn on **Use the public API for camera streams (experimental)**.
+
+This option is _experimental_ and turned off by default. It works well for smaller setups, but on installations with many cameras the public API request rate limit can slow down or briefly interrupt startup. It is expected to become the default once UniFi Protect provides stream information more efficiently. Turning the option off returns to the standard RTSP(S) stream handling, and your camera entities stay the same either way.
+
+When the option is on and a camera is online but has no active public API stream, the integration suggests a repair to activate one. You can also turn on a stream directly in UniFi Protect under _Share Livestream_. Offline cameras don't trigger this repair.
+
 ## Device support
 
 All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
