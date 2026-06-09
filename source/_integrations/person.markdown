@@ -8,9 +8,14 @@ ha_quality_scale: internal
 ha_domain: person
 ha_iot_class: Calculated
 ha_integration_type: system
+related:
+  - docs: /integrations/device_tracker/
+    title: Device tracker
+  - docs: /integrations/zone/
+    title: Zone
 ---
 
-The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker set the state of the person. When you use multiple device trackers, the state of the person is determined in this order:
+The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. You can use person entities with [zones](/integrations/zone/) to create automations that react when someone enters or leaves a place. The state updates of a connected device tracker set the state of the person. When you use multiple device trackers, the state of the person is determined in this order:
 
 1. If there are stationary trackers (non-GPS trackers, such as a router or Bluetooth device tracker) presenting the state `home`, the tracker most recently updated will be used.
 2. If there are trackers of type `gps`, then the most recently updated tracker will be used.
