@@ -85,16 +85,6 @@ automation:
 | auto | Lock was locked/unlocked automatically by Verisure rule |
 | remote | Lock was locked/unlocked automatically by Verisure App |
 
-## Limitations and known issues
-
-Some users have reported that this integration currently doesn't work in the following countries:
-
-- France
-- Ireland
-- Italy
-- Spain
-- Sweden
-
 ## Troubleshooting
 
 If you get an error message stating something like *"The code for lock.XXX doesn't match pattern `^\d{0}$`."*, make sure the number of digits for your code matches the number defined in the [configuration options](#options).
