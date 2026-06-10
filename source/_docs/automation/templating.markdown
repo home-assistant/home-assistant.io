@@ -3,7 +3,7 @@ title: "Automation templates"
 description: "Use templates inside an automation to access trigger data, build dynamic messages, and pass calculated values to actions."
 ---
 
-Automations support the advanced features of [templating](/docs/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/templating/) available to scripts, the `trigger` and `this` template variables are available for automations.
+Automations support [templating](/docs/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/templating/) available to scripts, the `trigger` and `this` template variables are available for automations.
 
 Example of variables used in templates:
 
