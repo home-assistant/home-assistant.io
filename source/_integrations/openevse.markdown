@@ -197,7 +197,7 @@ The dashboard then shows how much energy your car consumes compared to the rest 
 
 ## Data updates
 
-The OpenEVSE integration uses a {% term "push" %} model. After it connects, it opens a WebSocket to the charger, and the charger sends new data as soon as a value changes. This means entity states reflect what the charger is doing within seconds, without waiting for a polling interval.
+The OpenEVSE integration uses a push model. After it connects, it opens a WebSocket to the charger, and the charger sends new data as soon as a value changes. This means entity states reflect what the charger is doing within seconds, without waiting for a polling interval.
 
 As a safety net, the integration also polls the charger every five minutes. This catches the rare case where the WebSocket connection drops without a clean disconnect, so the entities are refreshed on the next {% term polling poll %} even if the push channel is interrupted.
 
