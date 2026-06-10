@@ -26,7 +26,7 @@ To turn a light off from an automation or a script:
     - To turn off every light in a room, select an area.
     - To turn off every light on a floor, select a floor.
     - To turn off lights sharing a tag, select a label.
-7. _Optional_: under **Advanced options**, set a transition or a flash effect.
+7. _Optional_: under **Additional options**, set a transition or a flash effect.
 8. Select **Save**.
 
 ### Options in the UI
