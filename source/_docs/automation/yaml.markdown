@@ -203,7 +203,7 @@ automation my_lights:
 
 ## Extra options
 
-Some options are only available when writing automations directly in {% term YAML %} and cannot be configured through the user interface.
+When writing automations directly in {% term YAML %}, you will have access to advanced options that are not available in the user interface.
 
 ### Automation initial state
 
