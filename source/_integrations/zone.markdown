@@ -117,7 +117,10 @@ passive:
   default: false
 {% endconfiguration %}
 
-To find the latitude and longitude of a certain place, you can use [Google Maps](https://www.google.com/maps/) or [Bing Maps](https://www.bing.com/maps). In Bing Maps, open the context menu for the location and copy the coordinates. In Google Maps, open the context menu for the location and select **What is here?**.
+To find the latitude and longitude of a place:
+
+- In Bing Maps, right-click and copy the coordinates.
+- In Google Maps, right-click and select **What is here?**.
 
 ## State
 
