@@ -29,7 +29,7 @@ mqtt:
       target_humidity_command_topic: "bedroom_humidifier/humidity/set"
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 action_template:

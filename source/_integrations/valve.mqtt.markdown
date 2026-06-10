@@ -29,7 +29,7 @@ mqtt:
       state_topic: "heater/valve/state"
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 ### Valve controlled by position
 
