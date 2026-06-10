@@ -212,9 +212,8 @@ Add a sample utterance:
 ActivateSceneIntent activate {Scene}
 ```
 
-Then add the intent to your `intent_script` section in your HA configuration file:
+Then add the intent to your `intent_script` section in your Home Assistant configuration file:
 
-{% raw %}
 
 ```yaml
 intent_script:
@@ -230,7 +229,6 @@ intent_script:
       text: OK
 ```
 
-{% endraw %}
 
 Here we are using [templates] to take the name we gave to Alexa e.g., `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
 
@@ -266,9 +264,8 @@ Add a sample utterance:
 RunScriptIntent run {Script}
 ```
 
-Then add the intent to your intent_script section in your HA configuration file:
+Then add the intent to your intent_script section in your Home Assistant configuration file:
 
-{% raw %}
 
 ```yaml
 intent_script:
@@ -282,7 +279,6 @@ intent_script:
       text: OK
 ```
 
-{% endraw %}
 
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 
@@ -360,7 +356,6 @@ In the examples above, we told Alexa to say `OK` when she successfully completed
 
 First create a file called `alexa_confirm.yaml` with something like the following in it (go on, be creative!):
 
-{% raw %}
 
 ```text
 >
@@ -383,7 +378,6 @@ First create a file called `alexa_confirm.yaml` with something like the followin
   ] | random }}
 ```
 
-{% endraw %}
 
 Then, wherever you would put some simple text for a response like `OK`, replace it with a reference to the file so that:
 
@@ -412,5 +406,5 @@ You can do this by using Alexa routines.
 [amazon-dev-console]: https://developer.amazon.com
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
-[templates]: /docs/configuration/templating/
+[templates]: /docs/templating/
 [generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token

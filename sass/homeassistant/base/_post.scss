@@ -52,6 +52,22 @@ article {
     width: 45%;
   }
 
+  &.post {
+    ul {
+      li {
+        margin-bottom: 1.25rem;
+
+        p {
+          margin-bottom: 0;
+        }
+
+        li {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
   .tags {
     list-style-type: none;
     margin: 0;
@@ -132,5 +148,21 @@ article {
     > header + img + p{
       margin-top: 24px;
     }
+  }
+}
+
+.wwha-footer-mobile {
+  display: none;
+
+  @media only screen and (max-width: $lap-end) {
+    display: block;
+  }
+}
+
+.wwha-sidebar-desktop {
+  display: block;
+
+  @media only screen and (max-width: $lap-end) {
+    display: none;
   }
 }

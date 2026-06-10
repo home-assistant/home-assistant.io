@@ -13,6 +13,10 @@ ha_domain: music_assistant
 ha_platforms:
   - button
   - media_player
+  - number
+  - select
+  - switch
+  - text
 ha_zeroconf: true
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -37,6 +41,8 @@ There is currently support for the following Home Assistant Platforms:
 - [Media player](#media-player-entities)
 - [Button](#favorite-current-song-button)
 
+Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
+
 
 All of the Home Assistant [Media Player Control Actions](https://www.home-assistant.io/integrations/media_player/#media-control-actions) are supported.
 
@@ -60,6 +66,10 @@ The Music Assistant integration creates media player entities for all players an
 ### Favorite current song button
 
 The Music Assistant integration creates a button entity for each player to favorite the current song. Pressing this button (manually or by automation) adds the current song to your Music Assistant favorites. This works for songs stored locally as well as for tracks from streaming providers. It also works with remote content such as Spotify Connect, AirPlay, or a radio station, as long as the external source provides an artist and title combination (and optionally the album). 
+
+### Player options
+
+If a player provider supports player options, the Music Assistant integration exposes additional entities. For example, you may have a number entity to adjust the media player's bass or treble value. Refer to the [Player documentation](https://www.music-assistant.io/player-support/) to see whether your player supports this.
 
 
 ## Actions
@@ -152,7 +162,7 @@ automation:
 
 ### Action `music_assistant.search`
 
-Perform a global search on the Music Assistant library and all providers. This allows programmatic access to all of the music provider's catalogs and could be used to build a HA dashboard where any track could be found for playback.
+Perform a global search on the Music Assistant library and all providers. This allows programmatic access to all of the music provider's catalogs and could be used to build a Home Assistant dashboard where any track could be found for playback.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
@@ -286,7 +296,7 @@ script:
 
 This integration requires Music Assistant server version 2.4 or later. The integration can connect to Music Assistant servers hosted as an app or in a separate Docker container.
 
-Music Assistant supports a [wide range of devices](https://www.music-assistant.io/player-support/) both natively and through the [Home Assistant provider](https://www.music-assistant.io/player-support/ha/). The Home Assistant provider, when installed, allows any Home Assistant media player to appear as a player in Music Assistant and thereby benefit from the advanced playback functionality that Music Assistant provides. As a general note, if there is a native Music Assistant provider then devices should be added via that method instead of using the HA media player. Any limitations associated with the providers are described on the related Player Provider page in the [Music Assistant documentation](https://www.music-assistant.io/).
+Music Assistant supports a [wide range of devices](https://www.music-assistant.io/player-support/) both natively and through the [Home Assistant provider](https://www.music-assistant.io/player-support/ha/). The Home Assistant provider, when installed, allows any Home Assistant media player to appear as a player in Music Assistant and thereby benefit from the advanced playback functionality that Music Assistant provides. As a general note, if there is a native Music Assistant provider then devices should be added via that method instead of using the Home Assistant media player. Any limitations associated with the providers are described on the related Player Provider page in the [Music Assistant documentation](https://www.music-assistant.io/).
 
 ## Known limitations
 

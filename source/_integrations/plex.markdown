@@ -55,7 +55,7 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 
 ### Manual configuration
 
-Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This option is only available to users in "Advanced Mode". This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
+Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
 
 **Host**: The IP address or hostname of your Plex server. Optional if 'Token' is provided.
 
@@ -77,8 +77,6 @@ In addition to the item count, the last added media item (movie, album, or episo
 
 Example automation to use the `last_added_item` attribute on library sensors to notify when new media has been added:
 
-{% raw %}
-
 ```yaml
 alias: "Plex - New media added"
 triggers:
@@ -93,13 +91,13 @@ triggers:
     id: episode
 
 actions:
-  - action: notify.mobile_app_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "New {{ trigger.id }} added"
       message: "{{ trigger.to_state.attributes.last_added_item }}"
 ```
-
-{% endraw %}
 
 {% important %}
 The library sensors are disabled by default, but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
@@ -110,8 +108,6 @@ The library sensors are disabled by default, but can be enabled via the Plex int
 A `button.scan_clients` entity is available to discover new controllable Plex clients. This may be necessary in scripts or automations which control a Plex client app, but where the underlying device must be turned on first. This button is preferred over the legacy `plex.scan_for_clients` action.
 
 Example script:
-
-{% raw %}
 
 ```yaml
 play_plex_on_tv:
@@ -140,8 +136,6 @@ play_plex_on_tv:
         media_content_id: "{"library_name": "Movies", "title": "Zoolander"}"
         media_content_type: movie
 ```
-
-{% endraw %}
 
 ## Update
 

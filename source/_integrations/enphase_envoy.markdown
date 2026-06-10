@@ -475,13 +475,9 @@ Every 4 hours, the actual firmware version in the Envoy is compared to the known
 
 The firmware version is not available as an entity, but rather as an attribute of the envoy. To use the firmware in automation, scripts or templates, use below example with any envoy entity.
 
-{% raw %}
-
 ```yaml
 {{device_attr(device_id('sensor.envoy_SN_current_power_production'),'sw_version')}}
 ```
-
-{% endraw %}
 
 ### Firmware update alert
 
@@ -776,6 +772,20 @@ Envoy Metered with a net-consumption CT measures current and energy exchange bet
 
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
+### Data outage around 11 PM
+
+Shortly after 11 PM, data requests to the Envoy may fail. This has been reported for various firmware versions and at different times. The Envoy is reportedly recycling internal processes or performing cleanup tasks. While this activity is ongoing, data requests may fail. The issue is typically observed as log entries and gaps in historical data. These gaps may last until a new value comes in. For some entities, this may not happen until the next sunrise, when solar generation resumes.
+
+{% details "History example for Envoy Lifetime energy production with gaps at 11 PM" %}
+
+The example below shows data gaps starting at 11 PM on multiple, but not all, days.
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_11pm_outages.png" alt="envoy lifetime energy production 11 PM outages">
+  <figcaption>Envoy Lifetime energy production data gaps at 11 PM.</figcaption>
+</figure>
+
+{% enddetails %}
+
 ## Troubleshooting
 
 ### Enlighten authentication issues
@@ -783,7 +793,7 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 If you experience authentication errors during the configuration of the Envoy, ensure if Multi Factor Authentication (MFA) is disabled for your Enlighten account. Currently, this integration does not support MFA for token retrieval. If any of the below errors show, verify if MFA is disabled.
 
 - Before HA version 2026.1.2: KeyError: 'is_consumer'
-- As of HA version 2026.1.2
+- As of Home Assistant version 2026.1.2
   - KeyError: 'session_id'
   - EnvoyAuthenticationError: No session id in Enlighten login reply, disable Multi Factor Authentication
 

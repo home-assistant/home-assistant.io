@@ -499,7 +499,7 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
+These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
 
 ### Attributes
 

@@ -5,14 +5,17 @@
       "allow": [
         "2fa:",
         "alexa:",
+        "/:\\s*homeassistant(?=\\b|\\.)/",
         "homeassistant:",
         "homekit:",
         "led:",
+        "mqtt:",
         "sms:",
         "sql:",
         "ssl:",
         "twitter:",
-        "url:"
+        "url:",
+        "/\\{%\\s*include\\s+integrations\\/device_list\\.html\\s+brand=\"[^\"]+\"\\s*%\\}/"
       ]
     }
   },

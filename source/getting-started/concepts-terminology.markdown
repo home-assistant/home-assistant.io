@@ -1,8 +1,8 @@
 ---
 title: "Concepts and terminology"
-description: "Explaining some Home Assistant basics"
+description: "The core concepts behind Home Assistant: integrations, devices, entities, areas, and automations."
 ---
-Now you're in Home Assistant, let's look at the most important concepts.
+Now that you are in Home Assistant, let's look at the most important concepts. Home Assistant is built around a small set of building blocks: integrations, devices, entities, areas, and automations. Once you understand how they fit together, the rest of the platform falls into place.
 
 ## Integrations
 
@@ -12,7 +12,7 @@ Integrations are pieces of software that allow Home Assistant to connect to othe
 
 Some integration cards show an icon:
 
-- The cloud icon <img height="28px" src="/images/getting-started/cloud-icon.png" alt="Cloud icon"/> indicates that this integration depends on the cloud.
+- The globe icon <img height="28px" src="/images/getting-started/globe-icon.png" alt="Globe icon"/> indicates that this integration requires the internet.
 - The file icon <img height="28px" src="/images/getting-started/config-file_icon.png" alt="Configuration file icon"/> indicates that this integration was not set up via the UI. You have either set it up in your {% term "`configuration.yaml`" %} file, or it is a dependency set up by another integration. If you want to configure it, you will need to do so in your {% term "`configuration.yaml`" %} file.
 - The custom icon <img height="28px" src="/images/getting-started/custom-icon.png" alt="Custom icon"/> indicates that this is not an official Home Assistant integration but that it was custom made. It could be imported from another source, for example downloaded from HACS.
 
@@ -43,7 +43,7 @@ Entities are the basic building blocks to hold data in Home Assistant. An {% ter
 ## Areas
 
 An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target service calls at an entire group of devices. For example, turning off all the lights in the living room.
-Locations within your home such as living room, dance floor, etc. Areas can be assigned to {% term floors %}.
+These are locations within your home, such as the living room or the dance floor. Areas can be assigned to {% term floors %}.
 Areas can also be used for automatically generated cards, such as the [Area card](/dashboards/area/).
 
 ## Automations

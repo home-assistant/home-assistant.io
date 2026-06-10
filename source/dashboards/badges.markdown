@@ -126,6 +126,83 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
+## Shortcut badge
+
+The shortcut badge gives you a quick way to trigger an action from your dashboard. You can use it to navigate to another page, open a URL, launch the voice assistant, or perform an action.
+
+The label, icon, and color are automatically resolved from the action you configure. For example, if you navigate to a dashboard view, the shortcut picks up the view's title and icon. You can override any of these values if you want something different.
+
+```yaml
+type: shortcut
+tap_action:
+  action: navigate
+  navigation_path: "/lovelace/kitchen"
+```
+
+{% configuration shortcut %}
+type:
+  required: true
+  description: "`shortcut`"
+  type: string
+text:
+  required: false
+  description: The text displayed on the badge. If not set, the text is resolved automatically from the configured `tap_action`.
+  type: string
+icon:
+  required: false
+  description: The icon displayed on the badge. If not set, the icon is resolved automatically from the configured `tap_action`.
+  type: string
+color:
+  required: false
+  description: The color of the icon and background accent. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code.
+  type: string
+  default: primary
+tap_action:
+  required: true
+  description: The action taken on badge tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: The action taken on badge tap-and-hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: The action taken on badge double tap. For more information, see the [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
+{% endconfiguration %}
+
+### Examples
+
+Open an external URL with a custom label and icon:
+
+```yaml
+type: shortcut
+text: "Home Assistant docs"
+icon: mdi:book-open-variant
+tap_action:
+  action: url
+  url_path: "https://www.home-assistant.io"
+```
+
+Launch the voice assistant:
+
+```yaml
+type: shortcut
+tap_action:
+  action: assist
+```
+
+Perform an action with a custom color:
+
+```yaml
+type: shortcut
+text: "Good night"
+color: indigo
+tap_action:
+  action: perform-action
+  perform_action: script.good_night
+```
+
 ## Entity filter badge
 
 This badge allows you to define a list of entities that you want to track only when in a certain state. It's great for showing lights that you forgot to turn off, or for displaying a list of people only when they're at home.

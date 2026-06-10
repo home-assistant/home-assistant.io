@@ -63,7 +63,7 @@ Realm:
 
 ## Proxmox permissions
 
-To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication PMethod** during setup, choose the matching realm.
+To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication Method** during setup, choose the matching realm.
 
 You can use any realm as long as you have valid credentials, like a username and password or an API token:
 
@@ -171,19 +171,18 @@ To create a token:
 - **CPU**: Percentage of CPU usage.
 - **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
 - **Disk**: Disk usage of the node/VM/LXC.
+- **Last backup** & **Backup duration**: Time and duration of the last backup on the node. Returns `unknown` if no backups exist.
 - **Max disk**: Maximum amount of available disk space.
 - **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
-- **Network input**: Amount of incoming network traffic since starting the node/VM/LXC.
-- **Network output**: Amount of outgoing network traffic since starting the node/VM/LXC.
-- **Status**: Current status of the node/VM/LXC.
+- **Network input**: Amount of incoming network traffic since starting the VM/LXC.
+- **Network output**: Amount of outgoing network traffic since starting the VM/LXC.
 - **Uptime**: Time since the node/VM/LXC started.
 
 ### Binary sensor
 
-The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM state is running or off if the VM state is different.
-
-The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
+- **Backup status**: for the node. This will be **on** if the last backup was successful or **off** for any other state.
+- **Status**: for each VM/LXC. This will be **on** if the state is running or **off** for any other state.
 
 ### Button
 

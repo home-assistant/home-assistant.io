@@ -109,7 +109,9 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 - **Hubs**: KH100[^1]
 - **Hub-Connected Devices[^3]**: KE100[^1]
 
-### Supported Tapo[^1] devices
+### Supported Tapo devices
+
+Tapo devices require authentication.
 
 - **Plugs**: P100, P105, P110, P110M, P115, P125M, P135, TP15
 - **Power Strips**: P210M, P300, P304M, P306, TP25
