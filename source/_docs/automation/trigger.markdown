@@ -539,7 +539,7 @@ blueprint:
 This feature requires Home Assistant version 2024.10 or later. If using this in a blueprint, set the `min_version` for the blueprint to at least this version. See the [blueprint schema documentation](/docs/blueprint/schema/#min_version) for more details.
 {% endnote %}
 
-In some cases (like for blueprints with trigger selectors), it may be necessary to insert a second list of triggers into the main trigger list. This can be done by adding a dictionary in the main trigger list with the sole key `triggers`, and the value for that key contains a second list of triggers. These will then be flattened into a single list of triggers. For example:
+In some cases, like when using blueprints with trigger selectors, you may need to insert a second list of triggers into the main trigger list. You can do this by adding a dictionary in the main trigger list with only the `triggers` key, and the value for that key contains a second list of triggers. These will then be flattened into a single list of triggers. For example:
 
 ```yaml
 blueprint:
