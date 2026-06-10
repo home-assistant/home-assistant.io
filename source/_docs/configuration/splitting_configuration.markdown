@@ -241,9 +241,9 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
 
-## Advanced usage
+## Including whole directories
 
-We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+You can also include whole directories at once using four directory-level include options. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
 
 This will allow you to `!include` files with `.yml` extensions from within the `.yaml` files; without those `.yml` files being imported by the following commands themselves.
 
@@ -530,7 +530,7 @@ front_yard:
 
 ### Example: Combine `!include_dir_merge_list` with `automations.yaml`
 
-You want to go the advanced route and split your automations, but still want to be able to create {% my automations title="automations in the UI" %}?
+You want to split your automations, but still want to be able to create {% my automations title="automations in the UI" %}?
 In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
 
 Using labels like `manual` or `ui` allows for using multiple keys in the config:
