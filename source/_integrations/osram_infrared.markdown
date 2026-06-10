@@ -22,9 +22,9 @@ related:
 
 The **OSRAM Infrared** {% term integration %} lets you control compatible OSRAM and LEDVANCE RGB lights using an infrared emitter previously configured in Home Assistant.
 
-You can optionally select an infrared receiver during setup. When the receiver captures a supported command from the physical remote, the integration updates the assumed state of the light entity. For example, pressing the off button on the physical remote updates the light entity to `off` in Home Assistant.
+You can optionally select an infrared receiver during setup. When the receiver captures a supported command from the physical remote, the integration updates the light entity to reflect the remote's command. For example, pressing the off button on the physical remote updates the light entity to `off` in Home Assistant.
 
-Because infrared communication does not confirm whether the light received a transmitted command, the integration uses assumed state.
+Because infrared is a one-way signal, Home Assistant cannot confirm whether the light received a command. The state shown in Home Assistant reflects the last sent value, not a confirmed reading from the light.
 
 ## Supported devices
 
@@ -60,11 +60,11 @@ The integration creates a light entity with the following functionality:
 
 ### Button
 
-The integration creates a **Mode** button. Pressing this button sends the mode command from the physical remote.
+The integration creates a **Mode** button. Pressing this button sends the mode command from the physical remote, which switches to the next color of a predefined sequence.
 
 ## Data updates
 
-The integration does not {% term polling poll %} the light. After sending a command, it updates the assumed state of the light entity.
+The integration does not {% term polling poll %} the light. After sending a command, it updates the light entity to reflect the expected result.
 
 If you configure an infrared receiver, the integration also updates the assumed state when the receiver captures a supported command from the physical remote. Signals that do not match the supported OSRAM infrared protocol are ignored.
 
