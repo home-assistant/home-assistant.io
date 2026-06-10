@@ -201,7 +201,7 @@ automation my_lights:
           message: "Cube has triggered this event: {{ trigger.event }}"
 ```
 
-## Additional options
+## Extra options
 
 Some options are only available when writing automations directly in {% term YAML %} and cannot be configured through the user interface.
 
