@@ -41,10 +41,9 @@ In YAML, refer to this trigger as `zone.occupancy_detected`. A basic example loo
 
 {% example %}
 trigger: |
-  triggers:
-    - trigger: zone.occupancy_detected
-      options:
-        zone: zone.home
+  trigger: zone.occupancy_detected
+  options:
+    zone: zone.home
 {% endexample %}
 
 This fires when `zone.home` changes from empty to occupied.

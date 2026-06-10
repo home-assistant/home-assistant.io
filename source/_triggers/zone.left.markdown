@@ -48,12 +48,11 @@ In YAML, refer to this trigger as `zone.left`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  triggers:
-    - trigger: zone.left
-      target:
-        entity_id: person.nina
-      options:
-        zone: zone.home
+  trigger: zone.left
+  target:
+    entity_id: person.nina
+  options:
+    zone: zone.home
 {% endexample %}
 
 This fires when `person.nina` leaves `zone.home`.

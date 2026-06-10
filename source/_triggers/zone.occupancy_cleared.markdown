@@ -41,10 +41,9 @@ In YAML, refer to this trigger as `zone.occupancy_cleared`. A basic example look
 
 {% example %}
 trigger: |
-  triggers:
-    - trigger: zone.occupancy_cleared
-      options:
-        zone: zone.home
+  trigger: zone.occupancy_cleared
+  options:
+    zone: zone.home
 {% endexample %}
 
 This fires when `zone.home` changes from occupied to empty.

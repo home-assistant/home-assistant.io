@@ -48,12 +48,11 @@ In YAML, refer to this trigger as `zone.entered`. A basic example looks like thi
 
 {% example %}
 trigger: |
-  triggers:
-    - trigger: zone.entered
-      target:
-        entity_id: person.nina
-      options:
-        zone: zone.work
+  trigger: zone.entered
+  target:
+    entity_id: person.nina
+  options:
+    zone: zone.work
 {% endexample %}
 
 This fires when `person.nina` enters `zone.work`.
