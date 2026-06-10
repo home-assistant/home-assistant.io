@@ -57,10 +57,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple lights are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -96,7 +96,7 @@ automation: |
       target:
         entity_id: light.hallway
       options:
-        behavior: any
+        behavior: each
   conditions:
     - condition: sun
       after: sunset

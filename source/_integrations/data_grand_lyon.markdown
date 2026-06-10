@@ -12,9 +12,10 @@ ha_domain: data_grand_lyon
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Data Grand Lyon** {% term integration %} lets you monitor data from the [Grand Lyon open data platform](https://data.grandlyon.com/) (city of Lyon, France).
@@ -47,13 +48,14 @@ After setting up the integration, you can add transit stops and Vélo'v bike-sha
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
 2. Select **Add transit stop**.
-3. Enter the following information:
+3. Select the stop you want to monitor. You can filter the list by stop name, address or city, or enter a stop ID directly. Address and city aren't always available.
+4. Select the line you want to monitor on that stop. The list is pre-filtered by known lines on this stop. You can enter a line identifier directly.
 
 {% configuration_basic %}
+Stop ID:
+  description: "The stop identifier. You can find the stop identifier on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/points-arret-reseau-transports-commun-lyonnais/donnees). Zoom in on the map and select a stop. The ID will be displayed at the bottom of the panel displayed on the right of the screen. The field is called **id**."
 Line:
   description: "The transit line identifier (for example, `C1` or `T2`)."
-Stop ID:
-  description: "The stop identifier. You can find the stop identifier on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info). Zoom on the map and click on a stop. The ID will be displayed on the panel on the right, at the bottom. The field is called `id`."
 {% endconfiguration_basic %}
 
 ### Adding a Vélo'v station

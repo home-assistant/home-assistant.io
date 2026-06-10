@@ -17,7 +17,7 @@ ha_integration_type: hub
 ha_dhcp: true
 ---
 
-The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, and see what is currently playing.
+The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track.
 
 The integration talks to the official Yoto cloud over OAuth2 and receives playback updates over MQTT, so changes that happen on the player show up in Home Assistant almost immediately. Online and offline detection still relies on the cloud API and can lag by up to 5 minutes.
 
@@ -71,8 +71,28 @@ The integration provides one media player entity per Yoto player. Each entity su
 - Set the volume directly, or step up and down in the 16 hardware steps the player uses
 - Show the currently playing track title, the card title and author, and the card cover art as media artwork
 - Show the player as _off_ when it is asleep or disconnected from the Yoto cloud
+- Browse your Yoto card library and start playback of a card, chapter, or track
 
 Yoto players cannot be powered on remotely. Home Assistant reports the player as _off_ when it is offline but cannot wake it up.
+
+To browse your Yoto card library, open the more-info dialog of the Yoto player and select the browse media button. From there, you can select a card, chapter, or track to start playback.
+
+To start playback from a script or automation, call the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action with `media_content_type: music` and a `yoto://` URI:
+
+- `yoto://card/<card_id>` plays the card, honoring its own resume setting.
+- `yoto://card/<card_id>/<chapter_key>` plays the chapter from its first track.
+- `yoto://card/<card_id>/<chapter_key>/<track_key>` plays the track from the start.
+
+The URI is case-sensitive. When picking a card in the media browser, the corresponding URI is the value passed to `media_content_id`.
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.yoto_player
+data:
+  media_content_type: "music"
+  media_content_id: "yoto://card/abc123/01/02"
+```
 
 ## Data updates
 
@@ -84,7 +104,6 @@ The player's online or offline state comes from the Yoto cloud REST API, which t
 
 - The online and offline state of a player can lag by up to 5 minutes because the Yoto cloud only exposes this through polling.
 - Yoto players cannot be powered on or off from Home Assistant.
-- Starting playback of a specific card from Home Assistant is not supported yet. You can control playback that is already running on the player, but you cannot tell the player which card to play.
 
 ## Removing the integration
 

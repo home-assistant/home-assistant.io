@@ -2,6 +2,7 @@
 title: Helty Flow
 description: Instructions on how to integrate Helty Flow ventilation units with Home Assistant.
 ha_category:
+  - Button
   - Fan
   - Sensor
 ha_release: 2026.7
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@ebaschiera'
 ha_domain: helty
 ha_platforms:
+  - button
   - fan
   - sensor
 ha_integration_type: device
@@ -44,7 +46,7 @@ Host:
 
 ## Supported functionality
 
-The integration creates one device per configured unit, exposing a fan entity and a set of sensors.
+The integration creates one device per configured unit, exposing a fan entity, a set of sensors, and a button.
 
 ### Fans
 
@@ -59,6 +61,11 @@ The integration creates one device per configured unit, exposing a fan entity an
   - **Description**: The temperature of the outdoor air, as measured by the unit.
 - **Indoor humidity**
   - **Description**: The relative humidity of the air inside your home, as measured by the unit.
+
+### Buttons
+
+- **Reset filter**
+  - **Description**: Resets the unit's filter-life counter. Press it after you replace the filter, so the unit starts tracking the life of the new one from the beginning.
 
 ## Data updates
 

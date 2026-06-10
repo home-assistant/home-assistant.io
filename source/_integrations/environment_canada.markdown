@@ -161,7 +161,40 @@ The configuration snippet below adds a template sensor containing the current fo
         temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
 ```
 
+### Alerts
+
+To get the alerts in a sensor with all the alert data, use the following, replacing `CONFIG_ENTRY_ID` with an actual `config_entry_id`. Note, this updates the sensor every minute, adjust to your needs. The Environment Canada integration updates forecast data, which includes alerts, every 5 minutes.
+
+```yaml
+- trigger:
+    - platform: time_pattern
+      minutes: "/1"
+    - platform: homeassistant
+      event: start
+    - platform: event
+      event_type: event_template_reloaded
+  action:
+    - service: environment_canada.get_alerts
+      data:
+        config_entry_id: "CONFIG_ENTRY_ID"
+      response_variable: alerts
+  sensor:
+    - name: "Medicine Hat Alert Data"
+      unique_id: "CONFIG_ENTRY_ID"
+      state: "{{ alerts.values() | map('length') | sum }}"
+      attributes:
+        alerts: "{{ alerts }}"
+```
+
 ## Actions
+
+### Action: Get alerts
+
+The `environment_canada.get_alerts` action allows you to get the weather alert data from Environment Canada. For each of the alert categories (warnings, watches, advisories, statements, and endings) a list of alerts is provided.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `config_entry_id` | no | Weather service to get alerts for. |
 
 ### Action: Get forecasts
 
@@ -169,7 +202,7 @@ The `environment_canada.get_forecasts` action allows you to get the raw forecast
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Weather entity to get forecast for.
+| `entity_id` | yes | Weather entity to get forecast for. |
 
 ### Action: Set radar type
 
@@ -177,5 +210,5 @@ The `environment_canada.set_radar_type` action allows you to set the type of rad
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Camera to set the radar type for.
-| `radar_type` | no | One of "Auto", "Rain", or "Snow".
+| `entity_id` | yes | Camera to set the radar type for. |
+| `radar_type` | no | One of "Auto", "Rain", or "Snow". |

@@ -2,7 +2,9 @@
 title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
 ha_category:
+  - Light
   - Button
+  - Number
   - Sensor
   - Switch
 ha_release: 2026.6
@@ -12,11 +14,14 @@ ha_codeowners:
   - "@fdebrus"
 ha_domain: vistapool
 ha_platforms:
+  - light
   - button
+  - number
   - sensor
   - switch
 ha_integration_type: hub
 ha_dhcp: true
+ha_quality_scale: bronze
 ---
 
 The **Vistapool** integration connects Home Assistant to **Vistapool-compatible pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
@@ -53,48 +58,38 @@ Any pool controller compatible with the Vistapool cloud platform, including:
 - Kripsol
 - Dagen
 
-## Sensors
+## Supported functionality
 
-The integration provides the following sensors:
+The **Vistopool** integration provides the following entities.
 
-- **Water temperature**: current pool water temperature
-- **pH**: current pH level (if pH module installed)
-- **ORP / Rx**: redox potential in mV (if Rx module installed)
-- **Chlorine (Cl)**: chlorine level (if Cl module installed)
-- **CD**: conductivity level (if CD module installed)
-- **UV**: UV module reading (if UV module installed)
-- **Electrolysis / Hydrolysis**: current production level in gr/h
-- **Filtration intel time**: daily runtime in Intel mode
-- **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
-
-## Switches
+### Switches
 
 The integration provides the following switch {% term entities %}, grouped by what they control.
 
-### Pool equipment
+#### Pool equipment
 
 - **Filtration**: toggle the filtration pump on or off.
 - **Relay 1**, **Relay 2**, **Relay 3**, **Relay 4**: toggle the four generic relay outputs on the controller. The switch reads as on when the controller is currently driving the relay, even if the toggle was last set the other way. This is useful for automations that need to reflect the actual relay state, not just the last command sent.
 
-### Electrolysis / hydrolysis cell
+#### Electrolysis / hydrolysis cell
 
 These are available if your controller has a hydrolysis or electrolysis module installed.
 
 - **Electrolysis cover**: enable cover-mode production reduction (lowers cell output while the pool cover is closed).
 - **Electrolysis boost**: enable boost dosing for shock chlorination.
 
-### Mode toggles
+#### Mode toggles
 
 - **Heating climate**: switch heating into climate mode. Available only if your controller supports Heat mode.
 - **Smart mode freeze**: enable freeze protection in Smart filtration mode. Available only if your controller supports Smart mode.
 
-## Button
+### Buttons
 
 If your controller drives a multi-color LED light fixture, the integration exposes a one-shot button to cycle through the available colors from Home Assistant.
 
 - **LED next color**: advance the LED fixture to its next color. The integration briefly toggles the pool light off and back on (or just turns it on if it was off). The physical fixture interprets the power cycle as the color-advance signal, just as the **Next** button under **LED Color** does in the Vistapool app's **Illumination** screen. Available only if your controller reports an LED fixture.
 
-## Examples
+#### Examples
 
 The following automations show how you can wire pool state into the rest of your home. Replace the entity IDs with the ones your controller exposes.
 
@@ -148,6 +143,43 @@ automation: |
       target:
         entity_id: button.my_pool_led_next_color
 {% endexample %}
+
+### Sensors
+
+The integration provides the following sensors:
+
+- **Water temperature**: current pool water temperature
+- **pH**: current pH level (if pH module installed)
+- **ORP / Rx**: redox potential in mV (if Rx module installed)
+- **Chlorine (Cl)**: chlorine level (if Cl module installed)
+- **CD**: conductivity level (if CD module installed)
+- **UV**: UV module reading (if UV module installed)
+- **Electrolysis / Hydrolysis**: current production level in gr/h
+- **Filtration intel time**: daily runtime in Intel mode
+- **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+
+## Light
+
+The integration exposes the pool light wired through the controller as a standard Home Assistant {% term entity %}, so you can switch it from any dashboard, voice assistant, or automation. The controller treats the light as a simple on/off output. Brightness and color are not reported by the API and aren't exposed.
+
+- **Pool light**: turn the pool light on or off.
+
+### Numbers
+
+The integration provides the following adjustable values, grouped by what they configure. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
+
+#### Chemical setpoints
+
+- **Redox setpoint**: target redox potential in mV (500–800). Available if a redox module is installed.
+- **pH minimum**: lower bound of the pH target window (6.00–8.00). Available if a pH module is installed.
+- **pH maximum**: upper bound of the pH target window (6.00–8.00). Available if a pH module is installed.
+- **Electrolysis setpoint**: target cell production in g/h. The maximum value is read from the cell's hardware-reported maximum, so the slider adapts automatically to different cell sizes. Available if a hydrolysis or electrolysis module is installed.
+
+#### Temperature targets
+
+- **Intel temperature**: target temperature used by INTEL filtration mode (5–40 °C).
+- **Heating minimum temperature**, **Heating maximum temperature**: lower and upper bounds of the HEAT mode temperature range (5–40 °C each). Available only if your controller supports HEAT mode.
+- **Smart minimum temperature**, **Smart maximum temperature**: lower and upper bounds of the SMART mode temperature range (5–40 °C each). Available only if your controller supports SMART mode.
 
 ## Data updates
 

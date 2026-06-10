@@ -47,7 +47,7 @@ trigger: |
     entity_id: light.living_room
   options:
     threshold: 50
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the living room light crosses 50% brightness in either direction.
@@ -64,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple lights are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -105,7 +105,7 @@ automation: |
         entity_id: light.living_room_ceiling
       options:
         threshold: 40
-        behavior: any
+        behavior: each
   conditions:
     - condition: sun
       after: sunset
@@ -114,7 +114,7 @@ automation: |
         entity_id: light.living_room_ceiling
       options:
         threshold: 40
-        behavior: any
+        behavior: each
   actions:
     - action: light.turn_on
       target:

@@ -436,15 +436,6 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 - Periodic read of humidity
 - Periodic read of temperature
 
-### wind&RainSensor
-
-This integration adds the Blebox device as a sensor & binary sensor entity to Home Assistant.
-
-#### Key supported features
-
-- Periodic read of current wind speed
-- Periodic read of state of rain detection
-
 ### rainSensor
 
 This integration adds the Blebox device as a binary sensor entity to Home Assistant.
@@ -479,6 +470,20 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 #### Key supported features
 
 - Periodic read of illuminance (unit: lx)
+
+### openSensor
+
+This integration adds the Blebox device as a sensor entity and a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of open status (2 or 3 statuses depending on configuration)
+- Periodic read of open/closed state (binary sensor)
+
+#### Additional features
+
+- An option to change the detection mode is available in the wBox app.
+- After changing settings, the device needs to be reloaded.
 
 ### smartMeter DIN
 
@@ -705,6 +710,10 @@ The configuration consists of two steps:
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
+### Simon 24 GO CONTROL B (NENB1W.01)
+
+This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
+
 ## "BleBox inside" - Simon 54 GO
 
 Simon 54 GO is a range of wall switches and accessories with integrated BleBox Wi-Fi modules. The full product range is available in the [Simon 54 GO catalog](https://www.kontakt-simon.com.pl/pl/Katalog/1252/).
@@ -812,6 +821,10 @@ The configuration consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+### Simon 54 GO CONTROL B (DENB1W.01)
+
+This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
 
 ## "BleBox inside" - Simon 55 GO
 
@@ -940,6 +953,10 @@ The configuration consists of two steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+### Simon 55 GO CONTROL B (TENB1W.01)
+
+This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
 
 ## "BleBox inside" - other manufacturers
 
@@ -1099,6 +1116,20 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to configure the number of phases (1 or 3) is available in the wBox app.
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
+
+### Drutex SmartWindow
+
+This integration adds the Drutex device ("blebox inside") as a sensor entity and a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of open status (from 2 to 5 statuses depending on configuration)
+- Periodic read of open/closed state (binary sensor)
+
+#### Additional features
+
+- An option to change the detection mode is available in the wBox app.
+- After changing settings, the device needs to be reloaded.
 
 ## Examples
 

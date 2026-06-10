@@ -2,10 +2,10 @@
 title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
 ha_category:
-  - Sensor
   - Binary sensor
-  - Switch
   - Button
+  - Sensor
+  - Switch
 ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -17,7 +17,7 @@ ha_platforms:
   - button
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ha_quality_scale: bronze
 ---
@@ -105,6 +105,8 @@ The **Kiosker** integration provides the following entities.
   - Clears all cookies on the device.
 - **Dismiss screensaver**
   - Dismisses the currently active screensaver.
+- **Clear blackout**
+  - Clears the currently active blackout.
 
 ## Data updates
 

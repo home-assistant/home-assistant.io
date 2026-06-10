@@ -11,6 +11,8 @@ ha_domain: kitchen_sink
 ha_iot_class: Calculated
 ha_platforms:
   - button
+  - device_tracker
+  - event
   - fan
   - image
   - lawn_mower
