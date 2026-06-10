@@ -58,6 +58,7 @@ Always include `type: homeassistant` as a fallback authentication provider.
 
 <a id="available-auth-providers"></a>
 ## List of available authentication providers
+
 Home Assistant has three built-in authentication providers:
 
 - [Home Assistant](#home-assistant-authentication-provider): the default provider, using a username and password stored locally.
