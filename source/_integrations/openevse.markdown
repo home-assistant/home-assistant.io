@@ -53,7 +53,7 @@ The following devices are not supported:
 
 {% include integrations/config_flow.md %}
 
-In most cases the charger is discovered automatically through zeroconf and shown as a new discovered device. If automatic discovery does not find your charger, you can add it manually by entering its IP address or hostname.
+In most cases, the charger is discovered automatically and shown as a newly discovered device. If automatic discovery does not find your charger, you can add it manually by entering its IP address or hostname.
 
 {% configuration_basic %}
 Host:
