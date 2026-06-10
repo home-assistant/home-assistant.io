@@ -48,42 +48,19 @@ Sources:
 
 LG webOS TV devices running webOS 2.0 and above.
 
-## Turn on automation trigger
+{% include integrations/triggers.md %}
 
-To turn on your TV, you need to create an automation. You can create an automation from the user interface. From the device, create a new automation and select the **Device is requested to turn on** trigger.
+### Turning on the TV from Home Assistant
 
-If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as the [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/). They provide an action that can be used for that.
+To turn on your TV from Home Assistant, you need to create an automation using the [Device is requested to turn on](/triggers/webostv.turn_on/) trigger. Without this automation, the TV will appear as unavailable when it is off.
 
-Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
+If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as [HDMI-CEC](/integrations/hdmi_cec/) or [Wake-on-LAN](/integrations/wake_on_lan/). They provide an action that can power on the TV.
+
+A common setup for webOS 3.0 and higher is to use Wake-on-LAN. For this to work, your TV should be connected to your network through Ethernet instead of wireless, and you should enable **LG Connect Apps** in the TV network settings, or **Mobile App** in the general settings on older models. The exact setting name can vary by model and webOS version.
 
 {% important %}
-This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
+This usually only works if the TV is connected to the same network. Routing the Wake-on-LAN packet to a different subnet requires special configuration on your router or may not be possible.
 {% endimportant %}
-
-Automations can also be created using YAML:
-
-The `webostv.turn_on` device trigger is used in an automation to turn on the TV when the media player power button is pressed.
-
-| Data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |       no | Entity requested to turn on. For example `media_player.lg_webos_tv`|
-
-```yaml
-# Example configuration.yaml entry
-wake_on_lan: # enables `wake_on_lan` integration
-
-automation:
-  - alias: "Turn On Living Room TV with WakeOnLan"
-    triggers:
-      - trigger: webostv.turn_on
-        entity_id: media_player.lg_webos_tv
-    actions:
-      - action: wake_on_lan.send_magic_packet
-        data:
-          mac: aa:bb:cc:dd:ee:ff
-```
-
-Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
 ## Actions
 
