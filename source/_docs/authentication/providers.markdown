@@ -179,7 +179,7 @@ homeassistant:
     - type: homeassistant
 ```
 
-Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use the Home Assistant authentication provider to log in, if you access your Home Assistant instance from outside network.
+Assuming you only created the owner during the onboarding process and have not created any other users, this configuration lets you directly access the Home Assistant main page from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, you can use the Home Assistant authentication provider to log in when accessing your Home Assistant instance from outside your network.
 
 {% note %}
 The order of `auth_providers` is critical as authentication providers are evaluated top to bottom.
