@@ -63,4 +63,4 @@ These sensors are automatically created and associated with each tracker entity:
 The following are also added but are disabled by default:
 
 - **Expired**: If the connection has become idle.
-- **Expires**: When the connection will expire if the client doesn't check in again.
+- **Expires**: When the connection will expire if the device doesn't check in again.
