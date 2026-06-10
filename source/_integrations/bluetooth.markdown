@@ -13,15 +13,29 @@ ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
   - diagnostics
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+  - docs: /integrations/default_config/
+    title: Default config
+  - url: https://esphome.io/projects/?type=bluetooth
+    title: Bluetooth proxy page
 ---
 
-The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The **Bluetooth** {% term integration %} will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
 
 {% include integrations/config_flow.md %}
 
+## Before you begin
+
+In many cases, a better approach than a directly connected adapter or card is to use a Bluetooth proxy using an ESP32 since Linux kernel updates have previously broken Bluetooth functionality and Bluetooth driver support Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems. More information is available in the Remote Adapters section below or by visiting ESPhome's [Bluetooth proxy page](https://esphome.io/projects/?type=bluetooth).
+
+Suppose a Bluetooth proxy is not a good fit for your use case. Consider using the Home Assistant Operating System when using a local adapter because it includes Bluetooth patches for issues unsolved in other operating systems.
+
 ## Configuration
 
-While this integration is part of [`default_config:`](/integrations/default_config/) to enable automatic discovery of the Bluetooth Adapter, it will only be enabled by setting up the configuration flow, or manually adding it to your `configuration.yaml`.
+While this integration is part of [`default_config:`](/integrations/default_config/) to enable automatic discovery of the Bluetooth Adapter, it will only be enabled by setting up the configuration flow, or manually adding it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,47 +53,75 @@ For Bluetooth to function on Linux systems:
 
 ### Additional requirements by install method
 
-- Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later.
-- Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
+- Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later. All Bluetooth requirements are automatically configured.
+- Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container. Additional configuration is required (see below).
 
-### Additional details for Container, Core, and Supervised installs
+### Additional details for Container
 
-{% details Making the DBus socket available in the Docker container %}
+{% details "Container configuration for Bluetooth" %}
 
-For most systems, the Dbus socket is in `/run/dbus`. The socket must be available in the container for Home Assistant to be able to connect to Dbus and access the Bluetooth adapter. When starting with `docker run`, this can be accomplished by adding `-v /run/dbus:/run/dbus:ro` to the command. If the Dbus socket is in `/var/run/dbus` on the host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
+{% note %}
+You only need these configuration steps for Home Assistant Container installations. Home Assistant Operating System automatically handles all Bluetooth configuration.
+{% endnote %}
 
-If you are using Docker Compose, add something like the following (adjust as necessary) to your `volumes` section:
+Home Assistant Container requires specific configuration to access Bluetooth adapters.
 
-```dockerfile
+**Required capabilities:**
+
+Add the following Linux capabilities to your container configuration to enable full Bluetooth management:
+
+**Docker Compose:**
+```yaml
+cap_add:
+  - NET_ADMIN
+  - NET_RAW
 volumes:
   - /run/dbus:/run/dbus:ro
 ```
 
+**Docker run:**
+```bash
+docker run --cap-add=NET_ADMIN --cap-add=NET_RAW -v /run/dbus:/run/dbus:ro ...
+```
+
+**D-Bus socket:**
+
+For most systems, the D-Bus socket is in `/run/dbus`. You need to make the socket available in the container for Home Assistant to connect to D-Bus and access the Bluetooth adapter. If the D-Bus socket is in `/var/run/dbus` on your host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
+
+**What happens without these capabilities:**
+
+If `NET_ADMIN` and `NET_RAW` capabilities are missing:
+- Your Bluetooth will operate in a degraded mode with limited functionality
+- Automatic adapter recovery is unavailable - your adapters cannot be reset when they stop responding
+- Connection parameters and management API commands will fail
+- Raw advertising data will be missing, causing unreliable updates for your devices
+- An error will appear in your logs: "Missing required permissions for Bluetooth management"
+
 {% enddetails %}
 
-{% details Switching from dbus-daemon to dbus-broker %}
+{% details "Switching from dbus-daemon to dbus-broker" %}
 
 Follow [the instructions](https://github.com/bus1/dbus-broker/wiki) to switch to dbus-broker.
 
 {% enddetails %}
 
-{% details Installing BlueZ %}
+{% details "Installing BlueZ" %}
 
 On Debian based host systems, the `sudo apt-get -y install bluez` command will install BlueZ.
 
 {% enddetails %}
 
-## Installing a USB Bluetooth Adapter
+## Installing a USB Bluetooth adapter
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
 If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
+For development and testing, the developers of this Bluetooth integration primarily use a [Feasycom FSC-BP119](https://www.feasycom.com/datasheet/fsc-bp119.pdf) (CSR8510A10) 📶.
+
 ### Known working high-performance adapters
 
-#### Cambridge Silicon Radio (CSR) Based adapters
+#### Cambridge Silicon Radio (CSR) -based adapters
 
 - ANNE PRO CSR 4.0 (CSR8510A10)
 - Avantree BTDG-40S (CSR8510A10)
@@ -100,6 +142,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Sena UD100-G03 (CSR8510A10) 📶
 - StarTech USBBT1EDR4 (CSR8510A10)
 - Techkey PBT06H (CSR8510A10)
+- TRENDnet TBW-106UB (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
 - UGREEN CM109 (CSR8510A10)
 - Warmstor WBT-AD01 (CSR8510A10)
@@ -113,11 +156,13 @@ These adapters generally offer the fastest connect times and do not require addi
 
 #### Broadcom (BCM) based adapters
 
-<div class='note warning'>
+{% warning %}
 These adapters may require additional patch files available at <a href="https://github.com/winterheart/broadcom-bt-firmware">https://github.com/winterheart/broadcom-bt-firmware</a> for stable operation.
   
 There is currently no supported method to install these patch files when using Home Assistant Operating System.
-</div>
+{% endwarning %}
+
+{% details "Broadcom (BCM) based adapters" %}
   
 - ASUS USB-BT400 (BCM20702A0)
 - Cable Matters 604002-BLK (BCM20702A0)
@@ -131,6 +176,8 @@ There is currently no supported method to install these patch files when using H
 - SoundBot SB342 (BCM20702A0)
 - StarTech USBBT2EDR4 (BCM20702A0)
 - Targus ACB10US1 (BCM20702A0)
+
+{% enddetails %}
 
 📶 Denotes external antenna
 
@@ -152,7 +199,7 @@ The following requirements must be met for an adapter to be labeled as High Perf
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
-- Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+- Meets the above requirements with Home Assistant 2022.11.1 or later and Home Assistant Operating System 9.3 or later
 - Must be able to hold five (5) connections at the same time
 
 Performance testing used the following hardware:
@@ -163,15 +210,17 @@ Performance testing used the following hardware:
 
 ### Known working adapters
 
-<div class='note'>
+{% note %}
 Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection. These adapters may also miss advertisements such as button presses or temperature updates.
-</div>
+{% endnote %}
 
 #### Realtek RTL8761BU adapters
 
-<div class='note warning'>
-These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
-</div>
+{% warning %}
+These adapters do not have a reset pin. When they stop responding, there is currently no way for the kernel to reset them automatically, and they may have to be physically unplugged and replugged to restore operation.
+{% endwarning %}
+
+{% details "Realtek RTL8761BU adapters" %}
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
@@ -191,27 +240,36 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - ZEXMTE Z01 (RTL8761BU) 📶
 - ZETSAGE BH451A (RTL8761BU) 📶
 
+{% enddetails %}
+
 📶 Denotes external antenna
 
 ### Unsupported adapters
 
+{% details "Unsupported adapters" %}
+
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
-- Bluegiga BLED112 - No driver available yet for USB id 2458:0001
+- Bluegiga BLED112 - No driver available yet for USB ID `2458:0001`
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
-- eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
-- eppfun AK3040A (ATS2851) - No driver available yet for USB id 10d7:b012
+- eppfun AK3040G (ATS2851) - No driver available yet for USB ID `10d7:b012`
+- eppfun AK3040A (ATS2851) - No driver available yet for USB ID `10d7:b012`
 - KOAMTAC KBD 401G (CSR8510A10) - Adapter is unstable and drops out
 - TRIPP-LITE CU885A/U261-001-BT4 (CSR8510A10) - Adapter is unstable and drops out
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
-- UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
+- UGREEEN CM591 (ATS2851) - No driver available yet for USB ID `10d7:b012`
+- UGREEEN CM749 (Barrot chipset) 📶 - No driver available yet for USB ID `33fa:0010`
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
-- CSR 4.0 clones with USB id 0a12:0001 - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
+- CSR 4.0 clones with USB ID `0a12:0001` - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
   - Multiple unbranded adapters labeled with CSR 4.0
   - 5 CORE CSR 4.0
+
+{% enddetails %}
+
+📶 Denotes external antenna
 
 ## Multiple adapters
 
@@ -228,13 +286,23 @@ The following methods are known to work to add multiple adapters:
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
-## Passive Scanning
+## Scanning modes
 
-Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled. This functionality is available with Home Assistant Operating System 9.4 and later.
+Each Bluetooth adapter can be configured to use one of three scanning modes. **Auto** is recommended for most setups. To change it, follow the steps in the [Options](#options) section below.
 
-Many integrations require active scanning and may not function when scanning is passive.
+- **Auto**: Listens passively most of the time and only briefly switches to active scanning when a device or integration needs more details. Compared to running continuously active, this saves around 95 to 96 percent of the scan-related battery drain on your Bluetooth devices while still discovering devices and updates quickly.
+- **Active**: Continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you.
+- **Passive**: Only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work.
 
-{% include integrations/option_flow.md %}
+Auto and Passive both require an adapter that supports passive scanning. On Linux, this needs BlueZ 5.63 or later with experimental features enabled (available with Home Assistant Operating System 9.4 and later). On adapters that do not support passive scanning, Auto falls back to Active automatically.
+
+## Options
+
+1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+2. Select **Adapters**.
+3. On the adapter of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select your options.
+   - Not all adapters have options. If you don't see a cogwheel icon, your adapter does not support options.
+   - Under **Scanning mode**, pick **Auto**, **Active**, or **Passive**.
 
 ## Remote adapters (Bluetooth proxies)
 
@@ -242,16 +310,24 @@ The Bluetooth integration supports receiving advertisement data from external ad
 
 When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
+For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/).
+
+{% tip %}
+- The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
+- If the `ESP32-POE-ISO-EA` is out of stock, the `ESP32-POE-ISO-EA-IND` is a good alternative.  
+- The `ESP32-POE-ISO-WROVER-EA` model is **not recommended**, as it uses a different pin configuration and is not compatible with ESPHome ready-made projects.
+{% endtip %}
+
 The following remote adapters are supported:
 
-- [ESPHome](https://esphome.github.io/bluetooth-proxies/)
+- [ESPHome](https://esphome.io/projects/?type=bluetooth)
   - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
-  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2022.6.0 or later
+  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
-  - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
-  - Bluetooth advertisement bundling: not supported
+  - Bluetooth advertisement listening: Shelly Gen2+ device
+  - Bluetooth advertisement bundling: Shelly Gen2+ device
   - Single active connection: not supported
   - Multiple active connections: not supported
 
@@ -259,26 +335,40 @@ Bluetooth advertisement bundling reduces traffic between Home Assistant and the 
 
 ## Troubleshooting
 
+### Advertisement monitor
+
+Once Bluetooth is configured, the {% my bluetooth_advertisement_monitor %} will allow you to view devices in range that are advertising.
+
+### Connection monitor
+
+Once Bluetooth is configured, the {% my bluetooth_connection_monitor %} will allow you to view currently connected devices.
+
 ### Improving connection times
 
-The connection time and performance vary greatly based on the Bluetooth adapter and interference. The below adapters are listed from best-performing to worst-performing:
+Connection time and performance vary greatly depending on the Bluetooth adapter and interference. 
 
-- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
-- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
-- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
-- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+{% warning %}
+When switching to an adapter with better performance, disable the old, less performant adapters. The best signal and available connection slots are considered when making connections, and performance will be limited to the worst-performing adapter with the best signal to reach the remote device.
+{% endwarning %}
+
+The below adapters are listed from best-performing to worst-performing:
+
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#scanning-modes)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
-- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
-- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
+- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#scanning-modes)
 - [Onboard high performance adapter](#cypress-based-adapters) with active scanning
-- [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
+- [Known working adapters](#known-working-adapters) with [passive scanning](#scanning-modes)
 - [Known working adapters](#known-working-adapters) with active scanning
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
 
 While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
 
-Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
+Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your {% term "`configuration.yaml`" %}, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
 
 ### Bluetooth interference with other devices
 
@@ -321,3 +411,52 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
     - While Bluetooth is designed to coexist with Wi-Fi, its stronger signal can interfere.
       - To play it safe, try to place your Bluetooth adapter away from Wi-Fi access points.
     - Place Bluetooth adapters far away from electrical/power wires/cables, power supplies, and household appliances.
+
+## Discovered integrations
+
+The following integrations are automatically discovered by the Bluetooth integration:
+
+ - [Acaia](/integrations/acaia/)
+ - [Airthings BLE](/integrations/airthings_ble/)
+ - [Aranet](/integrations/aranet/)
+ - [BlueMaestro](/integrations/bluemaestro/)
+ - [BTHome](/integrations/bthome/)
+ - [Dormakaba dKey](/integrations/dormakaba_dkey/)
+ - [eQ-3 Bluetooth Smart Thermostats](/integrations/eq3btsmart/)
+ - [EufyLife](/integrations/eufylife_ble/)
+ - [Fjäråskupan](/integrations/fjaraskupan/)
+ - [Gardena Bluetooth](/integrations/gardena_bluetooth/)
+ - [Govee Bluetooth](/integrations/govee_ble/)
+ - [HomeKit Device](/integrations/homekit_controller/)
+ - [Husqvarna Automower BLE](/integrations/husqvarna_automower_ble/)
+ - [iBeacon Tracker](/integrations/ibeacon/)
+ - [IKEA Idasen Desk](/integrations/idasen_desk/)
+ - [Improv via BLE](/integrations/improv_ble/)
+ - [INKBIRD](/integrations/inkbird/)
+ - [IronOS](/integrations/iron_os/)
+ - [Kegtron](/integrations/kegtron/)
+ - [Keymitt MicroBot Push](/integrations/keymitt_ble/)
+ - [Kuler Sky](/integrations/kulersky/)
+ - [La Marzocco](/integrations/lamarzocco/)
+ - [LD2410 BLE](/integrations/ld2410_ble/)
+ - [LED BLE](/integrations/led_ble/)
+ - [Medcom Bluetooth](/integrations/medcom_ble/)
+ - [Melnor Bluetooth](/integrations/melnor/)
+ - [Moat](/integrations/moat/)
+ - [Mopeka](/integrations/mopeka/)
+ - [Motionblinds Bluetooth](/integrations/motionblinds_ble/)
+ - [Oral-B](/integrations/oralb/)
+ - [Probe Plus](/integrations/probe_plus/)
+ - [Qingping](/integrations/qingping/)
+ - [RAPT Bluetooth](/integrations/rapt_ble/)
+ - [Ruuvi BLE](/integrations/ruuvitag_ble/)
+ - [Sensirion BLE](/integrations/sensirion_ble/)
+ - [SensorPro](/integrations/sensorpro/)
+ - [SensorPush](/integrations/sensorpush/)
+ - [Snooz](/integrations/snooz/)
+ - [SwitchBot Bluetooth](/integrations/switchbot/)
+ - [ThermoBeacon](/integrations/thermobeacon/)
+ - [ThermoPro](/integrations/thermopro/)
+ - [Tilt Hydrometer BLE](/integrations/tilt_ble/)
+ - [Xiaomi BLE](/integrations/xiaomi_ble/)
+ - [Yale Access Bluetooth](/integrations/yalexs_ble/)

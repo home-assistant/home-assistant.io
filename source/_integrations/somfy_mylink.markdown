@@ -11,11 +11,11 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - cover
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `Somfy MyLink` integration is used as an interface to a compatible Somfy MyLink hub utilizing the `Synergy` API. It allows the addition of covers from the Somfy MyLink platform to Home Assistant.
+The **Somfy MyLink** {% term integration %} is used as an interface to a compatible Somfy MyLink hub utilizing the `Synergy` API. It allows the addition of covers from the Somfy MyLink platform to Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-If any of your devices are reversed, they can be adjusted in **Settings** -> **Devices & Services** -> **Somfy MyLink** >> `Options`.
+If any of your devices are reversed, they can be adjusted in **Settings** > **Devices & services** > **Somfy MyLink** > **Options**.

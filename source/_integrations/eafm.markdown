@@ -1,0 +1,31 @@
+---
+title: Environment Agency Flood Gauges
+description: Monitor nearby water levels and be prepared for flooding with the UK Environment Agency API integration.
+ha_category:
+  - Sensor
+ha_release: 0.115
+ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@Jc2k'
+ha_domain: eafm
+ha_platforms:
+  - sensor
+ha_integration_type: service
+---
+
+The **Environment Agency Flood Gauges** {% term integration %} offers integration with the [UK Environment Agency Flood Monitoring](https://environment.data.gov.uk/flood-monitoring/doc/reference) API to provide sensors for nearby water levels. Combined with Home Assistant notifications, you could give yourself a warning if a nearby river was likely to flood your local cycle path or the only road out of your village.
+
+{% important %}
+
+The UK Environment Agency Flood Monitoring only provides data for England - Northern Ireland, Scotland and Wales have their own flood agencies. 
+
+{% endimportant %}
+
+## Configuration
+
+Home Assistant offers the flood monitoring integration through {% my integrations title="**Settings** > **Devices & services**" %} > **Environment Agency Flood Gauges**.
+
+You will be prompted to select a monitoring station. You can find the name of nearby monitoring stations on the Flood information service [website](https://check-for-flooding.service.gov.uk/river-and-sea-levels). If there are multiple stations with the same name, you can use the ID to filter to the correct one. The ID can be found at the end of the URL from the Flood information service, e.g. for "Westminster" (`https://check-for-flooding.service.gov.uk/station/7389`), the ID would be `7389`.
+
+Sensors for that monitoring station should then appear in your Home Assistant instance.

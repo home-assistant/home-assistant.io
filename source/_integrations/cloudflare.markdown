@@ -10,12 +10,12 @@ ha_codeowners:
   - '@ctalkington'
 ha_domain: cloudflare
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-With the Cloudflare integration, you can keep your Cloudflare DNS records up to date.
+With the **Cloudflare** {% term integration %}, you can keep your Cloudflare DNS records up to date.
 
-The integration runs every hour, but can also be triggered by running the {% my developer_services title="`cloudflare.update_records` service" service="cloudflare.update_records" %}.
+The integration runs every hour, but can also be triggered by running the {% my developer_services title="`cloudflare.update_records` action" service="cloudflare.update_records" %}.
 
 ## Requirements
 

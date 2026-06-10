@@ -13,7 +13,6 @@ ha_domain: forecast_solar
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_integration_type: service
 ---
 
@@ -38,8 +37,8 @@ As an example automation idea, you could determine if:
 Forecast.Solar relies on data provided by the [EU Photovoltaic geographical information system](https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html) and your solar panels must be in a location that is covered by this tool. Data is available for almost the entire world. 
 
 To use the Forecast.Solar integration, it will need some information about your
-solar panel system: **latitude**, **longitude**, **declination**, **azimuth**
-and **total modules power**.
+solar panel system, such as **latitude**, **longitude**, and details about your
+solar planes, such as **declination**, **azimuth**, and **total modules power**.
 
 It needs the specific location (defined by **latitude** and **longitude**),
 which by default is taken from your Home Assistant configured "home" location.
@@ -63,7 +62,20 @@ value.
 
 {% include integrations/config_flow.md %}
 
-If you have more than one plane of solar modules with different properties (e.g. several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use [template sensors](/integrations/template/) to combine the data, e.g. adding up production on different planes into one value to base your planning on.
+### Adding multiple solar planes
+
+If your solar setup has multiple planes (for example, an east-west setup),
+you can add these as separate planes within the same integration instance.
+This requires a [paid Forecast.Solar plan](#using-your-forecastsolar-account),
+which allows you to configure up to 4 solar planes.
+
+The integration automatically combines the data from all configured planes into
+a single set of sensors, taking into account your inverter's maximum power if specified.
+
+To add a solar plane:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Forecast.Solar**.
+2. Select **Add solar plane**.
 
 ## Sensors
 
@@ -94,14 +106,15 @@ default. Enable those entities in the user interface if you like to use these:
 
 The [Forecast.Solar](https://forecast.solar/) public plan can be used for free, but
 the resolution of the data used is more limited and thus, there are less
-details for this integration to work with.
+details for this integration to work with. Also, only a single plane can be configured.
 
 If you like the Forecast.Solar service, or are interested in more frequent data
-updates (based on a higher data resolution), you could [sign up for one
-of their plans](https://doc.forecast.solar/doku.php?id=account_models#compare_plans).
+updates (based on a higher data resolution) or multiple solar planes, you could
+[sign up for one of their plans](https://doc.forecast.solar/doku.php?id=account_models#compare_plans).
+The Personal Plus tier and above allow you to configure up to 4 solar planes within the same integration instance.
 
 To enable the use of the API key with this integration, go to {% my integrations %}. 
-On the Forecast.Solar integration, select the cogwheel, then select **Configure**. Enter the
+Select the Forecast.Solar integration, then select **Configure**. Enter the
 API key for your account.
 
 ## Tweaking the estimations
@@ -118,7 +131,8 @@ the results a bit.
 
 The **damping** factor allows you to adjust and "damp" the results of your solar
 predictions in the morning and evening a bit and is a great method to make
-results less optimistic and more tuned to your reality.
+results less optimistic and more tuned to your reality. More details on damping can
+be found [here](https://doc.forecast.solar/damping).
 
 The **inverter** size can be used in a situation where the maximum power of your
 inverter is lower than the total power of all your solar panels (as entered under
@@ -132,7 +146,6 @@ To adjust the configuration settings for your Forecast.Solar integration
 instance:
 
 1. Browse to your Home Assistant instance.
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. If multiple instances of {{ name }} are configured, choose the instance you want to configure.
-1. Select the cogwheel.
-1. Select **Configure**.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
+3. If multiple instances of {{ name }} are configured, choose the instance you want to configure.
+4. Select **Configure**.

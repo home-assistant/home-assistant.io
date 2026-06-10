@@ -8,4 +8,3 @@ Included sections for this page is located under source/_includes/installation
 {% endcomment %}
 
 {% include installation/operating_system.md %}
-{% include installation/core.md %}

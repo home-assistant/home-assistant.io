@@ -3,7 +3,7 @@ title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Fan
   - Hub
@@ -16,7 +16,6 @@ ha_category:
 ha_release: 0.61
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@Kane610'
 ha_domain: deconz
@@ -45,8 +44,8 @@ ha_integration_type: hub
 
 There is currently support for the following device types within Home Assistant:
 
-- [Alarm Control Panel](#alarm-control-panel)
-- [Binary Sensor](#binary-sensor)
+- [Alarm control panel](#alarm-control-panel)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
@@ -58,16 +57,25 @@ There is currently support for the following device types within Home Assistant:
 
 ## Recommended way of running deCONZ
 
-An official add-on for deCONZ is available in the Home Assistant add-on store.
+An official deCONZ app for Home Assistant (formerly known as deCONZ add-on) is available in the Home Assistant app store.
 Otherwise, use [community container](https://github.com/deconz-community/deconz-docker) for your deCONZ needs.
 
 ### Supported devices
 
 See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
-Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon **UI click Settings -> Gateway -> Advanced** and press the "Authenticate app" button. This same information is also shown during the config flow of the deCONZ integration.
+- If the adapter isn't discovered automatically by Home Assistant, and you add the integration manually, you need the hostname of deCONZ and the port.
+- If you are running the deCONZ app for Home Assistant, you can see the hostname on the app page under [**Settings** > **App** > **deCONZ**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_deconz), under **Hostname**.
+  - For example: `core-deconz`
+- If the suggested port does not work, try port `40850`.
+- Running a stand-alone instance of deCONZ (non-app installation) requires a pairing between the deCONZ gateway and Home Assistant:
+
+  - To allow Home Assistant to connect with deCONZ, go to the Phoscon UI, select **Settings** > **Gateway** > **Advanced** and select the **Authenticate app** button.
+    - This same information is also shown during the config flow of the deCONZ integration.
+
+{% include integrations/config_flow.md %}
 
 ## Debugging integration
 
@@ -87,17 +95,17 @@ If you are having issues and want to report a problem, always start with making 
 
 ### No state updates
 
-If the state of entities are only reflected in Home Assistant when the integration is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
+If the state of {% term entities %} are only reflected in Home Assistant when the {% term integration %} is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
 
-## Device services
+## Device actions
 
-Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
+Available actions: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
 
-### Service `deconz.configure`
+### Action `deconz.configure`
 
 Set the attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
 
-| Service data attribute | Optional | Description                                                                 |
+| Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `field`                | No       | String representing a specific device in deCONZ.                            |
 | `entity`               | No       | String representing a specific Home Assistant entity of a device in deCONZ. |
@@ -121,17 +129,21 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 { "field": "/config", "data": {"permitjoin": 60} }
 ```
 
-### Service `deconz.device_refresh`
+### Action `deconz.device_refresh`
 
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
-Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
+{% note %}
+deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this action or a restart of Home Assistant.
+{% endnote %}
 
-### Service `deconz.remove_orphaned_entries`
+### Action `deconz.remove_orphaned_entries`
 
-Remove entries from entity and device registry which are no longer provided by deCONZ.
+Remove entries from {% term entity %} and device registry which are no longer provided by deCONZ.
 
-Note: it is recommended to use this service after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+{% note %}
+It is recommended to use this {% term action %} after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+{% endnote %}
 
 ## Remote control devices
 
@@ -150,7 +162,7 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
-For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
+For the IKEA Tradfri remote, the first digit indicates the button: 1 for middle, 2 for up, 3 for down, 4 for left, and 5 for right (for example, `"event": 1002` is a middle button short release).
 
 Specific gestures for the Aqara Magic Cube are:
 
@@ -168,7 +180,7 @@ Specific gestures for the Aqara Magic Cube are:
 
 ### Finding your events
 
-Navigate to **Developer tools->Events**. In the section **Listen to events** add `deconz_event` and press **START LISTENING**. All events from deCONZ will now be shown and by pushing your remote button while monitoring the log it should be fairly easy to find the events you are looking for.
+Go to {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In the section **Listen to events** add `deconz_event` and press **START LISTENING**. All events from deCONZ will now be shown and by pushing your remote button while monitoring the log it should be fairly easy to find the events you are looking for.
 
 ### Device triggers
 
@@ -176,7 +188,7 @@ To simplify using remote control devices in automations deCONZ integration expos
 
 #### Requesting support for new device trigger
 
-If you have a Zigbee remote that is not yet supported you can request support for it by creating an issue on Home Assistant Core GitHub repository. This requires the device model (can be acquired from debug logs) together with a mapping of action and button event, e.g., Hue dimmer remote model "RWL021", Short press turn on 1000.
+If you have a Zigbee remote that is not yet supported, you can request support for it by creating an issue on the Home Assistant Core GitHub repository. This requires the device model (can be acquired from debug logs) together with a mapping of action and button event, for example, Hue dimmer remote model `RWL021`, Short press turn on 1000.
 
 ## Examples
 
@@ -184,33 +196,32 @@ If you have a Zigbee remote that is not yet supported you can request support fo
 
 #### Step up and step down input number with wireless dimmer
 
-{% raw %}
 
 ```yaml
 automation:
   - alias: "'Toggle lamp from dimmer'"
     initial_state: "on"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
           event: 1002
-    action:
-      - service: light.toggle
+    actions:
+      - action: light.toggle
         target:
           entity_id: light.lamp
 
   - alias: "Increase brightness of lamp from dimmer"
     initial_state: "on"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
           event: 2002
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.lamp
         data:
@@ -220,14 +231,14 @@ automation:
 
   - alias: "Decrease brightness of lamp from dimmer"
     initial_state: "on"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
           event: 3002
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.lamp
         data:
@@ -237,35 +248,33 @@ automation:
 
   - alias: 'Turn lamp on when turning cube clockwise'
     initial_state: "on"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
           gesture: 7
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.lamp
 ```
 
-{% endraw %}
 
 #### Changing color through the Müller Licht tint remote control
 
-{% raw %}
 
 ```yaml
 automation:
   - alias: "React to color wheel changes"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: tint_remote_1
           event: 6002
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         data:
           xy_color:
             - '{{ trigger.event.data.xy.0 }}'
@@ -274,7 +283,6 @@ automation:
     mode: restart
 ```
 
-{% endraw %}
 
 #### Colored Flashing - RGB Philips Hue bulb using deconz.configure
 
@@ -283,13 +291,12 @@ Note: Requires `on: true` to change color while the Philips Hue bulb is off. If 
 ```yaml
 automation:
   - alias: "Flash Hue Bulb with Doorbell Motion"
-    mode: single
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: binary_sensor.doorbell_motion
         to: "on"
-    action:
-      - service: deconz.configure
+    actions:
+      - action: deconz.configure
         data:
           entity: light.hue_lamp
           field: /state
@@ -300,7 +307,7 @@ automation:
             bri: 255
             alert: "breathe"
       - delay: 00:00:15
-      - service: deconz.configure
+      - action: deconz.configure
         data:
           entity: light.hue_lamp
           field: "/state"
@@ -312,14 +319,14 @@ automation:
 
 The `entity_id` name will be `platform.device_name`, where `device_name` is defined in deCONZ.
 
-### Alarm Control Panel
+### Alarm control panel
 
 The entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
 
-The Device also exposes a new event type `deconz_alarm_event` which reflects signals not supported within the Alarm Control Panel platform.
+The Device also exposes a new event type `deconz_alarm_event` which reflects signals not supported within the alarm control panel platform.
 The Payload consists of an event (`emergency`, `fire`, `invalid_code` or `panic`).
 
-### Binary Sensor
+### Binary sensor
 
 The following sensor types are supported:
 
@@ -362,7 +369,7 @@ The `entity_id` name will be `scene.group_scene_name`, where `group` is which gr
 
 The following sensor types are supported:
 
-- Air Quality sensor
+- Air quality sensor
 - Battery sensor
 - Consumption sensor
 - Daylight
@@ -399,7 +406,7 @@ The deCONZ Daylight sensor is a special sensor built into the deCONZ software si
 
 The sensor also has an attribute called "daylight" that has the value `true` when the sensor's state is `golden_hour_1`, `solar_noon`, or `golden_hour_2`, and `false` otherwise.
 
-These states can be used in automations as a trigger (e.g., trigger when a certain phase of daylight starts or ends) or condition (e.g., trigger only if in a certain phase of daylight).
+These states can be used in automations as a trigger (for example, trigger when a certain phase of daylight starts or ends) or condition (for example, trigger only if in a certain phase of daylight).
 
 Please note that the deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 

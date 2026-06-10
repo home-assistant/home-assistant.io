@@ -1,45 +1,135 @@
+{% assign url_parts = page.url | split: '/' %}
+{% assign root = url_parts[1] %}
+{% assign doc = url_parts[2] %}
+
 {% include site/head.html %}
-  <body {% if page.body_id %} id="{{ page.body_id }}"{% elsif page.layout == "landingpage" %} id="landingpage"{% endif %}>
-    <header class='site-header'>
+  <body {% if page.body_id %} id="{{ page.body_id }}"{% elsif page.layout == "landingpage" %} id="landingpage"{% endif %} class="{% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'installation' or root == 'getting-started' or root == 'common-tasks' or root == 'template-functions' or root == 'actions' or root == 'triggers' or root == 'conditions' %}documentation-page{% endif %} {% if root == 'integrations' or page.function_name or page.action or page.trigger or page.condition %}integration-page{% endif %} {% if page.blog_index %}blog-index{% endif %} {% if root == 'blog' %}blog-post {% if doc == 'categories' %}blog-category{% endif %}{% endif %}">
+    <header class='site-header {% if page.dark_header %}dark{% endif %}'>
       {% include site/header.html %}
     </header>
 
     <div class="page-content">
 
-    {% if page.hero_unit %}
-      {% include site/hero_unit.html %}
-    {% endif %}
+      {% if page.hero_unit %}
+        {% include site/hero_unit.html %}
+      {% endif %}
 
-    <div class="grid-wrapper">
-      <div class="grid grid-center">
-        {% if page.is_post and page.sidebar == false %}
-        <div class="grid__item four-fifths lap-one-whole palm-one-whole">
-        {% elsif page.is_homepage or page.layout == "landingpage" %}
-        <div class="grid__item one-whole">
-        {% else %}
-        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        {% endif %}
+      <div class="grid-wrapper">
+        <div class="grid grid-center">
 
-          {% if page.is_homepage or page.layout == "landingpage"  %}
-            {{ content }}
+          {% if page.toc %}
+            {%- unless page.no_toc -%}
+              <aside id="toc-bar" class="grid__item desk-wide-one-sixth">
+                {% if page.function_name %}
+                <section id="toc-bar-learn-more" class="aside-module grid__item one-whole">
+                  <div class='section'>
+                    <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+                    <ul class='divided'>
+                      {% include asides/template_function_learn_more.html %}
+                    </ul>
+                  </div>
+                </section>
+                {% elsif page.action %}
+                <section id="toc-bar-learn-more" class="aside-module grid__item one-whole">
+                  <div class='section'>
+                    <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+                    <ul class='divided'>
+                      {% include asides/action_learn_more.html %}
+                    </ul>
+                  </div>
+                </section>
+                {% elsif page.trigger %}
+                <section id="toc-bar-learn-more" class="aside-module grid__item one-whole">
+                  <div class='section'>
+                    <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+                    <ul class='divided'>
+                      {% include asides/trigger_learn_more.html %}
+                    </ul>
+                  </div>
+                </section>
+                {% elsif page.condition %}
+                <section id="toc-bar-learn-more" class="aside-module grid__item one-whole">
+                  <div class='section'>
+                    <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+                    <ul class='divided'>
+                      {% include asides/condition_learn_more.html %}
+                    </ul>
+                  </div>
+                </section>
+                {% endif %}
+                <section class="aside-module grid__item one-whole">
+                  <div class='section'>
+                    <label for="toc-toggle"><span class="title epsilon">{% icon "mdi:toc" %} On this page</span> <input type="checkbox" id="toc-toggle"/> <span class="toc-current"></span></label>
+                    {{ content | toc_only }}
+                  </div>
+                </section>
+              </aside>
+            {%- endunless -%}
+          {% endif %}
+
+          {% assign is_wwha_post = false %}
+          {% if page.is_post and page.categories contains 'Works-with-Home-Assistant' %}
+            {% assign is_wwha_post = true %}
+          {% endif %}
+
+          {% if page.is_post and page.sidebar == false and is_wwha_post == false %}
+          <div class="grid__item four-fifths desk-wide-three-quarters lap-one-whole palm-one-whole">
+          {% elsif page.no_toc == true %}
+          <div class="grid__item one-whole desk-wide-three-quarters">
+          {% elsif page.is_homepage or page.layout == "landingpage" %}
+          <div class="grid__item one-whole">
+          {% elsif doc=="categories" %}
+          <div class="grid__item two-thirds desk-wide-three-quarters lap-one-whole palm-one-whole">
           {% else %}
-            {{ content | output_modder }}
+          <div class="grid__item two-thirds desk-wide-seven-twelfths lap-one-whole palm-one-whole">
+          {% endif %}
+
+            {% if page.is_homepage or page.layout == "landingpage"  %}
+              {{ content }}
+            {% else %}
+              {{ content | output_modder }}
+            {% endif %}
+          </div>
+
+
+          {% assign show_sidebar = true %}
+          {% if page.sidebar == false and is_wwha_post == false %}
+            {% assign show_sidebar = false %}
+          {% endif %}
+          {% if page.layout == "landingpage" %}
+            {% assign show_sidebar = false %}
+          {% endif %}
+          {% if show_sidebar %}
+            {% if root == 'integrations' or page.function_name or page.action or page.trigger or page.condition %}
+              <aside id="integration-sidebar" class="grid__item one-third desk-wide-one-quarter lap-one-whole palm-one-whole">
+              {% else %}
+              <aside id="sidebar" class="grid__item one-third desk-wide-one-quarter lap-one-whole palm-one-whole">
+            {% endif %}
+            {% include site/sidebar.html %}
+          </aside>
           {% endif %}
         </div>
-
-        {% unless page.sidebar == false or page.layout == "landingpage"  %}
-        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
-          {% include site/sidebar.html %}
-        </aside>
-        {% endunless %}
       </div>
+
+      {% if page.toc %}
+        <button id="back-to-top-button" type="button" aria-label="Back to top" aria-describedby="back-to-top-tooltip">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <g id="back-to-top">
+              <circle id="background" cx="20" cy="20" r="20" fill="#18BCF2"/>
+              <path id="arrow" d="M20 18.8L15.4 23.4L14 22L20 16L26 22L24.6 23.4L20 18.8Z" fill="white"/>
+              <circle id="depth" cx="20" cy="20.0098" r="17" transform="rotate(-90 20 20.0098)" stroke="white" stroke-width="2"/>
+            </g>
+          </svg>
+
+          <div id="back-to-top-tooltip" class="back-to-top-btn-tooltip">Back to top</div>
+        </button>
+      {% endif %}
+
+      <footer>
+        {% include site/footer.html %}
+      </footer>
+
     </div>
-
-    <footer>
-      {% include site/footer.html %}
-    </footer>
-
-  </div>
     {% include javascripts/scripts.html %}
   </body>
 </html>

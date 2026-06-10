@@ -3,3 +3,11 @@ _source/developers/credits.markdown
 
 # Third party
 sass/inuitcss/*
+LICENSE.md
+
+# Changelogs are made out of commit messages
+# We don't want to correct them
+source/changelogs
+
+# Lots of older changelogs we don't want to change/update
+source/_posts

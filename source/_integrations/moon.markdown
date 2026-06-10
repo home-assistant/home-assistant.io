@@ -3,7 +3,7 @@ title: Moon
 description: Instructions on how to integrate the moon sensor into Home Assistant.
 ha_category:
   - Environment
-ha_iot_class: Local Polling
+ha_iot_class: Calculated
 ha_release: 0.38
 ha_quality_scale: internal
 ha_codeowners:
@@ -16,7 +16,7 @@ ha_config_flow: true
 ha_integration_type: service
 ---
 
-The Moon integration tracks the phases of the moon.
+The **Moon** {% term integration %} tracks the phases of the moon.
 
 {% include integrations/config_flow.md %}
 

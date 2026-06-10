@@ -9,11 +9,16 @@ ha_domain: neurio_energy
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integrate your [Neurio](https://neur.io/) meter information into Home Assistant. To get an API key and secret, login to your [Neurio account](https://my.neur.io/#settings/applications/register) and register an application. Note the Homepage URL and Callback URL are optional.
 
-To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+To enable this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -24,10 +29,19 @@ sensor:
   sensor_id: "SENSOR_ID"
 ```
 
-Two sensors will be created with the following names:
+Four sensors will be created with the following names:
+
+### Consumption
 
 - **Energy Usage**: Current active power usage in Watts. Updated every 10 seconds.
-- **Daily Energy Usage**: Daily power usage in kWh.  Updated every 2.5 minutes.
+- **Daily Energy Usage**: Daily power usage in kWh. Updated every 2.5 minutes.
+
+### Production
+
+- **Energy Production**: Current solar/generation power in Watts. Updated every 10 seconds.
+- **Daily Energy Production**: Daily solar/generation in kWh. Updated every 2.5 minutes.
+
+The production sensors are useful for monitoring solar panels or other energy generation sources connected to your Neurio meter.
 
 {% configuration %}
 api_key:

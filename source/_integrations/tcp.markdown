@@ -2,7 +2,7 @@
 title: TCP
 description: Instructions on how to set up TCP within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: 0.14
 ha_iot_class: Local Polling
@@ -11,18 +11,23 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The TCP integration allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
+The **TCP** {% term integration %} allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 ## Sensor
 
-To enable the TCP sensor, add the following lines to your `configuration.yaml`:
+To enable the TCP {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -56,7 +61,7 @@ timeout:
   default: 10
   type: integer
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
+  description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
   required: false
   type: template
 unit_of_measurement:
@@ -95,8 +100,6 @@ $ echo "r WaterPressure" | nc 10.0.0.127 8888
 
 You will notice that the output from the service is not just a single value (it contains ";ok" as well). To grab the value we're interested in, we can use a Jinja2 template. The response received is injected into the template as the `value` variable. To use this value within Home Assistant, use the following configuration:
 
-{% raw %}
-
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -109,8 +112,6 @@ sensor:
     value_template: "{{ value.split(';')[0] }}"
     unit_of_measurement: Bar
 ```
-
-{% endraw %}
 
 #### hddtemp
 
@@ -133,8 +134,6 @@ Escape character is '^]'.
 
 The entry for the `configuration.yaml` file for a `hddtemp` sensor could look like the example below.
 
-{% raw %}
-
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -148,10 +147,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-{% endraw %}
-
-
-## Binary Sensor
+## Binary sensor
 
 The TCP Binary Sensor is a type of [TCP Sensor](#sensor) which is either "off" or "on". In order to use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
 
@@ -190,7 +186,7 @@ value_on:
   required: true
   type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
+  description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value.
   required: false
   type: template
   default: entire response is the value

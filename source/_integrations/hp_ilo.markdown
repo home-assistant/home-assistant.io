@@ -2,16 +2,20 @@
 title: HP Integrated Lights-Out (ILO)
 description: How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: 0.27
 ha_iot_class: Local Polling
 ha_domain: hp_ilo
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
+The **HP Integrated Lights-Out** {% term integration %} allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
 
 If the ILO or specified jsonpath query returns only a single value (e.g., a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
 
@@ -23,7 +27,8 @@ Some more details about what can be retrieved from these sensors is available in
 
 ## Configuration
 
-To use this integration in your installation, add the following to your `configuration.yaml` file:
+To use this integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -94,9 +99,7 @@ Valid sensor_types:
 
 ## Example
 
-In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your `configuration.yaml` file
-
-{% raw %}
+In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your {% term "`configuration.yaml`" %} file
 
 ```yaml
 sensor:
@@ -118,17 +121,15 @@ sensor:
         value_template: '{{ ilo_data.health_at_a_glance }}'
 ```
 
-{% endraw %}
-
 <p class='img'>
   <img src='/images/screenshots/hp_ilo_sensors.png' />
 </p>
 
 ## Hardware specifics
 
-<div class='note warning'>
+{% note %}
 Not every hardware supports all values.
-</div>
+{% endnote %}
 
 ### HP Microserver Gen8
 

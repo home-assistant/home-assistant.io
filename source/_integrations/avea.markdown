@@ -3,24 +3,24 @@ title: Elgato Avea
 description: Instructions on how to integrate Elgato Avea with Home Assistant.
 ha_category:
   - Light
+ha_bluetooth: true
 ha_release: 0.97
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@pattyland'
 ha_domain: avea
+ha_config_flow: true
 ha_platforms:
   - light
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-[Elgato Avea](https://www.evehome.com/en/news/elgato-avea-transform-your-home) is a Bluetooth light bulb that is no longer supported by the manufacturer. The `avea` integration allows you to control all your Avea bulbs with Home Assistant.
+The **Elgato Avea** {% term integration %} allows you to control Avea Bluetooth light bulbs with Home Assistant.
 
-## Configuration
+## Supported devices
 
-To enable Avea, add the following lines to your `configuration.yaml` file:
+- Elgato Avea bulbs
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: avea
-```
+{% include integrations/config_flow.md %}
+
+The Elgato Avea integration automatically discovers bulbs once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. If a bulb is not discovered automatically, you can add the integration manually and select it by Bluetooth address.

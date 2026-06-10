@@ -13,7 +13,7 @@ og_image: /images/blog/2016-04-release-18/social.png
 
 It's time for 0.18. This release cycle is 2 days shorter than usual as I'll be traveling to Europe. This also means that it can take some more time before you get feedback on PRs.
 
-Since the last release we have moved all Home Assistant source code etc into its own [organization on GitHub](https://github.com/home-assistant). We're growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.
+Since the last release we have moved all Home Assistant source code etc into its own [organization on GitHub](https://github.com/home-assistant). We're growing up! This sadly did cause us to have to move all Docker images. Check the backward-incompatible changes section for more info.
 
 <a href='/demo/'><img src='/images/blog/2016-04-release-18/media_player.png' style='box-shadow: none; border: 0;' /></a>
 
@@ -76,7 +76,7 @@ Since the last release we have moved all Home Assistant source code etc into its
 [Wink]: /integrations/wink#light
 [Zeroconf]: /integrations/zeroconf/
 
-### Breaking changes
+### Backward-incompatible changes
 - We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.
 - The constant `TEMP_CELCIUS` is now correctly called `TEMP_CELSIUS`. Old one is deprecated and will eventually be removed.
 - The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run `homeassistant/home-assistant:latest` for the latest release and `homeassistant/home-assistant:dev` for the latest dev version.

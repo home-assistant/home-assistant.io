@@ -5,11 +5,14 @@ ha_category:
   - Voice
 ha_release: "0.10"
 ha_domain: alexa
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 ## I want to build custom commands to use with Echo
 
-The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
+The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and perform actions within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
 
 <lite-youtube videoid="1Ke3mtWd_cQ" videotitle="Home Assistant integration for Amazon Echo" posterquality="maxresdefault"></lite-youtube>
 
@@ -17,7 +20,7 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
 
 - Amazon Developer Account. You can sign on [here](https://developer.amazon.com).
 - An [AWS account](https://aws.amazon.com/free/) is needed if you want to use the Alexa Custom Skill API. Part of your Alexa Custom Skill will be hosted on [AWS Lambda](https://aws.amazon.com/lambda/pricing/). However, you don't need to worry about the cost, as AWS Lambda allows for free to use up to 1 million requests and 1GB outbound data transfer per month.
-- The Alexa Custom Skill API also needs your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). This is so account linking can take place. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant OS or Supervised, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Alexa Custom Skill API also needs your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). This is so account linking can take place. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running {% term "Home Assistant Operating System" %}, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 
 ### Create Your Amazon Alexa Custom Skill
 
@@ -62,7 +65,7 @@ Next you need to create a Lambda function.
   - **US West (Oregon)** region for Japanese and English (AU) skills.
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
-- Select *Python 3.* as `Runtime` (Python 3.9 was available at this time).
+- Select `Python 3.x` as the `Runtime` (choose the latest available Python 3 version).
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
 - Click `Create function`, then you can configure the details of the Lambda function.
 - Under the `Configuration` tab, expand `Designer`, then click on `+ Add trigger` in the left part of the panel and select `Alexa Skills Kit` from the dropdown list to add an Alexa Skills Kit trigger to your Lambda function.
@@ -80,7 +83,7 @@ Next you need to create a Lambda function.
   - Go back to your Alexa skill and go to the Custom->Endpoint menu option on the left.
   - Paste the ARN value in the "Default Region". Note: you will not be able to do this until you have completed the step above adding the Alexa Skills Kit trigger (done in the previous step) to the AWS Lambda Function.
 
-### Account Linking
+### Account linking
 
 Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are actioned. In order to link the account, you have to make sure your Home Assistant instance can be accessed from the Internet.
 
@@ -159,7 +162,8 @@ This means that we can now ask Alexa things like:
 
 When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/integrations/intent_script) integration.
 
-To enable Alexa, add the following entry to your `configuration.yaml` file:
+To enable Alexa, add the following entry to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 alexa:
@@ -208,15 +212,14 @@ Add a sample utterance:
 ActivateSceneIntent activate {Scene}
 ```
 
-Then add the intent to your `intent_script` section in your HA configuration file:
+Then add the intent to your `intent_script` section in your Home Assistant configuration file:
 
-{% raw %}
 
 ```yaml
 intent_script:
   ActivateSceneIntent:
     action:
-      service: scene.turn_on
+      action: scene.turn_on
       target:
         entity_id: scene.{{ Scene | replace(" ", "_") }}
       data:
@@ -226,13 +229,12 @@ intent_script:
       text: OK
 ```
 
-{% endraw %}
 
 Here we are using [templates] to take the name we gave to Alexa e.g., `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
 
 Now say `Alexa ask Home Assistant to activate <some scene>` and Alexa will activate that scene for you.
 
-### Adding Scripts
+### Adding scripts
 
 We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:
 
@@ -262,15 +264,14 @@ Add a sample utterance:
 RunScriptIntent run {Script}
 ```
 
-Then add the intent to your intent_script section in your HA configuration file:
+Then add the intent to your intent_script section in your Home Assistant configuration file:
 
-{% raw %}
 
 ```yaml
 intent_script:
   RunScriptIntent:
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.{{ Script | replace(" ", "_") }}
     speech:
@@ -278,7 +279,6 @@ intent_script:
       text: OK
 ```
 
-{% endraw %}
 
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 
@@ -300,7 +300,7 @@ The configuration is the same as an intent with the exception being you will use
 intent_script:
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.red_alert
     speech:
@@ -333,7 +333,7 @@ intent_script:
     speech:
       text: Done. Good night!
     action:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id:
           - switch.room1
@@ -343,7 +343,7 @@ intent_script:
       text: Alright
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444.SessionEndedRequest:
     action:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id:
           - switch.room1
@@ -356,7 +356,6 @@ In the examples above, we told Alexa to say `OK` when she successfully completed
 
 First create a file called `alexa_confirm.yaml` with something like the following in it (go on, be creative!):
 
-{% raw %}
 
 ```text
 >
@@ -379,7 +378,6 @@ First create a file called `alexa_confirm.yaml` with something like the followin
   ] | random }}
 ```
 
-{% endraw %}
 
 Then, wherever you would put some simple text for a response like `OK`, replace it with a reference to the file so that:
 
@@ -395,8 +393,18 @@ text: !include alexa_confirm.yaml
 
 Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.
 
+## Workaround for having to say the skill's name
+
+Sometimes, you want to run script or scene intents without using the skill's name. For example, 'Alexa `<some script>`' instead of 'Alexa ask Home Assistant to run `<some script>`' because it is shorter.
+
+You can do this by using Alexa routines. 
+1. Configure a routine in the Alexa app that responds to the command you want to use:
+   -  For example, 'Alexa, turn on the dryer'. 
+2.  Make sure this routine includes a customized action that contains the full phrase you configured in your skill:
+     - For example, 'Alexa, ask Home Assistant to run the dryer on script'.
+
 [amazon-dev-console]: https://developer.amazon.com
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
-[templates]: /docs/configuration/templating/
+[templates]: /docs/templating/
 [generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token

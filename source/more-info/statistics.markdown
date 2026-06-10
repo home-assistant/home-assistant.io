@@ -3,6 +3,12 @@ title: "Expected data source not listed"
 description: "More information on if your expected data source is not listed."
 ---
 
-You're configuring a statistic but you couldn't find your source in the dropdown? That's caused by a bug in the integration providing the entity. Integrations need to configure their entities correctly so Home Assistant knows that we need to track statistics for it and how.
+You're configuring a statistic but you couldn't find your source in the dropdown?
+
+Check that it hasn't been excluded in the [Recorder](https://www.home-assistant.io/integrations/recorder/) configuration.
+
+Make sure the entity uses the same unit as the already selected sensors for that statistics graph. Because the graph uses a single Y axis, you cannot mix units (for example, °C and %, or kW and W) in the same graph.
+
+Otherwise, It's caused by a bug in the integration providing the entity. Integrations need to configure their entities correctly so Home Assistant knows that we need to track statistics for it and how.
 
 Open an issue with the author of the integration and link them to https://developers.home-assistant.io/docs/core/entity/sensor#long-term-statistics.

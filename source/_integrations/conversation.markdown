@@ -5,15 +5,15 @@ ha_category:
   - Voice
 ha_release: 0.7
 ha_quality_scale: internal
-ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
   - '@synesthesiam'
+  - '@arturpragacz'
 ha_domain: conversation
-ha_integration_type: system
+ha_integration_type: entity
 ---
 
-The conversation integration allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
+The **Conversation** {% term integration %} allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation.process` action with the transcribed text.
 
 <p class='img'>
   <img src="/images/screenshots/voice-commands.png" />
@@ -39,7 +39,6 @@ To get started, create a `custom_sentences/<language>` directory in your Home As
 
 For an English example, create the file `config/custom_sentences/en/temperature.yaml` and add:
 
-{% raw %}
 
 ```yaml
 # Example temperature.yaml entry
@@ -51,11 +50,9 @@ intents:
           - "What is the humidity outside"
 ```
 
-{% endraw %}
 
-To teach Home Assistant how to handle the custom `CustomOutsideHumidity` {% term intent %}, create an `intent_script` entry in your `configuration.yaml` file:
+To teach Home Assistant how to handle the custom `CustomOutsideHumidity` {% term intent %}, create an `intent_script` entry in your {% term "`configuration.yaml`" %} file:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -65,10 +62,8 @@ intent_script:
       text: "It is currently {{ states('sensor.outside_humidity') }} percent humidity outside."
 ```
 
-{% endraw %}
 
-More complex [actions](/docs/scripts/) can be done in `intent_script`, such as calling services and firing events.
-
+More complex [actions](/docs/scripts/) can be done in `intent_script`, such as performing actions and firing events.
 
 ## Extending built-in intents
 
@@ -76,7 +71,6 @@ Extending the built-in {% term intents %}, such as `HassTurnOn` and `HassTurnOff
 
 For example, create the file `config/custom_sentences/en/on_off.yaml` and add:
 
-{% raw %}
 
 ```yaml
 # Example on_off.yaml entry
@@ -96,7 +90,6 @@ intents:
           name: "kitchen lights"
 ```
 
-{% endraw %}
 
 Now when you say "engage the kitchen lights", it will turn on a light named "kitchen lights". Saying "disengage kitchen lights" will turn it off.
 
@@ -104,7 +97,6 @@ Let's generalize this to other entities. The built-in `{name}` and `{area}` list
 
 Adding `{name}` to `config/custom_sentences/en/on_off.yaml`:
 
-{% raw %}
 
 ```yaml
 # Example on_off.yaml entry
@@ -120,13 +112,11 @@ intents:
           - "disengage [the] {name}"
 ```
 
-{% endraw %}
 
 You can now "engage" or "disengage" any entity.
 
 Lastly, let's add sentences for turning lights on and off in specific areas:
 
-{% raw %}
 
 ```yaml
 # Example on_off.yaml entry
@@ -152,26 +142,27 @@ intents:
           domain: "light"
 ```
 
-{% endraw %}
 
 It's now possible to say "engage all lights in the bedroom", which will turn on every light in the area named "bedroom".
 
 
-## Service `conversation.process`
+## Action `conversation.process`
 
 Send a message to a conversation agent for processing.
 
-| Service data attribute | Optional | Description      |
-|------------------------|----------|------------------|
-| `text`                 | no      | Transcribed text |
-| `language`                 | yes      | Language of the text |
-| `agent_id`                 | yes      | ID of conversation agent to use |
+| Data attribute | Optional | Description                                                                                                               |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `text`                 | no       | Transcribed text input                                                                                                    |
+| `language`             | yes      | Language of the text                                                                                                      |
+| `agent_id`             | yes      | ID of conversation agent. The conversation agent is the brains of the assistant. It processes the incoming text commands. |
+| `conversation_id`      | yes      | ID of a new or previous conversation. Will continue an old conversation or start a new one.                               |
 
-This service is able to return a response value. The response is the same response as for the
+This action is able to return [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data). The response is the same response as for the
 [`/api/conversation/process` API](https://developers.home-assistant.io/docs/intent_conversation_api#conversation-response).
 
-## Service `conversation.reload`
+## Action `conversation.reload`
 
-| Service data attribute | Optional | Description                                                              |
-|------------------------|----------|--------------------------------------------------------------------------|
-| `language`             | yes      | Language to clear intent cache for. Defaults to Home Assistant language. |
+| Data attribute | Optional | Description                                                              |
+| ---------------------- | -------- | ------------------------------------------------------------------------ |
+| `language`             | yes      | Language to clear intent cache for. No value clears all languages        |
+| `agent_id`             | yes      | ID of conversation agent. Defaults to the built-in Home Assistant agent. |

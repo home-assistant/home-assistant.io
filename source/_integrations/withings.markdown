@@ -5,32 +5,52 @@ ha_category:
   - Health
   - Sensor
 ha_release: 0.99
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@vangorra'
+  - '@joostlek'
 ha_domain: withings
 ha_platforms:
   - binary_sensor
+  - calendar
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
+ha_dhcp: true
 ---
 
-The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).
+The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
 
-## Create a Withings Account
+## Prerequisites
 
-You must have a developer account to distribute the data. [Create a free development account](https://account.withings.com/partner/add_oauth2).
+- Withings account
+- Withings app installed
+- Withings device setup in the app
+- [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
 
-Values for your account:
+### Creating a Withings developer account
 
-- Logo: Any reasonable picture will do.
-- Description: Personal app for collecting my data.
-- Contact Email: Your email address
-- Callback Uri: `https://my.home-assistant.io/redirect/oauth`.
-- Company: Home Assistant
+You must have a developer account to distribute the data.
 
-Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
+{% note %}
+  You only need one developer account. The same account and credentials are used for each Withings configuration.
+{% endnote %}
+
+1. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+2. Make sure to select **Withings public cloud** (and not Withings US medical cloud or similar).
+3. Select **Create an application**.
+4. Under **Application creation**, select **Public API integration**.
+   - Read and accept the terms and select **Next**.
+5. Under **Information**:
+   - **Target environment**: *Development*
+   - **Application name**: [any name]
+   - **Application description**: [any description]
+   - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
+     - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
+   - **Change logo**: Optional
+6. **Save** your changes.
+   - Once saved, the *ClientID* and *Secret* fields will be populated.
+   - Copy and store them in a save place. You will need these in the next step.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -44,98 +64,63 @@ authentication process.
 Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
 - Home Assistant (For create/update of Withings developer account):
-    - Publicly accessible.
-    - Running on a fully qualified domain name.
-    - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
+  - Publicly accessible.
+  - Running on a fully qualified domain name.
+  - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 
 {% enddetails %}
 
 {% include integrations/config_flow.md %}
 
-The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
+## Data updates
 
-Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
-  - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
+The {% term integration %} automatically detects if you can use webhooks. This enables the {% term integration %} only to update when there is new data.
+The binary sensor for sleep will only work if the {% term integration %} can establish webhooks with Withings.
 
-Data will synchronize immediately and update under the following conditions:
-  - If `use_webhook` is enabled:
-      - Each time Withings notifies Home Assistant of a data change.
-      - Every 120 minutes.
-  - If `use_webhook` is not enabled:
-      - Every 10 minutes.
+### Webhook requirements
 
-## Configuration
+For webhooks to work, your Home Assistant instance must be reachable by the Withings cloud service. The following requirements must be met:
 
-There are additional configuration options available:
+- **Publicly accessible**: Your Home Assistant instance must be reachable from the internet.
+- **HTTPS on port 443**: Withings requires HTTPS specifically on port 443. Using HTTPS on a non-standard port (such as 8443) will not work.
+- **Valid SSL certificate**: The certificate must be signed by a globally recognized Certificate Authority, for example, Let's Encrypt. Self-signed certificates will not work.
 
-```yaml
-# Example configuration.yaml entry
-withings:
-    use_webhook: true
-```
+{% important %}
+If webhooks cannot be established, some sensors will not be available. In particular, the sleep binary sensor has no polling fallback and requires working webhooks to function.
+{% endimportant %}
 
-{% configuration %}
-use_webhook:
-  description: "Configure Withings to notify Home Assistant when data changes. This also required to populate the in_bed sensor. Note: In order for this to work, your Home Assistant install must be accessible to the internet."
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
+#### How the webhook URL is determined
 
-## Bonus: Template Sensors to Convert Kilograms to Pounds
+You do not enter the webhook URL anywhere in the integration. Home Assistant builds it automatically from the URLs configured under {% my network title="**Settings** > **System** > **Network**" %}, followed by an internal webhook path.
 
-In a text editor, replace ```USER_PROFILE_NAME``` in the template sensors below with your Withings User Profile Name defined in the Withings integration configuration.
+Home Assistant prefers the **Internet** URL and falls back to the **Local Network** URL. For Withings webhooks to register successfully, the URL that Home Assistant selects must be a public HTTPS URL on port 443 with a valid certificate.
 
-{% raw %}
+If you use Home Assistant Cloud from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
 
-```yaml
-# Example configuration.yaml entry
-template:
-  - sensor:
-    - name: Withings weight lbs USER_PROFILE_NAME
-      unit_of_measurement: "lbs"
-      state: >-
-        {{
-          (states('sensor.withings_weight_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
-          | round(2, default=0)
-        }}
-      icon: "mdi:weight-pound"
+#### Changing the webhook URL
 
-    - name: Withings bone mass lbs USER_PROFILE_NAME
-      unit_of_measurement: "lbs"
-      state: >-
-        {{
-          (states('sensor.withings_bone_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
-          | round(2, default=0)
-        }}
-      icon: "mdi:weight-pound"
+If you see a warning like `Webhook not registered - HTTPS is required` or `Webhook not registered - port 443 is required` in your logs, the URL that Home Assistant selected is not a valid public HTTPS URL. This often happens when the **Internet** URL is empty and the **Local Network** URL points to a local HTTP address.
 
-    - name: Withings fat free mass lbs USER_PROFILE_NAME
-      unit_of_measurement: "lbs"
-      state: >- 
-        {{
-          (states('sensor.withings_fat_free_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
-          | round(2, default=0)
-         }}
-      icon: "mdi:weight-pound"
+To resolve this:
 
-    - name: Withings fat mass lbs USER_PROFILE_NAME
-      unit_of_measurement: "lbs"
-      state: >-
-        {{
-          (states('sensor.withings_fat_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
-          | round(2, default=0)
-        }}
-      icon: "mdi:weight-pound"
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
+3. Select **Save**.
 
-    - name: Withings muscle mass lbs USER_PROFILE_NAME
-      unit_of_measurement: "lbs"
-      state: >-
-        {{
-          (states('sensor.withings_muscle_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
-          | round(2, default=0)
-        }}
-      icon: "mdi:weight-pound"
-```
+You can keep the **Local Network** URL set to your internal HTTP address. Home Assistant uses the **Internet** URL for webhooks, while integrations that prefer local communication continue to use the **Local Network** URL.
 
-{% endraw %}
+## Available data
+
+The {% term integration %} provides several entities, some of which are dynamically enabled if data is available.
+
+For example, measurement sensors like weight only work when data has been registered in the last 14 days. So if you start using a new device, for example, to measure your temperature or you manually update a value in the app, the sensor automatically appears.
+
+Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
+
+Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

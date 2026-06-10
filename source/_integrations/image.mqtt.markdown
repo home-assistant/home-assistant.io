@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` image platform allows you to integrate the content of an image file sent through MQTT into Home Assistant as an image.
+The **MQTT Image** {% term integration %} allows you to integrate the content of an image file sent through MQTT into Home Assistant as an image.
 The `image` platform is a simplified version of the `camera` platform that only accepts images.
 Every time a message under the `image_topic` in the configuration is received, the image displayed in Home Assistant will also be updated. Messages received on `image_topic` should contain the full contents of an image file, for example, a JPEG image, without any additional encoding or metadata.
 
@@ -18,22 +18,17 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-<a id='new_format'></a>
-
-To enable this image in your installation, add the following to your `configuration.yaml` file:
+To use an MQTT image entity in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  image:
-    - topic: zanzito/shared_locations/my-device
+  - image:
+      url_topic: mynas/status/url
 ```
 
-The sample configuration above can be tested by publishing an image to the topic from the console:
-
-```shell
-mosquitto_pub -h <mqtt_broker> -t zanzito/shared_locations/my-device -f <image_filename.jpg>
-```
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -56,7 +51,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -65,7 +60,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -73,21 +68,25 @@ availability_topic:
   required: false
   type: string
 content_type:
-  description: The content type of and image data message received on `image_topic`. This option cannot be used with the `from_url_topic` because the content type is derived when downloading the image.
+  description: The content type of and image data message received on `image_topic`. This option cannot be used with the `url_topic` because the content type is derived when downloading the image.
   required: false
   type: string
   default: image/jpeg
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `image.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
+  type: string
 device:
   description: "Information about the device this image is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -106,8 +105,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -123,7 +130,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -136,7 +143,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -145,13 +155,12 @@ image_encoding:
   description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload. If not set, the image payload must be raw binary data.
   required: false
   type: string
-  default: None
 image_topic:
   description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type. This option cannot be used together with the `url_topic` option. But at least one of these option is required.
   required: exclusive
   type: string
 json_attributes_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`.
+  description: Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`.
   required: false
   type: template
 json_attributes_topic:
@@ -159,31 +168,26 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the image.
-  required: false
-  type: string
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: The name of the image. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 url_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the image URL from a message received at `url_topic`.
+  description: Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the image URL from a message received at `url_topic`.
   required: false
   type: template
 url_topic:
   description: The MQTT topic to subscribe to receive an image URL. A `url_template` option can extract the URL from the message. The `content_type` will be derived from the image when downloaded. This option cannot be used together with the `image_topic` option, but at least one of these options is required.
   required: exclusive
-  type: boolean
-  default: false
+  type: string
 {% endconfiguration %}
 
-### Example receiving images from from a URL
+### Example receiving images from a URL
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it publish an image URL to the topic from the console:
 
@@ -191,13 +195,27 @@ To test it publish an image URL to the topic from the console:
 mosquitto_pub -h <mqtt_broker> -t mynas/status/url -m "https://design.home-assistant.io/images/logo.png"
 ```
 
-{% raw %}
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  - image:
+      url_topic: mynas/status/url
+```
+
+### Example receiving images from a file
+
+Add the configuration below to your {% term "`configuration.yaml`" %}.
+
+To test it, publish an image URL to the topic from the console:
+
+```shell
+mosquitto_pub -h <mqtt_broker> -t mynas/status/file -f <logo.png>
+```
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  image:
-    - from_url_topic: mynas/status/url
+  - image:
+      image_topic: mynas/status/file
+      content_type: image/png
 ```
-
-{% endraw %}

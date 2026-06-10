@@ -20,7 +20,7 @@ ha_platforms:
   - switch
   - text
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
@@ -44,9 +44,9 @@ In addition to the serial device you also need to enter the baud rate.
 If you are using the MQTT gateway, you will need to enter topic prefixes for input and output. These need to be swapped
 with the settings of the gateway. I.e. the input topic for Home Assistant needs to be the output (publish) topic of the gateway.
 
-<div class='note'>
+{% note %}
 The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
-</div>
+{% endnote %}
 
 ### Ethernet gateway
 
@@ -185,11 +185,11 @@ Visit the [library API][MySensors library api] of MySensors for more information
 
 [MySensors library API]: https://www.mysensors.org/download
 
-## Binary Sensor
+## Binary sensor
 
 The following binary sensor types are supported:
 
-#### MySensors version 1.4 and higher
+### MySensors version 1.4 and higher
 
 | S_TYPE   | V_TYPE    |
 | -------- | --------- |
@@ -197,7 +197,7 @@ The following binary sensor types are supported:
 | S_MOTION | V_TRIPPED |
 | S_SMOKE  | V_TRIPPED |
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE       | V_TYPE    |
 | ------------ | --------- |
@@ -207,7 +207,7 @@ The following binary sensor types are supported:
 | S_VIBRATION  | V_TRIPPED |
 | S_MOISTURE   | V_TRIPPED |
 
-#### Binary Sensor example sketch
+### Binary sensor example sketch
 
 ```cpp
 /**
@@ -259,7 +259,7 @@ void loop()
 
 The following actuator types are supported:
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE | V_TYPE                                                                               |
 | ------ | ------------------------------------------------------------------------------------ |
@@ -282,7 +282,7 @@ You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.
 
 You can use V_TEMP to send the current temperature from the node to Home Assistant.
 
-#### Climate example sketch for MySensors 2.x
+### Climate example sketch for MySensors 2.x
 
 ```cpp
 /*
@@ -462,13 +462,13 @@ void sendHeatpumpCommand() {
 
 The following actuator types are supported:
 
-#### MySensors version 1.4
+### MySensors version 1.4
 
 | S_TYPE  | V_TYPE                                      |
 | ------- | ------------------------------------------- |
 | S_COVER | V_UP, V_DOWN, V_STOP, [V_DIMMER or V_LIGHT] |
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE  | V_TYPE                                           |
 | ------- | ------------------------------------------------ |
@@ -476,7 +476,7 @@ The following actuator types are supported:
 
 All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent, use V_STATUS (or V_LIGHT) if you don't.
 
-#### Cover example sketch
+### Cover example sketch
 
 ```cpp
 /*
@@ -604,17 +604,17 @@ This sketch is ideally for star topology wiring. You can run up to 12 covers wit
 
 [Check out the code on GitHub.](https://github.com/gryzli133/RollerShutterSplit)
 
-## Device Tracker
+## Device tracker
 
 The following sensor types are supported:
 
-#### MySensors version 2.0 and higher
+### MySensors version 2.0 and higher
 
 | S_TYPE | V_TYPE     |
 | ------ | ---------- |
 | S_GPS  | V_POSITION |
 
-#### Device Tracker example sketch for MySensors 2.x
+### Device tracker example sketch for MySensors 2.x
 
 ```cpp
 /**
@@ -691,13 +691,13 @@ void loop()
 
 The following actuator types are supported:
 
-#### MySensors version 1.4
+### MySensors version 1.4
 
 | S_TYPE   | V_TYPE                |
 | -------- | --------------------- |
 | S_DIMMER | V_DIMMER\*, V_LIGHT\* |
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE       | V_TYPE                                                         |
 | ------------ | -------------------------------------------------------------- |
@@ -785,7 +785,7 @@ void receive(const MyMessage &message)
       last_dim=100;
     }
 
-    //Update constroller status
+    // Update controller status
     send_status_message();
 
   } else if ( message.type == V_PERCENTAGE ) {
@@ -794,14 +794,14 @@ void receive(const MyMessage &message)
     if ( dim_value == 0 ) {
       last_state = LIGHT_OFF;
 
-      //Update constroller with dimmer value & status
+      // Update controller with dimmer value & status
       send_dimmer_message();
       send_status_message();
     } else {
       last_state = LIGHT_ON;
       last_dim = dim_value;
 
-      //Update constroller with dimmer value
+      // Update controller with dimmer value
       send_dimmer_message();
     }
 
@@ -844,21 +844,21 @@ void send_status_message()
 
 The following type combinations are supported:
 
-#### MySensors version 1.4 and higher
+### MySensors version 1.4 and higher
 
-| S_TYPE   | V_TYPE             |
-| -------- | ------------------ |
-| S_IR     | V_IR_SEND, V_LIGHT |
+| S_TYPE | V_TYPE             |
+| ------ | ------------------ |
+| S_IR   | V_IR_SEND, V_LIGHT |
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
-| S_TYPE       | V_TYPE                |
-| ------------ | --------------------- |
-| S_IR     | V_IR_SEND, V_STATUS |
+| S_TYPE | V_TYPE              |
+| ------ | ------------------- |
+| S_IR   | V_IR_SEND, V_STATUS |
 
 V_LIGHT or V_STATUS is required to report the on / off state of the remote. Use either V_LIGHT or V_STATUS depending on library version.
 
-#### IR transceiver example sketch
+### IR transceiver example sketch
 
 ```cpp
 /*
@@ -934,7 +934,7 @@ void incomingMessage(const MyMessage &message) {
 
 The following sensor types are supported:
 
-#### MySensors version 1.4 and higher
+### MySensors version 1.4 and higher
 
 | S_TYPE             | V_TYPE                                 |
 | ------------------ | -------------------------------------- |
@@ -968,7 +968,7 @@ The following sensor types are supported:
 | S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)   |
 | S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)   |
 
-#### MySensors version 2.0 and higher
+### MySensors version 2.0 and higher
 
 | S_TYPE          | V_TYPE                    |
 | --------------- | ------------------------- |
@@ -984,7 +984,7 @@ Some sensor value types are not specific for a certain sensor type. These do not
 
 By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can't be used as a stand-alone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.
 
-#### Sensor example sketch for MySensors 2.x
+### Sensor example sketch for MySensors 2.x
 
 ```cpp
 /**
@@ -1053,17 +1053,17 @@ void receive(const MyMessage &message) {
 
 The following actuator types are supported:
 
-#### MySensors version 1.4 and higher
+### MySensors version 1.4 and higher
 
-| S_TYPE   | V_TYPE             |
-| -------- | ------------------ |
-| S_DOOR   | V_ARMED            |
-| S_MOTION | V_ARMED            |
-| S_SMOKE  | V_ARMED            |
-| S_LIGHT  | V_LIGHT            |
-| S_LOCK   | V_LOCK_STATUS      |
+| S_TYPE   | V_TYPE        |
+| -------- | ------------- |
+| S_DOOR   | V_ARMED       |
+| S_MOTION | V_ARMED       |
+| S_SMOKE  | V_ARMED       |
+| S_LIGHT  | V_LIGHT       |
+| S_LOCK   | V_LOCK_STATUS |
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE       | V_TYPE                |
 | ------------ | --------------------- |
@@ -1075,7 +1075,7 @@ The following actuator types are supported:
 | S_VIBRATION  | V_ARMED               |
 | S_MOISTURE   | V_ARMED               |
 
-#### MySensors version 2.0 and higher
+### MySensors version 2.0 and higher
 
 | S_TYPE          | V_TYPE   |
 | --------------- | -------- |
@@ -1083,7 +1083,7 @@ The following actuator types are supported:
 
 All V_TYPES for each S_TYPE above are required to activate the actuator for the platform. Use either V_LIGHT or V_STATUS depending on library version for cases where that V_TYPE is required.
 
-#### Switch example sketch
+### Switch example sketch
 
 ```cpp
 /*
@@ -1133,13 +1133,13 @@ void incomingMessage(const MyMessage &message)
 
 The following sensor types are supported:
 
-#### MySensors version 2.0 and higher
+### MySensors version 2.0 and higher
 
 | S_TYPE | V_TYPE |
 | ------ | ------ |
 | S_INFO | V_TEXT |
 
-#### Text example sketch
+### Text example sketch
 
 ```cpp
 /*

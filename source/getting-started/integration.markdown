@@ -1,31 +1,78 @@
 ---
-title: "Adding Integrations"
-description: "Instructions to add an integration."
+title: "Adding integrations"
+description: "Add your first integration to Home Assistant. Choose from over a thousand brands, with most setups handled by the user interface."
 ---
-Let's start by adding your first {% term integration %} so that you can see and change a smart home {% term device %}.
+Let's start by adding your first {% term integration %}. Home Assistant works with devices and services from over a thousand brands, and most of them can be added through the user interface in just a few steps.
 
-From the sidebar, click on {% my integrations title="Settings > Devices & Services" %}. At this screen you will be able to set up integrations with Home Assistant. You might notice a *discovered* section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the **Add integration** button in the lower right and search for your integration in that list.
+In this tutorial, we will use the **Workday** integration. It can be used to automate based on workdays, days off, or holidays. No smart device is needed for this tutorial.
 
-In this example, we'll add a Chromecast to Home Assistant. Chromecast uses the [Google Cast integration](/integrations/cast). Although the below example has already discovered the device, let's add it manually.
+## Prerequisites
 
-First, press the **Add integration** button in the lower right and search for your integration in that list.
+This tutorial assumes that you have [installed Home Assistant](/installation/) and have at least completed the [onboarding steps](/getting-started/onboarding/).
 
-![Search for Google Cast](/images/getting-started/add-google-cast-integration.png)
+## Adding integrations
 
-Select **Google Cast** from the list. Because my Chromecast device was already discovered, it asks if I want to add the discovered one or a different one. I will choose the latter and setup another instance.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+   - The integrations page shows all the integrations you have already installed. Some of them were installed automatically.
+   - If devices were discovered in your network, you will see them in the **Discovered** section.
 
-![Google Cast discovered confirmation](/images/getting-started/google-cast-discovered.png)
+   ![Screenshot of the integrations page, with discovered devices](/images/getting-started/integrations_page_discovered.png)
+  
+2. If there are any devices discovered for you, you can add them now.
+   - Under **Discovered**, on the integration, select **Add**.
+   - Follow the steps in the UI if additional configuration is required.
+   - If no devices were discovered, don't worry, we will add an integration in the next step.
+3. In the bottom-right corner, select **Add integration**.
+4. Type `workd` and select the **Workday** integration.
 
-It now asks for the network IP address of the device. Describing how to identify a devices IP address is beyond the scope of this article because each network is different. However, the router is usually a good place to look. In this example, it's *192.168.1.99*.
+   ![Screenshot of the add integrations dialog](/images/getting-started/add_workday_integration.png)
 
-![Manually setup Google Cast device](/images/getting-started/google-cast-manual-details.png)
+5. Give it a name, for example `Workday tomorrow`, and select the country.
+   - The country is used to determine the local Holidays.
+   - Select **Submit**, then **Finish**.
+6. Configure the options.
+    - For example, if Monday is not a workday for you, select the "x" to remove it.
+    - To check if tomorrow is workday, under **Offset**, enter `1`.
+    - Fill in all other options as needed. At a minimum, define the **Holidays** and **Language**.
+    - Select **Submit**.
 
-If it was successful, it will show a message and allow you to set the {% term area %} it belongs to.
+   ![Screenshot of the configuration options](/images/getting-started/workday_configure.png)
+7. Select the {% term area %}, for example, office, and select **Finish**.
+8. You now see the **Workday** integration in the list.
+   - {% icon "mdi:party-popper" %} Congratulations! You've added your first integration. Job done.
 
-![Search for Google Cast](/images/getting-started/google-cast-integration-added.png)
+   ![Screenshot of the workday integration on the integrations page](/images/getting-started/workday_select_integration.png)
 
-When you're done, navigate back to the web interface and voila, your devices are ready for you to control. You can always go back to add and remove integrations in the future.
+## Looking at integration details
 
-If you get stuck, need more information, or want to see what the setup process is like, use the [integration documentation](/integrations).
+1. Select the integration.
+
+   ![Screenshot of the workday integration on the integrations page](/images/getting-started/workday_select_integration.png)
+
+   - This opens the integration entity page.
+
+2. Select an entity.
+
+   ![Screenshot of the workday integration entity list](/images/getting-started/workday_entity_list.png)
+
+   - We see that this integration has two {% term entities %}.
+   - A list of related automations, script and scenes.
+   - Activity of updates/changes related to the entity.
+
+   ![Screenshot of the workday integration details page](/images/getting-started/workday_sensor_details.png)
+
+## Modifying the integration
+
+1. To change the name, select the pencil {% icon "mdi:pencil" %} on the top right.
+
+2. You can also add another Workday {% term sensor %}. For example, if you want to know when your colleagues have a holiday.
+   - Go back to the integration entity page.
+   - Select **Add entry**, give it a name and define your options.
+   - Select the country of interest.
+3. That's it! {% icon "mdi:party-popper" %}
+   - {% icon "mdi:checkbox-outline" %} You have gained an overview of the integrations page and know where to find the integration details page, the sensor info page, and the entities table.
+   - {% icon "mdi:checkbox-outline" %} You have learned to rename, modify, and delete an integration.
+   - If you want to find more integrations, checkout the [integration documentation](/integrations/workday/).
+   - We are now ready to use **Workday** in an automation.
 
 {% include getting-started/next_step.html step="Automate Home Assistant" link="/getting-started/automation/" %}

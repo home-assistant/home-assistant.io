@@ -1,6 +1,15 @@
 ---
-title: "Headers & Footers for dashboard cards"
-description: "Decorate your dashboard cards with header and footer widgets."
+title: "Card headers and footers"
+description: "Add a header or footer to a dashboard card to show extra information such as a graph, a weather forecast, or a list of buttons."
+related:
+  - docs: /integrations/entity/
+    title: Entity
+  - docs: /integrations/entities/
+    title: Entities
+  - docs: /integrations/statistics/
+    title: Statistics
+  - docs: /integrations/actions/
+    title: Card actions
 ---
 
 Some dashboard cards have support for header and footer widgets. These widgets fill up the whole available space in a card.
@@ -8,6 +17,12 @@ Some dashboard cards have support for header and footer widgets. These widgets f
 <p class='img'><img src='/images/dashboards/header-footer/screenshot-picture-buttons.png' alt="Screenshot of an entities card with a picture header.">
 Screenshot of an entities card with a picture header and buttons footer.
 </p>
+
+Header and footer can be used on the following cards:
+
+- [Entity](/dashboards/entity/)
+- [Entities](/dashboards/entities/)
+- [Statistic](/dashboards/statistic/)
 
 ## Picture header & footer
 
@@ -140,3 +155,7 @@ hours_to_show:
   type: integer
   default: 24
 {% endconfiguration %}
+
+{% note %}
+The `hours_to_show` option controls the time range of historical data shown in the graph. The amount of history available depends on the Recorder's `purge_keep_days` setting. By default, the Recorder purges data older than 10 days. See the [Recorder integration documentation](/integrations/recorder/#purge_keep_days) for more information.
+{% endnote %}

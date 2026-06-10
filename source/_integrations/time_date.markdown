@@ -6,70 +6,63 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
 ha_domain: time_date
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The time and date (`time_date`) integration allows one to create sensors for the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 
+The **Time & Date** {% term integration %} provides sensors for the current date or time in different formats. All values are based on the time zone configured under {% my general title="**Settings** > **System** > **General**" %}.
 
-To have these sensors available in your installation, add the following to your `configuration.yaml` file (each option creates a separate sensor that contains appropriate data, e.g.,  `sensor.date` for the `date` option):
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: time_date
-    display_options:
-      - 'time'
-      - 'date'
-      - 'date_time'
-      - 'date_time_utc'
-      - 'date_time_iso'
-      - 'time_date'
-      - 'time_utc'
-      - 'beat'
-```
+During setup, select the display option for the sensor you want to create. The integration creates one sensor in the selected format.
 
+{% configuration_basic %}
+Display option:
+  description: "The date or time format for the sensor. Available options:"
+{% endconfiguration_basic %}
 
-{% configuration %}
-display_options:
-  description: The sensors to create. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* create combined date and the time sensors. The other types just the time sensor or the date sensor. *beat* creates the [Swatch Internet Time](https://en.wikipedia.org/wiki/Swatch_Internet_Time).
-  required: true
-  type: list
-{% endconfiguration %}
+- **Date**: The current date, for example, `2026-04-12`.
+- **Date & Time**: The current date and time, for example, `2026-04-12, 14:30`.
+- **Date & Time (ISO)**: The current date and time in ISO 8601 format, for example, `2026-04-12T14:30:00`.
+- **Date & Time (UTC)**: The current date and time in UTC, for example, `2026-04-12, 12:30`.
+- **Time**: The current local time, for example, `14:30`.
+- **Time & Date**: The current time and date (reversed order), for example, `14:30, 2026-04-12`.
+- **Time (UTC)**: The current time in UTC, for example, `12:30`.
 
+## Data updates
 
-Sensors including the time update every minute, the date sensor updates each day at midnight, and the beat sensor updates with each beat (86.4 seconds).
+Sensors that include the time update every minute. The date-only sensor updates each day at midnight.
 
 <p class='img'>
   <img src='/images/screenshots/time_date.png' />
 </p>
 
-# Producing your own custom time and date sensor
+## Creating a custom time and date sensor
 
-The following can be used to create a time and date sensor whose output can be properly customised to use your own preferred formatting, specified in the call to timestamp_custom() using standard [Python datetime formatting](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior).
+If you want a sensor with a custom date or time format, you can create a [template sensor](/integrations/template/) in your {% term "`configuration.yaml`" %} file. The example below uses the sensor created by the **Date & Time (ISO)** display option as the source and reformats it with [`timestamp_custom()`](/template-functions/timestamp_custom/) using standard [Python datetime formatting](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
 
-{% raw %}
+Add the following to your {% term "`configuration.yaml`" %}:
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
-sensor:
-  # Minimal configuration of the standard time and date sensor
-  - platform: time_date
-    display_options:
-      - 'date_time_iso'
-  # Build on the standard sensor to produce one that can be customized    
 template:
   - sensor:
       - name: "Date and time"
-        state: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-d, %I:%M %p') }}"
+        state: >
+          {{
+            as_timestamp(states('sensor.date_time_iso'))
+            | timestamp_custom('%A %B %-d, %I:%M %p')
+          }}
         icon: "mdi:calendar-clock"
 ```
 
-{% endraw %}
+This requires the **Date & Time (ISO)** display option to be set up in this integration.
 
 ## More time-related resources
 
-For more information about using time related variables and sensors in templates (such as `today_at()`, `now()` or `as_timestamp()`) visit this [time section](/docs/configuration/templating/#time) on the templating page.
+For more information about using time related variables and sensors in templates, see the template function reference for [`today_at`](/template-functions/today_at/), [`now`](/template-functions/now/), and [`as_timestamp`](/template-functions/as_timestamp/).

@@ -13,10 +13,10 @@ ha_platforms:
 ha_codeowners:
   - '@timmo001'
   - '@ludeeus'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The GitHub integration allows you to monitor your favorite [GitHub](https://github.com/) repositories.
+The **GitHub** {% term integration %} allows you to monitor your favorite [GitHub](https://github.com/) public repositories.
 
 {% include integrations/config_flow.md %}
 
@@ -28,14 +28,14 @@ The integration works by subscribing to events on the repository to provide a pu
 
 ## Remove authorization
 
-After you have removed the integration from {% my integrations title="Settings -> Devices & Services" %}, you need to manually revoke OAuth app authorization.
+After you have removed the integration from {% my integrations title="**Settings** > **Devices & services**" %}, you need to manually revoke OAuth app authorization.
 
 1. Go to your [Authorized OAuth Apps](https://github.com/settings/applications)
 2. Find the "Home Assistant GitHub Integration" application
 3. Click the 3 dots (`...`) to the right of the name
 4. Select "Revoke"
 
-## Service
+## Action
 
 When you configure a repository to be tracked in this integration it will be represented as a service in the device panel and all entities related to the repository will be nested under that device. The device also provides a link to the repository on GitHub and an option to download [diagnostics](/integrations/diagnostics) for the service.
 
@@ -108,6 +108,7 @@ These entities are simpler diagnostic entities without any additional attributes
 - **Discussions**: Shows the number of discussions
 - **Forks**: Shows the number of forks
 - **Issues**: Shows the number of open issues
+- **Merged pull requests**: Shows the number of merged pull requests
 - **Pull requests**: Shows the number of open pull requests
 - **Stars**: Shows the number of stars
 - **Watchers**: Shows the number of watchers
@@ -116,25 +117,21 @@ These entities are simpler diagnostic entities without any additional attributes
 
 Here are some small examples on how you can automate using the provided entities from this integration.
 
-<div class="note">
-
-Remember that the service names and entity IDs used in these examples are examples as well,
-you need to replace it with services and entities that you have in your installation.
-
-</div>
+{% note %}
+Remember that the action names and entity IDs used in these examples are examples as well,
+you need to replace it with actions and entities that you have in your installation.
+{% endnote %}
 
 ### Notify new releases
 
-This example uses the [Latest release](#latest-release) entity provided by this integration, and a [notify](/integrations/notify) service,
-
-{% raw %}
+This example uses the [Latest release](#latest-release) entity provided by this integration, and a [notify](/integrations/notify) action,
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.awesome_repository_latest_release
-action:
-  - service: notify.notify
+actions:
+  - action: notify.notify
     data:
       title: "New github/repository release"
       message: >-
@@ -143,25 +140,19 @@ action:
 
 ```
 
-{% endraw %}
-
 ### Notify new stars
 
-This example uses the [Stars](#diagnostic-entities) diagnostic entity provided by this integration, and a [notify](/integrations/notify) service,
-
-{% raw %}
+This example uses the [Stars](#diagnostic-entities) diagnostic entity provided by this integration, and a [notify](/integrations/notify) action,
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.awesome_repository_stars
-action:
-  - service: notify.notify
+actions:
+  - action: notify.notify
     data:
       title: "New github/repository new star"
       message: >-
         github/repository was starred again!
         Total stars are now: {{ trigger.to_state.state }}
 ```
-
-{% endraw %}

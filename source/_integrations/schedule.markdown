@@ -1,6 +1,6 @@
 ---
 title: Schedule
-description: Instructions on how use make weekly schedule in Home Assistant.
+description: Instructions on how to make a weekly schedule in Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -12,55 +12,84 @@ ha_domain: schedule
 ha_integration_type: helper
 ---
 
-The schedule integration provides a way to create a weekly schedule in
-Home Assistant that can be used to trigger or make decisions in your
-automations and scripts.
-
-The preferred way to configure a schedule is via the user interface at
-**{% my helpers title="Settings > Devices & Services > Helpers." %}** Click the add button
-and then choose the **{% my config_flow_start domain=schedule title="Schedule" %}** option, or click the My button below.
+The **Schedule** {% term integration %} lets you create a weekly schedule {% term entity %} in Home Assistant from time blocks with defined start and end times. The schedule is active when a time block starts and becomes inactive when it ends, so you can use it as a trigger or condition in automations and scripts.
 
 {% include integrations/config_flow.md %}
 
-To be able to add **{% my helpers title="Helpers" %}** via the user interface you should
-have `default_config:` in your `configuration.yaml`, it should already
-be there by default unless you removed it.
+{% configuration_basic %}
+Name:
+  description: Friendly name of the schedule.
+Icon:
+  description: Icon to display in the frontend for this schedule.
+Schedule blocks:
+  description: >
+    Press and drag to select time blocks for each day of the week.
+    It is not possible to create overlapping time blocks on the same day.
+{% endconfiguration_basic %}
 
-If you removed `default_config:` from your configuration,
-you must add it back or, alternatively, `schedule:` to your
-`configuration.yaml` first, before you can create them via the UI.
+After creating schedule blocks, you can press a block to edit the details.
 
-Alternatively, a schedule can also be created and configured via YAML
-configuration. For example:
+{% configuration_basic %}
+Start:
+  required: true
+  type: time
+  description: The start time to mark the schedule as active/on.
+End:
+  required: true
+  type: time
+  description: The end time to mark as inactive/off again.
+Additional data:
+  required: false
+  type: map
+  description: A mapping of attribute names to values, which will be added to the entity's attributes when the block is active.
+{% endconfiguration_basic %}
+
+### Adding additional data
+
+Adding the following as `Additional data` will show `brightness` and `color_temp` as {% term entity %} attributes when the block is active:
 
 ```yaml
-# Example configuration.yaml entry
+brightness: 100
+color_temp: 4000
+```
+
+## YAML configuration
+
+Alternatively, you can configure and set up this integration manually via YAML. To enable the **Schedule** integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+
+{% note %}
+
+The `data` field follows the same logic as described above in *Adding additional data*.
+
+{% endnote %}
+
+```yaml
 schedule:
-  thermostat_schedule:
-    name: "Thermostat schedule"
-    monday:
-      - from: "17:00:00"
-        to: "21:00:00"
-    tuesday:
-      - from: "17:00:00"
-        to: "21:00:00"
+  light_schedule:
+    name: "Light schedule"
     wednesday:
       - from: "17:00:00"
         to: "21:00:00"
+        data:
+          brightness: 100
+          color_temp: 4000
     thursday:
       - from: "17:00:00"
-        to: "21:00:00"
-    friday:
-      - from: "17:00:00"
         to: "23:00:00"
-    saturday:
+        data:
+          brightness: 90
+          color_temp: 3500
+    friday:
       - from: "07:00:00"
         to: "10:00:00"
+        data:
+          brightness: 80
+          color_temp: 3000
       - from: "16:00:00"
         to: "23:00:00"
-    sunday:
-      - from: "07:00:00"
-        to: "21:00:00"
+        data:
+          brightness: 60
+          color_temp: 2500
 ```
 
 {% configuration %}
@@ -79,7 +108,6 @@ schedule:
       type: icon
     "monday|tuesday|wednesday|thursday|friday|saturday|sunday":
       description: A schedule for each day of the week.
-      required: false
       required: true
       type: list
       keys:
@@ -91,20 +119,157 @@ schedule:
           description: The end time to mark as inactive/off again.
           required: true
           type: time
+        data:
+          description: A mapping of attribute names to values, which will be added to the entity's attributes when the block is active.
+          required: false
+          type: map
+          default: {}
 {% endconfiguration %}
 
-### Attributes
+## Attributes
 
-A schedule entity's state exports attributes that can be useful in
-automations and templates.
+A schedule entity exports state attributes that can be useful in automations and templates.
 
 | Attribute | Description |
 | ----- | ----- |
 | `next_event` | A datetime object containing the next time the schedule is going to change state. |
-### Services
+| `key_1`, `key_2`, ... | The mapping values from **Additional data** / `data` settings of a time block when the respective block is active. |
 
-Available service: `schedule.reload`.
+## Behavior at block boundaries
 
-#### schedule.reload
+Time blocks use an inclusive start and an exclusive end. A block from `09:00` to `12:00` is active from `09:00:00.000` up to but not including `12:00:00.000`.
 
-`schedule.reload` service allows one to reload the schedule's configuration without restarting Home Assistant itself.
+When two time blocks on the same day touch (for example, one block from `07:00` to `10:00` and another from `10:00` to `12:00`), the schedule transitions cleanly from one to the other:
+
+- The schedule's state stays `on` across the boundary. It does not briefly flip to `off` between two touching blocks.
+- The `data` attributes are replaced with the new block's data at the moment of the transition.
+- An automation triggering on the state changing to `off` does not fire at a boundary between two touching blocks.
+- An automation triggering on an attribute change (for example, a new setpoint) fires once, with the new block's data.
+
+Overlapping time blocks on the same day are not allowed and are rejected during configuration validation.
+
+## Automation example
+
+A schedule creates an on/off schedule entity that is `on` within the times set. You can use the `light_schedule` example from above in an automation to turn on a light when the schedule is active.
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - schedule.light_schedule
+    to: "on"
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.kitchen
+    data:
+      brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
+      kelvin: "{{ state_attr('schedule.light_schedule', 'color_temp') }}"
+```
+
+Another automation can be added to turn the lights off once the schedule is inactive:
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - schedule.light_schedule
+    to: "off"
+actions:
+  - action: light.turn_off
+    target:
+      entity_id: light.kitchen
+```
+
+## Actions
+
+To interact with schedules from {% term scripts %} and {% term automations %}, the schedule integration provides the following {% term actions %}.
+
+### Action: Reload
+
+The `schedule.reload` action reloads the schedule's configuration from YAML without the need to restart Home Assistant itself.
+
+### Action: Get schedule
+
+The `schedule.get_schedule` action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the configured time ranges of a schedule.
+It can return multiple schedules.
+
+```yaml
+action: schedule.get_schedule
+target:
+  entity_id:
+    - schedule.vacuum_robot
+    - schedule.air_purifier
+response_variable: schedules
+```
+
+The response data contains a field for every schedule entity (for example, `schedule.vacuum_robot` and `schedule.air_purifier` in this case).
+
+Every schedule entity response has seven fields (one for each day of the week in lowercase), containing a list of the selected time ranges.
+Days without any ranges will be returned as an empty list.
+
+```yaml
+schedule.vacuum_robot:
+  monday:
+    - from: "09:00:00"
+      to: "15:00:00"
+  tuesday: []
+  wednesday: []
+  thursday:
+    - from: "09:00:00"
+      to: "15:00:00"
+  friday: []
+  saturday: []
+  sunday: []
+schedule.air_purifier:
+  monday:
+    - from: "09:00:00"
+      to: "18:00:00"
+  tuesday: []
+  wednesday: []
+  thursday:
+    - from: "09:00:00"
+      to: "18:00:00"
+  friday: []
+  saturday:
+    - from: "10:30:00"
+      to: "12:00:00"
+    - from: "14:00:00"
+      to: "19:00:00"
+  sunday: []
+```
+
+The example below uses the response data from above in a template for another action.
+
+```yaml
+action: notify.nina
+data:
+  title: Today's schedules
+  message: >-
+    Your vacuum robot will run today:
+    {% for event in schedules["schedule.vacuum_robot"][now().strftime('%A').lower()] %}
+    - from {{ event.from }} until {{ event.to }}<br>
+    {% endfor %}
+    Your air purifier will run today:
+    {% for event in schedules["schedule.air_purifier"][now().strftime('%A').lower()] %}
+    - from {{ event.from }} until {{ event.to }}<br>
+    {% endfor %}
+```
+
+If you want to run the above action both once per day and whenever one of the schedules changes, you can create an {% term automation %} that combines a time-based {% term trigger %} with an {% term event %} trigger per entity.
+
+```yaml
+triggers:
+  - trigger: time
+    at: "07:30:00"
+  - trigger: event
+    event_type: entity_registry_updated
+    event_data:
+      action: update
+      entity_id: schedule.vacuum_robot
+  - trigger: event
+    event_type: entity_registry_updated
+    event_data:
+      action: update
+      entity_id: schedule.air_purifier
+```

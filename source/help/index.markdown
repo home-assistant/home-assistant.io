@@ -1,23 +1,25 @@
 ---
-title: "Help"
-description: "If you need help or have a question..."
+title: "Get help with Home Assistant"
+description: "Get help with Home Assistant from the community forum, the Discord chat server, social channels, and the official issue trackers."
 ---
 
-There are various ways to get in touch with the Home Assistant community. It doesn't matter if you have a question, need help, want to request a feature, or just say 'Hi'.
+Home Assistant has one of the largest and most active smart home communities on the internet. Whether you have a question, need help with a setup, want to request a feature, or just want to say hi, there are plenty of places to get in touch.
 
 ## Communication channels
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
-- Follow us on [Twitter][twitter], use [@home_assistant][twitter]
+- Follow us on Bluesky, use [@home-assistant.io][bluesky]
+- Follow us on Mastodon, use [@homeassistant@fosstodon.org][mastodon]
+- Follow us on X, use [@home_assistant][x-twitter]
 - Join the [Facebook community][facebook]
 - Join the Reddit in [/r/homeassistant][reddit]
 
-## Bugs, Feature requests, and alike
+## Bugs and feature requests
 
-Have you found an issue in your Home Assistant installation? Please report it. Reporting it makes it easy to track and ensures that it gets fixed. For more details please refer to [Reporting issues](/help/reporting_issues/) page.
+Have you found an issue in your Home Assistant installation? Please report it. Reporting it makes it easy to track and ensures that it gets fixed. For more details, refer to the [Reporting issues](/help/reporting_issues/) page.
 
-- [Feature requests](https://community.home-assistant.io/c/feature-requests) (Don't post feature requests in the issue trackers. Thanks!)
+- [Feature requests](https://github.com/orgs/home-assistant/discussions) (Don't post feature requests in the issue trackers. Thanks!)
 - [Issue tracker Home Assistant Core](https://github.com/home-assistant/core/issues)
 - [Issue tracker Home Assistant Frontend](https://github.com/home-assistant/frontend/issues)
 - [Issue tracker Home Assistant Supervisor](https://github.com/home-assistant/supervisor/issues)
@@ -26,7 +28,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Issue tracker Home Assistant iOS App](https://github.com/home-assistant/ios/issues)
 - [Issue tracker website & documentation](https://github.com/home-assistant/home-assistant.io/issues)
 
-## Videos, talks, workshops and alike
+## Videos, talks, and workshops
 
 - [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](https://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
@@ -88,7 +90,9 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Home Assistant – Open Source Python Home Automation Platform](https://www.automatedhome.co.uk/new-products/home-assistant-open-source-python-home-automation-platform.html) - January 2015
 
 [forum]: https://community.home-assistant.io/
-[twitter]: https://twitter.com/home_assistant
+[mastodon]: https://fosstodon.org/@homeassistant
+[x-twitter]: https://x.com/home_assistant
 [facebook]: https://www.facebook.com/homeassistantio
 [reddit]: https://reddit.com/r/homeassistant
 [discord]: /join-chat
+[bluesky]: https://bsky.app/profile/home-assistant.io

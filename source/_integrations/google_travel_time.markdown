@@ -11,18 +11,18 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@eifinger'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).
+The **Google Maps Travel Time** {% term integration %} provides travel time from the [Google Maps Routes API](https://developers.google.com/maps/documentation/routes/overview).
 
 ## Setup
 
-You need to register for an API key by following the instructions [here](https://github.com/googlemaps/google-maps-services-python#api-keys). You only need to turn on the Distance Matrix API.
+You need to register for an API key by following the instructions [here](https://developers.google.com/maps/documentation/routes/get-api-key-v2). You only need to turn on the Routes API.
 
-[Google now requires billing](https://mapsplatform.googleblog.com/2018/05/introducing-google-maps-platform.html) to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Distance Matrix API is billed at US$10 per 1000 requests, however, a US$200 per month credit is applied (20,000 requests). The sensor will update the travel time every 5 minutes, making approximately 288 calls per day. Note that at this rate, more than 2 sensors will likely exceed the free credit amount. While this call frequency can not be decreased, you may have a use case which requires the data to be updated more often, to do this you may update on-demand (see automation example below).
+Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs. The integration consumes the Compute Routes Pro API providing 5,000 free requests per month. The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 1 sensor will exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
 
-A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
+A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 161 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
 
 {% include integrations/config_flow.md %}
 
@@ -30,9 +30,77 @@ Notes:
 
 - Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
 
-## Manual Polling
+## Actions
 
-Using automatic polling can lead to calls that exceed your API limit, especially when you are tracking multiple travel times using the same API key. To use more granular polling, disable automated polling in your config entry's System Options. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
+The integration provides the following actions.
+
+### Action: Get travel times
+
+The `google_travel_time.get_travel_times` action retrieves route alternatives and travel times between two locations. It populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry to use for this action.
+  - **Optional**: No
+- **Data attribute**: `origin`
+  - **Description**: The origin of the route. You can use an address, GPS coordinates, or an entity ID.
+  - **Optional**: No
+- **Data attribute**: `destination`
+  - **Description**: The destination of the route. You can use an address, GPS coordinates, or an entity ID.
+  - **Optional**: No
+- **Data attribute**: `mode`
+  - **Description**: The mode of transportation. Available options: `driving`, `walking`, `bicycling`.
+  - **Optional**: Yes
+- **Data attribute**: `units`
+  - **Description**: Which unit system to use. Available options: `metric`, `imperial`.
+  - **Optional**: Yes
+- **Data attribute**: `language`
+  - **Description**: The language to use for the response.
+  - **Optional**: Yes
+- **Data attribute**: `avoid`
+  - **Description**: Features to avoid when calculating the route. Available options: `tolls`, `highways`, `ferries`, `indoor`.
+  - **Optional**: Yes
+- **Data attribute**: `traffic_model`
+  - **Description**: The traffic model to use when calculating driving routes. Available options: `best_guess`, `pessimistic`, `optimistic`.
+  - **Optional**: Yes
+- **Data attribute**: `departure_time`
+  - **Description**: The desired departure time as a time string, for example `08:00:00`.
+  - **Optional**: Yes
+
+### Action: Get transit times
+
+The `google_travel_time.get_transit_times` action retrieves route alternatives and travel times between two locations using public transit. It populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The config entry to use for this action.
+  - **Optional**: No
+- **Data attribute**: `origin`
+  - **Description**: The origin of the route. You can use an address, GPS coordinates, or an entity ID.
+  - **Optional**: No
+- **Data attribute**: `destination`
+  - **Description**: The destination of the route. You can use an address, GPS coordinates, or an entity ID.
+  - **Optional**: No
+- **Data attribute**: `units`
+  - **Description**: Which unit system to use. Available options: `metric`, `imperial`.
+  - **Optional**: Yes
+- **Data attribute**: `language`
+  - **Description**: The language to use for the response.
+  - **Optional**: Yes
+- **Data attribute**: `transit_mode`
+  - **Description**: The preferred transit mode. Available options: `bus`, `subway`, `train`, `tram`, `rail`.
+  - **Optional**: Yes
+- **Data attribute**: `transit_routing_preference`
+  - **Description**: The transit routing preference. Available options: `less_walking`, `fewer_transfers`.
+  - **Optional**: Yes
+- **Data attribute**: `departure_time`
+  - **Description**: The desired departure time as a time string, for example `08:00:00`.
+  - **Optional**: Yes
+- **Data attribute**: `arrival_time`
+  - **Description**: The desired arrival time as a time string, for example `08:00:00`.
+  - **Optional**: Yes
+
+{% important %}
+You can either use `departure_time` or `arrival_time`, not both.
+{% endimportant %}
 
 ## Dynamic Configuration
 
@@ -65,16 +133,17 @@ Destination: Eddies House
 
 ## Updating sensors on-demand using Automation
 
-You can also use the `homeassistant.update_entity` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
+Using automatic polling can lead to calls that exceed your API limit, especially when you are tracking multiple travel times using the same API key. To use more granular polling, disable automated polling.
+
+You can use the `homeassistant.update_entity` action to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
-- id: update_morning_commute_sensor
-  alias: "Commute - Update morning commute sensor"
+- alias: "Commute - Update morning commute sensor"
   initial_state: "on"
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       minutes: "/2"
-  condition:
+  conditions:
     - condition: time
       after: "08:00:00"
       before: "11:00:00"
@@ -85,8 +154,14 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
         - wed
         - thu
         - fri
-  action:
-    - service: homeassistant.update_entity
+  actions:
+    - action: homeassistant.update_entity
       target:
         entity_id: sensor.morning_commute
 ```
+
+For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}

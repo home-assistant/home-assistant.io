@@ -1,19 +1,19 @@
 ---
-title: Loqed Touch Smart Lock
+title: LOQED Touch Smart Lock
 description: Instructions on how to integrate a Loqed Touch Smart Lock
 ha_category:
   - Lock
 ha_release: 2023.7
 ha_iot_class: Local Push
 ha_codeowners:
-  - "@mikewoudenbergs"
+  - '@mikewoudenberg'
 ha_domain: loqed
 ha_platforms:
   - lock
   - sensor
 ha_config_flow: true
-ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
+ha_zeroconf: true
 ---
 
 Integrate your LOQED Touch Smart Lock with Home Assistant. The lock instantly notifies Home Assistant of a lock state change and you can change the lock state yourself.
@@ -32,7 +32,7 @@ On the [LOQED personal access token website](https://integrations.production.loq
 
 {% details "Generate access token" %}
 
-1. Login with your LOQED App e-mail address (you need to be an admin).
+1. Login with your LOQED App email address (you need to be an admin).
 2. Select **Create**.
 3. Give your personal access token a name (this will not be used further on, but we recommend something like "Home Assistant" to recognize it as used by Home Assistant).
 4. Select **Save**.
@@ -45,9 +45,9 @@ Home Assistant should automatically detect your lock when your Home Assistant ru
 
 You can also set up a lock manually when for some reason, it is not automatically detected. In that case, you need to provide both the API Key from the previous step and the name of the Lock, as it is known in the LOQED companion app.
 
-## Services
+## Actions
 
-Please see the default [lock integration page](/integrations/lock/) for the services available for the lock.
+Please see the default [lock integration page](/integrations/lock/) for the actions available for the lock.
 
 ## De-installation in Loqed
 
@@ -55,6 +55,5 @@ First, remove the integration from Home Assistant. This will remove any configur
 
 On [LOQED personal access token website](https://integrations.production.loqed.com/personal-access-tokens), please follow the following steps:
 
-1. Login with your LOQED App e-mail address (you need to be admin).
+1. Login with your LOQED App email address (you need to be admin).
 2. Select **delete** on the Personal Access Token you used when creating this integration.
-

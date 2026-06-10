@@ -14,9 +14,12 @@ ha_domain: sql
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
+The **SQL** {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
 **This integration can be configured using both config flow and by YAML.**
@@ -25,11 +28,11 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 ## Configuration by YAML
 
-To configure this sensor, define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query.
+To configure this sensor, define the sensor connection variables and a list of queries to your {% term "`configuration.yaml`" %} file. A sensor will be created for each query.
 
-To enable it, add the following lines to your `configuration.yaml` file (example by required fields):
+To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
-{% raw %}
 ```yaml
 # Example configuration.yaml
 sql:
@@ -57,7 +60,6 @@ sql:
         1;
     column: "state"
 ```
-{% endraw %}
 
 {% configuration %}
 sql:
@@ -73,11 +75,11 @@ sql:
     name:
       description: The name of the sensor.
       required: true
-      type: string
+      type: template
     query:
       description: An SQL QUERY string, should return 1 result at most.
       required: true
-      type: string
+      type: template
     column:
       description: The field name to select.
       required: true
@@ -102,17 +104,102 @@ sql:
       description: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
       required: false
       type: string
+    icon:
+      description: "Defines a template for the icon of the entity."
+      required: false
+      type: template
+    picture:
+      description: "Defines a template for the entity picture of the entity."
+      required: false
+      type: template
+    availability:
+      description: "Defines a template if the entity state is available or not."
+      required: false
+      type: template
 {% endconfiguration %}
+
+## Data updates
+
+By default, the integration executes the SQL query to update the sensor every 30 seconds.
+If you wish to update at a different interval, you can disable the automatic refresh in the integration’s system options (**Enable polling for updates**) and create your own automation with your desired frequency.
+
+For more detailed steps on how to define a custom interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
+
+## Actions
+
+### Action: SQL query
+
+The `sql.query` action executes an arbitrary read-only `SELECT` query against a database and gets the results back.
+
+- **Data attribute**: `query`
+  - **Description**: The `SELECT` query to execute. Only `SELECT` statements are allowed.
+  - **Optional**: No
+- **Data attribute**: `db_url`
+  - **Description**: The URL of the database to connect to. If not provided, the default Home Assistant recorder database will be used.
+  - **Optional**: Yes
+
+The `sql.query` action returns a list of rows, where each row is a dictionary of column names to values.
+
+#### Data type conversion
+
+The data returned by the database is converted to be compatible with the action response. The following conversions are applied:
+
+- `Decimal` types are converted to floats.
+- `Date` and `Datetime` objects are converted to ISO 8601 formatted strings.
+- `bytes` and `bytearray` are converted to a hexadecimal string prefixed with `0x`.
+- All other basic types (string, integer, float, boolean) are returned as is.
+
+#### Example
+
+##### Example of calling the `sql.query` action in an automation:
+
+```yaml
+action: sql.query
+data:
+  query: |-
+    SELECT
+      states.state,
+      last_updated_ts
+    FROM
+      states
+      INNER JOIN states_meta ON
+        states.metadata_id = states_meta.metadata_id
+    WHERE
+      states_meta.entity_id = 'sun.sun'
+    ORDER BY
+      last_updated_ts DESC
+    LIMIT
+      3;
+response_variable: sun_history
+```
+
+This would return a result similar to this, which will be stored in the `sun_history` variable:
+
+```yaml
+result:
+  - state: below_horizon
+    last_updated_ts: 1760634101.8498254
+  - state: below_horizon
+    last_updated_ts: 1760633981.849044
+  - state: below_horizon
+    last_updated_ts: 1760633861.848531
+```
 
 ## Information
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
 
-The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
+The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified. For a full overview of available tables, columns, and indexes in that database, see the [Database](/docs/backend/database/) documentation.
 
-There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
+There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
 
 Note that in all cases only the first row returned will be used.
+
+{% include integrations/using_templates.md %}
 
 ## Examples
 
@@ -153,6 +240,48 @@ LIMIT
 
 Use `state` as column for value.
 
+### Amount of state changes since using a template
+
+This example shows the amount of state changes of the sensor `sensor.temperature_in`
+using another sensor's state to provide the time window.
+
+```yaml
+sensor:
+  - platform: random
+    name: Temperature in
+    unit_of_measurement: "°C"
+```
+
+The query will look like this:
+
+{% raw %}
+
+```sql
+SELECT
+  count(state) as changes
+FROM
+  (
+    SELECT
+      states.state
+    FROM
+      states
+    WHERE
+      metadata_id = (
+        SELECT
+          metadata_id
+        FROM
+          states_meta
+        WHERE
+          entity_id = 'sensor.temperature_in'
+      )
+      AND last_updated_ts >= strftime('%s','{{ states("sensor.datetime_helper") }}')
+  )
+```
+
+{% endraw %}
+
+Use `changes` as column for value.
+
 ### Previous state of an entity
 
 Based on previous example with temperature, the query to get the former state is :
@@ -183,6 +312,7 @@ WHERE
       1
   );
 ```
+
 Use `state` as column for value.
 
 ### State of an entity x time ago
@@ -210,14 +340,33 @@ Use `state` as column for value.
 
 Keep in mind that, depending on the update frequency of your sensor and other factors, this may not be a 100% accurate reflection of the actual situation you are measuring. Since your database won’t necessarily have a value saved exactly 24 hours ago, use “>=” or “<=” to get one of the closest values.
 
+#### MariaDB
+
+On MariaDB the following where clause can be used to compare the timestamp:
+
+```sql
+...
+  AND last_updated_ts <= UNIX_TIMESTAMP(NOW() - INTERVAL 1 DAY)
+...
+```
+
+Replace `- INTERVAL 1 DAY` with the target offset, for example, `- INTERVAL 1 HOUR`.
+
 ### Database size
 
 #### Postgres
 
 ```sql
-SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;
+SELECT pg_database_size('dsmrreader')/1024/1024 as db_size;
 ```
 Use `db_size` as column for value.
+Replace `dsmrreader` with the correct name of your database.
+
+{% tip %}
+The unit of measurement returned by the above query is `MiB`, please configure this correctly.
+
+Set the device class to `Data size` so you can use UI unit conversion.
+{% endtip %}
 
 #### MariaDB/MySQL
 
@@ -228,6 +377,12 @@ SELECT table_schema "database", Round(Sum(data_length + index_length) / POWER(10
 ```
 Use `value` as column for value.
 
+{% tip %}
+The unit of measurement returned by the above query is `MiB`, please configure this correctly.
+
+Set the device class to `Data size` so you can use UI unit conversion.
+{% endtip %}
+
 #### SQLite
 
 If you are using the `recorder` integration then you don't need to specify the location of the database. For all other cases, add `sqlite:////path/to/database.db` as Database URL.
@@ -237,19 +392,8 @@ SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_c
 ```
 Use `size` as column for value.
 
-#### MS SQL
+{% tip %}
+The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
-Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
-
-Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
-
-<div class='note info'>
-Connecting with MSSQL requires "pyodbc" to be installed on your system, which can only be done on systems using the Home Assistant Core installation type to be able to install the necessary dependencies.
-  
-"pyodbc" has special requirements which need to be pre-installed before installation, see the ["pyodbc" wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for installation instructions
-</div>
-
-```sql
-SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';
-```
-Use `size` as column for value.
+Set the device class to `Data size` so you can use UI unit conversion.
+{% endtip %}

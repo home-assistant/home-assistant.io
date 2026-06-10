@@ -10,12 +10,12 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@tstabrawa'
 ---
 
-The `nuheat` integration lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
+The **NuHeat** {% term integration %} lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -110,20 +110,18 @@ Returns the maximum supported temperature by the thermostat
 | ---------------| ----------- |
 | Integer | Maximum supported temperature
 
-## Services
+## Actions
 
-The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`.
+The following actions are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`.
 
-### Service `climate.set_hvac_mode` ([Climate integration](/integrations/climate/))
+### Action: Set HVAC mode
 
-NuHeat Thermostats do not have an off concept. Setting the temperature to `min_temp` and changing the mode to `heat` will cause the device to enter a `Permanent Hold` preset and will stop the thermostat from turning on unless you happen to live in a freezing climate.
+The `climate.set_hvac_mode` action ([Climate integration](/integrations/climate/)) sets the HVAC mode for NuHeat Thermostats. NuHeat Thermostats do not have an off concept. Setting the temperature to `min_temp` and changing the mode to `heat` will cause the device to enter a `Permanent Hold` preset and will stop the thermostat from turning on unless you happen to live in a freezing climate.
 
-### Service `climate.set_temperature` ([Climate integration](/integrations/climate/))
+### Action: Set temperature
 
-If the thermostat is in auto mode, it puts the thermostat into a temporary hold at the given temperature.
+The `climate.set_temperature` action ([Climate integration](/integrations/climate/)) sets the temperature for NuHeat Thermostats. If the thermostat is in auto mode, it puts the thermostat into a temporary hold at the given temperature. If the thermostat is in heat mode, it puts the thermostat into a permanent hold at the given temperature.
 
-If the thermostat is in heat mode, it puts the thermostat into a permanent hold at the given temperature.
+### Action: Set preset mode
 
-### Service `climate.set_preset_mode` ([Climate integration](/integrations/climate/))
-
-The following presets are available: `Run Schedule`, `Temporary Hold`, `Permanent Hold`.
+The `climate.set_preset_mode` action ([Climate integration](/integrations/climate/)) sets the preset mode for NuHeat Thermostats. The following presets are available: `Run Schedule`, `Temporary Hold`, `Permanent Hold`.

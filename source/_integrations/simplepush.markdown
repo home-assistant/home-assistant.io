@@ -9,12 +9,12 @@ ha_config_flow: true
 ha_domain: simplepush
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@engrbm87'
 ---
 
-The `simplepush` platform uses [Simplepush](https://simplepush.io/) to deliver notifications from Home Assistant to your Android and iOS device. Unlike similar apps the Simplepush app requires no registration and supports end-to-end encryption.
+The **Simplepush** {% term integration %} uses [Simplepush](https://simplepush.io/) to deliver notifications from Home Assistant to your Android and iOS device. Unlike similar apps the Simplepush app requires no registration and supports end-to-end encryption.
 
 {% include integrations/config_flow.md %}
 
@@ -28,7 +28,7 @@ If you enter your password and salt (as defined in the Simplepush app settings) 
 
 ## Notifications
 
-Simplepush can send a notification by calling the [`notify` service](/integrations/notify/).
+Simplepush can send a notification by calling the [`notify` action](/integrations/notify/).
 
 You can specify the `event` under the `data` key.
 Events can be used to customize the notification behavior.
@@ -38,12 +38,12 @@ Attachments can be images, GIFs or video files that are accessible by a URL.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-## Examples 
+## Examples
 
 Send a notification with a title and event.
 
 ```yml
-- service: notify.simplepush
+- action: notify.simplepush
     data:
       title: "This is the title"
       message: "This is the message"
@@ -55,7 +55,7 @@ Send a notification with four attachments defined by their URL.
 Attachments can be images, GIFs or video files.
 
 ```yml
-- service: notify.simplepush
+- action: notify.simplepush
     data:
       message: "This is the message"
       data:

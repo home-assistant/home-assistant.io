@@ -10,27 +10,57 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
-The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
+The **Humidifier** {% term integration %} is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
 
-## Services
+{% include integrations/building_block_integration.md %}
 
-### Humidifier services
+## The state of a humidifier entity
 
-Available services: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier.turn_on`, `humidifier.turn_off`, `humidifier.toggle`
+The state of a humidifier entity can be either **On** or **Off**.
 
-<div class='note'>
+In addition, the entity can have the following states:
 
-Not all humidifier services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking the Services page in the [Developer Tools](/docs/tools/dev-tools/).
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-</div>
+## Device class
 
-### Service `humidifier.set_mode`
+{% include integrations/device_class_intro.md %}
 
-Set mode for the humidifier device. This service is only available if the device supports operating in several working modes. The list of available modes and the device functionality in every mode depend on the device itself.
+The screenshot shows different text and UI for different device classes for humidifiers:
 
-| Service data attribute | Optional | Description |
+<p class='img'>
+<img src='/images/screenshots/humidifier_device_class.png' />
+Humidifier device classes.
+</p>
+
+The following device classes are supported for humidifiers:
+
+- **Humidifier**: Adds humidity to the air around it.
+- **Dehumidifier**: Removes humidity from the air around it.
+
+## Actions
+
+### Humidifier actions
+
+Available actions: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier.turn_on`, `humidifier.turn_off`, `humidifier.toggle`
+
+{% tip %}
+Not all humidifier actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking the **Actions** page in the [Developer tools](/docs/tools/dev-tools/).
+{% endtip %}
+
+### Action: Set mode
+
+The `humidifier.set_mode` action sets the mode for the humidifier device. This action is only available if the device supports operating in several working modes. The list of available modes and the device functionality in every mode depend on the device itself.
+
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
 | `mode` | no  | New mode.
@@ -39,22 +69,22 @@ Set mode for the humidifier device. This service is only available if the device
 
 ```yaml
 automation:
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: "07:15:00"
-  action:
-    - service: humidifier.set_mode
+  actions:
+    - action: humidifier.set_mode
       target:
         entity_id: humidifier.bedroom
       data:
         mode: "eco"
 ```
 
-### Service `humidifier.set_humidity`
+### Action: Set humidity
 
-Set target humidity of the humidifier device
+The `humidifier.set_humidity` action sets the target humidity of the humidifier device.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
 | `humidity` | no  | New target humidity for humidifier device
@@ -63,37 +93,41 @@ Set target humidity of the humidifier device
 
 ```yaml
 automation:
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: "07:15:00"
-  action:
-    - service: humidifier.set_humidity
+  actions:
+    - action: humidifier.set_humidity
       target:
         entity_id: humidifier.bedroom
       data:
         humidity: 60
 ```
 
-### Service `humidifier.turn_on`
+### Action: Turn on
 
-Turn the humidifier device on.
+The `humidifier.turn_on` action turns the humidifier device on.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
 
-### Service `humidifier.turn_off`
+### Action: Turn off
 
-Turn the humidifier device off.
+The `humidifier.turn_off` action turns the humidifier device off.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
 
-### Service `humidifier.toggle`
+### Action: Toggle
 
-Toggle the humidifier device on/off.
+The `humidifier.toggle` action toggles the humidifier device on/off.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}

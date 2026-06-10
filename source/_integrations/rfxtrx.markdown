@@ -2,8 +2,9 @@
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
+  - Event
   - Hub
   - Light
   - Sensor
@@ -21,29 +22,31 @@ ha_platforms:
   - binary_sensor
   - cover
   - diagnostics
+  - event
   - light
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
+The **RFXCOM RFXtrx** {% term integration %} supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Cover](#covers)
+- [Event](#events)
 - [Light](#lights)
 - [Switch](#switches)
 - [Sensor](#sensors)
-- [Binary Sensor](#binary-sensors)
+- [Binary sensor](#binary-sensors)
 - [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
 
 ## Debug logging
 
-To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
+To receive debug logging from the RFXCOM device, add the following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:
@@ -88,7 +91,7 @@ connection: &rfxtrx
 
 ## Settings options
 
-To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration, go to **Settings** > **Devices & services** and select **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
@@ -99,6 +102,10 @@ In the options menu, select *Enable automatic add* to enable automatic addition 
 #### Covers
 
 The RFXtrx integration supports Siemens/LightwaveRF and Somfy RTS roller shutters that communicate in the frequency range of 433.92 MHz.
+
+#### Events
+
+The RFXtrx integration will expose event entities for remotes controlling lights as well as security devices.
 
 #### Lights
 
@@ -116,7 +123,7 @@ The RFXtrx integration support sensors that communicate in the frequency range o
 
 Also, several switches and other devices will also expose sensor entities with battery status as well as the signal level.
 
-#### Binary Sensors
+#### Binary sensors
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
@@ -170,11 +177,11 @@ Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and m
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
 
-<div class='note warning'>
+{% important %}
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
-</div>
+{% endimportant %}
 
-#### Off Delay
+#### Off delay
 
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
@@ -289,7 +296,7 @@ So, for example, to trigger an action when somebody presses the doorbell, you wo
 *Automation trigger:*
 
 ```yaml
-- platform: event
+- trigger: event
   event_type: rfxtrx_event
   event_data:
     packet_type: 22
@@ -313,8 +320,8 @@ scene:
 
 automation:
   - alias: "Use doorbell button to trigger scene"
-    trigger:
-    - platform: event
+    triggers:
+    - trigger: event
       event_type: rfxtrx_event
       event_data:
         packet_type: 22
@@ -322,35 +329,37 @@ automation:
         id_string: "00:90"
         values:
           Sound: 9
-    action:
-      service: scene.turn_on
-      target:
-        entity_id: scene.welcomescene
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.welcomescene
 ```
 
-## Services
+## Actions
 
 - `rfxtrx.send`: Send a custom event using the RFXtrx device.
 
-### Service: Send
+### Action: Send
+
+The `rfxtrx.send` action sends a custom event using the RFXtrx device.
 
 Simulate a button being pressed:
 
 ```yaml
 ...
-action:
-  service: rfxtrx.send
-  data:
-    event: 0b1111e003af16aa10000060
+actions:
+  - action: rfxtrx.send
+    data:
+      event: 0b1111e003af16aa10000060
 ```
 
 Alternatively:
 
-- Go to: {% my developer_call_service title="Developer tools -> Services" service="rfxtrx.send" %}
-- Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
+- Go to: {% my developer_call_service title="**Settings** > **Developer tools** > **Actions**" service="rfxtrx.send" %}
+- Select: `RFXCOM RFXtrx: Send` from the **Action** drop-down menu.
 
 ```yaml
-service: rfxtrx.send
+action: rfxtrx.send
 data:
   event: "0b1111e003af16aa10000060"
 ```
@@ -359,38 +368,26 @@ data:
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to: {% my developer_template title="Developer tools -> Template" %}
+- Go to: {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC
-
-{% raw %}
 
 ```yaml
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
 ```
 
-{% endraw %}
-
 ### Light: ARC
-
-{% raw %}
 
 ```yaml
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}020f70
 ```
 
-{% endraw %}
-
 ### Light: Lightwave RF
-
-{% raw %}
 
 ```yaml
 0a14000{{ range(100,700) | random | int }}bc0cf{{ range(0,10) | random | int }}100f70
 ```
-
-{% endraw %}
 
 - Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.

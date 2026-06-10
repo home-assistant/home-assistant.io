@@ -6,17 +6,19 @@ ha_category:
 ha_release: 0.106
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@vilppuvuorinen'
 ha_domain: melcloud
 ha_platforms:
+  - binary_sensor
   - climate
+  - diagnostics
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: device
+ha_codeowners:
+  - '@erwindouna'
 ---
 
-The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
+The **MELCloud** {% term integration %} integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
 
 ## Device support
 
@@ -52,7 +54,7 @@ The following parameters can be controlled for the `climate` platform entities:
 
 #### Controlling vanes
 
-The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` services.
+The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` actions.
 
 Swing mode can also be used to control vertical vane position.
 
@@ -61,12 +63,13 @@ Swing mode can also be used to control vertical vane position.
 The following attributes are available for `sensor` platform entities:
 
 - Room temperature
+- Outside temperature
 - Energy - The total consumed energy in kWh. **Not supported by all models.**
 - Daily energy - Energy consumption within a 24h window in kWh. This reading resets at midnight on the timezone of the MELCloud service. The exact time needs to be determined by following the sensor value until a reset is detected.
 
 ## Air-to-Water device
 
-An Air-to-Water device provides `water_heater`, `climate` and `sensor` platforms.
+An Air-to-Water device provides `water_heater`, `climate`, `sensor`, and `binary_sensor` platforms.
 
 ### Climate
 
@@ -90,13 +93,53 @@ The system cannot be turned on/off through the `climate` entities.
 
 The following attributes are available for `sensor` platform entities:
 
-- Room temperature for each zone
-- Tank water temperature
-- Outside temperature - 1°C precision, polled every 1-2 hours.
-- Zone flow temperature, polled every 1-2 hours
-- Zone flow return temperature, polled every 1-2 hours
+**Zone sensors** (per radiator zone):
 
-Unlike air-to-air devices, air-to-water devices do not report energy consumption in an easily accessible manner.
+- Room temperature
+- Zone flow temperature, polled every 1-2 hours
+- Zone return temperature, polled every 1-2 hours
+
+**Device sensors:**
+
+- Tank water temperature
+- Outside temperature – 1°C precision, polled every 1-2 hours
+- System flow temperature
+- System return temperature
+- Boiler flow temperature
+- Boiler return temperature
+- Mixing tank temperature
+- Condensing temperature
+- Heat pump frequency (compressor frequency in Hz)
+- Demand percentage
+- Daily heating energy:
+  - Consumed
+  - Produced
+- Daily cooling energy:
+  - Consumed
+  - Produced
+- Daily hot water energy:
+  - Consumed
+  - Produced
+
+The daily energy sensors use the state class `total_increasing` and are compatible with the Energy Dashboard. Values reset at midnight in the MELCloud service timezone.
+
+### Binary sensor
+
+The following binary sensors indicate component operating status and are categorized as diagnostic entities:
+
+- Boiler
+- Booster heater 1
+- Booster heater 2 _(disabled by default)_
+- Booster heater 2+ _(disabled by default)_
+- Immersion heater
+- Water pump 1
+- Water pump 2
+- Water pump 3 _(disabled by default)_
+- Water pump 4 _(disabled by default)_
+- 3-way valve
+- 2-way valve _(disabled by default)_
+
+Binary sensors are only created when the device reports the corresponding component status. Entities marked as _disabled by default_ can be enabled in the entity settings.
 
 ### Water heater
 

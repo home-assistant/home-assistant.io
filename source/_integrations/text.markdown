@@ -11,21 +11,27 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Text integration is built for the controlling and monitoring of text values on devices.
+The **Text** {% term integration %} is built for the controlling and monitoring of text values on devices.
 
-Text entities cannot be implemented manually, but can be provided by other integrations. If you are looking for a way to create a text entity, please take a look at the [Text helper](/integrations/input_text).
+{% include integrations/building_block_integration.md %}
 
-## Services
+If you are looking for a way to create a text entity, please take a look at the [Text helper](/integrations/input_text).
 
-### text services
+## Actions
 
-Available services: `text.set_value`
+### Text actions
 
-### Service `text.set_value`
+Available actions: `text.set_value`
 
-Set the textual value of the text entity.
+### Action: Set value
 
-| Service data attribute | Optional | Description |
+The `text.set_value` action sets the textual value of the text entity.
+
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of texts to control.
 | `value` | no | The new text value to set.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}

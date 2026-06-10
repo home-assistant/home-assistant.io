@@ -9,21 +9,26 @@ ha_domain: limitlessled
 ha_platforms:
   - light
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-`limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
+The **LimitlessLED** {% term integration %} can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
 
 LimitlessLED bulbs are controlled via groups, so you can only control an individual bulb via the bridge if it is in a group by itself.
 
 Note: you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same group number, effectively allowing up to 16 groups (4 `rgbww`, 4 `rgbw`, 4 `white` and 4 `dimmer`) per bridge.
 
-An archive of the extensive API can be found [here](https://github.com/Fantasmos/LimitlessLED-DevAPI).
+An archive of the extensive API can be found [here](https://github.com/Supernova4422/LimitlessLED-DevAPI).
 
 ## Setup
 
-Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)).
+Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing) or [iTunes](https://apps.apple.com/app/id430921107)).
 
-To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
+To add `limitlessled` to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,19 +103,19 @@ bridges:
           type: boolean
 {% endconfiguration %}
 
-### Night Effect
+### Night effect
 
 LimitlessLED has a `night` effect that can be used to dim the lights below `brightness: 1`. This night mode is meant to temporarily turn the lights into a nightlight. This mode can be especially helpful when wall switches are also being used. For example, when a light is using the `night` effect one way to return it to its previous brightness level (other than using Home Assistant) is to switch the lights off and then back on from the wall switch.
 
-Note that the `brightness`, `color` and `temperature` attributes cannot be used when using the `night` effect. You can turn on `night` effect by using the `effect` attribute of the normal `light.turn_on` service. Here is an example:
+Note that the `brightness`, `color` and `temperature` attributes cannot be used when using the `night` effect. You can turn on `night` effect by using the `effect` attribute of the normal `light.turn_on` action. Here is an example:
 
 ```yaml
 automation:
   - alias: "..."
-    trigger:
+    triggers:
       # ...
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id:
             - light.office

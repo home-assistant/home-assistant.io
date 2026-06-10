@@ -7,25 +7,26 @@ ha_release: '0.50'
 ha_quality_scale: internal
 ha_domain: intent_script
 ha_integration_type: integration
+ha_codeowners:
+  - '@arturpragacz'
 ---
 
-The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/).
+The **Intent Script** integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/). Internally they can be fired by [custom sentences](https://www.home-assistant.io/voice_control/custom_sentences_yaml/).
 
-{% raw %}
+If you are using intent script with LLMs and have parameters, make sure to mention the parameters and their types in the description.
 
 ```yaml
 # Example configuration.yaml entry
 intent_script:
   GetTemperature:  # Intent type
+    description: Return the temperature and notify the user
     speech:
       text: We have {{ states('sensor.temperature') }} degrees
     action:
-      service: notify.notify
+      action: notify.notify
       data:
         message: Hello from an intent!
 ```
-
-{% endraw %}
 
 Inside an intent we can define these variables:
 
@@ -35,6 +36,14 @@ intent:
   required: true
   type: map
   keys:
+    description:
+      description: Description of the intent.
+      required: false
+      type: string
+    platforms:
+      description: List of domains that the entity supports.
+      required: false
+      type: list
     action:
       description: Defines an action to run to intents.
       required: false
@@ -44,6 +53,11 @@ intent:
       required: false
       default: false
       type: boolean
+    mode:
+      description: The [script mode](https://www.home-assistant.io/integrations/script/#script-modes) in which to run the intent script. Use this to define if the intent should be able to run multiple times in parallel.
+      required: false
+      default: single
+      type: string
     card:
       description: Card to display.
       required: false
@@ -77,3 +91,40 @@ intent:
           required: true
           type: template
 {% endconfiguration %}
+
+## Using the action response
+
+When using a `speech` template, data returned from the executed action are
+available in the `action_response` variable.
+
+```yaml
+conversation:
+  intents:
+    EventCountToday:
+      - "How many meetings do I have today"
+
+intent_script:
+  EventCountToday:
+    action:
+      - action: calendar.get_events
+        target:
+          entity_id: calendar.my_calendar
+        data_template:
+          start_date_time: "{{ today_at('00:00') }}"
+          duration: { "hours": 24 }
+        response_variable: result                     # get action response
+      - stop: ""
+        response_variable: result                     # and return it
+    speech:
+      text: "{{ action_response['calendar.my_calendar'].events | length }}"   # use the action's response
+```
+
+## Actions
+
+Available actions: `reload`.
+
+### Action: Reload
+
+The `intent_script.reload` action reloads the intent script from the YAML configuration, as a quicker alternative to restarting Home Assistant.
+
+This action takes no data attributes.

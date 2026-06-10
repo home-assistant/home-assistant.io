@@ -1,29 +1,36 @@
 ---
 type: card
-title: "Gauge Card"
+title: "Gauge card"
 sidebar_label: Gauge
-description: "The Gauge card is a basic card that allows visually seeing sensor data."
+description: "The gauge card is a basic card that allows visually seeing sensor data."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The Gauge card is a basic card that allows visually seeing sensor data.
+The gauge card is a basic card that allows visually seeing sensor data.
 
 <p class='img'>
 <img src='/images/dashboards/gauge_card.gif' alt='Screenshot of the Gauge card'>
-Screenshot of the Gauge card.
+Screenshot of the gauge card.
 </p>
 
 <p class='img'>
 <img src='/images/dashboards/gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
-Screenshot of the Gauge card in needle mode.
+Screenshot of the gauge card in needle mode.
 </p>
-
-To add the Gauge card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+{% include dashboard/edit_dashboard.md %}
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -34,10 +41,14 @@ entity:
   required: true
   description: Entity ID to show.
   type: string
+attribute:
+  required: false
+  description: Attribute from the selected entity to display
+  type: string
 name:
   required: false
-  description: Name of gauge entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name
 unit:
   required: false
@@ -97,6 +108,18 @@ segments:
       required: false
       description: Label of the segment. This will be shown instead of the value.
       type: string
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
 ### Examples
@@ -181,3 +204,14 @@ segments:
   - from: 65
     color: var(--error-color)
 ```
+
+Display attribute of an entity instead of its state:
+
+```yaml
+type: gauge
+entity: sensor.back_door_info
+attribute: battery_level
+unit: '%'
+max: 100
+```
+In this example, the card displays the `battery_level` attribute of the `sensor.back_door_info` entity.

@@ -7,30 +7,23 @@ ha_release: 0.54
 ha_domain: mqtt
 ---
 
-The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
-There are two possible message schemas - `legacy` and `state`, chosen by setting the `schema` configuration parameter.
-New installations should use the `state` schema as `legacy` is deprecated and might be removed someday in the future.
-The `state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is the preferred parent vacuum entity.
-The initial state of the state vacuum entity will set to `unknown` and can be reset by a device by sending a `null` payload as state. The legacy `mqtt` vacuum does not support handling an `unknown` state.
-
-This documentation has 3 sections. Configuration for `legacy` vacuum with examples, configuration for `state` vacuum with examples and shared section with examples which are the same for both schemas.
+The **MQTT Vacuum** {% term integration %} allows you to control your MQTT-enabled vacuum.
+The initial state of the MQTT vacuum {% term entity %} will set to `unknown` and can be reset by a device by sending a `null` payload as state.
 
 ## Configuration
 
-<a id='new_format'></a>
-
-To add your MQTT vacuum to your installation, add the following to your `configuration.yaml` file:
+To use an MQTT vacuum in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  vacuum:
-    - command_topic: "vacuum/command"
+  - vacuum:
+      state_topic: state-topic
+      command_topic: command-topic
 ```
 
-## Legacy Configuration
-
-Legacy MQTT vacuum configuration section.
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -53,7 +46,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -62,308 +55,27 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
-battery_level_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the battery level of the vacuum. This is required if `battery_level_topic` is set.
+clean_segments_command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `clean_segments_command_topic`. The `value` variable contains a list of segment ID strings.
   required: false
   type: template
-battery_level_topic:
-  description: The MQTT topic subscribed to receive battery level values from the vacuum.
-  required: false
-  type: string
-charging_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the charging state of the vacuum. This is required if `charging_topic` is set.
-  required: false
-  type: template
-charging_topic:
-  description: The MQTT topic subscribed to receive charging state values from the vacuum.
-  required: false
-  type: string
-cleaning_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the cleaning state of the vacuum. This is required if `cleaning_topic` is set.
-  required: false
-  type: template
-cleaning_topic:
-  description: The MQTT topic subscribed to receive cleaning state values from the vacuum.
+clean_segments_command_topic:
+  description: The MQTT topic to publish a JSON list of segment ID strings for the segments that should be cleaned. Use the `clean_segments_command_template` option if another payload format is needed. The available segments must be provided by the vacuum in the `segments` attribute of the JSON payload published to `state_topic` before the MQTT vacuum will support cleaning segments. Using `clean_segments_command_topic` also requires that the MQTT vacuum has a `unique_id` configured.
   required: false
   type: string
 command_topic:
   description: The MQTT topic to publish commands to control the vacuum.
   required: false
   type: string
-docked_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the docked state of the vacuum. This is required if `docked_topic` is set.
-  required: false
-  type: template
-docked_topic:
-  description: The MQTT topic subscribed to receive docked state values from the vacuum.
-  required: false
-  type: string
-enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
-  required: false
-  type: boolean
-  default: true
-encoding:
-  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
-  required: false
-  type: string
-  default: "utf-8"
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
-error_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
-  required: false
-  type: template
-error_topic:
-  description: The MQTT topic subscribed to receive error messages from the vacuum.
-  required: false
-  type: string
-fan_speed_list:
-  description: List of possible fan speeds for the vacuum.
-  required: false
-  type: [string, list]
-fan_speed_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
-  required: false
-  type: template
-fan_speed_topic:
-  description: The MQTT topic subscribed to receive fan speed values from the vacuum.
-  required: false
-  type: string
-icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
-  required: false
-  type: icon
-json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
-  required: false
-  type: template
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
-  required: false
-  type: string
-name:
-  description: The name of the vacuum.
-  required: false
-  type: string
-  default: MQTT Vacuum
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
-payload_available:
-  description: The payload that represents the available state.
-  required: false
-  type: string
-  default: online
-payload_clean_spot:
-  description: The payload to send to the `command_topic` to begin a spot cleaning cycle.
-  required: false
-  type: string
-  default: clean_spot
-payload_locate:
-  description: The payload to send to the `command_topic` to locate the vacuum (typically plays a song).
-  required: false
-  type: string
-  default: locate
-payload_not_available:
-  description: The payload that represents the unavailable state.
-  required: false
-  type: string
-  default: offline
-payload_return_to_base:
-  description: The payload to send to the `command_topic` to tell the vacuum to return to base.
-  required: false
-  type: string
-  default: return_to_base
-payload_start_pause:
-  description: The payload to send to the `command_topic` to start or pause the vacuum.
-  required: false
-  type: string
-  default: start_pause
-payload_stop:
-  description: The payload to send to the `command_topic` to stop the vacuum.
-  required: false
-  type: string
-  default: stop
-payload_turn_off:
-  description: The payload to send to the `command_topic` to turn the vacuum off.
-  required: false
-  type: string
-  default: turn_off
-payload_turn_on:
-  description: The payload to send to the `command_topic` to begin the cleaning cycle.
-  required: false
-  type: string
-  default: turn_on
-qos:
-  description: The maximum QoS level of the state topic.
-  required: false
-  type: integer
-  default: 0
-retain:
-  description: If the published message should have the retain flag on or not.
-  required: false
-  type: boolean
-  default: false
-schema:
-  description: The schema to use. Must be `legacy` or omitted to select the legacy schema.
-  required: false
-  type: string
-  default: legacy
-send_command_topic:
-  description: The MQTT topic to publish custom commands to the vacuum.
-  required: false
-  type: string
-set_fan_speed_topic:
-  description: The MQTT topic to publish commands to control the vacuum's fan speed.
-  required: false
-  type: string
-supported_features:
-  description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`).
-  required: false
-  type: [string, list]
-  default: "`turn_on`, `turn_off`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
-unique_id:
-   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
-   required: false
-   type: string
-{% endconfiguration %}
-
-### Legacy configuration example
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  vacuum:
-    - name: "MQTT Vacuum"
-      supported_features:
-        - turn_on
-        - turn_off
-        - pause
-        - stop
-        - return_home
-        - battery
-        - status
-        - locate
-        - clean_spot
-        - fan_speed
-        - send_command
-      command_topic: "vacuum/command"
-      battery_level_topic: "vacuum/state"
-      battery_level_template: "{{ value_json.battery_level }}"
-      charging_topic: "vacuum/state"
-      charging_template: "{{ value_json.charging }}"
-      cleaning_topic: "vacuum/state"
-      cleaning_template: "{{ value_json.cleaning }}"
-      docked_topic: "vacuum/state"
-      docked_template: "{{ value_json.docked }}"
-      error_topic: "vacuum/state"
-      error_template: "{{ value_json.error }}"
-      fan_speed_topic: "vacuum/state"
-      fan_speed_template: "{{ value_json.fan_speed }}"
-      set_fan_speed_topic: "vacuum/set_fan_speed"
-      fan_speed_list:
-        - min
-        - medium
-        - high
-        - max
-      send_command_topic: "vacuum/send_command"
-```
-
-{% endraw %}
-
-### Legacy MQTT Protocol
-
-The above configuration for this integration expects an MQTT protocol like the following.
-See also [Shared MQTT Protocol](#shared-mqtt-protocol).
-
-#### Legacy Basic Commands
-
-MQTT topic: `vacuum/command`
-
-Possible MQTT payloads:
-
-- `turn_on` - Begin cleaning
-- `turn_off` - Turn the Vacuum off
-- `return_to_base` - Return to base/dock
-- `stop` - Stop the Vacuum
-- `clean_spot` - Initialize a spot cleaning cycle
-- `locate` - Locate the vacuum (typically by playing a song)
-- `start_pause` - Toggle the vacuum between cleaning and stopping
-
-#### Status/Sensor Updates
-
-MQTT topic: `vacuum/state`
-
-MQTT payload:
-
-```json
-{
-    "battery_level": 61,
-    "docked": true,
-    "cleaning": false,
-    "charging": true,
-    "fan_speed": "off",
-    "error": "Error message"
-}
-```
-
-## State Configuration
-
-State MQTT vacuum configuration section.
-
-{% configuration %}
-availability:
-  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
-  required: false
-  type: list
-  keys:
-    payload_available:
-      description: The payload that represents the available state.
-      required: false
-      type: string
-      default: online
-    payload_not_available:
-      description: The payload that represents the unavailable state.
-      required: false
-      type: string
-      default: offline
-    topic:
-      description: An MQTT topic subscribed to receive availability (online/offline) updates.
-      required: true
-      type: string
-    value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
-      required: false
-      type: template
-availability_mode:
-  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
-  required: false
-  type: string
-  default: latest
-availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
-  required: false
-  type: template
-availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
-  required: false
-  type: string
-command_topic:
-  description: The MQTT topic to publish commands to control the vacuum.
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `vacuum.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -372,7 +84,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -395,8 +107,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -411,6 +131,11 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+enabled_by_default:
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  required: false
+  type: boolean
+  default: true
 encoding:
   description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
   required: false
@@ -421,22 +146,39 @@ fan_speed_list:
   required: false
   type: [string, list]
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 name:
-  description: The name of the vacuum.
+  description: The name of the vacuum. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Vacuum
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -477,8 +219,12 @@ payload_stop:
   required: false
   type: string
   default: stop
+platform:
+  description: Must be `vacuum`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -487,11 +233,6 @@ retain:
   required: false
   type: boolean
   default: false
-schema:
-  description: The schema to use. Must be `state` to select the state schema.
-  required: false
-  type: string
-  default: legacy
 send_command_topic:
   description: The MQTT topic to publish custom commands to the vacuum.
   required: false
@@ -501,41 +242,39 @@ set_fan_speed_topic:
   required: false
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#state-mqtt-protocol)."
+  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `fan_speed` and `segments` keys as shown in the [example](#configuration-example)."
   required: false
   type: string
 supported_features:
-  description: "List of features that the vacuum supports (possible values are `start`, `stop`, `pause`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
+  description: "List of features that the vacuum supports (possible values are `start`, `stop`, `pause`, `return_home`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
   required: false
   type: [string, list]
-  default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+  default: "`start`, `stop`, `return_home`, `status`, `clean_spot`"
 unique_id:
-   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false
    type: string
 {% endconfiguration %}
 
-### State configuration example
+## Configuration example
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  vacuum:
-    - name: "MQTT Vacuum"
-      schema: state
+  - vacuum:
+      name: "MQTT Vacuum"
       supported_features:
         - start
         - pause
         - stop
         - return_home
-        - battery
         - status
         - locate
         - clean_spot
         - fan_speed
         - send_command
       command_topic: "vacuum/command"
-      state_topic: "vacuum/state"
+      clean_segments_command_topic: "vacuum/clean_segments"
       set_fan_speed_topic: "vacuum/set_fan_speed"
       fan_speed_list:
         - min
@@ -545,12 +284,11 @@ mqtt:
       send_command_topic: "vacuum/send_command"
 ```
 
-### State MQTT Protocol
+## MQTT Protocol
 
-The above configuration for this integration expects an MQTT protocol like the following.
-See also [Shared MQTT Protocol](#shared-mqtt-protocol).
+The  configuration for this integration expects an MQTT protocol like the following.
 
-#### State Basic Commands
+### Basic Commands
 
 MQTT topic: `vacuum/command`
 
@@ -563,7 +301,7 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 
-#### Send Custom Command
+### Send custom command
 
 Vacuum send_command allows three parameters:
 
@@ -581,26 +319,26 @@ If params are provided service sends JSON as payload with such structure:
 }
 ```
 
-Service trigger example:
+Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.sensor
-    action:
-      service: vacuum.send_command
-      target:
-        entity_id: vacuum.vacuum_entity
-      data:
-        command: "custom_command"
-        params:
-          - key: value
+    actions:
+      - action: vacuum.send_command
+        target:
+          entity_id: vacuum.vacuum_entity
+        data:
+          command: "custom_command"
+          params:
+            - key: value
 ```
 
 MQTT topic: `vacuum/send_command`
 
-#### Status/Sensor Updates
+### Status/Sensor Updates
 
 MQTT topic: `vacuum/state`
 
@@ -608,9 +346,12 @@ MQTT payload:
 
 ```json
 {
-    "battery_level": 61,
     "state": "docked",
-    "fan_speed": "off"
+    "fan_speed": "off",
+    "segments": {
+      "1": "Kitchen",
+      "2": "Living room"
+    }
 }
 ```
 
@@ -623,10 +364,7 @@ State has to be one of vacuum states supported by Home Assistant:
 - returning,
 - error.
 
-## Shared MQTT Protocol
-
-The configuration for this integration expects an MQTT protocol like the following.
-These services are identical for both - legacy and state vacuum.
+The optional `segments` attribute in the MQTT payload should contain a mapping of the available cleanable segments the MQTT vacuum can clean. When this mapping changes, Home Assistant can guide you through a repair flow will support to update the segment-to-area mapping for the vacuum.   
 
 ### Set Fan Speed
 
@@ -638,43 +376,6 @@ Possible MQTT payloads:
 - `medium` - Medium fan speed
 - `high` - High fan speed
 - `max` - Max fan speed
-
-### Send Custom Command
-
-Vacuum send_command allows three parameters:
-
-- entity_id
-- command
-- params - optional
-
-If params are not provided it sends command as payload to MQTT send_command topic.
-If params are provided service sends JSON as payload with such structure:
-
-```json
-{
-  'command': 'command',
-  'param1-key': 'param1-value'
-}
-```
-
-Service trigger example:
-
-```yaml
-- alias: "Push command based on sensor"
-    trigger:
-      - platform: state
-        entity_id: sensor.sensor
-    action:
-      service: vacuum.send_command
-      target:
-        entity_id: vacuum.vacuum_entity
-      data:
-        command: "custom_command"
-        params:
-          - key: value
-```
-
-MQTT topic: `vacuum/send_command`
 
 ## Usage examples
 

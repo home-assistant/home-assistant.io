@@ -1,14 +1,14 @@
 ---
 title: "My integration does not show up"
-description: "My integration does not show up"
+description: "If an integration you set up does not appear in Home Assistant, the reason is almost always in the logs."
 ha_category: Configuration
 ---
 
-When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
+If an {% term integration %} you set up does not appear in Home Assistant, the reason is almost always in the logs. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and look for errors that mention the integration.
 
-If you have incorrect entries in your configuration files you can use the CLI script to check your configuration, each installation type has its own section in the common-tasks about this:
+If you configured the integration through {% term "`configuration.yaml`" %} and the YAML file has a mistake, Home Assistant will refuse to load the affected parts. You can check your configuration before restarting:
 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
-- [Core](/common-tasks/core/#configuration-check)
-- [Supervised](/common-tasks/supervised/#configuration-check)
+
+Most integrations are set up through the user interface and do not require any YAML at all. See [Do I need to learn YAML to use Home Assistant?](/faq/#do-i-need-to-learn-yaml-to-use-home-assistant) for more on when YAML is and is not needed.

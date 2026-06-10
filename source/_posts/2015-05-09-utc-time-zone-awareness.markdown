@@ -33,6 +33,6 @@ This refactor adds a new migration for the database adding a `utc_offset` column
 
 All built-in components have been upgraded. The following list is only for people that run custom components:
 
- * `hass.track_time_change` and `hass.track_point_in_time` will now return a time zone aware datetime object. Python does not allow comparing a naive with an aware datetime object.
- * the sun attributes for rising and setting are now in UTC. The methods `sun.next_rising(hass)` and `sun.next_setting(hass)` are backwards compatible, just be careful if you used to read the raw attributes.
- * the API sends all times in UTC. If you use anything else besides the frontend to talk to HA, make sure it handles it differently.
+- `hass.track_time_change` and `hass.track_point_in_time` will now return a time zone aware datetime object. Python does not allow comparing a naive with an aware datetime object.
+- the sun attributes for rising and setting are now in UTC. The methods `sun.next_rising(hass)` and `sun.next_setting(hass)` are backwards compatible, just be careful if you used to read the raw attributes.
+- the API sends all times in UTC. If you use anything else besides the frontend to talk to HA, make sure it handles it differently.

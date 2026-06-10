@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@use "sass:math";
 /*------------------------------------*\
     $DEFAULTS
 \*------------------------------------*/
@@ -72,7 +72,7 @@ $responsive:        true!default;
  * Responsiveness for widescreen/high resolution desktop monitors and beyond?
  * Note: `$responsive` variable above must be set to true before enabling this.
  */
-$responsive-extra:  false!default;
+$responsive-extra:  true!default;
 
 /**
  * Responsive push and pull produce a LOT of code, only turn them on if you
@@ -102,8 +102,8 @@ $desk-pull:         false!default;
  * Tell inuit.css when breakpoints start.
  */
 $lap-start:         481px!default;
-$desk-start:        1024px!default;
-$desk-wide-start:   1200px!default;
+$desk-start:        1140px!default;
+$desk-wide-start:   1280px!default;
 
 
 
@@ -222,5 +222,5 @@ $use-greybox:       false!default;
  * Assign our `$base-line-height` to a new spacing var for more transparency.
  */
 $base-spacing-unit: $base-line-height!default;
-$half-spacing-unit: $base-spacing-unit / 2!default;
-$line-height-ratio: $base-line-height / $base-font-size;
+$half-spacing-unit: math.div($base-spacing-unit, 2)!default;
+$line-height-ratio: math.div($base-line-height, $base-font-size);

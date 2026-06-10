@@ -2,7 +2,7 @@
 title: Monessen
 description: Connect and control your Monessen devices using the IntelliFire integration
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Fan
   - Light

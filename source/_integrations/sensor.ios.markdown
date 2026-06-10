@@ -8,4 +8,4 @@ ha_iot_class: Local Push
 ha_domain: ios
 ---
 
-The `ios` sensor platform is the Home Assistant part for using the iOS companion app. For further details please check the [iOS section](/docs/ecosystem/ios/) in the documentation for further details.
+The **iOS** sensor {% term integration %} is the Home Assistant part for using the iOS companion app. For further details please check the [iOS section](/docs/ecosystem/ios/) in the documentation for further details.
