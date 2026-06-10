@@ -36,6 +36,15 @@ Verify SSL certificate:
     description: "Enable certificate verification for secure SSL/TLS connections."
 {% endconfiguration_basic %}
 
+## Configuration options
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Connection timeout:
+  description: "Maximum time in seconds to wait for a response from the SMTP server before the connection attempt is aborted. Defaults to 5 seconds. Must be between 1 and 1800 seconds (30 minutes)."
+{% endconfiguration_basic %}
+
 ## Adding recipients
 
 You need to add at least one recipient email address. During the integration setup, you will be asked to add your first recipient email address. Additional recipients can be added later. Recipients are managed separately and can be added, edited, or removed at any time.
