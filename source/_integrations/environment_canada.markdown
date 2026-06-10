@@ -95,13 +95,13 @@ To configure the radar camera display, go to {% my integrations title="**Setting
 
 The following settings are available:
 
-- **Radar type**: The radar layer to display. Options are Rain, Snow, or Precipitation type (default: Precipitation type).
+- **Radar type**: The radar layer to display: Rain, Snow, or Precipitation type (a composite layer showing the type of precipitation). The default is Precipitation type.
 - **Show legend**: Whether to show the color legend on the radar image (default: off).
 - **Show timestamp**: Whether to show the timestamp on the radar image (default: on).
 - **Radar opacity**: Opacity of the radar overlay, from 0 to 100 (default: 65).
-- **Map radius**: Radius of the radar map in kilometres, from 10 to 2,000 (default: 200 km).
+- **Map radius**: Radius of the radar map in kilometres, from 10 to 2,000 km (default: 200 km).
 
-Changing these settings reloads the integration so the new radar settings take effect immediately.
+Changing these settings reloads the integration so the new radar settings take effect immediately. The radar camera entity will be briefly unavailable during the reload.
 
 ## Solving problems
 
