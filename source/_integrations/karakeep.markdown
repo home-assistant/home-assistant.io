@@ -36,7 +36,8 @@ To use this integration, you need:
 1. Log in to your Karakeep instance.
 2. Go to **Settings** > **API Keys**.
 3. Create a new API key.
-4. Copy the API key and use it during setup in Home Assistant.
+4. If your Karakeep instance is version `v0.32.0` or later and uses granular scopes, grant the API key the **User account** > **read** scope.
+5. Copy the API key and use it during setup in Home Assistant.
 
 {% enddetails %}
 
