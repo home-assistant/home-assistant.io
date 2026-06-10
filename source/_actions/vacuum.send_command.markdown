@@ -2,7 +2,7 @@
 title: Send command
 action: vacuum.send_command
 domain: vacuum
-description: "Send a platform-specific command or function."
+description: "Send a platform-specific command."
 ---
 
 The **Send command to vacuum cleaner** action passes a custom command (and optional parameters) directly to your vacuum for platform-specific control.
