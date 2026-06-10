@@ -62,7 +62,7 @@ Line:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
 2. Select **Add Vélo'v station**.
-3. Select the stop you want to monitor. You can filter the list by stop name, address or city, or enter a stop ID directly. Address and city aren't always available.
+3. Select the station you want to monitor. You can filter the list by station name, address or city, or enter a station ID directly. Address and city aren't always available.
 
 {% configuration_basic %}
 Station ID:
