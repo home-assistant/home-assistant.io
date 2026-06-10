@@ -62,6 +62,7 @@ entity_id:
 
 ## Good to know
 
+- To turn on the TV from Home Assistant, you must create an automation with this trigger. Without this automation, the TV will appear as unavailable when it is off.
 - This trigger fires when Home Assistant *requests* the TV to turn on, not when the TV reports that it turned on. You need to provide an action (such as Wake-on-LAN or HDMI-CEC) to actually power on the device.
 - For webOS 3.0 and higher, Wake-on-LAN works best when the TV is connected by Ethernet. You also need to enable **LG Connect Apps** in the TV's **Network** settings (or **Mobile App** in **General** settings on older models).
 - If you want to react when the TV actually reports that it is on, use [Media player turned on](/triggers/media_player.turned_on/) instead.
