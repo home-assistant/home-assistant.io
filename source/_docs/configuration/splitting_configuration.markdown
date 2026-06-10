@@ -241,11 +241,12 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
 
+<a id="advanced-usage"></a>
 ## Including whole directories
 
-You can also include whole directories at once using four directory-level include options. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+You can also include whole directories at once using four directory-level include options. Your files must use the `.yaml` extension. The `.yml` extension is not supported.
 
-This will allow you to `!include` files with `.yml` extensions from within the `.yaml` files; without those `.yml` files being imported by the following commands themselves.
+This lets you `!include` files with `.yml` extensions from within `.yaml` files without importing those `.yml` files directly with the directory-level options.
 
 - `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
 - `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
