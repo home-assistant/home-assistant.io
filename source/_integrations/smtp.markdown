@@ -42,7 +42,7 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Connection timeout:
-  description: "Maximum time in seconds to wait for a response from the SMTP server before the connection attempt is aborted."
+  description: "Maximum time in seconds to wait for a response from the SMTP server before the connection attempt is aborted. Defaults to 5 seconds. Must be between 1 and 1800 seconds (30 minutes)."
 {% endconfiguration_basic %}
 
 ## Adding recipients
