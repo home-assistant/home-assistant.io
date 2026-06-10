@@ -91,17 +91,26 @@ The alert sensors use the number of current alerts as their state, with an attri
 
 ## Radar camera options
 
-To configure the radar camera display, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Environment Canada** integration, and select **Configure**.
-
+You can customize the radar display settings.
 The following settings are available:
 
-- **Radar type**: The radar layer to display: Rain, Snow, or Precipitation type (a composite layer showing the type of precipitation). The default is Precipitation type.
+- **Radar type**: The radar layer to display: **Rain**, **Snow**, or **Precipitation type** (a composite layer showing the type of precipitation). The default is **Precipitation type**.
 - **Show legend**: Whether to show the color legend on the radar image (default: off).
 - **Show timestamp**: Whether to show the timestamp on the radar image (default: on).
 - **Radar opacity**: Opacity of the radar overlay, from 0 to 100 (default: 65).
-- **Map radius**: Radius of the radar map in kilometres, from 10 to 2,000 km (default: 200 km).
+- **Map radius**: Radius of the radar map in kilometers, from 10 to 2,000 km (default: 200 km).
 
-Changing these settings reloads the integration so the new radar settings take effect immediately. The radar camera entity will be briefly unavailable during the reload.
+### Configuring radar camera display
+
+To configure the radar camera display:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Environment Canada** integration.
+3. Select **Configure** (the cogwheel icon).
+4. Change the options you want.
+5. Select **Submit**.
+
+Changing these settings reloads the integration, so the new radar settings take effect immediately. The radar camera entity is briefly unavailable during the reload.
 
 ## Solving problems
 
