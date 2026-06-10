@@ -12,8 +12,8 @@ ha_integration_type: system
 
 The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker set the state of the person. When you use multiple device trackers, the state of the person is determined in this order:
 
-1. If there are stationary trackers (non-GPS trackers, such as a router or Bluetooth device tracker) presenting the state `home`, the tracker most recently updated will be used.
-2. If there are trackers of type `gps`, then the most recently updated tracker will be used.
+1. If one or more [connection trackers](/integrations/device_tracker/#connection-trackers) are connected, the tracker most recently updated will be used.
+2. If there are [position trackers](/integrations/device_tracker/#position-trackers), the most recently updated tracker will be used.
 3. Otherwise, the latest tracker with state `not_home` will be used.
 
 Let's say, for example, that you have three trackers: `tracker_gps`, `tracker_router`, and `tracker_ble`.
@@ -26,11 +26,9 @@ Let's say, for example, that you have three trackers: `tracker_gps`, `tracker_ro
 6. You've returned home and your mobile device has connected to the router, but `tracker_gps` hasn't updated yet. Your state will be `home` with source `tracker_router`.
 7. After the `tracker_gps` update occurs, your state will still be `home` with source `tracker_router` or `tracker_ble`, whichever has the most recent update.
 
-In short, when you're at home, your position is determined first by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined first by GPS and then by stationary trackers.
+In short, when you're at home, your position is determined first by connection trackers (if any) and then by position trackers. When you're outside your home, your position is determined first by position trackers and then by connection trackers.
 
-{% tip %}
-When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible (see [device_tracker](/integrations/device_tracker/)).
-{% endtip %}
+In addition to the state, the person will have the state attributes `latitude`, `longitude`, `gps_accuracy` and `in_zones` copied from the source device tracker.
 
 You can manage persons {% my people title="via the UI from the person page inside the configuration panel" %} or via YAML in your {% term "`configuration.yaml`" %} file.
 
