@@ -40,7 +40,7 @@ Always include `type: homeassistant` as a fallback authentication provider.
    - For information on how to access and edit the configuration file, see [Editing configuration.yaml](/docs/configuration/#editing-configurationyaml).
 2. Under `homeassistant:`, add an `auth_providers` block and list every authentication provider you want to use.
    - Any provider not listed will be disabled.
-   - [List of available authentication providers](#list-of-available-authentication-providers)
+   - See [List of available authentication providers](#list-of-available-authentication-providers).
 3. Important: to avoid unauthenticated access on your local network and to keep password-based login available, always include `type: homeassistant`.
    - Example:
 
