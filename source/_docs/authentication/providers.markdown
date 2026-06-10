@@ -55,9 +55,8 @@ Always include `type: homeassistant` as a fallback authentication provider.
 
 4. If you are moving configuration to packages, keep the `auth_providers` configuration in `configuration.yaml`. It cannot be moved to a package file.
 5. Restart Home Assistant to apply the changes.
-
+<a id="available-auth-providers"></a>
 ## List of available authentication providers
-
 Home Assistant has three built-in authentication providers:
 
 - [Home Assistant](#home-assistant-authentication-provider): the default provider, using a username and password stored locally.
