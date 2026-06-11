@@ -53,6 +53,7 @@ The following selectors are currently available:
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
 - [Trigger selector](#trigger-selector)
+  - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -1646,8 +1647,7 @@ target:
 
 ## Template selector
 
-The template selector can be used to input a Jinja2 template. This is useful
-for allowing more advanced user-input that use Jinja2 templates.
+The template selector can be used to input a Jinja2 template. This is useful when a fixed value is not enough and the input needs to reference entity states, respond to conditions, or perform calculations.
 
 ![Screenshot of an template selector](/images/blueprints/selector-template.png)
 
