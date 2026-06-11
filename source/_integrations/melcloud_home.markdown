@@ -60,6 +60,18 @@ Each heating zone of an air-to-water heat pump is exposed as a separate climate 
 - **Target temperature** (per zone)
 - **Current room temperature** (per zone)
 
+### Sensors
+
+The following entites are created per unit or zone, both for Air-to-Air and Air-to-Water units:
+
+- **Room temperature**: Returns the current measured room temperature.
+- **RRSI**: The current WiFi signal strength.
+
+The following extra sensors are only applicable for the Air-to-Water units:
+
+- **Room zone temperature 1 & 2**: Either one or the two room temperatures are returned, if applicable for the setup.
+- **Tank water temperature**: The current measured tank water temperature.
+
 ## Data updates
 
 The integration {% term polling polls %} the MELCloud Home API every 60 seconds.
