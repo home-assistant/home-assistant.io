@@ -72,7 +72,7 @@ The **KlikAanKlikUit** integration provides the following entities.
 
 ### Switches
 
-- **Power switch**
+- **Output**
   - **Description**: Turns the device on or off.
   - **Available when**: Always.
 
