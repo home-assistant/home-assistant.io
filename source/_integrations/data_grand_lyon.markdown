@@ -65,7 +65,7 @@ Line:
 3. Select the station you want to monitor. You can filter the list by station name, address or city, or enter a station ID directly. Address and city aren't always available.
 
 {% configuration_basic %}
-Station ID:
+Station:
   description: "The Vélo'v station identifier. You can find station IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees). Zoom in on the map and select a station. The ID will be displayed at the top of the panel displayed on the right of the screen. The field is called **idstation**."
 {% endconfiguration_basic %}
 
