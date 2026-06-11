@@ -79,7 +79,7 @@ Because KlikAanKlikUit RF control is one-way, Home Assistant cannot confirm whet
 - Dimming support depends on your device's model.
 
 ## Pairing devices
-- how to pair a device depends on it's design. Most of them have a learn-button. Push it > 2s until it's LED is flashing, then within 30s issue the integration's pairing function during configuration. Some devices go into learning-mode after repowering.
+How to pair a device depends on its design. Most of them have a learn button. Push and hold it for > 2s until its LED starts flashing. Then, within 30 seconds, issue the integration's pairing function during configuration. Some devices go into learning mode after repowering.
 
 ## Troubleshooting
 
