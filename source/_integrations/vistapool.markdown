@@ -156,9 +156,9 @@ The integration provides the following binary sensors, grouped by what they repo
 
 - **pH pump alarm**: pH pump dosing alarm (if pH module installed)
 - **Hidro flow**: flow alarm on the cell (if hydrolysis/electrolysis module installed)
-- **Hidro FL2**: secondary flow alarm reported by the chlorine module (if chlorine module installed)
+- **Hidro FL2**: secondary flow alarm reported by the chlorine module (if hydrolysis/electrolysis and chlorine modules are installed)
 - **Electrolysis low** / **Hydrolysis low**: production has dropped below the configured threshold. The name reflects which cell technology your controller reports (if hydrolysis/electrolysis module installed)
-- **Dosing tank**: at least one installed dosing tank reports a low level
+- **Dosing tank**: at least one installed dosing tank reports a low level (if any chemical dosing module is installed)
 
 #### Diagnostic entities
 
