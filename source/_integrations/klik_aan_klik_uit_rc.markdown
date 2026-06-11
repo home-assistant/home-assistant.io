@@ -3,7 +3,7 @@ title: KlikAanKlikUit
 description: Instructions on how to integrate KlikAanKlikUit and compatible devices into Home Assistant.
 ha_category:
   - Switch
-ha_release: 2026.6
+ha_release: 2026.7
 ha_iot_class: Assumed State
 ha_config_flow: true
 ha_codeowners:
