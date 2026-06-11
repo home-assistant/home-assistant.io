@@ -1,6 +1,6 @@
 ---
-title: "Advanced Raspberry Pi installation"
-description: "Instructions to install Home Assistant Container on a Raspberry Pi. This is for advanced users only."
+title: "Home Assistant Container on Raspberry Pi"
+description: "Instructions to install Home Assistant Container on a Raspberry Pi using Docker."
 installation_type: raspberrypi-other
 related:
   - docs: /installation/raspberrypi/
