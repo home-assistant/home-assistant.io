@@ -485,13 +485,13 @@ This integration adds the Blebox device as a sensor entity and a binary sensor e
 - An option to change the detection mode is available in the wBox app.
 - After changing settings, the device needs to be reloaded.
 
-### smartMeter DIN
+### energyMeter DIN
 
 This integration adds the Blebox device as multiple sensor entities to Home Assistant.
 
 #### Key supported features
 
-- Periodic read of energy consumption (forward and reverse)
+- Periodic read of energy consumption (active and reactive, both forward and reverse)
 - Periodic read of power (active, reactive, and apparent)
 - Periodic read of voltage, current, and frequency
 
@@ -1107,7 +1107,7 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 
 #### Key supported features
 
-- Periodic read of energy consumption (forward and reverse)
+- Periodic read of energy consumption (active and reactive, both forward and reverse)
 - Periodic read of power (active, reactive, and apparent)
 - Periodic read of voltage, current, and frequency
 
