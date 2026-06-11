@@ -986,6 +986,7 @@ support_url:
     'url_t':               'url_topic',
     'url_tpl':             'url_template',
     'val_tpl':             'value_template',
+    'vis':                 'visible_by_default',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
     'xy_cmd_t':            'xy_command_topic',
