@@ -14,6 +14,6 @@ You may still see references to "Home Assistant Core" or "Home Assistant Supervi
 
 Learn more:
 
-- [About installation methods](/installation/#about-installation-types)
+- [About installation types](/installation/#about-installation-types)
 - [Home Assistant Green](/green/)
 - [Home Assistant Yellow](/yellow/)
