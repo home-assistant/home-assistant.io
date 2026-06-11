@@ -96,7 +96,9 @@ Changed values are reported from homee in defined time intervals and not always 
 
 ## Examples
 
-Use a Homeegram playing in homee as trigger in Home Assistant.
+### Use a Homeegram as trigger
+
+If you don't want to recreate your automations in Home Assistant, you can use your existing Homeegrams as trigger.
 
 ```YAML
 triggers:
