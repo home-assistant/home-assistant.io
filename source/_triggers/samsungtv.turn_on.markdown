@@ -1,4 +1,4 @@
-git---
+---
 title: "Device is requested to turn on"
 trigger: samsungtv.turn_on
 domain: samsungtv
