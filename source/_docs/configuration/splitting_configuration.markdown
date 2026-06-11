@@ -1,5 +1,5 @@
 ---
-title: "Splitting up the configuration"
+title: "Splitting the configuration file"
 description: "Keep your configuration.yaml manageable by splitting it into smaller, focused files using the !include directive."
 related:
   - docs: /docs/configuration/
@@ -8,13 +8,11 @@ related:
     title: Using packages to organize configuration files
 ---
 
-So you've been using Home Assistant for a while now and your {% term "`configuration.yaml`" %} file brings people to tears because it has become so large. Or, you simply want to start off with the distributed approach. Here's how to split the {% term "`configuration.yaml`" %} into more manageable (read: human-readable) pieces.
+If you configure Home Assistant using YAML, your {% term "`configuration.yaml`" %} file can grow large over time. You can split it into smaller, focused files using the `!include` directive.
 
-## Example configuration files for inspiration
-
-First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example configuration on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
-
-As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
+{% note %}
+Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for you if you use YAML-based configuration and want to keep your files organized.
+{% endnote %}
 
 ## Analyzing the configuration files
 
@@ -241,11 +239,12 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
 
-## Advanced usage
+<a id="advanced-usage"></a>
+## Including whole directories
 
-We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+You can also include whole directories at once using four directory-level include options. Your files must use the `.yaml` extension. The `.yml` extension is not supported.
 
-This will allow you to `!include` files with `.yml` extensions from within the `.yaml` files; without those `.yml` files being imported by the following commands themselves.
+This lets you `!include` files with `.yml` extensions from within `.yaml` files without importing those `.yml` files directly with the directory-level options.
 
 - `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
 - `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
@@ -530,7 +529,7 @@ front_yard:
 
 ### Example: Combine `!include_dir_merge_list` with `automations.yaml`
 
-You want to go the advanced route and split your automations, but still want to be able to create {% my automations title="automations in the UI" %}?
+You want to split your automations, but still want to be able to create {% my automations title="automations in the UI" %}?
 In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
 
 Using labels like `manual` or `ui` allows for using multiple keys in the config:
@@ -545,5 +544,9 @@ automation manual: !include_dir_merge_list automations/
 # Automations I create in the UI
 automation ui: !include automations.yaml
 ```
+
+## Example configuration files for inspiration
+
+Several community members have shared versions of their configurations without sensitive information, like API keys and passwords. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
 
 [discord]: https://discord.gg/home-assistant

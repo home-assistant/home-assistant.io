@@ -697,7 +697,7 @@ Not all hardware manufacturers fully comply with the standard. This can include:
 - Not showing all expected entities within the Home Assistant {% term integration %} overview.
 - Showing no entities within Home Assistant at all.
 
-Developers (or even advanced users) might be able to work around such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to [How to add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
+If you're comfortable writing Python code, you can work around such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to [How to add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
 
 {% note %}
 _If a device will not join or pair_ at all, review the following sections on this page:

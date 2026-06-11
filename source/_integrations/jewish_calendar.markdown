@@ -31,7 +31,9 @@ Latitude, Longitude, Time Zone and Elevation:
   description: Allows you to override the default location information provided by Home Assistant for the calculations.
 {% endconfiguration_basic %}
 
-## Advanced Options
+## Configuration options
+
+The integration provides the following configuration options:
 
 {% configuration_basic %}
 Minutes before sunset for candle lighting:
