@@ -204,6 +204,11 @@ value_template:
   description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that returns a device tracker state."
   required: false
   type: template
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Examples
