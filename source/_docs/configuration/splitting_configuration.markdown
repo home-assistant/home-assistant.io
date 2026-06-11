@@ -14,12 +14,6 @@ If you configure Home Assistant using YAML, your {% term "`configuration.yaml`" 
 Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for you if you use YAML-based configuration and want to keep your files organized.
 {% endnote %}
 
-## Example configuration files for inspiration
-
-First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example configuration on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
-
-As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
-
 ## Analyzing the configuration files
 
 In this section, we are going use some example configuration files and look at their structure and format in more detail.
@@ -550,5 +544,9 @@ automation manual: !include_dir_merge_list automations/
 # Automations I create in the UI
 automation ui: !include automations.yaml
 ```
+
+## Example configuration files for inspiration
+
+Several community members have shared versions of their configurations without sensitive information, like API keys and passwords. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
 
 [discord]: https://discord.gg/home-assistant
