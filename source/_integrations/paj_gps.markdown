@@ -87,19 +87,19 @@ actions:
 Sending a notification when a device's battery drops below 25%:
 
 {% example %}
-alias: Notify when PAJ GPS battery is low
-description: "Send a notification when the tracker battery drops below 25%"
-triggers:
-  - trigger: numeric_state
-    entity_id: sensor.my_tracker_battery
-    below: 25
-actions:
-  - action: notify.send_message
-    target:
-      entity_id: notify.my_phone
-    data:
-      title: "Tracker battery low"
-      message: "Please recharge your tracker soon."
+automation: |
+  alias: "Notify when PAJ GPS battery is low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_tracker_battery
+      below: 25
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        title: "Tracker battery low"
+        message: "Please recharge your tracker soon."
 {% endexample %}
 
 ## Data updates
