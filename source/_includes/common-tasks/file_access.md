@@ -108,11 +108,10 @@ The **Terminal & SSH** app provides the following functionalities:
 
 To get started with the **Terminal & SSH** app, follow these steps:
 
-1. In the bottom left, select your user to open the {% my profile title="**Profile**" %} page. Make sure **Advanced Mode** is enabled.
-2. To install the app, go to the app store under [**Settings** > **Apps**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** app.
-3. To use the web terminal, **start** the app, then select **Open Web UI**.
+1. To install the app, go to the app store under [**Settings** > **Apps**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** app.
+2. To use the web terminal, **start** the app, then select **Open Web UI**.
    - You can now start typing your [commands](/common-tasks/os#home-assistant-via-the-command-line).
-4. If you want to access from an ssh client, you need to enter credentials:
+3. If you want to access from an ssh client, you need to enter credentials:
    - Open the **Configuration** page.
    - Enter a password or authorized Keys.
    - Then save and start the app.

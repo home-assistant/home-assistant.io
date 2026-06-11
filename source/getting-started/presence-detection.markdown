@@ -1,9 +1,9 @@
 ---
 title: "Setting up presence detection"
-description: "Instructions on how to set up zone presence detection within Home Assistant."
+description: "Set up presence detection in Home Assistant to trigger automations when people arrive home or leave."
 ---
 
-Zone presence detection detects if people are within a certain zone, which can be valuable input for automation. Knowing who is home or where they are opens a range of automation options:
+Presence detection tells Home Assistant who is at home and where they are. That is one of the most useful pieces of information you can give your smart home, because it lets your automations react to people arriving and leaving:
 
 - Send me a notification when my child arrives at school
 - Turn on the AC when I leave work

@@ -18,8 +18,6 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-ha_dhcp: true
-ha_ssdp: true
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -555,7 +553,9 @@ condition:
          trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
        }}{% endraw %}
 actions:
-  - action: notify.mobile_app_your_device # Replace with your notification target
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
       title: "Fingerprint Scan Notification"

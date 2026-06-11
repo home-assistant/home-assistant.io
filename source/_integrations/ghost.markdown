@@ -54,6 +54,7 @@ The **Ghost** integration provides the following entities.
 - **Paid Members**: Number of paying subscribers
 - **Free Members**: Number of free subscribers
 - **Comped Members**: Number of complimentary subscribers
+- **Gift Members**: Number of subscribers with a gift subscription
 
 ##### Revenue metrics
 
@@ -104,7 +105,9 @@ automation:
       - condition: template
         value_template: "{{ trigger.to_state.state | int % 100 == 0 }}"
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Milestone reached!"
           message: "You now have {{ trigger.to_state.state }} members!"

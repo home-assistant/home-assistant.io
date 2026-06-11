@@ -162,6 +162,27 @@ max:
   required: false
   type: float
   default: 100
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 mode:
   description: Control how the number should be displayed in the UI. Can be set to `box` or `slider` to force a display mode.
   required: false
@@ -216,6 +237,11 @@ value_template:
   description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the value."
   required: false
   type: template
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}

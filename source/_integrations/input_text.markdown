@@ -137,3 +137,7 @@ automation:
         data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
+
+{% include integrations/triggers.md domain="text" %}
+
+{% include integrations/conditions.md domain="text" %}

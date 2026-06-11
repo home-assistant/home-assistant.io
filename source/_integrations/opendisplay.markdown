@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - event
+  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -57,6 +58,11 @@ If the encryption key changes after the device has been set up, Home Assistant w
 ## Supported functionality
 
 The **OpenDisplay** integration provides the following entities.
+
+### Sensors
+
+- **Temperature**: Chip temperature
+- **Battery Voltage**: (Only if the device has a battery configured) Shows the current voltage of the attached battery
 
 ### Button events
 

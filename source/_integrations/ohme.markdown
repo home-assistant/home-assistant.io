@@ -108,6 +108,9 @@ The Ohme integration provides the following entities.
 - **Price cap**
   - **Description**: Prevents charging when the electricity price exceeds a defined threshold. The threshold can be set by the service `ohme.set_price_cap`. ***Not available with some energy providers and tariffs.***
   - **Available for devices**: all
+- **Solar boost**
+  - **Description**: Uses excess solar power when available.
+  - **Available for devices**: Home Pro (CT clamp required)
 - **Lock buttons**
   - **Description**: Disable the controls on the device.
   - **Available for devices**: all
@@ -174,7 +177,9 @@ triggers:
       - sensor.ohme_home_pro_status
     from: unplugged
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: "Vehicle plugged in"
 ```
@@ -186,9 +191,7 @@ You may need to power cycle your charger. Please see the [manufactuer's guidance
 
 ## Data updates
 
-This integration fetches data every 30 seconds with the following exceptions:
-- CT readings are fetched every minute.
-- Device settings are fetched every 30 minutes.
+This integration fetches data every 30 seconds with the exception of device settings which are fetched every 30 minutes.
 
 ## Known limitations
 

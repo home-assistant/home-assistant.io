@@ -226,7 +226,9 @@ automation: |
     entity_id: binary_sensor.front_door
     to: "on"
   action:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: >
           {{ trigger.to_state.name }} was opened at

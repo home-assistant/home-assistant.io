@@ -12,7 +12,7 @@ The **MQTT Valve** {% term integration %} allows you to control an MQTT valve (s
 
 ## Configuration
 
-A valve entity can be have the following states: `open`, `opening`, `closed` or `closing`.
+A valve entity can have the following states: `open`, `opening`, `closed`, or `closing`.
 
 ### Valve controlled by states
 
@@ -22,7 +22,7 @@ To use an MQTT valve in your installation, [add an MQTT device as a subentry](/i
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
-# Example configuration.yaml entry for a value that is set by open or close command
+# Example configuration.yaml entry for a valve that is set by open or close commands
 mqtt:
   - valve:
       command_topic: "heater/valve/set"
@@ -41,7 +41,7 @@ Example of a JSON state update:
 {"state": "opening", "position": 10}
 ```
 
-The wanted position value or `payload_stop` will be published to `command_topic` to control the valve when the actions `valve.open`, `value.close`, or `value.set_position` are called.
+The wanted position value or payload will be published to `command_topic` to control the valve when the actions `valve.open_valve`, `valve.close_valve`, or `valve.set_valve_position` are called.
 
 To use your MQTT valve in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
@@ -80,7 +80,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the device's availability from the `topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -89,7 +89,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the device's availability from the `availability_topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the device's availability from the `availability_topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -199,6 +199,27 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. A usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 name:
   description: The name of the valve. Can be set to `null` if only the device name is relevant.
   required: false
@@ -283,7 +304,7 @@ state_opening:
   type: string
   default: opening
 state_topic:
-  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `reports_position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together. A "None" state value resets to an `unknown` state. An empty string is ignored.
+  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `reports_position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can be received together. A "None" state value resets to an `unknown` state. An empty string is ignored.
   required: false
   type: string
 unique_id:
@@ -294,19 +315,24 @@ value_template:
   description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that can be used to extract the payload for the `state_topic` topic. The rendered value should be a defined state payload or, if reporting a `position` is supported and `reports_position` is set to `true`, a numeric value is expected representing the position. See also `state_topic`."
   required: false
   type: template
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% note %}
 MQTT valve expects position values to be in the range of 0 to 100, where 0 indicates a closed position and 100 indicates a fully open position.
 If `position_open` or `position_closed` are set to a different range (for example, 40 to 140), when sending a command to the device, the range will be adjusted to the device range. For example, position 0 will send a value of 40 to device. When the device receives a position payload, it will be adjusted back to the 0 to 100 range. In our example, the device value of 40 will report valve position 0.
-`position_open` and `position_closed` can also be used to reverse the direction of the device: If `position_closed` is set to 100 and `position_open` is set to `0`, the device operation will be inverted. For example, when setting the position to 40, a value of 60 will be sent to the device.
+`position_open` and `position_closed` can also be used to reverse the direction of the device: If `position_closed` is set to 100 and `position_open` is set to 0, the device operation will be inverted. For example, when setting the position to 40, a value of 60 will be sent to the device.
 {% endnote %}
 
 ## Examples
 
 This section provides some examples showing how you can use this platform.
 
-### Full configuration for a value that does not report position
+### Full configuration for a valve that does not report position
 
 The example below shows a full configuration for a valve that does not report position.
 

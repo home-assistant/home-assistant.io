@@ -174,12 +174,12 @@ Home Assistant records when each state last changed, and you can reach that time
 {% example %}
 template: |
   The front door changed {{
-    relative_time(states.binary_sensor.front_door.last_changed)
+    time_since(states.binary_sensor.front_door.last_changed)
   }} ago.
 output: "The front door changed 15 minutes ago."
 {% endexample %}
 
-[`relative_time`](/template-functions/relative_time/) produces nice human-readable text like "15 minutes" or "2 hours".
+[`time_since`](/template-functions/time_since/) produces nice human-readable text like "15 minutes" or "2 hours".
 
 **Has it been more than 10 minutes?**
 
@@ -194,7 +194,7 @@ output: "True"
 
 `now()` gives you the current moment. Subtracting two moments gives you the duration between them. `.total_seconds()` turns that duration into a number of seconds, and `600` is ten minutes. This pattern is handy for conditions like "only notify me if the door has been open for more than 10 minutes".
 
-See [`now`](/template-functions/now/) and [`relative_time`](/template-functions/relative_time/).
+See [`now`](/template-functions/now/) and [`time_since`](/template-functions/time_since/).
 
 ## Formatting timestamps
 
@@ -367,7 +367,7 @@ template: |
      | selectattr('attributes.device_class', 'eq', 'door')
      | list %}
   {% set latest = doors | max(attribute='last_changed') %}
-  {{ latest.name }} changed {{ relative_time(latest.last_changed) }} ago.
+  {{ latest.name }} changed {{ time_since(latest.last_changed) }} ago.
 output: "Front door changed 3 minutes ago."
 {% endexample %}
 
