@@ -66,21 +66,6 @@ The PAJ GPS {% term integration %} will track the location of each device regist
 
 Opening the garage door when a car with a PAJ GPS device is near using automations:
 
-{% raw %}
-
-```yaml
-alias: Open garage door for the car
-description: "If car enters the home zone, open the garage door"
-triggers:
-  - trigger: zone
-    entity_id: person.car_tracker
-    zone: zone.home
-    event: enter
-actions:
-  - action: button.press
-    target:
-      entity_id: button.garage_door_open
-```
 {% example %}
 automation: |
   alias: "Open garage door for the car"
