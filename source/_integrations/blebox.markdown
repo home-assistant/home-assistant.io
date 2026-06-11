@@ -198,7 +198,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 ### switchBox
 
-This integration adds the Blebox device as a switch entity and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as a switch entity and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -206,10 +206,11 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 - Off
 - Active power measurement
 - Energy consumption measurement
+- Voltage measurement
 
 ### switchBox DIN
 
-This integration adds the Blebox device as a switch entity and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as a switch entity and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -217,10 +218,11 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 - Off
 - Active power measurement
 - Energy consumption measurement
+- Voltage measurement
 
 ### switchBoxD
 
-This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -228,10 +230,11 @@ This integration adds the Blebox device as 2 switch entities and 2 sensor entiti
 - Off
 - Active power measurement
 - Energy consumption measurement
+- Voltage measurement
 
 ### switchBoxD DIN
 
-This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -239,6 +242,7 @@ This integration adds the Blebox device as 2 switch entities and 2 sensor entiti
 - Off
 - Active power measurement
 - Energy consumption measurement
+- Voltage measurement
 
 ### switchBoxDC
 
@@ -844,12 +848,15 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 
 ### Simon 55 GO SOCKET (TEGZ1W.02)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
+- Voltage measurement
 
 ### Simon 55 GO SWITCHSHUTT
 
