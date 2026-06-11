@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: airq
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - number
   - sensor
 ha_zeroconf: true

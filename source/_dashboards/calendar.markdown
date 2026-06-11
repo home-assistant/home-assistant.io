@@ -17,9 +17,9 @@ The calendar card displays your {% term calendar %} {% term entities %} in a mon
   Screenshot of the calendar card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

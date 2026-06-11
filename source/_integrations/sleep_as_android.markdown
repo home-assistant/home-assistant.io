@@ -172,8 +172,6 @@ Events triggered when a specific sound is detected during sleep tracking.
 
 Here’s an example automation: when your Sleep as Android alarm starts ringing, your bedroom blinds will automatically open.
 
-{% raw %}
-
 ```yaml
 alias: Open window blinds on Alarm
 triggers:
@@ -193,8 +191,6 @@ actions:
       entity_id: cover.bedroom_blinds
 mode: single
 ```
-
-{% endraw %}
 
 ## Control Sleep as Android via Home Assistant
 

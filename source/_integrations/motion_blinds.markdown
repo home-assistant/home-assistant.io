@@ -23,6 +23,7 @@ Additionally the following brands have been reported to also work with this inte
 
 - [Acomax](https://www.acomax.de/)
 - [AMP Motorization](https://www.ampmotorization.com/)
+- [Avosdim](https://avosdim.com)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
@@ -71,6 +72,7 @@ The following bridges are reported to work with this integration:
 - Dreamhub Pro 191726
 - Dreamhub mini 191717
 - Kaiser Nienhaus Smart Stick
+- Box maison connectée 005313 AvosDim
 
 {% include integrations/config_flow.md %}
 
@@ -117,6 +119,10 @@ In the Blindsgalore AMP app go to the home screen, go to settings (three bars in
   2. Select the **About** page of the Connector app.
   3. Tap the screen 5 times while being on the **About** page. 
       - This opens a window with the API key.
+
+### Avosdim app
+
+In the Avosdim mobile app, go to **Settings** (three bars in the upper-left corner > gear icon), select **About** at the bottom, quickly tap the connected shutter icon in the center of the screen 5 times, and a pop-up with the key will appear.
 
 ## Favorite position
 

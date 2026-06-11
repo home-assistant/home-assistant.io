@@ -10,6 +10,7 @@ ha_codeowners:
   - '@joostlek'
 ha_domain: chess_com
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze

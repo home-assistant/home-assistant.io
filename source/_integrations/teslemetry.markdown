@@ -4,8 +4,8 @@ description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
-  - Car
   - Calendar
+  - Car
   - Climate
   - Cover
   - Device tracker
@@ -38,7 +38,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Teslemetry** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
@@ -169,6 +169,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Current speed limit|No|
 |Sensor|DC charging energy in|No|
 |Sensor|DC charging power|No|
+|Sensor|Destination|No|
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|

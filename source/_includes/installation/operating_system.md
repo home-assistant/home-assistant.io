@@ -279,7 +279,7 @@ If you are running an older Windows version or have a stricter network configura
 
 - [VirtualBox (Intel chip)][vdi] (.vdi)
 {% if page.installation_type == 'macos' %}
-- [VirtualBox (Apple Silicon chip)][vmdk_arch64] (.vmdk)
+- [VirtualBox (Apple Silicon chip)][vdi_aarch64] (.vdi)
 {% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
@@ -391,7 +391,7 @@ Minimum recommended assignments:
     3. Choose **Generic Default** for the operating system.
     4. Check the box for **Customize configuration before install**.
     5. Under **Network Selection**, select your bridge.
-    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), for example `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain words such as `secure` or `secboot`), for example `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
     7. Select **Add Hardware** (bottom left), and select **Channel**.
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
@@ -492,7 +492,7 @@ Minimum recommended assignments:
 
 1. Start the virtual machine.
 2. Observe the boot process of the Home Assistant Operating System.
-3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine’s IP address).
+3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. {% if page.installation_type == 'windows' %}If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% else %}If you have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% endif %}
 
 {% endif %}
 
@@ -509,7 +509,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
-[vmdk_arch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vdi_aarch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz

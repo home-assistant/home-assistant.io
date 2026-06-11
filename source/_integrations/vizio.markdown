@@ -3,6 +3,7 @@ title: VIZIO SmartCast
 description: Instructions on how to integrate VIZIO SmartCast TVs and sound bars into Home Assistant.
 ha_category:
   - Media player
+  - Remote
 ha_release: 0.49
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_domain: vizio
 ha_zeroconf: true
 ha_platforms:
   - media_player
+  - remote
 ha_integration_type: device
 ---
 
@@ -221,6 +223,93 @@ This action allows you to update a setting on a given VIZIO device. You will nee
 | `setting_type` | no | The type of setting. | `audio`
 | `setting_name` | no | The name of the setting. | `eq`
 | `new_value` | no | The new value to set the setting to. | `Music`
+
+## Remote
+
+The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action. Commands are case-insensitive.
+
+### Available commands
+
+#### TV commands
+
+| Command |
+| :------ |
+| `back` |
+| `cc_toggle` |
+| `ch_down` |
+| `ch_prev` |
+| `ch_up` |
+| `down` |
+| `exit` |
+| `home` |
+| `info` |
+| `input_next` |
+| `left` |
+| `left2` |
+| `menu` |
+| `mute_off` |
+| `mute_on` |
+| `mute_toggle` |
+| `ok` |
+| `pause` |
+| `pic_mode` |
+| `pic_size` |
+| `play` |
+| `pow_off` |
+| `pow_on` |
+| `pow_toggle` |
+| `right` |
+| `seek_back` |
+| `seek_fwd` |
+| `smartcast` |
+| `up` |
+| `vol_down` |
+| `vol_up` |
+
+#### Speaker commands
+
+Speakers support a subset of the commands above:
+
+`mute_off`, `mute_on`, `mute_toggle`, `pause`, `play`, `pow_off`, `pow_on`, `pow_toggle`, `vol_down`, `vol_up`
+
+### Examples
+
+Send a single command:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - enter
+```
+
+Send multiple commands:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - down
+    - down
+    - enter
+```
+
+Repeat a command with a delay between each repeat:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - vol_up
+  num_repeats: 5
+  delay_secs: 0.4
+```
 
 ## Notes and limitations
 

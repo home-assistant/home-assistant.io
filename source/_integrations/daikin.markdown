@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://apps.apple.com/au/app/id917168708) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
   - BRP072Cxx based units (including Zena devices)*.
 - The United States version of the Wifi Controller Unit (BRP072A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.comfortcontrols) application. Confirmed working on a Daikin Wall Units FTXS09LVJU, FTXS15LVJU, FTXS18LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
-- BRP069C4x/BRP084Cxx units using firmware 2.8.0 was added in HA 2025.9.
+- BRP069C4x/BRP084Cxx units using firmware 2.8.0 was added in Home Assistant 2025.9.
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is operated by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - **SKYFi** based units, which is operated by the SKYFi application*.
 
@@ -46,7 +46,7 @@ If your device is set up with password, use the password. If it has an API key, 
 
 {% note %}
   
-If your Daikin unit does not reside in the same network as your Home Assistant instance, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
+If your Daikin unit does not reside in the same network as your Home Assistant instance (that is, your network is segmented), note that a couple of UDP connections are made during discovery:
 
 - From Home Assistant to the Daikin controller: `UDP:30000` => `30050`
 - From the Daikin controller to Home Assistant: `UDP:<random port>` => `30000`
@@ -163,4 +163,4 @@ Currently known region codes:
 - US
 - TH
 
-If you experience problems with certain apps like the Daikin ONECTA try setting a lower-case region code (e.g. 'eu').
+If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).

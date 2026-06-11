@@ -35,6 +35,7 @@ Examples in YAML:
 action: assist_satellite.announce
 target:
   entity_id: assist_satellite.my_entity
+data:
   message: "Dinner is ready!"
 ```
 
@@ -42,6 +43,7 @@ target:
 action: assist_satellite.announce
 target:
   entity_id: assist_satellite.my_entity
+data:
   media_id: ITEM_ID
 ```
 
@@ -53,16 +55,18 @@ Examples in YAML:
 action: assist_satellite.announce
 target:
   entity_id: assist_satellite.my_entity
+data:
   message: "Dinner is ready!"
-  preannounce_media_id: ITEM_ID  # custom chime
+  preannounce_media_id: ITEM_ID  # Custom chime
 ```
 
 ```yaml
 action: assist_satellite.announce
 target:
   entity_id: assist_satellite.my_entity
+data:
   message: "Dinner is ready!"
-  preannounce: false  # chime disabled
+  preannounce: false  # Chime disabled
 ```
 
 ### Action: Start conversation
@@ -81,6 +85,7 @@ Examples in YAML:
 action: assist_satellite.start_conversation
 target:
   entity_id: assist_satellite.my_entity
+data:
   start_message: "You left the lights on in the living room. Turn them off?"
   extra_system_prompt: "The user has left the lights on in the living room and is being asked if they'd like to turn them off."
 ```
@@ -89,6 +94,7 @@ target:
 action: assist_satellite.start_conversation
 target:
   entity_id: assist_satellite.my_entity
+data:
   start_media_id: ITEM_ID
 ```
 
@@ -100,18 +106,20 @@ Examples in YAML:
 action: assist_satellite.start_conversation
 target:
   entity_id: assist_satellite.my_entity
+data:
   start_message: "You left the lights on in the living room. Turn them off?"
   extra_system_prompt: "The user has left the lights on in the living room and is being asked if they'd like to turn them off."
-  preannounce_media_id: ITEM_ID  # custom chime
+  preannounce_media_id: ITEM_ID  # Custom chime
 ```
 
 ```yaml
 action: assist_satellite.start_conversation
 target:
   entity_id: assist_satellite.my_entity
+data:
   start_message: "You left the lights on in the living room. Turn them off?"
   extra_system_prompt: "The user has left the lights on in the living room and is being asked if they'd like to turn them off."
-  preannounce: false  # chime disabled
+  preannounce: false  # Chime disabled
 ```
 
 ### Action: Ask question
@@ -129,6 +137,13 @@ The `answers` are given as a list of objects with the following structure:
 
 Sentence templates may contain wildcard `{slots}` that will be stored in the answer's `slots` field. For example, `play {album} by {artist}` will match "play the white album by the beatles" with "white album" stored in `slots.album` and "the beatles" in `slots.artist`.
 
+Number ranges can be matched with ranges like `{0..100:brightness}`. This matches numbers from 0 to 100 and stores the value in a `brightness` slot. This works for digits as well as words, so the sentence `set brightness to {0..100:brightness} percent` will match:
+
+- "set brightness to 50 percent"
+- "set brightness to fifty percent"
+
+In both cases, the value of the `brightness` slot will be 50.
+
 The matched answer will be stored in a `response_variable` with the structure:
 
 - `id` - unique id of the matching answer (or `None` if no match)
@@ -139,7 +154,6 @@ The matched answer will be stored in a `response_variable` with the structure:
 
 Examples in YAML:
 
-{% raw %}
 
 ```yaml
 actions:
@@ -181,9 +195,6 @@ actions:
           entity_id: assist_satellite.my_entity
 ```
 
-{%endraw %}
-
-
 Instead of text, the question can also be a media ID:
 
 ```yaml
@@ -223,7 +234,6 @@ If `answers` is omitted, the response text from the user will be available in th
 
 Examples in YAML:
 
-{% raw %}
 
 ```yaml
 actions:
@@ -238,5 +248,3 @@ actions:
     target:
       entity_id: assist_satellite.my_entity
 ```
-
-{% endraw %}

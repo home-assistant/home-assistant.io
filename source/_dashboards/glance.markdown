@@ -21,9 +21,9 @@ The glance card is useful to group multiple sensors in a compact overview. Keep 
 Screenshot of the glance card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

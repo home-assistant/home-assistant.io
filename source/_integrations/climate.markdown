@@ -288,3 +288,7 @@ The climate entity has extra attributes to represent the state of the thermostat
 | `fan_mode` | If the fan is currently on or off: `on` / `off`.
 
 It depends on the thermostat you are using which states are available.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}

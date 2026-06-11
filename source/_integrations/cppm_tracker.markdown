@@ -36,7 +36,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: "The IP address or hostname of the ClearPass server, e.g., `clearpass.server.com`."
+  description: "The IP address or hostname of the ClearPass server, for example, `clearpass.server.com`."
   required: true
   type: string
 client_id:

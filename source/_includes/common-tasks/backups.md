@@ -129,7 +129,7 @@ If you were logged in to Home Assistant Cloud and had Cloud backup enabled when 
 There are two ways to download the backup from Home Assistant Cloud:
 
 - **Option 1**: From the backups page
-  1. Got to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+  1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
   2. Select the backup from the list.
   3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
@@ -162,7 +162,7 @@ To delete old backups, follow these steps:
 There are two ways to use a backup:
 
 - On your current system to recover your settings.
-- During onboarding, to migrate your setup to a new device or to device on which you performed a factory reset.
+- During onboarding, to migrate your setup to a new device or to a device on which you performed a factory reset.
 
 #### Estimated duration
 
