@@ -24,8 +24,6 @@ The integration uses the [Radio Frequency](/integrations/radio_frequency/) {% te
 You can use this integration to:
 
 - Turn KlikAanKlikUit outlets on and off from Home Assistant
-- Add brightness control for compatible dimmable devices
-- Pair or unpair devices from Home Assistant by using built-in learn and unlearn buttons
 - Include KlikAanKlikUit devices in automations, scripts, scenes, and dashboards
 
 ## Supported devices
