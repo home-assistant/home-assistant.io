@@ -38,7 +38,6 @@ The **Green Planet Energy** integration provides the following sensors.
 - **Lowest price day**: The lowest electricity price during day hours (6:00-18:00)
 - **Lowest price night**: The lowest electricity price during night hours (18:00-6:00)
 
-
 ## Actions
 
 The integration provides the following actions.
@@ -47,17 +46,36 @@ The integration provides the following actions.
 
 The `green_planet_energy.get_cheapest_duration` action allows you to find the cheapest time window for any duration between 0.5 and 24 hours.
 
-- **Data attribute**: `entity_id`
-  - **Description**: Any Green Planet Energy sensor entity, used to identify the integration instance.
-  - **Optional**: No
+In YAML, refer to this action as `green_planet_energy.get_cheapest_duration`.
 
-- **Data attribute**: `duration`
-  - **Description**: Duration in hours for which to find the cheapest time window. Between 0.5 and 24.
-  - **Optional**: No
+{% example %}
+action: |
+  action: green_planet_energy.get_cheapest_duration
+  data:
+    entity_id: sensor.green_planet_energy_current_price
+    duration: 3.5
+    time_range: night
+{% endexample %}
 
-- **Data attribute**: `time_range`
-  - **Description**: Time range to search within. Options: `full_day` (00:00–23:59), `day` (06:00–18:00), or `night` (18:00–06:00). Default: `full_day`.
-  - **Optional**: Yes
+#### Options in YAML
+
+{% configuration %}
+entity_id:
+  description: Green Planet Energy sensor entity used to identify the integration instance.
+  required: true
+  type: string
+duration:
+  description: Duration in hours for which to find the cheapest time window.
+  required: true
+  type: float
+time_range:
+  description: Time range to search within.
+  required: false
+  type: string
+{% endconfiguration %}
+
+Accepted values for `duration` are from `0.5` up to `24`.
+Accepted values for `time_range` are `full_day`, `day`, or `night`. The default is `full_day`.
 
 #### Response data
 
@@ -124,7 +142,6 @@ This creates three sensors:
 - `sensor.cheapest_3_5h_start_time`: Shows when to start your dishwasher.
 - `sensor.cheapest_3_5h_hours_until`: Shows how many hours until the optimal time.
 - `sensor.cheapest_3_5h_average_price`: Shows the average price during that period.
-
 
 ## Removing the integration
 
