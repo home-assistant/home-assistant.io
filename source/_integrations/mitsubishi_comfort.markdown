@@ -4,8 +4,9 @@ description: Integrate Mitsubishi Electric ductless minisplit heat pump and air 
 ha_category:
   - Climate
 ha_release: 2026.6
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Polling
 ha_config_flow: true
+ha_dhcp: true
 ha_codeowners:
   - '@nikolairahimi'
 ha_domain: mitsubishi_comfort
@@ -42,6 +43,24 @@ Password:
   description: The password for your Kumo Cloud account.
 {% endconfiguration_basic %}
 
+## Configuration options
+
+The integration finds the local IP address of each device automatically through DHCP discovery. This works when your devices are on the same network as Home Assistant. If a device is on a different subnet or VLAN, you can enter its IP address manually:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Mitsubishi Comfort** integration.
+2. Select **Configure**.
+3. Enter the local IP address for each device that the integration cannot find on its own.
+4. Leave a field blank to keep using DHCP discovery for that device.
+
+{% configuration_basic %}
+Device IP addresses:
+  description: The local IP address for each device, shown as one field per device. Leave a field blank to keep using DHCP discovery, which only works when the device is on the same network as Home Assistant.
+{% endconfiguration_basic %}
+
+{% tip %}
+If you set an IP address manually, give the device a fixed IP address in your router (a DHCP reservation) so the address does not change over time.
+{% endtip %}
+
 ## Supported functionality
 
 The **Mitsubishi Comfort** integration provides the following entities.
@@ -62,6 +81,12 @@ Each indoor unit is exposed as a climate entity with the following capabilities:
 ## Data updates
 
 The Mitsubishi Comfort integration {% term polling polls %} the status of your devices every 60 seconds. When you send a command (such as changing the mode or adjusting the temperature), Home Assistant reflects the change straight away, without waiting for the next poll.
+
+## Troubleshooting
+
+### Devices show up without entities or stay unavailable
+
+The Kumo Cloud account provides the device list and credentials, but not the local IP addresses of your devices. The integration normally finds those addresses through DHCP discovery, which only works when the devices are on the same network as Home Assistant. If your devices are on a different subnet or VLAN, enter their IP addresses manually as described in the [Configuration options](#configuration-options) section.
 
 ## Removing the integration
 
