@@ -68,6 +68,28 @@ Give files names that match their purpose, so they are easier to find and mainta
 
 Nesting `!include` statements also works. A file that is itself `!include`d can use `!include` to pull in further files.
 
+### Indentation
+
+Home Assistant configuration files use YAML, where indentation is significant. Always use 2 spaces per level.
+
+As a general rule:
+
+- Top-level keys (like `homeassistant:`, `mqtt:`, or `sensor:`) are fully left-aligned with no indent.
+- Keys nested under a parent are indented 2 spaces.
+- List items (`-`) are indented to the correct level, followed by a single space before the value.
+
+```yaml
+# Top-level key: no indent
+sensor:
+  # Nested key: 2 spaces
+  - platform: template
+    sensors:
+      living_room_temp:
+        friendly_name: "Living room temperature"
+```
+
+Incorrect indentation is one of the most common reasons a configuration file fails to load.
+
 ### Comments
 
 A `#` symbol marks a comment. Anything after it on that line is ignored by Home Assistant. Comments are useful for adding context or temporarily disabling a line without deleting it.
@@ -80,6 +102,51 @@ automation: !include automation.yaml
 ### Multiple top-level keys
 
 Some integrations support multiple top-level keys, letting you split their configuration across several files. Each key must have a different label. This applies to IoT domain integrations such as `light`, `switch`, and `sensor`, as well as `automation`, `script`, and `template`.
+
+For integrations that do not support multiple top-level keys, [Packages](/docs/configuration/packages) are the way to split configuration across files.
+
+Here is an example using `light`. The first key keeps some entries inline, and the others use `!include` to pull in separate files:
+
+`configuration.yaml`
+
+```yaml
+light:
+  - platform: group
+    name: "Bedside Lights"
+    entities:
+      - light.left_bedside_light
+      - light.right_bedside_light
+
+# More light groups in a separate file
+light groups: !include light-groups.yaml
+
+# Light switch mappings in a different file
+light switches: !include light-switches.yaml
+```
+
+`light-groups.yaml`
+
+```yaml
+- platform: group
+  name: "Outside Lights"
+  entities:
+    - light.porch_lights
+    - light.patio_lights
+```
+
+`light-switches.yaml`
+
+```yaml
+- platform: switch
+  name: "Patio Lights"
+  entity_id: switch.patio_lights
+
+- platform: switch
+  name: "Floor Lamp"
+  entity_id: switch.floor_lamp_plug
+```
+
+The same pattern works for `automation`:
 
 ```yaml
 # Automations managed in the UI
