@@ -81,7 +81,6 @@ actions:
     target:
       entity_id: button.garage_door_open
 ```
-
 {% example %}
 automation: |
   alias: "Open garage door for the car"
