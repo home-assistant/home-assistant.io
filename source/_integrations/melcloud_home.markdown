@@ -37,7 +37,7 @@ Password:
 
 The **MELCloud Home** {% term integration %} provides the following entities.
 
-### Binary sensor
+### Binary sensors
 
 - **Error**: Indicates if the unit reported an error.
 - **Standby**: Indicates if the unit is in standby mode.
