@@ -11,7 +11,7 @@ related:
 If you configure Home Assistant using YAML, your {% term "`configuration.yaml`" %} file can grow large over time. You can split it into smaller, focused files using the `!include` directive.
 
 {% note %}
-Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for users who have chosen to use YAML-based configuration and want to keep their files organized.
+Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for you if you use YAML-based configuration and want to keep your files organized.
 {% endnote %}
 
 ## Example configuration files for inspiration
