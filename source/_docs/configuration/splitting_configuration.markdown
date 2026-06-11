@@ -547,6 +547,6 @@ automation ui: !include automations.yaml
 
 ## Example configuration files for inspiration
 
-Several community members have shared sanitized versions of their configurations. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
+Several community members have shared sanitized versions of their configurations, with sensitive information, like API keys and passwords, removed. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
 
 [discord]: https://discord.gg/home-assistant
