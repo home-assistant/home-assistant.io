@@ -55,7 +55,7 @@ Before setting up this integration, make sure you have the following:
 - Your Home Assistant instance must be able to reach the UniFi Access controller on your local network.
 
 {% important %}
-Create the token from inside the **UniFi Access** application, as shown above — not from the console's **Integrations** page (the UniFi OS Control Plane, where UniFi Protect API keys are created). A key made there belongs to the console rather than UniFi Access, and setup fails with a message that the key is associated with UniFi Protect. On newer consoles, the two pages look similar, so it is easy to pick the wrong one.
+Create the token from inside the **UniFi Access** application, as shown above. Do not use the console's **Integrations** page (the UniFi OS Control Plane), where UniFi Protect API keys are created. A key made there belongs to the console, and UniFi Access rejects it with a message that the key is associated with UniFi Protect. On newer consoles, the two pages look similar, so it is easy to pick the wrong one.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
