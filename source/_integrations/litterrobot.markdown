@@ -60,9 +60,9 @@ Password:
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
 | Last seen                     | `sensor`        | Displays the time the unit was last seen / reported an update.                                              |
 | Litter level                  | `sensor`        | Displays the litter level, only for Litter-Robot 4.                                                         |
-| Next filter replacement       | `sensor`        | Displays the date the filter should next be replaced, only for Litter-Robot 5.                              |
+| Next filter replacement       | `sensor`        | Displays the next filter replacement date, only for Litter-Robot 5.                                         |
 | Pet weight                    | `sensor`        | Displays the last measured pet weight, only for Litter-Robot 4.                                             |
-| Scoops saved                  | `sensor`        | Displays the total scoops of litter saved, only for Litter-Robot 5.                                         |
+| Scoops saved                  | `sensor`        | Displays the total number of scoops of litter saved, only for Litter-Robot 5.                               |
 | Sleep mode start time         | `sensor`        | When sleep mode is enabled, displays the current or next sleep mode start time.                             |
 | Sleep mode end time           | `sensor`        | When sleep mode is enabled, displays the current or last sleep mode end time.                               |
 | Status code                   | `sensor`        | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc.).                               |
@@ -72,7 +72,7 @@ Password:
 | Drawer removed                | `binary_sensor` | Indicates whether the waste drawer is removed, only for Litter-Robot 5.                                     |
 | Hopper connected              | `binary_sensor` | Indicates whether a LitterHopper is connected, only for Litter-Robot 5.                                     |
 | Laser dirty                   | `binary_sensor` | Indicates whether the cat detection laser is dirty, only for Litter-Robot 5.                                |
-| Online                        | `binary_sensor` | Indicates whether the unit is connected to Whisker, only for Litter-Robot 5.                                |
+| Online                        | `binary_sensor` | Indicates whether the unit is connected to the Whisker cloud, only for Litter-Robot 5.                      |
 | Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |
 | Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
 | Sleeping                      | `binary_sensor` | Indicates whether sleep mode is currently active.                                                           |
