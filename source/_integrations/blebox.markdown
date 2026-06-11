@@ -455,6 +455,15 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
   - pm2.5
   - pm10
 
+### CO2Sensor
+
+This integration adds the Blebox device as 2 sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of CO2 concentration
+- Periodic read of CO2 level description
+
 ### windSensor PRO
 
 This integration adds the Blebox device as a sensor entity to Home Assistant.
