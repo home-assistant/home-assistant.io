@@ -82,7 +82,19 @@ actions:
       entity_id: button.garage_door_open
 ```
 
-{% endraw %}
+{% example %}
+automation: |
+  alias: "Open garage door for the car"
+  triggers:
+    - trigger: zone
+      entity_id: person.car_tracker
+      zone: zone.home
+      event: enter
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.garage_door_open
+{% endexample %}
 
 Sending a notification when a device's battery drops below 25%:
 
