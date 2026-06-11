@@ -94,6 +94,26 @@ Only Homeegrams that perform at least two actions are enabled by default to avoi
 
 Changed values are reported from homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.
 
+## Examples
+
+Use a Homeegram playing in homee as trigger in Home Assistant.
+
+```YAML
+triggers:
+  - trigger: state
+    entity_id:
+      - switch.homeegrams_test_hg
+    to:
+      - "on"
+conditions: []
+actions:
+  - action: cover.open_cover
+    metadata: {}
+    target:
+      entity_id: cover.rolladen_arbeitszimmer
+    data: {}
+```
+
 ## Troubleshooting
 
 First, see the general [Home Assistant troubleshooting guide](/docs/configuration/troubleshooting/).
