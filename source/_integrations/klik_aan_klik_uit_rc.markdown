@@ -52,7 +52,6 @@ Before adding the integration, make sure:
    - Channel (unit number)
    - Whether you use a group command
 
-## Configuration options
 
 {% include integrations/config_flow.md %}
 
