@@ -91,4 +91,6 @@ Make sure that you selected an infrared receiver during setup and that the recei
 
 ## Removing the integration
 
-This integration follows standard integration removal. {% include integrations/remove_device_service.md %}
+This integration follows standard integration removal. 
+
+{% include integrations/remove_device_service.md %}
