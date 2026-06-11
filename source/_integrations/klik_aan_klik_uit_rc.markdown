@@ -85,7 +85,6 @@ Because KlikAanKlikUit RF control is one-way, Home Assistant cannot confirm whet
 ## Known limitations
 
 - The protocol is one-way, so state changes made outside Home Assistant are not reported back.
-- Learn and unlearn buttons are not created for group entries.
 - Dimming support depends on your device's model.
 
 ## Pairing devices
