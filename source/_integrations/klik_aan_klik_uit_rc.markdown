@@ -55,6 +55,17 @@ Before adding the integration, make sure:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Radio frequency transmitter:
+    description: "The RF transmitter entity to use for sending commands. You need a compatible transmitter that supports 433.92 MHz OOK."
+Device ID:
+    description: "A unique address for the target device. You can freely choose any number between 0 and 67,108,863, but each device you add must use a different ID. For example, 123456."
+Channel:
+    description: "The channel (unit code) of the target device (1 to 16)."
+Group:
+    description: "When enabled, commands are sent to the group address, which controls all devices paired to the same transmitter ID. For example, enable this to turn off all outlets in a room at once."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 The **KlikAanKlikUit** integration provides the following entities.
