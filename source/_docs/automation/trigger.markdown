@@ -1006,7 +1006,11 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 ### Webhook data
 
-Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are available in the template as `trigger.query` and the request headers are available as `trigger.headers`. Note that the headers may contain sensitive data, so be aware that headers may be output to log files or notifications.
+Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are available in the template as `trigger.query` and the request headers are available as `trigger.headers`.
+
+{% important %}
+Request headers may contain sensitive data. Be aware that header contents may appear in log files or notifications.
+{% endimportant %}
 
 Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, for example:
 
