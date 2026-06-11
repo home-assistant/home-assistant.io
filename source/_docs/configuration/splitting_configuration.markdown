@@ -1,5 +1,5 @@
 ---
-title: "Splitting up the configuration"
+title: "Splitting the configuration file"
 description: "Keep your configuration.yaml manageable by splitting it into smaller, focused files using the !include directive."
 related:
   - docs: /docs/configuration/
@@ -8,7 +8,11 @@ related:
     title: Using packages to organize configuration files
 ---
 
-So you've been using Home Assistant for a while now and your {% term "`configuration.yaml`" %} file brings people to tears because it has become so large. Or, you simply want to start off with the distributed approach. Here's how to split the {% term "`configuration.yaml`" %} into more manageable (read: human-readable) pieces.
+If you configure Home Assistant using YAML, your {% term "`configuration.yaml`" %} file can grow large over time. You can split it into smaller, focused files using the `!include` directive.
+
+{% note %}
+Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for users who have chosen to use YAML-based configuration and want to keep their files organized.
+{% endnote %}
 
 ## Example configuration files for inspiration
 
