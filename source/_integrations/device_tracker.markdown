@@ -9,13 +9,18 @@ ha_domain: device_tracker
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /integrations/person/
+    title: Person
+  - docs: /integrations/zone/
+    title: Zone
 ---
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
 
 {% include integrations/building_block_integration.md %}
 
-To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/).
+To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/). You can connect device trackers to [person](/integrations/person/) entities and use them with [zones](/integrations/zone/) for automations that react when people or tracked devices enter or leave a place.
 
 ## The state of a tracked device
 
@@ -28,7 +33,7 @@ A device tracker with **GPS** as a source can have any number of string states. 
 
 A device tracker with **router** as a source can have one of two states: **Home**, or **Not home**.
 
-- **Home**: Your tracked device is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth-based presence detection. If you're using a presence detection method that includes coordinates: when it's in a zone, the state equals the name of the zone (case sensitive).
+- **Home**: Your tracked device is in the [home zone](/integrations/zone/#about-the-home-zone), detected by your network or Bluetooth-based presence detection. If you're using a presence detection method that includes coordinates: when it's in a zone, the state equals the name of the zone (case sensitive).
 - **Not home**: When a device isn't at home and isn't in any zone.
 
 <p class='img'>
