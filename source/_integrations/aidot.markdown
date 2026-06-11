@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@s1eedz'
-  - '@HongBryan'  
+  - '@HongBryan'
 ha_domain: aidot
 ha_platforms:
   - light

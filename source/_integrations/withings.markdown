@@ -103,10 +103,9 @@ If you see a warning like `Webhook not registered - HTTPS is required` or `Webho
 
 To resolve this:
 
-1. Make sure **Advanced mode** is enabled in your {% my profile title="**User profile**" %}.
-2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-3. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
-4. Select **Save**.
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
+3. Select **Save**.
 
 You can keep the **Local Network** URL set to your internal HTTP address. Home Assistant uses the **Internet** URL for webhooks, while integrations that prefer local communication continue to use the **Local Network** URL.
 

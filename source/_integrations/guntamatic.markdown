@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ha_dhcp: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The Guntamatic integration allows you to monitor your [Guntamatic](https://www.guntamatic.com) wood or pellet heater from Home Assistant.
@@ -116,4 +116,3 @@ The following sensors are available for a Guntamatic BMK 20 heater:
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-

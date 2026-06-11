@@ -2,7 +2,11 @@
 title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
 ha_category:
+  - Climate
+  - Number
+  - Select
   - Sensor
+  - Valve
 ha_release: 2026.6
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -10,7 +14,11 @@ ha_codeowners:
   - '@Markus98'
 ha_domain: ouman_eh_800
 ha_platforms:
+  - climate
+  - number
+  - select
   - sensor
+  - valve
 ha_integration_type: device
 ha_quality_scale: bronze
 related:
@@ -20,7 +28,7 @@ related:
     title: Ouman EH-800 user manual
 ---
 
-The **Ouman EH-800** {% term integration %} integrates the [Ouman EH-800](https://ouman.fi/en/product/ouman-eh-800-and-eh-800b/) heating controller with Home Assistant. It allows you to monitor your EH-800 device directly from Home Assistant over your local network.
+The **Ouman EH-800** {% term integration %} integrates the [Ouman EH-800](https://ouman.fi/en/product/ouman-eh-800-and-eh-800b/) heating controller with Home Assistant. It allows you to monitor and control your EH-800 device directly from Home Assistant over your local network.
 
 The Ouman EH-800 is a heating controller used for water-based central heating systems. It supports up to two heating circuits (H1 and H2) with control curves based on the outside temperature.
 
@@ -59,7 +67,44 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Sensors are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Climate, number, select, sensor, and valve entities are assigned to the device they belong to.
+
+### Climate entities
+
+The integration exposes one climate entity per active heating circuit that has a room sensor installed. The entity reports the room temperature and lets you adjust the room temperature setpoint.
+
+The HVAC mode shown on the climate card reflects the heating circuit's operation mode: **Heat** when the controller is running a mode that uses the room temperature setpoint, **Off** otherwise. The three heating sub-modes that use the setpoint (**Auto**, **Temperature drop**, **Big temperature drop**) are exposed as **Preset mode**. Switching the HVAC mode to **Heat** defaults the preset mode to **Auto**.
+
+The HVAC action reflects the current heating status: **Heating** when the mixing valve is open, **Idle** when it is closed, **Off** when the circuit isn't using the setpoint.
+
+{% note %}
+Operation modes other than the three heat sub-modes (for example **Nominal temperature** and **Manual valve control**) ignore the room temperature setpoint. The climate entity reports **Off** for those modes. Use the operation mode select entity to switch the circuit into one of those modes.
+{% endnote %}
+
+### Number entities
+
+The integration exposes number entities for the device's configurable numeric setpoints. The exact set depends on which features and circuits are active on your device.
+
+Enabled by default (categorized as configuration):
+
+- **H1/H2 Water out minimum/maximum temperature**: Lower and upper limits for the supply water temperature.
+- **H1/H2 Curve -20°C / -10°C / 0°C / 10°C / 20°C temperature**: Supply water temperatures at each outside-temperature point on the heating curve. The set of points depends on whether the controller is configured for a 3-point or 5-point curve.
+- **H1/H2 Temperature drop**, **Big temperature drop**: Offsets applied to the target when an automatic reduction is active.
+- **H1/H2 Room temperature fine tuning**: Manual offset for the room temperature target.
+- **H1 Constant temperature setpoint** (only when the heating mode is constant-temperature controller): The target supply water temperature.
+
+Disabled by default (see [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)):
+
+- **Trend sampling interval** (on the main device): The polling interval used by the controller's trend recorder, in seconds.
+
+### Select entities
+
+The integration exposes select entities for the device's mode controls. The exact set depends on which features are active on your device:
+
+- **Home/Away mode** (on the main device): Switch between **Home**, **Away**, and **Off**.
+- **H1/H2 Operation mode** (on each heating circuit): Switch between **Auto**, **Temperature drop**, **Big temperature drop**, **Nominal temperature**, **Standby**, and **Manual valve control**.
+- **Relay control** (on the main device, when the relay is configured for temperature, temperature-difference, H1 valve position, or time-program modes): Switch between **Auto**, **On**, and **Off**.
+- **Pump summer stop** (on the main device, when the relay is configured for pump summer stop mode): Switch between **Auto**, **Stop**, and **Run**.
 
 ### Sensors
 
@@ -80,13 +125,19 @@ Additional diagnostic sensors are exposed but disabled by default. See [enabling
 - **H1 room sensor potentiometer**: The room temperature offset from the room sensor's adjustment knob.
 - **H2 delayed outdoor temperature effect**: The delayed outdoor temperature effect applied to the H2 setpoint.
 
+### Valve entities
+
+The integration exposes one valve entity per active heating circuit for the mixing valve:
+
+- **H1/H2 Valve position setpoint**: The mixing valve position, in percent.
+
+{% note %}
+The valve setpoint only affects the device when the corresponding heating circuit is in **manual valve control** mode. In other operation modes, the controller calculates the valve position automatically and the setpoint has no effect.
+{% endnote %}
+
 ## Data updates
 
 This integration uses local {% term polling %} to fetch data from the Ouman EH-800 controller every 60 seconds.
-
-## Known limitations
-
-- **Read-only**: The integration currently only reads values from the controller. Adjusting setpoints, changing operation mode, or controlling the relay is not yet supported.
 
 ## Removing the integration
 

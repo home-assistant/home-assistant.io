@@ -1,6 +1,6 @@
 ---
-title: "Actions"
-description: "Define what an object does when interacted with."
+title: "Dashboard actions"
+description: "Define what happens when you tap, hold, or double-tap a card on your dashboard, from toggling a device to opening another dashboard."
 related:
   - docs: /dashboards/button/
     title: Button card

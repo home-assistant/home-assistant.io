@@ -1,6 +1,6 @@
 ---
-title: "Setup basic information"
-description: "Setting up the basic info of Home Assistant."
+title: "Basic settings"
+description: "Set the basic information about your Home Assistant, such as your home's name, location, time zone, and units of measurement."
 related:
   - docs: /integrations/homeassistant/
   - docs: /docs/configuration/
@@ -27,15 +27,13 @@ To change the general settings that were defined during onboarding, follow these
    - To add a new zone, select **Add zone**.
    - To save your changes, select **Update**.
 2. To change network-related configuration, such as the network name, go to {% my network title="**Settings** > **System** > **Network**" %}.
-3. If some of the settings are not visible, you may need to enable **Advanced mode**.
-   - In the bottom left, select your username to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
-4. Troubleshooting: If any of the settings are grayed out and can't be edited, this is because they are defined in the {% term "`configuration.yaml`" %} file.
+3. Troubleshooting: If any of the settings are grayed out and can't be edited, this is because they are defined in the {% term "`configuration.yaml`" %} file.
    - If you prefer editing the settings in the UI, you have to delete these entries from the {% term "`configuration.yaml`" %} file.
    - For more information about the general settings in YAML, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
 
     ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)
 
-5. To apply the changes, follow the steps on [reloading the configuration](/docs/configuration/#reloading-configuration-changes).
+4. To apply the changes, follow the steps on [reloading the configuration](/docs/configuration/#reloading-configuration-changes).
 
 ## Changing a person's display name
 
