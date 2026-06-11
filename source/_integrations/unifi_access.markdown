@@ -48,7 +48,7 @@ Before setting up this integration, make sure you have the following:
 - A running UniFi Access controller (for example, on a UniFi Dream Machine Pro or Cloud Key Gen2 Plus with the Access application installed).
 - An API token generated in the UniFi Access controller's web interface:
   1. Open your console's IP address in a browser and select **Access** at the top.
-  2. Go to **Settings** > **System** > **API Token** and select **Create New**.
+  2. In the left menu, go to **Settings** > **General**, then under **API Token**, select **Create New**.
   3. Give the token a descriptive name, for example _Home Assistant_, and copy it — you will need it during setup.
 
   For full details, see Ubiquiti's [Getting Started with the Official UniFi API](https://help.ui.com/hc/en-us/articles/30076656117655-Getting-Started-with-the-Official-UniFi-API) and the [UniFi Access API reference (PDF)](https://assets.identity.ui.com/unifi-access/api_reference.pdf), section "1.1 Create API Token & Download API Documentation".
