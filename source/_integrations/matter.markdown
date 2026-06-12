@@ -716,7 +716,7 @@ To add a Matter device which is based on the {% term Thread %} radio protocol, y
 
 Set up a {% term "Thread border router" %} and synchronize the credentials from Home Assistant to your Android device:
 
-1. Follow the steps on [Turning Home Assistant into a Thread border router](https://www.home-assistant.io/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+1. Follow the steps on [Turning Home Assistant into a Thread border router](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 2. Make sure to Sync the Thread credentials as described in step 3.
 
 ### Error "Target node did not process the update file"

@@ -859,7 +859,7 @@ white_scale:
   - `c`: Cool white value
   - `w`: Warm white value
 
-More details about the different colors, color modes and range values [can be found here](https://www.home-assistant.io/integrations/light/).
+More details about the different colors, color modes and range values [can be found here](/integrations/light/).
 
 {% important %}
 Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.

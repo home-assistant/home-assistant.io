@@ -201,7 +201,7 @@ There is no easy way to update that device.
 5. Select **Submit**.
 6. In the **Select your device** dialog, select the Z-Wave adapter you just connected.
    - Typically, you can select the device you connected to a USB port.
-   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](https://www.home-assistant.io/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
+   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
 7. Select **Submit**.
    - The new adapter is now being paired with your existing Z-Wave network.
    - Troubleshooting: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.

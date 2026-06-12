@@ -189,7 +189,7 @@ This integration is based on reverse-engineered communication with the IntelliCl
 
 ### Enabling debugging
 
-To turn on debug logging, please check the [documentation on enabling debug logs and diagnostics](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). For fully debugging, you might also want to enable debugging for the external `pyintelliclima` library by modifying your {% term "`configuration.yaml`" %} file in the `/config` directory and adding the following:
+To turn on debug logging, please check the [documentation on enabling debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). For fully debugging, you might also want to enable debugging for the external `pyintelliclima` library by modifying your {% term "`configuration.yaml`" %} file in the `/config` directory and adding the following:
 
 ```yaml
 logger:
