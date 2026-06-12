@@ -21,13 +21,15 @@ Each controller manages up to 64 indoor units. Every unit shows up as its own `c
 
 {% include integrations/config_flow.md %}
 
+## Configuration options
+
 {% configuration_basic %}
 Host:
     description: "The IP address or hostname of the CCM15 controller on your local network."
 Port:
-    description: "The TCP port the controller listens on. Leave at `80` unless you have changed it."
+    description: "The TCP port the controller listens on. Defaults to `80`."
 Device password:
-    description: "Optional. Only needed if your CCM15 firmware requires a password for control commands. To find it, open the controller's web interface, press F12 to open browser developer tools, switch to the **Network** tab, change any setting in the web UI, then select the new `ctrl.xml` request and copy the value of the `pwd` parameter from the URL. It is a 6-digit number."
+    description: "Optional. Only set this if your CCM15 firmware requires a password for control commands. See [Finding the device password](#finding-the-device-password)."
 Minimum target temperature:
     description: "Lower bound of the thermostat slider, in degrees Celsius. Defaults to `18`."
 Maximum target temperature:
@@ -36,16 +38,29 @@ Maximum target temperature:
 
 You can edit any of these settings later by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the CCM15 entry, and choosing **Reconfigure**.
 
+### Finding the device password
+
+Some CCM15 firmwares require a password on control requests. If yours does, you can read it off the controller's own web interface:
+
+1. Open the CCM15 web interface in your browser.
+2. Press F12 to open the browser developer tools.
+3. Switch to the **Network** tab.
+4. Change any setting in the web UI, for example the fan speed.
+5. In the network requests list, select the new `ctrl.xml` request.
+6. Copy the value of the `pwd` parameter from the request URL. It is a 6-digit number.
+
 ## Supported functionality
 
 Each indoor unit is exposed as a `climate` entity with these controls:
 
 - HVAC mode: off, heat, cool, dry, fan only, auto.
-- Target temperature, bounded by the minimum and maximum you set above.
+- Target temperature, bounded by the minimum and maximum you set in the configuration options.
 - Fan mode: auto, low, medium, high.
 - Swing mode: on, off.
 
-The integration polls the controller every 30 seconds. A short cache keeps the UI on the value you just set, so changes don't appear to snap back while the controller is still committing them.
+## Data updates
+
+Home Assistant polls the controller every 30 seconds. When you change a value from the UI, the integration briefly keeps showing the value you set so it does not appear to snap back while the controller is still committing the change.
 
 ## Removing the integration
 
