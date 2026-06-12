@@ -1,6 +1,6 @@
 ---
 title: Integral
-description: Instructions on how to integrate Integration Sensor into Home Assistant. Note: The integral sensor keeps its value across Home Assistant restarts.
+description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
   - Energy
   - Helper
@@ -23,7 +23,11 @@ of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
 The integration sensors are updated whenever the source changes and, optionally, based on a predefined
-time interval. Source sensors with higher sampling frequency provide more accurate results.
+time interval.  Source sensors with higher sampling frequency provide more accurate results.
+
+{% note %}
+The integral sensor keeps its value across Home Assistant restarts.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -42,7 +46,6 @@ Integration time:
 Max sub-interval:
   description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter `0`.
 {% endconfiguration_basic %}
-
 
 ## YAML configuration
 
