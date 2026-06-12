@@ -60,13 +60,13 @@ switch.patio:
 You can apply the same pattern to any integration:
 
 ```yaml
-automation: !include automation.yaml
+switch: !include switch.yaml
 sensor: !include sensor.yaml
 ```
 
 Give files names that match their purpose, so they are easier to find and maintain.
 
-Nesting `!include` statements also works. A file that is itself `!include`d can use `!include` to pull in further files.
+Nesting `!include` statements also works. A file that is itself included can use `!include` to pull in further files.
 
 ### Indentation
 
@@ -103,9 +103,11 @@ automation: !include automation.yaml
 
 Some integrations support multiple top-level keys, letting you split their configuration across several files. Each key must have a different label. This applies to IoT domain integrations such as `light`, `switch`, and `sensor`, as well as `automation`, `script`, and `template`.
 
-For integrations that do not support multiple top-level keys, [Packages](/docs/configuration/packages) are the way to split configuration across files.
+If an integration does not support multiple top-level keys, use [Packages](/docs/configuration/packages) instead.
 
-Here is an example using `light`. The first key keeps some entries inline, and the others use `!include` to pull in separate files:
+#### Example of multiple top-level keys
+
+Here is an example using `light`. The first key keeps some entries inline, and the other keys use `!include` to pull in separate files:
 
 `configuration.yaml`
 
