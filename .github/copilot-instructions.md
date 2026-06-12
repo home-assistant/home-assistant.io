@@ -975,9 +975,15 @@ during Home Assistant startup.
 
 ### Automation and script examples
 
+- Use plural top-level keys in automations: `triggers:`, `conditions:`, and `actions:`. The old singular forms (`trigger:`, `condition:`, `action:`) are outdated. Do not suggest switching to the singular forms.
+- Inside a `triggers:` list, use `trigger: state` (not `platform: state`). The `platform:` key is the old format and is no longer used.
+- Use `action:` (not `service:`) as the key for service calls inside an actions list. The old `service:` key is outdated. Do not suggest switching to `service:`.
 - Remove empty conditions from examples, such as `conditions: []`.
 - `mode: single` is the default and should be omitted from examples.
 - Remove empty `data` sections from example action calls, such as `data: {}`.
+- Remove empty `metadata` sections from example action calls, such as `metadata: {}`.
+
+
 
 ## Other instructions
 
