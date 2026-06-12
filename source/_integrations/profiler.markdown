@@ -104,7 +104,7 @@ The `profiler.start_log_object_sources` action starts logging the growth of obje
 | `scan_interval`        | yes      | The frequency between logging objects. Defaults to 30.0                |
 | `max_objects`          | yes      | The number of new objects to examine for source information. Defaults to 5 |
 
-Periodically log the growth of new objects in memory. This actions's primary use case is finding memory leaks.
+Periodically log the growth of new objects in memory. This action's primary use case is finding memory leaks.
 
 This action is similar to `start_log_objects` except that it is much more CPU intensive since it will attempt to locate the source of each new object up to `max_objects` each time it logs.
 
