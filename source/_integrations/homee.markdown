@@ -107,13 +107,10 @@ triggers:
       - switch.homeegrams_test_hg
     to:
       - "on"
-conditions: []
 actions:
   - action: cover.open_cover
-    metadata: {}
     target:
       entity_id: cover.rolladen_arbeitszimmer
-    data: {}
 ```
 
 ## Troubleshooting
