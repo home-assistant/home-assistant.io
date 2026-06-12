@@ -20,7 +20,7 @@ The **Hypontech Cloud** {% term integration %} allows you to monitor your Hypont
 
 ## Supported devices
 
-This integration supports all Hypontech inverters and micro inverters that are connected to the Hypontech Cloud platform.
+This integration supports all inverters and microinverters connected to the Hypontech Cloud platform, including devices from Hypontech as well as third-party manufacturers like Nexen.
 
 ## Prerequisites
 
@@ -38,17 +38,32 @@ Username:
   description: "Your Hypontech Cloud account username."
 Password:
   description: "Your Hypontech Cloud account password."
+Manufacturer:
+  description: "The manufacturer (OEM), Hypontech by default."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
 ### Sensors
 
-The integration provides one **Plant** device for each location (for example: Balcony, Garden, Home, Office) and one **Overview** (aggregation) device. Each has the following sensors:
+The integration provides one **Plant** device for each location (e.g., Balcony, Garden, Home, Office) and one **Overview** (aggregation) device. It is recommended to avoid using the Overview device, as plants can be shared between accounts or temporarily added to your profile, which may lead to inaccurate data aggregation.
 
-- **Power** (W): Current power production from your solar system
+Plant and Overview has the following sensors:
+
+- **Total power** (W): Current power production from your solar systems and batteries
 - **Today energy** (kWh): Total energy produced today
 - **Lifetime energy** (kWh): Total energy produced since installation
+
+Plant also have other sensors:
+
+- **PV power** (W): Current power production from solar system
+- **Load power** (W): Current power used by your home, if there is a sensor in your installation
+- **Grid power** (W): Current power load from grid (can be negative), if there is a sensor in your installation
+
+If a plant has batteries, it also have other sensors:
+
+- **Battery power** (W): Current discharging power, if negative, the batteries are charging
+- **Battery state of charge** (percentage): Current state of charge of the batteries
 
 All sensors are updated every minute.
 
@@ -59,10 +74,6 @@ The integration polls data from the Hypontech Cloud every 60 seconds.
 ## Actions
 
 This integration provides no additional actions.
-
-## Known limitations
-
-- There is no support for batteries yet.
 
 ## Removing the integration
 
