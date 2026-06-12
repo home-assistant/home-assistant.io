@@ -152,7 +152,7 @@ This platform allows you to detect presence by looking at devices connected to a
 
 ### Troubleshooting and Time Synchronization
 
-If tracked devices continue to show "Home" when not connected/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming.  When enabled, it has been observed on the various UniFi Controller versions, failure to declare disconnected clients.
+If tracked devices continue to show "Home" when not connected/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming. When enabled, various UniFi Controller versions have been observed to fail to declare clients disconnected.
 
 Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network.
 
