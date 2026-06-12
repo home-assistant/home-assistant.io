@@ -270,7 +270,7 @@ Statistics are only available for entities that store {% term "Long-term statist
 | `end_time`     | yes      | The end time for the statistics query. If omitted, returns all statistics from start time onward. |
 | `period`       | no      | The time period to group statistics by (`5minute`, `hour`, `day`, `week`, or `month`). |
 | `types`        | no      | The types of statistics values to return (`change`, `last_reset`, `max`, `mean`, `min`, `state`, or `sum`). |
-| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](https://www.home-assistant.io/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
+| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
 
 #### Example using get_statistics
 

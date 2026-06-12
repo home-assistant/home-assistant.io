@@ -250,7 +250,7 @@ For the maintainers of the TP-Link integration to be able to properly assist wit
 
 ### Enable debug logging
 
-To capture debug logs from Home Assistant first starting up, update [`configuration.yaml`](https://www.home-assistant.io/docs/configuration/) to look like this:
+To capture debug logs from Home Assistant first starting up, update [`configuration.yaml`](/docs/configuration/) to look like this:
 
 ```yaml
 logger:

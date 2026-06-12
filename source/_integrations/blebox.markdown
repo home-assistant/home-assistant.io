@@ -544,7 +544,7 @@ this ID like a password.
 {% note %}
 In order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
-general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
+general [documentation of automations with webhook triggers](/docs/automation/trigger/#webhook-trigger).
 {% endnote %}
 
 ### uRemote, sRemote, inBox via actionBox
