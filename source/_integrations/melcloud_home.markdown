@@ -3,6 +3,7 @@ title: MELCloud Home
 description: Instructions on how to integrate MELCloud Home with Home Assistant.
 ha_category:
   - Climate
+  - Sensor  
 ha_release: 2026.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -11,6 +12,7 @@ ha_domain: melcloud_home
 ha_config_flow: true
 ha_platforms:
   - climate
+  - sensor  
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -62,10 +64,10 @@ Each heating zone of an air-to-water heat pump is exposed as a separate climate 
 
 ### Sensors
 
-The following entites are created per unit or zone, both for Air-to-Air and Air-to-Water units:
+The following entities are created per unit or zone, both for Air-to-Air and Air-to-Water units:
 
 - **Room temperature**: Returns the current measured room temperature.
-- **RRSI**: The current WiFi signal strength.
+- **RSSI**: The current WiFi signal strength.
 
 The following extra sensors are only applicable for the Air-to-Water units:
 
