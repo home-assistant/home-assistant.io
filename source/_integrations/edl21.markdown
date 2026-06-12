@@ -8,7 +8,7 @@ ha_release: 0.107
 ha_domain: edl21
 ha_platforms:
   - sensor
-ha_integration_type: hub
+ha_integration_type: device
 ha_config_flow: true
 ---
 

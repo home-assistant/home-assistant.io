@@ -32,13 +32,13 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
 ### Write the image to your SD card
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/).
-   - **Troubleshooting**: If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool, such as Balena Etcher.
+   - Troubleshooting: If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool, such as Balena Etcher.
 2. Open the Raspberry Pi Imager and select **OS**.
     ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
 3. Choose the operating system type:
    - Select **Other specific-purpose OS** > **Home automation** > **Home Assistant**.
     ![Choose the operating system type: Other specific-purpose OS](/images/installation/rpi-ha-1.webp)
-4. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3, RPi&nbsp;4, or RPi&nbsp;5).
+4. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;4 or RPi&nbsp;5).
     ![Choose the Home Assistant OS](/images/installation/rpi-ha-2.webp)
 5. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
@@ -86,9 +86,9 @@ To download the image to your computer, copy the correct URL for the Raspberry P
 - title: {{ variant.name }}
   content: |
 
-    ```text
+    {% raw %}```{% endraw %}text
     https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
-    ```    
+    {% raw %}```{% endraw %}
 
 {% endfor %}
 {% endtabbed_block %}

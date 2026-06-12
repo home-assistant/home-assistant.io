@@ -287,8 +287,6 @@ Send a notification and turn on the sauna light when the target temperature is r
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Sauna ready notification with light"
 description: >-
@@ -318,7 +316,9 @@ actions:
   - action: light.turn_on
     target:
       entity_id: light.saunum_leil
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "{{ notification_title }}"
       message: >-
@@ -326,8 +326,6 @@ actions:
         {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
 
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

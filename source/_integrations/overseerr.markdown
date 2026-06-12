@@ -11,7 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@joostlek'
   - '@AmGarera'
-ha_domain: seerr
+ha_domain: overseerr
 ha_integration_type: service
 ha_platforms:
   - diagnostics
@@ -108,8 +108,6 @@ The integration can be used to build automations to help and notify you of new m
 
 {% details "Send me a push notification on a new request" %}
 
-{% raw %}
-
 ```yaml
 alias: "Overseerr push notification"
 description: "Send me a push notification on a new media request"
@@ -126,20 +124,18 @@ conditions:
       {{ state_attr('event.overseerr_last_media_event', 'event_type') ==
       'pending' }}
 actions:
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     metadata: {}
     data:
       message: >-
         {{ state_attr('event.overseerr_last_media_event', 'subject') }} has been
         requested
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Send notification when open issues exceed threshold" %}
-
-{% raw %}
 
 ```yaml
 alias: "Notify when too many open issues"
@@ -150,19 +146,17 @@ triggers:
       - sensor.overseerr_open_issues
     above: 10
 actions:
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: >-
         Warning: {{ states('sensor.overseerr_open_issues') }} open issues in Overseerr!
       title: "High Issue Count"
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Track audio issues trend with statistics sensor" %}
-
-{% raw %}
 
 ```yaml
 alias: "Monitor audio issue trends"
@@ -176,13 +170,9 @@ sensor:
       days: 7
     sampling_size: 100
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Alert when video issues spike" %}
-
-{% raw %}
 
 ```yaml
 alias: "Video issues spike alert"
@@ -193,19 +183,17 @@ triggers:
       - sensor.overseerr_video_issues
     above: 5
 actions:
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: >-
         Video issues are elevated: {{ states('sensor.overseerr_video_issues') }} issues detected
       title: "Video Quality Alert"
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Daily issue report" %}
-
-{% raw %}
 
 ```yaml
 alias: "Daily Overseerr issue summary"
@@ -218,7 +206,9 @@ conditions:
     entity_id: sensor.overseerr_total_issues
     above: 0
 actions:
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Overseerr Daily Report"
       message: >-
@@ -229,13 +219,9 @@ actions:
         Audio: {{ states('sensor.overseerr_audio_issues') }}
         Subtitle: {{ states('sensor.overseerr_subtitle_issues') }}
 ```
-
-{% endraw %}
 {% enddetails %}
 
 {% details "Create dashboard badge for subtitle issues" %}
-
-{% raw %}
 
 ```yaml
 type: entity
@@ -243,8 +229,6 @@ entity: sensor.overseerr_subtitle_issues
 name: Subtitle Issues
 icon: mdi:subtitles
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Data updates

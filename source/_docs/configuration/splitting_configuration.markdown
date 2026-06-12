@@ -1,6 +1,6 @@
 ---
-title: "Splitting up the configuration"
-description: "Splitting the configuration.yaml into several files."
+title: "Splitting the configuration file"
+description: "Keep your configuration.yaml manageable by splitting it into smaller, focused files using the !include directive."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
@@ -8,13 +8,11 @@ related:
     title: Using packages to organize configuration files
 ---
 
-So you've been using Home Assistant for a while now and your {% term "`configuration.yaml`" %} file brings people to tears because it has become so large. Or, you simply want to start off with the distributed approach. Here's how to split the {% term "`configuration.yaml`" %} into more manageable (read: human-readable) pieces.
+If you configure Home Assistant using YAML, your {% term "`configuration.yaml`" %} file can grow large over time. You can split it into smaller, focused files using the `!include` directive.
 
-## Example configuration files for inspiration
-
-First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example configuration on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
-
-As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
+{% note %}
+Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for you if you use YAML-based configuration and want to keep your files organized.
+{% endnote %}
 
 ## Analyzing the configuration files
 
@@ -44,7 +42,20 @@ homeassistant:
 
 Note that each line after `homeassistant:` is indented two (2) spaces. Since the configuration files in Home Assistant are based on the YAML language, indentation and spacing are important. Also note that seemingly strange entry under `customize:`.
 
-`!include customize.yaml` is the statement that tells Home Assistant to insert the parsed contents of `customize.yaml` at that point. The contents of the included file must be yaml data that is valid at the location it is included. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
+`!include customize.yaml` is the statement that tells Home Assistant to insert the parsed contents of `customize.yaml` at that point. The contents of the included file must be YAML data that is valid at the location it is included. This is how we are going to break a monolithic and hard-to-read file (when it gets big) into more manageable chunks.
+
+For example, `customize.yaml` could contain the following:
+
+```yaml
+light.living_room:
+  friendly_name: "Living Room"
+  icon: mdi:ceiling-light
+
+switch.patio:
+  friendly_name: "Patio Switch"
+```
+
+Notice that `customize:` is not written again inside `customize.yaml`. The key in `configuration.yaml` already defines the context — the included file only contains the entries that belong under it.
 
 Now before we start splitting out the different components, let's look at the other integrations (in our example) that will stay in the base file:
 
@@ -172,7 +183,6 @@ This small example illustrates how the "split" files work. In this case, we star
 
 This (large) sensor configuration gives us another example:
 
-{% raw %}
 
 ```yaml
 ### sensor.yaml
@@ -212,7 +222,6 @@ This (large) sensor configuration gives us another example:
   name: "Ann Arbor"
 ```
 
-{% endraw %}
 
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 
@@ -230,18 +239,19 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
 
-## Advanced usage
+<a id="advanced-usage"></a>
+## Including entire directories
 
-We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+You can also include entire directories at once using four directory-level include options. The directory-level options only scan for files with the `.yaml` extension. Files with the `.yml` extension are ignored.
 
-This will allow you to `!include` files with `.yml` extensions from within the `.yaml` files; without those `.yml` files being imported by the following commands themselves.
+You can still use `!include` to load `.yml` files directly from within your `.yaml` files.
 
-- `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
-- `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
-- `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
-- `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
+- `!include_dir_list` returns the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
+- `!include_dir_named` returns the content of a directory as a dictionary that maps filenames to file contents.
+- `!include_dir_merge_list` returns the content of a directory as a list by merging all files (which should contain a list) into a single list.
+- `!include_dir_merge_named` returns the content of a directory as a dictionary by loading each file and merging it into a single dictionary.
 
-These work recursively. As an example using `!include_dir_list automation`, will include all 6 files shown below:
+These work recursively. For example, `!include_dir_list automation` includes all 6 files shown below:
 
 ```bash
 .
@@ -320,14 +330,13 @@ actions:
       entity_id: light.entryway
 ```
 
-It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
+Each file must contain only **one** entry when using `!include_dir_list`.
 
 ### Example: `!include_dir_named`
 
 `configuration.yaml`
 
 ```yaml
-{% raw %}
 alexa:
   intents:
     LocateIntent:
@@ -353,7 +362,7 @@ alexa:
             iPhone is home.
           {%- else -%}
             iPhone is not home.
-          {% endif %}{% endraw %}
+          {% endif %}
 ```
 
 can be turned into:
@@ -368,7 +377,6 @@ alexa:
 `alexa/LocateIntent.yaml`
 
 ```yaml
-{% raw %}
 actions:
   action: notify.pushover
   data:
@@ -382,13 +390,12 @@ speech:
       {%- endif -%}
     {%- else -%}
       I am sorry. Pootie! I do not know where {{User}} is.
-    {%- endfor -%}{% endraw %}
+    {%- endfor -%}
 ```
 
 `alexa/WhereAreWeIntent.yaml`
 
 ```yaml
-{% raw %}
 speech:
   type: plaintext
   text: >
@@ -396,7 +403,7 @@ speech:
       iPhone is home.
     {%- else -%}
       iPhone is not home.
-    {% endif %}{% endraw %}
+    {% endif %}
 ```
 
 ### Example: `!include_dir_merge_list`
@@ -456,7 +463,7 @@ automation: !include_dir_merge_list automation/
         entity_id: light.entryway
 ```
 
-It is important to note that when using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.
+When using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen (`-`)). Each file may contain one or more entries.
 
 ### Example: `!include_dir_merge_named`
 
@@ -501,7 +508,7 @@ bedroom:
     - light.bedroom_lamp
     - light.bedroom_overhead
 hallway:
-  name: Hallway
+  name: "Hallway"
   entities:
     - light.hallway
     - thermostat.home
@@ -522,8 +529,7 @@ front_yard:
 
 ### Example: Combine `!include_dir_merge_list` with `automations.yaml`
 
-You want to go the advanced route and split your automations, but still want to be able to create {% my automations title="automations in the UI" %}?
-In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
+Do you want to split your automations, while still being able to create them in {% my automations title="**Settings** > **Automations & scenes**" %}? Here is how you can do that for automations.
 
 Using labels like `manual` or `ui` allows for using multiple keys in the config:
 
@@ -538,4 +544,8 @@ automation manual: !include_dir_merge_list automations/
 automation ui: !include automations.yaml
 ```
 
-[discord]: https://discord.gg/c5DvZ4e
+## Example configuration files for inspiration
+
+Several community members have shared versions of their configurations without sensitive information, like API keys and passwords. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
+
+[discord]: https://discord.gg/home-assistant

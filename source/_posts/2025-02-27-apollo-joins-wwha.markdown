@@ -43,8 +43,6 @@ Works with Home Assistant differs from other certification programs as products 
 
 Apollo has chosen first to certify three products, which include:
 
-- [MTR-1 Multi-Target Radar Multisensor For Home Assistant (LD2450)](https://apolloautomation.com/products/mtr-1) - A tiny, but powerful radar-based (mmWave) presence sensor that can pack in many other sensors.
-- [MSR-2 mmWave Multisensor For Home Assistant (LD2410B)](https://apolloautomation.com/products/msr-2) - An even smaller multisensor that is the successor of the initial community feedback-driven design.
-- [AIR-1 Air Quality Sensor For Home Assistant](https://apolloautomation.com/products/air-1) - A small air quality multisensor that can be extended to incorporate a huge variety of sensors.
+{% include integrations/device_list.html brand="apollo-automation" %}
 
 We anticipate that Apollo will bring more of their lineup into the program, and we are excited to see their new innovations going forward! This is just the start of a year of many new Works with Home Assistant announcements, so please stay tuned!

@@ -1,21 +1,20 @@
 ---
-title: "Getting started - Local"
+title: "Set up a fully local voice assistant"
+description: "Run Assist completely on your own hardware: do speech recognition, intent processing, and text-to-speech locally, with no cloud involved."
 related:
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - docs: /voice_control/expanding_assist/
     title: Expanding Assist
-  - docs: /voice_control/voice_remote_local_assistant/
-    title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition - Documentation
 ---
 
-The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/)
+Assist can run entirely on your own hardware. Your spoken commands never leave your home: a microphone hears you, a local speech-to-text engine turns your voice into text, Home Assistant figures out what you want, and a local text-to-speech engine speaks the answer back. This guide walks you through setting that up.
 
-If you are interested in setting up a fully local voice assistant, follow this setup:
+If you would rather not run all of that yourself, the simplest path is to use the speech-to-text and text-to-speech voices included with [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/). Both options work well, and you can switch between them later.
 
 ## Prerequisites
 
@@ -84,7 +83,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
      ![Enter a name for your voice assistant](/images/assist/piper-whisper-install-05.png)
 
-     - **Troubleshooting**: If you do not see any assistants here, you are not using the default configuration. In this case, you need to add the following to your {% term "configuration.yaml" %} file:
+     - Troubleshooting: If you do not see any assistants here, you are not using the default configuration. In this case, you need to add the following to your {% term "configuration.yaml" %} file:
 
        ```yaml
        # Example configuration.yaml entry

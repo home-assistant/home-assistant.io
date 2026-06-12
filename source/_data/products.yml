@@ -163,7 +163,7 @@ green:
     - name: WIFIShop
       ship_from: Romania
       ship_to: Europe
-      url: https://www.wifishop.ro/en/homeassistant/home-assistant-green.html
+      url: https://www.wifishop.ro/en/cumpara/home-assistant-green-259
       logo: /images/distributors/wifishop.webp
     - name: Inet.se
       ship_from: Sweden
@@ -460,6 +460,11 @@ voice-pe:
       ship_to: Europe
       url: https://www.webhallen.com/377166
       logo: /images/distributors/webhallen.webp
+    - name: WIFIShop
+      ship_from: Romania
+      ship_to: Europe
+      url: https://www.wifishop.ro/en/cumpara/home-assistant-voice-preview-edition-530
+      logo: /images/distributors/wifishop.webp
     - name: Swiss-Domotique
       ship_from: Switzerland
       ship_to: Europe
@@ -561,11 +566,11 @@ zwa-2:
       ship_to: Australia
       url: https://www.smarthome.com.au/product/home-assistant-zwa-2-connect-z-wave-usb-antenna/
       logo: /images/distributors/smarthome.webp
-    # - name: Smart Home
-    #   ship_from: Australia
-    #   ship_to: Australia
-    #   url: PENDING
-    #   logo: /images/distributors/smarthome.webp
+    - name: Smart Guys
+      ship_from: Australia
+      ship_to: Australia
+      url: https://smartguys.com.au/product/home-assistant-zwa-2-connect/
+      logo: /images/distributors/smart-guys.webp
     # Europe
     - name: Seeed Studio
       ship_from: Germany
@@ -817,7 +822,7 @@ zbt-2:
     - name: WIFIShop
       ship_from: Romania
       ship_to: Europe
-      url: https://www.wifishop.ro/home-assistant-connect-zbt-2.html
+      url: https://www.wifishop.ro/en/cumpara/home-assistant-connect-zbt-2-universal-zigbee-and-thread-adapter-for-744
       logo: /images/distributors/wifishop.webp
     - name: SmarterHome
       ship_from: Slovakia

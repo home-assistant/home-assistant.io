@@ -1,6 +1,6 @@
 ---
-title: "Common tasks - installation independent"
-description: "Common tasks"
+title: "Common tasks for every Home Assistant"
+description: "Tasks that work the same on every Home Assistant installation: managing users, creating backups, configuring access tokens, and similar housekeeping."
 installation_name: "Installation independent"
 ---
 This section provides tasks that do not depend on a specific Home Assistant installation type or a specific integration. They may be referenced in other procedures.

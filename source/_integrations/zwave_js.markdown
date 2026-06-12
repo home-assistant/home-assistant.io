@@ -85,7 +85,7 @@ Once you have set up the Z-Wave server, you can [add devices to the network](#ad
    - In the dialog, select **Recommended installation**.
      - This will install the Z-Wave JS app on the Home Assistant server.
    - Add the device to an {% term area %} and select **Finish**.
-   - **Troubleshooting**: If your adapter is not recognized, follow [these steps](#my-z-wave-adapter-isnt-recognized-automatically-during-setup).
+   - Troubleshooting: If your adapter is not recognized, follow [these steps](#my-z-wave-adapter-isnt-recognized-automatically-during-setup).
 
 3. Wait for the installation to complete.
 4. Depending on your Home Assistant version, you may be prompted for network security keys.
@@ -113,7 +113,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
    - **Option 1: your device supports SmartStart**:
      - Make sure the device is turned off.
      - Select **Scan QR code** and scan the QR code on your device.
-       - **Troubleshooting**: If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
+       - Troubleshooting: If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
      - If the device supports Z-Wave Long Range, you're prompted to choose the network type.
        - **Long Range**: If it is far away from other devices, or that spot has had connection issues in the past. It might also help preserve battery life.
        - **Mesh**: If you already have a mesh network. Adding it can enhance coverage and reliability of this network.
@@ -124,7 +124,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 5. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
-6. **Troubleshooting**: If the adapter fails to add/find your device, cancel the inclusion process.
+6. Troubleshooting: If the adapter fails to add/find your device, cancel the inclusion process.
    - In some cases, it might help to first [remove](#removing-a-device-from-a-foreign-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
@@ -204,7 +204,7 @@ There is no easy way to update that device.
    - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](https://www.home-assistant.io/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
 7. Select **Submit**.
    - The new adapter is now being paired with your existing Z-Wave network.
-   - **Troubleshooting**: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
+   - Troubleshooting: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
      - Once your old adapter is connected and the network is operational, repeat the migration steps.
      - Make sure to select the new controller this time (instead of **Use socket**).
 8. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
@@ -769,6 +769,271 @@ The `zwave_js.get_lock_usercode` action retrieves [usercodes](/docs/scripts/perf
 
 {% enddetails %}
 
+### User and credential management
+
+The following actions let you manage users and their credentials (such as PIN codes and passwords) across a variety of legacy and modern Z-Wave locks. They supersede the older `set_lock_usercode` and `clear_lock_usercode` actions and let you store multiple credentials per user, assign user types, and require multiple credentials to unlock.
+
+{% note %}
+The exact set of supported features varies by lock. For example, some locks only support PIN codes, allow only one credential per user, or expose a limited set of user types. Use the `zwave_js.get_credential_capabilities` action to determine what your specific lock supports before calling other actions.
+{% endnote %}
+
+{% note %}
+Only `pin_code` and `password` credentials can be added or modified through these actions. Other credential types (such as RFID, NFC, or biometric) may appear in the lock's user list and capabilities, but must be enrolled directly on the device.
+{% endnote %}
+
+#### Action: Set user
+
+The `zwave_js.set_user` action creates or updates a user on the lock. If you omit `user_id`, the integration assigns the first available slot. The action returns the assigned `user_id`.
+
+| Data attribute    | Required | Description                                                                                                                                                                            |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`       | no       | Lock entity or list of entities to create or update the user on.                                                                                                                       |
+| `user_id`         | no       | User slot index (1-based). Defaults to the first available slot.                                                                                                                       |
+| `user_name`       | no       | Display name for the user. Maximum length is reported by `get_credential_capabilities`. When omitted, the existing name is preserved on update or left empty on create.                |
+| `user_type`       | no       | Type of user to create. See [user types](#user-types) below. Defaults to the existing value on update, or `general` on create.                                                         |
+| `credential_rule` | no       | How many credentials must be presented to unlock. One of `single`, `dual`, or `triple`. Defaults to the existing value on update, or the lock's default (typically `single`) on create. |
+| `active`          | no       | Whether the user is active. Inactive users exist on the lock but cannot unlock with their credentials until reactivated. Defaults to the existing value on update, or `true` on create. |
+
+##### User types
+
+| Value         | Description                                                                      |
+| ------------- | -------------------------------------------------------------------------------- |
+| `general`     | Can operate the lock.                                                            |
+| `programming` | Can program the device, manage users, and operate the lock.                      |
+| `non_access`  | Is recognized, but cannot open the lock (only sends events).                     |
+| `duress`      | Can open the lock, but sends an alarm to the hub.                                |
+| `disposable`  | Can open the lock once, disabled after first use.                                |
+| `expiring`    | Can operate the lock. Access gets disabled after a certain time when first used. |
+| `remote_only` | Can only operate the lock remotely.                                              |
+
+```yaml
+action: zwave_js.set_user
+target:
+  entity_id: lock.front_door
+data:
+  user_name: "Jane"
+  user_type: general
+  credential_rule: single
+response_variable: result
+```
+
+{% details "Example action response" %}
+
+```yaml
+lock.front_door:
+  user_id: 1
+```
+
+{% enddetails %}
+
+#### Action: Delete user
+
+The `zwave_js.delete_user` action deletes a user and all their associated credentials from the lock.
+
+| Data attribute | Required | Description                                          |
+| -------------- | -------- | ---------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to delete the user from. |
+| `user_id`      | yes      | User slot index (1-based) to delete.                 |
+
+```yaml
+action: zwave_js.delete_user
+target:
+  entity_id: lock.front_door
+data:
+  user_id: 3
+```
+
+#### Action: Delete all users
+
+The `zwave_js.delete_all_users` action removes every user (and all their credentials) from the lock.
+
+| Data attribute | Required | Description                                          |
+| -------------- | -------- | ---------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to delete all users from. |
+
+```yaml
+action: zwave_js.delete_all_users
+target:
+  entity_id: lock.front_door
+```
+
+#### Action: Get credential capabilities
+
+The `zwave_js.get_credential_capabilities` action returns the lock's user and credential management capabilities, including the maximum number of users, supported user types, supported credential rules, and per-credential-type limits (slot count and credential length range). It returns a response.
+
+| Data attribute | Required | Description                                                |
+| -------------- | -------- | ---------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to query the capabilities of. |
+
+```yaml
+action: zwave_js.get_credential_capabilities
+target:
+  entity_id: lock.front_door
+response_variable: capabilities
+```
+
+{% details "Example action response" %}
+
+```yaml
+lock.front_door:
+  supports_user_management: true
+  max_users: 20
+  supported_user_types:
+    - general
+    - programming
+  max_user_name_length: 16
+  supported_credential_rules:
+    - single
+    - dual
+  supported_credential_types:
+    pin_code:
+      num_slots: 20
+      min_length: 4
+      max_length: 10
+      supports_learn: false
+    password:
+      num_slots: 20
+      min_length: 4
+      max_length: 16
+      supports_learn: false
+```
+
+{% enddetails %}
+
+#### Action: Get users
+
+The `zwave_js.get_users` action lists all users configured on the lock. For each user, the response shows the `user_id`, `user_name`, active state, `user_type`, `credential_rule`, and a list of credential references (type and slot index). It returns a response.
+
+| Data attribute | Required | Description                                              |
+| -------------- | -------- | -------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to list the users of.    |
+
+```yaml
+action: zwave_js.get_users
+target:
+  entity_id: lock.front_door
+response_variable: users
+```
+
+{% details "Example action response" %}
+
+```yaml
+lock.front_door:
+  max_users: 20
+  users:
+    - user_id: 1
+      user_name: "Jane"
+      active: true
+      user_type: general
+      credential_rule: single
+      credentials:
+        - type: pin_code
+          slot: 1
+          data: "1234"
+    - user_id: 2
+      user_name: "Cleaner"
+      active: true
+      user_type: disposable
+      credential_rule: single
+      credentials:
+        - type: pin_code
+          slot: 2
+          data: "5678"
+```
+
+{% enddetails %}
+
+#### Action: Set credential
+
+The `zwave_js.set_credential` action adds or updates a credential for an existing user. The user must already exist - call `zwave_js.set_user` first if you need to create one. If you omit `credential_slot`, the integration assigns the first available slot for the given credential type. The action returns the assigned `credential_slot` and `user_id`.
+
+| Data attribute    | Required | Description                                                                                                                                                                                                                                                  |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`       | no       | Lock entity or list of entities to set the credential on.                                                                                                                                                                                                    |
+| `user_id`         | yes      | User slot index (1-based) that owns the credential. Must refer to an existing user.                                                                                                                                                                          |
+| `credential_type` | yes      | Type of credential. See [credential types](#credential-types) below.                                                                                                                                                                                         |
+| `credential_data` | yes      | The credential data to store. Always quote the value in YAML, for example, `"0123"`, to preserve leading zeros and prevent YAML from parsing the value as a number or boolean. For `pin_code`, use digits only. Accepted length range is reported by `get_credential_capabilities`. |
+| `credential_slot` | no       | Credential slot index (1-based). Defaults to the first available slot for the given credential type.                                                                                                                                                         |
+
+##### Credential types
+
+Only `pin_code` and `password` credentials can be added or modified through `zwave_js.set_credential` and `zwave_js.delete_credential`. Other credential types may appear in the response of `zwave_js.get_users` and `zwave_js.get_credential_capabilities`, but must be enrolled directly on the device.
+
+| Value                   | Writable | Description                                                                |
+| ----------------------- | -------- | -------------------------------------------------------------------------- |
+| `pin_code`              | yes      | Numeric PIN code entered on the lock's keypad.                             |
+| `password`              | yes      | Alphanumeric password entered on the lock's keypad.                        |
+| `rfid_code`             | no       | RFID tag or card tapped against the lock's reader.                         |
+| `nfc`                   | no       | NFC tag or device tapped against the lock's reader.                        |
+| `ble`                   | no       | Bluetooth Low Energy device.                                               |
+| `uwb`                   | no       | Ultra-wideband device.                                                     |
+| `desfire`               | no       | DESFire smart card.                                                        |
+| `finger_biometric`      | no       | Fingerprint registered on the lock's biometric sensor.                     |
+| `face_biometric`        | no       | Facial recognition profile registered on the lock.                         |
+| `eye_biometric`         | no       | Eye/iris pattern registered on the lock's biometric sensor.                |
+| `hand_biometric`        | no       | Hand geometry registered on the lock's biometric sensor.                   |
+| `unspecified_biometric` | no       | Biometric credential of an unspecified type.                               |
+
+```yaml
+# Add a PIN to an existing user
+action: zwave_js.set_credential
+target:
+  entity_id: lock.front_door
+data:
+  user_id: 1
+  credential_type: pin_code
+  credential_data: "1234"
+response_variable: result
+```
+
+{% details "Example action response" %}
+
+```yaml
+lock.front_door:
+  credential_slot: 1
+  user_id: 1
+```
+
+{% enddetails %}
+
+#### Action: Delete credential
+
+The `zwave_js.delete_credential` action removes a single credential from the lock. The user itself is not deleted. The credential is uniquely identified at the protocol level by the combination of `user_id`, `credential_type`, and `credential_slot`, all of which are required.
+
+| Data attribute    | Required | Description                                                                    |
+| ----------------- | -------- | ------------------------------------------------------------------------------ |
+| `entity_id`       | no       | Lock entity or list of entities to delete the credential from.                 |
+| `user_id`         | yes      | User slot index (1-based) that owns the credential.                            |
+| `credential_type` | yes      | Type of credential to remove. See [credential types](#credential-types) above. |
+| `credential_slot` | yes      | Credential slot index (1-based) to clear.                                      |
+
+```yaml
+action: zwave_js.delete_credential
+target:
+  entity_id: lock.front_door
+data:
+  user_id: 1
+  credential_type: pin_code
+  credential_slot: 1
+```
+
+#### Action: Delete all credentials
+
+The `zwave_js.delete_all_credentials` action removes every credential belonging to a single user. The user itself is not deleted and can have new credentials added later.
+
+| Data attribute | Required | Description                                                                  |
+| -------------- | -------- | ---------------------------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to delete all credentials from.              |
+| `user_id`      | yes      | User slot index (1-based) whose credentials should all be removed.           |
+
+```yaml
+action: zwave_js.delete_all_credentials
+target:
+  entity_id: lock.front_door
+data:
+  user_id: 1
+```
+
 ## Events
 
 There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
@@ -940,97 +1205,13 @@ actions:
         - switch.in_wall_dual_relay_switch_3
 ```
 
-## Automations
+<a id="automations"></a>
+<a id="zwave_jsvalue_updated"></a>
+<a id="zwave_jsvalue_updated-trigger"></a>
+<a id="zwave_jsevent"></a>
+<a id="zwave_jsevent-trigger"></a>
 
-The `Z-Wave` integration provides its own trigger platforms which can be used in automations.
-
-### `zwave_js.value_updated`
-
-This trigger platform can be used to trigger automations on any Z-Wave JS value update, including Z-Wave JS values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
-
-#### Example automation trigger configuration
-
-```yaml
-# Fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
-triggers:
-  - trigger: zwave_js.value_updated
-    # At least one `device_id` or `entity_id` must be provided
-    device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
-    entity_id:
-      - lock.front_lock
-      - lock.back_door
-    # `property` and `command_class` are required
-    command_class: 98 # Door Lock CC
-    property: "latchStatus"
-    # `property_key` and `endpoint` are optional
-    property_key: null
-    endpoint: 0
-    # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
-    from:
-      - "closed"
-      - "jammed"
-    to: "opened"
-```
-
-#### Available trigger data
-
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
-
-| Template variable            | Data                                                                                       |
-| ---------------------------- | ------------------------------------------------------------------------------------------ |
-| `trigger.device_id`          | Device ID for the device in the device registry.                                           |
-| `trigger.node_id`            | Z-Wave node ID.                                                                            |
-| `trigger.command_class`      | Command Class ID.                                                                          |
-| `trigger.command_class_name` | Command Class name.                                                                        |
-| `trigger.property`           | Z-Wave Value's property.                                                                   |
-| `trigger.property_name`      | Z-Wave Value's property name.                                                              |
-| `trigger.property_key`       | Z-Wave Value's property key.                                                               |
-| `trigger.property_key_name`  | Z-Wave Value's property key name.                                                          |
-| `trigger.endpoint`           | Z-Wave Value's endpoint.                                                                   |
-| `trigger.previous_value`     | The previous value for this Z-Wave value (translated to a state name when possible).       |
-| `trigger.previous_value_raw` | The raw previous value for this Z-Wave value (the key of the state when a state is named). |
-| `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
-| `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
-
-### `zwave_js.event`
-
-This trigger platform can be used to trigger automations on any Z-Wave JS controller, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
-
-There is strict validation in place based on all known event types, so if you come across an event type that isn't supported, please open a GitHub issue in the `home-assistant/core` repository.
-
-#### Example automation trigger configuration
-
-```yaml
-# Fires whenever the `interview failed` event is fired on the three devices (devices will be derived from device and entity IDs).
-triggers:
-  - trigger: zwave_js.event
-    # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
-    device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
-    entity_id:
-      - lock.front_lock
-      - lock.back_door
-    config_entry_id:
-    # `event_source` and `event` are required
-    event_source: node   # options are node, controller, and driver
-    event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
-    # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparison check would never evaluate to true.
-    event_data:
-      args:
-        isFinal: true
-    partial_dict_match: true  # defaults to false
-```
-
-#### Available trigger data
-
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.event` trigger platform has additional trigger data available for use.
-
-| Template variable      | Data                                                                             |
-| ---------------------- | -------------------------------------------------------------------------------- |
-| `trigger.device_id`    | Device ID for the device in the device registry (only included for node events). |
-| `trigger.node_id`      | Z-Wave node ID (only included for node events).                                  |
-| `trigger.event_source` | Source of event (node, controller, or driver).                                   |
-| `trigger.event`        | Name of event.                                                                   |
-| `trigger.event_data`   | Any data included in the event.                                                  |
+{% include integrations/triggers.md %}
 
 ## Advanced installation instructions
 
@@ -1169,7 +1350,7 @@ Entities will be created only after the node is ready (the interview is complete
 
 If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the GitHub issue tracker.
 
-### My device doesn't automatically update its status in HA if I control it manually
+### My device doesn't automatically update its status in Home Assistant if I control it manually
 
 Your device might not send automatic status updates to the adapter. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status).
 

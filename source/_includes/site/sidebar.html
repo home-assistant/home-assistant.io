@@ -1,21 +1,26 @@
 <div class="grid">
   {% include site/vertical_nav.html %}
 
-  {% if page.toc %}
-    {%- unless page.no_toc -%}
-      <section id="toc-module" class="aside-module grid__item one-whole lap-one-half">
-        <div class='section'>
-          <h1 class="title epsilon">{% icon "mdi:toc" %} On this page</h1>
-          {{ content | toc_only }}
-        </div>
-      </section>
-    {%- endunless -%}
-  {% endif %} 
+  {%- if page.function_name -%}
+    {% include asides/template_function_left_sidebar.html %}
+  {%- endif -%}
+
+  {%- if page.action -%}
+    {% include asides/action_left_sidebar.html %}
+  {%- endif -%}
+
+  {%- if page.trigger -%}
+    {% include asides/trigger_left_sidebar.html %}
+  {%- endif -%}
+
+  {%- if page.condition -%}
+    {% include asides/condition_left_sidebar.html %}
+  {%- endif -%}
 
   {%- if page.ha_category.first -%}
     <section id="category-module" class="aside-module grid__item one-whole lap-one-half">
       <div class='section'>
-        <h1 class="title epsilon">{% icon "mdi:category" %} Categories</h1>
+        <h2 class="h1 title epsilon">{% icon "mdi:category" %} Categories</h2>
         <ul class='divided'>
         {%- for category in page.ha_category -%}
           <li>
@@ -26,4 +31,59 @@
       </div>
     </section>
   {%- endif -%}
+
+  {%- if page.function_name -%}
+    <section id="learn-more-module" class="aside-module grid__item one-whole lap-one-half">
+      <div class='section'>
+        <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+        <ul class='divided'>
+          {% include asides/template_function_learn_more.html %}
+        </ul>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if page.action -%}
+    <section id="learn-more-module" class="aside-module grid__item one-whole lap-one-half">
+      <div class='section'>
+        <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+        <ul class='divided'>
+          {% include asides/action_learn_more.html %}
+        </ul>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if page.trigger -%}
+    <section id="learn-more-module" class="aside-module grid__item one-whole lap-one-half">
+      <div class='section'>
+        <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+        <ul class='divided'>
+          {% include asides/trigger_learn_more.html %}
+        </ul>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if page.condition -%}
+    <section id="learn-more-module" class="aside-module grid__item one-whole lap-one-half">
+      <div class='section'>
+        <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+        <ul class='divided'>
+          {% include asides/condition_learn_more.html %}
+        </ul>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {% if page.toc %}
+    {%- unless page.no_toc -%}
+      <section id="toc-module" class="aside-module grid__item one-whole lap-one-half">
+        <div class='section'>
+          <h2 class="h1 title epsilon">{% icon "mdi:toc" %} On this page</h2>
+          {{ content | toc_only }}
+        </div>
+      </section>
+    {%- endunless -%}
+  {% endif %}
 </div>

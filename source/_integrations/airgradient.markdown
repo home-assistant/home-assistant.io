@@ -130,7 +130,6 @@ use them as inspiration to create your own automations.
 
 The following example sends a notification to your mobile device when the CO2 level exceeds 1000 ppm.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -141,7 +140,9 @@ automation:
         above: 1000
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "High CO2 Level Alert"
           message: >
@@ -149,7 +150,6 @@ automation:
             Please consider ventilating the room.
 ```
 
-{% endraw %}
 
 ## Known limitations
 

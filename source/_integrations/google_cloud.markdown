@@ -116,7 +116,7 @@ The `tts.speak` action is the modern way to use Google Cloud TTS action. Add the
 
 For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#action-speak) building block page.
 
-A `tts.speak` service call can look like:
+A `tts.speak` action can look like:
 
 ```yaml
 action: tts.speak

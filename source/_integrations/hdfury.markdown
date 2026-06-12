@@ -59,6 +59,8 @@ Below is a complete overview of the entities this integration provides.
 
 ### Number
 
+- Unmute delay (Controls time offset before sending audio data to SINK0)
+- eARC unmute delay (Controls time offset before sending audio data to eARC TX)
 - OLED fade timer (Controls time before the front-panel OLED display fades out)
 - Restart timer (Controls interval for automatic device restarts)
 
@@ -120,8 +122,6 @@ These examples are just a starting point, and you can use them as inspiration to
 
 The following example switches the HDFury input to the correct source when the media player powers on.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Switch HDFury input to Nvidia SHIELD when powered on"
@@ -141,8 +141,6 @@ automation:
         data:
           option: 1
 ```
-
-{% endraw %}
 
 ## Known limitations
 

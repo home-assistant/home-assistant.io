@@ -152,6 +152,10 @@ Can be configured on the WLED itself under
 
 Reverses the direction of the LED effect on a segment. One switch is created per segment.
 
+#### Freeze
+
+Freezes the LED effect on a segment. One switch is created per segment.
+
 ### Buttons
 
 This {% term integration %} provides a [button entity](/integrations/button)
@@ -188,13 +192,13 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - Real-time effects that depend on **sound-reactive** or **2D matrix** features appear in the effect list, but may not behave correctly if the WLED instance was not compiled with those capabilities.
 
-- [Custom palettes](https://kno.wled.ge/features/palettes/#custom-palettes) uploaded to the WLED device (JSON files named `palette0.json` through `palette9.json`) are not supported by the integration. Only the built-in palettes are available in the color palette select entity.
-
 - Custom segment names configured in WLED are not used by the integration. Segments are always named using their index (for example, "Segment 1", "Segment 2"), regardless of any names assigned in the WLED interface.
 
 - The integration does not support controlling WLED usermods, such as the AudioReactive usermod. Features like toggling the microphone on or off are not available.
 
 - There is no segment master control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
+
+- Only the primary color of a segment can be set through the integration. The secondary and tertiary colors that many WLED effects use cannot be controlled directly from Home Assistant. The workaround is to configure those colors in the WLED app or web interface, save the configuration as a preset, and then activate that preset from Home Assistant — the preset restores all colors, including secondary and tertiary.
 
 ## Supported devices
 
@@ -214,8 +218,6 @@ Home Assistant can only manage one color model at a time.
 
 You can automate changing the effect using an action like this:
 
-{% raw %}
-
 ```yaml
 action: light.turn_on
 target:
@@ -224,13 +226,9 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
 ```
 
-{% endraw %}
-
 It is recommended to select an effect that matches the capabilities of your WLED device (e.g., 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
 
 Below is an example of how to select a random effect with an ID between 1 and 117, excluding retired effects:
-
-{% raw %}
 
 ```yaml
 action: light.turn_on
@@ -240,15 +238,11 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list')[1:118] | reject('equalto', 'RSVD') | list | random }}"
 ```
 
-{% endraw %}
-
 ### Activating random palette
 
 Activating a random palette is very similar to the above random effect,
 and can be done by selecting a random one from the available palette select
 {% term entity %}.
-
-{% raw %}
 
 ```yaml
 action: select.select_option
@@ -257,8 +251,6 @@ target:
 data:
   option: "{{ state_attr('select.wled_color_palette', 'options') | random }}"
 ```
-
-{% endraw %}
 
 ### Activating a preset
 
@@ -277,10 +269,12 @@ to a preset called My Preset:
     option: "My Preset"
 ```
 
-When a preset is activated and the light state is modified afterward 
-(e.g. with a `light.turn_on` action), the preset may be reset to an empty value. 
-This can affect services such as `select.select_next`, which will start again 
+When a preset is activated and the light state is modified afterward
+(for example, with a `light.turn_on` action), the preset may be reset to an empty value.
+This can affect services such as `select.select_next`, which will start again
 from the first option instead of continuing the cycle.
+
+If you want to pick presets directly from the effects list in a light card, you can use a [template light](/integrations/template/#wrapping-wled-presets-as-light-effects) to wrap the WLED device and expose its presets as effects.
 
 ### Automation using specific palette name
 

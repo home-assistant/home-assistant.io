@@ -55,10 +55,10 @@ Most Xiaomi Home devices support configuration using the Home Assistant UI,
 except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
 and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for those devices for more information.
 
-Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
+Devices need to be set up using the Mi Home app and not vendor-specific apps (for example, Roborock).
 
 {% note %}
-For more complex network setups (e.g. VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
+For more complex network setups (for example, VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -1501,8 +1501,6 @@ The `xiaomi_miio.vacuum_clean_zone` action starts the cleaning operation in the 
 Example of `xiaomi_miio.vacuum_clean_zone` use:
 
 Inline array:
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
@@ -1518,11 +1516,7 @@ automation:
           zone: [[30914, 26007, 35514, 28807], [20232, 22496, 26032, 26496]]
 ```
 
-{% endraw %}
-
 Array with inline zone:
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
@@ -1539,8 +1533,6 @@ automation:
             - [30914, 26007, 35514, 28807]
             - [20232, 22496, 26032, 26496]
 ```
-
-{% endraw %}
 
 Array mode:
 
@@ -2079,7 +2071,7 @@ pip3 install pycryptodome pybase64 requests
 python3 token_extractor.py
 ```
 
-3. Provide email address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+3. Provide email address or username for Xiaomi's account, password, and country of the account (most used: CN - China Mainland, DE - Germany, and so on)
 4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
 
 ### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
@@ -2095,7 +2087,7 @@ python3 token_extractor.py
 9. Android: under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
    iOS: Most options are still in Chinese, you need the fourth item from the top.
 
-Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
+Note: If you have multiple devices needing a token, such as a Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
 
 ### Using Get Mi Home Devices Token App
 
@@ -2149,7 +2141,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 8. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
-11. Input and run this query (use appropriate SELECT query for your device i.e. Vacuum, Powerstrip or Plug):
+11. Input and run this query (use appropriate SELECT query for your device, such as Vacuum, Powerstrip, or Plug):
 
     ```sql
     -- Execute to retrieve token for Vacuum

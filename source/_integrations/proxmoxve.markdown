@@ -38,26 +38,43 @@ Before you set up the integration, make sure you have created a Proxmox VE user 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
+Authentication Method:
+  description: "Authentication source of Proxmox. Default is `PAM`. For a dedicated Home Assistant account, we recommend using the built-in Proxmox VE realm and selecting `PVE` (see [Proxmox permissions](#proxmox-permissions))."
 Host:
-  description: "Address of your Proxmox instance. Example: `https://proxmox.example.com`."
+  description: "The hostname or IP address of your Proxmox VE server. Example: `pve.mydomain.local` or `10.20.30.40`."
 Port:
   description: "Port to connect to Proxmox. Default is `8006`."
-Realm:
-  description: "The authentication realm in Proxmox VE. Default is `pam`. For a dedicated Home Assistant account, we recommend using the built-in Proxmox VE realm and selecting `pve` (see [Proxmox permissions](#proxmox-permissions))."
 Username:
-  description: "Configured user to authenticate."
-Password:
-  description: "Password associated with the username."
+  description: "Configured user to authenticate. Example: `hass`."
 Verify SSL certificate:
   description: "Enable SSL certificate verification for secure connections."
+API token:
+  description: "Enable to use an API token or leave disabled to authenticate with a password."
+Password:
+  description: "When using password authentication: Password associated with the username."
+Token ID:
+  description: "When using API tokens: The name given to the API token during creation."
+Token Secret:
+  description: "When using API tokens: The secret generated for the API token."
+Realm:
+  description: "Only required when you choose the Other option for the **Authentication Method** field: Enter the realm name as defined in Proxmox."
 {% endconfiguration_basic %}
+
 
 ## Proxmox permissions
 
-This integration reads status and resource usage from Proxmox VE, and can perform actions using `button` entities.
+To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication Method** during setup, choose the matching realm.
+
+You can use any realm as long as you have valid credentials, like a username and password or an API token:
+
+- **PAM**: Reuse an existing Linux user on the Proxmox node.
+- **PVE**: Create a Proxmox-only user (recommended).
+- **Other**: LDAP, AD, OpenID Connect, or a custom realm. If you choose **Other**, you must enter the realm name manually during setup. See the Authentication Realms section in the [Proxmox User Management](https://pve.proxmox.com/wiki/User_Management) documentation for details.
+
+When using password authentication, Home Assistant will use the format username@realm. In the UI, you typically enter only the username portion.
 
 {% important %}
-To keep things secure, create a dedicated Proxmox VE user for Home Assistant and only grant the permissions you need. In short, do not use the `root` account.
+For security, create a dedicated Proxmox VE user for Home Assistant and grant only the minimum required permissions. We recommend avoiding the root account.
 {% endimportant %}
 
 ### Choose the right role
@@ -74,42 +91,78 @@ If you are not sure which privileges you need for control in your Proxmox VE set
 Before creating the user, you need to create a group for the user.
 Privileges can be either applied to Groups or Roles.
 
+{% details "Group instructions" %}
+
 1. Select **Datacenter**.
 2. Open **Permissions** and select **Groups**.
 3. Select the **Create** button above all the existing groups.
 4. Name the new group (for example, `HomeAssistant`).
 5. Confirm **Create**.
 
+{% enddetails %}
+
 ### Add Group Permissions to all Assets
 
 Assign the role you chose to the group at the root path (**/**) so it applies to all nodes, VMs, and containers.
+
+{% details "Permissions instructions" %}
 
 1. Select **Datacenter**.
 2. Select **Permissions**.
 3. Open **Add** and select **Group Permission**.
 4. For **Path**, select **/**.
-5. For **Group**,  select your Home Assistant group (`HomeAssistant`).
+5. For **Group**, select your Home Assistant group (`HomeAssistant`).
 6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
 7. Make sure **Propagate** is checked.
 8. Confirm **Create**.
 
+{% enddetails %}
+
 ### Create a user for Home Assistant
 
-Using the `pve` realm helps limit the account to API access, instead of Linux system authentication and remote (SSH) command line access.
+Using the `PVE` realm helps limit the account to API access, instead of Linux system authentication and remote (SSH) command line access.
 
 {% important %}
-If you plan to use the `pve` realm, make sure you select it during user creation and use the `@pve` suffix in Home Assistant (like `hass@pve`).
+If you plan to use the `PVE` realm, make sure you select it during user creation.
 {% endimportant %}
+
+{% details "User instructions" %}
 
 1. Select **Datacenter**.
 2. Open **Permissions** and select **Users**.
 3. Select **Add**.
-4. Enter a username (for example,`hass`).
-5. Set the realm to **Proxmox VE authentication server** for `pve` (or **Linux PAM standard authentication** for `pam`).
+4. Enter a username (for example,`hass`). You don't need to add the realm, just the username.
+5. Set the realm to **Proxmox VE authentication server** for `PVE` (or **Linux PAM standard authentication** for `PAM`).
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration).
 7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox.
 8. Ensure **Enabled** is checked and **Expire** is set to "never" (for example, leave it blank).
 9. Confirm **Add**.
+
+{% enddetails %}
+
+### API tokens
+
+Optional: You can authenticate using an API token instead of a password. This is recommended because it gives you a separate, revocable credential for Home Assistant, and avoids storing your Proxmox password in Home Assistant. To limit the token to only the permissions Home Assistant needs, make sure you enable privilege separation and assign token-specific permissions.
+
+{% details "API token instructions" %}
+
+To create a token:
+
+1. Select **Datacenter**.
+2. Open **Permissions** and select **API tokens**.
+3. Select **Add**.
+4. Select the **User** the token will belong to.
+5. Enter a **Token ID** (for example `hass`). This is the value you will enter as **Token ID** during configuration.
+6. Choose whether to enable **Privilege Separation**.
+
+   - Checked: you can assign specific permissions to the token.
+   - Unchecked: the token inherits all permissions of the user.
+7. (Optional) Set an **Expire** date. When the token expires, you will need to re-authenticate.
+8. Select **Add**.
+9. Copy the **Secret** shown in the dialog. It will be displayed only once, so either use it while configuring or store it safely.
+10. Close the dialog when ready.
+
+{% enddetails %}
 
 ## Entities
 
@@ -118,34 +171,45 @@ If you plan to use the `pve` realm, make sure you select it during user creation
 - **CPU**: Percentage of CPU usage.
 - **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
 - **Disk**: Disk usage of the node/VM/LXC.
+- **Last backup** & **Backup duration**: Time and duration of the last backup on the node. Returns `unknown` if no backups exist.
 - **Max disk**: Maximum amount of available disk space.
-- **Memory**: Amount of memory usage.
+- **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
-- **Status**: Current status of the node/VM/LXC.
+- **Network input**: Amount of incoming network traffic since starting the VM/LXC.
+- **Network output**: Amount of outgoing network traffic since starting the VM/LXC.
+- **Uptime**: Time since the node/VM/LXC started.
 
 ### Binary sensor
 
-The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM state is running or off if the VM state is different.
-
-The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
+- **Backup status**: for the node. This will be **on** if the last backup was successful or **off** for any other state.
+- **Status**: for each VM/LXC. This will be **on** if the state is running or **off** for any other state.
 
 ### Button
 
+- **Create snapshot**: Creates a snapshot of a VM/LXC.
 - **Start**: Starts a node/VM/LXC.
 - **Start all**: Starts all VMs and LXCs known on a node.
 - **Stop**: Stops a node/VM/LXC.
 - **Stop all**: Stops all VMs and LXCs known on a node.
 - **Restart**: Restarts a VM/LXC.
 - **Reboot**: Reboots a node.
-- **Shutdown**: Shuts a node down.
+- **Shutdown**: Shuts a node/VM down.
 - **Hibernate**: Puts a VM in hibernation; only available to VMs.
 - **Reset**: Resets a VM; only available to VMs.
+
+{% note %}
+**Reboot** and **Shutdown** will attempt to perform a graceful action (if you have the guest agent installed). On a node this will attempt the graceful shutdown of every VM/LXC.
+**Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
+{% endnote %}
 
 ## Troubleshooting
 
 ### Buttons not working
 
-If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example, `VM.PowerMgmt` on the relevant path).  If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
+If you want to use the `button` entities to perform actions on your node(s), additional privileges may be required:
+- For actions related to power, such as start, stop, or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerMgmt`, or role `PVEVMUser`.
+- To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
+If monitoring works (for example, sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
 
 ### Diagnostic data
 

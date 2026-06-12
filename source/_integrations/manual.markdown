@@ -109,7 +109,7 @@ The `manual_alarm_bad_code_attempt` event is fired when an attempt to change the
 
 - **entity_id** (string): The entity ID of the alarm control panel (for example, `alarm_control_panel.my_alarm`).
 - **target_state** (string): The attempted target state (for example, `disarmed`, `armed_away`, `armed_home`).
-- **user_id** (string): The user ID who initiated the service call (if available).
+- **user_id** (string): The user ID who initiated the action (if available).
 
 Example automation trigger:
 
@@ -259,8 +259,6 @@ automation:
 
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status
 
-{% raw %}
-
 ```yaml
 - alias: 'Send notification when alarm is Disarmed'
   triggers:
@@ -310,5 +308,3 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
         message: >
           ALARM! The alarm is armed in Home mode {{ states('sensor.date_time') }}
 ```
-
-{% endraw %}
