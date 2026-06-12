@@ -3,6 +3,7 @@ title: Yoto
 description: Instructions on how to integrate Yoto players with Home Assistant.
 ha_category:
   - Media Player
+  - Time
 ha_iot_class: Cloud Push
 ha_release: 2026.6
 ha_quality_scale: bronze
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: yoto
 ha_platforms:
   - media_player
+  - time
 ha_integration_type: hub
 ha_dhcp: true
 ---
@@ -63,6 +65,8 @@ During setup, Home Assistant opens the Yoto authorization page so you can grant 
 
 ## Supported functionality
 
+### Media player
+
 The integration provides one media player entity per Yoto player. Each entity supports:
 
 - Play, pause, and stop
@@ -93,6 +97,13 @@ data:
   media_content_type: "music"
   media_content_id: "yoto://card/abc123/01/02"
 ```
+
+### Day and night mode
+
+Yoto players can switch between a day display and a night display. Two time entities let you set when each one starts:
+
+- **Day mode start**: the time the player switches to day mode.
+- **Night mode start**: the time the player switches to night mode.
 
 ## Data updates
 
