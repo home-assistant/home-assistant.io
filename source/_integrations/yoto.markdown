@@ -100,10 +100,10 @@ data:
 
 ### Day and night mode
 
-Yoto players can switch between a day display and a night display. Two time entities let you set when each one starts:
+Yoto players can switch between a day display and a night display. Each player provides two time entities that let you set when each mode starts:
 
-- **Day mode start**: the time the player switches to day mode.
-- **Night mode start**: the time the player switches to night mode.
+- **Day mode start**: The time the player switches to day mode.
+- **Night mode start**: The time the player switches to night mode.
 
 ## Data updates
 
