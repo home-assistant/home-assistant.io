@@ -27,7 +27,7 @@ The `configuration.yaml` file stays in place when you split it. You move parts o
 A fresh `configuration.yaml` includes several entries that should not be removed:
 
 ```yaml
-# Loads a standard set of integrations. Removing it breaks many things.
+# Loads a standard set of integrations. Keep this entry.
 default_config:
 
 # These files store automations, scripts, and scenes created in the UI.
@@ -95,8 +95,8 @@ Incorrect indentation is one of the most common reasons a configuration file fai
 A `#` symbol marks a comment. Anything after it on that line is ignored by Home Assistant. Comments are useful for adding context or temporarily disabling a line without deleting it.
 
 ```yaml
-# Manual automations written in YAML
-automation: !include automation.yaml
+# Automations for public transport notifications
+automation public transport: !include public-transport-automation.yaml
 ```
 
 ### Multiple top-level keys
