@@ -59,6 +59,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2026.6.1 - June 5](#202661---june-5)
   - [2026.6.2 - June 9](#202662---june-9)
+  - [2026.6.3 - June 12](#202663---june-12)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -719,6 +720,74 @@ We also release patch releases for Home Assistant Core. These patch releases are
 [@synesthesiam]: https://github.com/synesthesiam
 [@thecode]: https://github.com/thecode
 [@tronikos]: https://github.com/tronikos
+
+### 2026.6.3 - June 12
+
+- Add debug logging for Mitsubishi Comfort polling failures ([@nikolairahimi] - [#173364])
+- Do not enable MQTT entities though discovery that were disabled by user ([@jbouwh] - [#173404])
+- Change update interval for UptimeRobot ([@chemelli74] - [#173435])
+- Redact more fields in diagnostics for Alexa devices ([@chemelli74] - [#173446])
+- Fix UniFi Protect ufp_set debug log printing UndefinedType for translation-key entities ([@heytcass] - [#173460])
+- Revert "Unify query token auth in http views" ([@edenhaus] - [#173466])
+- Bump reolink_aio to 0.21.0 ([@starkillerOG] - [#173477])
+- Bump aioamazondevices to 14.0.3 ([@chemelli74] - [#173478])
+- Bump pytrydan to 1.0.2 ([@dgomes] - [#173479])
+- Bump hassil to 3.6.0 ([@synesthesiam] - [#173031])
+- Update hassil to 3.7.0 ([#173484])
+- Refresh preferred Thread border agent address on OTBR reconnect ([@agners] - [#173508])
+- Update frontend to 20260527.6 ([@bramkragten] - [#173522])
+- Bump bthome-ble to 3.23.4 ([@Ernst79] - [#173526])
+- Fix Hue light level sensor crash on None value ([@frenck] - [#173532])
+- Fix Hue grouped light icon by adding translation_key ([@frenck] - [#173536])
+- Fix iCloud RuntimeError on unload by running cancel in executor ([@frenck] - [#173537])
+- Convert JPEG-incompatible image modes to RGB in image upload thumbnail generation ([@frenck] - [#173538])
+- Convert RainMachine hw_version to string for device registry ([@frenck] - [#173545])
+- Convert OpenGarage sw_version to string for device registry ([@frenck] - [#173546])
+- Fix Yale Smart Living panic button unique_id for multiple hubs ([@frenck] - [#173547])
+- Suppress InsecureKeyLengthWarning in HTML5 push notifications ([@frenck] - [#173551])
+- Fix Rituals Perfume Genie sw_version dict passed to device registry ([@frenck] - [#173552])
+- Return enum values from config_entry_attr template function ([@frenck] - [#173554])
+- Sort aliases in LLM prompts for stable prefix caching ([@frenck] - [#173558])
+- Disambiguate duplicate channel names in LG Netcast source list ([@frenck] - [#173560])
+
+[#173031]: https://github.com/home-assistant/core/pull/173031
+[#173364]: https://github.com/home-assistant/core/pull/173364
+[#173404]: https://github.com/home-assistant/core/pull/173404
+[#173435]: https://github.com/home-assistant/core/pull/173435
+[#173446]: https://github.com/home-assistant/core/pull/173446
+[#173460]: https://github.com/home-assistant/core/pull/173460
+[#173466]: https://github.com/home-assistant/core/pull/173466
+[#173477]: https://github.com/home-assistant/core/pull/173477
+[#173478]: https://github.com/home-assistant/core/pull/173478
+[#173479]: https://github.com/home-assistant/core/pull/173479
+[#173484]: https://github.com/home-assistant/core/pull/173484
+[#173508]: https://github.com/home-assistant/core/pull/173508
+[#173522]: https://github.com/home-assistant/core/pull/173522
+[#173526]: https://github.com/home-assistant/core/pull/173526
+[#173532]: https://github.com/home-assistant/core/pull/173532
+[#173536]: https://github.com/home-assistant/core/pull/173536
+[#173537]: https://github.com/home-assistant/core/pull/173537
+[#173538]: https://github.com/home-assistant/core/pull/173538
+[#173545]: https://github.com/home-assistant/core/pull/173545
+[#173546]: https://github.com/home-assistant/core/pull/173546
+[#173547]: https://github.com/home-assistant/core/pull/173547
+[#173551]: https://github.com/home-assistant/core/pull/173551
+[#173552]: https://github.com/home-assistant/core/pull/173552
+[#173554]: https://github.com/home-assistant/core/pull/173554
+[#173558]: https://github.com/home-assistant/core/pull/173558
+[#173560]: https://github.com/home-assistant/core/pull/173560
+[@Ernst79]: https://github.com/Ernst79
+[@agners]: https://github.com/agners
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@dgomes]: https://github.com/dgomes
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@heytcass]: https://github.com/heytcass
+[@jbouwh]: https://github.com/jbouwh
+[@nikolairahimi]: https://github.com/nikolairahimi
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
 
 ## Need help? Join the community
 
