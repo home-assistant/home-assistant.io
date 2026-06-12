@@ -247,11 +247,11 @@ You can also include entire directories at once using four directory-level inclu
 You can still use `!include` to load `.yml` files directly from within your `.yaml` files.
 
 - `!include_dir_list` returns the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
-- `!include_dir_named` returns the content of a directory as a dictionary which maps filename => content of file.
-- `!include_dir_merge_list` returns the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
-- `!include_dir_merge_named` returns the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
+- `!include_dir_named` returns the content of a directory as a dictionary that maps filenames to file contents.
+- `!include_dir_merge_list` returns the content of a directory as a list by merging all files (which should contain a list) into a single list.
+- `!include_dir_merge_named` returns the content of a directory as a dictionary by loading each file and merging it into a single dictionary.
 
-These work recursively. For example, using `!include_dir_list automation`, includes all 6 files shown below:
+These work recursively. For example, `!include_dir_list automation` includes all 6 files shown below:
 
 ```bash
 .
@@ -463,7 +463,7 @@ automation: !include_dir_merge_list automation/
         entity_id: light.entryway
 ```
 
-When using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.
+When using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen (`-`)). Each file may contain one or more entries.
 
 ### Example: `!include_dir_merge_named`
 
@@ -529,7 +529,7 @@ front_yard:
 
 ### Example: Combine `!include_dir_merge_list` with `automations.yaml`
 
-You want to split your automations, but still want to be able to create {% my automations title="automations in the UI" %}? Here is how we can do that for automations.
+Do you want to split your automations, while still being able to create them in {% my automations title="**Settings** > **Automations & scenes**" %}? Here is how you can do that for automations.
 
 Using labels like `manual` or `ui` allows for using multiple keys in the config:
 
