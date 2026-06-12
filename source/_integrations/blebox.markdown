@@ -444,6 +444,30 @@ This integration adds the Blebox device as a binary sensor entity to Home Assist
 
 - Periodic read of state of rain detection
 
+### inputSensorD
+
+This integration adds the Blebox device as 2 binary sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of state of 2 input sensors
+
+{% note %}
+If you need an immediate response (without local polling delay), the device can also be integrated using webhooks and automation, in the same way as [actionBox, actionBoxS, and proxiBox](#actionbox-actionboxs-and-proxibox).
+{% endnote %}
+
+### inputSensorQ
+
+This integration adds the Blebox device as 4 binary sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of state of 4 input sensors
+
+{% note %}
+If you need an immediate response (without local polling delay), the device can also be integrated using webhooks and automation, in the same way as [actionBox, actionBoxS, and proxiBox](#actionbox-actionboxs-and-proxibox).
+{% endnote %}
+
 ### airSensor
 
 This integration adds the Blebox device as a sensor entity to Home Assistant.
