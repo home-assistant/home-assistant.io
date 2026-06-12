@@ -81,7 +81,7 @@ The `profiler.start_log_objects` action starts logging the growth of objects in 
 
 | Data attribute | Optional | Description                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------- |
-| `scan_interval`        | yes      | The the frequency between logging objects. Defaults to 30.0 |
+| `scan_interval`        | yes      | The frequency between logging objects. Defaults to 30.0 |
 
 Periodically log the growth of new objects in memory. This action's primary use case is finding memory leaks. This action can be run for long periods to find slow leaks. For finding fast leaks, `profiler.start_log_object_sources` is preferred; however, it is much more CPU intensive.
 
@@ -101,7 +101,7 @@ The `profiler.start_log_object_sources` action starts logging the growth of obje
 
 | Data attribute | Optional | Description                                                                |
 | ---------------------- | -------- | -------------------------------------------------------------------------- |
-| `scan_interval`        | yes      | The the frequency between logging objects. Defaults to 30.0                |
+| `scan_interval`        | yes      | The frequency between logging objects. Defaults to 30.0                |
 | `max_objects`          | yes      | The number of new objects to examine for source information. Defaults to 5 |
 
 Periodically log the growth of new objects in memory. This actions's primary use case is finding memory leaks.

@@ -278,7 +278,7 @@ ________________
 Key|Description
 ---|-----------
 "BLUE"|Blue
-"GREEN"Green
+"GREEN"|Green
 "YELLOW"|Yellow
 "RED"|Red
 _____________

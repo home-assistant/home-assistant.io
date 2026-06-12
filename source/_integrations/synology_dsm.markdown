@@ -191,4 +191,4 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 {% include integrations/remove_device_service.md %}
 
-If you don't use the separate created user anymore (_see [Separate User Configuration](#separate-user-configuration) above_), then remove it from the NAS under to **Control Panel** > **User & Group** > **User**. Don't forget to backup any data from the users home directory, if you want to keep them (_eq. Home Assistant backups_)
+If you don't use the separate created user anymore (_see [Separate User Configuration](#separate-user-configuration) above_), then remove it from the NAS under **Control Panel** > **User & Group** > **User**. Don't forget to back up any data from the user's home directory, if you want to keep it (_for example, Home Assistant backups_).
