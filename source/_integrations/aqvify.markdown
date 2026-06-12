@@ -37,6 +37,48 @@ The **Aqvify** {% term integration %} supports the following entities:
 
 There is currently support for sensors measuring the well water level from different perspectives. Please refer to Aqvify's documentation for the exact interpretation of the values.
 
+## Automation example
+
+Get started with this automation example:
+
+### Send a notification when the water level in the well is below a limit
+
+{% details "Example YAML configuration" %}
+
+```yaml
+alias: "Notify when water level is below 15 meters from ground surface"
+triggers:
+  - trigger: numeric state
+    entity_id:
+      - sensor.water_level
+    below: -15.0
+actions:
+  - action: notify.notify
+    data:
+      message: "Low water level in well."
+```
+
+{% enddetails %}
+
+## Data updates
+
+The integration will poll the API for data every 60 seconds. This polling interval is designed to work within the rate limits of Aqvify APIs while providing timely updates.
+
+## Troubleshooting
+
+### Can’t set up the device
+
+To resolve this issue, try the following steps:
+
+1. Make sure your Home Assistant is connected to internet.
+2. Make sure that you have entered correct API key.
+3. Make sure the app of the manufacturer can see the device.
+
+### The installation went smooth but I can't see my devices
+
+Make sure the devices are visible and controllable via the manufacturer's app.
+If they are not, check the device's power and network connection and refer to manufacturer's documentation.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
