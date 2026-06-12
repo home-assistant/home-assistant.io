@@ -401,7 +401,7 @@ automation:
 Data is {% term polling polled %} from the **Sensibo** API once every minute for all devices.
 
 If {% term polling %} cannot happen because of no connectivity or a malfunctioning API, it will retry a few times before failing.
-The user can use the [`homeassistant.update_entity`](homeassistant#action-homeassistantupdate_entity) action to manually try again later, in the case the user has solved the connectivity issue.
+The user can use the [`homeassistant.update_entity`](/integrations/homeassistant/#action-update-entity) action to manually try again later, in the case the user has solved the connectivity issue.
 
 ## Troubleshooting
 

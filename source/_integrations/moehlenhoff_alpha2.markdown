@@ -46,11 +46,11 @@ changes.
 
 This integration supports the following actions (see [Climate](/integrations/climate/)).
 
-- [`set_temperature`](/integrations/climate/#action-climateset_temperature)
-- [`set_hvac_mode`](/integrations/climate/#action-climateset_hvac_mode)
+- [`set_temperature`](/integrations/climate/#action-set-temperature)
+- [`set_hvac_mode`](/integrations/climate/#action-set-hvac-mode)
   - `heat` for heating mode
   - `cool` for cooling mode
-- [`set_preset_mode`](/integrations/climate/#action-climateset_preset_mode)
+- [`set_preset_mode`](/integrations/climate/#action-set-preset-mode)
   - `auto` enable schedule based operation
   - `day` enable day mode
   - `night` enable night mode

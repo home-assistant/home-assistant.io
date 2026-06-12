@@ -520,7 +520,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
+You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-get-user-keyring-info).
 
 {% warning %}
 When processing NFC scans, always validate the scanned ID. Unknown NFC cards also trigger the scan event. Additionally, this event was developed using third-party cards, as the developer did not have access to official UniFi cards at the time. With third-party cards, the scan relies on the card's serial number. While this approach is not uncommon, it is essential to note that the card's serial number is generally not considered a secure identifier and can be duplicated relatively easily. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
@@ -535,7 +535,7 @@ When processing NFC scans, always validate the scanned ID. Unknown NFC cards als
   - **ulp_id**: The ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
 - **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the internal user ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
 
-You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
+You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info](#action-get-user-keyring-info).
 
 #### Example G4 Doorbell Fingerprint Identified Automation
 

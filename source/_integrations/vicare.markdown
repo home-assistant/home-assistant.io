@@ -116,7 +116,7 @@ The following actions of the [water_heater integration](/integrations/water_heat
 
 ### Action: Set ViCare mode
 
-The `vicare.set_vicare_mode` action sets the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#action-climateset_hvac_mode) for a mapping to Home Assistant Climate modes). This allows more fine-grained control of the heating modes.
+The `vicare.set_vicare_mode` action sets the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#action-set-hvac-mode) for a mapping to Home Assistant Climate modes). This allows more fine-grained control of the heating modes.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
