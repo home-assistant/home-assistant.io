@@ -155,6 +155,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
+- [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
+- [RGBIC Neon Rope Light / Neon Wire Rope Light](https://www.switch-bot.com/products/switchbot-neon-rope-light)
 
 ### Locks
 
@@ -667,6 +669,30 @@ Features:
 - turn on or off
 - change brightness
 - change color temperature
+- change color
+- set effect
+
+#### Candle Warmer Lamp
+
+This is an encrypted device.
+
+Related core PR: [home-assistant/core#173585](https://github.com/home-assistant/core/pull/173585)
+
+Features:
+
+- turn on or off
+- change brightness
+
+#### RGBIC Neon Rope Light / Neon Wire Rope Light
+
+This is an encrypted device. Both the **RGBIC Neon Rope Light** and **RGBIC Neon Wire Rope Light** models are supported and share the same device class.
+
+Related core PR: [home-assistant/core#173586](https://github.com/home-assistant/core/pull/173586)
+
+Features:
+
+- turn on or off
+- change brightness
 - change color
 - set effect
 
