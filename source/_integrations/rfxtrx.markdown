@@ -391,5 +391,5 @@ If you need to generate codes for switches and lights, you can use a template (u
 
 - Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.
-- Enable learning mode on your switch (that is, push learn button or plug it in a wall socket)
+- Enable learning mode on your switch (that is, push the learn button or plug it into a wall socket)
 - Toggle your new switch in the Home Assistant interface
