@@ -61,7 +61,7 @@ The `input_button` entity is stateless, as in, it cannot have a state like the
 
 Every input button entity does keep track of the timestamp of when the last time
 the input button entity has been pressed in the Home Assistant UI or pressed via
-a service call.
+an action.
 
 Because the state of a input button entity in Home Assistant is a timestamp, it
 means we can use it in our automations. For example:
