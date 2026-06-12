@@ -147,7 +147,7 @@ binary_sensor:
   name: "in_bed"
   unique_id: "172b6ef1-e37e-4f04-8d64-891e84c02b43" # generated on https://www.uuidgenerator.net/
   prior: 0.25 # I spend 6 hours a day in bed 6hr/24hr is 0.25 
-  probability_threshold: 0.8 # I am going to be using this sensor to turn out the lights so I only want to to activate when I am sure
+  probability_threshold: 0.8 # I am going to be using this sensor to turn out the lights so I only want to activate when I am sure
   observations:
     - platform: "state"
       entity_id: "sensor.living_room_motion"
