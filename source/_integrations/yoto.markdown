@@ -21,7 +21,7 @@ ha_integration_type: hub
 ha_dhcp: true
 ---
 
-The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track. You can also monitor each player's battery level, what is loaded in the card slot, and its Wi-Fi signal strength.
+The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track. You can also monitor each player's battery level, what is loaded in the card slot, and its current day or night mode.
 
 The integration talks to the official Yoto cloud over OAuth2 and receives playback updates over MQTT, so changes that happen on the player show up in Home Assistant almost immediately. Online and offline detection still relies on the cloud API and can lag by up to 5 minutes.
 
@@ -114,12 +114,6 @@ Each Yoto player also provides several sensors:
 - **Battery**: the player's battery charge.
 - **Card slot**: what is loaded in the player, such as a physical card or streaming content.
 - **Day mode**: the player's current mode (day or night).
-
-These diagnostic sensors are also available:
-
-- **Power source**: how the player is currently powered.
-- **SSID**: the Wi-Fi network the player is connected to.
-- **Wi-Fi RSSI**: the Wi-Fi signal strength. Disabled by default.
 
 ## Data updates
 
