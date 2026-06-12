@@ -134,7 +134,7 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 Entity reporting the security status of the NAS.
 
 {% note %}
-The security status corresponds with the analysis of the DSM Security Advisor, e.g., an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
+The security status corresponds with the analysis of the DSM Security Advisor. For example, an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
 {% endnote %}
 
 ### Disk sensors

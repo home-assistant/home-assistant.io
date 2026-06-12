@@ -209,7 +209,7 @@ To create a token:
 If you want to use the `button` entities to perform actions on your node(s), additional privileges may be required:
 - For actions related to power, such as start, stop or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerManagemt`, or role `PVEVMUser`.
 - To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
-If monitoring works (e.g. sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+If monitoring works (for example, sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
 
 ### Diagnostic data
 
