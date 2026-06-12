@@ -240,18 +240,18 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Container](/common-tasks/container/#configuration-check)
 
 <a id="advanced-usage"></a>
-## Including whole directories
+## Including entire directories
 
-You can also include whole directories at once using four directory-level include options. Your files must use the `.yaml` extension. The `.yml` extension is not supported.
+You can also include entire directories at once using four directory-level include options. The directory-level options only scan for files with the `.yaml` extension. Files with the `.yml` extension are ignored.
 
-This lets you `!include` files with `.yml` extensions from within `.yaml` files without importing those `.yml` files directly with the directory-level options.
+You can still use `!include` to load `.yml` files directly from within your `.yaml` files.
 
-- `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
-- `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
-- `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
-- `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
+- `!include_dir_list` returns the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
+- `!include_dir_named` returns the content of a directory as a dictionary that maps filenames to file contents.
+- `!include_dir_merge_list` returns the content of a directory as a list by merging all files (which should contain a list) into a single list.
+- `!include_dir_merge_named` returns the content of a directory as a dictionary by loading each file and merging it into a single dictionary.
 
-These work recursively. As an example using `!include_dir_list automation`, will include all 6 files shown below:
+These work recursively. For example, `!include_dir_list automation` includes all 6 files shown below:
 
 ```bash
 .
@@ -330,7 +330,7 @@ actions:
       entity_id: light.entryway
 ```
 
-It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
+Each file must contain only **one** entry when using `!include_dir_list`.
 
 ### Example: `!include_dir_named`
 
@@ -463,7 +463,7 @@ automation: !include_dir_merge_list automation/
         entity_id: light.entryway
 ```
 
-It is important to note that when using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.
+When using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen (`-`)). Each file may contain one or more entries.
 
 ### Example: `!include_dir_merge_named`
 
@@ -508,7 +508,7 @@ bedroom:
     - light.bedroom_lamp
     - light.bedroom_overhead
 hallway:
-  name: Hallway
+  name: "Hallway"
   entities:
     - light.hallway
     - thermostat.home
@@ -529,8 +529,7 @@ front_yard:
 
 ### Example: Combine `!include_dir_merge_list` with `automations.yaml`
 
-You want to split your automations, but still want to be able to create {% my automations title="automations in the UI" %}?
-In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
+Do you want to split your automations, while still being able to create them in {% my automations title="**Settings** > **Automations & scenes**" %}? Here is how you can do that for automations.
 
 Using labels like `manual` or `ui` allows for using multiple keys in the config:
 
