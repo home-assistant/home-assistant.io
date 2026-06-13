@@ -437,7 +437,7 @@ template:
         event_type: "imap_content"
         id: "custom_event"
         event_data:
-          custom: True
+          custom: true
     sensor:
       - name: event filtered by template
         state: '{{ trigger.event.data["subject"] }}'

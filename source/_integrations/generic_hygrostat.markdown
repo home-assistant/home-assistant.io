@@ -141,6 +141,6 @@ generic_hygrostat:
       minutes: 3
     initial_state: true
     away_humidity: 35
-    away_fixed: True
+    away_fixed: true
     sensor_stale_duration: 00:15:00
 ```

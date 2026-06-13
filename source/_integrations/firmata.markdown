@@ -95,12 +95,12 @@ switches:
     initial:
       description: The initial output of the pin after initialization. Note that this is inverted if `negate` is enabled.
       required: false
-      default: False
+      default: false
       type: boolean
     negate:
       description: Flips the output of the digital pin
       required: false
-      default: False
+      default: false
       type: boolean
 lights:
   description: PWM/Analog outputs to configure
@@ -154,7 +154,7 @@ binary_sensors:
     negate:
       description: Flips the input of the digital or analog pin
       required: false
-      default: False
+      default: false
       type: boolean
 sensors:
   description: Analog input to configure

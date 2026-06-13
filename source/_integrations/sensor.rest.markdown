@@ -154,7 +154,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}
 
 {% important %}
