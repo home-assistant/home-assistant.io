@@ -55,7 +55,7 @@ The Habitica integration lets you automate task management, such as creating to-
 
 {% include integrations/config_flow.md %}
 
-### Login to Habitica
+### Log in to Habitica
 
 {% configuration_basic %}
 "Email or username":
