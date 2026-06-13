@@ -36,7 +36,7 @@ Airthings API setup (needed to acquire the required ID and Secret for the Home A
 4. Name your API connection (e.g., "Home Assistant"). Note: The name field has a character limit and longer names will be truncated.
 5. Give the connection an accurate description.
 6. Select a Resource Scope.
-7. Select an access Type, i.e., Confidential.
+7. Select an access Type, for example, Confidential.
 8. Select a flow type.
 9. Set enable to "on".
 10. Save the settings.

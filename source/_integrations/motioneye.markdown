@@ -68,7 +68,7 @@ Stream URL template:
 #### Camera MJPEG Streams
 
 In order for the MJPEG streams to function they need to be accessible at
-`<motioneyehost>:<streaming port>`, i.e. Home Assistant will directly connect to the streaming port
+`<motioneyehost>:<streaming port>`, that is, Home Assistant will directly connect to the streaming port
 that is configured in the `motionEye` UI (under `Video Streaming`) on the host that the
 motionEye integration is configured to use.
 

@@ -30,14 +30,14 @@ This is a fully event-based integration. Any {% term event %} sent by the AlarmD
 
 {% include integrations/config_flow.md %}
 
-You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending on your selection, you will be asked for the following connection information:
+You will be prompted to select a protocol (for example, `socket` or `serial`). Depending on your selection, you will be asked for the following connection information:
 
 - **socket**:
   - **host** - The hostname or IP address of AlarDecoder device that is connected to your alarm panel.
-  - **port** - The port that AlarmDecoder is accessible on (i.e. `10000`).
+  - **port** - The port that AlarmDecoder is accessible on (for example, `10000`).
 - **serial**:
-  - **path** - The path to the AlarmDecoder device (i.e. `/dev/ttyUSB0`).
-  - **baud rate** - The baud rate of the AlarmDecoder device (i.e. `115200`).
+  - **path** - The path to the AlarmDecoder device (for example, `/dev/ttyUSB0`).
+  - **baud rate** - The baud rate of the AlarmDecoder device (for example, `115200`).
 
 ## Settings
 

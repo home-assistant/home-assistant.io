@@ -86,7 +86,7 @@ Depending on your setup, one or more binary sensors will provide the state of yo
 - **DHW State**
   - **Description**: Indicates active heating of domestic hot water.
 - **Flame State** 
-  - **Description**: If gas is being consumed by your heater, i.e., firing for space or DHW-heating.
+  - **Description**: If gas is being consumed by your heater, that is, firing for space or DHW-heating.
 
 #### Numbers
 
@@ -138,7 +138,7 @@ A generous number of sensors is provided. Examples include:
   - **Description**: The gas consumed since the last interval.
   - **Gateways**: P1.
 - **P1 Net Electricity Point**
-  - **Description**: Your netto electricity use at this time, can be negative when producing energy, i.e. though solar panels.
+  - **Description**: Your netto electricity use at this time, can be negative when producing energy, for example, through solar panels.
   - **Gateways**: P1.
 - **P1 Electricity Produced off-peak cumulative**
   - **Description**: The total produced electricity during off-peak.

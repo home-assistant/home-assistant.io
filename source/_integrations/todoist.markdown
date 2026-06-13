@@ -70,7 +70,7 @@ custom_projects:
       required: false
       type: list
     labels:
-      description: Only include tasks with at least one of these labels (i.e., this works as an `or` statement).
+      description: Only include tasks with at least one of these labels (that is, this works as an `or` statement).
       required: false
       type: list
 {% endconfiguration %}

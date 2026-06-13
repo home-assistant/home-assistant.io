@@ -101,7 +101,7 @@ brightness_command_template:
   required: false
   type: template
 brightness_scale:
-  description: "Defines the maximum brightness value (i.e., 100%) of the MQTT device."
+  description: "Defines the maximum brightness value (that is, 100%) of the MQTT device."
   required: false
   type: integer
   default: 255
@@ -433,7 +433,7 @@ white_command_topic:
   required: false
   type: string
 white_scale:
-  description: "Defines the maximum white level (i.e., 100%) of the MQTT device."
+  description: "Defines the maximum white level (that is, 100%) of the MQTT device."
   required: false
   type: integer
   default: 255
@@ -625,7 +625,7 @@ brightness:
   type: boolean
   default: false
 brightness_scale:
-  description: "Defines the maximum brightness value (i.e., 100%) of the MQTT device."
+  description: "Defines the maximum brightness value (that is, 100%) of the MQTT device."
   required: false
   type: integer
   default: 255
@@ -829,7 +829,7 @@ unique_id:
    required: false
    type: string
 white_scale:
-  description: "Defines the maximum white level (i.e., 100%) of the MQTT device. This is used when setting the light to white mode."
+  description: "Defines the maximum white level (that is, 100%) of the MQTT device. This is used when setting the light to white mode."
   required: false
   type: integer
   default: 255
@@ -993,7 +993,7 @@ mqtt:
 ## Template schema
 
 The `mqtt` light platform with template schema lets you control an MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
-It is format-agnostic so you can use any data format you want (i.e., string, JSON), just configure it with templating.
+It is format-agnostic so you can use any data format you want (such as string or JSON), just configure it with templating.
 
 This schema supports on/off, brightness, RGB colors, XY colors, HS Color, color temperature, transitions, short/long flashing and effects.
 

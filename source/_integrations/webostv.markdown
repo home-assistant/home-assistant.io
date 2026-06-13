@@ -191,9 +191,9 @@ mode: single
 
 The `play_media` action can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
- 1. Channel number *(i.e., '1' or '6')*
- 2. Exact channel name *(i.e., 'France 2' or 'CNN')*
- 3. Substring in channel name *(i.e., 'BFM' in 'BFM TV')*
+ 1. Channel number *(for example, '1' or '6')*
+ 2. Exact channel name *(for example, 'France 2' or 'CNN')*
+ 3. Substring in channel name *(for example, 'BFM' in 'BFM TV')*
 
 ```yaml
 # Example action entry in script to switch to channel number 1

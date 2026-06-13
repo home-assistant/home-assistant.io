@@ -357,7 +357,7 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (for example, **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
@@ -367,7 +367,7 @@ When exposing a Camera, Activity based remote (a `remote` that supports activiti
 
 To quickly add all accessory mode entities in the UI:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**).
+1. Create a new bridge via the UI (for example, **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**).
 2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
@@ -376,7 +376,7 @@ To quickly add all accessory mode entities in the UI:
 
 To add a single entity in accessory mode:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**)
+1. Create a new bridge via the UI (for example, **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
 4. Select the entity.

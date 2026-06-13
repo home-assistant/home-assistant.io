@@ -65,7 +65,7 @@ publish_states_host:
   required: false
   type: string
 publish_string_states:
-  description: Also publish string states, i.e. states which cannot be cast to a numeric value.
+  description: Also publish string states, that is, states which cannot be cast to a numeric value.
   required: false
   type: boolean
   default: false

@@ -100,7 +100,7 @@ The base frequency set for this device.
 
 ### Wireless SSID
 
-The <abbr title="Service Set Identifier">SSID</abbr> (i.e. the wireless network name) used by this device.
+The <abbr title="Service Set Identifier">SSID</abbr> (that is, the wireless network name) used by this device.
 
 ### Download capacity & Upload capacity
 
