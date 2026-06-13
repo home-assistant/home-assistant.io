@@ -986,7 +986,7 @@ Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does n
 
 ### Script
 
-Run script with script name, or _"turn on"_ utterance.  Deactivate a running script with _"turn off"_ utterance.
+Run script with script name, or _"turn on"_ utterance. Deactivate a running script with _"turn off"_ utterance.
 
 - _"Alexa, Party Time."_
 - _"Alexa, turn on Party Time."_

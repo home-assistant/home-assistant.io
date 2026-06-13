@@ -86,14 +86,14 @@ actions:
 
 The `camera.record` action allows you to make a `.mp4` recording from a camera stream. Requires `stream` integration to be set up.
 
-Both `duration` and `lookback` options are suggestions, but should be consistent per camera.  The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
+Both `duration` and `lookback` options are suggestions, but should be consistent per camera. The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
 
 | Data attribute | Optional | Description                                                                                                                                    |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`    | no       | Name(s) of entities to create a snapshot from, for example, `camera.living_room_camera`.                                                              |
 | `filename`     | no       | Recording file name.                                                                                                                           |
 | `duration`     | yes      | Target recording length (in seconds). Default: 30                                                                                              |
-| `lookback`     | yes      | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream. Default: 0 |
+| `lookback`     | yes      | Target lookback period (in seconds) to include in addition to duration. Only available if there is currently an active HLS stream. Default: 0 |
 
 The path part of `filename` must be inside a directory that Home Assistant is allowed to write to. By default, the `www` folder in your configuration directory and each configured [media directory](/integrations/homeassistant/#media_dirs) are both allowed, so a path like `/config/www/recording.mp4` or `/media/recording.mp4` works without any extra configuration. To save to another location, such as `/tmp`, add that directory to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in the [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
 

@@ -29,7 +29,7 @@ Example configuration:
 stream:
 ```
 
-Some extra options can be configured.  If specified, these options will be used whenever the stream integration is loaded.
+Some extra options can be configured. If specified, these options will be used whenever the stream integration is loaded.
 
 {% configuration %}
 ll_hls:

@@ -107,7 +107,7 @@ You can use the `button.press` action to send a request to the Nissan servers to
 
 ## Updating on-demand using Automation
 
-You can also use the `nissan_leaf.update` action to request an on-demand update. To update almost exclusively via the action set the `update_interval` to a high value in the integration configuration.  The action requests the VIN number as described above.
+You can also use the `nissan_leaf.update` action to request an on-demand update. To update almost exclusively via the action set the `update_interval` to a high value in the integration configuration. The action requests the VIN number as described above.
 
 ```yaml
 - id: update_when_driver_not_home
@@ -129,7 +129,7 @@ You can also use the `nissan_leaf.update` action to request an on-demand update.
 ## Hints
 
 - The update interval has a minimum of two minutes.
-- Requesting updates uses a small amount of energy from the 12 V battery. The 12 V battery charges from the main traction battery when the car is not plugged in. If the car is left plugged in for a long time, or if the main traction battery is very low then the 12 V battery may gradually discharge. A low update interval may cause the 12 V battery to become flat.  When the 12 V battery is flat the car will not start. _Do not set the update interval too low.  Use at your own risk._
+- Requesting updates uses a small amount of energy from the 12 V battery. The 12 V battery charges from the main traction battery when the car is not plugged in. If the car is left plugged in for a long time, or if the main traction battery is very low then the 12 V battery may gradually discharge. A low update interval may cause the 12 V battery to become flat. When the 12 V battery is flat the car will not start. _Do not set the update interval too low. Use at your own risk._
 - This integration communicates with the Nissan Servers which then communicate with the car. The communication between the car and the Nissan Servers is very slow, and takes up to five minutes to get information from the car, therefore the default polling interval is set to one hour to not overwhelm the connection.
 - Responses from the Nissan servers are received separately for the battery/range, climate control, and location. The `updated_on` attribute will show the last time the data was retrieved from the server. There are separate attributes for when the `next_update` is scheduled and for indicating if `update_in_progress`. The `nissan_leaf.update` action will reset the `next_update` attribute.
 - The Nissan APIs do not allow charging to be stopped remotely.

@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based integration. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
-As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+As of 0.29, the alarm_trigger service is supported. It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
 An `envisalink` section must be present in the {% term "`configuration.yaml`" %} file and contain the following options as required.
 {% include integrations/restart_ha_after_config_inclusion.md %}

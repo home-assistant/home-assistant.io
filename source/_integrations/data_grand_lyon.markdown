@@ -95,7 +95,7 @@ For each transit stop you add, the following sensor entities are created:
   - **Description**: The departure time of the second vehicle at this stop.
 
 - **Next departure 2 direction**
-  - **Description**: The direction (destination) of the second vehicle at this stop.  Disabled by default.
+  - **Description**: The direction (destination) of the second vehicle at this stop. Disabled by default.
 
 - **Next departure 2 type**
   - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.

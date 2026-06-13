@@ -459,7 +459,7 @@ For info on how to fix [this](#the-integration-tells-me-it-cannot-reach-my-vacuu
 
 ### I get a invalid or no user agreement error - but nothing shows up in my app
 
-Roborock servers require accepting a user agreement before using the API, which may block Home Assistant during setup. Additionally, the Roborock may ask you to re-enter the user agreement, even if you have entered it before.  To allow Home Assistant to use the Roborock API, you need to take the following steps:
+Roborock servers require accepting a user agreement before using the API, which may block Home Assistant during setup. Additionally, the Roborock may ask you to re-enter the user agreement, even if you have entered it before. To allow Home Assistant to use the Roborock API, you need to take the following steps:
 1. Open your Roborock app.
 2. Open **Profile** > **About Us** > **User Agreement & Privacy Policy**.
 3. Hit **Revoke authorization**.
@@ -492,7 +492,7 @@ Some devices are not supported yet as they use a different protocol than other d
 We recommend using the "Auto" setting for your region. If that doesn't work because you have accounts in multiple regions, try the following steps:
 
 1. If you ever accidentally created a Roborock account in the wrong Roborock server region, delete it using the Roborock App.
-2. The Roborock server region for your account may not always be associated with your actual country.  While setting up the integration, you may select the Roborock server region that you want to sign in with, with four available options: US, EU, RU, or CN, and you may need to try a different region than the one you expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
+2. The Roborock server region for your account may not always be associated with your actual country. While setting up the integration, you may select the Roborock server region that you want to sign in with, with four available options: US, EU, RU, or CN, and you may need to try a different region than the one you expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
 3. Please note that the "Region" that is shown in the app is actually the country your account is registered to. It does not always match the region the integration is looking for.
 
 ## Roborock integration automations

@@ -222,7 +222,7 @@ template:
     required: false
     type: template
   unique_id:
-    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
+    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface. Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
     required: false
     type: string
   variables:
@@ -1718,7 +1718,7 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.  When omitted, the state is set to the `value` provided by the `set_value` action.
+      description: Template for the number's current value. When omitted, the state is set to the `value` provided by the `set_value` action.
       required: false
       type: template
       default: optimistic
@@ -2180,11 +2180,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the installed version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the latest version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -2535,7 +2535,7 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 
 #### Twice Daily Weather Forecast
 
-The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
 
 ### Trigger based weather - Weather Forecast from response data
 

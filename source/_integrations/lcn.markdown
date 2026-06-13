@@ -124,7 +124,7 @@ If module scanning fails or a module is unavailable on the bus, you can manually
 To delete a single device, select the trash can icon next to it.
 - **Result**: This will remove the device from the device list and from Home Assistant, including any associated entities.
 
-To delete multiple devices at once, enable selection mode.  Select the desired entries, then, in the top-right corner, select  **Delete Selected**.
+To delete multiple devices at once, enable selection mode. Select the desired entries, then, in the top-right corner, select  **Delete Selected**.
 
 ### Configuring entities
 

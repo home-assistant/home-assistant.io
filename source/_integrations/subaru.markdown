@@ -134,4 +134,4 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 
 **Q:** Should I enable the vehicle polling option?
 
-**A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress.  Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as an action to enable incorporation into automations.
+**A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress. Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as an action to enable incorporation into automations.

@@ -157,7 +157,7 @@ The steps below use *Web Application Auth* with *My Home Assistant* to handle Go
 
     ![Screenshot of OAuth Client ID and Client Secret](/images/integrations/nest/oauth_created.png)
 
-8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.  Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
+8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant. Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
 
 {% enddetails %}
 
@@ -867,6 +867,6 @@ This integration follows standard integration removal. No extra steps are requir
 {% include integrations/remove_device_service.md %}
 
 After deleting the integration, you may also want to remove any unused information in
-your Google Account that was added during the set up process.  See the integration
+your Google Account that was added during the set up process. See the integration
 configuration instructions for how to find where OAuth credentials and Device Access projects
 are configured.
