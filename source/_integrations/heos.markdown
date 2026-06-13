@@ -61,7 +61,7 @@ The integration provides the following configuration options. By entering your H
 
 {% configuration_basic %}
 Username:
-  description: "The username or e-mail address of your HEOS Account."
+  description: "The username or email address of your HEOS Account."
 Password:
   description: "The password to your HEOS Account."
 {% endconfiguration_basic %}
