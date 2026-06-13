@@ -42,53 +42,7 @@ The **Green Planet Energy** integration provides the following sensor entities.
 
 ## Actions
 
-The integration provides the following action.
-
-### Action: Get prices
-
-The `green_planet_energy.get_prices` action returns raw 15-minute electricity price slots for the requested number of hours, starting from the current 15-minute slot. Slots that fall beyond the available data horizon of the API (today and tomorrow) are silently omitted from the result.
-
-- **Data attribute**: `hours`
-  - **Description**: How many hours of price data to return, starting from the current 15-minute slot. Minimum 0.25, maximum 24.
-  - **Optional**: No
-
-#### Response data
-
-The action returns the following data:
-
-```json
-{
-  "hours_requested": 2.0,
-  "prices": [
-    {
-      "start": "2026-03-24T10:00:00+01:00",
-      "end": "2026-03-24T10:15:00+01:00",
-      "price": 0.284375
-    },
-    {
-      "start": "2026-03-24T10:15:00+01:00",
-      "end": "2026-03-24T10:30:00+01:00",
-      "price": 0.28125
-    }
-  ]
-}
-```
-
-- `hours_requested`
-  - **Type**: `float`
-  - **Description**: The number of hours that were requested.
-- `prices`
-  - **Type**: `list`
-  - **Description**: List of 15-minute price slots.
-- `prices[].start`
-  - **Type**: `string`
-  - **Description**: ISO 8601 start timestamp of the slot.
-- `prices[].end`
-  - **Type**: `string`
-  - **Description**: ISO 8601 end timestamp of the slot.
-- `prices[].price`
-  - **Type**: `float`
-  - **Description**: Electricity price for the slot in EUR/kWh.
+{% include integrations/green_planet_energy_actions.html %}
 
 ## Examples
 

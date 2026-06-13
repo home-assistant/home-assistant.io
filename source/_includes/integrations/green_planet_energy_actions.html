@@ -1,0 +1,37 @@
+### Action: Get prices
+
+Use the `green_planet_energy.get_prices` action to fetch upcoming 15-minute electricity price slots.
+
+The action accepts the following data field:
+
+- `hours` (required): Number of hours to return, starting from the current 15-minute slot. Minimum `0.25`, maximum `24`.
+
+This example fetches the next 6 hours and stores the response in `result`.
+
+```yaml
+action: green_planet_energy.get_prices
+data:
+  hours: 6
+response_variable: result
+```
+
+Slots beyond the API data horizon (today and tomorrow) are omitted from the response.
+
+#### Response data
+
+```yaml
+hours_requested: 2.0
+prices:
+  - start: "2026-03-24T10:00:00+01:00"
+    end: "2026-03-24T10:15:00+01:00"
+    price: 0.284375
+  - start: "2026-03-24T10:15:00+01:00"
+    end: "2026-03-24T10:30:00+01:00"
+    price: 0.28125
+```
+
+- `hours_requested` (`float`): Number of hours requested.
+- `prices` (`list`): List of returned 15-minute price slots.
+- `prices[].start` (`string`): Slot start timestamp in ISO 8601 format.
+- `prices[].end` (`string`): Slot end timestamp in ISO 8601 format.
+- `prices[].price` (`float`): Electricity price in EUR/kWh.
