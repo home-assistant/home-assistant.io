@@ -207,7 +207,6 @@ Example YAML configuration of a button group:
 button:
   - platform: group
     name: "Restart all ESPHome devices"
-    device_class: opening
     entities:
       - button.device_1_restart
       - button.device_2_restart

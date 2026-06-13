@@ -1,6 +1,6 @@
 ---
 title: "Storing secrets"
-description: "Storing secrets outside of your configuration.yaml."
+description: "Keep passwords, API keys, and other sensitive values out of your configuration.yaml by storing them in a separate secrets.yaml file."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
@@ -60,3 +60,23 @@ logger: debug
 ```
 
 This will not print the actual secret's value to the log.
+
+## Secrets in automations and scripts
+
+Using secrets is not supported in the Home Assistant UI YAML editor for automations and scripts. If `!secret` is used in `automations.yaml` or `scripts.yaml`, you will not be able to edit or view **any** YAML automations or scripts in the UI.
+ 
+You can however split automations or scripts using secrets into a separate yaml file, as described in [splitting configuration](/docs/configuration/splitting_configuration/#top-level-keys). These will be read-only in the frontend, and allow the rest of your automations to still be editable normally.
+
+Example `configuration.yaml`:
+
+```yaml
+# The main automations editable in the UI
+automation ui: !include automations.yaml
+
+# These automations may contain secrets, and will be read-only in the UI
+automation secret: !include automations-secret.yaml
+```
+{% caution %}
+Secrets used in automations will expose their secret value to administrators when viewed in the UI, such as in the YAML source viewer and the trace viewer.
+{% endcaution %}
+

@@ -10,7 +10,6 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@gleeuwen'
-  - '@NickKoepr'
   - '@jtodorova23'
 ha_domain: blue_current
 ha_platforms:

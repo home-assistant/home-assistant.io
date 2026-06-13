@@ -82,7 +82,7 @@ are exposed.
 ### Authorization
 
 The Model Context Protocol supports OAuth, and allows you to give Home Assistant
-access to restricted MCP servers. You can enter the MCP Servers [Application Credentials](https://www.home-assistant.io/integrations/application_credentials/) when configuring
+access to restricted MCP servers. You can enter the MCP Servers [Application Credentials](/integrations/application_credentials/) when configuring
 the MCP integration.
 
 ## Known limitations

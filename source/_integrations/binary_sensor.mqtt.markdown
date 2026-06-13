@@ -30,7 +30,7 @@ mqtt:
       state_topic: "basement/window/contact"
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -131,7 +131,7 @@ device_class:
   required: false
   type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true

@@ -279,7 +279,7 @@ If you are running an older Windows version or have a stricter network configura
 
 - [VirtualBox (Intel chip)][vdi] (.vdi)
 {% if page.installation_type == 'macos' %}
-- [VirtualBox (Apple Silicon chip)][vmdk_arch64] (.vmdk)
+- [VirtualBox (Apple Silicon chip)][vdi_aarch64] (.vdi)
 {% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
@@ -456,15 +456,15 @@ Minimum recommended assignments:
 
       11. In Windows Explorer, go to the storage location of your newly created VM, for example under `C:\home-assistant`.
       12. Delete the `home-assistant.vmdk` file.
-      3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
+      13. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file.
          - If you haven't unzipped the archive, unzip it.
          - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
          - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
-      4. Right-click the `.vmx` file and select **Open with** > **Notepad**.
-      5. Under `.encoding`, add a line. Enter `firmware = "efi"`.
-      6. Now continue with the next step to start your VM. 
+      14. Right-click the `.vmx` file and select **Open with** > **Notepad**.
+      15. Under `.encoding`, add a line. Enter `firmware = "efi"`.
+      16. Now continue with the next step to start your VM.
          - If you see a message about side channel mitigations, select **OK**.
-         - If you see a message stating that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
+         - If you see a message stating that the `.vmdk` file could not be found, in step 13, you likely pasted the folder, not the file. Repeat step 13.
 
 
 {% elsif page.installation_type == 'alternative' %}
@@ -492,7 +492,7 @@ Minimum recommended assignments:
 
 1. Start the virtual machine.
 2. Observe the boot process of the Home Assistant Operating System.
-3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine’s IP address).
+3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. {% if page.installation_type == 'windows' %}If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% else %}If you have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% endif %}
 
 {% endif %}
 
@@ -509,7 +509,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
-[vmdk_arch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vdi_aarch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz

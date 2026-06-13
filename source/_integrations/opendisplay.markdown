@@ -3,6 +3,7 @@ title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
   - DIY
+  - Event
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Push
@@ -12,6 +13,8 @@ ha_domain: opendisplay
 ha_config_flow: true
 ha_platforms:
   - diagnostics
+  - event
+  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -39,6 +42,53 @@ For a full list of supported boards and displays, see the [OpenDisplay hardware 
 {% include integrations/config_flow.md %}
 
 Once the [Bluetooth](/integrations/bluetooth) integration is active, OpenDisplay devices are discovered automatically.
+
+### Encryption
+
+OpenDisplay devices can be configured to require AES-128 encryption for all Bluetooth Low Energy communication.
+
+If your device has encryption enabled, the setup flow will ask for a _32-character hexadecimal encryption key_ after the initial connection attempt. The key is shown on the display when the device boots.
+
+{% tip %}
+To avoid typing the key manually, scan the QR code on your device's display. The encryption key is shown on the page that opens, tap it to copy it to your clipboard, then paste it into Home Assistant.
+{% endtip %}
+
+If the encryption key changes after the device has been set up, Home Assistant will prompt you to re-enter the key.
+
+## Supported functionality
+
+The **OpenDisplay** integration provides the following entities.
+
+### Sensors
+
+- **Temperature**: Chip temperature
+- **Battery Voltage**: (Only if the device has a battery configured) Shows the current voltage of the attached battery
+
+### Button events
+
+OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
+
+- `button_down`: Fires when the button is pressed.
+- `button_up`: Fires when the button is released.
+
+{% note %}
+Events are detected by comparing consecutive BLE advertisements, so no active Bluetooth connection is needed. A very fast press-and-release between two advertisements may not be observed.
+{% endnote %}
+
+{% details "Turn on a light when a button is pressed" %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: event.opendisplay_1234_button_1
+    attribute: event_type
+    to: button_down
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.my_light
+```
+{% enddetails %}
 
 ## Actions
 
@@ -118,6 +168,12 @@ actions:
 {% details "Device is not discovered" %}
 
 Check that the [Bluetooth](/integrations/bluetooth) integration is set up and working, then confirm your OpenDisplay device is powered on and in range of your Home Assistant host or a Bluetooth proxy.
+
+{% enddetails %}
+
+{% details "Authentication failed" %}
+
+This means the encryption key stored in Home Assistant no longer matches the key configured on the device. Go to {% my integration domain="opendisplay" title="**Settings** > **Devices & services** > **OpenDisplay**" %} and select **Re-authenticate** to enter the correct key.
 
 {% enddetails %}
 

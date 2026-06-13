@@ -7,6 +7,18 @@
     {% include asides/docs_navigation.html %}
     {% include asides/template_functions_navigation.html %}
   {% endunless %}
+{% elsif root == 'actions' %}
+  {% unless page.action %}
+    {% include asides/docs_navigation.html %}
+  {% endunless %}
+{% elsif root == 'triggers' %}
+  {% unless page.trigger %}
+    {% include asides/docs_navigation.html %}
+  {% endunless %}
+{% elsif root == 'conditions' %}
+  {% unless page.condition %}
+    {% include asides/docs_navigation.html %}
+  {% endunless %}
 {% elsif root == 'integrations' %}
   {% include asides/component_navigation.html %}
 

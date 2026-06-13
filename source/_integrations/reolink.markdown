@@ -403,7 +403,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
 - [E331](https://reolink.com/product/e331/)
-- [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/) (needs mains power, cannot be integrated when powered through USB)
+- **[Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/)** (needs mains power, cannot be integrated when powered through USB)
 - [FE-P](https://reolink.com/product/fe-p/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [FE-W](https://reolink.com/product/fe-w/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [Lumus Pro](https://reolink.com/product/lumus-pro/)
@@ -454,7 +454,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - [Reolink Lumus](https://reolink.com/product/reolink-lumus/)
 - **[Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)**
-- [Reolink TrackMix Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/)
+- **[Reolink TrackMix Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/)**
 - Reolink Video Doorbell ([PoE Black](https://reolink.com/product/reolink-video-doorbell/), [PoE White](https://reolink.com/product/reolink-video-doorbell/))
 - **Reolink Video Doorbell ([Wi-Fi Black](https://reolink.com/product/reolink-video-doorbell-wifi/), [Wi-Fi White](https://reolink.com/product/reolink-video-doorbell-wifi/))**
 
@@ -613,7 +613,7 @@ Prerequisites:
 
 - This [Reolink integration](#configuration)
 - [Android or iOS companion app](https://companion.home-assistant.io/docs/getting_started#setting-up)
-- [Remote access to Home Assistant](https://www.home-assistant.io/docs/configuration/remote/). Although you can receive text notifications without remote access, to see the camera image in the notification (rich notification), the phone needs to be able to reach Home Assistant. The rich notification will always work, even without remote access, when the phone is on the same network as Home Assistant.
+- [Remote access to Home Assistant](/docs/configuration/remote/). Although you can receive text notifications without remote access, to see the camera image in the notification (rich notification), the phone needs to be able to reach Home Assistant. The rich notification will always work, even without remote access, when the phone is on the same network as Home Assistant.
 
 1. In order to receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
 
@@ -848,6 +848,11 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 - **Automations** which use entities from a Reolink battery camera can wake up the camera. Changing settings or requesting a snapshot will wake the battery camera for 10-30 seconds. When automations trigger very often, this can cause excessive battery use.
 - Some **Custom cards** that can be used to view the camera in a dashboard are known to keep a battery camera constantly awake, draining its battery.
 - Viewing a **dashboard** with a picture-entity card of a Reolink battery camera, will wake that camera to show the latest snapshot and/or stream. Therefore, it is recommended to place the picture-entity cards in a separate dashboard/tab, which is only accessed when actually wanting to view the battery camera streams.
+
+### Slow startup
+
+- If you are using an NVR or Home Hub, check whether a camera is currently offline or unreachable. For example, this can happen with a battery camera whose battery is completely drained, a PoE camera with an unplugged or damaged network cable, a Wi-Fi camera with outdated network credentials or power which is unplugged, or a camera whose IP address has changed. To speed up startup, bring the camera back online or remove it from the NVR or Home Hub in the Reolink app (or using a mouse and screen for a NVR).
+- If your Home Assistant device and Reolink device are separated by a VLAN or other network restrictions, follow the guidance in the earlier **Can’t setup the integration** section. The same network restrictions can also cause slow startup issues.
 
 ### Streams or recordings not playing
 

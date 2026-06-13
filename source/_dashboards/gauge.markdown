@@ -24,9 +24,9 @@ Screenshot of the gauge card.
 Screenshot of the gauge card in needle mode.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

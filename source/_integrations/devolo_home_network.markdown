@@ -178,7 +178,9 @@ conditions:
       # Checks if new value is less than 75% of previous value
       {{ (trigger.to_state.state|float / trigger.from_state.state|float) < 0.75 }}
 actions:
-  - action: notify.mobile_app_pixel_4a
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: >-
         PLC data rate of {{ trigger.to_state.name }} dropped to {{

@@ -24,7 +24,7 @@ mqtt:
       topic: zanzito/shared_locations/my-device
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 The sample configuration above can be tested by publishing an image to the topic from the console:
 
@@ -127,7 +127,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true

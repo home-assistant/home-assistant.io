@@ -3,10 +3,13 @@ title: Gardena Bluetooth
 description: Instructions on how to integrate Gardena Bluetooth devices within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Number
   - Select
   - Sensor
   - Switch
+  - Text
+  - Valve
 ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -20,6 +23,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - valve
 ha_integration_type: device
 ---
@@ -29,6 +33,12 @@ The **Gardena Bluetooth** {% term integration %} allows users to integrate their
 See device section for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps), [aqua contours](#aqua-contours).
 
 {% include integrations/config_flow.md %}
+
+## Pairing
+
+Gardena devices remember previously paired Bluetooth adapters, up to 10, and only allow connections from those adapters. If you replace your adapter or use multiple Bluetooth proxies, the device must be paired with that proxy or adapter before it will connect. Otherwise, the device silently ignores the connection attempt. In Home Assistant, this usually appears as timeout errors.
+
+If you have connection issues, put the device back into pairing mode so it can learn the new proxy or Bluetooth adapter. For some devices, such as the water control, a factory reset is required first.
 
 ## Water control
 

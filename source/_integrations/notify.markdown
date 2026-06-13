@@ -50,32 +50,32 @@ One notification integration is automatically included, the Persistent Notificat
 
 ## Notify action
 
-Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify action in time. There is an entity platform action `send_message` which allows you to send notification messages to multiple notify entities.
+Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify action in time. There is an entity platform action `notify.send_message` which allows you to send notification messages to one or multiple notify entities, mobile phones or other devices. You just need to add them in the `target` block. 
 
-| Data attribute | Optional | Description                |
-| -------------- | -------- | -------------------------- |
-| `message`      | no       | Body of the notification.  |
-| `title`        | yes      | Title of the notification. |
+| Data attribute | Optional | Description               |
+| -------------- | -------- | ------------------------  |
+| `message`      | no       | Body of the notification. |
+| `title`        | yes      | Title of the notification.|
 
 ## Companion app notifications
 
-A common notification integration is via the Home Assistant Companion app for Android or iPhone. This can be chosen with the action "Send a notification via mobile_app_your_phone_name", which uses the `notify.mobile_app_your_phone_name` action. Refer to the [Companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
+A common notification integration is via the Home Assistant Companion app for Android or iOS. This can be chosen with the action "Send a notification via mobile_app_your_phone_name", which uses the `notify.mobile_app_your_phone_name` action. Refer to the [Companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
 
 With any of these integrations, the `message` data input in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional `data` or `target` information to customize the action. For more details, refer to their integration documentation.
 
 Be aware that the `notify.notify` action is shorthand for the first notify action the system can find. It might not work as intended. Choose a specific action to make sure your message goes to the right place.
 
-Notifications can also be sent using [Notify groups](https://www.home-assistant.io/integrations/group/#notify-groups). These allow you to send notification to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
+Notifications can also be sent using [Notify groups](/integrations/group/#notify-groups). These allow you to send notification to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
 ### Test if it works
 
-After you set up a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} tab from the sidebar. Choose your action from the **Action** dropdown menu depending on the integration you want to test, such as **Notifications: Send a persistent notification** or **Notifications: Send a notification via mobile_app_your_phone_name**. Enter your message into the **message** field, and select the **Perform action** button.
+After you set up a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} tab from the sidebar. Choose your action from the **Action** dropdown menu depending on the integration you want to test, such as **Send a persistent notification** or **Send a notification via mobile_app_your_phone_name**. Enter your message into the **Message** field, and select the **Perform action** button.
 
 To test the entity platform action, select the `notify.send_message` action, and select one or more of `entity`, `device`, `area`, or `label`. Then, supply a `message`.
 
 ### Example with the entity platform notify action
 
-Under {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, select the **Notifications: Send a notification message** action. Select some target entities using the entity selectors, enter a message and test sending it.
+Under {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, select the **Send a notification message** action. Select some target entities using the entity selectors, enter a message and test sending it.
 
 If you switch to view the YAML data under **Developer tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %}. The YAML will appear the same:
 
@@ -99,7 +99,7 @@ actions:
 
 ### Examples with the legacy notify action
 
-In the **Developer tools**, on the **Action** tab, select the **Notifications: Send a persistent notification** action. Enter a message and test sending it.
+In the **Developer tools**, on the **Action** tab, select the **Send a persistent notification** action. Enter a message and test sending it.
 
 If you switch to view the YAML data under **Developer tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %} actions, whose YAML will appear the same:
 

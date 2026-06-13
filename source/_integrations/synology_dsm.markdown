@@ -11,7 +11,6 @@ ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
 ha_codeowners:
-  - '@hacf-fr'
   - '@Quentame'
   - '@mib1185'
 ha_config_flow: true
@@ -135,7 +134,7 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 Entity reporting the security status of the NAS.
 
 {% note %}
-The security status corresponds with the analysis of the DSM Security Advisor, e.g., an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
+The security status corresponds with the analysis of the DSM Security Advisor. For example, an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
 {% endnote %}
 
 ### Disk sensors
@@ -192,4 +191,4 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 {% include integrations/remove_device_service.md %}
 
-If you don't use the separate created user anymore (_see [Separate User Configuration](#separate-user-configuration) above_), then remove it from the NAS under to **Control Panel** > **User & Group** > **User**. Don't forget to backup any data from the users home directory, if you want to keep them (_eq. Home Assistant backups_)
+If you don't use the separate created user anymore (_see [Separate User Configuration](#separate-user-configuration) above_), then remove it from the NAS under **Control Panel** > **User & Group** > **User**. Don't forget to back up any data from the user's home directory, if you want to keep it (_for example, Home Assistant backups_).

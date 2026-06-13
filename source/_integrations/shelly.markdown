@@ -8,6 +8,7 @@ ha_category:
   - Energy
   - Event
   - Light
+  - Media player
   - Number
   - Select
   - Sensor
@@ -34,6 +35,7 @@ ha_platforms:
   - diagnostics
   - event
   - light
+  - media_player
   - number
   - select
   - sensor
@@ -60,7 +62,7 @@ Port:
 
 {% configuration_basic %}
 Bluetooth scanner mode:
-  description: "The scanner mode to use for Bluetooth scanning. Bluetooth scanning can be active or passive. With active, the Shelly requests data from nearby devices. With passive, the Shelly receives unsolicited data from nearby devices."
+  description: "Pick how the Shelly scans for Bluetooth devices. <br> **Auto** is recommended for most setups. The Shelly listens passively and only briefly switches to active scanning when needed, saving around 95% of the scan related battery drain on your Bluetooth devices while still discovering devices and updates quickly. <br> **Active** continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you. <br> **Passive** only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work. <br> **Disabled** turns the Shelly Bluetooth scanner off."
 {% endconfiguration_basic %}
 
 ## Shelly device generations
@@ -213,6 +215,43 @@ Depending on how a device's button type is configured, the integration will crea
 ### Binary input sensors (generation 2+)
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
+
+## Media player entities
+
+Wall Display devices with firmware 2.2 or newer can function as media players. The integration creates media player entities for them.
+
+The Wall Display media player can play the following audio formats:
+
+- Local audio files uploaded to the Wall Display media library
+- Internet radio stations added to your favorites
+
+These audio files and your favorite radio stations are visible in the Home Assistant media browser.
+
+### Play media using the `media_player.play_media` action
+
+This action will start playing your favorite radio station with ID `2`:
+
+```yaml
+action: media_player.play_media
+data:
+  media:
+    media_content_id: 2
+    media_content_type: radio
+target:
+  entity_id: media_player.shelly_wall_display
+```
+
+This action will start playing your audio file with ID `15`:
+
+```yaml
+action: media_player.play_media
+data:
+  media:
+    media_content_id: 15
+    media_content_type: audio
+target:
+  entity_id: media_player.shelly_wall_display
+```
 
 ## Event entities
 
@@ -491,9 +530,9 @@ Please check from the device Web UI that the configured server is reachable.
 
 ## Troubleshooting
 
-1. [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#enabling-debug-logging).
+1. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 2. Take necessary steps/actions to replicate the issue.
-3. [Disable debug logging and download logs](https://www.home-assistant.io/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
+3. [Disable debug logging and download logs](/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
 
 ## Known issues and limitations
 

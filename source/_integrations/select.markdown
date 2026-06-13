@@ -145,3 +145,7 @@ target:
 data:
   cycle: false
 ```
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}

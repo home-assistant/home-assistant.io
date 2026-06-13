@@ -82,4 +82,4 @@ The following device classes are supported for binary sensors:
 - **vibration**: `on` means vibration detected, `off` means no vibration (clear)
 - **window**: `on` means open, `off` means closed
 
-For comparison, here are the [device classes](https://www.home-assistant.io/integrations/sensor#device-class) for analog sensors.
+For comparison, here are the [device classes](/integrations/sensor#device-class) for analog sensors.

@@ -10,6 +10,9 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: system
+related:
+  - docs: /integrations/sql/
+    title: SQL integration
 ---
 
 The **Recorder** {% term integration %} is by default enabled as dependency of the [`history`](/integrations/history/) integration.
@@ -28,7 +31,7 @@ The supported database solutions are:
 
 Although SQLAlchemy supports database solutions in addition to the ones supported by Home Assistant, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
-The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
+The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`. For details on the database structure, including available tables and columns, see the [Database](/docs/backend/database/) documentation.
 
 {% caution %}
 Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
@@ -267,7 +270,7 @@ Statistics are only available for entities that store {% term "Long-term statist
 | `end_time`     | yes      | The end time for the statistics query. If omitted, returns all statistics from start time onward. |
 | `period`       | no      | The time period to group statistics by (`5minute`, `hour`, `day`, `week`, or `month`). |
 | `types`        | no      | The types of statistics values to return (`change`, `last_reset`, `max`, `mean`, `min`, `state`, or `sum`). |
-| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](https://www.home-assistant.io/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
+| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
 
 #### Example using get_statistics
 

@@ -108,7 +108,7 @@ The following commands are currently supported depending on device type and manu
 - volume_mute
 - volume_up
 
-Strings can be be typed by using the command `Lit_STRING` (e.g. `Lit_example` will type "example"). Punctuation and spaces are allowed in the string.
+Strings can be typed by using the command `Lit_STRING` (e.g. `Lit_example` will type "example"). Punctuation and spaces are allowed in the string.
 
 ##### Example
 

@@ -19,8 +19,6 @@ The webpage card is used on the [Webpage dashboard](/dashboards/dashboards/#webp
   Windy weather radar as webpage.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
 
 Note that not every webpage can be embedded due to security restrictions that some sites have in place. These restrictions are enforced by your browser and prevent embedding them into a Home Assistant dashboard.
@@ -28,6 +26,8 @@ Note that not every webpage can be embedded due to security restrictions that so
 {% important %}
 You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
 {% endimportant %}
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

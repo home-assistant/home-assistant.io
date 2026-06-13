@@ -14,6 +14,7 @@ ha_category:
   - Pump
   - Select
   - Sensor
+  - Siren
   - Switch
   - Update
   - Vacuum
@@ -39,6 +40,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - update
   - vacuum
@@ -480,7 +482,7 @@ response_variable: lock_info
 
 #### Action: Get lock users
 
-The `matter.get_lock_users` action returns all users configured on the lock. For each user, the response includes their name, status, type, credential rule, and a list of credential references (type and slot index). For security reasons, the lock does not expose the actual credential secrets (such as PIN codes or RFID tag data). This action returns a response and does not require any additional data attributes.
+The `matter.get_lock_users` action lists all users on the lock. For each user, the response shows their name, status, and type. It also shows their credential rule. The response lists credential references, including type and slot index. It shows which controller created the user. It also shows which controller last changed the user. For security, the lock does not show real credential secrets like PIN codes or RFID tags. This action returns a response. No extra data is required.
 
 ```yaml
 action: matter.get_lock_users
@@ -572,7 +574,7 @@ data:
 
 #### Action: Get lock credential status
 
-The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied and which user it belongs to. This action returns a response.
+The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied, which user it belongs to, which controller (such as Home Assistant, Apple Home, or Google Home) created the credential, and which controller last modified it. This action returns a response.
 
 - **Data attribute**: `credential_type`
   - **Description**: The type of credential to query.
@@ -714,7 +716,7 @@ To add a Matter device which is based on the {% term Thread %} radio protocol, y
 
 Set up a {% term "Thread border router" %} and synchronize the credentials from Home Assistant to your Android device:
 
-1. Follow the steps on [Turning Home Assistant into a Thread border router](https://www.home-assistant.io/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+1. Follow the steps on [Turning Home Assistant into a Thread border router](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 2. Make sure to Sync the Thread credentials as described in step 3.
 
 ### Error "Target node did not process the update file"

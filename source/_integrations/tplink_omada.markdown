@@ -13,6 +13,7 @@ ha_domain: tplink_omada
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
   - switch
   - update
@@ -91,7 +92,7 @@ The integration can track Wi-Fi devices connected to access points managed by th
 
 ### Data updates
 
-The TP-Link Omada integration fetches data from the Omada Controller every 5 minutes by default. If you want to increase the polling frequency of client updates, follow [these instructions](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval). You only need to request a refresh from one of the tracked devices, all of the tracked devices will be refreshed at the same time.
+The TP-Link Omada integration fetches data from the Omada Controller every 5 minutes by default. If you want to increase the polling frequency of client updates, follow [these instructions](/common-tasks/general/#defining-a-custom-polling-interval). You only need to request a refresh from one of the tracked devices, all of the tracked devices will be refreshed at the same time.
 
 Note: The TP-Link Omada controller takes a few minutes to detect when a client disconnects from the Wi-Fi network, even with more regular polling updates.
 

@@ -70,9 +70,9 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
    - OAuth Grant Type: Select **Authorization Code and Machine-to-Machine**
    - Allowed Origin URL(s): Enter your domain's URL, for example `https://yourdomain.com/`
    - Allowed Redirect URI: Enter one of the following:
-     - The literal string `https://my.home-assistant.io/redirect/oauth` if the [`My Home Assistant`](https://www.home-assistant.io/integrations/my/) integration is enabled (it is by default).
+     - The literal string `https://my.home-assistant.io/redirect/oauth` if the [`My Home Assistant`](/integrations/my/) integration is enabled (it is by default).
        - Home Assistant uses [this service](https://my.home-assistant.io/) by default to redirect requests towards your instance.
-     - `<HOME_ASSISTANT_URL>/auth/external/callback` if you do not have the [`My Home Assistant`](https://www.home-assistant.io/integrations/my/) integration enabled.
+     - `<HOME_ASSISTANT_URL>/auth/external/callback` if you do not have the [`My Home Assistant`](/integrations/my/) integration enabled.
    - Allowed Returned URL(s): Leave this field empty (not required)
 
 4. Select desired API scopes:
@@ -139,7 +139,7 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 
 The {% term integration %} {% term polling polls %} each vehicle every 10 minutes while it's awake. This is designed to stay within Tesla's $10 monthly credit for most users, which you can monitor usage in the [Tesla Developer Dashboard](https://developer.tesla.com/en_US/dashboard). Energy product APIs are free to use.
 
-If you need different polling intervals, you can [define a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
+If you need different polling intervals, you can [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Command signing
 

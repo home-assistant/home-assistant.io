@@ -101,6 +101,20 @@ This integration is available as a media source to use with the media browser in
 
 The integration provides an update component, which will notify you when a new version of the app is available.
 
+## Notifiers
+
+The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
+
+{% example %}
+action: |
+  action: notify.send_message
+  target:
+    entity_id: notify.my_device
+  data:
+    title: "Reminder"
+    message: "Have you considered frogs?"
+{% endexample %}
+
 ## Actions
 
 ### Notifications `notify.system_bridge_hostname`
@@ -176,7 +190,7 @@ data:
   id: 17752
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: 17752
@@ -203,7 +217,7 @@ data:
   name: discord
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 count: 1
@@ -232,7 +246,7 @@ data:
   path: "C:\\image.jpg"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -255,7 +269,7 @@ data:
   url: "https://home-assistant.io"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -278,7 +292,7 @@ data:
   key: "a"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -301,7 +315,7 @@ data:
   text: "Hello"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -333,7 +347,7 @@ data:
   command: "sleep"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123

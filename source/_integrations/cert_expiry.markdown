@@ -10,6 +10,7 @@ ha_codeowners:
   - '@jjlawren'
 ha_domain: cert_expiry
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
 ---

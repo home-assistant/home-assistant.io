@@ -22,7 +22,7 @@ mqtt:
       command_topic: command-topic
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -127,7 +127,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -157,6 +157,27 @@ max:
   required: false
   type: integer
   default: 255
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 min:
   description: The minimum size of a text being set or received.
   required: false

@@ -265,8 +265,12 @@ layout: null
 /integrations/zwave /integrations/zwave_js/
 
 # Moved documentation
-/details/database /docs/backend/database
-/details/updater /docs/backend/updater
+/details/database /integrations/recorder
+/details/updater /integrations/analytics
+/docs/backend/database /integrations/recorder
+/docs/backend/database/ /integrations/recorder
+/docs/backend /docs/
+/docs/backend/ /docs/
 /docs/assist/ /voice_control/
 /docs/assist/android/ /voice_control/android/
 /docs/assist/apple/ /voice_control/apple/
@@ -421,6 +425,7 @@ layout: null
 /common-tasks/os/#backups /common-tasks/general/#backups
 /common-tasks/supervised/#snapshots /common-tasks/general/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/more-info/system-health/   /more-info/system-information/
 /integrations/zigbee /integrations/zha
 /examples /
 
@@ -595,6 +600,8 @@ layout: null
 /integrations/iota /more-info/removed-integration 301
 /integrations/juicenet /more-info/removed-integration 301
 /integrations/keyboard /more-info/removed-integration 301
+/integrations/konnected /integrations/konnected_esphome/ 301
+/integrations/lannouncer /more-info/removed-integration 301
 /integrations/lirc /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301
@@ -621,6 +628,7 @@ layout: null
 /integrations/mpchc /more-info/removed-integration 301
 /integrations/mychevy /more-info/removed-integration 301
 /integrations/n26 /more-info/removed-integration 301
+/integrations/national_grid_us /more-info/removed-integration 301
 /integrations/nello /more-info/removed-integration 301
 /integrations/nma /more-info/removed-integration 301
 /integrations/nuimo_controller /more-info/removed-integration 301
@@ -681,6 +689,7 @@ layout: null
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/voice_assistant /integrations/assist_pipeline/ 301
 /integrations/volvooncall /more-info/removed-integration 301
 /integrations/vulcan /more-info/removed-integration 301
 /integrations/vultr /more-info/removed-integration 301
@@ -696,6 +705,7 @@ layout: null
 /integrations/yweather /more-info/removed-integration 301
 /integrations/zengge /integrations/led_ble 301
 /integrations/google_gemini /integrations/google_generative_ai_conversation 301
+/integrations/qube_heatpump /integrations/hr_energy_qube 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images

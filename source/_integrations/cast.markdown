@@ -26,9 +26,9 @@ Support for mDNS discovery in your local network is mandatory for automatic disc
 Known hosts:
   description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
 Allowed UUIDs:
-  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`. This option is only visible if advanced mode is enabled in your user profile.
+  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser. Alternatively, if you're comfortable using Python, you can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`.
 Ignore CEC:
-  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
+  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data).
 {% endconfiguration_basic %}
 
 ## Home Assistant Cast
@@ -341,29 +341,22 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 ### [Supla](https://www.supla.fi/)
 
-Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing audio clip. E.g., [this episode](https://www.bbc.co.uk/sounds/play/p009ycqy) shows:
-
-|          |                                         |
-| -------- | --------------------------------------- |
-| 128bps   | dash (mf_cloudfront_nonbidi_dash_https) |
-| p009ycqz |                                         |
-
-With p009ycqz being the `media_id`
+[Supla](https://www.supla.fi/) is a Finnish audio streaming service. The `media_id` is the numeric ID from the Supla URL. For example, the ID for `https://www.supla.fi/audio/3601824` is `3601824`.
 
 #### Media parameters
 
 Mandatory:
 
 - `app_name`: `supla`
-- `media_id`: Supla item ID
+- `media_id`: The numeric ID from the Supla audio URL
 
 Optional:
 
-- `is_live`: Item is a livestream
+- `is_live`: Set to `true` if the item is a livestream
 
 #### Example
 
-Example values to cast the item at <https://www.supla.fi/audio/3601824>
+Example values to cast the item at `https://www.supla.fi/audio/3601824`:
 
 ```yaml
 'cast_supla_to_my_chromecast':

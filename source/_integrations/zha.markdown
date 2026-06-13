@@ -666,8 +666,7 @@ The list of ZHA limitations may not be exhaustive.
 
 **Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the `zha.permit` action:**
 
-- This has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA.
-- Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
+- Home Assistant's user interface does not currently support scanning a QR code for Zigbee 3.0 secure provisioning for device pre-commissioning in ZHA's UI (instead, you currently need to use the `zha.permit` action with the qr_code parameter).
 
 **ZHA does _not_ currently support devices that can only use:**
 
@@ -698,7 +697,7 @@ Not all hardware manufacturers fully comply with the standard. This can include:
 - Not showing all expected entities within the Home Assistant {% term integration %} overview.
 - Showing no entities within Home Assistant at all.
 
-Developers (or even advanced users) might be able to work around such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to [How to add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
+If you're comfortable writing Python code, you can work around such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to [How to add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
 
 {% note %}
 _If a device will not join or pair_ at all, review the following sections on this page:
@@ -715,8 +714,9 @@ If your Zigbee device pairs/joins successfully with the ZHA {% term integration 
 
 1. Try to re-pair/re-join the device several times.
 2. Review the troubleshooting sections.
-3. Search for similar situations in the Home Assistant [community forum or Discord chat server](https://www.home-assistant.io/help/).
-4. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
+3. Search for similar situations in the Home Assistant [community forum or Discord chat server](/help/).
+4. Still not working? You might need a new custom ZHA device handler. This device handler adds exception handling code to ZHA to work around device-specific issues.
+   To submit a device support request for a new custom ZHA device handler, see [ZHA device handlers](#zha-device-handlers).
 
 #### ZHA device handlers
 For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)".
@@ -923,25 +923,7 @@ For troubleshooting, read the following sections on this page. They provide info
 
 ### Debug logging
 
-To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to {% term "`configuration.yaml`" %}:
-
-```yaml
-logger:
-  default: info
-  logs:
-    homeassistant.core: debug
-    homeassistant.components.zha: debug
-    bellows.zigbee.application: debug
-    bellows.ezsp: debug
-    zigpy: debug
-    zigpy_deconz.zigbee.application: debug
-    zigpy_deconz.api: debug
-    zigpy_xbee.zigbee.application: debug
-    zigpy_xbee.api: debug
-    zigpy_zigate: debug
-    zigpy_znp: debug
-    zhaquirks: debug
-```
+To enable debug logging, follow the steps on [Debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 

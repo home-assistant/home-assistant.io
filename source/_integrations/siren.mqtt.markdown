@@ -28,7 +28,7 @@ mqtt:
       command_topic: "home/bedroom/siren/set"
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -81,7 +81,7 @@ command_off_template:
   type: template
 command_topic:
   description: >
-    The MQTT topic to publish commands to change the siren state. Without command templates, a default JSON payload like `{"state":"ON", "tone": "bell", "duration": 10, "volume_level": 0.5 }` is published. When the siren turn on action is performed, the startup parameters will be added to the JSON payload. The `state` value of the JSON payload will be set to the the `payload_on` or `payload_off` configured payload.
+    The MQTT topic to publish commands to change the siren state. Without command templates, a default JSON payload like `{"state":"ON", "tone": "bell", "duration": 10, "volume_level": 0.5 }` is published. When the siren turn on action is performed, the startup parameters will be added to the JSON payload. The `state` value of the JSON payload will be set to the `payload_on` or `payload_off` configured payload.
   required: false
   type: string
 default_entity_id:
@@ -142,7 +142,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -175,6 +175,27 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 name:
   description: The name to use when displaying this siren. Can be set to `null` if only the device name is relevant.
   required: false

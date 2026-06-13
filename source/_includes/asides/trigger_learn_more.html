@@ -1,0 +1,9 @@
+<li>{% active_link /docs/automation/trigger/ About triggers %}</li>
+<li>{% active_link /docs/automation/ About automations %}</li>
+{%- assign current_domain = site.data.trigger_domains | where: "key", page.domain | first -%}
+{%- if current_domain.learn_more -%}
+  {%- for item in current_domain.learn_more -%}
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  {%- endfor -%}
+{%- endif -%}
+<li>{% active_link /triggers/ All triggers %}</li>
