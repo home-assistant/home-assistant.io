@@ -67,7 +67,7 @@ API key:
 
 This integration creates the following sensors to monitor your SABnzbd instance:
 
-- **Status**: The current status of SABnzbd (Idle, Downloading, Paused, etc.)
+- **Status**: The current status of SABnzbd (such as Idle, Downloading, or Paused)
 - **Speed**: The current download speed in MB/s
 - **Queue**: The total size of the download queue in GB
 - **Left**: The remaining size of the download queue in GB

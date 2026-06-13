@@ -97,7 +97,7 @@ The following extra keys are available to modify the announcement
 
 | Data attribute     | Optional | Description                                                                                                                                                              |
 | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `announce_volume`  | yes      | Specifies the volume at which the announcement should play. The value must be between 0 and 1, where 0.1 represents 10% of the player's volume, 0.2 represents 20%, etc. |
+| `announce_volume`  | yes      | Specifies the volume at which the announcement should play. The value must be between 0 and 1, where 0.1 represents 10% of the player's volume, 0.2 represents 20%, and so on |
 | `announce_timeout` | yes      | Specify the maximum length of the announcement in seconds after which the original media will be resumed.                                                                |
 
 These extra keys are optional. If announce_volume is unspecified, the announcement will play at the current volume of the player. If announce_timeout is unspecified, the announcement will play until completion.

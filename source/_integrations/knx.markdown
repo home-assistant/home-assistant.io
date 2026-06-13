@@ -724,7 +724,7 @@ entity_category:
 
 ### Binary sensor
 
-The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors like window/door contacts, motion detectors, alarms, etc.
+The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors like window/door contacts, motion detectors, or alarms.
 
 {% note %}
 

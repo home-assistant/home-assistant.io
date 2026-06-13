@@ -86,7 +86,7 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `on`.
 
 {% note %}
-For light groups using HS color mode: When a light group contains two or more lights, whose colors are evenly spaced (180° apart for two, 120° apart for three, etc.), the light group's average color *may* default to either 0° (red) or 180° (light blue). This occurs because averaging opposite hues on the color wheel can mathematically result in unexpected colors due to how hue values wrap around. To avoid this, consider using RGB color mode for your lights, or avoid grouping lights with perfectly opposite colors.
+For light groups using HS color mode: When a light group contains two or more lights, whose colors are evenly spaced (180° apart for two, 120° apart for three, and so on), the light group's average color *may* default to either 0° (red) or 180° (light blue). This occurs because averaging opposite hues on the color wheel can mathematically result in unexpected colors due to how hue values wrap around. To avoid this, consider using RGB color mode for your lights, or avoid grouping lights with perfectly opposite colors.
 {% endnote %}
 
 ### Button groups
@@ -498,7 +498,7 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
+These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, and so on.
 
 ### Attributes
 

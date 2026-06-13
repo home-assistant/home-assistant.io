@@ -432,7 +432,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ## Using advanced features (UI only)
 
-While the integration aims to provide as much functionality as possible through existing Home Assistant constructs (entities, states, automations, actions, etc.), there are some features that are only available through the UI.
+While the integration aims to provide as much functionality as possible through existing Home Assistant constructs (such as entities, states, automations, and actions), there are some features that are only available through the UI.
 
 All of these features can be accessed either in the Z-Wave integration configuration panel or in a Z-Wave device's device panel.
 
@@ -1502,7 +1502,7 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 | controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
 | exclusion | remove | The process of removing a node from the Z-Wave network |
 | [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
-| multilevel switch | represented by different entity types: light, fan etc. | |
+| multilevel switch | represented by different entity types, such as light or fan. | |
 | replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
 | window covering | cover | |
 
