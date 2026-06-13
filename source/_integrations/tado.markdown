@@ -50,7 +50,7 @@ It currently supports presenting the current temperature, the setting temperatur
 
 As of **March 21st 2025**, Tado has changed the authentication method. This means a few extra steps need to be followed to log in:
 
-1. When you set up this integration, the integration will setup a "Device Code" and provide a URL to Tado's authentication server.
+1. When you set up this integration, the integration will set up a "Device Code" and provide a URL to Tado's authentication server.
 2. Follow the URL and confirm the "Device Code" (normally it should be copied automatically).
 3. Follow the steps to log in and authenticate your account.
 4. Once the authentication is completed, go back to Home Assistant. Wait a few seconds for the loading screen to finish. You are now connected with Tado!

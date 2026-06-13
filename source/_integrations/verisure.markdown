@@ -44,7 +44,7 @@ There is currently support for the following device types within Home Assistant:
 
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
 
-The requirement is that you have setup your Verisure hub first, with the instruction above.
+The requirement is that you have set up your Verisure hub first, with the instruction above.
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 

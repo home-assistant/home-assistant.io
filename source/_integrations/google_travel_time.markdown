@@ -104,7 +104,7 @@ You can either use `departure_time` or `arrival_time`, not both.
 
 ## Dynamic Configuration
 
-Tracking can be setup to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.
+Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.
 
 ### Examples
 

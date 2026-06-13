@@ -111,7 +111,7 @@ There are some known Google Tasks API limitations that affect this integration:
 
 ## Troubleshooting
 
-### Can’t setup the integration
+### Can’t set up the integration
 
 #### Symptom: “The OAuth client was not found.”
 
