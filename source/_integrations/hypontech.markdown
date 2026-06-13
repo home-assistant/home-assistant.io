@@ -68,7 +68,7 @@ If a plant has batteries, it also has other sensors:
 All sensors are updated every minute. If there is no current clamp and no battery in your application, then Total power = PV power = Load power, and Grid power = 0. If there are batteries, then:
 
 - Total power = PV power + Battery power
-- Home power = Total power + Grid power
+- Load power = Total power + Grid power
 
 ## Data updates
 
