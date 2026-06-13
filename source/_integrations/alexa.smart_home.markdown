@@ -1076,7 +1076,7 @@ Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 #### Stop the valve
 
-Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
+Valves that support `stop` closing or opening will have an extra toggle control that allows you to stop the valve closing or opening operation.
 
 ### Water heater
 

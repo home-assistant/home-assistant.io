@@ -227,7 +227,7 @@ sender:
 uid:
   description: The UID of the message.
 parts:
-  description: Contains a dictionary with metadata about the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size.
+  description: Contains a dictionary with metadata about the available parts in the message in case of a multipart message. This allows you to fetch and process the complete message text message part, not limited by size.
   type: map
   keys:
     content_type:

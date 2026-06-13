@@ -96,8 +96,8 @@ In **offline mode**, most entities will become unavailable. Only those marked wi
 
 | Switch name | Description | Available for machines | Controllable through |
 |-------------|-------------| ---------------------- | -------------------- |
-| **Main**      | Allows to turn machines on-/off | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
-| **Steam boiler** | Allows to enable/disable the steam boiler | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
+| **Main**      | Allows you to turn machines on-/off | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
+| **Steam boiler** | Allows you to enable/disable the steam boiler | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 | **Smart standby enabled** | Whether smart standby is on (machine will automatically stand by after given time) | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 
 ## Binary sensors

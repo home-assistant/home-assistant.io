@@ -264,7 +264,7 @@ mqtt:
       payload_install: "update_fw"
 ```
 
-JSON can also be used as `state_topic` payload. Note that this feature also allows to process and show live progress information.
+JSON can also be used as `state_topic` payload. Note that this feature also allows you to process and show live progress information.
 
 {% raw %}
 

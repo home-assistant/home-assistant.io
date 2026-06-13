@@ -826,7 +826,7 @@ automation:
 
 ### Button
 
-The KNX button platform allows to send concurrent predefined values via the frontend or an action. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
+The KNX button platform allows you to send concurrent predefined values via the frontend or an action. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
 
 {% tip %}
 Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use the `knx.telegram` trigger if you want to automate on a specific payload received on a group address.
@@ -1269,7 +1269,7 @@ device_class:
 
 ### Date
 
-The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+The KNX date platform allows you to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 {% note %}
 Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
@@ -1334,7 +1334,7 @@ sync_state:
 
 ### DateTime
 
-The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+The KNX datetime platform allows you to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 {% note %}
 Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
@@ -1722,7 +1722,7 @@ data:
 
 ### Number
 
-The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+The KNX number platform allows you to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 {% note %}
 Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
@@ -2083,7 +2083,7 @@ The optional `state_address` can be used to inform Home Assistant about state ch
 
 ### Text
 
-The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+The KNX text platform allows you to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 {% note %}
 Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
@@ -2142,7 +2142,7 @@ mode:
 
 ### Time
 
-The KNX time platform allows to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+The KNX time platform allows you to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 {% note %}
 Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
