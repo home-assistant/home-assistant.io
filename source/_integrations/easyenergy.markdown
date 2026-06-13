@@ -81,7 +81,7 @@ The prices retrieved via the API are bare prices including VAT, however an energ
 
 ## Sensors
 
-The easyEnergy integration creates a number of sensor entities for both gas
+The easyEnergy integration creates several sensor entities for both gas
 and electricity prices.
 
 ### Energy market prices

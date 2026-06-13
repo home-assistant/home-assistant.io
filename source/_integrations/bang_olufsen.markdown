@@ -62,7 +62,7 @@ Currently, for each added physical device, a single device is created that inclu
 
 ### Media player
 
-A number of features are available through the media player entity:
+Several features are available through the media player entity:
 
 - See current metadata, progress, volume, and more.
 - Control next/previous, play/pause, shuffle/repeat settings, volume, sound mode, audio and video sources, and more.
@@ -138,7 +138,7 @@ In total, this amounts to 90 different remote key Event entities per remote.
 
 ##### Configuring light and control functions
 
-A number of functions are available on the Beoremote One. These are available as `function` 1-17 for the **Light** submenu and 1-27 for the **Control** submenu.
+Several functions are available on the Beoremote One. These are available as `function` 1-17 for the **Light** submenu and 1-27 for the **Control** submenu.
 
 Only a subset of these functions are enabled by default. Change settings for the **Control** and **Light** submenus following these steps:
 

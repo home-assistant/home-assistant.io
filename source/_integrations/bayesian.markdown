@@ -134,7 +134,7 @@ When configuring these conditional probabilities, define the probability of the 
 
 ## Full examples
 
-These are a number of worked examples which you may find helpful for each of the observation types. While these are YAML examples, UI configurations work in the same way, except that probabilities are expressed in percentages.
+These are several worked examples which you may find helpful for each of the observation types. While these are YAML examples, UI configurations work in the same way, except that probabilities are expressed in percentages.
 
 ### State
 

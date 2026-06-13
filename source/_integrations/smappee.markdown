@@ -74,7 +74,7 @@ smappee:
 
 Once Home Assistant restarted, go to **Settings** > **Devices & services** and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
 
-Using the Smappee cloud integration allows you to access your Smappee monitor and other shared devices from outside your local network. Additionally a number of (binary) sensor entities become available as well.
+Using the Smappee cloud integration allows you to access your Smappee monitor and other shared devices from outside your local network. Additionally, several (binary) sensor entities become available as well.
 
 ### Sensor
 

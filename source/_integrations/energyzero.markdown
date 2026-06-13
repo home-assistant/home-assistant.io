@@ -46,7 +46,7 @@ The prices retrieved via the API are bare prices including VAT, however an energ
 
 ## Sensors
 
-The EnergyZero integration creates a number of sensor entities for both gas and electricity prices.
+The EnergyZero integration creates several sensor entities for both gas and electricity prices.
 
 ### Energy market price
 

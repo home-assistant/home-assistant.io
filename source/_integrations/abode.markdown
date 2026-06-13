@@ -49,7 +49,7 @@ There is currently support for the following {% term device %} types within Home
 
 ## Events
 
-There are a number of {% term events %} that can be triggered from Abode.
+There are several {% term events %} that can be triggered from Abode.
 They are grouped into the below events:
 
 - **abode_alarm**: Fired when an alarm event is triggered from Abode. This includes Smoke, CO, Panic, and Burglar alarms.
