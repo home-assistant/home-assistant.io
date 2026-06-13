@@ -90,7 +90,7 @@ This integration provides an action to modify the state of the `input_text` and 
 
 ### Restore state
 
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
 
 ### Scenes
 
