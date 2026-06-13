@@ -21,7 +21,7 @@ This section shows you how to integrate a [Xiaomi router](http://miwifi.com) or 
 
 ## Camera
 
-The **Xiaomi** camera integration allows you to utilize Xiaomi cameras within Home Assistant.
+The **Xiaomi** camera integration allows you to use Xiaomi cameras within Home Assistant.
 
 ### Prerequisites
 
