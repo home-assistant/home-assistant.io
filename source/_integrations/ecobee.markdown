@@ -147,7 +147,7 @@ The `Auxiliary heat only` switch is provided to disable the use of the compresso
 
 The `Compressor minimum temperature` number represents the outdoor temperature at which the compressor (heat pump) will not run. This is represented in the temperature units you have selected in Home Assistant; however, ecobee allows configuration only in increments of 5 degrees Fahrenheit. This is also represented in the thermostat user interface. When the outdoor temperature is below this value, only auxiliary heat will be used. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source.
 
-Check your heat pump Owners' Manual prior to adjusting this value; do not adjust it below the rated minimum operating temperature of the heat pump. **Failure to observe the rated minimum operating temperature can cause damage to the system**
+Check your heat pump Owners' Manual before adjusting this value; do not adjust it below the rated minimum operating temperature of the heat pump. **Failure to observe the rated minimum operating temperature can cause damage to the system**
 
 ## Actions
 

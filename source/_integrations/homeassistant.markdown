@@ -324,7 +324,7 @@ It calls the `reload` action on all domains that have it available. Additionally
 it reloads the core configuration (equivalent to calling
 `homeassistant.reload_core_config`), themes (`frontend.reload_themes`), and custom Jinja (`homeassistant.reload_custom_templates`).
 
-Prior to reloading, a basic configuration check is performed. If that fails, the reload
+Before reloading, a basic configuration check is performed. If that fails, the reload
 will not be performed and will raise an error.
 
 ### Action: Reload custom templates

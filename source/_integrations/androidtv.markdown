@@ -72,7 +72,7 @@ When connecting to your device for the first time, a dialog will appear on your 
 
 The default approach is to connect to your device using the `adb-shell` Python package. As of Home Assistant 0.101, if a key is needed for authentication and it is not provided by the `ADB Key` setup option, then Home Assistant will generate a key for you.
 
-Prior to Home Assistant 0.101, this approach did not work well for newer devices. Efforts have been made to resolve these issues, but if you experience problems then you should use the ADB server option.
+Before Home Assistant 0.101, this approach did not work well for newer devices. Efforts have been made to resolve these issues, but if you experience problems then you should use the ADB server option.
 
 ### 2. ADB Server
 
