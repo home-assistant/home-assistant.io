@@ -65,7 +65,7 @@ Data attribute | Optional | Description
 
 ## Iframe
 
-- Using the Webpage Card you can embed the Agent DVR viewer directly in Home Assistant. Just point it to <https://www.ispyconnect.com/app/>
+- Using the Webpage Card you can embed the Agent DVR viewer directly in Home Assistant. Just point it to [the Agent DVR web app](https://www.ispyconnect.com/app/)
 
 <p class='img'>
 <img src='/images/screenshots/agent_dvr.jpg' />
