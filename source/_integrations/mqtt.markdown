@@ -1454,7 +1454,7 @@ mqtt:
       ...
 ```
 
-If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+If you have many manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).

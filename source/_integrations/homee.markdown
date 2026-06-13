@@ -88,7 +88,7 @@ Commands of the "Warema WMS Handsender" remote controls are not passed to the ex
 
 Homeegrams are {% term automations %} in homee. The integration implements them as {% term switches %} that the user can trigger and that momentarily turn on if the Homeegram is played in homee, so they can also be used as a {% term trigger %} in Home Assistant.
 Although turning off a Homeegram in HA can be triggered by the user, it is not supported and will raise an error.
-Only Homeegrams that perform at least two actions are enabled by default to avoid creating a large number of low-value entities in your Home Assistant installation.
+Only Homeegrams that perform at least two actions are enabled by default to avoid creating many low-value entities in your Home Assistant installation.
 
 ## Limitations
 

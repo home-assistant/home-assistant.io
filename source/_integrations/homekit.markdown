@@ -531,7 +531,7 @@ The following home hubs showed strong results when testing with 300 accessories:
 
 - Apple TV 4k Gen 1 (best results when using ethernet instead of Wi-Fi)
 
-The following home hubs have been reported to have trouble with a large number of accessories:
+The following home hubs have been reported to have trouble with many accessories:
 
 - Apple TV HD
 - Various iPad models
