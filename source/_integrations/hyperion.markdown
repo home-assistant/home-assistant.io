@@ -67,7 +67,7 @@ A Hyperion camera entity is created that shows a stream of the input to Hyperion
 USB Capture device). This could be used to show a small "preview window" next to TV
 controls, for example.
 
-Please note that only the currently live Hyperion priority can be streamed, and only
+Only the currently live Hyperion priority can be streamed, and only
 streamable sources will actually stream content (e.g., USB Capture Devices will work, but
 static colors will not).
 

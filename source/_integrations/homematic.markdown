@@ -625,4 +625,4 @@ alert:
       - group_hm
 ```
 
-Please note that the first `data` element belongs to the `my_hm` action, while the second one belongs to the event payload.
+The first `data` element belongs to the `my_hm` action, while the second one belongs to the event payload.

@@ -362,7 +362,7 @@ If you need to configure the gateway directly, without using the Plugwise App, y
 
 ### Adjusting the update interval
 
-Please note that the [default intervals](#data-updates) are considered best practice and according to how Plugwise normally updates their data. Updating too frequently may induce considerable load on your gateway(s) resulting in unexpected results or missing data.
+The [default intervals](#data-updates) are considered best practice and according to how Plugwise normally updates their data. Updating too frequently may induce considerable load on your gateway(s) resulting in unexpected results or missing data.
 
 {% include common-tasks/define_custom_polling.md %}
 

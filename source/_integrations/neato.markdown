@@ -66,7 +66,7 @@ authentication process.
 
 Internal examples: `https://192.168.0.2:8123/auth/external/callback`, `https://homeassistant.local:8123/auth/external/callback`." 
 
-Please note that your instance must be accessible via HTTPS. However, your
+Your instance must be accessible via HTTPS. However, your
 instance does not need to be exposed to the Internet.
 
 {% enddetails %}

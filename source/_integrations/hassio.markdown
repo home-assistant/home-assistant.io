@@ -24,7 +24,7 @@ ha_integration_type: integration
 ---
 
 The **Home Assistant Supervisor** {% term integration %} allows you to monitor and control Supervisor apps and operating system from Home Assistant.
-This integration is already installed if you run {% term "Home Assistant Operating System" %}. Please note that this integration
+This integration is already installed if you run {% term "Home Assistant Operating System" %}. It
 cannot be installed on {% term "Home Assistant Container" %}.
 
 ## Sensor entities

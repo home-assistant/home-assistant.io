@@ -46,7 +46,7 @@ The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [
 
 To use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **About** > **Developer Options**. If you don't see developer options, tap the version number 10 times. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
 
-Please note, device names configured in the SwitchBot app are transferred into Home Assistant.
+Device names configured in the SwitchBot app are transferred into Home Assistant.
 
 {% include integrations/config_flow.md %}
 

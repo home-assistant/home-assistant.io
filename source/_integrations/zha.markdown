@@ -733,7 +733,7 @@ If you do not want to create a "quirk" yourself, you can submit a "device suppor
 
 Without device support requests, the community of volunteer developers may not be aware that your specific Zigbee device is not working correctly in ZHA.
 
-Please note that the project relies on volunteers; submitting a new device support request does not guarantee that someone will develop a custom quirk for ZHA. 
+The project relies on volunteers; submitting a new device support request does not guarantee that someone will develop a custom quirk for ZHA. 
 
 {% endnote %}
 
