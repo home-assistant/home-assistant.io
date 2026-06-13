@@ -330,7 +330,7 @@ The Payload consists of an event (`emergency`, `fire`, `invalid_code` or `panic`
 
 The following sensor types are supported:
 
-- Alarm signalling
+- Alarm signaling
 - Fire/Smoke detection
 - Open/Close detection
 - Presence detection

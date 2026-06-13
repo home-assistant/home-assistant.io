@@ -279,7 +279,7 @@ Browser".
 
 ### Manually Configured Root Directories
 
-Whilst this integration allows drilling down into the media for each camera separately,
+While this integration allows drilling down into the media for each camera separately,
 underneath motionEye is using the directory structure to associate media items to each
 individual camera. Thus if multiple cameras are manually configured to share the same
 root directory, motionEye will return the _combination_ of the media items when any one

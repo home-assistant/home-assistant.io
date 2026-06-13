@@ -113,7 +113,7 @@ Each such entity has a state attribute that will contain a list of any such issu
           {{ state_attr('sensor.geniushub_errors', 'error_list') }}
 ```
 
-This alert may be useful to see if the CH is being turned on whilst you're on a holiday!
+This alert may be useful to see if the CH is being turned on while you're on a holiday!
 
 ```yaml
 - alias: "GeniusHub CH State Change Alert"
