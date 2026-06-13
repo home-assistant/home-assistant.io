@@ -385,7 +385,7 @@ Switches aren't exposed as ordinary entities, see the [deCONZ main integration](
 
 #### deCONZ Daylight Sensor
 
-The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from <https://github.com/mourner/suncalc>, on which the deCONZ implementation is based):
+The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from [SunCalc](https://github.com/mourner/suncalc), on which the deCONZ implementation is based):
 
 | Sensor State  | Description                                                              |
 | ------------- | ------------------------------------------------------------------------ |

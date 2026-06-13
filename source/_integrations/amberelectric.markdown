@@ -24,7 +24,7 @@ Using the **Amber Electric** {% term integration %}, customers can go a step fur
 
 To use this {% term integration %}, you will need to generate an API key.
 
-1. Login to your Amber account at: <https://app.amber.com.au>
+1. Log in to your [Amber account](https://app.amber.com.au)
 2. Click _Settings_
 3. Enable _Developer Mode_
 4. Click _Generate API Key_
