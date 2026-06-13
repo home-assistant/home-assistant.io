@@ -211,8 +211,6 @@ In the example below, change all of the `vesync_switch`'s to match your device's
 
 Adapted from the [TP-Link integration](https://www.home-assistant.io/integrations/tplink/#plugs).
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
@@ -220,5 +218,3 @@ template:
       state: "{{ state_attr('switch.vesync_switch', 'voltage') | float(default=0) }}"
       unit_of_measurement: "V"
 ```
-
-{% endraw %}

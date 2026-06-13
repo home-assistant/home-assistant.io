@@ -114,8 +114,6 @@ scene:
 
 Here's an example of `input_number` being used as a trigger in an automation.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry using 'input_number' as a trigger in an automation
 input_number:
@@ -139,11 +137,7 @@ automation:
           brightness: "{{ trigger.to_state.state | int }}"
 ```
 
-{% endraw %}
-
 Another code example using `input_number`, this time being used in an action in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
@@ -181,11 +175,7 @@ automation:
           brightness: "{{ states('input_number.bedroom_brightness') | int }}"
 ```
 
-{% endraw %}
-
 Example of `input_number` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
@@ -226,11 +216,7 @@ automation:
           payload: "{{ states('input_number.target_temp') | int }}"
 ```
 
-{% endraw %}
-
 Here's an example of `input_number` being used as a delay in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_number' as a delay in an automation
@@ -263,5 +249,3 @@ automation:
         target:
           entity_id: switch.something
 ```
-
-{% endraw %}

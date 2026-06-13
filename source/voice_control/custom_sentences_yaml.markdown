@@ -15,7 +15,6 @@ related:
 
 Intents and sentences may be added in the [`conversation`](/integrations/conversation/) config in your `configuration.yaml` file:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml
@@ -25,13 +24,11 @@ conversation:
       - "activate [the] {name}"
 ```
 
-{% endraw %}
 
 This extends the default English sentences for the `HassTurnOn` intent, allowing you to say "activate the kitchen lights" as well as "turn on the kitchen lights".
 
 New intents can also be added, with their responses and actions defined using the [`intent_script`](/integrations/intent_script/) integration:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml
@@ -46,7 +43,6 @@ intent_script:
       text: "Great! We're at over 40 languages and counting."
 ```
 
-{% endraw %}
 
 Besides a text response, `intent_script` can trigger any `action` available in Home Assistant, such as calling a service or firing an event.
 
@@ -56,7 +52,6 @@ More advanced customization can be done in Home Assistant's `config` directory. 
 
 The following example creates a new `SetVolume` intent that changes the volume on one of two media players:
 
-{% raw %}
 
 ```yaml
 # Example config/custom_sentences/en/media.yaml
@@ -80,11 +75,9 @@ lists:
       to: 100
 ```
 
-{% endraw %}
 
 As mentioned above, you can then use the `intent_script` integration to implement an action and provide a response for `SetVolume`:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml
@@ -99,13 +92,11 @@ intent_script:
       text: "Volume changed to {{ volume }}"
 ```
 
-{% endraw %}
 
 ## Customizing responses
 
 Responses for existing intents can be customized as well in `config/custom_sentences/<language>`:
 
-{% raw %}
 
 ```yaml
 # Example config/custom_sentences/en/responses.yaml
@@ -116,7 +107,6 @@ responses:
       default: "I have turned on the {{ slots.name }}"
 ```
 
-{% endraw %}
 
 ## Related devices and installation tutorials
 

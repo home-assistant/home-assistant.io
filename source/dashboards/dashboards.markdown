@@ -1,6 +1,6 @@
 ---
 title: "Multiple dashboards"
-description: "Multiple powerful and configurable dashboards in Home Assistant."
+description: "Create more than one dashboard in Home Assistant: a private overview for yourself, a simpler one for the rest of the household, and a tablet view in the kitchen."
 related:
   - docs: /integrations/logbook/
     title: Activity integration
@@ -55,6 +55,7 @@ Some of the built-in dashboards are not shown in the sidebar by default, but are
 - **Security** dashboards: Overview of your security-related devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The security-related devices include devices such as alarm, lock, camera, doors/covers, motion sensors, and binary sensor.
 - **Climate** dashboards: Overview of your climate devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The climate dashboard includes devices such as heating and cooling devices, windows, and fans.
 - **Energy** dashboards: Allows you to visualize your energy consumption and production, if you have such entities available. This includes electricity from grid and from solar panels, gas and water consumption, and the status of your battery storage.
+- **Maintenance** dashboard: Overview of your battery entities, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). Low batteries are highlighted so you can spot the ones that need attention at a glance.
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards for example are powered by their respective integrations.
 
@@ -176,7 +177,6 @@ This will leave the default dashboard intact.
 
    ![Screenshot of the undo and redo buttons on top of the dashboard](/images/dashboards/dashboard-undo-redo.png)
 
-
 ## Deleting a dashboard
 
 If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
@@ -188,7 +188,11 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 
 ## Adding YAML dashboards
 
-You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file. To add YAML dashboards, in your `configuration.yaml` file create a `dashboards:` section under the top-level `lovelace:` key.
+You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file.
+
+If it is the first time you edit the `configuration.yaml` file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configuration.yaml) to know how to install a file editor and find the file.
+
+To add YAML dashboards, in your `configuration.yaml` file, create a `dashboards:` section under the top-level `lovelace:` key.
 
 ```yaml
 lovelace:

@@ -32,6 +32,7 @@ Enable the following permissions when creating your API key. Without these permi
 
 - `asset.download`
 - `asset.upload`
+- `asset.read`
 - `asset.view`
 - `album.read`
 - `albumAsset.create`
@@ -109,8 +110,6 @@ Album ID:
 
 Take a snapshot of a camera entity via the [`camera.snapshot`](/integrations/camera/#action-snapshot) action, use the [local media](/integrations/media_source/#local-media) path to store the snapshot and upload it to the Immich instance in a specific album.
 
-{% raw %}
-
 ```yaml
 sequence:
   - variables:
@@ -128,8 +127,6 @@ sequence:
         media_content_type: "image/jpeg"
       album_id: f2de0ede-d7d4-4db3-afe3-7288f4e65bb1
 ```
-
-{% endraw %}
 
 ## Troubleshooting
 

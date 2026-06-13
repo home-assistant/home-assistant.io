@@ -1,6 +1,6 @@
 ---
-title: Home Assistant Core Integration
-description: Description of the homeassistant integration.
+title: Home Assistant Core
+description: Set up core Home Assistant settings, automation triggers, and generic actions.
 ha_release: 0.0
 ha_category:
   - Other
@@ -119,7 +119,7 @@ customize_glob:
   required: false
   type: string
 allowlist_external_dirs:
-  description: List of folders that can be used as sources for sending files.
+  description: "Extra folders that integrations are allowed to read from or write to, on top of the defaults. By default, the `www` folder inside your configuration directory and every folder listed under `media_dirs` are already allowed, and you do not need to repeat them here. Only add directories outside of those defaults."
   required: false
   type: list
 allowlist_external_urls:
@@ -306,6 +306,8 @@ homeassistant:
       credential: "abc123"
 ```
 
+{% include integrations/triggers.md %}
+
 ## Actions
 
 The `homeassistant` integration provides actions for controlling Home Assistant itself, as well as generic controls for any entity.
@@ -456,3 +458,89 @@ actions:
 The `homeassistant.save_persistent_states` action saves the persistent states (for entities derived from RestoreEntity) immediately while maintaining the normal periodic saving interval.
 
 Normally, these states are saved at startup, every 15 minutes, and at shutdown.
+
+## Home Assistant Core automation examples
+
+You can use these core triggers to react to events, state changes, schedules, and Home Assistant lifecycle events.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: send a notification when Home Assistant starts
+
+If you restart Home Assistant for an update or maintenance, this automation lets you know when it is ready again. It sends a message to your phone as soon as startup finishes.
+
+- **Trigger**: Home Assistant
+  - **Event**: Start
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for notifying when Home Assistant starts" %}
+
+{% example %}
+automation: |
+  alias: "Notify when Home Assistant starts"
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Home Assistant has started."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: save persistent states before Home Assistant shuts down
+
+If you are about to restart or stop Home Assistant, this automation tells Home Assistant to save persistent states right away. This can be useful before planned maintenance.
+
+- **Trigger**: Home Assistant
+  - **Event**: Shutdown
+- **Action**: Save persistent states
+
+{% details "YAML example for saving persistent states before shutdown" %}
+
+{% example %}
+automation: |
+  alias: "Save persistent states before shutdown"
+  triggers:
+    - trigger: homeassistant
+      event: shutdown
+  actions:
+    - action: homeassistant.save_persistent_states
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a reminder when a door stays open for 5 minutes
+
+If a door stays open longer than expected, this automation sends a message to your phone. It uses the **State** trigger to wait until the entity stays in the `on` state for 5 minutes.
+
+- **Trigger**: State
+  - **Entity**: Back door sensor (`binary_sensor.back_door`)
+  - **To**: `on`
+  - **For**: 5 minutes
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a door-left-open reminder" %}
+
+{% example %}
+automation: |
+  alias: "Remind me when the back door stays open"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.back_door
+      to: "on"
+      for: "00:05:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The back door has been open for 5 minutes."
+{% endexample %}
+
+{% enddetails %}

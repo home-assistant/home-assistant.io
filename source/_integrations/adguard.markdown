@@ -195,7 +195,6 @@ automation:
 
 Send a notification if DNS response time exceeds threshold:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -205,13 +204,13 @@ automation:
         entity_id: sensor.adguard_average_processing_speed
         above: 50
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "DNS Performance Alert"
           message: "AdGuard DNS response time is {{ states('sensor.adguard_average_processing_speed') }}ms"
 ```
-
-{% endraw %}
 
 
 ## Data updates

@@ -74,7 +74,6 @@ The above opens the garage door when the number `+1XXXXXXXXXXX` calls `+1YYYYYYY
 
 An example of an SMS handler:
 
-{% raw %}
 ```yaml
 alias: "Twilio incoming"
 triggers:
@@ -92,4 +91,3 @@ actions:
         incoming twilio message from {{sender}}: {{ message }}
         all event data: {{ trigger.event.data }}
 ```
-{% endraw %}

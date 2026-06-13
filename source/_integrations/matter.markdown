@@ -14,6 +14,7 @@ ha_category:
   - Pump
   - Select
   - Sensor
+  - Siren
   - Switch
   - Update
   - Vacuum
@@ -39,6 +40,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - update
   - vacuum
@@ -52,6 +54,8 @@ related:
     title: HomeKit
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
+  - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
+    title: Debug logs and diagnostics
 ha_zeroconf: true
 ---
 
@@ -146,6 +150,7 @@ Make sure you have all these components ready before trying to add a Matter devi
   - **Android**:
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
+    - Set the Home Assistant Companion app's **Location** permission to **Allow all the time**. During commissioning, the Google Matter UI takes the foreground and the Companion App runs in the background. Android restricts Wi-Fi SSID access for background apps when Location is set to "While using the app," which can cause commissioning to fail.
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the Home Assistant OpenThread Border Router app) present in your home network.
       - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - **iPhone**
@@ -477,7 +482,7 @@ response_variable: lock_info
 
 #### Action: Get lock users
 
-The `matter.get_lock_users` action returns all users configured on the lock. For each user, the response includes their name, status, type, credential rule, and a list of credential references (type and slot index). For security reasons, the lock does not expose the actual credential secrets (such as PIN codes or RFID tag data). This action returns a response and does not require any additional data attributes.
+The `matter.get_lock_users` action lists all users on the lock. For each user, the response shows their name, status, and type. It also shows their credential rule. The response lists credential references, including type and slot index. It shows which controller created the user. It also shows which controller last changed the user. For security, the lock does not show real credential secrets like PIN codes or RFID tags. This action returns a response. No extra data is required.
 
 ```yaml
 action: matter.get_lock_users
@@ -569,7 +574,7 @@ data:
 
 #### Action: Get lock credential status
 
-The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied and which user it belongs to. This action returns a response.
+The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied, which user it belongs to, which controller (such as Home Assistant, Apple Home, or Google Home) created the credential, and which controller last modified it. This action returns a response.
 
 - **Data attribute**: `credential_type`
   - **Description**: The type of credential to query.
@@ -622,6 +627,23 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 11. Use the QR code to add the device using one of the above instructions on your phone, e.g. using the Home Assistant Companion app.
 
 ## Troubleshooting
+
+### Downloading diagnostics
+
+When you report an issue with a Matter device, you're usually asked for a diagnostics file. The Matter integration supports diagnostics at both the integration and device level.
+
+To download integration-level diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Matter** integration card, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Download diagnostics**.
+
+To download device-level diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
+2. Select the device you want diagnostics for.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Download diagnostics**.
+
+The diagnostics file contains device attributes, cluster data, and network information with sensitive data redacted. For more general information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ### General recommendations
 

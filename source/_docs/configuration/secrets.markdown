@@ -1,6 +1,6 @@
 ---
 title: "Storing secrets"
-description: "Storing secrets outside of your configuration.yaml."
+description: "Keep passwords, API keys, and other sensitive values out of your configuration.yaml by storing them in a separate secrets.yaml file."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file

@@ -134,7 +134,7 @@ If you have something else using the IP controller for your Denon AVR 3808CI, su
 
 {% configuration_basic %}
 host:
-  description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
+  description: IP address of the device, for example, `192.168.1.32`. If not set, auto-discovery is used.
 show_all_sources:
   description: If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed. Some receivers have a bug that marks all sources as deleted in the interface. In this case, this option could help.
 zone2:
@@ -166,7 +166,7 @@ To use these commands, call the `denonavr.get_command` action and append the spe
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
-| `command`              |       no | Command to send to device, e.g.,  `/goform/formiPhoneAppDirect.xml?VSMONI2`|
+| `command`              |       no | Command to send to device, for example, `/goform/formiPhoneAppDirect.xml?VSMONI2`|
 
 So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will switch the HDMI to output 2 (if your receiver supports it). Sending an IR code works the same, so the command `/goform/formiPhoneAppDirect.xml?RCKSK0410370` will toggle muting.
 
