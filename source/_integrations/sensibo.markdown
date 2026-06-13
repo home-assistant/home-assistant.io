@@ -257,7 +257,7 @@ AC integration and Geo integration needs to be pre-configured via the app before
 Target:
   description: Select the Sensibo climate entity.
 AC integration:
-  description: Integrate with a HVAC device.
+  description: Integrate with an HVAC device.
 Geo integration:
   description: Integrate with presence.
 Indoor air quality:

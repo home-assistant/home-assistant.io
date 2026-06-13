@@ -12,7 +12,7 @@ The **MQTT Humidifier** {% term integration %} lets you control your MQTT enable
 
 ## Configuration
 
-In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT humidifier will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the humidifier will be `unknown`. A MQTT device can reset the current state to `unknown` using a `None` payload.
+In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT humidifier will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the humidifier will be `unknown`. An MQTT device can reset the current state to `unknown` using a `None` payload.
 
 When a `state_topic` is not available, the humidifier will work in optimistic mode. In this mode, the humidifier will immediately change state after every command. Otherwise, the humidifier will wait for state confirmation from the device (message from `state_topic`). The initial state is set to `False` / `off` in optimistic mode.
 
@@ -332,7 +332,7 @@ In this section you find some real-life examples of how to use this humidifier.
 
 ### Full configuration
 
-The example below shows a full configuration for a MQTT humidifier including modes.
+The example below shows a full configuration for an MQTT humidifier including modes.
 
 ```yaml
 # Example configuration.yaml
