@@ -48,7 +48,7 @@ logo:
   required: true
   type: string
 url:
-  description: URL of the hackerspace's web site.
+  description: URL of the hackerspace's website.
   required: true
   type: string
 location:

@@ -46,7 +46,7 @@ evohome:
 
 {% configuration %}
 username:
-  description: The username (email address) that has access to the [TCC](https://international.mytotalconnectcomfort.com/Account/Login) web site.
+  description: The username (email address) that has access to the [TCC](https://international.mytotalconnectcomfort.com/Account/Login) website.
   required: true
   type: string
 password:
