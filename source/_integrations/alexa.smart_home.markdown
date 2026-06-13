@@ -218,7 +218,7 @@ This test event is a `Discovery` directive, your Home Assistant instance will re
 
 Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN` set, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
 
-You can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
+You can log in to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
 This time, you will get a list of your devices in the response. 🎉
 

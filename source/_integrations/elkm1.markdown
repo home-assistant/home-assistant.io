@@ -178,11 +178,11 @@ host:
   required: true
   type: string
 username:
-  description: Username to login to Elk. Required if using a secure connection method.
+  description: Username to log in to Elk. Required if using a secure connection method.
   required: false
   type: string
 password:
-  description: Password to login to Elk. Required if using a secure connection method.
+  description: Password to log in to Elk. Required if using a secure connection method.
   required: false
   type: string
 prefix:

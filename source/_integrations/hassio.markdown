@@ -164,8 +164,8 @@ The `hassio.backup_partial` action creates a partial backup.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `apps` | yes | List of app slugs to backup
-| `folders` | yes | List of directories to backup
+| `apps` | yes | List of app slugs to back up
+| `folders` | yes | List of directories to back up
 | `name` | yes | Name of the backup file. Default is the current date and time in the user's local time
 | `password` | yes | Optional password for backup
 | `compressed` | yes | `false` to create uncompressed backups
