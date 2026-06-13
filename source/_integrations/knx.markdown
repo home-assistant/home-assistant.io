@@ -151,9 +151,9 @@ State updater:
 Rate limit:
   description: "Maximum outgoing telegrams per second. `0` to disable limit - which is recommended."
 Group monitor history:
-  description: "Number of hours of telegram history to load when you open the group monitor."
+  description: "Hours of telegram history to load when you open the group monitor."
 Retention period:
-  description: "Number of days to keep telegram history. Older telegrams are automatically deleted during the nightly cleanup at 3 AM. Set this to `0` to delete all telegram history every night."
+  description: "Days to keep telegram history. Older telegrams are automatically deleted during the nightly cleanup at 3 AM. Set this to `0` to delete all telegram history every night."
 {% endconfiguration_basic %}
 
 ## Basic configuration
