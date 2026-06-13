@@ -1,6 +1,6 @@
 ---
 title: Proximity
-description: Instructions on how to setup Proximity monitoring within Home Assistant.
+description: Instructions on how to set up Proximity monitoring within Home Assistant.
 ha_category:
   - Automation
   - Presence detection

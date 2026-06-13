@@ -1,6 +1,6 @@
 ---
 title: Intent Script
-description: Instructions on how to setup scripts to run on intents.
+description: Instructions on how to set up scripts to run on intents.
 ha_category:
   - Intent
 ha_release: '0.50'

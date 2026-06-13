@@ -1,6 +1,6 @@
 ---
 title: Homee
-description: Instructions on how to setup homee devices in Home Assistant.
+description: Instructions on how to set up homee devices in Home Assistant.
 ha_category:
   - Alarm
   - Binary sensor

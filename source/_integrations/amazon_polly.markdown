@@ -1,6 +1,6 @@
 ---
 title: Amazon Polly
-description: Instructions on how to setup Amazon Polly with Home Assistant.
+description: Instructions on how to set up Amazon Polly with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.37

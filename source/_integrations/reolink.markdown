@@ -615,7 +615,7 @@ Prerequisites:
 - [Android or iOS companion app](https://companion.home-assistant.io/docs/getting_started#setting-up)
 - [Remote access to Home Assistant](/docs/configuration/remote/). Although you can receive text notifications without remote access, to see the camera image in the notification (rich notification), the phone needs to be able to reach Home Assistant. The rich notification will always work, even without remote access, when the phone is on the same network as Home Assistant.
 
-1. In order to receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+1. To receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
 
 ![Settings button](/images/integrations/reolink/rich_notification__settings.png)
 ![Automations & scenes button](/images/integrations/reolink/rich_notification__automations_and_scenes.png)
@@ -823,7 +823,7 @@ Prerequisites:
 
 ## Troubleshooting
 
-### Can’t setup the integration
+### Can’t set up the integration
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
 - Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
@@ -852,7 +852,7 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 ### Slow startup
 
 - If you are using an NVR or Home Hub, check whether a camera is currently offline or unreachable. For example, this can happen with a battery camera whose battery is completely drained, a PoE camera with an unplugged or damaged network cable, a Wi-Fi camera with outdated network credentials or power which is unplugged, or a camera whose IP address has changed. To speed up startup, bring the camera back online or remove it from the NVR or Home Hub in the Reolink app (or using a mouse and screen for a NVR).
-- If your Home Assistant device and Reolink device are separated by a VLAN or other network restrictions, follow the guidance in the earlier **Can’t setup the integration** section. The same network restrictions can also cause slow startup issues.
+- If your Home Assistant device and Reolink device are separated by a VLAN or other network restrictions, follow the guidance in the earlier **Can’t set up the integration** section. The same network restrictions can also cause slow startup issues.
 
 ### Streams or recordings not playing
 
@@ -868,7 +868,7 @@ TCP push does not have any particular requirements. However, ONVIF push has some
 Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
 A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device.
 
-- Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
+- Since an HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
 Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
 

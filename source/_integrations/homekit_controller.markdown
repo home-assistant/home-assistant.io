@@ -134,7 +134,7 @@ This section describes how to add it via Home Assistant's preferred {% term Thre
 
 - A HomeKit device which supports {% term Thread %}. This is indicated by the Thread label on the packaging.
 - Make sure the HomeKit device has been [joined using Bluetooth](#adding-a-homekit-device-through-bluetooth).
-- **Thread network**: In order to use HomeKit over Thread, you need a working border router.
+- **Thread network**: To use HomeKit over Thread, you need a working border router.
   - Make sure your Home Assistant device is on the same network (LAN) as the border router.
   - Make sure the {% term Thread %} network you'd like to use is known by Home Assistant and marked as **Preferred network** in the {% term Thread %} configuration.
   - If you have a Home Assistant Yellow, Connect&nbsp;ZBT-1, or Connect&nbsp;ZBT-2, you can enable Thread to set up an Open Thread border router and with that a {% term Thread %} network.

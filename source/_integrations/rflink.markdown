@@ -134,7 +134,7 @@ rflink:
 
 ### Adding devices Automatically
 
-In order to have your devices discovered automatically, you need to add the following to the configuration.
+To have your devices discovered automatically, you need to add the following to the configuration.
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
 
 ```yaml
@@ -198,7 +198,7 @@ If you find a device is recognized differently, with different protocols or the 
 
 ### Technical Overview
 
-- The `rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
+- The `rflink` Python module is an asyncio transport/protocol which is set up to fire a callback for every (valid/supported) packet received by the RFLink gateway.
 - This integration uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
 - The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet IDs.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.

@@ -19,7 +19,7 @@ ha_integration_type: service
 The **easyEnergy** {% term integration %} integrates the [easyEnergy](https://www.easyenergy.com) API platform with Home Assistant.
 
 The integration makes it possible to retrieve the dynamic energy/gas prices
-from easyEnergy in order to gain insight into the price trend of the day and
+from easyEnergy to gain insight into the price trend of the day and
 to adjust your consumption accordingly.
 
 Companies that use the data from easyEnergy:

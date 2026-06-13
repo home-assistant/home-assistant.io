@@ -218,7 +218,7 @@ This test event is a `Discovery` directive, your Home Assistant instance will re
 
 Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN` set, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
 
-You can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
+You can log in to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
 This time, you will get a list of your devices in the response. 🎉
 
@@ -233,7 +233,7 @@ Now remove the long-lived access token (if you want), copy the ARN of your Lambd
 
 ## Account linking
 
-Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
+Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are able to access your home's devices. To link the account, you have to make sure your Home Assistant can be accessed from Internet.
 
 - Return to the [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
@@ -558,7 +558,7 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered when Buttons and Input Buttons are pressed.
 
-In order to enable this, buttons will appear to have "presence detection" capability. This is what allows this functionality since Alexa does not support button type devices. To trigger a routine when a button is pressed, select the button in the when menu and then select the "Person" capability.
+To enable this, buttons will appear to have "presence detection" capability. This is what allows this functionality since Alexa does not support button type devices. To trigger a routine when a button is pressed, select the button in the when menu and then select the "Person" capability.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_button_trigger.png' target='_blank'>
@@ -1014,7 +1014,7 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered when Switches and Input Booleans change state.
 
-In order to enable this, Switches and Input Booleans will appear as contact sensors in the when menu of Alexa Routines. This is because Alexa does not support triggering routines from switch-type devices, only from contact and motion sensors. In this menu when you select a switch, `Open` corresponds to `on` and `Close` corresponds to `off`.
+To enable this, Switches and Input Booleans will appear as contact sensors in the when menu of Alexa Routines. This is because Alexa does not support triggering routines from switch-type devices, only from contact and motion sensors. In this menu when you select a switch, `Open` corresponds to `on` and `Close` corresponds to `off`.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_switch_trigger.png' target='_blank'>

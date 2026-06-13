@@ -18,7 +18,7 @@ ha_integration_type: service
 The **EnergyZero** {% term integration %} integrates the [EnergyZero](https://www.energyzero.nl/) API platform with Home Assistant.
 
 The integration makes it possible to retrieve the dynamic energy/gas prices
-from EnergyZero in order to gain insight into the price trend of the day and
+from EnergyZero to gain insight into the price trend of the day and
 to adjust your consumption accordingly.
 
 Partners who are a reseller from EnergyZero:

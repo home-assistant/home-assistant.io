@@ -99,7 +99,7 @@ The `min_volume` and `max_volume` options are there to protect you against miscl
 {% important %}
 On Linux the user running Home Assistant needs `dialout` permissions to access the serial port.
 This can be added to the user by doing `sudo usermod -a -G dialout <username>`.
-Be aware that the user might need to logout and logon again to activate these permissions.
+Be aware that the user might need to log out and log on again to activate these permissions.
 {% endimportant %}
 
 An example of a full configuration:

@@ -1,6 +1,6 @@
 ---
 title: openSenseMap
-description: Instructions on how to setup openSenseMap sensors in Home Assistant.
+description: Instructions on how to set up openSenseMap sensors in Home Assistant.
 ha_category:
   - Health
 ha_release: 0.85

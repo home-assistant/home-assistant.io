@@ -1,6 +1,6 @@
 ---
 title: OneDrive
-description: Instructions on how to setup OneDrive to be used with backups.
+description: Instructions on how to set up OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
   - Backup

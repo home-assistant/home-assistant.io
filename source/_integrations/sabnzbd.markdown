@@ -37,7 +37,7 @@ Here are some practical ways you can use the SABnzbd integration:
 
 ## Prerequisites
 
-You need to grab your API key from your SABnzbd instance in order to configure this integration:
+You need to grab your API key from your SABnzbd instance to configure this integration:
 
 1. Navigate to your SABnzbd web interface.
 2. Select *Config** {% icon "mdi:settings" %}, then **General**.

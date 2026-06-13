@@ -55,7 +55,7 @@ towards. As a full circle is 360°, a value of  `0` is facing North, `90` East,
 
 The **total modules power** (in Watt peak);
 Each solar panel, in a solar panel system, has a maximum power peak production
-value. In order to deliver matching estimations for you system, Forecast.Solar
+value. To deliver matching estimations for you system, Forecast.Solar
 needs to be aware of the total maximum peak power your system can produce.
 Add up the maximum peak power (in Watts!) of all your panels for this
 value.

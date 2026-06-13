@@ -1,6 +1,6 @@
 ---
 title: Fish Audio
-description: Instructions on how to setup Fish Audio integration with Home Assistant.
+description: Instructions on how to set up Fish Audio integration with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 2026.1

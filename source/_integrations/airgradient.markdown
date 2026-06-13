@@ -1,6 +1,6 @@
 ---
 title: AirGradient
-description: Instructions on how to setup AirGradient devices in Home Assistant.
+description: Instructions on how to set up AirGradient devices in Home Assistant.
 ha_category:
   - Health
   - Sensor

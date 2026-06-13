@@ -1,6 +1,6 @@
 ---
 title: Plant Monitor
-description: Instructions on how to setup plant monitoring with Home Assistant.
+description: Instructions on how to set up plant monitoring with Home Assistant.
 ha_category:
   - Environment
 ha_release: 0.44

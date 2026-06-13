@@ -117,9 +117,9 @@ binary_sensors:
   default: None
   keys:
     audio_detected:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
+      description: "Return `on` when audio is detected, `off` when not. To use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     audio_detected_polled:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
+      description: "Return `on` when audio is detected, `off` when not. To use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected:
       description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected_polled:

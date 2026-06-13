@@ -12,13 +12,13 @@ The **MQTT Fan** {% term integration %} lets you control your MQTT enabled fans.
 
 ## Configuration
 
-In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be `unknown`. A MQTT device can reset the current state to `unknown` using a `None` payload.
+In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be `unknown`. An MQTT device can reset the current state to `unknown` using a `None` payload.
 
 When a `state_topic` is not available, the fan will work in optimistic mode. In this mode, the fan will immediately change state after every command. Otherwise, the fan will wait for state confirmation from the device (message from `state_topic`).  The initial state is set to `False` / `off` in optimistic mode.
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect fan operation.
 
-To use an MQTT fan in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT fan in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -356,7 +356,7 @@ In this section you find some real-life examples of how to use this fan.
 
 ### Full configuration
 
-The example below shows a full configuration for a MQTT fan using percentage and preset modes.
+The example below shows a full configuration for an MQTT fan using percentage and preset modes.
 There are 10 speeds within the speed range, so  `percentage_step` = 100 / 10 steps = 10.0 %.
 
 ```yaml

@@ -117,7 +117,7 @@ waze_travel_time.get_travel_times:
 
 ## Example using dynamic destination
 
-Using the flexible option to set a sensor value to the `Destination`, you can setup a single Waze {% term integration %} that will calculate travel time to multiple optional locations on demand.
+Using the flexible option to set a sensor value to the `Destination`, you can set up a single Waze {% term integration %} that will calculate travel time to multiple optional locations on demand.
 
 In the following example, the `Input Select` is converted into an address which is used to modify the destination for the Waze route calculation from the `device_tracker.myphone` location. It takes a few minutes for the value to update due to the interval of Waze data fetching.
 

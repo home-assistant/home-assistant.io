@@ -446,7 +446,7 @@ For an explanation of the attributes refer to the corresponding [events](#events
 
 ## Actions
 
-In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
+To directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
 Refer to the [Performing actions](/docs/scripts/service-calls) page for examples on how to use them.
 
 When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant.

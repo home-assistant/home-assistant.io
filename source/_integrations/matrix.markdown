@@ -95,7 +95,7 @@ commands:
 {% endconfiguration %}
 
 {% warning %}
-In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+To prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
 {% endwarning %}
 
 ### Event data

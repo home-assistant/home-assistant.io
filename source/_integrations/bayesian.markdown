@@ -167,7 +167,7 @@ binary_sensor:
     - platform: "state"
       entity_id: "sun.sun"
       prob_given_true: 0.7 # If I am in bed then there is a good chance the sun will be down, but in the summer mornings I may still be in bed
-      prob_given_false: 0.45 # If I am am awake then there is a reasonable chance the sun will be below the horizon - especially in winter
+      prob_given_false: 0.45 # If I am awake then there is a reasonable chance the sun will be below the horizon - especially in winter
       to_state: "below_horizon"
     - platform: "state"
       entity_id: "sensor.android_charger_type"

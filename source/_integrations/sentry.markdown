@@ -48,4 +48,4 @@ The Sentry integration provides settings to:
 
 To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Sentry** integration. Then, select **Options**.
 
-After changing the Sentry settings, you'll need to restart Home Assistant in order to make them effective.
+After changing the Sentry settings, you'll need to restart Home Assistant to make them effective.

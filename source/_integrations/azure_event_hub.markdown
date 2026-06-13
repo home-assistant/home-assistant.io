@@ -25,7 +25,7 @@ You need to create an Event Hub namespace and an Event Hub in that namespace, yo
 
 You must then create a Shared Access Policy for the Event Hub with 'Send' claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Event Hubs [go here](https://learn.microsoft.com/azure/event-hubs/authenticate-shared-access-signature).
 
-Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the integration itself.
+Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can set up the integration itself.
 
 The alternative approach is to use a connection string and instance name, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in an IoT Hub (Event Hub-compatible connection string). In the case of IoT Hub, you need to put the Device ID as the instance name.
 
@@ -33,7 +33,7 @@ The final thing to consider is how often you want the integration to send messag
 
 {% include integrations/config_flow.md %}
 
-You can setup [filters](#filter-configuration) through the {% term "`configuration.yaml`" %}.
+You can set up [filters](#filter-configuration) through the {% term "`configuration.yaml`" %}.
 
 {% warning %}
 Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space and bandwidth.

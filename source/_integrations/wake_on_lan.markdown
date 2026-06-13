@@ -1,6 +1,6 @@
 ---
 title: Wake on LAN
-description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
+description: Instructions on how to set up the Wake on LAN integration in Home Assistant.
 ha_category:
   - Button
   - Network

@@ -13,7 +13,7 @@ The **MQTT Sensor** {% term integration %} uses the MQTT message payload as the 
 ## Configuration
 
 
-To use an MQTT sensor in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT sensor in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -422,7 +422,7 @@ mqtt:
 
 ### Temperature and humidity sensors
 
-If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this:
+If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with an MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this:
 
 Topic: `office/sensor1`
 ```json

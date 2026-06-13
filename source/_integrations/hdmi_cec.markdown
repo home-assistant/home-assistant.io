@@ -61,7 +61,7 @@ If after symlinking and adding `hdmi_cec:` to your configuration you are getting
 
 ## Testing your installation
 
-- Login to Raspberry Pi
+- Log in to Raspberry Pi
 
 ```bash
 ssh pi@your_raspberry_pi_ip

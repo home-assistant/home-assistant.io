@@ -1,6 +1,6 @@
 ---
 title: Python Scripts
-description: Instructions on how to setup Python scripts within Home Assistant.
+description: Instructions on how to set up Python scripts within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.47
@@ -37,7 +37,7 @@ Other imports like `min`, `max` are available as builtins. See the [python_scrip
 This is a simplified example that does no real work.
 It is created as a first step, to help with:
 
-- Demonstrating how to setup the script
+- Demonstrating how to set up the script
 - How to process the input data
 - How to log the script activity
 - How to troubleshoot / manually call the script.

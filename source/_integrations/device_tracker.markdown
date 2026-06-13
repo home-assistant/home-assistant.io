@@ -1,6 +1,6 @@
 ---
 title: Device tracker
-description: Instructions on how to setup device tracking within Home Assistant.
+description: Instructions on how to set up device tracking within Home Assistant.
 ha_category:
   - Presence detection
 ha_release: 0.7

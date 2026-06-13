@@ -37,7 +37,7 @@ You will need to use the standalone app for this device to register a username a
 
 ## Flipr
 
-Flipr sends data like pH, chlorine or temperature to a cloud server on a regular basis in order to monitor your pool.
+Flipr sends data like pH, chlorine or temperature to a cloud server on a regular basis to monitor your pool.
 
 There is currently support for the following information within Home Assistant via **sensors** and **binary_sensors** :
 

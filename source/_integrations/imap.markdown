@@ -313,7 +313,7 @@ actions:
       message: "{{ message_text['subject'] }}"
 ```
 
-In case you want want to process a message part, use the `fetch_part` action, and specify the `part` option. 
+In case you want to process a message part, use the `fetch_part` action, and specify the `part` option. 
 
 ```yaml
 alias: "imap fetch and seen example"

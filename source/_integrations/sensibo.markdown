@@ -181,7 +181,7 @@ HVAC mode:
 
 **Proposed action use:**
 
-1. Go to {% my server_controls title="**Settings** > **Developer Tools** > **YAML**" %}.
+1. Go to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %}.
 2. Switch to the **Actions** page.
 3. Use the `sensibo.get_device_capabilities` action.
 4. Select the `climate` entity as the target.
@@ -257,7 +257,7 @@ AC integration and Geo integration needs to be pre-configured via the app before
 Target:
   description: Select the Sensibo climate entity.
 AC integration:
-  description: Integrate with a HVAC device.
+  description: Integrate with an HVAC device.
 Geo integration:
   description: Integrate with presence.
 Indoor air quality:
