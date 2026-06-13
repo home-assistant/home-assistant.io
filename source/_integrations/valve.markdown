@@ -42,6 +42,8 @@ The following device classes are supported for valves:
 - **water**: Valve that controls the flow of water through a system.
 - **gas**: Valve that controls the flow of gas through a system.
 
+{% include integrations/triggers.md %}
+
 ## Actions
 
 ### Valve control actions

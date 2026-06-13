@@ -1,6 +1,6 @@
 ---
 title: "I'm locked out!"
-description: "Options for regaining access"
+description: "Options for regaining access to your Home Assistant when you are locked out, including resetting the owner password and recovering your data."
 related:
   - docs: /common-tasks/os/#listing-all-users-from-the-command-line
     title: Listing all usernames via command line
@@ -97,13 +97,12 @@ If you are running Home Assistant in a container, you can use the command line i
 
 Only the owner can change other user's passwords.
 
-1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
-2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
-3. At the bottom of the dialog box, select **Change password**.
+1. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
+2. At the bottom of the dialog box, select **Change password**.
    - Note: this is available as the owner, not administrator.
-4. Enter the new password, and select **OK**.
-5. Confirm the new password by entering it again, and select **OK** again.
-6. A confirmation box will be displayed with the text **Password was changed successfully**.
+3. Enter the new password, and select **OK**.
+4. Confirm the new password by entering it again, and select **OK** again.
+5. A confirmation box will be displayed with the text **Password was changed successfully**.
 
 ## Preparing the system to start a new onboarding process
 

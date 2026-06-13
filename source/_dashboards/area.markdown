@@ -21,13 +21,42 @@ The area card lets you control and monitor an individual {% term area %}.
   Screenshot of the area cards.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
 
-Buttons will appear on the card for the {% term entities %} in the area including fan, light, and switch. A motion sensor icon will appear in the top left if a motion sensor is in the area and if motion is detected by the motion sensor.
+As shown in the screenshot of the area cards, they can display values and buttons of entities and devices that you have assigned the area to, such as:
 
-If a camera is added to the {% term area %} you can show the camera feed instead of the area picture.
+- Buttons for {% term entities %} such as fan, light, and switch that are in the area of the card.
+- The measured value of a sensor, if the sensor is in the area of the card or if the sensor is assigned to the area in {% my areas title="**Settings** > **Areas, labels & zones**" %}.
+- The median of the values measured by temperature sensors, if more than one temperature sensor is in the area of the card.
+- The median of the values measured by humidity sensors, if more than one humidity sensor is in the area of the card.
+- A motion sensor in the top left of the card, if a motion sensor is in the area of the card.
+- The camera feed instead of the area picture, if a camera is added to the {% term area %} of the card.
+
+{% note %}
+The device is in an area if you have previously [assigned the area to the device](/voice_control/assign_areas_floors/#to-assign-an-area-to-a-device).
+{% endnote %}
+
+{% include dashboard/edit_dashboard.md %}
+
+## Adding buttons to the area card for controlling devices
+
+You can add buttons to the area card that will allow you to control different devices in that area.
+
+1. Depending on your goal, do one of the following:
+   - Assign the area of the card to the device by following the steps in [Assigning an area to a device](/voice_control/assign_areas_floors/#to-assign-an-area-to-a-device).
+   - Assign the area of the card to a group of devices by following the steps in [Assigning an area to multiple items](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
+2. Go to your dashboard and, in the top-right corner, select the {% icon "mdi:pencil" %} button.
+3. In the area card that you have previously created, select **Edit**.
+4. Expand the **Features** section and select **Add feature** > **Area controls**.
+5. You can also:
+   - Define the **Features position** by selecting **Bottom** or **Inline**.
+   - Customize controls to add a button for each device or entity, for example.
+     1. Select the {% icon "mdi:pencil" %} button next to **Area controls**.
+     2. Turn on **Customize controls**.
+     3. Select **Controls** and then select the entity from the list.
+     4. Select **Save**.
+
+If you want to control only certain devices that are assigned to an area altogether, you can still use an area card. [Create a new area](/docs/organizing/areas/#creating-an-area) and then follow the previous steps using the new area.
 
 ## YAML configuration
 
@@ -80,7 +109,7 @@ sensor_classes:
   required: false
   type: list
   default: "temperature, humidity"
-  description: A list of sensor device classes which will display their averaged sensor readings for the area.
+  description: A list of sensor device classes to display for the area. Most classes (such as temperature, humidity, or pressure) show the median value when multiple sensors are present. Sensors representing cumulative measurements (such as power, energy, gas, or water) show the sum instead.
 features:
   required: false
   description: Additional widgets to control entities in the area. See [available features](/dashboards/features).

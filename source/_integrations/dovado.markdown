@@ -108,7 +108,7 @@ sensors:
   type: list
   keys:
     network:
-      description: Creates a sensor for Network State (3G, 4G, etc.).
+      description: Creates a sensor for Network State, such as 3G or 4G.
     signal:
       description: Creates a sensor for the signal strength.
     download:

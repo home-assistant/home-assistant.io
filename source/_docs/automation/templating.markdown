@@ -1,16 +1,14 @@
 ---
-title: "Automation Templates"
-description: "List all trigger variables available to templates."
+title: "Automation templates"
+description: "Use templates inside an automation to access trigger data, build dynamic messages, and pass calculated values to actions."
 ---
 
-Automations support the advanced features of [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available for automations.
+Automations support the advanced features of [templating](/docs/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/templating/) available to scripts, the `trigger` and `this` template variables are available for automations.
 
 Example of variables used in templates:
 
-{% raw %}
 - `{{ this.name }}` is the name of the automation executing from this trigger
 - `{{ trigger.platform }}` is the type of trigger object, like `calendar`
-{% endraw %}
 
 ## Available state data
 
@@ -240,7 +238,6 @@ These are the properties available for a [Zone trigger](/docs/automation/trigger
 
 ## Examples
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entries
@@ -309,6 +306,5 @@ automation 4:
           - light.living_room
 ```
 
-{% endraw %}
 
 [state object]: /docs/configuration/state_object/

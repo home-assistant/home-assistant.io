@@ -1,6 +1,6 @@
 ---
 title: "State and state object"
-description: "Describes all there is to know about state and the state object in Home Assistant."
+description: "Every entity in Home Assistant has a state, such as on, off, or a temperature reading. This page covers what the state object contains and how to use it."
 related:
   - docs: /docs/configuration/entities_domains/
     title: Entities and domains
@@ -73,7 +73,7 @@ The table lists common state attributes that may be present, depending on the en
 | `device_class`        | The type of device that an entity represents. Used to display device specific information in the UI.                                                                                                         |
 | `supported_features`  | The features an entity supports. For covers, for example, it might list `opening`, `closing`, `stopping`, `setting position`. For media players, it might list `play`, `pause`, `stop`, and `volume control` |
 
-When an attribute contains spaces, you can retrieve it like this: `state_attr('sensor.livingroom', 'Battery numeric')`.
+When an attribute contains spaces, you can retrieve it with the [`state_attr`](/template-functions/state_attr/) function: `state_attr('sensor.livingroom', 'Battery numeric')`.
 
 ## Context
 
@@ -88,39 +88,33 @@ Context is a property used in state objects and events. It ties {% term events %
 ## Examples
 
 - Evaluate the `state.last_changed` of a switch entity:  
-  {% raw %}
 
   ```jinja
   {{ states.switch.my_switch.last_changed }}
   ```
 
-  {% endraw %}  
   result type: `string` representing a datetime object, for example  
   `2025-11-11 12:56:10.244125+00:00`
 
 ***
 
 - Evaluate the `state.context.id` of this switch:  
-  {% raw %}
   
   ```jinja
   {{ states.switch.my_switch.context.id }}
-    ```
+  ```
 
-  {% endraw %}
   result type: `string` representing an id code, for example  
   `01K9SF2R36KRV5N4PTC38S6KJ2F`
 
 ***
 
 - Evaluate the `state.context.user_id` of this switch:
-  {% raw %}
   
   ```jinja
 
   {{ states.switch.my_switch.context.user_id }}
   ```
 
-  {% endraw %}
   result type: `string` representing a user id code, for example
   `01K9SF2R36KRV5N4PTC38SKS4LW6`

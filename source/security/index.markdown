@@ -62,6 +62,13 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2026-05-11: Cross-origin iframe access token exfiltration via WebView JS bridge callback injection**  
+Severity: _High (CVSS: 8.3)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-7jp2-p2fw-mgvf)_  
+Assigned CVE: _[CVE-2026-44698](https://nvd.nist.gov/vuln/detail/CVE-2026-44698)_  
+Discovered by: _[Kwstubbs](https://github.com/Kwstubbs)_  
+Fixed in: _Home Assistant for Android 2026.4.4 and iOS 2026.4.1_
+
 **2026-03-27: Stored XSS in map card through malicious device name**  
 Severity: _Moderate_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-r584-6283-p7xc)_  

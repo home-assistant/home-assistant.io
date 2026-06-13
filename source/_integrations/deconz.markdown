@@ -162,7 +162,7 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
-For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
+For the IKEA Tradfri remote, the first digit indicates the button: 1 for middle, 2 for up, 3 for down, 4 for left, and 5 for right (for example, `"event": 1002` is a middle button short release).
 
 Specific gestures for the Aqara Magic Cube are:
 
@@ -188,7 +188,7 @@ To simplify using remote control devices in automations deCONZ integration expos
 
 #### Requesting support for new device trigger
 
-If you have a Zigbee remote that is not yet supported you can request support for it by creating an issue on Home Assistant Core GitHub repository. This requires the device model (can be acquired from debug logs) together with a mapping of action and button event, e.g., Hue dimmer remote model "RWL021", Short press turn on 1000.
+If you have a Zigbee remote that is not yet supported, you can request support for it by creating an issue on the Home Assistant Core GitHub repository. This requires the device model (can be acquired from debug logs) together with a mapping of action and button event, for example, Hue dimmer remote model `RWL021`, Short press turn on 1000.
 
 ## Examples
 
@@ -196,7 +196,6 @@ If you have a Zigbee remote that is not yet supported you can request support fo
 
 #### Step up and step down input number with wireless dimmer
 
-{% raw %}
 
 ```yaml
 automation:
@@ -261,11 +260,9 @@ automation:
           entity_id: light.lamp
 ```
 
-{% endraw %}
 
 #### Changing color through the Müller Licht tint remote control
 
-{% raw %}
 
 ```yaml
 automation:
@@ -286,7 +283,6 @@ automation:
     mode: restart
 ```
 
-{% endraw %}
 
 #### Colored Flashing - RGB Philips Hue bulb using deconz.configure
 
@@ -410,7 +406,7 @@ The deCONZ Daylight sensor is a special sensor built into the deCONZ software si
 
 The sensor also has an attribute called "daylight" that has the value `true` when the sensor's state is `golden_hour_1`, `solar_noon`, or `golden_hour_2`, and `false` otherwise.
 
-These states can be used in automations as a trigger (e.g., trigger when a certain phase of daylight starts or ends) or condition (e.g., trigger only if in a certain phase of daylight).
+These states can be used in automations as a trigger (for example, trigger when a certain phase of daylight starts or ends) or condition (for example, trigger only if in a certain phase of daylight).
 
 Please note that the deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 

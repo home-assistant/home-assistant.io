@@ -53,6 +53,9 @@ There is currently support for the following device types within Home Assistant:
 ### Buttons
 
 - **Restart container**: Restarts the container.
+- **Pause container**: Pauses the container.
+- **Resume container**: Resumes the container.
+- **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
 
 ### Sensors
@@ -102,8 +105,6 @@ The following examples show how to use the Portainer integration in Home Assista
 
 The following example sends a notification to your mobile device when a container went down.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Container went down"
@@ -115,13 +116,13 @@ automation:
           - exited
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Container alert"
           message: "Container went down!"
 ```
-
-{% endraw %}
 
 ## Actions
 

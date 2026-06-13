@@ -196,7 +196,7 @@ Command Class value that Z-Wave JS supports!
 In order to leverage this trigger type in the UI, you will have to
 use [device automations](/integrations/zwave_js#device-automations),
 but if you are writing your automations in YAML, you can
-[use the trigger directly](/integrations/zwave_js#zwave_jsvalue_updated-trigger).
+[use the trigger directly](/triggers/zwave_js.value_updated/).
 
 That's not all for Z-Wave JS integration, we have more to share!
 
