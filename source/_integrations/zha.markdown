@@ -325,7 +325,7 @@ zha:
 
 ### OTA updates of Zigbee device firmware
 
-The ZHA integration has the ability to perform OTA (over-the-air) firmware updates of Zigbee devices. This feature is enabled by default. As it uses standard [Update](/integrations/update/) entities in Home Assistant, users will get a UI notification if and when an OTA firmware update is available for a specific device, with an option to initiate the update or ignore that specific update for the device.
+The ZHA integration can perform OTA (over-the-air) firmware updates of Zigbee devices. This feature is enabled by default. As it uses standard [Update](/integrations/update/) entities in Home Assistant, users will get a UI notification if and when an OTA firmware update is available for a specific device, with an option to initiate the update or ignore that specific update for the device.
 
 To see OTA updates for a device, it must support OTA updates and firmware images for the device must be publicly provided by the manufacturer. ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly.
 

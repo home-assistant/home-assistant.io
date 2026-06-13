@@ -115,7 +115,7 @@ Please read [this information](http://otgw.tclcode.com/standalone.html) from the
 
 ### Action `opentherm_gw.set_clock`
 
-Provide the time and day of week to the OpenTherm Gateway. The value provided here will be forwarded to the thermostat on the next date/time request from the thermostat. The OpenTherm Gateway does not have the ability to accurately keep track of time, so it will only retain the information provided here for a maximum of about 61 seconds.
+Provide the time and day of week to the OpenTherm Gateway. The value provided here will be forwarded to the thermostat on the next date/time request from the thermostat. The OpenTherm Gateway cannot accurately keep track of time, so it will only retain the information provided here for a maximum of about 61 seconds.
 
 | Data attribute | Optional | Default      | Description                                                              |
 | ---------------------- | -------- | ------------ | ------------------------------------------------------------------------ |
@@ -208,7 +208,7 @@ Please read [this information](http://otgw.tclcode.com/standalone.html) from the
 ### Action `opentherm_gw.set_outside_temperature`
 
 Provide the outside temperature to the thermostat.
-If your thermostat is unable to display an outside temperature and does not support OTC (Outside Temperature Correction), this has no effect. Note that not all thermostats are able to display the full supported range.
+If your thermostat is unable to display an outside temperature and does not support OTC (Outside Temperature Correction), this has no effect. Note that not all thermostats can display the full supported range.
 
 | Data attribute | Optional | Description                                                                                                                                                                           |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

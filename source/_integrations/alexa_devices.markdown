@@ -279,7 +279,7 @@ You need to ensure you are:
 - set up to use app based 2FA
 - not set up to receive SMS 2FA codes
 
-To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you are able to log in successfully.
+To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you can log in successfully.
 
 ### Sensors unavailable
 
