@@ -130,7 +130,7 @@ Using a combination of the available {% term actions %} and attributes, you can 
         - condition: state
           entity_id: alarm_control_panel.alarm_panel
           attribute: chime
-          state: False
+          state: false
         - action: alarmdecoder.alarm_toggle_chime
           target:
             entity_id: alarm_control_panel.alarm_panel
@@ -140,7 +140,7 @@ Using a combination of the available {% term actions %} and attributes, you can 
         - condition: state
           entity_id: alarm_control_panel.alarm_panel
           attribute: chime
-          state: True
+          state: true
         - action: alarmdecoder.alarm_toggle_chime
           target:
             entity_id: alarm_control_panel.alarm_panel

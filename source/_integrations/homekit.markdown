@@ -74,7 +74,7 @@ homekit:
       switch.bedroom_outlet:
         type: outlet
       camera.back_porch:
-        support_audio: True
+        support_audio: true
       sensor.some_co_sensor:
         co_threshold: 1000
       sensor.some_co2_sensor:

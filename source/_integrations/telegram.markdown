@@ -447,8 +447,8 @@ actions:
       data:
         parse_mode: html
         message_tag: "example_tag"
-        disable_notification: True
-        disable_web_page_preview: True
+        disable_notification: true
+        disable_web_page_preview: true
         message_thread_id: 123
 ```
 

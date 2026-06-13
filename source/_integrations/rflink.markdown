@@ -410,7 +410,7 @@ devices:
         fire_event:
           description: Fire a `button_pressed` event if this device is turned on or off.
           required: false
-          default: False
+          default: false
           type: boolean
         signal_repetitions:
           description: The number of times every RFLink command should repeat.
@@ -578,7 +578,7 @@ device_defaults:
     fire_event:
       description: Set default `fire_event` for RFLink switch devices (see below).
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: Set default `signal_repetitions` for RFLink switch devices (see below).
@@ -876,7 +876,7 @@ device_defaults:
     fire_event:
       description: Set default `fire_event` for RFLink switch devices (see below).
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: Set default `signal_repetitions` for RFLink switch devices (see below).

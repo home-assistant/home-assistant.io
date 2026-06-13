@@ -193,7 +193,7 @@ auto_configure:
   description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
   required: false
   type: boolean
-  default: False
+  default: false
 area:
   description: Elk areas to include in Home Assistant.
   required: false

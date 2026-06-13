@@ -65,17 +65,17 @@ stopbits:
 xonxoff:
   description: Enable software flow control.
   required: false
-  default: False
+  default: false
   type: boolean
 rtscts:
   description: Enable hardware (RTS/CTS) flow control.
   required: false
-  default: False
+  default: false
   type: boolean
 dsrdtr:
   description: Enable hardware (DSR/DTR) flow control.
   required: false
-  default: False
+  default: false
   type: boolean
 value_template:
   description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the serial line."
