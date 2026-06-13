@@ -823,7 +823,7 @@ Prerequisites:
 
 ## Troubleshooting
 
-### Can’t setup the integration
+### Can’t set up the integration
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
 - Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
@@ -852,7 +852,7 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 ### Slow startup
 
 - If you are using an NVR or Home Hub, check whether a camera is currently offline or unreachable. For example, this can happen with a battery camera whose battery is completely drained, a PoE camera with an unplugged or damaged network cable, a Wi-Fi camera with outdated network credentials or power which is unplugged, or a camera whose IP address has changed. To speed up startup, bring the camera back online or remove it from the NVR or Home Hub in the Reolink app (or using a mouse and screen for a NVR).
-- If your Home Assistant device and Reolink device are separated by a VLAN or other network restrictions, follow the guidance in the earlier **Can’t setup the integration** section. The same network restrictions can also cause slow startup issues.
+- If your Home Assistant device and Reolink device are separated by a VLAN or other network restrictions, follow the guidance in the earlier **Can’t set up the integration** section. The same network restrictions can also cause slow startup issues.
 
 ### Streams or recordings not playing
 

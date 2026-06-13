@@ -65,7 +65,7 @@ For more complex network setups (for example, VLANs), reference the [following d
 
 It is recommended to supply your Xiaomi Home credentials during configuration
 to automatically connect to your devices. You need to specify the server region
-you used in the Xiaomi Home App (where you initially setup the device). There are
+you used in the Xiaomi Home App (where you initially set up the device). There are
 6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
 [this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
 the server to use for each country.

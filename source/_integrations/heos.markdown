@@ -42,7 +42,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 {% include integrations/config_flow.md %}
 
 {% note %}
-A single instance of the integration adds all devices in the HEOS system to Home Assistant. When setup through discovery, it will automatically select the best {% term host %}. The integration will automatically reconnect and fail over to other hosts in the HEOS system if the configured host goes offline.
+A single instance of the integration adds all devices in the HEOS system to Home Assistant. When set up through discovery, it will automatically select the best {% term host %}. The integration will automatically reconnect and fail over to other hosts in the HEOS system if the configured host goes offline.
 {% endnote %}
 
 {% configuration_basic %}
@@ -68,7 +68,7 @@ Password:
 
 ## Reconfiguration
 
-Once setup, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
+Once set up, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
 
 1. Go to **{% my integrations icon title="Settings > Devices & services" %}**.
 2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.

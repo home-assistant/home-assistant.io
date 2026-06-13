@@ -41,7 +41,7 @@ They will be automatically added if the Rachio integration is loaded.
 4. Copy the API key from the dialog that opens.
 
 {% important %}
-In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. The smart hose timers use polling and don't require external access to be setup.
+In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. The smart hose timers use polling and don't require external access to be set up.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
