@@ -38,58 +38,7 @@ The **Green Planet Energy** integration provides the following sensors.
 - **Lowest price day**: The lowest electricity price during day hours (6:00-18:00)
 - **Lowest price night**: The lowest electricity price during night hours (18:00-6:00)
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: Get cheapest duration
-
-The `green_planet_energy.get_cheapest_duration` action allows you to find the cheapest time window for any duration between 0.5 and 24 hours.
-
-In YAML, refer to this action as `green_planet_energy.get_cheapest_duration`.
-
-{% example %}
-action: |
-  action: green_planet_energy.get_cheapest_duration
-  data:
-    entity_id: sensor.green_planet_energy_current_price
-    duration: 3.5
-    time_range: night
-{% endexample %}
-
-#### Options in YAML
-
-{% configuration %}
-entity_id:
-  description: Green Planet Energy sensor entity used to identify the integration instance.
-  required: true
-  type: string
-duration:
-  description: Duration in hours for which to find the cheapest time window.
-  required: true
-  type: float
-time_range:
-  description: Time range to search within.
-  required: false
-  type: string
-{% endconfiguration %}
-
-Accepted values for `duration` are from `0.5` up to `24`.
-Accepted values for `time_range` are `full_day`, `day`, or `night`. The default is `full_day`.
-
-#### Response data
-
-The action returns the following information:
-
-```json
-{
-  "duration": 3.5,
-  "average_price": 0.2543,
-  "start_time": "2026-02-22T01:00:00+01:00",
-  "hours_until_start": 5.2,
-  "time_range": "night"
-}
-```
+{% include integrations/actions.md %}
 
 ## Examples
 
