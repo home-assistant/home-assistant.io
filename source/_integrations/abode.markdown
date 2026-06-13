@@ -38,7 +38,7 @@ There is currently support for the following {% term device %} types within Home
 
 - **Alarm control panel**: Reports on the current alarm status and can be used to arm and disarm the system.
 - **Binary sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` {% term sensors %} (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#action-turn_off) and [`camera.turn_on`](/integrations/camera/#action-turn_on) {% term actions %}.
+- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#action-turn-off) and [`camera.turn_on`](/integrations/camera/#action-turn-on) {% term actions %}.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - **Light**: Reports on `Dimmer` lights and can be used to dim or turn the light on and off.

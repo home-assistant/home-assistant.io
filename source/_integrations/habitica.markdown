@@ -135,7 +135,7 @@ The following {% term calendars %} will be created:
 
 ## Button controls for class skills
 
-If you've unlocked the class system, button controls for casting player and party skills will become available, depending on the class you've selected. For task skills see [action `habitica.cast_skill`](#action-habiticacast_skill)
+If you've unlocked the class system, button controls for casting player and party skills will become available, depending on the class you've selected. For task skills see [action `habitica.cast_skill`](#action-cast-skill)
 
 ### Mage
 

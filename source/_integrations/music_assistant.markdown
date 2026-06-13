@@ -76,7 +76,7 @@ If a player provider supports player options, the Music Assistant integration ex
 
 ### Action `music_assistant.play_media`
 
-Play media on a Music Assistant player with more fine-grained control options. This action is more powerful than the [`media_player.play_media`](/integrations/media_player/#action-media_playerplay_media) action because it allows multiple items to be added to the queue at once, it allows more specific control of the media item to be played (e.g. a track from a specific album can be specified) and Music Assistant's radio mode (where the queue is filled with similar tracks to that enqueued) can be enabled.
+Play media on a Music Assistant player with more fine-grained control options. This action is more powerful than the [`media_player.play_media`](/integrations/media_player/#action-play-media) action because it allows multiple items to be added to the queue at once, it allows more specific control of the media item to be played (e.g. a track from a specific album can be specified) and Music Assistant's radio mode (where the queue is filled with similar tracks to that enqueued) can be enabled.
 
 - **Data attribute**: `media_id`
   - **Optional**: No.
