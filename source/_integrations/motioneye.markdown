@@ -240,7 +240,7 @@ Parameters:
 | `entity_id` `device_id` | An entity id or device id to trigger the action on.                                                                                                                                                                                                      |
 | `action`                | A string representing the motionEye action to trigger. One of `snapshot`, `lock`, `unlock`, `light_on`, `light_off`, `alarm_on`, `alarm_off`, `up`, `right`, `down`, `left`, `zoom_in`, `zoom_out`, `preset1`-`preset9`, `record_start` or `record_stop` |
 
-**Note**: `record_start` and `record_stop` action are only partially implemented in motionEye itself and thus do not function as would be expected at this time ([relevant code](https://github.com/ccrisan/motioneye/blob/dev/motioneye/handlers.py#L1741)).
+**Note**: `record_start` and `record_stop` action are only partially implemented in motionEye itself and thus do not function as would be expected ([relevant code](https://github.com/ccrisan/motioneye/blob/dev/motioneye/handlers.py#L1741)).
 
 ### motioneye.set_text_overlay
 

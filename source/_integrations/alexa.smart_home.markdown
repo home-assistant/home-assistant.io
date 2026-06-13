@@ -493,7 +493,7 @@ The alarm control panel state must be in the `disarmed` state before arming. Ale
 The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
 {% note %}
-Alexa does not support arming with voice PIN at this time. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
+Alexa does not support arming with voice PIN. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
 The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
 {% endnote %}
 
@@ -979,7 +979,7 @@ Alexa does not allow the following words to be used as activity names:
 
 ### Scene
 
-Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does not support deactivate or _"turn off"_ for scenes at this time.
+Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does not support deactivate or _"turn off"_ for scenes.
 
 - _"Alexa, Party Time."_
 - _"Alexa, turn on Party Time."_
@@ -996,7 +996,7 @@ Run script with script name, or _"turn on"_ utterance. Deactivate a running scri
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Only temperature sensors are configured at this time.
+Only temperature sensors are configured.
 
 - _"Alexa, what's the temperature in the kitchen?"_
 - _"Alexa, what's the upstairs temperature?"_

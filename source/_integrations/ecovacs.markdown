@@ -32,7 +32,7 @@ The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.
 
 This is for the "Deebot" series of robotic vacuum cleaners and the "GOAT" series of robotic lawn mowers from Ecovacs.
 
-Note that Ecovacs also has other types of cleaning robots that are not supported by this integration at this time.
+Note that Ecovacs also has other types of cleaning robots that are not supported by this integration.
 
 ## Prerequisites
 
