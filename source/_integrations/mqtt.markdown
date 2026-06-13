@@ -1248,7 +1248,7 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 }
 ```
 
-The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows you to set up multiple entities that share the same device.
 
 {% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.

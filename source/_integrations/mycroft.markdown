@@ -20,7 +20,7 @@ ha_quality_scale: legacy
 
 There is currently support for the following device types within Home Assistant:
 
-- **Notifications** - Allows to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).
+- **Notifications** - Allows you to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).
 
 ## Configuration
 

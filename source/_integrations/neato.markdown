@@ -81,7 +81,7 @@ After the update to firmware 4.0 (which adds cleaning maps) there is also suppor
 
 ## Button
 
-Each `neato` vacuum has a _Dismiss alert_ button. This allows to dismiss an alert visible in the app (e.g. dust bin full) and preventing the vacuum to start cleaning.
+Each `neato` vacuum has a _Dismiss alert_ button. This allows you to dismiss an alert visible in the app (e.g. dust bin full) and preventing the vacuum to start cleaning.
 
 ## Vacuum
 

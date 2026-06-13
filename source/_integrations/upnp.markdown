@@ -23,7 +23,7 @@ The **UPnP/IGD** {% term integration %} enables you to collect network statistic
 There is currently support for the following device types within Home Assistant:
 
 - **Binary Sensor** - If router is connected to the WAN.
-- **Sensor** - Allows to get the network statistics from your router such as bytes in/out and packets in/out, uptime, status, and IP. Sensor for uptime will only be there if supported by the router.
+- **Sensor** - Allows you to get the network statistics from your router such as bytes in/out and packets in/out, uptime, status, and IP. Sensor for uptime will only be there if supported by the router.
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this {% term integration %} to work.
 
