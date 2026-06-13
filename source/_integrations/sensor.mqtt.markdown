@@ -309,7 +309,7 @@ Topic: `home/sensor1/attributes`
     "ConnectedSSID": <string>
 }
  ```
- It also makes use of the `availability` topic.
+ It also uses the `availability` topic.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/templating/states/). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 

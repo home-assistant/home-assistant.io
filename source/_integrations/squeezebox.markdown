@@ -338,7 +338,7 @@ The integration uses {% term polling %} to receive updates from the Lyrion Music
 
 ## Known limitations
 
-The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played. This could potentially lead to the start of an announcement being missed as it fades in. You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
+The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played. This could potentially lead to the start of an announcement being missed as it fades in. You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you use announcements.
 
 ## Removing the integration
 
