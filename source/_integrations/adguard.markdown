@@ -21,7 +21,7 @@ ha_integration_type: service
 
 The **AdGuard Home** {% term integration %} lets you monitor and control your [AdGuard Home](https://adguard.com/adguard-home/overview.html) instance from Home Assistant.
 
-AdGuard Home is network-wide software for blocking advertisements and tracking. It works at the DNS level, so once your devices use it as their DNS server, every phone, laptop, tablet, and smart device on your network is protected automatically, with nothing to install on each one. It blocks ads, trackers, and known malicious domains across the board.
+AdGuard Home is network-wide software for blocking advertisements and tracking. It works at the DNS level, so once your devices use it as their DNS server, every phone, laptop, tablet, and smart device on your network is protected automatically, with nothing to install on each one. It blocks advertisements, trackers, and known malicious domains across the board.
 
 With this integration, you can keep an eye on how much AdGuard Home is blocking right from your dashboard, and turn its protection features on or off without opening the AdGuard Home interface. Picture stricter filtering switching on the moment guests join your Wi-Fi, parental controls turning on while the kids do their homework, and a notification reaching you when DNS lookups start to slow down. Because every feature is available to your automations, you decide when and how your network protects itself.
 
