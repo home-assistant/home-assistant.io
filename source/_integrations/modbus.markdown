@@ -32,7 +32,7 @@ Configure the modbus communication with modbus devices. This is a general setup 
 
 The modbus integration allows you to use multiple connections each with multiple sensors etc.
 
-The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
+The modbus integration provides several parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
 
 To enable this integration, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

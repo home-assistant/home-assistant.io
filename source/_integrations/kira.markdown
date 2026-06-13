@@ -172,7 +172,7 @@ When you have filled in the data to match your YAML entry save the script and te
   <img src='/images/integrations/kira/kira_test_script.png' />
 </p>
 
-Once you know the code is working and procedure is correct you can use the facility in any number of ways, perhaps triggering the output based on sensor readings or by adding a number of buttons as a virtual remote in the Home Assistant front end.
+Once you know the code is working and procedure is correct you can use the facility in any number of ways, perhaps triggering the output based on sensor readings or by adding several buttons as a virtual remote in the Home Assistant front end.
 
 ### Example sensor
 

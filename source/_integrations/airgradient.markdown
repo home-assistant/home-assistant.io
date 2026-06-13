@@ -74,7 +74,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Total volatile organic compounds index
 
-A number of configuration entities are available as sensors to automate with if you control the device via the AirGradient dashboard instead of set it to control locally.
+Several configuration entities are available as sensors to automate with if you control the device via the AirGradient dashboard instead of set it to control locally.
 - CO2 automatic baseline calibration days
 - NOx learning offset
 - Total volatile organic compounds learning offset

@@ -97,7 +97,7 @@ filter:
 
 ## Using the data in Azure
 
-There are a number of ways to stream the data that comes into the Event Hub into storages in Azure, the easiest way is to use the built-in Capture function and this allows you to capture the data in Azure Blob Storage or Azure Data Lake store, [details here](https://learn.microsoft.com/azure/event-hubs/event-hubs-capture-overview).
+There are several ways to stream the data that comes into the Event Hub into storages in Azure, the easiest way is to use the built-in Capture function and this allows you to capture the data in Azure Blob Storage or Azure Data Lake store, [details here](https://learn.microsoft.com/azure/event-hubs/event-hubs-capture-overview).
 
 Other storages in Azure (and outside) are possible with an [Azure Stream Analytics job](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs), for instance for [Cosmos DB](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output), [Azure SQL DB](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf), [Azure Table Storage](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs), custom writing to [Azure Blob Storage](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-custom-path-patterns-blob-storage-output) and [Topic and Queues](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-output).
 

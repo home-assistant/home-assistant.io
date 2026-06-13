@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensors
 - Binary sensors
 
-The integration supports sending notifications with SMS, reporting incoming SMS with events and reporting the modem and connection state in a number of sensors and binary sensors.
+The integration supports sending notifications with SMS, reporting incoming SMS with events and reporting the modem and connection state in several sensors and binary sensors.
 
 {% note %}
 Splitting of long SMS messages is not supported so notifications can contain a maximum of 70 characters. Simple messages using the reduced GSM-7 alphabet can contain up to 160 characters. Most emojis are not supported.
