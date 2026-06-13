@@ -19,7 +19,7 @@ API through Home Assistant. This platform allow you do identify persons on
 camera and fire an event with attributes.
 
 Please refer to the [Microsoft Face integration](/integrations/microsoft_face/) configuration on
-how to setup the API key.
+how to set up the API key.
 
 For using the result inside an automation rule,
 take a look at the [Image Processing integration](/integrations/image_processing/) page.

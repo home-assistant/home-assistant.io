@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 It is recommended to set up a new & dedicated account on your DoorBird App/web portal for use with Home Assistant. The instructions in this document refer specifically to the DoorBird iOS/Android app. Still, most actions can also be performed using the web-based [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal and logging in on your DoorBird admin account.
 
-To setup a new account for Home Assistant, open the DoorBird App by selecting **Settings** (cog icon) > **Administration** > **LOGIN** (using your DoorBird App Administration details). Under the **USER** section, choose **Add**. This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under **Permissions**. The following permissions are recommended (or amend depending on your requirements:
+To set up a new account for Home Assistant, open the DoorBird App by selecting **Settings** (cog icon) > **Administration** > **LOGIN** (using your DoorBird App Administration details). Under the **USER** section, choose **Add**. This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under **Permissions**. The following permissions are recommended (or amend depending on your requirements:
 
 - "Watch Always" (live view)
 - "History" (last motion)

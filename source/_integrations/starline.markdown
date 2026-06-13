@@ -1,6 +1,6 @@
 ---
 title: StarLine
-description: Instructions on how to setup your StarLine account with Home Assistant.
+description: Instructions on how to set up your StarLine account with Home Assistant.
 ha_category:
   - Binary sensor
   - Button

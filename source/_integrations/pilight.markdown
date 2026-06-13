@@ -1,6 +1,6 @@
 ---
 title: Pilight
-description: Instructions on how to setup Pilight within Home Assistant.
+description: Instructions on how to set up Pilight within Home Assistant.
 ha_category:
   - Binary sensor
   - DIY

@@ -1,6 +1,6 @@
 ---
 title: Yeelight
-description: Instructions on how to setup Yeelight Wifi devices within Home Assistant.
+description: Instructions on how to set up Yeelight Wifi devices within Home Assistant.
 ha_category:
   - Light
 ha_release: 0.32

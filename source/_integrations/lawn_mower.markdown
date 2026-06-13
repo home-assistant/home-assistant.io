@@ -1,6 +1,6 @@
 ---
 title: Lawn mower
-description: Instructions on how to setup and use lawn mowers in Home Assistant.
+description: Instructions on how to set up and use lawn mowers in Home Assistant.
 ha_release: 2023.9
 ha_domain: lawn_mower
 ha_quality_scale: internal

@@ -78,7 +78,7 @@ The following bridges are reported to work with this integration:
 
 ## Retrieving the API Key
 
-The 16 character API key needed to setup the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
+The 16 character API key needed to set up the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
 In that app the key can often be found by clicking multiple times on specific places on the "About" page.
 
 ### Motionblinds app

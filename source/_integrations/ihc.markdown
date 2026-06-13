@@ -124,7 +124,7 @@ ihc:
 
 {% configuration %}
 binary_sensor:
-  description: List of binary sensors to setup manually.
+  description: List of binary sensors to set up manually.
   required: false
   type: map
   keys:
@@ -187,7 +187,7 @@ ihc:
 
 {% configuration %}
 sensor:
-  description: List of sensors to setup manually.
+  description: List of sensors to set up manually.
   required: false
   type: map
   keys:
@@ -248,7 +248,7 @@ ihc:
 
 {% configuration %}
 light:
-  description: List of lights to setup manually
+  description: List of lights to set up manually
   required: false
   type: map
   keys:
@@ -311,7 +311,7 @@ ihc:
 
 {% configuration %}
 switch:
-  description: List of switches to setup manually
+  description: List of switches to set up manually
   required: false
   type: map
   keys:

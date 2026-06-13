@@ -1,6 +1,6 @@
 ---
 title: Binary sensor
-description: Instructions on how-to setup binary sensors with Home Assistant.
+description: Instructions on how-to set up binary sensors with Home Assistant.
 ha_category:
   - Binary sensor
 ha_release: 0.9

@@ -248,7 +248,7 @@ utility_meter:
 
 ## Advanced configuration for DSMR users
 
-When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` {% term integration %}.
+When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to set up a few more instances of the `utility_meter` {% term integration %}.
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 

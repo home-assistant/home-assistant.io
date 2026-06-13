@@ -1,6 +1,6 @@
 ---
 title: Verisure
-description: Instructions on how to setup Verisure devices within Home Assistant.
+description: Instructions on how to set up Verisure devices within Home Assistant.
 ha_category:
   - Alarm
   - Binary sensor

@@ -1,6 +1,6 @@
 ---
 title: Atag
-description: Instructions on how to setup Atag integration.
+description: Instructions on how to set up Atag integration.
 ha_category:
   - Climate
   - Sensor

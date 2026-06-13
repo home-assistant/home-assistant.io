@@ -39,7 +39,7 @@ Please note that the open JSON interface only exposes a limited amount of data. 
 
 {% include integrations/config_flow.md %}
 
-To setup the integration you need the following information:
+To set up the integration you need the following information:
 
 {% configuration_basic %}
 Name:

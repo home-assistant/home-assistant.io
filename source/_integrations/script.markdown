@@ -1,6 +1,6 @@
 ---
 title: Scripts
-description: Instructions on how to setup scripts within Home Assistant.
+description: Instructions on how to set up scripts within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.7

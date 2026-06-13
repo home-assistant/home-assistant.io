@@ -23,7 +23,7 @@ sudo minicom -D /dev/ttyACM0
 
 ## Configuration
 
-To setup a serial sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To set up a serial sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
