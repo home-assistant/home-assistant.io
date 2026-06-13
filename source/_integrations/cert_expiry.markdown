@@ -43,6 +43,19 @@ The sensor also provides the following attributes:
 {% tip %}
 To calculate the number of days until the certificate expires in a template or automation, use `as_datetime()` to convert the state and subtract `now()`. For example:
 
+{% raw %}
+
+```yaml
+value_template: >
+  {{
+    (as_datetime(states('sensor.cert_expiry_timestamp_example_com'))
+    - now()).days
+  }}
+```
+
+{% endraw %}
+{% endtip %}
+
 ## Data updates
 
 The integration {% term polling polls %} the certificate every 12 hours. To trigger an immediate check, use the [`homeassistant.update_entity` action](/integrations/homeassistant/#action-update-entity).
