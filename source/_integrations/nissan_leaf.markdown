@@ -26,7 +26,7 @@ The **Nissan Leaf** {% term integration %} offers integration with the [NissanCo
 Please be aware that the `nissan_leaf` {% term integration %} only works with Nissan vehicles from before 2019. Newer vehicles will not work with this integration.
 {% endimportant %}
 
-The {% term integration %} offers offers:
+The {% term integration %} offers:
 
 - sensors for the battery status, range and charging status.
 - a switch to start and stop the climate control.
