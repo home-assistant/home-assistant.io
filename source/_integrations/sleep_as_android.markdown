@@ -201,7 +201,7 @@ The **Sleep as Android** app can be automated through its [Intent API](https://s
 - Start, stop, or pause sleep tracking
 - Stop lullaby playback
 
-Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
+Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](https://companion.home-assistant.io/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
 
 To make this even easier, you can import the following blueprint. It supports nearly all Sleep as Android actions, so you can automate your sleep routine without writing any custom scripts:
 
