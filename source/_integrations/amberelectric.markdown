@@ -60,4 +60,4 @@ The `amberelectric.get_forecasts` action allows you to get an array of forecasts
 | Data attribute    | Optional | Description                                                           |
 | ----------------- | -------- | --------------------------------------------------------------------- |
 | `config_entry_id` | Yes      | The config entry of the site to get forecasts for.                    |
-| `channel_type`    | Yes      | The channel type to fetch. Options: general, controller_load, feed_in |
+| `channel_type`    | Yes      | The channel type to fetch. Options: general, controlled_load, feed_in |
