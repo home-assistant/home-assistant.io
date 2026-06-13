@@ -77,7 +77,6 @@ template:
 
 ## Known limitations
 
-- Prices are bare market prices and do not include energy taxes, grid fees, or other surcharges charged by your energy provider.
 - Price slots beyond today and tomorrow are not available and are omitted from the `get_prices` response.
 
 ## Removing the integration
