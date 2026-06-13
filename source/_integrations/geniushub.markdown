@@ -47,7 +47,7 @@ Each zone controlled by your Genius Hub will be exposed as either a:
 
 **Group** zones are not supported.
 
-Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
+Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that use schedules.
 
 There are limitations due to the differences between the Genius Hub and Home Assistant schemas (for example, Home Assistant has no **Footprint** mode) - use the actions below, for this functionality.
 
