@@ -134,7 +134,7 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
 {% note %}
-deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this action or a restart of Home Assistant.
+deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must currently (deCONZ v2.05.35) be added manually using this action or a restart of Home Assistant.
 {% endnote %}
 
 ### Action `deconz.remove_orphaned_entries`
