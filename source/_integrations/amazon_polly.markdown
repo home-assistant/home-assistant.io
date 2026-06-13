@@ -18,7 +18,7 @@ ha_quality_scale: legacy
 ---
 
 The **Amazon Polly** {% term integration %} works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
-Polly is a paid service via Amazon Web Services.  There is a [free tier](https://aws.amazon.com/polly/pricing/) for the first 12 months and then a charge per million characters afterwards.
+Polly is a paid service via Amazon Web Services. There is a [free tier](https://aws.amazon.com/polly/pricing/) for the first 12 months and then a charge per million characters afterwards.
 
 ## Setup
 

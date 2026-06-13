@@ -1647,7 +1647,7 @@ switches:
           default: "Same as `command_on`"
           type: [integer, list]
         state_off:
-          description: "Value(s) when switch is off.  The value must be an `integer` or a list of integers."
+          description: "Value(s) when switch is off. The value must be an `integer` or a list of integers."
           required: false
           default: "Same as `command_off`"
           type: [integer, list]

@@ -36,8 +36,8 @@ ha_quality_scale: silver
 
 The **Husqvarna Automower** {% term integration %} provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
 
-In order to use this integration you must properly configure OAuth2 credentials using your Husqvarna account.  Refer to [this guide](https://developer.husqvarnagroup.cloud/docs/get-started) for general overview of the process.
-Your Husqvarna account username/password used for the *Automower® Connect*  phone app is required.  Most users probably created a Husqvarna account during initial mower setup.
+In order to use this integration you must properly configure OAuth2 credentials using your Husqvarna account. Refer to [this guide](https://developer.husqvarnagroup.cloud/docs/get-started) for general overview of the process.
+Your Husqvarna account username/password used for the *Automower® Connect*  phone app is required. Most users probably created a Husqvarna account during initial mower setup.
 
 1. Go to the [Husqvarna Developer Portal](https://developer.husqvarnagroup.cloud) and sign in with your Husqvarna account. Authorize *Developer Portal* to access Husqvarna account when prompted.
 
@@ -53,7 +53,7 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
 
     ![Create new Application](/images/integrations/husqvarna_automower/create_new_application.png)
 
-   - Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
+   - Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown. Protect these like a username and password.
 
 4. Click on **CONNECT NEW API** and connect the **Authentication API**.
    ![Authentication API*](/images/integrations/husqvarna_automower/connect_authentication_api.png)

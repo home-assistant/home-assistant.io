@@ -243,7 +243,7 @@ The integration provides the following functionality:
 This integration will notify you when updates are available on the LMS for the LMS version or for plugins installed on the LMS
 
   - **Lyrion Music Server**: Update of the server software is available.
-  - **Updated plugins**: Plugin updates are available.  The list of updates can be viewed by selecting the "Read release announcement" link.  On the LMS, an option is available on the Manage Plugins settings page to "Update plugins automatically".  If this option is selected, plugins will be downloaded automatically by the LMS and then installed on the next restart of the LMS.  For some installation types of LMS, the LMS can be restarted by selecting the **Update** button. Allow enough time for the LMS to restart as it will become briefly unavailable.
+  - **Updated plugins**: Plugin updates are available. The list of updates can be viewed by selecting the "Read release announcement" link. On the LMS, an option is available on the Manage Plugins settings page to "Update plugins automatically".  If this option is selected, plugins will be downloaded automatically by the LMS and then installed on the next restart of the LMS.  For some installation types of LMS, the LMS can be restarted by selecting the **Update** button. Allow enough time for the LMS to restart as it will become briefly unavailable.
 
 ### Actions
 
@@ -338,7 +338,7 @@ The integration uses {% term polling %} to receive updates from the Lyrion Music
 
 ## Known limitations
 
-The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played.  This could potentially lead to the start of an announcement being missed as it fades in.  You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
+The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played. This could potentially lead to the start of an announcement being missed as it fades in. You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
 
 ## Removing the integration
 

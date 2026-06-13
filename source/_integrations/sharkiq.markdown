@@ -46,10 +46,10 @@ target:
   entity_id: vacuum.my_vacuum
 ```
 **Important Note:** The list of rooms must be written _exactly_ as they appear in the Shark Clean app. If you want exact names that the action will understand,
-look for the `Rooms` attribute of your Shark Robot Vacuum in Home Assistant.  This will be populated with the rooms that the robot has configured, as they will be
+look for the `Rooms` attribute of your Shark Robot Vacuum in Home Assistant. This will be populated with the rooms that the robot has configured, as they will be
 understood by the action.
 
-If you want to use the area selector in the action's UI, you need to format the area names exactly as they appear in the vacuum's `Rooms` attribute.  You may also check the attribute using Home Assistant's [Developer tools](/docs/tools/dev-tools/).
+If you want to use the area selector in the action's UI, you need to format the area names exactly as they appear in the vacuum's `Rooms` attribute. You may also check the attribute using Home Assistant's [Developer tools](/docs/tools/dev-tools/).
 <p class='img'>
 <img src='/images/integrations/sharkiq/sharkiq-room-service-attributes.png' />
 </p>

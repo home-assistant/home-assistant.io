@@ -80,7 +80,7 @@ logger:
 
 #### Edit the `jail.local` file
 
-Next, we need to edit the `jail.local` file that is included with the Let's Encrypt Docker linked above.  Note, for this tutorial, we'll only be implementing the `[hass-iptables]` jail.
+Next, we need to edit the `jail.local` file that is included with the Let's Encrypt Docker linked above. Note, for this tutorial, we'll only be implementing the `[hass-iptables]` jail.
 
 Edit `/mnt/user/appdata/letsencrypt/fail2ban/jail.local` and append the following to the end of the file:
 
@@ -95,7 +95,7 @@ maxretry = 5
 
 #### Create a filter for the Home Assistant jail
 
-Now we need to create a filter for `fail2ban` so that it can properly parse the log.  This is done with a `failregex`.  Create a file called `hass.local` within the `filter.d` directory in `/mnt/user/appdata/letsencrypt/fail2ban` and add the following:
+Now we need to create a filter for `fail2ban` so that it can properly parse the log. This is done with a `failregex`.  Create a file called `hass.local` within the `filter.d` directory in `/mnt/user/appdata/letsencrypt/fail2ban` and add the following:
 
 ```txt
 [INCLUDES]
@@ -112,7 +112,7 @@ datepattern = ^%%Y-%%m-%%d %%H:%%M:%%S
 
 #### Map log file directories
 
-First, we need to make sure that fail2ban log can be passed to Home Assistant and that the Home Assistant log can be passed to fail2ban.  When starting the Let's Encrypt Docker, you need to add the following argument (adjust paths based on your setup):
+First, we need to make sure that fail2ban log can be passed to Home Assistant and that the Home Assistant log can be passed to fail2ban. When starting the Let's Encrypt Docker, you need to add the following argument (adjust paths based on your setup):
 
 ```txt
 /mnt/user/appdata/home-assistant:/hass
@@ -129,7 +129,7 @@ Now do the same for the Home Assistant Docker, but this time we'll be mapping th
 
 #### Send client IP to Home Assistant
 
-By default, the IP address that Home Assistant sees will be that of the container (something like `172.17.0.16`).  What this means is that for any failed login attempt, assuming you have correctly configured `fail2ban`, the Docker IP will be logged as banned, but the originating IP is still allowed to make attempts.  We need `fail2ban` to recognize the originating IP to properly ban it.
+By default, the IP address that Home Assistant sees will be that of the container (something like `172.17.0.16`).  What this means is that for any failed login attempt, assuming you have correctly configured `fail2ban`, the Docker IP will be logged as banned, but the originating IP is still allowed to make attempts. We need `fail2ban` to recognize the originating IP to properly ban it.
 
 First, we have to add the following to the NGINX configuration file located in `/mnt/user/appdata/letsencrypt/nginx/site-confs/default`.
 
@@ -173,7 +173,7 @@ http:
   use_x_forwarded_for: true
 ```
 
-At this point, once the Let's Encrypt and Home Assistant dockers are restarted, Home Assistant should be correctly logging the originating IP of any failed login attempt.  Once that's done and verified, we can move onto the final step.
+At this point, once the Let's Encrypt and Home Assistant dockers are restarted, Home Assistant should be correctly logging the originating IP of any failed login attempt. Once that's done and verified, we can move onto the final step.
 
 #### Add the fail2ban sensor
 

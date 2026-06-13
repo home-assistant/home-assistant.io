@@ -161,7 +161,7 @@ Available key commands include:
 
 The full list of key commands can be found in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
 
-You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
+You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state. These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
@@ -221,11 +221,11 @@ The `androidtv.upload` action allows you to upload a file from your Home Assista
 
 The Android Debug Bridge {% term integration %} works by polling the Android / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
 
-The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
+The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection. The keys are app IDs, and the values are lists of rules that are evaluated in order. Valid rules are:
 
 - `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
   - If this is not a map, then this state will always be reported when this app is the current app
-  - If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
+  - If this is a map, then its entries are conditions that will be checked. If all of the conditions are true, then this state will be reported. Valid conditions pertain to 3 properties (see the example configuration above):
     1. ``'media_session_state'``
     2. ``'audio_state'``
     3. ``'wake_lock_size'``

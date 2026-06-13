@@ -214,7 +214,7 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 - Check the [reported connection solutions](#reported-connection-solutions) section below.
 - Check the [supported device list](#supported-devices) to see if the device is tested to work with the integration. 
 - Try running the [kasa tool](https://github.com/python-kasa/python-kasa) to connect to the device. An easy way to do this is to [install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx --from python-kasa kasa --username <tplink cloud username> --password <tplink cloud password>`
-- Raise a support issue.  See the [section below](#raising-support-issues) for guidelines.
+- Raise a support issue. See the [section below](#raising-support-issues) for guidelines.
 
 #### Reported connection solutions
 

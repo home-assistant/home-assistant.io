@@ -139,7 +139,7 @@ When the alarm is armed, its state first goes to **arming** for a number
 of seconds equal to the destination state's **arming_time**, and then
 transitions to one of the "armed" states. Note that **code_template**
 never receives "arming" in the **to_state** variable; instead,
-**to_state** contains the state which the user has requested.  However,
+**to_state** contains the state which the user has requested. However,
 **from_state** *can* contain "arming".
 
 When the alarm is triggered, its state goes to **pending** for a number of
