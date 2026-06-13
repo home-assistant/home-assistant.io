@@ -95,7 +95,7 @@ Google Tasks to-do list.
 ## Data updates
 
 The Google Tasks integration fetches task lists once initially, and creates a
-to-do list for each task list. Data for each to-do list refreshed refreshed by
+to-do list for each task list. Data for each to-do list is refreshed by
 {% term polling %} every 30 minutes.
 
 Updates to the to-do list in Home Assistant use the Google Tasks API and changes
