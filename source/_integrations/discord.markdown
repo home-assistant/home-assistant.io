@@ -137,9 +137,9 @@ To include messages with embedding, use these attributes underneath the `embed` 
     target: ["1234567890", "0987654321"]
     data:
       verify_ssl: false
-      urls: 
-      - "https://example.com/image.jpg"
-      - "https://example.com/video.mp4"
+      urls:
+        - "https://example.com/image.jpg"
+        - "https://example.com/video.mp4"
 ```
 
 Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
