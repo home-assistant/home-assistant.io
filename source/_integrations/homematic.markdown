@@ -412,7 +412,7 @@ actions:
 
 BidCos-RF devices have an optional parameter for put_paramset which defines the way the configuration data is sent to the device.
 
-`rx_mode` `BURST`, which is the default value, will wake up every device when submitting the configuration data and hence makes all devices use some battery. It is instant, i.e. the data is sent almost immediately.
+`rx_mode` `BURST`, which is the default value, will wake up every device when submitting the configuration data and hence makes all devices use some battery. It is instant, that is, the data is sent almost immediately.
 
 `rx_mode` `WAKEUP` will send the configuration data only after a device submitted updated values to CCU, which usually happens every 3 minutes. It will not wake up every device and thus saves devices battery.
 

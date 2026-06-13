@@ -96,7 +96,7 @@ The `flap_id` can be found following these instructions:
 
 - Log into [surepetcare.io](https://surepetcare.io/).
 - Open the sidebar and click your flap.
-- The `flap_id` will be at the end of the URL (i.e., `https://surepetcare.io/control/device/FLAP-ID`)
+- The `flap_id` will be at the end of the URL (for example, `https://surepetcare.io/control/device/FLAP-ID`)
 
 `lock_state` should be one of:
 

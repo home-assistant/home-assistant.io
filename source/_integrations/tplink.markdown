@@ -221,7 +221,7 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 These are some of the solutions that Home Assistant users have reported as solving their device connection issues:
 
 - Make the first letter of your TP-Link cloud username email upper-case. This could be because it was automatically capitalized when first entered into the Tapo app.
-- Remove the device from the Tapo app and re-add by searching for the correct model (i.e. do not use auto-discovery)
+- Remove the device from the Tapo app and re-add by searching for the correct model (that is, do not use auto-discovery)
 - Log out of the Tapo and Kasa apps, factory reset the device, log back in to the Tapo app, then re-add the device to the Tapo app.
 - Specifically for cameras, disable and re-enable the **Settings** > **Advanced Settings** > **Camera account** options in the Tapo app.
 - Specifically for cameras, reset the **Settings** > **Advanced Settings** > **Camera account** credentials in the Tapo app.

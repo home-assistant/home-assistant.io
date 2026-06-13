@@ -156,7 +156,7 @@ If you only want to hide events from your **Activity** panel, take a look at the
 
 #### Common filtering examples
 
-Defining domains and entities to `exclude` (i.e. blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
+Defining domains and entities to `exclude` (that is, blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -178,7 +178,7 @@ recorder:
       - my_custom_event
 ```
 
-Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
+Defining domains and entities to record by using the `include` configuration (that is, allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
 
 ```yaml
 # Example configuration.yaml entry with include
@@ -359,7 +359,7 @@ When using the official Docker image, the C MySQL library will always be availab
 {% endnote %}
 
 {% tip %}
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (that is, `localhost`).
 {% endtip %}
 
 {% note %}

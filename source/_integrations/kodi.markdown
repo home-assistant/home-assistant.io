@@ -68,7 +68,7 @@ automation:
 
 #### Action `kodi.add_to_playlist`
 
-Add music to the default playlist (i.e., playlistid=0).
+Add music to the default playlist (that is, playlistid=0).
 
 | Data attribute | Optional | Description                                                                                                                                              |
 | -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |

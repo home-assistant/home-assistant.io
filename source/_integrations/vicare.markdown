@@ -132,7 +132,7 @@ The `climate.set_temperature` action sets the target temperature to the given te
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
 | `temperature` | no | Desired target temperature. |
 
-Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e., Viessman program like eco or comfort).
+Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (that is, Viessman program like eco or comfort).
 
 ### Action: Set HVAC mode
 

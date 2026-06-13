@@ -129,7 +129,7 @@ binary_sensors:
     crossline_detected_polled:
       description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     online:
-      description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
+      description: "Return `on` when camera is available (that is, responding to commands), `off` when not."
 sensors:
   description: >
     Conditions to display in the frontend.
