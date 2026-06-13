@@ -53,7 +53,7 @@ It is recommended, especially if you have configured multiple PlayStation accoun
 
 {% include integrations/config_flow.md %}
 
-### Login to PlayStation Network
+### Log in to PlayStation Network
 
 {% configuration_basic %}
 "NPSSO Token":
