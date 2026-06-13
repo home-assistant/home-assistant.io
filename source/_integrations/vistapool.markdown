@@ -2,8 +2,9 @@
 title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
 ha_category:
-  - Light
+  - Binary sensor
   - Button
+  - Light
   - Number
   - Sensor
 ha_release: 2026.6
@@ -13,8 +14,9 @@ ha_codeowners:
   - "@fdebrus"
 ha_domain: vistapool
 ha_platforms:
-  - light
+  - binary_sensor
   - button
+  - light
   - number
   - sensor
 ha_integration_type: hub
@@ -134,6 +136,42 @@ The integration provides the following sensors:
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+
+### Binary sensors
+
+The integration provides the following binary sensors, grouped by what they report.
+
+#### State of pool equipment
+
+- **Filtration**: whether the filtration pump is running
+- **Backwash**: whether a backwash cycle is in progress
+- **Heating**: whether the heating relay is on
+- **pH acid pump**: whether the acid dosing pump is currently active (if pH module installed)
+- **pH base pump**: whether the base dosing pump is currently active (if pH module installed)
+- **Chlorine pump**: whether the chlorine dosing pump is currently active (if chlorine module installed)
+- **Redox pump**: whether the redox dosing pump is currently active (if redox module installed)
+- **Hidro cover reduction**: whether the cell is running at reduced output because the cover is closed (if hydrolysis/electrolysis module installed)
+
+#### Alarms and faults
+
+- **pH pump alarm**: pH pump dosing alarm (if pH module installed)
+- **Hidro flow**: flow alarm on the cell (if hydrolysis/electrolysis module installed)
+- **Hidro FL2**: secondary flow alarm reported by the chlorine module (if hydrolysis/electrolysis and chlorine modules are installed)
+- **Electrolysis low** / **Hydrolysis low**: production has dropped below the configured threshold. The name reflects which cell technology your controller reports (if hydrolysis/electrolysis module installed)
+- **Dosing tank**: at least one installed dosing tank reports a low level (if any chemical dosing module is installed)
+
+#### Diagnostic entities
+
+These {% term entities %} are disabled by default and let you template against which modules are installed on the controller.
+
+- **Conductivity module**
+- **Chlorine module**
+- **Redox module**
+- **pH module**
+- **Hidro module**
+- **IO module**
+
+To use any of the diagnostic entities, enable them in {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
 
 ## Light
 
