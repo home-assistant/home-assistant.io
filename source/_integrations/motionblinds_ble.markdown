@@ -28,14 +28,14 @@ Beware that this integration does not work with Eve Motionblinds motors. Eve Mot
 
 During the setup of a Motionblinds Bluetooth motor, you will be asked what kind of blind you have. There are 8 different blind types:
 
-- **Roller blind**: has the ability to change position and speed.
-- **Honeycomb blind**: has the ability to change position and speed.
-- **Roman blind**: has the ability to change position and speed.
-- **Venetian blind**: has the ability to change position, tilt, and speed.
-- **Venetian blind (tilt-only)**: has the ability to change tilt and speed.
-- **Double Roller blind**: has the ability to change position, tilt, and speed.
-- **Curtain blind**: has the ability to change position. May need to be calibrated if the end positions are lost, which can be done by using the open/close cover button or the set cover position slider. This will trigger a calibration which will first make the curtain find the end positions after which it will run to the position as indicated by the command that was given.
-- **Vertical blind**: has the ability to change position and tilt. May need to be calibrated if the end positions are lost, which must be done using the Motionblinds Bluetooth app.
+- **Roller blind**: can change position and speed.
+- **Honeycomb blind**: can change position and speed.
+- **Roman blind**: can change position and speed.
+- **Venetian blind**: can change position, tilt, and speed.
+- **Venetian blind (tilt-only)**: can change tilt and speed.
+- **Double Roller blind**: can change position, tilt, and speed.
+- **Curtain blind**: can change position. May need to be calibrated if the end positions are lost, which can be done by using the open/close cover button or the set cover position slider. This will trigger a calibration which will first make the curtain find the end positions after which it will run to the position as indicated by the command that was given.
+- **Vertical blind**: can change position and tilt. May need to be calibrated if the end positions are lost, which must be done using the Motionblinds Bluetooth app.
 
 ## Entities
 

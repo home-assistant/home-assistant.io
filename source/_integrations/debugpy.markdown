@@ -67,7 +67,7 @@ wait:
 ## Security
 
 Ensure if this is a public-facing server, that the port is secured. Anyone who
-is able to access the debugger port can *execute arbitrary code* on the
+can access the debugger port can *execute arbitrary code* on the
 Home Assistant instance, which is very unsafe.
 
 If the Home Assistant instance is behind your firewall with only the http(s) port

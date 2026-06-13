@@ -1786,9 +1786,9 @@ Allowed `params` for the `reset_consumable` command:
 
 ### Using RoboRock Control Center (requires Valetudo firmware)
 
-[RRCC](https://github.com/LazyT/rrcc) supports both rooted and non-rooted Vacuums and acts as a mostly fully featured replacement for Mi Home that works locally without the cloud. If you have installed the rooted firmware [Valetudo](https://github.com/Hypfer/Valetudo) you are able to SSH into your Vacuum and enable MQTT plus use map functions with no cloud requirement.
+[RRCC](https://github.com/LazyT/rrcc) supports both rooted and non-rooted Vacuums and acts as a mostly fully featured replacement for Mi Home that works locally without the cloud. If you have installed the rooted firmware [Valetudo](https://github.com/Hypfer/Valetudo) you can SSH into your Vacuum and enable MQTT plus use map functions with no cloud requirement.
 
-Using the map editor you are able to acquire the coordinates required for zoned clean up. Here is an example script for zoned clean up:
+Using the map editor you can acquire the coordinates required for zoned clean up. Here is an example script for zoned clean up:
 
 ```yaml
 vacuum_kitchen:

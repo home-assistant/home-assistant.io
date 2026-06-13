@@ -116,7 +116,7 @@ Enable these settings based on the features you want to use:
 
 ## System Trouble Status
 
-The ElkM1 is able to report general system trouble statuses. This is
+The ElkM1 can report general system trouble statuses. This is
 reported using the `system_trouble_status` attribute of the
 panel sensor (often named `sensor.elkm1`) in Home Assistant.
 

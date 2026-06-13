@@ -68,7 +68,7 @@ If you [factory reset](https://www.philips-hue.com/en-us/support/article/how-to-
 
 Hue lights connected using Zigbee are still discoverable and controllable by this integration, even if they are connected to another Zigbee network or bound to a Zigbee switch. This means you can use Zigbee and Bluetooth at the same time. This can be done by pairing the light to the Zigbee hub or switch and then using the Hue app to connect to the light over Bluetooth using the QR code on the side of the light and then using the Alexa/Google pairing steps described above.
 
-This integration requires an active Bluetooth connection to control lights which not all Bluetooth adapters are able to provide. See the [Bluetooth documentation](/integrations/bluetooth/) for more information about which adapters can provide an active connection.
+This integration requires an active Bluetooth connection to control lights which not all Bluetooth adapters can provide. See the [Bluetooth documentation](/integrations/bluetooth/) for more information about which adapters can provide an active connection.
 
 If the connection to the light is lost for a significant period of time the integration will not re-attempt to connect to the light and a restart or reload of the integration must be performed for the light to become available again.
 

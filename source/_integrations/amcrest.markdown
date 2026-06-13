@@ -160,7 +160,7 @@ control_light:
   default: true
 {% endconfiguration %}
 
-**Note:** Amcrest cameras with newer firmware no longer have the ability to
+**Note:** Amcrest cameras with newer firmware can no longer
 stream `high` definition video with MJPEG encoding. You may need to use `low`
 resolution stream or the `snapshot` stream source instead. If the quality seems
 too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in
