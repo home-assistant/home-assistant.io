@@ -65,7 +65,7 @@ The PlayStation 4 integration does not use entries from `configuration.yaml`. Yo
 Some titles will have different SKUs in the PlayStation Store database, depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found.
 
 {% important %}
-The following regions have no database and can not be used by the integration:
+The following regions have no database and cannot be used by the integration:
 China, Philippines, Serbia, Vietnam.
 {% endimportant %}
 

@@ -460,7 +460,7 @@ Make sure that your topics match exactly. `some-topic/` and `some-topic` are dif
 {% endimportant %}
 
 {% note %}
-XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+XY and RGB cannot be used at the same time. If both are provided, XY overrides RGB.
 {% endnote %}
 
 ## Default schema - Examples
@@ -866,7 +866,7 @@ Make sure that your topics match exact. `some-topic/` and `some-topic` are diffe
 {% endimportant %}
 
 {% note %}
-RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
+RGB, XY and HSV cannot be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
 {% endnote %}
 
 ## JSON schema - Examples

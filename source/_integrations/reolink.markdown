@@ -864,7 +864,7 @@ TCP push and ONVIF push will result in slightly faster state changes of the bina
 Moreover, TCP push and ONVIF push are less demanding for the camera than ONVIF long polling or fast polling, resulting in potentially less connection issues.
 TCP push does not have any particular requirements. However, ONVIF push has some additional network configuration requirements:
 
-- Reolink products can not push ONVIF motion events to an HTTPS address (SSL).
+- Reolink products cannot push ONVIF motion events to an HTTPS address (SSL).
 Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
 A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device.
 
