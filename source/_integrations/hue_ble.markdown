@@ -1,6 +1,6 @@
 ---
 title: Philips Hue BLE
-description: Instructions on how to setup Philips Hue Bluetooth lights within Home Assistant.
+description: Instructions on how to set up Philips Hue Bluetooth lights within Home Assistant.
 ha_category:
   - Light
 ha_release: 2025.12

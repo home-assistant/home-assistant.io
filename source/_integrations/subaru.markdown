@@ -1,6 +1,6 @@
 ---
 title: Subaru
-description: Instructions on how to setup your Subaru account with Home Assistant.
+description: Instructions on how to set up your Subaru account with Home Assistant.
 ha_category:
   - Car
   - Lock

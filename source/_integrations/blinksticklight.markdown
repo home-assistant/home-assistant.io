@@ -1,6 +1,6 @@
 ---
 title: BlinkStick
-description: Instructions on how to setup Blinkstick lights within Home Assistant.
+description: Instructions on how to set up Blinkstick lights within Home Assistant.
 ha_category:
   - DIY
 ha_release: 0.7.5

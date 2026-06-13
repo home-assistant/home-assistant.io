@@ -1,6 +1,6 @@
 ---
 title: Mealie
-description: Instructions on how to setup Mealie devices in Home Assistant.
+description: Instructions on how to set up Mealie devices in Home Assistant.
 ha_category:
   - Calendar
   - To-do list

@@ -1,6 +1,6 @@
 ---
 title: Egardia
-description: Instructions on how to setup Egardia / Woonveilig within Home Assistant.
+description: Instructions on how to set up Egardia / Woonveilig within Home Assistant.
 ha_category:
   - Alarm
   - Binary sensor

@@ -265,7 +265,7 @@ This integration {% term polling polls %} data from the device every five minute
 
 ## Troubleshooting
 
-### Unable to setup
+### Unable to set up
 
 #### Symptom: "CannotAuthenticate"
 

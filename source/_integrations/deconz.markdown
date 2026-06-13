@@ -1,6 +1,6 @@
 ---
 title: deCONZ
-description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
+description: Instructions on how to set up ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_category:
   - Alarm
   - Binary sensor

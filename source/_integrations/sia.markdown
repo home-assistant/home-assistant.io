@@ -17,7 +17,7 @@ ha_integration_type: hub
 
 The **SIA Alarm Systems** {% term integration %} provides integration with several alarm systems that implement the SIA Protocol, including [Ajax Systems](https://ajax.systems/). This protocol is listen-only, so does not allow you to turn on/off your alarm system, it just updates the state to reflect your alarm and allows you to act on that state, for instance turning on all lights and opening the curtains when the alarm triggers. The underlying package has support for different variants of SIA, including DC-09, DC-04 and a limited set of ADM-CID. If your alarm system uses the ADM-CID standard and it isn't working, please log an issue [here](https://github.com/eavanvalkenburg/pysiaalarm/issues/new).
 
-To use this platform, you need to setup your alarm system to communicate using the SIA Protocol and setup several things on the alarm. This integration basically works by Home Assistant listening on a port for messages from the alarm systems and handling and responding to that message and finally updating one or more entities in Home Assistant.
+To use this platform, you need to set up your alarm system to communicate using the SIA Protocol and setup several things on the alarm. This integration basically works by Home Assistant listening on a port for messages from the alarm systems and handling and responding to that message and finally updating one or more entities in Home Assistant.
 
 ## Alarm Setup (Ajax Systems Hub example)
 
@@ -52,7 +52,7 @@ ASCII characters are 0-9 and ABCDEF, so an account is something like `346EB` and
 
 ### Note on monitoring multiple alarm systems
 
-If you have multiple accounts (alarm systems) that you want to monitor you can choose to have all communicating with the same port, in that case, use the additional accounts checkbox in the dialog to setup the next account and keep doing that until you have them all. You can also choose to have both running on a different port, in that case setup the component twice with the different ports.
+If you have multiple accounts (alarm systems) that you want to monitor you can choose to have all communicating with the same port, in that case, use the additional accounts checkbox in the dialog to set up the next account and keep doing that until you have them all. You can also choose to have both running on a different port, in that case setup the component twice with the different ports.
 
 ### Port usage
 
