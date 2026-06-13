@@ -112,7 +112,7 @@ The following are some examples showing how to correctly perform an action using
 
 ### Snap picture and save locally
 
-This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in Home Assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of actions found in the [camera integration](/integrations/camera#action-snapshot)
+This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in Home Assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example uses actions found in the [camera integration](/integrations/camera#action-snapshot)
 
 ```yaml
 alias: "Blink Snap Picture"

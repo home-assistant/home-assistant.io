@@ -200,7 +200,7 @@ actions:
 
 The `media_player.play_media` action may be used to send media URLs (primarily videos) for direct playback on your device.
 
-This feature makes use of the PlayOnRoku API. If you are using an older Roku OS (pre-11.5), the defaults of this integration should just work with the configuration defaults. Alternatively, you can configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
+This feature uses the PlayOnRoku API. If you are using an older Roku OS (pre-11.5), the defaults of this integration should just work with the configuration defaults. Alternatively, you can configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
 
 The following third-party applications have been tested with this integration:
 
@@ -259,7 +259,7 @@ actions:
 
 ### Camera stream integration
 
-The `camera.play_stream` action may be used to send camera streams (HLS) directly to your device. This feature requires the [`stream` integration](/integrations/stream) and makes use of the PlayOnRoku API.
+The `camera.play_stream` action may be used to send camera streams (HLS) directly to your device. This feature requires the [`stream` integration](/integrations/stream) and uses the PlayOnRoku API.
 
 #### Example
 
