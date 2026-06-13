@@ -18,7 +18,7 @@ related:
 
 The **To-do list** {% term integration %} provides to-do list {% term entities %}, allowing other integrations
 to integrate to-do lists into Home Assistant. To-do lists are shown on the **To-do lists**
-dashboard for tracking items and whether or not they have been completed.
+dashboard for tracking items and whether they have been completed.
 
 {% include integrations/building_block_integration.md %}
 
