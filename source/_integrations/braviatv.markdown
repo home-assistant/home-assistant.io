@@ -216,7 +216,7 @@ See [Using with Google Cast](#using-with-google-cast) section for more details.
 
 The Bravia TV is [local polling integration](/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the {% term entity %} update by calling `homeassistant.update_entity` {% term action %} manually.
 
-Please note that this behavior can be caused not only by the integration, but also by some applications installed on the TV.
+This behavior can be caused not only by the integration, but also by some applications installed on the TV.
 
 ### For TVs older than 2013
 

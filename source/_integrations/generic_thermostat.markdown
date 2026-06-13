@@ -149,7 +149,7 @@ Time for `min_cycle_duration`, `max_cycle_duration`, `cycle_cooldown` and `keep_
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
-Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
+When changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
 ## Full YAML configuration example
 

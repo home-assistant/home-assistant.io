@@ -172,7 +172,7 @@ If you need to configure the device directly, you can find the link to your devi
 
 ### Adjusting the update interval
 
-Please note that the [default interval](#data-updates) is considered best practice. Updating too frequently may induce considerable load on your bridge(s) resulting in unexpected results or missing data.
+The [default interval](#data-updates) is considered best practice. Updating too frequently may induce considerable load on your bridge(s) resulting in unexpected results or missing data.
 
 {% include common-tasks/define_custom_polling.md %}
 

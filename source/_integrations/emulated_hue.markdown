@@ -181,7 +181,7 @@ On Linux systems (Ubuntu, Debian, etc) execute the following command to allow `e
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3
 ```
 
-Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/installation/linux/), your path will be `/srv/homeassistant/bin/python3`.
+Your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/installation/linux/), your path will be `/srv/homeassistant/bin/python3`.
 
 ### License
 

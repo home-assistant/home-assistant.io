@@ -38,7 +38,7 @@ taken from the name of the heat area defined in the Alpha 2 base station.
 
 The state is polled from the base every 60 seconds.
 
-Please note that after changing the temperature in Home Assistant,
+After changing the temperature in Home Assistant,
 it may take up to 10 minutes for your room control units to display these
 changes.
 

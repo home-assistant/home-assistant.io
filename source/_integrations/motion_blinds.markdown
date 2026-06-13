@@ -87,7 +87,7 @@ The Motionblinds API uses a 16 character key that can be retrieved from the offi
 
 Open the app, click the 3 dots in the top right corner, go to "settings", go to "Motion APP About", Please quickly tap this "Motion APP About" page 5 times, a popup will appear that gives you the key.
 
-Please note that "-" characters need to be included in the key when providing it to Home Assistant. The key needs to be similar to `12ab345c-d67e-8f`
+"-" characters need to be included in the key when providing it to Home Assistant. The key needs to be similar to `12ab345c-d67e-8f`
 
 <p class='img'>
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_1.jpg' />

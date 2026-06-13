@@ -168,7 +168,7 @@ If your hub (e.g. Somfy Connectivity Kit) supports HomeKit, a sensor named **Hom
 2. Retrieve the setup code value from the sensor.
 3. Use this setup code to configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant.
 
-Please note that only a [limited set of devices is supported via HomeKit](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
+Only a [limited set of devices is supported via HomeKit](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
 
 ## Removing the integration
 

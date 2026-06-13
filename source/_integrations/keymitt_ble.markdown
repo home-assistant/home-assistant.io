@@ -25,7 +25,7 @@ The device will need to be in pairing mode before adding to Home Assistant. To r
 
 If you have multiple devices, you will need to know the BTLE MAC address of your device to tell them apart.
 
-Please note, that the devices cannot remain paired to the MicroBot application for this integration to function. They will be paired to Home Assistant exclusively.
+The devices cannot remain paired to the MicroBot application for this integration to function. They will be paired to Home Assistant exclusively.
 
 {% include integrations/config_flow.md %}
 

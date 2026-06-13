@@ -34,7 +34,7 @@ The `solarlog` integration uses the default host address "http://solar-log" if y
 
 {% important %}
 If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons, it is recommended to activate the user's password.
-Please note that the open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
+The open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
