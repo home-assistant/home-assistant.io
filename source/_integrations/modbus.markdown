@@ -828,7 +828,7 @@ climates:
               type: integer
     hvac_onoff_coil:
       description: "Address of On/Off state.
-        Only use this setting if your On/Off state is not handled as a HVAC mode.
+        Only use this setting if your On/Off state is not handled as an HVAC mode.
         When zero is read from this coil, the HVAC state is set to Off, otherwise the `hvac_mode_register`
         dictates the state of the HVAC. If no such coil is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value 0 is written to the coil, otherwise the
@@ -892,7 +892,7 @@ climates:
               type: integer
     hvac_onoff_register:
       description: "Address of On/Off state.
-        Only use this setting if your On/Off state is not handled as a HVAC mode.
+        Only use this setting if your On/Off state is not handled as an HVAC mode.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
         dictates the state of the HVAC. If no such register is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value 0 is written to the register, otherwise the

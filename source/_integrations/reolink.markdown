@@ -868,7 +868,7 @@ TCP push does not have any particular requirements. However, ONVIF push has some
 Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
 A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device.
 
-- Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
+- Since an HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
 Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
 

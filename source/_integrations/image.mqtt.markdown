@@ -18,7 +18,7 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-To use an MQTT image entity in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT image entity in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
