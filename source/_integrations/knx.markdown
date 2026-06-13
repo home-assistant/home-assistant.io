@@ -567,7 +567,7 @@ type:
 
 ### Register exposure
 
-The `knx.exposure_register` action can be used to register (or unregister) exposures to the KNX bus. Exposures defined in {% term "`configuration.yaml`" %} can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
+The `knx.exposure_register` action can be used to register (or unregister) exposures to the KNX bus. Exposures defined in {% term "`configuration.yaml`" %} cannot be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
 
 {% configuration %}
 remove:
@@ -2516,7 +2516,7 @@ logger:
 You can use the `logger.set_level` action to change the log level of a handler on a running instance.
 {% my developer_call_service badge service="logger.set_level" %}
 
-### Group address can not be read
+### Group address cannot be read
 
 Every `*_state_address` is read on startup sequentially if not configured differently. If you see the following errors in your log, a group address could not be read by a GroupValueRead request from Home Assistant in time.
 
@@ -2560,7 +2560,7 @@ The `unique_id` for KNX entities is generated based on required configuration va
 - switch: `address`
 - weather: `address_temperature`
 
-There can not be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
+There cannot be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
 
 ## Removing the integration
 
