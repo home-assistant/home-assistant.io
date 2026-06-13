@@ -11,7 +11,7 @@ ha_codeowners:
   - '@arturpragacz'
 ---
 
-The **Intent Script** integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/). Internally they can be fired by [custom sentences](/voice_control/custom_sentences_yaml/).
+The **Intent Script** integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo) and [Dialogflow](/integrations/dialogflow/) (Google Assistant). Internally they can be fired by [custom sentences](/voice_control/custom_sentences_yaml/).
 
 If you are using intent script with LLMs and have parameters, make sure to mention the parameters and their types in the description.
 

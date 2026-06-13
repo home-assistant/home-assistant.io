@@ -55,18 +55,6 @@ After setting up the integration, change the options to set the duration in minu
 
 The Rachio smart hose timers are not currently capable of receiving real-time updates. Instead, they rely on polling. Because of this, the current state of valves started from a schedule or the physical button will not show up immediately. Polling occurs every 2 minutes when one base station is used, with an additional minute added for every additional base station to remain with the API rate limit. Up to 4 valves can be paired to a single base station.
 
-### iFrame
-
-If you would like to see and control more detailed zone information, create an [iFrame](/integrations/panel_iframe/) that renders the Rachio web app.
-
-```yaml
-panel_iframe:
-  rachio:
-    title: Rachio
-    url: "https://app.rach.io"
-    icon: mdi:sprinkler-variant
-```
-
 ## Switch
 
 The `rachio` switch platform allows you to toggle zones, valves, and schedules connected to your [Rachio irrigation system](https://rachio.com/) on and off.
