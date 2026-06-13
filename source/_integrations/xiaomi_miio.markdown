@@ -1779,7 +1779,7 @@ Allowed `params` for the `reset_consumable` command:
 ### Using FloleVac (Android)
 
 1. Download [FloleVac](https://play.google.com/store/apps/details?id=de.flole.xiaomi)
-2. Login with your Xiaomi credentials
+2. Log in with your Xiaomi credentials
 3. Open Map (make sure you're on the same network as your vacuum cleaner)
 4. Select "Zone cleanup" and draw a box around the zone you'd like to clean
 5. Long press "Cleanup" and the zone coordinates will be copied to your clipboard
@@ -2167,7 +2167,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 1. Configure the robot with the Mi-Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
 2. Install [BlueStacks](https://www.bluestacks.com).
-3. Set up [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and login to synchronize devices.
+3. Set up [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and log in to synchronize devices.
 4. Open Filemanager in the `More Apps` menu.
 5. Use `Explore` on the left and navigate to `sdcard/SmartHome/logs/plug_DeviceManager`.
 6. Click on `Export to Windows` in the lower left corner and select any or all files to export to you local disk.
