@@ -159,7 +159,7 @@ you some time to leave the building (for "armed" states).
 
 **delay_time** can be used to allow some time to disarm the alarm, with
 flexibility. For example, you could specify a delay time for the
-"armed away" state, in order to avoid triggering the alarm while the
+"armed away" state, to avoid triggering the alarm while the
 garage door opens, but not for the "armed home" state.
 
 **trigger_time** is useful to disable the alarm when disarmed, but it can also

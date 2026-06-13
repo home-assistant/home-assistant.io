@@ -134,7 +134,7 @@ rflink:
 
 ### Adding devices Automatically
 
-In order to have your devices discovered automatically, you need to add the following to the configuration.
+To have your devices discovered automatically, you need to add the following to the configuration.
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
 
 ```yaml

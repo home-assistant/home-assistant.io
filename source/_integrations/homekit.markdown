@@ -606,7 +606,7 @@ Please see the [Zero-configuration networking](/integrations/zeroconf/#troublesh
 
 Pairing eventually fails, you might see the error message, `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
   
-If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
+If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
 #### Pairing hangs - only works with debug configuration
 
