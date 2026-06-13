@@ -156,7 +156,7 @@ Telegram history limit:
 
 ## Basic configuration
 
-In order to make use of the various platforms offered by the KNX integration, you will need to set them up via the KNX panel or add the corresponding configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange YAML parts in dedicated files.
+To make use of the various platforms offered by the KNX integration, you will need to set them up via the KNX panel or add the corresponding configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange YAML parts in dedicated files.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -454,7 +454,7 @@ Every telegram that matches an address pattern with its destination field will b
 
 ## Actions
 
-In order to directly interact with the KNX bus, you can use the following actions:
+To directly interact with the KNX bus, you can use the following actions:
 
 ### Send
 
@@ -787,7 +787,7 @@ ignore_internal_state:
   type: boolean
   default: false
 context_timeout:
-  description: The time in seconds between multiple identical telegram payloads would count towards an internal counter that can be used for automations. This setting defines the time window that a second telegram would count toward a single state change. So if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press, and a single press would take 3 seconds to trigger a Home Assistant state update. If this is set, `ignore_internal_state` will be set to `true` internally. Maximum value is 10.0.
+  description: The time in seconds between multiple identical telegram payloads would count towards an internal counter that can be used for automations. This setting defines the time window that a second telegram would count toward a single state change. So if you set this 3.0 you can take up to 3 seconds to trigger the second button press, and a single press would take 3 seconds to trigger a Home Assistant state update. If this is set, `ignore_internal_state` will be set to `true` internally. Maximum value is 10.0.
   required: false
   type: float
   default: None
@@ -1953,7 +1953,7 @@ knx:
       type: percent
 ```
 
-In order to actively read the sensor data from the bus every 30 minutes you can add the following lines to your {% term "`configuration.yaml`" %}:
+To actively read the sensor data from the bus every 30 minutes you can add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

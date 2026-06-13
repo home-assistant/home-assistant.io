@@ -30,7 +30,7 @@ The **Xiaomi** camera integration allows you to utilize Xiaomi cameras within Ho
 
 #### Preparing the device
 
-1. In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device.
+1. To integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device.
    - To install the firmware, follow the steps in the model-specific documentation:
    - [Yi 720p](https://github.com/fritz-smh/yi-hack)
    - [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
@@ -51,7 +51,7 @@ The live stream writing by the camera is not a supported format when Home Assist
 {% endnote %}
 
 {% tip %}
-If you enabled RTSP server, you can connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Mi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
+If you enabled RTSP server, you can connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Mi Home app. To maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
 {% endtip %}
 
 ### Configuration

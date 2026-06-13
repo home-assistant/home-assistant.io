@@ -56,7 +56,7 @@ The SwitchBot integration lets you do many things, such as switching devices on 
 
 ## Prerequisites
 
-In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
+To use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
 
 If you have multiple devices of the same type, you need to get the BTLE MAC address of your device to tell your devices apart. You can find the address for your device using the following steps:
 
@@ -260,7 +260,7 @@ Switch entities are added for Bot, Plug Mini, and Relay Switch.
 
 #### Bot
 
-Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password in order to add it to the integrations.
+Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password to add it to the integrations.
 
 Features:
 

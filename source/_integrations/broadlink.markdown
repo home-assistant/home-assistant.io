@@ -37,7 +37,7 @@ related:
 
 The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors.
 
-The manufacturer's app is required in order to connect new devices to the network.
+The manufacturer's app is required to connect new devices to the network.
 
 The following devices are supported:
 
@@ -151,7 +151,7 @@ _Tip:_ Click Notifications in the sidebar after using the action and follow the 
 
 #### Learning a sequence of commands
 
-In order to streamline the learning process, you may want to provide a list of commands to be learned sequentially:
+To streamline the learning process, you may want to provide a list of commands to be learned sequentially:
 
 ```yaml
 # Example configuration.yaml entry

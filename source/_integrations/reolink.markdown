@@ -615,7 +615,7 @@ Prerequisites:
 - [Android or iOS companion app](https://companion.home-assistant.io/docs/getting_started#setting-up)
 - [Remote access to Home Assistant](/docs/configuration/remote/). Although you can receive text notifications without remote access, to see the camera image in the notification (rich notification), the phone needs to be able to reach Home Assistant. The rich notification will always work, even without remote access, when the phone is on the same network as Home Assistant.
 
-1. In order to receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+1. To receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
 
 ![Settings button](/images/integrations/reolink/rich_notification__settings.png)
 ![Automations & scenes button](/images/integrations/reolink/rich_notification__automations_and_scenes.png)

@@ -61,7 +61,7 @@ The integration setup will next give you instructions to enter the [Application 
 2. If your Google account settings are set to a language not supported by the SDK -- which can be noticed by the authentication screen of Google being localized in that language -- the authorization will fail without a clear error. Changing the language at the bottom of the error page to one that is [supported](https://developers.google.com/assistant/sdk/reference/rpc/languages) by the SDK will allow you to continue to the link page of Home Assistant.
 
 {% note %}
-You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
+You may get a message telling you that the app has not been verified and you will need to acknowledge that to proceed.
 {% endnote %}
 
 3. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Select **Continue**.

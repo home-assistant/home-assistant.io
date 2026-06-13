@@ -61,7 +61,7 @@ Each {% term zone %} that's added to AlarmDecoder will have its own [binary sens
 
 When prompted, enter the number of the {% term zone %} you'd like to add. Select _Submit_ to move to the next screen, where you'll be prompted for the [zone settings](#zone-settings). Select _Submit_ again to save.
 
-**Note:** The zone number that was entered will appear as an attribute on the binary sensor entity that's created in order to easily edit the zone settings at a later time.
+**Note:** The zone number that was entered will appear as an attribute on the binary sensor entity that's created to easily edit the zone settings at a later time.
 
 #### Editing an existing zone
 

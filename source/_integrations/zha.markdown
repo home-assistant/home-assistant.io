@@ -306,7 +306,7 @@ MetaGeek Support has a good reference article about channel selection for [Zigbe
 
 The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 16 Zigbee channels (that is, distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (that is, the Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels. Channel support usually depends on the age of the hardware and firmware, as well as on the device's power ratings.
 
-The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices. Not only because there is less chance of Wi-Fi networks interfering too much with the Zigbee network on other channels, but also because not all Zigbee devices support all channels.
+The general recommendation is to only use channels 15, 20, or 25 to avoid interoperability problems with Zigbee devices. Not only because there is less chance of Wi-Fi networks interfering too much with the Zigbee network on other channels, but also because not all Zigbee devices support all channels.
 
 ### Modifying the device type
 
@@ -383,7 +383,7 @@ In this theoretical example, a CC2652-based Zigbee coordinator has three CC2530 
 - Router three: + 16 devices
 - Total device limit = **77 devices**
 
-In practice, you will likely need to add a lot more Zigbee router devices than in this example in order to extend the coverage of the network to reach that many devices.
+In practice, you will likely need to add a lot more Zigbee router devices than in this example to extend the coverage of the network to reach that many devices.
 
 ### Discovery via USB or Zeroconf
 
@@ -554,7 +554,7 @@ Commands sent between bound devices bypass ZHA (even when ZHA or Home Assistant 
 
 Before binding devices, note the following:
 
-- ZHA binds remotes to the Zigbee coordinator by default in order to forward click events to Home Assistant.
+- ZHA binds remotes to the Zigbee coordinator by default to forward click events to Home Assistant.
 - Some remotes can only be bound to a single target; you might need to unbind the remote from the coordinator before binding it to another target.
 - All remotes have some upper limit as to the number of devices they can bind.
 - Not all devices support binding, some only support binding groups, others only devices; refer to the device manufacturer's or the community's documentation to confirm features.
@@ -766,7 +766,7 @@ If you experience problems pairing a device, verify that you follow best practic
     - Try to pair Zigbee devices where you intend to use them:
       - Avoid pairing next to the Zigbee coordinator if you intend to move its location afterward.
       - Pairing a device next to the coordinator and moving it later can result in degraded connections.
-    - If the device you want to add has been previously paired to another network, you will likely need to manually factory-reset the device in order to add/pair it.
+    - If the device you want to add has been previously paired to another network, you will likely need to manually factory-reset the device to add/pair it.
     - Some battery-operated Zigbee devices are known to have problems with pairing if they have low battery voltage.
       - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
 4. Be patient:
@@ -792,7 +792,7 @@ Examples of real-world interference sources include:
 Zigbee relies on a concept of [mesh networking](https://en.wikipedia.org/wiki/Mesh_networking) with most mains-powered devices being "Zigbee Routers" that act as signal repeaters and range extenders. Collectively, they transmit data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. 
 
 {% tip %}
-To have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
+To have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other to achieve good coverage and range.
 {% endtip %}
 
 #### Actions to optimize Zigbee Coordinator radio hardware

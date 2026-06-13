@@ -142,7 +142,7 @@ deCONZ automatically signals Home Assistant when new {% term sensors %} are adde
 Remove entries from {% term entity %} and device registry which are no longer provided by deCONZ.
 
 {% note %}
-It is recommended to use this {% term action %} after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+It is recommended to use this {% term action %} after a restart of Home Assistant Core to have deCONZ integration properly mirrored to deCONZ.
 {% endnote %}
 
 ## Remote control devices

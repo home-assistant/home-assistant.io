@@ -24,7 +24,7 @@ This integration is for outgoing messages only. It cannot read incoming Discord 
 
 ### Creating a Discord Application
 
-In order to create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
+To create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
