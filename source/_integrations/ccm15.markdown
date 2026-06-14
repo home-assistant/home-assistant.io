@@ -24,6 +24,22 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Device password:
+    description: "Optional. Only needed if your CCM15 firmware requires a password for control commands. Status polling stays unauthenticated, so this is only consulted when Home Assistant writes to the controller. The value to enter is the obfuscated number the controller's web UI sends, not the plain number from its settings page. See [Finding the device password](#finding-the-device-password)."
+{% endconfiguration_basic %}
+
+### Finding the device password
+
+If your CCM15 firmware rejects control commands without a `pwd` parameter, you can read the obfuscated value off the controller's own web interface:
+
+1. Open the CCM15 web interface in your browser.
+2. Press F12 to open the browser developer tools.
+3. Switch to the **Network** tab.
+4. Change any setting in the web UI (for example the fan speed).
+5. Select the new `ctrl.xml` request.
+6. Copy the value of the `pwd` parameter from the request URL. It is a 6-digit number.
+
 ## Climate
 
 Each data controller can support up to 64 `climate` devices.
