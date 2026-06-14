@@ -57,6 +57,7 @@ The following device classes are supported for sensors:
 - **blood_glucose_concentration**: Blood glucose concentration in mg/dL, mmol/L
 - **carbon_dioxide**: Carbon Dioxide (CO₂) concentration in ppm
 - **carbon_monoxide**: Carbon Monoxide (CO) concentration in ppb, ppm, µg/m³, mg/m³
+- **conductivity**: Conductivity in S/cm, mS/cm, or µS/cm
 - **current**: Current in A, mA, µA
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
