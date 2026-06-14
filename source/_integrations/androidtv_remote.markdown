@@ -248,6 +248,8 @@ Other:
 
 {% enddetails %}
 
+Whether a command does something depends on your Android TV device, its firmware, and the app in the foreground. Some devices remap or ignore certain keys, so a command like `GUIDE` or `MENU` might do nothing or trigger a different action than you expect. The commands are sent to your device as is, so Home Assistant cannot change how your device reacts to them.
+
 To send text as keyboard input use the `remote.send_command` and prefix the text to send with `text:`, e.g. `command: text:hello world` to type "hello world" in the selected input field.
 
 If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
