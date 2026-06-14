@@ -330,7 +330,7 @@ Minimum recommended assignments:
     1. **Base Memory:** Move the slider to at least **2048 MB** (2GB).
     2. **Number of CPUs:** Move the slider to at least **2**.
     3. **EFI:** Check the box for **Enable EFI (special OSes only)**. This is required for Home Assistant to boot.
-    4. **Secure Boot:** Deselect **Enable Secure Boot**. Home Assistant does not boot with Secure Boot enabled.
+    4. **Secure Boot:** Deselect **Enable Secure Boot**. Home Assistant OS does not boot with Secure Boot enabled.
     5. Select **Next**.
 
     #### Finalizing the wizard
