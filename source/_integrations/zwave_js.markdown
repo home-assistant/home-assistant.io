@@ -1325,7 +1325,7 @@ _Many_ reported issues result from RF interference caused by the system's USB po
 
 After ensuring you are using an extension cable, rebuild network routes.
 
-The combination of these two steps corrects a large number of reported difficulties.
+The combination of these two steps corrects many reported difficulties.
 
 ### My Z-Wave adapter isn't recognized automatically during setup
 
