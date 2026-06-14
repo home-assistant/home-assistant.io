@@ -34,7 +34,7 @@ Device password:
 If your CCM15 firmware rejects control commands without a `pwd` parameter, you can read the obfuscated value off the controller's own web interface:
 
 1. Open the CCM15 web interface in your browser.
-2. Press F12 to open the browser developer tools.
+2. Open the browser's developer tools. Press F12, or right-click anywhere on the page and select **Inspect**, or use the browser's menu (in Chrome: **More tools** > **Developer tools**; in Firefox: **Tools** > **Browser tools** > **Web developer tools**; in Safari, first enable the **Develop** menu in **Settings** > **Advanced**, then choose **Develop** > **Show Web Inspector**).
 3. Switch to the **Network** tab.
 4. Change any setting in the web UI (for example the fan speed).
 5. Select the new `ctrl.xml` request.
