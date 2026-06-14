@@ -116,11 +116,16 @@ check that this is done. To check and enable the feature:
 
 ### Public API camera streams
 
-By default, the integration sources camera live streams from each camera's RTSP(S) URLs through UniFi Protect's private API, as described above. With this option, it sources them from the official UniFi Protect public API instead. To turn this on, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **UniFi Protect**, select **Configure**, and turn on **Use the public API for camera streams (experimental)**.
+By default, the integration sources camera live streams from the official UniFi Protect public API. To use the legacy behavior instead, you can turn this off, and the integration sources streams from each camera's RTSP(S) URLs through UniFi Protect's private API, as described above. Your camera entities stay the same either way.
 
-This option is _experimental_ and turned off by default. It works well for smaller setups, but on installations with many cameras the public API request rate limit can slow down or briefly interrupt startup. It is expected to become the default once UniFi Protect provides stream information more efficiently. Turning the option off returns to the standard RTSP(S) stream handling, and your camera entities stay the same either way.
+#### Turning off the Public API camera streams option
 
-When the option is on and a camera is online but has no active public API stream, the integration suggests a repair to activate one. You can also turn on a stream directly in UniFi Protect under _Share Livestream_. Offline cameras don't trigger this repair.
+The option is turned on by default. To turn it off:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **UniFi Protect**.
+2. Select **Configure**, and turn off **Use the public API for camera streams**.
+
+When the option is on and a camera is online but has no active public API stream, Home Assistant suggests a repair named **No stream is available for camera**. Confirming the repair has Home Assistant create the highest quality RTSPS stream for that camera through the UniFi Protect public API. You can also turn on a stream directly in UniFi Protect under _Share Livestream_. Offline cameras don't trigger this repair.
 
 ## Device support
 
