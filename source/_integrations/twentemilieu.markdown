@@ -49,15 +49,15 @@ The integration provides a {% term calendar %} entity that displays all upcoming
 
 ### Sensors
 
-This integration creates a sensor for the next collection date of each waste type:
+This integration creates the following sensors for upcoming waste collection dates:
 
-- **Organic waste pickup**: The next collection date for organic waste.
-- **Packages waste pickup**: The next collection date for packaging waste, such as plastic, metal, and drink cartons.
-- **Paper waste pickup**: The next collection date for paper and cardboard.
-- **Non-recyclable waste pickup**: The next collection date for non-recyclable waste.
-- **Christmas tree pickup**: The next collection date for Christmas trees, which only has a date during the seasonal collection period.
+- Next plastic waste pickup date
+- Next organic waste pickup date
+- Next paper waste pickup date
+- Next non-recyclable waste pickup date
+- Next Christmas tree pickup date (seasonal)
 
-Each sensor shows the next scheduled date for its waste type, so you know when to put out which bin.
+Each sensor provides the next scheduled date for its respective waste type, allowing you to track when to put out specific bins.
 
 ## Data updates
 
