@@ -33,7 +33,7 @@ which provides the possibility to pull HomeKit-enabled devices into Home Assista
 
 ## Manual configuration
 
-If you want make specific changes to the way entities are published to HomeKit, override the
+If you want to make specific changes to the way entities are published to HomeKit, override the
 IP address the HomeKit integration uses to communicate with your network or change the
 IP address the HomeKit uses to advertise itself to the network, then you will need to configure the
 HomeKit integration using an entry in your {% term "`configuration.yaml`" %} file.

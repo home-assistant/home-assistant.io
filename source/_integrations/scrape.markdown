@@ -28,7 +28,7 @@ Both UI and [YAML setup](#yaml-configuration) is supported while YAML provides a
 
 Scrape uses configuration subentries for configuring the sensors.
 
-1. Setup the resource configuration once per resource you want to scrape information from.
+1. Set up the resource configuration once per resource you want to scrape information from.
 2. Create one or multiple configuration subentries per sensor you want to create by scraping the website.
 
 {% endnote %}

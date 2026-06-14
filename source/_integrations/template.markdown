@@ -997,7 +997,7 @@ template:
 
 ### State based fan - Fan with preset modes
 
-This example uses an existing fan with only a percentage. It extends the percentage value into useable preset modes without a helper entity.
+This example uses an existing fan with only a percentage. It extends the percentage value into usable preset modes without a helper entity.
 
 ```yaml
 template:
@@ -2519,7 +2519,7 @@ weather:
 
 ### Condition
 
-The `condition` *must* match one of the Home Assistant defined conditons. See [here](/integrations/weather/#condition-mapping). If it does, not the state will be 'unknown' so will not be useable in a dashboard.
+The `condition` *must* match one of the Home Assistant defined conditions. See the [weather condition mapping](/integrations/weather/#condition-mapping). If it does not, the state will be 'unknown' so will not be usable in a dashboard.
 
 ### Weather Forecast data
 

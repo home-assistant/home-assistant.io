@@ -32,7 +32,7 @@ The Hue app can put lights in pairing mode using the pair to voice assistant fea
 
 ### Factory reset
 
-[Factory resetting](https://www.philips-hue.com/en-us/support/article/how-to-factory-reset-philips-hue-lights/000004) a Hue light light automatically puts it in pairing mode. It can be directly connected to by Home Assistant without using the Hue app.
+[Factory resetting](https://www.philips-hue.com/en-us/support/article/how-to-factory-reset-philips-hue-lights/000004) a Hue light automatically puts it in pairing mode. It can be directly connected to by Home Assistant without using the Hue app.
 
 {% include integrations/config_flow.md %}
 

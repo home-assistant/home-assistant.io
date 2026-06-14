@@ -35,7 +35,7 @@ possible states:
 ### Basic example
 
 The `alert` integration uses any of the `notification` integrations. To
-setup the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
+set up the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
 Then, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
