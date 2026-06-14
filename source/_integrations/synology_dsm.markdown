@@ -160,7 +160,7 @@ Reboot the NAS.
 
 Shutdown the NAS.
 
-## Controls
+## Select entities
 
 ### Fan speed mode
 
