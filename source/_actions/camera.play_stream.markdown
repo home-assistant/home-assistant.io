@@ -32,6 +32,7 @@ To play a camera stream from an automation or a script:
 {% options_ui %}
 Media player:
   description: The media player to stream to.
+  required: true
 Format:
   description: The stream format to use. It must be supported by both the stream integration and the media player.
   required: false

@@ -32,6 +32,7 @@ To record a camera feed from an automation or a script:
 {% options_ui %}
 Filename:
   description: The full path to the file where the recording is saved. It must be an `.mp4` file.
+  required: true
 Duration:
   description: The planned length of the recording, in seconds. The actual length can vary.
   required: false

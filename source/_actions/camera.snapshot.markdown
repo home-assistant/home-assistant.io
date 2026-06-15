@@ -32,6 +32,7 @@ To take a snapshot from an automation or a script:
 {% options_ui %}
 Filename:
   description: The full path to the file where the snapshot is saved.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
