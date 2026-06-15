@@ -2,6 +2,7 @@
 title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
+  - Binary sensor
   - DIY
   - Event
 ha_bluetooth: true
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: opendisplay
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - event
   - sensor
@@ -89,6 +91,10 @@ actions:
       entity_id: light.my_light
 ```
 {% enddetails %}
+
+### Binary sensors
+
+- **Connectivity**: Reports whether the device is currently connected to Home Assistant and can receive commands.
 
 ## Actions
 
