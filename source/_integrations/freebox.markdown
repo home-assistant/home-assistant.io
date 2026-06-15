@@ -61,7 +61,7 @@ You must have set a password for your Freebox router web administration page. En
 
 The first time Home Assistant will connect to your Freebox, you will need to authorize it by pressing the right arrow on the facade of the Freebox when prompted to do so.
 
-To make the Wi-Fi switch and the reboot action working, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To make the Wi-Fi switch and the reboot button work, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
@@ -116,14 +116,6 @@ This platform offers you sensors to monitor:
 ## Alarm control panel
 
 This integration allows you to view and control the Freebox alarm control panel.
-
-
-
-## Action
-
-### Action: Reboot
-
-The `freebox.reboot` action allows you to reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
 
 ## Switch
 
