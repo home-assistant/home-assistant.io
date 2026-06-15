@@ -37,6 +37,10 @@ action: |
 
 This reloads the input text helpers from your YAML configuration.
 
+### Options in YAML
+
+This action has no additional options in YAML.
+
 ## Good to know
 
 - Run this action after you change the input text helpers in your YAML configuration so the changes take effect without a restart.
