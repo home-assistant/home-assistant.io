@@ -40,64 +40,7 @@ The state of a text-to-speech {% term entity %} is a timestamp showing the date 
 Screenshot showing the state of a text-to-speech entity in the developer tools.
 </p>
 
-## Actions
-
-### Action: Speak
-
-The `tts.speak` action sends text to speech to a media player. Modern platforms will create entities under the `tts` domain, where each entity represents one text-to-speech service provider. These entities may be used as targets for the `tts.speak` action.
-
-The `tts.speak` action supports `message`, `language`, `cache`, `media_player_entity_id` and `options` options. The text that should be spoken is set with `message`, and the media player that should output the sound is selected with `media_player_entity_id`. The language can be set with `language`, using the format required by the target entity platform (refer to specific platform documentation). See [cache section](#cache) for information on `cache` option. Additional settings can be specified with the `options` option, which include preferred audio settings (see [preferred audio settings](#preferred-audio-settings) section for more info) and further settings of the target entity platform, e.g., _voice, motion, speed, etc._ (refer to specific platform documentation for any supported settings).
-
-```yaml
-action: tts.speak
-target:
-  entity_id: tts.example
-data:
-  media_player_entity_id: media_player.kitchen
-  message: "May the force be with you."
-```
-
-### Action: Say (legacy)
-
-The `say` action sends text to speech to a media player. The `say` action supports `message`, `language`, `cache` and `options` options. The text that should be spoken is set with `message`. The language can be set with `language`, using the format required by the platform (refer to specific platform documentation). See [cache section](#cache) for information on `cache` option. Additional settings can be specified with the `options` option, which include preferred audio settings (see [preferred audio settings](#preferred-audio-settings) section for more info) and further settings of the target platform, e.g., _voice, motion, speed, etc._ (refer to specific platform documentation for any supported settings). Since release 0.92, action name can be defined in configuration `service_name` option.
-
-Say to all `media_player` entities:
-
-```yaml
-# Replace google_translate_say with <platform>_say when you use a different platform.
-action: tts.google_translate_say
-data:
-  entity_id: all
-  message: "May the force be with you."
-```
-
-Say to the `media_player.floor` entity:
-
-```yaml
-action: tts.google_translate_say
-data:
-  entity_id: media_player.floor
-  message: "May the force be with you."
-```
-
-Say to the `media_player.floor` entity in French:
-
-```yaml
-action: tts.google_translate_say
-data:
-  entity_id: media_player.floor
-  message: "Que la force soit avec toi."
-  language: "fr"
-```
-
-With a template:
-
-```yaml
-action: tts.google_translate_say
-data:
-  message: "Temperature is {{states('sensor.temperature')}}."
-  cache: false
-```
+{% include integrations/actions.md %}
 
 ## Cache
 
