@@ -2,6 +2,7 @@
 title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
+  - Binary sensor
   - DIY
   - Event
 ha_bluetooth: true
@@ -12,8 +13,10 @@ ha_codeowners:
 ha_domain: opendisplay
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - event
+  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -58,6 +61,11 @@ If the encryption key changes after the device has been set up, Home Assistant w
 
 The **OpenDisplay** integration provides the following entities.
 
+### Sensors
+
+- **Temperature**: Chip temperature
+- **Battery Voltage**: (Only if the device has a battery configured) Shows the current voltage of the attached battery
+
 ### Button events
 
 OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
@@ -83,6 +91,10 @@ actions:
       entity_id: light.my_light
 ```
 {% enddetails %}
+
+### Binary sensors
+
+- **Connectivity**: Reports whether the device is currently connected to Home Assistant and can receive commands.
 
 ## Actions
 

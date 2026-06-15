@@ -64,29 +64,21 @@ By default, this integration will count unread emails. By configuring the search
 
 Some IMAP services, like Yahoo, require a `US-ASCII` charset to be configured.
 
-### Selecting message data to include in the IMAP event (advanced mode)
+### Selecting message data to include in the IMAP event
 
-By default, the IMAP event won't include `text` or `headers` message data. If you want them to be included (`text` or `headers`, or both), you have to manually select them in the option flow. 
+By default, the IMAP event won't include `text` or `headers` message data. If you want them to be included (`text`, `headers`, or both), you have to manually select them in the option flow.
 Another way to process the `text` data, is to use the `imap.fetch` action. In this case, `text` won't be limited by size.
 
-### Selecting an alternate SSL cipher list or disabling SSL verification (advanced mode)
+### Selecting an alternate SSL cipher list or disabling SSL verification
 
 If the default IMAP server settings do not work, you might try to set an alternate SSL cipher list.
 The SSL cipher list option allows you to select the list of SSL ciphers to be accepted from this endpoint: `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
 
 If you are using self signed certificates, you can turn off SSL verification.
 
-{% important %}
-The SSL cipher list and verify SSL are advanced settings. The options are available only when advanced mode is enabled (see user settings).
-{% endimportant %}
-
 ### Enable IMAP-Push
 
 IMAP-Push is enabled by default if your IMAP server supports it. If you use an unreliable IMAP service that periodically drops the connection and causes issues, you might consider turning off IMAP-Push. This will fall back to polling the IMAP server.
-
-{% important %}
-The enforce polling option is an advanced setting. The option is available only when advanced mode is enabled (see user settings).
-{% endimportant %}
 
 ### Troubleshooting
 
@@ -101,9 +93,9 @@ The table below shows what attributes come with `trigger.event.data`. The data i
 
 The attributes shown in the table are also available as variables for the custom event data template. The [example](/integrations/imap/#example---custom-event-data-template) shows how to use this as an event filter.
 
-{% important %}
-The custom event data template is an advanced feature. The option is available only when advanced mode is enabled (see user settings). The `text` attribute is not size limited when used as a variable in the template.
-{% endimportant %}
+{% note %}
+The `text` attribute is not size limited when used as a variable in the template.
+{% endnote %}
 
 {% configuration_basic %}
 server:
@@ -115,7 +107,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available, the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the whole message text is available. A better practice is using a custom event data template (advanced settings) that can be used to parse the whole message, not limited by size. The rendered result will then be added as attribute `custom` to the event data to be used for automations. `text` will be included if it is explicitly selected in the option flow.
+  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available; the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the entire message text is available. A better practice is to use a custom event data template that can parse the entire message, not limited by size. The rendered result will then be added as an attribute `custom` to the event data to be used for automations. `text` will be included if it is explicitly selected in the option flow.
 sender:
   description: The `sender` of the message
 subject:
@@ -136,7 +128,7 @@ uid:
 
 The `event_type` for the custom event should be set to `imap_content`. The configuration below shows how you can use the event data in a template `sensor`.
 
-If the default maximum message size (2048 bytes) to be used in events is too small for your needs, then this maximum size setting can be increased. You need to have your profile set to _advanced_ mode to do this.
+If the default maximum message size (2048 bytes) used in events is too small for your needs, you can increase this maximum size.
 
 {% warning %}
 Increasing the default maximum message size (2048 bytes) could have a negative impact on performance as event data is also logged by the `recorder`. If the total event data size exceeds the maximum event size (32168 bytes), the event will be skipped.

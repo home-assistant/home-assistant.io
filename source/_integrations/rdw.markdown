@@ -70,7 +70,9 @@ automation:
         entity_id: binary_sensor.rdw_ab123c_pending_recall
         to: "on"
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Vehicle recall alert"
           message: "Your vehicle has a pending safety recall. Please contact your dealer."

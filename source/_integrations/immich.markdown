@@ -32,6 +32,7 @@ Enable the following permissions when creating your API key. Without these permi
 
 - `asset.download`
 - `asset.upload`
+- `asset.read`
 - `asset.view`
 - `album.read`
 - `albumAsset.create`

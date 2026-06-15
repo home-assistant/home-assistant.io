@@ -145,8 +145,6 @@ The command list only shows commands that are available to you based on your use
 
 For example, if you don't have `automations:` in your config, then you won't see the **Reload Automations** command.
 
-If **Advanced Mode** is turned off in User Settings, then any command related to advanced mode will not appear in the list.
-
 If a command is missing that you feel is in error, please create an issue on GitHub.
 
 ### Shortcuts interfere with accessibility tools, browser extensions, or are otherwise annoying

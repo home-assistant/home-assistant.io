@@ -28,17 +28,21 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Ecovacs** {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.
+The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.com) robotic vacuum cleaners and lawn mowers.
+
+This is for the "Deebot" series of robotic vacuum cleaners and the "GOAT" series of robotic lawn mowers from Ecovacs.
+
+Note that Ecovacs also has other types of cleaning robots that are not supported by this integration at this time.
 
 ## Prerequisites
 
-You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account. Your username is your email address.
+You will need your Ecovacs account information (username and password) to discover and control vacuums and mowers in your account. Your username is the same as your email address.
 
-Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
+Additional note: There are some issues with password encoding. Using some special characters, for example `-` and `?`, in your password may not work.
 
 {% include integrations/config_flow.md %}
 
-With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
+During setup, you can choose to use a self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
 
 ## Provided entities
 
