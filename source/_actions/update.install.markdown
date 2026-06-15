@@ -58,6 +58,7 @@ backup:
   description: Create a backup before installing the update. Your update entity must support making a backup.
   required: false
   type: boolean
+  default: false
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}
