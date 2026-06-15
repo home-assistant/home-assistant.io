@@ -38,6 +38,10 @@ action: |
 
 This reloads the input number helpers from your YAML configuration.
 
+### Options in YAML
+
+This action has no additional options in YAML.
+
 ## Good to know
 
 - Run this action after you change the input number helpers in your YAML configuration so the changes take effect without a restart.

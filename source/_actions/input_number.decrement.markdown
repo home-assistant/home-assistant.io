@@ -39,6 +39,10 @@ action: |
 
 This decreases the `input_number.target_temperature` helper by its configured step.
 
+### Options in YAML
+
+This action has no additional YAML options beyond the target.
+
 {% include actions/targets.md %}
 
 ## Good to know
