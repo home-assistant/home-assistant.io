@@ -48,7 +48,7 @@ Total Watt peak power of your solar modules:
 
 ## Configuration options
 
-After setup, you can fine-tune the forecast. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and then select **Configure**.
+After setup, you can fine-tune the forecast. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and then select the cogwheel {% icon "mdi:cog-outline" %} (**Configure**).
 
 {% configuration_basic %}
 API key:
