@@ -153,61 +153,8 @@ the Todoist UI.
 
 ## Actions
 
-You may use the actions from the [todo](/integrations/todo/) integration for
-creating, updating, or deleting to-do items on the to-do list.
+You may use the actions from the [to-do](/integrations/todo/) integration for creating, updating, or deleting to-do items on the to-do list.
 
-Todoist also comes with an additional action, `todoist.new_task` that offers
-more advanced attributes when creating a Todoist task. You can specify labels
-and a project, or you can leave them blank, and the task will go to your
-**Inbox** project.
+Todoist also comes with an additional action that offers more advanced attributes when creating a Todoist task.
 
-Here are two example JSON payloads resulting in the same task:
-
-```json
-{
-    "content": "Pick up the mail",
-    "project": "Errands",
-    "labels":"Homework,School",
-    "priority":3,
-    "due_date":"2017-09-12 14:00"
-}
-```
-
-```json
-{
-    "content": "Pick up the mail",
-    "project": "Errands",
-    "labels":"Homework,School",
-    "priority":3,
-    "due_date_string":"tomorrow at 14:00",
-    "due_date_lang":"en"
-}
-```
-
-- **content** (*Required*): The name of the task you want to create.
-
-- **description** (*Optional*): A description of the task.
-
-- **project** (*Optional*): The project to put the task in.
-
-- **section** (*Optional*): The section within the project to add the task to.
-
-- **labels** (*Optional*): Any labels you want to add to the task, separated by commas.
-
-- **assignee** (*Optional*): A member's username of a shared project to assign this task to. You find the username formatted as bold text in the collaborator menu of a shared project. 
-
-- **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.
-
-- **due_date_string** (*Optional*): When the task should be due, in [natural language](https://get.todoist.help/hc/articles/205325931-Dates-and-Times). Mutually exclusive with `due_date`
-
-- **due_date_lang** (*Optional*): When `due_date_string` is set, it is possible to set the language.
-  Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
-
-- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format  (in UTC timezone). Mutually exclusive with `due_date_string`.
-
-- **reminder_date_string** (*Optional*):  When should user be reminded of this task, in [natural language](https://get.todoist.help/hc/articles/205325931-Dates-and-Times). Mutually exclusive with `reminder_date`
-
-- **reminder_date_lang** (*Optional*): When `reminder_date_string` is set, it is possible to set the language.
-  Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
-
-- **reminder_date** (*Optional*): When should the user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
+{% include integrations/actions.md %}
