@@ -2,6 +2,7 @@
 title: OpenEVSE
 description: Instructions on how to integrate OpenEVSE charging stations with Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Energy
   - Sensor
@@ -28,8 +29,6 @@ The **OpenEVSE** {% term integration %} allows you to monitor your [OpenEVSE](ht
 - The OpenEVSE charger is on the same network as Home Assistant.
 
 {% include integrations/config_flow.md %}
-
-## Configuration
 
 
 ## Binary sensors
