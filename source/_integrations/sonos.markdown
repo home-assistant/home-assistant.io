@@ -446,7 +446,7 @@ The `sonos.update_alarm` action updates an existing Sonos alarm.
 | `alarm_id` | no | Integer that is used in Sonos to refer to your alarm.
 | `time` | yes | Time to set the alarm.
 | `volume` | yes | Float for volume level.
-| `enabled` | yes | Boolean for whether or not to enable this alarm.
+| `enabled` | yes | Boolean for whether to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
 ### Action: Play queue

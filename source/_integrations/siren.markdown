@@ -43,7 +43,7 @@ The `siren.turn_on` action turns the siren on.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
 
-There are three optional input parameters that can be passed into the action depending on whether or not your device supports them. Check the device's integration documentation for more details.
+There are three optional input parameters that can be passed into the action depending on whether your device supports them. Check the device's integration documentation for more details.
 
 | Parameter Name  | Input Type              | Notes                                                                               |
 |---------------- |-------------------------|-------------------------------------------------------------------------------------|

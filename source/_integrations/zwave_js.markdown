@@ -658,7 +658,7 @@ The `zwave_js.set_value` action sets a value on a Z-Wave device. It is for advan
 | `endpoint`        | no       | ID of Endpoint that you want to set the value for.                                                                                                                                                                                                                      |
 | `value`           | yes      | The new value that you want to set.                                                                                                                                                                                                                                     |
 | `options`         | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                            |
-| `wait_for_result` | no       | Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the action can take a while if setting a value on an asleep battery device. |
+| `wait_for_result` | no       | Boolean that indicates whether to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the action can take a while if setting a value on an asleep battery device. |
 
 ### Action: Multicast set value
 
