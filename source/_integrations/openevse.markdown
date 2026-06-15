@@ -2,6 +2,7 @@
 title: OpenEVSE
 description: Instructions on how to integrate OpenEVSE charging stations with Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Energy
   - Sensor
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: openevse
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - number
   - sensor
 ha_integration_type: device
@@ -28,12 +30,25 @@ The **OpenEVSE** {% term integration %} allows you to monitor your [OpenEVSE](ht
 
 {% include integrations/config_flow.md %}
 
-## Configuration
 
+## Supported functionality
 
-## Sensors
+The **OpenEVSE** {% term integration %} supports the following entities.
 
-The integration provides the following sensor entities:
+### Binary sensors
+
+The integration provides the following binary sensor entities. The default names are listed below:
+
+- **Divert active**: Whether solar PV divert charging is currently active.
+- **Ethernet connected**: Whether the charger is connected via Ethernet (disabled by default).
+- **Limit active**: Whether a charging limit is currently active (disabled by default).
+- **MQTT connected**: Whether the charger's MQTT client is connected to a broker (disabled by default).
+- **Shaper active**: Whether the power shaper is currently active.
+- **Vehicle connected**: Whether a vehicle is plugged into the charger.
+
+### Sensors
+
+The integration provides the following sensor entities. The default names are listed below:
 
 - **Charging status**: Current operational state of the charger (for example: **Connected**, **Charging**, **Not Connected**)                                                                          
 - **Charge time elapsed** (seconds): Duration of the current charging session                                                                                                             

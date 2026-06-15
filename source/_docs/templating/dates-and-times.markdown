@@ -8,8 +8,8 @@ related:
     title: "`strptime` function"
   - docs: /template-functions/timestamp_custom/
     title: "`timestamp_custom` filter"
-  - docs: /template-functions/relative_time/
-    title: "`relative_time` function"
+  - docs: /template-functions/time_since/
+    title: "`time_since` function"
   - docs: /template-functions/#datetime
     title: All date and time functions
   - url: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
@@ -185,11 +185,11 @@ output: |
   Total minutes: 15
 {% endexample %}
 
-For a human-readable version, reach for [`relative_time`](/template-functions/relative_time/) or [`time_since`](/template-functions/time_since/) instead:
+For a human-readable version, reach for [`time_since`](/template-functions/time_since/) instead:
 
 {% example %}
 template: |
-  {{ relative_time(states.binary_sensor.front_door.last_changed) }} ago
+  {{ time_since(states.binary_sensor.front_door.last_changed) }} ago
 output: "15 minutes ago"
 {% endexample %}
 

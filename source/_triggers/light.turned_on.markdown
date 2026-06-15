@@ -27,15 +27,14 @@ To use this trigger in an automation:
     - To watch every light in a room, select an area.
     - To watch every light on a floor, select a floor.
     - To watch lights sharing a tag, select a label.
-6. Under **Trigger when**, pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple lights are targeted.
+6. Under **Trigger when**, pick **Each**, **First**, or **All** to control how the trigger behaves when multiple lights are targeted.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Trigger when:
-  description: When multiple lights are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **Last** to fire only after every targeted light is on.
-  required: true
+  description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **All** to fire only after every targeted light is on.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -58,10 +57,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
-  required: true
+    When multiple lights are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
+  required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -81,10 +80,11 @@ behavior:
 When the hallway light turns on after sunset, send a phone notification so you know someone's moving around the house.
 
 - **Trigger**: Light turned on
-- **Target**: Hallway light
-- **Trigger when**: Any
+  - **Target**: Hallway light
+  - **Trigger when**: Each
 - **Condition**: Sun is below horizon
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a nighttime hallway notification" %}
 
@@ -96,12 +96,14 @@ automation: |
       target:
         entity_id: light.hallway
       options:
-        behavior: any
+        behavior: each
   conditions:
     - condition: sun
       after: sunset
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Hallway light just turned on."
 {% endexample %}

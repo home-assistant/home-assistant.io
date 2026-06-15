@@ -20,7 +20,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your CO sensor is in (like your kitchen or garage). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Carbon monoxide detected**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple sensors are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple sensors are targeted.
 7. Under **For at least**, set how long the sensor must stay in the detected state before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -28,11 +28,9 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor detects carbon monoxide, **First** to fire only when the first sensor in a group detects carbon monoxide, or **Last** to fire only after every targeted sensor detects carbon monoxide.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor detects carbon monoxide, **First** to fire only when the first sensor in a group detects carbon monoxide, or **All** to fire only after every targeted sensor detects carbon monoxide.
 For at least:
   description: How long the sensor must stay in the detected state before the trigger fires. Set to zero to fire immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -55,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -86,11 +84,12 @@ for:
 Imagine everyone in your home is fast asleep and carbon monoxide starts building up from a faulty furnace. This automation triggers every siren in the house and sends an urgent notification to your phone the instant any sensor picks up carbon monoxide. Those extra seconds of warning protect the people who matter most to you.
 
 - **Trigger**: Carbon monoxide detected
-- **Target**: All CO sensors (by label)
-- **Trigger when**: Any
-- **For at least**: 00:00:00
+  - **Target**: All CO sensors (by label)
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
 - **Action**: Siren: Turn on
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a carbon monoxide alarm" %}
 
@@ -102,13 +101,15 @@ automation: |
       target:
         label_id: co_sensors
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: siren.turn_on
       target:
         entity_id: siren.home_alarm
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Carbon monoxide detected!"
         title: "CO alert"
@@ -122,7 +123,7 @@ A car left idling or a gas-powered tool running in the garage produces carbon mo
 
 - **Trigger**: Carbon monoxide detected
 - **Target**: Garage CO sensor
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:01:00
 - **Action**: Fan: Turn on
 
@@ -136,7 +137,7 @@ automation: |
       target:
         entity_id: binary_sensor.garage_co
       options:
-        behavior: any
+        behavior: each
         for: "00:01:00"
   actions:
     - action: fan.turn_on
