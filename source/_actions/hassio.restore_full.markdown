@@ -31,6 +31,7 @@ To restore from a full backup from an automation or a script:
 {% options_ui %}
 Slug:
   description: The slug of the backup to restore from.
+  required: true
 Password:
   description: The password of the backup, if it is password-protected.
   required: false

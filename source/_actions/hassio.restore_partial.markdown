@@ -31,6 +31,7 @@ To restore from a partial backup from an automation or a script:
 {% options_ui %}
 Slug:
   description: The slug of the backup to restore from.
+  required: true
 Home Assistant settings:
   description: Restores Home Assistant settings.
   required: false

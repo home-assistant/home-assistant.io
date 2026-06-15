@@ -28,6 +28,7 @@ To stop an app from an automation or a script:
 {% options_ui %}
 App:
   description: The app to stop.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

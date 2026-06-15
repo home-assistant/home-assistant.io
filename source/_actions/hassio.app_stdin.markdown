@@ -28,8 +28,10 @@ To write to an app's stdin from an automation or a script:
 {% options_ui %}
 App:
   description: The app to write to.
+  required: true
 Input:
   description: The data to write to the app's standard input.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
