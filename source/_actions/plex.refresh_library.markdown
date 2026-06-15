@@ -40,7 +40,7 @@ In YAML, refer to this action as `plex.refresh_library`. A basic example looks l
 action: |
   action: plex.refresh_library
   data:
-    library_name: TV Shows
+    library_name: "TV Shows"
 {% endexample %}
 
 This scans the `TV Shows` library for new and updated media.
@@ -86,9 +86,11 @@ automation: |
   actions:
     - action: plex.refresh_library
       data:
-        library_name: TV Shows
+        library_name: "TV Shows"
 {% endexample %}
 
 {% enddetails %}
 
 {% include actions/stuck.md %}
+
+{% include actions/related.md %}
