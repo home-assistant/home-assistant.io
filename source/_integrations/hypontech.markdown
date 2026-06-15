@@ -39,7 +39,7 @@ Username:
 Password:
   description: "Your Hypontech Cloud account password."
 Manufacturer (dropdown):
-  description: "The manufacturer (<abbr title="original equipment manufacturer">OEM</abbr>), Hypontech by default."
+  description: "The manufacturer (OEM), Hypontech by default."
 {% endconfiguration_basic %}
 
 ## Supported functionality
