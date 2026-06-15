@@ -4,6 +4,7 @@ description: Instructions on how to integrate Yoto players with Home Assistant.
 ha_category:
   - Binary Sensor
   - Media Player
+  - Sensor
   - Time
 ha_iot_class: Cloud Push
 ha_release: 2026.6
@@ -16,12 +17,13 @@ ha_domain: yoto
 ha_platforms:
   - binary_sensor
   - media_player
+  - sensor
   - time
 ha_integration_type: hub
 ha_dhcp: true
 ---
 
-The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track.
+The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track. You can also monitor each player's battery level, what is loaded in the card slot, and its current day or night mode.
 
 The integration talks to the official Yoto cloud over OAuth2 and receives playback updates over MQTT, so changes that happen on the player show up in Home Assistant almost immediately. Online and offline detection still relies on the cloud API and can lag by up to 5 minutes.
 
@@ -114,6 +116,14 @@ Each Yoto player also provides several binary sensors:
 - **Charging**: whether the player's battery is charging.
 - **Headphones**: whether headphones are connected to the player.
 - **Bluetooth audio**: whether a Bluetooth audio device is connected to the player.
+
+### Sensors
+
+Each Yoto player also provides several sensors:
+
+- **Battery**: the player's battery charge.
+- **Card slot**: what is loaded in the player, such as a physical card or streaming content.
+- **Day mode**: the player's current mode (day or night).
 
 ## Data updates
 
