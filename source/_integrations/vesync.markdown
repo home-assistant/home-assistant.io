@@ -108,11 +108,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-## Actions
-
-| Action | Description |
-|---------|-------------|
-| `update_devices` | Poll Vesync server to find and add any new devices |
+{% include integrations/actions.md %}
 
 ## Power & energy sensors
 
