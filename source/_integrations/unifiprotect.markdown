@@ -114,18 +114,14 @@ check that this is done. To check and enable the feature:
 
 {% include integrations/config_flow.md %}
 
-### Public API camera streams
+## Configuration options
 
-By default, the integration sources camera live streams from the official UniFi Protect public API. To use the legacy behavior instead, you can turn this off, and the integration sources streams from each camera's RTSP(S) URLs through UniFi Protect's private API, as described above. Your camera entities stay the same either way.
+The integration provides the following configuration options. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **UniFi Protect**, then select the cogwheel {% icon "mdi:cog-outline" %} (**Configure**).
 
-#### Turning off the Public API camera streams option
-
-The option is turned on by default. To turn it off:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **UniFi Protect**.
-2. Select **Configure**, and turn off **Use the public API for camera streams**.
-
-When the option is on and a camera is online but has no active public API stream, Home Assistant suggests a repair named **No stream is available for camera**. Confirming the repair has Home Assistant create the highest quality RTSPS stream for that camera through the UniFi Protect public API. You can also turn on a stream directly in UniFi Protect under _Share Livestream_. Offline cameras don't trigger this repair.
+{% configuration_basic %}
+Use the public API for camera streams:
+    description: "When enabled (default), the integration sources camera live streams from the official UniFi Protect public API instead of each camera's RTSP(S) URLs. Your camera entities stay the same either way. When a camera is online but has no active public API stream, Home Assistant suggests a **No stream is available for camera** repair, which creates the highest-quality RTSPS stream for that camera via the UniFi Protect public API. You can also turn on a stream directly in UniFi Protect under _Share Livestream_. Offline cameras don't trigger this repair. When you turn off **Use the public API for camera streams**, the integration sources streams from each camera's RTSP(S) URLs through UniFi Protect's private API."
+{% endconfiguration_basic %}
 
 ## Device support
 
