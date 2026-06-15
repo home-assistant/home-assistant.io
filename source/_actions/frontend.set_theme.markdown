@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to set the theme Home Assistant uses by default, for light mode and, optionally, for dark mode. A common use is to switch themes automatically, for example a darker look in the evening and a lighter one during the day.
 
-The theme you set here is saved and restored when Home Assistant restarts. If someone picks a theme manually on their [user profile](/integrations/frontend/#manual-theme-selection), that choice overrides this action for that person.
+The theme you set here is saved and restored when Home Assistant restarts. If someone picks a theme manually on their [user profile](/integrations/frontend/#applying-themes), that choice overrides this action for that person.
 
 {% include actions/ui_header.md %}
 
@@ -30,7 +30,7 @@ Theme:
   description: The theme to use by default. Select **default** to use the standard Home Assistant theme.
   required: false
 Dark theme override:
-  description: The theme to use in dark mode. If you leave this empty, the light-mode theme is also used in dark mode.
+  description: The theme to use in dark mode. When no dark override is set, the light-mode theme is used in dark mode as well.
   required: false
 {% endoptions_ui %}
 
@@ -57,7 +57,7 @@ name:
   required: false
   type: string
 name_dark:
-  description: The theme to use in dark mode. Use `none` to remove the dark-mode override, so the default theme is also used in dark mode.
+  description: The theme to use in dark mode. Use `none` to remove the dark-mode override, so the light-mode theme is also used in dark mode.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -68,7 +68,7 @@ You must set at least one of `name` or `name_dark`. Any option you leave out kee
 
 - The theme has to be installed and enabled before you can set it. See [defining themes](/integrations/frontend/#defining-themes).
 - Only administrators can run this action.
-- A theme someone selects on their own [user profile](/integrations/frontend/#manual-theme-selection) overrides this action for that person, across their devices.
+- A theme someone selects on their own [user profile](/integrations/frontend/#applying-themes) overrides this action for that person, across their devices.
 
 {% include actions/try_it.md %}
 
