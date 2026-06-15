@@ -1,5 +1,5 @@
 ---
-title: Get mealplan
+title: Get meal plan
 action: mealie.get_mealplan
 domain: mealie
 description: "Get the Mealie meal plan for a specified date range."
@@ -21,7 +21,7 @@ To get a meal plan from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Mealie: Get mealplan**.
+5. From the search box, search for and select **Mealie: Get meal plan**.
 6. Select the **Mealie instance** you want to use, and set the date range you want.
 7. Select **Save**.
 
@@ -93,10 +93,12 @@ template:
       - name: "Dinner today"
         unique_id: mealie_dinner_today
         state: >
-          {% raw %}{% for meal in result.mealplan if meal.entry_type == "dinner" -%}
+          {% raw %}
+          {% for meal in result.mealplan if meal.entry_type == "dinner" -%}
           {{ meal.recipe['name'] if meal.recipe is not none else meal.title -}}
           {{ ", " if not loop.last }}
-          {%- endfor %}{% endraw %}
+          {%- endfor %}
+          {% endraw %}
 ```
 
 ## Good to know
