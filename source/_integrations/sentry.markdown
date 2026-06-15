@@ -29,7 +29,7 @@ To get your DSN:
 
 1. Go to **Projects**.
 2. Select **Create project**.
-3. Fill out the **Give your project a name** field and assign a team, then select **Create project**.
+3. Fill out the **Give your project a name** field, assign a team, and then select **Create project**.
 4. Select the **Get your DSN** link at the top of the page. Your DSN looks like `https://examplePublicKey@o0.ingest.sentry.io/0`.
 
 {% include integrations/config_flow.md %}
