@@ -7,7 +7,7 @@ ha_category:
 ha_config_flow: true
 ha_release: 2026.7
 ha_codeowners:
-   - '@daniel-bergmann-00'
+  - '@daniel-bergmann-00'
 ha_domain: envertech_evt800
 ha_integration_type: integration
 ---
@@ -132,7 +132,7 @@ This integration establishes a persistent TCP connection with the EVT800 in **TC
 
 ## Troubleshooting
 
-### Problem: data shows "Unvailable"
+### Problem: Data shows "Unavailable"
 
 #### Cause
 
