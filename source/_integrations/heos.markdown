@@ -82,92 +82,9 @@ This integration follows standard integration removal. No extra steps are requir
 1. Go to **{% my integrations icon title="Settings > Devices & services" %}**.
 2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
-## Actions
+In addition to the standard [media player actions](/integrations/media_player/#actions), the HEOS integration provides actions to control group volume and to manage a player's queue.
 
-In addition to the standard [Media Player actions](/integrations/media_player#actions), the HEOS integration provides the following {% term actions %}:
-
-Group volume actions: `heos.group_volume_set`, `heos.group_volume_down`, and `heos.group_volume_up` for entities joined to a group.
-
-Queue actions: `heos.get_queue`, `heos.move_queue_item`, and `heos.remove_from_queue` to manage a player's queue items.
-
-### Action: Set group volume
-
-The `heos.group_volume_set` action sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
-
-| Data attribute | Optional | Description                                      |
-|------------------------|----------|------------------------------------------------------------------|
-| `entity_id`            |      yes | A media player entity that is joined to a group.                  |
-| `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
-
-### Action: Get queue
-
-The `heos.get_queue` action returns the items in the player's queue. This action can be used to inspect the current play queue of target players.
-
-| Data attribute | Optional | Description                                      |
-|------------------------|----------|------------------------------------------------------------------|
-| `entity_id`            | no      | `entity_id` of the player(s)                                     |
-
-Example response:
-
-```yaml
-media_player.office:
-  queue:
-    - queue_id: 1
-      song: Alone Again
-      album: After Hours
-      artist: The Weeknd
-      image_url: >-
-        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
-      media_id: "134788274"
-      album_id: "134788273"
-    - queue_id: 2
-      song: Too Late
-      album: After Hours
-      artist: The Weeknd
-      image_url: >-
-        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
-      media_id: "134788275"
-      album_id: "134788273"
-```
-
-### Action: Move queue item
-
-The `heos.move_queue_item` action moves one or more items in the target player's queue, effectively reordering the play queue. The play queue can be enumerated by using the `heos.get_queue` action.
-
-Example action data payload that moves the second item to the top of the play queue:
-
-```yaml
-action: heos.move_queue_item
-target:
-  entity_id: media_player.family_room_receiver
-data:
-  queue_ids:
-    - 2
-  destination_position: 1
-```
-
-| Data attribute | Optional | Description                                                     |
-| ---------------------- | -------- | ------------------------------------------------------- |
-| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to move.    |
-| `destination_position` | no       | The destination position in the queue (starting at 1).  |
-
-### Action: Remove from queue
-
-The `heos.remove_from_queue` action removes one or more items from the target player(s) queue. The play queue can be enumerated by using the `heos.get_queue` action. Example action data payload:
-
-```yaml
-action: heos.remove_from_queue
-target:
-  entity_id: media_player.family_room_receiver
-data:
-  queue_ids:
-    - 1
-    - 3
-```
-
-| Data attribute | Optional | Description                                                     |
-| ---------------------- | -------- | ------------------------------------------------------- |
-| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to remove.   |
+{% include integrations/actions.md %}
 
 ## Examples
 
