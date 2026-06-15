@@ -151,26 +151,7 @@ offset:
   minutes: 0
 ```
 
-## Actions
-
-Some of the actions are only available if tariffs are configured.
-
-### Action: Reset
-
-The `utility_meter.reset` action resets the Utility Meter. All sensors tracking tariffs will be reset to 0.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
-
-### Action: Calibrate
-
-The `utility_meter.calibrate` action calibrates the Utility Meter by changing the value of a given sensor.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
-| `value` | no | Number | Value to calibrate the sensor with | 
+{% include integrations/actions.md %}
 
 ## Advanced configuration
 
