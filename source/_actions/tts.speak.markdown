@@ -52,7 +52,7 @@ action: |
     entity_id: tts.example
   data:
     media_player_entity_id: media_player.kitchen
-    message: May the force be with you.
+    message: "May the force be with you."
 {% endexample %}
 
 This speaks a message on `media_player.kitchen` using the `tts.example` entity.
@@ -120,7 +120,7 @@ automation: |
         entity_id: tts.example
       data:
         media_player_entity_id: media_player.kitchen
-        message: Good morning. Today's weather is sunny.
+        message: "Good morning. Today's weather is sunny."
 {% endexample %}
 
 {% enddetails %}

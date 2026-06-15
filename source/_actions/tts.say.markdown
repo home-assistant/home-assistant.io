@@ -51,7 +51,7 @@ action: |
   action: tts.google_translate_say
   data:
     entity_id: media_player.living_room
-    message: May the force be with you.
+    message: "May the force be with you."
 {% endexample %}
 
 This speaks a message on `media_player.living_room` using the Google Translate platform. To play on every media player, set `entity_id` to `all`.
@@ -89,6 +89,8 @@ The `options` setting can include [preferred audio settings](/integrations/tts/#
 - This action takes the media player as an `entity_id` value rather than a target.
 - Caching stores the spoken result so the same message plays faster next time. For more details, see the [cache section](/integrations/tts/#cache).
 - If a media player cannot play the audio format a platform produces, set [preferred audio settings](/integrations/tts/#preferred-audio-settings) in `options` to convert it.
+
+{% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
 
