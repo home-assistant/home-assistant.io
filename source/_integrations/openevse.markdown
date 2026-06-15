@@ -31,7 +31,11 @@ The **OpenEVSE** {% term integration %} allows you to monitor your [OpenEVSE](ht
 {% include integrations/config_flow.md %}
 
 
-## Binary sensors
+## Supported functionality
+
+The **OpenEVSE** {% term integration %} supports the following entities.
+
+### Binary sensors
 
 The integration provides the following binary sensor entities. The default names are listed below:
 
@@ -42,7 +46,7 @@ The integration provides the following binary sensor entities. The default names
 - **Shaper active**: Whether the power shaper is currently active.
 - **Vehicle connected**: Whether a vehicle is plugged into the charger.
 
-## Sensors
+### Sensors
 
 The integration provides the following sensor entities. The default names are listed below:
 
