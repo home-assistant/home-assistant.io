@@ -374,17 +374,7 @@ media_content_type: playlist
 media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 ```
 
-## Additional actions
-
-### Action: Refresh library
-
-The `plex.refresh_library` action refreshes a Plex library to scan for new and updated media.
-
-| Data attribute | Required | Description                                                | Example          |
-| ---------------------- | -------- | ---------------------------------------------------------- | ---------------- |
-| `server_name`          | No       | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
-| `library_name`         | Yes      | Name of Plex library to update.                            | "TV Shows"       |
-
+{% include integrations/actions.md %}
 
 ## Notes
 
