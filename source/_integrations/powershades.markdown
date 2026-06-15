@@ -23,8 +23,6 @@ ha_dhcp: true
 
 The **PowerShades** {% term integration %} allows you to control [PowerShades](https://powershades.com) motorized shades. It communicates with the shade controller directly over your local network using UDP, so no cloud connection is required.
 
-
-
 This integration is tested with PoE and Wi-Fi PowerShades controllers. Support for the RF hub may be limited or non-existent. If you have RF shades, it is recommended to use a [Bond](/integrations/bond/) bridge to connect them to Home Assistant instead. If you already have a PowerShades RF hub and would like to help test this integration with it, please [open an issue](https://github.com/home-assistant/core/issues).
 
 ## Supported devices
@@ -183,6 +181,6 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-## Acknowlegments 
+## Acknowledgments
 
 This integration builds on the original [powershades-homeassistant](https://github.com/dstocking/powershades-homeassistant) custom integration created by [@dstocking](https://github.com/dstocking), who reverse-engineered the PowerShades UDP protocol.
