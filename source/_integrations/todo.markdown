@@ -177,6 +177,8 @@ target:
 
 To-do list triggers and conditions make it easier to react to changes in a list or check whether a list still needs attention.
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: send a notification when someone adds a shopping item

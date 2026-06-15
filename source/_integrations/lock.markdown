@@ -39,6 +39,8 @@ A lock entity can have the following states:
 The real power of the **Lock** integration is using your locks in automations.
 Here are a few ideas to get you started.
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: turn on the hallway light when the front door unlocks
