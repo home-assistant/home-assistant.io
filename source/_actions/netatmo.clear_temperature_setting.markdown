@@ -49,4 +49,6 @@ This clears any manual temperature setting on `climate.living_room`.
 
 {% include actions/try_it.md %}
 
+{% include actions/stuck.md %}
+
 {% include actions/related.md %}
