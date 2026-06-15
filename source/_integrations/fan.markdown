@@ -41,6 +41,10 @@ Not every fan supports every action. The actions available for a specific fan de
 
 ## Fan automation examples
 
+{% include integrations/labs_entity_triggers_note.md %}
+
+{% include docs/paste_yaml_tip.md %}
+
 ### Automation: Turn on the bedroom fan at bedtime
 
 Start the bedroom fan automatically when you usually go to bed.

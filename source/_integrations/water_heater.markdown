@@ -56,6 +56,8 @@ In addition, the entity can have the following states:
 
 You can use water heater triggers and conditions in automations to keep hot water ready when you need it, while still using less energy the rest of the day.
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: lower the recirculation pump when the water heater enters Eco mode

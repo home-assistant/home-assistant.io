@@ -66,9 +66,9 @@ The following device classes are supported for update entities:
 
 ## Update automation examples
 
-Update entities are useful when you want to stay informed about available
-updates or take action at the right time. Here are a few examples to help you
-get started.
+Update entities are useful when you want to stay informed about available updates or take action at the right time. Here are a few examples to help you get started.
+
+{% include integrations/labs_entity_triggers_note.md %}
 
 {% include docs/paste_yaml_tip.md %}
 

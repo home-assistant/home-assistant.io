@@ -239,6 +239,8 @@ triggers:
 You can use a schedule to decide when an automation should start, or to check whether a routine is currently active.
 Here are two examples you can adapt to your own schedules.
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: turn on the porch light when the evening schedule starts

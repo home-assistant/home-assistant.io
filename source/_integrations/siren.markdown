@@ -35,6 +35,8 @@ In addition, the entity can have the following states:
 
 You can use siren triggers and conditions in automations to stay informed, light a path, or silence a siren at the right time.
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: get a phone alert when the siren starts
