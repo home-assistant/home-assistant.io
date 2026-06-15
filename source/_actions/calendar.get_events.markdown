@@ -91,13 +91,13 @@ A shortened example of the response looks like this:
 ```yaml
 calendar.school:
   events:
-    - summary: Parents evening
+    - summary: "Parents evening"
       start: "2024-03-10 19:00:00"
       end: "2024-03-10 20:00:00"
-      location: Main hall
+      location: "Main hall"
 calendar.work:
   events:
-    - summary: Team standup
+    - summary: "Team standup"
       start: "2024-03-10 09:00:00"
       end: "2024-03-10 09:15:00"
 ```
@@ -105,6 +105,8 @@ calendar.work:
 ## Good to know
 
 - Set the time range with a start time and either an end time or a duration, but not both an end time and a duration.
+
+{% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
 

@@ -60,10 +60,10 @@ action: |
   target:
     entity_id: calendar.family
   data:
-    summary: Bowling night
+    summary: "Bowling night"
     start_date_time: "2024-03-10 20:00:00"
     end_date_time: "2024-03-10 23:00:00"
-    location: Bowling center
+    location: "Bowling center"
 {% endexample %}
 
 This adds a Bowling night event to `calendar.family`.
@@ -139,7 +139,7 @@ automation: |
       target:
         entity_id: calendar.home_log
       data:
-        summary: Laundry finished
+        summary: "Laundry finished"
         start_date_time: "2024-03-10 18:00:00"
         end_date_time: "2024-03-10 18:01:00"
 {% endexample %}
