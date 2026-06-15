@@ -162,27 +162,9 @@ For more details, see [Splitting up the configuration](/docs/configuration/split
 
 Check our [community forums](https://community.home-assistant.io/c/29) to find themes to use.
 
-## Setting themes
+{% include integrations/actions.md %}
 
-There are two themes-related actions:
-
-- `frontend.reload_themes`: Reloads theme configuration from your {% term "`configuration.yaml`" %} file.
-- `frontend.set_theme`: Sets backend-preferred theme name.
-
-### Action: Set theme
-
-The `frontend.set_theme` action allows you to set the theme used by the Home Assistant frontend as the default for light mode and, optionally, dark mode.
-
-| Data attribute | Description                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------- |
-| `name`         | Name of the theme to be used by default. Set `default` to use the default _Home Assistant_ theme. If omitted, the previous setting will be retained. |
-| `name_dark`    | Name of the theme to be used by default for dark mode. Set `default` to use the default _Home Assistant_ theme, or `none` to delete the dark mode override. If omitted, the previous setting will be retained. |
-
-If the dark mode has never been set, or has been erased by setting `name_dark` to `none`, the light mode theme will also be used in dark mode.
-
-Home Assistant saves the theme settings and restores them when Home Assistant restarts.
-
-### Manual theme selection
+## Manual theme selection
 
 When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option appears on the user profile page (which you can access by selecting your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list, and it is applied immediately.
 This overrides the theme settings set by the above actions and is saved to your user profile, so it applies across devices for that user.
