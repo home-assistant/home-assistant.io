@@ -39,7 +39,7 @@ When you open Radio Browser, you can find stations in several ways:
 - **By Category**: Stations grouped by genre and topic tags, such as news, jazz, or classical.
 - **By Language**: Stations grouped by the language they broadcast in.
 - **Local stations**: Stations broadcasting close to your Home Assistant location.
-- **Country list**: Stations grouped per country.
+- **Country list**: Stations grouped by country.
 
 ## Examples
 
