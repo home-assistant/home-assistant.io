@@ -510,18 +510,4 @@ These are the attributes available for an old-style group.
 | `order`                              | Integer representing the order in which the entity was created, starting with `0`.                           |
 | `auto`                               | Boolean that will always be set to `true`. Only appears in groups that were created with the `set` action.   |
 
-### Actions
-
-The following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself. These actions are only available for old-style groups. They cannot be used with the new-style groups described above.
-
-| Action   | Data              | Description                                                                   |
-| -------- | ----------------- | ----------------------------------------------------------------------------- |
-| `set`    | `Object ID`       | Group id and part of entity id.                                               |
-|          | `Name`            | Name of the group.                                                            |
-|          | `Icon`            | Name of the icon for the group.                                               |
-|          | `Entities`        | List of all members in the group. Not compatible with **delta**.              |
-|          | `Add Entities`    | List of members that will change on group listening.                          |
-|          | `Remove Entities` | List of members that will be removed from group listening.                    |
-|          | `All`             | Enable this option if the group should only turn on when all entities are on. |
-| `remove` | `Object ID`       | Group id and part of entity id.                                               |
-| `reload` | `Object ID`       | Group id and part of entity id.                                               |
+{% include integrations/actions.md %}
