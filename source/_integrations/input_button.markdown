@@ -76,15 +76,4 @@ actions:
       message: "My button has been pressed!"
 ```
 
-## Actions
-
-The input button entities exposes a single action:
-{% my developer_call_service service="input_button.press" %}
-
-This action can be used to trigger a button press for that entity.
-
-```yaml
-- action: input_button.press
-  target:
-    entity_id: input_button.my_button
-```
+{% include integrations/actions.md %}
