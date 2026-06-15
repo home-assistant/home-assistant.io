@@ -179,7 +179,6 @@ conditions:
 
 You can optionally use a `value_template` to process the value of the state before testing it.
 
-{% raw %}
 
 ```yaml
 conditions:
@@ -191,7 +190,6 @@ conditions:
     value_template: "{{ float(state.state) + 2 }}"
 ```
 
-{% endraw %}
 
 It is also possible to test the condition against multiple entities at once.
 The condition will pass if **all** entities match the thresholds.
@@ -322,7 +320,6 @@ conditions:
 
 You can also use templates in the `for` option.
 
-{% raw %}
 
 ```yaml
 conditions:
@@ -334,7 +331,6 @@ conditions:
       seconds: "{{ states('input_number.lock_sec')|int }}"
 ```
 
-{% endraw %}
 
 The `for` template(s) will be evaluated when the condition is tested.
 
@@ -362,12 +358,11 @@ conditions:
 
 ### Sun elevation condition
 
-The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night, etc. when a trigger occurs.
+The sun elevation can be used to test if the sun has set or risen, it is dusk, or it is night when a trigger occurs.
 For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_elevation_trigger].
 
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
-{% raw %}
 
 ```yaml
 conditions:
@@ -379,9 +374,6 @@ conditions:
         value_template: "{{ state_attr('sun.sun', 'elevation') > -6 }}"
 ```
 
-{% endraw %}
-
-{% raw %}
 
 ```yaml
 conditions:
@@ -389,7 +381,6 @@ conditions:
   value_template: "{{ state_attr('sun.sun', 'elevation') < -6 }}"
 ```
 
-{% endraw %}
 
 ### Sunset/sunrise condition
 
@@ -437,7 +428,6 @@ A visual timeline is provided below, showing an example of when these conditions
 
 The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render `True`.
 
-{% raw %}
 
 ```yaml
 conditions:
@@ -446,7 +436,6 @@ conditions:
     value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
 
-{% endraw %}
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
 
@@ -456,18 +445,15 @@ The template condition has a shorthand notation that can be used to make your sc
 
 For example:
 
-{% raw %}
 
 ```yaml
 conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
 
-{% endraw %}
 
 Or in a list of conditions, allowing to use existing conditions as described in this
 chapter and one or more shorthand template conditions
 
-{% raw %}
 
 ```yaml
 conditions:
@@ -478,13 +464,11 @@ conditions:
   - "{{ is_state('device_tracker.iphone', 'away') }}"
 ```
 
-{% endraw %}
 
 This shorthand notation can be used everywhere in Home Assistant where
 conditions are accepted. For example, in [`and`](#and-condition), [`or`](#or-condition)
 and [`not`](#not-condition) conditions:
 
-{% raw %}
 
 ```yaml
 conditions:
@@ -496,11 +480,9 @@ conditions:
         below: 20
 ```
 
-{% endraw %}
 
 It's also supported in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
 
-{% raw %}
 
 ```yaml
 - while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
@@ -508,9 +490,6 @@ It's also supported in the `repeat` action's `while` or `until` option, or in a 
     - ...
 ```
 
-{% endraw %}
-
-{% raw %}
 
 ```yaml
 - choose:
@@ -519,19 +498,16 @@ It's also supported in the `repeat` action's `while` or `until` option, or in a 
        - ...
 ```
 
-{% endraw %}
 
 It's also supported in script or automation `condition` actions:
 
-{% raw %}
 
 ```yaml
 - condition: "{{ is_state('device_tracker.iphone', 'away') }}"
 ```
 
-{% endraw %}
 
-[template]: /docs/configuration/templating/
+[template]: /docs/templating/
 [automation-templating]: /getting-started/automation-templating/
 
 ## Time condition
@@ -554,15 +530,16 @@ conditions:
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Note that if only `before` key is used, the condition will be `true` *from midnight* until the specified time.
 If only `after` key is used, the condition will be `true` from the specified time *until midnight*.
+
 Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
+
+The after times are inclusive while before are exclusive. In the example above, if the time was at 3pm (15:00:00) then it meets the after time condition. If the time was at 2am (2:00:00), it would fail the condition because it will only be valid up to 1:59:59.
 
 {% tip %}
 A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
 {% endtip %}
 
-For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, 
-or another `sensor` entity containing a timestamp with the "timestamp" device
-class, can be used instead.
+For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, or another `sensor` entity containing a timestamp with the "timestamp" device class, can be used instead.
 
 ```yaml
 conditions:
@@ -619,7 +596,7 @@ conditions:
 
 ## Zone condition
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have set up a device tracker platform that supports reporting GPS coordinates.
+Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
 
 ```yaml
 conditions:
@@ -670,7 +647,6 @@ conditions:
 
 ## Examples
 
-{% raw %}
 
 ```yaml
 conditions:
@@ -689,7 +665,6 @@ conditions:
     state: "off"
 ```
 
-{% endraw %}
 
 ## Disabling a condition
 
@@ -712,7 +687,6 @@ conditions:
 
 Conditions can also be disabled based on limited templates or blueprint inputs.
 
-{% raw %}
 
 ```yaml
 blueprint:
@@ -742,4 +716,3 @@ blueprint:
       enabled: "{{ _enable_number < 50 }}"
 ```
 
-{% endraw %}

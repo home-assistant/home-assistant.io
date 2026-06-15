@@ -10,6 +10,7 @@ ha_domain: cambridge_audio
 ha_platforms:
   - diagnostics
   - media_player
+  - number
   - select
   - switch
 ha_codeowners:
@@ -28,10 +29,12 @@ The integration automatically discovers all enabled zones and sources. Each zone
 
 This integration allows you to connect the following devices:
 
+- Cambridge Audio Evo One
 - Cambridge Audio Evo 75
 - Cambridge Audio Evo 150
 - Cambridge Audio CXN
 - Cambridge Audio CXN (v2)
+- Cambridge Audio CXN100
 - Cambridge Audio CXR120
 - Cambridge Audio CXR200
 - Cambridge Audio 851N
@@ -68,14 +71,31 @@ The integration provides a few entities to configure the device settings. The fo
 - Pre-Amp
 - Early update
 - Audio output (Speaker select)
+- Control Bus mode
+- Room correction
+- Volume limit
+- Equalizer state
+
+### Pre-Amp
+
+When Pre-Amp mode is enabled, Home Assistant can control the output volume of your device.
+
+### Control Bus
+
+When Control Bus mode is enabled, Home Assistant can control the output volume of your power amplifier when it is connected to a Cambridge Audio network player using the Control Bus interface. In this case, Pre-Amp mode can be disabled. The network player will send the signal at full volume to the power amplifier, and the power amplifier's volume can be controlled using the volume up and down controls. The Control Bus does not support setting the volume to a certain value; it can only increase and decrease the current volume.
+
+### Equalizer
+
+If your device supports it, Home Assistant can enable or disable the equalizer.
 
 ## Playing media
 
-Cambridge Audio supports playing a variety of formats using the `media_player.play_media` action. 
+Cambridge Audio supports playing a variety of formats using the `media_player.play_media` action.
 
 ### Examples:
 
 Cambridge Audio can recall any stored presets saved on the device. An example action using a preset:
+
 ```yaml
 action: media_player.play_media
 target:
@@ -97,6 +117,7 @@ data:
 ```
 
 An example action using an internet radio url:
+
 ```yaml
 action: media_player.play_media
 target:
@@ -108,7 +129,7 @@ data:
 
 ## Browsing media
 
-The Cambridge Audio integration allows you to browse saved presets from your dashboard. 
+The Cambridge Audio integration allows you to browse saved presets from your dashboard.
 All stored presets will be categorized into playlists, artists, and tracks.
 
 ## Troubleshooting
@@ -120,10 +141,12 @@ The interface automatically sets which controls are available depending on which
 
 ### The ability to change volume is missing
 
-Volume control is only supported on all-in-one amps, or streamers with pre-amp mode.
-Likely, the device is not configured to be in pre-amp mode.
-This can be changed by navigating to the IP address of the device in a web browser,
-or selecting settings in the StreamMagic app and setting **Pre-Amp** to **On**.
+Volume control is supported only on all-in-one amplifiers, streamers in Pre-Amp mode, or streamers connected to an amplifier via the Control Bus interface.
+If you do not see volume controls, your device is likely not configured to use Pre-Amp mode, or the Control Bus feature is not activated.
+To check and adjust these settings:
+
+- In a web browser, go to the IP address of your device, or open the StreamMagic app, or open the device in Home Assistant.
+- In the settings, set **Pre-Amp** to **On**, or set **Control Bus mode** to **Amplifier**.
 
 ### Turning on the device doesn't work from Home Assistant
 

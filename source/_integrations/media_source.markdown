@@ -11,7 +11,7 @@ ha_quality_scale: internal
 ha_integration_type: system
 ---
 
-The Media source integration platform allows integrations to expose media for
+The **Media source** {% term integration %} platform allows integrations to expose media for
 use inside Home Assistant through the Media Browser panel or through supported
 media players like Google Cast.
 
@@ -34,15 +34,11 @@ By default, the integration looks for media in a specified folder.
 If other `media_dirs` are not declared you need to use `/media/local` path for
 example in companion app notification.
 
-For Home Assistant OS, Supervised and Container users, this folder is by default
-configured in the path `/media`.
+This folder is by default configured in the path `/media`.
 
-Home Assistant OS and Supervised users can access this folder by using,
-for example, the Samba add-on. Users of Home Assistant Container can
+Home Assistant OS users can access this folder by using,
+for example, the Samba app. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
-
-If you are a Home Assistant Core user, the default directory called is called
-`media` under the configuration path (where your {% term "`configuration.yaml`" %} is located).
 
 Files served from `media` are protected by Home Assistant authentication
 unlike those served from `www`.
@@ -97,3 +93,18 @@ data:
 ```
 
 [basic-configuration]: /integrations/homeassistant/#media_dirs
+
+### Identifying a media source from the media browser
+
+If you wish to make use of the `media-source://` URI for an action, and the media is already available in the media browser (either as locally stored on the Home Assistant machine, or mapped using network storage) the following steps can help to determine the `media-source` uri.
+
+1. Select **Media** in the sidebar.
+2. Navigate to the folder containing the media you wish to play.\
+  *In this example, we will go **My media** > **NAS_Media**. This folder is a network share containing a collection of .mp3 files. One of which is named `my-music.mp3`.*
+3. Copy the current URL from the URL bar.\
+  *for example: `https://home-assistant.local/media-browser/browser/app%2Cmedia-source%3A%2F%2Fmedia_source/%2Cmedia-source%3A%2F%2Fmedia_source%2Flocal%2FNAS_Media`*
+4. Search for an online URL Decoder, paste in the copied text and decode.\
+  *`https://home-assistant.local/media-browser/browser/app,media-source://media_source/,media-source://media_source/local/NAS_Media`*
+
+The last media source, in this case `media-source://media_source/local/NAS_Media` makes up the first part of the path, with the complete path being:
+`media-source://media_source/local/NAS_Media/my-music.mp3`

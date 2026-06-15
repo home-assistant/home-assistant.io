@@ -1,15 +1,15 @@
 ---
 title: "Automation actions"
 description: "Automations result in action."
+toc: false
 ---
 
-The action of an automation rule is what is being executed when a rule fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.
+The action of an automation is what is being executed when an automation fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.
 
 For actions, you can specify the `entity_id` that it should apply to and optional parameters (to specify for example the brightness).
 
 You can also perform the action to activate [a scene](/integrations/scene/) which will allow you to define how you want your devices to be and have Home Assistant perform the right action.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -46,9 +46,9 @@ automation 2:
         message: "Oh wow you really missed something great."
 ```
 
-{% endraw %}
 
 Conditions can also be part of an action. You can combine multiple actions and conditions in a single action, and they will be processed in the order you put them in. If the result of a condition is false, the action will stop there so any action after that condition will not be executed.
+
 
 ```yaml
 automation:
@@ -73,4 +73,10 @@ automation:
     - action: scene.turn_on
       target:
         entity_id: scene.office_at_evening
+    - action: light.turn_on
+      target: "{{ {'entity_id': ['light.office', 'light.office_2']} }}"
+    - action: switch.turn_on
+      target:
+        label_id: "{{ ['office_evening', 'office_after_15'] }}"
 ```
+

@@ -16,7 +16,7 @@ related:
     title: Dashboard
 ---
 
-Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
+Home Assistant can give you an interface to control covers such as roller shutters, blinds, and garage doors.
 
 {% include integrations/building_block_integration.md %}
 
@@ -30,7 +30,6 @@ A cover can have the following states:
 - **Closed**: The cover has reached the closed position.
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
-
 
 How the state of a cover is represented in the frontend depends on the device class.
 
@@ -58,8 +57,12 @@ The following device classes are supported for covers.
 - **garage**: Control of a garage door that provides access to a garage.
 - **gate**: Control of a gate. Gates are found outside of a structure and are typically part of a fence.
 - **shade**: Control of shades, which are a continuous plane of material or connected cells that expanded or collapsed over an opening, such as window shades.
-- **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
+- **shutter**: Control of shutters. Shutters are linked slats that can be raised or lowered to cover an opening, such as window or door roller shutters. Some shutters, for example, some indoor or exterior window shutters, swing out or in to cover an opening or may be tilted to provide partial cover.
 - **window**: Control of a physical window that opens and closes or may tilt.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
 
 ## Actions
 
@@ -84,9 +87,9 @@ automation:
         entity_id: cover.demo
 ```
 
-### Action `cover.set_cover_position`
+### Action: Set cover position
 
-Set cover position of one or multiple covers.
+The `cover.set_cover_position` action allows you to set cover position of one or multiple covers.
 
 | Data attribute | Optional | Description                                                                                          |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -108,9 +111,9 @@ automation:
         position: 50
 ```
 
-### Action `cover.set_cover_tilt_position`
+### Action: Set cover tilt position
 
-Set cover tilt position of one or multiple covers.
+The `cover.set_cover_tilt_position` action allows you to set cover tilt position of one or multiple covers.
 
 | Data attribute  | Optional | Description                                                                                          |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -131,3 +134,71 @@ automation:
       data:
         tilt_position: 50
 ```
+
+## Cover automation examples
+
+You can use cover triggers and conditions to adjust lighting, remind yourself when something is still open, and run routines that depend on whether a cover is open or closed.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: turn off the office lamp when the blind opens after sunrise
+
+If daylight is enough for the room, this automation turns off the office lamp when the blind opens in the morning.
+
+- **Trigger**: Blind opened
+  - **Target**: Office blind
+- **Action**: Turn off light
+  - **Target**: Office lamp
+
+{% details "YAML example for turning off the office lamp" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the office lamp when the blind opens"
+  triggers:
+    - trigger: cover.blind_opened
+      target:
+        entity_id: cover.office_blind
+  conditions:
+    - condition: sun
+      after: sunrise
+  actions:
+    - action: light.turn_off
+      target:
+        entity_id: light.office_lamp
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: close the bedroom shutter at sunset if it is still open
+
+At sunset, this automation checks whether the bedroom shutter is still open. If it is, Home Assistant closes it for the night.
+
+- **Trigger**: Sun: Sunset
+- **Condition**: Shutter is open
+  - **Target**: Bedroom shutter
+- **Action**: Close cover
+
+{% details "YAML example for closing the bedroom shutter at sunset" %}
+
+{% example %}
+automation: |
+  alias: "Close the bedroom shutter at sunset"
+  triggers:
+    - trigger: sun
+      event: sunset
+  conditions:
+    - condition: cover.shutter_is_open
+      target:
+        entity_id: cover.bedroom_shutter
+  actions:
+    - action: cover.close_cover
+      target:
+        entity_id: cover.bedroom_shutter
+{% endexample %}
+
+{% enddetails %}
+
+## Known limitations
+
+The triggers and conditions documented on this page work only with `cover` entities that use the `awning`, `blind`, `curtain`, `shade`, or `shutter` device class.

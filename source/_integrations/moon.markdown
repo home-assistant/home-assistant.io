@@ -16,7 +16,7 @@ ha_config_flow: true
 ha_integration_type: service
 ---
 
-The Moon integration tracks the phases of the moon.
+The **Moon** {% term integration %} tracks the phases of the moon.
 
 {% include integrations/config_flow.md %}
 

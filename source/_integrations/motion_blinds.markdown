@@ -14,28 +14,30 @@ ha_platforms:
   - cover
   - sensor
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The integration allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
+The **Motionblinds** {% term integration %} allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
 
 Additionally the following brands have been reported to also work with this integration:
 
 - [Acomax](https://www.acomax.de/)
 - [AMP Motorization](https://www.ampmotorization.com/)
+- [Avosdim](https://avosdim.com)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
 - [Decorquip Dream](https://www.decorquip.com/post.php?dream)
-- [Diaz](https://www.diaz.be/en/)
+- [Diaz](https://www.diaz.be/)
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
-- [Havana Shade](https://havanashade.com/)
+- Havana Shade
 - [Heicko](https://heicko.de/en/tubular-motors/controls/e-smart-home/usb-smart-home-stick-bi-direktional-1-st.html)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
-- [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [iSmartWindow](https://www.autoblinds.co.nz/)
+- [Kaiser Nienhaus](https://www.kaiser-nienhaus.de/)
 - [Krispol](https://krispol.eu/en/drives/)
 - [Linx](https://linxautomation.com.au/)
 - [Madeco](https://www.madeco.fr/)
@@ -47,7 +49,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Smartblinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
 - [Ublockout](https://www.ublockout.com/)
-- [Uprise Smart Shades](http://uprisesmartshades.com)
+- [Uprise Smart Shades](https://upriseshades.com/)
 
 This integration allows for both directly controlling blinds that support wifi-connection and controlling Uni- and Bi-direction blinds that connect to a 433MHz WiFi bridge.
 The following bridges are reported to work with this integration:
@@ -69,6 +71,8 @@ The following bridges are reported to work with this integration:
 - DD7006A Smart Home bridge
 - Dreamhub Pro 191726
 - Dreamhub mini 191717
+- Kaiser Nienhaus Smart Stick
+- Box maison connectée 005313 AvosDim
 
 {% include integrations/config_flow.md %}
 
@@ -79,7 +83,7 @@ In that app the key can often be found by clicking multiple times on specific pl
 
 ### Motionblinds app
 
-The Motionblinds API uses a 16 character key that can be retrieved from the official "Motionblinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
+The Motionblinds API uses a 16 character key that can be retrieved from the official "Motionblinds" app for [IOS](https://apps.apple.com/app/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 
 Open the app, click the 3 dots in the top right corner, go to "settings", go to "Motion APP About", Please quickly tap this "Motion APP About" page 5 times, a popup will appear that gives you the key.
 
@@ -103,14 +107,22 @@ In the official Bloc Blinds app go to settings (three bars > gear icon), go to t
 
 In the 3 Day Blinds app go to the home screen, go to settings (three bars in the upper left corner > gear icon), select `About` from the bottom, quickly tap the 3 Day Blinds icon in the center of the screen 5 times and a pop-up with the key will be shown.
 
+### Blindsgalore AMP app
+
+In the Blindsgalore AMP app go to the home screen, go to settings (three bars in the upper left corner), tap your profile picture, select `About` from the bottom, quickly tap the AMP icon in the center of the screen 5 times and a pop-up with the key will be shown.
+
 ### Connector app
 
- To get the API key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
+ To get the API key ([iOS app](https://apps.apple.com/app/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
  
   1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon). 
   2. Select the **About** page of the Connector app.
   3. Tap the screen 5 times while being on the **About** page. 
       - This opens a window with the API key.
+
+### Avosdim app
+
+In the Avosdim mobile app, go to **Settings** (three bars in the upper-left corner > gear icon), select **About** at the bottom, quickly tap the connected shutter icon in the center of the screen 5 times, and a pop-up with the key will appear.
 
 ## Favorite position
 

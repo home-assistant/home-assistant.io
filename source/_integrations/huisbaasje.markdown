@@ -12,10 +12,10 @@ ha_codeowners:
 ha_domain: huisbaasje
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The EnergyFlip (formerly Huisbaasje) integration allows you to track your energy consumption collected
+The **EnergyFlip** (formerly Huisbaasje) {% term integration %} allows you to track your energy consumption collected
 by the monitoring device installed on your energy meters.
 
 {% include integrations/config_flow.md %}

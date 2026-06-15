@@ -15,13 +15,13 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `flic` {% term integration %} allows you to receive click events from [flic](https://flic.io) smart buttons.
+The **Flic** {% term integration %} allows you to receive click events from [flic](https://flic.io) smart buttons.
 
 The {% term integration %} does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
 
 ## Action setup
 
-If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-add-ons) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
+If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-apps) the Home Assistant flicd app from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
 
 For instructions on how to install the service manually, visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [macOS](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 
@@ -100,8 +100,6 @@ Event data:
 
 To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/integrations/html5). Visit the [notification integration page](/integrations/notify/) for more information on setting up notifications.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "FLIC Html5 notify on every click"
@@ -114,8 +112,6 @@ automation:
           title: "flic click"
           message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"
 ```
-
-{% endraw %}
 
 ### Ignoring click types
 

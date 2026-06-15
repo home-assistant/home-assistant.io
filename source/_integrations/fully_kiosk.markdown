@@ -24,7 +24,7 @@ ha_platforms:
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ha_quality_scale: bronze
 ---
@@ -80,6 +80,7 @@ The following controls are available:
 - Screen brightness
 - Play and stop media files
 - Set device volume
+- Clear Fully Kiosk Browser cache
 
 The following is available as camera entity:
 

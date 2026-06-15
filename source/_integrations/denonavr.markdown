@@ -13,10 +13,10 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.
+The **Denon AVR Network Receivers** {% term integration %} allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.
 
 Known supported devices:
 
@@ -38,6 +38,7 @@ Known supported devices:
 - Denon AVR-X2600H
 - Denon AVR-X2700H
 - Denon AVR-X2800H
+- Denon AVC-X2850H
 - Denon AVR-X3000
 - Denon AVR-X3200W
 - Denon AVR-X3300W
@@ -66,6 +67,7 @@ Known supported devices:
 - Denon AVR-3313CI
 - Denon AVR-4810
 - Denon AVR-E300
+- Denon AVR-E400
 - Denon AVR-S650H
 - Denon AVC-S660H
 - Denon AVR-S710W
@@ -79,11 +81,14 @@ Known supported devices:
 - Denon AVR-S960H
 - Denon AVR-S970H
 - Denon DN-500AV
+- Denon DRA-N5
 - Denon DRA-800H
+- Marantz AV 20
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
 - Marantz AV8802A
+- Marantz AV8805
 - Marantz CINEMA 50
 - Marantz CINEMA 60
 - Marantz CINEMA 70s
@@ -111,6 +116,7 @@ Known supported devices:
 - Marantz NR1604
 - Marantz NR1606
 - Marantz NR1607
+- Marantz NR1609
 - Marantz NR1710
 - Marantz NR1711
 - Other Denon AVR receivers (untested)
@@ -128,7 +134,7 @@ If you have something else using the IP controller for your Denon AVR 3808CI, su
 
 {% configuration_basic %}
 host:
-  description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
+  description: IP address of the device, for example, `192.168.1.32`. If not set, auto-discovery is used.
 show_all_sources:
   description: If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed. Some receivers have a bug that marks all sources as deleted in the interface. In this case, this option could help.
 zone2:
@@ -147,7 +153,7 @@ A few notes:
 - The `denonavr` platform supports some additional functionalities like album covers, custom input source names and auto discovery.
 - Marantz receivers seem to a have quite a similar interface. Thus if you own one, give it a try.
 - To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
-- Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/ol-iver/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under **Developer Tools** -> **States**.
+- Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/ol-iver/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
 
 #### Action `denonavr.get_command`
 
@@ -160,7 +166,7 @@ To use these commands, call the `denonavr.get_command` action and append the spe
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
-| `command`              |       no | Command to send to device, e.g.,  `/goform/formiPhoneAppDirect.xml?VSMONI2`|
+| `command`              |       no | Command to send to device, for example, `/goform/formiPhoneAppDirect.xml?VSMONI2`|
 
 So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will switch the HDMI to output 2 (if your receiver supports it). Sending an IR code works the same, so the command `/goform/formiPhoneAppDirect.xml?RCKSK0410370` will toggle muting.
 

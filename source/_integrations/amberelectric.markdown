@@ -13,10 +13,10 @@ ha_domain: amberelectric
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides access to wholesale electricity prices. Customers monitor the wholesale price and shift their energy usage to cheaper, greener times. This saves them money and supports the shift to a more renewably-powered Australia.
+[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides access to wholesale electricity prices. Customers monitor the wholesale price and shift their energy usage to cheaper, greener times. This saves them money and supports Australia's shift towards more renewable energy. Customers can also sell their unused electricity for fluctuating prices. This differs from other wholesale providers, where selling prices vary based on grid demand.
 
 Using the **Amber Electric** {% term integration %}, customers can go a step further - setting up devices to automatically shift energy usage to cheaper and greener times, based on real-time electricity prices and forecasts
 
@@ -45,9 +45,19 @@ It exposes the following {% term sensors %} for each channel type:
 
 - **Price** - Your current electricity price in $/kWh
 - **Forecast** - The forecasted prices for the next 12 hours
-- **Descriptor** - A description of the price. Useful if you want to create a Amber light that matches the app.
+- **Descriptor** - A description of the price. Useful if you want to create an Amber light that matches the app. Possible values: `extremely_low`, `very_low`, `low`, `neutral`, `high`, and `spike`.
 
 There are two additional sensors:
 
 - **Price Spike** - A binary sensor that indicates when the current price is over $3/kWh.
 - **Renewables** - The percentage of renewable energy currently in the grid.
+
+## Actions
+### Action: Get forecasts
+
+The `amberelectric.get_forecasts` action allows you to get an array of forecasts for the requested channel type.
+
+| Data attribute    | Optional | Description                                                           |
+| ----------------- | -------- | --------------------------------------------------------------------- |
+| `config_entry_id` | Yes      | The config entry of the site to get forecasts for.                    |
+| `channel_type`    | Yes      | The channel type to fetch. Options: general, controller_load, feed_in |

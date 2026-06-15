@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `qrcode` image processing {% term integration %} enables QR code recognition from cameras.
+The **QR Code** {% term integration %} enables QR code recognition from cameras.
 
 To get this running, please install `zbar-tools` (Ubuntu 18.04)
 

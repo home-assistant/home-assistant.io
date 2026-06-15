@@ -14,10 +14,10 @@ ha_platforms:
   - camera
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The motionEye integration allows you to integrate your
+The **motionEye** {% term integration %} allows you to integrate your
 [motionEye](https://github.com/motioneye-project/motioneye) server into Home Assistant. motionEye
 is an open source web-frontend for the motion daemon, used to centralize the management
 and visualization of multiple types of cameras.
@@ -45,7 +45,7 @@ Configure motionEye webhooks to report events to Home Assistant:
 Overwrite unrecognized webhooks:
   description: Whether or not to overwrite webhooks that are already configured and are not recognized as belonging to this integration (webhooks are deemed to belong to this integration if they contain `src=hass-motioneye` in the query string).
 Stream URL template:
-  description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below. This option is only shown to users who have [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) enabled.
+  description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below.
 {% endconfiguration_basic %}
 
 ## Usage

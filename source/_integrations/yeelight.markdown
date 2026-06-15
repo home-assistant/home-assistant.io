@@ -18,7 +18,7 @@ ha_platforms:
 ha_homekit: true
 ha_dhcp: true
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Yeelight** {% term integration %} allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
@@ -32,7 +32,7 @@ There is support for the following device types within Home Assistant:
 
 ### Custom effects
 
-Custom effects can only be set up through YAML configuration. To turn on the effect you can use [light.turn_on](/integrations/light/#action-lightturn_on) action.
+Custom effects can only be set up through YAML configuration. To turn on the effect you can use [light.turn_on](/actions/light.turn_on/) action.
 
 Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
 
@@ -157,12 +157,12 @@ Per default, the bulb limits the number of requests per minute to 60, a limitati
 
 {% important %}
 
-Before trying to control your light through Home Assistant, you have to set up your bulb using the Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
+Before trying to control your light through Home Assistant, you have to set up your bulb using the Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry), [IOS](https://apps.apple.com/app/id977125608) ).
 In the bulb property, you have to enable "LAN Control" (previously called "Developer mode"). LAN Control may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
 Determine your bulb IP (using router, software, ping...).
 Currently, there is no official way to change LAN mode. However, some methods might be found here:
-- [Desktop app](https://community.home-assistant.io/t/the-easiest-method-to-enable-lan-developer-mode-on-xiaomi-bulb/727360)
-- CLI using the python-miio library: [1](https://community.home-assistant.io/t/integrate-mi-smart-led-bulb-easy-steps/312174), [2](https://community.home-assistant.io/t/integrate-mi-smart-led-bulb-warm-white-xmbgdp01ylk/290404)
+- [Desktop app](https://community.home-assistant.io/t/727360)
+- CLI using the python-miio library: [1](https://community.home-assistant.io/t/312174), [2](https://community.home-assistant.io/t/290404)
 
 {% endimportant %}
 
@@ -211,18 +211,18 @@ This {% term integration %} is tested to work with the following models. If you 
 
 ## Actions
 
-### Action `yeelight.set_mode`
+### Action: Set mode
 
-Set an operation mode.
+The `yeelight.set_mode` action sets an operation mode.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
 
-### Action `yeelight.start_flow`
+### Action: Start flow
 
-Start flow with specified transitions
+The `yeelight.start_flow` action starts a flow with specified transitions.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -231,9 +231,9 @@ Start flow with specified transitions
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
 
-### Action `yeelight.set_color_scene`
+### Action: Set color scene
 
-Changes the light to the specified RGB color and brightness. If the light is off, it will be turned on.
+The `yeelight.set_color_scene` action changes the light to the specified RGB color and brightness. If the light is off, it will be turned on.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -241,9 +241,9 @@ Changes the light to the specified RGB color and brightness. If the light is off
 | `rgb_color`               |       no | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets.|
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Action `yeelight.set_hsv_scene`
+### Action: Set HSV scene
 
-Changes the light to the specified HSV color and brightness. If the light is off, it will be turned on.
+The `yeelight.set_hsv_scene` action changes the light to the specified HSV color and brightness. If the light is off, it will be turned on.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -251,9 +251,9 @@ Changes the light to the specified HSV color and brightness. If the light is off
 | `hs_color`                |       no | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.    |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Action `yeelight.set_color_temp_scene`
+### Action: Set color temperature scene
 
-Changes the light to the specified color temperature. If the light is off, it will be turned on.
+The `yeelight.set_color_temp_scene` action changes the light to the specified color temperature. If the light is off, it will be turned on.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -261,9 +261,9 @@ Changes the light to the specified color temperature. If the light is off, it wi
 | `kelvin`                  |       no | Color temperature in Kelvin.                                                                |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Action `yeelight.set_color_flow_scene`
+### Action: Set color flow scene
 
-Starts a color flow. Difference between this and [yeelight.start_flow](#action-yeelightstart_flow), this action uses different a Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows, etc.
+The `yeelight.set_color_flow_scene` action starts a color flow. Difference between this and [yeelight.start_flow](#action-yeelightstart_flow), this action uses a different Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows, etc.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -272,9 +272,9 @@ Starts a color flow. Difference between this and [yeelight.start_flow](#action-y
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
 
-### Action `yeelight.set_auto_delay_off_scene`
+### Action: Set auto delay off scene
 
-Turns the light on to the specified brightness and sets a timer to turn it back off after the given number of minutes. If the light is off, it will be turned on.
+The `yeelight.set_auto_delay_off_scene` action turns the light on to the specified brightness and sets a timer to turn it back off after the given number of minutes. If the light is off, it will be turned on.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -282,11 +282,29 @@ Turns the light on to the specified brightness and sets a timer to turn it back 
 | `minutes`                 |       no | The minutes to wait before automatically turning the light off.                             |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Action `yeelight.set_music_mode`
+### Action: Set music mode
 
-Enable or disable music_mode.
+The `yeelight.set_music_mode` action enables or disables music_mode.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `music_mode`              |       no | Use 'true' or 'false' to enable / disable music_mode.                                       |
+
+
+## Troubleshooting
+
+### Device Discovery
+
+The Yeelight devices use non-standard search parameters for SSDP so devices are not visible in **the SSDP/UPnP Browser**.
+
+If you want to check what devices are in your network, you can use [the `async-upnp-client` library](https://pypi.org/project/async-upnp-client/), and then run the following command:
+```bash
+upnp-client search \
+    --target 239.255.255.250 \
+    --target_port 1982 \
+    --bind 0.0.0.0 \
+    --search_target wifi_bulb
+```
+
+You can also look at **the Zeroconf Browser** or **the DHCP Browser**, which correctly detect Yeelight devices.

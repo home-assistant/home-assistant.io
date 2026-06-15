@@ -15,6 +15,7 @@ ha_category:
   - Organization
   - Sensor
   - Switch
+  - Valve
 ha_release: pre 0.7
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -34,10 +35,11 @@ ha_platforms:
   - notify
   - sensor
   - switch
+  - valve
 ha_integration_type: helper
 ---
 
-The group integration lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
+The **Group** {% term integration %} lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
 
 This can be useful, for example, in cases where you want to control multiple bulbs in a light fixture as a single light in Home Assistant. You also have the option of hiding the individual member entities in a group.
 
@@ -46,16 +48,17 @@ The following entities can be grouped:
 - [binary sensor (binary sensors)](/integrations/binary_sensor/)
 - [button (buttons)](/integrations/button/)
 - [cover (covers)](/integrations/cover/)
-- [fan (fans)](/integrations/fan/)
-- [switch (switches)](/integrations/switch/)
-- [lock (locks)](/integrations/lock/)
-- [light (lights)](/integrations/light/)
 - [event (events)](/integrations/event/)
+- [fan (fans)](/integrations/fan/)
+- [input_number (input_numbers)](/integrations/input_number/)
+- [light (lights)](/integrations/light/)
+- [lock (locks)](/integrations/lock/)
 - [media player (media players)](/integrations/media_player/)
 - [notify (notifications)](/integrations/notify/)
-- [sensor (sensors)](/integrations/sensor/)
 - [number (numbers)](/integrations/number/)
-- [input_number (input_numbers)](/integrations/input_number/)
+- [sensor (sensors)](/integrations/sensor/)
+- [switch (switches)](/integrations/switch/)
+- [valve (valves)](/integrations/valve/)
 
 {% include integrations/config_flow.md %}
 
@@ -82,6 +85,10 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
 
+{% note %}
+For light groups using HS color mode: When a light group contains two or more lights, whose colors are evenly spaced (180° apart for two, 120° apart for three, etc.), the light group's average color *may* default to either 0° (red) or 180° (light blue). This occurs because averaging opposite hues on the color wheel can mathematically result in unexpected colors due to how hue values wrap around. To avoid this, consider using RGB color mode for your lights, or avoid grouping lights with perfectly opposite colors.
+{% endnote %}
+
 ### Button groups
 
 The group state is the last time the grouped button was pressed.
@@ -89,8 +96,8 @@ The group state is the last time the grouped button was pressed.
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is the last time the grouped button was pressed.
 
-### Cover groups
-In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
+### Cover and valve groups
+In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover and valve groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
@@ -143,14 +150,21 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 
 ### Sensor, number, and input_number groups
 
-- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product, standard deviation, or sum of the collected states.
+- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), first available, mean, median, range, product, standard deviation, or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
-- The group state is `unavailable` if all group members are `unavailable`.
-- If `ignore_non_numeric` is `false` then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
+- The group state is `unavailable` if all group members are either `unavailable` or missing
+- The configuration variable `ignore_non_numeric` controls the behavior of the group when the group is not `unavailable`:
+   - When set to `false` (the default), the group state is calculated as follows:
+      - if all members are in the state machine and have a numeric state: calculated according to the `type` 
+      - otherwise: set to `unknown` 
+   - When set to `true`, the group state is calculated as follows:
+      - if at least one member has a numeric state: calculated according to the `type`
+      - otherwise: set to `unknown`
+- The variable `ignore_non_numeric` can be combined with the type `first_available` to always take the first available numeric state from a group.
 
 ## Managing groups
 
-To edit a group, **{% my helpers title="Settings -> Devices & services -> Helpers" %}**. Find and select the group from the list.
+To edit a group, **{% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}**. Find and select the group from the list.
 
 ![Group members](/images/integrations/group/Group_settings.png)
 
@@ -298,6 +312,18 @@ switch:
       - switch.soundbar
 ```
 
+Example YAML configuration of a valve group:
+
+```yaml
+# Example configuration.yaml entry
+valve:
+  - platform: group
+    name: "Garden Valves"
+    entities:
+      - valve.front_garden
+      - valve.back_garden
+```
+
 {% configuration %}
 entities:
   description: A list of entities to be included in the group.
@@ -317,11 +343,11 @@ all:
   type: boolean
   default: false
 type:
-  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `first_available`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
   type: string
   required: true
 ignore_non_numeric:
-  description: Only available for `sensor` group. Set this to `true` if the group state should ignore sensors with non numeric values.
+  description: Only available for `sensor` group. Controls how the [state is calculated when group members have non-numeric state](#sensor-number-and-input_number-groups).
   type: boolean
   required: false
   default: false
@@ -330,7 +356,7 @@ unit_of_measurement:
   type: string
   required: false
 device_class:
-  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](/integrations/sensor/#device-class).
+  description: Only available for `binary-sensor` or `sensor` group. Set the device class according to available options for [binary sensors](/integrations/binary_sensor/#device-class) or [sensors](/integrations/sensor/#device-class) respectively.
   type: string
   required: false
 state_class:
@@ -354,7 +380,7 @@ notify:
       - action: html5
         data:
           target: "macbook"
-      - action: html5_nexus
+      - action: mobile_app_pauluus
 ```
 
 {% configuration %}
@@ -473,7 +499,7 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
+These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
 
 ### Attributes
 

@@ -17,7 +17,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The **Deako Smart Lighting** integration allows you to control your [Deako](https://deako.com) devices from Home Assistant.
+The **Deako Smart Lighting** {% term integration %} allows you to control your [Deako](https://deako.com) devices from Home Assistant.
 
 ## Prerequisites
 

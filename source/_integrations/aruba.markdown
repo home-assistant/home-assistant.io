@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](https://www.arubanetworks.com/products/networking/aruba-instant/) device.
+This {% term integration %} allows you to detect presence by looking at connected devices to an [Aruba Instant](https://www.arubanetworks.com/products/networking/aruba-instant/) device.
 
 Supported devices (tested):
 

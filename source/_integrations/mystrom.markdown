@@ -1,9 +1,10 @@
 ---
 title: myStrom
-description: Instructions on how to integrate myStrom WiFi Switches and Bulbs into Home Assistant.
+description: Instructions on how to integrate myStrom WiFi Switches, Bulbs and Motion Sensors into Home Assistant.
 ha_category:
   - Binary sensor
   - Light
+  - Sensor
   - Switch
 ha_release: 0.43
 ha_iot_class: Local Polling
@@ -16,20 +17,21 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_dhcp: true
 ---
 
 There is currently support for the following device types within Home Assistant:
 
-- [Lights and switches](#lights-and-switches)
+- [Lights, switches and motion sensors](#lights-switches-and-motion-sensors)
 - [Binary sensor](#binary-sensor)
 
-## Lights and switches
+## Lights, switches and motion sensors
 
-The myStrom {% term integration %} allows you to control your [myStrom](https://mystrom.ch/) Wi-Fi Bulbs and Wi-Fi Switches. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
+The myStrom {% term integration %} allows you to control your [myStrom](https://mystrom.ch/) Wi-Fi Bulbs, Wi-Fi Switches and Wi-Fi Motion Sensors. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 Supported devices are:
 
@@ -38,12 +40,18 @@ Supported devices are:
 - LED strip (105)
 - Switch CH v2 (106)
 - Switch EU (107)
+- Motion Sensor (110)
 - Switch Zero (120)
 
 Two sensors are available for switches:
 
 - Temperature
 - Energy consumption
+
+Two HA sensors are available for motion sensors:
+
+- Temperature
+- Illuminance
 
 {%include integrations/config_flow.md %}
 

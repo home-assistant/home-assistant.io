@@ -9,7 +9,6 @@ ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'
   - '@shenxn'
-  - '@Orhideous'
 ha_domain: roomba
 ha_config_flow: true
 ha_dhcp: true
@@ -17,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - vacuum
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 
@@ -28,7 +27,7 @@ The **Roomba** {% term integrations %} allows you to control your [iRobot Roomba
 </p>
 
 {% note %}
-This {% term integrations %}  has been tested and confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690. For auto-discovery, you will need to initiate a Roomba reboot. For example, by holding the clean button for up to 20 seconds on an i7 or 980. [More information about rebooting your robot](https://homesupport.irobot.com/s/article/9087).
+This {% term integrations %}  has been tested and confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any of the older Wi-Fi enabled Roomba or Braava like the 690. It currently does NOT work with the newer x05 Wi-Fi models, such as Roomba 105, 405, and 505. For auto-discovery, you will need to initiate a Roomba reboot. For example, by holding the clean button for up to 20 seconds on an i7 or 980. [More information about rebooting your robot](https://homesupport.irobot.com/s/article/9087).
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -46,6 +45,7 @@ Sensors:
 - **Battery**: The status of your battery
 - **Bin full** (if Roomba has the capacity to do): If the bin is full
 - **Canceled missions**: Total number of missions that have been canceled
+- **Charging**: Whether the robot is currently charging
 - **Failed missions**: Total number of missions that have failed
 - **Successful missions**: Total number of successful missions
 - **Average mission time**: The amount of time a mission took on average

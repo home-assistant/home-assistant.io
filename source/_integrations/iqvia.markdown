@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `iqvia` sensor platform collects and displays allergy, asthma and disease
+The **IQVIA** {% term integration %} collects and displays allergy, asthma and disease
 information (based on a U.S. ZIP code) from [IQVIA](https://www.iqvia.com/).
 Data measured includes:
 

@@ -14,11 +14,11 @@ ha_domain: solarlog
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
-The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
+The **Solar-Log** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
 
 ## Supported devices
 
@@ -55,12 +55,6 @@ Password:
 ## Configuration options
 
 The integration has no additional configuration options.
-
-## Remove integration
-
-This integration can be removed by following these steps:
-
-{% include integrations/remove_device_service.md %}
 
 ## Supported functionality
 ### Sensors
@@ -106,7 +100,12 @@ The following additional sensor becomes available:
 
 | Name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
+| charge_level          | %      | Current charge level of battery.*          |
+| charging_power        | W      | Current power charging battery.*           |
+| discharging_power     | W      | Current power discharging battery.*        |
 | self_consumption_year | kWh    | Annual self-consumed solar power.          |
+
+*Only available, if battery connected to solarlog.
 
 In addition, information from devices connected to the Solar-Log device becomes available. The following additional sensors become available (all values are per inverter/device):
 
@@ -119,8 +118,6 @@ In addition, information from devices connected to the Solar-Log device becomes 
 
 In case you would like to get additional calculated sensors such as the amount of excess solar power available or the energy returned to the grid, you can use the [template platform](/integrations/template/).
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry for sensor template platform
 template:
@@ -128,8 +125,6 @@ template:
     - name: "Solarlog return to grid"
       state: "{{ states('sensor.solarlog_consumption_year') | float(0) - states('sensor.self_consumption_year') | float(0) }}"
 ```
-
-{% endraw %}
 
 ## Data updates
 
@@ -143,3 +138,9 @@ The integration provides no additional actions.
 
 The integration only provides the (limited) data exposed by means of the JSON interface. This also entails that the values for the self-consumption are rounded to full kWh.
 Firmware versions below 3.x are not supported, as they do not expose the JSON interface. Please contact the Solar-Log support if you need assistance with updating the firmware of your Solar-Log device.
+
+## Removing the integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}

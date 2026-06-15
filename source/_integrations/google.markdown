@@ -12,13 +12,13 @@ ha_platforms:
   - diagnostics
 ha_codeowners:
   - '@allenporter'
-ha_integration_type: integration
+ha_integration_type: service
 google_dev_console_link: https://console.developers.google.com/apis/credentials
 api: Google Calendar API
 api_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
 ---
 
-The *Google Calendar* integration allows you to connect your [Google Calendar](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
+The **Google Calendar** {% term integration %} allows you to connect your [Google Calendar](https://calendar.google.com) to Home Assistant. The integration adds {% term calendar %} entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
 
 ## Prerequisites
 
@@ -80,9 +80,9 @@ Using the entity state and attributes is more error prone and less flexible than
 
 {% enddetails %}
 
-### Action `google.create_event`
+### Action: Create event
 
-You can use the `google.create_event` action to create a new calendar event in a calendar.
+The `google.create_event` action allows you to create a new calendar event in a calendar.
 
 {% details "Create event action details" %}
 

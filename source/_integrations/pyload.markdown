@@ -15,6 +15,7 @@ ha_platforms:
   - switch
 ha_integration_type: service
 ha_config_flow: true
+ha_quality_scale: platinum
 ---
 
 The [**pyLoad**](https://pyload.net/) {% term integration %} enables monitoring your downloads directly in Home Assistant. This integration provides various sensors to keep track of your download activities and allows creating automations based on the sensor information, alongside button and switch controls for performing specific tasks such as aborting downloads and managing file restarts.
@@ -35,7 +36,7 @@ The **pyLoad** integration allows you to monitor and control your downloads dire
 
 To set up the pyLoad integration, you must have a running pyLoad instance on your home server, NAS, or any other device. An always-on device is recommended. Ensure that pyLoad's web interface is accessible for Home Assistant.
 
-If you haven't set up pyLoad yet, an easy way to get it up and running is by installing the [pyLoad-ng add-on for Home Assistant](https://github.com/tr4nt0r/pyload-ng).
+If you haven't set up pyLoad yet, an easy way to get it up and running is by installing the [pyLoad-ng app for Home Assistant](https://github.com/tr4nt0r/pyload-ng).
 
 - During the setup process in Home Assistant, you will need:
   - pyLoad account credentials – A valid *username* and *password* to authenticate with pyLoad.
@@ -56,10 +57,12 @@ URL:
   description: "The full URL of the pyLoad web interface, including the protocol (HTTP or HTTPS), hostname or IP address, port, and any path prefix if applicable. Example: `https://example.com:8000/path`"
 Verify SSL certificate:
   description: "If checked, the SSL certificate will be validated to ensure a secure connection."
-Username:
-  description: "The username used to access the pyLoad instance."
-Password:
-  description: "The password associated with the pyLoad account."
+API key:
+  description: "The API key to authenticato with the pyLoad API."
+Username [Deprecated]:
+  description: "The username used to access the pyLoad instance. No longer supported with pyLoad 0.5.0b3.dev97 or later."
+Password [Deprecated]:
+  description: "The password associated with the pyLoad account. No longer supported with pyLoad 0.5.0b3.dev97 or later."
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -92,8 +95,6 @@ This automation will pause new downloads when your available disk space falls be
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Monitor pyLoad download queue"
 description: "Pause new downloads when the disk space is low."
@@ -105,13 +106,11 @@ actions:
   - action: switch.turn_off
     target:
       entity_id: switch.pyload_pause_resume_queue
-  - service: notify.persistent_notification
+  - action: notify.persistent_notification
     data:
       message: "Free space is low, pausing pyLoad queue."
 mode: single
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -120,8 +119,6 @@ mode: single
 This automation halts all active pyLoad downloads when watching Netflix on your media player.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: "Halt pyLoad downloads when watching Netflix"
@@ -145,8 +142,6 @@ actions:
 mode: single
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 ## Data updates
@@ -162,7 +157,7 @@ This integration {% term polling polls %} your **pyLoad** instance every 20 seco
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-This platform allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).
+This {% term integration %} allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).
 
 Supported platforms (tested):
 
@@ -36,7 +36,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: "The IP address or hostname of the ClearPass server, e.g., `clearpass.server.com`."
+  description: "The IP address or hostname of the ClearPass server, for example, `clearpass.server.com`."
   required: true
   type: string
 client_id:

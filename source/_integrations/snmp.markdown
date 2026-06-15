@@ -19,7 +19,7 @@ ha_codeowners:
 ha_quality_scale: legacy
 ---
 
-A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
+Many routers, Wi-Fi access points, printers, and other network-connected devices support the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). This is a standardized method for monitoring/managing network-connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain continuously updated lists of metrics like network interfaces throughput, disk activity, active devices on the network, toner levels, and such.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,33 +31,33 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 {% important %}
-This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
+This device tracker needs SNMP to be enabled on the target network device. It could be that you need to install SNMP support manually on your router, switch, server, or any other device that you will be trying to extract information from.
 {% endimportant %}
 
 ## Presence detection
 
-The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/integrations/device_tracker/) than desirable. It is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) instead.
+The following OIDs refer to the current MAC Address table from various common router brands. These reflect all recent devices seen on the network. However, since devices are usually not removed from these internal tables until after a predefined timeout (typically in a range of 5-15 minutes after they were last active on the network, depending on the specific manufacturer's implementation), this is less effective for [device tracking](/integrations/device_tracker/) than desirable. If near-realtime values are needed, it is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) integrations instead.
 
-| Brand | Device/Firmware | OID |
-| --- | --- | --- |
-| Aerohive | AP230 | `1.3.6.1.4.1.26928.1.1.1.2.1.2.1.1` |
-| Apple | Airport Express (2nd gen.) 7.6.9 | `1.3.6.1.2.1.3.1.1.2` or `1.3.6.1.2.1.4.22.1.2`|
-| Aruba | IAP325 on AOS 6.5.4.8 | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
-| BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
-| DD-WRT | unknown version/model | `1.3.6.1.2.1.4.22.1.2` |
-| IPFire | 2.25 | `1.3.6.1.2.1.4.22.1.2` |
-| MikroTik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
-| MikroTik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
-| OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
-| OPNSense | 19.1 | `1.3.6.1.2.1.4.22.1.2` |
-| pfSense | 2.2.4 | `1.3.6.1.2.1.4.22.1.2` |
-| Ruckus | ZoneDirector 9.13.3 | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` |
-| TP-Link | Archer VR1600v | `1.3.6.1.2.1.3.1.1.2.16.1` |
-| TP-Link | Archer VR2600v | `1.3.6.1.2.1.3.1.1.2.19.1` |
-| TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
-| Ubiquiti | Edgerouter Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
+| Brand    | Device/Firmware                  | OID                                             |
+| -------- | -------------------------------- | ----------------------------------------------- |
+| Aerohive | AP230                            | `1.3.6.1.4.1.26928.1.1.1.2.1.2.1.1`             |
+| Apple    | Airport Express (2nd gen.) 7.6.9 | `1.3.6.1.2.1.3.1.1.2` or `1.3.6.1.2.1.4.22.1.2` |
+| Aruba    | IAP325 on AOS 6.5.4.8            | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1`             |
+| BiPAC    | 7800DXL Firmware 2.32e           | `1.3.6.1.2.1.17.7.1.2.2.1.1`                    |
+| DD-WRT   | unknown version/model            | `1.3.6.1.2.1.4.22.1.2`                          |
+| IPFire   | 2.25                             | `1.3.6.1.2.1.4.22.1.2`                          |
+| MikroTik | unknown RouterOS version/model   | `1.3.6.1.4.1.14988.1.1.1.2.1.1`                 |
+| MikroTik | RouterOS 6.x on RB2011           | `1.3.6.1.2.1.4.22.1.2`                          |
+| OpenWrt  | Chaos Calmer 15.05               | `1.3.6.1.2.1.4.22.1.2`                          |
+| OPNsense | 19.1                             | `1.3.6.1.2.1.4.22.1.2`                          |
+| pfSense  | 2.2.4                            | `1.3.6.1.2.1.4.22.1.2`                          |
+| Ruckus   | ZoneDirector 9.13.3              | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6`         |
+| TP-Link  | Archer VR1600v                   | `1.3.6.1.2.1.3.1.1.2.16.1`                      |
+| TP-Link  | Archer VR2600v                   | `1.3.6.1.2.1.3.1.1.2.19.1`                      |
+| TP-Link  | Archer VR600                     | `1.3.6.1.2.1.3.1.1.2`                           |
+| Ubiquiti | Edgerouter Lite v1.9.0           | `1.3.6.1.2.1.4.22.1.2`                          |
 
-To use the SNMP version 1 or 2c platform in your installation, add the following to your `configuration.yaml` file:
+To use SNMP version 1 or 2c in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for SNMP version 1 or 2c
@@ -68,7 +68,7 @@ device_tracker:
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
-If you want to use encryption, you must enable SNMP version 3 by adding `auth_key` and `priv_key` variables and enabling SNMP version 3 on your router. Currently only SHA1 is supported for authentication and AES for encryption. Example of SNMPv3 configuration:
+If your network device supports SNMP version 3 and is configured appropriately, you can enable encryption by adding `auth_key` and `priv_key` variables. Example configuration:
 
 ```yaml
 # Example configuration.yaml entry for SNMP version 3
@@ -87,7 +87,7 @@ host:
   required: true
   type: string
 community:
-  description: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
+  description: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient for most purposes).
   required: true
   type: string
 baseoid:
@@ -110,7 +110,7 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 ## Sensor
 
-The `snmp` sensor platform displays information available through the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems and printers.
+The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -143,7 +143,7 @@ baseoid:
   required: true
   type: string
 community:
-  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient)."
+  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient for most devices that don't accept direct modifications of their parameters via SNMP, such as printers)."
   required: false
   type: string
   default: 'public'
@@ -206,7 +206,7 @@ username:
   type: string
   default: ''
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
+  description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to parse the value."
   required: false
   type: template
 version:
@@ -237,7 +237,7 @@ Valid values for `priv_protocol`:
 
 ### Finding OIDs
 
-OIDs may vary on different systems because they are vendor-specific. Besides the device's manual, the [OID Repository](http://www.oid-info.com/) is a good place to start if you are looking for OIDs. As an example, the following OIDs are for the load of a Linux system.
+OIDs may vary on different systems because they are vendor-specific. The best place to find OIDs is in your device's manual or vendor documentation. For example, the following OIDs are for the load of a Linux system.
 
 - 1 minute Load: `1.3.6.1.4.1.2021.10.1.3.1`
 - 5 minute Load: `1.3.6.1.4.1.2021.10.1.3.2`
@@ -258,8 +258,6 @@ According to the most common SNMP standard, the uptime of a device is accessible
 
 To create a sensor that displays the uptime for your printer in minutes, you can use this configuration:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -271,8 +269,6 @@ sensor:
     unit_of_measurement: "minutes"
     value_template: "{{((value | int) / 6000) | int}}"
 ```
-
-{% endraw %}
 
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.
 
@@ -369,11 +365,11 @@ command_payload_off:
 vartype:
   description: The SNMP vartype for the `payload_on` and `payload_off` commands as defined in [RFC1902](https://tools.ietf.org/html/rfc1902.html).
   required: false
-  type: string  
+  type: string
   default: 'none'
 {% endconfiguration %}
 
-You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
+You should check with your device's vendor to find out the correct OID and what values turn the switch on and off.
 
 Valid values for `auth_protocol`:
 
@@ -434,7 +430,7 @@ switch:
     payload_off: 0
 
   - platform: snmp
-    name: Enable PoE on Netgear switch port 2 using SNMP v3
+    name: Enable PoE on NETGEAR switch port 2 using SNMP v3
     host: 192.168.0.4
     version: "3"
     username: "myusername"

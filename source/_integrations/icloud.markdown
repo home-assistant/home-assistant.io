@@ -2,6 +2,7 @@
 title: Apple iCloud
 description: Instructions on how to use iCloud to track devices in Home Assistant.
 ha_category:
+  - Media source
   - Presence detection
   - Sensor
 ha_iot_class: Cloud Polling
@@ -13,11 +14,12 @@ ha_codeowners:
 ha_domain: icloud
 ha_platforms:
   - device_tracker
+  - media_source  
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
+The **Apple iCloud** {% term integration %} allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
 
 There is currently support for the following platforms within Home Assistant:
 
@@ -60,23 +62,27 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 4 actions are available:
 
-### Action `icloud.update`
+### Action: Update
 
-This action can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door has been opened.
+The `icloud.update` action requests an update of a certain iDevice or all devices linked to an iCloud account. The request will result in a new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing the current iPhone location. It can be used in automations when a manual location update is needed, for example, to check if anyone is home when a door has been opened.
 
-### Action `icloud.play_sound`
+### Action: Play sound
 
-This action will play the Lost iPhone sound on your iDevice. It will still ring if you are on "Mute" or "Do not disturb" mode.
+The `icloud.play_sound` action plays the Lost iPhone sound on your iDevice. It will still ring if you are on "Mute" or "Do not disturb" mode.
 
 | Data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
 | `account`                 |       no | Email address of the iCloud account                    |
 | `device_name`             |       no | Human Friendly device name like Bob's iPhone            |
 
-### Action `icloud.display_message`
+### Action: Display message
 
-This action will display a message on your iDevice. It can also ring your device.
+The `icloud.display_message` action displays a message on your iDevice. It can also ring your device.
 
-### Action `icloud.lost_device`
+### Action: Lost device
 
-This action will put your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.
+The `icloud.lost_device` action puts your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.
+
+## Media source
+
+iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.

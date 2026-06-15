@@ -12,7 +12,7 @@ ha_domain: input_select
 ha_integration_type: helper
 ---
 
-The **Input select** {% term integration %} allows the user to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
+The **Input select** {% term integration %} allows you to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When you select a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
 The preferred way to configure an input select is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_select" title="Dropdown" %}** option.
 
@@ -165,8 +165,6 @@ automation:
 
 Example of `input_select` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry using 'input_select' in an action in an automation
    
@@ -209,5 +207,3 @@ input_select:
         retain: true
         payload: "{{ states('input_select.thermostat_mode') }}"
 ```
-
-{% endraw %}

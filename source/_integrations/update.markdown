@@ -58,15 +58,18 @@ The following device classes are supported for update entities:
   to be set.
 - **`firmware`**: This update {% term integration %} provides firmwares.
 
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
 ## Actions
 
-The update {% term entity %} exposes two actions that can be used to install or skip
-an offered software update.
+The update {% term entity %} exposes three actions that can be used to install,
+skip, or restore (clear previously skipped) an offered software update.
 
-### Action {% my developer_call_service service="update.install" %}
+### Action: Install
 
-The {% my developer_call_service service="update.install" %} action can be used
-to install an offered update to the device or service.
+The `update.install` action can be used to install an offered update to the device or service.
 
 This action is only available for an update {% term entity %} if an {% term integration %} provides
 this capability. Additionally, if allowed by the {% term integration %}, the action
@@ -93,10 +96,9 @@ target:
     - update.my_light_bulb
 ```
 
-### Action {% my developer_call_service service="update.skip" %}
+### Action: Skip
 
-The {% my developer_call_service service="update.skip" %} action can be used
-to skip an offered update to the device or service.
+The `update.skip` action can be used to skip an offered update to the device or service.
 
 After skipping an offered update, the {% term entity %} will return to the `off` state,
 which means there is no update available.
@@ -112,11 +114,9 @@ Even if an update is skipped and shows as `off` (meaning no update), if there
 is a newer version available, calling the `update.install` action on the entity
 will still install the latest version.
 
-### Action {% my developer_call_service service="update.clear_skipped" %}
+### Action: Clear skipped
 
-The {% my developer_call_service service="update.clear_skipped" %} action can
-be used to remove skipped version marker of a previously skipped an offered
-update to the device or service.
+The `update.clear_skipped` action can be used to remove the skipped version marker of a previously skipped offered update to the device or service.
 
 After skipping an offered update, the {% term entity %} will return to the `off` state,
 but will not return to it until a newer version becomes available again.
@@ -135,26 +135,71 @@ target:
 This can be helpful to, for example, in an automation that weekly unskips
 all updates you have previously marked as skipped; as a reminder to update.
 
-## Example: Sending update available notifications
+## Update automation examples
 
-A common use case for using update entities is to notify you if an update
-has become available for installation. Using the update entities,
-this is fairly straightforward to do.
+Update entities are useful when you want to stay informed about available
+updates or take action at the right time. Here are a few examples to help you
+get started.
 
-This is a YAML example for an automation that sends out a notification when
-the update for a light bulb becomes available.
+{% include docs/paste_yaml_tip.md %}
 
-```yaml
-automation:
-  - alias: "Send notification when update available"
-    triggers:
-      - trigger: state
-        entity_id: update.my_light_bulb
-        to: "on"
-    actions:
-      - alias: "Send notification to my phone about the update"
-        action: notify.iphone
-        data:
-          title: "New update available"
-          message: "New update available for my_light_bulb!"
-```
+### Automation: send a notification when an update becomes available
+
+If an update for a device or service becomes available, this automation sends a
+notification to your phone right away.
+
+- **Trigger**: Update became available
+  - **Target**: Office router update
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for notifying you about a new update" %}
+
+{% example %}
+automation: |
+  alias: "Send a notification when an update becomes available"
+  triggers:
+    - trigger: update.update_became_available
+      target:
+        entity_id: update.office_router_firmware
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Update available"
+        message: >
+          A new update is available for the office router.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: install an update during the evening if it is still available
+
+If you prefer to install updates at a quieter time, this automation checks each
+evening whether an update is still available and starts the installation.
+
+- **Trigger**: Time: 21:00
+- **Condition**: Update is available
+  - **Target**: Office router update
+- **Action**: Install update
+
+{% details "YAML example for installing an update in the evening" %}
+
+{% example %}
+automation: |
+  alias: "Install an update during the evening if it is still available"
+  triggers:
+    - trigger: time
+      at: "21:00:00"
+  conditions:
+    - condition: update.is_available
+      target:
+        entity_id: update.office_router_firmware
+  actions:
+    - action: update.install
+      target:
+        entity_id: update.office_router_firmware
+{% endexample %}
+
+{% enddetails %}

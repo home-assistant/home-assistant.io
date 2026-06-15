@@ -1,6 +1,6 @@
 ---
 title: OpenWrt (ubus)
-description: Instructions on how to integrate OpenWRT routers into Home Assistant.
+description: Instructions on how to integrate OpenWrt devices into Home Assistant.
 ha_category:
   - Presence detection
 ha_release: 0.7.6
@@ -15,19 +15,29 @@ related:
 ha_quality_scale: legacy
 ---
 
-This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://openwrt.org/docs/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
+This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://openwrt.org/docs/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in client devices connected to the access point on the OpenWrt device.
+
+{% important %}
+The integration should be configured on OpenWrt devices providing wireless access points, not on devices acting only as routers.
+{% endimportant %}
 
 Before this scanner can be used, you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
 
 ```bash
-opkg update
-opkg install rpcd-mod-file uhttpd-mod-ubus
+apk update
+apk add rpcd-mod-file uhttpd-mod-ubus
 ```
 
 Add a new system user `hass` (or do it in any other way that you prefer):
 
-- Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
-- Add line to /etc/shadow: hass:x:0:0:99999:7:::
+- Add line to `/etc/passwd`: `hass:x:10001:10001:hass:/var:/bin/false`
+- Add line to `/etc/shadow`: `hass:x:0:0:99999:7:::`
+
+Then set a password for the `hass` user:
+
+```bash
+passwd hass
+```
 
 Edit the `/etc/config/rpcd` and add the following lines:
 
@@ -49,7 +59,12 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
     "read": {
       "ubus": {
         "hostapd.*": ["get_clients"],
-        "uci": ["get"]
+        "uci": ["get"],
+        "dhcp": ["ipv4leases"],
+        "file": ["read"]
+      },
+      "file": {
+        "/tmp/dhcp.leases": ["read"]
       }
     },
     "write": {}
@@ -57,52 +72,73 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
 }
 ```
 
-Restart the services. This ACL file needs to be recreated after updating/upgrading your OpenWrt firmware.
+_Check your lease file path:_ The entry `/tmp/dhcp.leases` is the OpenWrt default for dnsmasq. If you have a custom configuration, run `uci get dhcp.@dnsmasq[0].leasefile` on your device. Should it return a different path, then you must update the `hass.json` file above to match it, or client device names will not be correctly resolved. This step can be ignored if dnsmasq is disabled on your device.
+
+Restart the services.
 
 ```bash
 # /etc/init.d/rpcd restart && /etc/init.d/uhttpd restart
 ```
 
-Check if the `file` namespaces is registered with the RPC server.
+Check if the `file` namespace is registered with the RPC server.
 
 ```bash
 # ubus list | grep file
 file
 ```
 
-After this is done, add the following to your {% term "`configuration.yaml`" %} file.
+{% tip %}
+If not already done, add the ACL file path to `/etc/sysupgrade.conf` so that the file remains after updating/upgrading your OpenWrt firmware.
+
+```bash
+# echo "/usr/share/rpcd/acl.d/hass.json" >> /etc/sysupgrade.conf
+```
+{% endtip %}
+
+Now that the device setup is finished, add the password for the `hass` account created in a previous step to your [`secrets.yaml`](/docs/configuration/secrets/) file.
+
+```yaml
+hass_password: "YOUR_HASS_PASSWORD"
+```
+
+Add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
   - platform: ubus
-    host: ROUTER_IP_ADDRESS
-    username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
+    host: OPENWRT_IP_ADDRESS
+    username: hass
+    password: !secret hass_password
+  # If you configured multiple OpenWrt devices, add a separate entry for each device.
+  - platform: ubus
+    host: OPENWRT_IP_ADDRESS_2
+    username: hass
+    password: !secret hass_password
 ```
 
 {% configuration %}
 host:
-  description: The IP address of your router, e.g., 192.168.1.1.
+  description: The IP address of your OpenWrt device, for example, `192.168.1.1`.
   required: true
   type: string
 username:
-  description: The username of a user with administrative privileges, usually `root`.
+  description: The username for the account you created on your OpenWrt device. Use the dedicated `hass` user rather than `root` to follow the principle of least privilege.
   required: true
   type: string
 password:
-  description: The password for your given admin account.
+  description: The password for the user above.
   required: true
   type: string
 dhcp_software:
-  description: "The DHCP software used in your router: `dnsmasq`, `odhcpd`, or `none`."
+  description: "The DHCP software used in your OpenWrt device: `dnsmasq`, `odhcpd`, or `none`. Use `none` if neither service is used on the device, for example, if it's a bridged access point."
   required: false
   default: dnsmasq
   type: string
 {% endconfiguration %}
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
 
 ## Troubleshooting
 
@@ -120,11 +156,20 @@ If you find that this never creates `known_devices.yaml`, or if you need more in
         homeassistant.components.device_tracker: debug
     ```
 
-3. In another window, tail the logfile in the configuration directory:
+3. In another window, observe the logs.
 
-    ```bash
-    tail -f home-assistant.log  | grep device_tracker
-    ```
+    - If using an {% term "Home Assistant Supervisor" %} based installation, such as the
+    {% term "Home Assistant Operating System" %}, log in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-add-on) and run the following command:
+
+      ```bash
+      ha core logs --follow | grep device_tracker
+      ```
+
+    - If not using the {% term "Home Assistant Supervisor" %} tail the log file in the configuration directory:
+
+      ```bash
+      tail -f home-assistant.log  | grep device_tracker
+      ```
 
 4. If you see a Python stack trace like the following, check your configuration for correct username/password.
 

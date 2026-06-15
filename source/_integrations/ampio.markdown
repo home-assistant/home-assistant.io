@@ -16,7 +16,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ampio` air quality platform will query the open data API of [ampio.pl](http://smog.ampio.pl/) to monitor air quality sensor station.
+The **Ampio** {% term integration %} will query the open data API of [ampio.pl](http://smog.ampio.pl/) to monitor air quality sensor station.
 
 ## Setup
 

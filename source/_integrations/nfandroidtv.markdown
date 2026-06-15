@@ -24,9 +24,9 @@ When setting this up be aware, that there are two apps: one for your smartphone 
 
 ## Actions
 
-The following options can be specified inside the data field for the notify action:
+### Action: Notify
 
-### Action `notify.[name_of_your_tv]`
+The `notify.[name_of_your_tv]` action sends a notification to your Android TV. The following options can be specified inside the data field for the notify action:
 
 {% configuration %}
 duration:
@@ -113,8 +113,6 @@ icon:
 
 Example of an automation with an action, full configuration:
 
-{% raw %}
-
 ```yaml
 action: notify.living_room_tv
 data:
@@ -128,7 +126,5 @@ data:
     color: "teal"
     interrupt: 0
 ```
-
-{% endraw %}
 
 Please note that `path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.

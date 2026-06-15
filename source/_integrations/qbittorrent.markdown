@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
+The **qBittorrent** {% term integration %} allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
 You can control the alternative speed via the `Alternative speed` switch.
 
 ## Setup
@@ -42,6 +42,7 @@ The qBittorrent integration will add the following sensors:
 - `sensor.qbittorrent_active_torrents`: The current active torrents in qBittorrent.
 - `sensor.qbittorrent_inactive_torrents`: The current inactive torrents in qBittorrent.
 - `sensor.qbittorrent_paused_torrents`: The current paused torrents in qBittorrent.
+- `sensor.qbittorrent_errored_torrents`: The current errored torrents in qBittorrent.
 
 ## Switch
 
@@ -51,15 +52,15 @@ The qBittorrent integration adds the following switch:
 
 ## Actions
 
-### Action `qbittorrent.get_torrents`
+### Action: Get torrents
 
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
+The `qbittorrent.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a dictionary of torrents based on the provided filter.
 
 | Data attribute | Optional | Description                                    | Example                                             |
 | ---------------------- | -------- | ---------------------------------------------- | --------------------------------------------------- |
 | `device`               | no       | The device you'd like to check the torrents of | all, active, inactive, paused, downloading, seeding |
-| `torrent_filter`       | no       | The type of torrents you want in the response  | all, active, inactive, paused, downloading, seeding |
+| `torrent_filter`       | no       | The type of torrents you want in the response  | all, active, inactive, paused, errored, downloading, seeding |
 
 ```yaml
 action: qbittorrent.get_torrents
@@ -70,14 +71,14 @@ response_variable: torrents
 
 The response data contains the field `torrents` which contains a dictionary of torrents. The names of the torrents are the keys.
 
-### Action `qbittorrent.get_all_torrents`
+### Action: Get all torrents
 
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
+The `qbittorrent.get_all_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a dictionary of torrents based on the provided filter.
 
 | Data attribute | Optional | Description                                   | Example                                             |
 | ---------------------- | -------- | --------------------------------------------- | --------------------------------------------------- |
-| `torrent_filter`       | no       | The type of torrents you want in the response | all, active, inactive, paused, downloading, seeding |
+| `torrent_filter`       | no       | The type of torrents you want in the response | all, active, inactive, paused, errored, downloading, seeding |
 
 ```yaml
 action: qbittorrent.get_all_torrents

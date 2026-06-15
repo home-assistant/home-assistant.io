@@ -11,7 +11,7 @@ ha_domain: leaone
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates LeaOne health devices into Home Assistant.

@@ -2,10 +2,10 @@
   {% assign elements = site.dashboards | sort_natural: 'title' %}
 
   <div class="section">
-    <h1 class="title epsilon"><iconify-icon icon="mdi:view-dashboard"></iconify-icon> Dashboards</h1>
+    <h2 class="h1 title epsilon"><iconify-icon icon="mdi:view-dashboard"></iconify-icon> Dashboards</h2>
     <ul class="divided sidebar-menu">
       <li>{% active_link /dashboards/ Introduction %}</li>
-      <li>{% active_link /dashboards/dashboards/ Multiple dashboards %}</li>
+      <li>{% active_link /dashboards/dashboards/ Dashboard types %}</li>
       <li>{% active_link /dashboards/views/ Views %}</li>
       <li>{% active_link /dashboards/cards/ Cards %}</li>
       <li>{% active_link /dashboards/badges/ Badges %}</li>
@@ -13,7 +13,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title epsilon"><iconify-icon icon="mdi:about-circle-outline"></iconify-icon> View types</h1>
+    <h2 class="h1 title epsilon"><iconify-icon icon="mdi:about-circle-outline"></iconify-icon> View types</h2>
     <ul class="divided sidebar-menu">
       {% for element in elements %}
         {% if element.type == "view" %}
@@ -24,7 +24,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title epsilon">{% icon "mdi:card-multiple-outline" %} Card types</h1>
+    <h2 class="h1 title epsilon">{% icon "mdi:card-multiple-outline" %} Card types</h2>
     <ul class="divided sidebar-menu">
       {% for element in elements %}
         {% if element.type == "card" %}
@@ -35,16 +35,16 @@
   </div>
 
   <div class="section">
-    <h1 class="title epsilon">{% icon "mdi:cog" %} Advanced</h1>
+    <h2 class="h1 title epsilon">{% icon "mdi:cog" %} Advanced</h2>
     <ul class="divided sidebar-menu">
       <li>{% active_link /dashboards/features/ Features %}</li>
       <li>{% active_link /dashboards/header-footer/ Headers & footers %}</li>
       <li>{% active_link /dashboards/actions/ Actions %}</li>
+      <li>{% active_link /dashboards/naming/ Naming %}</li>
       <li><a
-          class="external-link" 
+          class="external-link"
           href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
           >Developing custom cards
-          {% icon "tabler:external-link" %}
         </a></li>
     </ul>
   </div>

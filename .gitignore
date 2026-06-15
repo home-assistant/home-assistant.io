@@ -8,7 +8,11 @@ source/_data/analytics_data.json
 source/_data/blueprint_exchange_data.json
 source/_data/version_data.json
 source/_data/alerts_data.json
+source/_data/language_scores.json
+source/_data/codeowners.json
+source/_data/wwha_devices.json
 source/_stash
+source/stylesheets/homeassistant/pages/**/*.css
 source/stylesheets/screen.css
 source/.jekyll-cache/
 vendor
@@ -22,3 +26,4 @@ source/.jekyll-metadata
 !.vscode/tasks.json
 *.suo
 tags*
+/create-blog-post

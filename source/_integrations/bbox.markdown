@@ -18,7 +18,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `bbox` {% term integration %} uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
+The **Bbox** {% term integration %} uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
 
 There is currently support for the following device types within Home Assistant:
 

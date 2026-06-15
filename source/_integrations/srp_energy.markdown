@@ -11,10 +11,10 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The SRP Energy integration shows information from SRP hourly energy usage report for their customers.
+The **SRP Energy** {% term integration %} shows information from SRP hourly energy usage report for their customers.
 
 You need a username, password, and account ID which you can create at [SRP](https://www.srpnet.com).
 

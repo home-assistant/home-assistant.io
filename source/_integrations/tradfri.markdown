@@ -20,10 +20,10 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it.
+The **IKEA TRÅDFRI** {% term integration %} allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it.
 
 {% include integrations/config_flow.md %}
 
@@ -53,15 +53,7 @@ After updating your IKEA Trådfri Gateway firmware it might be necessary to repe
 
 Then restart Home Assistant. When prompted, enter the security key and click *configure*, just like during initial setup.
 
-### Compilation issues
-
-{% note %}
-This does not apply to Home Assistant running in Docker Containers, including the default Home Assistant install.
-{% endnote %}
-
-Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this integration. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
-
 ## Known limitations
 
 - The TRÅDFRI Shortcut button, Remotes and motion sensor only send information about their battery status, no events, to Home Assistant and thus can't be used to automate with. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/), or the [HomeKit device](/integrations/homekit_controller) integration as mentioned above.
-- The groups you find in the app are not imported into Home Assistant as they are known to cause stability issues. We recommend that you use the native [light groups](/integrations/light.group/) instead.
+- The groups you find in the app are not imported into Home Assistant as they are known to cause stability issues. We recommend that you use the native [light groups](/integrations/group#binary-sensor-light-and-switch-groups) instead.

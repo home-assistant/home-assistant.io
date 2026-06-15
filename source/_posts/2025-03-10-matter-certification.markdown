@@ -48,7 +48,7 @@ The [Open Home Foundation Matter Server](https://csa-iot.org/csa_product/open-ho
 
 If you're confused why we certified both Home Assistant and Open Home Foundation Matter Server, there are a couple of legal/procedural reasons, but it comes with some useful benefits. We certified the server as a standalone component to allow any project to use it. Each project that uses it, including Home Assistant, will have to go through a certification process to acknowledge that it uses a certified component as a "User Interface Component". Certification for the Open Home Foundation Matter Server means it properly connects and communicates with other Matter devices, while certification for Home Assistant is about being able to display the Matter trademark.
 
-This separation is important because it means that we won't need to go through recertification every time we update Home Assistant. This way we can keep the Matter-related backend isolated in both a software and certification sense. This is also why we will need to continue to have the Open Home Foundation Matter Server as an add-on, and it cannot be built into [Home Assistant Core](/installation/#advanced-installation-methods).
+This separation is important because it means that we won't need to go through recertification every time we update Home Assistant. This way we can keep the Matter-related backend isolated in both a software and certification sense. This is also why we will need to continue to have the Open Home Foundation Matter Server as an add-on, and it cannot be built into [Home Assistant Core](/installation/#about-installation-methods).
 
 ## The road to certification
 

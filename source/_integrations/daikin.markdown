@@ -17,14 +17,8 @@ ha_platforms:
   - climate
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
-
-{% warning %}
-
-Daikin has removed their local API in newer products. They offer a Onecta cloud API for controlling Daikin devices through the cloud, see the [Daikin Europe Developer Portal](https://developer.cloud.daikineurope.com) for more details. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
-
-{% endwarning %}
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
 
@@ -37,24 +31,22 @@ There is currently support for the following device types within Home Assistant:
 ## Supported hardware
 
 - The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application. The new version of WiFi Controller Unit BRP069Bxx is also confirmed to work, tested and working devices are the BRP069B41 and BRP069B45.
-- The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
+- The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://apps.apple.com/au/app/id917168708) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
   - BRP072Cxx based units (including Zena devices)*.
 - The United States version of the Wifi Controller Unit (BRP072A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.comfortcontrols) application. Confirmed working on a Daikin Wall Units FTXS09LVJU, FTXS15LVJU, FTXS18LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
+- BRP069C4x/BRP084Cxx units using firmware 2.8.0 was added in Home Assistant 2025.9.
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is operated by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - **SKYFi** based units, which is operated by the SKYFi application*.
 
-{% note %}
-
-- The integration for BRP072Cxx and SKYFi based units need API-key / password respectively. The API-key/password can be found on a sticker under the front cover. The other models are auto detected and the API-key and password field must be left empty.
-- BRP084Cxx firmware update from 1.19.0 to 2.8.0 breaks local API there is however ongoing work in fixing local API support again.
-
-{% endnote %}
+If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikout](https://github.com/revk/ESP32-Faikout).
 
 {% include integrations/config_flow.md %}
 
+If your device is set up with password, use the password. If it has an API key, use the API key. In all other cases, leave the fields blank.
+
 {% note %}
   
-If your Daikin unit does not reside in the same network as your Home Assistant instance, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
+If your Daikin unit does not reside in the same network as your Home Assistant instance (that is, your network is segmented), note that a couple of UDP connections are made during discovery:
 
 - From Home Assistant to the Daikin controller: `UDP:30000` => `30050`
 - From the Daikin controller to Home Assistant: `UDP:<random port>` => `30000`
@@ -75,6 +67,17 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 - [**set_preset_mode**](/integrations/climate#action-climateset_preset_mode) (away, none)
 
 Current inside temperature is displayed.
+
+When your controller supports zone temperature control (AirBase/SKYFi), the integration also exposes one climate entity per zone.
+
+### Zone climate entities
+
+- Each zone climate entity can set the temperature within a ±2 °C window around the system set point.
+- Turning a zone on or off continues to rely on the existing zone switch entities. The zone climate entity is exclusively for temperature management.
+- Even when a zone is switched off you can adjust its target temperature; Daikin applies the stored set point as soon as the zone is re-enabled.
+- Only controllers that advertise Linear Zone Control and expose the zone temperature tables (for example AirHub Touch Zone Controller, AirBase/SKYFi models with Linear Zone Control) create these extra climate entities.
+
+The primary Daikin climate continues to provide the `zone_temps` attribute for a quick overview of all zone targets.
 
 {% note %}
   
@@ -160,4 +163,4 @@ Currently known region codes:
 - US
 - TH
 
-If you experience problems with certain apps like the Daikin ONECTA try setting a lower-case region code (e.g. 'eu').
+If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).

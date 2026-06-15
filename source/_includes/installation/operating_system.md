@@ -14,28 +14,31 @@ You will need a few things to get started with installing Home Assistant. The li
 
 To get started, we suggest the ODROID-N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID-M1.
 
-If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
+If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4).
 
 Home Assistant bundles (US market):
 
 The bundles come with Home Assistant pre-installed.
 
-- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
-- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
-- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
-- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
-- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
+- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935)
+- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399)
+- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831)
+- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367)
+- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903)
 
 Variants without pre-installed Home Assistant:
 
-- ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
-- [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
-- [ODROID-M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
-- ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135?ref=eeb6nfw07e) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903?ref=eeb6nfw07e)
-- [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
-- [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
-- [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
-- [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
+- ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418)
+- [ODROID-C4](https://ameridroid.com/products/odroid-c4)
+- [ODROID-M1](https://ameridroid.com/products/odroid-M1)
+- ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903)
+
+Related components:
+
+- [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug)
+- [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery)
+- [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot)
+- [Case](https://ameridroid.com/products/odroid-n2-case)
 
 *These are affiliated links. We get commissions for purchases made through links in this post.*
 
@@ -99,7 +102,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 - Computer
 - The target x86-64 hardware, on which you want to install the {% term "Home Assistant Operating System" %} (HAOS)
-- USB flash drive (USB thumb drive is sufficient, it should be at least 4&nbsp;GB in size)
+- USB flash drive (USB thumb drive is sufficient, it should be at least 8&nbsp;GB in size)
 - Internet connection
 
 #### To install HAOS via Ubuntu from a USB flash drive
@@ -108,7 +111,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before carrying out this procedure.
 2. Create a *live operating system* on a USB flash drive:
-   - Follow the [Ubuntu Desktop instructions](https://ubuntu.com/tutorials/try-ubuntu-before-you-install) on writing an Ubuntu Desktop iso file onto a USB device.
+   - Follow the [Ubuntu Desktop instructions](https://documentation.ubuntu.com/desktop/en/latest/tutorial/try-ubuntu-desktop/) on writing an Ubuntu Desktop iso file onto a USB device.
 3. Insert the USB flash drive into the system on which you want to run Home Assistant.
    - Boot the live operating system.
    - You might need to adjust boot order or use F10 (might be a different F-key depending on the BIOS) to select the USB flash drive as boot device.
@@ -131,6 +134,8 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
       - If you are getting an **Error unmounting filesystem** error message, stating that the **target is busy**:
       - Most likely, you are running Ubuntu on your internal disk. Instead, you need to run it on your stick.
         - Go back to step 3 and during start up, make sure you select **Try Ubuntu** (and NOT **Install Ubuntu**).
+      - Another issue may be that live Ubuntu is using the Swap partition of an existing Linux installation.
+        - If you see "Swap" listed as a partition on the drive you're going to install HAOS, just select the Swap partition, then press the stop button to unmount it and try the restore operation again.
    6. In the partitions overview, you should now see the restore operation in progress.
       - The Home Assistant Operating System is now being installed on your system.
         ![Restore disk image: Restoring...](/images/installation/haos_restoring.png)
@@ -175,53 +180,51 @@ Use this method only if Method 1 does not work for you.
 4. Download the image to your computer.
    - Copy the URL for the image.
    - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
-{% if site.installation.types[page.installation_type].variants.size > 1 %}
-{% tabbed_block %}
-{% for variant in site.installation.types[page.installation_type].variants %}
+    {% if site.installation.types[page.installation_type].variants.size > 1 %}
+    {% tabbed_block %}
+    {% for variant in site.installation.types[page.installation_type].variants %}
 
-- title: {{ variant.name }}
-  content: |
+    - title: {{ variant.name }}
+      content: |
+
+        ```text
+        {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+        ```
+
+        {% if variant.key == "odroid-n2" %}
+        [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
+        {% elsif variant.key == "odroid-m1s" %}
+        [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
+        {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
+          *(64-bit is recommended)*
+        {% endif %}
+
+    {% endfor %}
+    {% endtabbed_block %}
+    {% else %}
 
     ```text
-    {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+    {% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
+    {{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
     ```
 
-    {% if variant.key == "odroid-n2" %}
-    [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
-    {% elsif variant.key == "odroid-m1s" %}
-    [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
-    {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
-      *(64-bit is recommended)*
     {% endif %}
 
-{% endfor %}
-{% endtabbed_block %}
-{% else %}
-
-```text
-{% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
-{{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
-```
-
-{% endif %}
-
-*Select and copy the URL or use the "copy" button that appear when you hover it.*
-
+    *Select and copy the URL or use the "copy" button that appears when you hover it.*
 5. Paste the URL into your browser to start the download.
 6. Extract the file you just downloaded.
 7. Select **Flash from file** and select the image you just extracted.
    - Do not use **Flash from URL**. It does not work on some systems.
-
-  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+    ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
 8. **Select target**.
-![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
+    ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 9. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
-![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
+    ![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
 10. Select **Flash!** to start writing the image.
-   - If the operation fails, decompress the .xz file and try again.
-![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-   - When Balena Etcher has finished writing the image, you will see a confirmation.
-![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
+    - If the operation fails, decompress the .xz file and try again.
+    ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
+    - When Balena Etcher has finished writing the image, you will see a confirmation.
+    ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
@@ -238,7 +241,7 @@ Use this method only if Method 1 does not work for you.
 {% note %}
 
 If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
-This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
+This can be accomplished either by using a live operating system (for example, Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
 
   ```text
   efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
@@ -274,8 +277,10 @@ If you are running an older Windows version or have a stricter network configura
 
 ### Download the appropriate image
 
-- [VirtualBox][vdi] (.vdi)
-{% if page.installation_type == 'linux' %}
+- [VirtualBox (Intel chip)][vdi] (.vdi)
+{% if page.installation_type == 'macos' %}
+- [VirtualBox (Apple Silicon chip)][vdi_aarch64] (.vdi)
+{% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
@@ -297,12 +302,11 @@ Follow this guide if you already are running a supported virtual machine hypervi
 
 ### Create the virtual machine
 
-Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs).
+Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your app needs).
 
 Minimum recommended assignments:
 
 - 2 GB RAM
-- 32 GB Storage
 - 2vCPU
 
 *All these can be extended if your usage calls for more resources.*
@@ -313,16 +317,42 @@ Minimum recommended assignments:
 
 - title: VirtualBox
   content: |
-    1. Create a new virtual machine.
-    2. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
-    3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
-       - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
-    4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.  
-      {% icon "mdi:alert-outline" %} Please keep in mind that the bridged
-      adapter only functions over a hardwired Ethernet connection.
-      Using Wi-Fi on your VirtualBox host is unsupported.
-    6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
+    
+    #### Create the virtual machine
+    
+    1. Open VirtualBox and select the **New** button (the blue star).
+    2. **Name:** Type Home Assistant.
+    3. **ISO Image:** Leave this as **None** or **Empty**.
+    4. **Type & Version:** Select **Linux**, then select **Oracle Linux (64-bit)** (or **ARM 64-bit** if you are using a Mac with an M1/M2/M3 chip).
+    5. Select **Next**.
+ 
+    #### Configure hardware
+    1. **Base Memory:** Move the slider to at least **2048 MB** (2GB).
+    2. **Number of CPUs:** Move the slider to at least **2**.
+    3. **EFI:** Check the box for **Enable EFI (special OSes only)**. This is required for Home Assistant to boot.
+    4. Select **Next**.
+
+    #### Finalizing the wizard
+
+    1. On the **Virtual Hard Disk** screen, leave the settings as they are (it will suggest creating a new disk). We will swap this for your downloaded file in the next step.
+    2. Select **Finish**.
+
+    #### Attach the Home Assistant disk (VDI)
+
+    1. Select your new "Home Assistant" VM in the left-hand list and select the **Settings** icon (the orange gear).
+    2. Go to the **Storage** section on the left menu.
+    3. In the **Storage Devices** list, you will see a disk already listed under **Controller: SATA**. Right-click that disk and select **Remove Attachment**. This removes the empty placeholder disk.
+    4. Select the **Add Hard Disk** icon (the small disk with a green plus symbol) located next to the words **Controller: SATA**.
+    5. In the window that pops up, select the **Add** button at the top.
+    6. Find and select the `.vdi` file you previously downloaded and unzipped.
+    7. Select **Choose** to confirm the file.
+
+    #### Configure network
+
+    1. While still in the **Settings** window, go to the **Network** section.
+    2. Change the **Attached to** setting from **NAT** to **Bridged Adapter**.
+    3. Under **Name**, select the adapter you use for internet access. This allows Home Assistant to talk to other devices in your home.
+    4. Select **OK**.
 
     {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
     free up unused disk space. To automatically shrink the vdi disk image the `discard` option must
@@ -361,8 +391,8 @@ Minimum recommended assignments:
     3. Choose **Generic Default** for the operating system.
     4. Check the box for **Customize configuration before install**.
     5. Under **Network Selection**, select your bridge.
-    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
-    7. Click **Add Hardware** (bottom left), and select **Channel**.
+    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain words such as `secure` or `secboot`), for example `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+    7. Select **Add Hardware** (bottom left), and select **Channel**.
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
     10. Finally, select **Begin Installation** (upper left corner).
@@ -424,7 +454,7 @@ Minimum recommended assignments:
 
       ## Edit the VM settings
 
-      11. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
+      11. In Windows Explorer, go to the storage location of your newly created VM, for example under `C:\home-assistant`.
       12. Delete the `home-assistant.vmdk` file.
       3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
          - If you haven't unzipped the archive, unzip it.
@@ -441,12 +471,12 @@ Minimum recommended assignments:
 
 - title: VMware ESXi/vSphere
   content: |
-    Use the “E1001” or “E1001E” virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s “VMXnet3” virtual network adapter.
+    Use the `E1000` or `E1000E` virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s `VMXnet3` virtual network adapter.
 {% endif %}
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V
   content: |
-    ⚠️ Hyper-V does not have USB support
+    ⚠️ Hyper-V does not have USB support.
 
     1. Create a new virtual machine.
     2. Select **Generation 2**.
@@ -462,11 +492,9 @@ Minimum recommended assignments:
 
 1. Start the virtual machine.
 2. Observe the boot process of the Home Assistant Operating System.
-3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine’s IP address).
+3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. {% if page.installation_type == 'windows' %}If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% else %}If you have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% endif %}
 
 {% endif %}
-
-{% include installation_survey.html %}
 
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 
@@ -481,6 +509,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vdi_aarch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz

@@ -15,7 +15,7 @@ ha_config_flow: true
 ha_integration_type: device
 ---
 
-The `modem_callerid` integration uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1). Usually any modem that uses a CX93001 will support this.
+The **Phone Modem** {% term integration %} uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1). Usually any modem that uses a CX93001 will support this.
 
 When the sensor detects a new call, its state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name, and number.
 
@@ -27,6 +27,7 @@ This integration also offers a button to pick up and then hang up the call to pr
 
 Reported models with this integration include that work:
 - [StarTech.com USB56KEMH2](https://www.startech.com/en-us/networking-io/usb56kemh2)
+- Zoom USB Modem Model 3095
 
 Devices that did not work:
 - [StarTech.com USB56KEM3](https://www.startech.com/en-us/networking-io/usb56kem3)
@@ -34,8 +35,6 @@ Devices that did not work:
 ## Examples
 
 An example automation:
-
-{% raw %}
 
 ```yaml
 automation:
@@ -70,5 +69,3 @@ automation:
         data:
           message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
 ```
-
-{% endraw %}

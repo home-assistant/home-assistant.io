@@ -19,10 +19,10 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The DROP integration provides connectivity with
+The **DROP** {% term integration %} provides connectivity with
 [DROP smart water system](https://dropconnect.com) devices via a local MQTT API.
 
 ### Supported devices

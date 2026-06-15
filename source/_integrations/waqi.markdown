@@ -9,8 +9,9 @@ ha_codeowners:
   - '@joostlek'
 ha_domain: waqi
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 ---
 

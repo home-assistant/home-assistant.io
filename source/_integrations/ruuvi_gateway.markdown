@@ -10,7 +10,7 @@ ha_codeowners:
   - '@akx'
 ha_domain: ruuvi_gateway
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Ruuvi Gateway](https://ruuvi.com/gateway/) devices as

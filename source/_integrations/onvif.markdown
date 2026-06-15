@@ -7,7 +7,6 @@ ha_release: 0.47
 ha_iot_class: Local Push
 ha_domain: onvif
 ha_codeowners:
-  - '@hunterjm'
   - '@jterrace'
 ha_config_flow: true
 ha_platforms:
@@ -15,24 +14,19 @@ ha_platforms:
   - button
   - camera
   - diagnostics
-  - event
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 
-The ONVIF camera integration allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.
+The **ONVIF** {% term integration %} allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.
 
 {% include integrations/config_flow.md %}
 
 {% tip %}
 It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
 {% endtip %}
-
-{% note %}
-If running Home Assistant Core in a venv, ensure that libxml2 and libxslt Python interfaces are installed via your package manager.
-{% endnote %}
 
 ### Configuration notes
 
@@ -44,7 +38,7 @@ Most of the ONVIF devices support more than one audio/video profile. Each profil
 | -------| ----------- |
 | RTSP transport mechanism | RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`. |
 | Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` integration](/integrations/ffmpeg). |
-| Use wallclock as timestamps | ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ). |
+| Use wallclock as timestamps | Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ). |
 | Enable Webhooks | If the device supports notifications via a Webhook, the integration will attempt to set up a Webhook. Disable this option to force falling back to trying PullPoint if the device supports it. |
 
 #### Snapshots
@@ -112,3 +106,17 @@ This integration uses the ONVIF auxiliary command and imaging service to send ce
 | IR lamp  | `ir_lamp` |  Turn infrared lamp on and off via `IrCutFilter` ONVIF imaging setting. |
 | Autofocus  | `autofocus` |  Turn autofocus on and off via `AutoFocusMode` ONVIF imaging setting. |
 | Wiper  | `wiper` |  Turn on the lens wiper on and off via the `Wiper` ONVIF auxiliary command. |
+
+## Troubleshooting
+
+### Symptom: Error message: "No usable cameras were found"
+
+The ONVIF integration shows an error message "No usable cameras were found". 
+
+#### Resolution
+
+Update the camera configuration to output at least one video stream in H.264 format rather than H.265. One option for doing this is to set a secondary stream to H.264 while leaving the primary stream at the default H.265.
+
+#### Cause 
+
+Many newer cameras, particularly those with higher resolutions that benefit from H.265's improved video coding, support H.265 (HEVC) by default, while the ONVIF integration looks for H.264 (AVC) video streams to find cameras.

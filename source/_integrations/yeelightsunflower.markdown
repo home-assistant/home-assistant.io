@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `yeelightsunflower` {% term integration %} allows you to control your Yeelight Sunflower light bulbs with Home Assistant.
+The **Yeelight Sunflower** {% term integration %} allows you to control your Yeelight Sunflower light bulbs with Home Assistant.
 
 {% note %}
 The "Yeelight Sunflower" bulbs are not the same as the "Yeelight WiFi" bulbs.

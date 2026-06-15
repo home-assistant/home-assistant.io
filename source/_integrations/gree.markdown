@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Gree integration allows you to control a [Gree Smart HVAC](https://global.gree.com/) in Home Assistant.
+The **Gree** {% term integration %} allows you to control a [Gree Smart HVAC](https://global.gree.com/) in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -40,6 +40,8 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 - Heiwa
 - Ekokai
 - Lessar
+- Tosot
+- Wilfa
 
 ## Climate
 

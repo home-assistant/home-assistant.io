@@ -27,9 +27,13 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
 ## Use the actions
 
-Go to the **Developer Tools** and open the **Actions** tab. From the **Actions** dropdown, choose `remote.turn_on`, `remote.turn_off`, or `remote.toggle`. Under target, select the target device. If you are in YAML mode, enter something like the sample below into the **Data** field. Once you are done, select **Perform action**.
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. From the **Actions** dropdown, choose `remote.turn_on`, `remote.turn_off`, or `remote.toggle`. Under target, select the target device. If you are in YAML mode, enter something like the sample below into the **Data** field. Once you are done, select **Perform action**.
 
 ```json
 {"entity_id":"remote.family_room"}
@@ -40,3 +44,4 @@ Go to the **Developer Tools** and open the **Actions** tab. From the **Actions**
 | `entity_id`    | yes      | Only act on a specific remote, else target all. |
 
 See the platform documentation for each type of remote for more detailed examples.
+

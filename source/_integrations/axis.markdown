@@ -4,6 +4,7 @@ description: Integration between network devices from Axis Communications with H
 ha_category:
   - Binary sensor
   - Camera
+  - Event
   - Light
   - Switch
 ha_config_flow: true
@@ -20,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - diagnostics
+  - event
   - light
   - switch
 ha_integration_type: device
@@ -51,7 +53,11 @@ If you are having issues and want to report a problem, always start with making 
 
 ### Troubleshooting discovery
 
-If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+If your device is not discovered. On your camera, go to **System Options** > **Advanced** > **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+
+### Internet access required for full integration
+
+If the Axis device does not have internet access, Home Assistant may only display the camera stream. Other entities such as sensors and output controls might not appear. To ensure all device features are available, make sure the camera has internet access during initial setup.
 
 ### Reporting a problem
 
@@ -80,6 +86,10 @@ If this setting is disabled (default) it will use camera default stream settings
 
 A Video source (view area) defines a subsection of the camera's sensor typically a more focused area of interest. Additional view areas can be configured on the device.
 If this setting is disabled (default) it will use the camera default source.
+
+## Event
+
+The Axis I8116-E Intercom is supported with a **Doorbell** event entity. This event entity is triggered when the doorbell button is pressed, allowing you to create automations or notifications in response to doorbell activity.
 
 ## Light
 

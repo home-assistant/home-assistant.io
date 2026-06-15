@@ -14,12 +14,12 @@ The conditional card displays another card based on conditions.
 
 ![Screenshot of the conditional card](/images/dashboards/conditional_card.gif)
 
+Most options for this card can be configured via the user interface.
+
 {% include dashboard/edit_dashboard.md %}
 Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
 
 The conditional card can still be used. However, it is now possible to define a setting to show or hide a card conditionally directly on each card type, on its [Visibility](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) tab.
-
-Most options for this card can be configured via the user interface.
 
 ## YAML configuration
 
@@ -198,9 +198,68 @@ users:
   type: list
 {% endconfiguration %}
 
+### Location
+
+Specify the visibility of the card based on the current user's current location. The location is based on the state of the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
+
+```yaml
+condition: location
+locations:
+  - home
+  - Home Neigborhood
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`location`"
+  type: string
+locations:
+  required: true
+  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true.
+  type: list
+{% endconfiguration %}
+
+### Time
+
+Specify the visibility of the card based on the current time and day of the week.
+
+```yaml
+condition: time
+after: "08:00"
+before: "17:00"
+weekdays:
+  - mon
+  - tue
+  - wed
+  - thu
+  - fri
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`time`"
+  type: string
+after:
+  required: false
+  description: Time in 24-hour format (HH:MM) after which the card should be visible.*
+  type: string
+before:
+  required: false
+  description: Time in 24-hour format (HH:MM) before which the card should be visible.*
+  type: string
+weekdays:
+  required: false
+  description: List of weekdays on which the card should be visible. Valid values are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
+  type: list
+{% endconfiguration %}
+
+At least one of `after` or `before` must be used for this condition to be valid. Both can be used together to define a time range as in the example above.
+
 ### And
 
-Specify that both conditions must be met.
+Specify that all conditions must be met.
 
 ```yaml
 condition: and
@@ -248,4 +307,27 @@ conditions:
   type: list
 {% endconfiguration %}
 
+### Not
 
+Specify that at least one of the conditions must not be met.
+
+```yaml
+condition: not
+conditions:
+  - condition: numeric_state
+    above: 0
+  - condition: user
+    users:
+      - 581fca7fdc014b8b894519cc531f9a04
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`not`"
+  type: string
+conditions:
+  required: false
+  description: List of conditions to check. See [available conditions](#conditions-options).
+  type: list
+{% endconfiguration %}

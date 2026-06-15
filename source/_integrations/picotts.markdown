@@ -8,14 +8,16 @@ ha_release: 0.36
 ha_domain: picotts
 ha_platforms:
   - tts
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_codeowners:
+  - '@rooggiieerr'
+ha_config_flow: true
 ---
 
-The `picotts` text-to-speech {% term integration %} uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.
+The **Pico TTS** {% term integration %} uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.
 Pico TTS is a powerful open-source engine that runs locally (cloudless) so it can work even without an internet connection.
 
 ## Configuration

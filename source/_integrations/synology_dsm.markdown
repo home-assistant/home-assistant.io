@@ -11,13 +11,11 @@ ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
 ha_codeowners:
-  - '@hacf-fr'
   - '@Quentame'
   - '@mib1185'
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
-  - backup
   - binary_sensor
   - button
   - camera
@@ -25,11 +23,11 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_), as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance) and will allow to use the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as a {% term backup %} location.
+The **Synology DSM** {% term integration %} provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_), as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance) and will allow to use the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as a {% term backup %} location.
 
 {% include integrations/config_flow.md %}
 
@@ -47,7 +45,9 @@ When SSDP is activated on a NAS with two or more NICs with different IP addresse
 
 ## Separate User Configuration
 
-You must grant the user admin rights in order to access utilization information since it's stored in the core module.
+{% note %}
+You must grant the user administrator rights, as the basic functions of this integration require them due to the structure of the Synology DSM API.
+{% endnote %}
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
@@ -170,6 +170,18 @@ This media browser supports multiple Synology Photos instances. `<unique_id>` is
 To find the `<album_id>` you need to go to the album in your photos instance, and the id will be in the URL ex: `https://192.168.0.100:5001/#/album/19`, where 19 is the album id. An `<album_id>` of 0 will contain all images.
 
 For performance reasons, a maximum of 1000 images will be shown in the Media Browser.
+
+## UPS support
+
+This integration does not directly support the UPS systems connected to the NAS, but it can be achieved with the [Network UPS Tools (NUT)](/integrations/nut) integration. You need to enable UPS support in your NAS settings, as described in the official Synology [UPS](https://kb.synology.com/en-me/DSM/help/DSM/AdminCenter/system_hardware_ups) documentation, and then integrate the NAS as a UPS server via the NUT integration. Here is a rough step-by-step guide:
+
+1. Activate **Enable UPS support** in the NAS settings under **Control Panel** > **Hardware & Power** > **UPS**.
+2. Activate **Enable network UPS server**.
+3. Select **Permitted Synology NAS Devices** and add the IP address of your Home Assistant instance.
+4. Set up the [Network UPS Tools (NUT)](/integrations/nut) integration.
+   - **Host**: the IP address or hostname of your NAS.
+   - **Port**: keep the default (_3493_).
+   - **Username** and **Password**: keep empty as the NAS doesn't support credentials for the NUT server.
 
 ## Troubleshooting
 

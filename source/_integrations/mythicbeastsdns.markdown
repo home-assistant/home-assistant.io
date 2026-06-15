@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-With the `mythicbeastsdns` {% term integration %} you can automatically update your dynamic DNS entry at [Mythic Beasts](https://www.mythic-beasts.com/).
+With the **Mythic Beasts DNS** {% term integration %} you can automatically update your dynamic DNS entry at [Mythic Beasts](https://www.mythic-beasts.com/).
 
 ## Configuration
 

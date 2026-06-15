@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The TCP {% term integration %} allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
+The **TCP** {% term integration %} allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -61,7 +61,7 @@ timeout:
   default: 10
   type: integer
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
+  description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
   required: false
   type: template
 unit_of_measurement:
@@ -100,8 +100,6 @@ $ echo "r WaterPressure" | nc 10.0.0.127 8888
 
 You will notice that the output from the service is not just a single value (it contains ";ok" as well). To grab the value we're interested in, we can use a Jinja2 template. The response received is injected into the template as the `value` variable. To use this value within Home Assistant, use the following configuration:
 
-{% raw %}
-
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -114,8 +112,6 @@ sensor:
     value_template: "{{ value.split(';')[0] }}"
     unit_of_measurement: Bar
 ```
-
-{% endraw %}
 
 #### hddtemp
 
@@ -138,8 +134,6 @@ Escape character is '^]'.
 
 The entry for the `configuration.yaml` file for a `hddtemp` sensor could look like the example below.
 
-{% raw %}
-
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -152,9 +146,6 @@ sensor:
     value_template: "{{ value.split('|')[3] }}"
     unit_of_measurement: "°C"
 ```
-
-{% endraw %}
-
 
 ## Binary sensor
 
@@ -195,7 +186,7 @@ value_on:
   required: true
   type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
+  description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value.
   required: false
   type: template
   default: entire response is the value

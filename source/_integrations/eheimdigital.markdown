@@ -2,10 +2,14 @@
 title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Light
   - Number
+  - Select
   - Sensor
+  - Switch
+  - Time
 ha_release: 2025.1
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,11 +18,16 @@ ha_codeowners:
 ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
+  - binary_sensor
   - climate
+  - diagnostics
   - light
   - number
+  - select
   - sensor
-ha_quality_scale: bronze
+  - switch
+  - time
+ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 
@@ -32,6 +41,18 @@ Host:
     required: true
     type: string
 {% endconfiguration_basic %}
+
+## Data updates
+
+The integration connects locally via WebSocket to the EHEIM Digital main device and requests data updates for all devices every 15 seconds by default.
+
+## How you can use this integration
+
+You can use this integration to control and monitor your EHEIM Digital aquarium devices directly from Home Assistant. This includes adjusting settings such as temperature, light brightness, and filter speed, as well as monitoring the status of your devices.
+
+- **Receive notifications**: Get notified about important events, such as when the filter needs servicing or if there is an error with the device.
+- **More flexible day/night cycles**: Use Home Assistant's automation and scripting capabilities to create more complex day/night cycles for your aquarium devices than the native EHEIM Digital interface allows.
+- **Integrate with other devices**: While EHEIM Digital devices can interact with each other in a limited sense (for example, the EHEIM autofeeder can pause the filter pump after feeding), this integration allows you to automate and control your EHEIM Digital devices in conjunction with other smart home devices.
 
 ## Supported devices and entities
 
@@ -56,6 +77,11 @@ Currently, the following devices and entities are supported:
 - **Temperature offset**: Setting an offset between the measured temperature and the real temperature
 - **Night temperature offset**: Setting the offset for the night temperature in Bio mode
 
+#### Time
+
+- **Day start time**: Setting the start time for the day temperature in Bio mode
+- **Night start time**: Setting the start time for the night temperature in Bio mode
+
 ### [EHEIM classicVARIO+e](https://eheim.com/en_GB/aquatics/technology/external-filters/classicvario-e-250/classicvario-e-250)
 
 #### Number
@@ -64,15 +90,142 @@ Currently, the following devices and entities are supported:
 - **Day speed**: Setting the pump speed for the day in Bio mode
 - **Night speed**: Setting the pump speed for the night in Bio mode
 
+#### Select
+
+- **Filter mode**: Setting the filter mode
+  - **Manual mode**: The filter uses the **manual speed**.
+  - **Pulse mode**: The filter uses a high and low pulse. The speeds are configured via **high pulse speed** and **low pulse speed**. The durations are configured via **high pulse duration** and **low pulse duration**.
+  - **Bio mode**: The filter uses a day and night rhythm. The speeds are configured via **day speed** and **night speed**. The start times of day and night are configured via **day start time** and **night start time**.
+
 #### Sensor
 
 - **Current pump speed**: Displays the current pump speed
 - **Remaining hours until service**: Displays the remaining time until the filter needs to be serviced
 - **Error code**: Displays the current error code of the device (No error, Rotor stuck, air in filter)
 
-Support for additional EHEIM Digital devices and entities will be added in future updates.
+#### Switch
 
-## Remove integration
+- **Pump**: Turning on and off the filter pump
+
+#### Time
+
+- **Day start time**: Setting the start time for the day pump speed in Bio mode
+- **Night start time**: Setting the start time for the night pump speed in Bio mode
+
+### [EHEIM professionel5e](https://eheim.com/en_GB/aquatics/technology/external-filters/professionel-5e/)
+
+#### Number
+
+- **High pulse duration**: Setting the duration of the high pulse in Pulse mode
+- **Low pulse duration**: Setting the duration of the low pulse in Pulse mode
+
+#### Select
+
+- **Filter mode**: Setting the filter mode
+  - **Manual mode**: The filter uses the **manual speed**.
+  - **Constant flow mode**: The filter uses the **constant flow speed**.
+  - **Pulse mode**: The filter uses a high and low pulse. The speeds are configured via **high pulse speed** and **low pulse speed**. The durations are configured via **high pulse duration** and **low pulse duration**.
+  - **Bio mode**: The filter uses a day and night rhythm. The speeds are configured via **day speed** and **night speed**. The start times of day and night are configured via **day start time** and **night start time**.
+- **Manual speed**: Setting the pump speed in Manual mode
+- **Constant flow speed**: Setting the pump speed in Constant flow mode
+- **Day speed**: Setting the pump speed for the day in Bio mode
+- **Night speed**: Setting the pump speed for the night in Bio mode
+- **High pulse speed**: Setting the pump speed for the high pulse in Pulse mode
+- **Low pulse speed**: Setting the pump speed for the low pulse in Pulse mode
+
+#### Sensor
+
+- **Current pump speed**: Displays the current pump speed
+- **Remaining hours until service**: Displays the remaining time until the filter needs to be serviced
+- **Operating time**: Displays the operating time
+- **Remaining off time**: Displays the remaining time before the pump turns on again after turning it off
+- **Remaining off time after feeding**: Displays the remaining time before the pump turns on again after receiving a signal from the autofeeder
+
+#### Switch
+
+- **Pump**: Turning on and off the filter pump
+
+#### Time
+
+- **Day start time**: Setting the start time for the day pump speed in Bio mode
+- **Night start time**: Setting the start time for the night pump speed in Bio mode
+
+### [EHEIM reeflexUV+e](https://eheim.com/en_GB/aquatics/eheim-digital/uv-sterilizer/)
+
+#### Binary sensor
+
+- **Light**: Displays whether the UVC lamp is currently burning
+- **UVC lamp connected**: Displays whether a UVC lamp is connected
+
+#### Number
+
+- **Daily burn duration**: Setting the daily burn duration of the UV lamp
+- **Booster duration**: Setting the duration of the booster
+- **Pause duration**: Setting the pause duration
+
+#### Select
+
+- **Operation mode**: Setting the operation mode
+  - **Constant mode**: The UVC lamp is burning constantly
+  - **Daycycle mode**: The UVC lamp is burning on a day cycle
+
+#### Sensor
+
+- **Remaining booster time**: Displays the remaining booster duration
+- **Remaining pause time**: Displays the remaining pause duration
+- **Time until next service**: Displays the time until the lamp needs to be serviced
+
+#### Switch
+
+- Activating and deactivating the device
+- **Booster**: Turning on the booster for the **Booster duration**, and turning it off
+- **Pause**: Pausing the lamp for the **Pause duration**, and unpausing the lamp
+- **Expert mode**: Turning on and off expert mode
+
+#### Time
+
+- **Start time**: Setting the start time of the lamp in daycycle mode
+
+### All supported devices
+
+#### Number
+
+- **System LED brightness**: Controlling the brightness of the system LED
+
+## Automations
+
+### Send a notification when the filter has an error
+
+You can set up an automation to notify you when the filter has an error. This example uses the `notify.notify` service to send a notification:
+
+{% details "Example automation to notify about filter errors" %}
+
+```yaml
+alias: Notify about filter error
+description: "This automation sends a notification when the filter has an error."
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.aquarienfilter_error_code
+    to:
+      - rotor_stuck
+      - air_in_filter
+conditions: []
+actions:
+  - action: notify.notify
+    metadata: {}
+    data:
+      title: The filter has a problem!
+```
+
+{% enddetails %}
+
+## Known limitations
+
+- The integration does not support other EHEIM Digital devices than those listed above. More devices will be added in future updates. It is, however, supported to have an unsupported device as the main device and supported devices as sub-devices, even though the unsupported device will not have any entities shown in Home Assistant.
+
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

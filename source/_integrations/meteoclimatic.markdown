@@ -13,10 +13,10 @@ ha_domain: meteoclimatic
 ha_platforms:
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Meteoclimatic integration uses the [Meteoclimatic](https://www.meteoclimatic.net/) web service as a source for meteorological data for your location. The location is based on the Meteoclimatic station code (e.g., `ESCAT4300000043206B`) and the weather data reported is based on the capabilities of each station.
+The **Meteoclimatic** {% term integration %} uses the [Meteoclimatic](https://www.meteoclimatic.net/) web service as a source for meteorological data for your location. The location is based on the Meteoclimatic station code (e.g., `ESCAT4300000043206B`) and the weather data reported is based on the capabilities of each station.
 
 There is currently support for the following platforms within Home Assistant:
 

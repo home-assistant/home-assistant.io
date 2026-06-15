@@ -11,12 +11,15 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Pump
   - Select
   - Sensor
+  - Siren
   - Switch
   - Update
   - Vacuum
   - Valve
+  - Water heater
 featured: true
 ha_release: '2022.12'
 ha_iot_class: Local Push
@@ -37,11 +40,13 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - update
   - vacuum
   - valve
-ha_integration_type: integration
+  - water_heater
+ha_integration_type: hub
 related:
   - docs: /integrations/thread/
     title: Thread
@@ -49,12 +54,14 @@ related:
     title: HomeKit
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
+  - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
+    title: Debug logs and diagnostics
 ha_zeroconf: true
 ---
 
-The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
+The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
-For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as add-on. This Matter Server add-on runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
+For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as an app (formerly known as add-on). This Matter Server app runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
 
 # Introduction - What is Matter?
 
@@ -102,11 +109,9 @@ For devices where Home Assistant provides a native integration (with local API),
 
 ## Supported installation types
 
-It is recommended to run the Matter add-on on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
+It is recommended to run the Matter app (formerly known as Matter add-on) on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
-
-Running Matter on a Home Assistant Core installation is not supported.
 
 ## Adding a Matter device to Home Assistant
 
@@ -126,9 +131,9 @@ Make sure you have all these components ready before trying to add a Matter devi
   - Add the **Matter** integration.
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
-      - This will install the official Matter server add-on.
-      - Note that the official Matter server add-on is not supported on 32-bit platforms.
-    - If you are already running the Matter server in another add-on, in or a custom container:
+      - This will install the official Matter Server app for Home Assistant.
+      - Note that the official Matter Server app for Home Assistant is not supported on 32-bit platforms.
+    - If you are already running the Matter server in another Home Assistant app or a custom container:
       - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.
 
@@ -137,7 +142,7 @@ Make sure you have all these components ready before trying to add a Matter devi
 - On the device packaging, check for both the Matter logo and for either the Wi-Fi or the {% term Thread %} logo.
 - Check if the QR code or the numeric setup code is on the device.
   - If you reset your device you'll need the QR code *or* numeric setup code to {% term commission %} that device again! Without this information, commissioning won't be possible.
-  - If the QR code or the numeric setup code is only in accompanied documentation, it is good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store the code in a safe place.
+  - If the QR code or the numeric setup code is only in accompanied documentation, it is a good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store it in a safe place.
 
 #### Prepare Android or iPhone
 
@@ -145,13 +150,14 @@ Make sure you have all these components ready before trying to add a Matter devi
   - **Android**:
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
-      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+    - Set the Home Assistant Companion app's **Location** permission to **Allow all the time**. During commissioning, the Google Matter UI takes the foreground and the Companion App runs in the background. Android restricts Wi-Fi SSID access for background apps when Location is set to "While using the app," which can cause commissioning to fail.
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the Home Assistant OpenThread Border Router app) present in your home network.
+      - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - **iPhone**
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the OpenThread Border Router add-on) present in your home network.
-      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the Home Assistant OpenThread Border Router app) present in your home network.
+      - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 - Make sure the phone is in close range of the border router and your device.
 - If you are adding a Wi-Fi-based Matter device: Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
@@ -160,8 +166,8 @@ Make sure you have all these components ready before trying to add a Matter devi
 This guide describes how to add a new device. This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
+2. Go to {% my config_matter title="**Settings** > **Matter**" %}.
+3. Select the **Add device** button.
 4. In the dialog, select **No, it's new.**.
 5. Scan the QR-code of the Matter device with your phone camera or select **More options...** to manually enter the Commission code.
 6. Select **Add to Home Assistant**.
@@ -186,15 +192,17 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - Scan the QR code.
    - When prompted to **Choose an app**, make sure to select Home Assistant.
    - Once the process is complete, select **Done**, then select **Add device**.
-4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-   - On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
+4. If you did not see a pop-up, go to {% my config_matter title="**Settings** > **Matter**" %}.
+   - Select the **Add device** button, and select **Add Matter device**.
    - In the dialog, select **No, it's new.**.
    - Scan the QR-code of the Matter device with your phone camera or select **Setup without QR-code** to manually enter the commission code.
       - This starts the commissioning process which may take a few minutes.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
    - Once the process is complete, select **Done**.
-5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
-6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
+5. To view the device details, go to {% my config_matter title="**Settings** > **Matter**" %}.
+6. Select **Devices** and select the device you just added.
+   - By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
+
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
 
@@ -251,7 +259,7 @@ Use one of these methods if your Matter device was added to Apple Home or Google
   - Add the **Matter** integration.
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
-      - This will install the official Matter server add-on.
+      - This will install the official Matter server app.
     - If you are running the Matter server in a custom container (not recommended):
       - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.
@@ -261,11 +269,11 @@ Use one of these methods if your Matter device was added to Apple Home or Google
 To allow Home Assistant to control the Matter device that has already been added to another Matter controller, like Google Home, follow these steps:
 
 1. Open the Home Assistant app on your phone.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. On the **Devices** tab, select the **Add device** button and select **Add Matter device**.
+2. Go to {% my config_matter title="**Settings** > **Matter**" %}.
+3. Select the **Add device** button.
 4. In the dialog, select **Yes, it's already in use**, then select which controller it is already connected to. For example, Google Home.
 5. Follow the instructions given in the dialog.
-   - **Troubleshooting**: If Home Assistant fails to add the device, check if you have the Matter integration installed   and the latest version of the Companion app.
+   - Troubleshooting: If Home Assistant fails to add the device, check if you have the Matter integration installed and the latest version of the Companion app.
 6. Once the device has been added to Home Assistant, you see a notification **Your device has been added**.
    - When the process finishes, you're redirected to the device page in Home Assistant.
    - You can now control your device from within Home Assistant, as well as from Google Home.
@@ -277,7 +285,7 @@ To allow Home Assistant to control the Matter device that has already been added
 
 ### Using a Matter bridge
 
-For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aquara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
+For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aqara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
 
 Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
 
@@ -295,7 +303,7 @@ In some cases, bridging devices into Home Assistant via Matter might not bring y
 
 Follow these steps if you have added a Matter device to Home Assistant and you want to make it available in an other platform, such as Google Home or Apple Home.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
+1. Go to {% my config_matter title="**Settings** > **Matter**" %} and select **Devices**.
 2. From the list of devices, select the device you want to share.
 3. Select **Share device**, then in the dialog, select **Share device** again.
    - There is no need to press a hardware button on the device to set it to commissioning mode.
@@ -310,19 +318,19 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 
 Follow these steps if you want to remove a device from a particular Matter controller.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
+1. Go to {% my config_matter title="**Settings** > **Matter**" %} and select **Devices**.
 2. From the list of devices, select the device you want to remove from a controller.
-3. In the **Device info** section, next to **Share device**, select the three-dot menu. Then, select **Manage fabrics**.
+3. In the **Device info** section, next to **Share device**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Manage fabrics**.
 4. From the list, remove the controller of interest.
    - If you want to remove Apple Home, also remove the Apple Keychain entry.
    ![image](/images/integrations/matter/matter-remove-from-network.png)
-5. If you want to remove the device from Home Assistant itself, select the three-dot menu and select **Delete**.
+5. If you want to remove the device from Home Assistant itself, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 
 ## About Matter device information
 
 The device information section provides some diagnostic information of a device.
 
-1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
+1. To view the device details, go to {% my config_matter title="**Settings** > **Matter**" %} and select **Devices**.
 2. From the list of devices, select the device you want to look at.
 
 <p class='img'>
@@ -359,6 +367,243 @@ Notification of an OTA update for a Matter device
 The Home Assistant Matter updates currently do not work for Thread devices on a Thread network with (any) Apple border routers. Typically you'll see "Target node did not process the update file" error instead. The Apple border routers do not forward the necessary mDNS packets which allow to discover the update provider on Home Assistant end. The Apple Home ecosystem might offer updates from their end as an alternative (e.g. for Eve devices).
 {% endnote %}
 
+## Actions
+
+The Matter integration has the following actions:
+
+- `matter.water_heater_boost`
+- `matter.set_lock_user`
+- `matter.clear_lock_user`
+- `matter.get_lock_info`
+- `matter.get_lock_users`
+- `matter.set_lock_credential`
+- `matter.clear_lock_credential`
+- `matter.get_lock_credential_status`
+
+### Action: Water heater boost
+
+The `matter.water_heater_boost` action enables water heater boost for a specific duration.
+
+| Data attribute        | Optional | Description                                                        |
+|----------------------|----------|--------------------------------------------------------------------|
+| `duration`           | No       | Boost duration in seconds                                          |
+| `emergency_boost`    | Yes      | Whether to enable emergency boost mode                             |
+| `temporary_setpoint` | Yes      | Temporary setpoint temperature in Celsius during the boost period  |
+
+### Lock user and credential management
+
+The following actions let you manage users and credentials (such as PIN codes and RFID tags) on Matter-compatible locks. Your lock must support the Matter Door Lock cluster user and credential management features for these actions to work.
+
+{% note %}
+Not all Matter locks support user and credential management. Use the `matter.get_lock_info` action to check what your lock supports before attempting to manage users or credentials.
+{% endnote %}
+
+#### Action: Set lock user
+
+The `matter.set_lock_user` action creates or updates a user on the lock. If you omit the `user_index`, the lock automatically assigns the next available slot.
+
+- **Data attribute**: `user_index`
+  - **Description**: The user slot index (1-based). Omit this field to let the lock automatically find an available slot.
+  - **Optional**: Yes
+
+- **Data attribute**: `user_name`
+  - **Description**: A name for the user.
+  - **Optional**: Yes
+
+- **Data attribute**: `user_type`
+  - **Description**: The type of user to create.
+  - **Optional**: Yes
+  - **Options**:
+    - `unrestricted_user`: A regular user with no access restrictions.
+    - `year_day_schedule_user`: Access is limited to specific date ranges.
+    - `week_day_schedule_user`: Access is limited to specific days and times each week.
+    - `programming_user`: A user who can manage other users and credentials on the lock.
+    - `non_access_user`: A user record that exists on the lock but cannot unlock it.
+    - `forced_user`: A user whose access triggers a special alarm or notification, for example a duress code.
+    - `disposable_user`: A user whose credential is automatically revoked after a single use.
+    - `expiring_user`: A user whose access expires after a set period.
+    - `schedule_restricted_user`: A user restricted by both week-day and year-day schedules.
+    - `remote_only_user`: A user who can only operate the lock remotely, not from the physical keypad.
+
+- **Data attribute**: `credential_rule`
+  - **Description**: The credential rule for the user. Determines how many credentials must be presented to unlock.
+  - **Optional**: Yes
+  - **Options**:
+    - `single`: One credential is required to unlock (for example, just a PIN).
+    - `dual`: Two different credentials are required to unlock (for example, a PIN and an RFID tag).
+    - `tri`: Three different credentials are required to unlock.
+
+```yaml
+action: matter.set_lock_user
+target:
+  entity_id: lock.front_door
+data:
+  user_name: "Jane"
+  user_type: unrestricted_user
+  credential_rule: single
+```
+
+#### Action: Clear lock user
+
+The `matter.clear_lock_user` action deletes a user and all their associated credentials from the lock. To clear all users at once, use index `65534`. This is a special value defined by the Matter specification (hex `0xFFFE`) that tells the lock to remove every user.
+
+- **Data attribute**: `user_index`
+  - **Description**: The user slot index (1-based) to clear. Use `65534` to clear all users at once.
+  - **Optional**: No
+
+```yaml
+# Remove a single user
+action: matter.clear_lock_user
+target:
+  entity_id: lock.front_door
+data:
+  user_index: 3
+```
+
+```yaml
+# Remove all users
+action: matter.clear_lock_user
+target:
+  entity_id: lock.front_door
+data:
+  user_index: 65534
+```
+
+#### Action: Get lock info
+
+The `matter.get_lock_info` action returns the lock's capabilities, including supported credential types, maximum number of users, and PIN length constraints. This action returns a response and does not require any additional data attributes.
+
+```yaml
+action: matter.get_lock_info
+target:
+  entity_id: lock.front_door
+response_variable: lock_info
+```
+
+#### Action: Get lock users
+
+The `matter.get_lock_users` action lists all users on the lock. For each user, the response shows their name, status, and type. It also shows their credential rule. The response lists credential references, including type and slot index. It shows which controller created the user. It also shows which controller last changed the user. For security, the lock does not show real credential secrets like PIN codes or RFID tags. This action returns a response. No extra data is required.
+
+```yaml
+action: matter.get_lock_users
+target:
+  entity_id: lock.front_door
+response_variable: lock_users
+```
+
+#### Action: Set lock credential
+
+The `matter.set_lock_credential` action adds or updates a credential on the lock. If you omit the `credential_index`, the lock automatically assigns the next available slot. If you omit the `user_index`, a new user is created for the credential. This action returns a response containing the assigned credential and user indices.
+
+- **Data attribute**: `credential_type`
+  - **Description**: The type of credential to set.
+  - **Optional**: No
+  - **Options**:
+    - `pin`: A numeric PIN code entered on the lock's keypad.
+    - `rfid`: An RFID tag or card tapped against the lock's reader.
+    - `fingerprint`: A fingerprint registered on the lock's biometric sensor.
+    - `finger_vein`: A finger-vein pattern registered on the lock's biometric sensor.
+    - `face`: A facial recognition profile registered on the lock.
+
+- **Data attribute**: `credential_data`
+  - **Description**: The credential data to store. For `pin` credentials, use digits only (for example, `1234`). For `rfid` credentials, use a hexadecimal string representing the tag ID (for example, `AABBCCDD`).
+  - **Optional**: No
+
+- **Data attribute**: `credential_index`
+  - **Description**: The credential slot index (0-based). Omit this field to let the lock automatically find an available slot.
+  - **Optional**: Yes
+
+- **Data attribute**: `user_index`
+  - **Description**: The user index (1-based) to associate the credential with. Omit this field to have the lock automatically create a new user.
+  - **Optional**: Yes
+
+- **Data attribute**: `user_status`
+  - **Description**: The user status to set when creating a new user for this credential.
+  - **Optional**: Yes
+  - **Options**:
+    - `occupied_enabled`: The user is active and can use their credentials to unlock.
+    - `occupied_disabled`: The user exists but their credentials are temporarily disabled.
+
+- **Data attribute**: `user_type`
+  - **Description**: The user type to set when creating a new user for this credential. See the `matter.set_lock_user` action for a description of each user type.
+  - **Optional**: Yes
+
+```yaml
+# Add a PIN to an existing user
+action: matter.set_lock_credential
+target:
+  entity_id: lock.front_door
+data:
+  credential_type: pin
+  credential_data: "1234"
+  user_index: 1
+response_variable: result
+```
+
+```yaml
+# Add an RFID tag and let the lock create a new user
+action: matter.set_lock_credential
+target:
+  entity_id: lock.front_door
+data:
+  credential_type: rfid
+  credential_data: "AABBCCDD"
+response_variable: result
+```
+
+#### Action: Clear lock credential
+
+The `matter.clear_lock_credential` action removes a credential from the lock.
+
+- **Data attribute**: `credential_type`
+  - **Description**: The type of credential to remove. See the `matter.set_lock_credential` action for a description of each credential type.
+  - **Optional**: No
+
+- **Data attribute**: `credential_index`
+  - **Description**: The credential slot index (0-based) to clear.
+  - **Optional**: No
+
+```yaml
+action: matter.clear_lock_credential
+target:
+  entity_id: lock.front_door
+data:
+  credential_type: pin
+  credential_index: 1
+```
+
+#### Action: Get lock credential status
+
+The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied, which user it belongs to, which controller (such as Home Assistant, Apple Home, or Google Home) created the credential, and which controller last modified it. This action returns a response.
+
+- **Data attribute**: `credential_type`
+  - **Description**: The type of credential to query.
+  - **Optional**: No
+  - **Options**:
+    - `programming_pin`: A special administrative PIN used to manage the lock at the keypad.
+    - `pin`: A numeric PIN code entered on the lock's keypad.
+    - `rfid`: An RFID tag or card tapped against the lock's reader.
+    - `fingerprint`: A fingerprint registered on the lock's biometric sensor.
+    - `finger_vein`: A finger-vein pattern registered on the lock's biometric sensor.
+    - `face`: A facial recognition profile registered on the lock.
+    - `aliro_credential_issuer_key`: An Aliro credential issuer key (used by Aliro-compatible locks for NFC-based access).
+    - `aliro_evictable_endpoint_key`: An Aliro endpoint key that the lock can remove when it runs out of space.
+    - `aliro_non_evictable_endpoint_key`: An Aliro endpoint key that the lock must keep and cannot automatically remove.
+
+- **Data attribute**: `credential_index`
+  - **Description**: The credential slot index (0-based) to query.
+  - **Optional**: No
+
+```yaml
+action: matter.get_lock_credential_status
+target:
+  entity_id: lock.front_door
+data:
+  credential_type: pin
+  credential_index: 1
+response_variable: credential_status
+```
+
 ## Automate on a button press
 
 You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
@@ -383,9 +628,26 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 ## Troubleshooting
 
+### Downloading diagnostics
+
+When you report an issue with a Matter device, you're usually asked for a diagnostics file. The Matter integration supports diagnostics at both the integration and device level.
+
+To download integration-level diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Matter** integration card, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Download diagnostics**.
+
+To download device-level diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
+2. Select the device you want diagnostics for.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Download diagnostics**.
+
+The diagnostics file contains device attributes, cluster data, and network information with sensitive data redacted. For more general information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
+
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements.
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Home Assistant OS with the Home Assistant Matter Server app is the supported path for using Matter with Home Assistant. Running Matter Server as a standalone Docker container is unsupported, but we provide [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) including a description of the host and networking requirements.
 
 - To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread border router in your network nearby the {% term Thread %} device(s). Apple users, for example, need the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub (2nd Gen). Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
 

@@ -38,6 +38,10 @@ Stefan Agner:
   name: Stefan Agner
   github: agners
 
+Erik Montnémery:
+  name: Erik Montnémery
+  github: emontnemery
+
 Bruno Pantaleão:
   name: Bruno Pantaleão
   github: bgoncal
@@ -97,3 +101,19 @@ Annika Schulz:
 Miranda Bishop:
   name: Miranda Bishop
   github: miranda-gb
+
+Timothy Nibeaudeau:
+  name: Timothy Nibeaudeau
+  github: timoPtr
+
+Keith Burzinski:
+  name: Keith Burzinski
+  github: kbx81
+
+Carl Albertsson:
+  name: Carl Albertsson
+  github: mellowism
+
+Matthias Kerstner:
+  name: Matthias Kerstner
+  github: mkerstner

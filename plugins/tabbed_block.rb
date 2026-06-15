@@ -31,28 +31,36 @@ module Jekyll
       site = context.registers[:site]
       converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
 
-      <<~MARKUP
-        <script>
-        function openTab(tab){
-          const tabKey = tab.querySelector("div").id;
-          const targetTabContent = tab.parentElement.parentElement.querySelector(`#${tabKey}.tabbed-content-block-content`);
-          const tabContents = tab.parentElement.parentElement.querySelectorAll(".tabbed-content-block-content")
+      # Only include the script once per page to avoid duplicate code
+      script = ""
+      unless context['tabbed_block_script_included']
+        context['tabbed_block_script_included'] = true
+        script = <<~SCRIPT
+          <script>
+          function openTab(tab){
+            const tabKey = tab.querySelector("div").id;
+            const targetTabContent = tab.parentElement.parentElement.querySelector(`#${tabKey}.tabbed-content-block-content`);
+            const tabContents = tab.parentElement.parentElement.querySelectorAll(".tabbed-content-block-content")
 
-          tabContents.forEach((content) => {
-            content.style.display = "none"
+            tabContents.forEach((content) => {
+              content.style.display = "none"
+            });
+            targetTabContent.style.display = "block";
+          }
+          window.addEventListener('DOMContentLoaded', (event) => {
+            const tabbedBlocks = document.querySelectorAll(".tabbed-content-block");
+            tabbedBlocks.forEach((block) => {
+                block.querySelector("input").checked = true;
+                block.querySelector(".tabbed-content-block-content").style.display = "block";
+            });
+
           });
-          targetTabContent.style.display = "block";
-        }
-        window.addEventListener('DOMContentLoaded', (event) => {
-          const tabbedBlocks = document.querySelectorAll(".tabbed-content-block");
-          tabbedBlocks.forEach((block) => {
-              block.querySelector("input").checked = true;
-              block.querySelector(".tabbed-content-block-content").style.display = "block";
-          });
-      
-        });
-        </script>
-        <div class="tabbed-content-block">
+          </script>
+        SCRIPT
+      end
+
+      <<~MARKUP
+        #{script}<div class="tabbed-content-block">
           #{render_tabbed_block(vars: vars, converter: converter)}
         </div>
       MARKUP

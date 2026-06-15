@@ -15,7 +15,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant.

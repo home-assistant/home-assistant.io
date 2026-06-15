@@ -3,14 +3,17 @@ title: Adax
 description: Instructions on how to integrate Adax heater into Home Assistant.
 ha_category:
   - Climate
+  - Sensor
 ha_release: 2021.8
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
+  - '@lazytarget'
 ha_domain: adax
 ha_config_flow: true
 ha_platforms:
   - climate
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -41,3 +44,13 @@ You will also need a credential, which you can create in the Adax app:
 In the configuration popup you will need the Account ID, and the generated API password (not the account password)
 
 {% include integrations/config_flow.md %}
+
+## Energy monitoring
+
+When using the cloud integration, the Adax integration provides energy monitoring sensors that track the power consumption of your heaters. These sensors are only available when using the cloud connection, as the local integration does not support energy data.
+
+The integration creates the following energy sensors:
+
+- **Individual energy sensors** - One sensor for each Adax heater showing its energy consumption in Wh
+
+The energy sensors use the `total_increasing` state class, making them suitable for use with Home Assistant's energy dashboard to track your heating costs and consumption over time.

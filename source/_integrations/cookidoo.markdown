@@ -2,6 +2,9 @@
 title: Cookidoo
 description: Instructions on how to integrate the Cookidoo todo list with Home Assistant.
 ha_category:
+  - Calendar
+  - Calendar
+  - To-do list
   - To-do list
 ha_iot_class: Cloud Polling
 ha_release: 2025.1
@@ -12,10 +15,13 @@ ha_domain: cookidoo
 ha_integration_type: service
 ha_platforms:
   - button
+  - calendar
   - diagnostics
   - sensor
   - todo
 related:
+  - docs: /integrations/calendar
+    title: Calendar integration documentation
   - docs: /integrations/todo
     title: To-do list integration documentation
   - docs: /integrations/#to-do-list
@@ -37,7 +43,7 @@ Email:
 Password:
     description: "Enter the password for your Cookidoo account."
 Localization:
-    description: "Select the language and country for your Cookidoo account (e.g., English - United States)."
+    description: "Select the language and country for your Cookidoo account, for example, English - United States."
 {% endconfiguration_basic %}
 
 {% include integrations/config_flow.md %}
@@ -65,6 +71,10 @@ In contrast, in your "Additional purchases" list, you can freely add items like 
 The _clear shopping list_ button entity allows you to clear both the shopping list and additional purchases list, mirroring the functionality available in the Cookidoo app. When triggered, this button will remove all items from both lists.
 
 This button entity will appear automatically in your Home Assistant instance after adding the integration. You can use it in automations or add it to your dashboard using the Button card.
+
+## Calendar
+
+This integration provides meal plan calendar entity. Each event is full-day event, with summary corresponding to the meal planned for that day.
 
 ## Sensor entities
 
@@ -111,7 +121,7 @@ The Home Assistant to-do list interface allows both renaming items and changing 
 
 The Cookidoo integration fetches data from the device every 90 seconds by default.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 
