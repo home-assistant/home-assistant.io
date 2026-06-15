@@ -154,6 +154,8 @@ Go to {% my developer_services title="**Settings** > **Developer tools** > **Act
 
 ## Timer automation examples
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: turn off the bathroom fan when the timer finishes
