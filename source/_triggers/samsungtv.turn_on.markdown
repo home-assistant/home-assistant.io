@@ -60,21 +60,6 @@ device_id:
     The ID of the Samsung TV media player device that should be watched for a turn-on request. Only Samsung TV devices are valid targets for this trigger.
   required: true
   type: string
-domain:
-  description: >
-    Domain of the device entity: `samsungtv`.
-  required: true
-  type: string
-type:
-  description: >
-    The trigger type: `samsungtv.turn_on`.
-  required: true
-  type: string
-trigger:
-  description: >
-    The trigger: `device`
-  required: true
-  type: string
 {% endoptions_yaml %}
 
 ## Good to know
