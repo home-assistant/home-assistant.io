@@ -293,61 +293,6 @@ There are currently four buttons that allow you to reset the various maintenance
 
 In addition, some vacuums allow routines to be set up in the app. For each of those routines, a button entity will be created, allowing you to trigger it.
 
-#### Actions
-
-##### Action Set Vacuum Goto Position
-
-The `roborock.set_vacuum_goto_position` action will set the vacuum to go to
-the specified coordinates.
-
-- **Data attribute**: `entity_id`
-  - **Description**: Only act on a specific robot.
-  - **Optional**: No.
-- **Data attribute**: `x`
-  - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
-  - **Optional**: No.
-- **Data attribute**: `y`
-  - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
-  - **Optional**: No.
-
-##### Action Get Vacuum Current Position
-
-The `roborock.get_vacuum_current_position` action will get the current position of the vacuum. This
-is a cloud call and should only be used for diagnostics. This is not meant to be used for
-automations. Frequent requests can lead to rate limiting. 
-
-- **Data attribute**: `entity_id`
-  - **Description**: Only act on a specific robot.
-  - **Optional**: No.
-
-Example:
-
-```yaml
-action: roborock.get_vacuum_current_position
-target:
-  entity_id: vacuum.roborock_s7
-data: {}
-```
-
-- **Result**: You will get a response like this:
-
-  ```yaml
-  vacuum.roborock_s7:
-    x: 28081
-    y: 25168
-  ```
-
-##### Action Get Maps
-
-The `roborock.get_maps` action will return the maps available on the device and
-details about any named rooms on each map.
-
-- **Data attribute**: `entity_id`
-  - **Description**: Get maps for a specific device
-  - **Optional**: No.
-
-This returns the name of the map, and the room names and ID numbers.
-
 ### Dyad devices
 
 Roborock wet/dry vacuums currently expose some entities through an MQTT connection - it is currently cloud dependent.
@@ -390,6 +335,8 @@ Roborock Zeo One currently exposes some entities through an MQTT connection - it
 
 - **Error**
   - **Description**: The current error of the Zeo, if one exists.
+
+{% include integrations/actions.md %}
 
 ## Removing the integration
 
