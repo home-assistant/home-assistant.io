@@ -44,32 +44,6 @@ You can create, edit, and delete Hue scenes from the official Hue app on iOS and
 
 Using Hue scenes is recommended when you want to control multiple lights at once. If you control multiple lights individually or use Home Assistant scenes, each command is sent to each light one by one. A Hue scene sends commands to all lights at once in an optimized way, resulting in a smoother experience.
 
-### Action: Activate scene
-
-The `hue.activate_scene` action lets you activate a Hue scene and set properties like dynamic mode or brightness at the same time.
-
-- **Data attribute**: `entity_id`
-  - **Description**: The entity ID of the Hue scene to activate.
-  - **Required**: Yes
-
-- **Data attribute**: `transition`
-  - **Description**: Transition duration in seconds to bring devices to the state defined in the scene.
-  - **Required**: No
-
-- **Data attribute**: `dynamic`
-  - **Description**: Enable (`true`) or disable (`false`) dynamic mode for the scene.
-  - **Required**: No
-
-- **Data attribute**: `speed`
-  - **Description**: The speed of the dynamic palette for this scene.
-  - **Required**: No
-
-- **Data attribute**: `brightness`
-  - **Description**: The brightness for this scene.
-  - **Required**: No
-
-You can use this action, for example, to start or stop dynamic mode on a scene.
-
 ## Configuration options
 
 After setting up the integration, the following options can be configured by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the **Philips Hue** integration, and selecting **Configure**.
@@ -102,7 +76,7 @@ The Hue API limits each device to one event per second. This means that button e
 
 Signify released a newer version of the Hue bridge (square shape), and the legacy V1 bridge (round shape) is now end of life and no longer supported by Signify. Home Assistant will continue to support the V1 Hue bridge as long as it is technically possible, with the following limitations:
 
-- Scene entities are not automatically created for V1 bridges. To activate a Hue scene on a V1 bridge from Home Assistant, use the action described below.
+- Scene entities are not automatically created for V1 bridges. To activate a Hue scene on a V1 bridge from Home Assistant, use the **Activate scene** action and refer to the scene by its group and scene name.
 - State updates for devices on V1 bridges are not received instantly but polled on an interval.
 - Light entities for Hue rooms are not automatically created for V1 bridges. You can opt in to creating room entities in the integration's options.
 
@@ -110,6 +84,8 @@ To activate a scene on a V1 bridge:
 
 1. Go to **Scripts** and select **Add New Script** > **Add Action** > **Philips Hue: Activate Scene**.
 2. Select the room name in the **Group** field and the scene name in the **Scene** field.
+
+{% include integrations/actions.md %}
 
 ## Data updates
 
