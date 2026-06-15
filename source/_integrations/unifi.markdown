@@ -162,19 +162,7 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
-## Actions
-
-### Action: Reconnect client
-
-The `unifi.reconnect_client` action tries to get a wireless client to reconnect to the network.
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
-
-### Action: Remove clients
-
-The `unifi.remove_clients` action cleans up clients on the UniFi Network application that have only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client cannot have a fixed IP, hostname or name associated with it.
+{% include integrations/actions.md %}
 
 ## Switch
 
