@@ -272,18 +272,7 @@ actions:
       media_player: media_player.roku
 ```
 
-### Additional actions
-
-The integration exposes additional actions to control a Roku device.
-
-#### Action `roku.search`
-
-This action allows you to emulate opening the search screen and entering the search keyword.
-
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | yes | The entities to search on. | media_player.roku
-| `keyword` | no | The keyword to search for. | Space Jam
+{% include integrations/actions.md %}
 
 ## Tips and tricks
 
