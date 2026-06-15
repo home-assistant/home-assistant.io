@@ -80,17 +80,23 @@ The NeoPool device acts as a Modbus _server_ (slave), this integration is a Modb
 ### Configuration parameters
 
 {% configuration_basic %}
-Name:
-  description: A custom identifier for your pool, used as a prefix in entity IDs (e.g. entering `Pool West` becomes `pool_west`).
 Host:
   description: The hostname or IP address of your Modbus TCP gateway.
 Port:
   description: The TCP port of your Modbus gateway. Defaults to `502`.
 Slave ID:
   description: The Modbus slave (unit) ID of the NeoPool controller. Defaults to `1`.
+Modbus framer:
+  description: Protocol framer to use. `tcp` works for most gateways; pick `rtu` only if your gateway forwards raw RTU frames over TCP.
+Filtration pump power:
+  description: Rated wattage of the filtration pump. When non-zero, the integration creates instantaneous power and cumulative energy sensors usable in the [Energy dashboard](/docs/energy/). Set to `0` to disable.
+Enable filtration timers 1/2/3:
+  description: Create timer entities for the controller's three filtration schedules. Enable only the timers you actually use.
+Enable Pool Cover Sensor:
+  description: Create a binary sensor exposing the pool cover open/closed state.
+Enable Light Relay:
+  description: Create entities to control and monitor the pool light relay.
 {% endconfiguration_basic %}
-
-The integration supports adding multiple NeoPool controllers; each one as a separate config entry with its own prefix.
 
 The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
@@ -189,57 +195,70 @@ The real power of this integration comes from automating filtration, seasonal mo
 
 ### Schedule manual filtration
 
-Start manual filtration at 08:00 and stop it at 11:00, only when winter mode is off.
+Run filtration once a day from 10:00 to 15:00, but only when the controller is in **Manual** mode. In automatic modes the controller runs filtration on its own schedule and the manual switch is unavailable, so the filtration mode condition prevents the automation from firing for nothing. Two time triggers share an automation, distinguished by trigger ID, and an outer `choose:` block keeps each branch idempotent (it only acts when the switch is in the opposite state).
 
-- **Trigger**: Time-based, at `08:00:00` (start) and `11:00:00` (stop).
-- **Condition**: Winter mode switch is off (only on the start automation).
-- **Action**: Turn the manual filtration switch on / off.
+- **Triggers**: time-based, `10:00:00` (turn on) and `15:00:00` (turn off).
+- **Condition**: filtration mode is `manual`.
+- **Action**: turn the manual filtration switch on or off as appropriate.
 
 {% details "YAML example for scheduling manual filtration" %}
 
 {% example %}
 automation: |
-  alias: "Pool - start morning filtration"
+  alias: "Pool: scheduled filtration"
   triggers:
     - trigger: time
-      at: "08:00:00"
+      at: "10:00:00"
+      id: turn_on
+    - trigger: time
+      at: "15:00:00"
+      id: turn_off
   conditions:
     - condition: state
-      entity_id: switch.pool_winter_mode
-      state: "off"
+      entity_id: select.pool_filt_mode
+      state: manual
   actions:
-    - action: switch.turn_on
-      target:
-        entity_id: switch.pool_manual_filtration
-automation: |
-  alias: "Pool - stop morning filtration"
-  triggers:
-    - trigger: time
-      at: "11:00:00"
-  actions:
-    - action: switch.turn_off
-      target:
-        entity_id: switch.pool_manual_filtration
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: turn_on
+            - condition: state
+              entity_id: switch.pool_filt_manual_state
+              state: "off"
+          sequence:
+            - action: switch.turn_on
+              target:
+                entity_id: switch.pool_filt_manual_state
+        - conditions:
+            - condition: trigger
+              id: turn_off
+            - condition: state
+              entity_id: switch.pool_filt_manual_state
+              state: "on"
+          sequence:
+            - action: switch.turn_off
+              target:
+                entity_id: switch.pool_filt_manual_state
 {% endexample %}
 
 {% enddetails %}
 
 ### Auto-enable winter mode based on the season
 
-Turn winter mode on in early November and back off in early April so the controller stops polling the network and the pool hardware while it is off-season.
+Turn winter mode on at the start of November and back off at the start of April so the controller stops polling the network and the pool hardware while it is off-season. Two automations sharing a single midnight trigger; each fires only on its target date.
 
-- **Trigger**: Time-based, daily at `06:00:00`.
-- **Condition**: Today is the configured switch-over date (`November 1st` to enable, `April 1st` to disable).
-- **Action**: Turn the winter mode switch on / off.
+- **Trigger**: time-based, daily at `00:00:00`.
+- **Condition**: today is the configured switch-over date (`November 1st` to enable, `April 1st` to disable).
+- **Action**: turn the winter mode switch on or off.
 
 {% details "YAML example for seasonal winter mode" %}
 
 {% example %}
 automation: |
-  alias: "Pool - enable winter mode on November 1st"
+  alias: "Pool: enter winter mode"
   triggers:
     - trigger: time
-      at: "06:00:00"
+      at: "00:00:00"
   conditions:
     - condition: template
       value_template: "{{ now().month == 11 and now().day == 1 }}"
@@ -248,10 +267,10 @@ automation: |
       target:
         entity_id: switch.pool_winter_mode
 automation: |
-  alias: "Pool - disable winter mode on April 1st"
+  alias: "Pool: exit winter mode"
   triggers:
     - trigger: time
-      at: "06:00:00"
+      at: "00:00:00"
   conditions:
     - condition: template
       value_template: "{{ now().month == 4 and now().day == 1 }}"
