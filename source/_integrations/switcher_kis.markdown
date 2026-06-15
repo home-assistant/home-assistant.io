@@ -113,31 +113,7 @@ For Switcher Breeze the integration provides the following sensor:
 
 For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12), the integration allows you to control its child lock state; ON means locked, and OFF means unlocked.
 
-## Actions
-
-For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
-
-### Action: Set auto off
-
-The `switcher_kis.set_auto_off` action sets the auto-off configuration setting for the device.
-
-Meaning the device will turn itself off when reaching the auto-off configuration limit.
-
-| Data attribute | Mandatory | Description                                                                            | Example                    |
-| ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
-| `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
-| `auto_off`    | Yes       | Time period string containing hours and minutes                                        | "02:30"                    |
-
-### Action: Turn on with timer
-
-The `switcher_kis.turn_on_with_timer` action turns on the switcher device with a timer.
-
-Meaning the device will turn itself off when timer ends.
-Note: This does not affect the auto off timer.
-| Data attribute | Mandatory | Description                                                                            | Example                    |
-| ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
-| `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
-| `timer_minutes`    | Yes       | Integer containing timer minutes (valid range 1 to 150)                                      | 90                    |
+{% include integrations/actions.md %}
 
 ## Notes
 
