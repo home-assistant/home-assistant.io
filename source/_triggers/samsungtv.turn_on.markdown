@@ -18,10 +18,9 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Under **By type**, search and select **Device**.
-5. From the **Device** list, select your Samsung TV device.
-6. Select the **Device is requested to turn on** trigger.
-7. Select **Save**.
+4. Under **By device**, select your Samsung TV device.
+5. Select the available trigger **Device is requested to turn on**.
+6. Select **Save**.
 
 ### Options in the UI
 
