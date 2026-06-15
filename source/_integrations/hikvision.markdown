@@ -71,11 +71,11 @@ and has been confirmed to work with the following models:
 - ERI-K104-PR (NVR)
 - IPC-D140H(-M)
 
-This platform also was confirmed to work with the following Hikvision-based NVRs
+This platform has also been confirmed to work with the following Hikvision-based NVRs:
 
 - N46PCK (Annke H800 4K NVR)
 - N48PAW (Annke 4K NVR)
-- Luma NVR
+- Luma NVRs
 
 {% include integrations/config_flow.md %}
 
