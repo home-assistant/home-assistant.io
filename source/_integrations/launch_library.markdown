@@ -16,7 +16,7 @@ ha_config_flow: true
 ha_integration_type: service
 ---
 
-The **Launch Library** {% term integration %} provides information about upcoming spaceflight, including the next planned rocket launch and the next SpaceX Starship launch and event.
+The **Launch Library** {% term integration %} provides information about upcoming spaceflight, including the next planned rocket launch, the next SpaceX Starship launch, and the next SpaceX Starship event.
 
 You can use it to keep an eye on the next launch from a dashboard, get a notification when a launch is about to happen, or announce upcoming launches through your media players.
 
