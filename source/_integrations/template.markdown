@@ -1345,6 +1345,10 @@ light:
       description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
+    set_xy:
+      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with an `xy_color`.  The script receives the variables `xy` as a tuple, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
     state:
       description: Defines a template to set the state of the light. If not defined, the light optimistically assumes all commands are successful. The light is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The light is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The light is `unknown` if the template evaluates as `None`.
       required: false
@@ -1368,6 +1372,11 @@ light:
       description: Defines an action to run when the light is turned off. May receive the variable `transition`.
       required: true
       type: action
+    xy:
+      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y).
+      required: false
+      type: template
+      default: optimistic
 
 {% endconfiguration %}
 
@@ -1382,7 +1391,10 @@ When `light.turn_on` is called, Home Assistant selects exactly one script to run
 5. `rgbw_color` is provided and `set_rgbw` is defined.
 6. `rgb_color` is provided and `set_rgb` is defined.
 7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-8. None of the above match, and `turn_on` is called.
+8. `rgb_color` is provided and `set_rgb` is defined.
+9. `xy_color` is provided and `set_xy` is defined.
+10. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+11. None of the above match, and `turn_on` is called.
 
 Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
 
