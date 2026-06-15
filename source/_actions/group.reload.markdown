@@ -38,6 +38,10 @@ action: |
 
 This reloads the groups from your YAML configuration.
 
+### Options in YAML
+
+This action has no options.
+
 ## Good to know
 
 - Run this action after you change the groups in your YAML configuration so the changes take effect without a restart.
