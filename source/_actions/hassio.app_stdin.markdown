@@ -9,7 +9,7 @@ related_actions:
   - hassio.app_restart
 ---
 
-Use this action to send data to the standard input (stdin) of an app. Apps were previously called add-ons. This only works for apps that are built to read commands from stdin, so check the app's documentation before you use it.
+Use this action to send data to the standard input (stdin) of an {% term app %}. This only works for apps that are built to read commands from stdin, so check the app's documentation before you use it.
 
 {% include actions/ui_header.md %}
 

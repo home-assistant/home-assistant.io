@@ -9,7 +9,7 @@ related_actions:
   - hassio.app_stdin
 ---
 
-Use this action to stop a running app. Apps were previously called add-ons. A common use is to pair it with **Start app** so an app only runs during the hours you actually need it.
+Use this action to stop a running {% term app %}. A common use is to pair it with **Start app** so an app only runs during the hours you actually need it.
 
 {% include actions/ui_header.md %}
 

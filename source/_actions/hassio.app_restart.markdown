@@ -9,7 +9,7 @@ related_actions:
   - hassio.app_stdin
 ---
 
-Use this action to restart a running app. Apps were previously called add-ons. A common use is to restart an app on a schedule, or to recover an app that has stopped responding, without restarting all of Home Assistant.
+Use this action to restart a running {% term app %}. A common use is to restart an app on a schedule, or to recover an app that has stopped responding, without restarting all of Home Assistant.
 
 {% include actions/ui_header.md %}
 

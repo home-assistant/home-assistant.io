@@ -9,7 +9,7 @@ related_actions:
   - hassio.app_stdin
 ---
 
-Use this action to start an installed app. Apps were previously called add-ons. A common use is to start an app only when you need it, for example starting a download client in the evening and stopping it again in the morning.
+Use this action to start an installed {% term app %}. A common use is to start an app only when you need it, for example starting a download client in the evening and stopping it again in the morning.
 
 {% include actions/ui_header.md %}
 
