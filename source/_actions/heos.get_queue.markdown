@@ -28,16 +28,17 @@ This action has no additional options in the UI.
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `heos.get_queue`. A basic example looks like this:
+In YAML, refer to this action as `heos.get_queue`. Store the result in a response variable so you can use it in later steps:
 
 {% example %}
 action: |
   action: heos.get_queue
   target:
     entity_id: media_player.office
+  response_variable: queue
 {% endexample %}
 
-This returns the play queue of `media_player.office`.
+This stores the play queue of `media_player.office` in `queue`.
 
 {% include actions/targets.md domain="media_player" %}
 
