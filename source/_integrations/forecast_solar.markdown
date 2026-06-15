@@ -50,9 +50,16 @@ Total Watt peak power of your solar modules:
 
 After setup, you can fine-tune the forecast. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and then select **Configure**.
 
-- **API key**: The API key for your Forecast.Solar account. An account is only needed for more frequent updates or more than one plane. See [Using a Forecast.Solar account](#using-a-forecastsolar-account).
-- **Damping factor: adjusts the results in the morning** and **Damping factor: adjusts the results in the evening**: Lower the forecast separately for the morning and the evening. See [Tweaking the estimations](#tweaking-the-estimations).
-- **Inverter size (Watt)**: The maximum power of your inverter. See [Tweaking the estimations](#tweaking-the-estimations).
+{% configuration_basic %}
+API key:
+  description: "The API key for your Forecast.Solar account. An account is only needed for more frequent updates or more than one plane. See [Using a Forecast.Solar account](#using-a-forecastsolar-account)."
+Damping factor: adjusts the results in the morning:
+  description: "Lower the forecast for the morning. See [Tweaking the estimations](#tweaking-the-estimations)."
+Damping factor: adjusts the results in the evening:
+  description: "Lower the forecast for the evening. See [Tweaking the estimations](#tweaking-the-estimations)."
+Inverter size (Watt):
+  description: "The maximum power of your inverter. See [Tweaking the estimations](#tweaking-the-estimations)."
+{% endconfiguration_basic %}
 
 ## Adding multiple planes
 
