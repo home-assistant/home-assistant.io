@@ -234,14 +234,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 **Guard set current position** will set the current position as the new guard position.
 
-#### Action reolink.ptz_move
-
-Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` action can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` action, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
-
-| Data attribute | Optional | Description                                                                                                                         |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
-| `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
+Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the [PTZ move](/actions/reolink.ptz_move/) action works in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** button entities, which let you specify the speed. If those button entities are not shown when you choose a target for the action, that camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
 ### Select entities
 
@@ -282,14 +275,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 **Hub scene modes** can be set in the Reolink app/client. The scene names are loaded into Home Assistant at the start of the integration. After adding new custom scenes, restart the Reolink integration.
 
-#### Action reolink.play_chime
-
-To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
-
-| Data attribute | Optional | Description                                                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `device_id`            | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`.                             |
-| `ringtone`             | no       | The ringtone to play. For example `operetta`.                                                                                       |
+To play a ringtone on a Reolink Chime, use the [Play chime](/actions/reolink.play_chime/) action.
 
 ### Siren entities
 
@@ -383,6 +369,8 @@ Therefore the update entity in Home Assistant can find and install a firmware up
 If the camera supports recording to an SD card or NVR/Hub ([see specifications of the camera model on Reolink.com](#tested-models)), the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
 In the sidebar, select "Media" > "Reolink" and select the **camera** of which you want to see recordings. Optionally, select if you want a high or low **resolution** stream and select the recording **date**. Here, all available video files of that day will be shown.
 Recordings up to 1 month old can be viewed in Home Assistant.
+
+{% include integrations/actions.md %}
 
 ## Tested models
 
