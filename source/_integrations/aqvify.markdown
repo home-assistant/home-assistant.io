@@ -45,18 +45,20 @@ Get started with this automation example:
 
 {% details "Example YAML configuration" %}
 
-```yaml
-alias: "Notify when water level is below 15 meters from ground surface"
-triggers:
-  - trigger: numeric state
-    entity_id:
-      - sensor.water_level
-    below: -15.0
-actions:
-  - action: notify.notify
-    data:
-      message: "Low water level in well."
-```
+{% example %}
+automation: |
+  alias: "Notify when water level is below 15 meters from ground surface"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.water_level
+      below: -15.0
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        message: "Low water level in well."
+{% endexample %}
 
 {% enddetails %}
 
