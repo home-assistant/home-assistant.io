@@ -79,17 +79,7 @@ The Blue Current integration provides the following buttons:
 - Reboot
 - Stop charge session
 
-## Actions
-The following actions are provided by the Blue Current integration:
-
-### Action: Start charge session
-
-The `blue_current.start_charge_session` action allows you to start a new charge session. When no charging card ID is provided, no charging card will be used.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `device_id` | no | Charge point device ID |
-| `charging_card_id` | yes | Charging card ID that will be used to start a charge session. |
+{% include integrations/actions.md %}
 
 ## Switch
 
