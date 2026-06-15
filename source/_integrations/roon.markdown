@@ -28,28 +28,19 @@ This integration uses Roon Core, a Roon application that runs on a machine on yo
 5. Roon core will then provide Home Assistant with the details of your media players.
 6. In Home Assistant you can then pick an area for each of your music players, and add them to Home Assistant.
 
-## Actions
+## Playing media
 
-### Action: Play media
+The [`media_player.play_media`](/integrations/media_player/) action plays media on a Roon player. Roon uses a path based on the Roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If Roon can't follow the path, you will find an error in the log that shows which part of the path Roon could not follow, and the possibilities at that point.
 
-The `media_player.play_media` action plays media on a Roon player. Roon uses a path based on the Roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If roon can't follow the path you will find an error in the log that will show which part of the path roon could not follow, and the possibilities at that point.
+This action accepts the following data:
 
-| Data attribute | Optional | Description                                                             |
-| ---------------------- | -------- | ----------------------------------------------------------------------- |
-| `entity_id`            | yes      | Target a specific media player. To target all media players, use `all`. |
-| `media_content_id`     | no       | A path to specify the media you want to play, see examples below.       |
-| `media_content_type`   | no       | Only `music` is supported                                               |
+- `entity_id` (optional): Target a specific media player. To target all media players, use `all`.
+- `media_content_id` (required): A path to specify the media you want to play. See the examples below.
+- `media_content_type` (required): Only `music` is supported.
 
- For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set `media_content_id` to `My Live Radio/BBC Radio 4`
+For example, to play the album Harvest by Neil Young, set `media_content_id` to `Library/Artists/Neil Young/Harvest`. To play BBC Radio 4, set `media_content_id` to `My Live Radio/BBC Radio 4`.
 
-### Action: Transfer
-
-The `roon.transfer` action transfers playback from one player to another.
-
-| Data attribute | Optional | Description                   |
-| ---------------------- | -------- | ----------------------------- |
-| `entity_id`            | yes      | id of the source player.      |
-| `transfer_id`          | no       | id of the destination player. |
+{% include integrations/actions.md %}
 
 ## Roon endpoint volume control via Home Assistant
 
