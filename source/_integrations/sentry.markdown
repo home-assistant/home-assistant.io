@@ -41,7 +41,7 @@ Sentry DSN:
 
 ## Configuration options
 
-After setup, you can fine-tune what Home Assistant sends to Sentry. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Sentry** integration, and then select **Configure**.
+After setup, you can fine-tune what Home Assistant sends to Sentry. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Sentry** integration, and then select the cogwheel {% icon "mdi:cog-outline" %} (**Configure**).
 
 - **The log level Sentry will register an event for**: The minimum log level that creates a Sentry event. Defaults to **error**.
 - **The log level Sentry will record events as breadcrumbs for**: The minimum log level recorded as breadcrumbs, which add context leading up to an event. Defaults to **warning**.
