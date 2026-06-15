@@ -46,7 +46,7 @@ Manufacturer (dropdown):
 
 ### Sensors
 
-The integration provides one **Plant** device for each location (e.g., Balcony, Garden, Home, Office) and one **Overview** (aggregation) device. It is recommended to disable the Overview device, as plants can be shared between accounts or temporarily added to your profile, which may lead to inaccurate data aggregation.
+The integration provides one **Plant** device for each location (for example, Balcony, Garden, Home, Office) and one **Overview** (aggregation) device. It is recommended to disable the Overview device, as plants can be shared between accounts or temporarily added to your profile, which may lead to inaccurate data aggregation.
 
 Plant and Overview have the following sensors:
 
