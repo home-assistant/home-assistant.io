@@ -1,6 +1,6 @@
 ---
 title: Wake on LAN
-description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
+description: Instructions on how to set up the Wake on LAN integration in Home Assistant.
 ha_category:
   - Button
   - Network
@@ -88,7 +88,7 @@ The action to route the packet is most likely named "IP Helper". It may support 
 The `wake_on_lan` (WOL) button {% term integration %} allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
 The WOL button can only turn on your computer.
-It will send a magic packet to the MAC address specified in the configuration. As a button, it is stateless. This means it can not monitor if the WOL-enabled computer has actually received the wake-up call and has started.
+It will send a magic packet to the MAC address specified in the configuration. As a button, it is stateless. This means it cannot monitor if the WOL-enabled computer has actually received the wake-up call and has started.
 
 ## Switch
 

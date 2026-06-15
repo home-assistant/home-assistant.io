@@ -111,7 +111,7 @@ The light entity allows you to control the internal light of the Xiaomi gateway.
 - Set the brightness.
 - Set the color using HS or RGB color coding.
 
-The requirement is that you have setup [Xiaomi aqara](/integrations/xiaomi_aqara/).
+The requirement is that you have set up [Xiaomi aqara](/integrations/xiaomi_aqara/).
 
 ### Locks
 

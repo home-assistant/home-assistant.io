@@ -82,4 +82,4 @@ The integration creates a switch for the Pi-hole allowing you to toggle ad-block
 
 ## Sensors
 
-The integration creates a number of sensors that report various ad-blocking metrics as well as diagnostic information about the Pi-hole itself.
+The integration creates several sensors that report various ad-blocking metrics as well as diagnostic information about the Pi-hole itself.

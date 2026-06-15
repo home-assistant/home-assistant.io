@@ -159,7 +159,7 @@ When Tuya updates the terms and conditions of iot.tuya.com, the integration will
 
 To fix this:
 
-1. Login to [iot.tuya.com](https://iot.tuya.com), and accept the terms and conditions.
+1. Log in to [iot.tuya.com](https://iot.tuya.com), and accept the terms and conditions.
 2. Restart Home Assistant.
 3. Reconfigure the Tuya integration.
 

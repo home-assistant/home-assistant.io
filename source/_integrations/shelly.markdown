@@ -297,7 +297,7 @@ Also, some devices do not add an entity for the button/switch. For example, the 
 
 ### Listening for events
 
-You can subscribe to the `shelly.click` event type in [Developer tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
+You can subscribe to the `shelly.click` event type in [Developer tools/Events](/docs/tools/dev-tools/) to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
 
 ```json
 Event 0 fired 9:53 AM:
@@ -494,7 +494,7 @@ If you have the Valve add-on connected to Shelly Gas, the integration will creat
 
 In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
 
-In order to change it, add the following key to your {% term "`configuration.yaml`" %}:
+To change it, add the following key to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -530,9 +530,9 @@ Please check from the device Web UI that the configured server is reachable.
 
 ## Troubleshooting
 
-1. [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#enabling-debug-logging).
+1. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 2. Take necessary steps/actions to replicate the issue.
-3. [Disable debug logging and download logs](https://www.home-assistant.io/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
+3. [Disable debug logging and download logs](/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
 
 ## Known issues and limitations
 

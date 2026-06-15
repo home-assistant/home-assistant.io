@@ -135,7 +135,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 
 ### Removing a device from the current Z-Wave network
 
-Do this before using the device with another adapter, or when you don't use the device anymore. It removes the device from the Z-Wave network stored on the adapter. It also removes the device and all its entities from Home Assistant. You can not join a device to a new network if it is still paired with an adapter.
+Do this before using the device with another adapter, or when you don't use the device anymore. It removes the device from the Z-Wave network stored on the adapter. It also removes the device and all its entities from Home Assistant. You cannot join a device to a new network if it is still paired with an adapter.
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration.
@@ -201,7 +201,7 @@ There is no easy way to update that device.
 5. Select **Submit**.
 6. In the **Select your device** dialog, select the Z-Wave adapter you just connected.
    - Typically, you can select the device you connected to a USB port.
-   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](https://www.home-assistant.io/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
+   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
 7. Select **Submit**.
    - The new adapter is now being paired with your existing Z-Wave network.
    - Troubleshooting: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
@@ -432,7 +432,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ## Using advanced features (UI only)
 
-While the integration aims to provide as much functionality as possible through existing Home Assistant constructs (entities, states, automations, actions, etc.), there are some features that are only available through the UI.
+While the integration aims to provide as much functionality as possible through existing Home Assistant constructs (such as entities, states, automations, and actions), there are some features that are only available through the UI.
 
 All of these features can be accessed either in the Z-Wave integration configuration panel or in a Z-Wave device's device panel.
 
@@ -658,7 +658,7 @@ The `zwave_js.set_value` action sets a value on a Z-Wave device. It is for advan
 | `endpoint`        | no       | ID of Endpoint that you want to set the value for.                                                                                                                                                                                                                      |
 | `value`           | yes      | The new value that you want to set.                                                                                                                                                                                                                                     |
 | `options`         | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                            |
-| `wait_for_result` | no       | Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the action can take a while if setting a value on an asleep battery device. |
+| `wait_for_result` | no       | Boolean that indicates whether to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the action can take a while if setting a value on an asleep battery device. |
 
 ### Action: Multicast set value
 
@@ -1325,7 +1325,7 @@ _Many_ reported issues result from RF interference caused by the system's USB po
 
 After ensuring you are using an extension cable, rebuild network routes.
 
-The combination of these two steps corrects a large number of reported difficulties.
+The combination of these two steps corrects many reported difficulties.
 
 ### My Z-Wave adapter isn't recognized automatically during setup
 
@@ -1342,7 +1342,7 @@ If your Z-Wave adapter doesn't show up in the **Discovered** section automatical
 
 ### I have an Aeotec Gen5 adapter, and it isn't detected on my Raspberry Pi&nbsp;4?
 
-The first-generation Gen5 adapter has a known bug when plugged into a Pi&nbsp;4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their adapters into a USB&nbsp;2.0 hub in order to overcome the issue.
+The first-generation Gen5 adapter has a known bug when plugged into a Pi&nbsp;4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their adapters into a USB&nbsp;2.0 hub to overcome the issue.
 
 ### I do not see any entities created for my device in Home Assistant
 
@@ -1502,7 +1502,7 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 | controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
 | exclusion | remove | The process of removing a node from the Z-Wave network |
 | [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
-| multilevel switch | represented by different entity types: light, fan etc. | |
+| multilevel switch | represented by different entity types, such as light or fan. | |
 | replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
 | window covering | cover | |
 

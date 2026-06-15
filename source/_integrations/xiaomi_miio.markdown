@@ -55,17 +55,17 @@ Most Xiaomi Home devices support configuration using the Home Assistant UI,
 except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
 and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for those devices for more information.
 
-Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
+Devices need to be set up using the Mi Home app and not vendor-specific apps (for example, Roborock).
 
 {% note %}
-For more complex network setups (e.g. VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
+For more complex network setups (for example, VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
 
 It is recommended to supply your Xiaomi Home credentials during configuration
 to automatically connect to your devices. You need to specify the server region
-you used in the Xiaomi Home App (where you initially setup the device). There are
+you used in the Xiaomi Home App (where you initially set up the device). There are
 6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
 [this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
 the server to use for each country.
@@ -1779,16 +1779,16 @@ Allowed `params` for the `reset_consumable` command:
 ### Using FloleVac (Android)
 
 1. Download [FloleVac](https://play.google.com/store/apps/details?id=de.flole.xiaomi)
-2. Login with your Xiaomi credentials
+2. Log in with your Xiaomi credentials
 3. Open Map (make sure you're on the same network as your vacuum cleaner)
 4. Select "Zone cleanup" and draw a box around the zone you'd like to clean
 5. Long press "Cleanup" and the zone coordinates will be copied to your clipboard
 
 ### Using RoboRock Control Center (requires Valetudo firmware)
 
-[RRCC](https://github.com/LazyT/rrcc) supports both rooted and non-rooted Vacuums and acts as a mostly fully featured replacement for Mi Home that works locally without the cloud. If you have installed the rooted firmware [Valetudo](https://github.com/Hypfer/Valetudo) you are able to SSH into your Vacuum and enable MQTT plus use map functions with no cloud requirement.
+[RRCC](https://github.com/LazyT/rrcc) supports both rooted and non-rooted Vacuums and acts as a mostly fully featured replacement for Mi Home that works locally without the cloud. If you have installed the rooted firmware [Valetudo](https://github.com/Hypfer/Valetudo) you can SSH into your Vacuum and enable MQTT plus use map functions with no cloud requirement.
 
-Using the map editor you are able to acquire the coordinates required for zoned clean up. Here is an example script for zoned clean up:
+Using the map editor you can acquire the coordinates required for zoned clean up. Here is an example script for zoned clean up:
 
 ```yaml
 vacuum_kitchen:
@@ -2071,7 +2071,7 @@ pip3 install pycryptodome pybase64 requests
 python3 token_extractor.py
 ```
 
-3. Provide email address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+3. Provide email address or username for Xiaomi's account, password, and country of the account (most used: CN - China Mainland, DE - Germany, and so on)
 4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
 
 ### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
@@ -2087,7 +2087,7 @@ python3 token_extractor.py
 9. Android: under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
    iOS: Most options are still in Chinese, you need the fourth item from the top.
 
-Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
+Note: If you have multiple devices needing a token, such as a Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
 
 ### Using Get Mi Home Devices Token App
 
@@ -2141,7 +2141,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 8. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
-11. Input and run this query (use appropriate SELECT query for your device i.e. Vacuum, Powerstrip or Plug):
+11. Input and run this query (use appropriate SELECT query for your device, such as Vacuum, Powerstrip, or Plug):
 
     ```sql
     -- Execute to retrieve token for Vacuum
@@ -2167,7 +2167,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 1. Configure the robot with the Mi-Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
 2. Install [BlueStacks](https://www.bluestacks.com).
-3. Set up [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and login to synchronize devices.
+3. Set up [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and log in to synchronize devices.
 4. Open Filemanager in the `More Apps` menu.
 5. Use `Explore` on the left and navigate to `sdcard/SmartHome/logs/plug_DeviceManager`.
 6. Click on `Export to Windows` in the lower left corner and select any or all files to export to you local disk.

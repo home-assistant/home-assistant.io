@@ -157,7 +157,7 @@ The steps below use *Web Application Auth* with *My Home Assistant* to handle Go
 
     ![Screenshot of OAuth Client ID and Client Secret](/images/integrations/nest/oauth_created.png)
 
-8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.  Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
+8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant. Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
 
 {% enddetails %}
 
@@ -358,7 +358,7 @@ support capturing media (snapshots or clips) through device triggers. The table 
 
 ## Event
 
-All doorbells and cameras support event entities. See the [Event](https://www.home-assistant.io/integrations/event/) integration documentation for more about how to use event entities in automations.
+All doorbells and cameras support event entities. See the [Event](/integrations/event/) integration documentation for more about how to use event entities in automations.
 
 There are two classes of event entities that are available based on the above camera features:
 
@@ -598,7 +598,7 @@ during the account linking process means that the Google Account used cannot acc
 ##### Resolution
 
 - You can organize your homes and devices in the Google Home App and [share homes and devices](https://support.google.com/googlenest/answer/9155535) across accounts. Ensure the account being used has access to the Home.
-- If you formerly had a Nest account, ensure that it is migrated successfully to a Google Account. If your Google Home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
+- If you formerly had a Nest account, ensure that it is migrated successfully to a Google Account. If your Google Home has multiple members, the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
 
 #### Symptom: Error 400: redirect_uri_mismatch 
 
@@ -867,6 +867,6 @@ This integration follows standard integration removal. No extra steps are requir
 {% include integrations/remove_device_service.md %}
 
 After deleting the integration, you may also want to remove any unused information in
-your Google Account that was added during the set up process.  See the integration
+your Google Account that was added during the set up process. See the integration
 configuration instructions for how to find where OAuth credentials and Device Access projects
 are configured.

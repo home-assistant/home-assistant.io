@@ -24,7 +24,7 @@ Using the **Amber Electric** {% term integration %}, customers can go a step fur
 
 To use this {% term integration %}, you will need to generate an API key.
 
-1. Login to your Amber account at: <https://app.amber.com.au>
+1. Log in to your [Amber account](https://app.amber.com.au)
 2. Click _Settings_
 3. Enable _Developer Mode_
 4. Click _Generate API Key_
@@ -60,4 +60,4 @@ The `amberelectric.get_forecasts` action allows you to get an array of forecasts
 | Data attribute    | Optional | Description                                                           |
 | ----------------- | -------- | --------------------------------------------------------------------- |
 | `config_entry_id` | Yes      | The config entry of the site to get forecasts for.                    |
-| `channel_type`    | Yes      | The channel type to fetch. Options: general, controller_load, feed_in |
+| `channel_type`    | Yes      | The channel type to fetch. Options: general, controlled_load, feed_in |

@@ -84,7 +84,7 @@ The `soundtouch.add_zone_slave` action adds slave(s) to an existing zone.
 The `soundtouch.remove_zone_slave` action removes slave(s) from an existing zone.
 
 Removing the last slave will destroy the zone. You will need to
-create a new zone in order to be able to add slave(s) again
+create a new zone to be able to add slave(s) again
 
 | Data attribute | Optional | Description      |
 | ---------------------- | -------- | ---------------- |

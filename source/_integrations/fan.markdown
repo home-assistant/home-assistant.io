@@ -1,6 +1,6 @@
 ---
 title: Fan
-description: Instructions on how to setup Fan devices within Home Assistant.
+description: Instructions on how to set up Fan devices within Home Assistant.
 ha_category:
   - Fan
 ha_release: 0.27

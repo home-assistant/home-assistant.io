@@ -50,7 +50,7 @@ If you have administrator rights, you can add other persons to Home Assistant an
    - If they cannot sign in, they do not get a user account and cannot do much with Home Assistant.
    - They cannot have their own dashboard, for example.
    - But they can still be used for device tracking, show up on a map, and be included in automations.
-5. If they are able to sign in, fill in the user information.
+5. If they can sign in, fill in the user information.
    - Check if the username is correct. Home Assistant suggests one based on the person name, but the two do not have to be identical.
      - The username must be lowercase and contain no spaces.
      - The username is required to sign in.

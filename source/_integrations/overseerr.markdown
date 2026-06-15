@@ -256,5 +256,5 @@ This integration follows standard integration removal, no extra steps are requir
 
 {% details "Failed to register Seerr webhook" %}
 
-Make sure your Seerr instance is able to reach your Home Assistant instance.
+Make sure your Seerr instance can reach your Home Assistant instance.
 {% enddetails %}

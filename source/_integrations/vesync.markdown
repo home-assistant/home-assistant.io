@@ -205,11 +205,11 @@ Sensors and settings exposed by VeSync Air Fryers.
 
 ## Extracting attribute data
 
-In order to get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
+To get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
 
 In the example below, change all of the `vesync_switch`'s to match your device's entity ID.
 
-Adapted from the [TP-Link integration](https://www.home-assistant.io/integrations/tplink/#plugs).
+Adapted from the [TP-Link integration](/integrations/tplink/#plugs).
 
 ```yaml
 template:

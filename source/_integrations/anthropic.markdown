@@ -32,7 +32,7 @@ The **Anthropic** {% term integrations %} adds a conversation agent powered by [
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-Legal note: Individuals and hobbyists are welcome to use the Anthropic API [for personal use](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use), however, please note that the use of the API is subject to their [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms), regardless of whether you are an individual or representing a company.
+Legal note: Individuals and hobbyists are welcome to use the Anthropic API [for personal use](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use), however, the use of the API is subject to their [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms), regardless of whether you are an individual or representing a company.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ Enable web fetch:
 Maximum web fetches:
   description: Limits the number of web fetches that can be performed per user request.
 Enable tool search tool:
-  description: With [this tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool), instead of loading all tool definitions into the context window upfront, Claude searches the tool catalog and loads only the tools it needs. This may improve performance if you don't need to control devices every time, or if you have a long prompt or a large number of additional tools.
+  description: With [this tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool), instead of loading all tool definitions into the context window upfront, Claude searches the tool catalog and loads only the tools it needs. This may improve performance if you don't need to control devices every time, or if you have a long prompt or many additional tools.
 {% endconfiguration_basic %}
 
 ## Supported features
@@ -115,7 +115,7 @@ The following table describes which [API features](https://platform.claude.com/d
 |---|---|---|---|
 | [Context windows](https://platform.claude.com/docs/en/build-with-claude/context-windows) | Up to 1M tokens for processing large documents, extensive codebases, and long conversations. | Supported | This is a basic feature, supported by default |
 | [Adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking) | Let Claude dynamically decide when and how much to think. Use the effort parameter to control thinking depth. | Supported | Use the **Thinking effort** parameter to control the effort for 4.6+ models |
-| [Batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing) | Process large volumes of requests asynchronously for cost savings. Send batches with a large number of queries per batch. Batch API calls cost 50% less than standard API calls. | Not supported | This feature does not apply to Home Assistant. There is currently no clear smart home use case for batch processing. |
+| [Batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing) | Process large volumes of requests asynchronously for cost savings. Send batches with many queries per batch. Batch API calls cost 50% less than standard API calls. | Not supported | This feature does not apply to Home Assistant. There is currently no clear smart home use case for batch processing. |
 | [Citations](https://platform.claude.com/docs/en/build-with-claude/citations) | Ground Claude's responses in source documents. With Citations, Claude can provide detailed references to the exact sentences and passages it uses to generate responses, leading to more verifiable, trustworthy outputs. | Not supported | We support receiving the citations but don't currently display them in the interface |
 | [Data residency](https://platform.claude.com/docs/en/build-with-claude/data-residency) | Control where model inference runs using geographic controls. Specify `"global"` or `"us"` routing per request via the `inference_geo` parameter. | Not supported | We might add support later, but it is not clear why you would need this in Home Assistant |
 | [Effort](https://platform.claude.com/docs/en/build-with-claude/effort) | Control how many tokens Claude uses when responding with the effort parameter, trading off between response thoroughness and token efficiency. Supported on Opus 4.6 and Opus 4.5. | Supported | Use the **Thinking effort** parameter to control the effort for 4.6+ models |

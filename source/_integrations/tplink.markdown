@@ -214,14 +214,14 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 - Check the [reported connection solutions](#reported-connection-solutions) section below.
 - Check the [supported device list](#supported-devices) to see if the device is tested to work with the integration. 
 - Try running the [kasa tool](https://github.com/python-kasa/python-kasa) to connect to the device. An easy way to do this is to [install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx --from python-kasa kasa --username <tplink cloud username> --password <tplink cloud password>`
-- Raise a support issue.  See the [section below](#raising-support-issues) for guidelines.
+- Raise a support issue. See the [section below](#raising-support-issues) for guidelines.
 
 #### Reported connection solutions
 
 These are some of the solutions that Home Assistant users have reported as solving their device connection issues:
 
 - Make the first letter of your TP-Link cloud username email upper-case. This could be because it was automatically capitalized when first entered into the Tapo app.
-- Remove the device from the Tapo app and re-add by searching for the correct model (i.e. do not use auto-discovery)
+- Remove the device from the Tapo app and re-add by searching for the correct model (that is, do not use auto-discovery)
 - Log out of the Tapo and Kasa apps, factory reset the device, log back in to the Tapo app, then re-add the device to the Tapo app.
 - Specifically for cameras, disable and re-enable the **Settings** > **Advanced Settings** > **Camera account** options in the Tapo app.
 - Specifically for cameras, reset the **Settings** > **Advanced Settings** > **Camera account** credentials in the Tapo app.
@@ -250,7 +250,7 @@ For the maintainers of the TP-Link integration to be able to properly assist wit
 
 ### Enable debug logging
 
-To capture debug logs from Home Assistant first starting up, update [`configuration.yaml`](https://www.home-assistant.io/docs/configuration/) to look like this:
+To capture debug logs from Home Assistant first starting up, update [`configuration.yaml`](/docs/configuration/) to look like this:
 
 ```yaml
 logger:

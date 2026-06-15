@@ -29,7 +29,7 @@ To set up this integration, you first **must** set up a developer account with H
 2. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
    1. App Name: You can use any name here, but it must not contain special characters.
    2. Callback URL: `https://my.home-assistant.io/redirect/oauth`
-   3. The app will be approved automatically. To view the **Consumer Key** and **Consumer Secret** values, select the name of the app.  Copy the values, you will need them later.
+   3. The app will be approved automatically. To view the **Consumer Key** and **Consumer Secret** values, select the name of the app. Copy the values, you will need them later.
 
 {% details "I have manually disabled My Home Assistant" %}
 

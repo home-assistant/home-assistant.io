@@ -24,7 +24,7 @@ ha_integration_type: integration
 ---
 
 The **Home Assistant Supervisor** {% term integration %} allows you to monitor and control Supervisor apps and operating system from Home Assistant.
-This integration is already installed if you run {% term "Home Assistant Operating System" %}. Please note that this integration
+This integration is already installed if you run {% term "Home Assistant Operating System" %}. It
 cannot be installed on {% term "Home Assistant Container" %}.
 
 ## Sensor entities
@@ -164,8 +164,8 @@ The `hassio.backup_partial` action creates a partial backup.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `apps` | yes | List of app slugs to backup
-| `folders` | yes | List of directories to backup
+| `apps` | yes | List of app slugs to back up
+| `folders` | yes | List of directories to back up
 | `name` | yes | Name of the backup file. Default is the current date and time in the user's local time
 | `password` | yes | Optional password for backup
 | `compressed` | yes | `false` to create uncompressed backups

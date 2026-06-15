@@ -52,7 +52,7 @@ The card shows upcoming events from one or more calendar entities and provides a
 
 ## The state of a calendar entity
 
-The state shows whether or not there is an active event:
+The state shows whether there is an active event:
 
 - **On**: The calendar has an active event.
 - **Off**: The calendar does not have an active event.

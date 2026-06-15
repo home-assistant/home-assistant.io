@@ -45,7 +45,7 @@ Enable the following permissions when creating your API key. Without these permi
 - `user.read`
 
 {% important %}
-Prior to immich server version 1.138.0 the `all` permission is necessary for your API key.
+Before immich server version 1.138.0 the `all` permission is necessary for your API key.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}

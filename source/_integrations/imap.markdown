@@ -29,7 +29,7 @@ An OAUTH2 authentication flow is not supported for the IMAP integration. This me
 
 ### Google Gmail IMAP service
 
-If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account.  Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
+If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account. Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
 
 1. Go to your [Google Account](https://myaccount.google.com/)
 2. Select **Security**
@@ -39,7 +39,7 @@ If you’re going to use Gmail, 2-step verification must be enabled on your Gmai
 6. Give your app a name that makes sense to you (Home Assistant IMAP, for example).
 7. Click **Create**, then make a note of your 16-character app password for safekeeping (remove the spaces when you save it).
 8. Click **Done**.
-9. Add the IMAP Integration to your Home Assistant instance using the My button above.  Enter the following information as needed:
+9. Add the IMAP Integration to your Home Assistant instance using the My button above. Enter the following information as needed:
 
     - Username: Your Gmail email login
     - Password: your 16-character app password (without the spaces)
@@ -49,7 +49,7 @@ If you’re going to use Gmail, 2-step verification must be enabled on your Gmai
 10. Click **Submit**.
 11. Assign your integration to an "Area" if desired, then click **Finish**.
 
-Congratulations, you now have a sensor that counts the number of unread e-mails in your Gmail account.  From here you can create additional sensors based upon the data that comes through the event bus when there's a new message detected.
+Congratulations, you now have a sensor that counts the number of unread emails in your Gmail account. From here you can create additional sensors based upon the data that comes through the event bus when there's a new message detected.
 
 ### Configuring IMAP Searches
 
@@ -227,7 +227,7 @@ sender:
 uid:
   description: The UID of the message.
 parts:
-  description: Contains a dictionary with metadata about the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size.
+  description: Contains a dictionary with metadata about the available parts in the message in case of a multipart message. This allows you to fetch and process the complete message text message part, not limited by size.
   type: map
   keys:
     content_type:
@@ -313,7 +313,7 @@ actions:
       message: "{{ message_text['subject'] }}"
 ```
 
-In case you want want to process a message part, use the `fetch_part` action, and specify the `part` option. 
+In case you want to process a message part, use the `fetch_part` action, and specify the `part` option. 
 
 ```yaml
 alias: "imap fetch and seen example"
@@ -437,7 +437,7 @@ template:
         event_type: "imap_content"
         id: "custom_event"
         event_data:
-          custom: True
+          custom: true
     sensor:
       - name: event filtered by template
         state: '{{ trigger.event.data["subject"] }}'

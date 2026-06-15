@@ -166,7 +166,7 @@ Music services that require an account, such as Spotify, must first be configure
 
 Playing TTS (text-to-speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. Using `announce` will play the provided media URL as an overlay, gently lowering the current music volume and automatically restoring to the original level when finished. An optional `volume` argument can also be provided in the `extra` dictionary to play the alert at a specific volume level. Note that older Sonos hardware or legacy firmware versions ("S1") may not fully support these features. Additionally, see [Network Requirements](#network-requirements) for use in restricted networking environments.
 
-An optional `enqueue` argument can be added to the action. If `replace` or not provided then the queue will be replaced and the item will be replaced. If `add` the item will be appended to the queue. If `next` the item will be added into the queue to play next. If `play`, the item will be added into the queue and played immediately.
+An optional `enqueue` argument can be added to the action. If `replace` or not provided then the queue will be replaced and the item will be played. If `add` the item will be appended to the queue. If `next` the item will be added into the queue to play next. If `play`, the item will be added into the queue and played immediately.
 
 ### Examples
 
@@ -446,7 +446,7 @@ The `sonos.update_alarm` action updates an existing Sonos alarm.
 | `alarm_id` | no | Integer that is used in Sonos to refer to your alarm.
 | `time` | yes | Time to set the alarm.
 | `volume` | yes | Float for volume level.
-| `enabled` | yes | Boolean for whether or not to enable this alarm.
+| `enabled` | yes | Boolean for whether to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
 ### Action: Play queue

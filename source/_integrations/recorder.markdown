@@ -21,7 +21,7 @@ The **Recorder** {% term integration %} is by default enabled as dependency of t
 This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to set the [commit_interval](/integrations/recorder#commit_interval) to higher value, e.g. 30s, limit the amount of stored data (e.g., by excluding devices) or store the data elsewhere (e.g., another system).
 {% endimportant %}
 
-Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This makes it possible to use a number of database solutions.
+Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This makes it possible to use several database solutions.
 
 The supported database solutions are:
 - [MariaDB](https://mariadb.org/) ≥ 10.3
@@ -31,7 +31,7 @@ The supported database solutions are:
 
 Although SQLAlchemy supports database solutions in addition to the ones supported by Home Assistant, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
-The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`. For details on the database structure, including available tables and columns, see the [Database](/docs/backend/database/) documentation.
+The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
 {% caution %}
 Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
@@ -156,7 +156,7 @@ If you only want to hide events from your **Activity** panel, take a look at the
 
 #### Common filtering examples
 
-Defining domains and entities to `exclude` (i.e. blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
+Defining domains and entities to `exclude` (that is, blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -178,7 +178,7 @@ recorder:
       - my_custom_event
 ```
 
-Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
+Defining domains and entities to record by using the `include` configuration (that is, allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
 
 ```yaml
 # Example configuration.yaml entry with include
@@ -270,7 +270,7 @@ Statistics are only available for entities that store {% term "Long-term statist
 | `end_time`     | yes      | The end time for the statistics query. If omitted, returns all statistics from start time onward. |
 | `period`       | no      | The time period to group statistics by (`5minute`, `hour`, `day`, `week`, or `month`). |
 | `types`        | no      | The types of statistics values to return (`change`, `last_reset`, `max`, `mean`, `min`, `state`, or `sum`). |
-| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](https://www.home-assistant.io/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
+| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
 
 #### Example using get_statistics
 
@@ -359,7 +359,7 @@ When using the official Docker image, the C MySQL library will always be availab
 {% endnote %}
 
 {% tip %}
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (that is, `localhost`).
 {% endtip %}
 
 {% note %}

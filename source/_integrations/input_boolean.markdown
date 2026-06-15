@@ -77,7 +77,7 @@ Home Assistant itself.
 ### Restore state
 
 If you set a valid value for `initial` this integration will start with the state
-set to that value. Otherwise, it will restore the state it had prior to
+set to that value. Otherwise, it will restore the state it had before
 Home Assistant stopping; if there is no state to restore - an `off` value is set. 
 
 ## Automation examples

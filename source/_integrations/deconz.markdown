@@ -1,6 +1,6 @@
 ---
 title: deCONZ
-description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
+description: Instructions on how to set up ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_category:
   - Alarm
   - Binary sensor
@@ -134,7 +134,7 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
 {% note %}
-deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this action or a restart of Home Assistant.
+deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must currently (deCONZ v2.05.35) be added manually using this action or a restart of Home Assistant.
 {% endnote %}
 
 ### Action `deconz.remove_orphaned_entries`
@@ -142,7 +142,7 @@ deCONZ automatically signals Home Assistant when new {% term sensors %} are adde
 Remove entries from {% term entity %} and device registry which are no longer provided by deCONZ.
 
 {% note %}
-It is recommended to use this {% term action %} after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+It is recommended to use this {% term action %} after a restart of Home Assistant Core to have deCONZ integration properly mirrored to deCONZ.
 {% endnote %}
 
 ## Remote control devices
@@ -330,7 +330,7 @@ The Payload consists of an event (`emergency`, `fire`, `invalid_code` or `panic`
 
 The following sensor types are supported:
 
-- Alarm signalling
+- Alarm signaling
 - Fire/Smoke detection
 - Open/Close detection
 - Presence detection
@@ -385,7 +385,7 @@ Switches aren't exposed as ordinary entities, see the [deCONZ main integration](
 
 #### deCONZ Daylight Sensor
 
-The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from <https://github.com/mourner/suncalc>, on which the deCONZ implementation is based):
+The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from [SunCalc](https://github.com/mourner/suncalc), on which the deCONZ implementation is based):
 
 | Sensor State  | Description                                                              |
 | ------------- | ------------------------------------------------------------------------ |
@@ -408,7 +408,7 @@ The sensor also has an attribute called "daylight" that has the value `true` whe
 
 These states can be used in automations as a trigger (for example, trigger when a certain phase of daylight starts or ends) or condition (for example, trigger only if in a certain phase of daylight).
 
-Please note that the deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
+The deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 
 ### Siren
 

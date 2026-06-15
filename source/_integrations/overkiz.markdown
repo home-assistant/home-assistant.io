@@ -69,7 +69,7 @@ Over 6000 devices from 60 brands are compatible with the Overkiz platform. This 
 
 The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some Somfy hubs). For compatible Somfy hubs, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app that you use to control your devices.
 
-### Login to Overkiz (Cloud API)
+### Log in to Overkiz (Cloud API)
 
 {% configuration_basic %}
 "Username":
@@ -78,7 +78,7 @@ Password:
   description: "Password for your Overkiz cloud account (account you use in your IoT app)."
 {% endconfiguration_basic %}
 
-### Login to Overkiz (Local API)
+### Log in to Overkiz (Local API)
 
 To use the local API, you must enable [Somfy TaHoma Developer Mode](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) in the TaHoma by Somfy app. Follow the [official instructions](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) to generate a token. This token is required to connect Home Assistant to your hub using the local API.
 
@@ -168,7 +168,7 @@ If your hub (e.g. Somfy Connectivity Kit) supports HomeKit, a sensor named **Hom
 2. Retrieve the setup code value from the sensor.
 3. Use this setup code to configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant.
 
-Please note that only a [limited set of devices is supported via HomeKit](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
+Only a [limited set of devices is supported via HomeKit](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
 
 ## Removing the integration
 

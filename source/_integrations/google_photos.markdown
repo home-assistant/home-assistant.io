@@ -66,7 +66,7 @@ The integration setup will next give you instructions to enter the [Application 
 
 1. Continue through the steps of selecting the account you want to authorize.
 
-2. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
+2. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that to proceed.
 
 3. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Select **Continue**. Keep in mind this is giving sensitive access to your private Photo Library.
 

@@ -41,7 +41,7 @@ They will be automatically added if the Rachio integration is loaded.
 4. Copy the API key from the dialog that opens.
 
 {% important %}
-In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. The smart hose timers use polling and don't require external access to be setup.
+In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. The smart hose timers use polling and don't require external access to be set up.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
@@ -54,18 +54,6 @@ After setting up the integration, change the options to set the duration in minu
 ### Smart hose timers
 
 The Rachio smart hose timers are not currently capable of receiving real-time updates. Instead, they rely on polling. Because of this, the current state of valves started from a schedule or the physical button will not show up immediately. Polling occurs every 2 minutes when one base station is used, with an additional minute added for every additional base station to remain with the API rate limit. Up to 4 valves can be paired to a single base station.
-
-### iFrame
-
-If you would like to see and control more detailed zone information, create an [iFrame](/integrations/panel_iframe/) that renders the Rachio web app.
-
-```yaml
-panel_iframe:
-  rachio:
-    title: Rachio
-    url: "https://app.rach.io"
-    icon: mdi:sprinkler-variant
-```
 
 ## Switch
 
