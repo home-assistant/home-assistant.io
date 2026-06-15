@@ -7,7 +7,7 @@ related_actions:
   - input_button.reload
 ---
 
-Use this action to press one or more input buttons. An input button is a stateless helper you can use in automations and scripts, for example to trigger a routine on demand. Pressing it does not store a value; it simply fires an event you can respond to.
+Use this action to press one or more input buttons. An input button is a stateless helper you can use in automations and scripts, for example to trigger a routine on demand. Pressing it updates its timestamp, which triggers a state change you can respond to in automations.
 
 {% include actions/ui_header.md %}
 
@@ -23,7 +23,7 @@ To press an input button from an automation or a script:
 
 ### Options in the UI
 
-This action has no additional options in the UI.
+This action has no additional options beyond the target.
 
 {% include actions/yaml_header.md %}
 
@@ -37,6 +37,10 @@ action: |
 {% endexample %}
 
 This presses the `input_button.my_button` helper.
+
+### Options in YAML
+
+This action has no additional YAML options beyond the target.
 
 {% include actions/targets.md %}
 

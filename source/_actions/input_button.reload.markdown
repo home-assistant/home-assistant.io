@@ -20,7 +20,7 @@ To reload the input button helpers from an automation or a script:
 5. From the search box, search for and select **Input button: Reload input buttons**.
 6. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Only users with administrator rights can run this action.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
 ### Options in the UI
 
@@ -37,9 +37,14 @@ action: |
 
 This reloads the input button helpers from your YAML configuration.
 
+### Options in YAML
+
+This action has no additional options in YAML.
+
 ## Good to know
 
 - Run this action after you change the input button helpers in your YAML configuration so the changes take effect without a restart.
+- Only administrators can run this action.
 
 {% include actions/try_it.md %}
 
