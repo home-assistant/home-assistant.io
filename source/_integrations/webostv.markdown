@@ -62,70 +62,16 @@ A common setup for webOS 3.0 and higher is to use Wake-on-LAN. For this to work,
 This usually only works if the TV is connected to the same network. Routing the Wake-on-LAN packet to a different subnet requires special configuration on your router or may not be possible.
 {% endimportant %}
 
-## Actions
+{% include integrations/actions.md %}
 
-The integration provides the following actions.
+## Notifications
 
-### Action: Select sound output
+The `notify` platform allows you to send notifications to an LG webOS TV. Each TV gets its own action, named after the TV, such as `notify.livingroom_tv`. The action name selects which TV receives the notification, so you don't target an entity. You can override the icon for individual notifications by providing a path to an alternative icon image.
 
-The `webostv.select_sound_output` action is used to select the active sound output.
-The current sound output of the TV can be found under the state attributes.
+This notification action takes the following options:
 
-| Data attribute | Optional | Description                             |
-| ---------------------- | -------- | --------------------------------------- |
-| `entity_id`            | no       | Target a specific webostv media player. |
-| `sound_output`         | no       | Name of the sound output to switch to.  |
-
-### Action: Button press
-
-The `webostv.button` action is used to simulate a button press.
-
-| Data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
-
-### Action: Generic command
-
-The `webostv.command` action is used to send a generic command to the TV.
-
-| Data attribute | Optional | Description                                                                                                                                                                          |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
-| `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/home-assistant-libs/aiowebostv/blob/main/aiowebostv/endpoints.py> |
-| `payload`             | yes      | An optional payload to provide to the endpoint in the format of key value pair(s). |
-
-```yaml
-script:
-  home_button:
-    sequence:
-      - action: webostv.button
-        target:
-          entity_id:  media_player.lg_webos_tv
-        data:
-          button: "HOME"
-
-  open_google_command:
-    sequence:
-      - action: webostv.command
-        target:
-          entity_id:  media_player.lg_webos_tv
-        data:
-          command: "system.launcher/open"
-          payload:
-            target: https://www.google.com
-```
-
-### Action: Notify
-
-The `notify` platform allows you to send notifications to a LG webOS TV.
-The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:
-
-| Data attribute | Optional | Description                             |
-| ---------------------- | -------- | --------------------------------------- |
-| `entity_id`            | no       | Target a specific webostv media player. |
-| `message`         | no       | Message to be displayed on the TV.  |
-| `icon`         | yes       | Optional icon to be shown with the notification.  |
+- `message`: The message to display on the TV.
+- `icon`: An optional icon to show with the notification. In YAML, pass it inside the nested `data:` block, as shown in the example below.
 
 ```yaml
 automation:
