@@ -27,7 +27,7 @@ To press a button from an automation or a script:
 
 {% options_ui %}
 Button:
-  description: "The name of the button to press. Known values are: LEFT, RIGHT, DOWN, UP, HOME, MENU, BACK, ENTER, DASH, INFO, ASTERISK, CC, EXIT, MUTE, RED, GREEN, BLUE, YELLOW, VOLUMEUP, VOLUMEDOWN, CHANNELUP, CHANNELDOWN, PLAY, PAUSE, and 0 to 9. Other buttons supported by your TV may also work."
+  description: "The name of the button to press. Known values are: LEFT, RIGHT, DOWN, UP, HOME, MENU, BACK, ENTER, DASH, INFO, ASTERISK, CC, EXIT, MUTE, RED, GREEN, BLUE, YELLOW, VOLUMEUP, VOLUMEDOWN, CHANNELUP, CHANNELDOWN, PLAY, PAUSE, NETFLIX, GUIDE, AMAZON, and 0 to 9. Other buttons supported by your TV may also work."
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -47,7 +47,7 @@ action: |
 
 {% options_yaml %}
 button:
-  description: "The name of the button to press. Known values are: LEFT, RIGHT, DOWN, UP, HOME, MENU, BACK, ENTER, DASH, INFO, ASTERISK, CC, EXIT, MUTE, RED, GREEN, BLUE, YELLOW, VOLUMEUP, VOLUMEDOWN, CHANNELUP, CHANNELDOWN, PLAY, PAUSE, and 0 to 9. Other buttons supported by your TV may also work."
+  description: "The name of the button to press. Known values are: LEFT, RIGHT, DOWN, UP, HOME, MENU, BACK, ENTER, DASH, INFO, ASTERISK, CC, EXIT, MUTE, RED, GREEN, BLUE, YELLOW, VOLUMEUP, VOLUMEDOWN, CHANNELUP, CHANNELDOWN, PLAY, PAUSE, NETFLIX, GUIDE, AMAZON, and 0 to 9. Other buttons supported by your TV may also work."
   required: true
   type: string
 {% endoptions_yaml %}

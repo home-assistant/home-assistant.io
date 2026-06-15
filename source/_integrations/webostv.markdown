@@ -66,13 +66,12 @@ This usually only works if the TV is connected to the same network. Routing the 
 
 ## Notifications
 
-The `notify` platform allows you to send notifications to an LG webOS TV. You can override the icon for individual notifications by providing a path to an alternative icon image.
+The `notify` platform allows you to send notifications to an LG webOS TV. Each TV gets its own action, named after the TV, such as `notify.livingroom_tv`. The action name selects which TV receives the notification, so you don't target an entity. You can override the icon for individual notifications by providing a path to an alternative icon image.
 
 This notification action takes the following options:
 
-- `entity_id`: The webOS TV media player to send the notification to.
 - `message`: The message to display on the TV.
-- `icon`: An optional icon to show with the notification.
+- `icon`: An optional icon to show with the notification. In YAML, pass it inside the nested `data:` block, as shown in the example below.
 
 ```yaml
 automation:
