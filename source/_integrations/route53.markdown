@@ -109,8 +109,4 @@ ttl:
   default: 300
 {% endconfiguration %}
 
-## Actions
-
-### Action: Update records
-
-The `route53.update_records` action manually triggers an update of the DNS records.
+{% include integrations/actions.md %}
