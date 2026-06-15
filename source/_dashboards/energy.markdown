@@ -105,7 +105,7 @@ type: energy-compare-card
 
 The energy usage graph card shows the amount of energy your house has consumed, and from what source this energy came.
 It will also show the amount of energy you have returned to the grid.
-The legend lets you show or hide individual components in the graph, for example, to hide solar and battery and focus on the grid usage.
+The legend lets you show or hide individual components in the graph, like solar and battery, so you can focus on grid usage.
 
 ### YAML configuration
 
@@ -126,7 +126,7 @@ title:
   type: string
 show_legend:
   required: false
-  description: Show or hide the legend. The legend can be used to filter the graph components, for example, to hide solar and battery to visualize the grid usage more clearly.
+  description: Show or hide the legend. You can select items in the legend to show or hide components in the graph, like solar and battery, so you can focus on grid usage more clearly.
   type: boolean
   default: true
 {% endconfiguration %}
