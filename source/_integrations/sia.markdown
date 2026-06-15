@@ -52,7 +52,7 @@ ASCII characters are 0-9 and ABCDEF, so an account is something like `346EB` and
 
 ### Note on monitoring multiple alarm systems
 
-If you have multiple accounts (alarm systems) that you want to monitor you can choose to have all communicating with the same port, in that case, use the additional accounts checkbox in the dialog to set up the next account and keep doing that until you have them all. You can also choose to have both running on a different port, in that case setup the component twice with the different ports.
+If you have multiple accounts (alarm systems) that you want to monitor you can choose to have all communicating with the same port, in that case, use the additional accounts checkbox in the dialog to set up the next account and keep doing that until you have them all. You can also choose to have both running on a different port, in that case set up the component twice with the different ports.
 
 ### Port usage
 

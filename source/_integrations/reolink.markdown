@@ -536,7 +536,7 @@ When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
 
    1. First connect the camera to your network using a LAN cable.
    2. Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
-   3. Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
+   3. Follow the on-screen instructions to first set up the credentials (use the same credentials in Home Assistant).
    4. If it is a Wi-Fi camera:
       - Go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password.
         - If you have both a 2.4 GHz and 5 GHz network, check your camera's user guide to see which operating frequency is supported.
