@@ -10,7 +10,7 @@ related_actions:
 
 With this action, you can play one of the built-in Alexa sounds on a device, such as a doorbell chime, a barking dog, or a trumpet. It is a quick way to add an audible alert to your automations.
 
-The available sounds come from Amazon's sound library. In the UI, you can pick one from a list. If you need more sounds or richer audio, use the {% term notify %} entities with [advanced markup](/integrations/alexa_devices/#notifications) instead.
+The available sounds come from Amazon's sound library. In the UI, you can pick one from a list. If you need more sounds or richer audio, use the notify entities with [advanced markup](/integrations/alexa_devices/#notifications) instead.
 
 {% include actions/ui_header.md %}
 
@@ -64,7 +64,7 @@ sound:
 
 ## Good to know
 
-- Only the sounds from Amazon's built-in library are supported. For other audio or speech, use the {% term notify %} entities with [advanced markup](/integrations/alexa_devices/#notifications).
+- Only the sounds from Amazon's built-in library are supported. For other audio or speech, use the notify entities with [advanced markup](/integrations/alexa_devices/#notifications).
 
 {% include actions/try_it.md %}
 

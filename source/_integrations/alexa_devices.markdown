@@ -69,7 +69,7 @@ You must ensure the authenticator app is set up as your preferred method for 2FA
 
 ## Notifications
 
-This integration creates **Speak** and **Announce** {% term notify %} entities for devices that support them. To make a device say something, use the generic [`notify.send_message`](/integrations/notify/) action and target one of these entities.
+This integration creates **Speak** and **Announce** notify entities for devices that support them. To make a device say something, use the generic [`notify.send_message`](/integrations/notify/) action and target one of these entities.
 
 The **Speak** entity reads your message out loud on the device. The **Announce** entity plays the Alexa notification chime first and then reads your message.
 
