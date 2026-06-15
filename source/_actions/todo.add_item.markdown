@@ -50,9 +50,9 @@ action: |
   target:
     entity_id: todo.personal_tasks
   data:
-    item: Submit income tax return
+    item: "Submit income tax return"
     due_date: "2024-04-10"
-    description: Collect all the documents and submit the final return.
+    description: "Collect all the documents and submit the final return."
 {% endexample %}
 
 This adds an item with a due date and a description to `todo.personal_tasks`.
@@ -112,7 +112,7 @@ automation: |
       target:
         entity_id: todo.shopping_list
       data:
-        item: Pick up groceries
+        item: "Pick up groceries"
 {% endexample %}
 
 {% enddetails %}

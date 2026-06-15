@@ -28,7 +28,7 @@ To update a to-do list item from an automation or a script:
 
 {% options_ui %}
 Item name or UID:
-  description: The name of the item to update. If you have items with the same name, use the item's UID instead. You can find the UID with the Get to-do list items action.
+  description: The name of the item to update. If you have items with the same name, use the item's UID instead. You can find the UID with the [Get to-do list items](/actions/todo.get_items/) action.
 Rename item:
   description: A new name for the item.
   required: false
@@ -56,7 +56,7 @@ action: |
   target:
     entity_id: todo.personal_tasks
   data:
-    item: Submit income tax return
+    item: "Submit income tax return"
     status: completed
 {% endexample %}
 
@@ -66,7 +66,7 @@ This marks the item named Submit income tax return as completed on `todo.persona
 
 {% options_yaml %}
 item:
-  description: The name of the item to update. If you have items with the same name, use the item's UID instead. You can find the UID with the get_items action.
+  description: The name of the item to update. If you have items with the same name, use the item's UID instead. You can find the UID with the `todo.get_items` action.
   required: true
   type: string
 rename:
@@ -125,7 +125,7 @@ automation: |
       target:
         entity_id: todo.daily_checklist
       data:
-        item: Check the mailbox
+        item: "Check the mailbox"
         status: completed
 {% endexample %}
 

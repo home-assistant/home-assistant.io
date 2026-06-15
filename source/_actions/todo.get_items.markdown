@@ -44,8 +44,7 @@ action: |
   target:
     entity_id: todo.vacation_preparation
   data:
-    status:
-      - needs_action
+    status: needs_action
   response_variable: todo_items
 {% endexample %}
 
@@ -55,9 +54,9 @@ This returns all items on `todo.vacation_preparation` that have not been complet
 
 {% options_yaml %}
 status:
-  description: Only return to-do items with the listed statuses, either needs_action or completed. Returns needs_action items by default.
+  description: Only return to-do items with the given status or statuses, either `needs_action` or `completed`. Returns `needs_action` items by default.
   required: false
-  type: list
+  type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}

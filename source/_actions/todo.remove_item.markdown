@@ -28,7 +28,7 @@ To remove a to-do list item from an automation or a script:
 
 {% options_ui %}
 Item name or UID:
-  description: The name of the item to remove. If you have items with the same name, use the item's UID instead. You can find the UID with the Get to-do list items action.
+  description: The name of the item to remove. If you have items with the same name, use the item's UID instead. You can find the UID with the [Get to-do list items](/actions/todo.get_items/) action.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -41,7 +41,7 @@ action: |
   target:
     entity_id: todo.personal_tasks
   data:
-    item: Submit income tax return
+    item: "Submit income tax return"
 {% endexample %}
 
 This removes the item named Submit income tax return from `todo.personal_tasks`.
@@ -50,7 +50,7 @@ This removes the item named Submit income tax return from `todo.personal_tasks`.
 
 {% options_yaml %}
 item:
-  description: The name of the item to remove. If you have items with the same name, use the item's UID instead. You can find the UID with the get_items action.
+  description: The name of the item to remove. If you have items with the same name, use the item's UID instead. You can find the UID with the `todo.get_items` action.
   required: true
   type: string
 {% endoptions_yaml %}
@@ -88,7 +88,7 @@ automation: |
       target:
         entity_id: todo.household_list
       data:
-        item: Prepare guest room
+        item: "Prepare guest room"
 {% endexample %}
 
 {% enddetails %}
