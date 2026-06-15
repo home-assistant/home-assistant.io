@@ -117,41 +117,13 @@ Backup a copy of your `.ps4-games.json` file before continuing. If there are err
 
 To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app on your console. 
 
-## Actions
+## Selecting a game or app
 
-### Action `select_source`
+The **Media player: Select source** action opens a new game or app and closes the one that's currently running. The game or app must be in the entity's source list. Games are added automatically when you open them normally on your console.
 
-Opens new application/game and closes currently running application/game. The game/app must be in the entity's source list. Games will be added automatically when you open them normally.
+When you select a source, you can use either the title (for example, `Some Game`) or the SKU ID (for example, `CUSA00123`). Using the SKU ID is the most reliable.
 
-| Data attribute | Optional | Example                    | Description                                                                                                 |
-| ---------------------- | -------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | No       | `media_player.ps4`         | The entity id for your PlayStation 4.                                                                       |
-| `source`               | No       | `Some Game` or `CUSA00123` | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable. |
-
-### Action `send_command`
-
-Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
-
-| Data attribute | Optional | Example            | Description                           |
-| ---------------------- | -------- | ------------------ | ------------------------------------- |
-| `entity_id`            | No       | `media_player.ps4` | The entity id for your PlayStation 4. |
-| `command`              | No       | `ps`               | The command you want to send.         |
-
-#### Available Commands
-
-Full list of supported commands.
-
-| Command   | Button Emulated    |
-| --------- | ------------------ |
-| `ps`      | PS (PlayStation)   |
-| `ps_hold` | PS Hold/Long Press |
-| `option`  | Option             |
-| `enter`   | Enter              |
-| `back`    | Back               |
-| `up`      | Swipe Up           |
-| `down`    | Swipe Down         |
-| `left`    | Swipe Left         |
-| `right`   | Swipe Right        |
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 
