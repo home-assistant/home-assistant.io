@@ -61,20 +61,9 @@ input_boolean:
     icon: mdi:car
 ```
 
-## Actions
+{% include integrations/actions.md %}
 
-This integration provides the following {% term actions %} to modify the state of the
-`input_boolean` and an action to reload the configuration without restarting
-Home Assistant itself.
-
-| Action     | Data                           | Description                                                 |
-| ---------- | ------------------------------ | ----------------------------------------------------------- |
-| `turn_on`  | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `on`  |
-| `turn_off` | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `off` |
-| `toggle`   | `entity_id(s)`<br>`area_id(s)` | Toggle the value of specific `input_boolean` entities       |
-| `reload`   |                                | Reload `input_boolean` configuration                        |
-
-### Restore state
+## Restore state
 
 If you set a valid value for `initial` this integration will start with the state
 set to that value. Otherwise, it will restore the state it had before
