@@ -207,27 +207,7 @@ data:
   enqueue: next
 ```
 
-### Action jellyfin.play_media_shuffle
-
-The Jellyfin API supports shuffling of a directory (series/tvshow or season) when beginning playback. This is enabled through a separate {% term service %} to [play_media](#action-play_media). This will immediately replace the current play queue of the client with the shuffled media. An `entity_id` target is required.
-
-- Data attribute: `media_content_id`
-  - Optional: No.
-  - Description: Unique identifier of the content you want to play.
-  - Example: `895dc4e1066da92847d48f9be28eb77c`
-
-#### Examples:
-
-Shuffle play a full season of a TV show on a Jellyfin client.
-
-```yaml
-action: jellyfin.play_media_shuffled
-target:
-  entity_id:
-    - media_player.chrome
-data:
-  media_content_id: 34361f3855c9c0ac39b0f7503fe86be0
-```
+{% include integrations/actions.md %}
 
 ## Notes
 
