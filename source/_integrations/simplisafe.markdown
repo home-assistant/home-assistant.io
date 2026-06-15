@@ -54,39 +54,7 @@ You must have multi-factor authentication (MFA) enabled on your SimpliSafe accou
 
 SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to step 6 of [the `simplisafe-python` documentation on authentication](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
 
-## Actions
-
-### `simplisafe.remove_pin`
-
-Remove a SimpliSafe PIN (by label or PIN value).
-
-| Data attribute | Optional | Description                      |
-| ---------------------- | -------- | -------------------------------- |
-| `label_or_pin`         | no       | The PIN label or value to remove |
-
-### `simplisafe.set_pin`
-
-Set a SimpliSafe PIN.
-
-| Data attribute | Optional | Description                            |
-| ---------------------- | -------- | -------------------------------------- |
-| `label`                | no       | The label to show in the SimpliSafe UI |
-| `pin`                  | no       | The PIN value to use                   |
-
-### `simplisafe.system_properties`
-
-Set one or more system properties.
-
-| Data attribute | Optional | Description                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------- |
-| `alarm_duration`       | yes      | The number of seconds a triggered alarm should sound                         |
-| `chime_volume`         | yes      | The volume of the door chime                                                 |
-| `entry_delay_away`     | yes      | The number of seconds to delay triggering when entering with an "away" state |
-| `entry_delay_home`     | yes      | The number of seconds to delay triggering when entering with a "home" state  |
-| `exit_delay_away`      | yes      | The number of seconds to delay triggering when exiting with an "away" state  |
-| `exit_delay_home`      | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
-| `light`                | yes      | Whether the light on the base station should display when armed              |
-| `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
+{% include integrations/actions.md %}
 
 ## Events
 
