@@ -24,11 +24,14 @@ To ask a question from an automation or a script:
 6. Select the **Entity** to ask the question on, set the **Question**, and add the possible **Answers**.
 7. Select **Save**.
 
+This action does not support targets. In the UI, you choose the satellite in the **Entity** field.
+
 ### Options in the UI
 
 {% options_ui %}
 Entity:
   description: The Assist satellite to ask the question on.
+  required: true
 Question:
   description: The question to ask. The satellite reads it out using text-to-speech.
   required: false
