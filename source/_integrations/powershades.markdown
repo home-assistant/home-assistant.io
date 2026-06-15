@@ -6,7 +6,7 @@ ha_category:
   - Cover
   - Sensor
 ha_release: 2026.7
-ha_iot_class: Local Push
+ha_iot_class: local_push
 ha_config_flow: true
 ha_codeowners:
   - '@vemboy200'
@@ -87,7 +87,7 @@ In addition to the standard cover actions (`cover.open_cover`, `cover.close_cove
 The `powershades.set_shade_name` action takes one additional field:
 
 | Data attribute | Optional | Description |
-| --------------- | -------- | ----------- |
+| -------------- | -------- | ----------- |
 | `name` | No | The new shade name, 1-50 ASCII characters. |
 
 ## Automation examples
