@@ -7,11 +7,11 @@ description: "Start playing a Jellyfin directory shuffled, replacing the current
 
 Use this action to start playing a directory from your Jellyfin library shuffled, such as a full series, TV show, or season. The Jellyfin API supports shuffling a directory when playback begins. This immediately replaces the current play queue of the client with the shuffled media.
 
-To play media without shuffling, use the [`media_player.play_media`](/integrations/media_player/) action instead.
+To play media without shuffling, use [Play media](/actions/media_player.play_media/) instead.
 
 {% include actions/ui_header.md %}
 
-To shuffle play media from an automation or a script:
+To play media shuffled from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
@@ -56,7 +56,7 @@ media:
 
 ## Good to know
 
-- To find the `media_content_id` of the content you want to play, browse or search your library with the [`media_player.browse_media`](/integrations/media_player/) and [`media_player.search_media`](/integrations/media_player/) actions.
+- To find the `media_content_id` of the content you want to play, browse or search your library with the [`media_player.browse_media`](/actions/media_player.browse_media/) and [`media_player.search_media`](/actions/media_player.search_media/) actions.
 - Shuffling works on directories, such as a series, TV show, or season.
 
 {% include actions/targets.md domain="media_player" %}
