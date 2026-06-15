@@ -68,7 +68,7 @@ Battery percentage and battery voltage are available as diagnostic entity sensor
 
 ## Actions
 
-In addition to the standard cover actions (`cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, and `cover.set_cover_position`), the PowerShades integration provides the following actions. All actions target a PowerShades cover entity.
+In addition to the standard cover actions (`cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, and `cover.set_cover_position`), the PowerShades integration provides the following actions. All actions target at least one PowerShades cover entity. These actions are similar to it's button counterparts (expect for `powershades.set_shade_name`)
 
 | Action | Description |
 | ------ | ----------- |
@@ -96,6 +96,10 @@ Open a shade in the morning:
 
 {% details "YAML example for opening a shade in the morning" %}
 
+Trigger: `time` is `"07:00:00"`
+
+Action: `cover:open_cover` to the `cover.bedroom_shade entity`
+
 {% example %}
 automation: |
   alias: "Open bedroom shade"
@@ -114,6 +118,13 @@ automation: |
 Close shades at dusk:
 
 {% details "YAML example for closing shades at dusk" %}
+
+
+Trigger: `state` of `sensor.sun_next_dusk` changes
+
+Condition: `cover.bedroom_shade entity` is `open`
+
+Action: `cover:close_cover` to the `cover.bedroom_shade entity`
 
 {% example %}
 automation: |
@@ -150,12 +161,13 @@ All communication is local, and data does not leave your network.
 
 ## Known limitations
 
-- PowerShades devices send replies and asynchronous move feedback only to the **last controller that sent them a command** (the "UDP master"). Avoid running PowerShades Config.NET or another driver at the same time as Home Assistant — control still works, but live position feedback may intermittently lag until the next poll.
-- This can also affect other hubs that communicate over UDP (for example, Control4) and rely solely on push data — they may end up with an outdated view of the shade's state.
-- The shade's reported state (for example, opening, closing, opened, or closed) is inferred by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for details.
+- PowerShades devices send replies and asynchronous move feedback only to the **last controller that sent them a command** (the "UDP master"). If possible, avoid Running any other platfrom that controls your Powershades. Control still works, but live position feedback may intermittently lag until the next poll.
+- This can also affect platform hubs that communicate over UDP (for example, Control4) and rely solely on push data, since they may end up with an outdated view of the shade's state if Home Assistant controls it.
+- The shade's reported state (for example, opening, closing, opened, or closed) is assumed by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for details.
 - If a shade is moved by another controller, Home Assistant does not know that controller's target position. It assumes the shade is heading toward fully open (100%) or fully closed (0%). If the other controller stops the shade partway, Home Assistant continues showing opening/closing for up to ~15 seconds until it detects the position has stopped changing, then falls back to open or closed.
 - The shade must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.
-- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge.
+- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge. If you have Powershade's RF hub, it would be nice to open an issue with what went wrong with logs, or a pull request adding hub support.
+- The shade may randomly go unavailable for anywere between 10-60 seconds, and then come back online.
 
 ## Troubleshooting
 
@@ -164,7 +176,7 @@ All communication is local, and data does not leave your network.
 This means Home Assistant cannot communicate with the shade. Check the following:
 
 - The shade is powered on and connected to your network.
-- Home Assistant can reach UDP port 42 on the shade, and UDP broadcasts are routed between subnets if Home Assistant and the shade are on different ones.
+- Home Assistant can reach UDP port 42 on the shade, and UDP broadcasts are routed between subnets if Home Assistant and the shade(s) are on different ones.
 - The IP address entered is correct and not already used by another config entry. If the shade's IP address has changed, open its integration entry and select **Reconfigure** to update it.
 
 ### Enabling debug logging
