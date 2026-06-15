@@ -45,4 +45,4 @@ logger:
     pescea: debug
 ```
 
-This will help you to find network connection issues etc.
+This will help you to find network connection issues.

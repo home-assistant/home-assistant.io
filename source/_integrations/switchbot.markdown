@@ -48,7 +48,7 @@ ha_integration_type: device
 ha_quality_scale: gold
 ---
 
-The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
+The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, and hubs.
 
 ## How you can use this integration
 
@@ -107,7 +107,7 @@ Password:
 {% endconfiguration_basic %}
 
 {% important %}
-This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
+This integration doesn't support SSO accounts (such as Login with Google) only username and password accounts.
 {% endimportant %}
 
 #### Enter the lock encryption key manually

@@ -492,7 +492,7 @@ queries_flux:
       default: Home Assistant
     imports:
       type: [string, list]
-      description: Libraries to import to execute your query. Ex. `strings`, `date`, `experimental/query`, etc.
+      description: Libraries to import to execute your query. For example, `strings`, `date`, or `experimental/query`.
       required: false
 {% endconfiguration %}
 

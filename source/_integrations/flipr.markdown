@@ -19,7 +19,7 @@ ha_integration_type: hub
 
 Go flipr company sells smart pool monitor and management devices. The Flipr and Flipr Hub devices publish data to the cloud via Wi-Fi and SigFox.
 This {% term integration %} gives you access on Home Assistant to the information measured by your Flipr with the same data as the vendor's smartphone application.
-This {% term integration %} gives you also access to the Flipr Hub to control your pool equipments like pump, heater, light, etc.
+This {% term integration %} gives you also access to the Flipr Hub to control your pool equipments like pump, heater, and light.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -59,7 +59,7 @@ There is currently support for the following information within Home Assistant v
 
 ## Hub
 
-The Hub lets you handle your equipment (pump, heater, light, etc.) from Home Assistant and all of the automation you can imagine.
+The Hub lets you handle your equipment (such as pump, heater, and light) from Home Assistant and all of the automation you can imagine.
 
 - **Turn on/off** the switch inside the Hub and automatically set the Hub in manual mode.
 - **Choose** the mode of the Hub between auto, planning and manual.

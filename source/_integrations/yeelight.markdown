@@ -263,7 +263,7 @@ The `yeelight.set_color_temp_scene` action changes the light to the specified co
 
 ### Action: Set color flow scene
 
-The `yeelight.set_color_flow_scene` action starts a color flow. Difference between this and [yeelight.start_flow](#action-start-flow), this action uses a different Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows, etc.
+The `yeelight.set_color_flow_scene` action starts a color flow. Difference between this and [yeelight.start_flow](#action-start-flow), this action uses a different Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|

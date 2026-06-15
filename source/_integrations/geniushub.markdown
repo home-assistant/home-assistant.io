@@ -96,7 +96,7 @@ Such entities will report back their primary state and `assigned_zone`. If the H
 
 There are three `Sensor` entities that will indicate the number of **Errors**, **Warnings** and **Information** issues.
 
-Each such entity has a state attribute that will contain a list of any such issues which can be used in automations, etc. For example:
+Each such entity has a state attribute that will contain a list of any such issues which can be used in automations and so on. For example:
 
 ```yaml
 - alias: "GeniusHub Error Alerts"
@@ -161,7 +161,7 @@ Many zone/device properties are available via the corresponding entity's state a
 }
 ```
 
-This data can be accessed in automations, etc. via a value template. For example:
+This data can be accessed in automations and so on via a value template. For example:
 
 ```yaml
 value_template: "{{ state_attr('water_heater.genius_zone_2', 'status').override.setpoint }}"

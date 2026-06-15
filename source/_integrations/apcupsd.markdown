@@ -157,7 +157,7 @@ Some sensors are disabled by default, since they are primarily useful for diagno
   - **Available for machines**: all
 
 - **Status**
-  - **Description**: The current status of the UPS (ONLINE, CHARGING, ONBATT, etc.)
+  - **Description**: The current status of the UPS (such as ONLINE, CHARGING, or ONBATT)
   - **Available for machines**: all
 
 - **Time Left**

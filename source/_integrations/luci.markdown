@@ -54,7 +54,7 @@ ssl:
   default: false
   type: boolean
 verify_ssl:
-  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs)
   required: false
   type: boolean
   default: true

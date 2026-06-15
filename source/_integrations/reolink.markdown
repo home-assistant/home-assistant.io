@@ -819,7 +819,7 @@ Prerequisites:
 ## Known limitations
 
 - 2-way audio or Text-to-speech is not available in the Reolink Home Assistant integration.
-- The 4K camera streams are H265 encoded, support for playing H265 encoding in browsers (Chrome/Firefox/Edge/Safari etc.) is still very limited, therefore the 4K clear stream may not play in all browsers or on all phones in the Home Assistant Companion app. By default only the lower resolution Fluent camera entity is enabled in Home Assistant. This Fluent stream is H264 encoded and will play on any browser or phone.
+- The 4K camera streams are H265 encoded, support for playing H265 encoding in browsers (such as Chrome, Firefox, Edge, or Safari) is still very limited, therefore the 4K clear stream may not play in all browsers or on all phones in the Home Assistant Companion app. By default only the lower resolution Fluent camera entity is enabled in Home Assistant. This Fluent stream is H264 encoded and will play on any browser or phone.
 
 ## Troubleshooting
 

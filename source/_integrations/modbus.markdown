@@ -30,7 +30,7 @@ The modbus {% term integration %} supports all devices adhering to the modbus st
 
 Configure the modbus communication with modbus devices. This is a general setup needed establish access to the device.
 
-The modbus integration allows you to use multiple connections each with multiple sensors etc.
+The modbus integration allows you to use multiple connections each with multiple sensors.
 
 The modbus integration provides several parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
 
@@ -1776,7 +1776,7 @@ data:
 When opening an issue, please add your current configuration (or a scaled down version), with at least:
 
  - the modbus configuration lines
- - the entity (sensor, etc.) lines
+ - the entity lines (such as sensor)
 
 In order for the developers better to identify the problem, please add the
 following lines to {% term "`configuration.yaml`" %}:

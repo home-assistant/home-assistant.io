@@ -92,7 +92,7 @@ thermostat is not in auto mode, there is a single target temperature. When the t
 
 A _climate_ is a predefined or user-defined set of presets that the thermostat aims to achieve. The ecobee thermostat provides three predefined climates: Home, Away, and Sleep. Ecobee refers to these as _comfort settings_. The user can define additional climates.
 
-A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (home, away, sleep, etc.), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
+A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (such as home, away, or sleep), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
 defined vacation period and expires when the vacation period ends.
 
 When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
@@ -137,7 +137,7 @@ The `ventilator 20 min` switch is behaving like the switch in the physical ecobe
 
 ### Concepts 
 
-When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, and adjust the outdoor temperature at which the heat pump compressor will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (natural gas, propane, etc.). This applies more to air source heat pumps than geothermal. 
+When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, and adjust the outdoor temperature at which the heat pump compressor will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (such as natural gas or propane). This applies more to air source heat pumps than geothermal. 
 
 ### Switch
 

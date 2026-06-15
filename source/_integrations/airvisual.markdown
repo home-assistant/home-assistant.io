@@ -31,7 +31,7 @@ For example:
 
 - One instance of the integration: API calls every 5 minutes
 - Two instances of the integration: API calls every 10 minutes
-- etc.
+- And so on.
 
 {% endnote %}
 

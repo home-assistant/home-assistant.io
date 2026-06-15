@@ -111,7 +111,7 @@ TTS integration building block uses [FFmpeg integration](/integrations/ffmpeg) t
 
 Available preferred audio settings, all optional, are:
 
-- `preferred_format`: Set the audio format. When not supported by the target entity platform, the value is a file extension like `wav`, `mp3`, `ogg`, etc., among ones supported by FFmpeg tool for output files.
+- `preferred_format`: Set the audio format. When not supported by the target entity platform, the value is a file extension like `wav`, `mp3`, or `ogg`, among ones supported by FFmpeg tool for output files.
 - `preferred_sample_rate`: Set the sample rate. When not supported by the target entity platform, the value is in Hz as a number, among ones supported by the `-ar` parameter of FFmpeg tool.
 - `preferred_sample_channels`: Set the number of audio channels. When not supported by the target entity platform, the value is a number among ones supported by the `-ac` parameter of FFmpeg tool.
 - `preferred_sample_bytes`: Set the audio bit sampling. When not supported by the target entity platform, can only be set to `2` to use 16-bit audio sampling (any other value is ignored).
@@ -178,7 +178,7 @@ The `tts` action will send an `https://` URL to the media device, which will che
 
 ### Google cast devices
 
-Google cast devices (Google Home, Chromecast, etc.) require the host in media URLs to be resolvable using Google's public DNS servers, and if the URL is specifying the `https` protocol, the certificate must be valid and not self-signed.
+Google cast devices (such as Google Home or Chromecast) require the host in media URLs to be resolvable using Google's public DNS servers, and if the URL is specifying the `https` protocol, the certificate must be valid and not self-signed.
 
 These requirements present the following problems, all of which create problems if the local Home Assistant URL is not `http://<local_ip>:<local_port>`:
 

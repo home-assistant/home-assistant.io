@@ -174,7 +174,7 @@ The `water_heater.set_temperature` action sets the target temperature of domesti
 
 ### UTF-8 characters in passwords
 
-The underlying PyViCare Python library cannot handle UTF-8 characters in passwords, so do not use for example `ü`, `ø`, etc. in passwords.
+The underlying PyViCare Python library cannot handle UTF-8 characters in passwords, so do not use for example `ü` or `ø` in passwords.
 
 ### GATEWAY_OFFLINE
 

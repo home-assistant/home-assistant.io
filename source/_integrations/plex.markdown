@@ -301,7 +301,7 @@ More parameters and additional details can be found in the `plexapi` library [do
 
 Below are examples of advanced searches. All examples show what can be sent in the `media_content_id` parameter.
 
-Note that some searches may require `"maxresults": 1` to limit the result to a single item. However, an "item" may be a group of media, such as an album, season, artist, show, etc.
+Note that some searches may require `"maxresults": 1` to limit the result to a single item. However, an "item" may be a group of media, such as an album, season, artist, or show.
 
 The search will attempt to guess the type of media based on the search parameters by using the most specific media type provided. For example, a search using `artist.title` and `album.year` will search for albums for the artist that were released in a specific year. If you add `track.title` to the search, it will instead try to find the track. You may specify the type of media to search for with the `libtype` parameter which can be one of `movie`, `episode`, `season`, `show`, `track`, `album`, or `artist`. This could be useful if searching for an album where you only know the name of a specific track (see example below).
 
