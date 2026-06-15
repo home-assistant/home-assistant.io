@@ -52,29 +52,7 @@ For Pi-hole v5 and earlier, see below.
 
 For Pi-hole versions before v6, the integration uses an _API token_ if the Pi-hole was password-protected. To find it, go to **Settings** > **API** and select **Show API token**.
 
-## Actions
-
-The platform provides the following actions to interact with your Pi-hole. Use switch entities when calling the actions.
-
-### Action: Disable
-
-The `pi_hole.disable` action disables configured Pi-hole(s) for the specified amount of time.
-
-| Data attribute | Required | Type | Description |
-| ---------------------- | -------- | -------- | ----------- |
-| `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services. |
-| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled. `'0'` will enable blocking indefinitely. |
-
-Example action:
-
-```yaml
-# Example action to disable Pi-hole for 30 minutes
-action: pi_hole.disable
-data:
-  duration: "00:30"
-target:
-  entity_id: all
-```
+{% include integrations/actions.md %}
 
 ## Switches
 
