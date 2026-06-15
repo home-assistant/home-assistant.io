@@ -24,6 +24,7 @@ To reload a network storage mount from an automation or a script:
 {% options_ui %}
 Device:
   description: The network storage mount to reload.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
