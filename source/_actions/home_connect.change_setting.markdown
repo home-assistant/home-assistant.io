@@ -61,9 +61,9 @@ key:
   required: true
   type: string
 value:
-  description: The value to set for the setting. The accepted value depends on the setting.
+  description: The value to set for the setting. The accepted value depends on the setting and can be text, a number, or a toggle (`true` or `false`).
   required: true
-  type: [string, integer, boolean]
+  type: string
 {% endoptions_yaml %}
 
 ## Good to know
