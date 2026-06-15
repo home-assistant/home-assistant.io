@@ -179,53 +179,7 @@ The **winter mode** switch fully suspends polling for the off-season; the entiti
 
 ## Actions
 
-This integration registers three integration-specific actions in addition to the standard entity actions:
-
-### Action `neopool.set_timer`
-
-Configures one of the controller's built-in timers, including the filtration timers and per-relay timers.
-
-| Data attribute | Optional | Description                                                                                |
-| -------------- | -------- | ------------------------------------------------------------------------------------------ |
-| `entry_id`     | no       | Config entry ID of the NeoPool integration.                                                |
-| `timer`        | no       | Identifier of the timer to configure (for example, `filtration1`, `aux1`, `light`).        |
-| `enabled`      | yes      | Whether the timer is enabled.                                                              |
-| `start`        | yes      | Start time in `HH:MM` format.                                                              |
-| `interval`     | yes      | Duration the timer stays active.                                                           |
-
-### Action `neopool.read_register`
-
-Reads one or more Modbus registers from the controller and returns the raw u16 values. The integration auto-selects the right Modbus function code based on the address (Read Input Registers (FC04) for the MEASURE page `0x0100`-`0x01FF`, Read Holding Registers (FC03) elsewhere), so the caller does not need to know which is which.
-
-This is useful for diagnostics, prototyping new entities, or watching a register the integration does not yet expose. The action has no side-effect; the response carries the values back via the `response_variable` mechanism.
-
-| Data attribute | Optional | Description                                                                                                                |
-| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `entry_id`     | yes      | Config entry ID of the NeoPool integration. Optional when only one NeoPool entry is configured.                            |
-| `address`      | no       | Modbus register address (decimal or hexadecimal, for example `258` or `0x0102`).                                           |
-| `count`        | yes      | Number of consecutive registers to read (1-31; the firmware refuses larger requests). Defaults to `1`.                     |
-
-The response object contains:
-
-- `address`: the requested address, formatted as `0x….`
-- `count`: number of registers read.
-- `values`: list of u16 register values, length equal to `count`.
-- `value`: only present when `count == 1`; equal to `values[0]`. Provided for ergonomic templating of single-register reads.
-
-### Action `neopool.write_register`
-
-Writes a value directly to a Modbus register on the controller. This is an advanced action intended for use cases that fall outside the surface area exposed by entities.
-
-| Data attribute | Optional | Description                                              |
-| -------------- | -------- | -------------------------------------------------------- |
-| `entry_id`     | no       | Config entry ID of the NeoPool integration.              |
-| `address`      | no       | Modbus register address to write.                        |
-| `value`        | no       | Value to write.                                          |
-| `verify`       | yes      | Read the register back after writing to verify success.  |
-
-{% important %}
-The `write_register` action bypasses the integration's regulation and capability detection logic. Incorrect register writes can put the controller into an unsupported state or trigger an alarm. Use only after consulting the official _NeoPool Control System MODBUS Register description_ documentation.
-{% endimportant %}
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -308,54 +262,6 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
-
-### Direct register write via the `write_register` action
-
-Advanced: write a value directly to a controller register, for example to toggle a feature that is not exposed as an entity.
-
-{% details "YAML example for the write_register action" %}
-
-{% example %}
-action: neopool.write_register
-data:
-  entry_id: 01HZQK6Y7B0C9D8E7F6G5H4J3K
-  address: 1024
-  value: 1
-  verify: true
-{% endexample %}
-
-{% enddetails %}
-
-### Read raw register values via the `read_register` action
-
-Advanced: read a register's raw value without going through an entity. Useful when prototyping a new feature or pulling a value the integration does not yet expose. The integration picks the right Modbus function automatically; the caller only needs to know the address.
-
-{% details "YAML example: read MBF_MEASURE_PH (single register)" %}
-
-{% example %}
-action: neopool.read_register
-data:
-  address: 0x0102
-response_variable: ph_raw
-{% endexample %}
-
-{% enddetails %}
-
-The response in `ph_raw` is a structure with `address`, `count`, `values`, and (when `count == 1`) a scalar `value`. For `MBF_MEASURE_PH` the displayed pH equals `value / 100`.
-
-{% details "YAML example: bulk read 31 registers" %}
-
-{% example %}
-action: neopool.read_register
-data:
-  address: 0x0500
-  count: 31
-response_variable: user_dump
-{% endexample %}
-
-{% enddetails %}
-
-`count` is capped at 31, the value the controller firmware accepts in a single Modbus request. To read more, issue several calls.
 
 ## Known limitations
 
