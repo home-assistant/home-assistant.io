@@ -147,7 +147,7 @@ Incorrect configuration or the device is not powered.
    - **TCP server mode** is enabled on the inverter.
    - No firewall or router setting is blocking local TCP connections.
 
-### General tips
+### Losing connection to the device
 
 - If you frequently lose connection to the device, consider assigning a **static IP** to your EVT800 in your router's DHCP settings.
 
