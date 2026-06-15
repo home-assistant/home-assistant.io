@@ -70,8 +70,8 @@ The integration will poll the API for data every 60 seconds. This polling interv
 
 To resolve this issue, try the following steps:
 
-1. Make sure your Home Assistant is connected to internet.
-2. Make sure that you have entered correct API key.
+1. Make sure your Home Assistant is connected to the internet.
+2. Make sure that you have entered the correct API key.
 3. Make sure the app of the manufacturer can see the device.
 
 ### The installation went smooth but I can't see my devices
