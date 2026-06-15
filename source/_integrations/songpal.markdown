@@ -35,14 +35,6 @@ See [python-songpal's documentation](https://github.com/rytilahti/python-songpal
 
 ## Actions
 
-In addition to the general [media player actions](/integrations/media_player/#actions), the following actions are provided:
+In addition to the general [media player actions](/integrations/media_player/#actions), the following actions are provided.
 
-### Action: Set sound setting
-
-The `songpal.set_sound_setting` action sets a sound setting. For a list of available settings and their values use the [`songpal sound`](https://github.com/rytilahti/python-songpal#sound-settings) command.
-
-| Data attribute | Optional | Description                                      |
-|------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target entity. To target all songpal devices, use `all` |
-| `name`                 |       no | Configuration variable, e.g., `nightmode`         |
-| `value`                |       no | New configuration value, e.g., `on`               |
+{% include integrations/actions.md %}
