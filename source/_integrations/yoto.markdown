@@ -2,6 +2,7 @@
 title: Yoto
 description: Instructions on how to integrate Yoto players with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Media Player
   - Sensor
   - Time
@@ -14,6 +15,7 @@ ha_codeowners:
   - '@piitaya'
 ha_domain: yoto
 ha_platforms:
+  - binary_sensor
   - media_player
   - sensor
   - time
@@ -106,6 +108,14 @@ Yoto players can switch between a day display and a night display. Each player p
 
 - **Day mode start**: The time the player switches to day mode.
 - **Night mode start**: The time the player switches to night mode.
+
+### Binary sensors
+
+Each Yoto player also provides several binary sensors:
+
+- **Charging**: whether the player's battery is charging.
+- **Headphones**: whether headphones are connected to the player.
+- **Bluetooth audio**: whether a Bluetooth audio device is connected to the player.
 
 ### Sensors
 
