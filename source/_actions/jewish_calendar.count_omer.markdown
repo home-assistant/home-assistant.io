@@ -90,16 +90,18 @@ language:
 
 The action returns the following data:
 
-- `message`: the phrase for counting the Omer. Empty when there is no Omer count on the given day.
-- `weeks`: the number of complete weeks counted.
-- `days`: the number of days counted beyond the complete weeks.
-- `total_days`: the total number of days counted.
+- `message`: The phrase for counting the Omer. Empty when there is no Omer count on the given day.
+- `weeks`: The number of complete weeks counted.
+- `days`: The number of days counted beyond the complete weeks.
+- `total_days`: The total number of days counted.
 
 For the example above, the response looks similar to this:
 
 {% example %}
 output: |
-  message: Today is the thirty-seventh day, which are five weeks and two days of the Omer
+  message: >-
+    Today is the thirty-seventh day, which are five weeks and two days of the
+    Omer
   weeks: 5
   days: 2
   total_days: 37
