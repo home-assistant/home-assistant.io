@@ -1,5 +1,5 @@
 ---
-title: "Channels: Seek by"
+title: "Seek by"
 action: channels.seek_by
 domain: channels
 description: "Seeks forward or backward by a number of seconds."
@@ -19,7 +19,7 @@ To seek by a number of seconds from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Channels media player you want to control.
-6. From the actions shown for that target, select **Channels: Seek by**.
+6. From the actions shown for that target, select **Seek by**.
 7. Set **Seconds** to the number of seconds you want to seek by.
 8. Select **Save**.
 
