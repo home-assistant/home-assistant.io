@@ -61,10 +61,10 @@ type:
 
 The response is a mapping of the targeted weather entities, each containing a `forecast` field. The `forecast` field is a list of forecasted conditions at a given point in time. Each entry can include:
 
-- `datetime`: the start time of the forecasted conditions.
-- `short_description`: a short description of the weather condition.
-- `is_daytime`: whether the forecast period is during the day. Only set for `twice_daily` forecasts.
-- `detailed_description`: a detailed, worded description of the forecast. Only set for `twice_daily` forecasts.
+- `datetime`: The start time of the forecasted conditions.
+- `short_description`: A short description of the weather condition.
+- `is_daytime`: Whether the forecast period is during the day. Only set for `twice_daily` forecasts.
+- `detailed_description`: A detailed, worded description of the forecast. Only set for `twice_daily` forecasts.
 
 For a `twice_daily` forecast, the response looks similar to this:
 
