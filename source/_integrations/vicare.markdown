@@ -128,7 +128,7 @@ The ViCare integration maps the Home Assistant HVAC modes to Viessmann operation
 
 ### Setting the preset mode
 
-The `climate.set_preset_mode` action supports the *eco* and *comfort* preset modes. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours. Eco mode reduces the target temperature by 3°C, whereas comfort mode sets the target temperature to a configurable value. Consult your heating device manual for more information.
+The `climate.set_preset_mode` action supports the *eco* and *comfort* preset modes. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours. Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the target temperature to a configurable value. Consult your heating device manual for more information.
 
 ## Troubleshooting
 

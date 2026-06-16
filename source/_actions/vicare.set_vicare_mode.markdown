@@ -52,10 +52,7 @@ This sets the selected climate device to the `heating` mode.
 vicare_mode:
   description: >
     The new ViCare mode. For the values your device supports, see the
-    `vicare_modes` attribute of the climate entity. Depending on the
-    device, supported values include `dhw`, `dhwAndHeating`,
-    `dhwAndHeatingCooling`, `forcedNormal`, `forcedReduced`, `heating`,
-    and `standby`.
+    `vicare_modes` attribute of the climate entity.
   required: true
   type: string
 {% endoptions_yaml %}
