@@ -1,5 +1,5 @@
 ---
-title: "Remove"
+title: "Remove file"
 action: minio.remove
 domain: minio
 description: "Deletes a file from a MinIO bucket."
@@ -10,7 +10,7 @@ related_actions:
 
 The **Remove** action deletes an object from a MinIO bucket.
 
-This is useful for cleaning up files you no longer need, for example removing an old snapshot after you have processed it.
+This is useful for cleaning up files you no longer need, for example, removing an old snapshot after you have processed it.
 
 {% include actions/ui_header.md %}
 

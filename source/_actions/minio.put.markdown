@@ -1,5 +1,5 @@
 ---
-title: "Put"
+title: "Put file"
 action: minio.put
 domain: minio
 description: "Uploads a file from the local file system to a MinIO bucket."
@@ -13,6 +13,10 @@ The **Put** action uploads a file from the local file system to a MinIO bucket.
 This is useful when you want to store a file in MinIO, for example to keep a camera snapshot or a generated report in object storage.
 
 {% include actions/ui_header.md %}
+
+### Prerequisites
+
+- The file path must be added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in {% term "`configuration.yaml`" %}.
 
 To upload a file from an automation or a script:
 

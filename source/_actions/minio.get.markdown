@@ -1,5 +1,5 @@
 ---
-title: "Get"
+title: "Get file"
 action: minio.get
 domain: minio
 description: "Downloads a file from a MinIO bucket to the local file system."
@@ -13,6 +13,10 @@ The **Get** action downloads an object from a MinIO bucket and saves it to a fil
 This is useful when another part of your setup needs a file that is stored in MinIO, for example to retrieve a camera snapshot or a backup that was uploaded earlier.
 
 {% include actions/ui_header.md %}
+
+### Prerequisites
+
+- The file path must be added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in {% term "`configuration.yaml`" %}.
 
 To download a file from an automation or a script:
 
