@@ -18,13 +18,13 @@ To start a charge session from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Blue Current: Start charge session**.
-6. Select the **Device ID** of the charge point. Optionally, set a charging card ID.
+6. Select the **Device** to start the session on. Optionally, set **Charging card ID**.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
-Device ID:
+Device:
   description: The Blue Current charge point to start the session on.
   required: true
 Charging card ID:
