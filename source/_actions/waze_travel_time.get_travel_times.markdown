@@ -163,8 +163,8 @@ time_delta:
   type: map
 base_coordinates:
   description: >
-    When Waze finds multiple matching locations for an address, it
-    selects the one closest to these coordinates.
+    Coordinates (latitude and longitude) used when Waze finds multiple matching locations for an address.
+    For example: `latitude: 52.5200` and `longitude: 13.4050`.
   required: false
   type: map
 {% endoptions_yaml %}
