@@ -61,32 +61,8 @@ The Modern Forms integration provides support for the following toggleable attri
 - Away mode - to allow the fan simulate someone being home.
 - Adaptive learning - for allow learning for away mode.
 
-## Actions
-
-### Action `modern_forms.clear_fan_sleep_timer`
-
-This action will clear the sleep timer for the fan if it has been set. It will not turn off the fan when the timer is cleared.
-
-### Action `modern_forms.clear_light_sleep_timer`
-
-This action will clear the sleep timer for the light if it has been set. It will not turn off the light when the timer is cleared.
-
-### Action `modern_forms.set_fan_sleep_timer`
-
-This action will set a sleep timer for the fan. When the sleep timer is expired it will turn off the fan.
-
-| Data attribute | Required | Description                                        |
-| ---------------------- | -------- | -------------------------------------------------- |
-| `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day). |
-
-### Action `modern_forms.set_light_sleep_timer`
-
-This action will set a sleep timer for the light. When the sleep timer is expired it will turn off the light.
-
-| Data attribute | Required | Description                                        |
-| ---------------------- | -------- | -------------------------------------------------- |
-| `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day).|
+{% include integrations/actions.md %}
 
 {% note %}
-Modern Forms Fans use NTP to pool.ntp.org to set its internal clock and check of sleep timers have expired. Sleep timers will only work if the Modern Forms Fans have internet NTP access. You can block off cloud access for the fan and only leave NTP (UDP port 123) outbound working for the sleep timers.
+Modern Forms fans use NTP to pool.ntp.org to set their internal clock and check whether sleep timers have expired. Sleep timers only work if the fan has internet NTP access. You can block cloud access for the fan and leave only NTP (UDP port 123) outbound working for the sleep timers.
 {% endnote %}
