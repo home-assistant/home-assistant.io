@@ -151,10 +151,4 @@ the Todoist UI.
 
 - **due_today**: Whether the reported task is due today.
 
-## Actions
-
-You may use the actions from the [to-do](/integrations/todo/) integration for creating, updating, or deleting to-do items on the to-do list.
-
-Todoist also comes with an additional action that offers more advanced attributes when creating a Todoist task.
-
 {% include integrations/actions.md %}
