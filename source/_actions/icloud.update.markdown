@@ -11,7 +11,7 @@ related_actions:
 
 The **Update** action requests a fresh location and state update for the devices linked to an Apple Account.
 
-To save battery, Home Assistant polls your devices on a dynamic interval. This action is useful when you need an up to date location right away, for example to check whether anyone is home when a door opens.
+To save battery, Home Assistant polls your devices on a dynamic interval. This action is useful when you need an up-to-date location right away, for example to check whether anyone is home when a door opens.
 
 {% include actions/ui_header.md %}
 
