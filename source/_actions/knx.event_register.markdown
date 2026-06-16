@@ -2,7 +2,7 @@
 title: "Register knx_event"
 action: knx.event_register
 domain: knx
-description: "Adds or removes group addresses for the knx_event filter."
+description: "Adds or removes group addresses in the knx_event filter."
 related_actions:
   - knx.send
   - knx.read
