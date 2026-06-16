@@ -38,7 +38,7 @@ Display name:
   description: The display name to set on your profile.
   required: false
 Bio:
-  description: The bio to set on your profile. You can @mention other people or use #hashtags.
+  description: The bio to set on your profile. You can mention other people or use hashtags.
   required: false
 Profile picture:
   description: An image to set as your profile picture. WEBP, PNG, or JPG. At most 8 MB. Downscaled to 400x400px. Cannot be combined with deleting the profile picture.
@@ -99,8 +99,7 @@ display_name:
   type: string
 note:
   description: >
-    The bio to set on your profile. You can @mention other people or use
-    #hashtags.
+    The bio to set on your profile. You can mention other people or use hashtags.
   required: false
   type: string
 avatar:
