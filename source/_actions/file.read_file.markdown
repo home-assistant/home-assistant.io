@@ -11,6 +11,11 @@ This action returns its result in a response variable, which you can use in late
 
 {% include actions/ui_header.md %}
 
+### Prerequisites
+
+- You need administrator rights to run this action.
+- The file path must be added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in {% term "`configuration.yaml`" %}.
+
 To read a file from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
