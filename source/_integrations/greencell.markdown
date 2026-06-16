@@ -15,10 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Greencell** {% term integration %} lets you connect Greencell EV charging devices to Home Assistant via MQTT. It exposes real-time telemetry and charging-session data, such as current, voltage, power, and state, for use in dashboards and automations. The integration communicates via MQTT:
-
-- Subscribes to device topics for telemetry and availability
-- Command handling (`START`, `STOP`, `SET_CURRENT`, `QUERY`) will be enabled once control support is released
+The **Greencell** {% term integration %} lets you connect Greencell EV charging devices to Home Assistant via MQTT. It monitors device status and measures electrical parameters such as voltage, current, and power, exposing real-time telemetry and charging-session data for use in dashboards and automations.
 
 ## Supported devices
 
@@ -28,6 +25,8 @@ Currently, the integration supports only [HabuDen](https://greencell.global/habu
 
 - Greencell GC App
 - Greencell GC account
+- [Have the device added to the Greencell App](#to-add-a-device-to-the-greencell-gc-app)
+- [Have the device configured in the Greencell App](#configure-your-device-using-the-gc-app)
 
 ## Adding a device to the Greencell GC App
 
@@ -83,25 +82,15 @@ Instructions on adding the device are available in the [official installation gu
     - **Network error** – The device can’t reach the MQTT broker (wrong address/port, broker down, or network/firewall issue).
     - **Authentication error** – The device reached the server but failed authentication (wrong username/password).
 
-## Base functionalities
-
-- Monitoring of the device status
-- Measurement of electrical parameters (voltage, current, power)
-- We plan to add charging control process
-
 {% include integrations/config_flow.md %}
 
 ## Integration modes
 
-Greencell offers three levels of integration with Home Assistant to suit different user needs:
+Greencell offers three levels of integration with Home Assistant to suit different user needs. To change the integration mode, in the Greencell GC App, open the Home Assistant settings. See the [configuration chapter](#to-configure-a-device-using-the-greencell-gc-app) for how to find this setting in the app.
 
-| Mode      | Description                                                                                         |
-|:----------|:-----------------------------------------------------------------------------------------------------|
-| **DISABLE** | Integration disabled – the device does not connect to the MQTT broker, and all entities are disabled. |
-| **READ**    | Read only – the device sends measurement data (voltage, current, power), states and ignores commands received on the relevant topic except for the `QUERY` command. Buttons and Number entities are disabled. |
-| **EXECUTE** | Full access – the device sends measurement data and responds to commands (`START`, `STOP`, `SET_CURRENT`, `QUERY`) received on the relevant topic. All supported entities are enabled. |
-
-Modes can be configured using the Greencell GC App in Home Assistant settings. See the [configuration chapter](#to-configure-a-device-using-the-greencell-gc-app) for how to find this setting in the app.
+- **DISABLE**: Integration disabled – the device does not connect to the MQTT broker, and all entities are disabled.
+- **READ**:  Read only – the device sends measurement data (voltage, current, power), states and ignores commands received on the relevant topic except for the `QUERY` command. Buttons and Number entities are disabled.
+- **EXECUTE**: Full access – the device sends measurement data and responds to commands (`START`, `STOP`, `SET_CURRENT`, `QUERY`) received on the relevant topic. All supported entities are enabled.
 
 ## Supported functionality
 
