@@ -13,7 +13,7 @@ related_actions:
 
 Use this action to manually change a device's paramset, even devices without built-in support in Home Assistant. It gives you direct access to the putParamset method of the connection, which is useful for changing settings such as the week program of a wall thermostat.
 
-For BidCos-RF devices, the **RX mode** controls how the configuration data is sent to the device:
+For BidCoS-RF devices, the **RX mode** controls how the configuration data is sent to the device:
 
 - `BURST` is the default. It wakes up every device when sending the configuration data, which uses some battery on all of them, but the data is sent almost immediately.
 - `WAKEUP` sends the configuration data only after a device reports updated values, which usually happens every three minutes. It does not wake up every device, so it saves battery.
@@ -48,8 +48,7 @@ Paramset:
   description: "A mapping of paramset values to set."
   required: true
 RX mode:
-  description: "The receive mode used for BidCos-RF devices: BURST or WAKEUP."
-{% endoptions_ui %}
+  description: "The receive mode used for BidCoS-RF devices: BURST or WAKEUP."
 
 {% include actions/yaml_header.md %}
 
@@ -66,7 +65,7 @@ action: |
       WEEK_PROGRAM_POINTER: 1
 {% endexample %}
 
-To set the week program with an explicit receive mode, for BidCos-RF only:
+To set the week program with an explicit receive mode, for BidCoS-RF only:
 
 {% example %}
 action: |
@@ -100,7 +99,7 @@ paramset:
   required: true
   type: map
 rx_mode:
-  description: "The receive mode used for BidCos-RF devices: BURST or WAKEUP."
+  description: "The receive mode used for BidCoS-RF devices: BURST or WAKEUP."
   required: false
   type: string
 {% endoptions_yaml %}

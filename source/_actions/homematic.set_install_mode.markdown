@@ -2,7 +2,7 @@
 title: "Set install mode"
 action: homematic.set_install_mode
 domain: homematic
-description: "Sets a Homematic RPC XML interface into installation mode."
+description: "Sets a Homematic XML-RPC interface into installation mode."
 related_actions:
   - homematic.virtualkey
   - homematic.set_device_value
@@ -11,7 +11,7 @@ related_actions:
   - homematic.reconnect
 ---
 
-Use this action to put an RPC XML interface into installation mode so you can pair, or learn, a new device.
+Use this action to put an XML-RPC interface into installation mode so you can pair, or learn, a new device.
 
 {% include actions/ui_header.md %}
 
