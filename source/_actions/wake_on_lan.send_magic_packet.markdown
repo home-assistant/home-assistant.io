@@ -27,7 +27,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 MAC address:
   description: The MAC address of the device to wake up.
 SecureOn password:
-  description: The SecureOn password, in 6-byte hexadecimal format, to append to the magic packet.
+  description: The SecureOn password, in 6-byte hexadecimal format, to append to the magic packet. For example, `00:aa:22:bb:33:cc`.
 Broadcast address:
   description: The IP address to send the magic packet to. Defaults to `255.255.255.255` and is normally not changed.
 Broadcast port:
@@ -53,7 +53,7 @@ mac:
   required: true
   type: string
 secureon_password:
-  description: The SecureOn password, in 6-byte hexadecimal format, to append to the magic packet.
+  description: The SecureOn password, in 6-byte hexadecimal format, to append to the magic packet. For example, `00:aa:22:bb:33:cc`.
   required: false
   type: string
 broadcast_address:
