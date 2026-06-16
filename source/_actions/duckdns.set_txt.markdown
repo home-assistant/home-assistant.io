@@ -59,12 +59,35 @@ config_entry_id:
 txt:
   description: >
     The value for the TXT record. Omit to clear the TXT record.
+  required: false
   type: string
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
+
+### Script: clear the TXT record after a challenge
+
+Clear the TXT record once an <abbr title="Automatic Certificate Management Environment">ACME</abbr> DNS-01 challenge is complete, so the validation value is no longer published.
+
+- **Action**: Duck DNS: Set TXT
+  - **Integration ID**: Your Duck DNS integration
+  - **TXT**: Leave empty to clear the record
+
+{% details "Show example YAML" %}
+
+{% example %}
+script: |
+  clear_duckdns_txt:
+    alias: "Clear the Duck DNS TXT record"
+    sequence:
+      - action: duckdns.set_txt
+        data:
+          config_entry_id: YOUR_CONFIG_ENTRY_ID
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
