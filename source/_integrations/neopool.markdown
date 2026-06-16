@@ -27,7 +27,7 @@ The **NeoPool** {% term integration %} integrates pool controllers built around 
 The same control system is sold under many brand names worldwide, including **Hidrolife**, **Aquascenic**, **Oxilife**, **Bionet**, **Hidroniser**, **UVScenic**, **Station**, and **Aquarite**, distributed by **Hayward**, **Brilix** (Albixon), **Bayrol**, **Certikin**, **Poolstar**, **GrupAquadirect**, **Pentair**, **ProducPool**, **Pool Technologie**, **Kripsol**, and others.
 
 {% note %}
-_VistaPool_ is the name of Hayward's mobile/web app for cloud-based pool management. This integration works **entirely locally** via Modbus and does not require or use the VistaPool app or any cloud service.
+_VistaPool_ is the name of Hayward's mobile/web app for cloud-based pool management. The **NeoPool** integration works entirely locally via Modbus and does not require or use the VistaPool app or any cloud service.
 {% endnote %}
 
 ## Use cases
@@ -55,9 +55,9 @@ The Modbus protocol implemented here follows the official _NeoPool Control Syste
 
 Before setting up the NeoPool integration, make sure:
 
-- Your NeoPool controller is connected to a **Modbus TCP gateway** (any RS-485 to TCP converter, such as the USR-DR164) on your home network.
-- The gateway is configured for **19200 baud, 1 stop bit, no parity, Modbus RTU**.
-- You know the **hostname or IP address** and **TCP port** of the gateway.
+- Your NeoPool controller is connected to a Modbus TCP gateway (any RS-485 to TCP converter, such as the USR-DR164) on your home network.
+- The gateway is configured for 19200 baud, 1 stop bit, no parity, Modbus RTU.
+- You know the hostname or IP address and TCP port of the gateway.
 - The RS-485 wiring is connected to the controller's `WIFI` or `EXTERNAL` port (do **not** use `DISPLAY` unless the internal LCD is disconnected). The pinout (top to bottom) is:
 
   ```text
@@ -72,7 +72,7 @@ Before setting up the NeoPool integration, make sure:
   The connector is a standard 2.54 mm 5-pin PCB female header.
 
 {% note %}
-The NeoPool device acts as a Modbus _server_ (slave), this integration is a Modbus _client_ (master). Only one Modbus client can be connected to a given Modbus connector at a time.
+The NeoPool device acts as a Modbus _server_, this integration is a Modbus _client_. Only one Modbus client can be connected to a given Modbus connector at a time.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -81,24 +81,24 @@ The NeoPool device acts as a Modbus _server_ (slave), this integration is a Modb
 
 {% configuration_basic %}
 Host:
-  description: The hostname or IP address of your Modbus TCP gateway.
+  description: The hostname or IP address of your Modbus TCP gateway, for example `192.168.1.50` or `pool-gateway.local`.
 Port:
   description: The TCP port of your Modbus gateway. Defaults to `502`.
-Slave ID:
-  description: The Modbus slave (unit) ID of the NeoPool controller. Defaults to `1`.
+Unit ID:
+  description: The Modbus unit (server) ID of the NeoPool controller. Defaults to `1`.
 Modbus framer:
-  description: Protocol framer to use. `tcp` works for most gateways; pick `rtu` only if your gateway forwards raw RTU frames over TCP.
+  description: Protocol framer to use. `tcp` works for most gateways. Pick `rtu` only if your gateway forwards raw RTU frames over TCP.
 Filtration pump power:
   description: Rated wattage of the filtration pump. When non-zero, the integration creates instantaneous power and cumulative energy sensors usable in the [Energy dashboard](/docs/energy/). Set to `0` to disable.
 Enable filtration timers 1/2/3:
   description: Create timer entities for the controller's three filtration schedules. Enable only the timers you actually use.
-Enable Pool Cover Sensor:
+Enable pool cover sensor:
   description: Create a binary sensor exposing the pool cover open/closed state.
-Enable Light Relay:
+Enable light relay:
   description: Create entities to control and monitor the pool light relay.
 {% endconfiguration_basic %}
 
-The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+The above configuration can also be adjusted later. Go to {% my integrations title="**Settings** > **Devices & services**" %} > {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
 ## Supported functionality
 
@@ -177,13 +177,11 @@ Around 50 binary sensors covering:
 
 ## Data updates
 
-The integration polls the controller over Modbus TCP at a fixed interval. Reads are batched into a small number of register requests to minimize bus load and the round-trip time per refresh.
+The integration {% term polling polls %} the controller over Modbus TCP at a fixed interval. To stay responsive, the integration reads data from the controller in as few requests as possible per update cycle.
 
-If a poll cycle fails (for example because the Modbus gateway becomes unreachable), the integration applies an **adaptive backoff** that grows up to three minutes between attempts, then drops back to the normal interval once the controller is reachable again. While in backoff, all entities transition to `unavailable` so automations can react to the loss of communication.
+If a poll cycle fails (for example, because the Modbus gateway becomes unreachable), the integration applies an adaptive backoff that increases the interval between attempts to up to 3 minutes, then returns to the normal interval once the controller is reachable again. While in backoff, all entities transition to `unavailable` so automations can react to the loss of communication.
 
-The **winter mode** switch fully suspends polling for the off-season; the entities remain registered (so dashboards keep their layout), but no Modbus traffic is generated until winter mode is turned off again.
-
-## Actions
+When the **winter mode** switch is enabled, the integration stops communicating with the controller for the off-season. All entities remain available in your dashboards and automations, but no data is retrieved until winter mode is turned off again.
 
 {% include integrations/actions.md %}
 
@@ -305,9 +303,9 @@ The integration could reach the network address but did not receive a valid Modb
 #### Resolution
 
 1. Verify the Modbus TCP gateway is reachable from Home Assistant by pinging the gateway IP.
-2. Confirm the gateway is configured for **19200 baud, 1 stop bit, no parity** (Modbus RTU).
+2. Confirm the gateway is configured for 19200 baud, 1 stop bit, no parity (Modbus RTU).
 3. Check the RS-485 wiring (A+ / B− / GND) and that the connector is plugged into `WIFI` or `EXTERNAL`, not `DISPLAY` (when the LCD is connected).
-4. Make sure the slave ID matches the controller's configured Modbus address (default `1`).
+4. Make sure the unit ID matches the controller's configured Modbus address (default `1`).
 
 ### All entities went unavailable suddenly
 
