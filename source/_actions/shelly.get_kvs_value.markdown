@@ -69,10 +69,10 @@ This example creates a template sensor that reads a temperature value from the K
 ```yaml
 # Example configuration.yaml entry
 template:
-  - trigger:
+  - triggers:
       - trigger: time_pattern
         minutes: "/10"
-    action:
+    actions:
       - action: shelly.get_kvs_value
         data:
           device_id: e4c0e031f68a8fbe08c50eda5e189a70
