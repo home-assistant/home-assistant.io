@@ -28,6 +28,7 @@ The **Tesla Powerwall** {% term integration %} allows you to integrate your [Tes
 
 The following devices are known to be supported by the integration:
 - Tesla Powerwall 2
+- Tesla Powerwall 3 (with some limitations)
 
 ## Unsupported devices
 
