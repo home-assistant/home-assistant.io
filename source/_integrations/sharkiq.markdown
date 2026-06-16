@@ -31,7 +31,6 @@ Currently supported [`vacuum`](/integrations/vacuum/) actions are:
 - `locate`
 - `set_fan_speed`
 
-In addition to the [`vacuum`](/integrations/vacuum/) actions, this integration supports room targeting through the **Clean room** action, which lets you clean specific rooms instead of doing a whole-home clean.
 
 {% include integrations/actions.md %}
 

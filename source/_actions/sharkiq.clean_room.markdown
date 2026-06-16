@@ -22,8 +22,6 @@ To clean specific rooms from an automation or a script:
 7. Enter the **Rooms** to clean.
 8. Select **Save**.
 
-{% include actions/targets.md domain="vacuum" %}
-
 ### Options in the UI
 
 {% options_ui %}
@@ -56,6 +54,8 @@ rooms:
   required: true
   type: list
 {% endoptions_yaml %}
+
+{% include actions/targets.md domain="vacuum" %}
 
 ## Good to know
 
