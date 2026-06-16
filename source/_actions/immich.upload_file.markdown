@@ -86,6 +86,33 @@ album_id:
 
 {% include actions/more_examples.md %}
 
+### Script: upload a camera snapshot
+
+Take a snapshot of a camera entity with the [`camera.snapshot`](/integrations/camera/) action, store it using a [local media](/integrations/media_source/#local-media) path, then upload it to a specific album in your Immich instance.
+
+{% details "YAML example for uploading a camera snapshot" %}
+
+{% example %}
+script: |
+  sequence:
+    - variables:
+        file_name: camera.yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg
+    - action: camera.snapshot
+      data:
+        filename: "/media/{{ file_name }}"
+      target:
+        entity_id: camera.yourcamera
+    - action: immich.upload_file
+      data:
+        config_entry_id: 01JVJ0RA387MWA938VE8HGXBMJ
+        file:
+          media_content_id: "media-source://media_source/local/{{ file_name }}"
+          media_content_type: "image/jpeg"
+        album_id: f2de0ede-d7d4-4db3-afe3-7288f4e65bb1
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
