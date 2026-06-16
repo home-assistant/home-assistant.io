@@ -58,8 +58,7 @@ Options:
   required: false
 Wait for result:
   description: When on, waits for a response from the node. When not set, the integration decides whether to wait. Waiting can take a while for an asleep battery device.
-  required: false  
-  default: false
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -119,7 +118,8 @@ options:
 wait_for_result:
   description: When true, waits for a response from the node. When not set, the integration decides whether to wait. Waiting can take a while for an asleep battery device.
   required: false
-  type: boolean
+  type: boolean  
+  default: false
 {% endoptions_yaml %}
 
 ## Good to know
