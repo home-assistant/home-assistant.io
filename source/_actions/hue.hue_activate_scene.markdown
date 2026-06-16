@@ -7,7 +7,7 @@ related_actions:
   - hue.activate_scene
 ---
 
-Use this action to activate a Hue scene by typing its group (room) name and scene name exactly as they appear in the Hue app. This is mainly useful on legacy V1 Hue bridges (round shape), where scene entities are not created automatically, so the standard [scene action](/integrations/scene/) and the [Activate Hue scene](/actions/hue.activate_scene/) action are not available.
+Use this action to activate a Hue scene by typing its group (room) name and scene name exactly as they appear in the Hue app. This is mainly useful on legacy V1 Hue bridges (round shape), where scene entities are not created automatically, so you cannot use the standard [scene action](/integrations/scene/) or the [Activate Hue scene](/actions/hue.activate_scene/) action to activate Hue scenes.
 
 On a V2 bridge (square shape), use the [Activate Hue scene](/actions/hue.activate_scene/) action instead, as it targets scene entities directly and offers more options.
 

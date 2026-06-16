@@ -76,7 +76,7 @@ The Hue API limits each device to one event per second. This means that button e
 
 Signify released a newer version of the Hue bridge (square shape), and the legacy V1 bridge (round shape) is now end of life and no longer supported by Signify. Home Assistant will continue to support the V1 Hue bridge as long as it is technically possible, with the following limitations:
 
-- Scene entities are not automatically created for V1 bridges. To activate a Hue scene on a V1 bridge from Home Assistant, use the **Activate scene** action and refer to the scene by its group and scene name.
+- Scene entities are not automatically created for V1 bridges. To activate a Hue scene on a V1 bridge from Home Assistant, use the [**Philips Hue: Activate scene** action](/actions/hue.hue_activate_scene/) and refer to the scene by its group and scene name.
 - State updates for devices on V1 bridges are not received instantly but polled on an interval.
 - Light entities for Hue rooms are not automatically created for V1 bridges. You can opt in to creating room entities in the integration's options.
 
