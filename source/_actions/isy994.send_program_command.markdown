@@ -1,0 +1,83 @@
+---
+title: Send program command
+action: isy994.send_program_command
+domain: isy994
+description: "Sends a command to control an ISY program or folder."
+related_actions:
+  - isy994.send_node_command
+  - isy994.rename_node
+---
+
+With this action, you can send a command to control an ISY program or folder, such as running or stopping it.
+
+This action does not support targets. Instead, you identify the program by its address or name, and you can optionally choose which ISY to use when you have more than one connected.
+
+{% include actions/ui_header.md %}
+
+To use this action in an automation or script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create** to start a new one.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
+4. In the **Then do** section, select **Add action**.
+5. From the search box, search for and select **ISY: Send program command**.
+6. Select the **Command**, and identify the program with either its **Address** or **Name**.
+7. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Command:
+  description: "The command to send to the program. One of `run`, `run_then`, `run_else`, `stop`, `enable`, `disable`, `enable_run_at_startup`, or `disable_run_at_startup`."
+Address:
+  description: The address of the program to control. Use either the address or the name.
+Name:
+  description: The name of the program to control. Use either the address or the name.
+ISY:
+  description: The name of the ISY to use when you have more than one connected. When left empty, the command runs on every ISY that has a matching program.
+{% endoptions_ui %}
+
+{% include actions/yaml_header.md %}
+
+In YAML, refer to this action as `isy994.send_program_command`. A basic example looks like this:
+
+{% example %}
+action: |
+  action: isy994.send_program_command
+  data:
+    command: run
+    name: "My program"
+{% endexample %}
+
+This runs the ISY program named "My program".
+
+### Options in YAML
+
+{% options_yaml %}
+command:
+  description: "The command to send to the program. One of `run`, `run_then`, `run_else`, `stop`, `enable`, `disable`, `enable_run_at_startup`, or `disable_run_at_startup`."
+  required: true
+  type: string
+address:
+  description: The address of the program to control. Use either the address or the name.
+  required: false
+  type: string
+name:
+  description: The name of the program to control. Use either the address or the name.
+  required: false
+  type: string
+isy:
+  description: The name of the ISY to use when you have more than one connected. When left empty, the command runs on every ISY that has a matching program.
+  required: false
+  type: string
+{% endoptions_yaml %}
+
+{% note %}
+You must provide either the address or the name to identify the program.
+{% endnote %}
+
+{% include actions/try_it.md %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}
