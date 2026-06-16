@@ -7,13 +7,14 @@ available_as:
   - filter
 category: datetime
 return_type: string
-limited: true
+limited: false
 since: "2026.6"
 related_functions:
   - timedelta
   - as_timedelta
   - time_since
   - time_until
+  - relative_time  
 ---
 
 The `timedelta_string` template function converts a timedelta object into a human-readable string like "2 hours" or "1 day 30 minutes". Unlike [`time_since`](/template-functions/time_since/) and [`time_until`](/template-functions/time_until/), which compute the duration from the current time to a given datetime, `timedelta_string` works directly on an already-computed timedelta. This makes it useful when you've already calculated a duration from a subtraction or from a sensor, and just want to display it nicely.
