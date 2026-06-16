@@ -45,7 +45,7 @@ In YAML, refer to this action as `overseerr.get_requests`. Store the result in a
 action: |
   action: overseerr.get_requests
   data:
-    config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
+    config_entry_id: YOUR_CONFIG_ENTRY_ID
     status: pending
     sort_order: added
   response_variable: requests
