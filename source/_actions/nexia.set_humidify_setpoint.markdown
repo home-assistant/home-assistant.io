@@ -1,5 +1,5 @@
 ---
-title: "Nexia: Set humidify setpoint"
+title: "Set humidify setpoint"
 action: nexia.set_humidify_setpoint
 domain: nexia
 description: "Sets the humidify setpoint on a Nexia thermostat."

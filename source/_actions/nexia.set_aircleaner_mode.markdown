@@ -1,5 +1,5 @@
 ---
-title: "Nexia: Set air cleaner mode"
+title: "Set air cleaner mode"
 action: nexia.set_aircleaner_mode
 domain: nexia
 description: "Sets the air cleaner mode on a Nexia thermostat."

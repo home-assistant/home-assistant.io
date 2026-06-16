@@ -1,5 +1,5 @@
 ---
-title: "Nexia: Set HVAC run mode"
+title: "Set HVAC run mode"
 action: nexia.set_hvac_run_mode
 domain: nexia
 description: "Sets the run mode and HVAC mode on a Nexia thermostat."
@@ -12,9 +12,7 @@ related_actions:
 Use this action to set the run mode, the HVAC mode, or both on a Nexia, American Standard, or Trane thermostat. The run mode controls whether the thermostat follows its schedule or holds a setting. The HVAC mode controls whether it heats, cools, or both.
 
 {% include actions/ui_header.md %}
-
-To set the run mode from an automation or a script:
-
+To set the run mode, the HVAC mode, or both from an automation or a script:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
