@@ -82,6 +82,8 @@ The response contains the following fields:
 - `uid`: The UID of the message.
 - `part`: The part index.
 
+{% include actions/try_it.md %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

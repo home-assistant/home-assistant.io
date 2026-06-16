@@ -94,6 +94,8 @@ An example of the `parts` data for a multipart message looks like this:
 }
 ```
 
+{% include actions/try_it.md %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
