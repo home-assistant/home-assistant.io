@@ -50,7 +50,7 @@ In YAML, refer to this action as `energyzero.get_energy_prices`. Store the resul
 action: |
   action: energyzero.get_energy_prices
   data:
-    config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
+    config_entry: YOUR_CONFIG_ENTRY_ID
     incl_vat: true
   response_variable: energy_prices
 {% endexample %}
