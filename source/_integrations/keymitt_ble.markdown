@@ -33,19 +33,7 @@ The devices cannot remain paired to the MicroBot application for this integratio
 
 This Integration is for the MicroBot Push only. The Keymitt lock is not supported.
 
-### Action: Calibrate
-
-The `keymitt_ble.calibrate` action locally sets the MicroBot Push depth, duration, and mode.
-
-Please note: The push arm will extend or retract (depending on the mode defined) after the action is performed. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
-
-| Data attribute | Required | Description                                                                                   |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
-| `depth`                | yes      | How far (in percent) to extend the push arm.                                                  |
-| `duration`             | yes      | Duration (in seconds) to hold the arm extended.                                               |
-| `mode`                 | yes      |'Normal' - extend and retract the arm.                                                         |
-|                        |          |'Invert' - retract then extend the arm.                                                        |      
-|                        |          |'Toggle' - toggle between extend and retract.                                                  |
+{% include integrations/actions.md %}
 
 ### Error codes and troubleshooting
 
