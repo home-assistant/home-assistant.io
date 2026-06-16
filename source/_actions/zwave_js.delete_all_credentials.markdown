@@ -28,6 +28,7 @@ To delete all of a user's credentials from an automation or a script:
 {% options_ui %}
 User index:
   description: The user slot index whose credentials should all be removed.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

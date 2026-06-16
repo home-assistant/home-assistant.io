@@ -40,16 +40,19 @@ Broadcast:
   required: false
 Command class:
   description: The ID of the command class for the value.
+  required: true
 Endpoint:
   description: The endpoint for the value.
   required: false
 Property:
   description: The ID of the property for the value.
+  required: true
 Property key:
   description: The ID of the property key for the value.
   required: false
 Value:
   description: The new value to set.
+  required: true
 Options:
   description: A map of set value options. Refer to the Z-Wave JS documentation for the available options.
   required: false

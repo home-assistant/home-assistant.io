@@ -30,8 +30,10 @@ To set a lock user code from an automation or a script:
 {% options_ui %}
 Code slot:
   description: The code slot to set the user code in.
+  required: true
 Code:
   description: The user code to set in the slot.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

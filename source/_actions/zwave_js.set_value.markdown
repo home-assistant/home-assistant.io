@@ -40,16 +40,19 @@ Entity ID(s):
   required: false
 Command class:
   description: The ID of the command class for the value.
+  required: true
 Endpoint:
   description: The endpoint for the value.
   required: false
 Property:
   description: The ID of the property for the value.
+  required: true
 Property key:
   description: The ID of the property key for the value.
   required: false
 Value:
   description: The new value to set.
+  required: true
 Options:
   description: A map of set value options. Refer to the Z-Wave JS documentation for the available options.
   required: false
@@ -113,10 +116,9 @@ options:
   required: false
   type: map
 wait_for_result:
-  description: When true, waits for a response from the node. Waiting can take a while for an asleep battery device.
+  description: When true, waits for a response from the node. When not set, the integration decides whether to wait. Waiting can take a while for an asleep battery device.
   required: false
   type: boolean
-  default: false
 {% endoptions_yaml %}
 
 ## Good to know

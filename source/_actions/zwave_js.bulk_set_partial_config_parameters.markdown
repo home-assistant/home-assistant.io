@@ -42,8 +42,10 @@ Endpoint:
   required: false
 Parameter:
   description: The ID of the configuration parameter to change.
+  required: true
 Value:
   description: Either a raw integer for the whole parameter, or a mapping where each key is the bitmask (hex or integer) or partial parameter name, and each value is the value to set for that partial.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

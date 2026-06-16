@@ -28,6 +28,7 @@ To delete a user from an automation or a script:
 {% options_ui %}
 User index:
   description: The user slot index to delete.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

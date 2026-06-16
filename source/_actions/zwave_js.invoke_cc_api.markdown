@@ -39,13 +39,16 @@ Entity ID(s):
   required: false
 Command class:
   description: The ID of the command class you want to issue a command to.
+  required: true
 Endpoint:
   description: The endpoint to call the API on. When set, it is used for all targeted nodes. When not set, the root endpoint (0) is used for devices and areas, and the primary value endpoint is used for each entity.
   required: false
 Method name:
   description: The name of the API method to call.
+  required: true
 Parameters:
   description: A list of parameters to pass to the API method.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

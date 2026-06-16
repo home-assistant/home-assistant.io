@@ -23,7 +23,8 @@ To get the credential capabilities from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to query.
 6. From the actions shown for that target, select **Get credential capabilities**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the result, for example, `capabilities`.
+8. Select **Save**.
 
 ### Options in the UI
 

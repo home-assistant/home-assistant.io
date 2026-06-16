@@ -30,10 +30,13 @@ To delete a credential from an automation or a script:
 {% options_ui %}
 User index:
   description: The user slot index that owns the credential.
+  required: true
 Credential type:
   description: The type of credential to remove, either pin_code or password.
+  required: true
 Credential slot:
   description: The credential slot index to clear.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

@@ -40,11 +40,13 @@ Endpoint:
   required: false
 Parameter:
   description: The name or ID of the configuration parameter to change. The name is case sensitive.
+  required: true
 Bitmask:
   description: Target a specific bitmask for a partial parameter, in hex (0xff) or decimal (255) format. Not needed when you provide the parameter name. Cannot be combined with value size or value format.
   required: false
 Value:
   description: The new value for the parameter, as an integer or the state label. The state label is case sensitive.
+  required: true
 Value size:
   description: The size of the value, either 1, 2, or 4. Used with value format when the parameter is not defined in your device's configuration file. Cannot be combined with bitmask.
   required: false

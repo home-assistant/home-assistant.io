@@ -37,6 +37,7 @@ Entity ID(s):
   required: false
 Notification Type:
   description: The notification type number as defined in the Z-Wave specification.
+  required: true
 Notification Event:
   description: The notification event number as defined in the Z-Wave specification.
   required: false

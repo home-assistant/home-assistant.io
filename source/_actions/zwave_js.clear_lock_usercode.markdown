@@ -28,6 +28,7 @@ To clear a lock user code from an automation or a script:
 {% options_ui %}
 Code slot:
   description: The code slot to clear the user code from.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

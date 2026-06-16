@@ -35,10 +35,13 @@ To set a credential from an automation or a script:
 {% options_ui %}
 User index:
   description: The user slot index that owns the credential. Must refer to an existing user.
+  required: true
 Credential type:
   description: The type of credential, either pin_code or password.
+  required: true
 Credential data:
   description: The credential data, such as the PIN digits or password string.
+  required: true
 Credential slot:
   description: The credential slot index. When not set, the first available slot for the credential type is used.
   required: false

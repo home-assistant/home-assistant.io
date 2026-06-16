@@ -28,6 +28,7 @@ To set the lock configuration from an automation or a script:
 {% options_ui %}
 Operation type:
   description: The operation type of the lock, either timed or constant.
+  required: true
 Lock timeout:
   description: Seconds until lock mode times out. Only use this with the timed operation type.
   required: false
