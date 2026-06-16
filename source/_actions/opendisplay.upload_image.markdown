@@ -117,6 +117,36 @@ tone_compression:
 
 {% include actions/more_examples.md %}
 
+### Automation: show a daily image every morning
+
+Upload a fresh image to your display every morning, for example a daily artwork or a generated dashboard that you store in your media folder.
+
+- **Trigger**: Time: 07:00:00
+- **Action**: OpenDisplay: Upload image
+  - **Device**: Your OpenDisplay device
+  - **Image**: The image to show
+  - **Fit mode**: Contain
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  - alias: "Show the daily image on the display"
+    triggers:
+      - trigger: time
+        at: "07:00:00"
+    actions:
+      - action: opendisplay.upload_image
+        data:
+          device_id: a1b2c3d4e5f6
+          image:
+            media_content_id: media-source://media_source/local/daily.png
+            media_content_type: image/png
+          fit_mode: contain
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
