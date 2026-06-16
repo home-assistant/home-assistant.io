@@ -118,6 +118,8 @@ end:
   type: string
 {% endoptions_yaml %}
 
+{% include actions/targets.md %}
+
 ## Good to know
 
 - To end the vacation responses, call this action again with **Enabled** turned off.
