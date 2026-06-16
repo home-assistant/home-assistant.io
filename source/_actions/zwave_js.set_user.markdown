@@ -30,7 +30,8 @@ To create or update a user from an automation or a script:
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to create or update the user on.
 6. From the actions shown for that target, select **Set user**.
 7. Set the options you want to use.
-8. Select **Save**.
+8. In the **Response variable** field, enter a name to store the result, for example, `result`.
+9. Select **Save**.
 
 ### Options in the UI
 
@@ -101,7 +102,6 @@ active:
   description: Whether the user is active. Inactive users exist on the lock but cannot unlock until reactivated. Defaults to the existing value on update, or true on create.
   required: false
   type: boolean
-  default: true
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="lock" %}

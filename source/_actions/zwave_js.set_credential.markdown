@@ -27,7 +27,8 @@ To set a credential from an automation or a script:
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to set the credential on.
 6. From the actions shown for that target, select **Set credential**.
 7. Set the **User index**, **Credential type**, and **Credential data**.
-8. Select **Save**.
+8. In the **Response variable** field, enter a name to store the result, for example, `result`.
+9. Select **Save**.
 
 ### Options in the UI
 

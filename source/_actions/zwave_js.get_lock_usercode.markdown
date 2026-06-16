@@ -23,7 +23,8 @@ To get lock user codes from an automation or a script:
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to read.
 6. From the actions shown for that target, select **Get lock user code**.
 7. Optionally set a **Code slot** to read a single slot.
-8. Select **Save**.
+8. In the **Response variable** field, enter a name to store the result, for example, `codes`.
+9. Select **Save**.
 
 ### Options in the UI
 

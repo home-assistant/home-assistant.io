@@ -22,7 +22,8 @@ To list the users from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to read.
 6. From the actions shown for that target, select **Get users**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the result, for example, `users`.
+8. Select **Save**.
 
 ### Options in the UI
 
