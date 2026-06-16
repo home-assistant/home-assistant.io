@@ -1,5 +1,5 @@
 ---
-title: "Genius Hub: Set zone mode"
+title: "Set zone mode"
 action: geniushub.set_zone_mode
 domain: geniushub
 description: "Changes the mode of a Genius Hub zone."

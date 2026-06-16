@@ -1,5 +1,5 @@
 ---
-title: "Genius Hub: Set switch override"
+title: "Set switch override"
 action: geniushub.set_switch_override
 domain: geniushub
 description: "Turns on a Genius Hub switch for a set duration."

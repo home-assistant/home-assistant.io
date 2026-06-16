@@ -1,5 +1,5 @@
 ---
-title: "Genius Hub: Set zone override"
+title: "Set zone override"
 action: geniushub.set_zone_override
 domain: geniushub
 description: "Overrides the setpoint of a Genius Hub zone for a set duration."
