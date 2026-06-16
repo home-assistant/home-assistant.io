@@ -10,7 +10,7 @@ related_actions:
 
 The **X10 all units off** action sends an X10 *All units off* command to every X10 device that uses the given house code.
 
-This is useful when you have X10 devices on your Insteon network and want to switch them all off at once, for example as part of a leaving-home or bedtime automation.
+This is useful when you have X10 devices on your Insteon network and want to switch them all off at once, for example as part of a leaving home or bedtime automation.
 
 {% include actions/ui_header.md %}
 

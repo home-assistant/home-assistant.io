@@ -123,7 +123,7 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 
 ## Controlling Insteon scenes
 
-Insteon scenes are controlled through automations. Use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon group or scene number.
+Insteon scenes are controlled through automations and scripts. Use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon group or scene number.
 
 ## Events and Mini-Remotes
 

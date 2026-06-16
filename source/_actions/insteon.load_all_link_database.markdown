@@ -13,7 +13,7 @@ The **Load All-Link database** action loads the All-Link database (ALDB) for a d
 This is useful when you want to inspect or work with the links on a device, for example before printing the database or troubleshooting how devices are linked together.
 
 {% caution %}
-Loading a device All-Link database is time consuming and can be inconsistent. It may take a long time and may need to be repeated to obtain all records.
+Loading a device All-Link database is time-consuming and can be inconsistent. It may take a long time and may need to be repeated to obtain all records.
 {% endcaution %}
 
 {% include actions/ui_header.md %}
