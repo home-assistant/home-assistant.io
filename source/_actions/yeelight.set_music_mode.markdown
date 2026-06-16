@@ -53,6 +53,7 @@ action: |
 music_mode:
   description: Turn music mode on or off.
   required: true
+  default: true
   type: boolean
 {% endoptions_yaml %}
 
