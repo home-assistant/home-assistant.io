@@ -9,7 +9,7 @@ related_actions:
 
 The **Generate data** action uses AI to run a task that generates data, and returns the result as response data. You give it a set of instructions, and the AI task entity generates either free text or structured data that you can use elsewhere, for example in a template sensor or a notification.
 
-This action does not target an entity. Instead, you describe the task and, optionally, choose which AI task entity to run it on. When you leave the entity out, the preferred AI task entity is used.
+This action does not support targets. Instead, you describe the task and, optionally, choose which AI task entity to run it on. When you leave the entity out, the preferred AI task entity is used.
 
 {% include actions/ui_header.md %}
 

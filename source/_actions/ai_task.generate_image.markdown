@@ -7,9 +7,9 @@ related_actions:
   - ai_task.generate_data
 ---
 
-The **Generate image** action uses AI to generate an image from a set of instructions, and returns information about the result as response data. The generated image is also saved to your media directory, so you can browse it with the [Media source](/integrations/media_source/) integration.
+The **Generate image** action uses AI to generate an image from a set of instructions, and returns information about the result as response data. The generated image is also saved in the first media directory, so you can browse it with the [Media source](/integrations/media_source/) integration.
 
-This action does not target an entity. Instead, you describe the image and, optionally, choose which AI task entity to run it on. When you leave the entity out, the preferred AI task entity is used.
+This action does not support targets. Instead, you describe the image and, optionally, choose which AI task entity to run it on. When you leave the entity out, the preferred AI task entity is used.
 
 {% include actions/ui_header.md %}
 
