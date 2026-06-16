@@ -20,7 +20,7 @@ To start watering from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the irrigation zone's watering sensor.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the irrigation zone's manual watering switch.
 6. From the actions shown for that target, select **Start watering**.
 7. Optionally set the **Duration**.
 8. Select **Save**.
@@ -40,7 +40,7 @@ In YAML, refer to this action as `hydrawise.start_watering`. A basic example loo
 action: |
   action: hydrawise.start_watering
   target:
-    entity_id: binary_sensor.front_lawn_watering
+    entity_id: switch.front_lawn_manual_watering
   data:
     duration: 15
 {% endexample %}
@@ -59,7 +59,7 @@ duration:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="binary_sensor" %}
+{% include actions/targets.md domain="switch" %}
 
 {% include actions/try_it.md %}
 

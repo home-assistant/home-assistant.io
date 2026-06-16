@@ -20,7 +20,7 @@ To suspend watering from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the irrigation zone's watering sensor.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the irrigation zone's auto watering switch.
 6. From the actions shown for that target, select **Suspend automatic watering**.
 7. Set the **Until** date and time.
 8. Select **Save**.
@@ -41,7 +41,7 @@ In YAML, refer to this action as `hydrawise.suspend`. A basic example looks like
 action: |
   action: hydrawise.suspend
   target:
-    entity_id: binary_sensor.front_lawn_watering
+    entity_id: switch.front_lawn_auto_watering
   data:
     until: "2024-08-30 08:30:00"
 {% endexample %}
@@ -59,7 +59,7 @@ until:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="binary_sensor" %}
+{% include actions/targets.md domain="switch" %}
 
 {% include actions/try_it.md %}
 
