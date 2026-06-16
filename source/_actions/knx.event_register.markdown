@@ -15,6 +15,12 @@ This is useful when you want to react to KNX addresses that are not modeled as e
 
 Group addresses configured through the `event` key in your {% term "configuration.yaml" %} are always active and cannot be removed with this action. For more details, see the [Events](/integrations/knx/#events) section.
 
+{% tip %}
+
+This action is mainly intended for blueprint creators and for registering group addresses on the fly. To react to telegrams in an automation, use the [KNX telegram](/integrations/knx/#telegram-trigger) trigger instead.
+
+{% endtip %}
+
 {% include actions/ui_header.md %}
 
 To register a group address from an automation or a script:

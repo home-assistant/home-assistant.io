@@ -15,6 +15,12 @@ This is useful when you want other KNX devices to react to or read Home Assistan
 
 Exposures defined through your {% term "configuration.yaml" %} cannot be removed with this action. Per address, only one exposure can be registered. For more details, and for additional exposure options like `value_template`, `cooldown`, `periodic_send`, and `respond_to_read`, see the [Exposing entity states, entity attributes or time to KNX bus](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) section.
 
+{% tip %}
+
+This action is mainly intended for blueprint creators and for registering exposures on the fly. For exposures that should run all the time, set them up through the UI or YAML expose configuration instead.
+
+{% endtip %}
+
 {% include actions/ui_header.md %}
 
 To register an exposure from an automation or a script:
