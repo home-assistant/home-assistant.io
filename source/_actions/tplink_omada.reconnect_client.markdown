@@ -7,7 +7,7 @@ description: "Forces a wireless client to reconnect to the Omada network."
 
 The **Reconnect wireless client** action forces a Wi-Fi client to reconnect to your Omada network. This is useful when a client has a troublesome connection that needs to be reset.
 
-This action does not target an entity. Instead, you select which Omada controller to use and provide the client to reconnect.
+This action does not target an entity. Instead, you select which Omada controller to use and provide the MAC address of the client you want to reconnect.
 
 {% include actions/ui_header.md %}
 
@@ -40,7 +40,7 @@ In YAML, refer to this action as `tplink_omada.reconnect_client`. A basic exampl
 action: |
   action: tplink_omada.reconnect_client
   data:
-    mac: "01-23-45-67-89-AB"
+    mac: "01:23:45:67:89:AB"
 {% endexample %}
 
 This forces the client with the given MAC address to reconnect to the network.
