@@ -91,8 +91,8 @@ movies:
     path: /data/media/movies/The Amateur (2025)
     movie_file_count: 0
     images:
-      poster: https://image.tmdb.org/t/p/original/poster.jpg
-      fanart: https://image.tmdb.org/t/p/original/fanart.jpg
+      poster: https://www.example.com/poster.jpg
+      fanart: https://www.example.com/fanart.jpg
 ```
 
 {% include actions/try_it.md %}
