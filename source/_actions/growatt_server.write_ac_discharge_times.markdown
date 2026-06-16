@@ -121,7 +121,6 @@ period_1_enabled:
     Whether period 1 is active.
   required: false
   type: boolean
-  default: false
 period_2_start:
   description: >
     The start time for period 2, in `HH:MM` or `HH:MM:SS` format.
@@ -137,7 +136,6 @@ period_2_enabled:
     Whether period 2 is active.
   required: false
   type: boolean
-  default: false
 period_3_start:
   description: >
     The start time for period 3, in `HH:MM` or `HH:MM:SS` format.
@@ -153,7 +151,6 @@ period_3_enabled:
     Whether period 3 is active.
   required: false
   type: boolean
-  default: false
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}

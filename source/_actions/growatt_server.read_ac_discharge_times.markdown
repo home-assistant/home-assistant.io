@@ -40,6 +40,7 @@ action: |
   action: growatt_server.read_ac_discharge_times
   data:
     device_id: a1b2c3d4e5f6
+  response_variable: ac_discharge_times
 {% endexample %}
 
 This action returns the current AC discharge periods as response data.

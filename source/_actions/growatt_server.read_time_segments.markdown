@@ -40,6 +40,7 @@ action: |
   action: growatt_server.read_time_segments
   data:
     device_id: a1b2c3d4e5f6
+  response_variable: time_segments
 {% endexample %}
 
 This action returns the current time segment configuration as response data.
