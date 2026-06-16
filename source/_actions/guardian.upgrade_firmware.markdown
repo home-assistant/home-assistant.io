@@ -23,9 +23,7 @@ To upgrade the firmware from an automation or a script:
 5. From the search box, search for and select **Guardian: Upgrade firmware**.
 6. Select the **Valve controller** to upgrade. Optionally, enter a custom **URL**, **Port**, and **Filename**.
 7. Select **Save**.
-
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
-
+This action does not support targets. In the UI, you are not prompted to choose an area, entity, or label. You select the valve controller through the **Valve controller** option instead.
 ### Options in the UI
 
 {% options_ui %}

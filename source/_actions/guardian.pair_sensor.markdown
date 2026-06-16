@@ -23,9 +23,7 @@ To pair a sensor from an automation or a script:
 5. From the search box, search for and select **Guardian: Pair sensor**.
 6. Select the **Valve controller** to add the sensor to, and enter the sensor **UID**.
 7. Select **Save**.
-
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
-
+This action does not support targets. In the UI, you are not prompted to choose an area, entity, or label. You select the valve controller through the **Valve controller** option instead.
 ### Options in the UI
 
 {% options_ui %}
