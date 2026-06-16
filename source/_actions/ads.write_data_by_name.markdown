@@ -76,6 +76,34 @@ value:
 
 {% include actions/more_examples.md %}
 
+### Automation: write a setpoint when a helper changes
+
+Write a new value to a PLC variable whenever an input number helper changes, for example to push a temperature setpoint from Home Assistant to your ADS device.
+
+- **Trigger**: State: Setpoint helper changes
+- **Action**: ADS: Write data by name
+  - **ADS variable**: `.setpoint`
+  - **ADS type**: int
+  - **Value**: `21`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  - alias: "Push the setpoint to the PLC"
+    triggers:
+      - trigger: state
+        entity_id: input_number.heating_setpoint
+    actions:
+      - action: ads.write_data_by_name
+        data:
+          adsvar: ".setpoint"
+          adstype: int
+          value: "{{ states('input_number.heating_setpoint') | int }}"
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
