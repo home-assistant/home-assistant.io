@@ -70,11 +70,11 @@ package_tracking_number:
 
 {% include actions/more_examples.md %}
 
-### Automation: archive a package once it is delivered
+### Automation: archive a package when a delivered tracking number is set
 
-When a package sensor reports that delivery is complete, archive that package in 17Track.
+When a helper that holds a delivered tracking number changes, archive that package in 17Track.
 
-- **Trigger**: A package status changes to delivered
+- **Trigger**: A text helper with a delivered tracking number changes
 - **Action**: 17TRACK: Archive package
 
 {% details "YAML example for archiving a delivered package" %}

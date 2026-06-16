@@ -33,7 +33,7 @@ This action does not support targets. In the UI, you select the 17Track service 
   description: The 17Track service to retrieve packages for.
   required: true
 Package states:
-  description: "Only return packages in the selected states. Returns all packages when left empty. Options: not found, in transit, expired, ready to be picked up, undelivered, delivered, and alert."
+  description: Only return packages in the selected states. Returns all packages when left empty.
   required: false
 {% endoptions_ui %}
 
@@ -49,11 +49,10 @@ action: |
     package_state:
       - delivered
       - in_transit
-  response_variable: packages
+  response_variable: result
 {% endexample %}
 
-This returns the matching packages in the `packages` response variable.
-
+This returns the matching packages in the `result` response variable, under `result.packages`.
 ### Options in YAML
 
 {% options_yaml %}
