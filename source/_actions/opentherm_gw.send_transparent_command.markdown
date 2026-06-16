@@ -2,7 +2,7 @@
 title: "Send transparent command"
 action: opentherm_gw.send_transparent_command
 domain: opentherm_gw
-description: "Sends a custom OTGW command through a transparent interface."
+description: "Sends a custom OpenTherm Gateway command through a transparent interface."
 ---
 
 The **Send transparent command** action sends a custom [command](https://otgw.tclcode.com/firmware.html) directly to your OpenTherm Gateway through a transparent interface.

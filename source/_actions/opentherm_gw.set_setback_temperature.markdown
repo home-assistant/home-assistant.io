@@ -2,7 +2,7 @@
 title: "Set setback temperature"
 action: opentherm_gw.set_setback_temperature
 domain: opentherm_gw
-description: "Configures the setback temperature used with the GPIO away mode."
+description: "Configures the setback temperature used with the GPIO home and away modes."
 related_actions:
   - opentherm_gw.set_gpio_mode
   - opentherm_gw.set_outside_temperature
