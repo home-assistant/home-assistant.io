@@ -101,6 +101,8 @@ Greencell offers three levels of integration with Home Assistant to suit differe
 | **READ**    | Read only – the device sends measurement data (voltage, current, power), states and ignores commands received on the relevant topic except for the `QUERY` command. Buttons and Number entities are disabled. |
 | **EXECUTE** | Full access – the device sends measurement data and responds to commands (`START`, `STOP`, `SET_CURRENT`, `QUERY`) received on the relevant topic. All supported entities are enabled. |
 
+Modes can be configured using the Greencell GC App in Home Assistant settings. See the [configuration chapter](#to-configure-a-device-using-the-greencell-gc-app) for how to find this setting in the app.
+
 ## Supported functionality
 
 The **Greencell** {% term integration %} provides the following entities.
