@@ -25,7 +25,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Scan interval:
-  description: How often to fetch updates, in seconds. Must be between 10 and 86400.
+  description: How often to fetch updates, in seconds. Supported range is 10 to 86400. Values below 90 are not recommended because of StarLine API rate limits.
   required: true
 {% endoptions_ui %}
 
@@ -47,7 +47,7 @@ This fetches StarLine entity updates every three minutes.
 {% options_yaml %}
 scan_interval:
   description: >
-    How often to fetch updates, in seconds. Must be between 10 and 86400.
+    How often to fetch updates, in seconds. Supported range is 10 to 86400. Values below 90 are not recommended because of StarLine API rate limits.
   required: true
   type: integer
 {% endoptions_yaml %}
