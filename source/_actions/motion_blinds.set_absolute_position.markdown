@@ -84,6 +84,33 @@ width:
 
 {% include actions/more_examples.md %}
 
+### Automation: Set blinds to a privacy position in the evening
+
+This automation moves a Top Down Bottom Up blind to a privacy position every evening, covering the lower part of the window while leaving the top open for light.
+
+- Trigger: the sun sets
+- Action: set the absolute position of the blind
+  - Target: the bedroom blind
+  - Absolute position: `40`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Evening privacy position"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: motion_blinds.set_absolute_position
+      target:
+        entity_id: cover.bedroom_blind
+      data:
+        absolute_position: 40
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
