@@ -21,7 +21,8 @@ To get the movies from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Radarr: Get movies**.
 6. Select the **Radarr entry** to get the movies from.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the movie data in, such as `movies`. You'll use this name to read the movies in later steps.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
