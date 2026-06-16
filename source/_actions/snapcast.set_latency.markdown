@@ -10,7 +10,7 @@ related_actions:
 
 The **Set latency** action adjusts the audio latency of a Snapcast speaker, in milliseconds. Use it to fine-tune the timing so a speaker stays in sync with the rest of your multi-room audio.
 
-This is handy when one speaker sounds slightly ahead of or behind the others, for example a speaker connected over a slower link.
+This is handy when one speaker sounds slightly ahead of or behind the others, for example, a speaker connected over a slower link.
 
 {% include actions/ui_header.md %}
 
