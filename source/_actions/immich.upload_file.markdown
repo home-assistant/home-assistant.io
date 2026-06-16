@@ -88,7 +88,7 @@ album_id:
 
 ### Script: upload a camera snapshot
 
-Take a snapshot of a camera entity with the [`camera.snapshot`](/integrations/camera/) action, store it using a [local media](/integrations/media_source/#local-media) path, then upload it to a specific album in your Immich instance.
+Take a snapshot of a camera entity with the [`camera.snapshot`](/actions/camera.snapshot) action, store it using a [local media](/integrations/media_source/#local-media) path, then upload it to a specific album in your Immich instance.
 
 {% details "YAML example for uploading a camera snapshot" %}
 
