@@ -40,26 +40,7 @@ Use an encrypted token for authentication:
   description: Use an encrypted token for API calls to the bridge. This should only be deactivated if you experience issues with the API (authentication, etc). The default is `True`.
 {% endconfiguration_basic %}
 
-## Actions
-
-### Action `nuki.lock_n_go`
-
-This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
-See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more details about this feature.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
-| `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.
-
-### Action `nuki.set_continuous_mode`
-
-This action allows you to enable or disable the "Continuous Mode" feature of Nuki Openers. This is similar to the Ring-to-Open feature that is mapped to "lock/unlock", except that it doesn't have a time limit - as long as this mode is enabled, the door will open when the buzzer button is pressed, similar to how it works at e.g. a doctor's office or other business during the day. On other Nuki products, this action is a no-op.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
-| `enabled` | yes | Boolean - Set to `true` to enable Continuous Mode, or `false` to disable.
+{% include integrations/actions.md %}
 
 ## Events
 
