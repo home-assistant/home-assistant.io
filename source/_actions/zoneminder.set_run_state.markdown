@@ -16,15 +16,15 @@ To set the run state from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **ZoneMinder: Set run state**.
-6. Set the **Id** of the ZoneMinder host and the **Name** of the run state to apply.
+6. Set the **ID** of the ZoneMinder host and the **Name** of the run state to apply.
 7. Select **Save**.
 
-This action does not support targets. You select the ZoneMinder instance through the **Id** field instead of choosing an area, device, entity, or label.
+This action does not support targets. You select the ZoneMinder instance through the **ID** field instead of choosing an area, device, entity, or label.
 
 ### Options in the UI
 
 {% options_ui %}
-Id:
+ID:
   description: The host of the ZoneMinder instance to update.
   required: true
 Name:
@@ -41,7 +41,7 @@ action: |
   action: zoneminder.set_run_state
   data:
     id: ZM_HOST
-    name: Home
+    name: "Home"
 {% endexample %}
 
 This switches the ZoneMinder instance to the `Home` run state.
