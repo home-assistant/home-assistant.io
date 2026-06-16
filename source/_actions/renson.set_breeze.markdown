@@ -77,6 +77,7 @@ activate:
   description: Whether to turn the Breeze function on or off.
   required: true
   type: boolean
+  default: false
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
