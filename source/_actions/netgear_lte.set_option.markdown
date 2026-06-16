@@ -86,10 +86,9 @@ You need to set at least one of `failover` or `autoconnect`.
 
 {% include actions/more_examples.md %}
 
-### Automation: allow mobile data only while away
+### Automation: set auto-connect mode when you leave home
 
-When you leave home, set the modem to always connect. When you return, switch it back to connecting only on your home network.
-
+When you leave home, set the modem to always connect.
 - **Trigger**: A presence sensor changes
 - **Action**: NETGEAR LTE: Set option
 
