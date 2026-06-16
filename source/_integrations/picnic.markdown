@@ -48,6 +48,6 @@ This integration provides the following sensors. Some sensors are disabled by de
 
 This integration provides a list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance.
 
-You can add products to your shopping cart by entering a name in the **Add item** field. Just like with the [Add a product to the cart](/actions/picnic.add_product/) action, a search will be done and the first item found will be added.
+You can add products to your shopping cart by entering a name in the **Add item** field. Just like with the [Add a product to the cart](/actions/picnic.add_product/) action, Picnic searches for the product and adds the first result to your cart.
 
 {% include integrations/actions.md %}

@@ -7,7 +7,7 @@ description: "Adds a product to your Picnic shopping cart by product ID or by se
 
 Use this action to add a product to your Picnic shopping cart. You can add a product either by its product ID or by a product name. When you add a product by name, Picnic searches for it and adds the first result to your cart.
 
-This is handy for automations, for example to top up your cart with a staple like milk or coffee on a schedule, so it is ready the next time you place an order.
+This is handy for automations, for example, to top up your cart with a staple like milk or coffee on a schedule, so it is ready the next time you place an order.
 
 {% include actions/ui_header.md %}
 
