@@ -7,7 +7,7 @@ related_actions:
   - indevolt.discharge
 ---
 
-Use this action to start charging one or more Indevolt batteries with a set maximum power until the target state of charge is reached. The device switches to real-time control mode if needed.
+Use this action to start charging one or more Indevolt batteries with a set maximum power until the target state of charge is reached. Each device switches to real-time control mode if needed.
 
 {% include actions/ui_header.md %}
 
