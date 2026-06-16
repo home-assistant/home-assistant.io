@@ -102,6 +102,7 @@ active:
   description: Whether the user is active. Inactive users exist on the lock but cannot unlock until reactivated. Defaults to the existing value on update, or true on create.
   required: false
   type: boolean
+  default: true
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="lock" %}
