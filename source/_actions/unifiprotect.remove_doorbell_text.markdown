@@ -4,7 +4,7 @@ action: unifiprotect.remove_doorbell_text
 domain: unifiprotect
 description: "Removes a custom message from a UniFi Protect doorbell."
 related_actions:
-  - action: unifiprotect.add_doorbell_text
+  - unifiprotect.add_doorbell_text
 ---
 
 With this action, you can remove a custom message from the list of texts available on your UniFi Protect doorbells. Use it to clean up messages you added earlier and no longer need.
