@@ -94,6 +94,38 @@ repeat:
 
 {% include actions/more_examples.md %}
 
+### Automation: Announce when a door is left open
+
+This automation plays a spoken alert on your YoLink SpeakerHub when the front door stays open for more than two minutes.
+
+- Trigger: the front door sensor stays open for 2 minutes
+- Action: play a message on the SpeakerHub
+  - SpeakerHub device: your SpeakerHub
+  - Text message: "The front door is open"
+  - Tone: `alert`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Announce front door left open"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+      for:
+        minutes: 2
+  actions:
+    - action: yolink.play_on_speaker_hub
+      data:
+        target_device: 12a34b56c7d8ef9ghijklm0n1op2345q
+        message: "The front door is open"
+        tone: "alert"
+        volume: 8
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
