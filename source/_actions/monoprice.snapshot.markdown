@@ -7,10 +7,7 @@ related_actions:
   - monoprice.restore
 ---
 
-Use this action to save the current state of one or more zones on your Monoprice 6-Zone Amplifier. It is handy when you want to play a doorbell or notification sound and then return each zone to whatever it was doing before.
-
-A snapshot stores the power status, mute status, volume level, and selected source for each targeted zone. Take a snapshot first, change the zones however you like, and then use the [Restore](/integrations/monoprice/#action-monopricerestore) action to bring everything back.
-
+A snapshot stores the power status, mute status, volume level, and selected source for each targeted zone. Take a snapshot first, change the zones however you like, and then use the [Restore](/actions/monoprice.restore/) action to bring everything back.
 {% include actions/ui_header.md %}
 
 To take a snapshot from an automation or a script:

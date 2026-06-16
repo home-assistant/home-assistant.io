@@ -6,8 +6,7 @@ description: "Restores one or more Monoprice amplifier zones to a previously sav
 related_actions:
   - monoprice.snapshot
 ---
-
-Use this action to return one or more zones on your Monoprice 6-Zone Amplifier to a state you saved earlier with the [Snapshot](/integrations/monoprice/#action-monopricesnapshot) action. It is most useful after playing a doorbell or notification sound, so each zone goes back to whatever it was doing before.
+Use this action to return one or more zones on your Monoprice 6-Zone Amplifier to a state you saved earlier with the [Snapshot](/actions/monoprice.snapshot/) action. It is most useful after playing a doorbell or notification sound, so each zone goes back to whatever it was doing before.
 
 Restoring brings back the power status, mute status, volume level, and selected source for each targeted zone.
 
@@ -46,9 +45,7 @@ This action has no additional YAML options beyond the target.
 
 {% include actions/targets.md domain="media_player" %}
 
-## Good to know
-
-- This action only works on zones that have a snapshot saved with the [Snapshot](/integrations/monoprice/#action-monopricesnapshot) action.
+- This action only works on zones that have a snapshot saved with the [Snapshot](/actions/monoprice.snapshot/) action.
 - Restoring brings back the power status, mute status, volume level, and source for each targeted zone.
 - Editing the sources from the integration options removes any snapshot you saved, so there is nothing left to restore.
 
