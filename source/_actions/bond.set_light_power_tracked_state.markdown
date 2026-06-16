@@ -53,7 +53,6 @@ power_state:
   description: "Whether the light is actually on (true) or off (false)."
   required: true
   type: boolean
-  default: false
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="light" %}
