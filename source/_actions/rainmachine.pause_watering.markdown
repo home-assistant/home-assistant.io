@@ -22,7 +22,7 @@ To pause watering from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **RainMachine: Pause all watering**.
-6. Select the **Controller** and enter the number of **seconds** to pause.
+6. Select the **Controller** and enter the **Duration** (in seconds) to pause.
 7. Select **Save**.
 
 ### Options in the UI
