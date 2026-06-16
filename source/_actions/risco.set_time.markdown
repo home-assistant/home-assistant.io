@@ -66,6 +66,30 @@ time:
 
 {% include actions/more_examples.md %}
 
+### Automation: keep the alarm panel clock in sync
+
+Re-sync the alarm panel clock with the Home Assistant system time every night, so it stays accurate after a power loss or a daylight saving time change.
+
+- **Trigger**: Time: 03:00:00
+- **Action**: Risco: Set the alarm panel time
+  - **Config entry**: Your Risco alarm panel
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  - alias: "Sync the Risco alarm panel clock"
+    triggers:
+      - trigger: time
+        at: "03:00:00"
+    actions:
+      - action: risco.set_time
+        data:
+          config_entry_id: 1b9a8a9d2c3e4f5061728394a5b6c7d8
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
