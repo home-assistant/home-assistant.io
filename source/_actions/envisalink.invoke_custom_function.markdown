@@ -70,6 +70,33 @@ pgm:
 
 {% include actions/more_examples.md %}
 
+### Automation: trigger an auxiliary output
+
+Trigger a PGM output to activate an auxiliary output wired to your panel, for example a relay that opens a gate, when an input boolean is turned on.
+
+- **Trigger**: State: Gate button turns on
+- **Action**: Envisalink: Invoke custom function
+  - **Partition**: `1`
+  - **PGM**: `2`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  - alias: "Open the gate with a PGM output"
+    triggers:
+      - trigger: state
+        entity_id: input_boolean.gate_button
+        to: "on"
+    actions:
+      - action: envisalink.invoke_custom_function
+        data:
+          partition: "1"
+          pgm: 2
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

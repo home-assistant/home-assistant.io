@@ -69,6 +69,32 @@ keypress:
 
 {% include actions/more_examples.md %}
 
+### Automation: send a command sequence at bedtime
+
+Send a custom keypress sequence to the panel every night, for example to activate a special arming mode that is not available as a standard action.
+
+- **Trigger**: Time: 23:00:00
+- **Action**: Envisalink: Alarm keypress
+  - **Entity**: Your alarm control panel
+  - **Keypress**: `*71`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  - alias: "Send the night command sequence"
+    triggers:
+      - trigger: time
+        at: "23:00:00"
+    actions:
+      - action: envisalink.alarm_keypress
+        data:
+          entity_id: alarm_control_panel.home_alarm
+          keypress: "*71"
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

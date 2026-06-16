@@ -139,13 +139,9 @@ partitions:
       type: string
 {% endconfiguration %}
 
-## Actions
-
-Envisalink alarm control panel entities support the standard [alarm control panel actions](/integrations/alarm_control_panel/), such as arming, disarming, and triggering the alarm. For example, you can use the alarm trigger action to integrate a newer Z-Wave or Zigbee sensor into a legacy alarm system through a Home Assistant automation.
-
-In addition, Envisalink provides the following actions:
-
 {% include integrations/actions.md %}
+
+Envisalink alarm control panel entities also support the standard [alarm control panel actions](/integrations/alarm_control_panel/), such as arming, disarming, and triggering the alarm. For example, you can use the alarm trigger action to integrate a newer Z-Wave or Zigbee sensor into a legacy alarm system through a Home Assistant automation.
 
 ## Attributes
 
