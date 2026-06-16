@@ -67,6 +67,33 @@ For a mapping of the standard Home Assistant climate modes to Viessmann operatio
 
 {% include actions/more_examples.md %}
 
+### Automation: Switch to reduced heating at night
+
+This automation sets your Viessmann device to a reduced heating mode every night, then you can pair it with a second automation in the morning to return to your normal mode.
+
+- Trigger: the time is 11:00 PM
+- Action: set the ViCare mode
+  - Target: the living room climate entity
+  - ViCare mode: `heating`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Reduced heating at night"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: vicare.set_vicare_mode
+      target:
+        entity_id: climate.living_room
+      data:
+        vicare_mode: heating
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
