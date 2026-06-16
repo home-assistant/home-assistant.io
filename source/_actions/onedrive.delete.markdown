@@ -7,7 +7,7 @@ related_actions:
   - onedrive.upload
 ---
 
-Use this action to delete one or more files from the application folder that the integration has access to (`Apps/Home Assistant`).
+Use this action to delete one or more files from the application folder that the integration has access to (`Apps/Home Assistant`, sometimes shown as `Apps/Graph`).
 
 Whether a deleted file is moved to the Recycle Bin or permanently removed depends on the **Delete files permanently** option in the integration settings. This action removes only files, not the folders that were created during upload.
 
