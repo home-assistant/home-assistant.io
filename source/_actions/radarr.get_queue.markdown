@@ -20,7 +20,7 @@ To get the download queue from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Radarr: Get queue**.
-6. Select the **Radarr entry** to get the queue from, and optionally set the **Max items** to return.
+6. Select the **Radarr entry** to get the queue from. This is the Radarr connection you set up in Home Assistant. If you added more than one Radarr server, pick the one whose download queue you want. _Optional_: set **Max items** to limit how many queue items are returned.
 7. In the **Response variable** field, enter a name to store the queue data in, such as `queue`. You'll use this name to read the queue in later steps.
 8. Select **Save**.
 
@@ -30,7 +30,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Radarr entry:
-  description: The Radarr config entry to get the queue from.
+  description: The Radarr config entry to get the queue from. This is the Radarr connection you set up in Home Assistant. If you added more than one Radarr server, pick the one whose download queue you want.
   required: true
 Max items:
   description: The maximum number of queue items to return. Set to 0 to return all items.
@@ -56,7 +56,7 @@ This fetches all movies in your Radarr download queue.
 {% options_yaml %}
 entry_id:
   description: >
-    The Radarr config entry to get the queue from.
+    The Radarr config entry to get the queue from. This is the Radarr connection you set up in Home Assistant. If you added more than one Radarr server, pick the one whose download queue you want.
   required: true
   type: string
 max_items:

@@ -20,7 +20,7 @@ To get the movies from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Radarr: Get movies**.
-6. Select the **Radarr entry** to get the movies from.
+6. Select the **Radarr entry** to get the movies from. This is the Radarr connection you set up in Home Assistant. If you added more than one Radarr server, pick the one whose library you want.
 7. In the **Response variable** field, enter a name to store the movie data in, such as `movies`. You'll use this name to read the movies in later steps.
 8. Select **Save**.
 
@@ -30,7 +30,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Radarr entry:
-  description: The Radarr config entry to get the movies from.
+  description: The Radarr config entry to get the movies from. This is the Radarr connection you set up in Home Assistant. If you added more than one Radarr server, pick the one whose library you want.
   required: true
 {% endoptions_ui %}
 
@@ -53,7 +53,7 @@ This fetches all movies in your Radarr library.
 {% options_yaml %}
 entry_id:
   description: >
-    The Radarr config entry to get the movies from.
+    The Radarr config entry to get the movies from. This is the Radarr connection you set up in Home Assistant. If you added more than one Radarr server, pick the one whose library you want.
   required: true
   type: string
 {% endoptions_yaml %}
