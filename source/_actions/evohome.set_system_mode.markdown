@@ -21,10 +21,10 @@ To set the system mode from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Honeywell Total Connect Comfort (Europe): Set system mode**.
-6. Choose the **Mode** you want, and optionally set a **Period** or **Duration** and the controller entity.
+6. Choose the **Mode** you want. Select the controller **Entity**, and optionally set a **Period** or **Duration**.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. In the UI, you choose the controller in the **Entity** field.
 
 ### Options in the UI
 
@@ -50,6 +50,7 @@ In YAML, refer to this action as `evohome.set_system_mode`. A basic example look
 action: |
   action: evohome.set_system_mode
   data:
+    entity_id: climate.my_home
     mode: AutoWithEco
     duration:
       hours: 1
@@ -64,6 +65,7 @@ To go away for a number of days, use `period` instead of `duration`:
 action: |
   action: evohome.set_system_mode
   data:
+    entity_id: climate.my_home
     mode: Away
     period:
       days: 30
@@ -93,7 +95,7 @@ duration:
 entity_id:
   description: >
     The Evohome controller's climate entity to set the mode on.
-  required: false
+  required: true
   type: string
 {% endoptions_yaml %}
 
@@ -126,8 +128,8 @@ automation: |
   actions:
     - action: evohome.set_system_mode
       data:
+        entity_id: climate.my_home
         mode: Away
-{% endexample %}
 
 {% enddetails %}
 

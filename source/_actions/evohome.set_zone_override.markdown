@@ -64,7 +64,7 @@ duration:
     to 24 hours. If omitted, the override is indefinite. If set to zero, the
     override lasts until the next scheduled setpoint.
   required: false
-  type: map
+  type: time
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="climate" %}

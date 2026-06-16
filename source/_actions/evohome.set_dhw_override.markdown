@@ -58,14 +58,13 @@ state:
     (`false`).
   required: true
   type: boolean
-  default: false
 duration:
   description: >
     How long the override lasts before the controller returns to its
     schedule, up to 24 hours. If omitted, the override is indefinite. If set
     to zero, the override lasts until the next scheduled state change.
   required: false
-  type: map
+  type: time
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="water_heater" %}
