@@ -60,6 +60,31 @@ days:
 
 {% include actions/more_examples.md %}
 
+### Automation: reset the reminder after refreshing the water
+
+When you mark the water as refreshed, here by pressing a button helper, reset the reminder so it triggers again in 180 days.
+
+- **Trigger**: The water refreshed button is pressed
+- **Action**: SmartTub: Reset a reminder
+
+{% details "YAML example for resetting the reminder after refreshing the water" %}
+
+{% example %}
+automation: |
+  alias: "Reset hot tub reminder after water change"
+  triggers:
+    - trigger: state
+      entity_id: input_button.hot_tub_water_refreshed
+  actions:
+    - action: smarttub.reset_reminder
+      target:
+        entity_id: binary_sensor.jacuzzi_j_335_refresh_water_reminder
+      data:
+        days: 180
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

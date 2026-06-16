@@ -59,6 +59,32 @@ days:
 
 {% include actions/more_examples.md %}
 
+### Automation: snooze the reminder while you are away
+
+When you go on holiday, snooze the maintenance reminder so it does not keep notifying you while you are away.
+
+- **Trigger**: Holiday mode is turned on
+- **Action**: SmartTub: Snooze a reminder
+
+{% details "YAML example for snoozing a reminder during a holiday" %}
+
+{% example %}
+automation: |
+  alias: "Snooze hot tub reminder during holiday"
+  triggers:
+    - trigger: state
+      entity_id: input_boolean.holiday_mode
+      to: "on"
+  actions:
+    - action: smarttub.snooze_reminder
+      target:
+        entity_id: binary_sensor.jacuzzi_j_335_refresh_water_reminder
+      data:
+        days: 30
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

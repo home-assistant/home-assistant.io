@@ -72,6 +72,25 @@ start_hour:
 
 {% include actions/more_examples.md %}
 
+### Script: schedule filtration for off-peak hours
+
+Run this script to set the primary filtration cycle to run overnight, when electricity is often cheaper.
+
+{% details "YAML example for scheduling filtration overnight" %}
+
+{% example %}
+script: |
+  sequence:
+    - action: smarttub.set_primary_filtration
+      target:
+        entity_id: sensor.jacuzzi_j_335_primary_filtration_cycle
+      data:
+        duration: 6
+        start_hour: 1
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

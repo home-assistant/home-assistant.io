@@ -59,6 +59,32 @@ mode:
 
 {% include actions/more_examples.md %}
 
+### Automation: reduce filtration when you leave home
+
+Switch the secondary filtration to away mode when you leave home, so the hot tub filters less while no one is around to use it.
+
+- **Trigger**: You leave home
+- **Action**: SmartTub: Update secondary filtration settings
+
+{% details "YAML example for switching to away mode when leaving home" %}
+
+{% example %}
+automation: |
+  alias: "Hot tub away filtration when not home"
+  triggers:
+    - trigger: state
+      entity_id: person.sam
+      to: not_home
+  actions:
+    - action: smarttub.set_secondary_filtration
+      target:
+        entity_id: sensor.jacuzzi_j_335_secondary_filtration_cycle
+      data:
+        mode: away
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
