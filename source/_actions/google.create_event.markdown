@@ -2,13 +2,13 @@
 title: "Create event in Google Calendar"
 action: google.create_event
 domain: google
-description: "Adds a new event to a Google calendar."
+description: "Adds a new event to a calendar in Google Calendar."
 related_actions:
   - calendar.create_event
   - calendar.get_events
 ---
 
-Use this action to add a new event to one of your Google calendars, for example to block out time or record that something happened.
+Use this action to add a new event to one of your calendars in Google Calendar, for example to block out time or record that something happened.
 
 This action is only available when you have granted Home Assistant read-write access to your calendars in the integration options. With read-only access, you cannot create events.
 
@@ -20,7 +20,7 @@ To create a Google Calendar event from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Google calendar you want to add the event to.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the calendar you want to add the event to.
 6. From the actions shown for that target, select **Create event in Google Calendar**.
 7. Set the **Summary** and the start and end of the event.
 8. Select **Save**.
