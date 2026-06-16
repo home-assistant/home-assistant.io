@@ -93,9 +93,7 @@ automation: |
   triggers:
     - trigger: event
       event_type: transmission_downloaded_torrent
-  conditions:
-    - "{{ 'Remove' in trigger.event.data.labels }}"
-  actions:
+  conditions: "{{ 'Remove' in trigger.event.data.labels }}"
     - action: transmission.remove_torrent
       data:
         entry_id: YOUR_TRANSMISSION_ENTRY_ID

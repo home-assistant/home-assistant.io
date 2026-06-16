@@ -67,7 +67,7 @@ torrent_filter:
 
 ## Response data
 
-The action returns a `torrents` mapping, keyed by the name of each torrent. Each entry contains the following fields:
+The action returns a mapping keyed by the name of each torrent. Store it in a response variable (for example, `torrents`) so you can use it in later steps.
 
 - `id`: The ID of the torrent.
 - `name`: The name of the torrent.
