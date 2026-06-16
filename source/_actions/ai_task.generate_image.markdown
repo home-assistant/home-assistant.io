@@ -34,8 +34,8 @@ Instructions:
   description: The specific instructions that explain the image to generate.
   required: true
 Entity ID:
-  description: The AI task entity to run the task on. When left empty, the preferred AI task entity is used.
-  required: false
+    description: The AI task entity to generate the image. This entity must support image generation.
+    required: true
 Attachments:
   description: A list of files to attach for the AI to use as references.
   required: false
