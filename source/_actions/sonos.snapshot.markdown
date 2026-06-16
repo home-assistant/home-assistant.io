@@ -10,7 +10,7 @@ related_actions:
 Use this action to save what is currently playing on one or more Sonos speakers. You can restore it later with the [Restore a Sonos snapshot](/actions/sonos.restore/) action. This is handy when you want to interrupt playback to play a doorbell sound or a notification, then pick up right where you left off.
 
 {% note %}
-The queue is not part of the snapshot and must be left untouched until you restore. Playing a notification sound with the [Play media](/integrations/media_player/#action-media_playerplay_media) action, including [text-to-speech](/integrations/tts/) announcements, is safe.
+The queue is not part of the snapshot and must be left untouched until you restore. Playing a notification sound with the [Play media](/actions/media_player.play_media/) action, including [text-to-speech](/integrations/tts/) announcements, is safe.
 {% endnote %}
 
 {% include actions/ui_header.md %}
