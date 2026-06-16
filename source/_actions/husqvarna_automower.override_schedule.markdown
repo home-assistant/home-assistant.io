@@ -59,7 +59,9 @@ This sends `lawn_mower.garden` out to mow for one day, 12 hours, and 30 minutes,
 {% options_yaml %}
 duration:
   description: >
-    How long the override should last. Minimum 1 minute, maximum 42 days.
+    How long the override should last. Accepts a Home Assistant duration object
+    with `days`, `hours`, `minutes`, and `seconds` keys, or an ISO 8601 duration
+    string like "00:15:00". Minimum 1 minute, maximum 42 days.
   required: true
   type: time
 override_mode:
