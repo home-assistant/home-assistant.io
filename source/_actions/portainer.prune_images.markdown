@@ -60,7 +60,7 @@ device_id:
   required: true
   type: string
 until:
-  description: Only prune images that have been unused for at least this time duration in the past, such as `hours: 24`. If not provided, all unused images are pruned.
+  description: "Only prune images that have been unused for at least this time duration in the past, such as `hours: 24`. If not provided, all unused images are pruned."
   required: false
   type: map
 dangling:

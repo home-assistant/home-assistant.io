@@ -62,7 +62,7 @@ device_id:
   required: true
   type: string
 timeout:
-  description: The time to wait for the container to stop before killing it, such as `minutes: 5`. If not provided, a default of 5 minutes is used.
+  description: "The time to wait for the container to stop before killing it, such as `minutes: 5`. If not provided, a default of 5 minutes is used."
   required: false
   type: map
 pull_image:
