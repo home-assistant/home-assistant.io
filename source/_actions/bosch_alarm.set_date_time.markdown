@@ -5,7 +5,7 @@ domain: bosch_alarm
 description: "Sets the date and time on a Bosch alarm panel."
 ---
 
-Use this action to set the date and time on your Bosch alarm panel. When you do not provide a date and time, the current date and time of your Home Assistant instance is used.
+Use this action to set the date and time on your Bosch alarm panel. When you do not provide a date and time, the current date and time of your Home Assistant instance are used.
 
 This is handy to keep the clock on your panel in sync, for example with an automation that updates it after a power outage or on a regular schedule.
 
@@ -30,7 +30,7 @@ Config entry:
   description: The Bosch alarm panel to update.
   required: true
 Date & time:
-  description: The date and time to set. When not provided, the current date and time is used.
+  description: The date and time to set. When not provided, the current date and time are used.
   required: false
 {% endoptions_ui %}
 
@@ -66,7 +66,7 @@ datetime:
 
 ## Good to know
 
-- When you do not provide a date and time, the current date and time of your Home Assistant instance is used.
+- When you do not provide a date and time, the current date and time of your Home Assistant instance are used.
 - The time zone of your Home Assistant instance is assumed for the value you provide.
 
 {% include actions/try_it.md %}
