@@ -55,8 +55,8 @@ value:
 
 ## Good to know
 
+- If your meter does not use tariffs, you can reset it by running this action with `value: 0`.
 - Calibrate each tariff sensor separately. If your meter tracks several tariffs, target the specific sensor you want to set.
-
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

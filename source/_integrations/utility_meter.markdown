@@ -151,6 +151,8 @@ offset:
   minutes: 0
 ```
 
+Some actions are only available if you have configured tariffs for the meter.
+
 {% include integrations/actions.md %}
 
 ## Advanced configuration
