@@ -21,7 +21,7 @@ To send keypresses from an automation or a script:
 6. Select the alarm control panel **Entity** and enter the **Keypress** string to send.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. In the UI, you choose the alarm control panel in the **Entity** field.
 
 ### Options in the UI
 
