@@ -27,7 +27,7 @@ To set the heater profile from an automation or a script:
 ### Options in the UI
 
 {% options_ui %}
-hour_00:
+Hour 00:
   description: The target temperature at 00:00 local time, in degrees Celsius.
   required: false
 hour_01:
