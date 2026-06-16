@@ -11,7 +11,7 @@ related_actions:
 
 Use this action to start logging the growth of objects in memory and attempt to find the source of the new objects. Its primary use case is finding memory leaks.
 
-This action is similar to [Profiler: Start log objects](/integrations/profiler/), except that it is much more CPU intensive, since it attempts to locate the source of each new object, up to the **Max objects** value each time it logs.
+This action is similar to [Profiler: Start log objects](/actions/profiler.start_log_objects/), except that it is much more CPU intensive, since it attempts to locate the source of each new object, up to the **Max objects** value each time it logs.
 
 {% include actions/ui_header.md %}
 

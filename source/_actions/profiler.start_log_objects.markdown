@@ -9,7 +9,7 @@ related_actions:
   - profiler.dump_log_objects
 ---
 
-Use this action to start logging the growth of objects in memory. Its primary use case is finding memory leaks. You can run it for long periods to find slow leaks. For finding fast leaks, [Profiler: Start log object sources](/integrations/profiler/) is preferred, although it is much more CPU intensive.
+Use this action to start logging the growth of objects in memory. Its primary use case is finding memory leaks. You can run it for long periods to find slow leaks. For finding fast leaks, [Profiler: Start log object sources](/actions/profiler.start_log_object_sources/) is preferred, although it is much more CPU intensive.
 
 {% include actions/ui_header.md %}
 

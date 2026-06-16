@@ -9,7 +9,7 @@ related_actions:
   - profiler.start_log_object_sources
 ---
 
-Use this action to investigate objects in memory. When [Profiler: Start log objects](/integrations/profiler/) highlights the growth of a collection of objects in memory, this action helps you investigate it. The representation of each object that matches the given **Type** is logged.
+Use this action to investigate objects in memory. When [Profiler: Start log objects](/actions/profiler.start_log_objects/) highlights the growth of a collection of objects in memory, this action helps you investigate it. The representation of each object that matches the given **Type** is logged.
 
 {% include actions/ui_header.md %}
 

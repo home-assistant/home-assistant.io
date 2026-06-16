@@ -69,12 +69,12 @@ The `callgrind.out` file can be viewed with:
 - [KCachegrind or QCachegrind](https://kcachegrind.github.io/)
 - [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
-The gprof2dot tool generates [DOT](http://www.graphviz.org/doc/info/lang.html) files, which you can convert to images using the `dot` tool from [Graphviz](http://www.graphviz.org/), or view directly with [xdot](https://github.com/jrfonseca/xdot.py). The `-e` and `-n` parameters set the minimum percentage required to include a function in the output file:
+The gprof2dot tool generates [DOT](https://www.graphviz.org/doc/info/lang.html) files, which you can convert to images using the `dot` tool from [Graphviz](https://www.graphviz.org/), or view directly with [xdot](https://github.com/jrfonseca/xdot.py). The `-e` and `-n` parameters set the minimum percentage required to include a function in the output file:
 
 ```bash
 # Generate the .dot files:
-gprof2dot -f pstats    -e 0.05 -n 0.25 profile.1234567890123456.cprof -o profile.dot
-gprof2dot -f callgrind -e 0.05 -n 0.25 callgrind.out.1234567890123456 -o callgrind.dot
+gprof2dot -f pstats -e 0.05 -n 0.25 profile.PROFILE_ID.cprof -o profile.dot
+gprof2dot -f callgrind -e 0.05 -n 0.25 callgrind.out.PROFILE_ID -o callgrind.dot
 
 # Convert to SVG and PNG formats:
 dot callgrind.dot -Tsvg -o callgrind.svg

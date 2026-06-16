@@ -9,7 +9,7 @@ related_actions:
   - profiler.dump_log_objects
 ---
 
-Use this action to stop logging the growth of objects in memory that you started with [Profiler: Start log objects](/integrations/profiler/).
+Use this action to stop logging the growth of objects in memory that you started with [Profiler: Start log objects](/actions/profiler.start_log_objects/).
 
 {% include actions/ui_header.md %}
 
