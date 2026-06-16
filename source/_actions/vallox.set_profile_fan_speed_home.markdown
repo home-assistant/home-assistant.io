@@ -1,5 +1,5 @@
 ---
-title: "Vallox: Set profile fan speed home"
+title: "Set profile fan speed home"
 action: vallox.set_profile_fan_speed_home
 domain: vallox
 description: "Sets the fan speed of the Home profile on a Vallox ventilation unit."

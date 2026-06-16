@@ -1,5 +1,5 @@
 ---
-title: "Vallox: Set profile"
+title: "Set profile"
 action: vallox.set_profile
 domain: vallox
 description: "Activates a ventilation profile on a Vallox unit, optionally for a set duration."

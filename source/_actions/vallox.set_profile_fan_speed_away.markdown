@@ -1,5 +1,5 @@
 ---
-title: "Vallox: Set profile fan speed away"
+title: "Set profile fan speed away"
 action: vallox.set_profile_fan_speed_away
 domain: vallox
 description: "Sets the fan speed of the Away profile on a Vallox ventilation unit."
