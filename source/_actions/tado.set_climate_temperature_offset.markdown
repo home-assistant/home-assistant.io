@@ -55,13 +55,55 @@ action: |
 offset:
   description: >
     The temperature offset to apply, in the unit your device uses.
+    When left out, the offset is set to 0, which means no correction.
   required: false
   type: float
+  default: 0
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
+
+### Automation: keep the offset in sync with another sensor
+
+When a better-placed room sensor and the Tado reading drift apart, recalculate the offset so the Tado device reflects the real room temperature.
+
+- **Trigger**: The room sensor or the Tado temperature changes
+- **Condition**: The two readings differ by more than 0.5°
+- **Action**: Tado: Set climate temperature offset
+- **Target**: Tado
+- **Offset**: Calculated from the difference between the two sensors
+
+{% details "YAML example for syncing the offset" %}
+
+{% example %}
+automation: |
+  alias: "Sync Tado offset with room sensor"
+  triggers:
+    - trigger: state
+      entity_id:
+        - sensor.temp_sensor_room
+        - sensor.tado_temperature
+  conditions:
+    - condition: template
+      value_template: >
+        {% set tado_temp = states('sensor.tado_temperature') | float(20) %}
+        {% set room_temp = states('sensor.temp_sensor_room') | float(20) %}
+        {{ (tado_temp - room_temp) | abs > 0.5 }}
+  actions:
+    - action: tado.set_climate_temperature_offset
+      target:
+        entity_id: climate.tado
+      data:
+        offset: >
+          {% set tado_temp = states('sensor.tado_temperature') | float(20) %}
+          {% set room_temp = states('sensor.temp_sensor_room') | float(20) %}
+          {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
+          {{ (-(tado_temp - room_temp) + current_offset) | round(1) }}
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

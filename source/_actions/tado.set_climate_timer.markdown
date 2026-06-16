@@ -88,6 +88,39 @@ requested_overlay:
 
 {% include actions/more_examples.md %}
 
+### Script: boost heating and hot water together
+
+Boost the radiator and the hot water at the same time with a single script. Handy as a dashboard button on a cold morning.
+
+- **Action**: Tado: Set climate timer
+- **Target**: Heating
+- **Temperature**: 25
+- **Time period**: 01:30:00
+- **Action**: Tado: Set water heater timer
+- **Target**: Hot water
+- **Time period**: 01:30:00
+
+{% details "YAML example for boosting heating and hot water" %}
+
+{% example %}
+script: |
+  alias: "Boost heating and hot water"
+  sequence:
+    - action: tado.set_climate_timer
+      target:
+        entity_id: climate.heating
+      data:
+        temperature: 25
+        time_period: "01:30:00"
+    - action: tado.set_water_heater_timer
+      target:
+        entity_id: water_heater.hot_water
+      data:
+        time_period: "01:30:00"
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
