@@ -1,0 +1,63 @@
+---
+title: "Set the high hertz of a KEF speaker"
+action: kef.set_high_hz
+domain: kef
+description: "Sets the high-pass mode slider of a KEF speaker, in hertz."
+related_actions:
+  - kef.set_mode
+  - kef.set_low_hz
+---
+
+Use this action to set the high-pass mode slider of a KEF speaker, in hertz (Hz). This is the same slider you find in the KEF Control app.
+
+{% include actions/ui_header.md %}
+
+To set the high hertz from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the KEF speaker.
+6. From the actions shown for that target, select **KEF: Set high hertz**.
+7. Set the **Hertz value**.
+8. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Hertz value:
+  description: The slider value in hertz, between 50 and 120 in steps of 5.
+{% endoptions_ui %}
+
+{% include actions/yaml_header.md %}
+
+In YAML, refer to this action as `kef.set_high_hz`. A basic example looks like this:
+
+{% example %}
+action: |
+  action: kef.set_high_hz
+  target:
+    entity_id: media_player.kef_ls50
+  data:
+    hz_value: 95
+{% endexample %}
+
+### Options in YAML
+
+{% options_yaml %}
+hz_value:
+  description: The slider value in hertz, between 50 and 120 in steps of 5.
+  required: true
+  type: integer
+{% endoptions_yaml %}
+
+{% include actions/targets.md domain="media_player" %}
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}
