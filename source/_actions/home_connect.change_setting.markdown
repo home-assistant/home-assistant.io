@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to change a setting on a Home Connect appliance, for example to turn on the child lock or switch the appliance into a different mode. You pick the appliance, the setting you want to change, and the value to set.
 
-Settings are identified by their Home Connect key, such as `BSH.Common.Setting.ChildLock`. The value can be text, a number, or a toggle, depending on what the setting expects.
+Settings are identified by their Home Connect key, such as `BSH.Common.Setting.ChildLock`. The value can be text, an integer, or a toggle, depending on what the setting expects.
 
 {% include actions/ui_header.md %}
 
@@ -69,7 +69,7 @@ value:
 ## Good to know
 
 - Which settings you can change depends on your appliance. The Home Connect API does not always match the Home Connect app, so some settings available in the app may not work through Home Assistant.
-- The value must match the type the setting expects. A toggle uses `true` or `false`, while other settings expect text or a number.
+- The value must match the type the setting expects. A toggle uses `true` or `false`, while other settings expect text or an integer.
 
 {% include actions/try_it.md %}
 
