@@ -177,16 +177,4 @@ turn_on_light:
 
 For more examples, visit the [Scripts section](https://community.home-assistant.io/c/26) in our forum.
 
-## Actions
-
-Available actions: `reload`.
-
-### Action: Reload
-
-The `python_script.reload` action reloads all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
-
-Use this when creating a new Python script, or after updating the `<config>/python_scripts/services.yaml` file. 
-
-You don't have to call this service when you change an existing Python script.
-
-This service takes no data attributes.
+{% include integrations/actions.md %}
