@@ -86,7 +86,7 @@ Each `neato` vacuum has a _Dismiss alert_ button. This allows you to dismiss an 
 ## Vacuum
 
 The `neato` vacuum platform allows you to control your [Neato Botvac Connected][botvac-connected].
-The status will contain attributes on the robots last clean session.
+The status includes attributes about the robot's last cleaning session.
 
 {% include integrations/actions.md %}
 
