@@ -49,7 +49,7 @@ action: |
     mode: normal
 {% endexample %}
 
-This calibrates the `switch.microbot_push` device to extend the arm halfway, hold for one second, and operate in normal mode.
+This calibrates the `switch.microbot_push` entity to extend the arm halfway, hold for one second, and operate in normal mode.
 
 ### Options in YAML
 
@@ -80,3 +80,5 @@ mode:
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
+
+{% include actions/related.md %}
