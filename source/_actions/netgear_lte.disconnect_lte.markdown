@@ -2,14 +2,14 @@
 title: "Disconnect LTE"
 action: netgear_lte.disconnect_lte
 domain: netgear_lte
-description: "Asks the Netgear LTE modem to close its LTE connection."
+description: "Asks the NETGEAR LTE modem to close its LTE connection."
 related_actions:
   - netgear_lte.connect_lte
   - netgear_lte.set_option
   - netgear_lte.delete_sms
 ---
 
-The **Disconnect LTE** action asks your Netgear LTE modem to close its LTE connection.
+The **Disconnect LTE** action asks your NETGEAR LTE modem to close its LTE connection.
 
 This is handy when you want to drop the mobile connection from an automation, for example to switch back to your wired internet connection once it is available again.
 

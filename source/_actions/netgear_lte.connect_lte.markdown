@@ -2,14 +2,14 @@
 title: "Connect LTE"
 action: netgear_lte.connect_lte
 domain: netgear_lte
-description: "Asks the Netgear LTE modem to establish its LTE connection."
+description: "Asks the NETGEAR LTE modem to establish its LTE connection."
 related_actions:
   - netgear_lte.disconnect_lte
   - netgear_lte.set_option
   - netgear_lte.delete_sms
 ---
 
-The **Connect LTE** action asks your Netgear LTE modem to establish its LTE connection. This is useful when the modem does not connect on its own.
+The **Connect LTE** action asks your NETGEAR LTE modem to establish its LTE connection. This is useful when the modem does not connect on its own.
 
 This is handy when you want to bring the mobile connection online from an automation, for example as a failover when your wired internet connection goes down.
 

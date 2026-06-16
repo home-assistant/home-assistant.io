@@ -2,14 +2,14 @@
 title: "Delete SMS"
 action: netgear_lte.delete_sms
 domain: netgear_lte
-description: "Deletes messages from the Netgear LTE modem inbox."
+description: "Deletes messages from the NETGEAR LTE modem inbox."
 related_actions:
   - netgear_lte.connect_lte
   - netgear_lte.disconnect_lte
   - netgear_lte.set_option
 ---
 
-The **Delete SMS** action removes one or more messages from your Netgear LTE modem inbox, using their inbox IDs.
+The **Delete SMS** action removes one or more messages from your NETGEAR LTE modem inbox, using their inbox IDs.
 
 This is handy when you want to keep the modem inbox tidy, for example by deleting an incoming message after an automation has processed it.
 

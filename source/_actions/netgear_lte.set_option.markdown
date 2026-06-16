@@ -2,14 +2,14 @@
 title: "Set option"
 action: netgear_lte.set_option
 domain: netgear_lte
-description: "Sets connection options on the Netgear LTE modem."
+description: "Sets connection options on the NETGEAR LTE modem."
 related_actions:
   - netgear_lte.connect_lte
   - netgear_lte.disconnect_lte
   - netgear_lte.delete_sms
 ---
 
-The **Set option** action changes connection settings on your Netgear LTE modem, the same options that are otherwise available in the modem web interface. You can set the failover mode, the auto-connect mode, or both.
+The **Set option** action changes connection settings on your NETGEAR LTE modem, the same options that are otherwise available in the modem web interface. You can set the failover mode, the auto-connect mode, or both.
 
 This is handy when you want to adjust how the modem manages its connection from an automation, for example to allow mobile data only while you are away from home.
 
