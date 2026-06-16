@@ -64,40 +64,7 @@ automation:
       - action: script.kodi_turn_off
 ```
 
-### Actions
-
-#### Action `kodi.add_to_playlist`
-
-Add music to the default playlist (that is, playlistid=0).
-
-| Data attribute | Optional | Description                                                                                                                                              |
-| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`    | no       | Name(s) of the Kodi entities where to add the media.                                                                                                     |
-| `media_type`   | yes      | Media type identifier. It must be one of SONG or ALBUM.                                                                                                  |
-| `media_id`     | no       | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library. |
-| `media_name`   | no       | Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist.     |
-| `artist_name`  | no       | Optional artist name for filtering media.                                                                                                                |
-
-#### Action `kodi.call_method`
-
-Call a [Kodi JSON-RPC API](https://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
-
-| Data attribute      | Optional | Description                                               |
-| ------------------- | -------- | --------------------------------------------------------- |
-| `entity_id`         | no       | Name(s) of the Kodi entities where to run the API method. |
-| `method`            | yes      | Name of the Kodi JSON-RPC API method to be called.        |
-| any other parameter | no       | Optional parameters for the Kodi API call.                |
-
-### Event triggering
-
-When calling the `kodi.call_method` action, if the Kodi JSON-RPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
-
-```yaml
-entity_id: "<Kodi media_player entity_id>"
-result_ok: <boolean>
-input: <input parameters of the action>
-result: <data received from the Kodi API>
-```
+{% include integrations/actions.md %}
 
 ### Kodi turn on/off samples
 
