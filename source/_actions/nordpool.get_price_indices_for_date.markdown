@@ -32,7 +32,7 @@ Config entry:
   description: The Nord Pool configuration entry to use for this action.
   required: true
 Date:
-  description: The date to get prices for. Only dates from two months in the past to one day in the future are allowed.
+  description: The date to get price indices for. Only dates from two months in the past to one day in the future are allowed.
   required: true
 Areas:
   description: One or multiple market areas to get prices for. If left empty, the areas from the configuration entry are used.
@@ -60,9 +60,9 @@ action: |
     config_entry: 1234567890a
     date: "2024-11-10"
     areas:
-      - SE3
-      - SE4
-    currency: SEK
+      - "SE3"
+      - "SE4"
+    currency: "SEK"
     resolution: 15
   response_variable: prices
 {% endexample %}
@@ -79,7 +79,7 @@ config_entry:
   type: string
 date:
   description: >
-    The date to get prices for. Only dates from two months in the past to one
+    The date to get price indices for. Only dates from two months in the past to one
     day in the future are allowed.
   required: true
   type: date

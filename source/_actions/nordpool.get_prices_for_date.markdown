@@ -57,10 +57,9 @@ action: |
     config_entry: 1234567890a
     date: "2024-11-10"
     areas:
-      - SE3
-      - SE4
-    currency: SEK
-  response_variable: prices
+      - "SE3"
+      - "SE4"
+    currency: "SEK"
 {% endexample %}
 
 This fetches the prices for the given date in the SE3 and SE4 areas, in Swedish krona.
