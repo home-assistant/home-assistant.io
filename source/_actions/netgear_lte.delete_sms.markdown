@@ -68,6 +68,7 @@ sms_id:
     A single inbox ID, or a list of inbox IDs, of the messages to delete.
   required: true
   type: integer
+{% endoptions_yaml %}
 
 {% include actions/try_it.md %}
 
