@@ -69,7 +69,7 @@ radar_type:
 When the outdoor temperature drops below freezing, switch the radar camera to show the snow layer.
 
 - **Trigger**: Temperature drops below 0 °C
-- **Action**: Environment Canada: Set radar type
+- **Action**: Set radar type
 - **Target**: Home radar
 - **Radar type**: Snow
 
