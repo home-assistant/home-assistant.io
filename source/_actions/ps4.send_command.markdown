@@ -67,6 +67,32 @@ command:
 
 {% include actions/more_examples.md %}
 
+### Automation: Pause playback by pressing the PS button at bedtime
+
+This automation presses the PS button on your PlayStation 4 every night at bedtime, which opens the home screen and pauses whatever is playing.
+
+- Trigger: the time is 11:00 PM
+- Action: send the PS button press
+  - Entity: the PlayStation 4 media player
+  - Command: `ps`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Open PlayStation home screen at bedtime"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: ps4.send_command
+      data:
+        entity_id: media_player.ps4
+        command: ps
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
