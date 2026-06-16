@@ -51,8 +51,6 @@ action: |
   action: portainer.recreate_container
   data:
     device_id: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
-    timeout:
-      minutes: 5
     pull_image: true
 {% endexample %}
 
