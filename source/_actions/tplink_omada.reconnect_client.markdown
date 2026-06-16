@@ -64,6 +64,33 @@ mac:
 
 {% include actions/more_examples.md %}
 
+### Automation: Reconnect a device when it goes unavailable
+
+This automation forces a wireless client to reconnect to your Omada network whenever a device that depends on it becomes unavailable for a few minutes, which can recover a stuck Wi-Fi connection.
+
+- Trigger: the device's entity stays unavailable for 5 minutes
+- Action: reconnect the wireless client
+  - MAC address: the client's MAC address
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Reconnect stuck Wi-Fi device"
+  triggers:
+    - trigger: state
+      entity_id: sensor.garage_sensor_signal
+      to: "unavailable"
+      for:
+        minutes: 5
+  actions:
+    - action: tplink_omada.reconnect_client
+      data:
+        mac: "01:23:45:67:89:AB"
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
