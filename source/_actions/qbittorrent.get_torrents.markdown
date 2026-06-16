@@ -23,7 +23,7 @@ To get the torrents from an automation or a script:
 6. Choose the qBittorrent **Device** and the **Torrent filter** you want.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. Select the qBittorrent instance using the **Device** option.
 
 ### Options in the UI
 
