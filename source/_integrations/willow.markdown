@@ -3,18 +3,17 @@
 title: Willow
 description: Integrate Willow plant monitoring sensors into Home Assistant.
 ha_category:
-
-* Sensor
-  ha_release: "2026.XX"
-  ha_iot_class: Cloud Polling
-  ha_config_flow: true
-  ha_domain: willow
-  ha_codeowners:
-* "@PlantWithWillow"
+  - Sensor
+ha_release: "2026.XX"
+ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_domain: willow
+ha_codeowners:
+  - "@PlantWithWillow"
 
 ---
 
-The Willow integration allows you to monitor the health of your indoor plants in Home Assistant using Willow sensors.
+The **Willow** {% term integration %} allows you to monitor the health of your indoor plants in Home Assistant using Willow sensors.
 
 Willow sensors periodically collect environmental and soil measurements and upload them to the Willow cloud platform. Home Assistant retrieves this information from the Willow cloud service, allowing you to visualize plant conditions and create automations based on sensor readings.
 
@@ -28,7 +27,7 @@ Before setting up the integration, you will need:
 
 ## Supported devices
 
-The integration supports:
+The integration supports the following device:
 
 * Willow Sensor
 
@@ -45,24 +44,24 @@ Each Willow sensor creates the following entities in Home Assistant:
 | Battery Life | Sensor battery percentage              |
 | Last Reading | Timestamp of the latest sensor reading |
 
-## Configuration
+## Adding Willow to Home Assistant
 
-To add Willow to your Home Assistant instance:
+To add the Willow integration to your Home Assistant instance:
 
-1. In Home Assistant, go to **Settings** > **Devices & Services**.
+1. Go to **Settings** > **Devices & Services**.
 2. Select **Add Integration**.
 3. Search for **Willow**.
 4. Follow the OAuth authentication flow and sign in to your Willow account.
 5. Grant Home Assistant access to your Willow devices.
 6. Complete the setup process.
 
-After authentication completes, Home Assistant will automatically discover and create entities for all Willow sensors associated with your account.
+After authentication completes, Home Assistant automatically discovers and creates entities for all Willow sensors associated with your account.
 
 ## Data updates
 
 Willow uses cloud polling to retrieve the latest sensor readings.
 
-Sensor data is refreshed approximately every **15 minutes**.
+Sensor data is refreshed approximately every 15 minutes.
 
 ## Automations
 
@@ -77,7 +76,7 @@ trigger:
     below: 30
 ```
 
-This can be used to send a notification when a plant requires watering.
+This automation can be used to send a notification when a plant requires watering.
 
 ## Limitations
 
@@ -91,17 +90,13 @@ This can be used to send a notification when a plant requires watering.
 
 If Home Assistant can no longer access your Willow account, a reauthentication flow may be required.
 
-Navigate to:
-
-**Settings** > **Devices & Services** > **Willow**
-
-and follow the prompts to reconnect your account.
+Navigate to **Settings** > **Devices & Services** > **Willow** and follow the prompts to reconnect your account.
 
 ### Missing sensor data
 
 If sensors stop updating:
 
 1. Verify the sensor is connected in the Willow application.
-2. Confirm the sensor has sufficient battery.
-3. Check that your Willow account can access the device.
-4. Reload the integration from the Devices & Services page.
+2. Confirm the sensor has sufficient battery power.
+3. Verify your Willow account can access the device.
+4. Reload the integration from the **Devices & Services** page.
