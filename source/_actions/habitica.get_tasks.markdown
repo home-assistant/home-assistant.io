@@ -98,7 +98,7 @@ keyword:
 
 ## Response data
 
-The response contains a `tasks` list. Each entry describes a single Habitica task, including its title, notes, type, priority, checklist, and other task details.
+The response variable contains a `tasks` list. Each entry describes a single Habitica task, including its title, notes, type, priority, checklist, and other task details.
 
 {% include actions/try_it.md %}
 
