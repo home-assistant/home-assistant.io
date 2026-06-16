@@ -2,7 +2,7 @@
 title: "Get energy return prices"
 action: easyenergy.get_energy_return_prices
 domain: easyenergy
-description: "Requests return energy prices from easyEnergy."
+description: "Requests energy return prices from easyEnergy."
 related_actions:
   - easyenergy.get_gas_prices
   - easyenergy.get_energy_usage_prices
