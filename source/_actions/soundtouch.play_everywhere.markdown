@@ -23,7 +23,7 @@ To play everywhere from an automation or a script:
 6. Select the **Leader**: the media player that coordinates the grouping and provides the content.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. In the UI, you choose the device in the **Leader** field.
 
 ### Options in the UI
 

@@ -24,7 +24,7 @@ To remove a follower from an automation or a script:
 7. Select one or more **Follower** media players to remove from the zone.
 8. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. In the UI, you choose the devices in the **Leader** and **Follower** fields.
 
 ### Options in the UI
 
