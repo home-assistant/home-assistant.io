@@ -58,6 +58,33 @@ duration:
 
 {% include actions/more_examples.md %}
 
+### Automation: Water the lawn early in the morning
+
+This automation waters your front lawn for 10 minutes every morning before sunrise, when evaporation is low.
+
+- Trigger: the time is 5:30 AM
+- Action: start irrigation
+  - Target: the front lawn zone switch
+  - Duration: `10`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Morning lawn watering"
+  triggers:
+    - trigger: time
+      at: "05:30:00"
+  actions:
+    - action: yardian.start_irrigation
+      target:
+        entity_id: switch.front_lawn
+      data:
+        duration: 10
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
