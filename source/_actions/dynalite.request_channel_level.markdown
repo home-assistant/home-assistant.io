@@ -25,7 +25,7 @@ To request a channel level from an automation or a script:
 6. Enter the **Area** and **Channel**, and optionally the **Host**.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. In the UI, you enter the Dynalite area and channel numbers instead of selecting an entity.
 
 ### Options in the UI
 

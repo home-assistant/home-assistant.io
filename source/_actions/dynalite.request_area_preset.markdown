@@ -25,7 +25,7 @@ To request an area preset from an automation or a script:
 6. Enter the **Area**, and optionally the **Host** and **Channel**.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. In the UI, you enter the Dynalite area number (and optionally a channel) instead of selecting an entity.
 
 ### Options in the UI
 
