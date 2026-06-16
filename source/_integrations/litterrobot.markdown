@@ -63,7 +63,7 @@ Password:
 | Pet weight                    | `sensor`        | Displays the last measured pet weight, only for Litter-Robot 4.                                             |
 | Sleep mode start time         | `sensor`        | When sleep mode is enabled, displays the current or next sleep mode start time.                             |
 | Sleep mode end time           | `sensor`        | When sleep mode is enabled, displays the current or last sleep mode end time.                               |
-| Status code                   | `sensor`        | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc.).                               |
+| Status code                   | `sensor`        | Displays the status code (such as Clean Cycle in Progress, Ready, or Drawer Full).                               |
 | Total cycles                  | `sensor`        | Displays the total cycles.                                                                                  |
 | Waste drawer                  | `sensor`        | Displays the current waste drawer level.                                                                    |
 | Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |

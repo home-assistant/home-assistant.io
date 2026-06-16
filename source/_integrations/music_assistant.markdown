@@ -44,7 +44,7 @@ There is currently support for the following Home Assistant Platforms:
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
 
 
-All of the Home Assistant [Media Player Control Actions](https://www.home-assistant.io/integrations/media_player/#media-control-actions) are supported.
+All of the Home Assistant [Media Player Control Actions](/integrations/media_player/#media-control-actions) are supported.
 
 If using `media_player.play_media`, then note the `media_content_id` payload can be any of the following:
 
@@ -76,7 +76,7 @@ If a player provider supports player options, the Music Assistant integration ex
 
 ### Action `music_assistant.play_media`
 
-Play media on a Music Assistant player with more fine-grained control options. This action is more powerful than the [`media_player.play_media`](https://www.home-assistant.io/integrations/media_player/#action-media_playerplay_media) action because it allows multiple items to be added to the queue at once, it allows more specific control of the media item to be played (e.g. a track from a specific album can be specified) and Music Assistant's radio mode (where the queue is filled with similar tracks to that enqueued) can be enabled.
+Play media on a Music Assistant player with more fine-grained control options. This action is more powerful than the [`media_player.play_media`](/integrations/media_player/#action-play-media) action because it allows multiple items to be added to the queue at once, it allows more specific control of the media item to be played (e.g. a track from a specific album can be specified) and Music Assistant's radio mode (where the queue is filled with similar tracks to that enqueued) can be enabled.
 
 - **Data attribute**: `media_id`
   - **Optional**: No.
@@ -110,7 +110,7 @@ Play media on a Music Assistant player with more fine-grained control options. T
 
 ### Action `music_assistant.play_announcement`
 
-Play an announcement which is accessible via URL on a Music Assistant player. Home Assistant [TTS](https://www.home-assistant.io/integrations/tts/) actions are used for announcements provided as text.
+Play an announcement which is accessible via URL on a Music Assistant player. Home Assistant [TTS](/integrations/tts/) actions are used for announcements provided as text.
 
 - **Data attribute**: `url`
   - **Optional**: No.
@@ -270,7 +270,7 @@ Get the queue details of a Music Assistant player queue. This provides programma
 
 #### Example
 
-This example sets the name of the currently playing track in an [`input_text`](https://www.home-assistant.io/integrations/input_text/) which could then be used on a dashboard.
+This example sets the name of the currently playing track in an [`input_text`](/integrations/input_text/) which could then be used on a dashboard.
 
 ```yaml
 script:
@@ -318,7 +318,7 @@ This means the app may have been installed, but the integration has not.
 
 ##### Resolution
 
-Go to the [Configuration section](https://www.home-assistant.io/integrations/music_assistant/#configuration) and install the integration.
+Go to the [Configuration section](/integrations/music_assistant/#configuration) and install the integration.
 
 ## Removing the integration
 

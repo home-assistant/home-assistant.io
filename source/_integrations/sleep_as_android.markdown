@@ -201,7 +201,7 @@ The **Sleep as Android** app can be automated through its [Intent API](https://s
 - Start, stop, or pause sleep tracking
 - Stop lullaby playback
 
-Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
+Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](https://companion.home-assistant.io/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
 
 To make this even easier, you can import the following blueprint. It supports nearly all Sleep as Android actions, so you can automate your sleep routine without writing any custom scripts:
 
@@ -219,7 +219,7 @@ This integration receives push updates from the Sleep as Android app whenever an
 
 ## Troubleshooting
 
-The **Sleep as Android** integration receives updates via a push from your Sleep as Android app to a webhook.  If you encounter issues, verify that your Home Assistant is reachable from your mobile phone.
+The **Sleep as Android** integration receives updates via a push from your Sleep as Android app to a webhook. If you encounter issues, verify that your Home Assistant is reachable from your mobile phone.
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 

@@ -44,7 +44,7 @@ There is support for the following device families within Home Assistant:
 ## Prerequisites
 
 {% important %}
-Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to login and read device info.
+Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to log in and read device info.
 
 To use the [dial](#action-dial) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
 {% endimportant %}
@@ -54,7 +54,7 @@ To use the [dial](#action-dial) action, the click to dial service of the FRITZ!B
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **FRITZ!Box Settings** permission.
 
 {% note %}
-If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Before FRITZ!OS 7.24, the default username was `admin`.
+If you still want to use the predefined user, as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Before FRITZ!OS 7.24, the default username was `admin`.
 
 FRITZ!Powerline devices do not validate the **Username** value. Only the **Password** value is checked, so you can enter any value in **Username**.
 {% endnote %}

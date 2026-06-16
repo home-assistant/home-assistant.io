@@ -1,6 +1,6 @@
 ---
 title: openSenseMap
-description: Instructions on how to setup openSenseMap sensors in Home Assistant.
+description: Instructions on how to set up openSenseMap sensors in Home Assistant.
 ha_category:
   - Health
 ha_release: 0.85
@@ -27,3 +27,9 @@ To find the ID of a station, open it on [openSenseMap](https://opensensemap.org/
 Station ID:
   description: The ID of the openSenseMap station to monitor.
 {% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

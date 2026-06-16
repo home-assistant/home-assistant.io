@@ -505,7 +505,7 @@ KEY_EXT39|
 KEY_EXT40|
 KEY_EXT41|
 
-Please note that some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
+Some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
 
 The code list has been extracted from: <https://github.com/kdschlosser/samsungctl> and <https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md>
 {% enddetails %}

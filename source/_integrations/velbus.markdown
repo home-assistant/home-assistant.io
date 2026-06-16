@@ -320,7 +320,7 @@ If you encounter issues with the Velbus integration, you can enable debug loggin
 
 ### Enabling debug logging
 
-To enable debug logging for the Velbus integration, you can check [Home Assistant Troubleshooting documentation](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for more information.
+To enable debug logging for the Velbus integration, you can check [Home Assistant Troubleshooting documentation](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for more information.
 
 ### Can't connect to Velbus interface
 

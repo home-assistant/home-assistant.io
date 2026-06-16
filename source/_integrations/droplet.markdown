@@ -1,6 +1,6 @@
 ---
 title: Droplet
-description: Instructions on how to setup Droplet in Home Assistant.
+description: Instructions on how to set up Droplet in Home Assistant.
 ha_category:
   - Sensor
 ha_config_flow: true

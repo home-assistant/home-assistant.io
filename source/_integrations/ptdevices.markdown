@@ -73,7 +73,7 @@ The PTDevices integration provides the following entities.
 
 {% note %}
 
-Some sensors are disabled by default because they provide information that is only useful to advanced users. You can manually enable them in {% my entities title="**Settings** > **Devices & Services** > **Entities**" %}> the sensor entity you want to enable > **Advanced settings** > **Enabled**.
+Some sensors are disabled by default because they provide information that is only useful to advanced users. You can manually enable them in {% my entities title="**Settings** > **Devices & services** > **Entities**" %}> the sensor entity you want to enable > **Advanced settings** > **Enabled**.
 
 {% endnote %}
 
@@ -101,17 +101,17 @@ Some sensors are disabled by default because they provide information that is on
 - **Battery voltage**:
   - **Description**: The current voltage reading of the onboard batteries.
   - **Available for models**: All battery powered models
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
   - **Unit**: Volts
 - **Wi-Fi signal strength**:
   - **Description**: The signal strength of the WiFi at the receiver/WiFI device.
   - **Available for models**: All
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
   - **Unit**: dBm
 - **LoRa signal strength**:
   - **Description**: The signal strength between the receiver and transmitter.
   - **Available for models**: PTLevel Long Range Wireless Only
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
   - **Unit**: dBm
 
 ## Data updates

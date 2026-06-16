@@ -1,6 +1,6 @@
 ---
 title: Verisure
-description: Instructions on how to setup Verisure devices within Home Assistant.
+description: Instructions on how to set up Verisure devices within Home Assistant.
 ha_category:
   - Alarm
   - Binary sensor
@@ -44,7 +44,7 @@ There is currently support for the following device types within Home Assistant:
 
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
 
-The requirement is that you have setup your Verisure hub first, with the instruction above.
+The requirement is that you have set up your Verisure hub first, with the instruction above.
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 
@@ -93,7 +93,6 @@ Some users have reported that this integration currently doesn't work in the fol
 - Ireland
 - Italy
 - Spain
-- Sweden
 
 ## Troubleshooting
 

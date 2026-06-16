@@ -8,9 +8,14 @@ ha_quality_scale: internal
 ha_domain: person
 ha_iot_class: Calculated
 ha_integration_type: system
+related:
+  - docs: /integrations/device_tracker/
+    title: Device tracker
+  - docs: /integrations/zone/
+    title: Zone
 ---
 
-The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker set the state of the person. When you use multiple device trackers, the state of the person is determined in this order:
+The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. You can use person entities with [zones](/integrations/zone/) to create automations that react when someone enters or leaves a place. The state updates of a connected device tracker set the state of the person. When you use multiple device trackers, the state of the person is determined in this order:
 
 1. If there are stationary trackers (non-GPS trackers, such as a router or Bluetooth device tracker) presenting the state `home`, the tracker most recently updated will be used.
 2. If there are trackers of type `gps`, then the most recently updated tracker will be used.
@@ -45,7 +50,7 @@ If you have administrator rights, you can add other persons to Home Assistant an
    - If they cannot sign in, they do not get a user account and cannot do much with Home Assistant.
    - They cannot have their own dashboard, for example.
    - But they can still be used for device tracking, show up on a map, and be included in automations.
-5. If they are able to sign in, fill in the user information.
+5. If they can sign in, fill in the user information.
    - Check if the username is correct. Home Assistant suggests one based on the person name, but the two do not have to be identical.
      - The username must be lowercase and contain no spaces.
      - The username is required to sign in.

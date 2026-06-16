@@ -1,6 +1,6 @@
 ---
 title: Browser
-description: Instructions on how to setup the browser integration with Home Assistant.
+description: Instructions on how to set up the browser integration with Home Assistant.
 ha_category:
   - Utility
 ha_release: pre 0.7

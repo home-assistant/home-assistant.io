@@ -162,35 +162,20 @@ For more details, see [Splitting up the configuration](/docs/configuration/split
 
 Check our [community forums](https://community.home-assistant.io/c/29) to find themes to use.
 
-## Setting themes
+## Applying themes
 
-There are two themes-related actions:
+When themes are enabled in your {% term "`configuration.yaml`" %} file, you can apply them in two ways.
 
-- `frontend.reload_themes`: Reloads theme configuration from your {% term "`configuration.yaml`" %} file.
-- `frontend.set_theme`: Sets backend-preferred theme name.
-
-### Action: Set theme
-
-The `frontend.set_theme` action allows you to set the theme used by the Home Assistant frontend as the default for light mode and, optionally, dark mode.
-
-| Data attribute | Description                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------- |
-| `name`         | Name of the theme to be used by default. Set `default` to use the default _Home Assistant_ theme. If omitted, the previous setting will be retained. |
-| `name_dark`    | Name of the theme to be used by default for dark mode. Set `default` to use the default _Home Assistant_ theme, or `none` to delete the dark mode override. If omitted, the previous setting will be retained. |
-
-If the dark mode has never been set, or has been erased by setting `name_dark` to `none`, the light mode theme will also be used in dark mode.
-
-Home Assistant saves the theme settings and restores them when Home Assistant restarts.
-
-### Manual theme selection
-
-When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option appears on the user profile page (which you can access by selecting your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list, and it is applied immediately.
-This overrides the theme settings set by the above actions and is saved to your user profile, so it applies across devices for that user.
+The first is per user. A theme selector appears on the user profile page, which you can access by selecting your user account initials at the bottom of the sidebar. Choose any installed theme from the dropdown list, and it is applied immediately. This choice is saved to your user profile, so it applies across your devices. It also overrides any theme set through the actions below.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' alt='Screenshot showing the theme selector on the user profile page' />
   Set a theme
 </p>
+
+The second is system-wide, using actions. The [Set theme](/actions/frontend.set_theme/) action sets the default light and dark theme for everyone, for example to switch automatically between a lighter look during the day and a darker one at night. The [Reload themes](/actions/frontend.reload_themes/) action reloads your theme definitions after you edit them in YAML.
+
+{% include integrations/actions.md %}
 
 ## Loading extra JavaScript
 

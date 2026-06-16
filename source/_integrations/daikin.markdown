@@ -59,12 +59,12 @@ If this situation applies to you, you may need to adjust your firewall(s) accord
 
 The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
-- [**set_hvac_mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `heat_cool`, or `fan_only`)
-- [**target temperature**](/integrations/climate#action-climateset_temperature)
-- [**turn on/off**](/integrations/climate#action-climateturn_on)
-- [**fan mode**](/integrations/climate#action-climateset_fan_mode) (speed)
-- [**swing mode**](/integrations/climate#action-climateset_swing_mode)
-- [**set_preset_mode**](/integrations/climate#action-climateset_preset_mode) (away, none)
+- [**set_hvac_mode**](/integrations/climate/#action-set-hvac-mode) (`off`, `heat`, `cool`, `heat_cool`, or `fan_only`)
+- [**target temperature**](/integrations/climate/#action-set-temperature)
+- [**turn on/off**](/integrations/climate/#action-turn-on)
+- [**fan mode**](/integrations/climate/#action-set-fan-mode) (speed)
+- [**swing mode**](/integrations/climate/#action-set-swing-mode)
+- [**set_preset_mode**](/integrations/climate/#action-set-preset-mode) (away, none)
 
 Current inside temperature is displayed.
 
@@ -151,7 +151,7 @@ Additionally the Daikin Streamer (air purifier) function can be toggled on suppo
 
 ## Region changing
 
-The European and United States controllers (Most likely the Australian controllers too) have an HTTP API endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that can not download the app for the controllers region.)
+The European and United States controllers (Most likely the Australian controllers too) have an HTTP API endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that cannot download the app for the controllers region.)
 
 `http://Daikin-IP-Address/common/set_regioncode?reg=XX` Replace XX with your region code of choice.
 

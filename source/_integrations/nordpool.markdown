@@ -57,7 +57,7 @@ All prices are displayed as `[Currency]/kWh`.
 Data is polled from the **Nord Pool** API on an hourly basis, exactly on the hour, to ensure the price sensors are displaying the correct price.
 
 If polling cannot happen because of no connectivity or a malfunctioning API, it will wait a retry a few times before failing.
-The user can use the [`homeassistant.update_entity`](homeassistant#action-homeassistantupdate_entity) action to manually try again later, in the case the user has solved the connectivity issue.
+The user can use the [`homeassistant.update_entity`](/integrations/homeassistant/#action-update-entity) action to manually try again later, in the case the user has solved the connectivity issue.
 
 ## Troubleshooting
 
@@ -131,7 +131,7 @@ Date:
 Areas:
   description: Select one market area to create output for. If omitted it will use the areas from the configuration entry.
 Currency:
-  description: Currency to display prices in. EUR is the base currency in Nord Pool prices.  If omitted it will use the currency from the configuration entry.
+  description: Currency to display prices in. EUR is the base currency in Nord Pool prices. If omitted it will use the currency from the configuration entry.
 {% endconfiguration_basic %}
 
 {% note %}

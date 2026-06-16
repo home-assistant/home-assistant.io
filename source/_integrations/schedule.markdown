@@ -151,93 +151,14 @@ Overlapping time blocks on the same day are not allowed and are rejected during 
 
 {% include integrations/conditions.md %}
 
-## Actions
-
-To interact with schedules from {% term scripts %} and {% term automations %}, the schedule integration provides the following {% term actions %}.
-
-### Action: Reload
-
-The `schedule.reload` action reloads the schedule's configuration from YAML without the need to restart Home Assistant itself.
-
-### Action: Get schedule
-
-The `schedule.get_schedule` action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the configured time ranges of a schedule.
-It can return multiple schedules.
-
-```yaml
-action: schedule.get_schedule
-target:
-  entity_id:
-    - schedule.vacuum_robot
-    - schedule.air_purifier
-response_variable: schedules
-```
-
-The response data contains a field for every schedule entity (for example, `schedule.vacuum_robot` and `schedule.air_purifier` in this case).
-
-Every schedule entity response has seven fields (one for each day of the week in lowercase), containing a list of the selected time ranges.
-Days without any ranges will be returned as an empty list.
-
-```yaml
-schedule.vacuum_robot:
-  monday:
-    - from: "09:00:00"
-      to: "15:00:00"
-  tuesday: []
-  wednesday: []
-  thursday:
-    - from: "09:00:00"
-      to: "15:00:00"
-  friday: []
-  saturday: []
-  sunday: []
-schedule.air_purifier:
-  monday:
-    - from: "09:00:00"
-      to: "18:00:00"
-  tuesday: []
-  wednesday: []
-  thursday:
-    - from: "09:00:00"
-      to: "18:00:00"
-  friday: []
-  saturday:
-    - from: "10:30:00"
-      to: "12:00:00"
-    - from: "14:00:00"
-      to: "19:00:00"
-  sunday: []
-```
-
-The example below uses the response data from above in a template for another action.
-
-```yaml
-action: notify.nina
-data:
-  title: Today's schedules
-  message: >-
-    Your vacuum robot will run today:
-    {% for event in schedules["schedule.vacuum_robot"][now().strftime('%A').lower()] %}
-    - from {{ event.from }} until {{ event.to }}<br>
-    {% endfor %}
-    Your air purifier will run today:
-    {% for event in schedules["schedule.air_purifier"][now().strftime('%A').lower()] %}
-    - from {{ event.from }} until {{ event.to }}<br>
-    {% endfor %}
-```
-
-If you want to run the above action once per day, you can create an {% term automation %} with a time-based {% term trigger %}.
-
-```yaml
-triggers:
-  - trigger: time
-    at: "07:30:00"
-```
+{% include integrations/actions.md %}
 
 ## Schedule automation examples
 
 You can use a schedule to decide when an automation should start, or to check whether a routine is currently active.
 Here are two examples you can adapt to your own schedules.
+
+{% include integrations/labs_entity_triggers_note.md %}
 
 {% include docs/paste_yaml_tip.md %}
 

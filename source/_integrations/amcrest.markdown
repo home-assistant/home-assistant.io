@@ -117,9 +117,9 @@ binary_sensors:
   default: None
   keys:
     audio_detected:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
+      description: "Return `on` when audio is detected, `off` when not. To use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     audio_detected_polled:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
+      description: "Return `on` when audio is detected, `off` when not. To use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected:
       description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected_polled:
@@ -129,7 +129,7 @@ binary_sensors:
     crossline_detected_polled:
       description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     online:
-      description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
+      description: "Return `on` when camera is available (that is, responding to commands), `off` when not."
 sensors:
   description: >
     Conditions to display in the frontend.
@@ -160,9 +160,9 @@ control_light:
   default: true
 {% endconfiguration %}
 
-**Note:** Amcrest cameras with newer firmware no longer have the ability to
+**Note:** Amcrest cameras with newer firmware can no longer
 stream `high` definition video with MJPEG encoding. You may need to use `low`
-resolution stream or the `snapshot` stream source instead.  If the quality seems
+resolution stream or the `snapshot` stream source instead. If the quality seems
 too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in
 your camera's configuration manager. If you defined the `stream_source` to
 `mjpeg`, make sure your camera supports `Basic` HTTP authentication.

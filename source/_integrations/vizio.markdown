@@ -44,7 +44,7 @@ Write down its IP address and port number. If you have trouble finding a device 
 
 ## Pairing
 
-This {% term integration %} requires an access token in order to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the Home Assistant frontend.
+This {% term integration %} requires an access token to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the Home Assistant frontend.
 
 ### Pair using the Home Assistant frontend
 

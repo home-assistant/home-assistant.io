@@ -42,7 +42,7 @@ name:
 path or url:
   description: "Path to the OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html). This is usually either a path to a serial device in `/dev/` if the gateway is connected via serial or USB, or a URL in the form of `socket://[IP address]:[port]` if it is connected over the network.<br/>Examples: `/dev/ttyUSB0`, `socket://192.168.0.250:25238`"
 id:
-  description: "The `gateway_id` for this OpenTherm Gateway. This is used to identify this specific gateway in action and to generate the entity IDs for the entities related to this gateway. The entered value will be slugified, i.e. all spaces and special characters will be converted to underscores and any accents will be removed from their characters. The default value is the slugified version of the `name` given above.<br/>Examples: `thermostat`, `living_room`"
+  description: "The `gateway_id` for this OpenTherm Gateway. This is used to identify this specific gateway in action and to generate the entity IDs for the entities related to this gateway. The entered value will be slugified, that is, all spaces and special characters will be converted to underscores and any accents will be removed from their characters. The default value is the slugified version of the `name` given above.<br/>Examples: `thermostat`, `living_room`"
 {% endconfiguration_basic %}
 
 {% important %}
@@ -115,7 +115,7 @@ Please read [this information](http://otgw.tclcode.com/standalone.html) from the
 
 ### Action `opentherm_gw.set_clock`
 
-Provide the time and day of week to the OpenTherm Gateway. The value provided here will be forwarded to the thermostat on the next date/time request from the thermostat. The OpenTherm Gateway does not have the ability to accurately keep track of time, so it will only retain the information provided here for a maximum of about 61 seconds.
+Provide the time and day of week to the OpenTherm Gateway. The value provided here will be forwarded to the thermostat on the next date/time request from the thermostat. The OpenTherm Gateway cannot accurately keep track of time, so it will only retain the information provided here for a maximum of about 61 seconds.
 
 | Data attribute | Optional | Default      | Description                                                              |
 | ---------------------- | -------- | ------------ | ------------------------------------------------------------------------ |
@@ -208,7 +208,7 @@ Please read [this information](http://otgw.tclcode.com/standalone.html) from the
 ### Action `opentherm_gw.set_outside_temperature`
 
 Provide the outside temperature to the thermostat.
-If your thermostat is unable to display an outside temperature and does not support OTC (Outside Temperature Correction), this has no effect. Note that not all thermostats are able to display the full supported range.
+If your thermostat is unable to display an outside temperature and does not support OTC (Outside Temperature Correction), this has no effect. Note that not all thermostats can display the full supported range.
 
 | Data attribute | Optional | Description                                                                                                                                                                           |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
