@@ -1,5 +1,5 @@
 ---
-title: Set random mealplan
+title: Set random meal plan
 action: mealie.set_random_mealplan
 domain: mealie
 description: "Plan a random recipe on a specific date in Mealie."
