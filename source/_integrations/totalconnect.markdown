@@ -72,25 +72,9 @@ Home Assistant device class `door` is assigned to Total Connect entry/exit, peri
 
 The integration provides a bypass button for each zone that can be bypassed. The **Bypass All** button for the alarm panel will bypass all faulted or troubled zones. The **Clear Bypass** button for the alarm panel will clear all bypassed zones.
 
-## Actions
+The alarm control panel supports the standard alarm actions, such as arm away, arm home, arm night, and disarm. In addition, Total Connect provides the following actions.
 
-The alarm control panel supports the following basic actions: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`.
-
-### Action: Arm home instant
-
-The `totalconnect.arm_home_instant` action puts the alarm panel in "arm home" with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted. This is equivalent to "arm stay instant" in most alarm panels.
-
-| Data attribute         | Optional | Description                                          |
-|------------------------|----------|------------------------------------------------------|
-| `entity_id`            | No       | The ID of the alarm panel to arm.                    |
-
-### Action: Arm away instant
-
-The `totalconnect.arm_away_instant` action puts the alarm panel in "arm away" with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted. This is equivalent to "arm away instant" in most alarm panels.
-
-| Data attribute         | Optional | Description                                          |
-|------------------------|----------|------------------------------------------------------|
-| `entity_id`            | No       | The ID of the alarm panel to arm.                    |
+{% include integrations/actions.md %}
 
 ## Diagnostic Sensors
 
