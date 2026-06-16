@@ -2,13 +2,13 @@
 title: "Get packages"
 action: seventeentrack.get_packages
 domain: seventeentrack
-description: "Queries the 17track API for the latest package data."
+description: "Queries the 17Track API for the latest package data."
 related_actions:
   - seventeentrack.add_package
   - seventeentrack.archive_package
 ---
 
-The **Get packages** action queries the 17track API for the latest package data. You can optionally filter the result to only the package states you are interested in.
+The **Get packages** action queries the 17Track API for the latest package data. You can optionally filter the result to only the package states you are interested in.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

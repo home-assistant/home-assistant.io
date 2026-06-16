@@ -2,13 +2,13 @@
 title: "Add package"
 action: seventeentrack.add_package
 domain: seventeentrack
-description: "Adds a package using the 17track API."
+description: "Adds a package using the 17Track API."
 related_actions:
   - seventeentrack.get_packages
   - seventeentrack.archive_package
 ---
 
-The **Add package** action adds a package to track using the 17track API. You provide the tracking number and a friendly name so you can recognize the package later.
+The **Add package** action adds a package to track using the 17Track API. You provide the tracking number and a friendly name so you can recognize the package later.
 
 {% include actions/ui_header.md %}
 
@@ -18,7 +18,7 @@ To add a package from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **17Track: Add a package**.
+5. From the search box, search for and select **17Track: Add package**.
 6. Select the **17Track service**, then enter the **Package tracking number to add** and a **Package friendly name**.
 7. Select **Save**.
 

@@ -2,13 +2,13 @@
 title: "Archive package"
 action: seventeentrack.archive_package
 domain: seventeentrack
-description: "Archives a package using the 17track API."
+description: "Archives a package using the 17Track API."
 related_actions:
   - seventeentrack.get_packages
   - seventeentrack.add_package
 ---
 
-The **Archive package** action archives a package using the 17track API. Archiving stops the package from showing up in the list of tracked packages.
+The **Archive package** action archives a package using the 17Track API. Archiving stops the package from showing up in the list of tracked packages.
 
 {% include actions/ui_header.md %}
 
