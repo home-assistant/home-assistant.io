@@ -18,20 +18,23 @@ To boost hot water from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the hot water tank you want to boost.
-6. From the actions shown for that target, select **Boost hotwater**.
-7. Select whether to turn the boost **On** or **Off**, and optionally a **Time period**.
+5. From the search box, search for and select **Hive: Boost hotwater**.
+6. Select the hot water tank under **Entity**.
+7. Select the **Mode** and **Time period**.
 8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
-On off:
+Entity:
+  description: The Hive hot water tank to boost.
+  required: true
+Mode:
   description: Whether to turn the boost on or off.
   required: true
 Time period:
-  description: The length of time the boost should last, for example 01:30:00. Defaults to 30 minutes.
-  required: false
+  description: The time period for the boost, for example 01:30:00.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -41,9 +44,8 @@ In YAML, refer to this action as `hive.boost_hot_water`. A basic example looks l
 {% example %}
 action: |
   action: hive.boost_hot_water
-  target:
-    entity_id: water_heater.hot_water
   data:
+    entity_id: water_heater.hot_water
     on_off: "on"
     time_period: "01:30:00"
 {% endexample %}
@@ -53,20 +55,24 @@ This boosts `water_heater.hot_water` for one and a half hours.
 ### Options in YAML
 
 {% options_yaml %}
+entity_id:
+  description: >
+    The entity ID of the Hive hot water tank to boost.
+  required: true
+  type: string
 on_off:
   description: >
-    Whether to turn the boost on or off. One of on or off.
+    Whether to turn the boost on or off. One of "on" or "off".
   required: true
   type: string
 time_period:
   description: >
-    The length of time the boost should last, for example 01:30:00.
-  required: false
+    The time period for the boost, for example 01:30:00.
+  required: true
   type: string
-  default: "00:30:00"
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="water_heater" %}
+This action does not support targets. Specify the hot water tank with `entity_id` in the `data` section instead.
 
 {% include actions/try_it.md %}
 

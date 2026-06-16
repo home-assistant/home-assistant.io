@@ -18,13 +18,17 @@ To turn off a heating boost from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the heating zone or radiator valve you want to stop boosting.
-6. From the actions shown for that target, select **Boost heating off**.
+5. From the search box, search for and select **Hive: Boost heating off**.
+6. Select the heating zone or radiator valve under **Entity**.
 7. Select **Save**.
 
 ### Options in the UI
 
-This action has no additional options in the UI.
+{% options_ui %}
+Entity:
+  description: The Hive heating zone or radiator valve to stop boosting.
+  required: true
+{% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
@@ -33,13 +37,13 @@ In YAML, refer to this action as `hive.boost_heating_off`. A basic example looks
 {% example %}
 action: |
   action: hive.boost_heating_off
-  target:
+  data:
     entity_id: climate.heating
 {% endexample %}
 
 This turns off the boost on `climate.heating`.
 
-{% include actions/targets.md domain="climate" %}
+This action does not support targets. Specify the heating zone or radiator valve with `entity_id` in the `data` section instead.
 
 {% include actions/try_it.md %}
 
