@@ -47,7 +47,7 @@ This action has no additional YAML options beyond the target.
 ## Good to know
 
 - With zero entry delay, there is no grace period to disarm. The alarm triggers immediately if an entry or exit zone opens while armed.
-- For a normal entry delay, use the standard arm away action instead.
+- For a normal entry delay, use [Arm alarm away](/actions/alarm_control_panel.alarm_arm_away/) instead.
 
 {% include actions/try_it.md %}
 
