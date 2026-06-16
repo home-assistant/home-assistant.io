@@ -5,11 +5,11 @@ domain: streamlabswater
 description: "Sets the home or away mode for a StreamLabs Water Monitor."
 ---
 
-The **Set away mode** action sets a StreamLabs Water Monitor to home or away mode.
+Use this action to set home or away mode for a StreamLabs Water Monitor location.
 
 This is useful when you want an automation to switch the monitor to away mode while you are out, for example to change how it watches for water usage.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. If you have more than one location, use the **Location ID** option to choose which one to change. When you leave it empty, the first available location is used.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. If you have more than one location, use the **Location ID** option to choose which one to change. If you leave it empty, the first available location is used.
 
 {% include actions/ui_header.md %}
 
