@@ -16,7 +16,7 @@ This action does not target an entity. Only users with administrator rights can 
 To suspend the integration from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Huawei LTE: Suspend integration**.
@@ -56,8 +56,6 @@ url:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 
