@@ -54,7 +54,7 @@ action: |
   action: music_assistant.search
   data:
     config_entry_id: 01JEXNDHT21V0BHJXM7A5SZANV
-    name: We Are The Champions
+    name: "We Are The Champions"
   response_variable: search_results
 {% endexample %}
 
@@ -82,12 +82,12 @@ album:
   required: false
   type: string
 limit:
-  description: The maximum number of items to return per media type. Nested under the `search_options` mapping.
+  description: The maximum number of items to return per media type.
   required: false
   type: integer
   default: 5
 library_only:
-  description: Only include results that are in the library. Nested under the `search_options` mapping.
+  description: Only include results that are in the library.
   required: false
   type: boolean
   default: false
@@ -96,10 +96,6 @@ library_only:
 ## Response data
 
 The action returns lists of matching items, grouped by media type: `artists`, `albums`, `tracks`, `playlists`, `radio`, `audiobooks`, and `podcasts`. Each item includes details such as its name and URI, which you can pass to the [Play media](/actions/music_assistant.play_media/) action.
-
-## Good to know
-
-- The `limit` and `library_only` options are nested under a `search_options` mapping in YAML.
 
 {% include actions/stuck.md %}
 

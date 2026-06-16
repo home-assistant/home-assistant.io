@@ -48,22 +48,19 @@ The action returns the queue details for the targeted player, keyed by entity ID
 
 This example stores the name of the currently playing track in an [input text](/integrations/input_text/) helper, which you can then show on a dashboard:
 
-{% raw %}
-
-```yaml
-sequence:
-  - action: music_assistant.get_queue
-    target:
-      entity_id: media_player.kitchen_speaker
-    response_variable: queue_info
-  - action: input_text.set_value
-    target:
-      entity_id: input_text.now_playing
-    data:
-      value: "{{ queue_info['media_player.kitchen_speaker'].current_item.name }}"
-```
-
-{% endraw %}
+{% example %}
+script: |
+  sequence:
+    - action: music_assistant.get_queue
+      target:
+        entity_id: media_player.kitchen_speaker
+      response_variable: queue_info
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.now_playing
+      data:
+        value: "{{ queue_info['media_player.kitchen_speaker'].current_item.name }}"
+{% endexample %}
 
 ## Good to know
 

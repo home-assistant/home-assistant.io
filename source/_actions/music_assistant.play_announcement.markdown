@@ -29,7 +29,7 @@ To play an announcement from an automation or a script:
 URL:
   description: The URL to the notification sound.
 Use pre-announce:
-  description: Plays a pre-announcement sound before the announcement. Omit to use the player default.
+  description: When enabled, a pre-announcement sound plays before the announcement.
 Pre-announce URL:
   description: The URL to the pre-announcement sound.
 Announce volume:
@@ -57,7 +57,7 @@ url:
   required: true
   type: string
 use_pre_announce:
-  description: Plays a pre-announcement sound before the announcement. Omit to use the player default.
+  description: When set to `true`, a pre-announcement sound plays before the announcement.
   required: false
   type: boolean
   default: false

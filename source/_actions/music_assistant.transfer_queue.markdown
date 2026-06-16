@@ -31,7 +31,7 @@ To transfer a queue from an automation or a script:
 Source media player:
   description: The source media player that has the queue you want to transfer. When omitted, the first playing player is used.
 Autoplay:
-  description: Starts playing the queue on the target player. Omit to use the default behavior.
+  description: When enabled, playback starts on the target player after the queue is transferred. When disabled, the queue is transferred without starting playback.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -57,7 +57,7 @@ source_player:
   required: false
   type: string
 auto_play:
-  description: Starts playing the queue on the target player. Omit to use the default behavior.
+  description: When set to `true`, playback starts on the target player after the queue is transferred. When `false`, the queue is transferred without starting playback.
   required: false
   type: boolean
   default: false

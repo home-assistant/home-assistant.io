@@ -83,12 +83,12 @@ search:
   required: false
   type: string
 limit:
-  description: The maximum number of items to return. Nested under the `pagination` mapping.
+  description: The maximum number of items to return.
   required: false
   type: integer
   default: 25
 offset:
-  description: The point in the list to start returning items from. Nested under the `pagination` mapping.
+  description: The point in the list to start returning items from.
   required: false
   type: integer
   default: 0
@@ -113,31 +113,24 @@ The action returns an `items` list with the matching library items, along with t
 
 This example starts playback of ten random tracks:
 
-{% raw %}
-
-```yaml
-sequence:
-  - action: music_assistant.get_library
-    data:
-      config_entry_id: 01JEXNDHT21V0BHJXM7A5SZANV
-      media_type: track
-      limit: 10
-      order_by: random
-    response_variable: random_tracks
-  - action: music_assistant.play_media
-    target:
-      entity_id: media_player.kitchen_speaker
-    data:
-      media_id: "{{ random_tracks['items'] | map(attribute='uri') | list }}"
-      media_type: track
-      enqueue: replace
-```
-
-{% endraw %}
-
-## Good to know
-
-- The `limit` and `offset` options are nested under a `pagination` mapping in YAML.
+{% example %}
+script: |
+  sequence:
+    - action: music_assistant.get_library
+      data:
+        config_entry_id: 01JEXNDHT21V0BHJXM7A5SZANV
+        media_type: track
+        limit: 10
+        order_by: random
+      response_variable: random_tracks
+    - action: music_assistant.play_media
+      target:
+        entity_id: media_player.kitchen_speaker
+      data:
+        media_id: "{{ random_tracks['items'] | map(attribute='uri') | list }}"
+        media_type: track
+        enqueue: replace
+{% endexample %}
 
 {% include actions/stuck.md %}
 
