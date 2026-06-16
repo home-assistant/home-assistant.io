@@ -11,6 +11,10 @@ The **Turn on** action extracts the predominant color from an image and turns on
 
 Because this action then calls [`light.turn_on`](/actions/light.turn_on/), you can also pass any valid `light.turn_on` options, such as `brightness_pct` or `transition`. The `rgb_color` is set for you from the extracted color.
 
+## Prerequisites
+
+Before using this action, make sure any external URLs are added to [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) and any local file paths are added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs). Without this, the action cannot access the image and returns an error.
+
 {% include actions/ui_header.md %}
 
 To turn on a light with an extracted color from an automation or a script:

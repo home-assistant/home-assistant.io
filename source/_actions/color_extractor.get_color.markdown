@@ -11,6 +11,10 @@ The **Get predominant color** action extracts the predominant color from an imag
 
 To use the returned color in later steps, store it in a response variable. This action does not target an entity. Instead, you provide the image as a web URL or as a file on the system running Home Assistant.
 
+## Prerequisites
+
+Before using this action, make sure any external URLs are added to [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) and any local file paths are added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs). Without this, the action cannot access the image and returns an error.
+
 {% include actions/ui_header.md %}
 
 To get the predominant color from an automation or a script:

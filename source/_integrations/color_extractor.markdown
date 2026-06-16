@@ -16,8 +16,5 @@ Useful as part of an {% term automation %}.
 
 {% include integrations/config_flow.md %}
 
-{% important %}
-Ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
-{% endimportant %}
 
 {% include integrations/actions.md %}
