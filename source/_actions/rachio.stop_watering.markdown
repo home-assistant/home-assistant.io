@@ -41,7 +41,7 @@ In YAML, refer to this action as `rachio.stop_watering`. A basic example looks l
 action: |
   action: rachio.stop_watering
   data:
-    devices: Main House
+    devices: "Main House"
 {% endexample %}
 
 This stops the Main House controller.

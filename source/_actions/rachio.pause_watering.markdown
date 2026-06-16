@@ -44,7 +44,7 @@ In YAML, refer to this action as `rachio.pause_watering`. A basic example looks 
 action: |
   action: rachio.pause_watering
   data:
-    devices: Main House
+    devices: "Main House"
     duration: 30
 {% endexample %}
 

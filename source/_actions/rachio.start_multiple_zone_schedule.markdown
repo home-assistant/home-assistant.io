@@ -45,7 +45,7 @@ action: |
       - switch.front_yard_east
       - switch.side_yard_west
   data:
-    duration: 20, 15, 10
+    duration: "20, 15, 10"
 {% endexample %}
 
 This runs the front yard west zone for 20 minutes, the front yard east zone for 15 minutes, and the side yard west zone for 10 minutes.

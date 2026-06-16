@@ -41,7 +41,7 @@ In YAML, refer to this action as `rachio.resume_watering`. A basic example looks
 action: |
   action: rachio.resume_watering
   data:
-    devices: Main House
+    devices: "Main House"
 {% endexample %}
 
 This resumes the Main House controller.
