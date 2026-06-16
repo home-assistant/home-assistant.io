@@ -141,6 +141,39 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 - **Hibernate**: Puts a VM in hibernation; only available to VMs.
 - **Reset**: Resets a VM; only available to VMs.
 
+## Data updates
+
+Data is polled from devices every 60 seconds.
+
+## Examples
+
+### Alert for offline VM
+
+This example automation will alert you if a critical VM is  offline beyond a reasonable time.
+
+```yaml
+alias: "Proxmox Database VM Offline Alert"
+trigger:
+  - platform: state
+    entity_id: binary_sensor.databaseserver_status
+    from: "on"
+    to: "off"
+    for:
+      minutes: 15
+conditions: []:
+actions:
+  - action: notify.send_message
+    metadata: {}
+    data:
+      message: "The Database Server VM has been offline for over 15 minutes."
+    target:
+      entity_id: notify.notifier
+```
+
+## Known limitations
+
+Unfortunately not all storage types and data are exposed fully via the ProxmoxVE API.
+
 ## Troubleshooting
 
 ### Buttons not working
