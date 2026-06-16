@@ -26,9 +26,8 @@ To get weather forecasts from an automation or a script:
 
 {% options_ui %}
 Forecast type:
-  description: The scope of the forecast to retrieve. One of daily, hourly, or twice daily.
-  required: true
-{% endoptions_ui %}
+  description: The scope of the forecast to retrieve. One of daily, hourly, or twice daily. When not set, defaults to daily.
+  required: false
 
 {% include actions/yaml_header.md %}
 
