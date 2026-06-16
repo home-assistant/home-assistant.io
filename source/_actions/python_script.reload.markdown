@@ -1,8 +1,8 @@
 ---
-title: "Reload"
+title: "Reload Python scripts"
 action: python_script.reload
 domain: python_script
-description: "Reloads the available Python scripts from the configuration folder."
+description: "Reloads the available Python scripts from the `<config>/python_scripts` folder."
 ---
 
 The **Reload** action reloads all Python scripts from the `<config>/python_scripts` folder. It is a quicker alternative to restarting Home Assistant.
@@ -20,7 +20,11 @@ To reload your Python scripts from an automation or a script:
 5. From the search box, search for and select **Python Scripts: Reload**.
 6. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. It has no additional options.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+
+### Options in the UI
+
+This action has no additional options in the UI.
 
 {% include actions/yaml_header.md %}
 
@@ -32,6 +36,10 @@ action: |
 {% endexample %}
 
 This reloads all Python scripts from the `<config>/python_scripts` folder.
+
+### Options in YAML
+
+This action has no options.
 
 {% include actions/try_it.md %}
 
