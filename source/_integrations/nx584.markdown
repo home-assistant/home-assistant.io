@@ -99,6 +99,8 @@ zone_types:
       description: Safety
 {% endconfiguration %}
 
+{% include integrations/actions.md %}
+
 ## Full example
 
 An extended configuration entry could look like this:
@@ -119,4 +121,3 @@ binary_sensor:
     6: moisture
 ```
 
-{% include integrations/actions.md %}
