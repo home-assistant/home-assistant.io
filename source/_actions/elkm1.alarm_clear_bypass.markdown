@@ -44,7 +44,7 @@ action: |
   target:
     entity_id: alarm_control_panel.home
   data:
-    code: 1234
+    code: "1234"
 {% endexample %}
 
 This clears the bypass for all zones in the area.
@@ -56,7 +56,7 @@ code:
   description: >
     The alarm code to authorize the bypass clear of the alarm control panel.
   required: true
-  type: integer
+  type: string
 {% endoptions_yaml %}
 
 ## Good to know

@@ -44,7 +44,7 @@ action: |
   target:
     entity_id: sensor.elkm1_zone_1
   data:
-    code: 1234
+    code: "1234"
 {% endexample %}
 
 This bypasses the selected zone.
@@ -56,7 +56,7 @@ code:
   description: >
     The alarm code to authorize the bypass of the zone.
   required: true
-  type: integer
+  type: string
 {% endoptions_yaml %}
 
 ## Good to know

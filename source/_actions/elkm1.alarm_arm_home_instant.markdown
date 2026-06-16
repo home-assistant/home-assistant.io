@@ -44,7 +44,7 @@ action: |
   target:
     entity_id: alarm_control_panel.home
   data:
-    code: 1234
+    code: "1234"
 {% endexample %}
 
 This arms the area in home instant mode.
@@ -56,7 +56,7 @@ code:
   description: >
     The alarm code to arm the alarm control panel.
   required: true
-  type: integer
+  type: string
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
