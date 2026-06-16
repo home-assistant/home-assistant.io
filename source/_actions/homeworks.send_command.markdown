@@ -83,6 +83,35 @@ action: |
 
 {% include actions/more_examples.md %}
 
+### Automation: Simulate a keypad press at sunset
+
+This automation simulates a keypad button press on your Homeworks controller every day at sunset, which you can use to recall a scene programmed on the keypad.
+
+- Trigger: the sun sets
+- Action: send a button press and release to the controller
+  - Controller: `homeworks`
+  - Press and release the keypad button with a short delay in between
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Recall evening scene at sunset"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: homeworks.send_command
+      data:
+        controller_id: "homeworks"
+        command:
+          - "KBP, [02:08:02:01], 1"
+          - "DELAY 500"
+          - "KBR, [02:08:02:01], 1"
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
