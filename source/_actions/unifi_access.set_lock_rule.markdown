@@ -65,7 +65,10 @@ rule:
   required: true
   type: string
 interval:
-  description: How long a `custom` rule stays active, as a duration. Defaults to 10 minutes when omitted. The minimum is 1 minute and the maximum is 8 hours.
+  description: >
+    How long a `custom` rule stays active. Use a duration like "00:30:00" for
+    30 minutes. Defaults to 10 minutes when omitted. The minimum is 1 minute
+    and the maximum is 8 hours.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -98,3 +101,5 @@ automation: |
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
+
+{% include actions/related.md %}
