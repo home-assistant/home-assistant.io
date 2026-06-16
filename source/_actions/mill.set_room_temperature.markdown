@@ -7,7 +7,7 @@ description: "Sets the away, comfort, and sleep temperatures for a Mill room."
 
 Use this action to set the temperatures for a room in the Mill app. You identify the room by its name and set any of the away, comfort, and sleep temperatures for it.
 
-This is handy in automations, for example to lower the comfort temperature of a room while you are away and raise it again before you get home.
+This is handy in automations, for example, to lower the comfort temperature of a room while you are away and raise it again before you get home.
 
 {% include actions/ui_header.md %}
 
