@@ -25,7 +25,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Host:
-  description: The host name of a configured iperf3 server to test against. If left empty, the test runs against all configured servers.
+  description: The host name or IP address of a configured iperf3 server to test against. If left empty, the test runs against all configured servers.
   required: false
 {% endoptions_ui %}
 
@@ -47,7 +47,7 @@ This runs a speed test against the `iperf.he.net` server.
 {% options_yaml %}
 host:
   description: >
-    The host name of a configured iperf3 server to test against. If omitted,
+    The host name or IP address of a configured iperf3 server to test against. If omitted,
     the test runs against all configured servers.
   required: false
   type: string
