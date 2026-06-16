@@ -2,9 +2,7 @@
 title: PowerShades
 description: Instructions on how to integrate PowerShades motorized shades with Home Assistant.
 ha_category:
-  - Button
   - Cover
-  - Sensor
 ha_release: 2026.7
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -12,12 +10,9 @@ ha_codeowners:
   - '@vemboy200'
 ha_domain: powershades
 ha_platforms:
-  - button
   - cover
-  - diagnostics
-  - sensor
 ha_integration_type: device
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ha_dhcp: true
 ---
 
@@ -54,49 +49,9 @@ Each shade is represented as a cover entity, which supports:
 - **Set position**, to move the shade to a specific position between 0% and 100%.
 - **Stop**, to stop the shade while it is moving.
 
-### Buttons
-
-In addition to the cover entity, each shade gets the following buttons:
-
-- **Toggle shade**: opens or closes the shade depending on its current position, or stops it if it is moving.
-- **Identify** (diagnostic entity): makes the shade's motor wiggle, so you can tell which physical shade an entity corresponds to.
-- **Jog up** / **Jog down**, **Step up** / **Step down**, **Set upper limit** / **Set lower limit**, and **Clear limits** (configuration entity): used to calibrate the shade's travel limits. A typical workflow is to jog the shade close to the desired position, use step to fine-tune it, and then set the limit.
-
-### Sensors
-
-Battery percentage and battery voltage are available as diagnostic entity sensors. These are disabled by default and can be enabled from the device page.
-
-## Actions
-
-In addition to the standard cover actions (`cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, and `cover.set_cover_position`), the PowerShades integration provides the following actions. All actions target at least one PowerShades cover entity. These actions are similar to it's button counterparts (expect for `powershades.set_shade_name`)
-
-| Action | Description |
-| ------ | ----------- |
-| `powershades.toggle_shade` | Toggles the shade between open and closed positions (stops it if moving). |
-| `powershades.jog_up` | Moves the shade up continuously until it reaches a limit or is stopped. Useful when setting limits. |
-| `powershades.jog_down` | Moves the shade down continuously until it reaches a limit or is stopped. Useful when setting limits. |
-| `powershades.step_up` | Moves the motor up one step, for trimming limits. |
-| `powershades.step_down` | Moves the motor down one step, for trimming limits. |
-| `powershades.set_upper_limit` | Sets the upper limit (fully open position) for a PowerShades device. |
-| `powershades.set_lower_limit` | Sets the lower limit (fully closed position) for a PowerShades device. |
-| `powershades.clear_limits` | Clears both the upper and lower limits for a PowerShades device. |
-| `powershades.set_shade_name` | Renames a PoE shade on the device itself. The Home Assistant device name is updated to match. |
-
-### Action: Set shade name
-
-The `powershades.set_shade_name` action takes one additional field:
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `name` | No | The new shade name, 1-50 ASCII characters. |
-
 ## Automation examples
 
 Open a shade in the morning:
-
-Trigger: `time` is `"07:00:00"`
-
-Action: `cover:open_cover` to the `cover.bedroom_shade entity`
 
 {% details "YAML example for opening a shade in the morning" %}
 
@@ -116,12 +71,6 @@ automation: |
 {% enddetails %}
 
 Close shades at dusk:
-
-Trigger: `state` of `sensor.sun_next_dusk` changes
-
-Condition: `cover.bedroom_shade entity` is `open`
-
-Action: `cover:close_cover` to the `cover.bedroom_shade entity`
 
 {% details "YAML example for closing shades at dusk" %}
 
@@ -160,13 +109,12 @@ All communication is local, and data does not leave your network.
 
 ## Known limitations
 
-- PowerShades devices send replies and asynchronous move feedback only to the **last controller that sent them a command** (the "UDP master"). If possible, avoid Running any other platfrom that controls your Powershades. Control still works, but live position feedback may intermittently lag until the next poll.
-- This can also affect platform hubs that communicate over UDP (for example, Control4) and rely solely on push data, since they may end up with an outdated view of the shade's state if Home Assistant controls it.
-- The shade's reported state (for example, opening, closing, opened, or closed) is assumed by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for details.
+- PowerShades devices send replies and asynchronous move feedback only to the **last controller that sent them a command** (the "UDP master"). Avoid running PowerShades Config.NET or another driver at the same time as Home Assistant — control still works, but live position feedback may intermittently lag until the next poll.
+- This can also affect other hubs that communicate over UDP (for example, Control4) and rely solely on push data — they may end up with an outdated view of the shade's state.
+- The shade's reported state (for example, opening, closing, opened, or closed) is inferred by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for details.
 - If a shade is moved by another controller, Home Assistant does not know that controller's target position. It assumes the shade is heading toward fully open (100%) or fully closed (0%). If the other controller stops the shade partway, Home Assistant continues showing opening/closing for up to ~15 seconds until it detects the position has stopped changing, then falls back to open or closed.
 - The shade must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.
-- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge. If you have Powershade's RF hub, it would be nice to open an issue with what went wrong with logs, or a pull request adding hub support.
-- The shade may randomly go unavailable for anywere between 10-60 seconds, and then come back online.
+- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge.
 
 ## Troubleshooting
 
@@ -175,7 +123,7 @@ All communication is local, and data does not leave your network.
 This means Home Assistant cannot communicate with the shade. Check the following:
 
 - The shade is powered on and connected to your network.
-- Home Assistant can reach UDP port 42 on the shade, and UDP broadcasts are routed between subnets if Home Assistant and the shade(s) are on different ones.
+- Home Assistant can reach UDP port 42 on the shade, and UDP broadcasts are routed between subnets if Home Assistant and the shade are on different ones.
 - The IP address entered is correct and not already used by another config entry. If the shade's IP address has changed, open its integration entry and select **Reconfigure** to update it.
 
 ### Enabling debug logging
