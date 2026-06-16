@@ -72,7 +72,6 @@ value:
   description: >
     The boolean value to set.
   required: true
-  default: false
   type: boolean
 {% endoptions_yaml %}
 
