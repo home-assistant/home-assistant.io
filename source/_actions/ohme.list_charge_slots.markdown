@@ -2,7 +2,7 @@
 title: "List charge slots"
 action: ohme.list_charge_slots
 domain: ohme
-description: "Return a list of charge slots."
+description: "Returns a list of charge slots."
 related_actions:
   - ohme.set_price_cap
 ---
