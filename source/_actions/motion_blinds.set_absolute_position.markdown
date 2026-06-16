@@ -76,9 +76,9 @@ width:
 
 ## Good to know
 
-- For simple blinds, this action does the same as the [cover set position](/integrations/cover/) action.
-- For TDBU blinds, the absolute position is relative to the window, so `0` is the bottom of the window and `100` is the top. The [cover set position](/integrations/cover/) action instead uses a scaled position relative to the space the blind is allowed to move in.
-- On tilt-capable blinds, the blind first moves to the new position and then adjusts its tilt. Using the separate cover position and cover tilt position actions one after the other makes the blind stop and tilt before it reaches the position.
+- For simple blinds, this action does the same as the [`cover.set_cover_position`](/actions/cover.set_cover_position/) action.
+- For TDBU blinds, the absolute position is relative to the window, so `0` is the bottom of the window and `100` is the top. The [`cover.set_cover_position`](/actions/cover.set_cover_position/) action instead uses a scaled position relative to the space the blind is allowed to move in.
+- On tilt-capable blinds, the blind first moves to the new position and then adjusts its tilt. Using the separate [`cover.set_cover_position`](/actions/cover.set_cover_position/) and [`cover.set_cover_tilt_position`](/actions/cover.set_cover_tilt_position/) actions one after the other makes the blind stop and tilt before it reaches the intended position.
 
 {% include actions/try_it.md %}
 
