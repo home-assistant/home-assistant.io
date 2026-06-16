@@ -87,34 +87,25 @@ conversation_id:
 
 When you store the result in a response variable, this action returns the conversation agent's response, including the spoken reply and the result of the intent. The response has the same structure as the [`/api/conversation/process` API](https://developers.home-assistant.io/docs/intent_conversation_api#conversation-response).
 
-You can read the spoken reply from the response, for example to send it on as a notification:
-
-{% example %}
-action: |
-  action: conversation.process
-  data:
-    text: "What time is it?"
-  response_variable: agent_response
-{% endexample %}
-
-The reply text is then available as `{{ agent_response.response.speech.plain.speech }}`.
+The reply text is then available as `{{ agent_response.response.speech.plain.speech }}`. The automation below shows how to capture this reply and send it back to a chat.
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
-### Automation: speak a chat message through your assistant
+### Automation: reply to a chat message with your assistant
 
-When a message arrives from a chat integration, forward its text to the conversation agent so your assistant acts on it.
+When a message arrives from a chat integration, forward its text to the conversation agent, then send the agent's spoken reply back to the chat. This processes the message and uses the response in a single automation.
 
 - **Trigger**: A chat integration receives a new message
-- **Action**: Conversation: Process conversation, using the message text
+- **Action**: Conversation: Process conversation, using the message text, and store the result in a response variable
+- **Action**: Send the agent's reply back to the chat
 
-{% details "YAML example for processing a received message" %}
+{% details "YAML example for replying to a received message" %}
 
 {% example %}
 automation: |
-  alias: "Process received chat message"
+  alias: "Reply to received chat message"
   triggers:
     - trigger: event
       event_type: chat_message_received
@@ -122,6 +113,12 @@ automation: |
     - action: conversation.process
       data:
         text: "{{ trigger.event.data.message }}"
+      response_variable: agent_response
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_chat
+      data:
+        message: "{{ agent_response.response.speech.plain.speech }}"
 {% endexample %}
 
 {% enddetails %}
