@@ -72,9 +72,8 @@ instructions:
   type: string
 entity_id:
   description: >
-    The AI task entity to run the task on. When not provided, the preferred AI
-    task entity is used.
-  required: false
+        The AI task entity to generate the image. This entity must support image generation.
+    required: true
   type: string
 structure:
   description: >
