@@ -35,7 +35,9 @@ If you do not remove it, your configuration will be imported with the following 
 - You may have duplicate entities.
 - Kodi must be on when Home Assistant is loading for the first time for the configuration to be imported.
 
-### Turning On/Off
+{% include integrations/actions.md %}
+
+## Turning Kodi on/off (media player action)
 
 You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence; see the [Kodi turn on/off samples](#kodi-turn-onoff-samples) section for scripts that can be used.
 
@@ -64,13 +66,12 @@ automation:
       - action: script.kodi_turn_off
 ```
 
-{% include integrations/actions.md %}
 
-### Kodi turn on/off samples
+### Turning Kodi on/off examples
 
 The following scripts can be used in automations for turning on/off your Kodi instance; see [Turning on/off](#turning-onoff).  You could also simply use these sequences directly in the automations without creating scripts.
 
-#### Turn on Kodi with Wake on LAN
+### Turning on Kodi with Wake on LAN
 
 With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this action, first you need to configure the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your {% term "`configuration.yaml`" %}.
 
@@ -189,7 +190,7 @@ script:
 This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your Kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your Kodi player. Use this with caution.
 {% endimportant %}
 
-### Kodi action samples
+### Kodi action samples (media player actions)
 
 #### Simple script to turn on the PVR in some channel as a time function
 
@@ -243,7 +244,7 @@ script:
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
 
-#### Trigger a Kodi video library update
+### Triggering a Kodi video library update (Kodi action)
 
 ```yaml
 script:
