@@ -61,12 +61,13 @@ filename:
 
 {% include actions/try_it.md %}
 
-### Automation: save an image snapshot with a timestamped filename
+{% include actions/more_examples.md %}
 
+### Automation: save an image snapshot with a timestamped filename
 Save a snapshot whenever the image changes and keep the date and time in the filename, so each capture is stored as a separate file.
 
 - **Trigger**: The image entity changes
-- **Action**: Image: Take image snapshot
+- **Action**: Take image snapshot
   - **Target**: Front door image
   - **Filename**: a path that includes the current date and time
 
@@ -89,3 +90,5 @@ automation: |
 {% enddetails %}
 
 {% include actions/stuck.md %}
+
+{% include actions/related.md %}
