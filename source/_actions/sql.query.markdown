@@ -21,7 +21,8 @@ To run a query from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **SQL: Query**.
 6. Enter the **Query**, and optionally a **Database URL**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the result, for example, `query_result`.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -31,6 +32,9 @@ Query:
   required: true
 Database URL:
   description: The URL of the database to connect to. If not provided, the default Home Assistant recorder database is used.
+  required: false
+Response variable:
+  description: The name of the variable where the result will be stored. If not provided, the result won´t be stored.
   required: false
 {% endoptions_ui %}
 
@@ -73,6 +77,12 @@ db_url:
   description: >
     The URL of the database to connect to. If not provided, the default
     Home Assistant recorder database is used.
+  required: false
+  type: string
+response_variable:
+  description: >
+    The name of the variable where the result will be stored.
+    If not provided, the result won´t be stored.
   required: false
   type: string
 {% endoptions_yaml %}
