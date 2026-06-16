@@ -21,7 +21,8 @@ To generate data from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **AI Task: Generate data**.
 6. Enter a **Task name** and the **Instructions**, and set any of the options you need.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the result, for example, `generated_text`.
+8. Select **Save**.
 
 ### Options in the UI
 
