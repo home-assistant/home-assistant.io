@@ -64,5 +64,5 @@ The Modern Forms integration provides support for the following toggleable attri
 {% include integrations/actions.md %}
 
 {% note %}
-Modern Forms fans use NTP to pool.ntp.org to set their internal clock and check whether sleep timers have expired. Sleep timers only work if the fan has internet NTP access. You can block cloud access for the fan and leave only NTP (UDP port 123) outbound working for the sleep timers.
+Modern Forms fans use NTP (via `pool.ntp.org`) to set their internal clock and check whether sleep timers have expired. Sleep timers only work if your fan can reach an NTP server on the internet. You can block cloud access for the fan and allow only outbound NTP (UDP port 123) so sleep timers keep working.
 {% endnote %}

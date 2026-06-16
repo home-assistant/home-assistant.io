@@ -8,7 +8,7 @@ related_actions:
   - modern_forms.clear_light_sleep_timer
 ---
 
-Use this action to clear the sleep timer on a Modern Forms fan. Clearing the timer does not turn the fan off, it only cancels the pending timer.
+Use this action to clear the sleep timer on a Modern Forms fan. Clearing the timer does not turn the fan off. It only cancels the pending timer.
 
 {% include actions/ui_header.md %}
 
