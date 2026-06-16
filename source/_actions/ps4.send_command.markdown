@@ -19,7 +19,7 @@ To send a command from an automation or a script:
 6. Choose the **Entity** and the **Command** you want to send.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. In the UI, you choose the PlayStation 4 in the **Entity** field.
 
 ### Options in the UI
 
