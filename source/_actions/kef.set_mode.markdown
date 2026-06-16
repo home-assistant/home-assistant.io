@@ -67,22 +67,18 @@ desk_mode:
   description: Turn desk mode on or off.
   required: false
   type: boolean
-  default: false
 wall_mode:
   description: Turn wall mode on or off.
   required: false
   type: boolean
-  default: false
 phase_correction:
   description: Turn phase correction on or off.
   required: false
   type: boolean
-  default: false
 high_pass:
   description: Turn high-pass mode on or off.
   required: false
   type: boolean
-  default: false
 sub_polarity:
   description: The subwoofer polarity. Choose from - or +.
   required: false
