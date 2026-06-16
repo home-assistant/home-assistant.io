@@ -7,9 +7,9 @@ related_actions:
   - conversation.process
 ---
 
-The **Reload conversation agents** action reloads the intent configuration of your conversation agents and clears their cached intents.
+The **Reload conversation agents** action reloads the intent configuration of the default conversation agent and clears its cached intents.
 
-This is useful while you are working on custom sentences or intents. After you change your configuration, reload the conversation agents to apply your changes without restarting Home Assistant.
+This is useful while you are working on custom sentences or intents. After you change your configuration, reload the conversation agent to apply your changes without restarting Home Assistant.
 
 {% include actions/ui_header.md %}
 
@@ -20,7 +20,7 @@ To reload conversation agents from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Conversation: Reload conversation agents**.
-6. Optionally, choose an **Agent** and a **Language** to limit what gets reloaded.
+6. Optionally, choose a **Language** to limit what gets reloaded.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -29,7 +29,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Agent:
-  description: The conversation agent to reload. When left empty, all agents are reloaded.
+  description: This action reloads the default conversation agent, regardless of which agent you select.
   required: false
 Language:
   description: The language to clear cached intents for. When left empty, all languages are cleared.
@@ -45,14 +45,14 @@ action: |
   action: conversation.reload
 {% endexample %}
 
-This reloads all conversation agents and clears their cached intents.
+This reloads the default conversation agent and clears its cached intents.
 
 ### Options in YAML
 
 {% options_yaml %}
 agent_id:
   description: >
-    The conversation agent to reload. When left empty, all agents are reloaded.
+    This action reloads the default conversation agent, regardless of which agent you set here.
   required: false
   type: string
 language:
