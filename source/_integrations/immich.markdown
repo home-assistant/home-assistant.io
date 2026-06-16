@@ -86,29 +86,13 @@ The following {% term sensors %} are created. For some of those the API key need
 
 An {% term update %} entity is created to inform about a new available Immich server version (_requires Immich server v1.134.0_).
 
-## Actions
+{% include integrations/actions.md %}
 
-### Upload file
+## Examples
 
-This action allows you to upload a media file to your Immich instance. It takes the following arguments:
+### Upload a camera snapshot
 
-{% configuration_basic %}
-Immich instance:
-  description: The config entry of the Immich instance where to upload the file.
-File:
-  description: Use the [MediaSelector](/docs/blueprint/selectors/#media-selector) to define the file to be uploaded.
-  keys:
-    media_content_id:
-      description: The [media source](/integrations/media_source) URL.
-    media_content_type:
-      description: The MIME type of the file to be uploaded.
-Album ID:
-  description: The album in which the file should be placed after uploading. To get the album ID, open the Immich instance web UI in a browser and navigate to the corresponding album, the album ID can now be found in the URL `https://your-immich-instance/albums/<ALBUM-ID>`
-{% endconfiguration_basic %}
-
-#### Example script
-
-Take a snapshot of a camera entity via the [`camera.snapshot`](/integrations/camera/#action-snapshot) action, use the [local media](/integrations/media_source/#local-media) path to store the snapshot and upload it to the Immich instance in a specific album.
+Take a snapshot of a camera entity with the [`camera.snapshot`](/integrations/camera/) action, store it using a [local media](/integrations/media_source/#local-media) path, then upload it to a specific album in your Immich instance.
 
 ```yaml
 sequence:
