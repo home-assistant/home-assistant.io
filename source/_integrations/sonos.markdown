@@ -168,6 +168,10 @@ Playing TTS (text-to-speech) or audio files as alerts (e.g., a doorbell or alarm
 
 An optional `enqueue` argument can be added to the action. If `replace` or not provided then the queue will be replaced and the item will be played. If `add` the item will be appended to the queue. If `next` the item will be added into the queue to play next. If `play`, the item will be added into the queue and played immediately.
 
+{% include integrations/actions.md %}
+
+In addition to the actions listed above, Sonos speakers support the [standard media player actions](/integrations/media_player/#actions).
+
 ### Examples
 
 Below is an example action that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver) using the `announce` feature and its associated (optional) `volume` parameter:
@@ -385,9 +389,7 @@ actions:
     response_variable: results
 {% endexample %}
 
-{% include integrations/actions.md %}
 
-In addition to the actions listed above, Sonos speakers support the [standard media player actions](/integrations/media_player/#actions).
 
 ## Network requirements
 
