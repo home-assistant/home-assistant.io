@@ -94,11 +94,11 @@ The `powershades.set_shade_name` action takes one additional field:
 
 Open a shade in the morning:
 
-{% details "YAML example for opening a shade in the morning" %}
-
 Trigger: `time` is `"07:00:00"`
 
 Action: `cover:open_cover` to the `cover.bedroom_shade entity`
+
+{% details "YAML example for opening a shade in the morning" %}
 
 {% example %}
 automation: |
@@ -117,14 +117,13 @@ automation: |
 
 Close shades at dusk:
 
-{% details "YAML example for closing shades at dusk" %}
-
-
 Trigger: `state` of `sensor.sun_next_dusk` changes
 
 Condition: `cover.bedroom_shade entity` is `open`
 
 Action: `cover:close_cover` to the `cover.bedroom_shade entity`
+
+{% details "YAML example for closing shades at dusk" %}
 
 {% example %}
 automation: |
