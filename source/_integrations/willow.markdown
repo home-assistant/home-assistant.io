@@ -27,7 +27,7 @@ Before setting up the integration, you will need:
 
 ## Supported devices
 
-The integration supports the following device:
+The integration supports the following devices:
 
 * Willow Sensor
 
