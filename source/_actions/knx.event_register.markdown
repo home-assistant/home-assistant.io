@@ -9,7 +9,7 @@ related_actions:
   - knx.exposure_register
 ---
 
-The **Register knx_event** action adds or removes group addresses on the `knx_event` filter. When a group address is registered, telegrams sent to that address fire a `knx_event` on the Home Assistant event bus, which you can use as an automation trigger.
+The **Register knx_event** action adds or removes group addresses in the `knx_event` filter. When a group address is registered, telegrams sent to that address fire a `knx_event` on the Home Assistant event bus, which you can use as an automation trigger.
 
 This is useful when you want to react to KNX addresses that are not modeled as entities, and to do so only at certain times by registering and unregistering them on the fly.
 

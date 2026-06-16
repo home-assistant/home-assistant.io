@@ -34,7 +34,7 @@ Group address:
   description: The group address(es) to write to. Provide a list to send to multiple group addresses one after another.
   required: true
 Payload:
-  description: The payload to send to the bus. When no value type is set, the payload is sent as raw bytes. Integers are then treated as DPT 1, 2, or 3 payloads. For DPTs larger than 6 bits, send a list where each value represents one octet (0-255).
+  description: The payload to send to the bus. When no value type is set, the payload is sent as raw bytes. Integers are then treated as DPT 1, 2, or 3 payloads. For DPTs larger than 6 bits, send a list where each value represents one octet (0-255), and pad the list with `0` to match the DPT byte length.
   required: true
 Value type:
   description: If set, the payload is encoded as the given DPT instead of being sent as raw bytes. The KNX sensor types are valid values. See the list of types in the [KNX sensor](/integrations/knx/#sensor) section.
@@ -73,7 +73,7 @@ payload:
     The payload to send to the bus. When `type` is not set, raw bytes are
     sent. Integers are then treated as DPT 1, 2, or 3 payloads. For DPTs
     larger than 6 bits, send a list where each value represents one octet
-    (0-255).
+    (0-255), and pad the list with `0` to match the DPT byte length.
   required: true
   type: [integer, list]
 type:

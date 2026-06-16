@@ -13,7 +13,7 @@ The **Read from KNX bus** action sends a GroupValueRead request to one or more K
 
 This is useful when you want to actively ask a KNX device for its current value, for example to refresh a cover position after it has been moving for a while, instead of waiting for the device to report on its own.
 
-To issue GroupValueRead requests for all state addresses of an entity at once, you can use the [Home Assistant: Update entity](/integrations/homeassistant/) action instead.
+To issue GroupValueRead requests for all state addresses of an entity at once, you can use the [Home Assistant: Update entity](/integrations/homeassistant/#action-update-entity) action instead.
 
 {% include actions/ui_header.md %}
 

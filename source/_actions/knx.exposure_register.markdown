@@ -13,7 +13,7 @@ The **Expose to KNX bus** action adds or removes an exposure that sends a Home A
 
 This is useful when you want other KNX devices to react to or read Home Assistant values, and to manage those exposures dynamically instead of defining them all up front.
 
-Exposures defined through your {% term "configuration.yaml" %} cannot be removed with this action. Per address, only one exposure can be registered. For more details, see the [Exposing entity states, entity attributes or time to KNX bus](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) section.
+Exposures defined through your {% term "configuration.yaml" %} cannot be removed with this action. Per address, only one exposure can be registered. For more details, and for additional exposure options like `value_template`, `cooldown`, `periodic_send`, and `respond_to_read`, see the [Exposing entity states, entity attributes or time to KNX bus](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) section.
 
 {% include actions/ui_header.md %}
 
@@ -45,7 +45,7 @@ Entity attribute:
   description: The attribute of the entity to send to the KNX bus. If not set, the state is sent. For example, for a light the state is either on or off, while the `brightness` attribute exposes its brightness.
   required: false
 Default value:
-  description: The value to send to the bus when the state or attribute value is none. For example, a light with state off has no brightness attribute, so a default value of `0` could be used. If not set, no value is sent and a GroupValueRead request returns the last known value.
+  description: The value to send to the bus when the state or attribute value is not available. For example, a light with state off has no brightness attribute, so a default value of `0` could be used. If not set, no value is sent and a GroupValueRead request returns the last known value.
   required: false
 Remove exposure:
   description: If turned on, the exposure is removed. Only the group address is required for removal.
@@ -98,8 +98,8 @@ attribute:
   type: string
 default:
   description: >
-    The value to send to the bus when the state or attribute value is none. If
-    not set, no value is sent and a GroupValueRead request returns the last
+    The value to send to the bus when the state or attribute value is not
+    available. If not set, no value is sent and a GroupValueRead request returns the last
     known value.
   required: false
   type: [string, integer, float]
