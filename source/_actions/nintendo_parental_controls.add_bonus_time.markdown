@@ -28,10 +28,8 @@ To add bonus time from an automation or a script:
 {% options_ui %}
 Device:
   description: The Nintendo Switch to add bonus time to.
-  required: true
 Bonus time:
   description: The amount of bonus time to add, in minutes, from 5 to 30.
-  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
