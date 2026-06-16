@@ -34,7 +34,7 @@ Until:
   description: Only prune images that have been unused for at least this time duration in the past. If not provided, all unused images are pruned.
   required: false
 Dangling:
-  description: Only prune dangling images.
+  description: Only prune dangling images. When not set, all unused images are pruned.
   required: false
 {% endoptions_ui %}
 
@@ -64,7 +64,7 @@ until:
   required: false
   type: map
 dangling:
-  description: If true, only prune dangling images.
+  description: If true, only prune dangling images. When not set, all unused images are pruned.
   required: false
   default: false
   type: boolean
