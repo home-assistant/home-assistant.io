@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Media Player
   - Sensor
+  - Switch
   - Time
 ha_iot_class: Cloud Push
 ha_release: 2026.6
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - media_player
   - sensor
+  - switch
   - time
 ha_integration_type: hub
 ha_dhcp: true
@@ -108,6 +110,12 @@ Yoto players can switch between a day display and a night display. Each player p
 
 - **Day mode start**: The time the player switches to day mode.
 - **Night mode start**: The time the player switches to night mode.
+
+### Switches
+
+- **Automatic brightness**: Lets the display set its own brightness. Available for day and night mode, on players with a light sensor.
+- **Bluetooth pairing**: Turns on the player's Bluetooth to pair with audio devices.
+- **Maximum headphone volume**: Limits the volume when headphones are connected.
 
 ### Binary sensors
 
