@@ -30,11 +30,10 @@ This integration uses Roon Core, a Roon application that runs on a machine on yo
 
 ## Playing media
 
-The [`media_player.play_media`](/integrations/media_player/) action plays media on a Roon player. Roon uses a path based on the Roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If Roon can't follow the path, you will find an error in the log that shows which part of the path Roon could not follow, and the possibilities at that point.
+The [`media_player.play_media`](/actions/media_player.play_media/) action plays media on a Roon player. Roon uses a path based on the Roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If Roon can't follow the path, you will find an error in the log that shows which part of the path Roon could not follow, and the possibilities at that point.
 
-This action accepts the following data:
+Target the media player you want to control, then provide the following data:
 
-- `entity_id` (optional): Target a specific media player. To target all media players, use `all`.
 - `media_content_id` (required): A path to specify the media you want to play. See the examples below.
 - `media_content_type` (required): Only `music` is supported.
 
