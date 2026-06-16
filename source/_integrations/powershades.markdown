@@ -53,6 +53,10 @@ Each shade is represented as a cover entity, which supports:
 
 Open a shade in the morning:
 
+Trigger: `time` is `"07:00:00"`
+
+Action: `cover:open_cover` to the `cover.bedroom_shade entity`
+
 {% details "YAML example for opening a shade in the morning" %}
 
 {% example %}
@@ -71,6 +75,12 @@ automation: |
 {% enddetails %}
 
 Close shades at dusk:
+
+Trigger: `state` of `sensor.sun_next_dusk` changes
+
+Condition: `cover.bedroom_shade entity` is `open`
+
+Action: `cover:close_cover` to the `cover.bedroom_shade entity`
 
 {% details "YAML example for closing shades at dusk" %}
 
@@ -94,7 +104,6 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
-
 ## Data updates
 
 The shade pushes its status to Home Assistant in real time whenever Home Assistant is the one controlling it (the "UDP master"). On top of that, Home Assistant {% term polling polls %} the shade every 10 seconds (every 5 seconds while the position is unknown), so changes made by another controller — such as the PowerShades app or a Control4 system — are also picked up.
