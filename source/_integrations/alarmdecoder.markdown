@@ -100,25 +100,19 @@ There are several attributes available on the alarm panel to give you more infor
 
 ## Actions
 
-The **Alarm Decoder** {% term integration %} gives you access to several {% term actions %} for you to control your alarm with.
-
-- `alarm_arm_away`: Arms the alarm in away mode; all faults will trigger the alarm.
-- `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
-- `alarm_arm_night`: Arms the alarm according to the `Alternative Night Mode` option.
-- `alarm_disarm`: Disarms the alarm from any state.
-- `alarmdecoder.alarm_keypress`: Sends a string of characters to the alarm, as if you had touched those keys on a keypad.
-- `alarmdecoder.alarm_toggle_chime`: Toggles the alarm's chime state.
+The **Alarm Decoder** {% term integration %} gives you access to several {% term actions %} to control your alarm. Alongside the standard alarm control panel actions, arm away, arm home, arm night, and disarm, it provides the integration-specific actions listed below.
 
 {% note %}
 `alarm_arm_custom_bypass` and `alarm_trigger`, while available in the actions list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
 {% endnote %}
 
-### Examples
+{% include integrations/actions.md %}
 
-Using a combination of the available {% term actions %} and attributes, you can create switch templates.
+## Examples
 
 ### Chime status and control
 
+Using a combination of the available {% term actions %} and attributes, you can create switch templates.
 
 ```yaml
 - platform: template
