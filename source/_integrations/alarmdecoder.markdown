@@ -98,15 +98,13 @@ There are several attributes available on the alarm panel to give you more infor
 - `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
 - `code_arm_required`: Set to the value specified in your AlarmDecoder options.
 
-## Actions
+{% include integrations/actions.md %}
 
-The **Alarm Decoder** {% term integration %} gives you access to several {% term actions %} to control your alarm. Alongside the standard alarm control panel actions, arm away, arm home, arm night, and disarm, it provides the integration-specific actions listed below.
+Alongside these, the **AlarmDecoder** {% term integration %} supports the standard alarm control panel actions to control your alarm: arm away, arm home, arm night, and disarm.
 
 {% note %}
-`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the actions list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
+`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the actions list in Home Assistant, are not currently implemented in the AlarmDecoder platform.
 {% endnote %}
-
-{% include integrations/actions.md %}
 
 ## Examples
 
