@@ -23,7 +23,7 @@ To reload timers from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Reload timers**.
+5. From the list of actions, search for and select **Timer: Reload timers**.
 6. Select **Save**.
 
 ### Options in the UI
@@ -45,7 +45,7 @@ This action has no options.
 
 ## Good to know
 
-- The **Reload timers** action applies only to timers configured in YAML. Timers created from the UI are stored in Home Assistant, so reloading does not add, update, or remove them.
+- The **Timer: Reload timers** action applies only to timers configured in YAML. Timers created from the UI are stored in Home Assistant, so reloading does not add, update, or remove them.
 
 {% include actions/stuck.md %}
 
