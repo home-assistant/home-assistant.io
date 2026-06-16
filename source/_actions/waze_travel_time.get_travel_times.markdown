@@ -57,7 +57,7 @@ Streets to include:
   description: An exact street name that must be part of the selected route. The match is case-sensitive and must include spaces and special characters.
   required: false
 Streets to exclude:
-  description: An exact street name that must not be part of the selected route. The match is case-sensitive and must include spaces and special characters.
+  description: One or more exact street names that must not be part of the selected route. The match is case-sensitive and must include spaces and special characters.
   required: false
 Time delta:
   description: A time offset from now to calculate the route for. Positive values are in the future, negative values are in the past.
