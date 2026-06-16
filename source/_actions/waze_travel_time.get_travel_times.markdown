@@ -54,7 +54,7 @@ Avoid ferries?:
   description: Avoid ferries. Defaults to off.
   required: false
 Streets to include:
-  description: An exact street name that must be part of the selected route. The match is case-sensitive and must include spaces and special characters.
+  description: One or more exact street names that must be part of the selected route. The match is case-sensitive and must include spaces and special characters.
   required: false
 Streets to exclude:
   description: One or more exact street names that must not be part of the selected route. The match is case-sensitive and must include spaces and special characters.
