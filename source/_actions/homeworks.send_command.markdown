@@ -61,7 +61,7 @@ command:
     or a list of commands. The special command `DELAY <ms>` waits the
     given number of milliseconds before continuing.
   required: true
-  type: list
+  type: string
 {% endoptions_yaml %}
 
 ## Good to know
