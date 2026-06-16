@@ -8,7 +8,7 @@ related_actions:
   - sensibo.enable_climate_react
 ---
 
-Use this action to find out which settings a Sensibo climate device supports for a specific HVAC mode. The [Set full state](/integrations/sensibo/#action-sensibofull_state) and [Enable Climate React](/integrations/sensibo/#action-sensiboenable_climate_react) actions both expect their values to match what the Sensibo API allows exactly, and those values are case-sensitive. Run this action first to get the list of valid options, then copy the ones you need into the other actions, your automations, or your scripts.
+Use this action to find out which settings a Sensibo climate device supports for a specific HVAC mode. The [Set full state](/actions/sensibo.full_state/) and [Enable Climate React](/actions/sensibo.enable_climate_react/) actions both expect their values to match what the Sensibo API allows exactly, and those values are case-sensitive. Run this action first to get the list of valid options, then copy the ones you need into the other actions, your automations, or your scripts.
 
 This action returns its result as [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) and does not change anything on the device.
 

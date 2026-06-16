@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to send a complete state to a Sensibo climate device in one command, instead of changing each setting separately.
 
-The values must match what the Sensibo API expects, and they are case-sensitive. Only provide the fields your device supports. Use the [Get device mode capabilities](/integrations/sensibo/#action-sensiboget_device_capabilities) action first to find the valid values for your device.
+The values must match what the Sensibo API expects, and they are case-sensitive. Only provide the fields your device supports. Use the [Get device mode capabilities](/actions/sensibo.get_device_capabilities/) action first to find the valid values for your device.
 
 {% include actions/ui_header.md %}
 
@@ -94,7 +94,7 @@ light:
 
 ## Good to know
 
-- All values are case-sensitive and must match what the Sensibo API expects. Use the [Get device mode capabilities](/integrations/sensibo/#action-sensiboget_device_capabilities) action to find the valid values for your device.
+- All values are case-sensitive and must match what the Sensibo API expects. Use the [Get device mode capabilities](/actions/sensibo.get_device_capabilities/) action to find the valid values for your device.
 - Only provide the fields your device supports.
 
 {% include actions/try_it.md %}

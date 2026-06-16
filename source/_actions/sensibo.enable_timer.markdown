@@ -61,7 +61,7 @@ minutes:
 
 Start the Sensibo timer for 30 minutes when you arrive home.
 
-- **Trigger**: You enter the Home zone
+- **Trigger**: You enter the home zone
 - **Action**: Sensibo: Enable timer
   - **Target**: Living room
 

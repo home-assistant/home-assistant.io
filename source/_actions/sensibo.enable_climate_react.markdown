@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to enable and configure Climate React on a Sensibo climate device. Climate React automatically switches the device to a state you define when the temperature, feels-like temperature, or humidity crosses a threshold you set.
 
-Enabling this action also turns Climate React on. The high and low states must match what the Sensibo API expects exactly, so the first time, it is easiest to configure Climate React in the Sensibo app. Use the [Get device mode capabilities](/integrations/sensibo/#action-sensiboget_device_capabilities) action to find the valid values for your device.
+Enabling this action also turns Climate React on. The high and low states must match what the Sensibo API expects exactly, so the first time, it is easiest to configure Climate React in the Sensibo app. Use the [Get device mode capabilities](/actions/sensibo.get_device_capabilities/) action to find the valid values for your device.
 
 {% include actions/ui_header.md %}
 
@@ -115,7 +115,7 @@ smart_type:
   light: "on"
   ```
 
-- All values are case-sensitive and must match what the Sensibo API expects. Use the [Get device mode capabilities](/integrations/sensibo/#action-sensiboget_device_capabilities) action to find the valid values for your device.
+- All values are case-sensitive and must match what the Sensibo API expects. Use the [Get device mode capabilities](/actions/sensibo.get_device_capabilities/) action to find the valid values for your device.
 
 {% include actions/try_it.md %}
 
