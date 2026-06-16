@@ -1,5 +1,5 @@
 ---
-title: "Belkin WeMo: Set humidity"
+title: "Set target humidity"
 action: wemo.set_humidity
 domain: wemo
 description: "Sets the target humidity on a WeMo humidifier."

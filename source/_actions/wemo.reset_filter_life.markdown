@@ -1,5 +1,5 @@
 ---
-title: "Belkin WeMo: Reset filter life"
+title: "Reset filter life"
 action: wemo.reset_filter_life
 domain: wemo
 description: "Resets the filter life of a WeMo humidifier to 100%."
