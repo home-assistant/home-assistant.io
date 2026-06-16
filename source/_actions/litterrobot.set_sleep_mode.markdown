@@ -63,8 +63,8 @@ start_time:
   description: >
     The time at which the Litter-Robot enters sleep mode and prevents an
     automatic clean cycle for 8 hours. Use the 24-hour format
-    %H:%M:%S, with seconds being optional, based on your Home Assistant
-    time zone. For example, 22:30:00 is 10:30 PM.
+    `%H:%M:%S`, with seconds being optional, based on your Home Assistant
+    time zone. For example, `22:30:00` is 10:30 PM.
   required: false
   type: string
 {% endoptions_yaml %}
