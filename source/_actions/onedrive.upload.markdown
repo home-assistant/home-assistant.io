@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to upload one or more files from Home Assistant to your OneDrive, for example to keep a copy of your camera snapshots.
 
-Files are uploaded into the application folder that the integration has access to (`Apps/Home Assistant`). The destination folder is created if it does not exist yet.
+Files are uploaded into the application folder that the integration has access to (`Apps/Home Assistant`, sometimes shown as `Apps/Graph`). The destination folder is created if it does not exist yet.
 
 {% include actions/ui_header.md %}
 
@@ -72,7 +72,7 @@ destination_folder:
   description: >
     The folder inside the application folder to upload the files to.
     Subfolders are supported, and the folder is created if it does not
-    exist.
+    exist. Folder names must comply with [OneDrive naming restrictions](https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa) (for example, they cannot contain `"`, `*`, `:`, `<`, `>`, `?`, `/`, `\`, or `|`).
   required: true
   type: string
 {% endoptions_yaml %}
