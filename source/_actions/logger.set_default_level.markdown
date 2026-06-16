@@ -2,7 +2,7 @@
 title: "Set logger default level"
 action: logger.set_default_level
 domain: logger
-description: "Sets the default log level for integrations."
+description: "Sets the default log level for loggers without an explicit level."
 related_actions:
   - logger.set_level
 ---
@@ -19,7 +19,7 @@ To set the default log level from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Set logger default level**.
+5. From the list of actions, search for and select **Logger: Set logger default level**.
 6. Set the **Level** you want to use as the default.
 7. Select **Save**.
 
