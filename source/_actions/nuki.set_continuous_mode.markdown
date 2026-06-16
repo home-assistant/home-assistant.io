@@ -49,7 +49,7 @@ This enables continuous mode on `lock.front_door_opener`.
 {% options_yaml %}
 enable:
   description: "Whether to enable or disable continuous mode."
-  required: true
+  required: false
   type: boolean
   default: false
 {% endoptions_yaml %}
