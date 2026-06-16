@@ -43,7 +43,7 @@ In YAML, refer to this action as `xiaomi_aqara.add_device`. A basic example look
 action: |
   action: xiaomi_aqara.add_device
   data:
-    gw_mac: xxxxxxxxxxxx
+    gw_mac: aa:bb:cc:dd:ee:ff
 {% endexample %}
 
 ### Options in YAML

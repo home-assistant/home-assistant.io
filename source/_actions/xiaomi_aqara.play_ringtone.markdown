@@ -81,7 +81,7 @@ In YAML, refer to this action as `xiaomi_aqara.play_ringtone`. A basic example l
 action: |
   action: xiaomi_aqara.play_ringtone
   data:
-    gw_mac: xxxxxxxxxxxx
+    gw_mac: aa:bb:cc:dd:ee:ff
     ringtone_id: 8
     ringtone_vol: 8
 {% endexample %}
@@ -122,7 +122,7 @@ automation: |
   actions:
     - action: xiaomi_aqara.play_ringtone
       data:
-        gw_mac: xxxxxxxxxxxx
+        gw_mac: aa:bb:cc:dd:ee:ff
         ringtone_id: 8
         ringtone_vol: 8
 {% endexample %}

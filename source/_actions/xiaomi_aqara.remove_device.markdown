@@ -46,7 +46,7 @@ In YAML, refer to this action as `xiaomi_aqara.remove_device`. A basic example l
 action: |
   action: xiaomi_aqara.remove_device
   data:
-    gw_mac: xxxxxxxxxxxx
+    gw_mac: aa:bb:cc:dd:ee:ff
     device_id: 158d000xxxxxc2
 {% endexample %}
 

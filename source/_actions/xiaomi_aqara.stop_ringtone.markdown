@@ -43,7 +43,7 @@ In YAML, refer to this action as `xiaomi_aqara.stop_ringtone`. A basic example l
 action: |
   action: xiaomi_aqara.stop_ringtone
   data:
-    gw_mac: xxxxxxxxxxxx
+    gw_mac: aa:bb:cc:dd:ee:ff
 {% endexample %}
 
 ### Options in YAML
