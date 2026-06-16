@@ -24,7 +24,7 @@ To purge entities from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Recorder: Purge Recorder entities**.
+5. From the list of actions, search for and select **Purge Recorder entities**.
 6. Set the options you want to use.
 7. Select **Save**.
 
