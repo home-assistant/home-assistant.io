@@ -105,7 +105,9 @@ episodes:
     title: "The Red Place"
     air_date: "2026-01-20 00:00:00"
     air_date_utc: "2026-01-21 03:00:00+00:00"
-    overview: "Nolan makes a quiet arrest, and Lucy and Celina race to rescue a kidnapping victim."
+    overview: >-
+      Nolan makes a quiet arrest, and Lucy and Celina race to rescue a
+      kidnapping victim.
     has_file: false
     monitored: true
     runtime: 0

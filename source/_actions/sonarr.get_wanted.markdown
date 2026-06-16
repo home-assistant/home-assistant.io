@@ -105,7 +105,9 @@ episodes:
     title: "Westworld: Original Movie"
     air_date: "1973-11-21 00:00:00"
     air_date_utc: "1973-11-22 02:00:00+00:00"
-    overview: "In the then-future year of 1983, a high-tech, highly realistic adult amusement park called Delos features three themed worlds."
+    overview: >-
+      In the then-future year of 1983, a high-tech, highly realistic adult
+      amusement park called Delos features three themed worlds.
     has_file: false
     monitored: true
     runtime: 88
