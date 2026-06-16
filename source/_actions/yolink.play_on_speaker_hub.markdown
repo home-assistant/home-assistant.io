@@ -12,7 +12,7 @@ The **Play on SpeakerHub** action converts a text message to speech and plays it
 To play a message from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation or script, or select **Create** to start a new one.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **YoLink: Play on SpeakerHub**.
@@ -74,13 +74,15 @@ message:
 tone:
   description: >
     The tone to play before the message. One of `emergency`, `alert`, `warn`,
-    or `tip`. Defaults to `tip`.
+    or `tip`.
   required: false
   type: string
+  default: tip
 volume:
-  description: The volume for this message only, between 0 and 15. Defaults to 8.
+  description: The volume for this message only, between 0 and 15.
   required: false
   type: integer
+  default: 8
 repeat:
   description: The number of times to repeat the message, between 0 and 10.
   required: false
