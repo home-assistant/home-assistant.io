@@ -20,7 +20,7 @@ To get the Sonos queue from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sonos speaker whose queue you want to read.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the Sonos speaker you want to control. You can also select an area, a device, or a label.
 6. From the actions shown for that target, select **Get queue**.
 7. In the **Response variable** field, enter a name to store the queue data in, such as `queue`. You'll use this name to read the queue in later steps.
 8. Select **Save**.

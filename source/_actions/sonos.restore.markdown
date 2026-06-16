@@ -25,7 +25,7 @@ To restore a Sonos snapshot from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sonos speakers you want to restore.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sonos speakers you want to restore. You can also select an area, a device, or a label.
 6. From the actions shown for that target, select **Restore**.
 7. Optionally, turn off **With group** if you only want to restore the selected speakers.
 8. Select **Save**.
