@@ -12,7 +12,7 @@ related_actions:
 
 The **Unmute account** action unmutes an account you previously muted, so their posts appear in your timeline again.
 
-This is handy at the end of an automation that muted an account temporarily, for example unmuting a news account when you return from holiday.
+This is handy at the end of an automation that muted an account temporarily, for example unmuting a news account when you return from a vacation.
 
 {% include actions/ui_header.md %}
 

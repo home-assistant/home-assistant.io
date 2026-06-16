@@ -12,7 +12,7 @@ related_actions:
 
 The **Mute account** action mutes an account you follow, so their posts no longer appear in your timeline.
 
-This is handy when you want to quiet down your timeline temporarily, for example muting a busy news account while you are on holiday and unmuting it again when you return. You can mute indefinitely or for a set duration.
+This is handy when you want to quiet down your timeline temporarily, for example muting a busy news account while you are on vacation and unmuting it again when you return. You can mute indefinitely or for a set duration.
 
 {% include actions/ui_header.md %}
 

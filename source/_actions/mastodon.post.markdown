@@ -138,6 +138,10 @@ media_warning:
   default: false
 {% endoptions_yaml %}
 
+{% note %}
+Mastodon holds idempotency keys for up to one hour. The exact timeframe is controlled by your Mastodon instance, not Home Assistant. If you do not set an idempotency key, the post is published without any duplicate check.
+{% endnote %}
+
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
