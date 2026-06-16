@@ -28,7 +28,7 @@ To get statistics from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Get Recorder statistics**.
+5. From the list of actions, search for and select **Recorder: Get Recorder statistics**.
 6. Set the options you want to use.
 7. Select **Save**.
 
@@ -43,9 +43,9 @@ End time:
   description: The end of the period to return statistics for. If omitted, all statistics from the start time onward are returned.
   required: false
 Period:
-  description: "The time period to group the statistics by. One of: 5minute, hour, day, week, month, or year."
+  description: The time period to group the statistics by. One of: 5minute, hour, day, week, month, or year.
 Types:
-  description: "The types of values to return. One or more of: change, last_reset, max, mean, min, state, or sum."
+  description: The types of values to return. One or more of: change, last_reset, max, mean, min, state, or sum.
 Units:
   description: An optional unit conversion mapping. Provide a target unit per device class to convert the statistics from the units stored in the database.
   required: false
