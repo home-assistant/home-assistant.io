@@ -43,9 +43,9 @@ End time:
   description: The end of the period to return statistics for. If omitted, all statistics from the start time onward are returned.
   required: false
 Period:
-  description: The time period to group the statistics by. One of: 5minute, hour, day, week, month, or year.
+  description: "The time period to group the statistics by. One of: 5minute, hour, day, week, month, or year."
 Types:
-  description: The types of values to return. One or more of: change, last_reset, max, mean, min, state, or sum.
+  description: "The types of values to return. One or more of: change, last_reset, max, mean, min, state, or sum."
 Units:
   description: An optional unit conversion mapping. Provide a target unit per device class to convert the statistics from the units stored in the database.
   required: false
