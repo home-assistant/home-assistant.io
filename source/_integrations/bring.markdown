@@ -77,7 +77,6 @@ Password:
 
 - **Activities:** The event entity displays the most recent activity on a Bring! shopping list, including the activity type and the profile picture of the user who performed it. There are three types of activities: *Items added* (when a user adds items to the list), *Items removed* (when a user removes items), and *Items changed* (when a user modifies item details or quantity). The event attributes provide additional details, including the list of added, removed, or modified items, the user's name, and the exact time of the activity.
 
-You can use the actions from the [to-do list](/integrations/todo/) to create, update, or delete items on your Bring! shopping lists.
 
 {% include integrations/actions.md %}
 
