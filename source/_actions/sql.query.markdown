@@ -84,7 +84,7 @@ The action returns a `result`, which is a list of rows. Each row is a mapping of
 The data returned by the database is converted to be compatible with the action response. The following conversions are applied:
 
 - `Decimal` types are converted to floats.
-- `Date` and `datetime` objects are converted to ISO 8601 formatted strings.
+- `date` and `datetime` objects are converted to ISO 8601 formatted strings.
 - `bytes` and `bytearray` are converted to a hexadecimal string prefixed with `0x`.
 - All other basic types (string, integer, float, and boolean) are returned as is.
 
