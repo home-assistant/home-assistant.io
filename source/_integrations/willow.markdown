@@ -21,15 +21,15 @@ Willow sensors periodically collect environmental and soil measurements and uplo
 
 Before setting up the integration, you will need:
 
-* A Willow account
-* At least one Willow sensor paired with your account
-* An active internet connection
+- A Willow account
+- At least one Willow sensor paired with your account
+- An active internet connection
 
 ## Supported devices
 
 The integration supports the following devices:
 
-* Willow Sensor
+- Willow Sensor
 
 ## Supported entities
 
@@ -80,9 +80,9 @@ This automation can be used to send a notification when a plant requires waterin
 
 ## Limitations
 
-* A cloud connection is required for operation.
-* Historical sensor data stored in the Willow platform is not exposed through this integration.
-* If a Willow sensor goes offline, Home Assistant retains the last successfully retrieved values until new data becomes available.
+- A cloud connection is required for operation.
+- Historical sensor data stored in the Willow platform is not exposed through this integration.
+- If a Willow sensor goes offline, Home Assistant retains the last successfully retrieved values until new data becomes available.
 
 ## Troubleshooting
 
