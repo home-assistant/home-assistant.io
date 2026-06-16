@@ -44,7 +44,7 @@ Labels:
   description: Any labels that you want to apply to this task, separated by a comma.
   required: false
 Assignee:
-  description: The username of a shared project's member to assign this task to.
+  description: The username of a member of a shared project to assign this task to.
   required: false
 Priority:
   description: The priority of this task, from 1 (normal) to 4 (urgent).
@@ -56,7 +56,7 @@ Due date language:
   description: The language of the due date string.
   required: false
 Due date:
-  description: The time this task is due, in format YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS, in UTC timezone.
+  description: The time this task is due, in the format YYYY-MM-DD or YYYY-MM-DD HH:MM, in the UTC time zone.
   required: false
 Reminder date string:
   description: When you should be reminded of this task, in natural language.
@@ -65,7 +65,7 @@ Reminder date language:
   description: The language of the reminder date string.
   required: false
 Reminder date:
-  description: When you should be reminded of this task, in format YYYY-MM-DDTHH:MM:SS, in UTC timezone.
+  description: When you should be reminded of this task, in the format YYYY-MM-DD HH:MM, in the UTC time zone.
   required: false
 {% endoptions_ui %}
 
@@ -117,7 +117,7 @@ labels:
   type: string
 assignee:
   description: >
-    The username of a shared project's member to assign this task to.
+    The username of a member of a shared project to assign this task to.
   required: false
   type: string
 priority:
@@ -138,8 +138,8 @@ due_date_lang:
   type: string
 due_date:
   description: >
-    The time this task is due, in format YYYY-MM-DD or
-    YYYY-MM-DDTHH:MM:SS, in UTC timezone. Mutually exclusive with the
+    The time this task is due, in the format YYYY-MM-DD or
+    YYYY-MM-DD HH:MM, in the UTC time zone. Mutually exclusive with the
     due date string.
   required: false
   type: string
@@ -156,8 +156,8 @@ reminder_date_lang:
   type: string
 reminder_date:
   description: >
-    When you should be reminded of this task, in format
-    YYYY-MM-DDTHH:MM:SS, in UTC timezone. Mutually exclusive with the
+    When you should be reminded of this task, in the format
+    YYYY-MM-DD HH:MM, in the UTC time zone. Mutually exclusive with the
     reminder date string.
   required: false
   type: string
