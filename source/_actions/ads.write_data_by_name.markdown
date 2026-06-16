@@ -25,7 +25,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 ADS variable:
-  description: The name of the variable to write to. To access global variables on TwinCAT2, prepend a dot, for example `.myvariable`. For TwinCAT3, use a name such as `GBL.myvariable`.
+  description: The name of the variable to write to. To access global variables on TwinCAT2, prepend a dot, for example `.myvariable`. For TwinCAT3, use a name such as `GVL.myvariable`.
   required: true
 ADS type:
   description: The data type of the variable to write to.
@@ -57,7 +57,7 @@ adsvar:
   description: >
     The name of the variable to write to. To access global variables on
     TwinCAT2, prepend a dot, for example `.myvariable`. For TwinCAT3, use a
-    name such as `GBL.myvariable`.
+    name such as `GVL.myvariable`.
   required: true
   type: string
 adstype:
