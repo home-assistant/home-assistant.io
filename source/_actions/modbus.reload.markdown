@@ -1,5 +1,5 @@
 ---
-title: Reload
+title: Reload Modbus configuration
 action: modbus.reload
 domain: modbus
 description: "Reloads the Modbus configuration from your YAML configuration."
