@@ -2,10 +2,10 @@
 title: "Send"
 action: rfxtrx.send
 domain: rfxtrx
-description: "Sends a raw event over radio with the RFXtrx device."
+description: "Sends a raw event over the radio with the RFXtrx device."
 ---
 
-Use this action to send a raw event over radio, for example to simulate a button press or control a device that is not automatically added in Home Assistant.
+Use this action to send a raw event over the radio, for example to simulate a button press or control a device that is not automatically added in Home Assistant.
 
 {% include actions/ui_header.md %}
 
@@ -40,7 +40,7 @@ action: |
     event: "0b1111e003af16aa10000060"
 {% endexample %}
 
-This simulates a button being pressed by sending the raw event over radio.
+This simulates a button being pressed by sending the raw event over the radio.
 
 ### Options in YAML
 
@@ -58,6 +58,30 @@ event:
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
+
+### Automation: control a device that is not added to Home Assistant
+
+Send a raw event to switch on a device that Home Assistant does not control directly, for example an older remote-controlled outlet, when the sun goes down.
+
+- **Trigger**: Sun: Sunset
+- **Action**: RFXCOM RFXtrx: Send
+  - **Event**: `0b1111e003af16aa10000060`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  - alias: "Switch on the porch light at sunset"
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: rfxtrx.send
+        data:
+          event: "0b1111e003af16aa10000060"
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
