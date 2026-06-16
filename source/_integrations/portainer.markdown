@@ -97,6 +97,8 @@ There is currently support for the following device types within Home Assistant:
 - **Container**: Starts or stops an individual Docker container.
 - **Stack**: Starts or stops all containers in a stack.
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 The following examples show how to use the Portainer integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
@@ -124,7 +126,6 @@ automation:
           message: "Container went down!"
 ```
 
-{% include integrations/actions.md %}
 
 ## Supported devices
 
