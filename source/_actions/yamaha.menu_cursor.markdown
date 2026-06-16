@@ -1,5 +1,5 @@
 ---
-title: "Yamaha: Menu cursor"
+title: "Menu cursor"
 action: yamaha.menu_cursor
 domain: yamaha
 description: "Controls the on-screen menu cursor of a Yamaha receiver."

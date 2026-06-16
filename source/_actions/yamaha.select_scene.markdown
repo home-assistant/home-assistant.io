@@ -1,5 +1,5 @@
 ---
-title: "Yamaha: Select scene"
+title: "Select scene"
 action: yamaha.select_scene
 domain: yamaha
 description: "Selects a scene on a Yamaha receiver."

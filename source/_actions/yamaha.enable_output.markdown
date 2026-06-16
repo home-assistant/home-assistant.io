@@ -1,5 +1,5 @@
 ---
-title: "Yamaha: Enable output"
+title: "Enable output"
 action: yamaha.enable_output
 domain: yamaha
 description: "Enables or disables an output port on a Yamaha receiver."
