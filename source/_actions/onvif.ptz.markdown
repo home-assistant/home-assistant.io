@@ -95,7 +95,6 @@ preset:
   description: The PTZ preset profile token to move to. Used with the `GotoPreset` move mode.
   required: false
   type: string
-  default: "0"
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="camera" %}
