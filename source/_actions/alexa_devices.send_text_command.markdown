@@ -4,8 +4,8 @@ action: alexa_devices.send_text_command
 domain: alexa_devices
 description: "Sends a text command to an Alexa device as if you had spoken it."
 related_actions:
-  - action: alexa_devices.send_sound
-  - action: alexa_devices.send_info_skill
+  - alexa_devices.send_sound
+  - alexa_devices.send_info_skill
 ---
 
 With this action, you can control Alexa using text commands instead of speaking to it. Anything you could ask out loud, like asking for the time, setting the volume, or controlling another device linked to Alexa, you can send as text.

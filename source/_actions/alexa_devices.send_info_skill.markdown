@@ -4,8 +4,8 @@ action: alexa_devices.send_info_skill
 domain: alexa_devices
 description: "Runs a built-in Alexa info skill, such as the date, weather, or a joke."
 related_actions:
-  - action: alexa_devices.send_text_command
-  - action: alexa_devices.send_sound
+  - alexa_devices.send_text_command
+  - alexa_devices.send_sound
 ---
 
 With this action, you can run one of Alexa's built-in info skills on a device. These are the short, everyday responses Alexa can give, such as the date, the time, a weather forecast, a flash briefing, or a joke.

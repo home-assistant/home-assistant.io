@@ -4,8 +4,8 @@ action: alexa_devices.send_sound
 domain: alexa_devices
 description: "Plays one of the built-in Alexa sounds on a device."
 related_actions:
-  - action: alexa_devices.send_text_command
-  - action: alexa_devices.send_info_skill
+  - alexa_devices.send_text_command
+  - alexa_devices.send_info_skill
 ---
 
 With this action, you can play one of the built-in Alexa sounds on a device, such as a doorbell chime, a barking dog, or a trumpet. It is a quick way to add an audible alert to your automations.
