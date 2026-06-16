@@ -59,7 +59,7 @@ config_entry_id:
 datetime:
   description: >
     The date and time to set. The time zone of your Home Assistant instance
-    is assumed. When not provided, the current date and time is used.
+    is assumed. When not provided, the current date and time are used.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -72,6 +72,29 @@ datetime:
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
+
+### Automation: keep the panel clock in sync
+
+Bosch alarm panels can drift over time. This automation re-syncs the panel clock to your Home Assistant time every night, so the panel always shows the correct date and time. Because no date and time are provided, the current Home Assistant time is used.
+
+- **Trigger**: A scheduled time
+- **Action**: Bosch Alarm: Set date & time
+
+{% details "YAML example for syncing the panel clock every night" %}
+
+{% example %}
+automation: |
+  alias: "Sync Bosch alarm panel clock"
+  triggers:
+    - trigger: time
+      at: "04:00:00"
+  actions:
+    - action: bosch_alarm.set_date_time
+      data:
+        config_entry_id: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
