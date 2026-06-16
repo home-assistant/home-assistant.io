@@ -113,9 +113,10 @@ Yoto players can switch between a day display and a night display. Each player p
 
 ### Switches
 
-- **Automatic brightness**: Lets the display set its own brightness. Available for day and night mode, on players with a light sensor.
-- **Bluetooth pairing**: Turns on the player's Bluetooth to pair with audio devices.
+- **Bluetooth pairing**: Enables Bluetooth so you can pair an audio device.
 - **Maximum headphone volume**: Limits the volume when headphones are connected.
+- **Day mode automatic brightness**: Automatically adjusts the display brightness in day mode (only available on players with a light sensor). Turning this off sets the brightness to 100%.
+- **Night mode automatic brightness**: Automatically adjusts the display brightness in night mode (only available on players with a light sensor). Turning this off sets the brightness to 100%.
 
 ### Binary sensors
 
