@@ -58,6 +58,7 @@ enabled:
   description: >
     Whether sleep mode should be enabled.
   required: true
+  default: true
   type: boolean
 start_time:
   description: >
