@@ -46,11 +46,11 @@ In YAML, refer to this action as `immich.upload_file`:
 action: |
   action: immich.upload_file
   data:
-    config_entry_id: 01JVJ0RA387MWA938VE8HGXBMJ
+    config_entry_id: YOUR_CONFIG_ENTRY_ID
     file:
       media_content_id: "media-source://media_source/local/photo.jpg"
       media_content_type: "image/jpeg"
-    album_id: f2de0ede-d7d4-4db3-afe3-7288f4e65bb1
+    album_id: YOUR_ALBUM_ID
 {% endexample %}
 
 This uploads a local photo to the selected Immich instance and places it in the given album.
