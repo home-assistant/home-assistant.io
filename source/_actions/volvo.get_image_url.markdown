@@ -19,7 +19,7 @@ To get image URLs from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Volvo: Get image URL**.
 6. Select the **Entry** for the vehicle you want the images for.
-7. Optionally, select one or more **Images** angles. Leave this empty to get all images.
+7. Optionally, select one or more image angles in **Images**. Leave this empty to get all images.
 8. Select **Save**.
 
 ### Options in the UI
