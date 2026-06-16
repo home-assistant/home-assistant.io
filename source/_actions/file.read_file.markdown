@@ -46,9 +46,7 @@ action: |
     file_encoding: JSON
   response_variable: file_content
 {% endexample %}
-
-This reads `myfile.json` and stores its parsed contents in the `file_content` variable.
-
+This reads `myfile.json` and stores the response in the `file_content` variable. The parsed file contents are in `file_content.data`.
 ### Options in YAML
 
 {% options_yaml %}
@@ -83,10 +81,6 @@ data:
   gps_accuracy: 1.2
 ```
 
-## Good to know
-
-- The file path must be added to your [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in {% term "`configuration.yaml`" %}. Otherwise, the action cannot access the file.
-- Only an administrator can run this action.
 
 {% include actions/try_it.md %}
 
