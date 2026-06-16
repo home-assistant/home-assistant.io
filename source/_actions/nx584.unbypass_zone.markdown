@@ -38,7 +38,7 @@ In YAML, refer to this action as `nx584.unbypass_zone`. A basic example looks li
 action: |
   action: nx584.unbypass_zone
   target:
-    entity_id: alarm_control_panel.house
+    entity_id: alarm_control_panel.home_alarm
   data:
     zone: 12
 {% endexample %}
