@@ -65,6 +65,33 @@ bonus_time:
 
 {% include actions/more_examples.md %}
 
+### Automation: Reward bonus time when chores are done
+
+This automation grants 15 minutes of extra screen time whenever a helper that tracks finished chores is switched on.
+
+- Trigger: the chores-done helper turns on
+- Action: add bonus time to the Nintendo Switch
+  - Device: the child's Nintendo Switch
+  - Bonus time: `15`
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Bonus screen time for finished chores"
+  triggers:
+    - trigger: state
+      entity_id: input_boolean.chores_done
+      to: "on"
+  actions:
+    - action: nintendo_parental_controls.add_bonus_time
+      data:
+        device_id: 1b4a46c6d0f3406c80d275f5b0c6483b
+        bonus_time: 15
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
