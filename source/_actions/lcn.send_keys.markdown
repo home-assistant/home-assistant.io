@@ -2,7 +2,7 @@
 title: "Send keys"
 action: lcn.send_keys
 domain: lcn
-description: "Sends keys, which executes bound commands."
+description: "Sends keys, which execute bound commands."
 related_actions:
   - lcn.lock_keys
   - lcn.pck
