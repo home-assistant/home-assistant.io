@@ -21,7 +21,7 @@ To send a Matrix message from an automation or a script:
 6. Enter the **Message** and the **Target** room or rooms. Optionally, set extra options under **Data**.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support action targets. In the UI, you set the room in the **Target** field instead of selecting an area, device, entity, or label.
 
 ### Options in the UI
 
@@ -46,7 +46,8 @@ action: |
   action: matrix.send_message
   data:
     message: "My cool message"
-    target: "#hasstest:matrix.org"
+    target:
+      - "#hasstest:matrix.org"
     data:
       images:
         - "/path/to/picture.jpg"
