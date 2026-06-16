@@ -1,9 +1,9 @@
 ---
 title: "Introduction to dashboards"
-description: "Dashboards overview and instructions on editing the dashboard for the first time"
+description: "Dashboards are how you see and control your smart home in Home Assistant. Build them visually, no coding required."
 ---
 
-Dashboards are customizable pages that display information about your smart home devices.
+Dashboards are how you see and control your smart home in Home Assistant. They are made up of cards and views, and you can build them visually with drag and drop, so no coding is required.
 
 ## Types of dashboards
 
@@ -24,28 +24,10 @@ A card is an element of the User Interface that shows information about a smart 
 
 A view is a tab inside a dashboard that displays cards in a specific layout. The layout is determined by the view type. A dashboard can have one or many views and, for each view, you can choose the cards that you want to display, and in which view type. For more information on views and how to edit them, refer to the [Views](/dashboards/views/) page.
 
-The screenshot below shows an **Overview** dashboard with many cards that represent:
-
-- {% term sensor %} values, such as:
-  - the status of some lights
-  - a media player
-  - some temperature values
-- control elements that allow you to:
-  - change the ventilation.
-  - change the color of the lights.
-  - turn on a smart TV and start YouTube.
-
-The cards in the screenshot are displayed in a [masonry view](/dashboards/masonry/). In the upper blue menu bar, each icon represents a different tab, that is, a view.
+The cards in the following screenshot are displayed in a [sections view](/dashboards/sections/) of a dashboard. In the upper menu bar, each icon represents a different tab, that is, a view.
 
 <p class='img'>
-<img src='/images/getting-started/lovelace.png' alt='Screenshot of a populated Overview dashboard in masonry view'>
-Screenshot of a populated Overview dashboard in masonry view layout.
-</p>
-
-The following screenshot shows a fully populated dashboard in a [sections view](/dashboards/sections/).
-
-<p class='img'>
-    <img src="/images/dashboards/section_view.png" alt="A fully populated dashboard in Sections view layout"/>
+    <img src="/images/dashboards/sections_view.png" alt="A fully populated dashboard in sections view layout"/>
     A fully populated dashboard in the sections view layout
 </p>
 
@@ -53,37 +35,31 @@ The following screenshot shows a fully populated dashboard in a [sections view](
 
 The **Overview** [dashboard](/dashboards/) is the first page you see after the [onboarding process](/getting-started/onboarding).
 
-If you just onboarded, your dashboard will be nearly empty. It has the [masonry view](/dashboards/masonry/) layout and shows cards for devices that were detected automatically. Your dashboard may look quite different, depending on the smart devices that you have at home.
+If you just onboarded, your dashboard will be nearly empty. It has the [sections view](/dashboards/sections/) layout and shows cards for devices that were detected automatically.
 
-<p class='img'>
-<img src='/images/getting-started/onboarding_dashboard_raspi_bluetooth.png' alt='Screenshot of the Overview dashboard with Bluetooth devices'>
-Screenshot of a new Overview dashboard with Bluetooth devices.
-</p>
+The following cards appear automatically on your **Overview** dashboard:
 
-Let's take a look at the devices that were detected and which cards are used to represent them on the dashboard.
+- An [entities](/dashboards/entities/) card of the person defined as the Home Assistant owner. It presents the name and the {% term state %} of the person.
+  - You can track whether a person is present or not and create automations based on that. For example, turn down the heating when everyone has left home. For more information on automations based on presence, start with [presence detection](/getting-started/presence-detection/).
+- A [weather forecast](/dashboards/weather-forecast/) card of the weather for your location, if you provided it during onboarding.
 
-- 1 Sonos speaker: [media control](/dashboards/media-control/) card
-- 1 person (away): [entities](/dashboards/entities/) card
-- 1 weather forecast: [weather forecast](/dashboards/weather-forecast/) card
-- 2 temperature sensors: [entities](/dashboards/entities/) card
+Your dashboard may look quite different, depending on the smart devices that you have at home. For example, if you have the following devices, they will be detected:
 
-### Sonos speaker
+- A smart speaker connected to Wi-Fi, such as a Sonos speaker.
+  - Result: a [media control](/dashboards/media-control/) card will be displayed on your **Overview** dashboard.
+- Bluetooth temperature sensors and a Bluetooth module in Home Assistant.
+  - Result: [entities](/dashboards/entities/) cards will be shown on your **Overview** dashboard.
+  - Note that, if your Home Assistant does not have a Bluetooth module yet, the Bluetooth devices that you have in your home won't be shown automatically.
+- Light sensors.
+  - Result: [entities](/dashboards/entities/) cards will be shown on your **Overview** dashboard with the status of some lights.
 
-If you have a smart speaker connected to Wi-Fi, for example, this can be detected.
+If your Home Assistant has other controllers, such as a [Zigbee](/integrations/zha/) or a [Z-Wave](/integrations/zwave_js/) controller, and you have Zigbee or Z-Wave devices, these could be detected and shown on the **Overview** dashboard. There you will have cards representing control elements that allow you, for example, to:
 
-### Person
+- Change the ventilation.
+- Change the color of the lights.
+- Turn on a smart TV and start YouTube.
 
-After onboarding, the first person shown here is the Home Assistant owner. Next to the name, it claims the person is **away**. You can track whether a person is present or not and create automations based on that. For example, turn down the heating when everyone has left the home. For more information on presence based automations, start with [presence detection](/getting-started/presence-detection/).
-
-### Weather forecast
-
-The weather forecast card is shown automatically if you provided a location during onboarding.
-
-### Temperature sensors
-
-The temperature sensors are shown because the Home Assistant device used here (Raspberry Pi) has a built-in Bluetooth module. In Giulia's home, there were 2 Bluetooth temperature sensors. If your Home Assistant does not have a Bluetooth module (yet), Bluetooth devices in your home won't be shown automatically.
-
-If your Home Assistant has other controllers, such as a [Zigbee](/integrations/zha/) or a [Z-Wave](/integrations/zwave_js/) controller, and you have Zigbee or Z-Wave devices, these could be detected and shown here. However, these devices usually need to be paired first.
+However, these devices usually need to be paired first.
 
 ## Creating a new dashboard
 

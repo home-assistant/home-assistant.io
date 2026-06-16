@@ -183,7 +183,6 @@ Send a notification when the air quality exceeds a specified threshold.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 alias: "Airobot Air Quality Alert"
@@ -204,7 +203,9 @@ conditions:
     }}
 
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Poor Air Quality"
       message: >-
@@ -213,7 +214,6 @@ actions:
 
 ```
 
-{% endraw %}
 
 {% enddetails %}
 

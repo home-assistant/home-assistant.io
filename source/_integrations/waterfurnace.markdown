@@ -2,15 +2,17 @@
 title: WaterFurnace
 description: Instructions on how to integrate WaterFurnace Geothermal System into Home Assistant.
 ha_category:
+  - Climate
   - Sensor
 ha_release: 0.62
 ha_iot_class: Cloud Polling
 ha_domain: waterfurnace
 ha_platforms:
+  - climate
   - sensor
 ha_integration_type: device
 ha_config_flow: true
-ha_quality_scale: legacy
+ha_quality_scale: bronze
 ha_codeowners:
   - '@sdague'
   - '@masterkoppa'
@@ -18,12 +20,21 @@ ha_codeowners:
 
 The **WaterFurnace** {% term integration %} communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
 
-The sensors provided include:
+## Climate
+
+The integration creates a {% term climate %} entity for each geothermal system found in your account. You can use this entity to set the target temperature, humidity setpoint, and HVAC mode directly from Home Assistant.
+
+Setting the unit to E-Heat mode is not currently supported. If you need to use E-Heat, you can set it through the thermostat, Symphony website, or Symphony app.
+
+## Sensors
+
+The integration exposes the following sensors (if available):
 
 - Thermostat Setpoint
 - Thermostat Current Temp
 - Leaving Air Temp
-- Entering Water Loop Temp
+- Entering / Leaving Water Loop Temp
+- Water Flow Rate
 - Current Humidity
 - Current Humidity Setpoint
 - Total system power (in Watts)
@@ -35,8 +46,11 @@ The sensors provided include:
 - Compressor Speed
 - Fan Speed
 
-## Configuration
+## Energy
 
+The integration is also able to track historic energy use. You can track the total energy consumption in the energy dashboard. This data is refreshed every 2 hours, so your energy use may lag behind.
+
+On first setup, the integration tries to fetch the last 13 months of available data. This can take up to 40 minutes to complete.
 
 ## Prerequisites
 
@@ -57,8 +71,6 @@ password:
 
 ## Limitations
 
-If your account has more than one device or location, only the first device on the first location will be used.
+If your account has more than one location, only devices in the first location will be available.
 
 The WebSocket interface used by this module requires active polling to prevent the server side shuts down the connection. By default, this polling is happening every 10 seconds. All sensors are updated during every polling cycle.
-
-While this is communicating with a thermostat, geothermal systems operate most efficiently when setbacks are not used, and the home is kept at a constant temperature. It remains useful to collect the data from the system to understand its performance, but a full climate interface won't be implemented.

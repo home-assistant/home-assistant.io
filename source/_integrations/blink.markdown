@@ -37,13 +37,13 @@ You will need your Blink login information (username, which is usually your emai
 
 ## Configuration
 
-The preferred method for setting this up is by using the configuration flow. Go to the integrations page in your configuration and click on new integration -> Blink.  When you are prompted for your pin, there are (currently) two possibilities:
+The preferred method for setting this up is by using the configuration flow. Go to the integrations page in your configuration and click on new integration -> Blink. When you are prompted for your pin, there are (currently) two possibilities:
 
-1. You are sent an email asking for you to allow Home Assistant to access Blink.  In this case, leave the pin field blank and hit `Submit`.
+1. You are sent an email asking for you to allow Home Assistant to access Blink. In this case, leave the pin field blank and hit `Submit`.
 
-2. You are sent an email or SMS containing a 2FA pin.  In this case, please enter the pin and hit `Submit`.
+2. You are sent an email or SMS containing a 2FA pin. In this case, please enter the pin and hit `Submit`.
 
-Your integration will then set up.  Given that setup is asynchronous, you may see your sensors before they have finished extracting data from the Blink servers.  After a few minutes (at most) this information should populate.
+Your integration will then set up. Given that setup is asynchronous, you may see your sensors before they have finished extracting data from the Blink servers. After a few minutes (at most) this information should populate.
 
 Once Home Assistant starts and you authenticate access, the `blink` integration will create the following platforms (note: Blink Mini cameras do not currently support any of the sensors, nor the battery status binary sensor):
 
@@ -53,9 +53,9 @@ Once Home Assistant starts and you authenticate access, the `blink` integration 
 - A `binary_sensor` motion detection, camera armed status, and battery status.
 - A `switch` per camera to enable/disable motion detection
 
-Since the cameras are battery operated, polling must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  If an alternate polling rate is desired, disable the "enable poll for updates" option in the Blink integration system options and poll with `homeassistant.update_entity` action. The cameras can be also manually updated via the `trigger_camera` action. As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
+Since the cameras are battery operated, polling must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests. If an alternate polling rate is desired, disable the "enable poll for updates" option in the Blink integration system options and poll with `homeassistant.update_entity` action. The cameras can be also manually updated via the `trigger_camera` action. As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
-Please note that each camera reports two different states: one as `sensor.blink_<camera_name>_status` and the other as `binary_sensor.blink_<camera_name>_motion_enabled`. The `motion_enabled` property reports if the `camera` is ready to detect motion **regardless if the system is actually armed**.
+Each camera reports two different states: one as `sensor.blink_<camera_name>_status` and the other as `binary_sensor.blink_<camera_name>_motion_enabled`. The `motion_enabled` property reports if the `camera` is ready to detect motion **regardless if the system is actually armed**.
 
 ## Actions
 
@@ -112,7 +112,7 @@ The following are some examples showing how to correctly perform an action using
 
 ### Snap picture and save locally
 
-This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in Home Assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of actions found in the [camera integration](/integrations/camera#action-snapshot)
+This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in Home Assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example uses actions found in the [camera integration](/integrations/camera#action-snapshot)
 
 ```yaml
 alias: "Blink Snap Picture"
@@ -129,7 +129,7 @@ sequence:
 
 ### Arm Blink when away
 
-This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled.  By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set.  If you want to manually enable motion detection for individual cameras, you can utilize the [appropriate camera action](/integrations/camera#action-enable_motion_detection) but please note that motion will only be captured if the sync module is armed.
+This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled. By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set. If you want to manually enable motion detection for individual cameras, you can use the [appropriate camera action](/integrations/camera/#action-enable-motion-detection) but motion will only be captured if the sync module is armed.
 
 Here, this example assumes your blink module is named `My Sync Module` and that you have [device trackers](/integrations/device_tracker) set up for presence detection.
 
@@ -165,9 +165,8 @@ Similar to the previous example, this automation will disarm blink when arriving
 
 When motion is detected, you can use the Blink Home Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
 
-The following example assumes your camera's name (in the Blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/configuration/templating/).
+The following example assumes your camera's name (in the Blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/templating/).
 
-{% raw %}
 
 ```yaml
 - alias: "Save Blink Video on Motion"
@@ -183,7 +182,6 @@ The following example assumes your camera's name (in the Blink app) is `My Camer
          filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
 ```
 
-{% endraw %}
 
 ### Save all recent clips locally on a schedule
 

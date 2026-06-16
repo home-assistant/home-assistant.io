@@ -57,7 +57,7 @@ All prices are displayed as `[Currency]/kWh`.
 Data is polled from the **Nord Pool** API on an hourly basis, exactly on the hour, to ensure the price sensors are displaying the correct price.
 
 If polling cannot happen because of no connectivity or a malfunctioning API, it will wait a retry a few times before failing.
-The user can use the [`homeassistant.update_entity`](homeassistant#action-homeassistantupdate_entity) action to manually try again later, in the case the user has solved the connectivity issue.
+The user can use the [`homeassistant.update_entity`](/integrations/homeassistant/#action-update-entity) action to manually try again later, in the case the user has solved the connectivity issue.
 
 ## Troubleshooting
 
@@ -111,6 +111,7 @@ The block price sensors are not enabled by default.
 | Currency                  | [Currency]        | The configured currency.                                                          |
 | Exchange rate             | Decimal           | The exchange rate between the configure currency and Euro's.                      |
 | Last updated              | Datetime          | The time when the market prices were last updated.                                |
+| Tomorrow price available  | Binary            | True or False if tomorrow's price is available                                    |
 
 ## Actions
 
@@ -130,7 +131,7 @@ Date:
 Areas:
   description: Select one market area to create output for. If omitted it will use the areas from the configuration entry.
 Currency:
-  description: Currency to display prices in. EUR is the base currency in Nord Pool prices.  If omitted it will use the currency from the configuration entry.
+  description: Currency to display prices in. EUR is the base currency in Nord Pool prices. If omitted it will use the currency from the configuration entry.
 {% endconfiguration_basic %}
 
 {% note %}
@@ -149,8 +150,6 @@ You can get your `config_entry` by using actions within the [developer tools](/d
 
 #### Example action with data
 
-{% raw %}
-
 ```yaml
 action: nordpool.get_prices_for_date
 data:
@@ -161,8 +160,6 @@ data:
     - SE4
   currency: SEK
 ```
-
-{% endraw %}
 
 ### Get price indices for date
 
@@ -199,8 +196,6 @@ You can get your `config_entry` by using actions within the [developer tools](/d
 
 #### Example action with data
 
-{% raw %}
-
 ```yaml
 action: nordpool.get_prices_for_date
 data:
@@ -211,8 +206,6 @@ data:
     - SE4
   currency: SEK
 ```
-
-{% endraw %}
 
 ## Examples
 
@@ -237,8 +230,6 @@ The template below takes the current price attributes, adds 0.1293 EUR as fixed 
 
 A template sensor to add VAT and a fixed cost from an helper entity `input_number.add_fixed_cost`.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
@@ -254,8 +245,6 @@ template:
           {{ ((cost + add_cost) * 1.25) | round(2, default=0) }}
 ```
 
-{% endraw %}
-
 ### Tomorrow's lowest price
 
 Using a trigger template, you can create a template sensor to calculate tomorrow's lowest price which also puts the list of all prices in the attributes of the sensor. All prices are returned in [Currency]/MWh.
@@ -269,8 +258,6 @@ Below example will convert the action call response to kWh prices in the selecte
 {% tip %}
 You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
 {% endtip %}
-
-{% raw %}
 
 ```yaml
 template:
@@ -304,8 +291,6 @@ template:
             {% endfor %}
             {{data.prices}}
 ```
-
-{% endraw %}
 
 <p class='img'>
   <img src='/images/integrations/nordpool/nordpool_tomorrow_lowest_price.png' alt='Screenshot: Trigger template: Tomorrow lowest price'>

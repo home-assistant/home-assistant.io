@@ -75,7 +75,7 @@ interrupt: 1
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided. |
-| `icon`                 |      yes | Groups the attributes for icon upload.  It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided.  |
+| `icon`                 |      yes | Groups the attributes for icon upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided.  |
 | `path`                 |      yes | Local path of an image file. Is placed inside `image`, `icon`, or both.
 | `url`                  |      yes | URL of an image file. Is placed inside `image`, `icon` or both.
 | `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.
@@ -113,8 +113,6 @@ icon:
 
 Example of an automation with an action, full configuration:
 
-{% raw %}
-
 ```yaml
 action: notify.living_room_tv
 data:
@@ -129,6 +127,4 @@ data:
     interrupt: 0
 ```
 
-{% endraw %}
-
-Please note that `path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.
+`path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.

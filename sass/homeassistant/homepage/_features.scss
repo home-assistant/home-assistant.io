@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 .feature-cards {
   display: grid;
   letter-spacing: normal;
@@ -56,7 +59,7 @@
 
 .sub-title {
   font-family: $heading-font;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 800;
   line-height: normal;
   letter-spacing: -1.92px;
@@ -74,7 +77,7 @@
   }
 
   .sub-title {
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 1.1 !important;
     margin-bottom: 32px !important;
   }

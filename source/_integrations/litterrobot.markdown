@@ -19,6 +19,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - select
   - sensor
   - switch
@@ -26,7 +27,7 @@ ha_platforms:
   - update
   - vacuum
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Whisker** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
@@ -62,7 +63,7 @@ Password:
 | Pet weight                    | `sensor`        | Displays the last measured pet weight, only for Litter-Robot 4.                                             |
 | Sleep mode start time         | `sensor`        | When sleep mode is enabled, displays the current or next sleep mode start time.                             |
 | Sleep mode end time           | `sensor`        | When sleep mode is enabled, displays the current or last sleep mode end time.                               |
-| Status code                   | `sensor`        | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc.).                               |
+| Status code                   | `sensor`        | Displays the status code (such as Clean Cycle in Progress, Ready, or Drawer Full).                               |
 | Total cycles                  | `sensor`        | Displays the total cycles.                                                                                  |
 | Waste drawer                  | `sensor`        | Displays the current waste drawer level.                                                                    |
 | Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |

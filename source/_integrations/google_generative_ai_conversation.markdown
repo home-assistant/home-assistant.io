@@ -32,7 +32,7 @@ related:
 
 The **Google Gemini** {% term integration %} adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Gemini](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -53,7 +53,7 @@ Comparison of the plans is available [at this pricing page](https://ai.google.de
 
 {% configuration_basic %}
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 Recommended settings:
@@ -97,8 +97,6 @@ But you can do the following workaround that exposes a script to voice assistant
 9. Create a script (**Settings** > **Automations & scenes** > **Scripts** > **Create script**)
 10. Select 3 dots > **Edit in YAML** and enter the following (edit the `conversation.google_generative_ai_2` to match the entity created from the 1st step):
 
-{% raw %}
-
 ```yaml
 sequence:
   - action: conversation.process
@@ -117,7 +115,7 @@ description: >-
   Makes a Google search to answer questions that are completely unrelated with
   the smart home and are exclusively about current events or information in
   real-time like the current president, results of last night's game, release
-  dates, etc.
+  dates.
 fields:
   query:
     selector:
@@ -126,8 +124,6 @@ fields:
     description: The query to search Google for
     required: true
 ```
-
-{% endraw %}
 
 11. Select **Save script**
 12. Select 3 dots > **Settings** > **Voice assistants**
@@ -149,15 +145,13 @@ The tutorial is using OpenAI, but this could also be done with the Google Gemini
 This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
 {% endtip %}
 
-Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (images, PDFs, etc.).
+Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (such as images or PDFs).
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated content.
 
 | Data attribute | Optional | Description                                          | Example             |
 | -------------- | -------- | ---------------------------------------------------- | ------------------- |
 | `prompt`       | no       | The prompt for generating the content.               | Describe this image |
 | `filenames`    | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
-
-{% raw %}
 
 ```yaml
 action: google_generative_ai_conversation.generate_content
@@ -170,13 +164,9 @@ data:
 response_variable: generated_content
 ```
 
-{% endraw %}
-
 The response data field `text` will contain the generated content.
 
 Another example with multiple images:
-
-{% raw %}
 
 ```yaml
 action: google_generative_ai_conversation.generate_content
@@ -192,8 +182,6 @@ data:
 response_variable: generated_content
 ```
 
-{% endraw %}
-
 ### Speak
 
 The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the Google Gemini TTS entity, select the media player entity or group to send the TTS audio to, and enter the message to speak.
@@ -203,8 +191,6 @@ Text-to-speech (TTS) generation is controllable, meaning you can use natural lan
 For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#service-speak) building block page.
 
 In YAML, your action will look like this:
-
-{% raw %}
 
 ```yaml
 action: tts.speak
@@ -216,8 +202,6 @@ data:
   options:
     voice: <voice-name>
 ```
-
-{% endraw %}
 
 You can configure the following options:
 

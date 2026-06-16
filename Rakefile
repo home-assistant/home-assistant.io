@@ -42,6 +42,8 @@ task :generate do
   abort("Generating language scores data failed") unless success
   success = system "rake codeowners_data"
   abort("Extracting codeowners") unless success
+  success = system "rake wwha_data"
+  abort("Generating WWHA device data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -83,6 +85,7 @@ task :preview, :listen do |t, args|
   system "rake language_scores_data"
   system "rake codeowners_data"
   system "rake alerts_data"
+  system "rake wwha_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -136,6 +139,17 @@ task :language_scores_data do
   remote_data = JSON.parse(Net::HTTP.get(uri))
 
   File.open("#{source_dir}/_data/language_scores.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Download device data from works-with.home-assistant.io"
+task :wwha_data do
+  uri = URI('https://works-with.home-assistant.io/devices.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/wwha_devices.json", "w") do |file|
     file.write(JSON.generate(remote_data))
   end
 end

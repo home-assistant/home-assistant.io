@@ -52,7 +52,7 @@ Remote path:
   type: string
 {% endconfiguration_basic %}
 
-If both `Password` and `Private Key File` are provided, service will try to login with private key first, then fallback to password-based authentication if private key authentication fails.
+If both `Password` and `Private Key File` are provided, service will try to log in with private key first, then fallback to password-based authentication if private key authentication fails.
 
 ## Removing the integration
 

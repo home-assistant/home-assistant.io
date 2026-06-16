@@ -47,7 +47,7 @@ The LinkPlay integration makes various custom actions available in addition to t
 The `linkplay.play_preset` action plays a preset on a LinkPlay media player. 
 
 {% note %}
-Companion apps, such as 4stream, allow to save music presets (for example, Spotify playlists). This action can be used to start playing these presets. 
+Companion apps, such as 4stream, allow you to save music presets (for example, Spotify playlists). This action can be used to start playing these presets. 
 {% endnote %}
 
 | Data attribute | Optional | Description |

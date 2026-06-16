@@ -45,7 +45,7 @@ Configure motionEye webhooks to report events to Home Assistant:
 Overwrite unrecognized webhooks:
   description: Whether or not to overwrite webhooks that are already configured and are not recognized as belonging to this integration (webhooks are deemed to belong to this integration if they contain `src=hass-motioneye` in the query string).
 Stream URL template:
-  description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below. This option is only shown to users who have [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) enabled.
+  description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below.
 {% endconfiguration_basic %}
 
 ## Usage
@@ -68,7 +68,7 @@ Stream URL template:
 #### Camera MJPEG Streams
 
 In order for the MJPEG streams to function they need to be accessible at
-`<motioneyehost>:<streaming port>`, i.e. Home Assistant will directly connect to the streaming port
+`<motioneyehost>:<streaming port>`, that is, Home Assistant will directly connect to the streaming port
 that is configured in the `motionEye` UI (under `Video Streaming`) on the host that the
 motionEye integration is configured to use.
 
@@ -240,7 +240,7 @@ Parameters:
 | `entity_id` `device_id` | An entity id or device id to trigger the action on.                                                                                                                                                                                                      |
 | `action`                | A string representing the motionEye action to trigger. One of `snapshot`, `lock`, `unlock`, `light_on`, `light_off`, `alarm_on`, `alarm_off`, `up`, `right`, `down`, `left`, `zoom_in`, `zoom_out`, `preset1`-`preset9`, `record_start` or `record_stop` |
 
-**Note**: `record_start` and `record_stop` action are only partially implemented in motionEye itself and thus do not function as would be expected at this time ([relevant code](https://github.com/ccrisan/motioneye/blob/dev/motioneye/handlers.py#L1741)).
+**Note**: `record_start` and `record_stop` action are only partially implemented in motionEye itself and thus do not function as would be expected ([relevant code](https://github.com/ccrisan/motioneye/blob/dev/motioneye/handlers.py#L1741)).
 
 ### motioneye.set_text_overlay
 
@@ -279,7 +279,7 @@ Browser".
 
 ### Manually Configured Root Directories
 
-Whilst this integration allows drilling down into the media for each camera separately,
+While this integration allows drilling down into the media for each camera separately,
 underneath motionEye is using the directory structure to associate media items to each
 individual camera. Thus if multiple cameras are manually configured to share the same
 root directory, motionEye will return the _combination_ of the media items when any one

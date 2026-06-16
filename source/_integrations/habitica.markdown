@@ -55,7 +55,7 @@ The Habitica integration lets you automate task management, such as creating to-
 
 {% include integrations/config_flow.md %}
 
-### Login to Habitica
+### Log in to Habitica
 
 {% configuration_basic %}
 "Email or username":
@@ -135,7 +135,7 @@ The following {% term calendars %} will be created:
 
 ## Button controls for class skills
 
-If you've unlocked the class system, button controls for casting player and party skills will become available, depending on the class you've selected. For task skills see [action `habitica.cast_skill`](#action-habiticacast_skill)
+If you've unlocked the class system, button controls for casting player and party skills will become available, depending on the class you've selected. For task skills see [action `habitica.cast_skill`](#action-cast-skill)
 
 ### Mage
 
@@ -490,8 +490,6 @@ Automatically accepts quest invitations from your Habitica party and creates a p
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -514,8 +512,6 @@ actions:
         for other party members to join{% endif %}.
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% note %}
@@ -529,8 +525,6 @@ Automatically create a Habitica to-do when the dishwasher finishes its cycle.
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-create-to-do-when-dishwasher-finishes-its-cycle/786625" %}
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -548,8 +542,6 @@ actions:
     target:
       entity_id: todo.habitica_to_dos
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

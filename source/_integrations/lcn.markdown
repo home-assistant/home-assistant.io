@@ -124,7 +124,7 @@ If module scanning fails or a module is unavailable on the bus, you can manually
 To delete a single device, select the trash can icon next to it.
 - **Result**: This will remove the device from the device list and from Home Assistant, including any associated entities.
 
-To delete multiple devices at once, enable selection mode.  Select the desired entries, then, in the top-right corner, select  **Delete Selected**.
+To delete multiple devices at once, enable selection mode. Select the desired entries, then, in the top-right corner, select  **Delete Selected**.
 
 ### Configuring entities
 
@@ -251,8 +251,6 @@ Example:
 This example shows how the `event_data` can be extracted and used in a condition using Home Assistant's templating engine.
 Trigger on a transponder event and ensure that the received code is in the given list:
 
-{% raw %}
-
 ```yaml
 automation:
   triggers:
@@ -262,8 +260,6 @@ automation:
   actions:
     ...
 ```
-
-{% endraw %}
 
 Further examples can be found in the [event section](#events).
 
@@ -450,22 +446,20 @@ For an explanation of the attributes refer to the corresponding [events](#events
 
 ## Actions
 
-In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
+To directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
 Refer to the [Performing actions](/docs/scripts/service-calls) page for examples on how to use them.
 
 When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant.
 
 {% tip %}
-A simple method to obtain the `device_id` for LCN modules in automations and scripts is to use a template with the `device_id()` function as detailed [here](/docs/configuration/templating/#devices). This allows for finding the `device_id` using the module name as shown in the frontend or configured in the LCN-PRO software.
+A simple method to obtain the `device_id` for LCN modules in automations and scripts is to use a template with the `device_id()` function as detailed [here](/template-functions/#device). This allows for finding the `device_id` using the module name as shown in the frontend or configured in the LCN-PRO software.
 
-{% raw %}
 ```yaml
 action: lcn.pck
 data:
   device_id: "{{ device_id('Module name') }}"
   pck: PIN4
 ```
-{% endraw %}
 
 {% endtip %}
 

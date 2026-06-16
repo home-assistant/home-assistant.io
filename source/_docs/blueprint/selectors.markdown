@@ -22,6 +22,7 @@ The following selectors are currently available:
 - [Assist pipeline selector](#assist-pipeline-selector)
 - [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
+- [Choose selector](#choose-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Condition selector](#condition-selector)
 - [Config entry selector](#config-entry-selector)
@@ -52,6 +53,7 @@ The following selectors are currently available:
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
 - [Trigger selector](#trigger-selector)
+  - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -201,6 +203,12 @@ multiple:
   type: boolean
   default: false
   required: false
+reorder:
+  description: >
+    Allows reordering of areas (only applies if `multiple` is set to `true`).
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of this selector is the area ID, or (in case `multiple` is set to
@@ -312,6 +320,53 @@ boolean:
 
 The output of this selector is `true` when the toggle is on, `false` otherwise.
 
+## Choose selector
+
+The choose selector allows you to present multiple selectors to the user for a
+single field, and the user can pick a desired selector and enter a value using that selection.
+
+![Screenshot of a choose selector](/images/blueprints/selector-choose.png)
+
+```yaml
+choose:
+```
+{% configuration choose %}
+choices:
+  description: >
+    A dictionary of choices for the choose option. Each key in the
+    dictionary represents one selector choice, and the string value of the
+    key will be displayed in the selector picker. Each entry is itself
+    another dictionary, with one mandatory key of "selector", and the value
+    of that key is any other valid selector definition.
+  type: map
+  required: true
+{% endconfiguration %}
+
+The output of a choose selector is an object with one key called 'active_choice' representing which selector was chosen, and one key per selector choice representing the value entered for that choice.
+
+### Example choose selector <!-- omit from toc -->
+
+An example choose selector that allows user to either select an icon from a dropdown, or enter an arbitrary template.
+
+```yaml
+choose:
+  choices:
+    Icon:
+      selector:
+        icon: {}
+    Template:
+      selector:
+        template: {}
+```
+
+Following this example, if the user entered a value in both selectors, but submitted with 'Icon' option selected, the output might be:
+
+```yaml
+active_choice: Icon
+Icon: mdi:light
+Template: "{{ something else }}"
+```
+
 ## Color temperature selector
 
 The color temperature selector allows you to select a color temperature from a gradient using a slider.
@@ -388,9 +443,16 @@ The output of this selector is the entry ID of the config entry, for example, `6
 
 ## Constant selector
 
-The constant selector shows a toggle that allows you to enable the selected option.
+The constant selector, when used in an optional setting, shows a toggle that allows
+you to enable the selected option.
 This is similar to the [boolean selector](#boolean-selector), the difference
 is that the constant selector has no value when it's not enabled.
+
+{% note %}
+A constant selector is only useful in a context where selectors may be designated as
+optional, such as in an action schema or script field. It is not recommended for blueprints
+because they do not have optional inputs, so the selector cannot be toggled.
+{% endnote %}
 
 ![Screenshot of a constant selector](/images/blueprints/selector-constant.png)
 
@@ -1585,8 +1647,7 @@ target:
 
 ## Template selector
 
-The template selector can be used to input a Jinja2 template. This is useful
-for allowing more advanced user-input that use Jinja2 templates.
+The template selector can be used to input a Jinja2 template. This is useful when a fixed value is not enough and the input needs to reference entity states, respond to conditions, or perform calculations.
 
 ![Screenshot of an template selector](/images/blueprints/selector-template.png)
 

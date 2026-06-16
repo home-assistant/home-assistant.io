@@ -1,6 +1,6 @@
 ---
 title: Universal Devices ISY/IoX
-description: Instructions on how to setup an ISY controller within Home Assistant.
+description: Instructions on how to set up an ISY controller within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
@@ -87,7 +87,7 @@ Integer and State Variables from the ISY are imported as `number` entities. You 
 
 ### Handling Insteon or Other ISY Control Events
 
-A Home Assistant `isy994_control` event is emitted for every "control" event in the ISY's device network (as long as the device has not been ignored or disabled in Home Assistant). This allows you to write automations that trigger based on events such as Insteon button presses. You can also trigger off of the unique Insteon/Zigbee/Z-Wave events, such as double-presses, long-holds etc.
+A Home Assistant `isy994_control` event is emitted for every "control" event in the ISY's device network (as long as the device has not been ignored or disabled in Home Assistant). This allows you to write automations that trigger based on events such as Insteon button presses. You can also trigger off of the unique Insteon/Zigbee/Z-Wave events, such as double-presses or long-holds.
 
 ```yaml
 automation:

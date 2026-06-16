@@ -58,16 +58,16 @@ The response data field contains the `forecast` field.
 forecast:
   - datetime: "2025-02-12T17:00:00+01:00"
     advice: code_yellow
-    final: True
+    final: true
   - datetime: "2025-02-12T23:00:00+01:00"
     advice: code_yellow
-    final: True
+    final: true
   - datetime: "2025-02-13T05:00:00+01:00"
     advice: code_orange
-    final: False
+    final: false
   - datetime: "2025-02-13T11:00:00+01:00"
     advice: code_red
-    final: False
+    final: false
 ```
 
 {% enddetails %}
@@ -77,8 +77,6 @@ forecast:
 {% details "Example template sensor using get_forecast" %}
 
 Example template sensors containing the Stookwijzer forecast for 6 and 12 hours from now.
-
-{% raw %}
 
 ```yaml
 template:
@@ -104,7 +102,5 @@ template:
           final: "{{ advice_forecast['forecast'][1]['final'] }}"
           timestamp: "{{ advice_forecast['forecast'][1]['datetime'] }}"
 ```
-
-{% endraw %}
 
 {% enddetails %}

@@ -95,20 +95,18 @@ commands:
 {% endconfiguration %}
 
 {% warning %}
-In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+To prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
 {% endwarning %}
 
 ### Event data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
-If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
+If the command is a word command, the `data` field contains a list of the command's arguments, that is, everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
 
 ### Comprehensive Configuration Example
 
 This example also uses the [matrix `notify` platform](#notifications).
-
-{% raw %}
 
 ```yaml
 # The Matrix integration
@@ -183,8 +181,6 @@ automation:
           room: "{{trigger.event.data.room}}"
           message_id: "{{trigger.event.data.event_id}}"
 ```
-
-{% endraw %}
 
 This configuration will:
 
@@ -277,8 +273,6 @@ is not inside of a thread, `thread_parent` will be the same as `event_id`.
 To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
 a reply message. For example:
 
-{% raw %}
-
 ```yaml
 action: notify.matrix_notify
 data:
@@ -286,8 +280,6 @@ data:
   data:
     thread_id: "{{ trigger.event.data.thread_parent }}"
 ```
-
-{% endraw %}
 
 ## Actions
 
@@ -343,8 +335,6 @@ data:
 
 To react to a message with an emoji reaction, use the `matrix.react` action:
 
-{% raw %}
-
 ```yaml
 action: matrix.react
 data:
@@ -352,8 +342,6 @@ data:
   room: "{{ trigger.event.data.room }}"
   message_id: "{{ trigger.event.data.event_id }}"
 ```
-
-{% endraw %}
 
 {% tip %}
 Reactions do not have to be an emoji. They can be any valid string. However, emoji are the typical/traditional use

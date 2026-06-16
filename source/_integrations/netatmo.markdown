@@ -106,74 +106,7 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 
 The `netatmo` switch platform provides support for Legrand/BTicino switches and power plugs.
 
-## Actions
-
-### Action: Set outdoor camera light mode
-
-The `netatmo.set_camera_light_mode` action sets the outdoor camera light mode.
-
-| Data attribute | Required | Description                |
-| ---------------------- | -------- | -------------------------- |
-| `camera_light_mode`    | Yes      | Outdoor camera light mode. |
-
-### Action: Set schedule
-
-The `netatmo.set_schedule` action sets the heating schedule.
-
-| Data attribute | Required | Description                           |
-| ---------------------- | -------- | ------------------------------------- |
-| `schedule_name`        | Yes      | The name of the schedule to activate. |
-
-### Action: Set preset mode with end date & time
-
-The `netatmo.set_preset_mode_with_end_datetime` action sets the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
-
-| Data attribute | Required | Description                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------- |
-| `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away, or Frost Guard. |
-| `end_datetime`         | Yes      | Date & time until which the preset will be active.          |
-
-### Action: Set temperature with end date & time
-
-The `netatmo.set_temperature_with_end_datetime` action sets the target temperature for a Netatmo climate device with an end date & time.
-
-| Data attribute | Required | Description                                              |
-| ---------------------- | -------- | -------------------------------------------------------- |
-| `target_temperature`   | Yes      | The target temperature for the device.                   |
-| `end_datetime`         | Yes      | Date & time the target temperature will be active until. |
-
-### Action: Set temperature with time period
-
-The `netatmo.set_temperature_with_time_period` action sets the target temperature for a Netatmo climate device as well as the time period during which this target temperature applies.
-
-| Data attribute | Required | Description                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------- |
-| `target_temperature`   | Yes      | The target temperature for the device.                      |
-| `time_period`          | Yes      | Time period during which the target temperature is applied. |
-
-### Action: Clear temperature setting
-
-The `netatmo.clear_temperature_setting` action clears any temperature setting for a Netatmo climate device reverting it to the current preset or schedule.
-
-### Action: Set persons as at home
-
-The `netatmo.set_persons_home` action sets a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
-
-| Data attribute | Required | Description    |
-| ---------------------- | -------- | -------------- |
-| `persons`              | Yes      | List of names. |
-
-### Action: Set person away
-
-The `netatmo.set_person_away` action sets a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Netatmo Smart Indoor Camera.
-
-| Data attribute | Required | Description    |
-| ---------------------- | -------- | -------------- |
-| `person`               | Yes      | Person's name. |
-
-### Action: Register webhook and unregister webhook
-
-The `netatmo.register_webhook` and `netatmo.unregister_webhook` actions manually register and unregister the webhook.
+{% include integrations/actions.md %}
 
 ## Webhook Events
 
@@ -207,8 +140,6 @@ Example:
 
 Example:
 
-{% raw %}
-
 ```yaml
 # Example automation for Netatmo Welcome
 - alias: "Motion at home"
@@ -227,11 +158,7 @@ Example:
         title: "Netatmo event"
 ```
 
-{% endraw %}
-
 Example:
-
-{% raw %}
 
 ```yaml
 # Example automation for Netatmo Presence
@@ -251,11 +178,7 @@ Example:
         title: Netatmo event
 ```
 
-{% endraw %}
-
 Example:
-
-{% raw %}
 
 ```yaml
 # Example automation
@@ -281,8 +204,6 @@ Example:
           {{ trigger.event.data["data"]["message"] }}
         title: "Netatmo event"
 ```
-
-{% endraw %}
 
 ## Development / Testing with your own client ID
 

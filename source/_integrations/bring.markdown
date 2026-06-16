@@ -45,7 +45,7 @@ Available as a mobile app on [Google Play for Android](https://play.google.com/s
 
 ## Prerequisites
 
-For authentication, the integration requires the `email` and `password` of your **Bring!** account.  If you don’t have an account, you can sign up via the mobile app or the web version.
+For authentication, the integration requires the `email` and `password` of your **Bring!** account. If you don’t have an account, you can sign up via the mobile app or the web version.
 
 If you signed up using **Apple ID**, **Google Sign-in**, or **Facebook Login**, you will need to create a password to use the integration.
 
@@ -192,7 +192,6 @@ Get notified when it's time to go grocery shopping. A notification is sent when 
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 triggers:
@@ -233,7 +232,6 @@ alias: "Bring!: Grocery shopping reminder 🛒"
 description: "Get notified when it's time to go grocery shopping. A notification is sent when your shopping list reaches a set threshold or when urgent items are added."
 ```
 
-{% endraw %}
 
 {% enddetails %}
 

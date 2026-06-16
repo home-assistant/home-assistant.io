@@ -22,7 +22,7 @@ The **Utility Meter** {% term integration %} provides functionality to track con
 
 From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
-Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts for your consumption accordingly. When tariffs are defined a new {% term entity %} will show up, indicating the current tariff. In order to change the tariff, the user must perform an action, usually through an automation that can be based on time or other external sources (for example, a REST sensor).
+Some utility providers have different tariffs according to time or resource availability. The utility meter enables you to define the various tariffs supported by your utility provider and accounts for your consumption accordingly. When tariffs are defined a new {% term entity %} will show up, indicating the current tariff. To change the tariff, the user must perform an action, usually through an automation that can be based on time or other external sources (for example, a REST sensor).
 
 {% note %}
 Sensors created with this {% term integration %} are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the {% term integration %} was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
@@ -208,8 +208,6 @@ Assuming your energy provider tariffs are time based according to:
 
 a time based automation can be used:
 
-{% raw %}
-
 ```yaml
 automation:
   triggers:
@@ -234,8 +232,6 @@ automation:
         option: "{{ tariff }}"
 ```
 
-{% endraw %}
-
 Assuming your utility provider cycle is offset from the last day of the month
 
 - cycles at 17h00 on the last day of the month
@@ -252,7 +248,7 @@ utility_meter:
 
 ## Advanced configuration for DSMR users
 
-When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` {% term integration %}.
+When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to set up a few more instances of the `utility_meter` {% term integration %}.
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
@@ -291,10 +287,8 @@ utility_meter:
 ```
 
 Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
-we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
+we use the `is_number()` [function](/docs/templating/patterns/) to verify the values
 returned from the sensors are numeric. If this evaluates to false, `None` is returned.
-
-{% raw %}
 
 ```yaml
 template:
@@ -319,5 +313,3 @@ template:
           None
         {% endif %}
 ```
-
-{% endraw %}

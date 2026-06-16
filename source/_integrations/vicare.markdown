@@ -4,6 +4,7 @@ description: Instructions how to integrate Viessmann heating devices with Home A
 ha_category:
   - Climate
   - Fan
+  - Select
   - Water heater
 ha_release: 0.99
 ha_iot_class: Cloud Polling
@@ -16,12 +17,14 @@ ha_platforms:
   - diagnostics
   - fan
   - number
+  - select
   - sensor
   - water_heater
 ha_dhcp: true
 ha_integration_type: hub
 ha_codeowners:
   - '@CFenner'
+  - '@lackas'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann-climatesolutions.com) devices via the Viessmann ViCare (REST) API.
@@ -34,17 +37,15 @@ You will need to sign in on the [Viessmann developer portal](https://app.develop
 Create a new API client by selecting **Add** in the **Clients** section on the developer dashboard with the following settings:
    - Name: `HomeAssistant`
    - Google reCAPTCHA: `disabled`
-   - Redirect URIs: `vicare://oauth-callback/everest`
+   - Redirect URIs: `https://my.home-assistant.io/redirect/oauth`
 
 Copy the **Client ID** in the **Clients** section on the developer dashboard for the setup in Home Assistant.
-
-{% important %}
-You have to set up the {% term integration %} from your device (phone) where you have the ViCare app installed. Otherwise, your device does not know how to handle the `vicare://` redirect URL, and you will receive an **Invalid credentials** notification and the setup procedure will fail.
-{% endimportant %}
 
 {% note %}
 It may take up to an hour for your new client to become active and usable. Otherwise, you will not receive any devices in Home Assistant.
 {% endnote %}
+
+When Home Assistant prompts for application credentials during setup, enter the **Client ID** from the Viessmann developer portal. The **Client Secret** field is not used by the integration (ViCare uses PKCE), so you can enter any value.
 
 ### API limits
 
@@ -103,6 +104,10 @@ Button entities are available for triggering like a one-time charge of the water
 
 Number entities are available to adjust values like the predefined temperature for different heating programs or the heating curve shift and slope.
 
+### Select
+
+Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include `balanced`, `economical`, or `off` modes.
+
 ## Actions
 
 The following actions of the [climate integration](/integrations/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
@@ -111,7 +116,7 @@ The following actions of the [water_heater integration](/integrations/water_heat
 
 ### Action: Set ViCare mode
 
-The `vicare.set_vicare_mode` action sets the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#action-climateset_hvac_mode) for a mapping to Home Assistant Climate modes). This allows more fine-grained control of the heating modes.
+The `vicare.set_vicare_mode` action sets the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#action-set-hvac-mode) for a mapping to Home Assistant Climate modes). This allows more fine-grained control of the heating modes.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -127,7 +132,7 @@ The `climate.set_temperature` action sets the target temperature to the given te
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
 | `temperature` | no | Desired target temperature. |
 
-Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e., Viessman program like eco or comfort).
+Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (that is, Viessman program like eco or comfort).
 
 ### Action: Set HVAC mode
 
@@ -169,7 +174,7 @@ The `water_heater.set_temperature` action sets the target temperature of domesti
 
 ### UTF-8 characters in passwords
 
-The underlying PyViCare Python library cannot handle UTF-8 characters in passwords, so do not use for example `ü`, `ø`, etc. in passwords.
+The underlying PyViCare Python library cannot handle UTF-8 characters in passwords, so do not use for example `ü` or `ø` in passwords.
 
 ### GATEWAY_OFFLINE
 

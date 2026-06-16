@@ -6,7 +6,7 @@ replace_regex: \s\(\[?[a-z0-9\-\s_]+\]?\)$
 
 These are all the changes included in the Home Assistant 2026.3 release.
 For a summary in a more readable format
-[Release notes blog for this release](/blog/2026/03/04/release-202603/).
+[Release notes blog for this release](/blog/2026/03/04/release-20263/).
 
 ## All changes
 
@@ -1482,6 +1482,59 @@ For a summary in a more readable format
 [@rajlaud]: https://github.com/rajlaud
 [@tl-sl]: https://github.com/tl-sl
 [@tronikos]: https://github.com/tronikos
+
+## Release 2026.3.4 - March 24
+
+- Correct validation of scripts in template entities ([@Petro31] - [#165226])
+- Update starlink-grpc-core to 1.2.4 ([@boswelja] - [#165882])
+- Bump python-google-weather-api to 0.0.6 ([@tronikos] - [#166085])
+- Bump xiaomi-ble to 1.10.0 ([@xuejuhui] - [#166099])
+- Add additional miele oven programs ([@sean797] - [#166100])
+- Bump aiotedee to 0.2.27 ([@zweckj] - [#166101])
+- Fix reload of FRITZ!Box Tools in case of connection issues ([@mib1185] - [#166111])
+- Bump wolf_comm to 0.0.48 ([@EnjoyingM] - [#166144])
+- Bump oralb-ble to 1.1.0 ([@bdraco] - [#166165])
+- Fix zwave_js fan speed mapping for GE/Jasco Enbrighten 55258 / ZW4002 ([@airdrummingfool] - [#166169])
+- Bump tplink-omada-client to fix breaking changes in Omada API ([@MarkGodwin] - [#166206])
+- Bump greenplanet-energy-api from 0.1.4 to 0.1.10 ([@petschni] - [#166217])
+- Bump yolink-api to 0.6.3 ([@matrixd2] - [#166232])
+- Update frontend to 20260312.1 ([@bramkragten] - [#166251])
+- Update template light test framework ([@Petro31] - [#164688])
+
+[#164688]: https://github.com/home-assistant/core/pull/164688
+[#164757]: https://github.com/home-assistant/core/pull/164757
+[#165001]: https://github.com/home-assistant/core/pull/165001
+[#165226]: https://github.com/home-assistant/core/pull/165226
+[#165675]: https://github.com/home-assistant/core/pull/165675
+[#165882]: https://github.com/home-assistant/core/pull/165882
+[#166076]: https://github.com/home-assistant/core/pull/166076
+[#166085]: https://github.com/home-assistant/core/pull/166085
+[#166099]: https://github.com/home-assistant/core/pull/166099
+[#166100]: https://github.com/home-assistant/core/pull/166100
+[#166101]: https://github.com/home-assistant/core/pull/166101
+[#166111]: https://github.com/home-assistant/core/pull/166111
+[#166144]: https://github.com/home-assistant/core/pull/166144
+[#166165]: https://github.com/home-assistant/core/pull/166165
+[#166169]: https://github.com/home-assistant/core/pull/166169
+[#166206]: https://github.com/home-assistant/core/pull/166206
+[#166217]: https://github.com/home-assistant/core/pull/166217
+[#166232]: https://github.com/home-assistant/core/pull/166232
+[#166251]: https://github.com/home-assistant/core/pull/166251
+[@EnjoyingM]: https://github.com/EnjoyingM
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@Petro31]: https://github.com/Petro31
+[@airdrummingfool]: https://github.com/airdrummingfool
+[@bdraco]: https://github.com/bdraco
+[@boswelja]: https://github.com/boswelja
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@matrixd2]: https://github.com/matrixd2
+[@mib1185]: https://github.com/mib1185
+[@petschni]: https://github.com/petschni
+[@sean797]: https://github.com/sean797
+[@tronikos]: https://github.com/tronikos
+[@xuejuhui]: https://github.com/xuejuhui
+[@zweckj]: https://github.com/zweckj
 
 [#101267]: https://github.com/home-assistant/core/pull/101267
 [#134463]: https://github.com/home-assistant/core/pull/134463

@@ -71,6 +71,9 @@ Parallel reads for read-only values are avoided and write operations are seriali
 The following devices are known to be supported by the integration:
 
 - SEKO PoolDose Double
+- SEKO PoolDose Double Spa
+- SEKO PoolDose pH+ORP CF Group Wi-Fi
+- SEKO PoolDose pH
 - VÁGNER POOL VA DOS BASIC
 - VÁGNER POOL VA DOS EXACT
 
@@ -86,11 +89,26 @@ This integration provides the following entities.
 - **Chlorine tank level alarm**: Low chlorine dosing solution level.
 - **Flow rate alarm**: Water flow issues.
 - **pH overfeed alarm**: Excessive pH dosing detected.
+- **pH overfeed alarm alternative**: Alternative pH overfeed alarm.
+- **pH too low**: pH level too low.
+- **pH too high**: pH level too high.
 - **ORP overfeed alarm**: Excessive ORP dosing detected.
+- **ORP overfeed alarm alternative**: Alternative ORP overfeed alarm.
+- **Chlorine overfeed alarm**: Excessive chlorine dosing detected.
+- **Chlorine overfeed alarm alternative**: Alternative chlorine overfeed alarm.
+- **Chlorine too low (ORP)**: Chlorine concentration too low based on ORP readings.
+- **Chlorine too high (ORP)**: Chlorine concentration too high based on ORP readings.
+- **Chlorine too high**: Chlorine concentration too high.
 - **Alarm relay**: Main alarm relay state.
 - **Auxiliary relay 1**: Auxiliary relay 1 output state.
 - **Auxiliary relay 2**: Auxiliary relay 2 output state.
 - **Auxiliary relay 3**: Auxiliary relay 3 output state.
+- **Water too cold**: Water temperature too cold.
+- **Water too hot**: Water temperature too hot.
+- **System standby**: System in standby mode.
+- **Circulation pump monitoring**: Whether the controller monitors the pool circulation pump while dosing.
+- **Power-on delay**: Whether to apply a safety delay after the device powers on before enabling pumps and dosing control.
+- **Flow delay**: Whether to apply a delay after water flow is detected before starting dosing, to let circulation stabilize.
 
 ### Sensors
 
@@ -116,7 +134,7 @@ This integration provides the following entities.
 - **Chlorine type dosing**: Type of chlorine dosing being used.
   - **Values**: Low, High
 - **Peristaltic chlorine dosing**: Chlorine peristaltic dosing mode.
-  - **Values**: Off, Proportional, On/Off, Timed
+  - **Values**: Off, Proportional, On/Off, Timed, Cycle
 - **Overfeed alert ORP time**: Time threshold for ORP overfeed alerts.
   - **Unit**: min
 - **pH calibration type**: Type of pH calibration being used.
@@ -133,6 +151,10 @@ This integration provides the following entities.
   - **Unit**: mV
 - **Totalizer**: Total water volume accumulated.
   - **Unit**: L, m³
+- **Device configuration**: Overall water treatment configuration that defines which measurements and dosing channels are active.
+  - **Values**: pH+ORP (control pH and ORP only), pH+ORP+Chlorine (control pH, ORP, and an additional chlorine dosing channel)
+- **Temperature unit**: Temperature measurement unit.
+  - **Values**: Celsius, Fahrenheit
 
 ### Numbers
 
@@ -151,6 +173,16 @@ This integration provides the following entities.
   - **Unit**: ppm
 - **Chlorine overfeed alarm upper limit**: Upper threshold for chlorine overfeed detection.
   - **Unit**: ppm
+- **pH dosing off-time**: Pause duration between pH dosing cycles.
+  - **Unit**: s
+- **ORP dosing off-time**: Pause duration between ORP dosing cycles.
+  - **Unit**: s
+- **Chlorine dosing off-time**: Pause duration between chlorine dosing cycles.
+  - **Unit**: s
+- **Power-on delay timer**: Delay after power-on before dosing starts.
+  - **Unit**: s
+- **Flow delay timer**: Delay after flow detection before dosing starts.
+  - **Unit**: s
 
 ### Switches
 
@@ -183,7 +215,6 @@ This integration provides the following entities.
 
 This automation monitors your pool's ORP level and sends a notification when it goes outside the recommended range.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pool ORP out of range"
@@ -202,13 +233,11 @@ automation:
           title: "Pool ORP alert"
           message: "ORP level is {{ trigger.id }}: {{ states('sensor.pool_device_orp') }} mV"
 ```
-{% endraw %}
 
 ### Monitor pH levels and send alerts
 
 This automation monitors your pool's pH level and sends a notification when it goes outside the recommended range.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pool pH out of range"
@@ -227,13 +256,11 @@ automation:
           title: "Pool pH alert"
           message: "pH level is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
 ```
-{% endraw %}
 
 ### Pause dosing when pH is extreme
 
 This automation pauses the dosing system when the pH level reaches dangerously high or low values, preventing excessive chemical dosing.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pause dosing on extreme pH"
@@ -255,7 +282,6 @@ automation:
           title: "Pool dosing paused"
           message: "Dosing paused - pH is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
 ```
-{% endraw %}
 
 ### Pool monitoring dashboard
 
@@ -441,7 +467,7 @@ This integration provides diagnostics to help with debugging and troubleshooting
 - The device information reported by the coordinator with sensitive values redacted.
 - The most recent data fetched from the device by the coordinator.
 
-To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
+To collect diagnostics, go to **Settings** > **Devices & services**, open the PoolDose integration,
 click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when reporting issues to help maintainers investigate.
 
 ## Removing the integration

@@ -33,7 +33,7 @@ The **Hive** {% term integration %} for Home Assistant allows you to interact wi
 This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant. 2FA authentication must be enabled to use this integration. Once configured, Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
 
 {% note %}
-Please note that the credentials used must be for the Hive account owner. Shared accounts or secondary users will not work with this integration.
+The credentials used must be for the Hive account owner. Shared accounts or secondary users will not work with this integration.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -184,3 +184,11 @@ The `hive` water heater platform integrates your Hive hot water into Home Assist
 The platform supports the following Hive products:
 
 - Hot Water Control
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+{% note %}
+Removing the integration will also deregister this Home Assistant instance from your Hive account. If you set up the integration again, you will need to register a new device during the configuration process.
+{% endnote %}

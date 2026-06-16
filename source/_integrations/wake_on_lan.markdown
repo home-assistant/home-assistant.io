@@ -1,6 +1,6 @@
 ---
 title: Wake on LAN
-description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
+description: Instructions on how to set up the Wake on LAN integration in Home Assistant.
 ha_category:
   - Button
   - Network
@@ -36,6 +36,8 @@ To implement a switch without using YAML, consider using a [template switch help
 {% configuration_basic %}
 Mac address:
   description: "The MAC address to send the wake-up command to. For example, `00:01:02:03:04:05`."
+SecureOn password:
+  description: "The SecureOn password to append to the magic packet. For example, `00:aa:22:bb:33:cc`."
 Broadcast address:
   description: The IP address of the host to send the magic packet to.
 Broadcast port:
@@ -64,6 +66,7 @@ The `wake_on_lan.send_magic_packet` action sends a _magic packet_ to wake up a d
 | Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `mac`                  | no       | MAC address of the device to wake up.                 |
+| `secureon_password`    | yes      | The SecureOn password to append to the magic packet.  |
 | `broadcast_address`    | yes      | Optional broadcast IP where to send the magic packet. |
 | `broadcast_port`       | yes      | Optional port where to send the magic packet.         |
 
@@ -85,7 +88,7 @@ The action to route the packet is most likely named "IP Helper". It may support 
 The `wake_on_lan` (WOL) button {% term integration %} allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
 The WOL button can only turn on your computer.
-It will send a magic packet to the MAC address specified in the configuration. As a button, it is stateless. This means it can not monitor if the WOL-enabled computer has actually received the wake-up call and has started.
+It will send a magic packet to the MAC address specified in the configuration. As a button, it is stateless. This means it cannot monitor if the WOL-enabled computer has actually received the wake-up call and has started.
 
 ## Switch
 

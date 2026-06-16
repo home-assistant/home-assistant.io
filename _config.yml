@@ -67,6 +67,18 @@ titlecase: true # Converts page and post titles to titlecase
 collections:
   integrations:
     output: true
+  template_functions:
+    output: true
+    permalink: /template-functions/:path/
+  actions:
+    output: true
+    permalink: /actions/:path/
+  triggers:
+    output: true
+    permalink: /triggers/:path/
+  conditions:
+    output: true
+    permalink: /conditions/:path/
   docs:
     output: true
   apps:
@@ -107,14 +119,14 @@ social:
 
 # Home Assistant release details
 current_major_version: 2026
-current_minor_version: 3
+current_minor_version: 6
 current_patch_version: 3
-date_released: 2026-03-20
+date_released: 2026-06-12
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
-patch_version_notes: "#202633---march-20"
+patch_version_notes: "#202663---june-12"
 # Minor release (Example #release-0431---april-25):
 
 # Set Front matter defaults
@@ -154,6 +166,26 @@ defaults:
   - scope:
       path: ""
       type: integrations
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: template_functions
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: actions
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: triggers
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: conditions
     values:
       toc: true
   - scope:

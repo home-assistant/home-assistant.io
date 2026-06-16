@@ -12,21 +12,20 @@ ha_domain: counter
 ha_integration_type: helper
 ---
 
-The **Counter** {% term integration %} allows one to count occurrences fired by automations.
+The **Counter** {% term integration %} lets you track how many times something has happened in Home Assistant.
+Use it when you want to count events over time, like how often a door opens, how many reminders have been sent, or how many times a routine has run.
 
 ## Configuration
 
-The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Settings > Devices & services > Helpers" %}** and click the add button;
-next choose the **{% my config_flow_start domain=page.ha_domain title=page.title %}** option.
+The preferred way to configure counter {% term helpers %} is through the user interface.
+To add one, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+Then, select **{% my config_flow_start domain=page.ha_domain title=page.title %}**.
 
-To be able to add **Helpers** via the user interface you should have
-`default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by
-default unless you removed it. If you removed `default_config:` from your
-configuration, you must add `counter:` to your {% term "`configuration.yaml`" %} first,
-then you can use the UI.
+To add helpers from the user interface, `default_config:` must be present in your {% term "`configuration.yaml`" %} file.
+It is included by default unless you removed it.
+If you removed `default_config:`, add `counter:` to your {% term "`configuration.yaml`" %} file first.
 
-Counters can also be configured via {% term "`configuration.yaml`" %}:
+Counters can also be configured in {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -62,11 +61,11 @@ counter:
       type: integer
       default: 1
     minimum:
-      description: Minimum value the counter will have
+      description: Minimum value the counter will have.
       required: false
       type: integer
     maximum:
-      description: Maximum value the counter will have
+      description: Maximum value the counter will have.
       required: false
       type: integer
     icon:
@@ -75,13 +74,19 @@ counter:
       type: icon
 {% endconfiguration %}
 
-Pick an icon that from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
+Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix it with `mdi:`.
+For example, `mdi:car`, `mdi:ambulance`, or `mdi:motorbike`.
 
 ### Restore state
 
-This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity has `restore` set to `true`, which is the default. To disable this feature, set `restore` to `false`.
+This integration restores the previous counter value when Home Assistant starts as long as `restore` is set to `true`, which is the default.
+To disable this behavior, set `restore` to `false`.
 
-If `restore` is set to `true`, the `initial` value will only be used when no previous state is found or when the counter is reset.
+If `restore` is set to `true`, the `initial` value is only used when no previous state is found or when the counter is reset.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
 
 ## Actions
 
@@ -93,7 +98,7 @@ The `counter.increment` action allows you to increment the counter with 1 or the
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 
 ### Action: Decrement
 
@@ -101,7 +106,7 @@ The `counter.decrement` action allows you to decrement the counter with 1 or the
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 
 ### Action: Reset
 
@@ -109,7 +114,7 @@ The `counter.reset` action allows you to reset the counter to its initial value.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 
 ### Action: Set value
 
@@ -117,7 +122,7 @@ The `counter.set_value` action allows you to set the counter to a specific value
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
 | `value`                | yes      | Set the counter to the given value.                                   |
 
 ### Use the action
@@ -130,36 +135,78 @@ Go to {% my developer_services title="**Settings** > **Developer tools** > **Act
 }
 ```
 
-## Examples
+## Counter automation examples
 
-### Counting Home Assistant errors
+If you use a counter {% term helper %} in automations, create the helper separately before using these examples.
+Here are a few ways to use counter triggers, conditions, and actions together.
 
-To use a counter to count errors as caught by Home Assistant, you need to add `fire_event: true` to your {% term "`configuration.yaml`" %}, like so:
+{% include integrations/labs_entity_triggers_note.md %}
 
-```yaml
-# Example configuration.yaml entry
-system_log:
-  fire_event: true
-```
+{% include docs/paste_yaml_tip.md %}
 
-### Error counting - example configuration
+### Automation: send a reminder when a counter reaches its limit
 
-```yaml
-# Example configuration.yaml entry
-automation:
-- alias: "Error Counting Automation"
+If you have created a counter helper to track missed chores, you can send a reminder as soon as it reaches its maximum and then reset it for the next cycle.
+
+- **Trigger**: Counter reached maximum
+  - **Target**: Chore reminder counter
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+- **Action**: Reset counter
+
+{% details "YAML example for a maximum reminder counter" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the chore counter reaches its limit"
   triggers:
-    - trigger: event
-      event_type: system_log_event
-      event_data:
-        level: ERROR
+    - trigger: counter.maximum_reached
+      target:
+        entity_id: counter.chore_reminders
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The chore reminder counter reached its limit."
+    - action: counter.reset
+      target:
+        entity_id: counter.chore_reminders
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: stop counting after the daily target is met
+
+If you use a counter helper to track short exercise breaks, you can stop incrementing it once the counter reaches your daily target.
+
+- **Trigger**: Input button pressed
+- **Condition**: Counter value
+  - **Target**: Exercise break counter
+  - **Threshold type**: Below 5
+- **Action**: Increment counter
+
+{% details "YAML example for capping a daily counter" %}
+
+{% example %}
+automation: |
+  alias: "Count exercise breaks until the daily target is met"
+  triggers:
+    - trigger: state
+      entity_id: input_button.exercise_break_done
+  conditions:
+    - condition: counter.is_value
+      target:
+        entity_id: counter.exercise_breaks
+      options:
+        threshold:
+          type: below
+          value:
+            number: 5
   actions:
     - action: counter.increment
       target:
-        entity_id: counter.error_counter
-    
-counter:
-  error_counter:
-    name: Errors
-    icon: mdi:alert  
-```
+        entity_id: counter.exercise_breaks
+{% endexample %}
+
+{% enddetails %}

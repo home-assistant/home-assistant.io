@@ -1,6 +1,6 @@
 ---
 title: Lock
-description: Instructions on how to setup your locks with Home Assistant.
+description: Instructions on how to set up your locks with Home Assistant.
 ha_category:
   - Lock
 ha_release: 0.9
@@ -11,10 +11,10 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-Keeps track which locks are in your environment, their state and allows you to control them.
+Keeps track of the locks in your environment, their state, and lets you control them.
 
 - Maintains a state per lock and a combined state `all_locks`.
-- Registers actions `lock.lock`, `lock.unlock`, and `lock.open` (unlatch) to control locks.
+- Lets you use lock states in automations with built-in triggers, conditions, and actions.
 
 {% include integrations/building_block_integration.md %}
 
@@ -32,52 +32,81 @@ A lock entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-## Actions
+{% include integrations/triggers_conditions_actions.md %}
 
-A lock integration provides the following actions:
+## Lock automation examples
 
-### Action: Lock
+The real power of the **Lock** integration is using your locks in automations.
+Here are a few ideas to get you started.
 
-The `lock.lock` action locks your door.
+{% include integrations/labs_entity_triggers_note.md %}
 
-| Data attribute | Optional | Description                  |
-| -------------- | -------- | ---------------------------- |
-| `entity_id`    | no       | Entity of the relevant lock. |
+{% include docs/paste_yaml_tip.md %}
 
-#### Example
+### Automation: turn on the hallway light when the front door unlocks
 
-```yaml
-actions:
-  action: lock.lock
-  target:
-    entity_id: lock.my_place
-```
+If you often arrive home with your hands full, it helps when the light is already on. This automation turns on the hallway light when the front door unlocks.
 
-### Action: Unlock
+- **Trigger**: Lock unlocked
+- **Target**: Front door lock
+- **Trigger when**: Each
+- **For at least**: 00:00:00
+- **Action**: Turn on
 
-The `lock.unlock` action unlocks your door.
+{% details "YAML example for turning on the hallway light" %}
 
-| Data attribute | Optional | Description                  |
-| -------------- | -------- | ---------------------------- |
-| `entity_id`    | no       | Entity of the relevant lock. |
+{% example %}
+automation: |
+  alias: "Turn on the hallway light when the front door unlocks"
+  triggers:
+    - trigger: lock.unlocked
+      target:
+        entity_id: lock.front_door
+      options:
+        behavior: each
+        for: "00:00:00"
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.hallway
+{% endexample %}
 
-#### Example
+{% enddetails %}
 
-```yaml
-actions:
-  action: lock.unlock
-  target:
-    entity_id: lock.my_place
-```
+### Automation: send a bedtime reminder if the front door is still unlocked
 
-## Use the actions
+If you sometimes forget to lock the door before bed, a gentle reminder can help. This automation runs at night and sends a phone notification if the front door has stayed unlocked for 10 minutes.
 
-Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions. Enter something like the sample below into the **data** field and select **Perform action**.
+- **Trigger**: Time: 22:00
+- **Condition**: Lock is unlocked
+  - **Target**: Front door lock
+  - **Condition passes if**: Any
+  - **For at least**: 00:10:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-```json
-{"entity_id":"lock.front_door"}
-```
+{% details "YAML example for a bedtime lock reminder" %}
 
-| Data attribute | Optional | Description                                                    |
-| -------------- | -------- | -------------------------------------------------------------- |
-| `entity_id`    | yes      | Only act on specific lock. Use `entity_id: all` to target all. |
+{% example %}
+automation: |
+  alias: "Remind me if the front door is unlocked at night"
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  conditions:
+    - condition: lock.is_unlocked
+      target:
+        entity_id: lock.front_door
+      options:
+        behavior: any
+        for: "00:10:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Front door still unlocked"
+        message: "The front door has stayed unlocked for 10 minutes."
+{% endexample %}
+
+{% enddetails %}
