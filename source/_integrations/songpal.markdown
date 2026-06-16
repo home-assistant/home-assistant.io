@@ -33,8 +33,6 @@ A few notes:
 
 See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
 
-## Actions
-
-In addition to the general [media player actions](/integrations/media_player/#actions), the following actions are provided.
-
 {% include integrations/actions.md %}
+
+In addition to these, Sony Songpal devices support the general [media player actions](/integrations/media_player/#list-of-actions).
