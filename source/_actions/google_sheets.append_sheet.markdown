@@ -7,7 +7,7 @@ related_actions:
   - google_sheets.get_sheet
 ---
 
-Use this action to add rows of data to the Google Sheets document that was created when you set up the integration. This is handy for storing data from Home Assistant for further processing, for example logging energy usage over time.
+Use this action to add rows of data to the Google Sheets document that was created when you set up the integration. This is handy for storing data from Home Assistant for further processing, for example, logging energy usage over time.
 
 {% include actions/ui_header.md %}
 
@@ -38,7 +38,7 @@ Add created column:
   description: "Whether to add a `created` column with the date and time to the appended data."
   required: false
 Data:
-  description: The data to append to the worksheet. Each value is placed on a new row, one value per column.
+  description: The data to append. Provide a mapping for a single row, or a list of mappings for multiple rows. Each mapping key becomes a column name.
   required: true
 {% endoptions_ui %}
 
@@ -78,7 +78,7 @@ add_created_column:
   type: boolean
   default: true
 data:
-  description: The data to append to the worksheet. Each value is placed on a new row, one value per column.
+  description: The data to append. Provide a mapping for a single row, or a list of mappings for multiple rows. Each mapping key becomes a column name.
   required: true
   type: map
 {% endoptions_yaml %}

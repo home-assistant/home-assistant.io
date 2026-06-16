@@ -7,7 +7,7 @@ related_actions:
   - google_sheets.append_sheet
 ---
 
-Use this action to retrieve rows of data from a Google Sheets document, for example to read back values you stored earlier. This action returns [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data) that you can use in the rest of your automation or script.
+Use this action to retrieve rows of data from a Google Sheets document, for example, to read back values you stored earlier. This action returns [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data) that you can use in the rest of your automation or script.
 
 {% include actions/ui_header.md %}
 
