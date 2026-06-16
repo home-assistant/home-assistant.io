@@ -38,6 +38,5 @@ The button entities provide some additional LinkPlay features available on the d
 - **Time Sync**: Synchronize the device's internal clock with the current time in Home Assistant. 
 - **Restart Device**: Reboot the device, allowing for convenient troubleshooting and maintenance.
 
-The LinkPlay integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
 
 {% include integrations/actions.md %}
