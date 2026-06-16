@@ -54,17 +54,24 @@ If your account includes multiple vehicles, the same PIN will be used for all ve
 
 Available sensors will vary by model, year, and subscription type. The integration will add all supported sensors for your vehicle. Sensor data is usually only updated when the vehicle is turned off unless the [polling option](#options) is enabled.
 
-| Sensor                   | Gen 1   | Gen 2   | Gen 3   |
-|--------------------------|---------|---------|---------|
-| Average fuel consumption |         | &check; | &check; |
-| Distance to empty        |         | &check; | &check; |
-| EV battery level         |         | &check; | &check; |
-| EV range                 |         | &check; | &check; |
-| EV time to full charge   |         | &check; | &check; |
-| Odometer                 | &check;*| &check; | &check; |
-| Tire pressures           |         | &check; | &check; |
+| Sensor                            | Gen 1    | Gen 2   | Gen 3   |
+|-----------------------------------|----------|---------|---------|
+| Average fuel consumption          |          | &check; | &check; |
+| Distance to empty                 |          | &check; | &check; |
+| EV battery level                  |          | &check; | &check; |
+| EV charge mode                    |          | &check; | &check; |
+| EV charger state                  |          | &check; | &check; |
+| EV range                          |          | &check; | &check; |
+| EV time to full charge            |          | &check; | &check; |
+| Odometer                          | &check;* | &check; | &check; |
+| Recommended tire pressure front   |          | &check; | &check; |
+| Recommended tire pressure rear    |          | &check; | &check; |
+| Tire pressures                    |          | &check; | &check; |
+| Vehicle state                     |          | &check; | &check; |
 
-\* Gen 1 odometer only updates every 500 miles <br>
+\* Gen 1 odometer only updates every 500 miles. <br>
+
+EV sensors (EV battery level, EV charge mode, EV charger state, EV range, EV time to full charge) are only present on PHEV vehicles. The recommended tire pressure sensors may report `unknown` on older Gen 2 vehicles that do not advertise the underlying `TIR_*` / `TIF_*` feature flags.
 
 ## Lock
 
