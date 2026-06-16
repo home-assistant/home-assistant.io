@@ -119,22 +119,4 @@ binary_sensor:
     6: moisture
 ```
 
-## Actions
-
-### Action `bypass_zone`
-
-This action will bypass a given zone.
-
-| Data attribute | Optional | Description                     |
-| ---------------------- | -------- | ------------------------------- |
-| `entity_id`            | yes      | entity_id of the NX584 Alarm.   |
-| `zone`                 | no       | Zone number you want to bypass. |
-
-### Action `unbypass_zone`
-
-This action will unbypass a given zone.
-
-| Data attribute | Optional | Description                       |
-| ---------------------- | -------- | --------------------------------- |
-| `entity_id`            | yes      | entity_id of the NX584 Alarm.     |
-| `zone`                 | no       | Zone number you want to unbypass. |
+{% include integrations/actions.md %}
