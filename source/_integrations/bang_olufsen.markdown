@@ -189,6 +189,8 @@ Several remote controls can be paired to the same Mozart device and are still cr
 
 This has the benefit of being able to trigger automations mapped to remote A with remote B, but also means that each Mozart device _only_ supports the 90 Event entities that a single remote provides.
 
+{% include integrations/actions.md %}
+
 ## Playing media
 
 The Bang & Olufsen integration supports different playback types in the `media_player.play_media` action: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
@@ -389,7 +391,6 @@ data:
 
 Attempting to run an invalid Beolink action results in either a Home Assistant error or an audible error indication from your device.
 
-{% include integrations/actions.md %}
 
 ## Automations
 
