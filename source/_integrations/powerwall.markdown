@@ -34,7 +34,6 @@ The following devices are known to be supported by the integration:
 
 The following devices are not supported by the integration:
 - Tesla Powerwall 1
-- Tesla Powerwall 3
 
 {% include integrations/config_flow.md %}
 
@@ -46,8 +45,6 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-{% include integrations/config_flow.md %}
-
 ## Powerwall 3 support
 
 Powerwall 3 and Backup Gateways running newer Tesla firmware expose a more restricted local HTTP API than Powerwall 2. As a result, some entities and features are not available when Home Assistant connects to one of these gateways:
@@ -58,7 +55,6 @@ Powerwall 3 and Backup Gateways running newer Tesla firmware expose a more restr
 - Powerwall Status and Powerwall Connected to Tesla binary sensors
 
 The aggregate sensors (power flow, charge, lifetime energy) and the Grid Status / Grid Services / Powerwall Charging binary sensors remain available.
-
 
 ### Binary sensor
 
