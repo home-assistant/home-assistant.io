@@ -66,7 +66,7 @@ The **Edifier Infrared** integration provides the following entities.
 
 ### Buttons
 
-Some models also provide buttons for functionality that is not exposed by the media player entity, such as selecting a specific input or toggling sound effects. The available buttons depend on the selected model, because not every Edifier remote exposes the same buttons. Possible buttons include:
+Some models also provide button entities for functionality that is not exposed by the media player entity, such as selecting a specific input or toggling sound effects. The available buttons depend on the selected model, because not every Edifier remote exposes the same buttons. Possible buttons include:
 
 - **Bluetooth**: Switches the speaker to its Bluetooth input.
 - **Line 1** and **Line 2**: Switch the speaker to the corresponding line input.
