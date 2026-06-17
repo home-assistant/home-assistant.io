@@ -48,6 +48,8 @@ URL:
   description: "The URL of your Karakeep instance, for example `https://karakeep.example.com`."
 API key:
   description: "The Karakeep API key used to connect to your instance."
+Verify SSL certificate:
+  description: "Whether to verify the SSL certificate of your Karakeep instance. Disable this if your instance uses a self-signed certificate."
 {% endconfiguration_basic %}
 
 ## Supported functionality
