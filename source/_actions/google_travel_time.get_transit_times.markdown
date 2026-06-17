@@ -21,7 +21,8 @@ To get transit times from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Google Maps Travel Time: Get transit times**.
 6. Select the **Config entry** to use, enter the **Origin** and **Destination**, and set any of the options you need.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the result, for example, `transit_times`.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -52,6 +53,10 @@ Departure time:
   required: false
 Arrival time:
   description: The desired arrival time, as a time string such as `08:00:00`.
+  required: false
+  required: false
+Response variable:
+  description: The name of the variable where the result will be stored. If not provided, the result won't be stored.
   required: false
 {% endoptions_ui %}
 
@@ -115,6 +120,12 @@ arrival_time:
   description: The desired arrival time, as a time string such as `08:00:00`.
   required: false
   type: time
+  type: time
+response_variable: >
+  description:
+    The name of the variable where the result will be stored.
+    If not provided, the result won't be stored.
+  required: false
 {% endoptions_yaml %}
 
 {% note %}
