@@ -21,7 +21,7 @@ To update a reward from an automation or a script:
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
-### Options in the UI
+## Options in the UI
 
 {% options_ui %}
 Select character:
@@ -63,7 +63,7 @@ action: |
     cost: 75
 {% endexample %}
 
-### Options in YAML
+## Options in YAML
 
 {% options_yaml %}
 config_entry:

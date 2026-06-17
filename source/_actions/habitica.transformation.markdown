@@ -28,7 +28,7 @@ The available transformation items are:
 - **Seafoam**: `seafoam` (transforms into a starfish)
 - **Shiny seed**: `shiny_seed` (transforms into a flower)
 
-### Options in the UI
+## Options in the UI
 
 {% options_ui %}
 Select character:
@@ -55,7 +55,7 @@ action: |
     target: "Bob"
 {% endexample %}
 
-### Options in YAML
+## Options in YAML
 
 {% options_yaml %}
 config_entry:
