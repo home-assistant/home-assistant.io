@@ -204,7 +204,7 @@ To create a token:
 
 ## Data updates
 
-Data is polled from devices every 60 seconds.
+Data is {% term polling polled %} from devices every 60 seconds.
 
 ## Examples
 
@@ -212,24 +212,24 @@ Data is polled from devices every 60 seconds.
 
 This example automation will alert you if a critical VM is  offline beyond a reasonable time.
 
-```yaml
-alias: "Proxmox Database VM Offline Alert"
-trigger:
-  - platform: state
-    entity_id: binary_sensor.databaseserver_status
-    from: "on"
-    to: "off"
-    for:
-      minutes: 15
-conditions: []:
-actions:
-  - action: notify.send_message
-    metadata: {}
-    data:
-      message: "The Database Server VM has been offline for over 15 minutes."
-    target:
-      entity_id: notify.notifier
-```
+{% example %}
+automation: |
+  alias: "Proxmox Database VM Offline Alert"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.databaseserver_status
+      from: "on"
+      to: "off"
+      for:
+        minutes: 15
+  actions:
+    - action: notify.send_message
+      metadata: {}
+      data:
+        message: "The Database Server VM has been offline for over 15 minutes."
+      target:
+        entity_id: notify.notifier
+{% endexample %}
 
 ## Known limitations
 
