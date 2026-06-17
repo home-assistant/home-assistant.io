@@ -79,11 +79,11 @@ minutes:
 
 This automation runs your ventilation unit at its highest level for 30 minutes whenever the bathroom humidity rises above 70%.
 
-- Trigger: the bathroom humidity goes above 70%
-- Action: set a ventilation timer
-  - Target: the ventilation unit
-  - Level: `level4`
-  - Time: `30`
+- **Trigger**: the bathroom humidity goes above 70%
+- **Action**: Renson: Set timer
+  - **Target**: the ventilation unit
+  - **Level**: `level4`
+  - **Time**: `30`
 
 {% details "Show example YAML" %}
 

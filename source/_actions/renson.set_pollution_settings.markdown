@@ -126,11 +126,11 @@ co2_hysteresis:
 
 This automation lowers the night pollution ventilation level every evening so the unit runs more quietly while you sleep.
 
-- Trigger: the time is 10:00 PM
-- Action: set the pollution settings
-  - Target: the ventilation unit
-  - Day pollution level: `level3`
-  - Night pollution level: `level1`
+- **Trigger**: the time is 10:00 PM
+- **Action**: Renson: Set pollution settings
+  - **Target**: the ventilation unit
+  - **Day pollution level**: `level3`
+  - **Night pollution level**: `level1`
 
 {% details "Show example YAML" %}
 

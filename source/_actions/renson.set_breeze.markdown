@@ -88,12 +88,12 @@ activate:
 
 This automation enables the Breeze function at the start of summer so the unit ventilates more whenever it gets warm outside.
 
-- Trigger: an input boolean for summer mode turns on
-- Action: configure Breeze
-  - Target: the ventilation unit
-  - Level: `level3`
-  - Temperature: `24`
-  - Activate: on
+- **Trigger**: an input boolean for summer mode turns on
+- **Action**: Renson: Set Breeze
+  - **Target**: the ventilation unit
+  - **Level**: `level3`
+  - **Temperature**: `24`
+  - **Activate**: on
 
 {% details "Show example YAML" %}
 
