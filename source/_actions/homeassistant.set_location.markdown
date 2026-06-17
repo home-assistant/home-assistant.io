@@ -7,7 +7,7 @@ related_actions:
   - homeassistant.reload_core_config
 ---
 
-Use this action to update the location of your Home Assistant home zone, which is usually named "Home". A common use is to keep the home location accurate on a mobile install, such as a camper or a boat, so that sun, weather, and presence work correctly as you move.
+Use this action to update the location of your Home Assistant home zone, which uses your Home Assistant installation name (which defaults to "Home"). A common use is to keep the home location accurate on a mobile install, such as a camper or a boat, so that sun, weather, and presence work correctly as you move.
 
 {% include actions/ui_header.md %}
 

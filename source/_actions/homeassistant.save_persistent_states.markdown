@@ -7,7 +7,7 @@ description: "Saves the persistent states of entities immediately."
 
 Use this action to save the persistent states of entities right away. Some entities restore their last value after a restart, and Home Assistant normally saves those values at startup, every 15 minutes, and at shutdown. A common use is to save them just before planned maintenance, so the most recent values are kept if you restart or power off.
 
-Calling this action does not change the normal saving schedule. It just adds an extra save at the moment you call it.
+Calling this action does not change the normal saving schedule. It just adds an extra checkpoint at the moment you call it.
 
 {% include actions/ui_header.md %}
 

@@ -9,9 +9,9 @@ related_actions:
   - homeassistant.reload_all
 ---
 
-Use this action to restart Home Assistant. Before it restarts, Home Assistant checks the configuration. If the check fails, the restart is cancelled so you are not left with a broken setup. A common use is to apply changes that only take effect after a full restart.
+Use this action to restart Home Assistant. Before it restarts, Home Assistant checks the configuration. If the check fails, the restart is canceled so you are not left with a broken setup. A common use is to apply changes that only take effect after a full restart.
 
-You can also restart into safe mode, which starts Home Assistant without custom integrations and custom dashboard cards. This is useful when a custom add-on is preventing Home Assistant from starting normally.
+You can also restart into safe mode, which starts Home Assistant without custom integrations and custom dashboard cards. This is useful when one of these is preventing Home Assistant from starting normally.
 
 Only users with administrator rights can run this action.
 

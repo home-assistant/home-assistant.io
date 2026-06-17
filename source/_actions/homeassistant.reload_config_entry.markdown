@@ -8,15 +8,15 @@ related_actions:
   - homeassistant.update_entity
 ---
 
-Use this action to reload a single integration's config entry. Reloading unloads and sets the entry up again, which is a quick way to recover an integration that has stopped responding without restarting all of Home Assistant. A common use is to reconnect an integration after its device or service was briefly unavailable.
+Use this action to reload a single integration's configuration entry. Reloading unloads and sets the entry up again, which is a quick way to recover an integration that has stopped responding without restarting all of Home Assistant. A common use is to reconnect an integration after its device or service was briefly unavailable.
 
-You can point this action at a target, such as an entity, a device, or an area, and Home Assistant reloads the config entries behind it. You can also provide a config entry ID directly. If you provide both, Home Assistant reloads the combined set of entries.
+You can point this action at a target, such as an entity, a device, or an area, and Home Assistant reloads the configuration entries behind it. You can also provide a config entry ID directly. If you provide both, Home Assistant reloads the combined set of entries.
 
 Only users with administrator rights can run this action.
 
 {% include actions/ui_header.md %}
 
-To reload a config entry from an automation or a script:
+To reload a configuration entry from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
@@ -30,13 +30,13 @@ To reload a config entry from an automation or a script:
 
 {% options_ui %}
 Config entry ID:
-  description: The config entry to reload. Use this instead of, or together with, a target.
+  description: The configuration entry to reload. Use this instead of, or together with, a target.
   required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `homeassistant.reload_config_entry`. To reload the config entry behind an entity:
+In YAML, refer to this action as `homeassistant.reload_config_entry`. To reload the configuration entry behind an entity:
 
 {% example %}
 action: |
@@ -45,7 +45,7 @@ action: |
     entity_id: sensor.living_room_temperature
 {% endexample %}
 
-To reload a specific config entry by its ID:
+To reload a specific configuration entry by its ID:
 
 {% example %}
 action: |
@@ -58,26 +58,26 @@ action: |
 
 {% options_yaml %}
 entry_id:
-  description: The config entry to reload. Use this instead of, or together with, a target.
+  description: The configuration entry to reload. Use this instead of, or together with, a target.
   required: false
   type: string
 {% endoptions_yaml %}
 
-You must provide a target, a config entry ID, or both.
+You must provide a target, a configuration entry ID, or both.
 
 <a id="targets"></a>
 
 ## Targets of the action
 
-The target tells Home Assistant which config entries to reload. You can point the action at a single entity, a device, an area, a floor, or a label, and Home Assistant reloads the config entry behind every matching item.
+The target tells Home Assistant which configuration entries to reload. You can point the action at a single entity, a device, an area, a floor, or a label, and Home Assistant reloads the configuration entry behind every matching item.
 
-- **Entity**: the config entry behind one specific entity.
-- **Device**: the config entries behind a device.
-- **Area**: the config entries behind every device and entity in an area.
-- **Floor**: the config entries behind everything on a floor.
-- **Label**: the config entries behind everything that shares a label.
+- **Entity**: the configuration entry behind one specific entity.
+- **Device**: the configuration entries behind a device.
+- **Area**: the configuration entries behind every device and entity in an area.
+- **Floor**: the configuration entries behind everything on a floor.
+- **Label**: the configuration entries behind everything that shares a label.
 
-You can combine a target with a config entry ID. Home Assistant then reloads the combined set of entries.
+You can combine a target with a configuration entry ID. Home Assistant then reloads the combined set of entries.
 
 ## Good to know
 
