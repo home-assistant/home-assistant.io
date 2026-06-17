@@ -21,7 +21,8 @@ To get torrents from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Transmission: Get torrents**.
 6. Select your **Transmission entry** and choose a **Torrent filter**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `torrents`.
+8. Select **Save**.```
 
 This action does not support targets. In the UI, you select the Transmission integration through the **Transmission entry** field instead of choosing an area, device, entity, or label.
 
