@@ -22,7 +22,8 @@ To get the disk space information from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Sonarr: Get disk space**.
 6. Select the **Sonarr entry** to query and optionally a **Space unit**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the disk space data in, such as `disk_data`. 
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 

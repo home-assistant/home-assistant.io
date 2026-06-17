@@ -23,7 +23,8 @@ To get the upcoming episodes from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Sonarr: Get upcoming**.
 6. Select the **Sonarr entry** to query and optionally set the number of **Days** to look ahead.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `upcoming_data`.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
