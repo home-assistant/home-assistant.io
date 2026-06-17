@@ -71,9 +71,9 @@ location_id:
 
 This automation sets your StreamLabs Water Monitor to away mode whenever everyone leaves home, so it watches water usage differently while the house is empty.
 
-- Trigger: the home zone changes to having nobody present
-- Action: set the monitor to away mode
-  - Away mode: `away`
+- **Trigger**: the home zone changes to having nobody present
+- **Action**: StreamLabs: Set away mode
+  - **Away mode**: `away`
 
 {% details "Show example YAML" %}
 
