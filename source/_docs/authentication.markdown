@@ -53,7 +53,7 @@ If you have administrator rights, you can [add a person to Home Assistant](/inte
 
 ## Changing display or username
 
-To learn how to change a display or username, refer to [user configuration](/docs/configuration/user-configuration/).
+To learn how to change a display name or username, refer to [user configuration](/docs/configuration/user-configuration/).
 
 ## Other authentication techniques
 

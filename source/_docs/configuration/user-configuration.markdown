@@ -22,9 +22,9 @@ The display name is the name that is shown in Home Assistant. It can differ from
 
 ### To change a person's display name
 
-1. To edit the display name of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %}
+1. To edit the display name of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %}.
 2. Select the person for whom you want to change the display name.
-3. Change the **Name** and select **Save** to save the change.
+3. Change the **Name**, and then select **Save**.
 
 ## Changing a username
 
@@ -41,7 +41,7 @@ The username is the name that is used to log in. It can differ from the display 
 3. Next to the username, select {% icon "mdi:pencil" %} **Edit**.
 4. In the **Change username** dialog, enter the **New username** and select **Change**.
    - The username must be lowercase and must not contain spaces.
-   - The log in is case-sensitive.
+   - Signing in is case-sensitive.
 
 ## Changing authentication settings
 
