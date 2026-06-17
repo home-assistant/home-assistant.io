@@ -50,9 +50,11 @@ This presses the PS (PlayStation) button on `media_player.ps4`.
 
 {% options_yaml %}
 entity_id:
-  description: The PlayStation 4 to send the command to.
+  description: >
+    The entity ID, or list of entity IDs, of the PlayStation 4 to send the
+    command to.
   required: true
-  type: [string, list]
+  type: string
 command:
   description: The button to press.
   required: true
