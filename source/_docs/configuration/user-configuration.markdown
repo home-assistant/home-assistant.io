@@ -69,8 +69,7 @@ User preferences are tied to your account and follow you across the devices you 
 Localization settings control how dates, times, and numbers are shown. They are tied to your account.
 
 1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, adjust any of the following:
-   - **Language**: the language of the interface.
+2. Under **User preferences** > **Language**, select the language of the interface.
 3. Under **Localization**, adjust any of the following:
    - **Time zone**.
    - **Number format**.
