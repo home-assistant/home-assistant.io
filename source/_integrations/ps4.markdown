@@ -121,7 +121,7 @@ To edit, simply open the file in a text editor, find the game or app you would l
 
 ## Switching games and apps
 
-To open a different game or app and close the one currently running, use the media player's source selection. The game or app must be in the entity's source list. Games are added automatically when you open them normally on the console.
+To open a different game or app and close the one currently running, use the `media_player.select_source` action. The game or app must be in the entity's source list. Games are added automatically when you open them normally on the console.
 
 You can select a source by its title or by its SKU ID, such as `CUSA00123`. Using the SKU ID is the most reliable.
 
