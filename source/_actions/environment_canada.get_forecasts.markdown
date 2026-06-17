@@ -20,7 +20,8 @@ To get forecasts from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the weather entity you want to read.
 6. From the actions shown for that target, select **Get forecasts**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `forecasts`.
+8. Select **Save**.
 
 ### Options in the UI
 
