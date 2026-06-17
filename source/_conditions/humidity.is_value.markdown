@@ -17,13 +17,11 @@ When you target more than one entity, the condition's **Condition passes if** op
    title="Relative humidity"
    sensor="humidity sensor"
    areas="bedroom or bathroom"
-   reading="humidity"
    value_long="a fixed percentage directly, for example `65` for 65%" %}
 
 ### Options in the UI
 
 {% include conditions/threshold_value_options_ui.md
-   reading="humidity"
    value_short="a fixed percentage (0–100)" %}
 
 {% include conditions/yaml_header.md %}
@@ -121,7 +119,6 @@ This passes when the bedroom humidity sensor reads above the number helper´s va
 ### Options in YAML
 
 {% include conditions/threshold_value_options_yaml.md
-   reading="humidity"
    range_note="0–100"
    number_final="a percentage value (0–100)" %}
 

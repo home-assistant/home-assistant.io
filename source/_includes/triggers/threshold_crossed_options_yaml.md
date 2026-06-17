@@ -6,7 +6,6 @@ brightness, battery); members with a unit (temperature, energy, etc.) get an
 added unit_of_measurement note in the threshold description.
 
 Parameters:
-  reading             Quantity noun. For example: "humidity", "temperature".
   unit_phrase_yaml    Literal-value phrasing. For example: "literal percentage 0–100".
   example_value       Value used in the inline example (unitless members). For example: "70".
   has_unit            Set (to anything) for unit_of_measurement note and a unit-style
@@ -45,7 +44,7 @@ threshold:
         entity: {{ include.unit_example_entity }}
     ```
 
-    A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two {{ include.reading }} readings dynamically.
+    A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two readings dynamically.
 {% else %}
 
     For example:

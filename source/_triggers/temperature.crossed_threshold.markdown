@@ -80,7 +80,6 @@ trigger: |
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% include triggers/threshold_crossed_options_yaml.md
-   reading="temperature"
    unit_phrase_yaml="literal number"
    has_unit="true"
    unit_label="temperature unit"

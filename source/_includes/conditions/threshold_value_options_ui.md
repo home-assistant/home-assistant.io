@@ -3,7 +3,6 @@ Reusable "Options in the UI" block for entity conditions that test a reading
 against the threshold-mapping schema.
 
 Parameters:
-  reading            Quantity noun. For example: "humidity".
   value_short        Number-entry phrasing. For example: "a fixed percentage (0–100)".
   has_unit           Set (to anything) to add a "Unit" row. Requires unit_label,
                      unit_options_code, and unit_default.
@@ -14,7 +13,7 @@ Parameters:
 {% options_ui %}
 Threshold type:
   description: |
-    The {{ include.reading }} level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter {{ include.value_short }}, or **Entity** to use a sensor or number helper as a dynamic threshold.
+    The threshold the entity's reading is compared against. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter {{ include.value_short }}, or **Entity** to use a sensor or number helper as a dynamic threshold.
 {% if include.has_unit %}
 Unit:
   description: The {{ include.unit_label }} to use for threshold comparison. Accepts {{ include.unit_options_code }}. Required when using numerical thresholds (not required when using entity references).

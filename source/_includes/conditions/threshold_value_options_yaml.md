@@ -6,7 +6,6 @@ per-type "Provide value..." guidance; members with a unit (temperature, energy,
 etc.) get the unit_of_measurement guidance and a unit-style example instead.
 
 Parameters:
-  reading             Quantity noun. For example: "humidity", "temperature".
   range_note          Parenthetical range for above/below (unitless). For example: "0–100".
   number_final        Closing number guidance (unitless). For example: "a percentage value (0–100)".
   has_unit            Set (to anything) for unit_of_measurement guidance and example.
@@ -20,7 +19,7 @@ Parameters:
 {% options_yaml %}
 threshold:
   description: |
-    The {{ include.reading }} level the entity has to meet for the condition to pass:
+    The threshold the entity's reading is compared against:
 
     - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass.{% unless include.has_unit %} Provide `value` with a `number` key ({{ include.range_note }}) or an `entity` key.{% endunless %}
     - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass.{% unless include.has_unit %} Provide `value` with a `number` key ({{ include.range_note }}) or an `entity` key.{% endunless %}
@@ -40,7 +39,7 @@ threshold:
         unit_of_measurement: {{ include.unit_default }}
     ```
 
-    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two {{ include.reading }} readings dynamically.
+    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two readings dynamically.
 {% else %}
 
     For the `number` key, use {{ include.number_final }}. For the `entity` key, use an `input_number`, `number`, or `sensor` entity.

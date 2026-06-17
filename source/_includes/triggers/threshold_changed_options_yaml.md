@@ -3,7 +3,6 @@ Reusable "Options in YAML" block for "changed" entity triggers that use the
 threshold-mapping schema.
 
 Parameters:
-  reading             Quantity noun. For example: "humidity", "temperature".
   unit_phrase_yaml    Literal-value phrasing. For example: "literal percentage 0–100".
   has_unit            Set (to anything) to add unit_of_measurement guidance and example.
                       Requires unit_label, unit_options_code, unit_default,
@@ -20,7 +19,7 @@ threshold:
   description: |
     A mapping that defines which kind of change fires the trigger:
 
-    - `type: any`: Fires on any {{ include.reading }} change (no additional keys needed).
+    - `type: any`: Fires on any change (no additional keys needed).
     - `type: above` (exclusive): Sets a minimum. Fires when the reading is strictly above `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Sets a maximum. Fires when the reading is strictly below `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: between` (exclusive): Defines a range. Fires when the reading is strictly between `value_min` and `value_max`. Readings equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
@@ -41,7 +40,7 @@ threshold:
         unit_of_measurement: {{ include.unit_default }}
     ```
 
-    A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two {{ include.reading }} readings dynamically.
+    A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two readings dynamically.
 {% endif %}
   required: true
   type: map
