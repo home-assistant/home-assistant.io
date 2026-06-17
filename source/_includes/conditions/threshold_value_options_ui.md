@@ -4,7 +4,7 @@ against the threshold-mapping schema.
 
 Parameters:
   reading            quantity noun, e.g. "humidity"
-  value_short        Number-entry phrasing, e.g. "a fixed percentage (0–100)"
+  value_short        Number-entry phrasing. For example: "a fixed percentage (0–100)".
   has_unit           set (to anything) to add a "Unit" row (requires unit_label,
                      unit_options_code, unit_default)
   unit_label         Unit label. For example: "temperature unit", "energy unit".
