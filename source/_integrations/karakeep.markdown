@@ -54,7 +54,7 @@ Verify SSL certificate:
 
 ## Supported functionality
 
-The Karakeep integration provides sensors for account statistics.
+The Karakeep integration provides sensors for account statistics. The Karakeep server version is shown on the integration's device page when your instance is running version `0.29.0` or later.
 
 ## Sensors
 
