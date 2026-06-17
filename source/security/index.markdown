@@ -62,6 +62,13 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2026-06-17: Exported BroadcastReceiver allows local apps to spoof device location**  
+Severity: _High (CVSS: 7.1)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-77r5-pw5w-mgj3)_  
+Assigned CVE: _[CVE-2026-54318](https://nvd.nist.gov/vuln/detail/CVE-2026-54318)_  
+Discovered by: _[waihankan](https://github.com/waihankan)_  
+Fixed in: _Home Assistant for Android 2026.5.3_
+
 **2026-05-11: Cross-origin iframe access token exfiltration via WebView JS bridge callback injection**  
 Severity: _High (CVSS: 8.3)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-7jp2-p2fw-mgvf)_  
