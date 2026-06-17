@@ -69,7 +69,7 @@ state_content:
 time_format:
   required: false
   description: >
-    Controls how timestamps in state_content will be formatted. Valid values are: `relative`, `total`, `date`, `time` and `datetime`.
+    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`.
   type: string
 tap_action:
   required: false
