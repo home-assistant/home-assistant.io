@@ -201,8 +201,6 @@ When you add someone, Home Assistant creates a new entry with the following enti
 
 For details about each of these entities, see the descriptions above under [**Sensors**](#sensors) and [**Image**](#image).
 
-## Actions
-
 {% include integrations/actions.md %}
 
 ## Automations
