@@ -108,6 +108,8 @@ The **Kiosker** integration provides the following entities.
 - **Clear blackout**
   - Clears the currently active blackout.
 
+{% include integrations/actions.md %}
+
 ## Data updates
 
 This integration fetches data from the device every 15 seconds.
