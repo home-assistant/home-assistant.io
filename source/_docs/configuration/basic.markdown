@@ -19,7 +19,7 @@ To change the home information (formerly called general settings) that were defi
    - Then, adjust the location and radius on the map. These changes are saved automatically.
       <img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screencast showing how to zoom and pan to change location and radius on the Edit home page'>
    - To add a new zone, select **Create zone**.
-   - To edit an existing zone, select the {% icon "mdi:pencil" %} edit icon next to it. You can then change its name, icon, name, and radius, among other settings.
+   - To edit an existing zone, select the {% icon "mdi:pencil" %} edit icon next to it. You can then change its name, icon, and radius, among other settings.
    - To apply your changes, select **Save**.
 3. To change regional settings, go to {% my general title="**Settings** > **System** > **Home information**" %}.
    - Under **Region**, you can change the following parameters:
