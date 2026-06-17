@@ -1,5 +1,5 @@
 ---
-title: "Update to-do"
+title: "Update a to-do"
 action: habitica.update_todo
 domain: habitica
 description: "Updates an existing to-do for your Habitica character."
@@ -16,7 +16,8 @@ To update a to-do from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Habitica: Update to-do**.
-6. Select the **Config entry** of the character and the **Task** of the to-do to update. Then set the values you want to change.
+5. From the search box, search for and select **Habitica: Update a to-do**.
+6. Select the **Config entry** of the character and the **Task name** of the to-do to update. Then set the values you want to change.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -24,10 +25,10 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character that owns the to-do.
   required: true
-Task:
+Task name:
   description: The to-do to update by name, task ID, or alias.
   required: true
 Rename:
@@ -36,46 +37,46 @@ Rename:
 Notes:
   description: The new notes for the to-do.
   required: false
-Add checklist item:
+Add checklist items:
   description: The items to add to the to-do's checklist.
   required: false
-Remove checklist item:
+Delete items:
   description: Remove items from the to-do's checklist.
   required: false
-Score checklist item:
+Complete items:
   description: Mark items on the to-do's checklist as completed.
   required: false
-Unscore checklist item:
+Uncomplete items:
   description: Undo completion of items on the to-do's checklist.
   required: false
-Collapse checklist:
+Collapse/expand checklist:
   description: "Whether the checklist is displayed as collapsed or expanded."
   required: false
-Priority:
+Difficulty:
   description: "Update the difficulty of the to-do. One of trivial, easy, medium, or hard."
   required: false
-Date:
+Due date:
   description: The to-do's due date.
   required: false
-Clear date:
+Clear due date:
   description: Remove the due date from the to-do.
   required: false
-Reminder:
+Add reminders:
   description: Add reminders to the to-do.
   required: false
-Remove reminder:
+Remove reminders:
   description: Remove specific reminders from the to-do.
   required: false
-Clear reminder:
+Clear all reminders:
   description: Remove all reminders from the to-do.
   required: false
-Tag:
+Add tags:
   description: Add tags to the to-do. If a tag does not exist yet, it is created.
   required: false
-Remove tag:
+Remove tags:
   description: Remove tags from the to-do.
   required: false
-Alias:
+Task alias:
   description: "An alias to use instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The alias must be unique among all your tasks."
   required: false
 {% endoptions_ui %}
