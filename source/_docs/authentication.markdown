@@ -4,13 +4,13 @@ description: "Documentation on authentication in Home Assistant."
 
 related:
   - docs: /docs/configuration/user-configuration/
-    title: Person and user configuration
+    title: People and user configuration
   - docs: /docs/authentication/multi-factor-auth/
     title: Multi-factor authentication
   - docs: /docs/authentication/providers/
-    title: Auth providers
+    title: Authentication providers
   - docs: /docs/locked_out/
-    title: Help, I'm locked out!
+    title: I'm locked out!
 ---
 
 The authentication system secures access to Home Assistant.
@@ -55,7 +55,7 @@ Home Assistant provides several ways to authenticate. See the [Auth providers](/
 
 ### Forgot username or password
 
-If you can no longer sign in, forgot your username or password, refer to [Help, I'm locked out!](/docs/locked_out/).
+If you can no longer sign in, or you forgot your username or password, refer to [Help, I'm locked out!](/docs/locked_out/).
 
 ### Authentication failures from `127.0.0.1`
 

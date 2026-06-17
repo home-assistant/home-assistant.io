@@ -54,14 +54,14 @@ The **Security** tab is where you manage how you sign in, such as your password,
 
 You can also sign out of Home Assistant from the profile page.
 
-#### Changing the theme and organize your sidebar
+#### Changing the theme and organizing your sidebar
 
-User preferences are tied to your account and follow you across the devices you sign in on.
+User preferences are tied to your account and follow you across the devices you sign in to.
 
 1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
 2. Under **User preferences**, adjust any of the following:
-   - **Theme**: how Home Assistant looks.
-   - **Default dashboard**: the dashboard that opens when you start Home Assistant.
+   - **Theme**: How Home Assistant looks.
+   - **Default dashboard**: The dashboard that opens when you start Home Assistant.
 3. To change which items appear in the sidebar and in what order, select **Edit** next to **Change the order and hide items from the sidebar**.
 
 #### Changing your localization settings
