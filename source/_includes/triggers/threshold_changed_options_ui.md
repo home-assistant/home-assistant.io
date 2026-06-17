@@ -3,12 +3,12 @@ Reusable "Options in the UI" block for "changed" entity triggers that use the
 threshold-mapping schema.
 
 Parameters:
-  unit_phrase_ui     value-entry phrasing, e.g. "a fixed percentage (0–100%)"
-  has_unit           set (to anything) to add a "Unit" row (requires unit_label,
-                     unit_options_code, unit_default)
-  unit_label         unit-kind label, e.g. "temperature unit", "energy unit"
-  unit_options_code  inline-code list of allowed units, e.g. "`°C` or `°F`"
-  unit_default       default unit, e.g. "°C"
+  unit_phrase_ui     Value-entry phrasing. For example: "a fixed percentage (0–100%)".
+  has_unit           Set (to anything) to add a "Unit" row. Requires unit_label,
+                     unit_options_code, and unit_default.
+  unit_label         Unit label. For example: "temperature unit", "energy unit".
+  unit_options_code  Inline code list of allowed units. For example: "`°C` or `°F`".
+  unit_default       Default unit. For example: "°C".
 {% endcomment %}
 {% options_ui %}
 Threshold type:

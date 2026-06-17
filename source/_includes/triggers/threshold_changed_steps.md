@@ -5,13 +5,13 @@ threshold-mapping schema (type: any/above/below/between/outside) and fire on a
 light.brightness_changed, battery.level_changed, and similar.
 
 Parameters:
-  title           UI display name, e.g. "Relative humidity changed"
-  sensor          sensor noun, e.g. "humidity sensor"
-  areas           example areas, e.g. "bathroom or bedroom"
-  unit_phrase_ui  value-entry phrasing, e.g. "a fixed percentage (0–100%)"
-  has_unit        set (to anything) to add a "Unit" step (requires unit_label, unit_options)
-  unit_label      unit-kind label, e.g. "temperature unit", "energy unit"
-  unit_options    bare list of allowed units for prose, e.g. "°C or °F"
+  title           UI display name. For example: "Relative humidity changed".
+  sensor          Sensor noun. For example: "humidity sensor".
+  areas           Example areas. For example: "bathroom or bedroom".
+  unit_phrase_ui  Value-entry phrasing. For example: "a fixed percentage (0–100%)".
+  has_unit        Set (to anything) to add a "Unit" step. Requires unit_label and unit_options.
+  unit_label      Unit label. For example: "temperature unit", "energy unit".
+  unit_options    Bare list of allowed units for prose. For example: "°C or °F".
 {% endcomment %}
 To use **{{ include.title }}** in an automation:
 

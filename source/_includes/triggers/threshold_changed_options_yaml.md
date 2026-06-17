@@ -3,17 +3,17 @@ Reusable "Options in YAML" block for "changed" entity triggers that use the
 threshold-mapping schema.
 
 Parameters:
-  reading             quantity noun, e.g. "humidity", "temperature"
-  unit_phrase_yaml    literal-value phrasing, e.g. "literal percentage 0–100"
-  has_unit            set (to anything) to add unit_of_measurement guidance + example
-                      (requires unit_label, unit_options_code, unit_default,
-                      unit_example_entity, unit_example_value)
-  unit_label          unit-kind label, e.g. "temperature unit", "energy unit"
-  unit_options_code   inline-code list of allowed units, e.g. "`°C` or `°F`"
-  unit_default        default unit used in the example, e.g. "°C"
-  unit_example_entity entity reference used in the example, e.g.
-                      "input_number.comfort_temperature_min"
-  unit_example_value  literal number used in the example, e.g. "24"
+  reading             Quantity noun. For example: "humidity", "temperature".
+  unit_phrase_yaml    Literal-value phrasing. For example: "literal percentage 0–100".
+  has_unit            Set (to anything) to add unit_of_measurement guidance and example.
+                      Requires unit_label, unit_options_code, unit_default,
+                      unit_example_entity, and unit_example_value.
+  unit_label          Unit label. For example: "temperature unit", "energy unit".
+  unit_options_code   Inline code list of allowed units. For example: "`°C` or `°F`".
+  unit_default        Default unit used in the example. For example: "°C".
+  unit_example_entity Entity reference used in the example. For example:
+                      "input_number.comfort_temperature_min".
+  unit_example_value  Literal number used in the example. For example: "24".
 {% endcomment %}
 {% options_yaml %}
 threshold:

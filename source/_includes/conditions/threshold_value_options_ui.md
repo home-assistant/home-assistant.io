@@ -3,10 +3,10 @@ Reusable "Options in the UI" block for entity conditions that test a reading
 against the threshold-mapping schema.
 
 Parameters:
-  reading            quantity noun, e.g. "humidity"
+  reading            Quantity noun. For example: "humidity".
   value_short        Number-entry phrasing. For example: "a fixed percentage (0–100)".
-  has_unit           set (to anything) to add a "Unit" row (requires unit_label,
-                     unit_options_code, unit_default)
+  has_unit           Set (to anything) to add a "Unit" row. Requires unit_label,
+                     unit_options_code, and unit_default.
   unit_label         Unit label. For example: "temperature unit", "energy unit".
   unit_options_code  Inline code list of allowed units. For example: "`°C` or `°F`".
   unit_default       Default unit. For example: "°C"

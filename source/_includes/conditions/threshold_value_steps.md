@@ -5,14 +5,14 @@ range). Used by humidity.is_value; reusable by climate.target_humidity,
 light.is_brightness, counter.is_value, and similar.
 
 Parameters:
-  title         UI display name, e.g. "Relative humidity"
-  sensor        sensor noun, e.g. "humidity sensor"
-  areas         example areas, e.g. "bedroom or bathroom"
-  reading       quantity noun, e.g. "humidity"
-  value_long    Number-entry phrasing, e.g. "a fixed percentage directly, for example `65` for 65%"
-  has_unit      set (to anything) to add a "Unit" step (requires unit_label, unit_options)
-  unit_label    unit-kind label, e.g. "temperature unit", "energy unit"
-  unit_options  bare list of allowed units for prose, e.g. "°C or °F"
+  title         UI display name. For example: "Relative humidity".
+  sensor        Sensor noun. For example: "humidity sensor".
+  areas         Example areas. For example: "bedroom or bathroom".
+  reading       Quantity noun. For example: "humidity".
+  value_long    Number-entry phrasing. For example: "a fixed percentage directly, for example `65` for 65%".
+  has_unit      Set (to anything) to add a "Unit" step. Requires unit_label and unit_options.
+  unit_label    Unit label. For example: "temperature unit", "energy unit".
+  unit_options  Bare list of allowed units for prose. For example: "°C or °F".
 {% endcomment %}
 To use **{{ include.title }}** in an automation:
 
