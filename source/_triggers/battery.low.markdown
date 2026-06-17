@@ -11,7 +11,7 @@ The **Battery low** trigger fires when a battery sensor reports that the battery
 
 Use **Battery low** to send an alert before a device goes offline, pause automations that rely on battery-powered sensors, or keep a log of which devices need attention. Combine it with an area or label target to monitor all battery-powered devices in a room or across your whole home at once.
 
-
+For a visual overview of all battery statuses, open the {% my maintenance title="**Maintenance** dashboard" %}.
 
 {% include integrations/labs_entity_triggers_note.md %}
 
