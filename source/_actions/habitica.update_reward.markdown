@@ -1,5 +1,5 @@
 ---
-title: "Update reward"
+title: "Update a reward"
 action: habitica.update_reward
 domain: habitica
 description: "Updates an existing custom reward for your Habitica character."
@@ -16,7 +16,8 @@ To update a reward from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Habitica: Update reward**.
-6. Select the **Config entry** of the character and the **Task** of the reward to update. Then set the values you want to change.
+5. From the search box, search for and select **Habitica: Update a reward**.
+6. Select the **Config entry** of the character and the **Task name** of the reward to update. Then set the values you want to change.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -24,10 +25,10 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character that owns the reward.
   required: true
-Task:
+Task name:
   description: The reward to update by name, task ID, or alias.
   required: true
 Rename:
@@ -39,13 +40,13 @@ Notes:
 Cost:
   description: The cost of the reward in gold.
   required: false
-Tag:
+Add tags:
   description: Add tags to the reward. If a tag does not exist yet, it is created.
   required: false
-Remove tag:
+Remove tags:
   description: Remove tags from the reward.
   required: false
-Alias:
+Task alias:
   description: "An alias to use instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The alias must be unique among all your tasks."
   required: false
 {% endoptions_ui %}
