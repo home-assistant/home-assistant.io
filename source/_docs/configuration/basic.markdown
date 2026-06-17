@@ -37,4 +37,4 @@ To change the home information (formerly called general settings) that were defi
 
 ## Actions related to general home information
 
-The general settings described here are managed by the [Home Assistant Core integration](/integrations/homeassistant/). If you are interested in the actions offered by this integration, check out the integration documentation.
+The settings described here are managed by the [Home Assistant Core integration](/integrations/homeassistant/). If you are interested in the actions available in the core integration, check out the documentation.
