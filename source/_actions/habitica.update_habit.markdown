@@ -1,5 +1,5 @@
 ---
-title: "Update habit"
+title: "Update a habit"
 action: habitica.update_habit
 domain: habitica
 description: "Updates an existing habit for your Habitica character."
@@ -16,7 +16,8 @@ To update a habit from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Habitica: Update habit**.
-6. Select the **Config entry** of the character and the **Task** of the habit to update. Then set the values you want to change.
+5. From the search box, search for and select **Habitica: Update a habit**.
+6. Select the **Config entry** of the character and the **Task name** of the habit to update. Then set the values you want to change.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -24,10 +25,10 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character that owns the habit.
   required: true
-Task:
+Task name:
   description: The habit to update by name, task ID, or alias.
   required: true
 Rename:
@@ -36,28 +37,29 @@ Rename:
 Notes:
   description: The new notes for the habit.
   required: false
-Up_down:
-  description: "Update if the habit is positive, negative, or both. One or more of up and down."
+Up/down:
+Rewards or losses:
+  description: "Whether the habit is good and rewarding (positive), bad and penalizing (negative), or both."
   required: false
-Priority:
+Difficulty:
   description: "Update the difficulty of the habit. One of trivial, easy, medium, or hard."
   required: false
-Frequency:
+Counter reset:
   description: "Update when the habit's counter resets. One of daily, weekly, or monthly."
   required: false
-Tag:
+Add tags:
   description: Add tags to the habit. If a tag does not exist yet, it is created.
   required: false
-Remove tag:
+Remove tags:
   description: Remove tags from the habit.
   required: false
-Counter up:
+Adjust positive counter:
   description: Update the up counter of a positive habit.
   required: false
-Counter down:
+Adjust negative counter:
   description: Update the down counter of a negative habit.
   required: false
-Alias:
+Task alias:
   description: "An alias to use instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The alias must be unique among all your tasks."
   required: false
 {% endoptions_ui %}
