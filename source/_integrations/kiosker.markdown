@@ -77,7 +77,7 @@ The **Kiosker** integration provides the following entities.
   - Shows the background color of the blackout screen as a hex color string (e.g. #000000). Defaults to unknown if no visible blackout.
 - **Blackout foreground color** (disabled by default)
   - Shows the text/icon color of the blackout screen as a hex color string (e.g. #FFFFFF). Defaults to unknown if no visible blackout.
-- **Blackout expire** (disabled by default)
+- **Blackout expiry** (disabled by default)
   - Shows the remaining time in seconds before the blackout expires. Defaults to unknown if no visible blackout.
 - **Blackout button background color** (disabled by default)
   - Shows the background color of the dismiss button as a hex color string (e.g. #FFFFFF). Defaults to unknown if no visible blackout.
