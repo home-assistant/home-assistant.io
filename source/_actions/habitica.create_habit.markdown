@@ -21,7 +21,7 @@ To create a habit from an automation or a script:
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
-### Options in the UI
+## Options in the UI
 
 {% options_ui %}
 Select character:
@@ -33,7 +33,6 @@ Task name:
 Notes:
   description: The notes for the habit.
   required: false
-Up/down:
 Rewards or losses:
   description: "Whether the habit is good and rewarding (positive), bad and penalizing (negative), or both."
   required: false
@@ -66,7 +65,7 @@ action: |
     priority: easy
 {% endexample %}
 
-### Options in YAML
+## Options in YAML
 
 {% options_yaml %}
 config_entry:

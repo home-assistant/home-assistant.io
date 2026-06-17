@@ -15,14 +15,13 @@ To update a habit from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Habitica: Update habit**.
 5. From the search box, search for and select **Habitica: Update a habit**.
 6. Select the **Config entry** of the character and the **Task name** of the habit to update. Then set the values you want to change.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
-### Options in the UI
+## Options in the UI
 
 {% options_ui %}
 Select character:
@@ -37,7 +36,6 @@ Rename:
 Notes:
   description: The new notes for the habit.
   required: false
-Up/down:
 Rewards or losses:
   description: "Whether the habit is good and rewarding (positive), bad and penalizing (negative), or both."
   required: false
@@ -77,7 +75,7 @@ action: |
     priority: medium
 {% endexample %}
 
-### Options in YAML
+## Options in YAML
 
 {% options_yaml %}
 config_entry:
