@@ -16,7 +16,7 @@ To create a habit from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Habitica: Create habit**.
-6. Select the **Config entry** of the character and enter a **Name**. Optionally, set the other values.
+6. Select the **Config entry** of the character and enter a **Task name**. Optionally, set the other values.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -24,28 +24,29 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character to create the habit for.
   required: true
-Name:
+Task name:
   description: The title for the habit.
   required: true
 Notes:
   description: The notes for the habit.
   required: false
-Up_down:
-  description: "Defines if the habit is positive, negative, or both. One or more of up and down."
+Up/down:
+Rewards or losses:
+  description: "Whether the habit is good and rewarding (positive), bad and penalizing (negative), or both."
   required: false
-Priority:
+Difficulty:
   description: "The difficulty of the habit. One of trivial, easy, medium, or hard."
   required: false
-Frequency:
+Counter reset:
   description: "Defines when the habit's counter resets. One of daily, weekly, or monthly."
   required: false
-Tag:
+Tags:
   description: Add tags to the habit. If a tag does not exist yet, it is created.
   required: false
-Alias:
+Task alias:
   description: "An alias to use instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The alias must be unique among all your tasks."
   required: false
 {% endoptions_ui %}

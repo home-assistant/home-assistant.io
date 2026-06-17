@@ -1,8 +1,8 @@
 ---
-title: "Score habit"
+title: "Track a habit"
 action: habitica.score_habit
 domain: habitica
-description: "Increases the positive or negative streak of a Habitica habit."
+description: "Increases the positive or negative streak of a Habitica habit to track its progress."
 ---
 
 Use this action to score a habit, increasing its positive or negative streak depending on the direction you choose.
@@ -24,14 +24,14 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character that tracks the habit.
   required: true
-Task:
+Habit name:
   description: The habit to score by name, task ID, or alias.
   required: true
-Direction:
-  description: Select up for positive progress or down for negative progress.
+Reward or loss:
+  description: Is it positive (➕) or negative (➖) progress you want to track for your habit.
   required: true
 {% endoptions_ui %}
 

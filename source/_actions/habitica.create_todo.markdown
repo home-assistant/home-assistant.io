@@ -16,7 +16,7 @@ To create a to-do from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Habitica: Create to-do**.
-6. Select the **Config entry** of the character and enter a **Name**. Optionally, set the other values.
+6. Select the **Config entry** of the character and enter a **Task name**. Optionally, set the other values.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -24,34 +24,34 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character to create the to-do for.
   required: true
-Name:
+Task name:
   description: The title for the to-do.
   required: true
 Notes:
   description: The notes for the to-do.
   required: false
-Add checklist item:
+Checklist:
   description: The items to add to the to-do's checklist.
   required: false
-Collapse checklist:
+Collapse/expand checklist:
   description: "Whether the checklist is displayed as collapsed or expanded."
   required: false
-Priority:
+Difficulty:
   description: "The difficulty of the to-do. One of trivial, easy, medium, or hard."
   required: false
-Date:
+Due date:
   description: The to-do's due date.
   required: false
-Reminder:
+Reminders:
   description: Add reminders to the to-do.
   required: false
-Tag:
+Tags:
   description: Add tags to the to-do. If a tag does not exist yet, it is created.
   required: false
-Alias:
+Task alias:
   description: "An alias to use instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The alias must be unique among all your tasks."
   required: false
 {% endoptions_ui %}

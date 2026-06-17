@@ -1,5 +1,5 @@
 ---
-title: "Create daily"
+title: "Create a daily"
 action: habitica.create_daily
 domain: habitica
 description: "Creates a daily for your Habitica character."
@@ -15,8 +15,8 @@ To create a daily from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Habitica: Create daily**.
-6. Select the **Config entry** of the character and enter a **Name**. Optionally, set the other values.
+5. From the search box, search for and select **Habitica: Create a daily**.
+6. Select the **Config entry** of the character and enter a **Task name**. Optionally, set the other values.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -27,43 +27,43 @@ This action does not support targets. In the UI, you are not prompted to choose 
 Config entry:
   description: The Habitica character to create the daily for.
   required: true
-Name:
+Task name:
   description: The title for the daily.
   required: true
 Notes:
   description: The notes for the daily.
   required: false
-Add checklist item:
+Checklist:
   description: The items to add to the daily's checklist.
   required: false
-Collapse checklist:
+Collapse/expand checklist:
   description: "Whether the checklist is displayed as collapsed or expanded."
   required: false
-Priority:
+Difficulty:
   description: "The difficulty of the daily. One of trivial, easy, medium, or hard."
   required: false
 Start date:
   description: The date when the daily becomes active and the day it repeats on.
   required: false
-Frequency:
+Repeat interval:
   description: "The repetition interval of the daily. One of daily, weekly, monthly, or yearly."
   required: false
-Every x:
+Repeat every X:
   description: "The number of intervals after which the daily repeats, based on the chosen frequency. A value of 0 makes the daily inactive (a gray daily)."
   required: false
-Repeat:
+Weekly repeat days:
   description: The days of the week the daily repeats. Applies when the frequency is weekly.
   required: false
-Repeat monthly:
+Monthly repeat day:
   description: "Whether a monthly daily repeats on the same calendar day (day_of_month) or the same weekday of the month (day_of_week), based on the start date. Applies when the frequency is monthly."
   required: false
-Reminder:
+Reminders:
   description: Add reminders to the daily.
   required: false
-Tag:
+Tags:
   description: Add tags to the daily. If a tag does not exist yet, it is created.
   required: false
-Alias:
+Task alias:
   description: "An alias to use instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The alias must be unique among all your tasks."
   required: false
 {% endoptions_ui %}

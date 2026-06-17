@@ -1,5 +1,5 @@
 ---
-title: "Leave quest"
+title: "Leave a quest"
 action: habitica.leave_quest
 domain: habitica
 description: "Leaves the quest your Habitica character is participating in."
@@ -15,7 +15,7 @@ To leave a quest from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Habitica: Leave quest**.
+5. From the search box, search for and select **Habitica: Leave a quest**.
 6. Select the **Config entry** of the character that leaves the quest.
 7. Select **Save**.
 
@@ -24,7 +24,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character that leaves the quest.
   required: true
 {% endoptions_ui %}

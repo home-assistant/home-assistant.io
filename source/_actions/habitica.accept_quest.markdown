@@ -1,5 +1,5 @@
 ---
-title: "Accept quest"
+title: "Accept a quest invitation"
 action: habitica.accept_quest
 domain: habitica
 description: "Accepts a pending quest invitation for your Habitica party."
@@ -15,7 +15,7 @@ To accept a quest from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Habitica: Accept quest**.
+5. From the search box, search for and select **Habitica: Accept a quest invitation**.
 6. Select the **Config entry** of the character that accepts the quest.
 7. Select **Save**.
 
@@ -24,7 +24,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character that accepts the quest.
   required: true
 {% endoptions_ui %}

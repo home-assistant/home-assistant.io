@@ -1,5 +1,5 @@
 ---
-title: "Cast skill"
+title: "Cast a skill"
 action: habitica.cast_skill
 domain: habitica
 description: "Uses a skill or spell from your Habitica character on a task."
@@ -15,7 +15,7 @@ To cast a skill from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Habitica: Cast skill**.
+5. From the search box, search for and select **Habitica: Cast a skill**.
 6. Select the **Config entry** of the character, the **Skill** to cast, and the **Task** to cast it on.
 7. Select **Save**.
 
@@ -36,7 +36,7 @@ Config entry:
 Skill:
   description: "The skill or spell to cast. Only skills available to your character's class can be used."
   required: true
-Task:
+Task name:
   description: "The task to target by name, task ID, or alias. Supported task types are to-do, habit, and daily."
   required: true
 {% endoptions_ui %}

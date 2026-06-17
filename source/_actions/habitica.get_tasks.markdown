@@ -26,16 +26,16 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character to retrieve tasks from.
   required: true
-Type:
+Task type:
   description: "Filter tasks by type. One or more of habit, daily, todo, or reward."
   required: false
-Priority:
+Difficulty:
   description: "Filter tasks by difficulty. One or more of trivial, easy, medium, or hard."
   required: false
-Task:
+Task name:
   description: Select specific tasks by name, task ID, or alias.
   required: false
 Tag:

@@ -1,5 +1,5 @@
 ---
-title: "Score reward"
+title: "Buy a reward"
 action: habitica.score_reward
 domain: habitica
 description: "Buys a custom Habitica reward with gold."
@@ -16,7 +16,8 @@ To buy a reward from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Habitica: Score reward**.
-6. Select the **Config entry** of the character and the **Task** of the reward to buy.
+5. From the search box, search for and select **Habitica: Buy a reward**.
+6. Select the **Config entry** of the character and the **Reward name** of the reward to buy.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -24,10 +25,10 @@ This action does not support targets. In the UI, you are not prompted to choose 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character that buys the reward.
   required: true
-Task:
+Reward name:
   description: The custom reward to buy by name, task ID, or alias.
   required: true
 {% endoptions_ui %}
