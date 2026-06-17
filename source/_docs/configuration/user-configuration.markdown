@@ -78,7 +78,7 @@ To learn how to edit authentication settings such as password or multi-factor au
 
 ## Deleting a user or person
 
-Because a person and a user are [two different concepts](#persons-and-users), you can delete one without the other:
+Because a person and a user are [two different concepts](#about-persons-and-users), you can delete one without the other:
 
 - If you delete the person, the linked user account is deleted as well.
 - If you delete only the user, the person stays. The person can no longer sign in, but it can still be used for presence detection, shown on the map, and used in automations.
@@ -106,7 +106,7 @@ The user account and its login credentials are deleted, but the person remains.
 
 ### To delete a user via the Users tab
 
-You can also delete a user account without going through the person. 
+You can also delete a user account without going through the person.
 
 1. Go to {% my people title="**Settings** > **People**" %} and select the **Users** tab.
 2. Select the user you want to delete.
