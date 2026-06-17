@@ -21,7 +21,8 @@ To get the forecast from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Stookwijzer: Get forecast**.
 6. Choose the **Stookwijzer instance** to get the forecast from.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the forecast in, such as `stookwijzer_forecast`.
+8. Select **Save**.
 
 ### Options in the UI
 
