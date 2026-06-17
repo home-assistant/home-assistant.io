@@ -106,7 +106,7 @@ The user account and its login credentials are deleted, but the person remains.
 
 ### To delete a user via the Users tab
 
-You can also delete a user account without going through the person.
+You can also delete a user account without going through the person. This is useful for user-only accounts.
 
 1. Go to {% my people title="**Settings** > **People**" %} and select the **Users** tab.
 2. Select the user you want to delete.
