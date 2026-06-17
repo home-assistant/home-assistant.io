@@ -1,5 +1,5 @@
 ---
-title: "Abort quest"
+title: "Abort an active quest"
 action: habitica.abort_quest
 domain: habitica
 description: "Terminates your Habitica party's ongoing quest and resets all progress."
