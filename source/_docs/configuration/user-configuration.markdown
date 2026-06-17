@@ -1,5 +1,5 @@
 ---
-title: "Person and user configuration"
+title: "People and user configuration"
 description: "Manage the people who use your Home Assistant, such as changing display names, usernames, and authentication settings."
 related:
   - docs: /docs/authentication/
