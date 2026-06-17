@@ -68,9 +68,9 @@ mac:
 
 This automation forces a wireless client to reconnect to your Omada network whenever a device that depends on it becomes unavailable for a few minutes, which can recover a stuck Wi-Fi connection.
 
-- Trigger: the device's entity stays unavailable for 5 minutes
-- Action: reconnect the wireless client
-  - MAC address: the client's MAC address
+- **Trigger**: the device's entity stays unavailable for 5 minutes
+- **Action**: TP-Link Omada: Reconnect wireless client
+  - **MAC address**: the client's MAC address
 
 {% details "Show example YAML" %}
 
