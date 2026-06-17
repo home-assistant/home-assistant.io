@@ -24,7 +24,8 @@ To upload media from an automation or a script:
 5. From the search box, search for and select **Google Photos: Upload**.
 6. Select the **Google Photos entry** to upload to. This is the Google Photos account you set up in Home Assistant. If you added more than one account, pick the one you want.
 7. Enter the **Filename** of the file to upload, and the **Album** to upload it to.
-8. Select **Save**.
+8. In the **Response variable** field, enter a name to store the data in, such as `upload`.
+9. Select **Save**.```
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
