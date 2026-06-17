@@ -22,7 +22,8 @@ To search from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Music Assistant: Search Music Assistant**.
 6. Fill in the options you want to use.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the movie data in, such as `search_results`.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. You select the Music Assistant instance through the **Music Assistant instance** option instead.
 

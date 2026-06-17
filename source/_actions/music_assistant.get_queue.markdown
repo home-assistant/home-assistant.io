@@ -22,7 +22,8 @@ To get queue details from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Music Assistant media player whose queue you want to retrieve.
 6. From the actions shown for that target, select **Get queue details**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `queue_info`.
+8. Select **Save**.
 
 This action has no additional options in the UI.
 

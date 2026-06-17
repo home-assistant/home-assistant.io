@@ -22,7 +22,8 @@ To get library items from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Music Assistant: Get library items**.
 6. Fill in the options you want to use.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `library_items`.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. You select the Music Assistant instance through the **Music Assistant instance** option instead.
 
