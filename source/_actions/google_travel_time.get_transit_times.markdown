@@ -119,8 +119,8 @@ arrival_time:
   description: The desired arrival time, as a time string such as `08:00:00`.
   required: false
   type: string
-response_variable: >
-  description:
+response_variable:
+  description: >
     The name of the variable where the result will be stored.
     If not provided, the result won't be stored.
   required: false
