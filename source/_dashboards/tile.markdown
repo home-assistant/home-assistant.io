@@ -70,7 +70,7 @@ time_format:
   required: false
   description: >
     Controls how timestamps in state_content will be formatted. Valid values are: `relative`, `total`, `date`, `time` and `datetime`.
-  type: string  
+  type: string
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
