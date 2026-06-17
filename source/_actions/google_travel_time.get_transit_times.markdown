@@ -115,11 +115,11 @@ transit_routing_preference:
 departure_time:
   description: The desired departure time, as a time string such as `08:00:00`.
   required: false
-  type: time
+  type: string
 arrival_time:
   description: The desired arrival time, as a time string such as `08:00:00`.
   required: false
-  type: time
+  type: string
 response_variable: >
   description:
     The name of the variable where the result will be stored.
