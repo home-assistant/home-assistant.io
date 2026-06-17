@@ -38,3 +38,7 @@ To change the home information (formerly called general settings) that were defi
 ## Actions related to general home information
 
 The settings described here are managed by the [Home Assistant Core integration](/integrations/homeassistant/). If you are interested in the actions available in the core integration, check out the documentation.
+
+## Changing display names and usernames
+
+To change a person's display name or username, refer to [User configuration](/docs/configuration/user-configuration/).
