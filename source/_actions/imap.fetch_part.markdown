@@ -23,7 +23,8 @@ To use this action in an automation or script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **IMAP: Fetch message part**.
 6. Select the **Config entry**, provide the message **UID**, and set the **Part** index.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `message_part`.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Instead, you select the IMAP config entry.
 
