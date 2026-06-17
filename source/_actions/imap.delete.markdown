@@ -11,9 +11,9 @@ related_actions:
 
 The **Delete message** action deletes an email message from your IMAP server. It is meant to run in an automation after an `imap_content` event, using the entry and the message `uid` from the event data.
 
-{% caution %}
+{% note %}
 Deleted messages cannot be recovered. Make sure your triggers and filtering are set up correctly, and filter by `entry` when you have more than one IMAP config entry, so only the intended messages are deleted.
-{% endcaution %}
+{% endnote %}
 
 {% include actions/ui_header.md %}
 
