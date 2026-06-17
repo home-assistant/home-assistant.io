@@ -8,7 +8,7 @@ Parameters:
   has_unit           set (to anything) to add a "Unit" row (requires unit_label,
                      unit_options_code, unit_default)
   unit_label         Unit label. For example: "temperature unit", "energy unit".
-  unit_options_code  inline-code list of allowed units, e.g. "`°C` or `°F`"
+  unit_options_code  Inline code list of allowed units. For example: "`°C` or `°F`".
   unit_default       Default unit. For example: "°C"
 {% endcomment %}
 {% options_ui %}
