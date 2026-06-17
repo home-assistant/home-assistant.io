@@ -61,6 +61,7 @@ action: |
       - "SE3"
       - "SE4"
     currency: "SEK"
+    response_variable: price_for_date
 {% endexample %}
 
 This fetches the prices for the given date in the SE3 and SE4 areas, in Swedish krona.
