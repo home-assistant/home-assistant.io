@@ -7,7 +7,7 @@ related:
   - docs: /docs/authentication/multi-factor-auth/
     title: Multi-factor authentication
   - docs: /docs/configuration/basic/
-    title: General information
+    title: Home information
 ---
 
 Each person who uses Home Assistant can have their own display name and login credentials. This page explains how to change a person's display name, change a username, and where to find authentication settings.
