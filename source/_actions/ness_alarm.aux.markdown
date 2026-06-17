@@ -45,7 +45,6 @@ action: |
   action: ness_alarm.aux
   data:
     output_id: 1
-    state: true
 {% endexample %}
 
 This turns on aux output 1.
@@ -60,7 +59,7 @@ output_id:
   type: integer
 state:
   description: >
-    The on or off state of the output. When P14xE 8E is enabled, turning on
+    The on (`true`) or off (`false`) state of the output. When P14xE 8E is enabled, turning on
     pulses the output for the time set in P14(x+4)E.
   required: false
   default: true
@@ -91,7 +90,6 @@ automation: |
     - action: ness_alarm.aux
       data:
         output_id: 1
-        state: true
 {% endexample %}
 
 {% enddetails %}
