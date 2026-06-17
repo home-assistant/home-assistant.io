@@ -17,7 +17,9 @@ To send a voice message from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Telegram bot: Send voice**.
 6. Enter the **URL** or **File** of the voice message and, optionally, a **Caption** and other options.
-7. Choose where to send it, then select **Save**.
+7. Choose where to send it.
+8. In the **Response variable** field, enter a name to store the data in, such as `voice_message`.
+9. Select **Save**.
 
 This action does not use a standard target. Instead, you choose where it sends in one of these ways:
 
@@ -72,6 +74,7 @@ action: |
   data:
     url: http://example.org/path/to/the/voice.opus
     caption: My microphone recording
+  response_variable: voice_message
 {% endexample %}
 
 ### Options in YAML

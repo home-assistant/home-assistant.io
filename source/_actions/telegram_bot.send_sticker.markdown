@@ -17,7 +17,9 @@ To send a sticker from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Telegram bot: Send sticker**.
 6. Enter the **URL**, **File**, or **Sticker ID** and, optionally, other options.
-7. Choose where to send it, then select **Save**.
+7. Choose where to send it.
+8. In the **Response variable** field, enter a name to store the data in, such as `sticker_message`.
+9. Select **Save**.
 
 This action does not use a standard target. Instead, you choose where it sends in one of these ways:
 
@@ -71,6 +73,7 @@ action: |
   action: telegram_bot.send_sticker
   data:
     file: /path/to/the/sticker.webp
+  response_variable: sticker_message
 {% endexample %}
 
 ### Options in YAML

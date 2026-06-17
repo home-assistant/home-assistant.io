@@ -17,7 +17,8 @@ To download a file from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Telegram bot: Download file**.
 6. Enter the **File ID** and, optionally, a **Directory path** and **File name**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `downloaded_file`.
+8. Select **Save**.
 
 If you have more than one Telegram bot, set the **Config entry ID** to choose which bot downloads the file. With a single bot, you can leave it empty.
 
@@ -44,6 +45,7 @@ action: |
   action: telegram_bot.download_file
   data:
     file_id: "{{ trigger.event.data.document.file_id }}"
+  response_variable: downloaded_file
 {% endexample %}
 
 ### Options in YAML

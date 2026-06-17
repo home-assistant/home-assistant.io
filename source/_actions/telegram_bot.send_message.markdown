@@ -17,7 +17,9 @@ To send a message from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Telegram bot: Send message**.
 6. Enter the **Message** and, optionally, a **Title** and other options.
-7. Choose where to send it, then select **Save**.
+7. Choose where to send it.
+8. In the **Response variable** field, enter a name to store the data in, such as `garage_message`.
+9. Select **Save**.
 
 This action does not use a standard target. Instead, you choose where it sends in one of these ways:
 
@@ -67,6 +69,7 @@ action: |
   data:
     title: Your garage door friend
     message: The garage door has been open for 10 minutes.
+  response_variable: garage_message
 {% endexample %}
 
 ### Options in YAML
