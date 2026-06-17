@@ -1,5 +1,5 @@
 ---
-title: "Use transformation item"
+title: "Use a transformation item"
 action: habitica.transformation
 domain: habitica
 description: "Uses a transformation item on a Habitica party member or yourself."
@@ -16,7 +16,8 @@ To use a transformation item from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Habitica: Use transformation item**.
-6. Select the **Config entry** of the character, the **Item** to use, and the **Target** to use it on.
+5. From the search box, search for and select **Habitica: Use a transformation item**.
+6. Select the **Config entry** of the character, the **Transformation item** to use, and the **Target character** to use it on.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -31,13 +32,13 @@ The available transformation items are:
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Select character:
   description: The Habitica character that uses the transformation item.
   required: true
-Item:
+Transformation item:
   description: "The transformation item to use. The item must be in the character's inventory."
   required: true
-Target:
+Target character:
   description: The character to use the transformation item on. Matches by display name, username, or user ID.
   required: true
 {% endoptions_ui %}
@@ -65,7 +66,8 @@ config_entry:
 item:
   description: >
     The transformation item to use. One of snowball, spooky_sparkles,
-    seafoam, or shiny_seed. The item must be in the character's inventory.
+    The transformation item to use. One of `snowball`, `spooky_sparkles`,
+    `seafoam`, or `shiny_seed`. The item must be in the character's inventory.
   required: true
   type: string
 target:
