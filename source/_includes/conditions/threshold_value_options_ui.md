@@ -9,7 +9,7 @@ Parameters:
                      unit_options_code, unit_default)
   unit_label         unit-kind label, e.g. "temperature unit", "energy unit"
   unit_options_code  inline-code list of allowed units, e.g. "`°C` or `°F`"
-  unit_default       default unit, e.g. "°C"
+  unit_default       Default unit. For example: "°C"
 {% endcomment %}
 {% options_ui %}
 Threshold type:
