@@ -47,7 +47,7 @@ If you want to reach Home Assistant from outside your home network, set up a sec
 
 - Another option is to use TLS/SSL via the app [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt.
 
-- To expose your instance to the internet, use a [VPN](https://pivpn.io), or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/). Make sure to expose the used port in your router.
+- To access your instance remotely, use a [VPN](https://pivpn.io) or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/). Make sure you forward the required port on your router.
 
 For more instructions on each option, refer to [Remote access](/docs/configuration/remote/).
 
