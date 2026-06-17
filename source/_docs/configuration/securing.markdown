@@ -4,6 +4,12 @@ description: "Recommended settings and best practices for keeping your Home Assi
 
 related:
   - docs: /docs/configuration/
+  - docs: /docs/configuration/remote/
+    title: Remote access
+  - docs: /docs/authentication/
+    title: Authentication
+  - docs: /docs/authentication/multi-factor-auth/
+    title: Multi-factor authentication
   - docs: /docs/configuration/secrets/
     title: Secrets.yaml file
   - docs: /cloud/
@@ -18,17 +24,32 @@ Home Assistant runs on your own hardware and does not depend on any cloud servic
 
 The most important things to do to keep your Home Assistant secure:
 
+- Use a strong, unique password for every account, and turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 - Centralize sensitive data in [secrets](/docs/configuration/secrets/) (and remember to back them up).
   - **Note**: Storing secrets in `secrets.yaml` does not encrypt them.
 - Keep your system up to date with each monthly release.
 
-## Remote access
+## About account security basics
 
-If you want secure remote access, the easiest option is to use [Home Assistant Cloud](/cloud/) by which you also support the [Open Home Foundation](https://www.openhomefoundation.org), which develops Home Assistant, ESPHome and much more.
+Your accounts are the first line of defense, especially if you access Home Assistant from outside your home network.
 
-Another option is to use TLS/SSL via the app [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt.
+- Choose a strong, unique password for every account. A password manager makes this easier.
+- Turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/) for an extra layer of protection.
+- Only give administrator access to accounts that need it.
 
-To expose your instance to the internet, use a [VPN](https://pivpn.io), or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/). Make sure to expose the used port in your router.
+For more information, refer to [Authentication](/docs/authentication/).
+
+## Methods to enable remote access to Home Assistant
+
+If you want to reach Home Assistant from outside your home network, set up a secure method for [remote access](/docs/configuration/remote/) rather than exposing it directly to the internet.
+
+- The easiest and safest option is [Home Assistant Cloud](/cloud/). It needs no port forwarding or certificate setup, and your subscription supports the [Open Home Foundation](https://www.openhomefoundation.org), the nonprofit behind Home Assistant, ESPHome, and more open source projects.
+
+- Another option is to use TLS/SSL via the app [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt.
+
+- To expose your instance to the internet, use a [VPN](https://pivpn.io), or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/). Make sure to expose the used port in your router.
+
+For more instructions on each option, refer to [Remote access](/docs/configuration/remote/).
 
 ### Extras for manual installations
 
