@@ -13,38 +13,16 @@ When you target more than one entity, the condition's **Condition passes if** op
 
 {% include conditions/ui_header.md %}
 
-To use **Relative humidity** in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **And if** section, select **Add condition**.
-4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your humidity sensor is in (like your bedroom or bathroom). You can also select a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Relative humidity**.
-6. Under **Threshold type**, set the humidity level the condition checks against:
-   1. Pick whether the reading must be **Above**, **Below**, **In range**, or **Outside range** of the threshold.
-   2. Select **Number** or **Entity**:
-      - **Number**: Enter a fixed percentage directly, for example `65` for 65%. For **In range** or **Outside range**, enter both a lower and upper bound.
-      - **Entity**: Use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold:
-        - Number helper: You can adjust the threshold value without editing the automation. The sensor reading is compared against the number helper's current value.
-        - Sensor: Its current reading becomes the threshold and updates automatically as the sensor changes. This is useful for comparing two humidity readings, for example to check whether indoor humidity is higher than outdoor humidity.
-        - For **In range** or **Outside range**, you need two entities: one for the lower bound and one for the upper bound (for example, two separate number helpers).
-        - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
-8. Select **Save**.
+{% include conditions/threshold_value_steps.md
+   title="Relative humidity"
+   sensor="humidity sensor"
+   areas="bedroom or bathroom"
+   value_long="a fixed percentage directly, for example `65` for 65%" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: |
-    The humidity level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter a fixed percentage (0–100), or **Entity** to use a sensor or number helper as a dynamic threshold.
-Condition passes if:
-  description: |
-    When multiple entities are targeted, controls how results combine:
-
-    - **Any**: The condition passes if at least one targeted entity meets the threshold (default).
-    - **All**: The condition passes only when every targeted entity meets the threshold.
-{% endoptions_ui %}
+{% include conditions/threshold_value_options_ui.md
+   value_short="a fixed percentage (0–100)" %}
 
 {% include conditions/yaml_header.md %}
 
@@ -140,29 +118,9 @@ This passes when the bedroom humidity sensor reads above the number helper´s va
 
 ### Options in YAML
 
-{% options_yaml %}
-threshold:
-  description: |
-    The humidity level the entity has to meet for the condition to pass:
-
-    - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
-    - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
-
-    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
-  required: false
-  type: map
-behavior:
-  description: |
-    When multiple entities are targeted, controls how results combine:
-
-    - `any`: The condition passes if at least one targeted entity meets the threshold.
-    - `all`: The condition passes only when every targeted entity meets the threshold.
-  required: false
-  type: string
-  default: any
-{% endoptions_yaml %}
+{% include conditions/threshold_value_options_yaml.md
+   range_note="0–100"
+   number_final="a percentage value (0–100)" %}
 
 {% include conditions/targets.md %}
 
