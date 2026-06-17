@@ -26,19 +26,8 @@ There is currently support for the following device types within Home Assistant:
 
 {% configuration_basic %}
 Device password:
-    description: "Optional. Only needed if your CCM15 firmware requires a password for control commands. Status polling stays unauthenticated, so this is only consulted when Home Assistant writes to the controller. The value to enter is the obfuscated number the controller's web UI sends, not the plain number from its settings page. See [Finding the device password](#finding-the-device-password)."
+    description: "Optional. The password configured on your CCM15 controller's settings page (factory default `123456`). Only needed if your firmware enforces it on control commands; status polling stays unauthenticated. If the controller starts rejecting commands later, Home Assistant prompts you to re-enter it through the reauthentication flow."
 {% endconfiguration_basic %}
-
-### Finding the device password
-
-If your CCM15 firmware rejects control commands without a `pwd` parameter, you can read the obfuscated value off the controller's own web interface:
-
-1. Open the CCM15 web interface in your browser.
-2. Open the browser's developer tools. Press F12, or right-click anywhere on the page and select **Inspect**, or use the browser's menu (in Chrome: **More tools** > **Developer tools**; in Firefox: **Tools** > **Browser tools** > **Web developer tools**; in Safari, first enable the **Develop** menu in **Settings** > **Advanced**, then choose **Develop** > **Show Web Inspector**).
-3. Switch to the **Network** tab.
-4. Change any setting in the web UI (for example the fan speed).
-5. Select the new `ctrl.xml` request.
-6. Copy the value of the `pwd` parameter from the request URL. It is a 6-digit number.
 
 ## Climate
 
