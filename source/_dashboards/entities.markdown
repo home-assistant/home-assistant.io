@@ -94,7 +94,7 @@ secondary_info:
   type: string
 format:
   required: false
-  description: How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map to optinally choose a `long` or `short` style. Such as `format: {type: relative, style: short}`.
+  description: How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map to optionally choose a `long` or `short` style. Such as `format: {type: relative, style: short}`.
   type: [string, map]
 action_name:
   required: false
@@ -160,7 +160,7 @@ icon:
   type: string
 format:
   required: false
-  description: How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map to optinally choose a `long` or `short` style. Such as `format: {type: relative, style: short}`.
+  description: How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map to optionally choose a `long` or `short` style. Such as `format: {type: relative, style: short}`.
   type: [string, map]
 {% endconfiguration %}
 
