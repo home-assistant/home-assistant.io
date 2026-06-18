@@ -110,10 +110,13 @@ arrival_time:
   type: string
 {% endoptions_yaml %}
 
+## Response data
+
+The response contains the route alternatives and travel times between the two locations.
+
 ## Good to know
 
 - You can set either a departure time or an arrival time, but not both.
-
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}

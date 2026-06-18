@@ -21,7 +21,8 @@ To get travel times from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Google Maps Travel Time: Get travel times**.
 6. Select the **Config entry**, then enter the **Origin** and **Destination**. Set any of the other options you need.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `travel_times`.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
