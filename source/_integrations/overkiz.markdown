@@ -89,9 +89,21 @@ If you select Rexel Energeasy Connect as your server, you sign in through your b
 
 ### Login to Overkiz (Local API)
 
-To use the local API, you must enable [Somfy TaHoma Developer Mode](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) in the TaHoma by Somfy app. Follow the [official instructions](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) to generate a token. This token is required to connect Home Assistant to your hub using the local API.
+To connect Home Assistant to your hub using the local API, you need a token. How you generate this token depends on your hub.
+
+#### Somfy hubs
+
+On a Somfy hub, you must enable [Somfy TaHoma Developer Mode](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) in the TaHoma by Somfy app. Follow the [official instructions](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) to generate a token.
 
 Scenarios and climate entities are **not** supported via the Somfy TaHoma Developer Mode.
+
+#### Rexel Energeasy Connect hubs
+
+On a Rexel Energeasy Connect hub, you generate the token in the Energeasy Connect app:
+
+1. Open the Energeasy Connect app and go to **Settings** > **My home** > **Maintenance**.
+2. Select your gateway, then select **Local API**.
+3. Generate a token to authenticate your requests.
 
 {% configuration_basic %}
 "Host":
