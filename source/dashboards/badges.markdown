@@ -115,7 +115,7 @@ state_content:
 time_format:
   required: false
   description: >
-    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map to optinally choose a `long` or `short` style. Such as `time_format: {type: relative, style: short}`.
+    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map to optionally choose a `long` or `short` style. Such as `time_format: {type: relative, style: short}`.
   type: [string, map]
 tap_action:
   required: false
