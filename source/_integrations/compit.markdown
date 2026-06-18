@@ -183,10 +183,6 @@ When the SPM sensor is connected to a Nano Color thermostat, it is displayed as 
   - **Description**: Domestic hot water temperature.
   - **Available for devices**: EL750 (Electric boiler controller)
 
-- **DHW current temperature**
-  - **Description**: Current domestic hot water temperature.
-  - **Available for devices**: R900 (Heat pump controller)
-
 - **DHW measured temperature**
   - **Description**: Measured domestic hot water temperature.
   - **Available for devices**: R350.CWU (Universal controller), R480 (Heat pump controller)
