@@ -139,7 +139,11 @@ Verify SSL:
 
 ## Data updates
 
-This integration retrieves data from Overkiz every 30 seconds to ensure timely updates. If you only have stateless devices (RTS protocol), the integration will poll for new data every hour to reduce unnecessary load on the Overkiz API.
+How often this integration retrieves data depends on how you connect:
+
+- When connected through the local API, it polls every 5 seconds.
+- When connected through the cloud API, it polls every 30 seconds.
+- When connected through the cloud API and you only have stateless devices (such as RTS), it polls every hour to reduce unnecessary load on the Overkiz API.
 
 ## Known limitations
 
