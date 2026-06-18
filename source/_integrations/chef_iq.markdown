@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@Invader444'
-ha_domain: chefiq
+ha_domain: chef_iq
 ha_integration_type: device
 ha_platforms:
   - diagnostics
