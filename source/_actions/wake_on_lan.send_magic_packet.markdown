@@ -5,7 +5,7 @@ domain: wake_on_lan
 description: "Sends a magic packet to wake up a device with Wake-on-LAN capabilities."
 ---
 
-Use this action to send a _magic packet_ to wake up a device with [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capabilities, for example to turn on a computer from an automation.
+Use this action to send a _magic packet_ to wake up a device by using [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN), for example to turn on a computer from an automation.
 
 {% include actions/ui_header.md %}
 
