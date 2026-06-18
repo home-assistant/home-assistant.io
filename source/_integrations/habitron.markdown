@@ -73,7 +73,7 @@ You need a reachable Habitron SmartHub (SmartIP or SmartCenter) on your network 
 {% configuration_basic %}
 Host name or IP of SmartHub:
   description: "DNS name or IPv4 address of the SmartHub. Use the literal `local` when Home Assistant runs on the SmartCenter itself."
-Token for websocket authentication:
+Token for WebSocket authentication:
   description: "Optional. Paste a long-lived access token from your Home Assistant profile here. Only required when SC Touch and Assist run on a remote Home Assistant instance (not on a SmartCenter)."
 {% endconfiguration_basic %}
 
