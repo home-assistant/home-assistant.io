@@ -54,7 +54,6 @@ action: |
     target_device: 12a34b56c7d8ef9ghijklm0n1op2345q
     message: "The front door is open"
     tone: "alert"
-    volume: 8
     repeat: 1
 {% endexample %}
 
@@ -98,13 +97,13 @@ repeat:
 
 This automation plays a spoken alert on your YoLink SpeakerHub when the front door stays open for more than two minutes.
 
-- Trigger: the front door sensor stays open for 2 minutes
-- Action: play a message on the SpeakerHub
-  - SpeakerHub device: your SpeakerHub
-  - Text message: "The front door is open"
-  - Tone: `alert`
+- **Trigger**: the front door sensor stays open for 2 minutes
+- **Action**: play a message on the SpeakerHub
+  - **SpeakerHub device**: your SpeakerHub
+  - **Text message**: "The front door is open"
+  - **Tone**: `alert`
 
-{% details "Show example YAML" %}
+{% details "YAML example for announcing an open door" %}
 
 {% example %}
 automation: |
@@ -121,7 +120,6 @@ automation: |
         target_device: 12a34b56c7d8ef9ghijklm0n1op2345q
         message: "The front door is open"
         tone: "alert"
-        volume: 8
 {% endexample %}
 
 {% enddetails %}
