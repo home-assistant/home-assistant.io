@@ -3,7 +3,7 @@ title: Midea LAN
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
 ha_category:
   - Climate
-ha_release: '2025.10'
+ha_release: '2026.07'
 ha_domain: midea_lan
 ha_config_flow: true
 ha_codeowners:
@@ -17,7 +17,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **Midea LAN** {% term integration %} lets you control devices with Midea protocol connected to various cloud.
+The **Midea LAN** {% term integration %} lets you control devices with Midea protocol connected to various clouds.
 
 The integration provides information on connected devices and enables control of the main features.
 
@@ -63,20 +63,20 @@ There is support for the following device types within Home Assistant:
 
 {% warning %}
 
-This integration requires devices with protocol V1, V2 and V3.
-Is based on **API v1** while some new devices are based on **API v2**.
+This integration requires devices with protocol V1, V2, and V3.
+It is based on **API v1** while some new devices are based on **API v2**.
 
 {% endwarning %}
 
 {% include integrations/config_flow.md %}
 
-Integration offer an automatic discover and a manual configuration.
+The integration offers automatic discovery and manual configuration.
 
 {% configuration_basic %}
   name:
     description: The name of the device.
   appliance code:
-    description: The code of the device. Need to be retrieved from mobile app.
+    description: The code of the device. Needs to be retrieved from mobile app.
   type:
     description: The type of the device. See list above
   ip_address:
@@ -86,18 +86,18 @@ Integration offer an automatic discover and a manual configuration.
   protocol:
     description: The protocol version of the device. Can be V1, V2 or V3.
   model:
-    description: The model of the device. Need to be retrieved from mobile app.
+    description: The model of the device. Needs to be retrieved from mobile app.
   subtype:
-    description: the subtype of the device. Need to be retrieved from mobile app.
+    description: The subtype of the device. Needs to be retrieved from mobile app.
   token:
-    description: the token of the device. Need to be retrieved from mobile app.
+    description: The token of the device. Needs to be retrieved from mobile app.
   key:
-    description: the key  of the device. Need to be retrieved from mobile app.
+    description: The key of the device. Needs to be retrieved from mobile app.
 {% endconfiguration_basic %}
 
 ## Data updates
 
-Integration push updates to Home Assistant upon changes for all main functions of the device.
+The integration pushes updates to Home Assistant upon changes for all main functions of the device.
 
 ## Supported functionality
 
@@ -107,8 +107,8 @@ The **Midea LAN** {% term integration %} provides the following entities:
 
 ## Known limitations
 
-This integration requires devices with protocol V1, V2 and V3.
-Is based on **API v1** while some new devices are based on **API v2**.
+This integration requires devices with protocol V1, V2, and V3.
+It is based on **API v1** while some new devices are based on **API v2**.
 
 ## Removing the integration
 
