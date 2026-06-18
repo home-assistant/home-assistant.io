@@ -19,7 +19,7 @@ To get data from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Google Sheets: Get sheet**.
 6. Under **Integration**, select the **Sheet** you want to read from.
-7. Optionally, set the **Worksheet**.
+7. Optionally, set a name for the **Worksheet**. Defaults to the first one in the document.
 8. Set the number of **Rows** to return.
 9. In the **Response variable** field, enter a name to store the data in, such as `sheet_data`.
 10. Select **Save**.``
