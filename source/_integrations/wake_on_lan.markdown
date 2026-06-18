@@ -44,44 +44,16 @@ Broadcast port:
   description: The port to send the magic packet to.
 {% endconfiguration_basic %}
 
-### Integration services
+## Integration services
 
-Available services: `send_magic_packet`.
-
-To only use this service, add the following to your {% term "`configuration.yaml`" %} file
+To use only the [Send magic packet](/actions/wake_on_lan.send_magic_packet/) action, without the button or switch, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
 wake_on_lan:
 ```
 
-### Actions
-
-Available actions: `send_magic_packet`.
-
-#### Action: Send magic packet
-
-The `wake_on_lan.send_magic_packet` action sends a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
-
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `mac`                  | no       | MAC address of the device to wake up.                 |
-| `secureon_password`    | yes      | The SecureOn password to append to the magic packet.  |
-| `broadcast_address`    | yes      | Optional broadcast IP where to send the magic packet. |
-| `broadcast_port`       | yes      | Optional port where to send the magic packet.         |
-
-Sample action data:
-
-```json
-{
-   "mac":"00:40:13:ed:f1:32"
-}
-```
-
-{% note %}
-This usually only works if the target device is connected to the same network. Routing the magic packet to a different subnet requires a special configuration on your router or may not be possible.
-The action to route the packet is most likely named "IP Helper". It may support Wake on LAN, but not all routers support this.
-{% endnote %}
+{% include integrations/actions.md %}
 
 ## Button
 
