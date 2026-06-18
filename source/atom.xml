@@ -17,7 +17,7 @@ layout: none
   {% for post in site.posts limit: 20 %}
   <entry>
     <title type="html"><![CDATA[{{ post.title | cdata_escape }}]]></title>
-    <link href="{{ site.url }}{{ post.url }}"/>
+    {% if post.external_url %}<link href="{{ post.external_url }}"/>{% else %}<link href="{{ site.url }}{{ post.url }}"/>{% endif %}
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>{{ site.url }}{{ post.id }}</id>
     <content type="html"><![CDATA[{{ post.content | full_urls | cdata_escape }}]]></content>
