@@ -12,11 +12,13 @@ ha_category:
   - Binary sensor
   - Button
   - Light
+  - Number
   - Sensor
 ha_platforms:
   - binary_sensor
   - button
   - light
+  - Number
   - sensor
 ha_quality_scale: bronze
 related:
@@ -49,6 +51,8 @@ The integration supports the following appliance types:
 - **Hob**
 - **Hood**
 - **Oven**
+- **Fridge**
+- **Hood**
 
 ## Prerequisites
 
@@ -137,6 +141,22 @@ This entity is used to control the appliance with the following actions:
   - **Available for appliance types**: Oven.
 - **Hood light**
   - **Description**: Turn the overhead light on or off, and change the light's color and intensity.
+  - **Available for appliance types**: Hood.
+
+{% enddetails %}
+
+### Numbers
+
+{% details "List of number entities" %}
+
+- **Target Temperature**
+  - **Description**: Set or report the target temperature.
+  - **Available for appliance types**: Oven, Fridge.
+- **Light Intensity**
+  - **Description**: Adjust or report the light brightness.
+  - **Available for appliance types**: Hood.
+- **Light Color Temperature**
+  - **Description**: Adjust or report the light color temperature.
   - **Available for appliance types**: Hood.
 
 {% enddetails %}
