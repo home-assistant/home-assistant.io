@@ -172,25 +172,7 @@ When the `motion_blinds.set_absolute_position` action is used with values that w
 
 Therefore it is always safe to use any of the actions in Home Assistant with the TDBU blinds.
 
-## Action `motion_blinds.set_absolute_position`
-
-For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` action.
-
-### TDBU blinds
-
-For TDBU blinds `motion_blinds.set_absolute_position` will set the absolute position relative to the window itself.
-The `cover.set_cover_position` will set the scaled position relative to the space in which the TDBU blind is allowed to move.
-
-### Tilt capable blinds
-
-For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt. If the normal `cover.set_cover_position` is issued and immediately after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
-
-| Data attribute | Optional | Description                                                                                       |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Name of the Motionblinds cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
-| `absolute_position`    | no       | Absolute position to move to. For example 70                                                      |
-| `tilt_position`        | yes      | Tilt position to move to. For example 50                                                          |
-| `width`                | yes      | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 

@@ -96,20 +96,7 @@ The TP-Link Omada integration fetches data from the Omada Controller every 5 min
 
 Note: The TP-Link Omada controller takes a few minutes to detect when a client disconnects from the Wi-Fi network, even with more regular polling updates.
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: Reconnect client
-
-The `tplink_omada.reconnect_client` action is used to force a Wi-Fi client to reconnect to the network. This is useful if you have a troublesome client network connection that needs to be reset.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The instance of the Omada integration that the Wi-Fi client is connected to.
-  - **Optional**: Yes
-- **Data attribute**: `mac`
-  - **Description**: The MAC address of the Wi-Fi client to reconnect.
-  - **Optional**: No
+{% include integrations/actions.md %}
 
 ## Removing the integration
 

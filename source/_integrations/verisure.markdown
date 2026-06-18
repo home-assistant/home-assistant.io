@@ -63,13 +63,7 @@ automation:
             by {{ trigger.to_state.attributes.changed_by }}
 ```
 
-## Actions
-
-| Service | Description |
-| ------- | ----------- |
-| disable_autolock | Disables autolock function for a specific lock. |
-| enable_autolock | Enables autolock function for a specific lock. |
-| smartcam_capture | Capture a new image from a specific smartcam. |
+{% include integrations/actions.md %}
 
 ## Binary sensor
 
