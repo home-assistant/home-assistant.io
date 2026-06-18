@@ -33,6 +33,61 @@ The two are linked only when the same individual needs both. You attach a user t
 
 To create a user that is not linked to a person, add it from the **Users** tab instead of from **People**.
 
+## About user accounts
+
+When you start Home Assistant for the first time, the _owner_ user account is created. The owner has the highest level of access and can manage every part of the system, including creating and managing other user accounts.
+
+User accounts come in two levels of access:
+
+- _Administrators_ can configure integrations, devices, and system settings, and manage other users. The owner is always an administrator.
+- _Non-administrator users_ have restricted access. They can use Home Assistant and see their own dashboards, but cannot reach the configuration and system settings.
+
+You set whether a user is an administrator with the **Administrator** toggle when you create or edit their account.
+
+### About your account profile
+
+Once you're signed in, you can manage your personal settings on the {% my profile title="**User profile**" %} page. To open it, select your name at the very bottom of the sidebar.
+
+The profile page has two tabs: **General** and **Security**. The **General** tab holds your personal preferences. They only affect your own account and the device you are using.
+
+The **Security** tab is where you manage how you sign in, such as your password, multi-factor authentication, and access tokens. For more information, refer to [Authentication](/docs/authentication/).
+
+You can also sign out of Home Assistant from the profile page.
+
+#### Changing the theme and organizing your sidebar
+
+User preferences are tied to your account and follow you across the devices you sign in to.
+
+1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
+2. Under **User preferences**, adjust any of the following:
+   - **Theme**: How Home Assistant looks.
+   - **Default dashboard**: The dashboard that opens when you start Home Assistant.
+3. To change which items appear in the sidebar and in what order, select **Edit** next to **Change the order and hide items from the sidebar**.
+
+#### Changing your localization settings
+
+Localization settings control how dates, times, and numbers are shown. They are tied to your account.
+
+1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
+2. Under **User preferences** > **Language**, select the language of the interface.
+3. Under **Localization**, adjust any of the following:
+   - **Time zone**.
+   - **Number format**.
+   - **Time format**.
+   - **Date format**.
+   - **First day of the week**.
+
+#### Changing your browser settings
+
+Browser settings apply only to the device you are currently using and may reset when you sign out or clear local data. In the companion app, this section is called **Mobile app settings**.
+
+1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
+2. Under **Browser settings** (or **Mobile app settings**), adjust any of the available options, such as:
+   - Always hide the sidebar.
+   - Prevent automatic logout.
+   - Enable keyboard shortcuts.
+   - Vibration and push notifications, depending on your device.
+
 ## Adding a person
 
 To add a new person and optionally create a user account for them, refer to [adding a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant).
