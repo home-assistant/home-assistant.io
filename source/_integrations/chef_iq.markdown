@@ -44,9 +44,9 @@ A probe exposes the following sensors:
 
 - **Food temperature**: the food (internal) temperature at the probe tip.
 - **Ambient temperature**: the ambient (cooking environment) temperature.
-- **Probe tip 1 through 4 temperatures**: the temperatures measured along the probe shaft.
+- **Probe tip 1 through 4 temperatures**: the temperatures measured along the probe shaft (disabled by default).
 - **Battery**: the probe battery percentage.
-- **SoC temperature**: the temperature of the probe's system-on-chip (SoC), its internal electronics (diagnostic).
+- **SoC temperature**: the temperature of the probe's system-on-chip (SoC), its internal electronics (diagnostic, disabled by default).
 - **Signal strength**: the Bluetooth signal strength (diagnostic, disabled by default).
 
 The battery level and <abbr title="system-on-chip">SoC</abbr> temperature are sent in a separate Bluetooth advertisement from the cooking temperatures (food, ambient, and probe tip), so they may appear a few seconds later after setup.
