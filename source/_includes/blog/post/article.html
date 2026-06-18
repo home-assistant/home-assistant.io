@@ -62,7 +62,7 @@
 {% if index %}
   <div class="entry-content clearfix">
     {% if post.external_url and post.og_image %}
-    <a class="crosspost-image" href="{{ post.external_url }}" target="_blank" rel="noopener">
+    <a class="crosspost-image" href="{{ post.external_url }}" target="_blank" rel="noopener noreferrer">
       <img src="{{ post.og_image }}" alt="{{ post.title | escape }}">
     </a>
     {% endif %}
