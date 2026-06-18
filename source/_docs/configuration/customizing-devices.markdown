@@ -42,8 +42,9 @@ To change entity attributes, follow these steps:
    ![Settings for entity.](/images/docs/configuration/customizing-entity.png)
 
 4. To apply the changes, select **Update**.
-5. If you have used this entity in automations and scripts, you need to rename the entity ID there, too.
-   - Go to {% my automations title="**Settings** > **Automations & scenes**" %} open the respective tab and find your automation or script.
+5. If you changed the entity ID and have used this entity in automations and scripts, you need to rename the entity ID there, too.
+   - Changing only the friendly name does not affect automations and scripts, as they refer to the entity ID.
+   - Go to {% my automations title="**Settings** > **Automations & scenes**" %}, open the respective tab, and find your automation or script.
 
 ### Customizing an entity in YAML
 
