@@ -27,7 +27,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Device:
   description: >
-    The Samsung TV media player device that should be watched for a turn-on request. Only Samsung TV entities are valid targeted devices for this trigger.
+    The Samsung TV media player device that should be watched for a turn-on request. Only Samsung TV devices can be selected.
   required: true
 Trigger:
   description: >
@@ -36,6 +36,7 @@ Trigger:
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
+
 In YAML, refer to this trigger as `samsungtv.turn_on`. A basic example looks like this:
 
 {% example %}
@@ -44,7 +45,7 @@ triggers:
     entity_id: media_player.samsung_smart_tv
 {% endexample %}
 
-This fires every time Home Assistant requires the device with ID `my_samsungtv_device_id` to turn on.
+This fires every time Home Assistant requires `media_player.samsung_smart_tv` to turn on.
 
 ### Options in YAML
 
@@ -52,7 +53,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 trigger:
-  description: The trigger type. For this trigger, use `samsungtv.turn_on`.
+  description: The trigger `samsungtv.turn_on`.
   required: true
   type: string
 device_id:
@@ -93,10 +94,8 @@ When the TV is requested to turn on, this automation first switches on the smart
 automation: |
   alias: "Turn on AV strip and wake TV on turn-on request"
   triggers:
-    - device_id: my_samsungtv_device_id
-      domain: samsungtv
-      type: samsungtv.turn_on
-      trigger: device
+    - trigger: samsungtv.turn_on
+      device_id: my_samsungtv_device_id
   actions:
     - action: switch.turn_on
       target:
