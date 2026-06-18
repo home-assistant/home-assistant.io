@@ -9,7 +9,9 @@ related_actions:
 
 The **Remove tracking** action removes a tracking number from your AfterShip account, so it no longer shows up in Home Assistant.
 
-This action does not target an entity. Instead, you provide the carrier and the tracking number to remove.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+
+Instead, you provide the carrier and the tracking number to remove.
 
 {% include actions/ui_header.md %}
 
@@ -62,8 +64,6 @@ tracking_number:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 
