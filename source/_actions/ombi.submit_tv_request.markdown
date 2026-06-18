@@ -90,7 +90,6 @@ automation: |
     - action: ombi.submit_tv_request
       data:
         name: "Breaking Bad"
-        season: latest
 {% endexample %}
 
 {% enddetails %}
