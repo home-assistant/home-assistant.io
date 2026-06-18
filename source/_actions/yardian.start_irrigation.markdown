@@ -62,10 +62,10 @@ duration:
 
 This automation waters your front lawn for 10 minutes every morning before sunrise, when evaporation is low.
 
-- Trigger: the time is 5:30 AM
-- Action: start irrigation
-  - Target: the front lawn zone switch
-  - Duration: `10`
+- **Trigger**: the time is 5:30 AM
+- **Action**: start irrigation
+  - **Target**: the front lawn zone switch
+  - **Duration**: `10`
 
 {% details "Show example YAML" %}
 
