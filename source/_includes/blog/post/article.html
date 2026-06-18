@@ -69,7 +69,7 @@
     {% assign blog_post_link = 'href="' | append: post.url | append:"#" %}
     {{ post.excerpt | replace: 'href="#', blog_post_link }}
     {% if post.external_url %}
-      <a class="btn pull-right" href="{{ post.external_url }}" target="_blank" rel="noopener">Read on {{ post.external_source | default: "the original site" }} &rarr;</a>
+      <a class="btn pull-right" href="{{ post.external_url }}" target="_blank" rel="noopener noreferrer">Read on {{ post.external_source | default: "the original site" }} &rarr;</a>
     {% elsif post.content contains site.excerpt_separator %}
       <a class="btn pull-right" href="{{ post.url }}#read-more">{{ site.excerpt_link }}</a>
     {% endif %}
