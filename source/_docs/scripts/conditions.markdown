@@ -320,7 +320,8 @@ conditions:
     entity_id: climate.living_room_thermostat
     attribute: fan_modes
     state:
-      - ["auto", "low"]
+      - - "auto"
+        - "low"
 ```
 
 Finally, the `state` option accepts helper entities (also known as `input_*`
