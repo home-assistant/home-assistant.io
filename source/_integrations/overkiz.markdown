@@ -46,29 +46,39 @@ ha_integration_type: hub
 
 The Overkiz (by Somfy) IoT platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
 
-## Supported hubs & devices
+## Supported vendors
 
 - Atlantic Cozytouch
 - Bouygues Flexom
+- Hexaom HexaConnect
 - Hitachi Hi Kumo
 - Nexity Eugénie
-- Rexel Energeasy Connect _(local API available)_
+- Rexel Energeasy Connect
 - Sauter Cozytouch
 - Simu LiveIn2
-- Somfy Connectivity Kit
-- Somfy Connexoon IO _(local API available)_
-- Somfy Connexoon RTS _(local API available)_
-- Somfy TaHoma v2 _(local API available)_
-- Somfy TaHoma Beecon _(local API available)_
-- Somfy TaHoma Switch _(local API available)_
+- Somfy TaHoma
 - Thermor Cozytouch
 - Ubiwizz
 
 Over 6000 devices from 60 brands are compatible with the Overkiz platform. This integration will retrieve your devices and map them to the relevant Home Assistant platforms.
 
+### Local API support
+
+Local API availability depends on your specific gateway. The following gateways support the local API:
+
+- Somfy Connexoon IO
+- Somfy Connexoon RTS
+- Somfy TaHoma v2
+- Somfy TaHoma Beecon
+- Somfy TaHoma Switch
+- Rexel Energeasy Connect Rail Din
+- Rexel Energeasy Connect V2
+- Rexel Energeasy Connect V3
+- Rexel Energeasy Connect V3 Rail Din
+
 {% include integrations/config_flow.md %}
 
-The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some Somfy hubs). For compatible Somfy hubs, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app that you use to control your devices.
+The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some gateways). With a compatible gateway, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app that you use to control your devices.
 
 ### Login to Overkiz (Cloud API)
 
@@ -91,19 +101,32 @@ If you select Rexel Energeasy Connect as your server, you sign in through your b
 
 To connect Home Assistant to your hub using the local API, you need a token. How you generate this token depends on your hub.
 
-#### Somfy hubs
+Scenarios and climate entities are **not** supported via the local API.
 
-On a Somfy hub, you must enable [Somfy TaHoma Developer Mode](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) in the TaHoma by Somfy app. Follow the [official instructions](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) to generate a token.
+{% tabbed_block %}
+- title: Somfy
+  content: |
 
-Scenarios and climate entities are **not** supported via the Somfy TaHoma Developer Mode.
+    On a Somfy hub, you generate the token by enabling [Somfy TaHoma Developer Mode](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) in the TaHoma by Somfy app:
 
-#### Rexel Energeasy Connect hubs
+    1. Open the TaHoma by Somfy app on your device.
+    2. Go to **Account** > **Configure the installation** > **Access the parameters of your TaHoma box**.
+    3. Activate Developer Mode by tapping seven times on the PIN of your gateway (for example, `2001-1234-5678`).
+    4. Generate a token to authenticate your requests.
 
-On a Rexel Energeasy Connect hub, you generate the token in the Energeasy Connect app:
+    For more details, follow the [official instructions](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started).
 
-1. Open the Energeasy Connect app and go to **Settings** > **My home** > **Maintenance**.
-2. Select your gateway, then select **Local API**.
-3. Generate a token to authenticate your requests.
+- title: Rexel Energeasy Connect
+  content: |
+
+    On a Rexel Energeasy Connect hub, you generate the token in the Energeasy Connect app:
+
+    1. Open the Energeasy Connect app and go to **Settings** > **My home** > **Maintenance**.
+    2. Select your gateway, then select **Local API**.
+    3. Generate a token to authenticate your requests.
+
+    For more details, see [Rexel's instructions on activating the local API](https://assistance.energeasyconnect.com/hc/fr/articles/21853189930652-Activation-de-l-API-Locale-HTTP) (FR).
+{% endtabbed_block %}
 
 {% configuration_basic %}
 "Host":
