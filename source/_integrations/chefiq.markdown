@@ -36,7 +36,7 @@ This integration requires a working [Bluetooth](/integrations/bluetooth/) setup,
 
 ## Supported functionality
 
-The **Chef iQ** {% term integration %} provides the following entities.
+The **Chef iQ** {% term integration %} provides the following {% term entities %}.
 
 ### Sensors
 
@@ -49,7 +49,7 @@ A probe exposes the following sensors:
 - **SoC temperature**: the temperature of the probe's system-on-chip (SoC), its internal electronics (diagnostic).
 - **Signal strength**: the Bluetooth signal strength (diagnostic, disabled by default).
 
-The battery level and SoC temperature arrive in a separate Bluetooth advertisement from the cooking temperatures (food, ambient, and probe tip), so they can take a few seconds longer to appear after setup.
+The battery level and <abbr title="system-on-chip">SoC</abbr> temperature are sent in a separate Bluetooth advertisement from the cooking temperatures (food, ambient, and probe tip), so they may appear a few seconds later after setup.
 
 ## Known limitations
 
