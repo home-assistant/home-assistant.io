@@ -71,7 +71,7 @@ Save a snapshot whenever the image changes and keep the date and time in the fil
   - **Target**: Front door image
   - **Filename**: a path that includes the current date and time
 
-{% details "Show example YAML" %}
+{% details "Show example YAML for saving a snapshot with a timestamp" %}
 
 {% example %}
 automation: |
