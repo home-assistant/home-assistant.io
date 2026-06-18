@@ -54,9 +54,23 @@ This is the easiest method to get started with custom sentences for automations.
       Playing {{ trigger.slots.album }} by {{ trigger.slots.artist }}
       ```
 
+     For more details, refer to [conversation response script action](/docs/scripts/#respond-to-a-conversation).
 
-   - For more details, refer to [conversation response script action](/docs/scripts/#respond-to-a-conversation).
- 
+   - Optional words or parts of words can also be defined, using square brackets. For example:
+
+     ```yaml
+      [the]
+      [this]
+      light[s]
+      ```
+     
+   - Alternative phrases, words or parts of words can be defined using the following:
+
+     ```yaml
+     turn(ed | ing)
+      ```
+    This would mean the sentence could use turned or turning in that place and will still be recognised.
+
 6. To test the automation, go to **Overview** and in the top right corner, open Assist.
    - Enter one of the sentences.
 7. If it did not work out, checkout the [troubleshooting](/voice_control/troubleshooting/) section.
