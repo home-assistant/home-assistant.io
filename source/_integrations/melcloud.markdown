@@ -12,6 +12,7 @@ ha_platforms:
   - climate
   - diagnostics
   - sensor
+  - switch
   - water_heater
 ha_integration_type: device
 ha_codeowners:
@@ -66,6 +67,13 @@ The following attributes are available for `sensor` platform entities:
 - Outside temperature
 - Energy - The total consumed energy in kWh. **Not supported by all models.**
 - Daily energy - Energy consumption within a 24h window in kWh. This reading resets at midnight on the timezone of the MELCloud service. The exact time needs to be determined by following the sensor value until a reset is detected.
+
+### Switch
+
+The following switches can be used:
+
+- **Frost protectiom**: Enables or disables the configured frost protection.
+- **Overheat protection**: Enables or disables the configured overheat protection.
 
 ## Air-to-Water device
 
