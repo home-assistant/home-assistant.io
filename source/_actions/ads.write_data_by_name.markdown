@@ -83,7 +83,7 @@ Write a new value to a PLC variable whenever an input number helper changes, for
 - **Trigger**: State: Setpoint helper changes
 - **Action**: ADS: Write data by name
   - **ADS variable**: `.setpoint`
-  - **ADS type**: int
+  - **ADS type**: `int`
   - **Value**: `21`
 
 {% details "Show example YAML" %}
