@@ -88,7 +88,7 @@
         {% else %}
         <a href="{{ post.url }}">{{ post.title }}</a>
         {% endif %}
-        <small class="blog-date">{{ post.date_formatted }}{% if post.external_url %} · Shared from {{ post.external_source | default: "original site" }}{% endif %}</small>
+        <small class="blog-date">{{ post.date_formatted }}{% if post.external_url %}<span class="shared-from"> · Shared from {{ post.external_source | default: "original site" }}</span>{% endif %}</small>
       </li>
       {% endif %}
       {% endfor %}
