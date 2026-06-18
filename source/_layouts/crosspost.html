@@ -10,7 +10,7 @@ layout: none
   <meta name="robots" content="noindex, follow">
   <title>{{ page.title | escape_once }}</title>
   {% include site/social_meta.html %}
-  <script>window.location.replace("{{ page.external_url }}");</script>
+  <script>window.location.replace({{ page.external_url | jsonify }});</script>
 </head>
 <body>
   <p>This post is published on another site. If you are not redirected automatically, <a href="{{ page.external_url }}">continue to “{{ page.title }}”</a>.</p>
