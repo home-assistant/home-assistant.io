@@ -23,7 +23,8 @@ To search for recipes from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Mealie: Get recipes**.
 6. Select the **Mealie instance** you want to use, and fill in the options you want.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `recipes`.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. You select the Mealie instance instead.
 

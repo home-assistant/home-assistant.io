@@ -22,7 +22,8 @@ To import a recipe from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Mealie: Import recipe**.
 6. Select the **Mealie instance** you want to use, and set the recipe URL.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `imported_recipe`.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. You select the Mealie instance instead.
 

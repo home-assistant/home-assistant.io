@@ -22,7 +22,8 @@ To get shopping list items from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Mealie shopping lists you want to read.
 6. From the actions shown for that target, select **Get shopping list items**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `shopping_list`.
+8. Select **Save**.
 
 ### Options in the UI
 
