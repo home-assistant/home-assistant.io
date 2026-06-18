@@ -52,6 +52,7 @@ The Overkiz (by Somfy) IoT platform is used by many different vendors, like Somf
 - Bouygues Flexom
 - Hitachi Hi Kumo
 - Nexity Eugénie
+- Rexel Energeasy Connect _(local API available)_
 - Sauter Cozytouch
 - Simu LiveIn2
 - Somfy Connectivity Kit
@@ -77,6 +78,14 @@ The Overkiz integration supports both the Overkiz cloud API and the local API (o
 Password:
   description: "Password for your Overkiz cloud account (account you use in your IoT app)."
 {% endconfiguration_basic %}
+
+### Login to Rexel Energeasy Connect (Cloud API)
+
+If you select Rexel Energeasy Connect as your server, you sign in through your browser instead of entering a username and password in Home Assistant.
+
+1. After selecting Rexel Energeasy Connect, you are taken to the Rexel sign-in page.
+2. Sign in with the account you use in the Energeasy Connect app, and authorize Home Assistant.
+3. If your account has more than one gateway, select the gateway you want to add.
 
 ### Login to Overkiz (Local API)
 
