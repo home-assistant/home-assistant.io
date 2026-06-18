@@ -33,6 +33,7 @@ The **iQ Sense** base station broadcasts under the same Bluetooth identifier, bu
 This integration requires a working [Bluetooth](/integrations/bluetooth/) setup, either a local Bluetooth adapter or an [ESPHome Bluetooth proxy](/integrations/esphome/). The probe is battery-powered and only broadcasts while it is awake, so make sure it is awake (for example, by taking it off its charging dock) before adding it.
 
 {% include integrations/config_flow.md %}
+
 ## Supported functionality
 
 The **Chef iQ** {% term integration %} provides the following entities.
