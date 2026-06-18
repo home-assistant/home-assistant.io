@@ -34,7 +34,7 @@ module Jekyll
 
       private
 
-      def fetch_og_image(site, url, redirects_left = 5)
+      def fetch_og_image(_site, url, redirects_left = 5)
         uri = URI.parse(url)
         return nil unless uri.is_a?(URI::HTTPS)
         response = Net::HTTP.start(
