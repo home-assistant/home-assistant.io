@@ -36,15 +36,12 @@ Trigger:
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
-
-In YAML, refer to this trigger as `device` of type `samsungtv.turn_on`. A basic example looks like this:
+In YAML, refer to this trigger as `samsungtv.turn_on`. A basic example looks like this:
 
 {% example %}
-trigger: |
-  device_id: my_samsungtv_device_id
-  domain: samsungtv
-  type: samsungtv.turn_on
-  trigger: device
+triggers:
+  - trigger: samsungtv.turn_on
+    entity_id: media_player.samsung_smart_tv
 {% endexample %}
 
 This fires every time Home Assistant requires the device with ID `my_samsungtv_device_id` to turn on.
@@ -54,10 +51,17 @@ This fires every time Home Assistant requires the device with ID `my_samsungtv_d
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
-device_id:
-  description: >
-    The ID of the Samsung TV media player device that should be watched for a turn-on request. Only Samsung TV devices are valid targets for this trigger.
+trigger:
+  description: The trigger type. For this trigger, use `samsungtv.turn_on`.
   required: true
+  type: string
+device_id:
+  description: One or more device IDs of Samsung TV devices to watch. At least one of `device_id` or `entity_id` must be set. To use more than one device ID, enter them as a list.
+  required: false
+  type: string
+entity_id:
+  description: One or more entity IDs of Samsung TV entities to watch. At least one of `device_id` or `entity_id` must be set. To use more than one entity ID, enter them as a list.
+  required: false
   type: string
 {% endoptions_yaml %}
 
