@@ -5,10 +5,10 @@ layout: none
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url={{ page.external_url }}">
-  <link rel="canonical" href="{{ page.external_url }}">
+  <meta http-equiv="refresh" content="0; url={{ page.external_url | escape_once }}">
+  <link rel="canonical" href="{{ page.external_url | escape_once }}">
   <meta name="robots" content="noindex, follow">
-  <title>{{ page.title }}</title>
+  <title>{{ page.title | escape_once }}</title>
   {% include site/social_meta.html %}
   <script>window.location.replace("{{ page.external_url }}");</script>
 </head>
