@@ -21,7 +21,8 @@ To get a minute forecast from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **OpenWeatherMap: Get minute forecast**.
 6. Select the OpenWeatherMap weather entity you want the forecast for.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `weather_forecast`.
+8. Select **Save**.
 
 ### Options in the UI
 
