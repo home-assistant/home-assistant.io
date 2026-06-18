@@ -186,18 +186,18 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
 
-## Reorganizing dashboards in the sidebar
+## Reorganizing items in the sidebar
 
 You can define which elements are shown in the sidebar and the order in which they appear.
 
 1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
 2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
-3. Drag and drop the items or choose which to show or hide.
+3. Drag and drop items to reorder them, and toggle items to show or hide them.
 4. Select **Save**.
 
 ## Restoring the sidebar to its defaults
 
-If you have customized your sidebar by hiding elements or changing the order of dashboards or apps shown in the sidebar, you can restore the sidebar back to the default settings.
+If you have customized your sidebar by hiding items or changing their order, you can restore the sidebar to its default settings.
 
 1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
 2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
