@@ -62,6 +62,13 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2026-06-18: Konnected alarm-panel switch state and zone topology disclosed to unauthenticated actors on the LAN**  
+Severity: _High (CVSS: 7.6)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-x84v-g949-293w)_  
+Assigned CVE: _[CVE-2026-54317](https://nvd.nist.gov/vuln/detail/CVE-2026-54317)_  
+Discovered by: _[Har1sh-k](https://github.com/Har1sh-k)_  
+Fixed in: _Home Assistant Core 2026.6.0_
+
 **2026-06-17: Exported BroadcastReceiver allows local apps to spoof device location**  
 Severity: _High (CVSS: 7.1)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-77r5-pw5w-mgj3)_  
