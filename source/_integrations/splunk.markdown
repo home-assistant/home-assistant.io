@@ -33,7 +33,7 @@ ha_platforms:
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Token:
-  description: "The HEC token configured in your Splunk instance."
+  description: "The HTTP Event Collector (HEC) token configured in your Splunk instance."
 Host:
   description: "The hostname or IP address of your Splunk instance."
 Port:
