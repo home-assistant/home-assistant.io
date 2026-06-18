@@ -61,7 +61,7 @@ Response variable:
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `google_travel_time.get_transit_times`. A basic example looks like this:
+In YAML, refer to this action as `google_travel_time.get_transit_times`. Store the result in a response variable so you can use it in later steps:
 
 {% example %}
 action: |
