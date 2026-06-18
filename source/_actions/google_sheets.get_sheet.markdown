@@ -18,10 +18,11 @@ To get data from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Google Sheets: Get sheet**.
-6. Select the **Config entry** for the document you want to read from.
+6. Under **Integration**, select the **Sheet** you want to read from.
 7. Optionally, set the **Worksheet**.
 8. Set the number of **Rows** to return.
-9. Select **Save**.
+9. In the **Response variable** field, enter a name to store the data in, such as `sheet_data`.
+10. Select **Save**.``
 
 This action does not support targets. You select the document through the **Config entry** field instead of choosing an area, device, entity, or label.
 
