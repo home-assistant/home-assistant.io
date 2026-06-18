@@ -33,7 +33,7 @@ Mode:
   description: Whether to turn the boost on or off.
   required: true
 Time period:
-  description: The time period for the boost, for example 01:30:00.
+  description: The time period for the boost, for example `01:30:00`.
   required: true
 {% endoptions_ui %}
 
@@ -62,12 +62,12 @@ entity_id:
   type: string
 on_off:
   description: >
-    Whether to turn the boost on or off. One of "on" or "off".
+    Whether to turn the boost on or off. One of `on` or `off`.
   required: true
   type: string
 time_period:
   description: >
-    The time period for the boost, for example 01:30:00.
+    The time period for the boost, for example `01:30:00`.
   required: true
   type: string
 {% endoptions_yaml %}
@@ -75,8 +75,6 @@ time_period:
 This action does not support targets. Specify the hot water tank with `entity_id` in the `data` section instead.
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

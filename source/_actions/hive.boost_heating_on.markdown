@@ -19,7 +19,7 @@ To boost heating from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the heating zone or radiator valve you want to boost.
-6. From the actions shown for that target, select **Boost heating on**.
+6. From the actions shown for that target, select **Hive: Boost heating on**.
 7. Enter the **Time period**, and optionally a **Temperature**.
 8. Select **Save**.
 
@@ -27,10 +27,10 @@ To boost heating from an automation or a script:
 
 {% options_ui %}
 Time period:
-  description: The length of time the boost should last, for example 01:30:00.
+  description: The length of time the boost should last, for example `01:30:00`.
   required: true
 Temperature:
-  description: The target temperature to hold during the boost, in degrees. Defaults to 25.
+  description: The target temperature to hold during the boost, in degrees. Defaults to `25`.
   required: false
 {% endoptions_ui %}
 
@@ -55,7 +55,7 @@ This boosts `climate.heating` to 20.5 degrees for one and a half hours.
 {% options_yaml %}
 time_period:
   description: >
-    The length of time the boost should last, for example 01:30:00.
+    The length of time the boost should last, for example `01:30:00`.
   required: true
   type: string
 temperature:
@@ -69,8 +69,6 @@ temperature:
 {% include actions/targets.md domain="climate" %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 
