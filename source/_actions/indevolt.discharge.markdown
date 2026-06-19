@@ -87,15 +87,15 @@ When the evening peak tariff window starts and the battery has enough charge, di
 
 {% example %}
 automation: |
-  - alias: "Discharge battery during evening peak tariff"
-    triggers:
+  alias: "Discharge battery during evening peak tariff"
+  triggers:
     - trigger: time
       at: "17:00:00"
-    conditions:
+  conditions:
     - condition: numeric_state
       entity_id: sensor.indevolt_battery_soc
       above: 30
-    actions:
+  actions:
     - action: indevolt.discharge
       data:
         device_id: your_device_id
