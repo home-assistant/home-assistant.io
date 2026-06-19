@@ -61,9 +61,9 @@ Host:
 
 {% endconfiguration_basic %}
 
-## Configuration options
+## Configuration option
 
-The Indevolt integration provides the following configuration option, available via **Settings > Devices & services > Indevolt > Configure**.
+The Indevolt integration provides the following configuration option. It is available under **Settings** > **Devices & services** > **Indevolt** > **Configure**.
 
 ### Update frequency
 
