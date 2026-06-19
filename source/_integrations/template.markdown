@@ -2013,9 +2013,9 @@ template:
 
       - name: Negative values
         conditions:
-          condition: numeric_state
-          entity_id: sensor.source_value
-          below: 0
+          - condition: numeric_state
+            entity_id: sensor.source_value
+            below: 0
         state: "{{ states('sensor.source_value') | float | abs }}"
 ```
 
