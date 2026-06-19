@@ -36,7 +36,7 @@ To use this integration, you need:
 1. Log in to your Karakeep instance.
 2. Go to **Settings** > **API Keys**.
 3. Create a new API key.
-4. If your Karakeep instance is version `v0.32.0` or later and uses granular scopes, grant the API key the **User account** > **read** scope.
+4. If your Karakeep instance is version `0.32.0` or later and uses granular scopes, grant the API key the **User account** > **read** scope.
 5. Copy the API key and use it during setup in Home Assistant.
 
 {% enddetails %}
@@ -60,14 +60,12 @@ The Karakeep integration provides sensors for account statistics. The Karakeep s
 
 For each config entry, the integration creates the following {% term sensors %}:
 
-| Sensor | Description |
-| ------ | ----------- |
-| **Bookmarks** | Number of bookmarks in Karakeep. |
-| **Favorites** | Number of favorite bookmarks. |
-| **Archived** | Number of archived items. |
-| **Highlights** | Number of highlights. |
-| **Lists** | Number of lists. |
-| **Tags** | Number of tags. |
+- **Bookmarks**: Number of bookmarks in Karakeep.
+- **Favorites**: Number of favorite bookmarks.
+- **Archived**: Number of archived items.
+- **Highlights**: Number of highlights.
+- **Lists**: Number of lists.
+- **Tags**: Number of tags.
 
 ## Data updates
 
@@ -77,7 +75,7 @@ This integration retrieves data from Karakeep using a pull-based mechanism. The 
 
 {% include integrations/remove_device_service.md %}
 
-If the API key is not used anymore, you can remove it from your Karakeep instance.
+If you no longer use the API key, you can remove it from your Karakeep instance.
 
 ## Troubleshooting
 
