@@ -86,16 +86,16 @@ This automation starts charging the battery at 06:00 so it is ready to cover mor
 
 {% example %}
 automation: |
-  - alias: "Charge battery every morning"
-    triggers:
+  alias: "Charge battery every morning"
+  triggers:
     - trigger: time
       at: "06:00:00"
-    actions:
-      - action: indevolt.charge
-        data:
-          device_id: your_device_id
-          power: 1000
-          target_soc: 80
+  actions:
+    - action: indevolt.charge
+      data:
+        device_id: your_device_id
+        power: 1000
+        target_soc: 80
 {% endexample %}
 
 {% enddetails %}
