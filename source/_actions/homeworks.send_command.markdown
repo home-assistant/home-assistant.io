@@ -87,10 +87,9 @@ action: |
 
 This automation simulates a keypad button press on your Homeworks controller every day at sunset, which you can use to recall a scene programmed on the keypad.
 
-- Trigger: the sun sets
-- Action: send a button press and release to the controller
-  - Controller: `homeworks`
-  - Press and release the keypad button with a short delay in between
+- **Trigger**: the sun sets
+- **Action**: Lutron Homeworks: Send command (press and release the keypad button with a short delay in between)
+  - **Controller**: `homeworks`
 
 {% details "YAML example for recalling evening scene at sunset" %}
 
