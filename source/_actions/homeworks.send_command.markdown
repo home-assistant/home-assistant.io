@@ -92,7 +92,7 @@ This automation simulates a keypad button press on your Homeworks controller eve
   - Controller: `homeworks`
   - Press and release the keypad button with a short delay in between
 
-{% details "Show example YAML" %}
+{% details "YAML example for recalling evening scene at sunset" %}
 
 {% example %}
 automation: |
