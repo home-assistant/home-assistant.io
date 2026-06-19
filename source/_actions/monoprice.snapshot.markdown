@@ -8,6 +8,7 @@ related_actions:
 ---
 
 A snapshot stores the power status, mute status, volume level, and selected source for each targeted zone. Take a snapshot first, change the zones however you like, and then use the [Restore](/actions/monoprice.restore/) action to bring everything back.
+
 {% include actions/ui_header.md %}
 
 To take a snapshot from an automation or a script:
@@ -64,11 +65,11 @@ Save the state of a zone, play a notification sound, and then restore the zone a
 - **Action**: Monoprice 6-Zone Amplifier: Restore
   - **Target**: Living room
 
-{% details "Show example YAML" %}
+{% details "YAML example for doorbell announcement on the living room speakers" %}
 
 {% example %}
 automation: |
-  - alias: "Doorbell announcement on the living room speakers"
+    alias: "Doorbell announcement on the living room speakers"
     triggers:
       - trigger: state
         entity_id: binary_sensor.doorbell

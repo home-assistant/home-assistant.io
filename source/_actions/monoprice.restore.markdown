@@ -64,11 +64,11 @@ Save the state of a zone, play a notification sound, and then restore the zone a
 - **Action**: Monoprice 6-Zone Amplifier: Restore
   - **Target**: Living room
 
-{% details "Show example YAML" %}
+{% details "YAML example for doorbell announcement on the living room speakers" %}
 
 {% example %}
 automation: |
-  - alias: "Doorbell announcement on the living room speakers"
+    alias: "Doorbell announcement on the living room speakers"
     triggers:
       - trigger: state
         entity_id: binary_sensor.doorbell
