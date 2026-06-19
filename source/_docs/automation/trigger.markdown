@@ -64,15 +64,11 @@ automation:
 
 ## Types of triggers
 
-Each trigger has a type that depends on the target of the trigger, usually corresponding to the {% term domain %} of the target. The following types are available.
+Each trigger has a type that depends on the target of the trigger, usually corresponding to the {% term domain %} of the target.
 
-### Button trigger
+For an overview of every trigger across all integrations, see the [triggers reference](/triggers/).
 
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a button entity is pressed. See [Button triggers](/integrations/button/#triggers).
-
-In YAML, use: `trigger: button`.
+The following are triggers without dedicated pages.
 
 ### Calendar triggers
 
