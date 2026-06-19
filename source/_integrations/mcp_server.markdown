@@ -221,17 +221,17 @@ Claude Code supports remote MCP servers, making it easy to connect to your Home 
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
 
-### Example: gemini-cli
+### Example: Antigravity CLI
 
-1.  Install `gemini-cli` if you haven't already. You can find installation instructions at [https://geminicli.com/](https://geminicli.com/).
-2.  Open the `gemini-cli` configuration file. This is usually located at `~/.gemini/settings.json`. For more details, refer to the [gemini-cli MCP server documentation](https://geminicli.com/docs/tools/mcp-server/).
+1.  Install the Antigravity CLI if you haven't already. You can find installation instructions at [https://antigravity.google](https://antigravity.google).
+2.  Open the Antigravity CLI MCP configuration file, `mcp_config.json`. This is usually located at `~/.gemini/antigravity-cli/mcp_config.json`. For more details, refer to the [Antigravity CLI MCP server documentation](https://antigravity.google/docs/mcp).
 3.  Add the following to your `mcpServers` configuration:
 
     ```json
     {
       "mcpServers": {
         "homeassistant": {
-          "httpUrl": "https://<your_home_assistant_url>/api/mcp",
+          "serverUrl": "https://<your_home_assistant_url>/api/mcp",
           "headers": {
             "Authorization": "Bearer ${HOMEASSISTANT_TOKEN}"
           }
@@ -242,7 +242,7 @@ Claude Code supports remote MCP servers, making it easy to connect to your Home 
 
 4.  Replace `<your_home_assistant_url>` with the URL of your Home Assistant instance.
 5.  Set the `HOMEASSISTANT_TOKEN` environment variable to a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) from your Home Assistant instance.
-6.  Save the file. You can now use Home Assistant tools within `gemini-cli`.
+6.  Save the file. You can now use Home Assistant tools within the Antigravity CLI.
 
 ## Supported functionality
 

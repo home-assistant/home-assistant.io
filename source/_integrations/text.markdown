@@ -31,3 +31,7 @@ The `text.set_value` action sets the textual value of the text entity.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of texts to control.
 | `value` | no | The new text value to set.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}

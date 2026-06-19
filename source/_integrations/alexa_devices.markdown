@@ -19,9 +19,9 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - media_player
   - notify
-  - select
   - sensor
   - switch
 ha_integration_type: hub

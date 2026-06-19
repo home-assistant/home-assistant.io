@@ -100,7 +100,7 @@ and in many cases, get a read-only sensor instead of an editable switch {% term 
 
 ## Configuration options
 
-All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**. Some advanced options are only available when **Advanced Mode** is enabled on your user profile page.
+All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**.
 
 {% configuration_basic %}
 Track network clients:
@@ -124,7 +124,7 @@ Bandwidth usage sensors for network clients:
 Uptime sensors for network clients:
   description: "Create uptime sensors for network clients. Disabled by default."
 Create entities from network clients:
-  description: "Advanced option to select which network clients to create entities from. Only available when **Advanced Mode** is enabled."
+  description: "Select which network clients to create entities from."
 {% endconfiguration_basic %}
 
 ## Button
