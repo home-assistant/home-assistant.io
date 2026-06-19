@@ -343,7 +343,6 @@ conditions:
 
 You can optionally use a `value_template` to process the value of the state before testing it.
 
-
 ```yaml
 conditions:
   - condition: numeric_state
@@ -353,7 +352,6 @@ conditions:
     # If your sensor value needs to be adjusted
     value_template: "{{ float(state.state) + 2 }}"
 ```
-
 
 It is also possible to test the condition against multiple entities at once.
 The condition will pass if **all** entities match the thresholds.
@@ -510,7 +508,6 @@ conditions:
 
 You can also use templates in the `for` option.
 
-
 ```yaml
 conditions:
   - condition: state
@@ -520,7 +517,6 @@ conditions:
       minutes: "{{ states('input_number.lock_min')|int }}"
       seconds: "{{ states('input_number.lock_sec')|int }}"
 ```
-
 
 The `for` template(s) will be evaluated when the condition is tested.
 
@@ -553,7 +549,6 @@ For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_el
 
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
-
 ```yaml
 conditions:
   - condition: and  # 'twilight' condition: dusk and dawn, in typical locations
@@ -564,13 +559,11 @@ conditions:
         value_template: "{{ state_attr('sun.sun', 'elevation') > -6 }}"
 ```
 
-
 ```yaml
 conditions:
   condition: template  # 'night' condition: from dusk to dawn, in typical locations
   value_template: "{{ state_attr('sun.sun', 'elevation') < -6 }}"
 ```
-
 
 #### Sunset/sunrise condition
 
@@ -585,6 +578,7 @@ The sunset/sunrise conditions do not work in locations inside the polar circles,
 {% endtip %}
 
 This is an example of 1 hour offset before sunset:
+
 ```yaml
 conditions:
   - condition: sun
@@ -629,14 +623,12 @@ The available conditions are:
 
 The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render `True`.
 
-
 ```yaml
 conditions:
   - alias: "Iphone battery above 50%"
     condition: template
     value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
-
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
 
@@ -646,15 +638,12 @@ The template condition has a shorthand notation that can be used to make your sc
 
 For example:
 
-
 ```yaml
 conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
 
-
 Or in a list of conditions, allowing to use existing conditions as described in this
 chapter and one or more shorthand template conditions
-
 
 ```yaml
 conditions:
@@ -665,11 +654,9 @@ conditions:
   - "{{ is_state('device_tracker.iphone', 'away') }}"
 ```
 
-
 This shorthand notation can be used everywhere in Home Assistant where
 conditions are accepted. For example, in [`and`](#and-condition), [`or`](#or-condition)
 and [`not`](#not-condition) conditions:
-
 
 ```yaml
 conditions:
@@ -681,16 +668,13 @@ conditions:
         below: 20
 ```
 
-
 It's also supported in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
-
 
 ```yaml
 - while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
   sequence:
     - ...
 ```
-
 
 ```yaml
 - choose:
@@ -699,14 +683,11 @@ It's also supported in the `repeat` action's `while` or `until` option, or in a 
        - ...
 ```
 
-
 It's also supported in script or automation `condition` actions:
-
 
 ```yaml
 - condition: "{{ is_state('device_tracker.iphone', 'away') }}"
 ```
-
 
 [template]: /docs/templating/
 [automation-templating]: /getting-started/automation-templating/
@@ -729,8 +710,8 @@ conditions:
 ```
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-Note that if only `before` key is used, the condition will be `true` *from midnight* until the specified time.
-If only `after` key is used, the condition will be `true` from the specified time *until midnight*.
+Note that if only `before` key is used, the condition will be `true` _from midnight_ until the specified time.
+If only `after` key is used, the condition will be `true` from the specified time _until midnight_.
 
 Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
 
@@ -773,6 +754,7 @@ conditions:
 ```
 
 For a trigger identified by its index, both a string and integer is allowed:
+
 ```yaml
 conditions:
   - condition: trigger
@@ -864,7 +846,6 @@ conditions:
 
 ## Examples
 
-
 ```yaml
 conditions:
   - condition: numeric_state
@@ -881,7 +862,6 @@ conditions:
     entity_id: script.light_turned_off_5min
     state: "off"
 ```
-
 
 ## Disabling a condition
 
@@ -904,13 +884,12 @@ conditions:
 
 Conditions can also be disabled based on limited templates or blueprint inputs.
 
-
 ```yaml
 blueprint:
   input:
     input_boolean:
       name: Boolean
-      selector: 
+      selector:
         boolean:
     input_number:
       name: Number
@@ -932,4 +911,3 @@ blueprint:
       state: "below_horizon"
       enabled: "{{ _enable_number < 50 }}"
 ```
-
