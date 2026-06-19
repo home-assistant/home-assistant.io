@@ -21,7 +21,8 @@ To list charge slots from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Ohme: List charge slots**.
 6. Select the **Ohme account** to use.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the result, for example `charge_slots`.
+8. Select **Save**.
 
 This action does not support targets. Instead, you select the account through the **Ohme account** field.
 
@@ -31,6 +32,9 @@ This action does not support targets. Instead, you select the account through th
 Ohme account:
   description: The Ohme account to return charge slots for.
   required: true
+Response variable:
+  description: The name of the variable where the result will be stored. If not provided, the result won't be stored.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -54,6 +58,12 @@ config_entry:
   description: >
     The Ohme account to return charge slots for.
   required: true
+  type: string
+response_variable:
+  description: >
+    The name of the variable where the result will be stored.
+    If not provided, the result won't be stored.
+  required: false
   type: string
 {% endoptions_yaml %}
 
@@ -81,6 +91,41 @@ slots:
 ```
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: log tonight's charge slots when the car plugs in
+
+Charge slots are only returned if a charge is in progress. This automation fires the moment the car is plugged in, fetches the planned charge slots, and sends them as a notification. With this automation you can confirm the charger has scheduled charging in the cheapest and lowest-carbon window without opening the app.
+
+- **Trigger**: State (sensor `sensor.ohme_home_pro_status` changes from `unplugged`)
+- **Action**: Ohme: List charge slots
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for sending notification with car charge slots" %}
+
+{% example %}
+automation: |
+  alias: "Notify with tonight's charge slots when car plugs in"
+  triggers:
+    - trigger: state
+      entity_id: sensor.ohme_home_pro_status
+      from: unplugged
+  actions:
+    - action: ohme.list_charge_slots
+      data:
+        config_entry: your_config_entry_id
+      response_variable: slots
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Ohme charge slots tonight"
+        message: "{{ slots }}"
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

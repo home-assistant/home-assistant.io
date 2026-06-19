@@ -68,6 +68,30 @@ price_cap:
 
 {% include actions/more_examples.md %}
 
+### Automation: set the price cap every morning
+
+This automation sets the price cap to 20 p/kWh (2000 in 1/100ths) every morning so the charger never draws grid electricity above that threshold during the day.
+
+- **Trigger**: Time: 07:00
+- **Action**: Ohme: Set price cap (at 2000: 20 p/kWh)
+
+{% details "YAML example for setting daily price cap at 07:00" %}
+
+{% example %}
+automation: |
+  alias: "Set daily price cap at 07:00"
+  triggers:
+    - trigger: time
+      at: "07:00:00"
+  actions:
+    - action: ohme.set_price_cap
+      data:
+        config_entry: your_config_entry_id
+        price_cap: 2000
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
