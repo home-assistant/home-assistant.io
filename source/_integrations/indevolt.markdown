@@ -69,11 +69,9 @@ The Indevolt integration provides the following configuration option. It is avai
 
 Controls how often Home Assistant polls the Indevolt device for updated data.
 
-| Setting | Approximate interval |
-| -------- | -------------------- |
-| Low      | 60 seconds           |
-| Medium   | 30 seconds (default) |
-| High     | 5 seconds            |
+- **Low**: Approximately every 60 seconds.
+- **Medium** (default): Approximately every 30 seconds.
+- **High**: Approximately every 5 seconds.
 
 A higher update frequency provides more responsive sensor updates but increases network traffic and the number of requests sent to the device.
 
@@ -232,7 +230,7 @@ The Indevolt integration retrieves data from your devices by polling the OpenDat
 
 By default, data is refreshed approximately every 30 seconds. This can be adjusted using the **Update frequency** configuration option.
 
-If an update fails, the integration will retry again at the next scheduled update interval.
+If an update fails, the integration will retry at the next scheduled update interval.
 
 ## Known limitations
 
