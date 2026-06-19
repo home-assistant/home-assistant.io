@@ -4,6 +4,8 @@ description: Instructions on how to integrate Yoto players with Home Assistant.
 ha_category:
   - Binary Sensor
   - Media Player
+  - Number
+  - Select
   - Sensor
   - Switch
   - Time
@@ -18,6 +20,8 @@ ha_domain: yoto
 ha_platforms:
   - binary_sensor
   - media_player
+  - number
+  - select
   - sensor
   - switch
   - time
@@ -104,12 +108,28 @@ data:
   media_content_id: "yoto://card/abc123/01/02"
 ```
 
-### Day and night mode
+### Time
 
-Yoto players can switch between a day display and a night display. Each player provides two time entities that let you set when each mode starts:
+Yoto players can switch between a day display and a night display. Set when each mode starts:
 
 - **Day mode start**: The time the player switches to day mode.
 - **Night mode start**: The time the player switches to night mode.
+
+### Numbers
+
+Set the display brightness and volume limit for each mode:
+
+- **Day mode brightness**: The display brightness in day mode, from 0% to 100%. Unavailable while day mode uses automatic brightness.
+- **Night mode brightness**: The display brightness in night mode, from 0% to 100%. Unavailable while night mode uses automatic brightness.
+- **Day mode maximum volume**: The highest volume the player can reach in day mode, from 0 to 16.
+- **Night mode maximum volume**: The highest volume the player can reach in night mode, from 0 to 16.
+
+### Selects
+
+Set the player's ambient light color for each mode, picked from a fixed palette. Available on players with an ambient light:
+
+- **Day mode color**: The ambient light color in day mode.
+- **Night mode color**: The ambient light color in night mode.
 
 ### Switches
 

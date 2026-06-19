@@ -69,6 +69,24 @@ The **Kiosker** integration provides the following entities.
   - Shows when motion was last detected. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
 - **Ambient light**
   - Shows the current ambient light level. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
+- **Blackout text** (disabled by default)
+  - Shows the text currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
+- **Blackout icon** (disabled by default)
+  - Shows the SF Symbol icon name currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
+- **Blackout background color** (disabled by default)
+  - Shows the background color of the blackout screen as a hex color string (e.g. #000000). Defaults to unknown if no visible blackout.
+- **Blackout foreground color** (disabled by default)
+  - Shows the text/icon color of the blackout screen as a hex color string (e.g. #FFFFFF). Defaults to unknown if no visible blackout.
+- **Blackout expiry** (disabled by default)
+  - Shows the remaining time in seconds before the blackout expires. Defaults to unknown if no visible blackout.
+- **Blackout button background color** (disabled by default)
+  - Shows the background color of the dismiss button as a hex color string (e.g. #FFFFFF). Defaults to unknown if no visible blackout.
+- **Blackout button foreground color** (disabled by default)
+  - Shows the text color of the dismiss button as a hex color string (e.g. #000000). Defaults to unknown if no visible blackout.
+- **Blackout button text** (disabled by default)
+  - Shows the label on the dismiss button. Defaults to unknown if no visible blackout.
+- **Blackout sound** (disabled by default)
+  - Shows the SystemSoundID of the sound played when the blackout was displayed. Defaults to unknown if no visible blackout.
 
 ### Binary sensors
 
@@ -77,7 +95,7 @@ The **Kiosker** integration provides the following entities.
 - **Screensaver state**
   - Shows whether the screensaver is currently active.
 - **Blackout state**
-  - Shows whether the screen is currently blacked out. Has extra attributes with the blackout data when active.
+  - Shows whether the screen is currently blacked out.
 
 ### Switches
 
@@ -107,6 +125,8 @@ The **Kiosker** integration provides the following entities.
   - Dismisses the currently active screensaver.
 - **Clear blackout**
   - Clears the currently active blackout.
+
+{% include integrations/actions.md %}
 
 ## Data updates
 
