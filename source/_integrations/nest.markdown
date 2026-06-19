@@ -299,6 +299,10 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
+If the thermostat supports fan control and a fan timer is configured, the entity will expose the following extra state attribute:
+
+- `fan_timer_timeout`: The timestamp (in ISO 8601 format) at which the current fan timer is scheduled to turn off.
+
 {% note %}
 
 This feature is enabled by the following permissions:
