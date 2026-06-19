@@ -15,4 +15,4 @@ The **LLM** {% term integration %} organizes the [LLM APIs](https://developers.h
 
 This integration provides the framework that lets other integrations contribute tools to an LLM API. It is set up automatically when needed and has no configuration options.
 
-To let a conversation agent use an LLM API, configure it on the conversation agent integration, such as [Ollama](/integrations/ollama/), [Google Generative AI](/integrations/google_generative_ai_conversation/), or [OpenAI](/integrations/openai_conversation/). See [controlling Home Assistant](/voice_control/voice_remote_local_assistant/) for more about exposing your home to an LLM.
+To let a conversation agent use an LLM API, configure it on the conversation agent integration, such as [Ollama](/integrations/ollama/), [Google Generative AI](/integrations/google_generative_ai_conversation/), or [OpenAI](/integrations/openai_conversation/).
