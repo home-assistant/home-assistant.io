@@ -220,7 +220,7 @@ automation:
 
 The integration updates each Yoto player's data in three ways:
 
-- Media player and playback state is pushed live over MQTT, so play, pause, volume, and track changes appear in Home Assistant right away. A player going online or offline is pushed the same way, so its media player, sensors, and binary sensors switch to available or unavailable instantly.
+- Media player and playback state are pushed live over MQTT, so play, pause, volume, and track changes appear in Home Assistant right away. A player going online or offline is pushed the same way, so its media player, sensors, and binary sensors switch to available or unavailable instantly.
 - Sensor values are refreshed every minute, when the integration requests a status snapshot from each player.
 - Configuration, such as the day and night mode settings, is refreshed from the Yoto cloud through {% term polling %} every 5 minutes. This is also when newly linked players are added.
 
