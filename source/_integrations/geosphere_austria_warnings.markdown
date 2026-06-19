@@ -30,16 +30,16 @@ Warning data is provided by GeoSphere Austria under the [Creative Commons Attrib
 
 ## Prerequisites
 
-Warnings are provided for Austrian municipalities only. The integration determines the municipality from the location of a Home Assistant [zone](/integrations/zone/), so the zone you select must be located within Austria.
+Warnings are provided for Austrian municipalities only. The integration determines the municipality from the location you select, so that location must be within Austria.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Zone:
-  description: The zone to monitor. Warnings are provided for the Austrian municipality at the location of this zone. Defaults to your home zone.
+Location:
+  description: The location to monitor. Warnings are provided for the Austrian municipality at this location. Defaults to your Home Assistant location.
 {% endconfiguration_basic %}
 
-To monitor multiple municipalities, add a separate config entry for each zone. The zone of an existing entry can be changed later via reconfiguration, as long as the new zone is located in the same municipality.
+To monitor multiple municipalities, add a separate config entry for each location.
 
 ## Supported functionality
 
@@ -90,7 +90,7 @@ automation:
 
 ### No Austrian municipality was found
 
-The selected zone is located outside of Austria, or too far from any municipality boundary. Check the latitude and longitude of the zone and select a zone within Austria.
+The selected location is outside of Austria, or too far from any municipality boundary. Check the latitude and longitude, and select a location within Austria.
 
 ### Entities are unavailable
 
