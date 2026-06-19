@@ -1,14 +1,15 @@
 ---
 title: Amcrest
-description: Instructions on how to integrate Amcrest (or Dahua) IP cameras within Home Assistant.
+description: Integrate your Amcrest or Dahua IP camera or doorbell with Home Assistant for live video, motion detection, PTZ control, and more.
 ha_category:
   - Binary sensor
   - Camera
-  - Hub
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.49
 ha_domain: amcrest
+ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - camera
@@ -16,274 +17,171 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@flacjacket'
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
-ha_quality_scale: legacy
+ha_integration_type: device
 ---
 
-The **Amcrest** {% term integration %} allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
+The **Amcrest** {% term integration %} connects your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell to Home Assistant. Once set up, you can watch a live video stream, receive motion and audio alerts, manage recording, control <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras, and toggle privacy mode.
 
-There is currently support for the following {% term device %} types within Home Assistant:
+To check whether your specific camera model is supported, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) in the `python-amcrest` project.
 
-- Binary sensor
-- Camera
-- Sensor
+{% include integrations/config_flow.md %}
 
-## Configuration
-
-To enable your camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-amcrest:
-  - host: IP_ADDRESS_CAMERA
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-
-```
-
-{% configuration %}
-host:
-  description: >
-    The IP address or hostname of your camera.
-    If using a hostname, make sure the DNS works as expected.
-  required: true
-  type: string
-username:
-  description: The username for accessing your camera. Most Amcrest devices use "admin" for the username, even if you've configured another username in their app.
-  required: true
-  type: string
-password:
-  description: The password for accessing your camera.
-  required: true
-  type: string
-name:
-  description: >
-    This parameter allows you to override the name of your camera. In the case of multi-camera setups,
-    this is highly recommended as camera id number will be randomly changed at each reboot if a name is not allocated.
-  required: false
-  type: string
-  default: Amcrest Camera
-port:
-  description: The port that the camera is running on.
-  required: false
-  type: integer
+{% configuration_basic %}
+Host:
+  description: The IP address or hostname of your camera. If you use a hostname, make sure DNS resolves correctly.
+Username:
+  description: The username for your camera. Most Amcrest cameras use `admin` as the username, even if you have set a different name in the app.
+Password:
+  description: The password for your camera.
+Port:
+  description: The HTTP port of the camera's web interface.
   default: 80
-resolution:
-  description: >
-    This parameter allows you to specify the camera resolution.
-    For a high resolution (1080/720p), specify the option `high`.
-    For VGA resolution (640x480p), specify the option `low`.
-  required: false
-  type: string
-  default: high
-stream_source:
-  description: >
-    The data source for the live stream. `mjpeg` will use the camera's native
-    MJPEG stream, whereas `snapshot` will use the camera's snapshot API to
-    create a stream from still images. You can also set the `rtsp` option to
-    generate the streaming via RTSP protocol.
-  required: false
-  type: string
-  default: snapshot
-ffmpeg_arguments:
-  description: >
-    Extra options to pass to FFmpeg, e.g.,
-    image quality or video filter options.
-  required: false
-  type: string
-  default: -pred 1
-authentication:
-  description: >
-    Defines which authentication method to use only when `stream_source`
-    is `mjpeg`. Currently, `aiohttp` only support `basic`.
-  required: false
-  type: string
-  default: basic
-scan_interval:
-  description: Defines the update interval of the sensor in seconds.
-  required: false
-  type: integer
-  default: 10
-binary_sensors:
-  description: >
-    Conditions to display in the frontend.
-    The following conditions can be monitored:
-  required: false
-  type: list
-  default: None
-  keys:
-    audio_detected:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
-    audio_detected_polled:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
-    motion_detected:
-      description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
-    motion_detected_polled:
-      description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
-    crossline_detected:
-      description: "Return `on` when a tripwire tripping is detected, `off` when not. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
-    crossline_detected_polled:
-      description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
-    online:
-      description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
-sensors:
-  description: >
-    Conditions to display in the frontend.
-    The following conditions can be monitored:
-  required: false
-  type: list
-  default: None
-  keys:
-    sdcard:
-      description: Return the SD card usage by reporting the total and used space.
-    ptz_preset:
-      description: >
-        Return the number of PTZ preset positions
-        configured for the given camera.
-switches:
-  description: Switches to control certain aspects of the cameras.
-  required: false
-  type: list
-  default: None
-  keys:
-    privacy_mode:
-      description: Controls the camera's Privacy Mode feature, if supported.
-control_light:
-  description: >
-    Automatically control the camera's indicator light, turning it on if the audio or video streams are enabled, and turning it off if both streams are disabled.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
-**Note:** Amcrest cameras with newer firmware no longer have the ability to
-stream `high` definition video with MJPEG encoding. You may need to use `low`
-resolution stream or the `snapshot` stream source instead.  If the quality seems
-too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in
-your camera's configuration manager. If you defined the `stream_source` to
-`mjpeg`, make sure your camera supports `Basic` HTTP authentication.
-Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
+## Supported functionality
 
-**Note:** If you set the `stream_source` option to `rtsp`,
-make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
-documentation to install the `ffmpeg`.
+### Entities
 
-### Streaming vs polled binary sensors
+After setup, the following entities are created for each camera.
 
-Some binary sensors provide two choices for method of operation: streaming or polled. Streaming is more responsive and causes less network traffic because the camera will tell Home Assistant when the sensor's state has changed. Polled mode queries the camera periodically (every five seconds) to check the state of the sensor. Therefore streaming is the better option. However, some camera models and versions of camera firmware do not seem to implement the streaming method properly. Therefore the polled mode is also available. It is recommended to use the streaming mode (e.g., `motion_detected`) first, and if that doesn't work (e.g., results in constant errors), then try the polled mode instead (e.g., `motion_detected_polled`.)
+#### Camera
+
+- **Camera**: Provides a live video stream and still image snapshots. Supports MJPEG streaming and snapshot-based streaming. WebRTC playback is also available through go2rtc, if configured.
+
+#### Binary sensors
+
+- **Motion detected**: turns on when motion is detected. Make sure motion detection is enabled in your camera under **Settings** > **Events** > **Video Detection**.
+- **Audio detected**: turns on when audio is detected. Enable this in your camera under **Settings** > **Events** > **Audio Detection**.
+- **Crossline detected**: turns on when a virtual tripwire crossing is detected.
+- **Online**: reflects whether your camera is currently reachable. Updates approximately every minute.
+
+The motion, audio, and crossline sensors are event-driven — they update instantly when the camera sends a notification rather than polling on a schedule. The online sensor actively tests connectivity.
+
+#### Sensors
+
+- **PTZ preset**: Shows the number of <abbr title="pan, tilt, and zoom">PTZ</abbr> preset positions saved on your camera. Disabled by default.
+- **SD used**: Shows SD card usage as a percentage. Total and used space are available as extra attributes. Disabled by default.
+
+#### Switches
+
+- **Privacy mode** — when turned on, the camera's lens is covered and no video or audio is captured. Turn it off to return to normal operation.
 
 ## Events
 
-Once loaded, the Amcrest integration will generate (Home Assistant) {% term events %} when it receives event notifications in the stream sent by the camera. This is only possible if the camera model and firmware implement the streaming method (see [above](#streaming-vs-polled-binary-sensors)). The event type is `amcrest` and the data is as follows:
+The Amcrest integration fires Home Assistant {% term events %} whenever the camera sends an event notification over its event stream. The event type is `amcrest` and the data looks like this:
 
 ```json
 {
   "camera": "<name of the camera that triggered the event>",
-  "event": "<amcrest-specific code of the event>",
+  "event": "<amcrest-specific event code>",
   "payload": {
-    <json-encoded content sent by the device
-     through the streaming protocol>
+    "<json-encoded content sent by the camera>"
   }
- }
+}
 ```
 
-The event code is sent by Amcrest or Dahua devices in the payload as a "Code" member. To ease event matching in automations, this code is replicated in a more top-level `event` member in `data`.
+The event code (for example, `CallNoAnswered` for a doorbell press) is included at the top-level `event` field for easy matching in automations.
 
 ## Actions
 
-Once loaded, the `amcrest` integration will expose {% term actions %} that can be called to perform various actions. The `entity_id` action attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
-
-Available {% term actions %}:
-`enable_audio`, `disable_audio`,
-`enable_motion_recording`, `disable_motion_recording`,
-`enable_recording`, `disable_recording`,
-`goto_preset`, `set_color_bw`,
-`start_tour`, `stop_tour`, and
-`ptz_control`
+The **Amcrest** integration provides the following {% term actions %}. Each action targets one or more cameras by `entity_id`. You can pass a single entity ID, a list of entity IDs, or `all` to target every configured Amcrest camera.
 
 ### Action: Enable audio / disable audio
 
 The `amcrest.enable_audio` and `amcrest.disable_audio` {% term actions %} allow you to enable or disable the camera's audio stream.
 
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
 ### Action: Enable motion recording / disable motion recording
 
-The `amcrest.enable_motion_recording` and `amcrest.disable_motion_recording` {% term actions %} allow you to enable or disable the camera to record a clip to its configured storage location when motion is detected.
+The `amcrest.enable_motion_recording` and `amcrest.disable_motion_recording` {% term actions %} allow you to enable or disable motion-triggered recording from the camera to its configured storage.
 
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
 ### Action: Enable recording / disable recording
 
-The `amcrest.enable_recording` and `amcrest.disable_recording` actions allow you to enable or disable the camera to continuously record to its configured storage location.
+The `amcrest.enable_recording` and `amcrest.disable_recording` {% term actions %} allow you to enable or disable continuous recording from the camera to its configured storage.
 
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
 ### Action: Go to preset
 
-The `amcrest.goto_preset` action allows you to move the camera to one of the <abbr title="pan, tilt, and zoom">PTZ</abbr> locations configured within the camera.
+The `amcrest.goto_preset` action allows you to move a compatible <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
 
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-| `preset`               | no       | Preset number, starting from 1.                                                                                              |
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| `preset` | no | Preset number, starting from 1. |
 
-### Action: Set color BW
+### Action: Set color mode
 
-The `amcrest.set_color_bw` action allows you to set the color mode of the camera.
+The `amcrest.set_color_bw` action allows you to choose the camera's day and night color mode.
 
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-| `color_bw`             | no       | One of `auto`, `bw` or `color`.                                                                                              |
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| `color_bw` | no | One of `auto`, `bw`, or `color`. |
 
 ### Action: Start tour / stop tour
 
-The `amcrest.start_tour` and `amcrest.stop_tour` actions allow you to start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour function.
+The `amcrest.start_tour` and `amcrest.stop_tour` {% term actions %} allow you to start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour.
 
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
 ### Action: PTZ control
 
-The `amcrest.ptz_control` action allows you to pan, tilt or zoom your camera if your Amcrest or Dahua camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>.  
+The `amcrest.ptz_control` action allows you to pan, tilt, or zoom an Amcrest or Dahua camera that supports <abbr title="pan, tilt, and zoom">PTZ</abbr>.
 
-| Data attribute | Optional | Description                                                                                                                                        |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.                       |
-| `movement`             | no       | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down` |
-| `travel_time`          | yes      | Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.                                                                     |
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+| `movement` | no | Movement direction: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`, or `left_down`. |
+| `travel_time` | yes | Travel time as a fraction between `0` and `1`. Default is `0.2`. |
 
-## Notes
+## Examples
 
-- PTZ zoom capability does not control VariFocal lens adjustments.
-- There can be several seconds of lag before the video (snapshot or live) reflects the camera movement.
+### Doorbell button press automation
 
-## Example card with controls
+Use the `amcrest` event to trigger an automation when someone presses the call button on an AD110 or AD410 doorbell:
+
+```yaml
+alias: "Doorbell pressed"
+description: "Trigger when someone presses the Amcrest doorbell"
+triggers:
+  - trigger: event
+    event_type: amcrest
+    event_data:
+      event: "CallNoAnswered"
+      payload:
+        action: "Start"
+actions:
+  - type: flash
+    entity_id: light.living_room
+    domain: light
+```
+
+### PTZ camera card with controls
+
+You can display a live video feed with on-screen <abbr title="pan, tilt, and zoom">PTZ</abbr> controls using a picture-elements card:
 
 <p class='img'>
-  <img src='/images/integrations/amcrest/amcrest_ptz.jpg' alt='Screenshot using a picture-elements with PTZ controls.'>
-  Example showing an Amcrest IP2M-841 PT camera with controls for Pan and Tilt.
+  <img src='/images/integrations/amcrest/amcrest_ptz.jpg' alt='Screenshot using a picture-elements card with PTZ controls.'>
+  Example showing an Amcrest IP2M-841 PT camera with pan and tilt controls.
 </p>
-
-Using the following picture-elements card code, you can display a live video feed from an Amcrest camera with controls for moving or zooming the camera.
 
 ```yaml
 type: picture-elements
 entity: camera.lakehouse
 camera_image: camera.lakehouse
-camera_view: live   # or auto for snapshot view
+camera_view: live
 elements:
   - type: icon
     icon: "mdi:arrow-up"
@@ -401,9 +299,167 @@ elements:
         movement: zoom_out
 ```
 
-## Advanced configuration
+## Known limitations
 
-You can also use this more advanced configuration example:
+- Camera settings such as resolution and stream source cannot be changed after initial setup. Editing these options is not currently supported.
+- If you need to change your camera's IP address or login credentials, you must remove and re-add the integration.
+- Only single-channel cameras are currently supported. Multi-channel camera support is not currently available.
+- On first startup, Home Assistant may log SSL initialization warnings related to the underlying camera library. These appear only once per startup and have no functional impact.
+- <abbr title="pan, tilt, and zoom">PTZ</abbr> zoom control does not adjust varifocal lenses.
+- There can be a few seconds of lag before the video stream reflects camera movement.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+---
+
+{% details "YAML configuration (deprecated)" %}
+
+{% important %}
+YAML-based configuration for Amcrest is deprecated and will be removed in a future version of Home Assistant. Use the UI-based setup described at the top of this page instead.
+{% endimportant %}
+
+Existing YAML-configured cameras continue to work alongside any cameras added through the UI. To migrate, add your camera through the UI and remove its entry from {% term "`configuration.yaml`" %}.
+
+To configure via {% term "`configuration.yaml`" %}, add the following:
+
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry
+amcrest:
+  - host: IP_ADDRESS_CAMERA
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+```
+
+{% configuration %}
+host:
+  description: >
+    The IP address or hostname of your camera.
+    If using a hostname, make sure the DNS works as expected.
+  required: true
+  type: string
+username:
+  description: >
+    The username for accessing your camera. Most Amcrest devices use
+    "admin" for the username, even if you have configured another
+    username in their app.
+  required: true
+  type: string
+password:
+  description: The password for accessing your camera.
+  required: true
+  type: string
+name:
+  description: >
+    A friendly name for your camera. In multi-camera setups, setting a
+    name is strongly recommended, as the camera ID number may change at
+    each reboot if no name is set.
+  required: false
+  type: string
+  default: Amcrest Camera
+port:
+  description: The port that the camera is running on.
+  required: false
+  type: integer
+  default: 80
+resolution:
+  description: >
+    The camera stream resolution. Use `high` for 1080p/720p or `low`
+    for 640×480.
+  required: false
+  type: string
+  default: high
+stream_source:
+  description: >
+    The data source for the live stream. `mjpeg` uses the camera's
+    native MJPEG stream, `snapshot` creates a stream from still images,
+    and `rtsp` streams via the RTSP protocol.
+  required: false
+  type: string
+  default: snapshot
+ffmpeg_arguments:
+  description: Extra options to pass to FFmpeg, such as image quality or video filter options.
+  required: false
+  type: string
+  default: -pred 1
+authentication:
+  description: >
+    The authentication method to use when `stream_source` is `mjpeg`.
+    Only `basic` is currently supported.
+  required: false
+  type: string
+  default: basic
+scan_interval:
+  description: Update interval in seconds.
+  required: false
+  type: integer
+  default: 10
+binary_sensors:
+  description: Binary sensors to enable.
+  required: false
+  type: list
+  default: None
+  keys:
+    audio_detected:
+      description: "On when audio is detected (event-driven streaming method)."
+    audio_detected_polled:
+      description: "On when audio is detected (polled method)."
+    motion_detected:
+      description: "On when motion is detected (event-driven streaming method)."
+    motion_detected_polled:
+      description: "On when motion is detected (polled method)."
+    crossline_detected:
+      description: "On when a virtual tripwire crossing is detected (event-driven streaming method)."
+    crossline_detected_polled:
+      description: "On when a virtual tripwire crossing is detected (polled method)."
+    online:
+      description: "On when the camera is reachable and responding to commands."
+sensors:
+  description: Sensors to enable.
+  required: false
+  type: list
+  default: None
+  keys:
+    sdcard:
+      description: Reports SD card usage with total and used space as attributes.
+    ptz_preset:
+      description: Reports the number of PTZ preset positions configured on the camera.
+switches:
+  description: Switches to enable.
+  required: false
+  type: list
+  default: None
+  keys:
+    privacy_mode:
+      description: Controls the camera's privacy mode feature, if supported.
+control_light:
+  description: >
+    Automatically control the camera's indicator light, turning it on
+    when the audio or video stream is active and off when both are
+    disabled.
+  required: false
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Streaming vs. polled binary sensors
+
+YAML configuration lets you choose between event-driven (streaming) and polled binary sensors. Event-driven sensors are more responsive and generate less network traffic — the camera pushes state changes to Home Assistant the moment they occur. Polled sensors query the camera every five seconds instead.
+
+Event-driven streaming is the recommended option. However, some camera models or firmware versions do not implement the event stream reliably. If you see persistent errors with a streaming sensor (for example, `motion_detected`), switch to its polled variant (`motion_detected_polled`).
+
+### MJPEG and RTSP notes
+
+Amcrest cameras with newer firmware may no longer support high-definition MJPEG streams. If you use `stream_source: mjpeg` and the quality is poor, try `resolution: low` or switch to `stream_source: snapshot`. If your camera does not support `Basic` HTTP authentication, use `stream_source: rtsp` instead.
+
+When using `stream_source: rtsp`, make sure FFmpeg is installed by following the [FFmpeg integration](/integrations/ffmpeg/) instructions.
+
+### Advanced YAML configuration example
 
 ```yaml
 # Example configuration.yaml entry
@@ -418,7 +474,7 @@ amcrest:
     sensors:
       - sdcard
 
-  # Add second camera
+  # Add a second camera
   - host: IP_ADDRESS_CAMERA_2
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
@@ -429,25 +485,4 @@ amcrest:
       - ptz_preset
 ```
 
-## Example automation to detect button presses on AD110 and AD410 doorbells
-
-Using this {% term trigger %} in an {% term automation %} will allow you to detect the press of the doorbell call button and create automations based upon it.
-
-```yaml
-# Example automations.yaml entry
-alias: "Doorbell Pressed"
-description: "Trigger when Amcrest Button Press Event Fires"
-triggers:
-  - trigger: event
-    event_type: amcrest
-    event_data:
-      event: "CallNoAnswered"
-      payload:
-        action: "Start"
-actions:
-  - type: flash
-    entity_id: light.living_room
-    domain: light
-```
-
-To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
+{% enddetails %}
