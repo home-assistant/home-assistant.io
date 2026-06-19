@@ -57,13 +57,11 @@ This is the easiest method to get started with custom sentences for automations.
 
    For more details, refer to [conversation response script action](/docs/scripts/#respond-to-a-conversation).
 
-   - Optional words or parts of words can also be defined using square brackets. For example:
+    - In your trigger sentence, you can make words (or parts of words) optional using square brackets. For example:
 
-      ```yaml
-      [the]
-      [this]
-      light[s]
-      ```
+       ```yaml
+       turn on [the] light[s]
+       ```
 
    - Alternative phrases, words or parts of words can be defined using the following:
 
