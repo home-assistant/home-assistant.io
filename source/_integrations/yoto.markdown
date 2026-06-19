@@ -2,7 +2,12 @@
 title: Yoto
 description: Instructions on how to integrate Yoto players with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Media Player
+  - Number
+  - Select
+  - Sensor
+  - Time
 ha_iot_class: Cloud Push
 ha_release: 2026.6
 ha_quality_scale: bronze
@@ -12,12 +17,17 @@ ha_codeowners:
   - '@piitaya'
 ha_domain: yoto
 ha_platforms:
+  - binary_sensor
   - media_player
+  - number
+  - select
+  - sensor
+  - time
 ha_integration_type: hub
 ha_dhcp: true
 ---
 
-The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track.
+The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track. You can also monitor each player's battery level, what is loaded in the card slot, and its current day or night mode.
 
 The integration talks to the official Yoto cloud over OAuth2 and receives playback updates over MQTT, so changes that happen on the player show up in Home Assistant almost immediately. Online and offline detection still relies on the cloud API and can lag by up to 5 minutes.
 
@@ -63,6 +73,8 @@ During setup, Home Assistant opens the Yoto authorization page so you can grant 
 
 ## Supported functionality
 
+### Media player
+
 The integration provides one media player entity per Yoto player. Each entity supports:
 
 - Play, pause, and stop
@@ -93,6 +105,45 @@ data:
   media_content_type: "music"
   media_content_id: "yoto://card/abc123/01/02"
 ```
+
+### Time
+
+Yoto players can switch between a day display and a night display. Set when each mode starts:
+
+- **Day mode start**: The time the player switches to day mode.
+- **Night mode start**: The time the player switches to night mode.
+
+### Numbers
+
+Set the display brightness and volume limit for each mode:
+
+- **Day mode brightness**: The display brightness in day mode, from 0% to 100%. Unavailable while day mode uses automatic brightness.
+- **Night mode brightness**: The display brightness in night mode, from 0% to 100%. Unavailable while night mode uses automatic brightness.
+- **Day mode maximum volume**: The highest volume the player can reach in day mode, from 0 to 16.
+- **Night mode maximum volume**: The highest volume the player can reach in night mode, from 0 to 16.
+
+### Selects
+
+Set the player's ambient light color for each mode, picked from a fixed palette. Available on players with an ambient light:
+
+- **Day mode color**: The ambient light color in day mode.
+- **Night mode color**: The ambient light color in night mode.
+
+### Binary sensors
+
+Each Yoto player also provides several binary sensors:
+
+- **Charging**: whether the player's battery is charging.
+- **Headphones**: whether headphones are connected to the player.
+- **Bluetooth audio**: whether a Bluetooth audio device is connected to the player.
+
+### Sensors
+
+Each Yoto player also provides several sensors:
+
+- **Battery**: the player's battery charge.
+- **Card slot**: what is loaded in the player, such as a physical card or streaming content.
+- **Day mode**: the player's current mode (day or night).
 
 ## Data updates
 
