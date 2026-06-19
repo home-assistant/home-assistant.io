@@ -93,14 +93,6 @@ automation:
 See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
 additional event data available for use by an automation.
 
-### Climate triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a climate device turns on or off, starts heating, cooling, or drying, when the HVAC mode changes, or when a target temperature or humidity setpoint changes or crosses a threshold. See [Climate triggers](/integrations/climate/#triggers).
-
-In YAML, use: `trigger: climate`.
-
 ### Device tracker triggers
 
 {% include integrations/labs_entity_triggers_note.md %}
@@ -118,113 +110,13 @@ In contrast to state triggers, device triggers are tied to a device and not nece
 To use a device trigger, set up an automation through the browser frontend.
 If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
 
-### Door triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a door opens or closes. See [Door triggers](/integrations/door/).
-
-In YAML, use: `trigger: door`.
-
 ### Event trigger
 
 For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
 
-### Fan triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a fan turns on or turns off. See [Fan triggers](/integrations/fan/#triggers).
-
-In YAML, use: `trigger: fan`.
-
-### Garage door triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a garage door opens or closes. See [Garage door triggers](/integrations/garage_door/).
-
-In YAML, use: `trigger: door`.
-
-### Geolocation trigger
-
-Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
-Because entities are generated and removed by these platforms automatically, the entity ID normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
-
-{% tip %}
-This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
-{% endtip %}
-
-```yaml
-automation:
-  triggers:
-    - trigger: geo_location
-      source: nsw_rural_fire_service_feed
-      zone: zone.bushfire_alert_zone
-      # Event is either enter or leave
-      event: enter # or "leave"
-```
-
 ### Home Assistant trigger
 
 For setup steps, YAML options, and examples for the Home Assistant trigger, see [Home Assistant trigger](/triggers/homeassistant/).
-
-### Humidifier triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a humidifier turns on or off, or starts humidifying or drying. See [Humidifier triggers](/integrations/humidifier/#triggers).
-
-In YAML, use: `trigger: humidifier`.
-
-### Humidity triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when humidity changes or crosses a threshold on a humidity sensor, climate, humidifier, or weather entity. See [Humidity triggers](/integrations/humidity/).
-
-In YAML, use: `trigger: humidity`.
-
-#### Example: Trigger when bedroom humidity rises above 70%
-
-```yaml
-automation:
-  triggers:
-    - trigger: humidity.crossed_threshold
-      target:
-        entity_id: sensor.bedroom_humidity
-      options:
-        threshold_type: above
-        lower_limit: 70
-```
-
-### Light triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a light turns on or off, or when its brightness changes or crosses a threshold. See [Light triggers](/integrations/light/#triggers).
-
-In YAML, use: `trigger: light`.
-
-#### Example: Trigger when the living room light turns on
-
-```yaml
-automation:
-  triggers:
-    - trigger: light.turned_on
-      target:
-        entity_id: light.living_room
-      options:
-        behavior: any
-```
-
-### Lock triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a lock is locked, unlocked, opened, or jammed. See [Lock triggers](/integrations/lock/#triggers).
-
-In YAML, use: `trigger: lock`.
 
 ### MQTT trigger
 
@@ -276,38 +168,6 @@ automation:
 
 For setup steps, YAML options, and examples for the numeric state trigger, see [Numeric state trigger](/triggers/numeric_state/).
 
-### Persistent notification trigger
-
-Persistent notification triggers are fired when a `persistent_notification` is `added` or `removed` that matches the configuration options.
-
-```yaml
-automation:
-  triggers:
-    - trigger: persistent_notification
-      update_type:
-        - added
-        - removed
-      notification_id: invalid_config
-```
-
-See the [Persistent Notification](/integrations/persistent_notification/) integration for more details on event triggers and the additional event data available for use by an automation.
-
-### Person triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a person arrives home or leaves home. See [Person triggers](/integrations/person/#triggers).
-
-In YAML, use: `trigger: person`.
-
-### Scene trigger
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a scene is activated. See [Scene triggers](/integrations/scene/#triggers).
-
-In YAML, use: `trigger: scene`.
-
 ### Sentence trigger
 
 A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers work with Home Assistant Assist. They will not work with external conversation agents such as OpenAI or Google Generative AI unless "Prefer handling commands locally" is enabled in the conversation agent settings.
@@ -352,14 +212,6 @@ For example, the sentence `play {album} by {artist}` will match "play the white 
 
 Wildcards will match as much text as possible, which may lead to surprises: "play day by day by taken by trees" will match `album` as "day" and `artist` as "day by taken by trees".
 Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match "play day by day by artist taken by trees".
-
-### Siren triggers
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-Fires when a siren turns on or turns off. See [Siren triggers](/integrations/siren/#triggers).
-
-In YAML, use: `trigger: siren`.
 
 ### State trigger
 
@@ -529,14 +381,6 @@ Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example wi
 ### Time trigger
 
 For setup steps, YAML options, and examples for the time trigger, see [Time trigger](/triggers/time/).
-
-### Update trigger
-
-For setup steps, YAML options, and examples for the time pattern trigger, see [Time pattern trigger](/triggers/time_pattern/).
-
-Fires when a vacuum cleaner starts cleaning, pauses, starts returning, docks, or encounters an error. See [Vacuum triggers](/integrations/vacuum/#triggers).
-
-In YAML, use: `trigger: vacuum`.
 
 ### Webhook trigger
 
