@@ -75,6 +75,36 @@ power:
 
 {% include actions/more_examples.md %}
 
+### Automation: discharge the battery during evening peak to avoid grid draw
+
+When the evening peak tariff window starts and the battery has enough charge, discharge the battery to cover home consumption and avoid drawing expensive and carbon-intensive peak-time grid electricity.
+
+- **Trigger**: Time: 17:00
+- **Condition**: Battery SOC above 30 %
+- **Action**: Indevolt: Discharge (at 800 watts to 20 % SOC)
+
+{% details "YAML example for discharging battery during evening peak" %}
+
+{% example %}
+automation: |
+  - alias: "Discharge battery during evening peak tariff"
+    triggers:
+    - trigger: time
+      at: "17:00:00"
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.indevolt_battery_soc
+      above: 30
+    actions:
+    - action: indevolt.discharge
+      data:
+        device_id: your_device_id
+        power: 800
+        target_soc: 20
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

@@ -75,6 +75,31 @@ power:
 
 {% include actions/more_examples.md %}
 
+### Automation: charge the battery every morning before the household wakes up
+
+This automation starts charging the battery at 06:00 so it is ready to cover morning consumption from stored energy rather than the grid.
+
+- **Trigger**: Time: 06:00
+- **Action**: Indevolt: Charge
+
+{% details "YAML example for charging battery every morning" %}
+
+{% example %}
+automation: |
+  - alias: "Charge battery every morning"
+    triggers:
+    - trigger: time
+      at: "06:00:00"
+    actions:
+      - action: indevolt.charge
+        data:
+          device_id: your_device_id
+          power: 1000
+          target_soc: 80
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
