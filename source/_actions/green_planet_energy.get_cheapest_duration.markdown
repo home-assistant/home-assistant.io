@@ -69,8 +69,9 @@ time_range:
 The action response includes:
 
 - `duration`: Requested duration in hours
-- `average_price`: Average electricity price for the selected window
+- `average_price`: Average electricity price in EUR/kWh for the selected window
 - `start_time`: Start timestamp of the cheapest window
+- `end_time`: End timestamp of the cheapest window
 - `hours_until_start`: Hours remaining until the selected start time
 - `time_range`: The applied time range
 
