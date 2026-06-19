@@ -5,12 +5,14 @@ ha_release: '2025.10'
 ha_iot_class: Cloud Push
 ha_category:
   - light
+  - switch
 ha_codeowners:
   - '@Kinachi249'
 ha_domain: cync
 ha_integration_type: hub
 ha_platforms:
   - light
+  - switch
 ha_quality_scale: bronze
 ha_config_flow: true
 ---
@@ -47,6 +49,13 @@ The **Cync** integration provides the following entities.
 
 *If supported by device.
 
+### Switches
+
+Cync smart plug/outlet devices are exposed as switch entities with the **outlet** device class.
+
+- Supported operations:
+  - On/Off
+
 ## Known limitations
 
 - The following lighting features are not yet supported:
@@ -54,6 +63,7 @@ The **Cync** integration provides the following entities.
   - Light shows
   - Music shows
   - LED strip segment control
+- Plug (outlet) devices report unknown state on startup; state is updated after the first on/off command is issued.
 - Cync servers only allow one instance of your account to connect at a time. If you open the Cync app while Home Assistant is running, the integration will briefly lose its connection. It will automatically reconnect after a 10 second waiting period.
 
 ## Removing the integration
