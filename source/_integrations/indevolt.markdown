@@ -61,6 +61,22 @@ Host:
 
 {% endconfiguration_basic %}
 
+## Configuration options
+
+The Indevolt integration provides the following configuration option, available via **Settings > Devices & services > Indevolt > Configure**.
+
+### Update frequency
+
+Controls how often Home Assistant polls the Indevolt device for updated data.
+
+| Setting | Approximate interval |
+| -------- | -------------------- |
+| Low      | 60 seconds           |
+| Medium   | 30 seconds (default) |
+| High     | 5 seconds            |
+
+A higher update frequency provides more responsive sensor updates but increases network traffic and the number of requests sent to the device.
+
 ## Supported functionality
 
 The Indevolt integration provides sensors for monitoring your device (read only).
@@ -212,7 +228,11 @@ data:
 
 ## Data updates
 
-The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. If an update fails, the integration will retry again at the set interval (self-recovery).
+The Indevolt integration retrieves data from your devices by polling the OpenData API.
+
+By default, data is refreshed approximately every 30 seconds. This can be adjusted using the **Update frequency** configuration option.
+
+If an update fails, the integration will retry again at the next scheduled update interval.
 
 ## Known limitations
 
