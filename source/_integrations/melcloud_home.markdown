@@ -43,7 +43,9 @@ The **MELCloud Home** {% term integration %} provides the following entities.
 
 - **Error**: Indicates if the unit reported an error.
 - **Standby**: Indicates if the unit is in standby mode.
-- **Forced hot water**: Indicates if the force hot water is activated (applicable only for Air-to-Water units)
+- **Forced hot water**: Indicates if the force hot water is activated (applicable only for Air-to-Water units).
+- **Frost protection**: Indicates if the prost protection, if enabled, is activated.
+- **Overheat protection**: Indicates if the overheat protection, if enabled, is activated.
 
 ###  Climate
 
