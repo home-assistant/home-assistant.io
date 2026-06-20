@@ -379,7 +379,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Floodlight schedule start*+
 - Floodlight schedule end*+
 
-**Floodlight schedule start** and **Floodlight schedule end** set the time window during which the floodlight turns on while the **Floodlight mode** select entity is set to **Schedule**. Because the camera only stores the schedule in this mode, setting either time also switches the floodlight to **Schedule** mode. If the configured window covers the current time, the floodlight turns on immediately.
+**Floodlight schedule start** and **Floodlight schedule end** set the time window during which the floodlight turns on while the **Floodlight mode** select entity is set to **Schedule**. Because the camera only stores the schedule in this mode, setting either time also switches the floodlight to **Schedule** mode. If the configured window covers the current time, the floodlight turns on immediately. The times are entered as 24-hour `HH:MM` and are evaluated using the camera's own clock and time zone (Home Assistant does not convert them). Windows that span midnight are supported, for example a start of `22:00` and an end of `06:00`.
 
 ### Update entity
 
