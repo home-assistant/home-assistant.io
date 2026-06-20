@@ -37,6 +37,8 @@ Discovery will usually find shades on your network automatically. If you need to
 
 {% include integrations/config_flow.md %}
 
+### Configuration parameters
+
 {% configuration_basic %}
 IP Address:
   description: "The IP address of your shade, can be autofilled by autodiscovery"
