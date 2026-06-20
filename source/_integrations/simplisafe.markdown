@@ -116,14 +116,16 @@ automation: |
     triggers:
       - trigger: event.received
         target:
-          entity_id: event.YOUR_SYSTEM_EVENTS_ENTITY  # Replace with your system event entity ID
+          # Replace with your system event entity ID
+          entity_id: event.YOUR_SYSTEM_EVENTS_ENTITY
         options:
           event_type:
             - doorbell_detected
     actions:
       - action: notify.send_message
         target:
-          entity_id: notify.YOUR_PHONE  # Replace with your notification target
+          # Replace with your notification target
+          entity_id: notify.YOUR_PHONE
         data:
           message: "Someone is at the front door."
 {% endexample %}
@@ -132,7 +134,7 @@ automation: |
 
 For cases where the default {% term polling %} interval of 30 seconds is too long for automations, you can use secret alerts to get push notifications of a sensor being triggered.
 
-Home Assistant will automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way Simplisafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared. Clearing a binary sensor can only be accomplished by polling.
+Home Assistant will automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way SimpliSafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared. Clearing a binary sensor can only be accomplished by polling.
 
 For cases where you wish to reliably determine each time a binary sensor is triggered, do the following:
 
@@ -145,13 +147,14 @@ For cases where you wish to reliably determine each time a binary sensor is trig
   triggers:
     - trigger: event.received
       target:
-        entity_id: event.YOUR_SYSTEM_EVENTS_ENTITY  # Replace with your system event entity ID
+        # Replace with your system event entity ID
+        entity_id: event.YOUR_SYSTEM_EVENTS_ENTITY
       options:
         event_type:
           - secret_alert_triggered
   conditions:
     - condition: template
-      value_template: "{{ trigger.event.data.sensor_serial == 'abc123xyz' }}"
+      value_template: "{{ trigger.to_state.attributes.sensor_serial == 'abc123xyz' }}"
   ```
 
 
