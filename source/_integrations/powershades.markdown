@@ -37,6 +37,11 @@ Discovery will usually find shades on your network automatically. If you need to
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+IP Address:
+  description: "The IP address of your shade, can be autofilled by autodiscovery"
+{% endconfiguration_basic %}
+
 If your shade's IP address changes later (for example, after a DHCP reassignment), and Home Assistant does not auto resolve the problem, then you have to remove and readd the entry
 
 ## Supported functionality
