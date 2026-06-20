@@ -79,11 +79,12 @@ Example response:
 
 ```json
 {
-  "duration": 3.5,
-  "average_price": 0.2543,
-  "start_time": "2026-02-22T01:00:00+01:00",
-  "hours_until_start": 5.2,
-  "time_range": "night"
+  "duration": 6.25
+  "average_price": 0.1985
+  "start_time": "2026-06-20T11:00:00+02:00"
+  "end_time": "2026-06-20T17:15:00+02:00"
+  "hours_until_start": 13.3
+  "time_range": "day"
 }
 ```
 
