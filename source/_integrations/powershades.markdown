@@ -22,7 +22,7 @@ This integration is tested with PoE and Wi-Fi PowerShades controllers. Support f
 
 ## Supported devices
 
-Any PoE or Wi-Fi PowerShades shade with UDP communication enabled, on the same local network as Home Assistant.
+Any PoE or Wi-Fi PowerShades shade with UDP communication enabled, and on the same local network as Home Assistant.
 
 ## Prerequisites
 
@@ -52,24 +52,24 @@ Each shade is represented as a cover entity, which supports:
 
 ## Data updates
 
-The shade pushes its status to Home Assistant in real time whenever Home Assistant is the one controlling it (the "UDP master"). On top of that, Home Assistant {% term polling polls %} the shade every 10 seconds (every 5 seconds while the position is unknown), so changes made by another controller — such as the PowerShades app or a Control4 system — are also picked up.
+The shade pushes its status to Home Assistant in real time whenever Home Assistant is the one controlling it (the "UDP master"). On top of that, Home Assistant {% term polling polls %} the shade every 10 seconds (every 5 seconds while the position is unknown), so changes made by another controller, such as the PowerShades app or a Control4 system for example, are also picked up.
 
 The integration's `iot_class` is `local_push`, but its behavior has elements of all three of the relevant IoT class categories:
 
-- **Local push**: while Home Assistant is the "UDP master", the shade pushes its status roughly every 10 seconds on its own, and also sends an extra push the instant it reaches its target position — so Home Assistant learns a move finished without waiting for the next poll.
-- **Local polling**: the 10-second poll is what catches position changes made by another controller. Without it, those changes would go unnoticed until the next Home Assistant-issued command.
-- **Assumed state**: the shade only ever reports a raw position (0-100%). Home Assistant always infers whether that means opening, closing, open, or closed from how the position changes over time, even for moves Home Assistant itself started.
+- **Local push**: while Home Assistant is the "UDP master", the shade pushes its status roughly every 10 seconds on its own, and also sends an extra push the instant it reaches its target position, so Home Assistant learns a move finished without waiting for the next poll.
+- **Local polling**: A 10-second poll is what catches position changes made by another controller. Without it, those changes would go unnoticed until the next Home Assistant-issued command.
+- **Assumed state**: The shade only ever reports a raw position (0-100%). Home Assistant always assumes whether that means opening, closing, open, or closed from how the position changes over time, even for moves Home Assistant itself started.
 
 All communication is local, and data does not leave your network.
 
 ## Known limitations
 
-- PowerShades devices send replies and asynchronous move feedback only to the **last controller that sent them a command** (the "UDP master"). Avoid running PowerShades Config.NET or another driver at the same time as Home Assistant — control still works, but live position feedback may intermittently lag until the next poll.
-- This can also affect other hubs that communicate over UDP (for example, Control4) and rely solely on push data — they may end up with an outdated view of the shade's state.
-- The shade's reported state (for example, opening, closing, opened, or closed) is inferred by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for details.
+- PowerShades devices send push updates only to the **last controller that sent them a command** (the "UDP master"). If possible, avoid using other platforms to control your shades directly. Control still works, but live position feedback may be inaccurate until the next poll.
+- This can also affect other hubs that communicate over UDP (for example, Control4) and rely solely on push data, since they may end up with an outdated view of the shade's state.
+- The shade's reported state (for example, opening, closing, opened, or closed) is assumed by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for details.
 - If a shade is moved by another controller, Home Assistant does not know that controller's target position. It assumes the shade is heading toward fully open (100%) or fully closed (0%). If the other controller stops the shade partway, Home Assistant continues showing opening/closing for up to ~15 seconds until it detects the position has stopped changing, then falls back to open or closed.
 - The shade must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.
-- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge.
+- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge. If you have the Powershades RF hub, it would be helpful to tell the integration owner your experience using it with this integration.
 
 ## Troubleshooting
 
@@ -79,7 +79,7 @@ This means Home Assistant cannot communicate with the shade. Check the following
 
 - The shade is powered on and connected to your network.
 - Home Assistant can reach UDP port 42 on the shade, and UDP broadcasts are routed between subnets if Home Assistant and the shade are on different ones.
-- The IP address entered is correct and not already used by another config entry. If the shade's IP address has changed, open its integration entry and select **Reconfigure** to update it.
+- The IP address entered is correct and not already used by another config entry. If the shade's IP address has changed, remove and readd the config entry.
 
 ### Enabling debug logging
 
