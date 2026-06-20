@@ -116,7 +116,6 @@ automation: |
     triggers:
       - trigger: event.received
         target:
-          # Replace with your system event entity ID
           entity_id: event.YOUR_SYSTEM_EVENTS_ENTITY
         options:
           event_type:
@@ -124,7 +123,6 @@ automation: |
     actions:
       - action: notify.send_message
         target:
-          # Replace with your notification target
           entity_id: notify.YOUR_PHONE
         data:
           message: "Someone is at the front door."
@@ -147,7 +145,6 @@ For cases where you wish to reliably determine each time a binary sensor is trig
   triggers:
     - trigger: event.received
       target:
-        # Replace with your system event entity ID
         entity_id: event.YOUR_SYSTEM_EVENTS_ENTITY
       options:
         event_type:
