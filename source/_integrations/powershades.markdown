@@ -65,7 +65,7 @@ While this integration's IoT class is local push, in reality it is a combination
 - **Local polling**: Home Assistant polls the shade every 10 seconds (or every 5 seconds while the position is unknown). This is used for when the shades moves by an external source, since they would not push updates to Home Assistant, because that source (If its using UDP communication like Home Assistant) is the UDP master.
 - **Assumed state**: The state of the shade (opening, closing, opened, or closed) is assumed by Home Assistant since the Shade only sends it's % open to Home Assistant. This means that the state shown in Home Assistant may not be accurate to what the shade is acutally doing, especially if Home Assistant is not the one controlling it.
     - If Home Assistant is controlling the shade then it will assume that the command was sent successfully and the shade is moving. It also assumes that when the shade reaches the % Home Assistant told it open at it has stopped.
-    - However, when an external source controls the shade, Home Assistant assumes the state of the shade based on change of % opened of the shade. Home Assistant will assume it is going to the fully open or closed state, but if the % open hasnt change in 15 seconds, then it will assume it has stopped moving.
+    - However, when an external source controls the shade, Home Assistant assumes the state of the shade based on change of % opened of the shade. Home Assistant will assume it is going to the fully open or closed state, but if the % open hasn't change in 15 seconds, then it will assume it has stopped moving.
 
 All communication is local with this integration, and does not require an internet connection at all.
 
