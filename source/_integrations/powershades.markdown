@@ -33,7 +33,7 @@ It is currently unknown whether UDP communication is enabled by default on every
 Discovery will usually find shades on your network automatically. If you need to enter an IP address manually, you can find it in one of these ways:
 
 - **Via the PowerShades app (recommended)**: Open the official PowerShades app, navigate to your shade, select **Enable Configuration**, and confirm the prompt. The assigned IP address is shown further down the screen.
-- **Via your router**: Check your router's list of connected devices for one made by "Wideband Labs LLC" — this is your PowerShades device.
+- **Via your router**: Check your router's list of connected devices for one made by "Wideband Labs LLC", this is your PowerShades device.
 
 {% include integrations/config_flow.md %}
 
