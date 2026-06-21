@@ -67,7 +67,7 @@ Remember: You must complete the configuration within 5 minutes of rebooting the 
 
 ## Known limitations
 
-The number configuration entities for the opening limitation of windows and the binary rain sensor both read the same API data. This means that setting an opening limitation of 11% or less will interfere with the rain sensor and make it report as wet even though no rain is actually detected.
+The number entities for the window opening limitation and the rain sensor binary sensor use the same data from the gateway. If you set the opening limitation to 11% or less, the rain sensor can show as wet even when no rain is detected.
 
 ## Removing the integration
 
