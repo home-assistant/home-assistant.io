@@ -247,12 +247,15 @@ If the `duration` is 0 hours, then the change will be until the next scheduled s
 
 The actual operating mode of Evohome entities can be tracked via their state attributes, which includes a JSON data structure for the current state called `status`.
 
+> [!NOTE]
+> The client library previously used PascalCase for some JSON keys (for example, `FaultType`) and camelCase for values string enums (`AutoWithEco`, `Away`). Now all strings use the snake_case format (`fault_type`, `auto_with_eco`, `away`).
+
 For the system (controller), see `system_mode_status`:
 
 {% raw %}
 
 ```text
-{% if state_attr('climate.my_home', 'status').system_mode_status.mode == "Away" %}
+{% if state_attr('climate.my_home', 'status').system_mode_status.mode == "away" %}
   The system is in Away mode
 {% else %}
   The system is not in Away mode
@@ -287,7 +290,7 @@ All Evohome entities may have faults, and these can be turned into sensors, or:
 
 ```text
 {% if state_attr('climate.bedroom', 'status').active_faults %}
-  {% if state_attr('climate.bedroom', 'status').active_faults[0].faultType == 'TempZoneActuatorLowBattery' %}
+  {% if state_attr('climate.bedroom', 'status').active_faults[0].fault_type == 'temp_zone_actuator_low_battery' %}
     There is a low battery
   {% endif %}
     There is a Fault!
