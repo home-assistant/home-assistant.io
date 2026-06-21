@@ -1,6 +1,6 @@
 ---
 title: Picnic
-description: How to setup and use the Picnic integration in Home Assistant.
+description: How to set up and use the Picnic integration in Home Assistant.
 ha_category:
   - Other
 ha_release: 2021.5

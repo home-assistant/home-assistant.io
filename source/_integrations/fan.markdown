@@ -1,6 +1,6 @@
 ---
 title: Fan
-description: Instructions on how to setup Fan devices within Home Assistant.
+description: Instructions on how to set up Fan devices within Home Assistant.
 ha_category:
   - Fan
 ha_release: 0.27
@@ -40,6 +40,10 @@ Not every fan supports every action. The actions available for a specific fan de
 {% include integrations/triggers_conditions_actions.md %}
 
 ## Fan automation examples
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+{% include docs/paste_yaml_tip.md %}
 
 ### Automation: Turn on the bedroom fan at bedtime
 

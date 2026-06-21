@@ -80,7 +80,7 @@ Local API availability depends on your specific gateway. The following gateways 
 
 The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some gateways). With a compatible gateway, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app that you use to control your devices.
 
-### Login to Overkiz (Cloud API)
+### Log in to Overkiz (Cloud API)
 
 {% configuration_basic %}
 "Username":
@@ -89,7 +89,7 @@ Password:
   description: "Password for your Overkiz cloud account (account you use in your IoT app)."
 {% endconfiguration_basic %}
 
-### Login to Rexel Energeasy Connect (Cloud API)
+### Log in to Rexel Energeasy Connect (Cloud API)
 
 If you select Rexel Energeasy Connect as your server, you sign in through your browser instead of entering a username and password in Home Assistant.
 
@@ -97,7 +97,7 @@ If you select Rexel Energeasy Connect as your server, you sign in through your b
 2. Sign in with the account you use in the Energeasy Connect app, and authorize Home Assistant.
 3. If your account has more than one gateway, select the gateway you want to add.
 
-### Login to Overkiz (Local API)
+### Log in to Overkiz (Local API)
 
 To connect Home Assistant to your gateway using the local API, you need a [compatible gateway](#local-api-support) and a token. How you generate this token depends on your gateway.
 
@@ -216,7 +216,7 @@ If your gateway (e.g. Somfy Connectivity Kit) supports HomeKit, a sensor named *
 2. Retrieve the setup code value from the sensor.
 3. Use this setup code to configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant.
 
-Please note that only a [limited set of devices is supported via HomeKit](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
+Only a [limited set of devices is supported via HomeKit](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
 
 ## Removing the integration
 

@@ -30,47 +30,34 @@ During the setup, it will ask for the following:
 
 | Item | Description | Example |
 | ---- | ----------- | ------- |
-| `Host` | The IP or domain name to Pi-Hole. | 192.168.1.1 |
+| `Host` | The IP or domain name of your Pi-hole. | 192.168.1.1 |
 | `Port` | Port used to get to the admin page, typically `80` for `http` connections and `443` for `https` connections. | 80 |
-| `Name` | Name to for this Pi-Hole. | Pi-Hole |
-| `Location` | the path to the admin page. In the version 6 API this will be ignored. | /admin |
-| `API Key or App Password` | This can be found in your Pi-hole's **Settings** > **API (expert mode)**. | `585a2fe...` |
-| `Uses an SSL certificate` | Whether your Pi-hole has an Certificate, typically true for `https` connections and false for `http`. | {% icon "openmoji:check-mark" %} |
-| `Verify SSL certificate` | Whether to use verify your Pi-hole's certificate, ignored in Pi-hole API version 5. | {% icon "openmoji:check-mark" %} |
+| `Name` | Name for this Pi-hole. | Pi-hole |
+| `Location` | The path to the admin page. This is ignored for the Pi-hole version 6 API. | /admin |
+| `App password or API key` | The credential used to authenticate with Pi-hole. See below for details on where to find it for Pi-hole v6 and for older versions. | `585a2fe...` |
+| `Uses an SSL certificate` | Whether your Pi-hole uses a certificate, typically true for `https` connections and false for `http`. | {% icon "openmoji:check-mark" %} |
+| `Verify SSL certificate` | Whether to verify your Pi-hole's certificate. Ignored in Pi-hole API version 5. | {% icon "openmoji:check-mark" %} |
 
-The combined host, port and location should take you to the login page of Pi-Hole. Using the example above, it would be `http://192.168.1.1:80/admin`.
+The combined host, port, and location should take you to the login page of Pi-hole. Using the example above, it would be `http://192.168.1.1:80/admin`.
 
-To find your App Password, log into your Pi-Hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**.  Your admin login password may be used instead but this is not recommended.
+### Pi-hole v6 and later
 
-Versions of Pi-hole before version 6 (released in Feb 2025) use an API Key if the Pi-hole was password protected, this can be found in _Settings > API Tab_ and clicking **Show API token**.
 
-## Actions
+For Pi-hole v6 and later, the integration uses an app password. To find it, log into your Pi-hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**. Your admin login password may be used instead, but this is not recommended. 
 
-The platform provides the following actions to interact with your Pi-hole. Use switch entities when calling the actions.
+For Pi-hole v5 and earlier, see below.
 
-### Action: Disable
 
-The `pi_hole.disable` action disables configured Pi-hole(s) for the specified amount of time.
+### Pi-hole v5 and earlier
 
-| Data attribute | Required | Type | Description |
-| ---------------------- | -------- | -------- | ----------- |
-| `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services. |
-| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled. `'0'` will enable blocking indefinitely. |
+For Pi-hole versions before v6, the integration uses an _API token_ if the Pi-hole was password-protected. To find it, go to **Settings** > **API** and select **Show API token**.
 
-Example action:
+{% include integrations/actions.md %}
 
-```yaml
-# Example action to disable Pi-Hole for 30 minutes
-action: pi_hole.disable
-data:
-  duration: '00:30'
-target:
-  entity_id: all
-```
 ## Switches
 
 The integration creates a switch for the Pi-hole allowing you to toggle ad-blocking on and off.
 
 ## Sensors
 
-The integration creates a number of sensors which report various ad-blocking metrics as well as diagnostic information about the pi-hole itself.
+The integration creates several sensors that report various ad-blocking metrics as well as diagnostic information about the Pi-hole itself.

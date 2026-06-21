@@ -14,7 +14,7 @@ ha_quality_scale: legacy
 
 The **Twilio SMS** {% term integration %} enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
 
-The requirement is that you have setup [Twilio](/integrations/twilio/).
+The requirement is that you have set up [Twilio](/integrations/twilio/).
 
 ## Configuration
 

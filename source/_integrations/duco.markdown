@@ -365,7 +365,7 @@ This can happen when your system uses an older Communication Board V1, or when t
 1. Confirm that your system uses a DUCO Connectivity Board.
 2. Check whether the board firmware exposes public API 2.1 or later.
 3. If your system uses the older Communication Board V1, Home Assistant cannot set up the integration for that system.
-4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system at this time.
+4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system.
 5. If your system should be supported, collect diagnostics and open an issue in Home Assistant Core with your Duco model, board details, and firmware information.
 
 ### Failed to set ventilation state (rate limit)

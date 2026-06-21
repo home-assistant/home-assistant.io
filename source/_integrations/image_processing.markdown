@@ -1,6 +1,6 @@
 ---
 title: Image processing
-description: Instructions on how to setup image processing with Home Assistant.
+description: Instructions on how to set up image processing with Home Assistant.
 ha_category:
   - Image processing
 ha_release: 0.36

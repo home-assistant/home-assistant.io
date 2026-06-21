@@ -18,7 +18,7 @@ related:
 
 The **To-do list** {% term integration %} provides to-do list {% term entities %}, allowing other integrations
 to integrate to-do lists into Home Assistant. To-do lists are shown on the **To-do lists**
-dashboard for tracking items and whether or not they have been completed.
+dashboard for tracking items and whether they have been completed.
 
 {% include integrations/building_block_integration.md %}
 
@@ -56,126 +56,13 @@ item to a pre-configured to-do list.
 
 {% include integrations/conditions.md %}
 
-## Actions
-
-Some to-do list integrations allow Home Assistant to manage the to-do items in the list. The
-actions provided by some to-do list entities are described below or you can read more about [actions](/docs/scripts/perform-actions/).
-
-### Action: Get items
-
-The `todo.get_items` action gets to-do items from a to-do list. A to-do list `target` is selected with a [target selector](/docs/blueprint/selectors/#target-selector). The `data` payload supports the following fields:
-
-| Data attribute | Optional | Description                               | Example                     |
-| -------------- | -------- | ----------------------------------------- | --------------------------- |
-| `status`       | yes      | Only return to-do items with this status. | `needs_action`, `completed` |
-
-This is a full example that returns all to-do items that have not been completed:
-
-```yaml
-action: todo.get_items
-target:
-  entity_id: todo.vacation_preparation
-data:
-  status:
-    - needs_action
-```
-
-This is an example response to the get items action:
-
-```yaml
-todo.vacation_preparation:
-  items:
-    - summary: Water plants
-      uid: 01244b28-e604-11ee-a0a4-e45f0197c057
-      status: needs_action
-    - summary: turn down heating
-      uid: ae993df4-e604-11ee-a0a4-e45f0197c057
-      status: needs_action
-```
-
-### Action: Add item
-
-The `todo.add_item` action adds a new to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
-
-| Data attribute | Optional | Description                                                       | Example                                                      |
-| -------------- | -------- | ----------------------------------------------------------------- | ------------------------------------------------------------ |
-| `item`         | no       | The name/summary of the to-do item.                               | Submit income tax return                                     |
-| `due_date`     | yes      | The date the to-do item is expected to be completed.              | 2024-04-10                                                   |
-| `due_datetime` | yes      | The date and time the to-do item is expected to be completed.     | 2024-04-10 23:00:00                                          |
-| `description`  | yes      | A more complete description than the one provided by the summary. | Collect all necessary documents and submit the final return. |
-
-Only one of `due_date` or `due_datetime` may be specified.
-
-This is a full example in YAML:
-
-```yaml
-action: todo.add_item
-target:
-  entity_id: todo.personal_tasks
-data:
-  item: "Submit Income Tax Return"
-  due_date: "2024-04-10"
-  description: "Collect all necessary documents and submit the final return."
-```
-
-### Action: Update item
-
-The `todo.update_item` action updates a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
-
-| Data attribute | Optional | Description                                                                                                            | Example                                                              |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `item`         | no       | The name/summary of the to-do item. In some cases, for example if you have items with the same name, it can make sense to use the UID instead of the name. To find the UID of an item, perform a `get_items` action on the to-do list. | `Submit income tax return` or `01244b28-e604-11ee-a0a4-e45f0197c057`|
-| `rename`       | yes      | The new name of the to-do item.                                                                                        | Something else                                                       |
-| `status`       | yes      | The overall status of the to-do item.                                                                                  | `needs_action` or `completed`                                        |
-| `due_date`     | yes      | The date the to-do item is expected to be completed.                                                                   | 2024-04-10                                                           |
-| `due_datetime` | yes      | The date and time the to-do item is expected to be completed.                                                          | 2024-04-10 23:00:00                                                  |
-| `description`  | yes      | A more complete description than the one provided by the summary.                                                      | Collect all necessary documents and submit the final return.         |
-
-At least one of `rename` or `status` is required. Only one of `due_date` or `due_datetime` may be specified. This is a full example that updates the status and the name of a to-do item.
-
-```yaml
-action: todo.update_item
-target:
-  entity_id: todo.personal_tasks
-data:
-  item: "Submit income tax return"
-  rename: "Something else"
-  status: "completed"
-```
-
-### Action: Remove item
-
-The `todo.remove_item` action removes a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
-
-| Data attribute | Optional | Description                                                                                                            | Example                                                              |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `item`         | no       |The name/summary of the to-do item. In some cases, for example if you have items with the same name, it can make sense to use the UID instead of the name. To find the UID of an item, perform a `get_items` action on the to-do list.  | `Submit income tax return` or `01244b28-e604-11ee-a0a4-e45f0197c057`|
-
-This is a full example that deletes a to-do Item with the specified name.
-
-```yaml
-action: todo.remove_item
-target:
-  entity_id: todo.personal_tasks
-data:
-  item: "Submit income tax return"
-```
-
-### Action: Remove completed items
-
-The `todo.remove_completed_items` action removes all completed to-do items. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector).
-
-This is a full example that deletes all completed to-do items.
-
-```yaml
-action: todo.remove_completed_items
-target:
-  entity_id: todo.personal_tasks
-```
+{% include integrations/actions.md %}
 
 ## To-do list automation examples
 
 To-do list triggers and conditions make it easier to react to changes in a list or check whether a list still needs attention.
+
+{% include integrations/labs_entity_triggers_note.md %}
 
 {% include docs/paste_yaml_tip.md %}
 
