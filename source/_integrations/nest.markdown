@@ -283,8 +283,8 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 7. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Select **Link Account** to continue.
 
-8. If all went well, you will next configure events and Pub/Sub topic. Nest will attempt
-   to automatically find a Pub/sub topic either created by the Device Access Console
+8. If all went well, you will next configure events and a Pub/Sub topic. Nest will attempt
+   to automatically find a Pub/Sub topic either created by the Device Access Console
    or manually by you.
 
      ![Screenshot of the Pub/Sub topic selection](/images/integrations/nest/config_flow_with_topic.png)
