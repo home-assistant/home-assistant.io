@@ -2,6 +2,7 @@
 title: Hypontech Cloud
 description: Instructions on how to integrate Hypontech Cloud solar inverters within Home Assistant.
 ha_category:
+  - Binary sensor
   - Energy
   - Sensor
 ha_release: 2026.3
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@jcisio'
 ha_domain: hypontech
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -50,7 +52,13 @@ The integration provides one **Plant** device for each location (for example: Ba
 - **Today energy** (kWh): Total energy produced today
 - **Lifetime energy** (kWh): Total energy produced since installation
 
-All sensors are updated every minute.
+### Binary sensors
+
+Each Plant device has the following binary sensor:
+
+- **Status**: Whether Hypontech Cloud reports the plant as online
+
+All entities are updated every minute.
 
 ## Data updates
 
