@@ -273,32 +273,29 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 4. You will get redirected to another account selection page.
 
-5. You may see a warning screen that says *Google hasn't verified this app* since you just set up an un-verified developer workflow. Click *Continue* to proceed.
+5. You may see a warning screen that says *Google hasn't verified this app* since you set up an unverified developer project. Select **Advanced**, then **Go to home-assistant.io (unsafe)** to proceed.
 
     ![Screenshot OAuth warning](/images/integrations/nest/oauth_app_verification.png)
 
-6. Then you will be asked to grant access to additional permissions. Click *Allow*.
-    ![Screenshot 1 of granting permissions](/images/integrations/nest/oauth_grant1.png)
-    ![Screenshot 2 of granting permissions](/images/integrations/nest/oauth_grant2.png)
+6. Review the access Home Assistant is requesting, then select **Continue** to allow it to access your Google Account.
 
-7. Confirm you want to allow persistent access to Home Assistant.
-    ![Screenshot of OAuth confirmation](/images/integrations/nest/oauth_confirm.png)
+    ![Screenshot of granting access to your Google Account](/images/integrations/nest/oauth_grant1.png)
 
-8. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Click **Link Account** to continue.
+7. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Select **Link Account** to continue.
 
-9. If all went well, you will next configure events and Pub/Sub topic. Nest will attempt
+8. If all went well, you will next configure events and Pub/Sub topic. Nest will attempt
    to automatically find a Pub/sub topic either created by the Device Access Console
    or manually by you.
 
-     ![Screenshot of OAuth confirmation](/images/integrations/nest/config_flow_with_topic.png)
+     ![Screenshot of the Pub/Sub topic selection](/images/integrations/nest/config_flow_with_topic.png)
 
-10.  If you instead see the error message *No eligible Pub/Sub topics found, please ensure Device Access Console has a Pub/Sub topic.* then follow the steps in the previous section to enable events and create a Pub/Sub topic in another browser tab. Once you have created and configured the topic, you may press on this screen **Submit** to refresh the list of topics and continue.
+9.  If you instead see the error message *No eligible Pub/Sub topics found, please ensure Device Access Console has a Pub/Sub topic.* then follow the steps in the previous section to enable events and create a Pub/Sub topic in another browser tab. Once you have created and configured the topic, you may press on this screen **Submit** to refresh the list of topics and continue.
 
-11. Home Assistant uses a *Subscription* to subscribe to device events published on the topic. You can select the subscription you created in the Device Access Console or the integration will automatically create one for you if you don't have one already.
-     ![Screenshot of OAuth confirmation](/images/integrations/nest/config_flow_subscription.png)
+10. Home Assistant uses a *Subscription* to subscribe to device events published on the topic. You can select the subscription you created in the Device Access Console or the integration will automatically create one for you if you don't have one already.
+     ![Screenshot of the Pub/Sub subscription selection](/images/integrations/nest/config_flow_subscription.png)
 
 
-12.  If all went well, you are ready to go!
+11.  If all went well, you are ready to go!
 
     ![Screenshot of success](/images/integrations/nest/finished.png)
 
