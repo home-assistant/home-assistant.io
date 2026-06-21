@@ -30,6 +30,8 @@ There is currently support for the following device types within Home Assistant:
 
 - **Alarm control panel**: reports on the current alarm status and can be used to arm and disarm the system.
 - **CO detector**: reports on the carbon monoxide sensor status*.
+- **Camera**: reports motion.
+- **Doorbell**: reports detection.
 - **Entry sensor**: reports on the current entry sensor status*.
 - **Freeze sensor**: reports on the freeze sensor temperature*.
 - **Glass Break Sensor**: reports on the glass breakage sensor status*.
@@ -92,12 +94,12 @@ Set one or more system properties.
 
 ## Events
 
+## System events
+
 Each SimpliSafe system provides a system event {% term entity %} that captures events from your security system with the following attributes:
 
 - `event_type`: One of the following:
   - **Automatic test** (`automatic_test`)
-  - **Camera motion detected** (`camera_motion_detected`)
-  - **Doorbell detected** (`doorbell_detected`)
   - **Device test** (`device_test`)
   - **Secret alert triggered** (`secret_alert_triggered`)
   - **Sensor paired and named** (`sensor_paired_and_named`)
@@ -108,27 +110,7 @@ Each SimpliSafe system provides a system event {% term entity %} that captures e
 - `sensor_serial`: The serial number of the sensor that triggered the event (if applicable)
 - `sensor_type`: The type of sensor that triggered the event (if applicable)
 
-### Automation example: doorbell notification
-
-{% example %}
-automation: |
-  - alias: "Notify me when the doorbell rings"
-    triggers:
-      - trigger: event.received
-        target:
-          entity_id: event.YOUR_SYSTEM_EVENTS_ENTITY
-        options:
-          event_type:
-            - doorbell_detected
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.YOUR_PHONE
-        data:
-          message: "Someone is at the front door."
-{% endexample %}
-
-### Using secret alerts for sensor changes
+### Automation example: detecting secret alert events
 
 For cases where the default {% term polling %} interval of 30 seconds is too long for automations, you can use secret alerts to get push notifications of a sensor being triggered.
 
@@ -153,6 +135,28 @@ For cases where you wish to reliably determine each time a binary sensor is trig
     - condition: template
       value_template: "{{ trigger.to_state.attributes.sensor_serial == 'abc123xyz' }}"
   ```
+
+
+## Camera events
+
+Each supported SimpliSafe camera (reports `camera_motion_detected`) and doorbell (reports `doorbell_detected`) also provides its own event {% term entity %}.
+
+### Automation example: doorbell notification
+
+{% example %}
+automation: |
+  - alias: "Notify me when the doorbell rings"
+    triggers:
+      - trigger: event.received
+        target:
+          entity_id: event.YOUR_DOORBELL
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.YOUR_PHONE
+        data:
+          message: "Someone is at the front door."
+{% endexample %}
 
 
 ### `SIMPLISAFE_NOTIFICATION`
