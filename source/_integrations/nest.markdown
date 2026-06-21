@@ -215,15 +215,26 @@ If you previously set up events, then your Device Access Project may have alread
 
 5. You now have a **Topic Name** needed by the Device Access Console and Home Assistant. The full **Topic Name** that contains your Cloud Project ID and the **Topic ID** such as `projects/<cloud console id>/topics/home-assistant-nest`.
 
-6. Next, you need to give the Device Access Console permission to publish to your Topic. From the Pub/Sub Topic page select **Add Principal**.
+6. Next, you need to give the Device Access Console permission to publish to your topic. From the [Pub/Sub topic list](https://console.cloud.google.com/cloudpubsub/topic/list), select the topic you just created to open it, then open the **Permissions** tab and select **Add principal**.
 
-  ![Screenshot of OAuth confirmation](/images/integrations/nest/cloud_pubsub_add_principal.png)
+  ![Screenshot of adding a principal to a Pub/Sub topic](/images/integrations/nest/cloud_pubsub_add_principal.png)
 
-7. In **New Principals** enter `sdm-publisher@googlegroups.com`
+7. In **New principals**, enter `sdm-publisher@googlegroups.com`.
 
-8. In **Select a Role** under **Pub/Sub** select **Pub/Sub Publisher** and **Create**.
+8. In the **Assign roles** section, select the **Role** dropdown. Under **Pub/Sub**, select **Pub/Sub Publisher** (or type `Pub/Sub Publisher` in the search box to find it). Select **Save**.
 
-  ![Screenshot of OAuth confirmation](/images/integrations/nest/cloud_pubsub_add_principal_role.png)
+  ![Screenshot of selecting the Pub/Sub Publisher role](/images/integrations/nest/cloud_pubsub_add_principal_role.png)
+
+  {% tip %}
+  Grant the role on the **topic** itself (using the topic's **Permissions** tab), not on the project's **IAM & Admin** page. If you prefer the command line, you can grant the same permission with the [Google Cloud CLI](https://cloud.google.com/sdk/gcloud), replacing the topic name with your own:
+
+  ```bash
+  gcloud pubsub topics add-iam-policy-binding projects/<cloud console id>/topics/home-assistant-nest \
+    --member="group:sdm-publisher@googlegroups.com" \
+    --role="roles/pubsub.publisher"
+  ```
+
+  {% endtip %}
 
 9. Next you can configure the Device Access Console to use this topic. Visit the [Device Access Console](https://console.nest.google.com/device-access/).
 
