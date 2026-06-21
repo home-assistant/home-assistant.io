@@ -92,8 +92,6 @@ Set one or more system properties.
 | `light`                | yes      | Whether the light on the base station should display when armed              |
 | `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
 
-## Events
-
 ## System events
 
 Each SimpliSafe system provides a system event {% term entity %} that captures events from your security system with the following attributes:
