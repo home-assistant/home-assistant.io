@@ -2,7 +2,7 @@
 title: "Humidifier mode changed"
 trigger: humidifier.mode_changed
 domain: humidifier
-description: "Triggers when the operation mode of one or more humidifiers changes."
+description: "Triggers when the mode of one or more humidifiers changes."
 related_triggers:
   - humidifier.turned_on
   - humidifier.turned_off
