@@ -9,8 +9,6 @@ related_triggers:
 
 The **Siren turned off** trigger is useful when you want Home Assistant to react when a siren stops sounding. You can use it to send an all-clear message, turn off temporary lighting, or reset other parts of an alarm flow after the noise ends.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

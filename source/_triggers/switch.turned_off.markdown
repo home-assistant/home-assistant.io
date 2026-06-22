@@ -9,8 +9,6 @@ related_triggers:
 
 The **Switch turned off** trigger is useful when you want to react after a switch is deactivated. Use it to end a related routine, restore another device to its normal state, or send a reminder if a switch shuts down when you did not expect it to.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
