@@ -11,8 +11,6 @@ The **Gate is open** condition passes when one or more targeted gates are curren
 
 This condition is useful for reminders, security checks, and routines that should warn you before you leave the property or settle in for the night.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
