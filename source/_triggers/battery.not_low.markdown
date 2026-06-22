@@ -13,8 +13,6 @@ Use **Battery not low** to confirm that a device is ready to use again after mai
 
 For an overview of the status of all your battery {% term entities %}, open {% my maintenance title="**Maintenance** dashboard" %}. This dashboard allows you to quickly see which batteries need replacing.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Battery not low** in an automation:

@@ -11,8 +11,6 @@ The **Calendar event ended** trigger fires when a calendar event ends. You can a
 
 Use it to automate actions based on the end of a calendar event.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
