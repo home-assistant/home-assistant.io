@@ -31,10 +31,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The nitrogen dioxide level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -90,10 +88,11 @@ If you have a daily running routine, you want to know whether the outdoor air is
 
 - **Trigger**: Time: 06:30
 - **Condition**: Air Quality: Nitrogen dioxide value
-- **Target**: Outdoor NO2 sensor
-- **Threshold type**: 40
-- **Condition passes if**: Any
-- **Action**: Notify: Send notification
+  - **Target**: Outdoor NO2 sensor
+  - **Threshold type**: 40
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for an NO2 exercise suggestion before your run" %}
 
@@ -111,7 +110,9 @@ automation: |
         threshold: 40
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "High NO2 outside"
         message: >

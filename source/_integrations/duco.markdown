@@ -4,6 +4,7 @@ description: Instructions on how to integrate Duco ventilation with Home Assista
 ha_release: 2026.5
 ha_category:
   - Fan
+  - Select
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,10 +12,12 @@ ha_codeowners:
   - '@ronaldvdmeer'
 ha_domain: duco
 ha_platforms:
+  - diagnostics
   - fan
+  - select
   - sensor
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_dhcp: true
 ha_zeroconf: true
 ---
@@ -25,35 +28,40 @@ The **Duco** {% term integration %} allows you to monitor and control [Duco](htt
 
 This integration communicates with the **DUCO Connectivity Board** (article 0000-4810) via its local REST API over Wi-Fi or Ethernet.
 
+To set up the integration, your Duco system must expose the DUCO Connectivity Board API with public API version 2.1 or newer.
+
 Hardware revisions:
 
 - **DUCO Connectivity Board 1.0**: Supported
-- **DUCO Connectivity Board 2.0**: Not tested
+- **DUCO Connectivity Board 2.0**: Supported
 
-Compatible DucoBox models:
+Validated DucoBox models:
 
 - DucoBox Silent Connect
-- DucoBox Focus (from firmware version 17xxxx)
-- DucoBox Hygro Plus
-- DucoBox Energy Comfort / Energy Comfort Plus
-- DucoBox Energy Premium
 
-### Supported sensor modules
+Older Duco systems using the Communication Board V1 are not supported because they do not expose the required API surface.
 
-The following sensor module types are supported:
+Other Duco systems that expose public API version 2.1 or newer can be set up, but some model-specific functionality may still be limited until it has been validated and implemented.
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, mode end time, and Wi-Fi signal strength.
+### Supported node types
+
+The following node types are supported:
+
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, and Wi-Fi signal strength.
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
+- **VLVCO2**: Valve actuator with a built-in CO₂ sensor; provides CO₂ concentration and CO₂ air quality index.
+- **VLVRH**: Valve actuator with a built-in humidity sensor; provides relative humidity and humidity air quality index.
+- **VLVCO2RH**: Valve actuator with built-in CO₂ and humidity sensors; provides CO₂ concentration, CO₂ air quality index, relative humidity, and humidity air quality index.
 
-### Unsupported sensor modules
+### Unsupported node types
 
-The following sensor module types are discovered but not yet supported:
+The following node types are discovered but not yet supported:
 
 - **UC**: Universal control unit (no sensor data exposed)
 - **UCBAT**: Battery-powered sensor module
-- **VLV**: Valve actuator
+- **VLV**: Valve actuator without exposed sensor data
 
 When Home Assistant discovers a node with an unsupported type, it logs a warning and skips that node. All other nodes continue to work normally.
 
@@ -70,16 +78,13 @@ Host:
 
 ## Supported functionality
 
-The Duco system consists of multiple nodes. Each node appears as a separate device in Home Assistant, connected to the main ventilation box:
-
-- **BOX**: The main DucoBox (fan control, ventilation state, target flow level, mode end time)
-- **UCCO2**: A wall-mounted control unit with a built-in CO₂ sensor
-- **BSRH**: A humidity sensor module installed in the duct inlet of the DucoBox
-- **UCRH**: A wireless humidity sensor module
+Each supported node appears as a separate device in Home Assistant, connected to the main ventilation box. The sections below describe which entities Home Assistant creates for those supported node types.
 
 ### Fan
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
+
+Use the fan when you want to work with Home Assistant's percentage-based fan controls. If you want to choose a specific Duco ventilation state code instead, use the ventilation state select on the main ventilation box.
 
 The fan is always on. Turning off the fan is not supported.
 
@@ -89,13 +94,19 @@ Setting a speed percentage to 33%, 66%, or 100% activates a continuous override 
 - **Speed 33%**: Continuous low speed override.
 - **Speed 66%**: Continuous medium speed override.
 - **Speed 100%**: Continuous high speed override.
-- **Auto preset**: Same as speed 0%; hands control back to Duco.
+- **Auto preset**: Same as speed 0%. Clears the override and returns to automatic mode.
 
 When a connected wall unit (such as a UCCO2) triggers a timed speed override on the Duco box, Home Assistant reflects the current ventilation level as a percentage. These timed states cannot be set from Home Assistant; writing a speed always uses the permanent manual mode (a continuous override with no time limit).
 
 {% note %}
 The percentages 33%, 66%, and 100% are abstract speed levels used in the Home Assistant fan UI and do not match the actual airflow percentages configured in the Duco firmware. To see the real airflow target, use the **Target flow level** sensor.
 {% endnote %}
+
+### Select
+
+The ventilation state select is available for the main ventilation box (BOX). It lets you choose the Duco ventilation state codes exposed by your system, such as `AUTO`, `CNT1`, `CNT2`, `CNT3`, `MAN1`, `MAN2`, `MAN3`, or `EMPT`.
+
+Home Assistant only shows the options advertised by your Duco system, so the available choices can vary by model or firmware. After you change the option, Home Assistant refreshes the state from the box and shows the state the box reports back.
 
 ### Sensors
 
@@ -107,27 +118,39 @@ Available for the main ventilation box (BOX). Shows the actual airflow target as
 
 #### Ventilation state
 
-Available for the main ventilation box (BOX). Shows the current ventilation state, for example:
+Available for the main ventilation box (BOX). Shows the ventilation state using the Duco state codes shown by the device and app, instead of friendly labels with fixed meanings.
 
-- Automatic
-- Continuous high speed
-- Manual low speed (15 min)
+This sensor is read-only. To choose a specific Duco state code from Home Assistant, use the ventilation state select.
 
-#### Mode end time
+Common values include:
 
-Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation mode ends. When no timer is active, this sensor is unavailable.
+- `AUTO`: Automatic mode.
+- `AUT1`, `AUT2`, `AUT3`: Automatic mode currently running at low, medium, or high airflow.
+- `CNT1`, `CNT2`, `CNT3`: Continuous low, medium, or high speed override.
+- `MAN1`, `MAN2`, `MAN3`: Timed manual low, medium, or high speed override.
+- `EMPT`: Empty house mode.
+
+`CNT` states are continuous overrides.
+
+`MAN` states are timed overrides, but the timer duration is configured on the Duco system and is not encoded in the raw state value itself. Some systems may also report compatibility values like `MAN1x2` or `MAN1x3` for timed manual modes.
+
+To see when a timed state ends, use the [State end time](#state-end-time) sensor.
+
+#### State end time
+
+Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation state ends. When no timer is active, this sensor is unavailable.
 
 #### CO₂ concentration
 
-Available for CO₂ sensor modules. Shows the current CO₂ concentration in parts per million (ppm).
+Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the current CO₂ concentration in parts per million (ppm).
 
 #### Humidity
 
-Available for humidity sensor modules (BSRH, UCRH). Shows the current relative humidity in percent.
+Available for the supported node types with a built-in humidity sensor listed in [Supported node types](#supported-node-types). Shows the current relative humidity in percent.
 
 #### CO₂ air quality index
 
-Available for CO₂ sensor modules. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
 
 Indoor air quality ranges for CO₂:
 
@@ -138,7 +161,7 @@ Indoor air quality ranges for CO₂:
 
 #### Humidity air quality index
 
-Available for humidity sensor modules (BSRH, UCRH). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for the supported node types with a built-in humidity sensor listed in [Supported node types](#supported-node-types). Shows the humidity air quality score as a percentage (0–100%). This entity is disabled by default.
 
 Indoor air quality ranges for humidity:
 
@@ -155,6 +178,7 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 
 - Switch to high ventilation automatically when cooking or showering.
 - Return to auto mode when everyone leaves home using a presence-based automation.
+- Choose a specific Duco ventilation state from an automation or script.
 - Monitor ventilation activity over time via the logbook.
 - Trigger automations based on CO₂ levels or humidity reported by connected Duco modules.
 
@@ -285,10 +309,11 @@ This automation switches to medium speed when relative humidity rises above 70% 
 
 ## Data updates
 
-The integration {% term polling polls %} the Duco box every 30 seconds. If you add a new sensor module (such as a CO₂ or humidity sensor) to your Duco system after the integration is already set up, it will automatically appear in Home Assistant the next time the integration polls for data. No restart or reconfiguration required.
+The integration {% term polling polls %} the Duco box every 10 seconds. If you add a new sensor module (such as a CO₂ or humidity sensor) to your Duco system after the integration is already set up, it will automatically appear in Home Assistant the next time the integration polls for data. No restart or reconfiguration required.
 
 ## Known limitations
 
+- New setup requires a DUCO Connectivity Board that exposes public API 2.1 or later. Older systems using the Communication Board V1 are not supported. Other systems on the same API surface can be set up, but some model-specific functionality may still be limited until it has been validated and implemented.
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
 - Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
@@ -321,6 +346,28 @@ Home Assistant cannot reach the Duco box at the configured address. This can hap
 3. If the box is reachable but entities are still unavailable, reload the integration via {% my integrations title="**Settings** > **Devices & services**" %} > **Duco** > **Reload**.
 4. If the Duco box received a new IP address from your router, Home Assistant updates the address automatically the next time the box is discovered via mDNS/Bonjour (zeroconf). If that does not happen, see [Reconfiguring the integration](#reconfiguring-the-integration).
 
+### Setup says this Duco system is not supported
+
+#### Symptom
+
+Manual setup stops with this message:
+
+> This Duco system is not supported by this integration. The integration requires a Duco Connectivity Board running public API 2.1 or newer.
+
+#### Description
+
+Home Assistant could reach the Duco device, but the detected system does not expose the required API surface for setup. The integration requires a DUCO Connectivity Board with public API version 2.1 or later.
+
+This can happen when your system uses an older Communication Board V1, or when the board firmware does not expose public API 2.1 or later.
+
+#### Resolution
+
+1. Confirm that your system uses a DUCO Connectivity Board.
+2. Check whether the board firmware exposes public API 2.1 or later.
+3. If your system uses the older Communication Board V1, Home Assistant cannot set up the integration for that system.
+4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system.
+5. If your system should be supported, collect diagnostics and open an issue in Home Assistant Core with your Duco model, board details, and firmware information.
+
 ### Failed to set ventilation state (rate limit)
 
 #### Symptom
@@ -331,11 +378,16 @@ Setting the fan speed or preset mode fails with a notification in the Home Assis
 
 #### Description
 
-The Duco box enforces a write rate limit of 200 write requests per day. When the limit is reached, the box rejects further write requests until the quota resets around midnight.
+The Duco box enforces a daily API write limit of 200 write requests. When the limit is reached, the box rejects further write requests until the quota resets shortly after midnight.
 
 #### Resolution
 
-Wait until midnight for the quota to reset. To avoid hitting the limit, reduce the frequency of automations that change the ventilation state.
+1. Check if the daily write limit has been reached. 
+   - Under **Settings** > **System** > **Repairs**, open the {% icon "mdi:dots-vertical" %} menu in the top-right corner.
+   - Select **System information**.
+   - In the Duco section, you should see if the daily write limit has been reached.
+2. If the limit has been reached, wait until shortly after midnight for the quota to reset.
+3. To avoid hitting the limit again, reduce the frequency of automations that change the ventilation state.
 
 ## Reconfiguring the integration
 

@@ -166,7 +166,11 @@ Music services that require an account, such as Spotify, must first be configure
 
 Playing TTS (text-to-speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. Using `announce` will play the provided media URL as an overlay, gently lowering the current music volume and automatically restoring to the original level when finished. An optional `volume` argument can also be provided in the `extra` dictionary to play the alert at a specific volume level. Note that older Sonos hardware or legacy firmware versions ("S1") may not fully support these features. Additionally, see [Network Requirements](#network-requirements) for use in restricted networking environments.
 
-An optional `enqueue` argument can be added to the action. If `replace` or not provided then the queue will be replaced and the item will be replaced. If `add` the item will be appended to the queue. If `next` the item will be added into the queue to play next. If `play`, the item will be added into the queue and played immediately.
+An optional `enqueue` argument can be added to the action. If `replace` or not provided then the queue will be replaced and the item will be played. If `add` the item will be appended to the queue. If `next` the item will be added into the queue to play next. If `play`, the item will be added into the queue and played immediately.
+
+{% include integrations/actions.md %}
+
+In addition to the actions listed above, Sonos speakers support the [standard media player actions](/integrations/media_player/#actions).
 
 ### Examples
 
@@ -310,161 +314,82 @@ data:
   enqueue: play
 ```
 
-## Actions
+## Searching the music library
 
-The Sonos integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
+You can search your local Sonos music library using the `media_player.search_media` action. This returns a list of matching items that you can then pass to `media_player.play_media` to play. It also powers the search box in the Home Assistant media picker UI.
 
-### Action: Snapshot
+The action requires a `search_query` and accepts an optional `media_content_type` to narrow results to a specific kind of content. If you omit the type, the search defaults to `track`.
 
-The `sonos.snapshot` action takes a snapshot of what is currently playing on one or more speakers. This action, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
+The following values are supported for `media_content_type`:
 
-{% note %}
-The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/integrations/tts/) announcements.
-{% endnote %}
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | The speakers to snapshot. To target all Sonos devices, use `all`.
-| `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group, defaults to true.
-
-### Action: Restore
-
-The `sonos.restore` action restores a previously taken snapshot of one or more speakers.
+- `track` (default)
+- `album`
+- `artist`
+- `contributing_artist`
+- `composer`
+- `genre`
+- `playlist`
 
 {% note %}
-The playing queue is not snapshotted. Using `sonos.restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
+Searching is limited to your local Sonos music library. Streaming services such as Spotify or Tidal are not included in search results.
 {% endnote %}
 
-{% note %}
-A cloud queue cannot be restarted. This includes queues started from within Spotify and queues controlled by Amazon Alexa.
-{% endnote %}
+Because the action returns data, use `response_variable` to capture the results and then loop through or pick from them in your automation or script.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
-| `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
+### Example: Search and add all matching tracks to the queue
 
-### Action: Set sleep timer
+This example searches for all tracks matching "love", clears the queue, adds them to the queue, and then plays the queue:
 
-The `sonos.set_sleep_timer` action sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. If you set `sleep_time` to `0`, the speaker immediately starts tapering the volume down.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that will have their timers set.
-| `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 7200 (2 hours).
-
-### Action: Clear sleep timer
-
-The `sonos.clear_sleep_timer` action clears the sleep timer on a speaker, if one is set.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
-
-### Action: Update alarm
-
-The `sonos.update_alarm` action updates an existing Sonos alarm.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
-| `alarm_id` | no | Integer that is used in Sonos to refer to your alarm.
-| `time` | yes | Time to set the alarm.
-| `volume` | yes | Float for volume level.
-| `enabled` | yes | Boolean for whether or not to enable this alarm.
-| `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
-
-### Action: Play queue
-
-The `sonos.play_queue` action starts playing the Sonos queue.
-
-Force start playing the queue, allows switching from another stream (such as radio) to playing the queue.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
-| `queue_position` | yes | Position of the song in the queue to start playing from, starts at 0.
-
-### Action: Get queue
-
-The `sonos.get_queue` action returns the media player's queue.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | media_player entity id. |
-
-This example script does the following: get the queue, loop through in reverse order, and remove media containing the words "holiday".
-
-```yaml
-  - action: sonos.get_queue
+{% example %}
+actions:
+  - action: media_player.search_media
+    data:
+      search_query: "love"
+      media_content_type: track
+    response_variable: results
     target:
-      entity_id: media_player.living_room
-    response_variable: queue
+      entity_id: media_player.kitchen
+  - action: media_player.clear_playlist
+    target:
+      entity_id: media_player.kitchen
   - variables:
-      queue_len: '{{ queue["media_player.living_room"] | length }}'
+      search_length: "{{ results['media_player.kitchen']['result']|count }}"
   - repeat:
       sequence:
-        - variables:
-            title: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_title"].lower() }}'
-            album: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_album_name"].lower() }}'
-            position: '{{ queue_len - repeat.index }}'
-        - if:
-            - '{{ "holiday" in title or "holiday" in album }}'
-          then:
-            - action: sonos.remove_from_queue
-              target:
-                entity_id: media_player.living_room
-              data:
-                queue_position: '{{position}}'
+        - action: media_player.play_media
+          target:
+            entity_id: media_player.kitchen
+          data:
+            enqueue: add
+            media:
+              media_content_id: >-
+                {{ results['media_player.kitchen']['result'][repeat.index -
+                1]['media_content_id'] }}
+              media_content_type: >-
+                {{ results['media_player.kitchen']['result'][repeat.index -
+                1]['media_content_type'] }}
       until:
         - condition: template
-          value_template: '{{queue_len == repeat.index}}'
-
-```
-
-### Action: Remove from queue
-
-The `sonos.remove_from_queue` action removes an item from the queue.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that will remove an item from the queue. It must be the coordinator if targeting a group.
-| `queue_position` | yes | Position in the queue to remove.
-
-```yaml
-# Example automation to remove just played song from queue
-alias: "Remove last played song from queue"
-triggers:
-  - trigger: state
-    entity_id: media_player.kitchen
-  - trigger: state
-    entity_id: media_player.bathroom
-  - trigger: state
-    entity_id: media_player.move
-conditions:
-  - condition: and
-    conditions:
-      # Coordinator
-      - condition: template
-        value_template: >
-          {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
-      # Going from queue to queue
-      - condition: template
-        value_template: >
-          {{ 'queue_position' in trigger.from_state.attributes and 'queue_position' in trigger.to_state.attributes }}
-      # Moving forward
-      - condition: template
-        value_template: >
-          {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
-actions:
-  - action: sonos.remove_from_queue
+          value_template: '{{search_length == repeat.index}}'                
+  - action: sonos.play_queue
     target:
-      entity_id: >
-        {{ trigger.entity_id }}
+      entity_id: media_player.kitchen
+{% endexample %}
+
+### Example: Search for an album
+
+{% example %}
+actions:
+  - action: media_player.search_media
+    target:
+      entity_id: media_player.living_room
     data:
-      queue_position: >
-        {{ trigger.from_state.attributes.queue_position }}
-```
+      search_query: "Abbey Road"
+      media_content_type: album
+    response_variable: results
+{% endexample %}
+
+
 
 ## Network requirements
 

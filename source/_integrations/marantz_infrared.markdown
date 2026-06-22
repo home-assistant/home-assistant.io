@@ -6,7 +6,7 @@ ha_category:
 ha_release: 2026.6
 ha_iot_class: Assumed State
 ha_codeowners:
-  - '@home-assistant/core'
+  - '@balloob'
 ha_domain: marantz_infrared
 ha_config_flow: true
 ha_platforms:

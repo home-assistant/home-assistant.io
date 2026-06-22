@@ -28,7 +28,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is cleared, or **All** to pass only when every targeted sensor is cleared.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -76,9 +75,11 @@ After a smoke event, you want to keep the emergency lights on until every room i
 
 - **Trigger**: State: Reset lighting button pressed
 - **Condition**: Air Quality: Smoke cleared
-- **Target**: All smoke sensors (kitchen, hallway)
-- **Condition passes if**: All
-- **Action**: Scene: Turn on (normal lighting), then notify
+  - **Target**: All smoke sensors (kitchen, hallway)
+  - **Condition passes if**: All
+- **Action**: Activate scene (normal lighting)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for restoring lighting only after full smoke all-clear" %}
 
@@ -100,7 +101,9 @@ automation: |
     - action: scene.turn_on
       target:
         entity_id: scene.normal_lighting
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Smoke all-clear"
         message: >

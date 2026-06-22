@@ -1,6 +1,6 @@
 ---
 title: MQTT
-description: Instructions on how to setup MQTT within Home Assistant.
+description: Instructions on how to set up MQTT within Home Assistant.
 ha_category:
   - Hub
   - Update
@@ -38,6 +38,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - tag
   - tag
   - text
   - time
@@ -135,6 +136,8 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Button](/integrations/button.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date/Time](/integrations/datetime.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
@@ -146,6 +149,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
@@ -982,6 +986,7 @@ support_url:
     'url_t':               'url_topic',
     'url_tpl':             'url_template',
     'val_tpl':             'value_template',
+    'vis':                 'visible_by_default',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
     'xy_cmd_t':            'xy_command_topic',
@@ -1244,7 +1249,7 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 }
 ```
 
-The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows you to set up multiple entities that share the same device.
 
 {% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
@@ -1450,7 +1455,7 @@ mqtt:
       ...
 ```
 
-If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+If you have many manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).

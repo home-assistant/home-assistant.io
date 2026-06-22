@@ -12,7 +12,7 @@ The **MQTT Date/Time** {% term integration %} allows you to integrate devices th
 
 ## Configuration
 
-To use an MQTT date/time entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT date/time entity in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -22,7 +22,7 @@ mqtt:
       command_topic: command-topic
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -70,7 +70,7 @@ command_topic:
   required: true
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `datetime.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, it will be created with a number appended. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `datetime.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, it will be created with a number appended. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:

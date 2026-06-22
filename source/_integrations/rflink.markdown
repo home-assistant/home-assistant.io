@@ -36,7 +36,7 @@ This {% term integration %} is tested with the following hardware/software:
 
 The 433 MHz spectrum is used by many manufacturers. Mostly using their own protocol/standard, they use this spectrum to communicate with devices such as light switches, blinds, weather stations, alarms, and various other sensors.
 
-The RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers, and transceiver modules for 433MHz, 868MHz, and 2.4 GHz.
+The RFLink Gateway supports several RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers, and transceiver modules for 433MHz, 868MHz, and 2.4 GHz.
 
 {% note %}
 Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1, and MySensors devices.
@@ -101,7 +101,7 @@ rflink:
 
 ### TCP mode
 
-TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
+TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the Home Assistant server is not optimal or desired (eg: bad reception).
 
 The following command can be used to expose the USB/serial interface over TCP on a different host (Linux). The arguments are separated by spaces, further info on all arguments can be found for example [on the Debian manpages](https://manpages.debian.org/stretch/socat/socat.1.en.html).
 
@@ -134,7 +134,7 @@ rflink:
 
 ### Adding devices Automatically
 
-In order to have your devices discovered automatically, you need to add the following to the configuration.
+To have your devices discovered automatically, you need to add the following to the configuration.
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
 
 ```yaml
@@ -198,7 +198,7 @@ If you find a device is recognized differently, with different protocols or the 
 
 ### Technical Overview
 
-- The `rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
+- The `rflink` Python module is an asyncio transport/protocol which is set up to fire a callback for every (valid/supported) packet received by the RFLink gateway.
 - This integration uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
 - The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet IDs.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
@@ -410,7 +410,7 @@ devices:
         fire_event:
           description: Fire a `button_pressed` event if this device is turned on or off.
           required: false
-          default: False
+          default: false
           type: boolean
         signal_repetitions:
           description: The number of times every RFLink command should repeat.
@@ -552,7 +552,7 @@ After configuring the RFLink hub, lights will be automatically discovered and ad
 
 RFLink binary_sensor/switch/light IDs are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group or configure a nice name.
+Once the ID of a light is known, it can be used to configure the light in Home Assistant, for example to add it to a different group or configure a nice name.
 
 Configuring devices as a light:
 
@@ -578,7 +578,7 @@ device_defaults:
     fire_event:
       description: Set default `fire_event` for RFLink switch devices (see below).
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: Set default `signal_repetitions` for RFLink switch devices (see below).
@@ -852,7 +852,7 @@ The RFLink integration does not know the difference between a `switch`, a `binar
 
 RFLink binary_sensor/switch/light IDs are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a switch is known, it can be used to configure it as a switch type in HA and, for example, to add it to a different group or configure a nice name.
+Once the ID of a switch is known, it can be used to configure it as a switch type in Home Assistant and, for example, to add it to a different group or configure a nice name.
 
 Configuring devices as switch :
 
@@ -876,7 +876,7 @@ device_defaults:
     fire_event:
       description: Set default `fire_event` for RFLink switch devices (see below).
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: Set default `signal_repetitions` for RFLink switch devices (see below).

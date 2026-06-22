@@ -28,7 +28,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor detects smoke, or **All** to pass only when every targeted sensor detects smoke.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -76,9 +75,10 @@ During a smoke event, a single notification is easy to miss. This automation fir
 
 - **Trigger**: Time pattern: Every 5 minutes
 - **Condition**: Air Quality: Smoke detected
-- **Target**: Kitchen smoke sensor
-- **Condition passes if**: Any
-- **Action**: Notify: Send reminder notification
+  - **Target**: Kitchen smoke sensor
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for repeating smoke reminders" %}
 
@@ -95,7 +95,9 @@ automation: |
       options:
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Smoke still detected"
         message: >

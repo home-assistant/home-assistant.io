@@ -23,7 +23,7 @@ The **Tomorrow.io** {% term integration %} allows you to obtain weather, air qua
 
 ## Obtain an API key
 
-You can obtain a free API key by signing up with [Tomorrow.io](https://www.tomorrow.io/weather-api/). The integration assumes that your API key is associated with a free Tomorrow.io account. Free accounts include a limited number of daily API requests and the number of daily API requests included varies by account. Login to Tomorrow.io to view the number of daily API requests included with your account.
+You can obtain a free API key by signing up with [Tomorrow.io](https://www.tomorrow.io/weather-api/). The integration assumes that your API key is associated with a free Tomorrow.io account. Free accounts include a limited number of daily API requests and the number of daily API requests included varies by account. Log in to Tomorrow.io to view the number of daily API requests included with your account.
 
 The refresh interval defaults to a time period that is compatible with an account limited to 100 daily API requests and this integration should use around 90% of the available daily requests.
 

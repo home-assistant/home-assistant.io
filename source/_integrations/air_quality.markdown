@@ -16,13 +16,15 @@ Instead of writing complex template triggers to watch sensor values, you get ded
 
 {% include integrations/building_block_integration.md %}
 
-## What you can do with air quality automations
+## Air quality automation examples
 
 The real power of this integration is combining triggers and conditions into automations that keep your home healthy without you having to think about it. Here are a few ideas to get you started.
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
-### Ventilate a stuffy bedroom overnight
+### Automation: ventilate a stuffy bedroom overnight
 
 CO2 builds up in a closed bedroom as you sleep. By the time you notice the air feels stale, the level is already well above 1,000 ppm. This automation turns on the bedroom ventilation fan when CO2 crosses that threshold and turns it off again once the air is fresh.
 
@@ -42,7 +44,7 @@ automation: |
         entity_id: sensor.bedroom_co2
       options:
         threshold: 1000
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:
@@ -51,7 +53,7 @@ automation: |
 
 {% enddetails %}
 
-### Get an urgent alert when carbon monoxide is detected
+### Automation: get an urgent alert when carbon monoxide is detected
 
 Carbon monoxide is colorless and odorless. You rely entirely on your sensors to know it is there. This automation sends an urgent notification the moment any CO sensor in the house detects carbon monoxide, no matter the time of day.
 
@@ -69,7 +71,7 @@ automation: |
       target:
         label_id: co_sensors
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.notify
       data:
@@ -82,7 +84,7 @@ automation: |
 
 {% enddetails %}
 
-### Run the air purifier during wildfire season
+### Automation: run the air purifier during wildfire season
 
 When wildfire smoke raises outdoor PM2.5 above a safe level, the last thing you want is to open the windows. This automation starts the air purifier when PM2.5 crosses 25 µg/m³ and stops it when the air clears.
 
@@ -100,7 +102,7 @@ automation: |
         entity_id: sensor.outdoor_pm25
       options:
         threshold: 25
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:
@@ -109,7 +111,7 @@ automation: |
 
 {% enddetails %}
 
-### Only open the windows if outdoor air is clean
+### Automation: only open the windows if outdoor air is clean
 
 Before letting fresh air in, check that outdoor pollution is actually low. This automation runs when you press a dashboard button to open the living room covers, but only if PM2.5 is below a safe limit.
 

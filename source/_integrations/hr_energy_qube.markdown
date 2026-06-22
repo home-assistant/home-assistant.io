@@ -1,9 +1,10 @@
 ---
-title: HR-Energy Qube heat pump
+title: Qube heat pump
 description: Instructions on how to integrate your Qube heat pump with Home Assistant.
 ha_release: 2026.4
 ha_category:
   - Binary sensor
+  - Select
   - Sensor
   - Switch
   - Water heater
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: hr_energy_qube
 ha_platforms:
   - binary_sensor
+  - select
   - sensor
   - switch
   - water_heater
@@ -114,6 +116,16 @@ Host:
   - **Description**: Indicates whether the buffer temperature sensor is enabled. Disabled by default.
 - **DHW controller enabled**
   - **Description**: Indicates whether the domestic hot water controller is enabled. Disabled by default.
+
+### Selects
+
+- **SG Ready mode**
+  - **Description**: Controls the Smart Grid Ready (SG Ready) mode for load shifting based on grid conditions or solar surplus.
+  - **Options**:
+    - **Off**: Normal operation.
+    - **Block**: Block heat pump operation (grid requests reduced consumption).
+    - **Plus**: Regular heating curve with room setpoint +1K and DHW day mode (grid has surplus energy).
+    - **Max**: Run anti-legionella cycle once, use surplus curve with room setpoint +1K (maximum energy absorption).
 
 ### Sensors
 

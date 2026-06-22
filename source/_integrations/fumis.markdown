@@ -11,13 +11,15 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - diagnostics
   - number
   - sensor
   - switch
 ha_codeowners:
   - '@frenck'
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The **Fumis** {% term integration %} connects your pellet stove to Home Assistant through the Fumis online service. Fumis, by [ATech Electronics](https://www.atech.si/) in Slovenia, makes the combustion controllers found in pellet stoves from many different manufacturers. The Fumis WiRCU Wi-Fi module connects your stove to the internet, making it possible to monitor and control your stove from anywhere.
@@ -221,7 +223,9 @@ Never run out of pellets unexpectedly. This automation sends you a notification 
       entity_id: sensor.pellet_stove_fuel_level
       below: 20
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Pellet stove"
         message: "Fuel level is running low. Time to refill the hopper."

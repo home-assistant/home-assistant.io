@@ -1,6 +1,6 @@
 ---
 title: OneDrive
-description: Instructions on how to setup OneDrive to be used with backups.
+description: Instructions on how to set up OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
   - Backup
@@ -187,7 +187,9 @@ triggers:
     from: "nearing"
     to: "critical"
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: OneDrive is almost full!
       message: >
@@ -200,7 +202,7 @@ mode: single
 
 ## Getting application credentials
 
-This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. This means you should not need to provide credentials, but get redirected to Microsoft's sign-in page.
+This integration comes with a predefined set of [application credentials](/integrations/application_credentials/) through Home Assistant account linking. This means you should not need to provide credentials, but get redirected to Microsoft's sign-in page.
 
 Even if you use the default credentials, nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
 

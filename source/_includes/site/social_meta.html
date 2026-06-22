@@ -11,7 +11,12 @@
 {% assign social_image = og_default %}
 {% endif %}
 {% else %}
-{% assign social_image = page.og_image | default: "/images/default-social.png" | prepend: site.url %}
+{% assign og_raw = page.og_image | default: "/images/default-social.png" %}
+{% if og_raw contains "://" %}
+{% assign social_image = og_raw %}
+{% else %}
+{% assign social_image = og_raw | prepend: site.url %}
+{% endif %}
 {% endif %}
 
 <meta property="fb:app_id" content="{{ site.social.facebook.app_id | escape_once }}">

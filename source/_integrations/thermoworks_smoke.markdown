@@ -16,7 +16,7 @@ The **ThermoWorks Smoke** {% term integration %} pulls data for your [ThermoWork
 This requires a [Smoke WiFi Gateway](https://www.thermoworks.com/Smoke-Gateway) with an internet connection.
 
 You will need to have previously registered your smoke to your account via the mobile app and provide
-the email and password you used to in the configuration for this sensor in order to connect and pull your data.
+the email and password you used to in the configuration for this sensor to connect and pull your data.
 
 ## Configuration
 

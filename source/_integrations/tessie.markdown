@@ -464,7 +464,9 @@ automation:
         entity_id: sensor.my_tesla_battery_level
         above: 79
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%"
 ```
@@ -497,9 +499,9 @@ Command signing is compatible with:
 
 Tessie requires specific Tesla account permissions to function properly. If certain features aren't working, you may need to verify your account has granted the necessary scopes:
 
-- **Vehicle Information** - Required to retrieve vehicle data (battery level, climate status, etc.)
+- **Vehicle Information** - Required to retrieve vehicle data (such as battery level or climate status)
 - **Vehicle Location** - Required to track vehicle location
-- **Vehicle Commands** - Required to control the vehicle (lock/unlock, climate, etc.)
+- **Vehicle Commands** - Required to control the vehicle (such as lock/unlock or climate)
 - **Vehicle Charging Management** - Required to control charging
 - **Energy Product Information** - Required to retrieve energy product data
 - **Energy Product Commands** - Required to control energy products (Powerwall, Solar)

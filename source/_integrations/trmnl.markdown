@@ -83,7 +83,9 @@ triggers:
     entity_id: sensor.your_trmnl_battery
     below: 20
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "TRMNL battery low"
       message: "Your TRMNL battery is below 20%. Time to charge it."

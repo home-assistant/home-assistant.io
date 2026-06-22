@@ -42,7 +42,7 @@ The `lifx.set_state` action changes the light to a new state.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
 | `zones` | List of integers for the zone numbers to affect. See **Calculating zones to affect** below for more detail.
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
-| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/actions/light.turn_on/) to specify the new state.
+| `...` | Use `color_name` or `brightness` from [`light.turn_on`](/actions/light.turn_on/) to specify the new state.
 
 #### Calculating zones to affect
 
@@ -56,7 +56,7 @@ All devices start counting zones at zero (0), which means the zone numbers for t
 
 You can control the HEV LEDs in LIFX Clean bulbs using the `set_hev_cycle_state` action. The action can start or stop a HEV (or "Clean") cycle either using the default duration configured on the bulb or for a custom duration specified when performing the action. Home Assistant will return or log an error if an incompatible bulb is specified when performing the action.
 
-To determine whether or not a HEV cycle is currently running, Home Assistant exposes a Clean Cycle binary sensor for all HEV-enabled bulbs. This sensor can be used to trigger automations to occur when a HEV cycle starts or stops. To reduce network load, HEV cycle status is only checked every 10 seconds so this sensor may not update instantaneously.
+To determine whether a HEV cycle is currently running, Home Assistant exposes a Clean Cycle binary sensor for all HEV-enabled bulbs. This sensor can be used to trigger automations to occur when a HEV cycle starts or stops. To reduce network load, HEV cycle status is only checked every 10 seconds so this sensor may not update instantaneously.
 
 ### Action: Set HEV cycle state
 
@@ -302,7 +302,7 @@ Discoveries from control protocols that are not desired can be ignored in the UI
 
 The LIFX integration does not support the LIFX Switch. However, the [HomeKit Controller](/integrations/homekit_controller) integration can be used instead for
 [LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX
-documentation to obtain a HomeKit code prior to integrating the Switch with Home Assistant as it will be needed during the process.
+documentation to obtain a HomeKit code before integrating the Switch with Home Assistant as it will be needed during the process.
 
 When using the [HomeKit Controller](/integrations/homekit_controller) integration, each button on the LIFX Switch is discovered as a
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
