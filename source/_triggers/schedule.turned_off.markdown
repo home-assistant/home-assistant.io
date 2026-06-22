@@ -9,8 +9,6 @@ related_triggers:
 
 The **Schedule block ended** trigger is useful when you want something to happen as soon as a scheduled time block finishes. Use it to turn something off at the end of a routine, or to wait until a schedule has been inactive for a while before continuing.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

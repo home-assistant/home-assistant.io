@@ -13,8 +13,6 @@ The **Moisture content crossed threshold** trigger fires when a moisture reading
 
 Use **Moisture content crossed threshold** to automate watering, alert you when a plant or material drifts out of its target range, or coordinate devices that respond to specific moisture levels.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Moisture content crossed threshold** in an automation:
