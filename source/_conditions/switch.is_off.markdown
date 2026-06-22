@@ -9,8 +9,6 @@ related_conditions:
 
 The **Switch is off** condition is useful when an automation should continue only if a switch is not currently activated. Use it to avoid sending repeated off commands, prevent starting a device that is already powered down, or only act when a power plug is known to be off.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

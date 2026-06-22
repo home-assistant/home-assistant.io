@@ -9,8 +9,6 @@ related_conditions:
 
 The **Siren is on** condition is useful when an automation should continue only while a siren is sounding. You can use it to send repeated reminders, stop a siren after a set time, or make sure a follow-up action only runs while the siren is still on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
