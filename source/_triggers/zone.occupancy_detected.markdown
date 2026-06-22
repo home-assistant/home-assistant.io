@@ -10,8 +10,6 @@ related_triggers:
 
 The **Zone occupancy detected** trigger fires when a selected zone changes from empty to occupied. Use it when the automation only needs to know that at least one person is now in the zone, instead of reacting to each specific person or device tracker.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
