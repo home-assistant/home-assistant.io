@@ -33,7 +33,7 @@ Product ID:
   description: The product ID of a Picnic product.
   required: false
 Product name:
-  description: Search for a product and add the first result.
+  description: The product name to search for. The first search result is added to the cart.
   required: false
 Amount:
   description: The amount to add of the selected product.
@@ -59,7 +59,7 @@ This searches for "Picnic cola zero" and adds the first result to your cart.
 {% options_yaml %}
 config_entry_id:
   description: >
-    The ID of the Picnic service config entry to add the product to.
+    The configuration entry ID of the Picnic service to add the product to.
   required: true
   type: string
 product_id:
