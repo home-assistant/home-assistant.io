@@ -17,7 +17,7 @@ ha_integration_type: device
 
 The **Wolf SmartSet Service** {% term integration %} uses the [Wolf Smart-Set](https://www.wolf-smartset.com/) web service as a source to fetch the status of your Wolf heating, heat pump, and solar thermal systems.
 
-The {% term integration %} can collect information such as temperature, pressure, and system state for a wide range of Wolf devices including gas heaters, heat pumps, and solar thermal systems.
+The {% term integration %} can collect information such as temperature, pressure, and system state for a wide range of Wolf devices, including gas heaters, heat pumps, and solar thermal systems.
 
 Remember that to integrate your Wolf device with Home Assistant, you need to have a Wolf ISM7 or Wolf Link Home device connected to your heating or energy system.
 
