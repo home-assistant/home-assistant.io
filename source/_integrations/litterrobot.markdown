@@ -58,6 +58,7 @@ Password:
 | Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
 | Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
+| Sleep mode (per day)          | `switch`        | Enable or disable each day of the week's sleep schedule, only for Litter-Robot 5.                           |
 | Last seen                     | `sensor`        | Displays the time the unit was last seen / reported an update.                                              |
 | Litter level                  | `sensor`        | Displays the litter level, only for Litter-Robot 4 and 5.                                                   |
 | Next filter replacement       | `sensor`        | Displays the next filter replacement date, only for Litter-Robot 5.                                         |
@@ -80,10 +81,16 @@ Password:
 | Globe brightness              | `select`        | View and select the brightness level for the globe light, only for Litter-Robot 4 and 5.                    |
 | Globe light                   | `select`        | View and select the globe light setting, only for Litter-Robot 4 and 5.                                     |
 | Panel brightness              | `select`        | View and select the panel brightness, only for Litter-Robot 4 and 5.                                        |
+| Sleep mode start (per day)    | `time`          | Set each day of the week's sleep mode start time, only for Litter-Robot 5.                                  |
+| Sleep mode end (per day)      | `time`          | Set each day of the week's sleep mode end time, only for Litter-Robot 5.                                    |
 | Change filter                 | `button`        | Button to indicate the filter was changed and reset the replacement date, only for Litter-Robot 5.          |
 | Reset                         | `button`        | Button to reset the robot, clearing errors and potentially cycling, only for Litter-Robot 4 and 5.          |
 | Reset waste drawer            | `button`        | Button to reset the waste drawer level to 0%, only for Litter-Robot 3 and 5.                                |
 | Firmware                      | `update`        | View and update to the latest firmware, only for Litter-Robot 4.                                            |
+
+{% note %}
+The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode start (per day)**, and **Sleep mode end (per day)**) are disabled by default. Enable the days you want to control in the entity settings.
+{% endnote %}
 
 ### Feeder-Robot
 
