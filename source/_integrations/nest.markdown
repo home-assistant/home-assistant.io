@@ -315,7 +315,7 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 - [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
 - [Fan](https://developers.google.com/nest/device-access/traits/device/fan)
 
-The Fan trait exposes a timestamp sensor representing when the active fan timer is scheduled to turn off, which reports as `unknown` when the fan timer is inactive.
+The Fan trait exposes a timestamp sensor representing when the active fan timer is scheduled to turn off. The sensor state is `unknown` when the fan timer is inactive.
 
 Given a thermostat named `Upstairs`, sensors are created with names such as `sensor.upstairs_temperature`, `sensor.upstairs_humidity`, or `sensor.upstairs_fan_timer_timeout`.
 
