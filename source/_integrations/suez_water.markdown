@@ -53,7 +53,7 @@ At the initial setup, the integration pulls historical daily usage since the cou
 In the configuration of the energy dashboard ({% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}):
 
 1. Select **Add consumption** for **Water source**.
-2. Select **Suez water Consumption** followed by your counter ID (e.g., "Suez water Consumption 123456789") for the **consumed water**.
+2. Select **Suez water Consumption** followed by your counter ID (for example, `Suez water Consumption 1234567890`) for the **consumed water**.
 3. Select **Suez water Cost** followed by your counter ID for the **total price**
 
 ### Statistics details
