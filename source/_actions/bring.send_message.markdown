@@ -32,10 +32,10 @@ To send a notification from an automation or a script:
 
 {% options_ui %}
 Notification type:
-  description: The type of push notification to send to list members. Choose from "I'm going shopping", "I changed the list", "The shopping is done", or "Urgent message".
+  description: The type of push notification to send to list members. Choose from **I'm going shopping**, **I changed the list**, **The shopping is done**, or **Urgent message**.
   required: true
 Item:
-  description: The item name to include in an urgent message, for example "Cilantro". Required when the notification type is "Urgent message".
+  description: The item name to include in an urgent message, for example `Cilantro`. Required when the notification type is **Urgent message"**.
   required: false
 {% endoptions_ui %}
 
@@ -52,7 +52,7 @@ action: |
     message: going_shopping
 {% endexample %}
 
-This sends a "going shopping" notification to the members of the selected list.
+This sends a `going_shopping` notification to the members of the selected list.
 
 ### Options in YAML
 
@@ -76,7 +76,7 @@ item:
 ## Good to know
 
 - The `item` field is required when you send an `urgent_message`. For the other notification types, it is ignored.
-- The notification list members receive can differ from the labels shown here. It depends on the recipient's language settings, your profile name, and the Bring! app version.
+- The notification that list members receive can differ from the labels shown here. It depends on the recipient's language settings, your profile name, and the Bring! app version.
 
 {% include actions/try_it.md %}
 
