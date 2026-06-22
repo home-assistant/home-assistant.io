@@ -94,7 +94,7 @@ secondary_info:
   type: string
 time_format:
   required: false
-  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
+  description: "How timestamp states should be formatted. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
   type: [string, map]
 action_name:
   required: false
