@@ -2,7 +2,7 @@
 title: "Humidifier turned on"
 trigger: humidifier.turned_on
 domain: humidifier
-description: "Triggers after one or more humidifiers turn on."
+description: "Triggers when one or more humidifiers turn on."
 related_triggers:
   - humidifier.turned_off
   - humidifier.started_humidifying

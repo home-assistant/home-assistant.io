@@ -2,7 +2,7 @@
 title: "Temperature crossed threshold"
 trigger: temperature.crossed_threshold
 domain: temperature
-description: "Triggers after one or more temperature readings cross a threshold."
+description: "Triggers when one or more temperatures cross a threshold."
 related_triggers:
   - temperature.changed
 ---

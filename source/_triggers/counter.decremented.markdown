@@ -2,7 +2,7 @@
 title: "Counter decremented"
 trigger: counter.decremented
 domain: counter
-description: "Triggers after one or more counters decrement."
+description: "Triggers when one or more counters decrement."
 related_triggers:
   - counter.incremented
   - counter.minimum_reached

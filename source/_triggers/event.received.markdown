@@ -2,7 +2,7 @@
 title: "Event received"
 trigger: event.received
 domain: event
-description: "Triggers when one or more event entities receive a matching event type."
+description: "Triggers when one or more event entities receive a matching event."
 related_triggers:
   - event
   - state

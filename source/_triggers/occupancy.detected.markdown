@@ -2,7 +2,7 @@
 title: "Occupancy detected"
 trigger: occupancy.detected
 domain: occupancy
-description: "Triggers after one or more occupancy sensors detect that a space is occupied."
+description: "Triggers when one or more occupancy sensors start detecting occupancy."
 related_triggers:
   - occupancy.cleared
 ---

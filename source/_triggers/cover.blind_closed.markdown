@@ -2,7 +2,7 @@
 title: "Blind closed"
 trigger: cover.blind_closed
 domain: cover
-description: "Triggers after one or more blinds close."
+description: "Triggers when one or more blinds close."
 related_triggers:
   - cover.blind_opened
 ---
