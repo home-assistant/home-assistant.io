@@ -153,7 +153,7 @@ Rate limit:
 Group monitor history:
   description: "Hours of telegram history to load when you open the group monitor."
 Retention period:
-  description: "Days to keep telegram history. Older telegrams are automatically deleted during the nightly cleanup at 3 AM. Set this to `0` to delete all telegram history every night."
+  description: "Days to keep telegram history. Older telegrams are automatically deleted during the nightly cleanup. Set this to `0` to delete all telegram history every night."
 {% endconfiguration_basic %}
 
 ## Basic configuration
