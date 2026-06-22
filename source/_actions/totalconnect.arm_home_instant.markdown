@@ -61,11 +61,11 @@ Use this automation to arm the panel in home mode with no entry delay every even
 - **Action**: Arm home instant
   - **Target**: Home alarm panel
 
-{% details "Show example YAML" %}
+{% details "YAML example for arming home instant at sunset" %}
 
 {% example %}
 automation: |
-  - alias: "Arm home instant at sunset"
+    alias: "Arm home instant at sunset"
     triggers:
       - trigger: sun
         event: sunset

@@ -61,11 +61,11 @@ Use this automation to arm the panel in away mode with no entry delay once the l
 - **Action**: Arm away instant
   - **Target**: Home alarm panel
 
-{% details "Show example YAML" %}
+{% details "YAML example for arming away instant when everyone leaves" %}
 
 {% example %}
 automation: |
-  - alias: "Arm away instant when everyone leaves"
+    alias: "Arm away instant when everyone leaves"
     triggers:
       - trigger: state
         entity_id: zone.home
