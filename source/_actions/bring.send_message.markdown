@@ -100,6 +100,39 @@ action: |
 
 {% enddetails %}
 
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: notify list members when you are heading out to shop
+
+When you leave the home zone, send an urgent message to the shared shopping list so other household members have a last chance to add items before you arrive at the shop.
+
+- **Trigger**: Zone: person leaves `zone.home`
+- **Action**: Send message
+  - **Notification type**: Urgent message
+
+{% details "YAML example for notifying list members when leaving home to shop" %}
+ 
+{% example %}
+automation: |
+  alias: "Notify list when leaving home to shop"
+  triggers:
+    - trigger: zone
+      entity_id: person.your_name
+      zone: zone.home
+      event: leave
+  actions:
+    - action: bring.send_message
+      target:
+        entity_id: todo.bring_shoppinglist
+      data:
+        message: urgent_message
+        item: ""
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
