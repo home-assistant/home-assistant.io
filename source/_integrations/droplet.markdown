@@ -57,7 +57,9 @@ Once the integration connects, Droplet will push sensor data points as soon as t
 
 High flow and unusual flow statuses will be reported at least every minute. It may take up to a minute for these values to change from unknown after initial setup.
 
-**Note:** In order to report high and unusual flows, Droplet must be connected to Hydrific servers.
+{% note %}
+In order to report high and unusual flows, Droplet must be connected to Hydrific servers.
+{% endnote %}
 
 ## Use cases
 
