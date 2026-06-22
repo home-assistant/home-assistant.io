@@ -73,6 +73,32 @@ reaction:
 
 {% include actions/more_examples.md %}
 
+### Automation: send a heart reaction when the shopping list is updated
+
+When the shopping list's activities event fires if someone adds or removes an item, automatically send a ❤️ reaction to acknowledge the update without opening the app.
+
+- **Trigger**: State: `event.shoppinglist_activities`
+- **Action**: Bring!: Send reaction
+  - **Reaction**: `heart`
+
+{% details "YAML example for reacting when shopping list is updated" %}
+ 
+{% example %}
+automation: |
+  alias: "React with heart when shopping list is updated"
+  triggers:
+    - trigger: state
+      entity_id: event.shoppinglist_activities
+  actions:
+    - action: bring.send_reaction
+      target:
+        entity_id: event.shoppinglist_activities
+      data:
+        reaction: heart
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
