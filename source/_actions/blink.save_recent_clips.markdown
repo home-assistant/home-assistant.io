@@ -79,11 +79,11 @@ Save the recent clips of a camera every few minutes, so new recordings are downl
   - **Target**: Front door camera
   - **Output directory**: the directory where the clips are saved
 
-{% details "Show example YAML" %}
+{% details "YAML example for saving recent clips on a schedule" %}
 
 {% example %}
 automation: |
-  - alias: "Save recent Blink clips"
+    alias: "Save recent Blink clips"
     triggers:
       - trigger: time_pattern
         minutes: "/3"

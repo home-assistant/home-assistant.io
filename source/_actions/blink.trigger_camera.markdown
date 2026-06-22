@@ -62,7 +62,7 @@ Take a new image with a Blink camera and then save it to a local file using the 
   - **Target**: Front door camera
   - **Filename**: the path where the image is saved
 
-{% details "Show example YAML" %}
+{% details "YAML example for taking a picture and saving it locally" %}
 
 {% example %}
 script: |

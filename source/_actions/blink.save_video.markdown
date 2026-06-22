@@ -78,11 +78,11 @@ When motion is detected, save the last recorded clip locally with the date and t
   - **Target**: Front door camera
   - **File name**: a path that includes the current date and time
 
-{% details "Show example YAML" %}
+{% details "YAML example for saving Blink video on motion" %}
 
 {% example %}
 automation: |
-  - alias: "Save Blink video on motion"
+    alias: "Save Blink video on motion"
     triggers:
       - trigger: state
         entity_id: binary_sensor.blink_front_door_motion_detected
