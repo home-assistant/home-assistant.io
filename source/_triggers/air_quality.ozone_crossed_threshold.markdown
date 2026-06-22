@@ -11,8 +11,6 @@ The **Ozone level crossed threshold** trigger fires when the ozone (O3) reading 
 
 Imagine getting a notification before your afternoon run telling you ozone is too high to exercise outside today. Or having your ventilation system close its fresh-air intake automatically when ozone spikes, so your indoor air stays clean without you thinking about it. This trigger watches the sky for you and lets your home take action the instant conditions become unhealthy.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
