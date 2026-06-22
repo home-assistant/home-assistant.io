@@ -24,7 +24,7 @@ To send a notification from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select a Bring! shopping list.
-6. From the actions shown for that target, select **Send message**.
+6. From the actions shown for that target, select **Bring!: Send message**.
 7. Select the **Notification type** to send. When you select **Urgent message**, also enter the **Item** to include.
 8. Select **Save**.
 
@@ -109,7 +109,7 @@ action: |
 When you leave the home zone, send an urgent message to the shared shopping list so other household members have a last chance to add items before you arrive at the shop.
 
 - **Trigger**: Zone: person leaves `zone.home`
-- **Action**: Send message
+- **Action**: Bring!: Send message
   - **Notification type**: Urgent message
 
 {% details "YAML example for notifying list members when leaving home to shop" %}
