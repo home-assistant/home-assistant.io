@@ -2717,7 +2717,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/
