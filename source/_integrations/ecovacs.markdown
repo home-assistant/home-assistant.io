@@ -32,7 +32,7 @@ The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.
 
 This is for the "Deebot" series of robotic vacuum cleaners and the "GOAT" series of robotic lawn mowers from Ecovacs.
 
-Note that Ecovacs also has other types of cleaning robots that are not supported by this integration at this time.
+Note that Ecovacs also has other types of cleaning robots that are not supported by this integration.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
 Additionally, **depending on your model**, the integration provides the following entities:
 
 - **Binary sensor**:
-  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
+  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.

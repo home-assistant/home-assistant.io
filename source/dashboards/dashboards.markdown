@@ -139,7 +139,7 @@ The default dashboard is the dashboard that is shown when you open Home Assistan
    4. **Result**: This dashboard is shown to all users when they open Home Assistant.
 - To change your personal default dashboard, you don't need administrator rights.
    1. Go to {% my profile title="**User profile**" %}.
-   2. On the **General** tab, under **Dashboard**, select your default dashboard.
+   2. On the **General** tab, next to **Dashboard**, select your default dashboard.
 
       ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
    3. If you want your wall tablet to use a different dashboard than your other devices, use a separate user profile for your wall tablet.
@@ -185,6 +185,23 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 2. From the list of dashboards, select the dashboard you want to delete.
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
+
+## Reorganizing items in the sidebar
+
+You can define which elements are shown in the sidebar and the order in which they appear.
+
+1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
+2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+3. Drag and drop items to reorder them, and toggle items to show or hide them.
+4. Select **Save**.
+
+## Restoring the sidebar to its defaults
+
+If you have customized your sidebar by hiding items or changing their order, you can restore the sidebar to its default settings.
+
+1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
+2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reset to defaults**.
 
 ## Adding YAML dashboards
 

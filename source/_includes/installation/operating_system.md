@@ -330,7 +330,8 @@ Minimum recommended assignments:
     1. **Base Memory:** Move the slider to at least **2048 MB** (2GB).
     2. **Number of CPUs:** Move the slider to at least **2**.
     3. **EFI:** Check the box for **Enable EFI (special OSes only)**. This is required for Home Assistant to boot.
-    4. Select **Next**.
+    4. **Secure Boot:** Deselect **Enable Secure Boot**. Home Assistant OS does not boot with Secure Boot enabled.
+    5. Select **Next**.
 
     #### Finalizing the wizard
 
@@ -456,15 +457,15 @@ Minimum recommended assignments:
 
       11. In Windows Explorer, go to the storage location of your newly created VM, for example under `C:\home-assistant`.
       12. Delete the `home-assistant.vmdk` file.
-      3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
+      13. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file.
          - If you haven't unzipped the archive, unzip it.
          - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
          - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
-      4. Right-click the `.vmx` file and select **Open with** > **Notepad**.
-      5. Under `.encoding`, add a line. Enter `firmware = "efi"`.
-      6. Now continue with the next step to start your VM. 
+      14. Right-click the `.vmx` file and select **Open with** > **Notepad**.
+      15. Under `.encoding`, add a line. Enter `firmware = "efi"`.
+      16. Now continue with the next step to start your VM.
          - If you see a message about side channel mitigations, select **OK**.
-         - If you see a message stating that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
+         - If you see a message stating that the `.vmdk` file could not be found, in step 13, you likely pasted the folder, not the file. Repeat step 13.
 
 
 {% elsif page.installation_type == 'alternative' %}

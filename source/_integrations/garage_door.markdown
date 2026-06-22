@@ -36,6 +36,8 @@ The **Garage door** integration provides the following automation building block
 
 You can use these triggers and conditions to react when a garage door opens, confirm that it is closed before another automation continues, or remind yourself when it has been left open.
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: turn on the garage entry light when the garage door opens after dark

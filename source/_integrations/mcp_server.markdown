@@ -93,7 +93,7 @@ Some MCP clients may not support OAuth, but may support access tokens. You may c
 
 3. Copy the access token to use when configuring the MCP client LLM application.
 
-For more information about Authentication in Home Assistant, refer to the [Authentication documentation](https://www.home-assistant.io/docs/authentication/#your-account-profile).
+For more information about Authentication in Home Assistant, refer to the [Authentication documentation](/docs/authentication/#your-account-profile).
 
 ### Example: Claude for Desktop
 

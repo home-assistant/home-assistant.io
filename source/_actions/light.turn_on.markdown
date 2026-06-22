@@ -27,7 +27,7 @@ To turn a light on from an automation or a script:
     - To turn on every light in a room, select an area.
     - To turn on every light on a floor, select a floor.
     - To turn on lights sharing a tag, select a label.
-7. _Optional_: under **Advanced options**, set the brightness, color, color temperature, or transition.
+7. _Optional_: under **Additional options**, set the brightness, color, color temperature, or transition.
 8. Select **Save**.
 
 ### Options in the UI

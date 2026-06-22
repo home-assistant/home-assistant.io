@@ -73,7 +73,7 @@ digits:
   default: -1
   type: integer
 extra_arguments:
-  description: Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, `make_mono`, etc.
+  description: Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, or `make_mono`.
   required: false
   type: string
 source:

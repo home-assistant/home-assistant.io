@@ -43,13 +43,4 @@ The **Yardian** integration provides the following entities.
 - **Zone enabled**: `On` if a zone is enabled. These entities are disabled by default and created per zone.
 
 
-## Actions
-
-### yardian.start_irrigation
-
-Start a zone for a given number of minutes. This action accepts an Yardian Zone switch {% term entity %} and allows a given duration.
-
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | yes      | The Yardian Zone switch to turn on.                   |
-| `duration`             | no       | Number of minutes for this zone to be turned on.      |
+{% include integrations/actions.md %}

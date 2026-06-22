@@ -20,6 +20,8 @@ Instead of writing complex template triggers to watch sensor values, you get ded
 
 The real power of this integration is combining triggers and conditions into automations that keep your home healthy without you having to think about it. Here are a few ideas to get you started.
 
+{% include integrations/labs_entity_triggers_note.md %}
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: ventilate a stuffy bedroom overnight

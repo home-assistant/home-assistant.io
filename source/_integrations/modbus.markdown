@@ -30,9 +30,9 @@ The modbus {% term integration %} supports all devices adhering to the modbus st
 
 Configure the modbus communication with modbus devices. This is a general setup needed establish access to the device.
 
-The modbus integration allows you to use multiple connections each with multiple sensors etc.
+The modbus integration allows you to use multiple connections each with multiple sensors.
 
-The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
+The modbus integration provides several parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
 
 To enable this integration, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -828,7 +828,7 @@ climates:
               type: integer
     hvac_onoff_coil:
       description: "Address of On/Off state.
-        Only use this setting if your On/Off state is not handled as a HVAC mode.
+        Only use this setting if your On/Off state is not handled as an HVAC mode.
         When zero is read from this coil, the HVAC state is set to Off, otherwise the `hvac_mode_register`
         dictates the state of the HVAC. If no such coil is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value 0 is written to the coil, otherwise the
@@ -892,7 +892,7 @@ climates:
               type: integer
     hvac_onoff_register:
       description: "Address of On/Off state.
-        Only use this setting if your On/Off state is not handled as a HVAC mode.
+        Only use this setting if your On/Off state is not handled as an HVAC mode.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
         dictates the state of the HVAC. If no such register is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value 0 is written to the register, otherwise the
@@ -1647,7 +1647,7 @@ switches:
           default: "Same as `command_on`"
           type: [integer, list]
         state_off:
-          description: "Value(s) when switch is off.  The value must be an `integer` or a list of integers."
+          description: "Value(s) when switch is off. The value must be an `integer` or a list of integers."
           required: false
           default: "Same as `command_off`"
           type: [integer, list]
@@ -1776,7 +1776,7 @@ data:
 When opening an issue, please add your current configuration (or a scaled down version), with at least:
 
  - the modbus configuration lines
- - the entity (sensor, etc.) lines
+ - the entity lines (such as sensor)
 
 In order for the developers better to identify the problem, please add the
 following lines to {% term "`configuration.yaml`" %}:

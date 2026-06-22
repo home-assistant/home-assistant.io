@@ -96,14 +96,4 @@ The following device classes are supported for numbers:
 - **wind_direction**: Wind direction in °
 - **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph
 
-## Actions
-
-### Action: Set value
-
-The `number.set_value` action sets the value of specific number entities.
-
-| Data attribute | Optional | Description                                 |
-| -------------- | -------- | ------------------------------------------- |
-| `entity_id`    | yes      | Only act on specific number entities. |
-| `area_id`      | yes      | Only act on number entities in specific areas. |
-| `value`        | no       | The value to set. |
+{% include integrations/actions.md %}

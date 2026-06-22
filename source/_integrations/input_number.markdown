@@ -82,23 +82,13 @@ input_number:
         type: icon
 {% endconfiguration %}
 
-### Actions
+{% include integrations/actions.md %}
 
-This integration provides the following actions to modify the state of the `input_number` and an action to reload the
-configuration without restarting Home Assistant itself.
+## Restore state
 
-| Service     | Data                                      | Description                                                       |
-| ----------- | ----------------------------------------- | ----------------------------------------------------------------- |
-| `decrement` | `entity_id(s)`<br>`area_id(s)`            | Decrement the value of specific `input_number` entities by `step` |
-| `increment` | `entity_id(s)`<br>`area_id(s)`            | Increment the value of specific `input_number` entities by `step` |
-| `reload`    |                                           | Reload `input_number` configuration                               |
-| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities                 |
+If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping. `initial` is only available in a YAML configuration and not via the Home Assistant user interface.
 
-### Restore state
-
-If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping. Please note that `initial` is only available in a YAML configuration and not via the Home Assistant user interface.
-
-### Scenes
+## Scenes
 
 To set the value of an input_number in a [Scene](/integrations/scene/):
 

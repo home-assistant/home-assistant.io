@@ -1,6 +1,6 @@
 ---
 title: Ampio Smart Smog System
-description: Instructions on how to setup Ampio Smog sensors in Home Assistant.
+description: Instructions on how to set up Ampio Smog sensors in Home Assistant.
 ha_category:
   - Health
   - Sensor
