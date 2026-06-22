@@ -313,9 +313,9 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 
 - [Temperature](https://developers.google.com/nest/device-access/traits/device/temperature)
 - [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
-- [Fan Timer Timeout](https://developers.google.com/nest/device-access/traits/device/fan): Exposes the absolute date and time when the active fan timer is scheduled to turn off. Although the underlying state of this sensor is a fixed timestamp, Home Assistant conventionally displays it in the user interface as the relative time remaining.
+- [Fan Timer Timeout](https://developers.google.com/nest/device-access/traits/device/fan): Exposes the absolute date and time when the active fan timer is scheduled to turn off, which reports as `unknown` when the fan timer is inactive. Although the underlying state of this sensor is a fixed timestamp, Home Assistant conventionally displays it in the user interface as the relative time remaining.
 
-Given a thermostat named `Upstairs`, then sensors are created with names such as `sensor.upstairs_temperature`, `sensor.upstairs_humidity`, or `sensor.upstairs_fan_timer_timeout`.
+Given a thermostat named `Upstairs`, sensors are created with names such as `sensor.upstairs_temperature`, `sensor.upstairs_humidity`, or `sensor.upstairs_fan_timer_timeout`.
 
 {% note %}
 
