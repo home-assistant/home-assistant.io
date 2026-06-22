@@ -266,7 +266,7 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 4. You will get redirected to another account selection page.
 
-5. You may see a warning screen that says *Google hasn't verified this app* since you set up an unverified developer project. Select **Advanced**, then **Go to home-assistant.io (unsafe)** to proceed.
+5. You may see a warning screen that says *Google hasn't verified this app* since you set up an unverified developer project. Select **Advanced**, then select **Go to home-assistant.io (unsafe)** to proceed.
 
     ![Screenshot of OAuth warning](/images/integrations/nest/oauth_app_verification.png)
 
