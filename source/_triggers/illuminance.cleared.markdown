@@ -13,8 +13,6 @@ The **Light cleared** trigger fires when one or more light sensors stop detectin
 
 Use it to automate actions when an area becomes dark, like turning on hallway lights at dusk when an outdoor sensor reports no more daylight, or sending a notification when a room sensor stops detecting light.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
