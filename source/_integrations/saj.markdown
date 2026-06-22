@@ -12,7 +12,6 @@ ha_domain: saj
 ha_platforms:
   - sensor
 ha_integration_type: hub
-ha_dhcp: true
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -42,11 +41,7 @@ password:
   description: "Password for logging in to SAJ Solar Inverter (only used when type is 'wifi' but can be skipped if the inverter still has the default credentials, which may be empty)."
 {% endconfiguration_basic %}
 
-The SAJ Solar Inverter may also be discovered on your local network via DHCP.
-
 During setup, you will be prompted to select the connection type (Ethernet or Wi-Fi) and provide the necessary information. Wi-Fi connections may require username and password.
-
-If the device's IP address changes (for example, due to DHCP lease renewal), the integration will automatically update the stored IP address in the existing device configuration.
 
 ## Sensors
 
@@ -86,6 +81,6 @@ The diagnostic sensors are:
 
 ## Troubleshooting
 
-If your device is not discovered automatically, you can set it up manually by entering the IP address or hostname.
+This integration does not support automatic discovery. Set it up manually by entering the inverter IP address or hostname.
 
 For Wi-Fi connections, ensure you're using the correct credentials.
