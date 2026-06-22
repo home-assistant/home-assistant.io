@@ -10,8 +10,6 @@ related_actions:
 
 The **Turn off fan** action is useful when you want to stop airflow at a specific time or after another event happens. Use it to save energy, reduce noise, or end a cooling routine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
