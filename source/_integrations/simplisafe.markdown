@@ -157,7 +157,7 @@ automation: |
 {% endexample %}
 
 
-### `SIMPLISAFE_NOTIFICATION`
+## `SIMPLISAFE_NOTIFICATION` events
 
 `SIMPLISAFE_NOTIFICATION` events represent system notifications that would appear in the
 messages section of the SimpliSafe web and mobile apps. When received, they come with
