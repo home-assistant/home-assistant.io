@@ -102,15 +102,9 @@ Currently, creating an API key requires you to be logged in as an administrator.
 
 ### Camera streams
 
-The integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
-you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
-check that this is done. To check and enable the feature:
+Live camera feeds use the <abbr title="real-time streaming protocol secure">RTSPS</abbr> streams provided by the UniFi Protect public API. Home Assistant reads the streams that are active on each camera and uses the highest-quality one as the default live feed.
 
-1. Open UniFi Protect and click on _Devices_.
-2. Select the camera you want to ensure can stream in UniFi Protect.
-3. Click the _Settings_ tab in the top right.
-4. Expand the _Share_ _Livestream_ section near the bottom.
-5. Enable a minimum of one stream out of those available. The Stream with the Highest resolution is the default enabled one.
+If a camera does not have a stream available yet, Home Assistant creates a repair that can enable one for you in a single step. Until a stream is available, the live feed falls back to repeatedly refreshing camera snapshots, which can put extra load on your UniFi Protect console.
 
 {% include integrations/config_flow.md %}
 
@@ -138,8 +132,8 @@ G3 Series cameras do _not_ have Smart detections.
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
-- **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera {% term entity %} will be enabled by default.
-  - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} will be added for the Package Camera. The Package Camera {% term entity %} will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
+- **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default.
+  - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} is added for the package camera. The package camera has a very low frame rate, so its live feed can be choppy, but it works the same way as the other streams.
 - **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
