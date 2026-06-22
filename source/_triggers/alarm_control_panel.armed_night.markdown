@@ -10,8 +10,6 @@ related_triggers:
 
 The **Alarm armed night** trigger fires after an alarm control panel {% term entity %} switches to the armed night state. Night mode is designed for sleeping hours, keeping perimeter sensors and select interior zones active while allowing movement in bedrooms and bathrooms. Use this trigger to kick off a bedtime routine: turn off downstairs lights, lower the thermostat, and send a goodnight confirmation so you drift off knowing the house is secure.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

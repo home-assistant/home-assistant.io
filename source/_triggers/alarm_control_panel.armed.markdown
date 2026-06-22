@@ -12,8 +12,6 @@ related_triggers:
 
 The **Alarm armed** trigger fires after an alarm control panel {% term entity %} becomes armed, regardless of the arming mode. It covers away, home, night, vacation, and any other armed state your alarm supports. Use it when you want a single automation to respond the moment the house is secured, like turning off all the lights, locking the front door, or sending a quick confirmation to your phone that the alarm is set.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
