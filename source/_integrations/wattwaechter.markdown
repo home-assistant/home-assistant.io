@@ -4,7 +4,7 @@ description: Instructions on how to integrate WattWächter Plus into Home Assist
 ha_category:
   - Energy
   - Sensor
-ha_release: 2026.4
+ha_release: 2026.7
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
