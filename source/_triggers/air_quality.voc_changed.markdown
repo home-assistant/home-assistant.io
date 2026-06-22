@@ -11,8 +11,6 @@ The **Volatile organic compounds level changed** trigger fires after the <abbr t
 
 Imagine the exhaust fan in your freshly painted room switching on automatically as fumes build up, clearing the air so you don't have to keep checking. Use this trigger to boost ventilation, turn on an air purifier, or log air quality changes whenever your VOC sensor reports a significant shift.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
