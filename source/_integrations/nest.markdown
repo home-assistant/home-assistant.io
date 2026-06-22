@@ -226,14 +226,7 @@ If you previously set up events, then your Device Access Project may have alread
   ![Screenshot of selecting the Pub/Sub Publisher role](/images/integrations/nest/cloud_pubsub_add_principal_role.png)
 
   {% tip %}
-  Grant the role on the **topic** itself (using the topic's **Permissions** tab), not on the project's **IAM & Admin** page. If you prefer the command line, you can grant the same permission with the [Google Cloud CLI](https://cloud.google.com/sdk/gcloud), replacing the topic name with your own:
-
-  ```bash
-  gcloud pubsub topics add-iam-policy-binding projects/<cloud console id>/topics/home-assistant-nest \
-    --member="group:sdm-publisher@googlegroups.com" \
-    --role="roles/pubsub.publisher"
-  ```
-
+  Grant the role on the **topic** itself (using the topic's **Permissions** tab), not on the project's **IAM & Admin** page.
   {% endtip %}
 
 9. Next you can configure the Device Access Console to use this topic. Visit the [Device Access Console](https://console.nest.google.com/device-access/).
@@ -275,7 +268,7 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 5. You may see a warning screen that says *Google hasn't verified this app* since you set up an unverified developer project. Select **Advanced**, then **Go to home-assistant.io (unsafe)** to proceed.
 
-    ![Screenshot OAuth warning](/images/integrations/nest/oauth_app_verification.png)
+    ![Screenshot of OAuth warning](/images/integrations/nest/oauth_app_verification.png)
 
 6. Review the access Home Assistant is requesting, then select **Continue** to allow it to access your Google Account.
 
@@ -289,7 +282,7 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
      ![Screenshot of the Pub/Sub topic selection](/images/integrations/nest/config_flow_with_topic.png)
 
-9.  If you instead see the error message *No eligible Pub/Sub topics found, please ensure Device Access Console has a Pub/Sub topic.* then follow the steps in the previous section to enable events and create a Pub/Sub topic in another browser tab. Once you have created and configured the topic, you may press on this screen **Submit** to refresh the list of topics and continue.
+9.  If you instead see the error message *No eligible Pub/Sub topics found, please ensure Device Access Console has a Pub/Sub topic.* then follow the steps in the previous section to enable events and create a Pub/Sub topic in another browser tab. Once you have created and configured the topic, select **Submit** on this screen to refresh the list of topics and continue.
 
 10. Home Assistant uses a *Subscription* to subscribe to device events published on the topic. You can select the subscription you created in the Device Access Console or the integration will automatically create one for you if you don't have one already.
      ![Screenshot of the Pub/Sub subscription selection](/images/integrations/nest/config_flow_subscription.png)
