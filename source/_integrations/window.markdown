@@ -21,8 +21,6 @@ The **Window** {% term integration %} provides dedicated triggers and conditions
 
 You can use these triggers and conditions to protect your home, avoid wasting energy, and get timely reminders.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: send a reminder if a window opens after sunset
