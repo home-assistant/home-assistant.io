@@ -92,7 +92,7 @@ secondary_info:
   required: false
   description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `area`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
   type: string
-format:
+time_format:
   required: false
   description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
   type: [string, map]
@@ -158,7 +158,7 @@ icon:
   required: false
   description: Icon to use. Defaults to icon of entity.
   type: string
-format:
+time_format:
   required: false
   description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
   type: [string, map]
