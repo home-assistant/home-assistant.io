@@ -12,8 +12,6 @@ The **Media player is on** condition passes when the selected media player is tu
 
 Use **Media player is on** to send follow-up commands only to active devices, to decide whether a room is in use, or to guard actions that only make sense when a TV, speaker, or receiver is already on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is on** in an automation:
