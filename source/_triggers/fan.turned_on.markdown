@@ -9,8 +9,6 @@ related_triggers:
 
 The **Fan turned on** trigger is useful when you want something else to happen as soon as a fan starts running. Use it to send a reminder, start a related device, or begin a timed routine after a fan has been on for a while.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
