@@ -28,7 +28,7 @@ ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The **Synology DSM** {% term integration %} provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_), as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance) and will allow to use the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as a {% term backup %} location.
+The **Synology DSM** {% term integration %} provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_), as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance) and will allow you to use the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as a {% term backup %} location.
 
 {% include integrations/config_flow.md %}
 
@@ -50,7 +50,7 @@ When SSDP is activated on a NAS with two or more NICs with different IP addresse
 You must grant the user administrator rights, as the basic functions of this integration require them due to the structure of the Synology DSM API.
 {% endnote %}
 
-When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
+When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to log in to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
 If you want to add cameras from [Surveillance Station](https://www.synology.com/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/surveillance).
 
@@ -60,15 +60,15 @@ If you want to use a shared folder from the [File Station](https://www.synology.
 
 If you have the "Enforce 2-step verification for the following users" option checked under **Control Panel > Security > Account > 2-Factor Authentication**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant.
 
-Make sure to log out of your "normal" user's account and then login with the separate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen.
+Make sure to log out of your "normal" user's account and then log in with the separate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen.
 
 {% note %}
-If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to login with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
+If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to log in with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
 {% endnote %}
 
 ## Backup location
 
-The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant (_this requires DSM 6.0 and higher_). For this you need to setup the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards, you will be able to select the shared folder and define a relative path to be used as a backup location in the integration options ({% my integrations title="**Settings** > **Devices & services**" %} > **Synology DSM** > _select the instance_ > **Configure**)
+The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant (_this requires DSM 6.0 and higher_). For this you need to set up the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards, you will be able to select the shared folder and define a relative path to be used as a backup location in the integration options ({% my integrations title="**Settings** > **Devices & services**" %} > **Synology DSM** > _select the instance_ > **Configure**)
 
 {% important %}
 
@@ -135,7 +135,7 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 Entity reporting the security status of the NAS.
 
 {% note %}
-The security status corresponds with the analysis of the DSM Security Advisor, e.g., an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
+The security status corresponds with the analysis of the DSM Security Advisor. For example, an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
 {% endnote %}
 
 ### Disk sensors
@@ -200,4 +200,4 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 {% include integrations/remove_device_service.md %}
 
-If you don't use the separate created user anymore (_see [Separate User Configuration](#separate-user-configuration) above_), then remove it from the NAS under to **Control Panel** > **User & Group** > **User**. Don't forget to backup any data from the users home directory, if you want to keep them (_eq. Home Assistant backups_)
+If you don't use the separate created user anymore (_see [Separate User Configuration](#separate-user-configuration) above_), then remove it from the NAS under **Control Panel** > **User & Group** > **User**. Don't forget to back up any data from the user's home directory, if you want to keep it (_for example, Home Assistant backups_).

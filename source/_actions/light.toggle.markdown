@@ -27,7 +27,7 @@ To toggle a light from an automation or a script:
     - To toggle every light in a room, select an area.
     - To toggle every light on a floor, select a floor.
     - To toggle lights sharing a tag, select a label.
-7. _Optional_: under **Advanced options**, set the brightness, color, color temperature, or transition that should apply when the light turns on.
+7. _Optional_: under **Additional options**, set the brightness, color, color temperature, or transition that should apply when the light turns on.
 8. Select **Save**.
 
 ### Options in the UI

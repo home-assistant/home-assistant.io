@@ -300,7 +300,7 @@ A read-only property which has states is represented as a sensor platform.
 
 ### Notification, error event
 
-> - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
+> - Guide: [Automating on event](/integrations/event/#automating-on-a-button-press)
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
 

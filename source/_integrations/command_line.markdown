@@ -27,6 +27,8 @@ ha_quality_scale: legacy
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
 
+This is a YAML-only integration, so you set it up in your {% term "`configuration.yaml`" %} file. After you add or change its configuration, restart Home Assistant to apply the changes. Once the integration is loaded, you can use the [`command_line.reload`](#action-reload) action to pick up later changes to your entities without restarting.
+
 {% tip %}
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
 {% endtip %}

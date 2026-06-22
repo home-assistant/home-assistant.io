@@ -31,6 +31,10 @@ This integration uses data from the [Grand Lyon open data platform](https://data
 
 You need an account on [data.grandlyon.com](https://data.grandlyon.com/). Sign up for a free account if you don't have one. You can find more information about how to properly create an account and set a password [in their documentation](https://rdata-grandlyon.readthedocs.io/fr/latest/authentification.html) (fr).
 
+{% note %}
+Some users have reported issues with passwords containing special characters. If you have issues authenticating, try changing your password to remove them.
+{% endnote %}
+
 If you want to monitor transit stops, you also need to request access to the [realtime next departures dataset](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info). This is not required for Vélo'v stations.
 
 {% include integrations/config_flow.md %}
@@ -62,11 +66,11 @@ Line:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
 2. Select **Add Vélo'v station**.
-3. Enter the following information:
+3. Select the station you want to monitor. You can filter the list by station name, address or city, or enter a station ID directly. Address and city aren't always available.
 
 {% configuration_basic %}
-Station ID:
-  description: "The Vélo'v station identifier. You can find station IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees). Zoom on the map and click on a station. The ID will be displayed on the panel on the right, at the top. The field is called `idstation`."
+Station:
+  description: "The Vélo'v station identifier. You can find station IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees). Zoom in on the map and select a station. The ID will be displayed at the top of the panel displayed on the right of the screen. The field is called **idstation**."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -92,7 +96,7 @@ For each transit stop you add, the following sensor entities are created:
   - **Description**: The departure time of the second vehicle at this stop.
 
 - **Next departure 2 direction**
-  - **Description**: The direction (destination) of the second vehicle at this stop.  Disabled by default.
+  - **Description**: The direction (destination) of the second vehicle at this stop. Disabled by default.
 
 - **Next departure 2 type**
   - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.

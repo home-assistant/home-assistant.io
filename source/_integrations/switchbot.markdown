@@ -48,7 +48,7 @@ ha_integration_type: device
 ha_quality_scale: gold
 ---
 
-The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
+The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, and hubs.
 
 ## How you can use this integration
 
@@ -56,7 +56,7 @@ The SwitchBot integration lets you do many things, such as switching devices on 
 
 ## Prerequisites
 
-In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
+To use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
 
 If you have multiple devices of the same type, you need to get the BTLE MAC address of your device to tell your devices apart. You can find the address for your device using the following steps:
 
@@ -65,7 +65,7 @@ If you have multiple devices of the same type, you need to get the BTLE MAC addr
 3. Click on "Device Info".
 4. Write down the BTLE MAC address of your device.
 
-Please note, device names configured in the SwitchBot app are not transferred into Home Assistant.
+Device names configured in the SwitchBot app are not transferred into Home Assistant.
 
 Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
 
@@ -107,7 +107,7 @@ Password:
 {% endconfiguration_basic %}
 
 {% important %}
-This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
+This integration doesn't support SSO accounts (such as Login with Google) only username and password accounts.
 {% endimportant %}
 
 #### Enter the lock encryption key manually
@@ -260,7 +260,7 @@ Switch entities are added for Bot, Plug Mini, and Relay Switch.
 
 #### Bot
 
-Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password in order to add it to the integrations.
+Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password to add it to the integrations.
 
 Features:
 
@@ -569,16 +569,7 @@ Features:
 - get tamper alarm
 - get doorbell event
 
-Actions:
-- add_password
-
-Examples:
-```yaml
-action: switchbot.add_password
-data:
-  device_id: c2d01328efd261f586e56d914e3af07e
-  password: 123456
-```
+This device supports the [Add password](/actions/switchbot.add_password/) action.
 
 ### Lights
 
@@ -901,10 +892,11 @@ Features:
 - next image
 - previous image
 
+{% include integrations/actions.md %}
 
 ## Data updates
 
-SwitchBot devices utilize a [​​local push](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers)​​ strategy to maintain real-time status updates. When devices detect state changes, they actively push updates to Home Assistant for immediate synchronization. For user-initiated actions through Home Assistant (for example, when turning a device on/off), the integration performs an additional proactive status fetch to ensure instant confirmation of the new state.
+SwitchBot devices use a [​​local push](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers)​​ strategy to maintain real-time status updates. When devices detect state changes, they actively push updates to Home Assistant for immediate synchronization. For user-initiated actions through Home Assistant (for example, when turning a device on/off), the integration performs an additional proactive status fetch to ensure instant confirmation of the new state.
 The integration connects locally to the devices without going via the SwitchBot Cloud.
 
 ## Known limitations

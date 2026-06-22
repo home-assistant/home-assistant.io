@@ -124,7 +124,7 @@ If module scanning fails or a module is unavailable on the bus, you can manually
 To delete a single device, select the trash can icon next to it.
 - **Result**: This will remove the device from the device list and from Home Assistant, including any associated entities.
 
-To delete multiple devices at once, enable selection mode.  Select the desired entries, then, in the top-right corner, select  **Delete Selected**.
+To delete multiple devices at once, enable selection mode. Select the desired entries, then, in the top-right corner, select  **Delete Selected**.
 
 ### Configuring entities
 
@@ -446,7 +446,7 @@ For an explanation of the attributes refer to the corresponding [events](#events
 
 ## Actions
 
-In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
+To directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
 Refer to the [Performing actions](/docs/scripts/service-calls) page for examples on how to use them.
 
 When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant.
