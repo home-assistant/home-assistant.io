@@ -12,8 +12,6 @@ The **Media player started playing** trigger fires when a media player starts pl
 
 Use **Media player started playing** to dim lights, close blinds, or start another device that should run while audio or video is playing.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Media player started playing** in an automation:

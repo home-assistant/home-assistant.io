@@ -9,8 +9,6 @@ related_triggers:
 
 The **Lock unlocked** trigger helps you react when a lock reaches the unlocked state. Use it when you want Home Assistant to welcome someone home, keep track of entry events, or adjust security devices after a door is no longer locked.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
