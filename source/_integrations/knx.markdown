@@ -150,8 +150,10 @@ State updater:
   description: "Sets the default behavior for periodically reading state addresses from the KNX Bus."
 Rate limit:
   description: "Maximum outgoing telegrams per second. `0` to disable limit - which is recommended."
-Telegram history limit:
-  description: "Number of Telegrams to keep in memory for the KNX panels group monitor."
+Group monitor history:
+  description: "Hours of telegram history to load when you open the group monitor."
+Retention period:
+  description: "Days to keep telegram history. Older telegrams are automatically deleted during the nightly cleanup. Set this to `0` to delete all telegram history every night."
 {% endconfiguration_basic %}
 
 ## Basic configuration
