@@ -160,11 +160,13 @@ Reboot the NAS.
 
 Shutdown the NAS.
 
-## Select entities
+## Selects
 
 ### Fan speed mode
 
-If your NAS supports it, you can control the system fan speed mode using the **Fan speed mode** select entity. Available modes are **Quiet mode**, **Cool mode**, and **Full-speed mode**.
+- **Fan speed mode**
+  - **Description**: The mode of the system fan speed, if your NAS supports it.
+  - **Options**: Quiet mode, Cool mode, Full-speed mode.
 
 ## Media source
 
