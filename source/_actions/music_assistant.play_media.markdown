@@ -39,7 +39,7 @@ Enqueue:
 Enable radio mode:
   description: Turns on radio mode to auto-generate a playlist based on the selection.
 Username:
-  description: Use this user to adjust the playlog entry. If the specified user has provider filtering configured, the media item selection will be made accordingly (e.g. has an effect ont the progress of an audiobook).
+  description: Use this Music Assistant user to adjust the playlog entry. If the specified user has provider filtering configured, the media item selection will be made accordingly. For example, this has an effect on the resume point retrieval of an audiobook.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -84,7 +84,7 @@ radio_mode:
   type: boolean
   default: false
 username:
-  description: Use this user for playlog entry. If provider filtering is used, the media item will be selected accordingly.
+  description: Use this Music Assistant user to adjust the playlog entry. If provider filtering is used, the media item will be selected accordingly.
   required: false
   type: string
 {% endoptions_yaml %}
