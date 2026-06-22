@@ -315,7 +315,7 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 - [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
 - [Fan](https://developers.google.com/nest/device-access/traits/device/fan)
 
-If your thermostat supports a fan timer, the Fan trait exposes a timestamp sensor showing when the fan will turn off. This value represents a specific date and time rather than a countdown or remaining duration. The sensor state is `unknown` when the fan timer is inactive.
+If your thermostat supports a fan timer, Home Assistant adds a timestamp sensor based on the Fan trait that shows when the fan will turn off. This value represents a specific date and time rather than a countdown or remaining duration. The sensor state is `unknown` when the fan timer is inactive.
 
 Given a thermostat named `Upstairs`, sensors are created with names such as `sensor.upstairs_temperature`, `sensor.upstairs_humidity`, or `sensor.upstairs_fan_timer_timeout` (if supported).
 
