@@ -47,7 +47,7 @@ Each zone controlled by your Genius Hub will be exposed as either a:
 
 **Group** zones are not supported.
 
-Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
+Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that use schedules.
 
 There are limitations due to the differences between the Genius Hub and Home Assistant schemas (for example, Home Assistant has no **Footprint** mode) - use the actions below, for this functionality.
 
@@ -96,7 +96,7 @@ Such entities will report back their primary state and `assigned_zone`. If the H
 
 There are three `Sensor` entities that will indicate the number of **Errors**, **Warnings** and **Information** issues.
 
-Each such entity has a state attribute that will contain a list of any such issues which can be used in automations, etc. For example:
+Each such entity has a state attribute that will contain a list of any such issues which can be used in automations and so on. For example:
 
 ```yaml
 - alias: "GeniusHub Error Alerts"
@@ -113,7 +113,7 @@ Each such entity has a state attribute that will contain a list of any such issu
           {{ state_attr('sensor.geniushub_errors', 'error_list') }}
 ```
 
-This alert may be useful to see if the CH is being turned on whilst you're on a holiday!
+This alert may be useful to see if the CH is being turned on while you're on a holiday!
 
 ```yaml
 - alias: "GeniusHub CH State Change Alert"
@@ -161,7 +161,7 @@ Many zone/device properties are available via the corresponding entity's state a
 }
 ```
 
-This data can be accessed in automations, etc. via a value template. For example:
+This data can be accessed in automations and so on via a value template. For example:
 
 ```yaml
 value_template: "{{ state_attr('water_heater.genius_zone_2', 'status').override.setpoint }}"

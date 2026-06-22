@@ -75,7 +75,7 @@ The **Huum** integration provides the following entities.
 ### Numbers
 
 - **Humidity**
-  - **Description**: Controls the steamer duty cycle (0–10) to adjust the sauna humidity level.
+  - **Description**: Controls the steamer to adjust the sauna humidity level (0-40%).
   - **Remarks**: Only available if the sauna controller is configured with a steamer or a steamer and light combination. The humidity level can only be changed while the sauna is actively heating.
 
 ### Sensors

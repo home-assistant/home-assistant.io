@@ -960,6 +960,10 @@ a.material-card:hover {
   .recent-posts {
     .blog-date {
       white-space: nowrap;
+
+      .shared-from {
+        white-space: normal;
+      }
     }
 
     ol {

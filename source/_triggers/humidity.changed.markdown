@@ -17,36 +17,16 @@ Use **Relative humidity changed** to log humidity trends, trigger a fan when the
 
 {% include triggers/ui_header.md %}
 
-To use **Relative humidity changed** in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidity sensor is in (like your bathroom or bedroom). You can also select a device, a specific entity, or a label. When you target multiple entities (via area, label, or multiple entity selections), the trigger fires whenever any of them changes.
-5. From the triggers shown for that target, select **Relative humidity changed**.
-6. Under **Threshold type**, configure what kind of change fires the trigger:
-   - Select **Any change** to fire on any change, regardless of direction or new value.
-   - Select **Above** or **Below** and enter a value to fire only when the new reading is above or below that value.
-   - Select **In range** and enter a lower and upper bound to fire only when the new reading falls inside the range.
-   - Select **Outside range** and enter a lower and upper bound to fire only when the new reading is outside the range.
-   - For each option, you can enter a fixed percentage (0-100%), pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
-     - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Select **Save**.
+{% include triggers/threshold_changed_steps.md
+   title="Relative humidity changed"
+   sensor="humidity sensor"
+   areas="bathroom or bedroom"
+   unit_phrase_ui="a fixed percentage (0–100%)" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: |
-    Controls which changes fire the trigger:
-
-    - **Any change**: fires on any change, regardless of direction or new value.
-    - **Above** or **Below** (exclusive): fires only when the new reading is strictly above or below the threshold. A reading equal to the threshold does not fire the trigger.
-    - **In range** (exclusive): fires only when the new reading is strictly between the two bounds. A reading equal to either bound does not fire the trigger.
-    - **Outside range** (inclusive): fires when the new reading is at or below the lower bound, or at or above the upper bound. A reading equal to either bound fires the trigger.
-
-    For each mode you can enter a fixed percentage (0–100%) or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
-{% endoptions_ui %}
+{% include triggers/threshold_changed_options_ui.md
+   unit_phrase_ui="a fixed percentage (0–100%)" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -138,19 +118,8 @@ This fires whenever any humidity sensor in the basement area changes to a value 
 
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
-{% options_yaml %}
-threshold:
-  description: |
-    A mapping that defines which kind of change fires the trigger:
-
-    - `type: any`: Fires on any humidity change (no additional keys needed).
-    - `type: above` (exclusive): Sets a minimum. Fires when the reading is strictly above `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: below` (exclusive): Sets a maximum. Fires when the reading is strictly below `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the reading is strictly between `value_min` and `value_max`. Readings equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading is at or below `value_min`, or at or above `value_max`. Readings equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-  required: true
-  type: map
-{% endoptions_yaml %}
+{% include triggers/threshold_changed_options_yaml.md
+   unit_phrase_yaml="literal percentage 0–100" %}
 
 {% include triggers/targets.md %}
 

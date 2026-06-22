@@ -11,6 +11,8 @@ related_conditions:
 
 The **Battery is not low** condition passes when a battery-powered device is not reporting a low battery. Many devices, like door sensors, smoke detectors, and remote controls, expose a dedicated low-battery indicator that flips on once the charge drops past the manufacturer's threshold. Use **Battery is not low** to confirm a device still has enough power before running an automation, for example to only start a scheduled test when every sensor is in good shape.
 
+For a visual overview of all battery statuses, open the {% my maintenance title="**Maintenance** dashboard" %}.
+
 {% include integrations/labs_entity_triggers_note.md %}
 
 {% include conditions/ui_header.md %}

@@ -196,8 +196,8 @@ To get the alerts in a sensor with all the alert data, use the following, replac
       event: start
     - platform: event
       event_type: event_template_reloaded
-  action:
-    - service: environment_canada.get_alerts
+  actions:
+    - action: environment_canada.get_alerts
       data:
         config_entry_id: "CONFIG_ENTRY_ID"
       response_variable: alerts
@@ -209,29 +209,4 @@ To get the alerts in a sensor with all the alert data, use the following, replac
         alerts: "{{ alerts }}"
 ```
 
-## Actions
-
-### Action: Get alerts
-
-The `environment_canada.get_alerts` action allows you to get the weather alert data from Environment Canada. For each of the alert categories (warnings, watches, advisories, statements, and endings) a list of alerts is provided.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `config_entry_id` | no | Weather service to get alerts for. |
-
-### Action: Get forecasts
-
-The `environment_canada.get_forecasts` action allows you to get the raw forecast data from Environment Canada. It returns both the `daily_forecast` and the `hourly_forecast` data.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Weather entity to get forecast for. |
-
-### Action: Set radar type
-
-The `environment_canada.set_radar_type` action allows you to set the type of radar to retrieve for the camera.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Camera to set the radar type for. |
-| `radar_type` | no | One of "Auto", "Rain", or "Snow". |
+{% include integrations/actions.md %}

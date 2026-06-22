@@ -318,7 +318,7 @@ Dump the configuration of the Homematic IP Access Point(s).
 actions:
   - action: homematicip_cloud.dump_hap_config
     data:
-      anonymize: True
+      anonymize: true
 ```
 
 Reset energy counter of measuring actuators.
@@ -338,7 +338,7 @@ Enable (or disable) Cooling mode for the entire home. Disabling Cooling mode wil
 actions:
   - action: homematicip_cloud.set_home_cooling_mode
     data:
-      cooling: True
+      cooling: true
       accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
 

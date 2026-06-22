@@ -1,6 +1,6 @@
 ---
 title: Lock
-description: Instructions on how to setup your locks with Home Assistant.
+description: Instructions on how to set up your locks with Home Assistant.
 ha_category:
   - Lock
 ha_release: 0.9
@@ -38,6 +38,8 @@ A lock entity can have the following states:
 
 The real power of the **Lock** integration is using your locks in automations.
 Here are a few ideas to get you started.
+
+{% include integrations/labs_entity_triggers_note.md %}
 
 {% include docs/paste_yaml_tip.md %}
 

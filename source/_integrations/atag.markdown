@@ -1,6 +1,6 @@
 ---
 title: Atag
-description: Instructions on how to setup Atag integration.
+description: Instructions on how to set up Atag integration.
 ha_category:
   - Climate
   - Sensor
@@ -46,11 +46,11 @@ The `Atag` climate platform provides current and target temperature information 
 
 This integration supports the following actions (see [Climate](/integrations/climate/)).
 
-- [`set_temperature`](/integrations/climate/#action-climateset_temperature)
-- [`set_hvac_mode`](/integrations/climate/#action-climateset_hvac_mode)
+- [`set_temperature`](/integrations/climate/#action-set-temperature)
+- [`set_hvac_mode`](/integrations/climate/#action-set-hvac-mode)
   - `heat` for thermostat mode
   - `auto` for weather-based mode
-- [`set_preset_mode`](/integrations/climate/#action-climateset_preset_mode)
+- [`set_preset_mode`](/integrations/climate/#action-set-preset-mode)
   - `Manual` enable manual operation
   - `Auto` enable schedule based operation
   - `Extend` delay the next scheduled temperature update by the default extend period

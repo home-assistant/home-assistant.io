@@ -88,57 +88,14 @@ If `restore` is set to `true`, the `initial` value is only used when no previous
 
 {% include integrations/conditions.md %}
 
-## Actions
-
-Available actions: `increment`, `decrement`, `reset`, and `set_value`.
-
-### Action: Increment
-
-The `counter.increment` action allows you to increment the counter with 1 or the given value for the steps.
-
-| Data attribute | Optional | Description                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
-
-### Action: Decrement
-
-The `counter.decrement` action allows you to decrement the counter with 1 or the given value for the steps.
-
-| Data attribute | Optional | Description                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
-
-### Action: Reset
-
-The `counter.reset` action allows you to reset the counter to its initial value.
-
-| Data attribute | Optional | Description                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
-
-### Action: Set value
-
-The `counter.set_value` action allows you to set the counter to a specific value.
-
-| Data attribute | Optional | Description                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, for example, `counter.my_custom_counter`. |
-| `value`                | yes      | Set the counter to the given value.                                   |
-
-### Use the action
-
-Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Choose **counter** from the list of **Domains**, select the **Actions**, enter something like the sample below into the **data** field, and select **Perform action**.
-
-```json
-{
-  "entity_id": "counter.my_custom_counter"
-}
-```
+{% include integrations/actions.md %}
 
 ## Counter automation examples
 
 If you use a counter {% term helper %} in automations, create the helper separately before using these examples.
 Here are a few ways to use counter triggers, conditions, and actions together.
+
+{% include integrations/labs_entity_triggers_note.md %}
 
 {% include docs/paste_yaml_tip.md %}
 
