@@ -82,7 +82,7 @@ Send a custom keypress sequence to the panel every night, for example to activat
 
 {% example %}
 automation: |
-  - alias: "Send the night command sequence"
+    alias: "Send the night command sequence"
     triggers:
       - trigger: time
         at: "23:00:00"

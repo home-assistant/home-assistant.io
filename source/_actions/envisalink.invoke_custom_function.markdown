@@ -7,7 +7,7 @@ related_actions:
   - envisalink.alarm_keypress
 ---
 
-Use this action to trigger a PGM output on a DSC alarm panel, for example to activate a relay or an auxiliary output wired to your panel.
+Use this action to trigger a PGM (Programmable) output on a DSC alarm panel, for example to activate a relay or an auxiliary output wired to your panel.
 
 {% include actions/ui_header.md %}
 
@@ -83,7 +83,7 @@ Trigger a PGM output to activate an auxiliary output wired to your panel, for ex
 
 {% example %}
 automation: |
-  - alias: "Open the gate with a PGM output"
+    alias: "Open the gate with a PGM output"
     triggers:
       - trigger: state
         entity_id: input_boolean.gate_button
