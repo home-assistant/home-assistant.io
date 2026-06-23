@@ -1,11 +1,11 @@
 ---
-name: migrate-integration-docs
-description: Migrate Home Assistant integration docs to split-page format.
+name: document-integration-docs
+description: Document Home Assistant integrations in the current split-page format.
 ---
 
-Usage: `/migrate-integration-docs <domain> [epic-or-issue]`
+Usage: `/document-integration-docs <domain> [epic-or-issue]`
 
-Migrate `./source/_integrations/<domain>.markdown` to the current Home Assistant split-page documentation format.
+Document the `<domain>` integration in the current Home Assistant split-page documentation format. Use an existing `./source/_integrations/<domain>.markdown` page when present. If it does not exist, create it from the current integration documentation template.
 
 Keep the main context small.
 Use sub-agents for discovery and review.
@@ -17,9 +17,9 @@ Follow its structure closely unless Core implementation makes a specific section
 
 ## Stage 1: inventory with a sub-agent
 
-Launch a sub-agent to inspect:
+Launch a sub-agent to inspect what exists:
 
-- `./source/_integrations/<domain>.markdown`
+- `./source/_integrations/<domain>.markdown`, if present
 - If you have Home Assistant Core and Frontend checked out, inspect:
   - `../core/homeassistant/components/<domain>/conditions.yaml`
   - `../core/homeassistant/components/<domain>/services.yaml`
@@ -63,6 +63,10 @@ Categories not implemented:
 Existing split pages:
 - ...
 
+Existing integration page:
+- present: <yes/no>
+- useful existing content: <short summary or none>
+
 UI wording:
 - trigger behavior labels: ...
 - condition behavior labels: ...
@@ -85,6 +89,7 @@ Rules for Stage 1:
 - Verify behavior labels from frontend strings.
 - If actions exist, capture the current UI action label forms once in Stage 1 and reuse them later instead of doing extra lookups during writing.
 - Keep the output short and factual.
+- If the integration page does not exist yet, say so and continue from Core and the current templates.
 - Note any mismatch between existing split pages and the current developer examples template.
 
 ## Stage 2: template and style extraction with a sub-agent
@@ -96,7 +101,7 @@ Launch a sub-agent to inspect:
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/general-style-guide.md`
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md`
 - relevant include snippets under `./source/_includes`
-- 2-4 existing files across triggers, conditions, and actions
+- 2-4 existing files across integrations, triggers, conditions, and actions
 
 The sub-agent must return only this:
 
@@ -136,7 +141,7 @@ The sub-agent must explicitly call out mandatory split-page sections and include
 
 Using only the distilled outputs from Stage 1 and Stage 2:
 
-1. Update `./source/_integrations/<domain>.markdown`.
+1. Create or update `./source/_integrations/<domain>.markdown`.
 2. Create or update one split page per trigger.
 3. Create or update one split page per condition.
 4. Create or update one split page per action.
