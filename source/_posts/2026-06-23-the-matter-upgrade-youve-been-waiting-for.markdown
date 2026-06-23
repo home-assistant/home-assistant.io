@@ -12,7 +12,7 @@ og_image: /images/blog/2026-06-the-matter-upgrade-youve-been-waiting-for/art.web
 
 <img src="/images/blog/2026-06-the-matter-upgrade-youve-been-waiting-for/art.webp" alt="The Matter upgrade you've been waiting for" style="border: 0;box-shadow: none;">
 
-It started as a passion project. Yet in a few years <a href="https://github.com/matter-js/matter.js" target="_blank" rel="noopener">matter.js</a> has grown beyond my wildest expectations, becoming the backbone of the open source Matter ecosystem, and powering everything from HomeBridge to openHAB, and even some commercial products.
+It started as a passion project. Yet in a few years <a href="https://github.com/matter-js/matter.js" target="_blank" rel="noopener">matter.js</a> has grown beyond my wildest expectations, becoming the backbone of the open source Matter ecosystem, and powering everything from Homebridge to openHAB, and even some commercial products.
 
 Ten months ago, I joined forces with the <a href="https://www.openhomefoundation.org/" target="_blank" rel="noopener">Open Home Foundation</a> to work full time as Lead Developer of Matter. Shortly after, I donated matter.js to the foundation – giving it a new home where it would be safeguarded for the future. Together we <a href="https://newsletter.openhomefoundation.org/giving-matter-js-a-new-home/" target="_blank" rel="noopener">announced our plans</a> to take Matter support in Home Assistant in a completely new direction: we set out to rebuild the [Open Home Foundation Matter Server](/blog/2025/03/10/matter-certification/) – the engine that powers Matter in Home Assistant – on matter.js.
 
@@ -28,7 +28,7 @@ Presenting the matter.js plans at the Connectivity Standards Alliance (CSA) Memb
 
 ## Serving up more with matter.js
 
-For those new to <a href="https://github.com/matter-js/matter.js" target="_blank" rel="noopener">matter.js</a>, it's an open source TypeScript implementation of the Matter standard. I built it to give developers and power users more speed and flexibility, and to make Matter better suited for open source development across the millions of homes that use Home Assistant. By running Matter in Home Assistant on <a href="https://matter.js" target="_blank" rel="noopener">matter.js</a>, all of those benefits now flow directly into the platform.
+For those new to <a href="https://github.com/matter-js/matter.js" target="_blank" rel="noopener">matter.js</a>, it's an open source TypeScript implementation of the Matter standard. I built it to give developers and power users more speed and flexibility, and to make Matter better suited for open source development across the millions of homes that use Home Assistant. By running Matter in Home Assistant on <a href="https://github.com/matter-js/matter.js" target="_blank" rel="noopener">matter.js</a>, all of those benefits now flow directly into the platform.
 
 This major update brings greater stability for Matter in Home Assistant, fewer bugs, and faster start-up and recovery. It also comes with a brand new visualization feature to help you understand your network (more on that below 👀). And by upgrading to the <a href="https://csa-iot.org/newsroom/matter-1-5-1-enhancing-camera-performance-and-expanding-device-flexibility/" target="_blank" rel="noopener">Matter 1.5.1 specification</a> (<a href="https://github.com/matter-js/matter.js/pull/3941" target="_blank" rel="noopener">1.6 coming soon!</a>), we're better equipped to improve support for all new Matter device types, such as cameras, doorbells, and closures.
 
