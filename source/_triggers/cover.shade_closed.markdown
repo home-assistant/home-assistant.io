@@ -11,8 +11,6 @@ The **Shade closed** trigger fires when a targeted shade changes to closed. Use 
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a shade closes.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
