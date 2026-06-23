@@ -11,8 +11,6 @@ The **PM2.5 level crossed threshold** trigger fires when the PM2.5 (particulate 
 
 Have your air purifier start the second PM2.5 crosses the safe limit, or close your windows automatically when wildfire smoke pushes outdoor readings into unhealthy territory. You also get a notification on your phone so you always know what is happening, whether you are at home or away. This trigger helps your home react to air quality changes faster than you ever could on your own.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

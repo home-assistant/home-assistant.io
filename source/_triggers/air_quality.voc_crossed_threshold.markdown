@@ -11,8 +11,6 @@ The **Volatile organic compounds level crossed threshold** trigger fires when th
 
 With this trigger, your ventilation starts automatically the moment VOC readings cross your chosen limit, whether that spike comes from mopping the floor or painting a room. You also get a notification on your phone right away, so you know exactly when to step outside for fresh air. Your home takes care of indoor air quality in the background, so you do not have to keep checking a sensor yourself.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
