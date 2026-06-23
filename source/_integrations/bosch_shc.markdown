@@ -50,14 +50,17 @@ The cover platform allows you to control your covers. Cover devices are added fo
 
 ### Light
 
-The light platform allows you to control your lights. Light devices are added for each of the following devices:
+The light platform lets you control your lights. Light entities are created for the following devices:
 
-- Hue lights connected to the controller
+- Philips Hue lights connected to the Bosch Smart Home Controller
 - LEDVANCE / Inspana lights
 - Micromodule dimmers
+- Micromodule light-attached devices (on/off)
 - Light switches (on/off)
 
-Brightness, color temperature, and color are supported where the device supports them.
+Brightness, color temperature, and color are available depending on the device's capabilities.
+
+Light switches are also exposed under the switch platform, so you may see both a light entity and a switch entity for the same device.
 
 ### Sensor
 
