@@ -154,7 +154,7 @@ In addition to sensors, you can use the following entities:
 - **Button** - Execute Alexa routines
 - **Media Player** - Play audio/video from several sources
 - **Notify** - Speak and Announce notifications
-- **Select** - Select default device
+- **Select** - Select Drop In status
 - **Switch** - Do not disturb
 - **To-do list** - Shopping, to-do, and custom lists.
 
