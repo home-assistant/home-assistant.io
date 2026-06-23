@@ -22,6 +22,22 @@ When setting this up be aware, that there are two apps: one for your smartphone 
 
 {% include integrations/config_flow.md %}
 
+## Notifiers
+
+The **Notifications for Android TV / Fire TV** {% term integration %} will add a notify {% term entity %} for your configured TV. To send a notification, you can use the `notify.send_message` {% term action %}. For further instructions on using the notifiers in automations, please see the [getting started with automation page](/getting-started/automation/).
+
+{% details "Example YAML configuration" %}
+
+```yaml
+action: notify.send_message
+data:
+  title: "Just a reminder"
+  message: "You are awesome!"
+  entity_id: notify.my_tv
+```
+
+{% enddetails %}
+
 ## Actions
 
 ### Action: Notify
