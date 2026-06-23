@@ -46,12 +46,12 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 
 ### Climate
 
-The climate platform allows you to control your room climate and heating circuits. Climate devices are added for each of the following devices:
+The climate platform lets you control room climate controls and heating circuits. Climate entities are created for the following devices:
 
-- Room climate control (Thermostat, Wall Thermostat, Room Thermostat II)
-- Heating Circuit
+- Room climate controls (Thermostat, Wall Thermostat, and Room Thermostat II)
+- Heating circuits
 
-For a room climate control, the operating mode is reflected as the HVAC mode (heat, and cool if the room supports cooling) and the regulation mode (automatic, manual, eco, boost) as the preset. For a heating circuit, the target temperature and automatic/heat modes are exposed.
+For a room climate control, the operating mode maps to the HVAC mode (heat, plus cool when the room supports cooling). The regulation mode maps to the preset (auto, manual, eco, or boost). For a heating circuit, the target temperature and the auto and heat HVAC modes are available.
 
 ### Cover
 
