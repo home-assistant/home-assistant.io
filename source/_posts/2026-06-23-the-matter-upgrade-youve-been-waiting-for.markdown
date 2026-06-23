@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Matter upgrade you've been waiting for"
+title: "The Matter upgrade you’ve been waiting for"
 description: "Matter support in Home Assistant just got faster, more stable, and more capable than ever 🎉. See what's changed and why it's a big deal for your smart home."
 date: 2026-06-23 00:00:00
 date_formatted: "June 23, 2026"
