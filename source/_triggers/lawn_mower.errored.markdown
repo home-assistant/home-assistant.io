@@ -2,7 +2,7 @@
 title: "Lawn mower encountered an error"
 trigger: lawn_mower.errored
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers encounter an error."
+description: "Triggers when one or more lawn mowers encounter an error."
 ---
 
 The **Lawn mower encountered an error** trigger fires when a mower reports a problem while it is working.

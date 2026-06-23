@@ -2,7 +2,7 @@
 title: "Water heater target temperature changed"
 trigger: water_heater.target_temperature_changed
 domain: water_heater
-description: "Triggers after the temperature setpoint of one or more water heaters changes."
+description: "Triggers when the temperature setpoint of one or more water heaters changes."
 related_triggers:
   - water_heater.target_temperature_crossed_threshold
   - water_heater.operation_mode_changed

@@ -2,7 +2,7 @@
 title: "Zone occupancy is not detected"
 condition: zone.occupancy_is_not_detected
 domain: zone
-description: "Tests if a zone is empty."
+description: "Tests if one or more zones are unoccupied."
 related_conditions:
   - zone.occupancy_is_detected
   - zone.not_in_zone

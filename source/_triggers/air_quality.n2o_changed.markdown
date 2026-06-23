@@ -2,7 +2,7 @@
 title: "Nitrous oxide level changed"
 trigger: air_quality.n2o_changed
 domain: air_quality
-description: "Triggers after one or more nitrous oxide levels change."
+description: "Triggers when one or more nitrous oxide levels change."
 related_triggers:
   - air_quality.n2o_crossed_threshold
 ---

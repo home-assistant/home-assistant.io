@@ -2,7 +2,7 @@
 title: "Lock opened"
 trigger: lock.opened
 domain: lock
-description: "Triggers after one or more locks open."
+description: "Triggers when one or more locks open."
 related_triggers:
   - lock.locked
 ---

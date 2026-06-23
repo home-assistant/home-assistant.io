@@ -2,7 +2,7 @@
 title: "Thermostat target temperature crossed threshold"
 trigger: climate.target_temperature_crossed_threshold
 domain: climate
-description: "Triggers after the temperature setpoint of one or more thermostats crosses a threshold."
+description: "Triggers when the temperature setpoint of one or more thermostats crosses a threshold."
 related_triggers:
   - climate.target_temperature_changed
   - climate.target_humidity_crossed_threshold

@@ -2,7 +2,7 @@
 title: "Relative humidity"
 condition: humidity.is_value
 domain: humidity
-description: "Tests if a relative humidity value is above a threshold, below a threshold, or in a range of values."
+description: "Tests the relative humidity of one or more entities."
 ---
 
 The **Relative humidity** condition passes when a humidity reading meets a threshold you define. You can check that humidity is above, below, or within a specific range. The condition works with humidity sensors, climate devices, humidifiers, and weather entities. Use it to run an automation only when the bedroom feels too damp, or only when the air is dry enough to need attention.

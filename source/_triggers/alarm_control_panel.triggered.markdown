@@ -2,7 +2,7 @@
 title: "Alarm triggered"
 trigger: alarm_control_panel.triggered
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become triggered."
+description: "Triggers when one or more alarms become triggered."
 related_triggers:
   - alarm_control_panel.disarmed
   - alarm_control_panel.armed

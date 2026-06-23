@@ -2,7 +2,7 @@
 title: "Vacuum started cleaning"
 trigger: vacuum.started_cleaning
 domain: vacuum
-description: "Triggers when a vacuum cleaner begins a cleaning task."
+description: "Triggers when one or more vacuum cleaners start cleaning."
 related_triggers:
   - vacuum.paused_cleaning
   - vacuum.docked

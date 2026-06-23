@@ -2,7 +2,7 @@
 title: "Alarm armed night"
 trigger: alarm_control_panel.armed_night
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in night mode."
+description: "Triggers when one or more alarms become armed in night mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed

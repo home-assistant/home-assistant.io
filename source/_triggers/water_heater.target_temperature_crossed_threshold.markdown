@@ -2,7 +2,7 @@
 title: "Water heater target temperature crossed threshold"
 trigger: water_heater.target_temperature_crossed_threshold
 domain: water_heater
-description: "Triggers after the temperature setpoint of one or more water heaters crosses a threshold."
+description: "Triggers when the temperature setpoint of one or more water heaters crosses a threshold."
 related_triggers:
   - water_heater.target_temperature_changed
   - water_heater.operation_mode_changed
