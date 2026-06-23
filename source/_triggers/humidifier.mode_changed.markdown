@@ -12,8 +12,6 @@ The **Humidifier mode changed** trigger fires after the operating mode of a humi
 
 You can optionally filter the trigger to fire only when the humidifier switches to a specific mode. Leave the mode option empty to fire on any mode change.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Humidifier mode changed** in an automation, follow these steps:
