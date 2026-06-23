@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Cover
   - Hub
+  - Light
   - Sensor
   - Switch
 ha_release: 2021.6
@@ -16,6 +17,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - cover
+  - light
   - sensor
   - switch
 ha_zeroconf: true
@@ -28,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
 - [Cover](#cover)
+- [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -44,6 +47,17 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Cover
 
 The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
+
+### Light
+
+The light platform allows you to control your lights. Light devices are added for each of the following devices:
+
+- Hue lights connected to the controller
+- LEDVANCE / Inspana lights
+- Micromodule dimmers
+- Light switches (on/off)
+
+Brightness, color temperature, and color are supported where the device supports them.
 
 ### Sensor
 
