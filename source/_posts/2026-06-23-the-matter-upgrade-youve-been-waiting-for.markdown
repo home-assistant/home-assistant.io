@@ -83,4 +83,4 @@ This is especially helpful for Thread networks, where there can be multiple "hop
 
 Graduating Home Assistant to matter.js wouldn't have been possible without our community, who've helped grow Home Assistant into one of the biggest smart home platforms in the world.
 
-With these new changes, we're better placed than ever to make Matter in Home Assistant more approachable for all. Head to the <a href="https://github.com/orgs/OpenHomeFoundation/projects/8/views/9?filterQuery=main-project%3A%22Open+Protocols+%28Matter%2C+Z-Wave%2C+Zigbee%2C+etc%29%22" target="_blank" rel="noopener">Open Home Foundation roadmap</a> to add your voice to what comes next. We can't wait to keep building together ⚒️.
+With these new changes, we're better placed than ever to make Matter in Home Assistant more approachable for all. Head to the <a href="https://github.com/OpenHomeFoundation/roadmap" target="_blank" rel="noopener">Open Home Foundation roadmap</a> to add your voice to what comes next. We can't wait to keep building together ⚒️.
