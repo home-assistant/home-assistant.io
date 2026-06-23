@@ -33,7 +33,7 @@ which provides the possibility to pull HomeKit-enabled devices into Home Assista
 
 ## Manual configuration
 
-If you want make specific changes to the way entities are published to HomeKit, override the
+If you want to make specific changes to the way entities are published to HomeKit, override the
 IP address the HomeKit integration uses to communicate with your network or change the
 IP address the HomeKit uses to advertise itself to the network, then you will need to configure the
 HomeKit integration using an entry in your {% term "`configuration.yaml`" %} file.
@@ -74,7 +74,7 @@ homekit:
       switch.bedroom_outlet:
         type: outlet
       camera.back_porch:
-        support_audio: True
+        support_audio: true
       sensor.some_co_sensor:
         co_threshold: 1000
       sensor.some_co2_sensor:
@@ -357,17 +357,17 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (for example, **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
 ### Accessory mode
 
-When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv` or `receiver`) to HomeKit, `mode` must be set to `accessory`, and the relevant `include` filter should be setup to only include a single entity.
+When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv` or `receiver`) to HomeKit, `mode` must be set to `accessory`, and the relevant `include` filter should be set up to only include a single entity.
 
 To quickly add all accessory mode entities in the UI:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**).
+1. Create a new bridge via the UI (for example, **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**).
 2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
@@ -376,7 +376,7 @@ To quickly add all accessory mode entities in the UI:
 
 To add a single entity in accessory mode:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**)
+1. Create a new bridge via the UI (for example, **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
 4. Select the entity.
@@ -436,7 +436,7 @@ The following integrations are currently supported:
 | automation / button / input_boolean / input_button / lawn_mower / remote / scene / script / vacuum | Switch                 | All represented as switches.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | input_select / select                                         | Switch                 | Represented as a power strip with buttons for each option.                                                                                                                                                                                                                                                                                                                                                                                   |
 | binary_sensor                                                 | Sensor                 | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else.                                                                                                                                                                                                                                            |
-| camera                                                        | Camera                 | All camera devices. **HomeKit Secure Video is not supported at this time.**                                                                                                                                                                                                                                                                                                                                                                  |
+| camera                                                        | Camera                 | All camera devices. **HomeKit Secure Video is not supported.**                                                                                                                                                                                                                                                                                                                                                                  |
 | climate                                                       | Thermostat             | All climate devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | cover                                                         | GarageDoorOpener       | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`.                                                                                                                                                                                                                                                                                                                                              |
 | cover                                                         | WindowCovering         | All covers that support `set_cover_position`.                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -513,6 +513,8 @@ automation:
         message: "The garage door got opened via HomeKit"
 ```
 
+{% include integrations/actions.md %}
+
 ## Troubleshooting
 
 ### All or some devices are intermittently unresponsive
@@ -531,7 +533,7 @@ The following home hubs showed strong results when testing with 300 accessories:
 
 - Apple TV 4k Gen 1 (best results when using ethernet instead of Wi-Fi)
 
-The following home hubs have been reported to have trouble with a large number of accessories:
+The following home hubs have been reported to have trouble with many accessories:
 
 - Apple TV HD
 - Various iPad models
@@ -606,7 +608,7 @@ Please see the [Zero-configuration networking](/integrations/zeroconf/#troublesh
 
 Pairing eventually fails, you might see the error message, `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
   
-If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
+If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
 #### Pairing hangs - only works with debug configuration
 
@@ -691,7 +693,7 @@ HomeKit camera snapshots tie up the HomeKit connection during snapshots. To avoi
 
 #### Resetting accessories
 
-You may use the `homekit.reset_accessory` action with one or more entity IDs to reset accessories whose configuration may have changed. This can be useful when changing a media player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
+You may use the [Reset accessory](/actions/homekit.reset_accessory/) action with one or more entity IDs to reset accessories whose configuration may have changed. This can be useful when changing a media player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
 
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 
@@ -699,7 +701,7 @@ With either strategy, the accessory will behave as if it's the first time the ac
 
 #### Unpairing and Re-pairing
 
-The HomeKit integration remembers a public key for each paired device. Occasionally, the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` action will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
+The HomeKit integration remembers a public key for each paired device. Occasionally, the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The [Unpair an accessory or bridge](/actions/homekit.unpair/) action will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
 
 The accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
 

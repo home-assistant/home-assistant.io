@@ -1,6 +1,6 @@
 ---
 title: openSenseMap
-description: Instructions on how to setup openSenseMap sensors in Home Assistant.
+description: Instructions on how to set up openSenseMap sensors in Home Assistant.
 ha_category:
   - Health
   - Sensor
@@ -43,3 +43,9 @@ A sensor entity is created for each of the following measurements that the stati
 - **Illuminance** (lx)
 - **Wind speed**
 - **Wind direction** (°)
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

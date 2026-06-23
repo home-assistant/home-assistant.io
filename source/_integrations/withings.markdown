@@ -46,7 +46,7 @@ You must have a developer account to distribute the data.
    - **Application name**: [any name]
    - **Application description**: [any description]
    - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
-     - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
+     - Do not test this URL. It won't work at this stage. It will be set up once you install the integration in Home Assistant.
    - **Change logo**: Optional
 6. **Save** your changes.
    - Once saved, the *ClientID* and *Secret* fields will be populated.

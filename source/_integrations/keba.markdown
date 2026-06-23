@@ -1,6 +1,6 @@
 ---
 title: Keba Charging Station
-description: Instructions on how to setup your Keba charging station with Home Assistant.
+description: Instructions on how to set up your Keba charging station with Home Assistant.
 ha_category:
   - Binary sensor
   - Lock
@@ -23,7 +23,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **Keba Charging Station** {% term integration %} integrates your Keba P30/P20 charging station/BMW Wallbox into your Home Assistant instance using the UDP Smart Home Interface ([manual](https://www.ifix-solar.shop/wp-content/uploads/shop/Dokumente/KEBA/KeContact_P20_P30_UDP_ProgrGuide_en.pdf)). Keba P40 charging stations are not yet supported as they use a different protocol. The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app. In order to use the integration, enable the UDP Smart Home Interface by adjusting the DIP switches within the charging station according to the [installation manual](https://www.keba.com/file/downloads/e-mobility/KeContact_KCP20_30_ih_en.pdf).
+The **Keba Charging Station** {% term integration %} integrates your Keba P30/P20 charging station/BMW Wallbox into your Home Assistant instance using the UDP Smart Home Interface ([manual](https://www.ifix-solar.shop/wp-content/uploads/shop/Dokumente/KEBA/KeContact_P20_P30_UDP_ProgrGuide_en.pdf)). Keba P40 charging stations are not yet supported as they use a different protocol. The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app. To use the integration, enable the UDP Smart Home Interface by adjusting the DIP switches within the charging station according to the [installation manual](https://www.keba.com/file/downloads/e-mobility/KeContact_KCP20_30_ih_en.pdf).
 
 This {% term integration %} provides the following platforms:
 
@@ -136,7 +136,7 @@ The `keba.set_failsafe` action sets the failsafe mode of the charging station. P
 
 ## Notifications
 
-Some Keba chargers are equipped with a LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your {% term "`configuration.yaml`" %} file:
+Some Keba chargers are equipped with an LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your {% term "`configuration.yaml`" %} file:
 
 ### Configuration
 

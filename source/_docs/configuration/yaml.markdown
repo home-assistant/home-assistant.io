@@ -16,7 +16,7 @@ related:
     title: YAML Style Guide for Home Assistant developers
 ---
 
-Most things in Home Assistant can be set up directly from the user interface, and you never need to touch a YAML file. A small number of advanced features and a few integrations still require entries in [`configuration.yaml`](/docs/configuration/), and this page explains the bit of YAML syntax you need for those cases.
+Most things in Home Assistant can be set up directly from the user interface, and you never need to touch a YAML file. A small number of features and a few integrations still require entries in [`configuration.yaml`](/docs/configuration/), and this page explains the bit of YAML syntax you need for those cases.
 
 ## YAML style guide
 

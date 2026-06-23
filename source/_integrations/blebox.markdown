@@ -147,7 +147,7 @@ This integration adds the Blebox device as a climate entity to Home Assistant.
 
 ### thermoBox
 
-This integration adds the Blebox device as a climate entity to Home Assistant.
+This integration adds the Blebox device as a climate entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -205,7 +205,7 @@ This integration adds the Blebox device as a switch entity and 3 sensor entities
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 - Voltage measurement
 
 ### switchBox DIN
@@ -217,7 +217,7 @@ This integration adds the Blebox device as a switch entity and 3 sensor entities
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 - Voltage measurement
 
 ### switchBoxD
@@ -229,7 +229,7 @@ This integration adds the Blebox device as 2 switch entities and 3 sensor entiti
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 - Voltage measurement
 
 ### switchBoxD DIN
@@ -241,7 +241,7 @@ This integration adds the Blebox device as 2 switch entities and 3 sensor entiti
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 - Voltage measurement
 
 ### switchBoxDC
@@ -595,7 +595,7 @@ this ID like a password.
 {% note %}
 In order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
-general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
+general [documentation of automations with webhook triggers](/docs/automation/trigger/#webhook-trigger).
 {% endnote %}
 
 ### uRemote, sRemote, inBox via actionBox
@@ -666,21 +666,25 @@ This integration adds the Simon 24 GO device ("blebox inside") as a switch entit
 
 ### Simon 24 GO SWITCH (NEW1W.01)
 
-This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 24 GO SWITCH D (NEW2W.01)
 
-This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 24 GO SWITCH Q (NEW4W.01)
 
@@ -778,21 +782,25 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO SWITCH (DEW1WA.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 54 GO SWITCH D (DEW2W.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 54 GO SWITCH Q (DEW4W.01)
 
@@ -902,21 +910,25 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO SWITCH (TEW1W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCH D (TEW2W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCH Q (TEW4W.01)
 
@@ -974,7 +986,7 @@ This integration adds the Simon 55 GO device ("blebox inside") to Home Assistant
 
 ### Simon 55 GO THERMO (TETD2W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a climate entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 

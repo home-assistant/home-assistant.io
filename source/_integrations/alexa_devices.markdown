@@ -9,6 +9,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - To-do list
 ha_release: '2025.6'
 ha_domain: alexa_devices
 ha_config_flow: true
@@ -24,6 +25,7 @@ ha_platforms:
   - notify
   - sensor
   - switch
+  - todo
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -50,7 +52,7 @@ There is support for the following device families within Home Assistant:
 
 This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
-You must ensure the authenticator app is setup as your preferred method for 2FA.
+You must ensure the authenticator app is set up as your preferred method for 2FA.
 
 {% endwarning %}
 
@@ -85,7 +87,7 @@ When sending notifications to multiple devices, you may experience delays due to
 
 {% details "Advanced Message Markup" %}
 
-Amazon provide markup to control not only what is said but how it is said and to add additional option such as pausing and playing certain audio clips.  Details of this are covered in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html) where there are lots of examples (just pass everything between the `<speak>` and `</speak>` elements into the `message` parameter of the action).
+Amazon provide markup to control not only what is said but how it is said and to add additional option such as pausing and playing certain audio clips. Details of this are covered in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html) where there are lots of examples (just pass everything between the `<speak>` and `</speak>` elements into the `message` parameter of the action).
 
 Audio files must meet certain criteria on size, bit and sample rates and must be served over HTTPS (see [documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html#audio) for full details).  These restrictions make them fine for text and sound effects but you will not be able to play music this way.
 
@@ -154,6 +156,7 @@ In addition to sensors, you can use the following entities:
 - **Notify** - Speak and Announce notifications
 - **Select** - Select default device
 - **Switch** - Do not disturb
+- **To-do list** - Shopping, to-do, and custom lists.
 
 ## Examples
 
@@ -265,7 +268,7 @@ This integration {% term polling polls %} data from the device every five minute
 
 ## Troubleshooting
 
-### Unable to setup
+### Unable to set up
 
 #### Symptom: "CannotAuthenticate"
 
@@ -279,7 +282,7 @@ You need to ensure you are:
 - set up to use app based 2FA
 - not set up to receive SMS 2FA codes
 
-To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you are able to log in successfully.
+To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you can log in successfully.
 
 ### Sensors unavailable
 
@@ -289,7 +292,7 @@ You see something similar to
 
 - `Error retrieving devices state: Too many requests for path ['listEndpoints']`
 - `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
-- `Failed to obtain notification data.  Timers and alarms have not been updated`
+- `Failed to obtain notification data. Timers and alarms have not been updated`
 
 In logs.
 

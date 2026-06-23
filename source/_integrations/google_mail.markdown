@@ -71,7 +71,7 @@ The following attributes can be placed inside the `data` key of the action for e
 
 ### Examples
 
-This is the full service call to send an email:
+This is the full action to send an email:
 
 ```yaml
 action: notify.example_gmail_com

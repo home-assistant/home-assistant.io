@@ -1,6 +1,6 @@
 ---
 title: Device tracker
-description: Instructions on how to setup device tracking within Home Assistant.
+description: Instructions on how to set up device tracking within Home Assistant.
 ha_category:
   - Presence detection
 ha_release: 0.7
@@ -9,13 +9,18 @@ ha_domain: device_tracker
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /integrations/person/
+    title: Person
+  - docs: /integrations/zone/
+    title: Zone
 ---
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
 
 {% include integrations/building_block_integration.md %}
 
-To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/).
+To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/). You can connect device trackers to [person](/integrations/person/) entities and use them with [zones](/integrations/zone/) for automations that react when people or tracked devices enter or leave a place.
 
 ## The state of a tracked device
 
