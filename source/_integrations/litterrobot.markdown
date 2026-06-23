@@ -3,6 +3,7 @@ title: Whisker
 description: Instructions on how to integrate Whisker's lineup of Wi-Fi-enabled, automatic, self-cleaning litter boxes and pet feeders to Home Assistant.
 ha_category:
   - Button
+  - Light
   - Select
   - Sensor
   - Switch
@@ -20,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - light
   - select
   - sensor
   - switch
@@ -56,6 +58,7 @@ Password:
 | Entity                        | Domain          | Description                                                                                                 |
 | ----------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
 | Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
+| Night light                   | `light`         | Control the globe night light's color, brightness, and on/off, only for Litter-Robot 5.                     |
 | Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
 | Sleep mode (per day)          | `switch`        | Enable or disable each day of the week's sleep schedule, only for Litter-Robot 5.                           |
@@ -81,6 +84,7 @@ Password:
 | Globe brightness              | `select`        | View and select the brightness level for the globe light, only for Litter-Robot 4 and 5.                    |
 | Globe light                   | `select`        | View and select the globe light setting, only for Litter-Robot 4 and 5.                                     |
 | Panel brightness              | `select`        | View and select the panel brightness, only for Litter-Robot 4 and 5.                                        |
+| Night light preset            | `select`        | View and select one of seven saturated night light colors, only for Litter-Robot 5.                         |
 | Sleep mode start (per day)    | `time`          | Set each day of the week's sleep mode start time, only for Litter-Robot 5.                                  |
 | Sleep mode end (per day)      | `time`          | Set each day of the week's sleep mode end time, only for Litter-Robot 5.                                    |
 | Change filter                 | `button`        | Button to indicate the filter was changed and reset the replacement date, only for Litter-Robot 5.          |
