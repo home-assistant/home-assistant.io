@@ -38,7 +38,7 @@ data:
 
 {% enddetails %}
 
-## Actions
+{% include integrations/actions.md %}
 
 ### Action: Notify
 
