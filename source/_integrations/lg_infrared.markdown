@@ -24,9 +24,16 @@ The **LG Infrared** {% term integration %} lets you control an LG TV or a compat
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
 
+## Supported devices
+
+The integration supports:
+
+- LG TVs that can be controlled via the standard LG infrared protocol.
+- Compatible LG split air conditioners that can be controlled via the standard LG air conditioner infrared protocol.
+
 ## Prerequisites
 
-Before setting up the LG Infrared integration, you need a working infrared emitter, an infrared receiver, or both, already set up in Home Assistant. Each must expose an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your LG TV to send commands, and an IR receiver module to capture commands from your LG remote.
+Before setting up the LG Infrared integration, you need a working infrared emitter, an infrared receiver, or both, already set up in Home Assistant. Each must expose an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your LG device to send commands, and an IR receiver module to capture commands from your LG remote.
 
 {% include integrations/config_flow.md %}
 
@@ -34,25 +41,18 @@ Before setting up the LG Infrared integration, you need a working infrared emitt
 Device type:
   description: The type of LG device to control. Select **TV** for an LG television or **Air conditioner** for a compatible LG split air conditioner.
 Infrared emitter:
-  description: The infrared emitter entity to use for sending commands to your LG TV. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
+  description: The infrared emitter entity to use for sending commands to your LG device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 Infrared receiver:
   description: The infrared receiver entity to use for receiving commands from your LG remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver.
+Heat mode:
+  description: Enable this option if your LG air conditioner supports heat mode. Not all LG air conditioner models support it. This option is only shown when setting up an **Air conditioner** device.
 {% endconfiguration_basic %}
 
-At least one of **Infrared emitter** or **Infrared receiver** must be selected. Select both if you want to be able to send commands to the TV and react to commands from the remote.
-
-## Supported devices
-
-The integration supports:
-
-- LG TVs that can be controlled via the standard LG infrared protocol.
-- Compatible LG split air conditioners that can be controlled via the standard LG AC infrared protocol.
+At least one of **Infrared emitter** or **Infrared receiver** must be selected. Select both if you want to be able to send commands to your device and react to commands from the remote.
 
 ## Supported functionality
 
-### Entities
-
-The **LG Infrared** integration provides the following entities.
+### TV
 
 #### Buttons
 
@@ -92,25 +92,21 @@ A media player entity is created when an infrared emitter is configured.
   - **Description**: Represents the LG TV and allows you to control it via IR commands.
   - **Supported features**: Turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, and stop.
 
-#### Climate
+### Air conditioner
 
 A climate entity is created when an infrared emitter is configured for an LG air conditioner device.
 
 - **LG AC**
   - **Description**: Represents the LG split air conditioner and allows you to control it via IR commands.
-  - **Supported features**: Set HVAC mode, set fan mode, set target temperature.
-
-### Air conditioner
-
-The LG Infrared AC device type creates a **climate** entity that lets you control a compatible LG split air conditioner over infrared.
+  - **Supported features**: Set HVAC mode, set fan mode, and set target temperature.
 
 #### Supported modes
 
-During setup you select which modes your unit supports. Not all LG AC models support heat mode.
+During setup, you select which modes your unit supports. Not all LG air conditioner models support heat mode.
 
 - **Cool**: Cools to a set temperature.
-- **Heat**: Heats to a set temperature (select only if your unit supports it).
-- **Dry**: Dehumidify mode (temperature is fixed at 24 °C by the protocol).
+- **Heat**: Heats to a set temperature. Enable this only if your unit supports it.
+- **Dry**: Dehumidify mode. The temperature is fixed at 24 °C by the protocol.
 - **Fan only**: Fan circulation without heating or cooling.
 
 #### Fan speeds
@@ -127,13 +123,15 @@ Supported range: 16 °C to 30 °C in 1 °C steps.
 
 #### Physical remote state tracking
 
-If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical LG remote and keeps the climate entity state in sync automatically.
+If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical LG air conditioner remote and keeps the climate entity state in sync automatically.
 
 ## Known limitations
 
-- The integration uses assumed state, meaning Home Assistant cannot read the actual state of the TV (for example, whether it is on or off, or what the current volume is). Commands received through the infrared receiver are exposed as events only; they do not update the state of the media player entity.
+- The TV media player and button entities use assumed state, meaning Home Assistant cannot verify the actual state of the TV. Commands received from the physical remote are exposed as events only and do not update the TV entity state.
+- The climate entity for the air conditioner also uses assumed state unless you enable physical remote state tracking during setup. Without it, the climate entity state is not updated when you use the physical remote.
 - Turning on and turning off the TV both send the same IR power toggle command, as is standard with infrared remotes.
-- Volume control is step-based only; there is no way to set an absolute volume level.
+- Volume control for the TV is step-based only; there is no way to set an absolute volume level.
+- For the air conditioner, the dry mode temperature is fixed at 24 °C by the LG air conditioner infrared protocol and cannot be changed.
 
 ## Removing the integration
 
