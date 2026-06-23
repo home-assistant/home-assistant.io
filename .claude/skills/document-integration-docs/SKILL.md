@@ -1,11 +1,11 @@
 ---
-name: migrate-integration-trigger-condition-docs
-description: Migrate Home Assistant integration trigger and condition docs to split-page format.
+name: document-integration-docs
+description: Document Home Assistant integrations in the current split-page format.
 ---
 
-Usage: `/migrate-integration-trigger-condition-docs <domain> [epic-or-issue]`
+Usage: `/document-integration-docs <domain> [epic-or-issue]`
 
-Migrate `./source/_integrations/<domain>.markdown` to the current Home Assistant split-page documentation format, but only for Labs triggers and conditions.
+Document the `<domain>` integration in the current Home Assistant split-page documentation format. Use an existing `./source/_integrations/<domain>.markdown` page when present. If it does not exist, create it from the current integration documentation template.
 
 Keep the main context small.
 Use sub-agents for discovery and review.
@@ -15,16 +15,11 @@ Treat `https://raw.githubusercontent.com/home-assistant/developers.home-assistan
 Do not loosely imitate it.
 Follow its structure closely unless Core implementation makes a specific section inapplicable.
 
-Already documented actions are out of scope for this command.
-Leave existing action pages intact.
-Do not create new action pages.
-Do not migrate action docs as part of this command.
-
 ## Stage 1: inventory with a sub-agent
 
-Launch a sub-agent to inspect:
+Launch a sub-agent to inspect what exists:
 
-- `./source/_integrations/<domain>.markdown`
+- `./source/_integrations/<domain>.markdown`, if present
 - If you have Home Assistant Core and Frontend checked out, inspect:
   - `../core/homeassistant/components/<domain>/conditions.yaml`
   - `../core/homeassistant/components/<domain>/services.yaml`
@@ -55,15 +50,22 @@ Conditions to document:
   target domains: [...]
   options: [...]
 
-Existing actions to leave intact:
-- page: ...
-- integration-page references: ...
+Actions to document:
+- key: <domain>.<action_key>
+  title: <title>
+  description: <description>
+  target domains: [...]
+  fields: [...]
 
 Categories not implemented:
 - ...
 
 Existing split pages:
 - ...
+
+Existing integration page:
+- present: <yes/no>
+- useful existing content: <short summary or none>
 
 UI wording:
 - trigger behavior labels: ...
@@ -85,9 +87,9 @@ Rules for Stage 1:
 - Verify exact keys from YAML or implementation.
 - Verify supported target entity domains.
 - Verify behavior labels from frontend strings.
-- If actions already exist in docs, identify them so Stage 3 can avoid changing them unnecessarily.
 - If actions exist, capture the current UI action label forms once in Stage 1 and reuse them later instead of doing extra lookups during writing.
 - Keep the output short and factual.
+- If the integration page does not exist yet, say so and continue from Core and the current templates.
 - Note any mismatch between existing split pages and the current developer examples template.
 
 ## Stage 2: template and style extraction with a sub-agent
@@ -99,7 +101,7 @@ Launch a sub-agent to inspect:
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/general-style-guide.md`
 - `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md`
 - relevant include snippets under `./source/_includes`
-- 2-4 existing files across triggers, conditions, and actions
+- 2-4 existing files across integrations, triggers, conditions, and actions
 
 The sub-agent must return only this:
 
@@ -139,30 +141,25 @@ The sub-agent must explicitly call out mandatory split-page sections and include
 
 Using only the distilled outputs from Stage 1 and Stage 2:
 
-1. Update `./source/_integrations/<domain>.markdown`.
+1. Create or update `./source/_integrations/<domain>.markdown`.
 2. Create or update one split page per trigger.
 3. Create or update one split page per condition.
-4. Do not create new action pages.
-5. Do not rewrite existing action pages.
-6. If split pages already exist for triggers or conditions, update them instead of duplicating them.
+4. Create or update one split page per action.
+5. If a category is not implemented, do not create pages for it.
+6. If split pages already exist, update them instead of duplicating them.
 
 Hard requirements:
 
-- This command documents triggers and conditions only.
-- Leave already documented actions intact.
-- If the integration page already references actions, preserve those action references and documented action sections as they are unless the current template clearly requires a mechanical placement change.
-- In the integration page, if triggers, conditions, and actions all exist and are already documented, you may use `{% include integrations/triggers_conditions_actions.md %}`.
-- If actions are not documented, do not add action include lines just because Core has services.
-- If one or more included categories should be represented individually, include only the applicable lines below, separated by blank lines:
+- In the integration page, if triggers, conditions, and actions all exist, use `{% include integrations/triggers_conditions_actions.md %}`.
+- If one or more of those categories does not exist, do not use `triggers_conditions_actions.md`.
+- Instead, include only the applicable lines below, separated by blank lines:
   - `{% include integrations/triggers.md %}`
   - `{% include integrations/conditions.md %}`
   - `{% include integrations/actions.md %}`
-- If the integration page already has documented actions, insert the trigger and condition Liquid includes above those documented action sections.
-- Do not remove, rewrite, or reorder existing documented action sections beyond placing the trigger and condition includes above them when needed.
 - Ensure the integration page has an `## <Integration name> automation examples` section that follows the current integration template.
 - Add that section even if it was missing before the migration.
 - In that section, example headings must be level-3 headings prefixed with `Automation:`.
-- The integration-page automation examples must match the documented trigger and condition split pages and use the same feature names and behavior.
+- The integration-page automation examples must match the documented split pages and use the same feature names and behavior.
 - Do not document unsupported Core features.
 - When documenting a `for` attribute in options or fields, document its type as `string`, not `time`.
 - Do not use Markdown H1 headings.
@@ -174,9 +171,7 @@ Hard requirements:
 - Avoid region-specific household terms.
 - Avoid invented workflows like “Away mode” unless explicitly framed as user-created.
 - If using a helper, explicitly say it must be created separately and use `{% term helper %}` where appropriate.
-- Do not assume a Labs note is required for actions.
-- Include `integrations/labs_entity_triggers_note.md` only where the current template or existing Home Assistant docs pattern actually requires it.
-- For trigger and condition pages, follow the developer examples template section-for-section unless a section is truly not applicable.
+- For trigger, condition, and action pages, follow the developer examples template section-for-section unless a section is truly not applicable.
 - Do not omit a template section just because the older page for this integration did not have it.
 - Keep include order aligned with the developer examples template.
 - Keep heading flow aligned with the developer examples template and the headings produced by includes.
@@ -188,6 +183,7 @@ UI wording requirements:
 - Do not prefix selected UI items with the domain.
 - Trigger pages must say: `Select what you want to monitor. Under **By target** ...`
 - Condition pages must say: `Select what you want to check. Under **By target** ...`
+- Action pages must say: `Select what you want to control. Under **By target** ...`
 - In automation examples, do not repeat the domain in UI action names. Use the action label without the `Domain: ` prefix.
 - If the current UI label is `Light: Turn on light`, write `Turn on light`.
 - If the current UI label would read awkwardly with the domain, such as `Lock: Lock lock`, write only the non-prefixed label.
@@ -197,10 +193,11 @@ Split-page naming rules:
 
 - Triggers: `source/_triggers/<domain>.<trigger_key>.markdown`
 - Conditions: `source/_conditions/<domain>.<condition_key>.markdown`
+- Actions: `source/_actions/<domain>.<action_key>.markdown`
 
 Use exact Core keys.
 
-Each trigger and condition page must have:
+Each trigger, condition, and action page must have:
 
 - a strong introductory context explaining when it is useful
 - exactly two concrete automation examples for different use cases
@@ -213,7 +210,7 @@ Example rules:
 - Do not imply a helper exists unless you explicitly say it is user-created.
 - In automation examples, do not list default values such as default `for` or `behavior` values.
 - In automation examples, use the correct full action labels, such as `Lock lock` or `Turn on switch`, not shortened labels like `Lock` or `Turn on`.
-- For the examples that use the mobile notification action, use this pattern to refer to the mobile device:
+- For examples that use the mobile notification action, use this pattern to refer to the mobile device:
 
   In UI:
 
@@ -252,18 +249,14 @@ Passed checks:
 
 Required review checks:
 
-- integration page uses `{% include integrations/triggers_conditions_actions.md %}` only when triggers, conditions, and actions are all already documented and that include is actually appropriate
-- if one or more categories is missing from the documented scope, the integration page uses only the applicable individual include lines with blank lines between them
-- integration page does not add new action documentation outside the current scope
-- existing action pages were left intact
-- existing documented action sections in the integration page were kept intact
-- trigger and condition Liquid includes were inserted above existing documented action sections when needed
+- integration page uses `{% include integrations/triggers_conditions_actions.md %}` only when triggers, conditions, and actions all exist
+- if one or more categories is missing, the integration page uses only the applicable individual include lines with blank lines between them
 - integration page contains the `## <Integration name> automation examples` section when required by the current template
 - integration-page example headings are level 3 and start with `Automation:`
-- integration-page automation example content is consistent with the trigger and condition split pages
-- trigger and condition pages follow the current developer examples template closely
-- no mandatory trigger or condition template section was omitted without a Core-based reason
-- trigger and condition pages contain required includes
+- integration-page automation example content is consistent with the split pages
+- split pages follow the current developer examples template closely
+- no mandatory split-page template section was omitted without a Core-based reason
+- split pages contain required includes
 - include order matches the developer examples template
 - heading levels align with include-generated headings
 - section order matches the developer examples template
@@ -271,6 +264,7 @@ Required review checks:
 - selected item labels do not use `Domain: Label`
 - trigger steps use `Select what you want to monitor. Under **By target** ...`
 - condition steps use `Select what you want to check. Under **By target** ...`
+- action steps use `Select what you want to control. Under **By target** ...`
 - automation examples do not use `Domain: Label` for action names
 - automation example action names reuse the current non-prefixed UI label form already captured during Stage 1
 - `unavailable` / `unknown` notes are in **Good to know**
@@ -283,7 +277,6 @@ Required review checks:
 - automation examples use correct full action labels such as `Lock lock` or `Turn on switch`
 - YAML examples follow the Home Assistant YAML style guide
 - helper usage, if any, is explicitly framed as user-created
-- Labs note usage matches the current template and actual feature requirements
 
 ## Stage 5: fix and re-review
 
@@ -308,7 +301,7 @@ Files created:
 - ...
 
 Categories intentionally not documented:
-- actions: left for later migration unless already documented and preserved
+- <category>: <reason>
 
 Mismatches found between epic/issue text and Core:
 - ...
