@@ -43,7 +43,7 @@ Password:
   required: true
   type: string
 Private Key File:
-  description: Upload a private key file used for authentication. Provide this or password.
+  description: Upload a private key file (without a passphrase) used for authentication. Provide this or password.
   required: true
   type: selector
 Remote path:
