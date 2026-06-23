@@ -3,6 +3,7 @@ title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
   - Binary sensor
+  - Climate
   - Cover
   - Hub
   - Sensor
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - sensor
   - switch
@@ -27,6 +29,7 @@ The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Climate](#climate)
 - [Cover](#cover)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -40,6 +43,15 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact
 - Shutter Contact II
 - Battery powered devices
+
+### Climate
+
+The climate platform allows you to control your room climate and heating circuits. Climate devices are added for each of the following devices:
+
+- Room climate control (Thermostat, Wall Thermostat, Room Thermostat II)
+- Heating Circuit
+
+For a room climate control, the operating mode is reflected as the HVAC mode (heat, and cool if the room supports cooling) and the regulation mode (automatic, manual, eco, boost) as the preset. For a heating circuit, the target temperature and automatic/heat modes are exposed.
 
 ### Cover
 
