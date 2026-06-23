@@ -166,8 +166,6 @@ Hard requirements:
 - Avoid region-specific household terms.
 - Avoid invented workflows like “Away mode” unless explicitly framed as user-created.
 - If using a helper, explicitly say it must be created separately and use `{% term helper %}` where appropriate.
-- Do not assume a Labs note is required for actions.
-- Include `integrations/labs_entity_triggers_note.md` only where the current template or existing Home Assistant docs pattern actually requires it.
 - For trigger, condition, and action pages, follow the developer examples template section-for-section unless a section is truly not applicable.
 - Do not omit a template section just because the older page for this integration did not have it.
 - Keep include order aligned with the developer examples template.
@@ -274,7 +272,6 @@ Required review checks:
 - automation examples use correct full action labels such as `Lock lock` or `Turn on switch`
 - YAML examples follow the Home Assistant YAML style guide
 - helper usage, if any, is explicitly framed as user-created
-- Labs note usage matches the current template and actual feature requirements
 
 ## Stage 5: fix and re-review
 
