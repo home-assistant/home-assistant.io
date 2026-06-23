@@ -66,8 +66,6 @@ The following device classes are supported for buttons:
 
 The following examples show how you can use button entities in automations.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: send a notification when a button is pressed
