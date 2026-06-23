@@ -196,9 +196,15 @@ Indoor air quality ranges for humidity:
 - 35–50%: Temporarily acceptable
 - 5–20%: Poor
 
-#### Wi-Fi signal strength
+#### Diagnostic sensors
 
-Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+The following diagnostic sensors are available for the main ventilation box (BOX):
+
+- **Ventilation**: Shows whether the ventilation subsystem reports a normal or abnormal status.
+- **Filter**: Shows whether the filter subsystem reports a normal or abnormal status. This entity is disabled by default.
+- **Ventilation cooling**: Shows whether the ventilation cooling subsystem reports a normal or abnormal status. This entity is disabled by default.
+- **Sun control**: Shows whether the sun control subsystem reports a normal or abnormal status. This entity is disabled by default.
+- **Wi-Fi signal strength**: Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
 
 ## Use cases
 
