@@ -13,8 +13,6 @@ You can use it to create alerts, notifications, or proactive automations when so
 
 This is useful when you want to know right away that the robot is tangled, blocked, out of water, or needs another kind of manual help before it can continue.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

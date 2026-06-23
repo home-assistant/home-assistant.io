@@ -13,8 +13,6 @@ Use it to automate notifications or actions when cleaning has finished.
 
 This is a good fit when you want to send a completion message, reset a cleaning status helper, or start another task only after the robot is safely back on the charger.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
