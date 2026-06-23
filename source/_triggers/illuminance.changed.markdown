@@ -15,8 +15,6 @@ The threshold type controls where the new reading must land for the trigger to f
 
 Use **Illuminance changed** to log light trends, react when a room becomes noticeably brighter or darker, or coordinate shades and lighting based on ambient conditions.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Illuminance changed** in an automation:
