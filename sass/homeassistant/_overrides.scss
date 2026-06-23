@@ -781,7 +781,7 @@ header .breadcrumbs {
 
 a.material-card:hover {
   z-index: 2;
-  box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 32px 64px hsla(207, 100%, 10%, 0.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 8px 24px hsla(207, 100%, 10%, 0.5);
 }
 
 
@@ -1687,7 +1687,7 @@ article.listing {
       transition: box-shadow .33;
 
       &:hover {
-        box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 32px 64px hsla(207, 100%, 10%, 0.5);
+        box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 8px 24px hsla(207, 100%, 10%, 0.5);
       }
     }
   }
