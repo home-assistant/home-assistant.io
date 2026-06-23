@@ -359,7 +359,7 @@ When the SPM sensor is connected to a Nano Color thermostat, it is displayed as 
 
 - **Ventilation gear**
   - **Description**: Current ventilation gear setting.
-  - **Available for devices**: Nano Color 2 (Room thermostat)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **Alarm code**
   - **Description**: System alarm code.
