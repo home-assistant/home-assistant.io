@@ -1,6 +1,6 @@
 ---
 title: AWS S3
-description: Instructions on how to setup AWS S3 bucket to be used as a backup location.
+description: Instructions on how to set up AWS S3 bucket to be used as a backup location.
 ha_release: 2025.5
 ha_category:
   - Backup

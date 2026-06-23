@@ -1,6 +1,6 @@
 ---
 title: MQTT
-description: Instructions on how to setup MQTT within Home Assistant.
+description: Instructions on how to set up MQTT within Home Assistant.
 ha_category:
   - Hub
   - Update
@@ -38,6 +38,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - tag
   - tag
   - text
   - time
@@ -135,6 +136,8 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Button](/integrations/button.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date/Time](/integrations/datetime.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
@@ -146,6 +149,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
@@ -339,8 +343,8 @@ group:
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic, and the device configuration as payload.
 
-MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
-See the [MQTT Options sections](#configure-mqtt-options)
+MQTT discovery is enabled by default and the subscriptions to perform the discovery are done at Quality of Service level 0 by default. The default prefix for the discovery topic is `homeassistant`.
+To disable discovery, or change the discovery QoS or prefix, see the [MQTT Options sections](#configure-mqtt-options).
 
 {% note %}
 Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
@@ -834,6 +838,7 @@ support_url:
     'mode_stat_t':         'mode_state_topic',
     'mode_stat_tpl':       'mode_state_template',
     'modes':               'modes',
+    'msg_exp_int':         'message_expiry_interval',
     'name':                'name',
     'o':                   'origin',
     'off_dly':             'off_delay',
@@ -981,6 +986,7 @@ support_url:
     'url_t':               'url_topic',
     'url_tpl':             'url_template',
     'val_tpl':             'value_template',
+    'vis':                 'visible_by_default',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
     'xy_cmd_t':            'xy_command_topic',
@@ -1049,7 +1055,7 @@ After the configs have been published, the state topics will need an update.
 #### Using retained state messages
 
 State updates also need to be re-published after a config as been processed.
-This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
+This can also be done by publishing "retained" messages. As soon as a config is received (or replayed from a retained message),
 the setup will subscribe any state topics. If a retained message is available at a state topic,
  this message will be replayed so that the state can be restored for this topic.
 
@@ -1060,6 +1066,10 @@ Retained messages can create ghost entities that keep coming back.
 <br><br>
 Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
 {% endwarning %}
+
+#### Using the Message Expiry Interval option
+
+To prevent "retained" messages being kept forever, the publisher can set the Message Expiry Interval option. This will tell the broker to keep messages for a limited time. Home Assistant can set the Message Expiry Interval for an MQTT device via the `message_expiry_interval` configuration option. This will set the Message Expiry Interval for command payloads published to control the device.
 
 ### Using Availability topics
 
@@ -1239,7 +1249,7 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 }
 ```
 
-The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows you to set up multiple entities that share the same device.
 
 {% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
@@ -1445,7 +1455,7 @@ mqtt:
       ...
 ```
 
-If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+If you have many manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
@@ -1523,6 +1533,7 @@ The `mqtt.publish` action publishes a message to an MQTT topic.
 | `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
+| `message_expiry_interval` | yes   | [Message Expiry Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901048) in seconds for the published message. (default: not set) |
 
 {% note %}
 When `payload` is rendered from [template](/docs/templating/where-to-use/#mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.

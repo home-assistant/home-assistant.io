@@ -16,7 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Twente Milieu** {% term integration %} enables you to monitor the upcoming waste collection schedules provided by [Twente Milieu](https://www.twentemilieu.nl/), a waste collection company serving municipalities in the Twente region of the Netherlands, including Enschede, Hengelo, Almelo, Borne, Hof van Twente, Oldenzaal, and Losser. This integration helps you stay informed about the next pickup dates for different types of waste (like organic, paper, plastic, and non-recyclable), ensuring you never miss a collection day.
@@ -49,15 +49,15 @@ The integration provides a {% term calendar %} entity that displays all upcoming
 
 ### Sensors
 
-This integration creates the following sensors for upcoming waste collection dates:
+This integration creates a sensor for the next collection date of each waste type:
 
-- Next plastic waste pickup date
-- Next organic waste pickup date
-- Next paper waste pickup date
-- Next non-recyclable waste pickup date
-- Next Christmas tree pickup date (seasonal)
+- **Organic waste pickup**: The next collection date for organic waste.
+- **Packages waste pickup**: The next collection date for packaging waste, such as plastic, metal, and drink cartons.
+- **Paper waste pickup**: The next collection date for paper and cardboard.
+- **Non-recyclable waste pickup**: The next collection date for non-recyclable waste.
+- **Christmas tree pickup**: The next collection date for Christmas trees, which only has a date during the seasonal collection period.
 
-Each sensor provides the next scheduled date for its respective waste type, allowing you to track when to put out specific bins.
+Each sensor shows the next scheduled date for its waste type, so you know when to put out which bin.
 
 ## Data updates
 
@@ -82,7 +82,9 @@ automation:
         # so you get notified the evening before the pickup day.
         offset: "-12:00:00"
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Garbage day!"
           message: >
@@ -105,7 +107,9 @@ automation:
         # so you get notified in the evening of the pickup day.
         offset: "-4:00:00"
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Bring in the bin!"
           message: >

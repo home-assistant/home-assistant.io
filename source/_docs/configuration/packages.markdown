@@ -1,6 +1,6 @@
 ---
-title: "Packages"
-description: "Bundle configurations from multiple integrations using configuration packages."
+title: "Configuration packages"
+description: "Configuration packages let you bundle related YAML configuration from multiple integrations into a single file, so you can keep large setups organized."
 ---
 
 Packages in Home Assistant provide a way to bundle configurations from multiple integrations. You can use packages to include multiple integrations, or parts of integrations, using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration/).

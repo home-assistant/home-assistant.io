@@ -97,6 +97,8 @@ There is currently support for the following device types within Home Assistant:
 - **Container**: Starts or stops an individual Docker container.
 - **Stack**: Starts or stops all containers in a stack.
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 The following examples show how to use the Portainer integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
@@ -116,29 +118,14 @@ automation:
           - exited
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Container alert"
           message: "Container went down!"
 ```
 
-## Actions
-
-Portainer provides the following actions.
-
-### Action: Prune images
-
-The `portainer.prune_images` can be used to prune unused images more granually, such as a duration and/or if images are dangling.
-
-- **Data attribute**: `device_id`
-    - **Description**: The ID of the device/endpoint to prune images on.
-    - **Optional**: No
-- **Data attribute**: `until`
-    - **Description**: The duration in time in the past.
-    - **Optional**: Yes
-- **Data attribute**: `dangling`
-    - **Description**: If true, only prune dangling images.
-    - **Optional**: Yes
 
 ## Supported devices
 

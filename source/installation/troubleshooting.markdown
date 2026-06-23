@@ -41,7 +41,7 @@ To resolve this issue, try the following steps:
 7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where Home Assistant gets stuck.
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/articles/25153288092829).
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://support.nabucasa.com/hc/articles/25454894609693), or [to access the console from Linux or macOS](https://support.nabucasa.com/hc/articles/25454972435357).
-8. [Reach out to our community for help](https://www.home-assistant.io/help/).
+8. [Reach out to our community for help](/help/).
 
 ## "Error installing Home Assistant"
 
@@ -60,7 +60,7 @@ You are in the onboarding procedure, but you get the message **Error installing 
        - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 2. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
-3. [Reach out to our community for help](https://www.home-assistant.io/help/).
+3. [Reach out to our community for help](/help/).
 
 ## Stuck at "Preparing Home Assistant"
 
@@ -81,4 +81,4 @@ You are in the onboarding procedure, but the process seems stuck at the step **P
        - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 3. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
-4. [Reach out to our community for help](https://www.home-assistant.io/help/).
+4. [Reach out to our community for help](/help/).

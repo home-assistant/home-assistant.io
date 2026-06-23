@@ -1,6 +1,6 @@
 ---
 title: Scripts
-description: Instructions on how to setup scripts within Home Assistant.
+description: Instructions on how to set up scripts within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.7
@@ -76,7 +76,7 @@ fields:
           description: A description of this script parameter.
           type: string
         advanced:
-          description: Marks this field as an advanced parameter. The field is only shown in the UI when you have advanced mode enabled.
+          description: Marks this field as an advanced parameter.
           type: boolean
           default: false
         required:

@@ -182,7 +182,7 @@ The Solar API used by this integration is read-only. It does not provide any mea
 
 ## Troubleshooting
 
-### Can’t setup the device
+### Can’t set up the device
 
 - Make sure the device is not in a power-saving mode when currently not producing energy.
 - Make sure the device is connected to the network and is reachable from the Home Assistant instance.

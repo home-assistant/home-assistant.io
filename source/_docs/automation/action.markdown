@@ -67,7 +67,7 @@ automation:
           entity_id: sun.sun
           attribute: elevation
           below: 4
-        - condition: state
+        - condition: numeric_state
           entity_id: sensor.office_illuminance
           below: 10
     - action: scene.turn_on

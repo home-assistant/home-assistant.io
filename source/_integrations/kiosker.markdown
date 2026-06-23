@@ -2,17 +2,22 @@
 title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
 ha_category:
+  - Binary sensor
+  - Button
   - Sensor
+  - Switch
 ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@claeysson'
+  - '@Claeysson'
 ha_domain: kiosker
 ha_platforms:
-  - sensor
   - binary_sensor
-ha_integration_type: integration
+  - button
+  - sensor
+  - switch
+ha_integration_type: device
 ha_zeroconf: true
 ha_quality_scale: bronze
 ---
@@ -26,6 +31,7 @@ This integration requires that you have bought Kiosker Pro or have a valid Kiosk
 You need to enable the API server in Kiosker settings. You also need to generate an access token, and find the IP address of the device. Please refer to the [Kiosker documentation](https://docs.kiosker.io/#/api) for further information on how to configure the Kiosker App.
 
 ## Supported devices
+
 You need to run version 26.4.1 or later for this integration to be fully functional.
 
 {% include integrations/config_flow.md %}
@@ -47,15 +53,7 @@ Verify certificate:
 Due to Apple's restrictive approach to device control, it's not possible to control any physical features like the screen or device sleep through this integration.
 {% endnote %}
 
-Available sensors:
-
-- Battery level
-- Charging state
-- Last interaction
-- Last motion (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
-- Ambient light (available if a screensaver with motion detection is scheduled or if the camera sensor is enabled)
-- Screensaver state
-- Blackout state
+This integration exposes all Kiosker API functionality to Home Assistant.
 
 ## Supported functionality
 
@@ -71,17 +69,69 @@ The **Kiosker** integration provides the following entities.
   - Shows when motion was last detected. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
 - **Ambient light**
   - Shows the current ambient light level. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
+- **Blackout text** (disabled by default)
+  - Shows the text currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
+- **Blackout icon** (disabled by default)
+  - Shows the SF Symbol icon name currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
+- **Blackout background color** (disabled by default)
+  - Shows the background color of the blackout screen as a hex color string (e.g. #000000). Defaults to unknown if no visible blackout.
+- **Blackout foreground color** (disabled by default)
+  - Shows the text/icon color of the blackout screen as a hex color string (e.g. #FFFFFF). Defaults to unknown if no visible blackout.
+- **Blackout expiry** (disabled by default)
+  - Shows the remaining time in seconds before the blackout expires. Defaults to unknown if no visible blackout.
+- **Blackout button background color** (disabled by default)
+  - Shows the background color of the dismiss button as a hex color string (e.g. #FFFFFF). Defaults to unknown if no visible blackout.
+- **Blackout button foreground color** (disabled by default)
+  - Shows the text color of the dismiss button as a hex color string (e.g. #000000). Defaults to unknown if no visible blackout.
+- **Blackout button text** (disabled by default)
+  - Shows the label on the dismiss button. Defaults to unknown if no visible blackout.
+- **Blackout sound** (disabled by default)
+  - Shows the SystemSoundID of the sound played when the blackout was displayed. Defaults to unknown if no visible blackout.
 
 ### Binary sensors
 
 - **Charging state**
-  - Shows whether the device is connected to a charger
+  - Shows whether the device is connected to a charger.
 - **Screensaver state**
   - Shows whether the screensaver is currently active.
 - **Blackout state**
-  - Shows whether the screen is currently blacked out. Has extra attributes with the blackout data when active.
+  - Shows whether the screen is currently blacked out.
+- **Blackout dismissible** (disabled by default)
+  - Shows whether the current blackout is dismissible by the user. Shows as unknown when no blackout is active.
+
+### Switches
+
+- **Disable screensaver**
+  - Disables the currently active screensaver.
+
+### Buttons
+
+- **Ping**
+  - Sends a ping to the device to verify it is reachable. A logbook entry is
+  created when the device responds.
+- **Refresh page**
+  - Reloads the current page displayed on the device.
+- **Go home**
+  - Navigates the device to its configured home URL.
+- **Go forward**
+  - Navigates forward in the browser history.
+- **Go back**
+  - Navigates backward in the browser history.
+- **Print page**
+  - Triggers a print of the current page.
+- **Clear cache**
+  - Clears the browser cache on the device.
+- **Clear cookies**
+  - Clears all cookies on the device.
+- **Dismiss screensaver**
+  - Dismisses the currently active screensaver.
+- **Clear blackout**
+  - Clears the currently active blackout.
+
+{% include integrations/actions.md %}
 
 ## Data updates
+
 This integration fetches data from the device every 15 seconds.
 
 ## Troubleshooting
@@ -89,9 +139,11 @@ This integration fetches data from the device every 15 seconds.
 ### Can’t set up the device
 
 #### Symptom
+
 When trying to set up the integration, the form shows an error message.
 
 ##### Description
+
 This means that Home Assistant can't connect to the Kiosker App.
 
 ##### Resolution
@@ -107,9 +159,11 @@ This means that Home Assistant can't connect to the Kiosker App.
 ### Device went unavailable
 
 #### Symptom
+
 The device and entities are greyed out.
 
 ##### Description
+
 This means that Home Assistant can't connect to the Kiosker App.
 
 ##### Resolution
@@ -121,7 +175,6 @@ This means that Home Assistant can't connect to the Kiosker App.
 5. If you have enabled IP-filtering, make sure that your host IP is in the whitelist.
 6. If you have enabled TLS, make sure that you have installed a valid certificate in the Kiosker App, typically a self-signed certificate.
 7. If you have enabled `Verify certificate`, make sure that the certificate is valid and that the root certificate is marked as trusted on the host.
-
 
 ## Removing the integration
 

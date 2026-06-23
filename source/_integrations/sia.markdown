@@ -17,7 +17,7 @@ ha_integration_type: hub
 
 The **SIA Alarm Systems** {% term integration %} provides integration with several alarm systems that implement the SIA Protocol, including [Ajax Systems](https://ajax.systems/). This protocol is listen-only, so does not allow you to turn on/off your alarm system, it just updates the state to reflect your alarm and allows you to act on that state, for instance turning on all lights and opening the curtains when the alarm triggers. The underlying package has support for different variants of SIA, including DC-09, DC-04 and a limited set of ADM-CID. If your alarm system uses the ADM-CID standard and it isn't working, please log an issue [here](https://github.com/eavanvalkenburg/pysiaalarm/issues/new).
 
-To use this platform, you need to setup your alarm system to communicate using the SIA Protocol and setup several things on the alarm. This integration basically works by Home Assistant listening on a port for messages from the alarm systems and handling and responding to that message and finally updating one or more entities in Home Assistant.
+To use this platform, you need to set up your alarm system to communicate using the SIA Protocol and setup several things on the alarm. This integration basically works by Home Assistant listening on a port for messages from the alarm systems and handling and responding to that message and finally updating one or more entities in Home Assistant.
 
 ## Alarm Setup (Ajax Systems Hub example)
 
@@ -27,8 +27,8 @@ To use this platform, you need to setup your alarm system to communicate using t
 4. Place Account Id - 3-16 ASCII hex characters. For example AAA.
 5. Insert Home Assistant IP address. The hub must be able to reach this IP address. There is no cloud connection necessary.
 6. Insert Home Assistant listening port. This port must not be used by anything else on the machine Home Assistant is running on, see the notes on [port usage](#port-usage) below.
-7. Select Preferred Network. Ethernet is preferred if hub and HA in same network. Multiple networks are not tested.
-8. Enable Periodic Reports. The interval with which the alarm systems reports to the monitoring station, default is 1 minute. This component adds 30 seconds before setting the alarm unavailable to deal with slights latencies between ajax and HA and the async nature of HA.
+7. Select Preferred Network. Ethernet is preferred if hub and Home Assistant in same network. Multiple networks are not tested.
+8. Enable Periodic Reports. The interval with which the alarm systems reports to the monitoring station, default is 1 minute. This component adds 30 seconds before setting the alarm unavailable to deal with slights latencies between ajax and Home Assistant and the async nature of Home Assistant.
 9. Encryption is preferred but optional. Password is 16, 24 or 32 ASCII characters.
 
 {% include integrations/config_flow.md %}
@@ -52,11 +52,11 @@ ASCII characters are 0-9 and ABCDEF, so an account is something like `346EB` and
 
 ### Note on monitoring multiple alarm systems
 
-If you have multiple accounts (alarm systems) that you want to monitor you can choose to have all communicating with the same port, in that case, use the additional accounts checkbox in the dialog to setup the next account and keep doing that until you have them all. You can also choose to have both running on a different port, in that case setup the component twice with the different ports.
+If you have multiple accounts (alarm systems) that you want to monitor you can choose to have all communicating with the same port, in that case, use the additional accounts checkbox in the dialog to set up the next account and keep doing that until you have them all. You can also choose to have both running on a different port, in that case set up the component twice with the different ports.
 
 ### Port usage
 
-The port used with this component must be a port no other processes use on the machine your HA instance is running. If you have a complex network setup or want to monitor alarm systems at other locations you will most likely have to open firewalls and/or create network routes for that purpose, the integration will just listen for messages coming into that port, and will not proactively send, only responding with an acknowledgement to the alarm system.
+The port used with this component must be a port no other processes use on the machine your Home Assistant instance is running. If you have a complex network setup or want to monitor alarm systems at other locations you will most likely have to open firewalls and/or create network routes for that purpose, the integration will just listen for messages coming into that port, and will not proactively send, only responding with an acknowledgement to the alarm system.
 
 ### Entities
 

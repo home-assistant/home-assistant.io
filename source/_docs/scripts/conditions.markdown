@@ -596,7 +596,7 @@ conditions:
 
 ## Zone condition
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have set up a device tracker platform that supports reporting GPS coordinates.
+Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
 
 ```yaml
 conditions:

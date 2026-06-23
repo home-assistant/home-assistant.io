@@ -1,6 +1,6 @@
 ---
 title: Subaru
-description: Instructions on how to setup your Subaru account with Home Assistant.
+description: Instructions on how to set up your Subaru account with Home Assistant.
 ha_category:
   - Car
   - Lock
@@ -13,6 +13,7 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
   - lock
@@ -133,4 +134,4 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 
 **Q:** Should I enable the vehicle polling option?
 
-**A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress.  Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as an action to enable incorporation into automations.
+**A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress. Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as an action to enable incorporation into automations.

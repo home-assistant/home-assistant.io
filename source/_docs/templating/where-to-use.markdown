@@ -29,7 +29,9 @@ automation: |
       - trigger: time
         at: "23:00:00"
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: >
             Goodnight.
@@ -93,7 +95,9 @@ The [notify actions](/integrations/notify/) accept templates for the title, mess
 
 {% example %}
 action: |
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Door alert"
       message: >
