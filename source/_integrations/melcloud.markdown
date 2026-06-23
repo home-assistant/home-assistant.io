@@ -72,7 +72,7 @@ The following attributes are available for `sensor` platform entities:
 
 The following switches can be used:
 
-- **Frost protectiom**: Enables or disables the configured frost protection.
+- **Frost protection**: Enables or disables the configured frost protection.
 - **Overheat protection**: Enables or disables the configured overheat protection.
 
 ## Air-to-Water device
