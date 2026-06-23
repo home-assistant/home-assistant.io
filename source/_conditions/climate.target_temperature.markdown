@@ -16,8 +16,6 @@ The **Thermostat target temperature** condition passes when a thermostat {% term
 
 When you target more than one thermostat, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted thermostat to meet the threshold, or demand that all of them do.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Thermostat target temperature** in an automation:
