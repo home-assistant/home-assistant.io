@@ -34,14 +34,20 @@ This major update brings greater stability for Matter in Home Assistant, fewer b
 
 Coupled with an updated [OpenThread Border Router (OTBR)](/integrations/otbr/) app to support Thread 1.4 in Home Assistant, these changes mark important steps in making Matter work more reliably within your setup, now and into the future. But don't just take our word for it – here's what our beta testers are saying:
 
-> "The new Matter Server has evolved into the ultimate Matter controller and troubleshooting tool for power users, backed by an incredible open community that continues to push the standard forward."
-> — Ward Zhou, Smart Home Journalist
+<div class="alert">
+<p>"The new Matter Server has evolved into the ultimate Matter controller and troubleshooting tool for power users, backed by an incredible open community that continues to push the standard forward."</p>
+<em style="text-align: right; display: block;">- Ward Zhou, Smart Home Journalist</em>
+</div>
 
-> "The new matter.js server is fantastic. I love all the new possibilities it offers. In particular, the new Thread mesh view is unique and helps keep the Thread network under control at all times. The icing on the cake is that Home Assistant now supports Matter 1.5.1. This means Home Assistant's Matter implementation is once again at the forefront of the industry."
-> — hoppel118, Home Assistant Discord Member
+<div class="alert">
+<p>"The new matter.js server is fantastic. I love all the new possibilities it offers. In particular, the new Thread mesh view is unique and helps keep the Thread network under control at all times. The icing on the cake is that Home Assistant now supports Matter 1.5.1. This means Home Assistant's Matter implementation is once again at the forefront of the industry."</p>
+<em style="text-align: right; display: block;">- hoppel118, Home Assistant Discord Member</em>
+</div>
 
-> "Joining the beta program was born as a last resort to get my Matter/Thread network going. But it was a great experience! While I'm not at all a power user nor programmer, I could contribute at some degree. The very short feedback loop and close involvement of the developer made this a nice (and easy!) way to contribute to the development of the Open Home."
-> — Haapster, Home Assistant Discord Member
+<div class="alert">
+<p>"Joining the beta program was born as a last resort to get my Matter/Thread network going. But it was a great experience! While I'm not at all a power user nor programmer, I could contribute at some degree. The very short feedback loop and close involvement of the developer made this a nice (and easy!) way to contribute to the development of the Open Home."</p>
+<em style="text-align: right; display: block;">- Haapster, Home Assistant Discord Member</em>
+</div>
 
 ## It was just a matter of time
 
