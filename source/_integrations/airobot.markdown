@@ -168,6 +168,7 @@ The integration provides switch entities for controlling thermostat features:
 
 - **Child lock**: Enable or disable the child lock feature on the thermostat. When enabled, the physical buttons on the thermostat are locked to prevent accidental or unauthorized changes to settings.
 - **Actuator exercise disabled**: Enable or disable the actuator exercise function. To prevent valve sticking, the actuator exercise periodically switches off the valve for 8 minutes at least every 96 hours. This entity is disabled by default.
+- **Boost enabled**: Enables heating for 1 hour no matter the mode or setpoint temperature.
 
 ## Examples
 
