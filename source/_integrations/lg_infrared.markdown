@@ -1,7 +1,8 @@
 ---
 title: LG Infrared
-description: Integration to control LG TVs using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
+description: Integration to control LG TVs and LG split air conditioners using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
 ha_category:
+  - Climate
   - Event
   - Media player
 ha_release: 2026.4
@@ -12,15 +13,16 @@ ha_domain: lg_infrared
 ha_config_flow: true
 ha_platforms:
   - button
+  - climate
   - event
   - media_player
 ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **LG Infrared** {% term integration %} lets you control an LG TV using any infrared emitter previously configured in Home Assistant. It can also receive commands from an LG remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
+The **LG Infrared** {% term integration %} lets you control an LG TV or a compatible LG split air conditioner using any infrared emitter previously configured in Home Assistant. It can also receive commands from an LG remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
 
-Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the TV but there is no feedback channel to confirm the current state of the TV. The integration therefore uses assumed states.
+Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
 
 ## Prerequisites
 
@@ -30,7 +32,7 @@ Before setting up the LG Infrared integration, you need a working infrared emitt
 
 {% configuration_basic %}
 Device type:
-  description: The type of LG device to control. Currently, only **TV** is supported.
+  description: The type of LG device to control. Select **TV** for an LG television or **Air conditioner** for a compatible LG split air conditioner.
 Infrared emitter:
   description: The infrared emitter entity to use for sending commands to your LG TV. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 Infrared receiver:
@@ -41,7 +43,10 @@ At least one of **Infrared emitter** or **Infrared receiver** must be selected. 
 
 ## Supported devices
 
-The integration supports LG TVs that can be controlled via the standard LG infrared protocol.
+The integration supports:
+
+- LG TVs that can be controlled via the standard LG infrared protocol.
+- Compatible LG split air conditioners that can be controlled via the standard LG AC infrared protocol.
 
 ## Supported functionality
 
@@ -86,6 +91,43 @@ A media player entity is created when an infrared emitter is configured.
 - **LG TV**
   - **Description**: Represents the LG TV and allows you to control it via IR commands.
   - **Supported features**: Turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, and stop.
+
+#### Climate
+
+A climate entity is created when an infrared emitter is configured for an LG air conditioner device.
+
+- **LG AC**
+  - **Description**: Represents the LG split air conditioner and allows you to control it via IR commands.
+  - **Supported features**: Set HVAC mode, set fan mode, set target temperature.
+
+### Air conditioner
+
+The LG Infrared AC device type creates a **climate** entity that lets you control a compatible LG split air conditioner over infrared.
+
+#### Supported modes
+
+During setup you select which modes your unit supports. Not all LG AC models support heat mode.
+
+- **Cool**: Cools to a set temperature.
+- **Heat**: Heats to a set temperature (select only if your unit supports it).
+- **Dry**: Dehumidify mode (temperature is fixed at 24 °C by the protocol).
+- **Fan only**: Fan circulation without heating or cooling.
+
+#### Fan speeds
+
+- **Auto**: The unit selects the speed automatically.
+- **Quiet**: Lowest noise level.
+- **Low**: Low fan speed.
+- **Medium**: Medium fan speed.
+- **High**: High fan speed.
+
+#### Temperature range
+
+Supported range: 16 °C to 30 °C in 1 °C steps.
+
+#### Physical remote state tracking
+
+If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical LG remote and keeps the climate entity state in sync automatically.
 
 ## Known limitations
 
