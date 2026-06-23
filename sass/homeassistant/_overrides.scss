@@ -1686,7 +1686,8 @@ article.listing {
       text-decoration: none;
       transition: box-shadow .33s;
 
-      &:hover {
+      &:hover,
+      &:focus-visible {
         box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 8px 24px hsla(207, 100%, 10%, 0.25);
       }
     }
