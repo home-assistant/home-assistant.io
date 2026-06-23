@@ -1,6 +1,6 @@
 ---
 title: Lawn mower
-description: Instructions on how to setup and use lawn mowers in Home Assistant.
+description: Instructions on how to set up and use lawn mowers in Home Assistant.
 ha_release: 2023.9
 ha_domain: lawn_mower
 ha_quality_scale: internal
@@ -32,40 +32,14 @@ A lawn mower entity can have the following states:
 
 {% include integrations/conditions.md %}
 
-## Actions
-
-Available actions: `start_mowing`, `pause` and `dock`.
-
-Before calling one of these actions, make sure your lawn_mower platform supports it.
-
-### Action: Start mowing
-
-The `lawn_mower.start_mowing` action starts or resumes a mowing task.
-
-| Data attribute | Optional | Description                                                          |
-| -------------- | -------- | -------------------------------------------------------------------- |
-| `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
-
-### Action: Pause
-
-The `lawn_mower.pause` action pauses a mowing task.
-
-| Data attribute | Optional | Description                                                          |
-| -------------- | -------- | -------------------------------------------------------------------- |
-| `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
-
-### Action: Dock
-
-The `lawn_mower.dock` action tells the lawn mower to return to its dock.
-
-| Data attribute | Optional | Description                                                          |
-| -------------- | -------- | -------------------------------------------------------------------- |
-| `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+{% include integrations/actions.md %}
 
 ## Lawn mower automation examples
 
 You can use lawn mower triggers and conditions to react when mowing starts, pauses, or finishes.
 You can also combine them with weather, time, and notifications to keep your yard routine simple.
+
+{% include integrations/labs_entity_triggers_note.md %}
 
 {% include docs/paste_yaml_tip.md %}
 

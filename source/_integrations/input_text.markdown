@@ -79,20 +79,13 @@ input_text:
         default: text
 {% endconfiguration %}
 
-### Actions
+{% include integrations/actions.md %}
 
-This integration provides an action to modify the state of the `input_text` and an action to reload the `input_text` configuration without restarting Home Assistant itself.
+## Restore state
 
-| Action      | Data                      | Description                                       |
-| ----------- | ------------------------- | ------------------------------------------------- |
-| `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities. |
-| `reload`    |                           | Reload `input_text` configuration                 |
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
 
-### Restore state
-
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
-
-### Scenes
+## Scenes
 
 To set the state of the input_text in a [Scene](/integrations/scene/):
 

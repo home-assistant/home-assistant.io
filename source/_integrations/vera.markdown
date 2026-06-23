@@ -1,6 +1,6 @@
 ---
 title: Vera
-description: Instructions on how to setup Vera Z-Wave hubs and configure devices within Home Assistant.
+description: Instructions on how to set up Vera Z-Wave hubs and configure devices within Home Assistant.
 ha_category:
   - Binary sensor
   - Climate
@@ -75,7 +75,7 @@ If you want to use a Z-Wave device from the Vera controller in Home Assistant au
 
 The `vera` platform allows you to get data from your [Vera](https://getvera.com/) sensors from within Home Assistant.
 
-Please note that some Vera sensors (such as _motion_ and _flood_  sensors) are _armable_ which means that Vera will send alerts (email messages to txts) when they are _armed_ and change state.
+Some Vera sensors (such as _motion_ and _flood_  sensors) are _armable_ which means that Vera will send alerts (email messages to txts) when they are _armed_ and change state.
 
 Home Assistant will display the state of these sensors regardless of the _armed_ state.
 

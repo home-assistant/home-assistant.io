@@ -2,6 +2,7 @@
 title: Imou
 description: Integrate Imou smart devices into Home Assistant.
 ha_category:
+  - Button
   - Camera
 ha_iot_class: Cloud Polling
 ha_release: 2026.6
@@ -11,11 +12,12 @@ ha_codeowners:
   - '@Imou-OpenPlatform'
 ha_platforms:
   - button
+  - camera
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com/) using your App ID and App secret. Devices linked to your platform account are discovered automatically, and supported actions are exposed as button entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com/) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, and supported actions are exposed as button entities in Home Assistant.
 
 ## Supported devices
 
@@ -64,9 +66,19 @@ Imou Open Platform API usage limits apply to your App ID:
 
 ## Supported functionality
 
-The integration exposes button entities when the cloud API reports that the action is supported for a device:
+### Camera
+
+Each device channel with a camera feed exposes two camera entities:
+
+- **Live view SD**: Standard-definition cloud live stream.
+- **Live view HD**: High-definition cloud live stream.
+
+Both are enabled by default. You can view a still image or start a live stream when the device is online.
 
 ### Buttons
+
+The integration exposes button entities when the cloud API reports that the action is supported for a device:
+
 
 - **PTZ up**, **PTZ down**, **PTZ left**, **PTZ right**: Move the camera lens in the corresponding direction. Each press moves the lens for a short interval. The device must support PTZ.
 - **Mute**: Silence alarm audio on supported gateway devices.
@@ -96,6 +108,6 @@ Buttons are unavailable when a device is offline or no longer on your account. E
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}

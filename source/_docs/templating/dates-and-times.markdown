@@ -113,6 +113,10 @@ Here are the ones you will use most often:
 
 The Python documentation has the [full list of format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) if you need something unusual.
 
+{% note %}
+Weekday and month names from `strftime`, like the ones produced by `%A` and `%B`, are always in English, regardless of the language set in your Home Assistant profile. There is currently no built-in way to render them in another language.
+{% endnote %}
+
 ## Parsing text into a datetime with strptime
 
 [`strptime`](/template-functions/strptime/) is the reverse of `strftime`. It takes a piece of text and a format string, and gives you back a datetime.

@@ -81,16 +81,16 @@ device_class:
   type: string
   default: "humidifier"
 min_cycle_duration:
-  description: Set a minimum amount of time that the switch specified in the *humidifier* option must be in its current state prior to being switched either off or on.
+  description: Set a minimum amount of time that the switch specified in the *humidifier* option must be in its current state before being switched either off or on.
   required: false
   type: [time, integer]
 dry_tolerance:
-  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched on. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will start when the sensor equals or goes below 42. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` action.
+  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change before being switched on. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will start when the sensor equals or goes below 42. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` action.
   required: false
   default: 3
   type: float
 wet_tolerance:
-  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched off. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will stop when the sensor equals or goes above 48. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` action.
+  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change before being switched off. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will stop when the sensor equals or goes above 48. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` action.
   required: false
   default: 3
   type: float
@@ -141,6 +141,6 @@ generic_hygrostat:
       minutes: 3
     initial_state: true
     away_humidity: 35
-    away_fixed: True
+    away_fixed: true
     sensor_stale_duration: 00:15:00
 ```
