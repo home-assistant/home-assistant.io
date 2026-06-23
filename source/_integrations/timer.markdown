@@ -97,8 +97,6 @@ Use a timer when you want a countdown that can be started, paused, changed, canc
 
 ## Timer automation examples
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: turn off the bathroom fan when the timer finishes

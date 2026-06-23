@@ -43,8 +43,6 @@ A media player can have the following states:
 
 Here are a few examples of how you can use Media player triggers and conditions in automations.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: dim the room when a movie starts
