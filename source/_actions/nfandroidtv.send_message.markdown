@@ -8,7 +8,7 @@ related_actions:
   - notify.send_message
 ---
 
-The **Send message** action sends a notification to an Android TV or Fire TV with installed **Notifications for Android TV / Fire TV** app.
+The **Send message** action sends a notification to an Android TV or Fire TV with the **Notifications for Android TV / Fire TV** app installed.
 
 {% include actions/ui_header.md %}
 
