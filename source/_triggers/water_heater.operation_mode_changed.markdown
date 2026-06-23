@@ -12,8 +12,6 @@ The **Water heater operation mode changed** trigger fires when a water heater {%
 
 When you target more than one water heater, the **Trigger when** option controls whether the automation runs for each matching change, only for the first one, or only after all targeted water heaters reach the selected mode.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Water heater operation mode changed** in an automation:

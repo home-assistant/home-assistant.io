@@ -11,8 +11,6 @@ The **PM1 level crossed threshold** trigger fires when the PM1 (particulate matt
 
 With this trigger, your air purifier switches on the second PM1 crosses your chosen limit, clearing the air before you even notice a difference. You also get the option to send a notification to your phone when candle smoke or cooking pushes ultrafine particles past a safe level, giving you peace of mind that the air your family breathes is being watched around the clock.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

@@ -8,8 +8,6 @@ description: "Triggers after one or more lawn mowers pause mowing."
 The **Lawn mower paused mowing** trigger fires when a mower stops in the middle of a run without docking.
 Use it when you want to react to an interrupted job, like sending a reminder, pausing another yard task, or waiting before you restart the mower.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

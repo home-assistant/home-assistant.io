@@ -13,8 +13,6 @@ Use **Battery low** to send an alert before a device goes offline, pause automat
 
 For a visual overview of all battery statuses, open the {% my maintenance title="**Maintenance** dashboard" %}.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Battery low** in an automation:

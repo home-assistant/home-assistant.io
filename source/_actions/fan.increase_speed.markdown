@@ -10,8 +10,6 @@ related_actions:
 
 The **Increase fan speed** action is useful when you want more airflow without choosing an exact final value. Use it to nudge the fan up by one step or by a percentage you choose.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:

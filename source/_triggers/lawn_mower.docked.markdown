@@ -8,8 +8,6 @@ description: "Triggers after one or more lawn mowers have returned to dock."
 The **Lawn mower returned to dock** trigger fires when a mower finishes its run and reaches its dock.
 Use it when you want Home Assistant to react the moment yard work is done, like sending a notification, turning off a patio light, or starting a follow-up task.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

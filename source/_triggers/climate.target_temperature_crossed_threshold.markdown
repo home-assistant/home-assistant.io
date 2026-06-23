@@ -12,8 +12,6 @@ The **Thermostat target temperature crossed threshold** trigger fires after the 
 
 Use this trigger when you want to react to the exact moment a setpoint enters or exits a range, such as when a thermostat is adjusted to a more or less aggressive temperature.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat target temperature crossed threshold** in an automation:

@@ -13,8 +13,6 @@ Use **Power crossed threshold** when the crossing moment matters, such as when a
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Power crossed threshold** in an automation:

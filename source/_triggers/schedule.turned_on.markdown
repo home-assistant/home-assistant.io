@@ -9,8 +9,6 @@ related_triggers:
 
 The **Schedule block started** trigger is useful when you want an automation to begin exactly when a scheduled time block starts. Use it to turn something on at the start of a routine, or to begin a follow-up action after a schedule has been active for a while.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

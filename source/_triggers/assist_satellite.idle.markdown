@@ -13,8 +13,6 @@ The **Satellite became idle** trigger fires when one or more Assist satellite {%
 
 Use it to automate clean-up or reset actions after each voice interaction. For example, create an automation to restore media volume that was lowered during the response, to turn off indicator lights that were switched on when listening began, to resume a paused media player, or to log the end of each voice session as part of an energy and resource monitoring routine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

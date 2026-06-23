@@ -12,8 +12,6 @@ The **Volume** condition passes when a media player's volume matches the thresho
 
 Use **Volume** to protect quiet hours, to allow a routine only when the room is already loud enough, or to branch based on the current listening level.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Volume** in an automation:

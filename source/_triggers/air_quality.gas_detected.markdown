@@ -9,8 +9,6 @@ related_triggers:
 
 The **Gas detected** trigger fires the moment a gas sensor {% term entity %} starts detecting gas in your home, whether it is a natural gas leak near the stove or a combustible gas buildup in the basement. A gas leak is one of those situations where every second of early warning matters. With this trigger, Home Assistant alerts you instantly so you and your family have time to react, even in the middle of the night or while you are away from home.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

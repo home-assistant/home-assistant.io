@@ -10,8 +10,6 @@ related_conditions:
 
 The **Timer is paused** condition passes when the timer is paused and still has time remaining. Use it when an automation should continue only while a countdown is on hold.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

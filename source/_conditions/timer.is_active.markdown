@@ -10,8 +10,6 @@ related_conditions:
 
 The **Timer is active** condition passes when the timer is currently counting down. Use it when you want an automation to continue only while a timer is running.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

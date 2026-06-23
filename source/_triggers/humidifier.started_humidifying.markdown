@@ -12,8 +12,6 @@ The **Humidifier started humidifying** trigger fires when a humidifier {% term e
 
 Use **Humidifier started humidifying** to track active humidification cycles, send notifications when the air is dry enough that the device kicks back in, or coordinate other devices that should run alongside it.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Humidifier started humidifying** in an automation:

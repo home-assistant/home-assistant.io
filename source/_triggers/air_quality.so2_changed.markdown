@@ -11,8 +11,6 @@ The **Sulphur dioxide level changed** trigger fires after the sulphur dioxide (S
 
 Imagine your outdoor vents sealing automatically when an industrial plume drifts your way, keeping that acrid air out of your home. Use this trigger to activate air filtration, close outdoor vents, or send notifications whenever your SO2 sensor reports a significant shift.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

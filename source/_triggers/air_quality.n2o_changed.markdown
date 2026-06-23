@@ -11,8 +11,6 @@ The **Nitrous oxide level changed** trigger fires after the nitrous oxide (N2O) 
 
 Imagine your greenhouse ventilation fans spinning up automatically when N2O shifts after a round of fertilizing, keeping the growing environment healthy without an extra trip outside. Use this trigger to log environmental data, activate ventilation, or send alerts whenever your N2O sensor reports a significant shift.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

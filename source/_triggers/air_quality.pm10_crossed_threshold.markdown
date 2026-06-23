@@ -11,8 +11,6 @@ The **PM10 level crossed threshold** trigger fires when the PM10 (particulate ma
 
 Get a heads-up on your phone the moment outdoor PM10 crosses 50, so you know to keep the windows shut on a high-pollen day. Or have your smart windows close automatically when a dust storm rolls in. This trigger is especially helpful during allergy season, letting your home shield you from airborne irritants before they become a problem.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

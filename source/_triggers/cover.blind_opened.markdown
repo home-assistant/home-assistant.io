@@ -11,8 +11,6 @@ The **Blind opened** trigger fires when a targeted blind changes to open. Use it
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a blind opens.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
