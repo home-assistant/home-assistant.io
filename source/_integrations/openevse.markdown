@@ -16,6 +16,7 @@ ha_domain: openevse
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - number
   - sensor
 ha_integration_type: device
@@ -136,6 +137,11 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 ### Number
 
 - **Charge rate**: Sets the maximum current the charger will deliver, in amperes. The minimum and maximum follow the limits that the charger reports for itself, so you cannot set a value outside the safe range for your hardware.
+
+### Buttons
+
+- **Restart**: Restarts the charging module.
+- **Restart Wi-Fi**: Restarts the charger's Wi-Fi module. Use this if the charger drops off your network but is otherwise powered.
 
 ## Examples
 
