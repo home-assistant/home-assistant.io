@@ -11,8 +11,6 @@ The **Carbon dioxide level crossed threshold** trigger fires when a carbon dioxi
 
 Picture your bedroom ventilation fan switching on automatically the moment CO2 crosses 1,000 ppm while you sleep, keeping the air fresh without you lifting a finger. Or getting a gentle reminder on your phone to crack a window when the living room gets stuffy during a gathering. This trigger lets your home respond to stale air the instant it becomes a problem.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

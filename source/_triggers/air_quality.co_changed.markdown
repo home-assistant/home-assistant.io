@@ -11,8 +11,6 @@ The **Carbon monoxide level changed** trigger fires after the carbon monoxide (C
 
 Imagine getting an instant phone alert the moment your garage CO sensor picks up a shift, giving you time to ventilate before the situation becomes serious. Use this trigger to kick off a ventilation routine, send a safety notification, or log concentration changes whenever your CO sensor reports a significant shift.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
