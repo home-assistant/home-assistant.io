@@ -1,5 +1,5 @@
 ---
-title: "Send message"
+title: "Send a notification message"
 action: nfandroidtv.send_message
 domain: nfandroidtv
 description: "Send a notification to your Android TV or Fire TV with support for images, icons, and dialog appearance customization."
@@ -8,7 +8,7 @@ related_actions:
   - notify.send_message
 ---
 
-The **Send message** action sends a notification to an Android TV or Fire TV with the **Notifications for Android TV / Fire TV** app installed.
+The **Send a notification message** action sends a notification to an Android TV or Fire TV with the **Notifications for Android TV / Fire TV** app installed.
 
 {% include actions/ui_header.md %}
 
@@ -40,7 +40,7 @@ Icon:
   description: The image displayed as the notification icon to the left of the notification text.
   required: false
 Position:
-  description:  The screen location where the notification dialog appears. One of bottom right, bottom left, top right, top left, or center.
+  description: The screen location where the notification dialog appears. One of bottom right, bottom left, top right, top left, or center.
   required: false
 Duration:
   description: The time the notification remains visible.
@@ -116,7 +116,7 @@ background_color:
     The color of the notification dialog background. One of `grey`, `black`, `indigo`, `green`, `red`, `cyan`, `teal`, `amber`, or `pink`.
   required: false
   type: string
-font_size:
+fontsize:
   description: >
     The size of the title and message text. One of `small`, `medium`, `large`, or `max`.
   required: false
@@ -134,9 +134,9 @@ transparency:
 
 {% include actions/more_examples.md %}
 
-### Action: send a doorbell-rang notification with an image from the front door camera
+### Action: send a doorbell notification with a front door camera snapshot
 
-If the doorbell rings, receive an actionable notification with a camera snapshot.
+When the doorbell is pressed, send a notification that includes a snapshot from the front door camera.
 
 - **Action**: Notifications for Android TV / Fire TV: Send a notification message
 - **Target**: My TV
@@ -147,7 +147,7 @@ action: |
   target:
     entity_id: notify.my_tv
   data:
-    message: Someone is at the door
+    message: "Someone is at the door"
     image:
       media_content_id: media-source://camera/camera.demo_camera
       media_content_type: application/vnd.apple.mpegurl
@@ -173,8 +173,9 @@ automation: |
     target:
       entity_id: notify.my_tv
     data:
-      title: Your One-Time Password
-      message: {{ states('sensor.otp_final_fantasy_xiv') }}
+      title: "Your One-Time Password"
+      message: |
+        {{ states('sensor.otp_final_fantasy_xiv') }}
       icon:
         media_content_id: media-source://media_source/local/ffxiv_meteor.png
         media_content_type: image/png
@@ -182,7 +183,8 @@ automation: |
       position: bottom-right
       duration:
         seconds: 30
-      color: amber
+      transparency: 75%
+      background_color: amber
 {% endexample %}
 
 {% include actions/stuck.md %}
