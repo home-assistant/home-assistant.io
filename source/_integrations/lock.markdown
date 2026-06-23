@@ -1,6 +1,6 @@
 ---
 title: Lock
-description: Instructions on how to setup your locks with Home Assistant.
+description: Instructions on how to set up your locks with Home Assistant.
 ha_category:
   - Lock
 ha_release: 0.9

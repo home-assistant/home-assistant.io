@@ -12,8 +12,6 @@ The **Water heater target temperature changed** trigger fires when the target te
 
 Use the threshold type to decide which changes matter. You can fire on any change, only when the new setpoint is above or below a value, or only when it lands inside or outside a range.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Water heater target temperature changed** in an automation:

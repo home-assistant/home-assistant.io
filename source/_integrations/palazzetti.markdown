@@ -50,11 +50,11 @@ the fan speed.
 
 This integration supports the following actions (see [Climate](/integrations/climate/)).
 
-- [`set_temperature`](/integrations/climate/#action-climateset_temperature)
-- [`set_hvac_mode`](/integrations/climate/#action-climateset_hvac_mode)
+- [`set_temperature`](/integrations/climate/#action-set-temperature)
+- [`set_hvac_mode`](/integrations/climate/#action-set-hvac-mode)
   - `heat` for heating mode
   - `off` to turn the stove off
-- [`set_fan_mode`](/integrations/climate/#action-climateset_fan_mode)
+- [`set_fan_mode`](/integrations/climate/#action-set-fan-mode)
   - `0` to `5` increasing fan speeds
   - `High` the highest available fan speed
   - `Auto` let the stove set the optimal fan speed

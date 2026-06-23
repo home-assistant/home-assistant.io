@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **NZBGet** {% term integration %} allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to setup automation based on the information.
+The **NZBGet** {% term integration %} allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to set up automation based on the information.
 
 {% include integrations/config_flow.md %}
 

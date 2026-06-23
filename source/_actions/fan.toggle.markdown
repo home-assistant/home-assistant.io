@@ -10,8 +10,6 @@ related_actions:
 
 The **Toggle fan** action is useful when you want one control to flip a fan between on and off. Use it when the current state can vary and you want a single action that handles both directions.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:

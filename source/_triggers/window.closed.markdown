@@ -9,8 +9,6 @@ related_triggers:
 
 The **Window closed** trigger fires when a targeted window closes. Use it to restore heating after airing out a room, confirm that windows are shut before bedtime, or start an automation only after a window has stayed closed for a while.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

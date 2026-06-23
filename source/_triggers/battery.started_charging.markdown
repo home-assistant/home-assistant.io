@@ -11,8 +11,6 @@ related_triggers:
 
 The **Battery started charging** trigger fires when a battery-powered device transitions from not charging to actively charging. A device starts charging when it is connected to a power source, such as a charger, dock, or USB cable. Use this trigger to confirm when a device is plugged in, kick off automations that should run while a device charges, or log charging sessions over time.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Battery started charging** in an automation:

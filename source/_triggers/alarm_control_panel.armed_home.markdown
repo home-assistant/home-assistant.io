@@ -10,8 +10,6 @@ related_triggers:
 
 The **Alarm armed home** trigger fires after an alarm control panel {% term entity %} switches to the armed home state. Home mode typically activates perimeter sensors (doors and windows) while leaving interior motion sensors inactive, so you move around freely inside. Use this trigger to run automations that should start when you are home but want the exterior secured, like locking exterior doors, dimming the porch lights, or sending a confirmation that the perimeter is protected.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

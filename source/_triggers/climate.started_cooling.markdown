@@ -15,8 +15,6 @@ Use this trigger to react to the start of active cooling, for example to turn on
 
 When you target more than one thermostat, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted thermostat starts cooling, only after all targeted thermostats have started cooling, or every single time any of them start cooling.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat started cooling** in an automation:

@@ -12,8 +12,6 @@ The **Water heater is off** condition passes when a water heater {% term entity 
 
 When you target more than one water heater, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted water heater to be off, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Water heater is off** in an automation:

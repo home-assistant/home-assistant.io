@@ -12,8 +12,6 @@ The **Vacuum cleaner started returning to dock** trigger fires when the vacuum f
 
 Use it to prepare for the robot to pass through a dark hallway, announce that cleaning is almost done, or turn off modes that only matter while active cleaning is in progress.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

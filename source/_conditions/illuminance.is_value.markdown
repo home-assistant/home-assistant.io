@@ -10,8 +10,6 @@ related_conditions:
 
 The **Illuminance** condition passes when a light level reading meets a threshold you define. You can check that the illuminance is above, below, within, or outside a specific range. It works with sensors that have the **illuminance** device class. Use it to only dim a lamp when the room is already bright, only close the blinds when the patio is in direct sun, or only run an evening routine once a room has actually gotten dark.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Illuminance** in an automation:

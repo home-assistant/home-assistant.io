@@ -13,8 +13,6 @@ The threshold type controls where the new reading must land for the trigger to f
 
 Use **Battery level changed** to get notified when a device starts running low, log battery drain over time, or trigger a reminder to swap out the batteries in a frequently used sensor.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Battery level changed** in an automation:

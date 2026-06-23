@@ -130,7 +130,7 @@ for the following information from WLED:
 
 ### Switches
 
-The {% term integration %} will also create a number of
+The {% term integration %} will also create several
 [switch entities](/integrations/switch).
 
 #### Nightlight

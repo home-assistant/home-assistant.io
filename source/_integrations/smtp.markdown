@@ -56,7 +56,23 @@ You need to add at least one recipient email address. During the integration set
 
 Repeat these steps to add more recipients. Every email address you add can be selected as target for the corresponding integration.
 
-### Usage
+## Supported functionality
+
+### Notifiers
+
+The **SMTP** {% term integration %} will add a notify {% term entity %} for each configured recipient. To send a notification, you can use the **Notify: Send message** (`notify.send_message`) {% term action %}. For more customizable notifications, use the [notify actions](#notify-actions) instead. For further instructions on how to use email notifications in automations, please see the [getting started with automation page](/getting-started/automation/).
+
+{% example %}
+action: |
+  action: notify.send_message
+  data:
+    title: "Reminder Have you considered frogs?"
+    message: "Just checking in. Have you considered frogs today? If not, there's still time."
+  target:
+    entity_id: notify.my_email
+{% endexample %}
+
+### Notify actions
 
 A notify integration will be created using the entry name without spaces. To use the SMTP notification, refer to it in an automation or script like in this example:
 

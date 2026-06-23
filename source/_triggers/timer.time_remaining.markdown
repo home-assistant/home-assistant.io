@@ -10,8 +10,6 @@ related_triggers:
 
 The **Timer time remaining** trigger fires when a running timer reaches the remaining time you set. Use it for reminders shortly before a timer finishes.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

@@ -445,7 +445,7 @@ Ensure the user you specify has the required permissions to execute the desired 
 
 In this example, the user `my_user` has permission to execute all commands (`instcmds = ALL`).
 
-Please note that Home Assistant cannot determine whether a user can access a specific action without executing it. If you attempt to perform an action for which the user does not have permission, an exception will be thrown at runtime.
+Home Assistant cannot determine whether a user can access a specific action without executing it. If you attempt to perform an action for which the user does not have permission, an exception will be thrown at runtime.
 
 ## Removing the integration
 

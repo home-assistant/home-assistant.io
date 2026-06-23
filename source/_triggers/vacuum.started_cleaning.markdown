@@ -12,8 +12,6 @@ The **Vacuum cleaner started cleaning** trigger fires when the vacuum begins a n
 
 If you want to mark the house as being cleaned, pause other noisy routines, or let someone know the robot has started, this trigger gives you a reliable starting point.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

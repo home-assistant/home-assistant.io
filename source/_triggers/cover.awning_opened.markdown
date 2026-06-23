@@ -11,8 +11,6 @@ The **Awning opened** trigger fires when a targeted awning changes to open. Use 
 
 This trigger is useful for comfort, notifications, and routines that should run as soon as an awning opens.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

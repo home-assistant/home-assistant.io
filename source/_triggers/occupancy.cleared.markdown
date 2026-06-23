@@ -11,8 +11,6 @@ The **Occupancy cleared** trigger fires when one or more occupancy sensors repor
 
 Use it to automate actions, such as turning off lights, lowering the heating, or running a clean-up routine, when a room or area becomes empty. Use a single sensor for a specific room and a group of sensors for larger spaces.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

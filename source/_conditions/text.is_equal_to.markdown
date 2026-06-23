@@ -7,8 +7,6 @@ description: "Tests if one or more text entities are equal to a specified value.
 
 The **Text is equal to** condition passes when a text {% term entity %} holds a specific value. It works with both [Text](/integrations/text/) entities and [Text helpers](/integrations/input_text/). Use it to branch an automation based on a stored note, only continue when a device reports a known status string, or check that a code helper matches an expected value.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Text is equal to** in an automation:

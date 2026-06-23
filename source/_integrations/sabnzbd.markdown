@@ -37,7 +37,7 @@ Here are some practical ways you can use the SABnzbd integration:
 
 ## Prerequisites
 
-You need to grab your API key from your SABnzbd instance in order to configure this integration:
+You need to grab your API key from your SABnzbd instance to configure this integration:
 
 1. Navigate to your SABnzbd web interface.
 2. Select *Config** {% icon "mdi:settings" %}, then **General**.
@@ -67,7 +67,7 @@ API key:
 
 This integration creates the following sensors to monitor your SABnzbd instance:
 
-- **Status**: The current status of SABnzbd (Idle, Downloading, Paused, etc.)
+- **Status**: The current status of SABnzbd (such as Idle, Downloading, or Paused)
 - **Speed**: The current download speed in MB/s
 - **Queue**: The total size of the download queue in GB
 - **Left**: The remaining size of the download queue in GB

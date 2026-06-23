@@ -4,6 +4,7 @@ description: Instructions on how to integrate Duco ventilation with Home Assista
 ha_release: 2026.5
 ha_category:
   - Fan
+  - Select
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_domain: duco
 ha_platforms:
   - diagnostics
   - fan
+  - select
   - sensor
 ha_integration_type: hub
 ha_quality_scale: platinum
@@ -45,7 +47,7 @@ Other Duco systems that expose public API version 2.1 or newer can be set up, bu
 
 The following node types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, and Wi-Fi signal strength.
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor.
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
@@ -82,6 +84,8 @@ Each supported node appears as a separate device in Home Assistant, connected to
 
 The fan entity lets you control the ventilation speed of a node. You can set the speed as a percentage or switch back to automatic mode.
 
+Use the fan when you want to work with Home Assistant's percentage-based fan controls. If you want to choose a specific Duco ventilation state code instead, use the ventilation state select on the main ventilation box.
+
 The fan is always on. Turning off the fan is not supported.
 
 Setting a speed percentage to 33%, 66%, or 100% activates a continuous override with no time limit. Setting it to 0% clears the override and hands control back to Duco:
@@ -98,6 +102,12 @@ When a connected wall unit (such as a UCCO2) triggers a timed speed override on 
 The percentages 33%, 66%, and 100% are abstract speed levels used in the Home Assistant fan UI and do not match the actual airflow percentages configured in the Duco firmware. To see the real airflow target, use the **Target flow level** sensor.
 {% endnote %}
 
+### Select
+
+The ventilation state select is available for the main ventilation box (BOX). It lets you choose the Duco ventilation state codes exposed by your system, such as `AUTO`, `CNT1`, `CNT2`, `CNT3`, `MAN1`, `MAN2`, `MAN3`, or `EMPT`.
+
+Home Assistant only shows the options advertised by your Duco system, so the available choices can vary by model or firmware. After you change the option, Home Assistant refreshes the state from the box and shows the state the box reports back.
+
 ### Sensors
 
 The following sensor entities are created per node, depending on the node type:
@@ -109,6 +119,8 @@ Available for the main ventilation box (BOX). Shows the actual airflow target as
 #### Ventilation state
 
 Available for the main ventilation box (BOX). Shows the ventilation state using the Duco state codes shown by the device and app, instead of friendly labels with fixed meanings.
+
+This sensor is read-only. To choose a specific Duco state code from Home Assistant, use the ventilation state select.
 
 Common values include:
 
@@ -127,6 +139,12 @@ To see when a timed state ends, use the [State end time](#state-end-time) sensor
 #### State end time
 
 Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation state ends. When no timer is active, this sensor is unavailable.
+
+#### Filter remaining
+
+Available for Duco box models that expose a filter timer via the local API. Shows the remaining filter lifetime in days.
+
+On models that do not expose a filter timer, this sensor is not created.
 
 #### CO₂ concentration
 
@@ -166,6 +184,7 @@ Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in
 
 - Switch to high ventilation automatically when cooking or showering.
 - Return to auto mode when everyone leaves home using a presence-based automation.
+- Choose a specific Duco ventilation state from an automation or script.
 - Monitor ventilation activity over time via the logbook.
 - Trigger automations based on CO₂ levels or humidity reported by connected Duco modules.
 
@@ -352,7 +371,7 @@ This can happen when your system uses an older Communication Board V1, or when t
 1. Confirm that your system uses a DUCO Connectivity Board.
 2. Check whether the board firmware exposes public API 2.1 or later.
 3. If your system uses the older Communication Board V1, Home Assistant cannot set up the integration for that system.
-4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system at this time.
+4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system.
 5. If your system should be supported, collect diagnostics and open an issue in Home Assistant Core with your Duco model, board details, and firmware information.
 
 ### Failed to set ventilation state (rate limit)

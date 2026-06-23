@@ -11,8 +11,6 @@ The **Nitrogen dioxide level changed** trigger fires after the nitrogen dioxide 
 
 Imagine your range hood turning on automatically when you start cooking, clearing combustion byproducts before they spread through the house. Use this trigger to start ventilation, close windows facing a busy road, or send a health alert whenever your NO2 sensor reports a significant shift.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

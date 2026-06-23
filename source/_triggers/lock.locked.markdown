@@ -9,8 +9,6 @@ related_triggers:
 
 The **Lock locked** trigger helps you react when a lock reaches the locked state. Use it when you want Home Assistant to confirm that a door is secured before turning off lights, arming an alarm, or sending a status update.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

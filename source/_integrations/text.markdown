@@ -17,20 +17,7 @@ The **Text** {% term integration %} is built for the controlling and monitoring 
 
 If you are looking for a way to create a text entity, please take a look at the [Text helper](/integrations/input_text).
 
-## Actions
-
-### Text actions
-
-Available actions: `text.set_value`
-
-### Action: Set value
-
-The `text.set_value` action sets the textual value of the text entity.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of texts to control.
-| `value` | no | The new text value to set.
+{% include integrations/actions.md %}
 
 {% include integrations/triggers.md %}
 

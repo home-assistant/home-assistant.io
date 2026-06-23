@@ -12,8 +12,6 @@ there is a new update ready for a device or service.
 This trigger is useful for sending a notification, starting a reminder, or
 waiting a little while before taking action on an available update.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

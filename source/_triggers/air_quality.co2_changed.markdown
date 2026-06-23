@@ -11,8 +11,6 @@ The **Carbon dioxide level changed** trigger fires after the carbon dioxide (CO2
 
 Imagine your bedroom ventilation fan spinning up automatically in the middle of the night because CO2 climbed while you slept, so you wake up feeling refreshed instead of groggy. Use this trigger to automate ventilation, log indoor air quality trends, or remind household members to open a window when CO2 shifts noticeably.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

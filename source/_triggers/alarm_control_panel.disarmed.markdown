@@ -10,8 +10,6 @@ related_triggers:
 
 The **Alarm disarmed** trigger fires after an alarm control panel {% term entity %} switches to the disarmed state. Use it to start welcome-home routines the moment the alarm is turned off: turn on the entryway lights, set the thermostat to a comfortable temperature, unlock the front door, or play your favorite playlist. Whether you disarm from a keypad, the app, or an automation, this trigger responds instantly.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

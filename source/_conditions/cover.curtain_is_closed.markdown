@@ -11,8 +11,6 @@ The **Curtain is closed** condition passes when one or more targeted curtains ar
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether a curtain is closed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
