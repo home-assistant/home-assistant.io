@@ -108,6 +108,36 @@ background_color:
 
 {% include actions/more_examples.md %}
 
+### Automation: activate music mode at a moderate sensitivity when a party scene is triggered
+
+When a party scene is activated, enable music mode at moderate sensitivity and brightness rather than full power, so the lights react to music without running at maximum draw the entire evening.
+
+- **Trigger**: Scene activated (`scene.party`)
+- **Action**: Magic Home: Set music mode
+
+{% details "YAML example for activating music mode using moderate settings" %}
+
+{% example %}
+automation: |
+  alias: "Enable music mode at moderate power when party scene activates"
+  triggers:
+  - trigger: state
+    entity_id: scene.party
+  actions:
+  - action: flux_led.set_music_mode
+    target:
+      entity_id: light.addressable_v3_living_room
+    data:
+      sensitivity: 60
+      brightness: 50
+      effect: 2
+      light_screen: false
+      foreground_color: [0, 100, 255]
+      background_color: [0, 0, 0]
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

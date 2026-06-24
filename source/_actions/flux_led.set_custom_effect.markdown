@@ -8,7 +8,7 @@ related_actions:
   - flux_led.set_music_mode
 ---
 
-The **Set custom effect** action plays a custom effect on a Magic Home light by cycling through a list of colors you provide. You control the colors, the speed, and how the light transitions from one color to the next.
+The **Set custom effect** action plays a custom effect on a Magic Home light by cycling through a list of colors you provide. You control the colors, the effect speed, and how the light transitions from one color to the next.
 
 This lets you build your own effects beyond the built-in ones, for example a slow fade through your favorite colors or a fast strobe for a party.
 
@@ -82,6 +82,35 @@ transition:
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
+
+### Automation: slow green-to-white breathing effect when all lights should dim for energy saving
+
+At 22:00, shift the LED strip to a slow two-color gradual effect cycling between a dim green and warm white, replacing a static full-brightness white that consumes more power. The low speed and limited color palette keep the effect gentle.
+
+- **Trigger**: Time: 22:00
+- **Action**: Magic Home: Set custom effect
+
+{% details "YAML example for slow and gradual effect of light cycling" %}
+
+{% example %}
+automation: |
+  alias: "Switch LED strip to low-energy evening effect"
+  triggers:
+  - trigger: time
+    at: "22:00:00"
+  actions:
+  - action: flux_led.set_custom_effect
+    target:
+      entity_id: light.led_strip
+    data:
+      colors:
+        - [0, 60, 20]
+        - [80, 80, 60]
+      speed_pct: 20
+      transition: gradual
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

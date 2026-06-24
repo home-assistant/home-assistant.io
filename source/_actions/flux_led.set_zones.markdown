@@ -74,18 +74,49 @@ speed_pct:
   type: integer
 effect:
   description: >
-    The effect to apply: static, running_water, strobe, jump, or breathing.
+    The effect to apply: `static`, `running_water`, `strobe`, `jump`, or `breathing`.
   required: false
   type: string
 {% endoptions_yaml %}
 
 ## Good to know
 
-- If the light is off, setting zones does not turn it on. Turn the light on separately to switch it on.
+- If the light is off, setting zones does not turn it on. Turn the light on separately to see the effects of this action.
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
+
+### Automation: highlight only the active desk zone to avoid lighting the whole strip
+
+When someone sits down at the desk, set only the zone above the desk to a neutral white and leave the rest of the strip off. This avoids powering the full strip when only a small area needs illumination.
+
+- **Trigger**: Binary sensor turns on (desk occupancy sensor)
+- **Action**: Magic Home: Set zones
+
+{% details "YAML example for highlighting active zone desk" %}
+
+{% example %}
+automation: |
+  alias: ""Light only the desk zone when occupied"
+  triggers:
+  - trigger: state
+    entity_id: binary_sensor.desk_occupancy
+    to: "on"
+  actions:
+  - action: flux_led.set_zones
+    target:
+      entity_id: light.addressable_v3_desk
+    data:
+      colors:
+        - [0, 0, 0]
+        - [200, 200, 180]
+        - [0, 0, 0]
+      speed_pct: 0
+      effect: static
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
