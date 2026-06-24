@@ -58,7 +58,7 @@ The player's online or offline state comes from the Yoto cloud REST API, which t
 - Yoto players cannot be powered on or off from Home Assistant.
 - Starting playback of a specific card from Home Assistant is not supported yet. You can control playback that is already running on the player, but you cannot tell the player which card to play.
 
-## Development / Testing with your own client ID
+{% details "Development / Testing with your own client ID" icon="mdi:account-key" %}
 
 Only follow these steps if you need to use your own OAuth application, like when you are developing or testing the integration.
 
@@ -77,6 +77,8 @@ To enable the Yoto integration with your own development credentials, create a *
 3. Copy the **Client ID** and **Client secret**, and add them as [Application Credentials](/integrations/application_credentials/) before starting the integration setup.
 
 For more details, see the [Yoto Developers documentation](https://yoto.dev/get-started/start-here/).
+
+{% enddetails %}
 
 ## Removing the integration
 
