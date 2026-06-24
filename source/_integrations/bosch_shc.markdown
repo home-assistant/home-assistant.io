@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Cover
   - Hub
+  - Select
   - Sensor
   - Switch
 ha_release: 2021.6
@@ -16,6 +17,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - cover
+  - select
   - sensor
   - switch
 ha_zeroconf: true
@@ -28,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
 - [Cover](#cover)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -44,6 +47,25 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Cover
 
 The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
+
+### Select
+
+The select platform exposes configuration options as drop-down selectors. The following select entities are available:
+
+- **Motion sensitivity** — sensitivity level for Motion Detector II devices (low / middle / high).
+- **Vibration sensitivity** — vibration detection threshold for Shutter Contact II Plus devices.
+- **State after power outage** — behavior of Smart Plug / Smart Plug Compact when power is restored (on / off / last state).
+- **Actuator type** — configures the load type for Thermostat and Light Control devices.
+- **Heater type** — selects the heater type for Thermostat devices.
+- **Output mode** — selects the output mode for Thermostat devices.
+- **Valve type** — selects the valve type for Thermostat devices.
+- **Terminal type** — selects the terminal wiring type for Room Thermostat II devices.
+- **Displayed temperature** — chooses which temperature is shown on Room Thermostat II and Wall Thermostat displays (actual / setpoint).
+- **Orientation light response time** — configures how long the orientation light stays on for Room Thermostat II devices.
+- **Smoke sensitivity** — smoke detection sensitivity for Twinguard devices.
+- **Comfort sensitivity level** / **Security sensitivity level** — manual smart sensitivity tuning for Twinguard devices.
+- **Switch type** — selects the connected switch type for Micromodule Relay devices.
+- **Display direction** — selects the display orientation for Light Control devices.
 
 ### Sensor
 
