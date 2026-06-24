@@ -39,7 +39,7 @@ has the event timestamp as the state, and other event information in attributes.
 
 If you have multiple sites, only the first site will be used.
 
-## Local (advanced)
+## Local
 
 The integration will connect locally to your system.
 No dependency on the cloud, and instantaneous updates, but is harder to set up.
@@ -66,7 +66,7 @@ Maximum concurrent requests in Risco local:
 {% endconfiguration_basic %}
 
 Apart from these options, you can also define a custom mapping between your Home Assistant Alarm states and the Risco arming modes.
-This is an advanced configuration, and unless you're using group arming, the default mapping should probably be best.
+This is optional, and unless you're using group arming, the default mapping is probably best.
 This is a two-way mapping, meaning you can map:
 
 - What Home Assistant state your partition entity will report when Risco is armed in a specific mode.
