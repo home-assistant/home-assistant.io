@@ -515,11 +515,10 @@ Examples:
 ```yaml
 action: switchbot_cloud.upload_art_frame_image
 data:
-  image_url: >-
-    https://switchbot.com/example.png
+  image_url: "https://example.com/example.png"
   device_id:
-    - e075dd533c7f2abc88f3d1077eaeffea
-    - 43a6ce36c38a7144d6838a38e758dcae
+    - YOUR_DEVICE_ID_1
+    - YOUR_DEVICE_ID_2
 ```
 
 ## Important considerations
