@@ -37,7 +37,7 @@ This passes while the sun is below the horizon.
 ## Good to know
 
 - This condition does not use a target. It checks the sun at your configured home location.
-- "Set" means the sun's center is below the horizon, the same moment used for sunrise and sunset. For the opposite check, use [Sun is up](/conditions/sun.is_up/).
+- "Set" uses the same horizon definition as sunrise and sunset, so the condition flips at exactly those moments. For the opposite check, use [Sun is up](/conditions/sun.is_up/).
 - The sun is set during the whole period between sunset and sunrise, including twilight and the dead of night. If you specifically want full darkness, use [It is night](/conditions/sun.is_night/).
 
 {% include conditions/try_it.md %}

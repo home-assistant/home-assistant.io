@@ -37,7 +37,7 @@ This passes while the sun is above the horizon.
 ## Good to know
 
 - This condition does not use a target. It checks the sun at your configured home location.
-- "Up" means the sun's center is at or above the horizon, the same moment used for sunrise and sunset. For the opposite check, use [Sun is set](/conditions/sun.is_set/).
+- "Up" uses the same horizon definition as sunrise and sunset, so the condition flips at exactly those moments. For the opposite check, use [Sun is set](/conditions/sun.is_set/).
 - This is a point-in-time check. It reflects whether the sun is up at the moment the automation runs, not whether it rose or set.
 
 {% include conditions/try_it.md %}

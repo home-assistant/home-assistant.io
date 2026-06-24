@@ -9,7 +9,7 @@ related_conditions:
   - sun.is_morning_twilight
 ---
 
-The **It is night** condition passes during true darkness: when the sun is more than 18° below the horizon, the point where even astronomical twilight has ended and the sky is fully dark. Home Assistant works this out from your [home location](/docs/configuration/basic/).
+The **It is night** condition passes during true darkness: when the sun is 18° or more below the horizon, the point where even astronomical twilight has ended and the sky is fully dark. Home Assistant works this out from your [home location](/docs/configuration/basic/).
 
 Use it when you want an automation to run only in the dead of night, not merely after sunset. For example, dim status lights to their lowest level, or hold off on noisy tasks until the sky is genuinely dark.
 
@@ -37,7 +37,7 @@ This passes only while the sky is fully dark.
 ## Good to know
 
 - This condition does not use a target. It checks the sun at your configured home location.
-- Night here means the sun is below -18° elevation (the end of astronomical twilight). This is stricter than [Sun is set](/conditions/sun.is_set/), which passes during twilight as well.
+- Night here means the sun is at or below -18° elevation (the end of astronomical twilight). This is stricter than [Sun is set](/conditions/sun.is_set/), which passes during twilight as well.
 - At high latitudes in summer, the sun may never drop below -18°. On those days this condition never passes. If you need a check that always has a dark period, use [Sun is set](/conditions/sun.is_set/) instead.
 
 {% include conditions/try_it.md %}

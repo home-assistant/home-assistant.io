@@ -79,7 +79,7 @@ threshold:
 - This condition does not use a target. It always checks the sun at your configured home location.
 - A threshold around 0° corresponds roughly to sunrise and sunset. For those, [Sun is up](/conditions/sun.is_up/) and [Sun is set](/conditions/sun.is_set/) are simpler. Reach for **Sun elevation** when you need a specific angle.
 - The maximum elevation the sun reaches depends on your latitude and the time of year, so pick angles the sun actually reaches at your location.
-- When you use an entity as the threshold, its value is read at the moment the condition runs. It is not tracked continuously; it is re-evaluated each time the automation fires.
+- When you use an entity as the threshold, its value is read at the moment the condition runs. It is not tracked continuously. Instead, the entity value is re-evaluated each time the automation fires.
 
 {% include conditions/try_it.md %}
 
@@ -90,8 +90,8 @@ threshold:
 When the patio is occupied, close the west-facing blinds, but only while the sun sits low in the sky (below 15° of elevation), where it causes the most glare.
 
 - **Trigger**: Patio occupancy detected
-- **Condition**: Sun elevation (below 15°)
-- **Action**: Close the west-facing blinds
+- **Condition**: Sun: Sun elevation (below 15°)
+- **Action**: Close cover (west-facing blinds)
 
 {% details "YAML example for glare-based blinds" %}
 

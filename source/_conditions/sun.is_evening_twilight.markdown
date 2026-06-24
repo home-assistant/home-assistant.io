@@ -32,7 +32,7 @@ Twilight type:
     Which phase of evening twilight passes the condition:
 
     - **Any**: any twilight, from sunset down to the start of night. This is the default.
-    - **Civil**: the sun is between the horizon and 6° below it. The brightest twilight.
+    - **Civil**: the sun is between sunset and 6° below the horizon. The brightest twilight.
     - **Nautical**: the sun is between 6° and 12° below the horizon.
     - **Astronomical**: the sun is between 12° and 18° below the horizon. The darkest twilight, closest to night.
 {% endoptions_ui %}
@@ -60,7 +60,7 @@ condition: |
 {% options_yaml %}
 type:
   description: >
-    Which phase of evening twilight passes the condition. Accepts `any` (any twilight after sunset), `civil` (sun between the horizon and 6° below it), `nautical` (between 6° and 12° below), or `astronomical` (between 12° and 18° below).
+    Which phase of evening twilight passes the condition. Accepts `any` (any twilight after sunset), `civil` (sun between sunset and 6° below the horizon), `nautical` (between 6° and 12° below), or `astronomical` (between 12° and 18° below).
   required: false
   type: string
   default: any
