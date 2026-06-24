@@ -9,7 +9,7 @@ related_conditions:
   - sun.is_night
 ---
 
-The **It is evening twilight** condition passes during the gradually darkening period after sunset, while the sun is below the horizon but still sinking. You can match any evening twilight, or narrow it to a specific phase: civil, nautical, or astronomical. Home Assistant works this out from your [home location](/docs/configuration/basic/).
+The **It is evening twilight** condition passes during the gradually darkening period after sunset, while the sun is below the horizon but the sky is not yet completely dark. You can match any evening twilight, or narrow it to a specific phase: civil, nautical, or astronomical. Home Assistant works this out from your [home location](/docs/configuration/basic/).
 
 Use it to run an automation in that post-sunset window, like switching to evening lighting or closing the blinds as the sky fades.
 

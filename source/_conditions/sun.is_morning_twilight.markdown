@@ -9,7 +9,7 @@ related_conditions:
   - sun.is_night
 ---
 
-The **It is morning twilight** condition passes during the gradually brightening period before sunrise, while the sun is below the horizon but climbing. You can match any morning twilight, or narrow it to a specific phase: civil, nautical, or astronomical. Home Assistant works this out from your [home location](/docs/configuration/basic/).
+The **It is morning twilight** condition passes during the gradually brightening period before sunrise, while the sun is below the horizon but the sky is no longer completely dark. You can match any morning twilight, or narrow it to a specific phase: civil, nautical, or astronomical. Home Assistant works this out from your [home location](/docs/configuration/basic/).
 
 Use it to run an automation in that pre-dawn window, like starting a gentle wake-up routine or raising the blinds as the sky begins to lighten.
 
