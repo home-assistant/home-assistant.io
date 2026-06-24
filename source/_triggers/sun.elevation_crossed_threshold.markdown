@@ -13,8 +13,6 @@ The **Sun elevation crossed threshold** trigger fires when the sun's elevation c
 
 Because elevation tracks the real position of the sun, it adapts to the seasons in a way a fixed sunset offset cannot. Use it to turn on lights as the sun gets low, close blinds against a low winter sun, or run solar-aware automations that respond to how high the sun actually is.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

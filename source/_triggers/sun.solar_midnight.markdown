@@ -13,8 +13,6 @@ The **Solar midnight** trigger fires when the sun reaches its lowest point below
 
 Use it as a reliable "deep night" marker: run a nightly maintenance task, reset daily counters, or make sure everything is switched off at the darkest point of the night.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
