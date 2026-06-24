@@ -39,7 +39,7 @@ Username:
   required: true
   type: string
 Password:
-  description: Password to authenticate with. Provide this or a private key file.
+  description: Password to authenticate with. Provide this or `Private Key File`.
   required: true
   type: string
 Private Key File:
