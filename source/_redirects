@@ -526,6 +526,7 @@ layout: null
 /blog/2024/01/11/voice-assistant-contest /blog/2024/01/17/voice-assistant-contest
 
 # Removed integrations
+/integrations/acer_projector /more-info/removed-integration 301
 /integrations/alarmdotcom /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
