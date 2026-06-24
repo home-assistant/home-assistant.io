@@ -749,7 +749,7 @@ ZHA Device Handler APIs allow quirks to interact directly with ZHA entities and 
 Quirks can:
 
 - Correct interoperability issues caused by non-standard Zigbee implementations.
-- Translate or covert manufacturer-specific attributes and commands into standard ZHA behavior.
+- Translate or convert manufacturer-specific attributes and commands into standard ZHA behavior.
 - Expose additional entities and features for new devices in Home Assistant.
 - Implement custom device logic and automation behavior for new complex devices.
 - Integrate directly with ZHA to support advanced device functionality.
