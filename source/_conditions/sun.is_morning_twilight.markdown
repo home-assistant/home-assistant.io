@@ -82,7 +82,7 @@ type:
 When your alarm helper is on, fade the bedroom light in during civil morning twilight so you wake with the brightening sky.
 
 - **Trigger**: Bedroom motion detected
-- **Condition**: It is morning twilight (Civil)
+- **Condition**: Sun: It is morning twilight (Civil)
 - **Action**: Turn on the bedroom light at low brightness
 
 {% details "YAML example for a pre-dawn wake-up light" %}
