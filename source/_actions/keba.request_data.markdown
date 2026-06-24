@@ -9,6 +9,10 @@ related_actions:
 
 Use this action to request new data from a Keba charging station. The charging station sends an update so the related entities reflect its latest state.
 
+{% caution %}
+Using this action changes the state of your charging station. Use it with care.
+{% endcaution %}
+
 {% include actions/ui_header.md %}
 
 To request new data from an automation or a script:

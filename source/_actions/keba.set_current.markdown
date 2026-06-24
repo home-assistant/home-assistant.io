@@ -10,6 +10,10 @@ related_actions:
 
 Use this action to set the maximum charging current of a Keba charging station, in amperes. This lets you limit how fast a connected car charges, for example to match the available solar power or to stay within the limits of your electrical installation.
 
+{% caution %}
+Using this action changes the state of your charging station. Use it with care.
+{% endcaution %}
+
 {% include actions/ui_header.md %}
 
 To set the maximum current from an automation or a script:

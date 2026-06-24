@@ -11,6 +11,10 @@ Use this action to configure the failsafe mode of a Keba charging station. Fails
 
 If you enable failsafe mode, make sure to call [Set current](/actions/keba.set_current/) regularly within the configured timeout. Otherwise, the charging station applies the fallback current.
 
+{% caution %}
+Using this action changes the state of your charging station. Use it with care.
+{% endcaution %}
+
 {% include actions/ui_header.md %}
 
 To configure the failsafe mode from an automation or a script:

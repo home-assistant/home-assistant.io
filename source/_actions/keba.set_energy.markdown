@@ -9,6 +9,10 @@ related_actions:
 
 Use this action to set the target energy for the current charging session on a Keba charging station, in kilowatt-hours. Once the session reaches this amount, the charging station stops charging. This is useful when you want to add a fixed amount of energy to a car rather than charging it fully.
 
+{% caution %}
+Using this action changes the state of your charging station. Use it with care.
+{% endcaution %}
+
 {% include actions/ui_header.md %}
 
 To set the target energy from an automation or a script:

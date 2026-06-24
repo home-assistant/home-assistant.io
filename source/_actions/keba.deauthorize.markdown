@@ -10,6 +10,10 @@ related_actions:
 
 Use this action to deauthorize the running charging process on a Keba charging station. It uses the RFID tag defined in your configuration.
 
+{% caution %}
+Using this action changes the state of your charging station. Use it with care.
+{% endcaution %}
+
 {% include actions/ui_header.md %}
 
 To deauthorize a charging process from an automation or a script:

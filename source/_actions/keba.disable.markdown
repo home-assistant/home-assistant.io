@@ -10,6 +10,10 @@ related_actions:
 
 Use this action to stop the charging process on a Keba charging station. The charging station must already be authorized.
 
+{% caution %}
+Using this action changes the state of your charging station. Use it with care.
+{% endcaution %}
+
 {% include actions/ui_header.md %}
 
 To stop a charging process from an automation or a script:
