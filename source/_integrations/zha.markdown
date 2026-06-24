@@ -722,7 +722,7 @@ If your Zigbee device pairs/joins successfully with the ZHA {% term integration 
 
 For devices that do not fully follow the Zigbee Cluster Library (ZCL) specification from CSA, or devices that implement manufacturer-specific features, ZHA depends on the companion project called "[ZHA Device Handlers" (also known as "zha-quirks")](https://github.com/zigpy/zha-device-handlers).
 
-ZHA Device Handlers, commonly refered to as "quirks", are device-specific Python modules that customizes how ZHA represents and interacts with a Zigbee device. For reference, other Zigbee gateway solutions have similar concepts of using custom handlers/converters for non-standard devices, (such as example Zigbee2MQTT using [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html)).
+The ZHA Device Handlers project, commonly referred to as "quirks", contains device-specific Python modules that customize how ZHA represents and interacts with a Zigbee device. Other Zigbee gateways use similar concepts, for example Zigbee2MQTT uses [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html).
 
 If your device is not exposing all expected features as entities and you cannot create a quirk yourself, submit a device support request as a new issue in the [ZHA Device Handlers repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues).
 
