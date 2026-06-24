@@ -3,6 +3,7 @@ title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
   - Binary sensor
+  - Button
   - Cover
   - Hub
   - Sensor
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - sensor
   - switch
@@ -27,6 +29,7 @@ The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Cover](#cover)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -40,6 +43,17 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact
 - Shutter Contact II
 - Battery powered devices
+
+### Button
+
+The button platform exposes one-shot actions as pressable buttons. The following button entities are available:
+
+- **Scenario buttons** — one button per scenario configured in the Bosch Smart Home App; pressing it triggers the scenario immediately.
+- **Smoke test** — requests a self-test on Smoke Detector and Twinguard devices.
+- **Trigger** — fires a momentary impulse on Micromodule Impulse Relay devices.
+- **Walk test / Stop walk test** — starts and stops a walk test on Motion Detector II devices (when supported by the device).
+- **Detection test / Stop detection test** — starts and stops a detection test on Motion Detector II devices (when supported by the device).
+- **Reset tamper** — clears an active tamper condition on Motion Detector II devices.
 
 ### Cover
 
