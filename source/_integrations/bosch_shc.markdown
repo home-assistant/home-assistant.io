@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Cover
   - Hub
+  - Number
   - Sensor
   - Switch
 ha_release: 2021.6
@@ -16,6 +17,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - cover
+  - number
   - sensor
   - switch
 ha_zeroconf: true
@@ -28,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
 - [Cover](#cover)
+- [Number](#number)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -44,6 +47,15 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Cover
 
 The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
+
+### Number
+
+The number platform exposes adjustable configuration values as numeric sliders or input boxes. The following number entities are available:
+
+- **Temperature offset** — calibration offset (°C) for Thermostat and Room Thermostat devices. The valid range and step size are read from the device.
+- **Impulse length** — pulse duration in seconds (1–60 s) for Micromodule Relay devices operating in impulse mode.
+- **Display brightness** — backlight brightness level for TRV Gen2 and Room Thermostat 2 devices (slider; range from device).
+- **Display on-time** — duration in seconds that the display stays lit for TRV Gen2 and Room Thermostat 2 devices (range from device).
 
 ### Sensor
 
