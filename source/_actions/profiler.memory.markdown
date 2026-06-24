@@ -59,10 +59,10 @@ This action does not support targets.
 
 When the memory profile is complete, the profiler generates a `.hpy` file in your configuration directory. The exact path appears in a notification, so you can find and copy it.
 
-You can open the `hpy` file with any text editor. For a visual representation, use the [Heapy Profile Browser](http://guppy-pe.sourceforge.net/ProfileBrowser.html), which is part of the guppy3 package and can be launched with the following script:
+You can open the `hpy` file with any text editor. For a visual representation, use the [Heapy Profile Browser](https://guppy-pe.sourceforge.net/ProfileBrowser.html), which is part of the guppy3 package and can be launched with the following script:
 
 ```python
-#! /usr/bin/python3
+#!/usr/bin/python3
 from guppy import hpy
 hpy().pb()
 ```
