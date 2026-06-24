@@ -2,9 +2,9 @@
 title: "Vacuum started returning to dock"
 trigger: vacuum.started_returning
 domain: vacuum
-description: "Triggers when a vacuum cleaner begins returning to its dock."
+description: "Triggers when one or more vacuum cleaners start returning to dock."
 related_triggers:
-  - vacuum.docked
+  - vacuum.returned_to_dock
   - vacuum.started_cleaning
 ---
 

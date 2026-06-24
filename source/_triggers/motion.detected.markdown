@@ -2,7 +2,7 @@
 title: "Motion detected"
 trigger: motion.detected
 domain: motion
-description: "Triggers after one or more motion sensors start detecting motion."
+description: "Triggers when one or more motion sensors start detecting motion."
 related_triggers:
   - motion.cleared
 ---

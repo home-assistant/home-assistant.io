@@ -2,7 +2,7 @@
 title: "Smoke detected"
 trigger: air_quality.smoke_detected
 domain: air_quality
-description: "Triggers after one or more smoke sensors start detecting smoke."
+description: "Triggers when one or more smoke sensors start detecting smoke."
 related_triggers:
   - air_quality.smoke_cleared
 ---

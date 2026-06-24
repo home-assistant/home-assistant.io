@@ -2,7 +2,7 @@
 title: "Light brightness changed"
 trigger: light.brightness_changed
 domain: light
-description: "Triggers after the brightness of one or more lights changes."
+description: "Triggers when the brightness of one or more lights changes."
 related_triggers:
   - light.brightness_crossed_threshold
   - light.turned_on

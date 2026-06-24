@@ -2,7 +2,7 @@
 title: "To-do item added"
 trigger: todo.item_added
 domain: todo
-description: "Triggers when a to-do item is added to a list."
+description: "Triggers when one or more to-do items are added to a list."
 related_triggers:
   - todo.item_completed
   - todo.item_removed

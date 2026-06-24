@@ -2,7 +2,7 @@
 title: "Light turned off"
 trigger: light.turned_off
 domain: light
-description: "Triggers after one or more lights turn off."
+description: "Triggers when one or more lights turn off."
 related_triggers:
   - light.turned_on
   - light.brightness_changed

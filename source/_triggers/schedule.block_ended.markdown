@@ -1,10 +1,10 @@
 ---
 title: "Schedule block ended"
-trigger: schedule.turned_off
+trigger: schedule.block_ended
 domain: schedule
 description: "Triggers when a schedule block ends."
 related_triggers:
-  - schedule.turned_on
+  - schedule.block_started
 ---
 
 The **Schedule block ended** trigger is useful when you want something to happen as soon as a scheduled time block finishes. Use it to turn something off at the end of a routine, or to wait until a schedule has been inactive for a while before continuing.
@@ -37,11 +37,11 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `schedule.turned_off`. A basic example looks like this:
+In YAML, refer to this trigger as `schedule.block_ended`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: schedule.turned_off
+  trigger: schedule.block_ended
   target:
     entity_id: schedule.focus_time
   options:
@@ -73,7 +73,7 @@ for:
 
 - A schedule in the `unknown` or `unavailable` state does not trigger this automation.
 - If another schedule block starts before the **For at least** time finishes, the timer resets.
-- To react when a schedule block starts instead, use [Schedule block started](/triggers/schedule.turned_on/).
+- To react when a schedule block starts instead, use [Schedule block started](/triggers/schedule.block_started/).
 
 {% include triggers/try_it.md %}
 
@@ -94,7 +94,7 @@ If you use a schedule to define office hours, you can turn off a space heater as
 automation: |
   alias: "Turn off the heater when the office schedule ends"
   triggers:
-    - trigger: schedule.turned_off
+    - trigger: schedule.block_ended
       target:
         entity_id: schedule.office_heating
   actions:
@@ -121,7 +121,7 @@ If a quiet period has ended and stayed inactive for a while, you can send yourse
 automation: |
   alias: "Send a reminder after quiet time has ended"
   triggers:
-    - trigger: schedule.turned_off
+    - trigger: schedule.block_ended
       target:
         entity_id: schedule.quiet_time
       options:

@@ -2,7 +2,7 @@
 title: "Siren turned off"
 trigger: siren.turned_off
 domain: siren
-description: "Triggers after one or more sirens turn off."
+description: "Triggers when one or more sirens turn off."
 related_triggers:
   - siren.turned_on
 ---

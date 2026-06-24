@@ -2,7 +2,7 @@
 title: "Lock unlocked"
 trigger: lock.unlocked
 domain: lock
-description: "Triggers after one or more locks unlock."
+description: "Triggers when one or more locks unlock."
 related_triggers:
   - lock.locked
 ---

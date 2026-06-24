@@ -2,7 +2,7 @@
 title: "Lawn mower started mowing"
 trigger: lawn_mower.started_mowing
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers start mowing."
+description: "Triggers when one or more lawn mowers start mowing."
 ---
 
 The **Lawn mower started mowing** trigger fires when a mower begins a mowing run.

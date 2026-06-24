@@ -2,7 +2,7 @@
 title: "Battery level changed"
 trigger: battery.level_changed
 domain: battery
-description: "Triggers after one or more battery level readings change."
+description: "Triggers when the battery level of one or more batteries changes."
 related_triggers:
   - battery.level_crossed
 ---

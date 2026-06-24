@@ -2,7 +2,7 @@
 title: "Nitrogen dioxide level changed"
 trigger: air_quality.no2_changed
 domain: air_quality
-description: "Triggers after one or more nitrogen dioxide levels change."
+description: "Triggers when one or more nitrogen dioxide levels change."
 related_triggers:
   - air_quality.no2_crossed_threshold
 ---

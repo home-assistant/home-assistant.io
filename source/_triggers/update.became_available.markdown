@@ -1,6 +1,6 @@
 ---
 title: "Update became available"
-trigger: update.update_became_available
+trigger: update.became_available
 domain: update
 description: "Triggers after one or more updates become available."
 ---
@@ -41,12 +41,12 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `update.update_became_available`. A basic
+In YAML, refer to this trigger as `update.became_available`. A basic
 example looks like this:
 
 {% example %}
 trigger: |
-  trigger: update.update_became_available
+  trigger: update.became_available
   target:
     entity_id: update.office_router_firmware
 {% endexample %}
@@ -107,7 +107,7 @@ notification to your phone right away.
 automation: |
   alias: "Send a notification when an update becomes available"
   triggers:
-    - trigger: update.update_became_available
+    - trigger: update.became_available
       target:
         entity_id: update.office_router_firmware
   actions:
@@ -138,7 +138,7 @@ automation turns on a light after an update has stayed available for 7 days.
 automation: |
   alias: "Turn on a reminder light if an update stays available for a week"
   triggers:
-    - trigger: update.update_became_available
+    - trigger: update.became_available
       target:
         entity_id: update.guest_room_speaker_firmware
       options:
