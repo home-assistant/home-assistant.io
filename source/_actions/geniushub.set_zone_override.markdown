@@ -66,7 +66,7 @@ temperature:
   required: true
   type: float
 duration:
-  description: How long the override stays active, given as a time mapping such as `minutes: 135`. The value must be between 5 minutes and 24 hours. If you omit it, the override lasts 1 hour.
+  description: "How long the override stays active, given as a time mapping such as `minutes: 135`. The value must be between 5 minutes and 24 hours. If you omit it, the override lasts 1 hour."
   required: false
   type: map
 {% endoptions_yaml %}
