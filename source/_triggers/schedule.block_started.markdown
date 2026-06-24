@@ -1,10 +1,10 @@
 ---
 title: "Schedule block started"
-trigger: schedule.turned_on
+trigger: schedule.block_started
 domain: schedule
 description: "Triggers when a schedule block starts."
 related_triggers:
-  - schedule.turned_off
+  - schedule.block_ended
 ---
 
 The **Schedule block started** trigger is useful when you want an automation to begin exactly when a scheduled time block starts. Use it to turn something on at the start of a routine, or to begin a follow-up action after a schedule has been active for a while.
@@ -37,11 +37,11 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `schedule.turned_on`. A basic example looks like this:
+In YAML, refer to this trigger as `schedule.block_started`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: schedule.turned_on
+  trigger: schedule.block_started
   target:
     entity_id: schedule.morning_routine
   options:
@@ -73,7 +73,7 @@ for:
 
 - A schedule in the `unknown` or `unavailable` state does not trigger this automation.
 - If the schedule stops being active before the **For at least** time finishes, the timer resets.
-- To react when a schedule block ends instead, use [Schedule block ended](/triggers/schedule.turned_off/).
+- To react when a schedule block ends instead, use [Schedule block ended](/triggers/schedule.block_ended/).
 
 {% include triggers/try_it.md %}
 
@@ -94,7 +94,7 @@ If you use a schedule to define when your porch light should be active, you can 
 automation: |
   alias: "Turn on the porch light when the evening schedule starts"
   triggers:
-    - trigger: schedule.turned_on
+    - trigger: schedule.block_started
       target:
         entity_id: schedule.evening_porch_light
   actions:
@@ -121,7 +121,7 @@ If you want a short delay before starting ventilation, you can wait until the sc
 automation: |
   alias: "Start the kitchen fan after 10 minutes"
   triggers:
-    - trigger: schedule.turned_on
+    - trigger: schedule.block_started
       target:
         entity_id: schedule.kitchen_ventilation
       options:

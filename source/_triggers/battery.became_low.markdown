@@ -1,10 +1,10 @@
 ---
 title: "Battery low"
-trigger: battery.low
+trigger: battery.became_low
 domain: battery
 description: "Triggers after one or more battery sensors report a low battery."
 related_triggers:
-  - battery.not_low
+  - battery.no_longer_low
 ---
 
 The **Battery low** trigger fires when a battery sensor reports that the battery is low.
@@ -44,11 +44,11 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, **Battery low** is referred to as `battery.low`. A basic example looks like this:
+In YAML, **Battery low** is referred to as `battery.became_low`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: battery.low
+  trigger: battery.became_low
   target:
     entity_id: binary_sensor.front_door_lock_battery
 {% endexample %}
@@ -59,7 +59,7 @@ To watch all battery sensors in a room and fire only after every sensor in the a
 
 {% example %}
 trigger: |
-  trigger: battery.low
+  trigger: battery.became_low
   target:
     area_id: living_room
   options:
@@ -116,7 +116,7 @@ Sensors in out-of-the-way spots like a mailbox or garden shed can run out of bat
 automation: |
   alias: "Notify when a garden sensor battery is low"
   triggers:
-    - trigger: battery.low
+    - trigger: battery.became_low
       target:
         area_id: garden
   actions:

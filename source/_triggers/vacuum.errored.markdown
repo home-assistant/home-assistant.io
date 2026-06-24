@@ -5,7 +5,7 @@ domain: vacuum
 description: "Triggers when one or more vacuum cleaners encounter an error."
 related_triggers:
   - vacuum.paused_cleaning
-  - vacuum.docked
+  - vacuum.returned_to_dock
 ---
 
 The **Vacuum cleaner encountered an error** trigger fires as soon as your vacuum reports an error state.

@@ -1,6 +1,6 @@
 ---
 title: "Lawn mower returned to dock"
-trigger: lawn_mower.docked
+trigger: lawn_mower.returned_to_dock
 domain: lawn_mower
 description: "Triggers after one or more lawn mowers have returned to dock."
 ---
@@ -32,11 +32,11 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `lawn_mower.docked`. A basic example looks like this:
+In YAML, refer to this trigger as `lawn_mower.returned_to_dock`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: lawn_mower.docked
+  trigger: lawn_mower.returned_to_dock
   target:
     entity_id: lawn_mower.backyard
 {% endexample %}
@@ -92,7 +92,7 @@ If you want a simple heads-up when yard work is done, use this trigger to send a
 automation: |
   alias: "Notify when the mower docks"
   triggers:
-    - trigger: lawn_mower.docked
+    - trigger: lawn_mower.returned_to_dock
       target:
         entity_id: lawn_mower.backyard
   actions:
@@ -120,7 +120,7 @@ If you turn on the patio light earlier in the mowing routine to help the mower r
 automation: |
   alias: "Turn off the patio light after docking"
   triggers:
-    - trigger: lawn_mower.docked
+    - trigger: lawn_mower.returned_to_dock
       target:
         entity_id: lawn_mower.backyard
       options:
