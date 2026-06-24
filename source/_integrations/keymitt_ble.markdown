@@ -17,7 +17,7 @@ ha_integration_type: device
 
 This {% term integration %} allows you to locally control a MicroBot Push (previously manufactured by Naran but now under the Keymitt brand).
 
-### Prerequisites
+## Prerequisites
 
 To use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A Naran/Keymitt hub is not required.
 
@@ -29,15 +29,15 @@ The devices cannot remain paired to the MicroBot application for this integratio
 
 {% include integrations/config_flow.md %}
 
-### Supported devices
+## Supported devices
 
 This Integration is for the MicroBot Push only. The Keymitt lock is not supported.
 
 {% include integrations/actions.md %}
 
-### Error codes and troubleshooting
+## Error codes and troubleshooting
 
-The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth/) integration is enabled and functional.
 
 Due to the device going into deep sleep after extended periods of no activity, the response time can be up to a minute in extreme cases. On average it will be much quicker.
 
