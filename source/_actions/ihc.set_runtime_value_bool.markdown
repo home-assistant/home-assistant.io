@@ -73,6 +73,7 @@ value:
     The boolean value to set.
   required: true
   type: boolean
+  default: false
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
