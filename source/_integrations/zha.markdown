@@ -719,13 +719,12 @@ If your Zigbee device pairs/joins successfully with the ZHA {% term integration 
    To submit a device support request for a new custom ZHA device handler, see [ZHA device handlers](#zha-device-handlers).
 
 #### ZHA device handlers
-For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)".
 
-The project contains device-specific Python scripts called "quirks" that can resolve compliance and interoperability issues by implementing on-the-fly conversion of custom Zigbee configurations or by implementing manufacturer-specific features for specific devices.
+For devices that do not fully follow the Zigbee Cluster Library (ZCL) specification from CSA, or devices that implement manufacturer-specific features, ZHA depends on the companion project called "[ZHA Device Handlers" (also known as "zha-quirks")](https://github.com/zigpy/zha-device-handlers).
 
-Other Zigbee gateway solutions have similar concepts of using custom handlers/converters for non-standard devices, such as Zigbee2MQTT (and IoBroker) using [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html).
+ZHA Device Handlers, commonly refered to as "quirks", are device-specific Python modules that customizes how ZHA represents and interacts with a Zigbee device. For reference, other Zigbee gateway solutions have similar concepts of using custom handlers/converters for non-standard devices, (such as example Zigbee2MQTT using [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html)).
 
-If you do not want to create a "quirk" yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues).
+If your devices is not exposing all expected features as entities and you can not create a "quirk" yourself for contributing to the ZHA Device Handlers project, then you should submit a "device support request" to that project as a new issue via the [ZHA Device Handlers repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues).
 
 {% details "To submit a new device support request:" %}
 
@@ -744,6 +743,20 @@ The project relies on volunteers; submitting a new device support request does n
     - You may also need to actively help in further testing or provide additional information to the volunteering developers.
 
 {% enddetails %}
+
+Historically, quirks primarily operated at the Zigbee protocol layer through the underlying zigpy library. Newer ZHA Device Handler APIs allow quirks to interact directly with ZHA entities and other ZHA primitives, enabling more advanced device support to be implemented entirely within the zha-device-handlers project.
+
+Quirks can:
+
+- Correct interoperability issues caused by non-standard Zigbee implementations.
+- Translate or covert manufacturer-specific attributes and commands into standard ZHA behavior.
+- Expose additional entities and features for new devices in Home Assistant.
+- Implement custom device logic and automation behavior for new complex devices.
+- Integrate directly with ZHA to support advanced device functionality.
+
+This allows complex devices to be supported through self-contained quirk modules without requiring modifications to the zigpy library. Examples include devices that require coordination between multiple entities, custom entity implementations, device-specific state management, or deeper integration with ZHA internals.
+
+For most devices, the newer Quirks V2 model remains the preferred and simplest way to implement support for new devices. There are however also lower-level APIs that are intended primarily for very complex devices that may require functionality beyond the capabilities of the declarative Quirks V2 model.
 
 
 ### Best practices to avoid pairing/connection difficulties
