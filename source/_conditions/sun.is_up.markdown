@@ -49,8 +49,10 @@ This passes while the sun is above the horizon.
 When motion is detected at the front door, turn on the porch light, but only when the sun is down.
 
 - **Trigger**: Motion detected at the front door
-- **Condition**: Sun is up (negated, so the automation runs only when the sun is down)
-- **Action**: Turn on the porch light
+- **Condition**: Not
+  - **Condition**: Sun: sun is up
+- **Action**: Turn on light
+  - **Target**: Porch light
 
 {% details "YAML example for motion lighting only after dark" %}
 

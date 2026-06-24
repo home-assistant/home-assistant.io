@@ -49,7 +49,7 @@ This passes only while the sky is fully dark.
 When motion is detected in the hallway during full darkness, turn the light on at a low brightness instead of full power.
 
 - **Trigger**: Motion detected in the hallway
-- **Condition**: It is night
+- **Condition**: Sun: It is night
 - **Action**: Turn on the hallway light at 10% brightness
 
 {% details "YAML example for a dim night light" %}

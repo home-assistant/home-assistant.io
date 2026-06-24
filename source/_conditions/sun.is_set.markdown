@@ -49,8 +49,9 @@ This passes while the sun is below the horizon.
 When motion is detected in the living room after the sun has set, close the blinds for the evening.
 
 - **Trigger**: Motion detected in the living room
-- **Condition**: Sun is set
-- **Action**: Close the living room blinds
+- **Condition**: Sun: sun is set
+- **Action**: Close cover
+  - **Target**: Living room blinds
 
 {% details "YAML example for closing blinds after sunset" %}
 
