@@ -2,7 +2,7 @@
 title: "Water heater turned off"
 trigger: water_heater.turned_off
 domain: water_heater
-description: "Triggers after one or more water heaters turn off."
+description: "Triggers when one or more water heaters turn off."
 related_triggers:
   - water_heater.turned_on
   - water_heater.operation_mode_changed

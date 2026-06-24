@@ -2,7 +2,7 @@
 title: "Gate closed"
 trigger: gate.closed
 domain: gate
-description: "Triggers after one or more gates close."
+description: "Triggers when one or more gates close."
 related_triggers:
   - gate.opened
 ---

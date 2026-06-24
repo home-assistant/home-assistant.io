@@ -2,7 +2,7 @@
 title: "Illuminance"
 condition: illuminance.is_value
 domain: illuminance
-description: "Tests if an illuminance value is above a threshold, below a threshold, or in a range of values."
+description: "Tests the illuminance of one or more entities."
 related_conditions:
   - illuminance.is_detected
   - illuminance.is_not_detected
@@ -136,7 +136,7 @@ for:
 ## Good to know
 
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
-- This condition works with sensors that have the **illuminance** device class. For binary light/dark sensors, use [Light is detected](/conditions/illuminance.is_detected/) or [Light is not detected](/conditions/illuminance.is_not_detected/) instead.
+- This condition works with sensors that have the **illuminance** device class. For binary light/dark sensors, use [Light level is detected](/conditions/illuminance.is_detected/) or [Light level is not detected](/conditions/illuminance.is_not_detected/) instead.
 - Entities that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation runs.
 

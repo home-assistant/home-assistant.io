@@ -2,7 +2,7 @@
 title: "Calendar event ended"
 trigger: calendar.event_ended
 domain: calendar
-description: "Triggers when a calendar event ends."
+description: "Triggers when one or more calendar events end."
 related_triggers:
   - calendar.event_started
 ---

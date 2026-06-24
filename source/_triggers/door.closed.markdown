@@ -2,7 +2,7 @@
 title: "Door closed"
 trigger: door.closed
 domain: door
-description: "Triggers after one or more doors close."
+description: "Triggers when one or more doors close."
 related_triggers:
   - door.opened
 ---

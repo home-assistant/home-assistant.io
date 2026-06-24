@@ -2,7 +2,7 @@
 title: "Awning opened"
 trigger: cover.awning_opened
 domain: cover
-description: "Triggers after one or more awnings open."
+description: "Triggers when one or more awnings open."
 related_triggers:
   - cover.awning_closed
 ---

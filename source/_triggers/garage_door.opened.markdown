@@ -2,7 +2,7 @@
 title: "Garage door opened"
 trigger: garage_door.opened
 domain: garage_door
-description: "Triggers after one or more garage doors open."
+description: "Triggers when one or more garage doors open."
 related_triggers:
   - garage_door.closed
 ---

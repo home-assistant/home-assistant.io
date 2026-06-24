@@ -2,7 +2,7 @@
 title: "Thermostat turned on"
 trigger: climate.turned_on
 domain: climate
-description: "Triggers after one or more climate devices turn on, regardless of the mode."
+description: "Triggers when one or more thermostats turn on, regardless of the mode."
 related_triggers:
   - climate.turned_off
   - climate.hvac_mode_changed
