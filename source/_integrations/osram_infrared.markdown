@@ -2,7 +2,6 @@
 title: OSRAM Infrared
 description: Instructions on how to control OSRAM and LEDVANCE RGB lights using an infrared emitter.
 ha_category:
-  - Button
   - Light
 ha_release: 2026.7
 ha_iot_class: Assumed State
@@ -11,10 +10,9 @@ ha_codeowners:
 ha_domain: osram_infrared
 ha_config_flow: true
 ha_platforms:
-  - button
   - light
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - docs: /integrations/infrared/
     title: Infrared integration
@@ -28,7 +26,7 @@ Because infrared is a one-way signal, Home Assistant cannot confirm whether the 
 
 ## Supported devices
 
-The integration supports OSRAM and LEDVANCE RGB lights that use the supported infrared remote command set. The supported remote includes controls for power, brightness, white mode, preset colors, effects, and mode selection.
+The integration supports OSRAM and LEDVANCE RGB lights that use the supported infrared remote command set. The supported remote has 24 buttons and includes controls for power, brightness, preset colors and effects and a mode button.
 
 ## Prerequisites
 
@@ -57,10 +55,6 @@ The integration creates a light entity with the following functionality:
 - Set an assumed brightness level by sending relative brightness-up or brightness-down commands.
 - Select white mode or a color from the color wheel. The requested color is mapped to the closest supported preset of the physical remote.
 - Select the **Flash**, **Strobe**, or **Smooth** effect.
-
-### Button
-
-The integration creates a **Mode** button. Pressing this button sends the mode command from the physical remote, which switches to the next color of a predefined sequence.
 
 ## Data updates
 
