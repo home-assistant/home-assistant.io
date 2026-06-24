@@ -48,7 +48,7 @@ action: |
   response_variable: vehicle_images
 {% endexample %}
 
-This retrieves the front exterior and interior image URLs and stores them in the `vehicle_images` variable.
+This retrieves the front exterior and interior image URLs and stores the response in the `vehicle_images` variable.
 
 ### Options in YAML
 
@@ -69,10 +69,10 @@ images:
 
 ## Response data
 
-The action returns an `images` list. Each item describes one image that is available for your vehicle:
+The action returns a response containing an `images` list. Each item describes one image that is available for your vehicle:
 
-- **type**: The angle of the image, for example `exterior_front`.
-- **url**: The URL where the image can be retrieved.
+- `type`: The angle of the image, for example `exterior_front`.
+- `url`: The URL where the image can be retrieved.
 
 Only images that actually exist for your vehicle are returned, so the list may be shorter than the angles you requested.
 
