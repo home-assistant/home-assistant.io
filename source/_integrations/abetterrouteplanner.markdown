@@ -106,8 +106,13 @@ type code identifier.
 - **Range**: Estimated remaining driving range.
 - **Power**: Current charging or discharging power.
 - **Charging state**: Whether the vehicle is charging and how. Possible
-  states are charging (AC), charging (DC), charging, plugged in, and not
-  charging.
+  states are:
+
+    - **Charging (AC)**
+    - **Charging (DC)**
+    - **Charging**: The vehicle is charging, but the charging type is unknown.
+    - **Plugged in**
+    - **Not charging**
 - **Voltage**: Battery pack voltage.
 - **Battery temperature**: Battery pack temperature.
 - **Odometer**: Total distance driven.
@@ -273,7 +278,9 @@ If reauthentication fails repeatedly:
 
 This is expected when a vehicle is parked and not reporting data.
 
-To check when ABRP last received telemetry, use [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics) and look at the most recent frame timestamp in the JSON.
+To check when ABRP last received telemetry, use
+[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics)
+and look at the most recent frame timestamp in the JSON.
 
 ### The integration shows as unavailable
 
@@ -293,6 +300,6 @@ share diagnostics details when possible.
 
 ## Removing the integration
 
-This integration follows standard integration removal.
+This integration follows the standard integration removal process.
 
 {% include integrations/remove_device_service.md %}
