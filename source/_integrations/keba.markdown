@@ -30,7 +30,7 @@ This {% term integration %} provides the following platforms:
 - Binary sensors: Online state, plug state, charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
-- Actions: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found in the [actions](#actions) section.
+- Actions: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found in the [actions](#list-of-actions) section.
 - Notify: Show a text on chargers with a built-in LED display.
 
 ## Configuration
@@ -86,53 +86,11 @@ keba:
       default: 5
 {% endconfiguration %}
 
-## Actions
+{% include integrations/actions.md %}
 
-The Keba integration offers several actions. Using these actions will change the state of your charging station. So use these actions with care!
-
-### Authorizing and Deauthorizing `keba.authorize` and `keba.deauthorize`
-
-The charging station can be authorized and deauthorized using actions (`keba.authorize` and `keba.deauthorize`) or via the lock integration that is created automatically for the charging station. In both cases the RFID tag from the configuration is used.
-
-### Start and Stop `keba.start` and `keba.stop`
-
-The `keba.start` and `keba.stop` actions control the charging process if the car is already authorized. Technically it sends `ena 1` or `ena 0` commands to the charging station.
-
-### Set Target Energy `keba.set_energy`
-
-The action `keba.set_energy` sets the target energy for the current session to the given energy attribute in kWh. Payload example:
-
-```json
-{
-  "energy": 10.0
-}
-```
-
-### Maximum Current `keba.set_curr`
-
-The `keba.set_curr` action sets the maximum current to the given current attribute in Ampere. Payload example:
-
-```json
-{
-  "current": 16.0
-}
-```
-
-### Request New Data `keba.request_data`
-
-The `keba.request_data` action sends data update requests to the charging station.
-
-### Request New Data `keba.set_failsafe`
-
-The `keba.set_failsafe` action sets the failsafe mode of the charging station. Payload example:
-
-```json
-{
-  "failsafe_timeout": 30,
-  "failsafe_fallback": 6,
-  "failsafe_persist": 0
-}
-```
+{% caution %}
+Using these actions changes the state of your charging station. Use them with care.
+{% endcaution %}
 
 ## Notifications
 
