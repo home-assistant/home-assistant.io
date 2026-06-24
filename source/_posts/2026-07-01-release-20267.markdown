@@ -175,7 +175,7 @@ Haven't tried building automations this way yet? Open the automation editor and 
 
 The logbook has always been there to answer a simple question: what happened, and when? The way it answered, though, was a flat list of full sentences. "Living room lamp turned on." "Auto lights was triggered by motion." Every row was a complete sentence, the device name was repeated on every line, and it used its own wording ("turned on", "changed to") that didn't quite match how states are written everywhere else in Home Assistant. Reading back a busy day meant reading every single line.
 
-This release rebuilds it from the ground up into a timeline, and renames it to **Activity**.
+This release rebuilds it from the ground up into a timeline.
 
 <img src='/images/blog/2026-07/temp-activity-timeline.png' alt='Screenshot of the redesigned Activity timeline, with entries grouped by day on a vertical rail with colored state dots.' class='no-shadow' />
 
@@ -227,6 +227,9 @@ We welcome the following new integrations in this release:
 - **[Chef iQ]**, added by [@Invader444]  
   Read the temperatures from your Chef iQ wireless cooking probes directly over Bluetooth. No cloud account, base station, or hub is needed: the probe broadcasts its readings and Home Assistant listens passively.
 
+- **[Dropbox]**, added by [@bdr99]  
+  Store your Home Assistant backups straight to your [Dropbox](https://dropbox.com) account. Setup runs through the Home Assistant Cloud Account Linking service, so you do not need a Home Assistant Cloud subscription or your own application credentials to get started. Once connected, Dropbox shows up as a backup location alongside the rest.
+
 - **[Edifier Infrared]**, added by [@abmantis]  
   Control your Edifier speaker with any infrared transmitter you already have set up in Home Assistant. Built on the [Infrared] entity platform, so you can pair it with an ESPHome device with an IR <abbr title="light-emitting diode">LED</abbr>, or any other supported IR emitter. Communication is one-way, so the integration uses assumed states.
 
@@ -251,6 +254,7 @@ We welcome the following new integrations in this release:
 [@abmantis]: https://github.com/abmantis
 [@AjinkyaGokhale]: https://github.com/AjinkyaGokhale
 [@astrandb]: https://github.com/astrandb
+[@bdr99]: https://github.com/bdr99
 [@BrzezowskiGC]: https://github.com/BrzezowskiGC
 [@daniel-bergmann-00]: https://github.com/daniel-bergmann-00
 [@ebaschiera]: https://github.com/ebaschiera
@@ -259,6 +263,7 @@ We welcome the following new integrations in this release:
 [@Phunkafizer]: https://github.com/Phunkafizer
 [Aqvify]: /integrations/aqvify
 [Chef iQ]: /integrations/chef_iq
+[Dropbox]: /integrations/dropbox
 [Edifier Infrared]: /integrations/edifier_infrared
 [energieleser]: /integrations/energieleser
 [Envertech EVT800]: /integrations/envertech_evt800
@@ -451,7 +456,7 @@ There are many more improvements in this release; here are some of the other not
 - **Template lights gain xy color.** Build template lights with full xy color support. Thanks, [@Petro31]!
 - **Clean a specific room from Google Assistant.** Ask Google to send your robot vacuum to a particular room. Thanks, [@joostlek]!
 - **A Raspberry Pi firmware update entity.** Running Home Assistant on a Raspberry Pi? You can now keep its firmware up to date from within Home Assistant. Thanks, [@sairon]!
-- **Snappier templates.** Under the hood, a template engine optimization makes templates render up to 40% faster.
+- **Snappier templates.** Under the hood, a template engine optimization makes templates render up to 40% faster. Thanks, [@frenck]!
 - **Clearer automation traces.** When you debug an automation or script, its trace now always includes template errors, making it easier to spot what went wrong. Thanks, [@emontnemery]!
 
 [@bramkragten]: https://github.com/bramkragten
@@ -715,6 +720,7 @@ This release requires an updated Z-Wave JS server. You need zwave-js-server 3.9.
 If you are a custom integration developer and want to learn about changes and new features available for your integration: Be sure to follow our [developer blog][devblog]. The following changes are the most notable for this release:
 
 - [Changes to device tracker entity models](https://developers.home-assistant.io/blog/2026/06/15/device-tracker-changes)
+- [Frontend component updates in 2026.7](https://developers.home-assistant.io/blog/2026/06/23/frontend-component-updates-2026.7)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
