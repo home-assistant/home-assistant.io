@@ -49,6 +49,7 @@ Paramset:
   required: true
 RX mode:
   description: "The receive mode used for BidCoS-RF devices: BURST or WAKEUP."
+{% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
