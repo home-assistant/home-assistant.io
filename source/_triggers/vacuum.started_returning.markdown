@@ -4,7 +4,7 @@ trigger: vacuum.started_returning
 domain: vacuum
 description: "Triggers when one or more vacuum cleaners start returning to dock."
 related_triggers:
-  - vacuum.docked
+  - vacuum.returned_to_dock
   - vacuum.started_cleaning
 ---
 

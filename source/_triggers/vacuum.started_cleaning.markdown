@@ -5,7 +5,7 @@ domain: vacuum
 description: "Triggers when one or more vacuum cleaners start cleaning."
 related_triggers:
   - vacuum.paused_cleaning
-  - vacuum.docked
+  - vacuum.returned_to_dock
 ---
 
 The **Vacuum cleaner started cleaning** trigger fires when the vacuum begins a new cleaning run. Use it for automations that need to respond when cleaning starts, like announcements, status changes, or notifications.

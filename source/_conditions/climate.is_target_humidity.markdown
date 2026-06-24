@@ -1,6 +1,6 @@
 ---
 title: "Thermostat target humidity"
-condition: climate.target_humidity
+condition: climate.is_target_humidity
 domain: climate
 description: "Tests the target humidity of one or more thermostats."
 related_conditions:
@@ -9,7 +9,7 @@ related_conditions:
   - climate.is_heating
   - climate.is_drying
   - climate.is_hvac_mode
-  - climate.target_temperature
+  - climate.is_target_temperature
 ---
 
 The **Thermostat target humidity** condition passes when a thermostat {% term entity %}'s target humidity setting meets a threshold you define. The target humidity is the setpoint you configure on the device, not the actual current humidity reading. For example, you can use this condition in an automation to turn on a dehumidifier only if the thermostat's humidity setpoint is above 60%.
@@ -43,7 +43,7 @@ For at least:
 
 {% include conditions/yaml_header.md %}
 
-In YAML, **Thermostat target humidity** is referred to as `climate.target_humidity`. A basic example looks like this:
+In YAML, **Thermostat target humidity** is referred to as `climate.is_target_humidity`. A basic example looks like this:
 
 {% example %}
 automation: |
@@ -53,7 +53,7 @@ automation: |
       entity_id: climate.bedroom
       attribute: humidity
   conditions:
-    - condition: climate.target_humidity
+    - condition: climate.is_target_humidity
       target:
         entity_id: climate.bedroom
       options:
@@ -129,7 +129,7 @@ automation: |
       entity_id: climate.bedroom
       attribute: humidity
   conditions:
-    - condition: climate.target_humidity
+    - condition: climate.is_target_humidity
       target:
         entity_id: climate.bedroom
       options:

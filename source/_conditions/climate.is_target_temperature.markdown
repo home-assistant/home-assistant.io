@@ -1,6 +1,6 @@
 ---
 title: "Thermostat target temperature"
-condition: climate.target_temperature
+condition: climate.is_target_temperature
 domain: climate
 description: "Tests the target temperature of one or more thermostats."
 related_conditions:
@@ -9,7 +9,7 @@ related_conditions:
   - climate.is_heating
   - climate.is_drying
   - climate.is_hvac_mode
-  - climate.target_humidity
+  - climate.is_target_humidity
 ---
 
 The **Thermostat target temperature** condition passes when a thermostat {% term entity %}'s target temperature setting meets a threshold you define. The target temperature is the setpoint you configure on the device, not the actual current temperature reading. For example, you can use this condition in an automation to turn on a dehumidifier only if the thermostat is set to an unusually high or low temperature.
@@ -52,7 +52,7 @@ For at least:
 
 {% include conditions/yaml_header.md %}
 
-In YAML, **Thermostat target temperature** is referred to as `climate.target_temperature`. A basic example looks like this:
+In YAML, **Thermostat target temperature** is referred to as `climate.is_target_temperature`. A basic example looks like this:
 
 {% example %}
 automation: |
@@ -62,7 +62,7 @@ automation: |
       entity_id: climate.living_room
       attribute: temperature
   conditions:
-    - condition: climate.target_temperature
+    - condition: climate.is_target_temperature
       target:
         entity_id: climate.living_room
       options:
@@ -89,7 +89,7 @@ automation: |
       entity_id: climate.bedroom
       attribute: temperature
   conditions:
-    - condition: climate.target_temperature
+    - condition: climate.is_target_temperature
       target:
         entity_id: climate.bedroom
       options:
@@ -179,7 +179,7 @@ automation: |
       entity_id: climate.living_room
       attribute: temperature
   conditions:
-    - condition: climate.target_temperature
+    - condition: climate.is_target_temperature
       target:
         entity_id: climate.living_room
       options:
@@ -210,7 +210,7 @@ automation: |
       entity_id: climate.bedroom
       attribute: temperature
   conditions:
-    - condition: climate.target_temperature
+    - condition: climate.is_target_temperature
       target:
         entity_id: climate.bedroom
       options:

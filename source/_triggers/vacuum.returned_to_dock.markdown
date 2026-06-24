@@ -1,6 +1,6 @@
 ---
 title: "Vacuum returned to dock"
-trigger: vacuum.docked
+trigger: vacuum.returned_to_dock
 domain: vacuum
 description: "Triggers when a vacuum cleaner docks."
 related_triggers:
@@ -39,11 +39,11 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `vacuum.docked`. A basic example looks like this:
+In YAML, refer to this trigger as `vacuum.returned_to_dock`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: vacuum.docked
+  trigger: vacuum.returned_to_dock
   target:
     entity_id:
       - vacuum.upstairs
@@ -101,7 +101,7 @@ When the vacuum docks, the cleaning run is usually complete. This automation sen
 automation: |
   alias: "Vacuum finished cleaning"
   triggers:
-    - trigger: vacuum.docked
+    - trigger: vacuum.returned_to_dock
       target:
         entity_id: vacuum.downstairs
   actions:

@@ -1,6 +1,6 @@
 ---
 title: "Timer time remaining"
-trigger: timer.time_remaining
+trigger: timer.remaining_time_reached
 domain: timer
 description: "Triggers when one or more timers reach a specific remaining time."
 related_triggers:
@@ -31,11 +31,11 @@ Time remaining:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `timer.time_remaining`. A basic example looks like this:
+In YAML, refer to this trigger as `timer.remaining_time_reached`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: timer.time_remaining
+  trigger: timer.remaining_time_reached
   target:
     entity_id: timer.laundry
   options:
@@ -80,7 +80,7 @@ Get a reminder before the cycle finishes so you can be ready to empty the machin
 automation: |
   alias: "Notify when the laundry timer has five minutes left"
   triggers:
-    - trigger: timer.time_remaining
+    - trigger: timer.remaining_time_reached
       target:
         entity_id: timer.laundry
       options:
@@ -110,7 +110,7 @@ Use a short visual warning before a timed hallway light is about to turn off.
 automation: |
   alias: "Flash the hallway light when the entry timer has one minute left"
   triggers:
-    - trigger: timer.time_remaining
+    - trigger: timer.remaining_time_reached
       target:
         entity_id: timer.entry
       options:
