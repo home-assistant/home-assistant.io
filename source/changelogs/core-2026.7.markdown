@@ -1,0 +1,12 @@
+---
+title: Full changelog for Home Assistant 2026.7
+description: Detailed changelog for the Home Assistant 2026.7 release
+replace_regex: \s\(\[?[a-z0-9\-\s_]+\]?\)$
+---
+
+These are all the changes included in the Home Assistant 2026.7 release.
+For a summary in a more readable format
+[Release notes blog for this release](/blog/2026/07/01/release-20267/).
+
+## All changes
+
