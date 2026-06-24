@@ -1,6 +1,6 @@
 ---
 title: CPU Speed
-description: Instructions on how to integrate CPU speed within Home Assistant.
+description: Monitor the CPU speed of the device running Home Assistant.
 ha_category:
   - System monitor
 ha_release: pre 0.7
@@ -15,11 +15,14 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **CPU Speed** {% term integration %} allows you to monitor the current CPU speed.
+The **CPU Speed** {% term integration %} lets you monitor the current CPU speed of the device running Home Assistant. It creates a sensor that reports the current CPU frequency in gigahertz.
 
 {% include integrations/config_flow.md %}
 
-## Known issues and limitations
+## Supported functionality
 
-Not all CPUs are supported. For example, some [ARM CPUs](https://github.com/workhorsy/py-cpuinfo/#cpu-support)
-are known not to work with this integration.
+The integration provides one sensor for the current CPU speed. The sensor can also include the CPU architecture, CPU brand, and advertised CPU speed as attributes when this information is available from the system.
+
+## Known limitations
+
+Not all CPUs provide speed information in a way that this integration can read. For example, some [ARM CPUs](https://github.com/workhorsy/py-cpuinfo/#cpu-support) are not supported by the library used by this integration.
