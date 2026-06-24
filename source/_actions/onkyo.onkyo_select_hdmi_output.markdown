@@ -21,7 +21,7 @@ To use this action in an automation or script:
 6. Set the receiver entity and the HDMI output code you want.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Instead, you set the receiver as a regular option.
+This action does not support targets. In the UI, you choose the receiver in the **Entity** field.
 
 ### Options in the UI
 
