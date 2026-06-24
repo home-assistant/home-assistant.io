@@ -13,8 +13,6 @@ The **Solar noon** trigger fires when the sun reaches its highest point in the s
 
 Use it to act when the sun is at its strongest: close blinds against the midday glare, run the most demanding loads while solar production peaks, or check in on a south-facing room.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
