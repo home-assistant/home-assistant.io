@@ -13,8 +13,6 @@ The **Dusk** trigger fires at dusk, the moment the evening twilight ends and the
 
 Use it to close blinds for the night, switch to evening lighting, or arm a routine once it is genuinely dark outside rather than at a fixed clock time.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
