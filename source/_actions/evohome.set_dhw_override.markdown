@@ -58,6 +58,7 @@ state:
     (`false`).
   required: true
   type: boolean
+  default: false
 duration:
   description: >
     How long the override lasts before the controller returns to its
