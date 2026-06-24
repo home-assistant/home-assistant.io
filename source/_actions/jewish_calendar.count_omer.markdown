@@ -107,6 +107,30 @@ output: |
   total_days: 37
 {% endexample %}
 
+{% include actions/more_examples.md %}
+
+### Count today's Omer in Hebrew
+
+For a minimal call, provide only the required nusach. With no date, the action counts the current Hebrew day, taking the current time relative to sunset into account, and returns the text in Hebrew by default.
+
+{% example %}
+action: |
+  action: jewish_calendar.count_omer
+  data:
+    nusach: sfarad
+  response_variable: omer
+{% endexample %}
+
+This returns a response similar to:
+
+{% example %}
+output: |
+  message: היום ארבעה עשר יום שהם שני שבועות לעומר
+  weeks: 2
+  days: 0
+  total_days: 14
+{% endexample %}
+
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
