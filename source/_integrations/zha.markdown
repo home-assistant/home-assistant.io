@@ -718,9 +718,9 @@ If your Zigbee device pairs/joins successfully with the ZHA {% term integration 
 4. Still not working? You might need a new custom ZHA device handler. This device handler adds exception handling code to ZHA to work around device-specific issues.
    To submit a device support request for a new custom ZHA device handler, see [ZHA device handlers](#zha-device-handlers).
 
-#### ZHA device handlers
+#### ZHA Device Handlers (zha-quirks)
 
-For devices that do not fully follow the Zigbee Cluster Library (ZCL) specification from CSA, or devices that implement manufacturer-specific features, ZHA depends on the companion project called "[ZHA Device Handlers" (also known as "zha-quirks")](https://github.com/zigpy/zha-device-handlers).
+For Zigbee devices that do not fully follow the Zigbee Cluster Library (ZCL) specification from CSA, or Zigbee devices that implement manufacturer-specific features, ZHA depends on the companion project [ZHA Device Handlers (also known as "zha-quirks")](https://github.com/zigpy/zha-device-handlers).
 
 The ZHA Device Handlers project, commonly referred to as "quirks", contains device-specific Python modules that customize how ZHA represents and interacts with a Zigbee device. Other Zigbee gateways use similar concepts, for example Zigbee2MQTT uses [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html).
 
