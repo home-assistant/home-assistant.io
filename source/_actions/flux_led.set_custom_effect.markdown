@@ -74,7 +74,7 @@ speed_pct:
   type: integer
 transition:
   description: >
-    How the light transitions between colors: gradual, jump, or strobe.
+    How the light transitions between colors: `gradual`, `jump`, or `strobe`.
   required: false
   type: string
 {% endoptions_yaml %}
