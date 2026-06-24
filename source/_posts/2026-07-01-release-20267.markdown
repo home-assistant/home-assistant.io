@@ -195,7 +195,7 @@ The same component powers all of this, so the timeline stays consistent whether 
 
 ## Update all
 
-We've all been there. You open **Settings** > **Updates** after being away for a bit, and there it is: a wall of pending updates. A new Home Assistant release, a handful of {% term "add-on" "add-ons" %}, that one integration, and seven ESPHome devices that all decided to ship new firmware in the same week. Keeping up used to mean working down that list one entry at a time, selecting, waiting, selecting the next, and repeating until your finger got tired.
+We've all been there. You open **Settings** > **Updates** after being away for a bit, and there it is: a wall of pending updates. A new Home Assistant release, a handful of apps, that one integration, and seven ESPHome devices that all decided to ship new firmware in the same week. Keeping up used to mean working down that list one entry at a time, selecting, waiting, selecting the next, and repeating until your finger got tired.
 
 Not anymore. This release reorganizes the updates page around how you actually think about your system, and adds a single button that does the heavy lifting: **Update all**.
 
@@ -206,7 +206,7 @@ Instead of one long, flat list, your pending updates are now grouped into clear 
 - **Home Assistant** sits right at the top, with Core, the Operating System, and the Supervisor. These run the core of your system, so they're kept on their own, without an **Update all** button. You apply them yourself, on purpose.
 - **Integrations with several pending updates** get a card of their own. Those seven ESPHome devices? Bundled together, so a single selection brings them all up to date. The same goes for a stack of <abbr title="Home Assistant Community Store">HACS</abbr> integrations waiting on a new version.
 - **Integrations** gathers the remaining one-off integration updates into one tidy card.
-- **Apps** does the same for your add-ons.
+- **Apps** does the same for your apps (used to be called add-ons).
 - **Skipped** updates show up in their own card once you turn on **Show skipped updates**. Keeping them separate means they never get swept along by an **Update all** you didn't intend for them.
 
 Select **Update all** on any card, and Home Assistant takes it from there, updating everything in that group in one go. No ticking boxes, no confirmation dialog to step through, just done.
@@ -370,12 +370,20 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **1 integration reached gold** 🥇
+- **1 integration reached platinum** 🏆
+  - [Yoto], thanks to [@piitaya]
+
+- **2 integrations reached gold** 🥇
+  - [Anthropic], thanks to [@Shulyaka]
   - [Growatt][growatt_server], thanks to [@johanzander]
 
-- **2 integrations reached silver** 🥈
+- **3 integrations reached silver** 🥈
   - [OpenEVSE], thanks to [@c00w]
   - [OVHcloud AI Endpoints], thanks to [@Crocmagnon]
+  - [Splunk], thanks to [@Bre77]
+
+- **1 integration reached bronze** 🥉
+  - [openSenseMap], thanks to [@AlCalzone]
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
 
@@ -385,9 +393,12 @@ A big thank you to all the contributors involved! 👏
 [@Crocmagnon]: https://github.com/Crocmagnon
 [@c00w]: https://github.com/c00w
 [@johanzander]: https://github.com/johanzander
+[@Shulyaka]: https://github.com/Shulyaka
+[Anthropic]: /integrations/anthropic
 [growatt_server]: /integrations/growatt_server
 [OpenEVSE]: /integrations/openevse
 [OVHcloud AI Endpoints]: /integrations/ovhcloud_ai_endpoints
+[Splunk]: /integrations/splunk
 
 ### Now available to set up from the UI
 
@@ -689,7 +700,7 @@ Automations, scripts, or templates that depend on zone person counts or on devic
 
 This release requires an updated Z-Wave JS server. You need zwave-js-server 3.9.0 or newer (schema 49):
 
-- If you use the Z-Wave JS add-on, update it to at least version 1.4.0.
+- If you use the Z-Wave JS app, update it to at least version 1.4.0.
 - If you use the Z-Wave JS UI Docker container, update it to at least version 11.19.1.
 - If you run your own zwave-js-server, update it to at least version 3.9.0.
 
