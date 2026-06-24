@@ -10,7 +10,7 @@ related_actions:
 
 The **Pause** action pauses the NZBGet download queue. Downloads stop until you resume them again with [Resume](/actions/nzbget.resume/).
 
-This is handy for freeing up your internet connection automatically, for example pausing downloads while you are on a video call or streaming a movie.
+This is handy for freeing up your internet connection automatically, for example, pausing downloads while you are on a video call or streaming a movie.
 
 {% include actions/ui_header.md %}
 

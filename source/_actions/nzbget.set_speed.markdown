@@ -10,7 +10,7 @@ related_actions:
 
 The **Set speed** action sets the download speed limit for the NZBGet queue, in kilobytes per second. Set it to `0` to remove the limit and let downloads run at full speed.
 
-This is handy for throttling downloads automatically, for example capping the speed during the day and lifting the limit at night.
+This is handy for throttling downloads automatically, for example, capping the speed during the day and lifting the limit at night.
 
 {% include actions/ui_header.md %}
 

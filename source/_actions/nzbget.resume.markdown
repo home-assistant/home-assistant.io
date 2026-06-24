@@ -10,7 +10,7 @@ related_actions:
 
 The **Resume** action restarts the NZBGet download queue after it has been paused. It is the counterpart to [Pause](/actions/nzbget.pause/).
 
-This is handy for picking downloads back up automatically, for example resuming them once a video call ends or overnight when your connection is quiet.
+This is handy for picking downloads back up automatically, for example, resuming them once a video call ends or overnight when your connection is quiet.
 
 {% include actions/ui_header.md %}
 
