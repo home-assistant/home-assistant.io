@@ -176,6 +176,10 @@ This means that Home Assistant can't connect to the Kiosker App.
 6. If you have enabled TLS, make sure that you have installed a valid certificate in the Kiosker App, typically a self-signed certificate.
 7. If you have enabled `Verify certificate`, make sure that the certificate is valid and that the root certificate is marked as trusted on the host.
 
+### Home Assistant asks you to reauthenticate
+
+If the API token in the Kiosker App is regenerated or changed, Home Assistant detects the failed authentication and starts a reauthentication flow. Select **Reconfigure** on the integration's notification and enter the new token. The integration reconnects without losing your existing entities or automations.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
