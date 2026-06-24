@@ -9,7 +9,7 @@ related_conditions:
   - sun.is_evening_twilight
 ---
 
-The **Sun is descending** condition passes while the sun is sinking, the half of the day between solar noon and solar midnight when the sun's elevation is decreasing. Home Assistant works this out from your [home location](/docs/configuration/basic/).
+The **Sun is descending** condition passes while the sun is sinking. This happens during the half of the day between solar noon and solar midnight when the sun's elevation is decreasing. Home Assistant works this out from your [home location](/docs/configuration/basic/).
 
 Use it to tell afternoon and evening apart from the morning without picking a clock time. For example, run a routine only while the sun is on its way down, regardless of the season.
 
@@ -49,8 +49,9 @@ This passes while the sun is sinking toward solar midnight.
 When the patio gets hot, lower the awning, but only while the sun is descending, so it reacts to the afternoon sun rather than a warm morning.
 
 - **Trigger**: Patio temperature rises above a threshold
-- **Condition**: Sun is descending
-- **Action**: Close the patio awning
+- **Condition**: Sun: Sun is descending
+- **Action**: Close cover
+  - **Target**: Patio awning
 
 {% details "YAML example for afternoon-only awning" %}
 

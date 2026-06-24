@@ -9,7 +9,7 @@ related_conditions:
   - sun.is_morning_twilight
 ---
 
-The **Sun is ascending** condition passes while the sun is climbing, the half of the day between solar midnight and solar noon when the sun's elevation is increasing. Home Assistant works this out from your [home location](/docs/configuration/basic/).
+The **Sun is ascending** condition passes while the sun is climbing. This happens during the half of the day between solar midnight and solar noon when the sun's elevation is increasing. Home Assistant works this out from your [home location](/docs/configuration/basic/).
 
 Use it to tell morning apart from afternoon without picking a clock time. For example, run a routine only while the sun is on its way up, regardless of the season.
 
@@ -49,8 +49,9 @@ This passes while the sun is rising toward solar noon.
 When the living room brightens past a threshold, raise the blinds, but only while the sun is still climbing, so an equally bright evening does not trigger it.
 
 - **Trigger**: Living room illuminance rises above a threshold
-- **Condition**: Sun is ascending
-- **Action**: Open the living room blinds
+- **Condition**: Sun: Sun is ascending
+- **Action**: Open cover
+  - **Target**: Living room blinds
 
 {% details "YAML example for morning-only blinds" %}
 

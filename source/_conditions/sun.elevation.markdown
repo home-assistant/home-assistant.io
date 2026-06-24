@@ -91,7 +91,8 @@ When the patio is occupied, close the west-facing blinds, but only while the sun
 
 - **Trigger**: Patio occupancy detected
 - **Condition**: Sun: Sun elevation (below 15°)
-- **Action**: Close cover (west-facing blinds)
+- **Action**: Close cover
+  - **Target**: West-facing blinds
 
 {% details "YAML example for glare-based blinds" %}
 
