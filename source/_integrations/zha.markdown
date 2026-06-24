@@ -756,7 +756,7 @@ Quirks can:
 
 This allows complex devices to be supported through self-contained quirk modules without requiring modifications to the zigpy library. Examples include devices that require coordination between multiple entities, custom entity implementations, device-specific state management, or deeper integration with ZHA internals.
 
-For most devices, the newer Quirks V2 model remains the preferred and simplest way to implement support for new devices. There are however also lower-level APIs that are intended primarily for very complex devices that may require functionality beyond the capabilities of the declarative Quirks V2 model.
+For most devices, the Quirks V2 model is the preferred and simplest way to implement support for new devices. Lower-level APIs are also available for very complex devices that need functionality beyond what the declarative Quirks V2 model provides.
 
 
 ### Best practices to avoid pairing/connection difficulties
