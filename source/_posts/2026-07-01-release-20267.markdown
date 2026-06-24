@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2026.7 Beta: A betta title"
-description: "Beta release notes"
+title: "2026.7 Beta: Automations that speak your language"
+description: "Purpose-specific triggers and conditions graduate from Labs to become the new default, letting your automations describe what you want instead of the technical building blocks underneath. The logbook is rebuilt into the new Activity timeline, an update-all button, dedicated infrared and radio frequency panels, an overhauled ZHA Zigbee device management, and 10 new integrations from the community!"
 date: 2026-06-24 00:00:00
 date_formatted: "July 1, 2026"
 author: Franck Nijhof
@@ -68,6 +68,16 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 Home Assistant 2026.7! 🎉
 
+This is one of those releases I've been looking forward to for a long time. My favorite by far is what we've done with automations. Purpose-specific triggers and conditions graduate from Labs and become the new default for everyone. 🎉
+
+It comes down to something we've been chasing for years: more power, less complexity. Instead of starting from Home Assistant's internals, which entity, which state, which kind of trigger, you start from what you actually want your home to do. _When the bedroom drops below 18°C, turn on the heating._ That's it. No technical traps, no quirks to memorize. And because integrations can teach the automation engine their own triggers and conditions, it only gets better from here. All of it right there in our beautiful user interface.
+
+The nice thing is, nothing breaks. All your existing automations keep working, worry-free. We've also written tons of great documentation explaining every single trigger, condition, and action, with examples to learn from. And if you're one of those people who prefers writing automations in YAML instead of the UI, you're in for an amazing experience too. User experience is not a synonym for "the UI". YAML users deserve good user experience too.
+
+But honestly? I've got a second favorite this release, and that surprised me a little. Activity, what many of you still know as the logbook, has been rebuilt into a slick and clean timeline. 😍 It reads top to bottom like a feed, groups entries by day, and finally speaks the same language as the rest of Home Assistant. I keep opening it just to look at it.
+
+And that's just the start. There's a new update-all button, dedicated panels for infrared and radio frequency, an overhauled ZHA Zigbee device management, and 10 new integrations from our community.
+
 Enjoy the (beta) release!
 
 ../Frenck
@@ -96,7 +106,6 @@ Enjoy the (beta) release!
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
-
 
 _A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@frenck] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
@@ -173,7 +182,7 @@ Haven't tried building automations this way yet? Open the automation editor and 
 
 ## Activity logbook
 
-The logbook has always been there to answer a simple question: what happened, and when? The way it answered, though, was a flat list of full sentences. "Living room lamp turned on." "Auto lights was triggered by motion." Every row was a complete sentence, the device name was repeated on every line, and it used its own wording ("turned on", "changed to") that didn't quite match how states are written everywhere else in Home Assistant. Reading back a busy day meant reading every single line.
+Activity, the feature many of you still know as the logbook, has always been there to answer a simple question: what happened, and when? The way it answered, though, was a flat list of full sentences. "Living room lamp turned on." "Auto lights was triggered by motion." Every row was a complete sentence, the device name was repeated on every line, and it used its own wording ("turned on", "changed to") that didn't quite match how states are written everywhere else in Home Assistant. Reading back a busy day meant reading every single line.
 
 This release rebuilds it from the ground up into a timeline.
 
