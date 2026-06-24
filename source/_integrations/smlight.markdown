@@ -134,6 +134,19 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 #### Infrared
 
 - **IR Emitter**: This entity can be used by other integrations as an [Infrared](/integrations/infrared/) proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity type to control your TV.
+
+## Bluetooth proxy
+
+SMLIGHT SLZB-U devices can act as a Bluetooth proxy. They scan for and forward Bluetooth advertisement data to Home Assistant.
+
+To use the Bluetooth proxy, you must enable BLE proxy in the SMLIGHT device's web UI. Once enabled, Home Assistant automatically receives the forwarded Bluetooth advertisement data; no additional configuration is required in Home Assistant.
+
+{% tip %}
+SMLIGHT devices do _not_ support proxying active (GATT) connections.
+{% endtip %}
+
+For more details, see [Remote adapters (Bluetooth proxies)](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
+
 ## Actions
 
 {% include integrations/actions.md %}
