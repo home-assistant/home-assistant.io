@@ -473,7 +473,7 @@ Some {% term entities %} tell time. A sensor with the next sunrise, the timestam
 
 Until now, picking how a timestamp was displayed meant editing YAML. This release brings that choice into the UI. When you add a timestamp entity to a [tile card](/dashboards/tile/), the [entities card](/dashboards/entities/), or as an entity badge, a **Time format** option shows up in the editor, so you can choose how the time is presented, including a new short or long style for the relative format.
 
-<img src='/images/blog/2026-07/temp-time-format-selection.png' alt='Screenshot of the tile card editor showing the new Time format option for a timestamp entity.' class='no-shadow' />
+<img src='/images/blog/2026-07/temp-time-format.png' alt='Screenshot of the tile card editor showing the new Time format option for a timestamp entity.' class='no-shadow' />
 
 Thanks, [@karwosts]!
 
