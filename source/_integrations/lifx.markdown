@@ -88,7 +88,7 @@ The Flame (`lifx.effect_flame`), Morph (`lifx.effect_morph`), Sky (`lifx.effect_
 
 All hardware-based effects can be stopped and started regardless of the device's power state, but the default behavior for each action is to turn the device on when starting an effect. Set the `power_on` attribute of the action to `false` to override this default.
 
-Each light effect has its own action, listed below.
+Each light effect has its own dedicated action. The list below covers all LIFX actions, including these effects.
 
 {% include integrations/actions.md %}
 
