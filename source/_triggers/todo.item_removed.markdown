@@ -2,7 +2,7 @@
 title: "To-do item removed"
 trigger: todo.item_removed
 domain: todo
-description: "Triggers when a to-do item is removed from a list."
+description: "Triggers when one or more to-do items are removed from a list."
 related_triggers:
   - todo.item_added
   - todo.item_completed

@@ -2,7 +2,7 @@
 title: "Relative humidity crossed threshold"
 trigger: humidity.crossed_threshold
 domain: humidity
-description: "Triggers after one or more relative humidity readings cross a threshold."
+description: "Triggers when one or more relative humidity values cross a threshold."
 related_triggers:
   - humidity.changed
 ---

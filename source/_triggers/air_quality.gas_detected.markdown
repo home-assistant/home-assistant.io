@@ -2,7 +2,7 @@
 title: "Gas detected"
 trigger: air_quality.gas_detected
 domain: air_quality
-description: "Triggers after one or more gas sensors start detecting gas."
+description: "Triggers when one or more gas sensors start detecting gas."
 related_triggers:
   - air_quality.gas_cleared
 ---

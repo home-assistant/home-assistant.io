@@ -2,7 +2,7 @@
 title: "Counter reached maximum"
 trigger: counter.maximum_reached
 domain: counter
-description: "Triggers after one or more counters reach their maximum value."
+description: "Triggers when one or more counters reach their maximum value."
 related_triggers:
   - counter.incremented
   - counter.minimum_reached

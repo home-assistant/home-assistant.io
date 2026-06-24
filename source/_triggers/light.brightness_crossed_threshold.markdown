@@ -2,7 +2,7 @@
 title: "Light brightness crossed threshold"
 trigger: light.brightness_crossed_threshold
 domain: light
-description: "Triggers after the brightness of one or more lights crosses a threshold."
+description: "Triggers when the brightness of one or more lights crosses a threshold."
 related_triggers:
   - light.brightness_changed
   - light.turned_on

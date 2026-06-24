@@ -2,7 +2,7 @@
 title: "Moisture content crossed threshold"
 trigger: moisture.crossed_threshold
 domain: moisture
-description: "Triggers after one or more moisture content values cross a threshold."
+description: "Triggers when one or more moisture content values cross a threshold."
 related_triggers:
   - moisture.changed
   - moisture.detected
