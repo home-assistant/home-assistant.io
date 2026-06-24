@@ -60,11 +60,21 @@ The player's online or offline state comes from the Yoto cloud REST API, which t
 
 ## Development / Testing with your own client ID
 
-To enable the Yoto integration with your own development credentials, create a **Confidential Client** application in the [Yoto developer dashboard](https://dashboard.yoto.dev/).
+Only follow these steps if you need to use your own OAuth application, like when you are developing or testing the integration.
 
-Use `https://my.home-assistant.io/redirect/oauth` as the allowed callback URL and select these scopes: `offline_access`, `family:view`, `family:devices:view`, `family:devices:control`, `family:devices:manage`, `family:library:view`, `user:content:view`, and `user:icons:manage`.
+To enable the Yoto integration with your own development credentials, create a **Confidential Client** application in the [Yoto developer dashboard](https://dashboard.yoto.dev/) with the following settings:
 
-After creating the application, add the **Client ID** and **Client secret** as [Application Credentials](/integrations/application_credentials/) before starting the integration setup.
+1. Under **Allowed Callback URLs**, enter `https://my.home-assistant.io/redirect/oauth`.
+2. Under **Scopes**, select:
+   - `offline_access`
+   - `family:view`
+   - `family:devices:view`
+   - `family:devices:control`
+   - `family:devices:manage`
+   - `family:library:view`
+   - `user:content:view`
+   - `user:icons:manage`
+3. Copy the **Client ID** and **Client secret**, and add them as [Application Credentials](/integrations/application_credentials/) before starting the integration setup.
 
 For more details, see the [Yoto Developers documentation](https://yoto.dev/get-started/start-here/).
 
