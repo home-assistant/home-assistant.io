@@ -6,6 +6,7 @@ ha_category:
   - Camera
   - Doorbell
   - Event
+  - Image
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - button
   - camera
   - event
+  - image
 ha_integration_type: device
 ---
 
@@ -29,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera) - View live and historical event based images.
 - [Button](#button) - Enable control of relays and camera low-light/night vision (IR) and resetting favorites.
 - [Event](#event) - Monitor doorbell ring and motion events.
+- [Image](#image) - View the last doorbell ring and last motion images.
 
 ## Setup
 
@@ -118,6 +121,14 @@ You can also create automation actions based on the DoorBird RFID scanner being 
 ## Camera
 
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
+
+{% note %}
+The last doorbell ring and last motion stills are also available as [image](#image) entities, which update the moment the device fires an event instead of on a polling interval. The matching camera entities are kept for backwards compatibility and are planned to be deprecated in a future release, so prefer the image entities going forward.
+{% endnote %}
+
+## Image
+
+The `doorbird` image platform provides an entity for the last doorbell ring image and an entity for the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device. Unlike the equivalent camera entities, these are updated push-style from the device's events, so the still refreshes the moment a doorbell ring or motion event fires rather than on a polling interval.
 
 ## Button
 
