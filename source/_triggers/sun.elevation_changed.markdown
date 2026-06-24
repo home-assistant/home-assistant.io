@@ -13,8 +13,6 @@ The **Sun elevation changed** trigger fires when the sun's elevation changes. El
 
 Use the threshold type to filter which changes matter. You can react to any change, or only to changes that land above an angle, below an angle, inside a range, or outside a range. This is handy for logging the sun's path or for automations that should respond while the sun stays in a particular part of the sky.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
