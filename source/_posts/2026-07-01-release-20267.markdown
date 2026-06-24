@@ -163,7 +163,7 @@ And this isn't Home Assistant walking away from YAML. We put real effort into ma
 
 We also did the less flashy work, which on a project like this is often the work that matters most. Every trigger, condition, and action now has its own documentation page over at [triggers](/triggers/), [conditions](/conditions/), and [actions](/actions/). Each one explains what the building block is, when you would reach for it, how to use it from the automation editor, how it looks in YAML, and includes real examples to learn from.
 
-<img src='/images/blog/2026-07/temp-automation-documentation.png' alt='Screenshot of a trigger documentation page, explaining what the building block does, how to use it in the UI, and how it looks in YAML.' class='no-shadow' />
+<img src='/images/blog/2026-07/temp-documentation.png' alt='Screenshot of a trigger documentation page, explaining what the building block does, how to use it in the UI, and how it looks in YAML.' class='no-shadow' />
 
 There is a lot of it, on purpose. Approachability is not only about a friendlier button in the UI. It is also about helping you understand what that button does, and when to use it. Good documentation is product work, even when it does not get its own screenshot.
 
