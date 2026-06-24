@@ -744,7 +744,7 @@ The project relies on volunteers; submitting a new device support request does n
 
 {% enddetails %}
 
-ZHA Device Handler APIs allow quirks to interact directly with ZHA entities and other ZHA primitives, enabling more advanced device support to be implemented entirely within the zha-device-handlers project.
+ZHA Device Handler APIs allow quirks to interact directly with ZHA entities and other parts of ZHA, enabling more advanced device support to be implemented entirely within the zha-device-handlers project.
 
 Quirks can:
 
