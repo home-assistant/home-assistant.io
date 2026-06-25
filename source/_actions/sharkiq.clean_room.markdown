@@ -5,9 +5,9 @@ domain: sharkiq
 description: "Cleans a specific user-defined room or set of rooms."
 ---
 
-The **Clean room** action sends a Shark IQ robot vacuum to clean one or more specific rooms, instead of cleaning the whole home. The rooms are the ones you have set up in the Shark Clean app.
+The **Clean room** action sends a Shark IQ robot vacuum to clean one or more specific rooms, instead of cleaning the whole home. The available rooms are the ones you have set up in the Shark Clean app.
 
-This is useful for targeted cleanups, for example cleaning only the kitchen after dinner without running a full cycle.
+Use this action if you want targeted cleanups. For example, create an automation to clean only the kitchen after dinner without running a full cleaning cycle.
 
 {% include actions/ui_header.md %}
 
@@ -45,6 +45,8 @@ action: |
       - "Living Room"
 {% endexample %}
 
+This sends the Shark IQ vacuum `vacuum.my_vacuum` to clean the entry and the living room.
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -59,12 +61,40 @@ rooms:
 
 ## Good to know
 
-- Write each room name exactly as it appears in the Shark Clean app. To find the names Home Assistant understands, check the `Rooms` attribute of your Shark robot vacuum entity, for example with the [developer tools](/docs/tools/dev-tools/).
+- Write each room name exactly as it appears in the Shark Clean app. To find the names Home Assistant understands, check the `Rooms` attribute of your Shark robot vacuum entity, for example in the [Developer tools](/docs/tools/dev-tools/).
 - If you use the area selector in the UI, format the area names to match the names in the vacuum's `Rooms` attribute.
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
+
+### Automation: clean the kitchen and dining room after dinner
+
+Create an automation that, after dinner, sends the vacuum only to the kitchen and dining room, skipping a full-home cycle.
+
+- **Trigger**: Time: 20:30
+- **Action**: Shark IQ: Clean room
+  - **Targets**: Kitchen and dining room
+
+{% details "YAML example for cleaning specific rooms after dinner" %}
+
+{% example %}
+automation: |
+  alias: "Clean kitchen and dining room after dinner"
+  triggers:
+  - trigger: time
+    at: "20:30:00"
+  actions:
+  - action: sharkiq.clean_room
+    target:
+      entity_id: vacuum.shark_iq
+    data:
+      rooms:
+        - "Kitchen"
+        - "Dining Room"
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
