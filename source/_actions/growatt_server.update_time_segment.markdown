@@ -104,7 +104,6 @@ enabled:
     Whether this time segment is active.
   required: true
   type: boolean
-  default: false
 {% endoptions_yaml %}
 
 ## Good to know
