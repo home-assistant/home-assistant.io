@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to change any value that Z-Wave recognizes on a device. It is for advanced use cases where you need to change the state of a node and can't do it through a regular Home Assistant entity.
 
-Correctly using this action requires advanced knowledge of Z-Wave. It performs minimal validation and passes your input straight to the Z-Wave JS API, so trouble usually means an incorrect value somewhere. To change a configuration parameter, use the [Set device configuration parameter](/actions/zwave_js.set_config_parameter/) or [Bulk set partial configuration parameters](/actions/zwave_js.bulk_set_partial_config_parameters/) action instead.
+Correctly using this action requires specific knowledge of Z-Wave, such as the value addressing model of a Z-Wave device and the Z-Wave specification for the relevant Command Class. The action performs minimal validation and passes your input straight to the Z-Wave JS API, so trouble usually means an incorrect value somewhere. To change a configuration parameter, use the [Set device configuration parameter](/actions/zwave_js.set_config_parameter/) or [Bulk set partial configuration parameters](/actions/zwave_js.bulk_set_partial_config_parameters/) action instead.
 
 You can target the action at one or more entities, devices, or areas. At least one of those must be provided.
 

@@ -309,7 +309,7 @@ views:
           Welcome to your **dashboard**.
 ```
 
-A slightly more advanced example:
+A more customized example is:
 
 ```yaml
 views:
