@@ -15,7 +15,7 @@ Your data partition — which stores your configuration, automations, and add-on
 
 Try rebooting your system first. Home Assistant OS uses two OS slots, so the system may switch to a healthy slot automatically, and the check may pass on the next boot.
 
-{% my hardware badge title="**Settings** > **System** > **Hardware**" %}
+{% my hardware badge %}
 
 If the issue persists and the storage device holding the OS is failing, you can replace it without losing your data:
 
@@ -25,4 +25,4 @@ If the issue persists and the storage device holding the OS is failing, you can 
 
 If your data partition is on the same physical device as the OS, make sure you have a recent backup downloaded to another device before replacing the storage.
 
-{% my supervisor_backups badge title="**Settings** > **System** > **Backups**" %}
+{% my supervisor_backups badge %}

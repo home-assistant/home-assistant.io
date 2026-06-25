@@ -13,11 +13,11 @@ The data partition stores your configuration, automations, add-ons, and backups.
 
 Try rebooting your system first. The filesystem check may be able to repair minor corruption automatically on the next boot attempt.
 
-{% my hardware badge title="**Settings** > **System** > **Hardware**" %}
+{% my hardware badge %}
 
 If the system is still accessible after rebooting, create a full backup immediately and download it to another device before doing anything else.
 
-{% my supervisor_backups badge title="**Settings** > **System** > **Backups**" %}
+{% my supervisor_backups badge %}
 
 If the issue persists, you can wipe and reformat the data partition using the CLI:
 
@@ -27,7 +27,7 @@ ha os datadisk wipe
 
 If the data partition is on a failing physical device, move it to a new one before restoring your backup. You can do this from the Storage page in your settings.
 
-{% my storage badge title="**Settings** > **System** > **Storage**" %}
+{% my storage badge %}
 
 Once the data partition is ready, restore from your backup.
 
