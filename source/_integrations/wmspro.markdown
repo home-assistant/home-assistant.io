@@ -43,6 +43,8 @@ See device section for support information: [buttons](#buttons), [covers](#cover
 
 The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
+{% include integrations/actions.md %}
+
 ## Buttons
 
 - All devices that support an identification activity (for example, winking an awning or blinking a light) can be triggered to perform such activity.
@@ -81,3 +83,9 @@ The number entities persist across Home Assistant restarts. They are updated aut
 ## Switches
 
 - Load switches (for example, a connected heater) can be turned on and off.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
