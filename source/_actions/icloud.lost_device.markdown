@@ -37,7 +37,7 @@ Device name:
   description: The name of the Apple device to set to lost, as it appears in Find My.
   required: true
 Number:
-  description: The phone number to call from the lost device. Include the country code.
+  description: The phone number to call from the lost device. Include the country code. For example, +33450020100.
   required: true
 Message:
   description: The message to display on the lost device.
@@ -75,7 +75,7 @@ device_name:
   type: string
 number:
   description: >
-    The phone number to call from the lost device. Include the country code.
+    The phone number to call from the lost device. Include the country code. For example, +33450020100.
   required: true
   type: string
 message:
