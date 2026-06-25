@@ -137,9 +137,9 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 
 ## Bluetooth proxy
 
-SMLIGHT SLZB-U devices can act as a Bluetooth proxy. They scan for and forward Bluetooth advertisement data to Home Assistant.
+SMLIGHT SLZB U-series devices running SLZB-OS can act as a Bluetooth proxy. They scan for and forward Bluetooth advertisement data to Home Assistant.
 
-To use the Bluetooth proxy, you must enable BLE proxy in the SMLIGHT device's web UI. Once enabled, Home Assistant automatically receives the forwarded Bluetooth advertisement data; no additional configuration is required in Home Assistant.
+To use the Bluetooth proxy, you must enable the Bluetooth Low Energy (BLE) proxy in the SMLIGHT device's web UI. Once enabled, Home Assistant automatically receives the forwarded Bluetooth advertisement data; no additional configuration is required in Home Assistant.
 
 {% tip %}
 SMLIGHT devices do _not_ support proxying active (GATT) connections.
