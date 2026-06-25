@@ -20,19 +20,16 @@ The **Shark IQ** {% term integration %} allows you to control your [Shark IQ](ht
 
 {% include integrations/config_flow.md %}
 
-## Actions
-
-Currently supported [`vacuum`](/integrations/vacuum/) actions are:
-
-- `start`
-- `pause`
-- `stop`
-- `return_to_base`
-- `locate`
-- `set_fan_speed`
-
-
 {% include integrations/actions.md %}
+
+The currently supported [Vacuum](/integrations/vacuum/) actions are:
+
+- `vacuum.start`
+- `vacuum.pause`
+- `vacuum.stop`
+- `vacuum.return_to_base`
+- `vacuum.locate`
+- `vacuum.set_fan_speed`
 
 ## Troubleshooting
 
