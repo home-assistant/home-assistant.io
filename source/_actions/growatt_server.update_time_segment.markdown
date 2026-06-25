@@ -113,8 +113,6 @@ The battery mode controls when and why discharging happens. The actual discharge
 
 {% include actions/try_it.md %}
 
-{% include actions/more_examples.md %}
-
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
