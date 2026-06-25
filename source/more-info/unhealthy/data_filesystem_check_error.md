@@ -15,11 +15,11 @@ Try rebooting your system first. The filesystem check may be able to repair mino
 
 {% my hardware badge %}
 
-If the system is still accessible after rebooting, create a full backup immediately and download it to another device before doing anything else.
+If the system is still accessible after rebooting, create a full [backup][backups] immediately and download it to another device before doing anything else.
 
 {% my supervisor_backups badge %}
 
-If the issue persists, you can wipe and reformat the data partition using the CLI:
+If the issue persists, you can wipe and reformat the data partition using the CLI. Note that this erases all data on the partition, so you will need to restore from a backup afterwards. If the underlying cause is a failing storage device, this may not resolve the issue permanently.
 
 ```bash
 ha os datadisk wipe
@@ -30,5 +30,7 @@ If the data partition is on a failing physical device, move it to a new one befo
 {% my storage badge %}
 
 Once the data partition is ready, restore from your backup.
+
+[backups]: /common-tasks/general/#backups
 
 To reduce the risk of this happening in the future, always shut down Home Assistant cleanly rather than cutting power, and keep regular backups stored on a separate device.
