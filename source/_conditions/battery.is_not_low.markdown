@@ -13,8 +13,6 @@ The **Battery is not low** condition passes when a battery-powered device is not
 
 For a visual overview of all battery statuses, open the {% my maintenance title="**Maintenance** dashboard" %}.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Battery is not low** in an automation:

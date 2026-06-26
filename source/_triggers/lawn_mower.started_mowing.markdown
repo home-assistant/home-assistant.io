@@ -2,13 +2,11 @@
 title: "Lawn mower started mowing"
 trigger: lawn_mower.started_mowing
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers start mowing."
+description: "Triggers when one or more lawn mowers start mowing."
 ---
 
 The **Lawn mower started mowing** trigger fires when a mower begins a mowing run.
 Use it to react when yard work starts, like muting another routine, sending a confirmation, or turning on a light along the first part of the route.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

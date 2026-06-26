@@ -140,15 +140,13 @@ Zones provide triggers and conditions for automations. You can use them to react
 
 These examples show how you can use zone triggers and conditions in automations.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: notify when Nina arrives at work
 
 When Nina enters the work zone, this automation sends a notification to your phone.
 
-- **Trigger**: Entered zone
+- **Trigger**: Zone entered
   - **Target**: Nina (`person.nina`)
   - **Zone**: Work (`zone.work`)
 - **Action**: Send a notification message

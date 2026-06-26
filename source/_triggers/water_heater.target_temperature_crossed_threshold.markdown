@@ -2,7 +2,7 @@
 title: "Water heater target temperature crossed threshold"
 trigger: water_heater.target_temperature_crossed_threshold
 domain: water_heater
-description: "Triggers after the temperature setpoint of one or more water heaters crosses a threshold."
+description: "Triggers when the temperature setpoint of one or more water heaters crosses a threshold."
 related_triggers:
   - water_heater.target_temperature_changed
   - water_heater.operation_mode_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Water heater target temperature crossed threshold** trigger fires when a water heater {% term entity %}'s target temperature crosses a threshold. Unlike [Water heater target temperature changed](/triggers/water_heater.target_temperature_changed/), which reacts to any matching landing value, this trigger reacts only at the moment the setpoint crosses into, out of, above, or below a threshold.
 
 Use it when you want to react to the crossing itself, like turning on a recirculation pump once the target temperature is raised past a certain point.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

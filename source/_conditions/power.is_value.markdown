@@ -9,8 +9,6 @@ The **Power value** condition passes when a power reading meets the threshold yo
 
 Use **Power value** when you want an automation to continue only if the current load is suitable, such as waiting until an appliance is idle or avoiding another high-load action while household power use is already high.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Power value** in an automation:

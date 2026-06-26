@@ -2,15 +2,13 @@
 title: "Zone occupancy is detected"
 condition: zone.occupancy_is_detected
 domain: zone
-description: "Tests if a zone is occupied."
+description: "Tests if one or more zones are occupied."
 related_conditions:
   - zone.occupancy_is_not_detected
   - zone.in_zone
 ---
 
 The **Zone occupancy is detected** condition passes when the selected zone is occupied. Use it to make an automation continue only if at least one person is in a zone.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include conditions/ui_header.md %}
 

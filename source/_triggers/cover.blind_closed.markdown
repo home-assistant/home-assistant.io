@@ -2,7 +2,7 @@
 title: "Blind closed"
 trigger: cover.blind_closed
 domain: cover
-description: "Triggers after one or more blinds close."
+description: "Triggers when one or more blinds close."
 related_triggers:
   - cover.blind_opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Blind closed** trigger fires when a targeted blind changes to closed. Use it when you want Home Assistant to react as soon as a blind closes.
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a blind closes.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

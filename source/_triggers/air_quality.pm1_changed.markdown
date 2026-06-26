@@ -2,7 +2,7 @@
 title: "PM1 level changed"
 trigger: air_quality.pm1_changed
 domain: air_quality
-description: "Triggers after one or more PM1 levels change."
+description: "Triggers when one or more PM1 levels change."
 related_triggers:
   - air_quality.pm1_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM1 level changed** trigger fires after the PM1 (particulate matter 1 micrometer or smaller) reading on one or more air quality sensors changes by a meaningful amount. PM1 particles are ultrafine and originate from combustion, vehicle exhaust, and industrial emissions. Because of their tiny size, they penetrate deep into the lungs and bloodstream. Cooking on a gas stove, nearby traffic, or a wildfire miles away all push PM1 levels up inside your home.
 
 Imagine your nursery air purifier ramping up the moment particle levels shift, keeping the air as clean as possible for little ones without you doing antything. Use this trigger to start an air purifier, adjust HVAC filtration, or log particle count changes when your PM1 sensor reports a significant shift.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
