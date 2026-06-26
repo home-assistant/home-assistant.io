@@ -167,4 +167,4 @@ Or read the file directly:
 tail -f /config/home-assistant.log
 ```
 
-To only use the container runtime logs and avoid writing `home-assistant.log`, set the `HA_DISABLE_LOG_FILE` environment variable to a true boolean value, such as `1`, `true`, `yes`, `on`, or `enable`. When the log file is disabled, `/config/home-assistant.log` is not available, and **Show raw logs** and log file download in the Home Assistant UI are unavailable.
+To only use the container runtime logs and avoid writing `home-assistant.log`, set the `HA_DISABLE_LOG_FILE` environment variable to a truthy value, such as `1` or `true`. When the log file is disabled, `/config/home-assistant.log` is not available, and **Show raw logs** and log file download in the Home Assistant UI are unavailable.
