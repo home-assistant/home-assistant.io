@@ -768,9 +768,8 @@ filter:
       required: false
     device:
       description: >
-        Filters the entities by properties of the device they belong to. Can be
-        either an object or a list of objects.
-      type: [object, list]
+        Filters the entities by properties of the device they belong to.
+      type: map
       required: false
       keys:
         integration:
