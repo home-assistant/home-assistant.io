@@ -766,24 +766,38 @@ filter:
         [`zha`](/integrations/zha).
       type: string
       required: false
-    manufacturer:
+    device:
       description: >
-        When set, it limits the list of entities to entities that belong to devices
-        provided by the set manufacturer name.
-      type: string
+        Filters the entities by properties of the device they belong to. Can be
+        either an object or a list of objects.
+      type: [object, list]
       required: false
-    model:
-      description: >
-        When set, it limits the list of entities to entities that belong to devices
-        that have the set model.
-      type: string
-      required: false
-    model_id:
-      description: >
-        When set, the list of entities is limited to entities that belong to devices
-        that have the set model ID.
-      type: string
-      required: false
+      keys:
+        integration:
+          description: >
+            Can be set to an integration domain. Limits the list of entities to
+            entities that belong to devices provided by the set integration
+            domain, for example, [`zha`](/integrations/zha).
+          type: string
+          required: false
+        manufacturer:
+          description: >
+            When set, it limits the list of entities to entities that belong to
+            devices provided by the set manufacturer name.
+          type: string
+          required: false
+        model:
+          description: >
+            When set, it limits the list of entities to entities that belong to
+            devices that have the set model.
+          type: string
+          required: false
+        model_id:
+          description: >
+            When set, the list of entities is limited to entities that belong to
+            devices that have the set model ID.
+          type: string
+          required: false
     domain:
       description: >
         Limits the list of entities to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains), for example,
@@ -851,6 +865,27 @@ entity:
     - integration: zha
       domain: binary_sensor
       device_class: motion
+```
+
+Entity properties (`integration`, `domain`, `device_class`, and
+`supported_features`) stay at the top level of each `filter` entry. Device
+properties (`integration`, `manufacturer`, `model`, and `model_id`) must be
+placed inside the `device` object. This lets you narrow the list by the
+entity's underlying device, which is helpful when the same physical device is
+exposed by multiple integrations, such as Matter, ZHA, or Zigbee2MQTT, while
+still picking the exact entity.
+
+The following example only shows event entities that belong to a specific
+device model:
+
+```yaml
+entity:
+  multiple: true
+  filter:
+    - domain: event
+      device:
+        manufacturer: IKEA of Sweden
+        model: BILRESA Dual Button
 ```
 
 ## Floor selector
