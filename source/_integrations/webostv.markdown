@@ -48,107 +48,30 @@ Sources:
 
 LG webOS TV devices running webOS 2.0 and above.
 
-## Turn on automation trigger
+{% include integrations/triggers.md %}
 
-To turn on your TV, you need to create an automation. You can create an automation from the user interface. From the device, create a new automation and select the **Device is requested to turn on** trigger.
+### Turning on the TV from Home Assistant
 
-If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as the [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/). They provide an action that can be used for that.
+To turn on your TV from Home Assistant, you need to create an automation using the [Device is requested to turn on](/triggers/webostv.turn_on/) trigger. Without this automation, the TV will appear as unavailable when it is off.
 
-Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
+If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as [HDMI-CEC](/integrations/hdmi_cec/) or [Wake-on-LAN](/integrations/wake_on_lan/). They provide an action that can power on the TV.
+
+A common setup for webOS 3.0 and higher is to use Wake-on-LAN. For this to work, your TV should be connected to your network through Ethernet instead of wireless, and you should enable **LG Connect Apps** in the TV network settings, or **Mobile App** in the general settings on older models. The exact setting name can vary by model and webOS version.
 
 {% important %}
-This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
+This usually only works if the TV is connected to the same network. Routing the Wake-on-LAN packet to a different subnet requires special configuration on your router or may not be possible.
 {% endimportant %}
 
-Automations can also be created using YAML:
+{% include integrations/actions.md %}
 
-The `webostv.turn_on` device trigger is used in an automation to turn on the TV when the media player power button is pressed.
+## Notifications
 
-| Data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |       no | Entity requested to turn on. For example `media_player.lg_webos_tv`|
+The `notify` platform allows you to send notifications to an LG webOS TV. Each TV gets its own action, named after the TV, such as `notify.livingroom_tv`. The action name selects which TV receives the notification, so you don't target an entity. You can override the icon for individual notifications by providing a path to an alternative icon image.
 
-```yaml
-# Example configuration.yaml entry
-wake_on_lan: # enables `wake_on_lan` integration
+This notification action takes the following options:
 
-automation:
-  - alias: "Turn On Living Room TV with WakeOnLan"
-    triggers:
-      - trigger: webostv.turn_on
-        entity_id: media_player.lg_webos_tv
-    actions:
-      - action: wake_on_lan.send_magic_packet
-        data:
-          mac: aa:bb:cc:dd:ee:ff
-```
-
-Any other [actions](/docs/automation/action/) to power on the device can be configured.
-
-## Actions
-
-The integration provides the following actions.
-
-### Action: Select sound output
-
-The `webostv.select_sound_output` action is used to select the active sound output.
-The current sound output of the TV can be found under the state attributes.
-
-| Data attribute | Optional | Description                             |
-| ---------------------- | -------- | --------------------------------------- |
-| `entity_id`            | no       | Target a specific webostv media player. |
-| `sound_output`         | no       | Name of the sound output to switch to.  |
-
-### Action: Button press
-
-The `webostv.button` action is used to simulate a button press.
-
-| Data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
-
-### Action: Generic command
-
-The `webostv.command` action is used to send a generic command to the TV.
-
-| Data attribute | Optional | Description                                                                                                                                                                          |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
-| `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/home-assistant-libs/aiowebostv/blob/main/aiowebostv/endpoints.py> |
-| `payload`             | yes      | An optional payload to provide to the endpoint in the format of key value pair(s). |
-
-```yaml
-script:
-  home_button:
-    sequence:
-      - action: webostv.button
-        target:
-          entity_id:  media_player.lg_webos_tv
-        data:
-          button: "HOME"
-
-  open_google_command:
-    sequence:
-      - action: webostv.command
-        target:
-          entity_id:  media_player.lg_webos_tv
-        data:
-          command: "system.launcher/open"
-          payload:
-            target: https://www.google.com
-```
-
-### Action: Notify
-
-The `notify` platform allows you to send notifications to a LG webOS TV.
-The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:
-
-| Data attribute | Optional | Description                             |
-| ---------------------- | -------- | --------------------------------------- |
-| `entity_id`            | no       | Target a specific webostv media player. |
-| `message`         | no       | Message to be displayed on the TV.  |
-| `icon`         | yes       | Optional icon to be shown with the notification.  |
+- `message`: The message to display on the TV.
+- `icon`: An optional icon to show with the notification. In YAML, pass it inside the nested `data:` block, as shown in the example below.
 
 ```yaml
 automation:
@@ -214,9 +137,9 @@ mode: single
 
 The `play_media` action can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
- 1. Channel number *(i.e., '1' or '6')*
- 2. Exact channel name *(i.e., 'France 2' or 'CNN')*
- 3. Substring in channel name *(i.e., 'BFM' in 'BFM TV')*
+ 1. Channel number *(for example, '1' or '6')*
+ 2. Exact channel name *(for example, 'France 2' or 'CNN')*
+ 3. Substring in channel name *(for example, 'BFM' in 'BFM TV')*
 
 ```yaml
 # Example action entry in script to switch to channel number 1

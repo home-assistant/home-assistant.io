@@ -1,6 +1,6 @@
 ---
 title: Rainforest Eagle
-description: Instructions on how to setup the Rainforest Eagle with Home Assistant.
+description: Instructions on how to set up the Rainforest Eagle with Home Assistant.
 ha_category:
   - Energy
   - Sensor

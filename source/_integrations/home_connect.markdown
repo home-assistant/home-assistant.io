@@ -67,7 +67,7 @@ You can find information about supported devices on the [Home Connect website](h
 - Go to `https://my.home-assistant.io/` and make sure that your Home Assistant URL is set there. For example: `http://homeassistant:8123/` or `http://homeassistant.local:8123`
 
 4. On success, you will be redirected to the **Applications** page. Select **Details** for your app. Make note of the client ID and secret - you will need it for the next step. Log out of the Home Connect developer portal.
-5. In Home Assistant, find the Home Connect integration and launch it. You will be prompted to create an [Application Credential](https://www.home-assistant.io/integrations/application_credentials). You will need to provide a name (it's arbitrary) in addition to the Client ID and Secret from the previous step. Then, follow the steps in the UI to complete setup.
+5. In Home Assistant, find the Home Connect integration and launch it. You will be prompted to create an [Application Credential](/integrations/application_credentials). You will need to provide a name (it's arbitrary) in addition to the Client ID and Secret from the previous step. Then, follow the steps in the UI to complete setup.
 
 {% important %}
 
@@ -1250,7 +1250,7 @@ Some programs that are available to select on the app, on the physical device or
 
 ##### Description
 
-If you see programs in the app or the physical device that are missing in the integration, first check if they are available in the [diagnostics file](https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics). If they are in the diagnostics file, it means the API can send them to the integration, but the integration can't recognize them.
+If you see programs in the app or the physical device that are missing in the integration, first check if they are available in the [diagnostics file](/docs/configuration/troubleshooting/#download-diagnostics). If they are in the diagnostics file, it means the API can send them to the integration, but the integration can't recognize them.
 
 ##### Solution
 

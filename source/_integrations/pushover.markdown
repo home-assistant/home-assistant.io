@@ -18,7 +18,7 @@ The [Pushover action](https://pushover.net/) is a platform for the notify integr
 
 ## Configuration
 
-In order to get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
+To get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
 {% include integrations/config_flow.md %}
 

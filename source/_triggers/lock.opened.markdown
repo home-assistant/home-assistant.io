@@ -2,14 +2,12 @@
 title: "Lock opened"
 trigger: lock.opened
 domain: lock
-description: "Triggers after one or more locks open."
+description: "Triggers when one or more locks open."
 related_triggers:
   - lock.locked
 ---
 
 The **Lock opened** trigger helps you react when a lock reports that it is open. Use it when you want Home Assistant to respond to a door that has been opened, like turning on lights, pausing an alarm workflow, or sending a message that an entry point is no longer closed.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

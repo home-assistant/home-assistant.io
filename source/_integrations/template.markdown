@@ -222,7 +222,7 @@ template:
     required: false
     type: template
   unique_id:
-    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
+    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface. Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
     required: false
     type: string
   variables:
@@ -997,7 +997,7 @@ template:
 
 ### State based fan - Fan with preset modes
 
-This example uses an existing fan with only a percentage. It extends the percentage value into useable preset modes without a helper entity.
+This example uses an existing fan with only a percentage. It extends the percentage value into usable preset modes without a helper entity.
 
 ```yaml
 template:
@@ -1318,31 +1318,35 @@ light:
       type: template
       default: optimistic
     set_effect:
-      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: inclusive
       type: action
     set_level:
-      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
+      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), `brightness_pct` (a value between 0 and 100), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
       required: false
       type: action
     set_temperature:
-      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_hs:
-      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgb:
-      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgbw_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgb_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgbw:
-      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgbww:
-      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_xy:
+      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with an `xy_color`.  The script receives the variables `xy` as a tuple, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     state:
@@ -1368,6 +1372,11 @@ light:
       description: Defines an action to run when the light is turned off. May receive the variable `transition`.
       required: true
       type: action
+    xy:
+      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y).
+      required: false
+      type: template
+      default: optimistic
 
 {% endconfiguration %}
 
@@ -1382,7 +1391,10 @@ When `light.turn_on` is called, Home Assistant selects exactly one script to run
 5. `rgbw_color` is provided and `set_rgbw` is defined.
 6. `rgb_color` is provided and `set_rgb` is defined.
 7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-8. None of the above match, and `turn_on` is called.
+8. `rgb_color` is provided and `set_rgb` is defined.
+9. `xy_color` is provided and `set_xy` is defined.
+10. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+11. None of the above match, and `turn_on` is called.
 
 Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
 
@@ -1718,7 +1730,7 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.  When omitted, the state is set to the `value` provided by the `set_value` action.
+      description: Template for the number's current value. When omitted, the state is set to the `value` provided by the `set_value` action.
       required: false
       type: template
       default: optimistic
@@ -2180,11 +2192,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the installed version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the latest version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -2519,11 +2531,11 @@ weather:
 
 ### Condition
 
-The `condition` *must* match one of the Home Assistant defined conditons. See [here](/integrations/weather/#condition-mapping). If it does, not the state will be 'unknown' so will not be useable in a dashboard.
+The `condition` *must* match one of the Home Assistant defined conditions. See the [weather condition mapping](/integrations/weather/#condition-mapping). If it does not, the state will be 'unknown' so will not be usable in a dashboard.
 
 ### Weather Forecast data
 
-The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
+The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
 
 #### Hourly Weather Forecast
 
@@ -2535,7 +2547,7 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 
 #### Twice Daily Weather Forecast
 
-The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
 
 ### Trigger based weather - Weather Forecast from response data
 
@@ -2564,7 +2576,7 @@ template:
 
 #### Video tutorial
 
-This video tutorial explains how to set up a trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+This video tutorial explains how to set up a trigger based template that uses an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
@@ -2717,7 +2729,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/

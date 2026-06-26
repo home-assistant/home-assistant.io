@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is armed vacation** condition passes when one or more alarm control panel {% term entities %} are armed in vacation mode. Use it to skip daily routines that make no sense while you are away, like stopping the morning wake-up automation from turning on lights and heating in an empty house. You could also use it the other way around: only run vacation-specific automations (like randomly toggling lights to simulate occupancy) while the alarm is in vacation mode.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

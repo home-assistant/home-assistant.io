@@ -116,7 +116,6 @@ source/_integrations/bang_olufsen.markdown @mj23000
 source/_integrations/battery.markdown @home-assistant/core
 source/_integrations/bauknecht.markdown @abmantis @mkmer
 source/_integrations/bayesian.markdown @HarvsG
-source/_integrations/beewi_smartclim.markdown @alemuro
 source/_integrations/bge.markdown @tronikos
 source/_integrations/binary_sensor.markdown @home-assistant/core
 source/_integrations/bizkaibus.markdown @UgaitzEtxebarria
@@ -1104,7 +1103,6 @@ source/_integrations/vivotek.markdown @HarlemSquirrel
 source/_integrations/vizio.markdown @raman325
 source/_integrations/vlc_telnet.markdown @rodripf @MartinHjelmare
 source/_integrations/vodafone_station.markdown @paoloantinori @chemelli74
-source/_integrations/voice_assistant.markdown @balloob @synesthesiam
 source/_integrations/voip.markdown @synesthesiam @jaminh
 source/_integrations/volumio.markdown @OnFreund
 source/_integrations/volvo.markdown @thomasddn

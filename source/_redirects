@@ -526,10 +526,12 @@ layout: null
 /blog/2024/01/11/voice-assistant-contest /blog/2024/01/17/voice-assistant-contest
 
 # Removed integrations
+/integrations/acer_projector /more-info/removed-integration 301
 /integrations/alarmdotcom /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
 /integrations/ambiclimate /more-info/removed-integration 301
+/integrations/ampio /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
 /integrations/aps /more-info/removed-integration 301
 /integrations/arlo /more-info/removed-integration 301
@@ -537,7 +539,9 @@ layout: null
 /integrations/asterisk_cdr /more-info/removed-integration 301
 /integrations/asterisk_mbox /more-info/removed-integration 301
 /_docs/asterisk_mbox.markdown /more-info/removed-integration 301
+/integrations/avion /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
+/integrations/beewi_smartclim /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
 /integrations/blinkt /more-info/removed-integration 301
@@ -572,6 +576,7 @@ layout: null
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
+/integrations/eliqonline /more-info/removed-integration 301
 /integrations/enmax /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/epsonworkforce /more-info/removed-integration 301
@@ -620,6 +625,7 @@ layout: null
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mercury_nz /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
+/integrations/mycroft /more-info/removed-integration 301
 /integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
 /integrations/miflora /integrations/xiaomi_ble
 /integrations/mini_connected /more-info/removed-integration 301
@@ -656,6 +662,7 @@ layout: null
 /integrations/rtsp_to_webrtc /more-info/removed-integration 301
 /integrations/ruter /more-info/removed-integration 301
 /integrations/salt /more-info/removed-integration 301
+/integrations/scsgate /more-info/removed-integration 301
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
@@ -679,6 +686,8 @@ layout: null
 /integrations/teksavvy /more-info/removed-integration 301
 /integrations/tesla /more-info/removed-integration 301
 /integrations/tfiac /more-info/removed-integration 301
+/integrations/thermoworks_smoke /more-info/removed-integration 301
+/integrations/tikteck /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
 /integrations/tplink_lte /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
@@ -689,6 +698,7 @@ layout: null
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/voice_assistant /integrations/assist_pipeline/ 301
 /integrations/volvooncall /more-info/removed-integration 301
 /integrations/vulcan /more-info/removed-integration 301
 /integrations/vultr /more-info/removed-integration 301
@@ -795,3 +805,15 @@ layout: null
 /template-functions/category/state/ /template-functions/#state
 /template-functions/category/strings/ /template-functions/#strings
 /template-functions/category/type/ /template-functions/#type
+
+# Renamed entity triggers and conditions (consistent keys)
+/triggers/battery.low /triggers/battery.became_low/ 301
+/triggers/battery.not_low /triggers/battery.no_longer_low/ 301
+/triggers/lawn_mower.docked /triggers/lawn_mower.returned_to_dock/ 301
+/triggers/schedule.turned_off /triggers/schedule.block_ended/ 301
+/triggers/schedule.turned_on /triggers/schedule.block_started/ 301
+/triggers/timer.time_remaining /triggers/timer.remaining_time_reached/ 301
+/triggers/update.update_became_available /triggers/update.became_available/ 301
+/triggers/vacuum.docked /triggers/vacuum.returned_to_dock/ 301
+/conditions/climate.target_humidity /conditions/climate.is_target_humidity/ 301
+/conditions/climate.target_temperature /conditions/climate.is_target_temperature/ 301

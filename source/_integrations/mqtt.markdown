@@ -1,6 +1,6 @@
 ---
 title: MQTT
-description: Instructions on how to setup MQTT within Home Assistant.
+description: Instructions on how to set up MQTT within Home Assistant.
 ha_category:
   - Hub
   - Update
@@ -1249,7 +1249,7 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 }
 ```
 
-The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows you to set up multiple entities that share the same device.
 
 {% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
@@ -1455,7 +1455,7 @@ mqtt:
       ...
 ```
 
-If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+If you have many manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
