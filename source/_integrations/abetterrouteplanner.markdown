@@ -3,7 +3,6 @@ title: A Better Routeplanner (ABRP)
 description: Instructions on how to integrate A Better Routeplanner with Home Assistant.
 ha_category:
   - Car
-  - Presence detection
   - Sensor
 ha_release: 2026.6
 ha_iot_class: Cloud Push
@@ -12,11 +11,9 @@ ha_codeowners:
   - '@mtandersson'
 ha_domain: abetterrouteplanner
 ha_platforms:
-  - device_tracker
-  - diagnostics
   - sensor
 ha_integration_type: hub
-ha_quality_scale: platinum
+ha_quality_scale: bronze
 related:
   - docs: /integrations/tesla_fleet/
     title: Tesla Fleet
@@ -36,8 +33,8 @@ place.
 
 ## Use cases
 
-Use this integration to track battery level, range, and location, then use that
-data in dashboards and automations.
+Use this integration to track battery level and range, then use that data in
+dashboards and automations.
 
 ## Supported devices
 
@@ -88,11 +85,6 @@ Each selected vehicle is added as one Home Assistant device.
 Telemetry entities are added as data becomes available. If ABRP has not
 received a specific metric yet, that entity appears after the first update.
 
-### Device tracker
-
-- **Location**: Tracks your vehicle location for presence and location-based
-  automations.
-
 ### Device card model name
 
 The device card shows a human-friendly vehicle name when ABRP has a catalog
@@ -116,7 +108,7 @@ type code identifier.
 - **Voltage**: Battery pack voltage.
 - **Battery temperature**: Battery pack temperature.
 - **Odometer**: Total distance driven.
-- **Calibrated Ref Cons**: ABRP's calibrated
+- **Calibrated ref cons**: ABRP's calibrated
   [reference consumption](https://abrp.featurebase.app/articles/3305478-reference-consumption)
   for the vehicle, in energy per distance. A steady-state baseline tuned from
   live data, not real-time consumption.
@@ -125,8 +117,8 @@ type code identifier.
 
 ### Update behavior
 
-Some telemetry, like location, power, and voltage, updates only while your
-vehicle is actively reporting data, usually while driving or charging.
+Some telemetry, like power and voltage, updates only while your vehicle is
+actively reporting data, usually while driving or charging.
 
 When your vehicle is parked and not reporting, Home Assistant keeps the last
 known value instead of marking the entity unavailable.
@@ -196,33 +188,14 @@ automation:
           entity_id: switch.garage_ev_outlet
 ```
 
-### Notify when the vehicle arrives home
-
-```yaml
-automation:
-  - alias: "EV arrived home"
-    triggers:
-      - trigger: state
-        entity_id: device_tracker.my_ev_location
-        to: home
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_phone
-        data:
-          message: "Your EV is home."
-```
-
 ## Data updates
 
-The integration uses two update paths:
+Telemetry is pushed from ABRP in near real time when ABRP receives vehicle
+updates. If the live stream connection drops, the integration reconnects
+automatically.
 
-- Telemetry is pushed from ABRP in near real time when ABRP receives vehicle
-  updates.
-- Your ABRP garage list is refreshed every 10 minutes to detect vehicle adds,
-  removals, and name changes.
-
-If the live stream connection drops, the integration reconnects automatically.
+Your ABRP garage list is read when you set up the integration. To pick up
+vehicles you add, remove, or rename in ABRP, reload the integration.
 
 ## Known limitations
 
@@ -230,7 +203,6 @@ If the live stream connection drops, the integration reconnects automatically.
 - Data freshness depends on ABRP and your vehicle manufacturer data source.
 - Some entities appear only after the first value is received.
 - Route planning details, like destinations and charging stops, are not exposed.
-- Removing a vehicle in ABRP may take up to 20 minutes to be reflected.
 
 ## Related integrations
 
@@ -245,8 +217,8 @@ service integration for your vehicle:
 - [Subaru](/integrations/subaru/)
 
 A Better Routeplanner pairs well with these integrations: keep ABRP for
-multi-brand telemetry and routing data, and use the manufacturer integration
-for vehicle controls.
+multi-brand telemetry, and use the manufacturer integration for vehicle
+controls.
 
 ## Troubleshooting
 
@@ -262,11 +234,8 @@ To resolve this issue:
 
 ### Authentication errors during setup
 
-If your ABRP session expires, Home Assistant asks you to reauthenticate.
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Open **A Better Routeplanner**.
-3. Select **Reconfigure** and complete sign-in.
+If your ABRP session expires, Home Assistant shows a notification asking you to
+reauthenticate. Select it and sign in to ABRP again to restore the connection.
 
 If reauthentication fails repeatedly:
 
@@ -278,9 +247,8 @@ If reauthentication fails repeatedly:
 
 This is expected when a vehicle is parked and not reporting data.
 
-To check when ABRP last received telemetry, use
-[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics)
-and look at the most recent frame timestamp in the JSON.
+To check when ABRP last received telemetry, open the sensor and look at its
+`last_reported_at` attribute.
 
 ### The integration shows as unavailable
 
@@ -289,14 +257,13 @@ unavailable, or authentication failed.
 
 If the issue continues, enable
 [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics),
-reproduce the issue, and include logs and a
-[diagnostics dump](/integrations/diagnostics) in your issue report.
+reproduce the issue, and include the logs in your issue report.
 
 ## Community notes
 
 If you need help, use the
 [Home Assistant Community forums](https://community.home-assistant.io/) and
-share diagnostics details when possible.
+share debug logs and details when possible.
 
 ## Removing the integration
 
