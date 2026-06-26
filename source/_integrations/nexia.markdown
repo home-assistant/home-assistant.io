@@ -64,7 +64,7 @@ The following sensors are added for each RoomIQ sensor in zones that contain mor
 
 - Temperature
 - Humidity
-- Battery level, when the RoomIQ sensor has a battery
+- Battery level (if the RoomIQ sensor is battery-powered)
 
 ### Climate
 
