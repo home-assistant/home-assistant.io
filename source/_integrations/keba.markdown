@@ -6,21 +6,20 @@ ha_category:
   - Lock
   - Notifications
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
   - '@dannerph'
 ha_domain: keba
+ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - lock
   - notify
   - sensor
+  - switch
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Keba Charging Station** {% term integration %} integrates your Keba P30/P20 charging station/BMW Wallbox into your Home Assistant instance using the UDP Smart Home Interface ([manual](https://www.ifix-solar.shop/wp-content/uploads/shop/Dokumente/KEBA/KeContact_P20_P30_UDP_ProgrGuide_en.pdf)). Keba P40 charging stations are not yet supported as they use a different protocol. The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app. To use the integration, enable the UDP Smart Home Interface by adjusting the DIP switches within the charging station according to the [installation manual](https://www.keba.com/file/downloads/e-mobility/KeContact_KCP20_30_ih_en.pdf).
@@ -30,61 +29,15 @@ This {% term integration %} provides the following platforms:
 - Binary sensors: Online state, plug state, charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
+- Switch: Enable or disable the charging process (`ena` command).
 - Actions: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found in the [actions](#actions) section.
 - Notify: Show a text on chargers with a built-in LED display.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable this integration in your installation, add at least the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+## Breaking change
 
-```yaml
-# Example configuration.yaml entry
-keba:
-  host: KEBA_HOST
-```
-
-{% configuration %}
-keba:
-  description: configuration
-  required: true
-  type: map
-  keys:
-    host:
-      description: Keba host.
-      required: true
-      type: string
-    rfid:
-      description: RFID tag used for authorization.
-      required: false
-      type: string
-      default: "00845500"
-    failsafe:
-      description: Enable failsafe mode at Home Assistant startup.
-      required: false
-      type: boolean
-      default: false
-    failsafe_timeout:
-      description: Timeout of the failsafe mode in seconds. Allowed values are between 10 seconds and 600 seconds (this parameter is only used if failsafe mode is enabled). Make sure to call the `keba.set_curr` action regularly within this timeout period!
-      required: false
-      type: integer
-      default: 30
-    failsafe_fallback:
-      description: Fallback current of the failsafe mode in A. Allowed values are between 6 Ampere and 63 Ampere. 0 Ampere disables the running charging process completely (this parameter is only used if failsafe mode is enabled).
-      required: false
-      type: integer
-      default: 6
-    failsafe_persist:
-      description: Saving the failsafe configuration to internal EEPROM of the Keba charging station. 1 means save it, 0 means do only keep this configuration until the next restart of the charging station (this parameter is only used if failsafe mode is enabled).
-      required: false
-      type: integer
-      default: 0
-    refresh_interval:
-      description: Refresh interval to fetch new data from the charging station. 5 seconds (same as in the official app) is recommended.
-      required: false
-      type: integer
-      default: 5
-{% endconfiguration %}
+Existing YAML configuration (`configuration.yaml`) is no longer the primary setup method. On first start after this update, the YAML entry is automatically imported as a config entry and a repair issue will appear asking you to remove the `keba:` block from `configuration.yaml`.
 
 ## Actions
 
@@ -94,9 +47,11 @@ The Keba integration offers several actions. Using these actions will change the
 
 The charging station can be authorized and deauthorized using actions (`keba.authorize` and `keba.deauthorize`) or via the lock integration that is created automatically for the charging station. In both cases the RFID tag from the configuration is used.
 
-### Start and Stop `keba.start` and `keba.stop`
+### Enable and Disable `keba.enable` and `keba.disable`
 
-The `keba.start` and `keba.stop` actions control the charging process if the car is already authorized. Technically it sends `ena 1` or `ena 0` commands to the charging station.
+{% important %}
+The `keba.enable` and `keba.disable` actions are deprecated and will be removed in a future release. Use the **Switch** entity to enable or disable the charging process instead.
+{% endimportant %}
 
 ### Set Target Energy `keba.set_energy`
 
@@ -122,7 +77,7 @@ The `keba.set_curr` action sets the maximum current to the given current attribu
 
 The `keba.request_data` action sends data update requests to the charging station.
 
-### Request New Data `keba.set_failsafe`
+### Failsafe Mode `keba.set_failsafe`
 
 The `keba.set_failsafe` action sets the failsafe mode of the charging station. Payload example:
 
@@ -136,28 +91,7 @@ The `keba.set_failsafe` action sets the failsafe mode of the charging station. P
 
 ## Notifications
 
-Some Keba chargers are equipped with an LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your {% term "`configuration.yaml`" %} file:
-
-### Configuration
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: keba
-```
-
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
-  required: false
-  default: "`notify`"
-  type: string
-{% endconfiguration %}
-
-### Usage
-
-The use of the notify action is [described here](/integrations/notify/).
+Some Keba chargers are equipped with a LED text display. The notify entity may be used to display text on this display.
 
 The `message` part of the event payload is shown on the display. Scrolling is performed if needed. A maximum of 23 characters can be shown.
 
