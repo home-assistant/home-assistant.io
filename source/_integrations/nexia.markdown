@@ -60,6 +60,14 @@ The following sensors are added for each thermostat zone:
 - Zone Setpoint Status
 - Zone Status
 
+The following sensors are added for each RoomIQ sensor (if the device supports
+[RoomIQ](https://support.asairhome.com/hc/en-us/articles/360045784651-RoomIQ-Overview-and-Usage)).
+These sensors are added when more than one RoomIQ sensor is present in a zone. When enabled, each nexia data refresh also fetches current RoomIQ sensor states, adding 5–40 seconds of latency and additional network traffic. To avoid silently doing so, these sensors are disabled by default. You enable them in their settings.
+
+- temperature
+- humidity
+- battery level, if the RoomIQ sensor has a battery
+
 ### Climate
 
 The climate platform lets you control a thermostat.
