@@ -166,3 +166,5 @@ Or read the file directly:
 ```bash
 tail -f /config/home-assistant.log
 ```
+
+To only use the container runtime logs and avoid writing `home-assistant.log`, set the `HA_DISABLE_LOG_FILE` environment variable to `1`. When the log file is disabled, the raw log view and log file download in the Home Assistant UI are unavailable.
