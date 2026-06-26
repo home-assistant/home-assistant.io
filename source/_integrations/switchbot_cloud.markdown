@@ -44,9 +44,9 @@ The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [
 
 ## Prerequisites
 
-In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **Developer Options**. If **Developer Options** is not present in preferences, tap the App Version (e.g. 6.24) several times (5~15 times) in succession to open the **Developer Options**. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
+To use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **About** > **Developer Options**. If you don't see developer options, tap the version number 10 times. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
 
-Please note, device names configured in the SwitchBot app are transferred into Home Assistant.
+Device names configured in the SwitchBot app are transferred into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -107,6 +107,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- Weather Station
 
 ### Hubs
 
@@ -136,6 +137,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Standing Fan](https://www.switch-bot.com/products/switchbot-standing-circulator-fan)
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
@@ -313,6 +315,13 @@ Features:
 - light detect
 - motion detect
 
+#### Weather Station
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
 ### Lights
 
 #### LED Strip Light 3
@@ -437,14 +446,14 @@ Features:
 
 ### Fans
 
-#### Battery Circulator Fan/Circulator Fan
+#### Battery Circulator Fan/Circulator Fan/Standing Fan
 
 Features:
 - turn on
 - turn off
 - set speed, only applicable for [direct mode]
 - set mode
-- get battery, only applicable for [Battery Circulator Fan]
+- get battery, only applicable for [Battery Circulator Fan / Standing Fan]
 
 
 #### Air Purifier
@@ -511,7 +520,12 @@ For IR Appliances, the state is inferred from previous commands in Home Assistan
 
 ## Webhook support
 
-For vacuums, the states are updated from SwitchBot's cloud.
+SwitchBot's cloud pushes state updates to Home Assistant through a webhook. This is how vacuums, along with the water leak, contact, motion, and presence sensors, receive their state updates. For SwitchBot's cloud to deliver this webhook, your Home Assistant instance must be reachable from the internet, which requires one of the following:
+
+- A publicly reachable [`external_url`](/integrations/homeassistant/), or
+- A [Home Assistant Cloud](/integrations/cloud/) subscription, in which case the webhook is delivered automatically through a cloudhook.
+
+On a local-only installation with neither of these, SwitchBot's cloud cannot deliver the webhook, and these devices do not receive updates.
 
 {% warning %}
 Only ONE webhook URL seems to be accepted by the SwitchBot's cloud. So, if you want several applications notified,  you need to use a “proxy” to re-dispatch the message to the other applications.

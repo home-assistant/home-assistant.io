@@ -151,7 +151,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
-  - **Program**: Shows the currently active program. On coffee machines, the program sensor also provides an extra state attribute `profile` in order to distinguish which profile is in use on the machine.
+  - **Program**: Shows the currently active program. On coffee machines, the program sensor also provides an extra state attribute `profile` to distinguish which profile is in use on the machine.
   - **Program phase**: Shows the current phase in the running program.
   - **Program type**: Shows the current program type.
   - **Spin speed**: Shows the spin speed selected for the current washing machine program.
@@ -233,8 +233,6 @@ Get started with these automation examples
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Notify when program ends"
 triggers:
@@ -247,8 +245,6 @@ actions:
     data:
       message: "The appliance has finished the program."
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ### Set program and start washing machine
@@ -256,8 +252,6 @@ actions:
 Load your washing machine and manually activate mobile start or remote control mode on the machine.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: "Wash cottons early in the morning"
@@ -271,8 +265,6 @@ actions:
       device_id: <Your washing machine's device_id>
       program_id: 1
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Data updates

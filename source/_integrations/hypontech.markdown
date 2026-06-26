@@ -62,8 +62,7 @@ This integration provides no additional actions.
 
 ## Known limitations
 
-- The integration currently displays aggregated data for all inverters in your account as a single "Overview" device.
-- Individual inverter data is not yet available.
+- There is no support for batteries yet.
 
 ## Removing the integration
 

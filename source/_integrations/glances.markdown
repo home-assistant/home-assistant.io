@@ -37,6 +37,7 @@ Glances integration will add the following sensors if available in the platform:
   - disk_use_percent: The used disk space in percent.
   - disk_use: The used disk space.
   - disk_free: The free disk space.
+  - disk_size: The total size of the disk.
 - For each detected physical disk, the following sensors will be created:
   - diskio_read: Average rate of data read from the device in megabytes per second.
   - diskio_write: Average rate of data written to the device in megabytes per second.
@@ -69,4 +70,4 @@ Glances integration will add the following sensors if available in the platform:
   - fan_speed: The speed of the GPU fan, in percent.
 - uptime: The server uptime.
 
-Not all platforms are able to provide all metrics. For instance the GPU sensors require installing the py3nvml Python package, and the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
+Not all platforms can provide all metrics. For instance the GPU sensors require installing the py3nvml Python package, and the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

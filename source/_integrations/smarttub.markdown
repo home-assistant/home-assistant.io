@@ -19,7 +19,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **SmartTub** {% term integration %} allows you to view and control hot tubs which use the [SmartTub](https://www.jacuzzi.com/en-us/hot-tubs/owners/smarttub-system) system, in Home Assistant.
@@ -41,7 +41,7 @@ The `smarttub.set_primary_filtration` action updates the settings for the primar
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | The entity to update. | sensor.jacuzzi_j_335_primary_filtration_cycle
 | `duration` | no | The desired duration of the primary filtration cycle, in hours. | 4
-| `start_hour` | no | The desired starting hour of the day for the primary filtration cycle. | 2 (i.e. 02:00 or 2:00am)
+| `start_hour` | no | The desired starting hour of the day for the primary filtration cycle. | 2 (that is, 02:00 or 2:00am)
 
 
 ### Action: Set secondary filtration

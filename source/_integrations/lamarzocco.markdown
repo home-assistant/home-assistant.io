@@ -33,7 +33,7 @@ ha_quality_scale: platinum
 
 This {% term integration %} interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API.
 
-If your Home Assistant host can perform [DHCP discovery](https://www.home-assistant.io/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
+If your Home Assistant host can perform [DHCP discovery](/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
 
 ## Prerequisites
 
@@ -96,8 +96,8 @@ In **offline mode**, most entities will become unavailable. Only those marked wi
 
 | Switch name | Description | Available for machines | Controllable through |
 |-------------|-------------| ---------------------- | -------------------- |
-| **Main**      | Allows to turn machines on-/off | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
-| **Steam boiler** | Allows to enable/disable the steam boiler | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
+| **Main**      | Allows you to turn machines on-/off | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
+| **Steam boiler** | Allows you to enable/disable the steam boiler | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 | **Smart standby enabled** | Whether smart standby is on (machine will automatically stand by after given time) | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 
 ## Binary sensors
@@ -167,8 +167,6 @@ I often drink milk beverages in the morning and espresso in the afternoon, but f
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: Turn steamboiler on when machine is turned on
 description: Ensure the steamboiler is on, when the machine gets turned on
@@ -190,7 +188,6 @@ actions:
 mode: single
 
 ```
-{% endraw %}
 {% enddetails %}
   
 ## Known Limitations

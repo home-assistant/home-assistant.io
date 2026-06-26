@@ -1,6 +1,6 @@
 ---
 title: Python Scripts
-description: Instructions on how to setup Python scripts within Home Assistant.
+description: Instructions on how to set up Python scripts within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.47
@@ -37,7 +37,7 @@ Other imports like `min`, `max` are available as builtins. See the [python_scrip
 This is a simplified example that does no real work.
 It is created as a first step, to help with:
 
-- Demonstrating how to setup the script
+- Demonstrating how to set up the script
 - How to process the input data
 - How to log the script activity
 - How to troubleshoot / manually call the script.
@@ -147,17 +147,15 @@ output["hello"] = f"hello {data.get('name', 'world')}"
 
 The above `python_script` can be called using the following YAML and return a result to later steps.
 
-{% raw %}
-
 ```yaml
 - action: python_script.hello_world
   response_variable: python_script_output
-- action: notify.mobile_app_iphone
+- action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     message: "{{ python_script_output['hello'] }}"
 ```
-
-{% endraw %}
 
 ## Documenting your Python scripts
 
@@ -179,16 +177,4 @@ turn_on_light:
 
 For more examples, visit the [Scripts section](https://community.home-assistant.io/c/26) in our forum.
 
-## Actions
-
-Available actions: `reload`.
-
-### Action: Reload
-
-The `python_script.reload` action reloads all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
-
-Use this when creating a new Python script, or after updating the `<config>/python_scripts/services.yaml` file. 
-
-You don't have to call this service when you change an existing Python script.
-
-This service takes no data attributes.
+{% include integrations/actions.md %}

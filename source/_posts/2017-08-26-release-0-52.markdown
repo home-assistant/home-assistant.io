@@ -378,7 +378,7 @@ usps:
 [xiaomi docs]: /integrations/xiaomi_aqara
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 [#9110]: https://github.com/home-assistant/home-assistant/pull/9110
 [#9128]: https://github.com/home-assistant/home-assistant/pull/9128
 [#9139]: https://github.com/home-assistant/home-assistant/pull/9139

@@ -1,6 +1,6 @@
 ---
 title: Scripts
-description: Instructions on how to setup scripts within Home Assistant.
+description: Instructions on how to set up scripts within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.7
@@ -11,17 +11,15 @@ ha_domain: script
 ha_integration_type: system
 ---
 
-The **Scripts** {% term integration %} allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via actions.
+The **Scripts** {% term integration %} allows you to specify a sequence of actions for Home Assistant to execute. They run when you turn the script on. The script integration creates an entity for each script so you can control it via actions.
 
-Scripts can be created via YAML configuration (described below) or via {% my scripts title="the UI" %}.
+You can create scripts via YAML configuration or via {% my scripts title="the UI" %}.
 
 {% my scripts badge %}
 
 ## Configuration
 
-The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
-
-{% raw %}
+You specify the sequence of actions using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
 ```yaml
 # Example configuration.yaml entry
@@ -34,10 +32,8 @@ script:
           message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
 
-{% endraw %}
-
 {% important %}
-Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e., `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
+Script names (such as `message_temperature` in the example above) cannot contain capital letters or dashes (`-`). Use underscores (`_`) to separate words for better readability.
 {% endimportant %}
 
 {% configuration %}
@@ -50,12 +46,12 @@ icon:
   required: false
   type: string
 description:
-  description: A description of the script that will be displayed in the **Actions** tab under **Developer tools**.
+  description: A description of the script, displayed in the **Actions** tab under **Developer tools**.
   required: false
   default: ''
   type: string
 variables:
-  description: Variables that will be available inside your templates
+  description: Variables that are available inside your templates.
   required: false
   default: {}
   type: map
@@ -80,15 +76,15 @@ fields:
           description: A description of this script parameter.
           type: string
         advanced:
-          description: Marks this field as an advanced parameter. This causes it only to be shown in the UI, when the user has advanced mode enabled.
+          description: Marks this field as an advanced parameter.
           type: boolean
           default: false
         required:
-          description: Mark if this field is required. This is a UI only feature.
+          description: Marks this field as required. This is a UI-only feature.
           type: boolean
           default: false
         example:
-          description: An example value. This will only be shown in table of options available in the **Actions** tab of the **Developer tools**.
+          description: An example value. This is only shown in the table of options available in the **Actions** tab of the **Developer tools**.
           type: string
         default:
           description: The default value for this field, as shown in the UI.
@@ -100,22 +96,22 @@ fields:
           type: selector
           required: false
 mode:
-  description: "Controls what happens when script is invoked while it is still running from one or more previous invocations. See [Script Modes](#script-modes)."
+  description: "Controls what happens when the script is invoked while it is still running from one or more previous invocations. See [Script modes](#script-modes)."
   required: false
   type: string
   default: single
 max:
-  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`."
+  description: "Controls the maximum number of runs executing or queued up to run at a time. Only valid with modes `queued` and `parallel`."
   required: false
   type: integer
   default: 10
 max_exceeded:
-  description: "When `max` is exceeded (which is effectively 1 for `single` mode) a log message will be emitted to indicate this has happened. This option controls the severity level of that log message. See [Log Levels](/integrations/logger/#log-levels) for a list of valid options. Or `silent` may be specified to suppress the message from being emitted."
+  description: "When `max` is exceeded (which is effectively 1 for `single` mode), Home Assistant emits a log message to indicate this has happened. This option controls the severity level of that log message. See [log levels](/integrations/logger/#log-levels) for a list of valid options. You can also set this to `silent` to suppress the message."
   required: false
   type: string
   default: warning
 sequence:
-  description: The sequence of actions to be performed in the script.
+  description: The sequence of actions the script performs.
   required: true
   type: list
 {% endconfiguration %}
@@ -129,24 +125,22 @@ Mode | Description
 `queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
 `parallel` | Start a new, independent run in parallel with previous runs.
 
-<p class='img'>
-  <img src='/images/integrations/script/script_modes.jpg'>
-</p>
+![Diagram showing how the four script modes (single, restart, queued, parallel) behave when a script is invoked while already running](/images/integrations/script/script_modes.jpg)
 
 ### Passing variables to scripts
 
-As part of the action, variables can be passed along to a script so they become available within templates in that script.
+As part of the action, you can pass variables to a script so they become available within templates in that script.
 
-To configure a script to accept variables using the UI, the variables can be added as fields in the script editor.
-1. In the script editor, in the 3-dots menu, select **Add fields**.
-2. A new section called **Fields** is added between the basic information and **Sequence** sections.
-3. Enter a name and choose type and options of each desired field.
-4. Fields set up here will be shown in other UI editors, such as in an automation that calls the script as inputs depending on the type of field.
-5. To use the field data, use them as templates using the **Field key name** when they were added, as shown in the example below.
+To configure a script to accept variables using the UI, add the variables as fields in the script editor.
 
-Using the variables in the script requires the use of templates:
+1. In the script editor, in the three dots {% icon "mdi:dots-vertical" %} menu, select **Add fields**.
+2. A new **Fields** section appears between the basic information and the **Sequence** section.
+3. Enter a name and choose the type and options for each field.
+4. Depending on the field type, fields set up here are shown in other UI editors, such as in an automation that calls the script.
+5. To use the field data, reference it as a template using the **Field key name** you set when adding the field.
 
-{% raw %}
+Use templates to access the variables in the script:
+
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -168,11 +162,9 @@ script:
           title: "{{ title }}"
           message: "{{ message }}"
 ```
-{% endraw %}
 
-Aside from the automation editor UI, variables can be passed to scripts within the action data. This can be used either by calling the script directly or the generic `script.turn_on` action. The difference is described in [Waiting for Script to Complete](#waiting-for-script-to-complete). All action data will be made available as variables in templates, even if not specified as fields in the script. This example shows how to call the script directly:
+Aside from the automation editor UI, you can pass variables to scripts within the action data. You can do this by calling the script directly or by calling the generic `script.turn_on` action. The difference is described in [Waiting for a script to complete](#waiting-for-a-script-to-complete). All action data is available as variables in templates, even if not specified as fields in the script. This example shows how to call the script directly:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -187,11 +179,9 @@ automation:
         title: "State change"
         message: "The light is on!"
 ```
-{% endraw %}
 
-This example shows using `script.turn_on` action:
+This example shows how to use the `script.turn_on` action:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -209,35 +199,29 @@ automation:
           title: "State change"
           message: "The light is on!"
 ```
-{% endraw %}
-
-
 
 {% note %}
 
-Script variables that may be used by templates include the following: 
-- those provided from the configuration as fields
-- those that are passed as data when started from an action,
-- the `this` variable the value of which is a dictionary of the current script's state.
+Templates may use the following script variables:
+
+- Variables provided from the configuration as fields.
+- Variables passed as data when the script is started from an action.
+- The `this` variable, which holds the current script's state as a dictionary.
 
 {% endnote %}
 
-### Waiting for Script to Complete
+### Waiting for a script to complete
 
-When calling a script "directly" (e.g., `script.NAME`) the calling script will wait for the called script to finish.
+When calling a script "directly" (for example, `script.NAME`), the calling script will wait for the called script to finish.
 If any errors occur that cause the called script to abort, the calling script will be aborted as well.
 
-When calling a script (or multiple scripts) via the `script.turn_on` action the calling script does _not_ wait. It starts the scripts, in the order listed, and continues as soon as the last script is started.
+When calling a script (or multiple scripts) via the `script.turn_on` action, the calling script does _not_ wait. It starts the scripts, in the order listed, and continues as soon as the last script is started.
 Any errors that occur in the called scripts that cause them to abort will _not_ affect the calling script.
 
-<p class='img'>
-  <img src='/images/integrations/script/script_wait.jpg'>
-</p>
+![Diagram showing the difference between calling a script directly and via script.turn_on, and how the calling script waits or continues](/images/integrations/script/script_wait.jpg)
 
-Following is an example of the calling script not waiting. It performs some other operations while the called script runs "in the background." Then it later waits for the called script to complete via a `wait_template`.
-This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
-
-{% raw %}
+Here's an example of the calling script not waiting. It performs some other operations while the called script runs in the background, then waits for the called script to complete via a `wait_template`.
+You can also use this technique for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
 ```yaml
 script:
@@ -255,13 +239,10 @@ script:
       # Do some things at the same time as the first script...
 ```
 
-{% endraw %}
-
 ### Full configuration
 
-{% raw %}
 ```yaml
-script: 
+script:
   wakeup:
     alias: "Wake Up"
     icon: "mdi:party-popper"
@@ -296,15 +277,13 @@ script: 
         data:
           brightness: 100
       - delay:
-          # supports seconds, milliseconds, minutes, hours
+          # Supports seconds, milliseconds, minutes, and hours
           minutes: "{{ minutes }}"
       - alias: "Living room lights on"
         action: light.turn_on
         target:
           entity_id: "{{ turn_on_entity }}"
 ```
-{% endraw %}
-
 
 ## Video tutorial
 

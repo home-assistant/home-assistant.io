@@ -18,134 +18,98 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Tailscale** {% term integration %} connects to the [Tailscale](https://www.tailscale.com) API to monitor devices in your Tailscale network (Tailnet). Use this integration to create automations based on device connectivity, track usage patterns, or receive notifications when devices go online or offline.
+The **Tailscale** {% term integration %} monitors the devices in your [Tailscale](https://www.tailscale.com) network (Tailnet) from Home Assistant. Tailscale is a VPN service that creates secure connections between your devices using WireGuard.
 
-Tailscale is a VPN service that creates secure point-to-point connections between your devices using WireGuard technology. This integration monitors your Tailnet but doesn't provide VPN connectivity itself.
+For each device in your Tailnet, the integration shows details such as when the device was last seen, its Tailscale IP address, when its key expires, and whether a client update is available. You can use this to keep an eye on your network, or to get notified when a device needs attention, such as an update or an expiring key.
 
 {% important %}
-This integration monitors your Tailscale network but **does not provide VPN access** to Home Assistant.
+This integration monitors your Tailscale network. It does not make Home Assistant itself reachable over Tailscale.
 
-To access Home Assistant remotely via Tailscale:
-1. Install Tailscale directly on your Home Assistant device
-2. Follow the [Tailscale installation guide](https://tailscale.com/kb/)
-3. Configure port forwarding or use Tailscale's subnet routes if needed
+To reach Home Assistant remotely through Tailscale, install Tailscale on your Home Assistant device by following the [Tailscale installation guide](https://tailscale.com/kb/).
 {% endimportant %}
 
 ## Prerequisites
 
-**Required information:**
+To set up the integration, you need two things from the [Tailscale admin console](https://login.tailscale.com/admin):
 
-1. **API Access Token**: Create one in the [Tailscale Admin Panel](https://login.tailscale.com/admin/settings/keys)
-   - Navigate to **Settings** > **Keys**
-   - Click **Generate access token**
-   - Select appropriate expiration and permissions
-
-2. **Tailnet Name**: Found in the top-left corner of the [Admin Panel](https://login.tailscale.com/admin/machines)
-   - Usually in the format: `user@domain.com` or `organization-name`
-   - Also visible in the URL when browsing your admin panel
+- **API access token**: Create one under **Settings** > **Keys** in the admin console. Select **Generate access token**, then copy the token. Tailscale API access tokens are valid for 90 days, after which Home Assistant asks you to enter a new one.
+- **Tailnet name**: The name of your Tailscale network. You can find it in the top-left corner of the admin console, next to the Tailscale logo. It is usually an email address or an organization name.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-API Key:
-  description: "Your Tailscale API access token from the Admin Panel."
+API key:
+  description: "Your Tailscale API access token from the admin console."
 Tailnet:
-  description: "Your Tailnet name (organization name or email address)."
+  description: "The name of your Tailnet, such as an email address or organization name."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
+The integration creates a device in Home Assistant for each device in your Tailnet, with the following entities.
+
 ### Sensors
 
-The integration provides sensors for monitoring your Tailscale network:
-
-#### Device information sensors
-
-- **Device count**: Total number of devices in your Tailnet
-- **Connected devices**: Number of currently online devices  
-- **Disconnected devices**: Number of currently offline devices
-
-#### Per-device sensors
-
-For each device in your Tailnet:
-
-- **Connection status**: Whether the device is online or offline
-- **Last seen**: Timestamp when the device was last active
-- **Operating system**: Device OS (Windows, macOS, Linux, iOS, Android)
-- **Tailscale version**: Version of Tailscale client running
-- **IP addresses**: Both Tailscale IP and external IP
-- **Location**: Approximate geographic location (if available)
+- **Last seen**: The date and time the device was last seen on your Tailnet.
+- **IP address**: The Tailscale IP address of the device.
+- **Expires**: The date and time the device's key expires.
 
 ### Binary sensors
 
-The integration creates binary sensors for:
-
-#### Network status
-
-- **Tailnet health**: Overall network connectivity status
-- **Device reachability**: Per-device online/offline status
-
-#### Security monitoring
-
-- **Key expiration warnings**: Alerts when auth keys are approaching expiration
-- **Unauthorized access**: Notifications for new device connections (if configured)
+- **Client**: Whether a Tailscale client update is available for the device.
+- **Key expiry disabled**: Whether key expiry is turned off for the device, meaning its key does not expire.
+- **Supports IPv6**: Whether the device's client supports IPv6.
+- **Supports UDP**: Whether the device's client supports UDP.
+- **Supports UPnP**: Whether the device's client supports UPnP.
+- **Supports NAT-PMP**: Whether the device's client supports NAT-PMP.
+- **Supports PCP**: Whether the device's client supports PCP.
 
 ## Examples
 
-### Automated backups based on device availability
+### Notify when a Tailscale client update is available
 
-Start backups when specific devices are online:
+Send a notification when an update becomes available for one of your devices, so you can keep your Tailscale clients up to date:
 
 ```yaml
-automation:
-  - alias: "Start backup when work laptop connects"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.work_laptop_tailscale
-        from: "off"
-        to: "on"
-    conditions:
-      - condition: time
-        after: "18:00:00"  # Only after work hours
-        before: "23:00:00"
-    actions:
-      - action: script.start_network_backup
-      - action: notify.admin
-        data:
-          message: "Starting automated backup - work laptop detected"
+alias: "Tailscale update available"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.work_laptop_client
+    to: "on"
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      title: "Tailscale"
+      message: "A Tailscale client update is available for the work laptop."
 ```
-
 
 ## Data updates
 
-The Tailscale integration polls the Tailscale API every minute to check device status and network information.
+The integration {% term polling polls %} the Tailscale API every minute for the latest device and network information.
+
+## Known limitations
+
+- The integration is read-only. You cannot change devices or your Tailnet from Home Assistant.
+- There is no online or offline sensor for devices. To tell whether a device is currently connected, use the **Last seen** sensor.
+- Tailscale API access tokens are valid for 90 days. When a token expires, the integration stops updating and asks you to enter a new token.
 
 ## Troubleshooting
 
 ### Integration fails to connect
 
-#### Symptom: "Unable to connect to Tailscale API" error
+If setup fails with a connection or authentication error:
 
-**Solutions:**
-
-1. **Verify API key**:
-  
-   - Ensure the key is copied correctly (no extra spaces)
-   - Check key hasn't expired in the Tailscale admin panel
-   - Verify key has appropriate permissions
-
-2. **Network connectivity**:
-   - Ensure Home Assistant can reach Tailscale's API servers
-   - Check firewall rules if running in restricted environments
+1. Make sure the API access token is copied correctly, without extra spaces.
+2. Check that the token has not expired. Tailscale API access tokens are valid for 90 days. Create a new one in the [Tailscale admin console](https://login.tailscale.com/admin/settings/keys) if needed.
+3. Confirm that the Tailnet name matches the one shown in the top-left corner of the admin console.
+4. Make sure your Home Assistant instance can reach the internet.
 
 ## Removing the integration
 
-This integration follows standard integration removal.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
 
-After removal:
-
-1. Your Tailscale API key remains active
-2. Consider revoking the key in the Tailscale admin panel if no longer needed
-3. Your Tailscale network and devices continue operating normally
+Removing the integration does not revoke your Tailscale API access token. If you no longer need it, revoke it in the [Tailscale admin console](https://login.tailscale.com/admin/settings/keys).
