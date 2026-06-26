@@ -639,6 +639,7 @@ layout: null
 /integrations/plum_lightpad /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
+/integrations/permobil /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
@@ -696,7 +697,6 @@ layout: null
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
-/integrations/permobil /more-info/removed-integration 301
 /integrations/zengge /integrations/led_ble 301
 /integrations/google_gemini /integrations/google_generative_ai_conversation 301
 /integrations/qube_heatpump /integrations/hr_energy_qube 301
