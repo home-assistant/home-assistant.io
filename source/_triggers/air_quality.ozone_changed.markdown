@@ -11,8 +11,6 @@ The **Ozone level changed** trigger fires after the ozone (O3) reading on one or
 
 Imagine your HVAC switching to recirculation mode on a scorching summer afternoon because ozone levels shifted, keeping your family comfortable without pulling smoggy air indoors. Use this trigger to close windows, pause outdoor ventilation, or send a health reminder whenever ozone readings shift noticeably.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

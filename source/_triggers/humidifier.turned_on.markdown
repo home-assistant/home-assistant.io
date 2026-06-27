@@ -13,8 +13,6 @@ The **Humidifier turned on** trigger fires after a humidifier {% term entity %} 
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns on, only after all targeted humidifiers have turned on, or every single time any of them turn on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Humidifier turned on** in an automation:

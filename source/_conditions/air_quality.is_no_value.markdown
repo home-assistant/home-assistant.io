@@ -10,8 +10,6 @@ related_conditions:
 
 The **Nitrogen monoxide value** condition passes when a nitrogen monoxide (NO) sensor's reading meets a specific level. NO is a reactive gas that shows up mainly around vehicle exhaust and industrial activity. If you live near a busy road, rush-hour traffic raises NO levels noticeably. This condition lets your automation respond to that pattern, closing the garage ventilation when NO spikes during the morning commute and reopening it once readings settle down.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

@@ -5,15 +5,13 @@ domain: vacuum
 description: "Triggers when one or more vacuum cleaners encounter an error."
 related_triggers:
   - vacuum.paused_cleaning
-  - vacuum.docked
+  - vacuum.returned_to_dock
 ---
 
 The **Vacuum cleaner encountered an error** trigger fires as soon as your vacuum reports an error state.
 You can use it to create alerts, notifications, or proactive automations when something interrupts a cleaning session.
 
 This is useful when you want to know right away that the robot is tangled, blocked, out of water, or needs another kind of manual help before it can continue.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

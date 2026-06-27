@@ -8,8 +8,6 @@ description: "Tests if one or more lawn mowers are encountering an error."
 The **Lawn mower is encountering an error** condition passes when one or more targeted mowers are currently in an error state.
 Use it when you want an automation to continue only while the problem is still active, like when you send repeated reminders or keep a warning light on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

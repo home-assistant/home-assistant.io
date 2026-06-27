@@ -13,8 +13,6 @@ The **Humidifier target humidity** condition passes when a humidifier {% term en
 
 When you target more than one humidifier, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted humidifier to meet the threshold, or demand that all of them do.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Humidifier target humidity** in an automation:

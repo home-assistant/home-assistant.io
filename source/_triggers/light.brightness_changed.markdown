@@ -12,8 +12,6 @@ The **Light brightness changed** trigger fires after the brightness of a light {
 
 The **threshold** field tells Home Assistant how big a change counts. The trigger only fires when the light's brightness moves by at least that much, which keeps it from firing on every tiny tick from a smooth fade.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

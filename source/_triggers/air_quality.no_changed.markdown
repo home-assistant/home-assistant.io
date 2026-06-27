@@ -11,8 +11,6 @@ The **Nitrogen monoxide level changed** trigger fires after the nitrogen monoxid
 
 Imagine your home automatically logging pollution patterns near the driveway so you know which hours to keep the windows shut. Use this trigger to track pollution data, activate ventilation, or send alerts whenever your NO sensor reports a significant shift.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

@@ -10,8 +10,6 @@ related_conditions:
 
 The **Light level is detected** condition passes when one or more light binary sensors are currently detecting light. Use it to gate an automation on a lit area, like only running a routine while a closet light is still on, or only sending a reminder if a room is currently bright.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

@@ -11,8 +11,6 @@ The **Gate opened** trigger fires when a targeted gate changes to open. Use it w
 
 This trigger is useful for arrival lighting, security notifications, and routines that should begin the moment a gate gives access to your property.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
