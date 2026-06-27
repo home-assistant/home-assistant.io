@@ -28,11 +28,11 @@ A secure way to remotely access your Home Assistant is to use a Virtual Private 
 
 A VPN connection needs to be established before you can connect to your Home Assistant from outside your local network. The VPN makes this connection secure. When using the Home Assistant Companion app (such as on a mobile device), without this connection, your sensors will not update in Home Assistant.
 
-## Reverse Proxy
+## Reverse proxy
 
-An intermediary server that sits in front of Home Assistant. It receives and routes request creating a "front door" to your servers like Home Assistant. Home Assistant requires trusted reverse proxies to be configured otherwise it will traffic will be rejected by design.
+A reverse proxy is an intermediary server that sits in front of Home Assistant. When using a reverse proxy, you must configure Home Assistant to trust it; otherwise, requests will be blocked by design.
 
-Configuration can be found on [HTTP Configuration](/integrations/http/#http-configuration-variables).
+See [Reverse proxies in the HTTP integration documentation](/integrations/http/#reverse-proxies).
 
 ## Port forwarding
 
