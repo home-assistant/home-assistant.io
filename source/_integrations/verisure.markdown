@@ -65,6 +65,12 @@ automation:
 
 {% include integrations/actions.md %}
 
+### Force arm
+
+By default, Home Assistant cannot arm the alarm while a device reports a problem (for example, an open door or window, or an offline sensor). The arm request stays pending and the panel does not arm — Verisure's own apps handle this with an "Arm anyway" confirmation.
+
+To allow arming in that situation, enable **Force arm** in the integration's [options](#options) (**Settings** > **Devices & services** > **Verisure** > **Configure**). When enabled, arming proceeds even if a device is out of place. Use this with care: the affected zone may not be monitored while the system is armed.
+
 ## Binary sensor
 
 - Ethernet status
