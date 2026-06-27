@@ -1,0 +1,109 @@
+---
+title: "Template functions"
+description: "Reference of all template functions, filters, and tests available in Home Assistant."
+feedback: false
+regenerate: false
+toc: true
+---
+
+{%- assign all_functions = site.template_functions | sort: 'function_name' -%}
+
+<p>
+  Home Assistant extends the <a href="https://jinja.palletsprojects.com/en/latest/templates/">Jinja2 template engine</a> with many custom functions, filters, and tests. Each one has its own page with detailed descriptions, parameters, and practical examples.
+</p>
+<p>
+  New to templates? Start with the <a href="/docs/templating/">templating documentation</a> to learn the basics.
+</p>
+
+<div class="grid">
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div class="component-search">
+      <form onsubmit="event.preventDefault(); return false">
+        <input type="text" name="search" id="search" class="search text-input"
+          placeholder="Search template functions..." autofocus />
+      </form>
+    </div>
+  </div>
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div id="tf-container">
+      {%- for cat in site.data.template_function_categories -%}
+        {%- assign cat_functions = all_functions | where: 'category', cat.key -%}
+        {%- if cat_functions.size > 0 -%}
+        <div class="tf-category" data-category="{{ cat.key }}">
+          <h3 id="{{ cat.key }}"><iconify-icon inline icon="{{ cat.icon }}"></iconify-icon> {{ cat.label }}</h3>
+          {%- if cat.description -%}<p>{{ cat.description }}</p>{%- endif -%}
+          <ul class="tf-list">
+            {%- for func in cat_functions -%}
+            <li class="tf-item" data-title="{{ func.function_name | downcase }} {{ func.title | downcase }}{% if func.aliases %} {{ func.aliases | join: ' ' | downcase }}{% endif %}" data-desc="{{ func.description | downcase }}">
+              <a href="{{ func.url }}">
+                <span class="tf-title">{{ func.title | split: ': ' | first | strip }}</span>
+                <code class="tf-fn">{{ func.function_name }}</code>
+              </a>
+              <span class="tf-desc">{{ func.description }}</span>
+            </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        {%- endif -%}
+      {%- endfor -%}
+      <div class="tf-no-results" style="display:none">
+        <div class="alert alert-note"><p class="alert-content">No template functions matching your search.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl = document.getElementById('search');
+  var categories = document.querySelectorAll('.tf-category');
+  var noResults = document.querySelector('.tf-no-results');
+
+  function applyFilter() {
+    var search = searchEl.value.toLowerCase().trim();
+    var visibleCount = 0;
+
+    categories.forEach(function (cat) {
+      var catVisible = false;
+
+      cat.querySelectorAll('.tf-item').forEach(function (row) {
+        var title = row.getAttribute('data-title');
+        var desc = row.getAttribute('data-desc');
+
+        if (!search || title.indexOf(search) !== -1 || desc.indexOf(search) !== -1) {
+          row.classList.remove('hidden');
+          catVisible = true;
+          visibleCount++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+
+      if (catVisible) {
+        cat.classList.remove('hidden');
+      } else {
+        cat.classList.add('hidden');
+      }
+    });
+
+    noResults.style.display = visibleCount === 0 ? '' : 'none';
+  }
+
+  var debounceTimer;
+  searchEl.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(applyFilter, 200);
+  });
+
+  setTimeout(function () { searchEl.focus(); }, 1);
+})();
+</script>
+
+<noscript>
+  <ul>
+    {%- for func in all_functions -%}
+    <li><a href="{{ func.url }}"><code>{{ func.function_name }}</code></a> - {{ func.description }}</li>
+    {%- endfor -%}
+  </ul>
+</noscript>

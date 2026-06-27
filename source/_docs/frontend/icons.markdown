@@ -2,8 +2,6 @@
 title: "Icons"
 description: "Material Design Icons in the Home Assistant frontend"
 related:
-  - docs: /docs/frontend/
-    title: Frontend
   - docs: /dashboards/cards/
     title: Dashboard cards
   - docs: /docs/configuration/customizing-devices/

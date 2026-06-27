@@ -49,7 +49,9 @@ exclude:
 
 ## Network settings
 
-The iZone system uses UDP broadcasts over the local network to find and communicate with iZone devices. For this to work properly, UDP port  12107 must be able to be broadcasted on, 7005 needs to be listened to for broadcasted messages, and TCP port 80 for HTTP data to the bridge. The integration currently listens on `0.0.0.0` and broadcasts to all broadcast IPv4 local addresses, which is not configurable.
+The iZone system uses UDP broadcast discovery on the local network to find and communicate with iZone devices. For discovery to work reliably, Home Assistant must be able to receive this broadcast discovery traffic. In most cases, this means Home Assistant and the iZone bridge need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature to forward this traffic between segments.
+
+For connectivity, Home Assistant must be able to send outbound UDP discovery packets to destination port `12107`, listen locally for inbound UDP iZone messages on port `7005`, and use TCP port `80` for HTTP communication with the bridge. The integration currently listens on `0.0.0.0` and sends discovery to local IPv4 broadcast addresses, which is not configurable.
 
 ## Master controller
 
@@ -87,8 +89,6 @@ In this mode, the controller entity reports:
 
 You can configure sensors to read these values (in {% term "`configuration.yaml`" %}), along with the supply temperature (use the ID of your unit):
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry to create sensors
 # from the izone controller state attributes
@@ -103,8 +103,6 @@ template:
       state: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
       unit_of_measurement: "°C"
 ```
-
-{% endraw %}
 
 And then graph them on a dashboard, along with the standard values such as the current temperature. Either add the sensor entities via the visual editor, or cut and paste this
 snippet into the code editor:
@@ -134,24 +132,6 @@ logger:
     pizone: debug
 ```
 
-This will help you to find network connection issues etc.
+This will help you to find network connection issues.
 
-## Actions
-
-### Action: Set minimum airflow
-
-The `izone.airflow_min` action sets the minimum airflow for a particular zone.
-
-| Data attribute | Optional | Description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| `entity_id`    | yes      | izone Zone entity. For example `climate.bed_2` |
-| `airflow`      | no       | Airflow percent in 5% increments               |
-
-### Action: Set maximum airflow
-
-The `izone.airflow_max` action sets the maximum airflow for a particular zone.
-
-| Data attribute | Optional | Description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| `entity_id`    | yes      | izone Zone entity. For example `climate.bed_2` |
-| `airflow`      | no       | Airflow percent in 5% increments               |
+{% include integrations/actions.md %}

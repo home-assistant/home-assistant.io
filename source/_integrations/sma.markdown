@@ -37,7 +37,7 @@ When Home Assistant discovers a new SMA device, or when you manually add one, th
 
 Not all inverters, energy meters and batteries from SMA are supported.
 
-The integration uses the device's web interface (called webconnect). Before you start, make sure you are able to connect to the solar inverter from your favorite web browser. Devices with the ennexos operating system (like the Tripower X series) and all Energy Meters (SMA Energy Meter and SMA Sunny Home Manager) are not supported.
+The integration uses the device's web interface (called webconnect). Before you start, make sure you can connect to the solar inverter from your favorite web browser. Devices with the ennexos operating system (like the Tripower X series) and all Energy Meters (SMA Energy Meter and SMA Sunny Home Manager) are not supported.
 
 ## Sensors
 

@@ -29,7 +29,6 @@ You can use [templates] for the `title`, `audio`, `text` and `display_url` confi
 
 Here's an example configuration of a Flash briefing skill that will tell you who is at home:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +47,6 @@ alexa:
           {% endif %}
 ```
 
-{% endraw %}
 
 You can add multiple items for a feed if you want. The Amazon required UID and timestamp will be randomly generated at startup and change at every restart of Home Assistant.
 
@@ -77,14 +75,14 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
       - Hit "Save" in the top right corner
   - Test
     - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.
-- To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
+- To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary. Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com/alexa
 [flash-briefing-api]: https://developer.amazon.com/docs/flashbriefing/understand-the-flash-briefing-skill-api.html
 [flash-briefing-api-docs]: https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/flash-briefing-skill-api-feed-reference
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
-[templates]: /docs/configuration/templating/
+[templates]: /docs/templating/
 [zero-three-one]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/
 [alexa-settings-site]: https://alexa.amazon.com/
 [emulated-hue-integration]: /integrations/emulated_hue/

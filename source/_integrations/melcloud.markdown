@@ -12,6 +12,7 @@ ha_platforms:
   - climate
   - diagnostics
   - sensor
+  - switch
   - water_heater
 ha_integration_type: device
 ha_codeowners:
@@ -67,6 +68,13 @@ The following attributes are available for `sensor` platform entities:
 - Energy - The total consumed energy in kWh. **Not supported by all models.**
 - Daily energy - Energy consumption within a 24h window in kWh. This reading resets at midnight on the timezone of the MELCloud service. The exact time needs to be determined by following the sensor value until a reset is detected.
 
+### Switch
+
+The following switches can be used:
+
+- **Frost protection**: Enables or disables the configured frost protection.
+- **Overheat protection**: Enables or disables the configured overheat protection.
+
 ## Air-to-Water device
 
 An Air-to-Water device provides `water_heater`, `climate`, `sensor`, and `binary_sensor` platforms.
@@ -93,13 +101,35 @@ The system cannot be turned on/off through the `climate` entities.
 
 The following attributes are available for `sensor` platform entities:
 
-- Room temperature for each zone
-- Tank water temperature
-- Outside temperature - 1°C precision, polled every 1-2 hours.
-- Zone flow temperature, polled every 1-2 hours
-- Zone flow return temperature, polled every 1-2 hours
+**Zone sensors** (per radiator zone):
 
-Unlike air-to-air devices, air-to-water devices do not report energy consumption in an easily accessible manner.
+- Room temperature
+- Zone flow temperature, polled every 1-2 hours
+- Zone return temperature, polled every 1-2 hours
+
+**Device sensors:**
+
+- Tank water temperature
+- Outside temperature – 1°C precision, polled every 1-2 hours
+- System flow temperature
+- System return temperature
+- Boiler flow temperature
+- Boiler return temperature
+- Mixing tank temperature
+- Condensing temperature
+- Heat pump frequency (compressor frequency in Hz)
+- Demand percentage
+- Daily heating energy:
+  - Consumed
+  - Produced
+- Daily cooling energy:
+  - Consumed
+  - Produced
+- Daily hot water energy:
+  - Consumed
+  - Produced
+
+The daily energy sensors use the state class `total_increasing` and are compatible with the Energy Dashboard. Values reset at midnight in the MELCloud service timezone.
 
 ### Binary sensor
 

@@ -52,7 +52,7 @@ added/removed from Home Assistant.
 The default light entity will send data to Hyperion on the priority you have configured 
 during integration setup. When turned off, it will clear the configured priority again. 
 Other light sources independent of Home Assistant configured in Hyperion might still be 
-active and cause light to be emitted. In order to turn the light output off entirely 
+active and cause light to be emitted. To turn the light output off entirely 
 regardless of active light sources, you can enable the LED device entity that acts as 
 a global switch (see Advanced Entities).
 
@@ -67,7 +67,7 @@ A Hyperion camera entity is created that shows a stream of the input to Hyperion
 USB Capture device). This could be used to show a small "preview window" next to TV
 controls, for example.
 
-Please note that only the currently live Hyperion priority can be streamed, and only
+Only the currently live Hyperion priority can be streamed, and only
 streamable sources will actually stream content (e.g., USB Capture Devices will work, but
 static colors will not).
 
@@ -160,7 +160,7 @@ To capture the screen on a USB capture device, when playing something on a media
         entity_id: switch.[instance]_component_usb_capture
 ```
 
-To toggle the LED device together with the light entity in order to turn light output on or off for all sources. In this example both entities are turned on together, create another automation with the values reversed for turning both off:
+To toggle the LED device together with the light entity to turn light output on or off for all sources. In this example both entities are turned on together, create another automation with the values reversed for turning both off:
 
 ```yaml
 - alias: "Turn LED device on when Hyperion light is activated"

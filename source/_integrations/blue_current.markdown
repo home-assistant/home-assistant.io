@@ -10,7 +10,6 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@gleeuwen'
-  - '@NickKoepr'
   - '@jtodorova23'
 ha_domain: blue_current
 ha_platforms:
@@ -99,6 +98,6 @@ The Blue Current integration provides the following switches:
 - Toggle **Plug & Charge**
   - Allows you to start a session without having to scan a card.
 - Toggle linked charging cards only
-  - When enabled, visitors can't make use of the charge point. Only linked charging cards are allowed.
+  - When enabled, visitors can't use the charge point. Only linked charging cards are allowed.
 - Toggle charge point block
   - Enables or disables a charge point.

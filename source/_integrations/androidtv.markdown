@@ -72,19 +72,11 @@ When connecting to your device for the first time, a dialog will appear on your 
 
 The default approach is to connect to your device using the `adb-shell` Python package. As of Home Assistant 0.101, if a key is needed for authentication and it is not provided by the `ADB Key` setup option, then Home Assistant will generate a key for you.
 
-{% important %}
-To be able to provide `ADB Key` on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
-{% endimportant %}
-
-Prior to Home Assistant 0.101, this approach did not work well for newer devices. Efforts have been made to resolve these issues, but if you experience problems then you should use the ADB server option.
+Before Home Assistant 0.101, this approach did not work well for newer devices. Efforts have been made to resolve these issues, but if you experience problems then you should use the ADB server option.
 
 ### 2. ADB Server
 
 The second option is to use an ADB server to connect to your Android and Fire TV devices.
-
-{% important %}
-To configure ADB server on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
-{% endimportant %}
 
 Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
@@ -100,7 +92,7 @@ If the setup for your Android or Fire TV device fails, then there is probably an
 
 4. You need to approve the ADB connection; see the note in the [ADB Setup](#adb-setup) section above.
 
-5. Some Android devices (e.g., Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to Wi-Fi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
+5. Some Android devices (for example, Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to Wi-Fi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
 
 6. If your device drops off WiFi, breaking the ADB connection and causing the {% term entity %} to become unavailable in Home Assistant, you could install a wake lock utility (such as [Wakelock](https://github.com/d4rken/wakelock-revamp)) to prevent this from happening. Some users have reported this problem with Xiaomi Mi Box devices.
 
@@ -136,7 +128,7 @@ stop_netflix:
 
 ### `androidtv.adb_command`
 
-The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
+The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute, which you can read with the [`state_attr`](/template-functions/state_attr/) function (for example, `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -169,13 +161,13 @@ Available key commands include:
 
 The full list of key commands can be found in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
 
-You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
+You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state. These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
 ### Action: Learn sendevent (for faster ADB commands)
 
-When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` action. Its usage is as follows:
+When sending commands like UP, DOWN, and HOME via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` action. Its usage is as follows:
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -229,11 +221,11 @@ The `androidtv.upload` action allows you to upload a file from your Home Assista
 
 The Android Debug Bridge {% term integration %} works by polling the Android / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
 
-The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
+The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection. The keys are app IDs, and the values are lists of rules that are evaluated in order. Valid rules are:
 
 - `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
   - If this is not a map, then this state will always be reported when this app is the current app
-  - If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
+  - If this is a map, then its entries are conditions that will be checked. If all of the conditions are true, then this state will be reported. Valid conditions pertain to 3 properties (see the example configuration above):
     1. ``'media_session_state'``
     2. ``'audio_state'``
     3. ``'wake_lock_size'``
@@ -286,7 +278,7 @@ ________________
 Key|Description
 ---|-----------
 "BLUE"|Blue
-"GREEN"Green
+"GREEN"|Green
 "YELLOW"|Yellow
 "RED"|Red
 _____________

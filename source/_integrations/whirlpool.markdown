@@ -83,11 +83,11 @@ The `whirlpool` climate platform integrates Whirlpool air conditioning systems i
 
 The following actions are also available:
 
-- [**set_hvac_mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `fan_only`)
-- [**target temperature**](/integrations/climate#action-climateset_temperature)
-- [**turn on/off**](/integrations/climate#action-climateturn_on)
-- [**fan mode**](/integrations/climate#action-climateset_fan_mode) (`low`, `medium`, `high`)
-- [**swing mode**](/integrations/climate#action-climateset_swing_mode) (`off`, `horizontal`)
+- [**set_hvac_mode**](/integrations/climate/#action-set-hvac-mode) (`off`, `heat`, `cool`, `fan_only`)
+- [**target temperature**](/integrations/climate/#action-set-temperature)
+- [**turn on/off**](/integrations/climate/#action-turn-on)
+- [**fan mode**](/integrations/climate/#action-set-fan-mode) (`low`, `medium`, `high`)
+- [**swing mode**](/integrations/climate/#action-set-swing-mode) (`off`, `horizontal`)
 
 ### Select
 

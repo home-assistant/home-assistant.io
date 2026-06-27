@@ -1,6 +1,6 @@
 ---
 title: "YAML syntax"
-description: "Details about the YAML syntax used to configure Home Assistant."
+description: "How YAML works in Home Assistant: indentation, lists, and the small set of rules you need to know if you ever need to edit configuration.yaml by hand."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
@@ -16,11 +16,11 @@ related:
     title: YAML Style Guide for Home Assistant developers
 ---
 
-Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. While most integrations can be configured through the UI, some integrations require you to edit your [`configuration.yaml`](/docs/configuration/) file to specify its settings.
+Most things in Home Assistant can be set up directly from the user interface, and you never need to touch a YAML file. A small number of features and a few integrations still require entries in [`configuration.yaml`](/docs/configuration/), and this page explains the bit of YAML syntax you need for those cases.
 
-## YAML Style Guide
+## YAML style guide
 
-This page gives a high-level introduction to the YAML syntax used in Home Assistant. For a more detailed description and more examples, refer to the [YAML Style Guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/).
+This page gives a high-level introduction to the YAML syntax used in Home Assistant. For a more detailed description and more examples, refer to the [YAML style guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/).
 
 ## A first example
 

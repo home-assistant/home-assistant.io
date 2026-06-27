@@ -44,9 +44,9 @@ The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [
 
 ## Prerequisites
 
-In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **About** > **Developer Options**. If you don't see developer options, tap the version number 10 times. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
+To use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **About** > **Developer Options**. If you don't see developer options, tap the version number 10 times. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
 
-Please note, device names configured in the SwitchBot app are transferred into Home Assistant.
+Device names configured in the SwitchBot app are transferred into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -520,7 +520,12 @@ For IR Appliances, the state is inferred from previous commands in Home Assistan
 
 ## Webhook support
 
-For vacuums, the states are updated from SwitchBot's cloud.
+SwitchBot's cloud pushes state updates to Home Assistant through a webhook. This is how vacuums, along with the water leak, contact, motion, and presence sensors, receive their state updates. For SwitchBot's cloud to deliver this webhook, your Home Assistant instance must be reachable from the internet, which requires one of the following:
+
+- A publicly reachable [`external_url`](/integrations/homeassistant/), or
+- A [Home Assistant Cloud](/integrations/cloud/) subscription, in which case the webhook is delivered automatically through a cloudhook.
+
+On a local-only installation with neither of these, SwitchBot's cloud cannot deliver the webhook, and these devices do not receive updates.
 
 {% warning %}
 Only ONE webhook URL seems to be accepted by the SwitchBot's cloud. So, if you want several applications notified,  you need to use a “proxy” to re-dispatch the message to the other applications.

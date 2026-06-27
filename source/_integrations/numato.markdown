@@ -153,7 +153,7 @@ on how to connect a switch to an input port, for example.
 The `numato` sensor platform allows you to operate some GPIOs of your USB GPIO
 expander in analog input mode.
 
-The Numato device has a number of built-in analog-digital-converters (ADCs) to
+The Numato device has several built-in analog-digital-converters (ADCs) to
 convert a voltage level between VCC and GND into a 10-bit integer value. Read
 the [IO Ports](#io-ports) section for constraints on the ports to use.
 
