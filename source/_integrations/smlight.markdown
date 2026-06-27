@@ -166,6 +166,7 @@ Certain advanced features are not supported directly within this integration and
 - Configuring security settings.
 - Adjusting network settings.
 - Setting up the WireGuard VPN client.
+- Enable BLE proxy mode on SLZB-U devices.
 
 ## Troubleshooting
 
