@@ -2,7 +2,7 @@
 title: "Trigger alarm"
 action: alarm_control_panel.alarm_trigger
 domain: alarm_control_panel
-description: "Manually trigger an alarm control panel. Optionally provide a code if your alarm panel requires one."
+description: "Manually trigger an alarm control panel. Optionally provide a code if your alarm panel requires one and override pending delay."
 related_actions:
   - alarm_control_panel.alarm_disarm
 ---
@@ -30,6 +30,9 @@ To trigger an alarm from an automation or a script:
 Code:
   description: The code to trigger the alarm. Not every alarm panel requires a code for triggering.
   required: false
+Delay time:
+  description: The overriden time of the ‘pending’ state before triggering the alarm.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -56,6 +59,17 @@ action: |
     code: "1234"
 {% endexample %}
 
+If you need to override the time of 'pending' state provided by the alarm configuration, specify the delay time in the `data` section:
+
+{% example %}
+action: |
+  action: alarm_control_panel.alarm_trigger
+  target:
+    entity_id: alarm_control_panel.home_alarm
+  data:
+    delay_time: 0
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -64,6 +78,11 @@ code:
     The code to trigger the alarm. Not every alarm panel requires a code for triggering.
   required: false
   type: string
+delay_time:
+  description: >
+    Time of 'pending' state before triggering the alarm. Overrides the value provided in the alarm configuration. Not every alarm panel supports overriding the delay.
+  required: false
+  type: integer
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}
