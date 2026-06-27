@@ -121,6 +121,7 @@ The following button entity allows triggering device actions directly from Home 
 - Grid frequency (Hz)
 - Equivalent full cycles
 - Transformer temperature (°C)
+- Remaining charging / discharging time (min)
 - Main battery serial number
 - Main battery cycle count
 - Main battery SOC (%)
