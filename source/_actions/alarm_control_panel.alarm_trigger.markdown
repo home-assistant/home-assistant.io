@@ -80,7 +80,7 @@ code:
   type: string
 delay_time:
   description: >
-    Time of 'pending' state before triggering the alarm. Overrides the value provided in the alarm configuration. Not every alarm panel supports overriding the delay.
+    Time in seconds that the alarm stays in the `pending` state before it triggers. Overrides the delay configured on the alarm control panel. Set to 0 to trigger immediately. Not every alarm panel supports overriding the delay.
   required: false
   type: integer
 {% endoptions_yaml %}
