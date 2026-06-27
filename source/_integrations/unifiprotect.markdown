@@ -590,7 +590,7 @@ License Plate Recognition can be triggered by various sources, including images 
 - **Event Attributes**:
   - **event_type**: `motion`
   - **event_id**: A unique ID that identifies the motion event.
-- **Description**: This event fires each time a camera starts a motion detection. It complements the camera's **Motion** sensor by giving you a point-in-time event to trigger automations on, and provides an `event_id` you can use to fetch related media.
+- **Description**: This event fires each time a camera starts detecting motion. It complements the camera's **Motion** sensor by giving you a point-in-time event to trigger automations on, and provides an `event_id` you can use to fetch related media.
 
 ### Smart Detection Event
 
