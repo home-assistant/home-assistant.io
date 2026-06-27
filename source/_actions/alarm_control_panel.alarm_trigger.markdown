@@ -31,7 +31,7 @@ Code:
   description: The code to trigger the alarm. Not every alarm panel requires a code for triggering.
   required: false
 Delay time:
-  description: The overriden time of the ‘pending’ state before triggering the alarm.
+  description: The overridden time of the 'pending' state before triggering the alarm.
   required: false
 {% endoptions_ui %}
 
