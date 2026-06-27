@@ -305,20 +305,14 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 ## Actions
 
-The Tesla Fleet integration provides the following custom {% term actions %}.
+### Action: Time of use
 
-### Time of use
+The `tesla_fleet.time_of_use` action pushes a time-of-use tariff schedule to a Tesla energy site (Powerwall), wrapping the Tesla Fleet API `time_of_use_settings` endpoint. The Tesla application must have been granted the **Energy Product Settings** scope, otherwise the action fails with an error.
 
-`tesla_fleet.time_of_use`
-
-Pushes a time-of-use tariff schedule to a Tesla energy site (Powerwall), wrapping the Tesla Fleet API `time_of_use_settings` endpoint. The config entry must have been granted the energy commands scope during setup, otherwise the {% term action %} fails with an error.
-
-| Field        | Description                 | Example                                                                                                          |
-| ------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| device_id    | The energy site's device ID | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
-| tou_settings | Time of use settings        | See [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |
-
-The `tou_settings` value is the `tariff_content_v2` object from Tesla's Fleet API. If you wrap it in an outer `tariff_content_v2` key, that wrapper is stripped automatically.
+| Data attribute | Required | Description                                                                                                                                                                                                                          |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | yes      | The energy site's device ID.                                                                                                                                                                                                        |
+| `tou_settings` | yes      | The `tariff_content_v2` tariff object, as described in the [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings). An outer `tariff_content_v2` key, if present, is stripped automatically. |
 
 ## Vehicle sleep
 
