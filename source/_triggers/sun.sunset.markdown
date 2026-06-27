@@ -13,8 +13,6 @@ The **Sunset** trigger fires the moment the sun sets below the horizon at your l
 
 Use it to turn on lights, close blinds, or arm an evening routine the moment the day ends.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

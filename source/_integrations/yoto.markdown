@@ -11,7 +11,7 @@ ha_category:
   - Time
 ha_iot_class: Cloud Push
 ha_release: 2026.6
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@cdnninja'

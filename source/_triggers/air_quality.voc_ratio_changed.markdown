@@ -2,7 +2,7 @@
 title: "Volatile organic compounds ratio changed"
 trigger: air_quality.voc_ratio_changed
 domain: air_quality
-description: "Triggers after one or more volatile organic compound ratios change."
+description: "Triggers when one or more volatile organic compound ratios change."
 related_triggers:
   - air_quality.voc_ratio_crossed_threshold
 ---

@@ -2,7 +2,7 @@
 title: "Alarm armed away"
 trigger: alarm_control_panel.armed_away
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in away mode."
+description: "Triggers when one or more alarms become armed in away mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed

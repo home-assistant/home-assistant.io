@@ -2,7 +2,7 @@
 title: "Button pressed"
 trigger: button.pressed
 domain: button
-description: "Runs when a button entity is pressed."
+description: "Triggers when one or more buttons are pressed."
 ---
 
 Use this trigger when you want an automation to run every time a button entity is pressed. This is useful when a button starts a task on a device and you also want Home Assistant to take a follow-up action.

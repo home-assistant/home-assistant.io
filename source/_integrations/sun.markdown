@@ -98,6 +98,8 @@ Because the duration of twilight varies throughout the year, a fixed offset is n
 
 {% include integrations/triggers.md %}
 
+{% include integrations/conditions.md %}
+
 ## Sensors
 
 The sensors are also available as attributes on the `sun.sun` entity for backward compatibility.

@@ -2,7 +2,7 @@
 title: "Vacuum paused cleaning"
 trigger: vacuum.paused_cleaning
 domain: vacuum
-description: "Triggers when a vacuum cleaner pauses cleaning."
+description: "Triggers when one or more vacuum cleaners pause cleaning."
 related_triggers:
   - vacuum.started_cleaning
   - vacuum.started_returning

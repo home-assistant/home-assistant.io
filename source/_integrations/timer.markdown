@@ -141,7 +141,7 @@ Get a reminder shortly before a timer finishes, like when laundry or cooking tim
 automation: |
   alias: "Notify when five minutes remain on the laundry timer"
   triggers:
-    - trigger: timer.time_remaining
+    - trigger: timer.remaining_time_reached
       target:
         entity_id: timer.laundry
       options:

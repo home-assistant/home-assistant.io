@@ -2,7 +2,7 @@
 title: "Thermostat target humidity changed"
 trigger: climate.target_humidity_changed
 domain: climate
-description: "Triggers after the humidity setpoint of one or more thermostats changes."
+description: "Triggers when the humidity setpoint of one or more thermostats changes."
 related_triggers:
   - climate.target_humidity_crossed_threshold
   - climate.target_temperature_changed

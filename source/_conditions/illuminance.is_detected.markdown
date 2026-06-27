@@ -1,14 +1,14 @@
 ---
-title: "Light is detected"
+title: "Light level is detected"
 condition: illuminance.is_detected
 domain: illuminance
-description: "Tests if light is currently detected."
+description: "Tests if one or more light sensors are detecting light."
 related_conditions:
   - illuminance.is_not_detected
   - illuminance.is_value
 ---
 
-The **Light is detected** condition passes when one or more light binary sensors are currently detecting light. Use it to gate an automation on a lit area, like only running a routine while a closet light is still on, or only sending a reminder if a room is currently bright.
+The **Light level is detected** condition passes when one or more light binary sensors are currently detecting light. Use it to gate an automation on a lit area, like only running a routine while a closet light is still on, or only sending a reminder if a room is currently bright.
 
 {% include conditions/ui_header.md %}
 
@@ -17,7 +17,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Light is detected**.
+4. From the search box, search for and select **Light level is detected**.
 5. Under **Targets** (see [Targets](#targets)), select one or more light sensors, devices, an area, a floor, or a label.
 6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
 7. Under **For at least**, you can set how long the sensors must keep detecting light before the condition passes. Leave it at zero for the condition to pass as soon as light is detected.
@@ -73,7 +73,7 @@ for:
 - This condition works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "light detected" is set on the device itself.
 - Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - For numeric illuminance readings (in lux), use [Illuminance](/conditions/illuminance.is_value/) instead.
-- To check the opposite state, use [Light is not detected](/conditions/illuminance.is_not_detected/).
+- To check the opposite state, use [Light level is not detected](/conditions/illuminance.is_not_detected/).
 
 {% include conditions/try_it.md %}
 
@@ -84,7 +84,7 @@ for:
 When the daily 23:00 evening check runs, send a notification only if the closet light sensor has been detecting light for at least 10 minutes, so a brief visit doesn't trigger an alert.
 
 - **Trigger**: Time: 23:00
-- **Condition**: Light is detected
+- **Condition**: Light level is detected
   - **Target**: Closet light sensor
   - **For at least**: 00:10:00
 - **Action**: Send a notification message

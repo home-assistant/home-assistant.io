@@ -2,7 +2,7 @@
 title: "Media player volume crossed threshold"
 trigger: media_player.volume_crossed_threshold
 domain: media_player
-description: "Triggers after the volume of one or more media players crosses a threshold."
+description: "Triggers when the volume of one or more media players crosses a threshold."
 related_triggers:
   - media_player.volume_changed
   - media_player.muted

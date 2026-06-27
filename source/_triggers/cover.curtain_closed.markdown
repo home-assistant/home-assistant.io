@@ -2,7 +2,7 @@
 title: "Curtain closed"
 trigger: cover.curtain_closed
 domain: cover
-description: "Triggers after one or more curtains close."
+description: "Triggers when one or more curtains close."
 related_triggers:
   - cover.curtain_opened
 ---
