@@ -166,7 +166,7 @@ Shutdown the NAS.
 
 - **Fan speed mode**
   - **Description**: The mode of the system fan speed, if your NAS supports it.
-  - **Options**: Quiet mode, Cool mode, Full-speed mode.
+  - **Options**: Low-Power mode (_only supported on some devices_), Quiet mode, Cool mode, Full-speed mode.
 
 ## Media source
 
