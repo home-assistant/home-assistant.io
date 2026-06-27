@@ -108,7 +108,6 @@ automation: |
       data:
         setpoint: 21
         duration: "01:00"
-
 {% endexample %}
 
 {% enddetails %}

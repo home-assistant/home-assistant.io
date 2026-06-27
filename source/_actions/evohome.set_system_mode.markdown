@@ -130,6 +130,7 @@ automation: |
       data:
         entity_id: climate.my_home
         mode: Away
+{% endexample %}
 
 {% enddetails %}
 
