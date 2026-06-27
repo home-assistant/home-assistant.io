@@ -303,6 +303,23 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
 
+## Actions
+
+The Tesla Fleet integration provides the following custom {% term actions %}.
+
+### Time of use
+
+`tesla_fleet.time_of_use`
+
+Pushes a time-of-use tariff schedule to a Tesla energy site (Powerwall), wrapping the Tesla Fleet API `time_of_use_settings` endpoint. The config entry must have been granted the energy commands scope during setup, otherwise the {% term action %} fails with an error.
+
+| Field        | Description                 | Example                                                                                                          |
+| ------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| device_id    | The energy site's device ID | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
+| tou_settings | Time of use settings        | See [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |
+
+The `tou_settings` value is the `tariff_content_v2` object from Tesla's Fleet API. If you wrap it in an outer `tariff_content_v2` key, that wrapper is stripped automatically.
+
 ## Vehicle sleep
 
 Constant API {% term polling %} will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping. The {% term integration %} automatically stops {% term polling %} these vehicles for 15 minutes after inactivity. You can call the `homeassistant.update_entity` {% term action %} to force {% term polling %}, which will reset the timer.
