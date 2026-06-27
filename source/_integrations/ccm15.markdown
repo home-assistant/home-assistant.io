@@ -24,6 +24,13 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of your CCM15 controller.
+Port:
+  description: The TCP port of the CCM15 controller's HTTP interface.
+{% endconfiguration_basic %}
+
 ## Climate
 
 Each data controller can support up to 64 `climate` devices.
